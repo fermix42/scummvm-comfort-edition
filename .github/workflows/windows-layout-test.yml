@@ -17,6 +17,7 @@ jobs:
       VCPKG_DEFAULT_TRIPLET: x64-windows
       VCPKG_INSTALLED_DIR: ${{ github.workspace }}/vcpkg_installed
       VCPKG_BINARY_SOURCES: clear;files,${{ github.workspace }}/vcpkg_cache,readwrite
+      VCPKG_OVERLAY_TRIPLETS: ${{ github.workspace }}/.github/windows-layout-triplets
       VCPKG_OVERLAY_PORTS: ${{ github.workspace }}/.github/vcpkg-ports
       GIT_VCPKG_COMMIT: ef7dbf94b9198bc58f45951adcf1f041fcbc5ea0
     steps:
@@ -27,12 +28,12 @@ jobs:
         with:
           vcpkgGitCommitId: ${{ env.GIT_VCPKG_COMMIT }}
       - name: Restore dependency cache
-        uses: actions/cache@v4
+        uses: actions/cache/restore@v4
         with:
           path: ${{ github.workspace }}/vcpkg_cache
-          key: layout-vcpkg-${{ env.GIT_VCPKG_COMMIT }}-x64-${{ hashFiles('vcpkg.json') }}
+          key: layout-release-vcpkg-${{ env.GIT_VCPKG_COMMIT }}-x64-${{ hashFiles('vcpkg.json') }}
           restore-keys: |
-            layout-vcpkg-${{ env.GIT_VCPKG_COMMIT }}-x64-
+            layout-release-vcpkg-${{ env.GIT_VCPKG_COMMIT }}-x64-
             vcpkg-${{ env.GIT_VCPKG_COMMIT }}-x64-windows-
       - name: Cache checksum-verified GIFLIB source
         # SourceForge is returning 522 for this pinned version. Keep vcpkg's
@@ -45,12 +46,26 @@ jobs:
           Invoke-WebRequest https://sources.voidlinux.org/giflib-5.2.2/giflib-5.2.2.tar.gz -OutFile $archive
           $expected = '0865ab2b1904fa14640c655fdb14bb54244ad18a66e358565c00287875d00912343f9be8bfac7658cc0146200d626f7ec9160d7a339f20ba3be6b9941d73975f'
           if ((Get-FileHash $archive -Algorithm SHA512).Hash.ToLower() -ne $expected) { throw 'GIFLIB checksum mismatch' }
+      - name: Cache checksum-verified LIBMIKMOD source
+        env:
+          PINNED_VCPKG_ROOT: ${{ steps.vcpkg.outputs.RUNVCPKG_VCPKG_ROOT_OUT }}
+        run: |
+          $archive = Join-Path $env:PINNED_VCPKG_ROOT 'downloads/libmikmod-3.3.11.1.tar.gz'
+          Invoke-WebRequest https://distfiles.gentoo.org/distfiles/a7/libmikmod-3.3.11.1.tar.gz -OutFile $archive
+          $expected = 'f2439e2b691613847cd0787dd4e050116683ce7b05c215b8afecde5c6add819ea6c18e678e258c0a80786bef463f406072de15127f64368f694287a5e8e1a9de'
+          if ((Get-FileHash $archive -Algorithm SHA512).Hash.ToLower() -ne $expected) { throw 'LIBMIKMOD checksum mismatch' }
       - name: Install dependencies
         run: |
           vcpkg integrate install
           if ($LASTEXITCODE) { exit $LASTEXITCODE }
           vcpkg install --triplet x64-windows
           if ($LASTEXITCODE) { exit $LASTEXITCODE }
+      - name: Preserve compiled dependencies even after a failure
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: ${{ github.workspace }}/vcpkg_cache
+          key: layout-release-vcpkg-${{ env.GIT_VCPKG_COMMIT }}-x64-${{ hashFiles('vcpkg.json') }}-${{ github.run_id }}
       - name: Generate Visual Studio solution
         run: |
           cmake -S devtools/create_project/cmake -B build-create-project
