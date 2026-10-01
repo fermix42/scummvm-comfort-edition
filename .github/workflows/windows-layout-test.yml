@@ -23,6 +23,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: Install vcpkg
         uses: lukka/run-vcpkg@v11
+        id: vcpkg
         with:
           vcpkgGitCommitId: ${{ env.GIT_VCPKG_COMMIT }}
       - name: Restore dependency cache
@@ -33,6 +34,17 @@ jobs:
           restore-keys: |
             layout-vcpkg-${{ env.GIT_VCPKG_COMMIT }}-x64-
             vcpkg-${{ env.GIT_VCPKG_COMMIT }}-x64-windows-
+      - name: Cache checksum-verified GIFLIB source
+        # SourceForge is returning 522 for this pinned version. Keep vcpkg's
+        # exact upstream archive and checksum, using the MacPorts distfile mirror.
+        env:
+          PINNED_VCPKG_ROOT: ${{ steps.vcpkg.outputs.RUNVCPKG_VCPKG_ROOT_OUT }}
+        run: |
+          $archive = Join-Path $env:PINNED_VCPKG_ROOT 'downloads/giflib-5.2.2.tar.gz'
+          New-Item -ItemType Directory -Force (Split-Path $archive) | Out-Null
+          Invoke-WebRequest https://distfiles.macports.org/giflib/giflib-5.2.2.tar.gz -OutFile $archive
+          $expected = '0865ab2b1904fa14640c655fdb14bb54244ad18a66e358565c00287875d00912343f9be8bfac7658cc0146200d626f7ec9160d7a339f20ba3be6b9941d73975f'
+          if ((Get-FileHash $archive -Algorithm SHA512).Hash.ToLower() -ne $expected) { throw 'GIFLIB checksum mismatch' }
       - name: Install dependencies
         run: |
           vcpkg integrate install
