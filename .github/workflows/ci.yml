@@ -1,5 +1,9 @@
 name: CI
-on: [push, pull_request]
+on:
+  push:
+    # This private feature branch has a focused Windows package workflow.
+    branches-ignore: [feature/usable-desktop-window-layout]
+  pull_request:
 #  schedule:
 #    - cron: '0 0-23/4 * * *'
 permissions:

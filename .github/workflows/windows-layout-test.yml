@@ -1,0 +1,69 @@
+name: Windows x64 layout test
+on:
+  push:
+    branches: [feature/usable-desktop-window-layout]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: windows-layout-test-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  windows-x64:
+    if: github.repository == 'fermix42/scummvm-private'
+    runs-on: windows-latest
+    timeout-minutes: 90
+    env:
+      VCPKG_DEFAULT_TRIPLET: x64-windows
+      VCPKG_INSTALLED_DIR: ${{ github.workspace }}/vcpkg_installed
+      VCPKG_BINARY_SOURCES: clear;files,${{ github.workspace }}/vcpkg_cache,readwrite
+      VCPKG_OVERLAY_PORTS: ${{ github.workspace }}/.github/vcpkg-ports
+      GIT_VCPKG_COMMIT: ef7dbf94b9198bc58f45951adcf1f041fcbc5ea0
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install vcpkg
+        uses: lukka/run-vcpkg@v11
+        with:
+          vcpkgGitCommitId: ${{ env.GIT_VCPKG_COMMIT }}
+      - name: Restore dependency cache
+        uses: actions/cache@v4
+        with:
+          path: ${{ github.workspace }}/vcpkg_cache
+          key: layout-vcpkg-${{ env.GIT_VCPKG_COMMIT }}-x64-${{ hashFiles('vcpkg.json') }}
+          restore-keys: |
+            layout-vcpkg-${{ env.GIT_VCPKG_COMMIT }}-x64-
+            vcpkg-${{ env.GIT_VCPKG_COMMIT }}-x64-windows-
+      - name: Install dependencies
+        run: |
+          vcpkg integrate install
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          vcpkg install --triplet x64-windows
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+      - name: Generate Visual Studio solution
+        run: |
+          cmake -S devtools/create_project/cmake -B build-create-project
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          cmake --build build-create-project --config Release -j 2
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          New-Item -ItemType Directory build-scummvm
+          Set-Location build-scummvm
+          ../build-create-project/Release/create_project.exe .. --msvc --vcpkg
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+      - uses: microsoft/setup-msbuild@v2
+      - name: Build Windows x64 Release
+        run: |
+          msbuild build-scummvm/scummvm.sln /m:2 /p:Configuration=Release /p:Platform=x64 /p:VcpkgEnableManifest=true /p:PreferredToolArchitecture=x64 /v:minimal
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+      - name: Package and verify portable build
+        run: |
+          $vswhere = "${env:ProgramFiles(x86)}/Microsoft Visual Studio/Installer/vswhere.exe"
+          $vs = & $vswhere -latest -products '*' -requires Microsoft.VisualStudio.Component.VC.Tools.x86.x64 -property installationPath
+          python devtools/create_project/scripts/package-window-layout.py --root . --build build-scummvm/Releasex64 --vcpkg vcpkg_installed/x64-windows --vs "$vs" --sha "$env:GITHUB_SHA" --output package
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+      - name: Upload private Windows test package
+        uses: actions/upload-artifact@v4
+        with:
+          name: scummvm-window-layout-windows-x64-${{ github.sha }}
+          path: package/
+          if-no-files-found: error
+          retention-days: 14
