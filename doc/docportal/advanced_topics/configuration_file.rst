@@ -527,3 +527,96 @@ The default location for the screenshotpath depends on your system.
     .. tab-item:: Any other OS
 
         In the current directory.
+
+
+Window layouts (SDL desktop builds)
+===================================
+
+In **Global Options > Backend**, choose **Left two-thirds** or **Custom** under
+**Windowed layout**. Select a monitor and choose whether **Borderless window**
+is enabled. With it disabled, the window has the normal title bar and borders;
+these are included in the layout's total size. Turn fullscreen off in Graphics.
+The normal layout remains the default and preserves existing behavior.
+
+The left two-thirds preset fills the usable height and two-thirds of the usable
+width of the selected monitor, leaving the right third for another application.
+It uses the operating system's work area, which excludes a visible taskbar or
+dock. It does not move or resize the browser. Auto-hidden taskbars follow the
+work area reported by the operating system.
+
+For a Samsung Odyssey Neo G9 at 5120 x 1440 and 100% scaling, a work area of
+5120 x 1392 (a 48-pixel bottom taskbar) gives an outer window of 3413 x 1392.
+The actual taskbar height is queried, not hard-coded. Other DPI settings use
+SDL desktop coordinates, which can differ from physical pixels.
+
+Use **Fit to window** and enable **Aspect ratio correction** in Graphics.
+These existing settings are the defaults: they preserve the game's intended
+aspect ratio, including supported non-square pixels, with black bars as needed.
+A 4:3 game will not fill an ultrawide window horizontally. The layout does not
+force every game to 4:3 or change explicit per-game scaling overrides.
+
+The following keys belong in ``[scummvm]`` (not individual game sections)::
+
+    fullscreen=false
+    stretch_mode=fit
+    aspect_ratio=true
+    window_layout=1
+    window_layout_display=0
+    window_layout_borderless=true
+
+``window_layout`` is 0 for Normal, 1 for Left two-thirds, or 2 for Custom.
+``window_layout_display`` is a zero-based monitor index (the GUI numbers monitors
+starting at 1); a missing/out-of-range monitor falls back to the primary display.
+The monitor index follows SDL's enumeration and can change when displays are
+reconnected. Choose the monitor again if necessary.
+
+For Custom, also set::
+
+    window_layout_width=3000
+    window_layout_height=0
+    window_layout_x=0
+    window_layout_y=0
+
+Width and height specify the **outer** window size in desktop coordinates,
+including decorations. Zero fills the usable area on that axis. X and Y are
+nonnegative offsets from the selected monitor's usable top-left corner, even
+when that monitor has a negative virtual-desktop origin. Sizes and offsets are
+clamped to keep the entire window within the work area; positive custom sizes
+have a 320 x 200 minimum unless the work area is smaller. GUI values accept
+whole numbers from 0 to 16384. Malformed GUI entries retain their previous values
+and show a message.
+
+Settings are saved when you apply the options. The layout is reapplied at
+startup, when a graphics backend recreates the window, when returning from
+fullscreen, or when changing layout settings. You can still drag and resize a
+decorated window; those temporary adjustments do not replace the saved layout.
+To reapply the preset after a taskbar/display change, restart ScummVM or change
+and apply its layout settings. Borderless mode has no native title-bar/edge
+handles: use the Custom fields to change its size and placement. Choose Normal
+to stop controlling geometry and restore the title bar.
+
+This feature requires SDL 2.0.5 or newer (including SDL3). Window managers can
+restrict placement. If usable bounds cannot be queried, ScummVM logs a warning
+and skips placement. If decoration sizes are unavailable, it logs a warning and
+uses approximate margins; exact decorated placement cannot then be guaranteed.
+
+Windows validation for this private change
+------------------------------------------
+
+Native Windows validation is still required; Linux tests use simulated display,
+work-area and decoration data, not the Windows taskbar or DPI APIs.
+
+* On the Neo G9, select Left two-thirds with fullscreen off. Check that all four
+  outside edges fit the work area in both titled and borderless modes. The
+  browser's right third and taskbar must remain accessible.
+* Repeat at 100%, 125%, 150% and 200% Windows scaling, and with the taskbar on
+  different supported edges (and auto-hide on/off).
+* Select another monitor, including one left of the primary display and one
+  with different scaling. Restart, and test with the saved monitor disconnected.
+* Test a 320 x 200 game with aspect correction (typically 4:3) and a native 4:3
+  or widescreen game. Check circles, the full image, black bars and mouse
+  alignment. Check both the SDL and OpenGL graphics modes.
+* Resize a titled window; toggle fullscreen and return; change graphics mode;
+  restart. Check the saved layout, and verify that Normal restores ordinary
+  window behavior. Also test custom sizes/offsets and a zero-height custom
+  layout that fills the usable height.

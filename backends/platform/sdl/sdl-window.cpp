@@ -23,6 +23,7 @@
 
 #include "backends/platform/sdl/sdl-window.h"
 #include "backends/platform/sdl/sdl.h"
+#include "backends/platform/sdl/window-layout.h"
 
 #include "common/textconsole.h"
 #include "common/util.h"
@@ -39,12 +40,19 @@ static const uint32 fullscreenMask = SDL_WINDOW_FULLSCREEN_DESKTOP | SDL_WINDOW_
 SdlWindow::SdlWindow() :
 #if SDL_VERSION_ATLEAST(2, 0, 0)
 	_window(nullptr), _windowCaption("ScummVM"),
-	_lastFlags(0), _lastX(SDL_WINDOWPOS_UNDEFINED), _lastY(SDL_WINDOWPOS_UNDEFINED),
+	_lastFlags(0), _layoutBorderless(false), _lastX(SDL_WINDOWPOS_UNDEFINED), _lastY(SDL_WINDOWPOS_UNDEFINED),
 #endif
 	_inputGrabState(false), _inputLockState(false),
 	_resizable(true)
 	{
 		memset(&grabRect, 0, sizeof(grabRect));
+		ConfMan.registerDefault("window_layout", (int)WindowLayout::kNormal);
+		ConfMan.registerDefault("window_layout_display", 0);
+		ConfMan.registerDefault("window_layout_width", 1280);
+		ConfMan.registerDefault("window_layout_height", 720);
+		ConfMan.registerDefault("window_layout_x", 0);
+		ConfMan.registerDefault("window_layout_y", 0);
+		ConfMan.registerDefault("window_layout_borderless", false);
 
 #if SDL_VERSION_ATLEAST(2, 0, 0)
 #elif SDL_VERSION_ATLEAST(1, 2, 10)
@@ -404,6 +412,11 @@ SDL_Surface *copySDLSurface(SDL_Surface *src) {
 
 int SdlWindow::getDisplayIndex() const {
 #if SDL_VERSION_ATLEAST(3, 0, 0)
+	if (_window) {
+		SDL_DisplayID display = SDL_GetDisplayForWindow(_window);
+		if (display)
+			return static_cast<int>(display);
+	}
 	int display = 0;
 	int num_displays;
 	SDL_DisplayID *displays = SDL_GetDisplays(&num_displays);
@@ -455,6 +468,19 @@ bool SdlWindow::createOrUpdateWindow(int width, int height, uint32 flags) {
 	const uint32 newNonUpdateableFlags = flags & ~updateableFlagsMask;
 
 	const uint32 fullscreenFlags = flags & fullscreenMask;
+	const bool recreate = !_window || oldNonUpdateableFlags != newNonUpdateableFlags;
+	const bool leavingFullscreen = (_lastFlags & fullscreenMask) && !fullscreenFlags;
+	bool useLayout = false;
+#if SDL_VERSION_ATLEAST(2, 0, 5)
+	const int layout = ConfMan.getInt("window_layout", Common::ConfigManager::kApplicationDomain);
+	useLayout = !fullscreenFlags && (layout == WindowLayout::kLeftTwoThirds || layout == WindowLayout::kCustom);
+#endif
+	if (useLayout)
+		flags &= ~SDL_WINDOW_MAXIMIZED;
+	if (useLayout && _window && !leavingFullscreen) {
+		// Preserve manual resizing across scaler/game-resolution changes.
+		SDL_GetWindowSize(_window, &width, &height);
+	}
 
 	// This is terrible, but there is no way in SDL to get information on the
 	// maximum bounds of a window with decoration, and SDL is too dumb to make
@@ -489,16 +515,19 @@ bool SdlWindow::createOrUpdateWindow(int width, int height, uint32 flags) {
 		desktopRes.bottom -= (top + bottom);
 	}
 
-	if (width > desktopRes.right) {
+	if (!useLayout && width > desktopRes.right) {
 		width = desktopRes.right;
 	}
 
-	if (height > desktopRes.bottom) {
+	if (!useLayout && height > desktopRes.bottom) {
 		height = desktopRes.bottom;
 	}
 
-	if (!_window || oldNonUpdateableFlags != newNonUpdateableFlags) {
+	if (recreate) {
 		destroyWindow();
+		uint32 creationFlags = flags;
+		if (useLayout && ConfMan.getBool("window_layout_borderless", Common::ConfigManager::kApplicationDomain))
+			creationFlags |= SDL_WINDOW_BORDERLESS;
 #if SDL_VERSION_ATLEAST(3, 0, 0)
 		SDL_PropertiesID props = SDL_CreateProperties();
 		SDL_SetStringProperty(props, SDL_PROP_WINDOW_CREATE_TITLE_STRING, _windowCaption.c_str());
@@ -506,12 +535,12 @@ bool SdlWindow::createOrUpdateWindow(int width, int height, uint32 flags) {
 		SDL_SetNumberProperty(props, SDL_PROP_WINDOW_CREATE_Y_NUMBER, _lastY);
 		SDL_SetNumberProperty(props, SDL_PROP_WINDOW_CREATE_WIDTH_NUMBER, width);
 		SDL_SetNumberProperty(props, SDL_PROP_WINDOW_CREATE_HEIGHT_NUMBER, height);
-		SDL_SetNumberProperty(props, SDL_PROP_WINDOW_CREATE_FLAGS_NUMBER, flags);
+		SDL_SetNumberProperty(props, SDL_PROP_WINDOW_CREATE_FLAGS_NUMBER, creationFlags);
 		_window = SDL_CreateWindowWithProperties(props);
 		SDL_DestroyProperties(props);
 #else
 		_window = SDL_CreateWindow(_windowCaption.c_str(), _lastX,
-								   _lastY, width, height, flags);
+								   _lastY, width, height, creationFlags);
 #endif
 		if (!_window) {
 			return false;
@@ -576,8 +605,104 @@ bool SdlWindow::createOrUpdateWindow(int width, int height, uint32 flags) {
 #endif
 
 	_lastFlags = flags;
+	if (recreate || leavingFullscreen)
+		applyWindowLayout();
 
 	return true;
+}
+
+void SdlWindow::applyWindowLayout() {
+#if SDL_VERSION_ATLEAST(2, 0, 5)
+	if (!_window || (SDL_GetWindowFlags(_window) & fullscreenMask))
+		return;
+
+	const Common::String &domain = Common::ConfigManager::kApplicationDomain;
+	const int mode = ConfMan.getInt("window_layout", domain);
+	const bool enabled = mode == WindowLayout::kLeftTwoThirds || mode == WindowLayout::kCustom;
+	const bool borderless = enabled && ConfMan.getBool("window_layout_borderless", domain);
+	if (enabled || _layoutBorderless) {
+#if SDL_VERSION_ATLEAST(3, 0, 0)
+		SDL_SetWindowBordered(_window, !borderless);
+#else
+		SDL_SetWindowBordered(_window, borderless ? SDL_FALSE : SDL_TRUE);
+#endif
+	}
+	_layoutBorderless = borderless;
+	if (!enabled)
+		return;
+
+	int display = ConfMan.getInt("window_layout_display", domain);
+#if SDL_VERSION_ATLEAST(3, 0, 0)
+	int count = 0;
+	SDL_DisplayID *displays = SDL_GetDisplays(&count);
+	if (!displays || count == 0) {
+		SDL_free(displays);
+		return;
+	}
+	display = displays[display >= 0 && display < count ? display : 0];
+	SDL_free(displays);
+#else
+	if (display < 0 || display >= SDL_GetNumVideoDisplays())
+		display = 0;
+#endif
+	SDL_Rect bounds;
+#if SDL_VERSION_ATLEAST(3, 0, 0)
+	if (!SDL_GetDisplayUsableBounds(display, &bounds)) {
+#else
+	if (SDL_GetDisplayUsableBounds(display, &bounds) < 0) {
+#endif
+		warning("Cannot apply window layout: usable display bounds unavailable: %s", SDL_GetError());
+		return;
+	}
+	if (bounds.w <= 0 || bounds.h <= 0)
+		return;
+
+	const WindowLayout::Rect work = {bounds.x, bounds.y, bounds.w, bounds.h};
+	const WindowLayout::Rect outer = WindowLayout::outerRect(work, mode,
+		ConfMan.getInt("window_layout_width", domain), ConfMan.getInt("window_layout_height", domain),
+		ConfMan.getInt("window_layout_x", domain), ConfMan.getInt("window_layout_y", domain));
+	SDL_RestoreWindow(_window);
+	// Move onto the destination display before querying its decoration sizes
+	// (which can change when crossing between different DPI settings).
+	SDL_SetWindowPosition(_window, outer.x, outer.y);
+#if SDL_VERSION_ATLEAST(3, 0, 0)
+	SDL_SyncWindow(_window);
+#endif
+	int top = 0, left = 0, bottom = 0, right = 0;
+	if (!borderless) {
+#if SDL_VERSION_ATLEAST(3, 0, 0)
+		const bool haveBorders = SDL_GetWindowBordersSize(_window, &top, &left, &bottom, &right);
+#else
+		const bool haveBorders = SDL_GetWindowBordersSize(_window, &top, &left, &bottom, &right) == 0;
+#endif
+		if (!haveBorders) {
+			warning("Window decorations unavailable; using conservative margins for layout");
+			top = 40;
+			left = bottom = right = 10;
+		}
+#if defined(WIN32) && SDL_VERSION_ATLEAST(2, 26, 0) && !SDL_VERSION_ATLEAST(3, 0, 0)
+		// SDL2's Windows backend reports borders in physical pixels even
+		// when SDL desktop coordinates are scaled. Round outward to fit.
+		if (haveBorders) {
+			int w, h, pixelW, pixelH;
+			SDL_GetWindowSize(_window, &w, &h);
+			SDL_GetWindowSizeInPixels(_window, &pixelW, &pixelH);
+			if (pixelW > 0 && pixelH > 0) {
+				left = (left * w + pixelW - 1) / pixelW;
+				right = (right * w + pixelW - 1) / pixelW;
+				top = (top * h + pixelH - 1) / pixelH;
+				bottom = (bottom * h + pixelH - 1) / pixelH;
+			}
+		}
+#endif
+	}
+	const WindowLayout::Rect client = WindowLayout::clientRect(outer, top, left, bottom, right);
+	SDL_SetWindowSize(_window, client.w, client.h);
+	SDL_SetWindowPosition(_window, client.x, client.y);
+#if SDL_VERSION_ATLEAST(3, 0, 0)
+	SDL_SyncWindow(_window);
+#endif
+#endif
 }
 
 void SdlWindow::destroyWindow() {

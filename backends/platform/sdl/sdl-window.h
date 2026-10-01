@@ -185,6 +185,9 @@ public:
 	 */
 	void destroyWindow();
 
+	/** Apply the saved desktop layout (windowed mode only). */
+	void applyWindowLayout();
+
 	/**
 	 * @return The last window flags set
 	 */
@@ -195,6 +198,7 @@ protected:
 
 private:
 	uint32 _lastFlags;
+	bool _layoutBorderless;
 
 	/**
 	 * Switching between software and OpenGL modes requires the window to be

@@ -10,7 +10,8 @@ TESTS        := $(srcdir)/test/common/*.h \
 	$(srcdir)/test/common/formats/*.h \
 	$(srcdir)/test/audio/*.h \
 	$(srcdir)/test/math/*.h \
-	$(srcdir)/test/image/*.h
+	$(srcdir)/test/image/*.h \
+	$(srcdir)/test/backends/platform/sdl/window-layout.h
 TEST_LIBS    :=
 
 ifdef POSIX

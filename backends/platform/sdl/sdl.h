@@ -61,6 +61,10 @@ public:
 
 	// Override functions from ModularBackend and OSystem
 	void initBackend() override;
+#if SDL_VERSION_ATLEAST(2, 0, 5)
+	GUI::OptionsContainerWidget *buildBackendOptionsWidget(GUI::GuiObject *boss, const Common::String &name, const Common::String &target) const override;
+	void applyBackendSettings() override;
+#endif
 	void engineInit() override;
 	void engineDone() override;
 	void quit() override;

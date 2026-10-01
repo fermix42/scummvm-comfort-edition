@@ -2,6 +2,7 @@ MODULE := backends/platform/sdl
 
 MODULE_OBJS := \
 	sdl.o \
+	sdl-options.o \
 	sdl-window.o
 
 ifdef KOLIBRIOS
