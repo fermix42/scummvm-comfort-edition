@@ -51,9 +51,20 @@ jobs:
           PINNED_VCPKG_ROOT: ${{ steps.vcpkg.outputs.RUNVCPKG_VCPKG_ROOT_OUT }}
         run: |
           $archive = Join-Path $env:PINNED_VCPKG_ROOT 'downloads/libmikmod-3.3.11.1.tar.gz'
-          Invoke-WebRequest https://distfiles.gentoo.org/distfiles/a7/libmikmod-3.3.11.1.tar.gz -OutFile $archive
           $expected = 'f2439e2b691613847cd0787dd4e050116683ce7b05c215b8afecde5c6add819ea6c18e678e258c0a80786bef463f406072de15127f64368f694287a5e8e1a9de'
-          if ((Get-FileHash $archive -Algorithm SHA512).Hash.ToLower() -ne $expected) { throw 'LIBMIKMOD checksum mismatch' }
+          $verified = $false
+          $mirrors = @(
+            'https://mirrors.xmission.com/gentoo/distfiles/a7/libmikmod-3.3.11.1.tar.gz',
+            'https://wii.leseratte10.de/devkitPro/other-stuff/libraries/libmikmod-3.3.11.1.tar.gz',
+            'https://distro.ibiblio.org/easyos/source/oe/dunfell/libmikmod-3.3.11.1.tar.gz'
+          )
+          foreach ($url in $mirrors) {
+            try {
+              Invoke-WebRequest $url -OutFile $archive -TimeoutSec 60
+              if ((Get-FileHash $archive -Algorithm SHA512).Hash.ToLower() -eq $expected) { $verified = $true; break }
+            } catch { Write-Warning $_ }
+          }
+          if (-not $verified) { throw 'No mirror supplied the pinned LIBMIKMOD archive' }
       - name: Install dependencies
         run: |
           vcpkg integrate install
