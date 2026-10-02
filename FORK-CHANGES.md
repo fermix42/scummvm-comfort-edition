@@ -10,10 +10,10 @@ This file tracks user-facing changes maintained in this private fork.
 - Restored the custom `Right two-thirds` windowed layout option alongside the existing layout choices.
 - Updated the related SDL option handling, window placement logic, documentation, and project packaging metadata.
 
-### Gabriel Knight 1 Windows AVI scaling
+### SCI Windows AVI scaling
 
-- Updated SCI AVI playback so the `enable_hq_video` option scales Windows AVI videos to fill the game window vertically while preserving aspect ratio.
-- Kept this behavior scoped to AVI playback for the Windows CD version path.
+- Updated SCI AVI playback so the `enable_hq_video` option scales AVI videos to fill the game window vertically while preserving aspect ratio.
+- This is a general SCI AVI playback behavior, not a Gabriel Knight 1-only patch. Gabriel Knight 1 Windows CD was the test case that exposed the issue.
 - Left DOS SEQ playback alone so videos with baked-in letterbox bars keep their original presentation.
 
 ### Indiana Jones and the Last Crusade boxing cheats
