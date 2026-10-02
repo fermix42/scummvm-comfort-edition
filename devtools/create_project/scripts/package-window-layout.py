@@ -73,7 +73,7 @@ def main():
         "Source: https://github.com/fermix42/scummvm-private/tree/" + sha + "\n\n"
         "Extract the entire ZIP to a writable folder. Run Start window layout test.cmd.\n"
         "This uses the included separate configuration, leaving your normal ScummVM config alone.\n"
-        "Global Options > Backend: choose your monitor and Left two-thirds or Custom.\n"
+        "Global Options > Backend: choose your monitor and Left two-thirds, Right two-thirds, or Custom.\n"
         "Borderless window checked = borderless; unchecked = title bar and borders.\n"
         "Keep fullscreen OFF, Fit to window selected, and aspect correction enabled.\n"
         "The preset leaves the right third for your browser and uses the OS work area.\n"

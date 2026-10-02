@@ -57,6 +57,7 @@ SdlWindowOptionsWidget::SdlWindowOptionsWidget(GUI::GuiObject *boss, const Commo
 	_mode = new GUI::PopUpWidget(widgetsBoss(), "SdlWindowOptions.Mode", _("Applies when fullscreen is off."), 'layo');
 	_mode->appendEntry(_("Normal"), WindowLayout::kNormal);
 	_mode->appendEntry(_("Left two-thirds"), WindowLayout::kLeftTwoThirds);
+	_mode->appendEntry(_("Right two-thirds"), WindowLayout::kRightTwoThirds);
 	_mode->appendEntry(_("Custom"), WindowLayout::kCustom);
 	new GUI::StaticTextWidget(widgetsBoss(), "SdlWindowOptions.DisplayLabel", _("Monitor:"));
 	_display = new GUI::PopUpWidget(widgetsBoss(), "SdlWindowOptions.Display");
@@ -124,7 +125,7 @@ void SdlWindowOptionsWidget::handleCommand(GUI::CommandSender *sender, uint32 cm
 }
 
 void SdlWindowOptionsWidget::load() {
-	_mode->setSelectedTag(CLIP(ConfMan.getInt("window_layout", _domain), 0, 2));
+	_mode->setSelectedTag(CLIP(ConfMan.getInt("window_layout", _domain), 0, 3));
 	_display->setSelectedTag(0);
 	_display->setSelectedTag(ConfMan.getInt("window_layout_display", _domain));
 	_borderless->setState(ConfMan.getBool("window_layout_borderless", _domain));

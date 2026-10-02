@@ -755,6 +755,35 @@ void ScummEngine::writeVar(uint var, int value) {
 			}
 		}
 
+		if (_game.id == GID_INDY3) {
+			// Indy3 boxing draws Indy's health from vars 193/194 and the
+			// opponent's health from vars 195/196. Script 42 damages Indy;
+			// script 43 damages the opponent. Vars 219/220 are actor id and
+			// direction state, not punch power.
+			const bool indyEnergyVar = (var == 193 || var == 194);
+			const bool opponentEnergyVar = (var == 195 || var == 196);
+			const bool strongPunches = ConfMan.getBool("indy3_strong_punches");
+			const bool invincibleIndy = ConfMan.getBool("indy3_invincible_indy");
+
+			if (strongPunches && currentScriptSlotIs(43) && opponentEnergyVar && value < _scummVars[var]) {
+				int boostedDamage = (_scummVars[var] - value) * 5;
+				if (boostedDamage < 100)
+					boostedDamage = 100;
+
+				value = _scummVars[var] - boostedDamage;
+				if (value < 0) {
+					if (var == 196) {
+						_scummVars[195] += value;
+						if (_scummVars[195] < 0)
+							_scummVars[195] = 0;
+					}
+					value = 0;
+				}
+			} else if (invincibleIndy && currentScriptSlotIs(42) && indyEnergyVar && value < _scummVars[var]) {
+				value = (var == 194) ? _scummVars[193] : _scummVars[var];
+			}
+		}
+
 		_scummVars[var] = value;
 
 		if ((_varwatch == (int)var || _varwatch == 0) && _currentScript < NUM_SCRIPT_SLOT) {

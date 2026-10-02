@@ -26,7 +26,7 @@
 
 namespace WindowLayout {
 
-enum Mode { kNormal, kLeftTwoThirds, kCustom };
+enum Mode { kNormal = 0, kLeftTwoThirds = 1, kCustom = 2, kRightTwoThirds = 3 };
 
 // All values are in SDL desktop coordinates, not drawable pixels. Keep these
 // as ints: virtual desktops can extend beyond Common::Rect's int16 range.
@@ -38,6 +38,9 @@ inline Rect outerRect(const Rect &work, int mode, int width, int height, int x, 
 	Rect result = work;
 	if (mode == kLeftTwoThirds) {
 		result.w = MAX(1, work.w / 3 * 2 + work.w % 3 * 2 / 3);
+	} else if (mode == kRightTwoThirds) {
+		result.w = MAX(1, work.w / 3 * 2 + work.w % 3 * 2 / 3);
+		result.x += work.w - result.w;
 	} else if (mode == kCustom) {
 		// Zero size means use all available space on that axis. Clamp the
 		// position after the size, keeping the entire window on the display.

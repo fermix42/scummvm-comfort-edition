@@ -473,7 +473,8 @@ bool SdlWindow::createOrUpdateWindow(int width, int height, uint32 flags) {
 	bool useLayout = false;
 #if SDL_VERSION_ATLEAST(2, 0, 5)
 	const int layout = ConfMan.getInt("window_layout", Common::ConfigManager::kApplicationDomain);
-	useLayout = !fullscreenFlags && (layout == WindowLayout::kLeftTwoThirds || layout == WindowLayout::kCustom);
+	useLayout = !fullscreenFlags && (layout == WindowLayout::kLeftTwoThirds ||
+		layout == WindowLayout::kRightTwoThirds || layout == WindowLayout::kCustom);
 #endif
 	if (useLayout)
 		flags &= ~SDL_WINDOW_MAXIMIZED;
@@ -618,7 +619,8 @@ void SdlWindow::applyWindowLayout() {
 
 	const Common::String &domain = Common::ConfigManager::kApplicationDomain;
 	const int mode = ConfMan.getInt("window_layout", domain);
-	const bool enabled = mode == WindowLayout::kLeftTwoThirds || mode == WindowLayout::kCustom;
+	const bool enabled = mode == WindowLayout::kLeftTwoThirds ||
+		mode == WindowLayout::kRightTwoThirds || mode == WindowLayout::kCustom;
 	const bool borderless = enabled && ConfMan.getBool("window_layout_borderless", domain);
 	if (enabled || _layoutBorderless) {
 #if SDL_VERSION_ATLEAST(3, 0, 0)

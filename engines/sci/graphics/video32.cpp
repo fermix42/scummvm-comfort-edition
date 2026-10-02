@@ -54,6 +54,18 @@ namespace Sci {
 
 extern int showScummVMDialog(const Common::U32String &message, const Common::U32String &altButton = Common::U32String(), bool alignCenter = true);
 
+static void fitVideoSizeToScreen(int16 &width, int16 &height, const int16 screenWidth, const int16 screenHeight) {
+	if (width > screenWidth) {
+		height = (int32)height * screenWidth / width;
+		width = screenWidth;
+	}
+
+	if (height > screenHeight) {
+		width = (int32)width * screenHeight / height;
+		height = screenHeight;
+	}
+}
+
 bool VideoPlayer::open(const Common::Path &fileName) {
 	if (!_decoder->loadFile(fileName)) {
 		warning("Failed to load %s", fileName.toString().c_str());
@@ -406,29 +418,36 @@ AVIPlayer::IOStatus AVIPlayer::init(const bool doublePixels) {
 	// Fortunately, whenever all of these games play an AVI, they are just
 	// trying to play a video at the center of the screen. So, we ignore the
 	// values that the game sends, and instead calculate the correct dimensions
-	// and origin based on the video data, only allowing games to specify
-	// whether or not the videos should be scaled up 2x.
+	// and origin based on the video data.
 
 	if (_status == kAVINotOpen) {
 		return kIOFileNotFound;
 	}
 
-	int16 width = _decoder->getWidth();
-	int16 height = _decoder->getHeight();
-	if (doublePixels) {
+	const int16 screenWidth = g_sci->_gfxFrameout->getScreenWidth();
+	const int16 screenHeight = g_sci->_gfxFrameout->getScreenHeight();
+	const int16 videoWidth = _decoder->getWidth();
+	const int16 videoHeight = _decoder->getHeight();
+
+	int16 width = videoWidth;
+	int16 height = videoHeight;
+	if (ConfMan.getBool("enable_hq_video")) {
+		height = screenHeight;
+		width = (int32)height * videoWidth / videoHeight;
+		if (width > screenWidth) {
+			width = screenWidth;
+			height = (int32)width * videoHeight / videoWidth;
+		}
+	} else if (doublePixels) {
 		width *= 2;
 		height *= 2;
 	}
-
-	const int16 screenWidth = g_sci->_gfxFrameout->getScreenWidth();
-	const int16 screenHeight = g_sci->_gfxFrameout->getScreenHeight();
 
 	// When scaling videos, they must not grow larger than the hardware screen
 	// or else the engine will crash. This is particularly important for the GK1
 	// CREDITS.AVI since the game sends extra width/height arguments, causing it
 	// to be treated as needing upscaling even though it does not.
-	width = MIN<int16>(width, screenWidth);
-	height = MIN<int16>(height, screenHeight);
+	fitVideoSizeToScreen(width, height, screenWidth, screenHeight);
 
 	_drawRect.left = (screenWidth - width) / 2;
 	_drawRect.top = (screenHeight - height) / 2;

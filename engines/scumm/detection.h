@@ -46,6 +46,8 @@ namespace Scumm {
 #define GAMEOPTION_REBEL1_NO_DAMAGE                          GUIO_GAMEOPTIONS15
 #define GAMEOPTION_REBEL1_RESTORED_CONTENT                   GUIO_GAMEOPTIONS16
 #define GAMEOPTION_REBEL2_RESTORED_CONTENT                   GUIO_GAMEOPTIONS17
+#define GAMEOPTION_INDY3_INVINCIBLE_INDY                     GUIO_GAMEOPTIONS18
+#define GAMEOPTION_INDY3_STRONG_PUNCHES                      GUIO_GAMEOPTIONS19
 
 /**
  * Descriptor of a specific SCUMM game. Used internally to store

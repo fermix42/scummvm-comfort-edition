@@ -795,6 +795,24 @@ static const ExtraGuiOption enableEnhancements {
 	0
 };
 
+static const ExtraGuiOption indy3InvincibleIndy = {
+	_s("Invincible Indy"),
+	_s("Prevent Indy from losing health during boxing fights."),
+	"indy3_invincible_indy",
+	false,
+	0,
+	0
+};
+
+static const ExtraGuiOption indy3StrongPunches = {
+	_s("Indy Punches Strong"),
+	_s("Make Indy's punches deal much more damage during boxing fights."),
+	"indy3_strong_punches",
+	false,
+	0,
+	0
+};
+
 static const ExtraGuiOption audioOverride {
 	_s("Load modded audio"),
 	_s("Replace music, sound effects, and speech clips with modded audio files, if available."),
@@ -998,6 +1016,12 @@ const ExtraGuiOptions ScummMetaEngine::getExtraGuiOptions(const Common::String &
 	}
 	if (target.empty() || guiOptions.contains(GAMEOPTION_ENHANCEMENTS)) {
 		options.push_back(enableEnhancements);
+	}
+	if (target.empty() || gameid == "indy3" || guiOptions.contains(GAMEOPTION_INDY3_INVINCIBLE_INDY)) {
+		options.push_back(indy3InvincibleIndy);
+	}
+	if (target.empty() || gameid == "indy3" || guiOptions.contains(GAMEOPTION_INDY3_STRONG_PUNCHES)) {
+		options.push_back(indy3StrongPunches);
 	}
 	if (target.empty() || guiOptions.contains(GAMEOPTION_LOWLATENCYAUDIO)) {
 		options.push_back(enableLowLatencyAudio);

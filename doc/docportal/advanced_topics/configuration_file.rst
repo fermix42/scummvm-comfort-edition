@@ -532,17 +532,18 @@ The default location for the screenshotpath depends on your system.
 Window layouts (SDL desktop builds)
 ===================================
 
-In **Global Options > Backend**, choose **Left two-thirds** or **Custom** under
-**Windowed layout**. Select a monitor and choose whether **Borderless window**
-is enabled. With it disabled, the window has the normal title bar and borders;
-these are included in the layout's total size. Turn fullscreen off in Graphics.
-The normal layout remains the default and preserves existing behavior.
+In **Global Options > Backend**, choose **Left two-thirds**,
+**Right two-thirds**, or **Custom** under **Windowed layout**. Select a monitor
+and choose whether **Borderless window** is enabled. With it disabled, the
+window has the normal title bar and borders; these are included in the layout's
+total size. Turn fullscreen off in Graphics. The normal layout remains the
+default and preserves existing behavior.
 
-The left two-thirds preset fills the usable height and two-thirds of the usable
-width of the selected monitor, leaving the right third for another application.
-It uses the operating system's work area, which excludes a visible taskbar or
-dock. It does not move or resize the browser. Auto-hidden taskbars follow the
-work area reported by the operating system.
+The two-thirds presets fill the usable height and two-thirds of the usable
+width of the selected monitor, leaving the remaining third for another
+application. They use the operating system's work area, which excludes a
+visible taskbar or dock. They do not move or resize the browser. Auto-hidden
+taskbars follow the work area reported by the operating system.
 
 For a Samsung Odyssey Neo G9 at 5120 x 1440 and 100% scaling, a work area of
 5120 x 1392 (a 48-pixel bottom taskbar) gives an outer window of 3413 x 1392.
@@ -564,7 +565,8 @@ The following keys belong in ``[scummvm]`` (not individual game sections)::
     window_layout_display=0
     window_layout_borderless=true
 
-``window_layout`` is 0 for Normal, 1 for Left two-thirds, or 2 for Custom.
+``window_layout`` is 0 for Normal, 1 for Left two-thirds, 2 for Custom, or
+3 for Right two-thirds.
 ``window_layout_display`` is a zero-based monitor index (the GUI numbers monitors
 starting at 1); a missing/out-of-range monitor falls back to the primary display.
 The monitor index follows SDL's enumeration and can change when displays are
