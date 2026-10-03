@@ -7,7 +7,7 @@ This file tracks user-facing changes maintained in this private fork.
 ### Ultra-wide interface
 
 - Added SDL desktop window layout options for ultra-wide displays.
-- Added the custom `Right two-thirds` and `Right two-thirds` windowed layout option alongside the existing layout choices.
+- Added the custom `Right two-thirds` and `Left two-thirds` windowed layout option alongside the existing layout choices.
 - Updated the related SDL option handling, window placement logic, documentation, and project packaging metadata.
 
 ### SCI Windows AVI scaling
