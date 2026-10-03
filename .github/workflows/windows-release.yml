@@ -3,11 +3,6 @@ on:
   push:
     tags:
       - 'v*'
-  workflow_dispatch:
-    inputs:
-      tag:
-        description: Existing tag to package and publish
-        required: true
 permissions:
   contents: write
 concurrency:
@@ -110,8 +105,7 @@ jobs:
       - name: Create release archive
         id: archive
         run: |
-          $tag = '${{ github.event.inputs.tag }}'
-          if (-not $tag) { $tag = '${{ github.ref_name }}' }
+          $tag = '${{ github.ref_name }}'
           $version = $tag.TrimStart('v')
           $baseName = "scummvm-comfort-edition-$version-windows-x64"
           Rename-Item -LiteralPath package/scummvm-comfort-edition-windows-x64 -NewName $baseName
@@ -125,8 +119,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          $tag = '${{ github.event.inputs.tag }}'
-          if (-not $tag) { $tag = '${{ github.ref_name }}' }
+          $tag = '${{ github.ref_name }}'
           $title = "ScummVM Comfort Edition $tag"
           $repo = '${{ github.repository }}'
           $sourceUrl = "https://github.com/$repo/tree/$tag"
