@@ -11,6 +11,9 @@ import struct
 import subprocess
 
 
+SUBPROCESS_TEXT_KWARGS = {"text": True, "encoding": "utf-8", "errors": "replace"}
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     for key in ("root", "build", "vcpkg", "vs", "output"):
@@ -18,7 +21,7 @@ def main():
     parser.add_argument("--sha", required=True)
     args = parser.parse_args()
     root = args.root.resolve()
-    sha = subprocess.check_output(["git", "-C", str(root), "rev-parse", "HEAD"], text=True).strip()
+    sha = subprocess.check_output(["git", "-C", str(root), "rev-parse", "HEAD"], **SUBPROCESS_TEXT_KWARGS).strip()
     if sha != args.sha:
         raise RuntimeError("Checkout does not match requested build SHA")
     dest = args.output.resolve() / "scummvm-comfort-edition-windows-x64"
@@ -94,16 +97,18 @@ def main():
     shipped = {p.name.lower() for p in dest.glob("*.dll")}
     system = Path(os.environ["SystemRoot"]) / "System32"
     for path in [dest / "scummvm.exe", *dest.glob("*.dll")]:
-        output = subprocess.check_output([str(dumpbins[-1]), "/DEPENDENTS", str(path)], text=True)
+        output = subprocess.check_output([str(dumpbins[-1]), "/DEPENDENTS", str(path)], **SUBPROCESS_TEXT_KWARGS)
         for dependency in re.findall(r"^\s+([\w.-]+\.dll)\s*$", output, re.MULTILINE | re.IGNORECASE):
             name = dependency.lower()
             if name not in shipped and not name.startswith(("api-ms-", "ext-ms-")) and not (system / dependency).is_file():
                 raise RuntimeError(f"Missing dependency: {path.name} -> {dependency}")
     for option, filename in (("--version", "VERSION.txt"), ("--list-engines", "ENGINES.txt")):
         result = subprocess.run([str(dest / "scummvm.exe"), "--config=" + str(dest / "window-layout-test.ini"), option],
-                                cwd=dest, text=True, capture_output=True, timeout=30, check=True)
-        (dest / filename).write_text(result.stdout + result.stderr, encoding="utf-8")
-        if not result.stdout.strip():
+                                cwd=dest, capture_output=True, timeout=30, check=True, **SUBPROCESS_TEXT_KWARGS)
+        stdout = result.stdout or ""
+        stderr = result.stderr or ""
+        (dest / filename).write_text(stdout + stderr, encoding="utf-8")
+        if not stdout.strip():
             raise RuntimeError("CLI smoke test produced no output")
     manifest = {"source_sha": sha, "architecture": "x64", "configuration": "Release",
                 "windows_cli_checked": True, "windows_gui_checked": False,
