@@ -74,6 +74,11 @@ struct ExtraGuiOption {
 	bool defaultState;         /*!< Default state of the checkbox (checked or not). */
 	byte groupId;        /*!< Set to the leader Id (groupLeaderId) for the checkbox's group, or 0 for no group. */
 	byte groupLeaderId;  /*!< Set to a non-zero value only for the leader of the checkbox group. When this leader checkbox is unchecked, disable all checkboxes in this group. One leader per group. */
+	uint32 flags = 0;    /*!< ExtraGuiOptionFlags bitmask for categorizing options. */
+};
+
+enum ExtraGuiOptionFlags {
+	kExtraGuiOptionFlagCheat = 1 << 0
 };
 
 /**
@@ -233,6 +238,9 @@ protected:
 	virtual const ExtraGuiOptions getExtraGuiOptions(const Common::String &target) const {
 		return ExtraGuiOptions();
 	}
+
+	const ExtraGuiOptions getRegularExtraGuiOptions(const Common::String &target) const;
+	const ExtraGuiOptions getCheatExtraGuiOptions(const Common::String &target) const;
 
 public:
 	virtual ~MetaEngine() {}
@@ -409,6 +417,7 @@ public:
 	 * @param target  Name of a config manager target.
 	 */
 	virtual GUI::OptionsContainerWidget *buildEngineOptionsWidget(GUI::GuiObject *boss, const Common::String &name, const Common::String &target) const;
+	virtual GUI::OptionsContainerWidget *buildCheatOptionsWidget(GUI::GuiObject *boss, const Common::String &name, const Common::String &target) const;
 
 	/**
 	 * MetaEngine feature flags.

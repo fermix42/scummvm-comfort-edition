@@ -23,7 +23,11 @@
  * Future Wars script interpreter file
  */
 
+#include "common/config-manager.h"
 #include "common/endian.h"
+#ifdef CINE_TRACE_BUILD
+#include "common/file.h"
+#endif
 #include "common/textconsole.h"
 
 #include "cine/cine.h"
@@ -37,6 +41,12 @@
 namespace Cine {
 
 uint16 compareVars(int16 a, int16 b);
+static bool acceptAnyColorCode();
+static bool isColorProtectionColorChoiceReject(int scriptIndex, byte varIdx, byte varType, int16 value);
+static bool isColorProtectionRetryLoad(const char *prcName);
+#ifdef CINE_TRACE_BUILD
+static void traceCineState(const char *event, const Common::String &detail);
+#endif
 
 
 const Opcode *FWScript::_opcodeTable = nullptr;
@@ -925,6 +935,9 @@ int FWScript::o1_checkCollision() {
 	debugC(5, kCineDebugScript, "Line: %d: checkCollision(objIdx:%d,%d,%d,%d,%d)", _line, objIdx, param1, param2, param3, param4);
 
 	_compare = checkCollision(objIdx, param1, param2, param3, param4);
+#ifdef CINE_TRACE_BUILD
+	traceCineRuntime("checkCollision", "line=%d obj=%d args=%d,%d,%d,%d result=%d", _line, objIdx, param1, param2, param3, param4, _compare);
+#endif
 	return 0;
 }
 
@@ -1023,7 +1036,14 @@ int FWScript::o1_subVar() {
 		int16 value = getNextWord();
 
 		debugC(5, kCineDebugScript, "Line: %d: var[%d] -= %d", _line, varIdx, value);
-		_localVars[varIdx] -= value;
+		if (isColorProtectionColorChoiceReject(_index, varIdx, varType, value)) {
+#ifdef CINE_TRACE_BUILD
+			traceCineRuntime("colorProtection.acceptAnyChoice", "script=%d line=%d var=%d value=%d old=%d", _index, _line, varIdx, value, _localVars[varIdx]);
+#endif
+			_localVars[varIdx] += value;
+		} else {
+			_localVars[varIdx] -= value;
+		}
 	}
 
 	return 0;
@@ -1331,14 +1351,19 @@ int FWScript::o1_startGlobalScript() {
 	assert(param < NUM_MAX_SCRIPT);
 
 	debugC(5, kCineDebugScript, "Line: %d: startScript(%d)", _line, param);
+#ifdef CINE_TRACE_BUILD
+	traceCineRuntime("startGlobalScript", "line=%d script=%d", _line, param);
+#endif
+
+	const bool disableGuardDetection = labyrinthCheat || ConfMan.getBool("disable_guard_detection");
 
 	// Cheat for Scene 6 Guards Labyrinth Arcade Game to disable John's Death (to aid playtesting)
-	if (g_cine->getGameType() == Cine::GType_OS && labyrinthCheat && scumm_stricmp(currentPrcName, "LABY.PRC") == 0 && param == 46) {
+	if (g_cine->getGameType() == Cine::GType_OS && disableGuardDetection && scumm_stricmp(currentPrcName, "LABY.PRC") == 0 && param == 46) {
 		warning("LABY.PRC startScript(46) Disabled. CHEAT!");
 		return 0;
 	}
 	// Cheat for Scene 8 Rats Labyrinth Arcade Game to disable John's Death (to aid playtesting)
-	if (g_cine->getGameType() == Cine::GType_OS && labyrinthCheat && scumm_stricmp(currentPrcName, "EGOU.PRC") == 0 && param == 46) {
+	if (g_cine->getGameType() == Cine::GType_OS && disableGuardDetection && scumm_stricmp(currentPrcName, "EGOU.PRC") == 0 && param == 46) {
 		warning("EGOU.PRC startScript(46) Disabled. CHEAT!");
 		return 0;
 	}
@@ -1425,6 +1450,12 @@ int FWScript::o1_loadNewPrcName() {
 	switch (param1) {
 	case 0:
 		debugC(5, kCineDebugScript, "Line: %d: loadPrc(\"%s\")", _line, param2);
+		if (isColorProtectionRetryLoad(param2)) {
+			Common::strlcpy(newPrcName, "INTRO3.PRC", sizeof(newPrcName));
+			Common::strlcpy(newMsgName, "INTRO3.MSG", sizeof(newMsgName));
+			_globalVars[240] = 2;
+			break;
+		}
 		Common::strlcpy(newPrcName, param2, sizeof(newPrcName));
 		break;
 	case 1:
@@ -2119,13 +2150,128 @@ uint16 compareVars(int16 a, int16 b) {
 	return flag;
 }
 
+static bool acceptAnyColorCode() {
+	return g_cine->getGameType() == Cine::GType_OS && ConfMan.getBool("accept_any_color_code");
+}
+
+static bool isColorProtectionColorChoiceReject(int scriptIndex, byte varIdx, byte varType, int16 value) {
+	return acceptAnyColorCode() &&
+		g_cine->_copyProtectionColorScreen &&
+		!scumm_stricmp(currentPrcName, BOOT_PRC_NAME) &&
+		scriptIndex == 3 &&
+		varIdx == 25 &&
+		varType == 0 &&
+		value == 1;
+}
+
+static bool isColorProtectionRetryLoad(const char *prcName) {
+	if (!acceptAnyColorCode() || scumm_stricmp(currentPrcName, BOOT_PRC_NAME) != 0) {
+		return false;
+	}
+
+	return !scumm_stricmp(prcName, COPY_PROT_FAIL_PRC_NAME) ||
+		(g_cine->_copyProtectionColorScreen && !scumm_stricmp(prcName, BOOT_PRC_NAME));
+}
+
+#ifdef CINE_TRACE_BUILD
+void traceCineRuntime(const char *event, const char *fmt, ...) {
+	if (!g_cine || g_cine->getGameType() != Cine::GType_OS) {
+		return;
+	}
+
+	va_list va;
+	va_start(va, fmt);
+	Common::String detail = Common::String::vformat(fmt, va);
+	va_end(va);
+	traceCineState(event, detail);
+}
+
+static bool isTraceWatchedObject(int objIdx) {
+	static const int watchedObjects[] = {
+		1, 2, 3, 4, 5, 6, 7, 8, 10, 14, 15, 16, 20, 21, 22, 23, 24, 25, 26,
+		30, 31, 32, 33, 40, 41, 45, 50, 51, 81, 98, 99, 100, 101, 102, 103,
+		104, 105, 110, 111, 147, 150, 151, 152, 164, 70, 230, 231, 232, 233, 234,
+		235, 236, 237, 238, 239
+	};
+
+	for (uint i = 0; i < ARRAYSIZE(watchedObjects); ++i) {
+		if (watchedObjects[i] == objIdx) {
+			return true;
+		}
+	}
+
+	return false;
+}
+
+static Common::String formatTraceObject(int objIdx) {
+	if (objIdx < 0 || objIdx >= (int)g_cine->_objectTable.size()) {
+		return Common::String::format("obj[%d]=<missing>", objIdx);
+	}
+
+	const ObjectStruct &obj = g_cine->_objectTable[objIdx];
+	return Common::String::format("obj[%d]={x:%d y:%d mask:%u frame:%d status:%d part:%u}",
+		objIdx, obj.x, obj.y, obj.mask, obj.frame, obj.costume, obj.part);
+}
+
+static void traceCineState(const char *event, const Common::String &detail) {
+	static Common::DumpFile logFile;
+	static bool triedOpen = false;
+	static bool didOpen = false;
+	static uint traceSeq = 0;
+
+	if (!triedOpen) {
+		triedOpen = true;
+		didOpen = logFile.open(Common::Path("cine-trace.log", Common::Path::kNoSeparator));
+		if (!didOpen) {
+			warning("CINE_TRACE unable to open cine-trace.log");
+		} else {
+			warning("CINE_TRACE opened cine-trace.log for %s", currentPrcName);
+		}
+	}
+
+	Common::String line = Common::String::format(
+		"CINE_TRACE %06u event=%s prc=%s detail=\"%s\" vars={v1:%d v2:%d v25:%d v200:%d v240:%d v241:%d v242:%d v243:%d v249:%d v250:%d}\n",
+		traceSeq++, event, currentPrcName, detail.c_str(),
+		g_cine->_globalVars[1], g_cine->_globalVars[2], g_cine->_globalVars[25],
+		g_cine->_globalVars[200], g_cine->_globalVars[240], g_cine->_globalVars[241],
+		g_cine->_globalVars[242], g_cine->_globalVars[243], g_cine->_globalVars[249],
+		g_cine->_globalVars[250]);
+
+	for (uint i = 0; i < g_cine->_objectTable.size(); ++i) {
+		if (!isTraceWatchedObject(i)) {
+			continue;
+		}
+		line += "  ";
+		line += formatTraceObject(i);
+		line += "\n";
+	}
+
+	if (didOpen) {
+		logFile.write(line.c_str(), line.size());
+		logFile.flush();
+	} else {
+		warning("%s", line.c_str());
+	}
+}
+#endif
+
 void executeObjectScripts() {
 	ScriptList::iterator it = g_cine->_objectScripts.begin();
 	for (; it != g_cine->_objectScripts.end();) {
-		debugC(5, kCineDebugScript, "executeObjectScripts() Executing Object Index: %d", (*it)->_index);
+		const int scriptIndex = (*it)->_index;
+		debugC(5, kCineDebugScript, "executeObjectScripts() Executing Object Index: %d", scriptIndex);
+#ifdef CINE_TRACE_BUILD
+		traceCineRuntime("objectScript.begin", "entry=%d", scriptIndex);
+#endif
 		if ((*it)->_index < 0 || (*it)->execute() < 0) {
+#ifdef CINE_TRACE_BUILD
+			traceCineRuntime("objectScript.end", "entry=%d removed=1", scriptIndex);
+#endif
 			it = g_cine->_objectScripts.erase(it);
 		} else {
+#ifdef CINE_TRACE_BUILD
+			traceCineRuntime("objectScript.end", "entry=%d removed=0", scriptIndex);
+#endif
 			++it;
 		}
 	}
@@ -2134,10 +2280,20 @@ void executeObjectScripts() {
 void executeGlobalScripts() {
 	ScriptList::iterator it = g_cine->_globalScripts.begin();
 	for (; it != g_cine->_globalScripts.end();) {
-		debugC(5, kCineDebugScript, "executeGlobalScripts() Executing Object Index: %d", (*it)->_index);
+		const int scriptIndex = (*it)->_index;
+		debugC(5, kCineDebugScript, "executeGlobalScripts() Executing Object Index: %d", scriptIndex);
+#ifdef CINE_TRACE_BUILD
+		traceCineRuntime("globalScript.begin", "script=%d", scriptIndex);
+#endif
 		if ((*it)->_index < 0 || (*it)->execute() < 0) {
+#ifdef CINE_TRACE_BUILD
+			traceCineRuntime("globalScript.end", "script=%d removed=1", scriptIndex);
+#endif
 			it = g_cine->_globalScripts.erase(it);
 		} else {
+#ifdef CINE_TRACE_BUILD
+			traceCineRuntime("globalScript.end", "script=%d removed=0", scriptIndex);
+#endif
 			++it;
 		}
 	}

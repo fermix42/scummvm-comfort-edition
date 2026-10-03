@@ -75,6 +75,54 @@ static const ADExtraGuiOptionsMap optionsList[] = {
 		}
 	},
 #endif
+	{
+		GAMEOPTION_DISABLE_GUARD_DETECTION,
+		{
+			_s("Disable guard detection"),
+			_s("Prevent guards from triggering failure in Operation Stealth's labyrinth sequences"),
+			"disable_guard_detection",
+			false,
+			0,
+			0,
+			kExtraGuiOptionFlagCheat
+		}
+	},
+	{
+		GAMEOPTION_ACCEPT_ANY_COLOR_CODE,
+		{
+			_s("Accept any color code"),
+			_s("Allow any color choice to pass Operation Stealth's copy protection screen"),
+			"accept_any_color_code",
+			false,
+			0,
+			0,
+			kExtraGuiOptionFlagCheat
+		}
+	},
+	{
+		GAMEOPTION_FREEZE_JETSKI_ENERGY,
+		{
+			_s("Freeze jetski energy"),
+			_s("Prevent Operation Stealth's jetski energy meter from depleting"),
+			"freeze_jetski_energy",
+			false,
+			0,
+			0,
+			kExtraGuiOptionFlagCheat
+		}
+	},
+	{
+		GAMEOPTION_DISABLE_SHARK_COLLISION,
+		{
+			_s("Disable shark collision"),
+			_s("Prevent sharks from catching the player in Operation Stealth's underwater sequence"),
+			"disable_shark_collision",
+			false,
+			0,
+			0,
+			kExtraGuiOptionFlagCheat
+		}
+	},
 
 	AD_EXTRA_GUI_OPTIONS_TERMINATOR
 };

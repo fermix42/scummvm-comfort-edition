@@ -1491,6 +1491,20 @@
 		</layout>
 	</dialog>
 
+	<dialog name = 'GameOptions_Cheats' overlays = 'Dialog.GameOptions.TabWidget'>
+		<layout type = 'vertical' padding = '0, 0, 0, 0'>
+			<widget name = 'Container'
+					type = 'ScrollContainerWidget'
+			/>
+		</layout>
+	</dialog>
+
+	<dialog name = 'GameOptions_Cheats_Container' overlays = 'GameOptions_Cheats.Container' shading = 'dim'>
+		<layout type = 'vertical' padding = '8, 8, 8, 8'>
+			<widget name = 'Container'/>
+		</layout>
+	</dialog>
+
 	<dialog name = 'GameOptions_Paths' overlays = 'Dialog.GameOptions.TabWidget' shading = 'dim'>
 		<layout type = 'vertical' padding = '8, 8, 8, 8'>
 			<layout type = 'horizontal' padding = '0, 0, 0, 0' spacing = '16' align = 'center'>
@@ -1643,6 +1657,20 @@
 	</dialog>
 
 	<dialog name = 'GlobalConfig_Engine_Container' overlays = 'GlobalConfig_Engine.Container'>
+		<layout type = 'vertical' padding = '8, 8, 8, 8'>
+			<widget name = 'Container'/>
+		</layout>
+	</dialog>
+
+	<dialog name = 'GlobalConfig_Cheats' overlays = 'Dialog.GlobalConfig.TabWidget'>
+		<layout type = 'vertical' padding = '0, 0, 0, 0'>
+			<widget name = 'Container'
+					type = 'ScrollContainerWidget'
+			/>
+		</layout>
+	</dialog>
+
+	<dialog name = 'GlobalConfig_Cheats_Container' overlays = 'GlobalConfig_Cheats.Container'>
 		<layout type = 'vertical' padding = '8, 8, 8, 8'>
 			<widget name = 'Container'/>
 		</layout>

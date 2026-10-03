@@ -293,7 +293,8 @@ namespace GUI {
 // experience at the same time.
 ConfigDialog::ConfigDialog() :
 		GUI::OptionsDialog("", "GlobalConfig"),
-		_engineOptions(nullptr) {
+		_engineOptions(nullptr),
+		_cheatOptions(nullptr) {
 	assert(g_engine);
 
 	const Common::String &gameDomain = ConfMan.getActiveDomainName();
@@ -320,6 +321,24 @@ ConfigDialog::ConfigDialog() :
 		_engineOptions->setParentDialog(this);
 	} else {
 		tab->removeTab(tabId);
+	}
+
+	//
+	// The game specific cheats tab
+	//
+
+	int cheatTabId = tab->addTab(_("Cheats"), "GlobalConfig_Cheats");
+
+	ScrollContainerWidget *cheatContainer = new ScrollContainerWidget(tab, "GlobalConfig_Cheats.Container", "GlobalConfig_Cheats_Container");
+	cheatContainer->setBackgroundType(ThemeEngine::kWidgetBackgroundNo);
+	cheatContainer->setTarget(this);
+
+	_cheatOptions = metaEngine->buildCheatOptionsWidget(cheatContainer, "GlobalConfig_Cheats_Container.Container", gameDomain);
+
+	if (_cheatOptions) {
+		_cheatOptions->setParentDialog(this);
+	} else {
+		tab->removeTab(cheatTabId);
 	}
 
 	//
@@ -411,11 +430,17 @@ void ConfigDialog::build() {
 	if (_engineOptions) {
 		_engineOptions->load();
 	}
+	if (_cheatOptions) {
+		_cheatOptions->load();
+	}
 }
 
 void ConfigDialog::apply() {
 	if (_engineOptions) {
 		_engineOptions->save();
+	}
+	if (_cheatOptions) {
+		_cheatOptions->save();
 	}
 
 	OptionsDialog::apply();

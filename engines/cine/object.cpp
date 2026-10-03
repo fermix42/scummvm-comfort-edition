@@ -20,6 +20,7 @@
  */
 
 
+#include "common/config-manager.h"
 #include "common/endian.h"
 #include "common/memstream.h"
 #include "common/util.h"
@@ -30,6 +31,26 @@
 #include "cine/various.h"
 
 namespace Cine {
+
+static bool shouldFreezeJetskiEnergy(byte objIdx, byte paramIdx, int16 newValue) {
+	if (g_cine->getGameType() != Cine::GType_OS || !ConfMan.getBool("freeze_jetski_energy") ||
+		scumm_stricmp(currentPrcName, "PALAIS1.PRC") != 0 || g_cine->_globalVars[240] != 50) {
+		return false;
+	}
+
+	return objIdx == 110 && paramIdx == 1 && newValue < g_cine->_objectTable[objIdx].x;
+}
+
+static bool shouldDisableScript36SharkHit(uint16 objIdx1, uint16 xAdd1, uint16 yAdd1, uint16 maskAdd1,
+		uint16 objIdx2, uint16 xAdd2, uint16 yAdd2, uint16 maskAdd2) {
+	if (g_cine->getGameType() != Cine::GType_OS || !ConfMan.getBool("disable_shark_collision") ||
+		scumm_stricmp(currentPrcName, "SOUSMAR2.PRC") != 0) {
+		return false;
+	}
+
+	return objIdx1 == 1 && xAdd1 == 40 && yAdd1 == 20 && maskAdd1 == 5 &&
+		objIdx2 == 70 && xAdd2 == 100 && yAdd2 == 20 && maskAdd2 == 1;
+}
 
 /** Resets all elements in the object table. */
 void resetObjectTable() {
@@ -205,6 +226,10 @@ void removeGfxElement(int16 objIdx, int16 param, int16 type) {
 }
 
 void setupObject(byte objIdx, uint16 param1, uint16 param2, uint16 param3, uint16 param4) {
+#ifdef CINE_TRACE_BUILD
+	traceCineRuntime("setupObject", "obj=%d x=%u y=%u mask=%u frame=%u", objIdx, param1, param2, param3, param4);
+#endif
+
 	g_cine->_objectTable[objIdx].x = param1;
 	g_cine->_objectTable[objIdx].y = param2;
 	g_cine->_objectTable[objIdx].mask = param3;
@@ -232,6 +257,18 @@ void modifyObjectParam(byte objIdx, byte paramIdx, int16 newValue) {
 	// Operation Stealth checks object index range, Future Wars doesn't.
 	if (g_cine->getGameType() == Cine::GType_OS && objIdx >= NUM_MAX_OBJECT)
 		return;
+
+#ifdef CINE_TRACE_BUILD
+	traceCineRuntime("modifyObjectParam", "obj=%d param=%d new=%d old={x:%d y:%d mask:%u frame:%d status:%d part:%u}",
+		objIdx, paramIdx, newValue,
+		g_cine->_objectTable[objIdx].x, g_cine->_objectTable[objIdx].y,
+		g_cine->_objectTable[objIdx].mask, g_cine->_objectTable[objIdx].frame,
+		g_cine->_objectTable[objIdx].costume, g_cine->_objectTable[objIdx].part);
+#endif
+
+	if (shouldFreezeJetskiEnergy(objIdx, paramIdx, newValue)) {
+		return;
+	}
 
 	switch (paramIdx) {
 	case 1:
@@ -283,6 +320,10 @@ uint16 compareObjectParamRanges(uint16 objIdx1, uint16 xAdd1, uint16 yAdd1, uint
 	assert(objIdx1 < NUM_MAX_OBJECT && objIdx2 < NUM_MAX_OBJECT);
 	const ObjectStruct &obj1 = g_cine->_objectTable[objIdx1];
 	const ObjectStruct &obj2 = g_cine->_objectTable[objIdx2];
+
+	if (shouldDisableScript36SharkHit(objIdx1, xAdd1, yAdd1, maskAdd1, objIdx2, xAdd2, yAdd2, maskAdd2)) {
+		return 0;
+	}
 
 	if (compareRanges(obj1.x,    obj1.x    + xAdd1,    obj2.x,    obj2.x    + xAdd2) &&
 		compareRanges(obj1.y,    obj1.y    + yAdd1,    obj2.y,    obj2.y    + yAdd2) &&

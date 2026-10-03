@@ -89,6 +89,7 @@ public:
 
 private:
 	OptionsContainerWidget *_engineOptions;
+	OptionsContainerWidget *_cheatOptions;
 };
 
 class ExtraGuiOptionsWidget : public OptionsContainerWidget {

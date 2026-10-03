@@ -705,7 +705,7 @@ GUI::OptionsContainerWidget *ScummMetaEngine::buildEngineOptionsWidget(GUI::GuiO
 		return new Scumm::HENetworkGameOptionsWidget(boss, name, target, Common::move(gameid));
 #endif
 
-	const ExtraGuiOptions engineOptions = getExtraGuiOptions(target);
+	const ExtraGuiOptions engineOptions = getRegularExtraGuiOptions(target);
 
 	if (!engineOptions.empty())
 		return new Scumm::ScummGameOptionsWidget(boss, name, target, engineOptions);
@@ -801,7 +801,8 @@ static const ExtraGuiOption indy3InvincibleIndy = {
 	"indy3_invincible_indy",
 	false,
 	0,
-	0
+	0,
+	kExtraGuiOptionFlagCheat
 };
 
 static const ExtraGuiOption indy3StrongPunches = {
@@ -810,7 +811,8 @@ static const ExtraGuiOption indy3StrongPunches = {
 	"indy3_strong_punches",
 	false,
 	0,
-	0
+	0,
+	kExtraGuiOptionFlagCheat
 };
 
 static const ExtraGuiOption audioOverride {

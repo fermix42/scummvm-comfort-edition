@@ -175,6 +175,10 @@ uint safeControlAccessMinMs() {
 }
 
 void runObjectScript(int16 entryIdx) {
+#ifdef CINE_TRACE_BUILD
+	traceCineRuntime("runObjectScript", "entry=%d", entryIdx);
+#endif
+
 	ScriptPtr tmp(g_cine->_scriptInfo->create(*g_cine->_relTable[entryIdx], entryIdx));
 	assert(tmp);
 	g_cine->_objectScripts.push_back(tmp);

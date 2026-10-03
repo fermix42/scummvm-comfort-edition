@@ -98,6 +98,8 @@ protected:
 
 	ScrollContainerWidget *_gameContainer;
 	OptionsContainerWidget *_engineOptions;
+	ScrollContainerWidget *_cheatContainer;
+	OptionsContainerWidget *_cheatOptions;
 };
 
 } // End of namespace GUI

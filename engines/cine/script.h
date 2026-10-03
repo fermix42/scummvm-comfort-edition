@@ -378,6 +378,9 @@ void dumpScript(char *dumpName);
 
 void addScriptToGlobalScripts(uint16 idx);
 int16 checkCollision(int16 objIdx, int16 x, int16 y, int16 numZones, int16 zoneIdx);
+#ifdef CINE_TRACE_BUILD
+void traceCineRuntime(const char *event, const char *fmt, ...);
+#endif
 
 void runObjectScript(int16 entryIdx);
 

@@ -100,6 +100,8 @@ EditGameDialog::EditGameDialog(const Common::String &domain)
 	EngineMan.upgradeTargetIfNecessary(domain);
 
 	_engineOptions = nullptr;
+	_cheatContainer = nullptr;
+	_cheatOptions = nullptr;
 
 	// Retrieve the plugin, since we need to access the engine's MetaEngine
 	// implementation.
@@ -161,7 +163,26 @@ EditGameDialog::EditGameDialog(const Common::String &domain)
 	}
 
 	//
-	// 3) The graphics tab
+	// 3) The engine's cheat settings
+	//
+	if (enginePlugin) {
+		int cheatTabId = tab->addTab(_("Cheats"), "GameOptions_Cheats");
+
+		_cheatContainer = new ScrollContainerWidget(tab, "GameOptions_Cheats.Container", "GameOptions_Cheats_Container");
+		_cheatContainer->setBackgroundType(ThemeEngine::kWidgetBackgroundNo);
+		_cheatContainer->setTarget(this);
+
+		_cheatOptions = enginePlugin->get<MetaEngine>().buildCheatOptionsWidget(_cheatContainer, "GameOptions_Cheats_Container.Container", _domain);
+
+		if (_cheatOptions) {
+			_cheatOptions->setParentDialog(this);
+		} else {
+			tab->removeTab(cheatTabId);
+		}
+	}
+
+	//
+	// 4) The graphics tab
 	//
 	_graphicsTabId = tab->addTab(g_gui.useLowResGUI() ? _("GFX") : _("Graphics"), "GameOptions_Graphics");
 	ScrollContainerWidget *graphicsContainer = new ScrollContainerWidget(tab, "GameOptions_Graphics.Container", "GameOptions_Graphics_Container", kGraphicsTabContainerReflowCmd);
@@ -502,6 +523,9 @@ void EditGameDialog::open() {
 	if (_engineOptions) {
 		_engineOptions->load();
 	}
+	if (_cheatOptions) {
+		_cheatOptions->load();
+	}
 
 	const Common::Platform platform = Common::parsePlatform(ConfMan.get("platform", _domain));
 
@@ -528,6 +552,10 @@ void EditGameDialog::close() {
 		// Remove the widget from the container before deleting the widget
 		_gameContainer->removeWidget(_engineOptions);
 		delete _engineOptions;
+	}
+	if (_cheatOptions) {
+		_cheatContainer->removeWidget(_cheatOptions);
+		delete _cheatOptions;
 	}
 
 	PluginMan.loadDetectionPlugin(); // only for uncached manager
@@ -568,6 +596,9 @@ void EditGameDialog::apply() {
 
 	if (_engineOptions) {
 		_engineOptions->save();
+	}
+	if (_cheatOptions) {
+		_cheatOptions->save();
 	}
 
 	ConfMan.setBool("enable_hotspots", _enableHotspotsCheckbox->getState(), _domain);
@@ -722,6 +753,9 @@ void EditGameDialog::handleCommand(CommandSender *sender, uint32 cmd, uint32 dat
 			_domain = newDomain;
 			if (_engineOptions) {
 				_engineOptions->setDomain(newDomain);
+			}
+			if (_cheatOptions) {
+				_cheatOptions->setDomain(newDomain);
 			}
 			if (_backendOptions) {
 				_backendOptions->setDomain(newDomain);
