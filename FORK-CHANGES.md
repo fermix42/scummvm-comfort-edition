@@ -1,6 +1,6 @@
-# ScummVM Private Fork Changes
+# ScummVM Comfort Edition Changes
 
-This file tracks user-facing changes maintained in this private fork.
+This file tracks user-facing changes maintained in ScummVM Comfort Edition.
 
 ## Current custom changes
 
@@ -22,7 +22,7 @@ This file tracks user-facing changes maintained in this private fork.
 - `Invincible Indy` prevents Indy health loss during boxing damage scripts.
 - `Strong punches` increases damage dealt to the opponent during boxing damage scripts.
 - The implementation is based on the decompiled boxing scripts.
-  
+
 ### Dedicated cheats tab
 
 - Added a separate Cheats tab to the launcher game-options dialog and the in-game options dialog.

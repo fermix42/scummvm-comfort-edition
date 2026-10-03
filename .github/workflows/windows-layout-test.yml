@@ -1,7 +1,7 @@
 name: Windows x64 layout test
 on:
   push:
-    branches: [feature/usable-desktop-window-layout]
+    branches: [main]
   workflow_dispatch:
 permissions:
   contents: read
@@ -10,7 +10,7 @@ concurrency:
   cancel-in-progress: true
 jobs:
   windows-x64:
-    if: github.repository == 'fermix42/scummvm-private'
+    if: github.repository == 'fermix42/scummvm-comfort-edition'
     runs-on: windows-latest
     timeout-minutes: 90
     env:
