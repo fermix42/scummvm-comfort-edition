@@ -123,14 +123,14 @@ jobs:
           $title = "ScummVM Comfort Edition $tag"
           $repo = '${{ github.repository }}'
           $sourceUrl = "https://github.com/$repo/tree/$tag"
-          $notes = @"
-Windows x64 portable build for users who do not want to build from source.
-
-Game data is not included.
-
-Corresponding source for this binary is available from the matching Git tag:
-$sourceUrl
-"@
+          $notes = @(
+            'Windows x64 portable build for users who do not want to build from source.'
+            ''
+            'Game data is not included.'
+            ''
+            'Corresponding source for this binary is available from the matching Git tag:'
+            $sourceUrl
+          ) -join "`n"
           gh release view $tag *> $null
           if ($LASTEXITCODE -ne 0) {
             gh release create $tag --title $title --notes "$notes"
