@@ -1,13 +1,18 @@
-name: Windows x64 layout test
+name: Windows x64 release
 on:
   push:
-    branches: [main]
+    tags:
+      - 'v*'
   workflow_dispatch:
+    inputs:
+      tag:
+        description: Existing tag to package and publish
+        required: true
 permissions:
-  contents: read
+  contents: write
 concurrency:
-  group: windows-layout-test-${{ github.ref }}
-  cancel-in-progress: true
+  group: windows-release-${{ github.ref }}
+  cancel-in-progress: false
 jobs:
   windows-x64:
     if: github.repository == 'fermix42/scummvm-comfort-edition'
@@ -22,6 +27,8 @@ jobs:
       GIT_VCPKG_COMMIT: ef7dbf94b9198bc58f45951adcf1f041fcbc5ea0
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.inputs.tag || github.ref }}
       - name: Install vcpkg
         uses: lukka/run-vcpkg@v11
         id: vcpkg
@@ -31,13 +38,12 @@ jobs:
         uses: actions/cache/restore@v4
         with:
           path: ${{ github.workspace }}/vcpkg_cache
-          key: layout-release-vcpkg-${{ env.GIT_VCPKG_COMMIT }}-x64-${{ hashFiles('vcpkg.json') }}
+          key: comfort-release-vcpkg-${{ env.GIT_VCPKG_COMMIT }}-x64-${{ hashFiles('vcpkg.json') }}
           restore-keys: |
+            comfort-release-vcpkg-${{ env.GIT_VCPKG_COMMIT }}-x64-
             layout-release-vcpkg-${{ env.GIT_VCPKG_COMMIT }}-x64-
             vcpkg-${{ env.GIT_VCPKG_COMMIT }}-x64-windows-
       - name: Cache checksum-verified GIFLIB source
-        # SourceForge is returning 522 for this pinned version. Keep vcpkg's
-        # exact upstream archive and checksum, using the Void Linux source mirror.
         env:
           PINNED_VCPKG_ROOT: ${{ steps.vcpkg.outputs.RUNVCPKG_VCPKG_ROOT_OUT }}
         run: |
@@ -76,7 +82,7 @@ jobs:
         uses: actions/cache/save@v4
         with:
           path: ${{ github.workspace }}/vcpkg_cache
-          key: layout-release-vcpkg-${{ env.GIT_VCPKG_COMMIT }}-x64-${{ hashFiles('vcpkg.json') }}-${{ github.run_id }}
+          key: comfort-release-vcpkg-${{ env.GIT_VCPKG_COMMIT }}-x64-${{ hashFiles('vcpkg.json') }}-${{ github.run_id }}
       - name: Generate Visual Studio solution
         run: |
           cmake -S devtools/create_project/cmake -B build-create-project
@@ -93,15 +99,47 @@ jobs:
           msbuild build-scummvm/scummvm.sln /m:2 /p:Configuration=Release /p:Platform=x64 /p:VcpkgEnableManifest=true /p:PreferredToolArchitecture=x64 /v:minimal
           if ($LASTEXITCODE) { exit $LASTEXITCODE }
       - name: Package and verify portable build
+        id: package
         run: |
           $vswhere = "${env:ProgramFiles(x86)}/Microsoft Visual Studio/Installer/vswhere.exe"
           $vs = & $vswhere -latest -products '*' -requires Microsoft.VisualStudio.Component.VC.Tools.x86.x64 -property installationPath
-          python devtools/create_project/scripts/package-window-layout.py --root . --build build-scummvm/Releasex64 --vcpkg vcpkg_installed/x64-windows --vs "$vs" --sha "$env:GITHUB_SHA" --output package
+          $sourceSha = git rev-parse HEAD
+          python devtools/create_project/scripts/package-window-layout.py --root . --build build-scummvm/Releasex64 --vcpkg vcpkg_installed/x64-windows --vs "$vs" --sha "$sourceSha" --output package
           if ($LASTEXITCODE) { exit $LASTEXITCODE }
-      - name: Upload Windows test package
-        uses: actions/upload-artifact@v4
-        with:
-          name: scummvm-comfort-edition-windows-x64-${{ github.sha }}
-          path: package/
-          if-no-files-found: error
-          retention-days: 14
+          "source_sha=$sourceSha" >> $env:GITHUB_OUTPUT
+      - name: Create release archive
+        id: archive
+        run: |
+          $tag = '${{ github.event.inputs.tag || github.ref_name }}'
+          $version = $tag.TrimStart('v')
+          $baseName = "scummvm-comfort-edition-$version-windows-x64"
+          Rename-Item -LiteralPath package/scummvm-comfort-edition-windows-x64 -NewName $baseName
+          $zip = "$baseName.zip"
+          Compress-Archive -Path "package/$baseName" -DestinationPath $zip -CompressionLevel Optimal
+          $hash = (Get-FileHash $zip -Algorithm SHA256).Hash.ToLower()
+          "$hash  $zip" | Set-Content -Encoding ascii "$zip.sha256"
+          "zip=$zip" >> $env:GITHUB_OUTPUT
+          "checksum=$zip.sha256" >> $env:GITHUB_OUTPUT
+      - name: Publish GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          $tag = '${{ github.event.inputs.tag || github.ref_name }}'
+          $title = "ScummVM Comfort Edition $tag"
+          $repo = '${{ github.repository }}'
+          $sourceUrl = "https://github.com/$repo/tree/$tag"
+          $notes = @"
+Windows x64 portable build for users who do not want to build from source.
+
+Game data is not included.
+
+Corresponding source for this binary is available from the matching Git tag:
+$sourceUrl
+"@
+          gh release view $tag *> $null
+          if ($LASTEXITCODE -ne 0) {
+            gh release create $tag --title $title --notes "$notes"
+          } else {
+            gh release edit $tag --title $title --notes "$notes"
+          }
+          gh release upload $tag "${{ steps.archive.outputs.zip }}" "${{ steps.archive.outputs.checksum }}" --clobber

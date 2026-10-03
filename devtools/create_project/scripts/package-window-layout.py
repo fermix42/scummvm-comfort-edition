@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Package and check this private Windows x64 test build on a Windows runner."""
+"""Package and check this Windows x64 Comfort Edition build on a Windows runner."""
 import argparse
 import hashlib
 import json
@@ -21,7 +21,7 @@ def main():
     sha = subprocess.check_output(["git", "-C", str(root), "rev-parse", "HEAD"], text=True).strip()
     if sha != args.sha:
         raise RuntimeError("Checkout does not match requested build SHA")
-    dest = args.output.resolve() / "scummvm-window-layout-windows-x64"
+    dest = args.output.resolve() / "scummvm-comfort-edition-windows-x64"
     dest.mkdir(parents=True, exist_ok=False)
 
     def copy(source, target=None):
@@ -45,7 +45,7 @@ def main():
         raise RuntimeError("No redistributable x64 Microsoft CRT found")
     for path in crt_dirs[-1].glob("*.dll"):
         copy(path)
-    for name in ("AUTHORS", "COPYING", "COPYRIGHT", "README.md", "NEWS.md"):
+    for name in ("AUTHORS", "COPYING", "COPYRIGHT", "README.md", "UPSTREAM-README.md", "NEWS.md"):
         copy(root / name)
     shutil.copytree(root / "LICENSES", dest / "LICENSES")
     for copyright_file in (args.vcpkg / "share").glob("*/copyright"):
@@ -69,10 +69,11 @@ def main():
         '@echo off\ncd /d "%~dp0"\nstart "ScummVM window layout test" "%~dp0scummvm.exe" --config="%~dp0window-layout-test.ini"\n',
         encoding="utf-8")
     (dest / "WINDOW-LAYOUT-TEST.txt").write_text(
-        "Private Windows x64 Release test build\nSource commit: " + sha + "\n"
-        "Source: https://github.com/fermix42/scummvm-private/tree/" + sha + "\n\n"
-        "Extract the entire ZIP to a writable folder. Run Start window layout test.cmd.\n"
-        "This uses the included separate configuration, leaving your normal ScummVM config alone.\n"
+        "ScummVM Comfort Edition Windows x64 Release build\nSource commit: " + sha + "\n"
+        "Source: https://github.com/fermix42/scummvm-comfort-edition/tree/" + sha + "\n\n"
+        "Extract the entire ZIP to a writable folder. Run scummvm.exe, or run\n"
+        "Start window layout test.cmd to try the included layout preset without changing\n"
+        "your normal ScummVM config.\n"
         "Global Options > Backend: choose your monitor and Left two-thirds, Right two-thirds, or Custom.\n"
         "Borderless window checked = borderless; unchecked = title bar and borders.\n"
         "Keep fullscreen OFF, Fit to window selected, and aspect correction enabled.\n"
@@ -81,7 +82,9 @@ def main():
         "Game data is not included. Add your own supported games.\n\n"
         "The build runs CLI smoke checks on Windows. Native GUI/gameplay, taskbar and DPI\n"
         "behavior on your PC still require testing. See window-layout-reference.rst.\n"
-        "No installer, auto-update, release publication, or code-signing is performed.\n"
+        "No installer, auto-update, or code-signing is performed.\n"
+        "See README.md for Comfort Edition notes and UPSTREAM-README.md for the\n"
+        "original ScummVM README.\n"
         "All bundled libraries retain their licenses under LICENSES.\n", encoding="utf-8")
 
     # Audit import closure: every non-system dependency must ship beside the EXE.

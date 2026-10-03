@@ -2,6 +2,13 @@
 
 This file tracks user-facing changes maintained in ScummVM Comfort Edition.
 
+## Binary releases
+
+- Windows x64 portable builds are published from tagged GitHub Releases for users who cannot or do not want to build ScummVM Comfort Edition from source.
+- Release archives include the executable, required runtime DLLs, ScummVM data files, bundled dependency license notices, the Comfort Edition README, the upstream ScummVM README, a build manifest, and a SHA-256 checksum.
+- Game data is never included. Users still need their own supported game files.
+- The source tree remains the canonical form for review and modification; binary releases are convenience packages built from tagged commits.
+
 ## Current custom changes
 
 ### Ultra-wide interface
