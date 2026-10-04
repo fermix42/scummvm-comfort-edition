@@ -267,6 +267,10 @@ void modifyObjectParam(byte objIdx, byte paramIdx, int16 newValue) {
 #endif
 
 	if (shouldFreezeJetskiEnergy(objIdx, paramIdx, newValue)) {
+#ifdef CINE_TRACE_BUILD
+		traceCineRuntime("cheat.freezeJetskiEnergy", "obj=%d param=%d new=%d oldX=%d",
+			objIdx, paramIdx, newValue, g_cine->_objectTable[objIdx].x);
+#endif
 		return;
 	}
 

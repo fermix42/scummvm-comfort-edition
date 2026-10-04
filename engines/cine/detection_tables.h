@@ -21,6 +21,21 @@
 
 namespace Cine {
 
+#define GUIO_OS_VGA_CHEATS GUIO5( \
+	GAMEOPTION_DISABLE_GUARD_DETECTION, \
+	GAMEOPTION_ACCEPT_ANY_COLOR_CODE, \
+	GAMEOPTION_FREEZE_JETSKI_ENERGY, \
+	GAMEOPTION_DISABLE_SHARK_COLLISION, \
+	GAMEOPTION_DISABLE_RAT_MAZE_DARKNESS)
+
+#define GUIO_OS_EU_VGA_OPTIONS GUIO6( \
+	GAMEOPTION_DISABLE_GUARD_DETECTION, \
+	GAMEOPTION_ACCEPT_ANY_COLOR_CODE, \
+	GAMEOPTION_FREEZE_JETSKI_ENERGY, \
+	GAMEOPTION_DISABLE_SHARK_COLLISION, \
+	GAMEOPTION_DISABLE_RAT_MAZE_DARKNESS, \
+	GAMEOPTION_PATCH_OS_EU_VGA_JETSKI)
+
 static const CINEGameDescription gameDescriptions[] = {
 	{
 		{
@@ -271,7 +286,7 @@ static const CINEGameDescription gameDescriptions[] = {
 			Common::EN_GRB,
 			Common::kPlatformDOS,
 			ADGF_NO_FLAGS,
-			GUIO0()
+			GUIO_OS_EU_VGA_OPTIONS
 		},
 		GType_OS,
 		0,
@@ -315,7 +330,7 @@ static const CINEGameDescription gameDescriptions[] = {
 			Common::EN_USA,
 			Common::kPlatformDOS,
 			ADGF_NO_FLAGS,
-			GUIO0()
+			GUIO_OS_VGA_CHEATS
 		},
 		GType_OS,
 		GF_CD,
@@ -576,5 +591,8 @@ static const CINEGameDescription gameDescriptions[] = {
 
 	{ AD_TABLE_END_MARKER, 0, 0 }
 };
+
+#undef GUIO_OS_EU_VGA_OPTIONS
+#undef GUIO_OS_VGA_CHEATS
 
 } // End of namespace Cine

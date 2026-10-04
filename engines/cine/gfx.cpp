@@ -22,6 +22,7 @@
 #include "cine/cine.h"
 #include "cine/bg.h"
 #include "cine/bg_list.h"
+#include "cine/script.h"
 #include "cine/various.h"
 #include "cine/pal.h"
 
@@ -39,6 +40,12 @@ namespace Cine {
 
 byte *collisionPage;
 FWRenderer *renderer = nullptr;
+
+static bool shouldDisableRatMazeDarkness() {
+	return g_cine->getGameType() == GType_OS &&
+		ConfMan.getBool("disable_rat_maze_darkness") &&
+		scumm_stricmp(currentPrcName, "EGOU.PRC") == 0;
+}
 
 #define DEFAULT_MESSAGE_BG 1
 #define DEFAULT_CMD_Y 185
@@ -2024,6 +2031,16 @@ void OSRenderer::incrustSprite(const BGIncrust &incrust) {
 	width = g_cine->_animDataTable[incrust.frame]._realWidth;
 	height = g_cine->_animDataTable[incrust.frame]._height;
 
+#ifdef CINE_TRACE_BUILD
+	if (g_cine->getGameType() == Cine::GType_OS &&
+		(scumm_stricmp(currentPrcName, "EGOU.PRC") == 0 ||
+		 scumm_stricmp(currentPrcName, "LABY.PRC") == 0)) {
+		traceCineRuntime("incrustSprite", "obj=%d bgIdx=%d bgName=%s x=%d y=%d frame=%d part=%d trans=%d size=%dx%d bgPresent=%d",
+			incrust.objIdx, incrust.bgIdx, getBgName(incrust.bgIdx), x, y, incrust.frame,
+			incrust.part, transColor, width, height, _bgTable[incrust.bgIdx].bg ? 1 : 0);
+	}
+#endif
+
 	if (_bgTable[incrust.bgIdx].bg) {
 #ifdef USE_TTS
 		// Opening credits
@@ -2159,15 +2176,37 @@ int OSRenderer::drawChar(char character, int x, int y, bool draw) {
  */
 void OSRenderer::drawBackground() {
 	byte *main;
+	const bool disableRatMazeDarkness = shouldDisableRatMazeDarkness() && _bgTable[0].bg;
 
-	main = _bgTable[_currentBg].bg;
+	main = _bgTable[disableRatMazeDarkness ? 0 : _currentBg].bg;
 	assert(main);
+
+#ifdef CINE_TRACE_BUILD
+	if (g_cine->getGameType() == Cine::GType_OS &&
+		(scumm_stricmp(currentPrcName, "EGOU.PRC") == 0 ||
+		 scumm_stricmp(currentPrcName, "LABY.PRC") == 0)) {
+		static char lastPrc[20] = "";
+		static unsigned int lastBg = 999;
+		static unsigned int lastScroll = 999;
+		static unsigned int lastShift = 999;
+		if (scumm_stricmp(lastPrc, currentPrcName) != 0 || lastBg != _currentBg ||
+				lastScroll != _scrollBg || lastShift != _bgShift) {
+			Common::strlcpy(lastPrc, currentPrcName, sizeof(lastPrc));
+			lastBg = _currentBg;
+			lastScroll = _scrollBg;
+			lastShift = _bgShift;
+			traceCineRuntime("drawBackground.state", "currentBg=%u currentName=%s scrollBg=%u scrollName=%s shift=%u bgIncrusts=%u overlays=%u",
+				_currentBg, getBgName(_currentBg), _scrollBg, getBgName(_scrollBg), _bgShift,
+				(uint)g_cine->_bgIncrustList.size(), (uint)g_cine->_overlayList.size());
+		}
+	}
+#endif
 
 	if (!_bgShift) {
 		memcpy(_backBuffer, main, _screenSize);
 	} else {
 		unsigned int rowShift = _bgShift % 200;
-		byte *scroll = _bgTable[_scrollBg].bg;
+		byte *scroll = _bgTable[disableRatMazeDarkness ? 0 : _scrollBg].bg;
 		assert(scroll);
 
 		if (!rowShift) {
@@ -2208,6 +2247,15 @@ void OSRenderer::renderOverlay(const Common::List<overlay>::iterator &it) {
 		sprite = &g_cine->_animDataTable[g_cine->_objectTable[it->objIdx].frame];
 		obj = &g_cine->_objectTable[it->objIdx];
 		transparentColor = obj->part & 0x0F;
+#ifdef CINE_TRACE_BUILD
+		if (g_cine->getGameType() == Cine::GType_OS &&
+			(scumm_stricmp(currentPrcName, "EGOU.PRC") == 0 ||
+			 scumm_stricmp(currentPrcName, "LABY.PRC") == 0)) {
+			traceCineRuntime("renderOverlay.type0", "obj=%d x=%d y=%d mask=%u frame=%d part=%u trans=%u bpp=%u size=%dx%d",
+				it->objIdx, obj->x, obj->y, obj->mask, obj->frame, obj->part,
+				transparentColor, sprite->_bpp, sprite->_realWidth, sprite->_height);
+		}
+#endif
 
 		// HACK: Correct transparency color from 6 to 0 for the first frame of sea animation
 		// in 16 color DOS version of Operation Stealth in the flower shop scene
@@ -2283,6 +2331,24 @@ void OSRenderer::renderOverlay(const Common::List<overlay>::iterator &it) {
 		lastType20OverlayBgIdx = it->x; // A global variable updated here!
 		obj = &g_cine->_objectTable[it->objIdx];
 		sprite = &g_cine->_animDataTable[obj->frame];
+
+		if (shouldDisableRatMazeDarkness() && it->objIdx == 191) {
+#ifdef CINE_TRACE_BUILD
+			traceCineRuntime("ratMazeDarkness.skipType20Overlay", "obj=%d srcBg=%d x=%d y=%d frame=%d",
+				it->objIdx, it->x, obj->x, obj->y, obj->frame);
+#endif
+			break;
+		}
+#ifdef CINE_TRACE_BUILD
+		if (g_cine->getGameType() == Cine::GType_OS &&
+			(scumm_stricmp(currentPrcName, "EGOU.PRC") == 0 ||
+			 scumm_stricmp(currentPrcName, "LABY.PRC") == 0)) {
+			traceCineRuntime("renderOverlay.type20", "obj=%d srcBg=%d srcName=%s x=%d y=%d mask=%u frame=%d bpp=%u size=%dx%d",
+				it->objIdx, it->x, (it->x >= 0 && it->x <= 8) ? getBgName(it->x) : "<bad>",
+				obj->x, obj->y, obj->mask, obj->frame, sprite->_bpp,
+				sprite->_realWidth, sprite->_height);
+		}
+#endif
 
 		if (obj->frame < 0 || it->x < 0 || it->x > 8 || !_bgTable[it->x].bg || sprite->_bpp != 1) {
 			break;

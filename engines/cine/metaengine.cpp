@@ -123,6 +123,29 @@ static const ADExtraGuiOptionsMap optionsList[] = {
 			kExtraGuiOptionFlagCheat
 		}
 	},
+	{
+		GAMEOPTION_DISABLE_RAT_MAZE_DARKNESS,
+		{
+			_s("Disable rat maze darkness"),
+			_s("Remove the darkness overlay from Operation Stealth's rat maze"),
+			"disable_rat_maze_darkness",
+			false,
+			0,
+			0,
+			kExtraGuiOptionFlagCheat
+		}
+	},
+	{
+		GAMEOPTION_PATCH_OS_EU_VGA_JETSKI,
+		{
+			_s("Patch: EU 256-color/VGA jetski sequence"),
+			_s("Fixes duplicate dock actors and stale dock-script movement before Operation Stealth's jetski minigame. Applies only to the European DOS 256-color/VGA version."),
+			"patch_os_eu_vga_jetski",
+			true,
+			0,
+			0
+		}
+	},
 
 	AD_EXTRA_GUI_OPTIONS_TERMINATOR
 };

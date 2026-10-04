@@ -92,6 +92,9 @@ class CineUnpacker:
             return self.src
 
         unpacked_len = self.read_source()
+        if unpacked_len > len(self.dst):
+            self.error = True
+            unpacked_len = len(self.dst)
         self.dst_pos = unpacked_len - 1
         self.crc = self.read_source()
         self.chunk32b = self.read_source()
@@ -110,7 +113,8 @@ class CineUnpacker:
                 elif c < 2:
                     self.copy_relocated_bytes(self.get_bits(c + 9), c + 3)
                 else:
-                    self.copy_relocated_bytes(self.get_bits(12), self.get_bits(8) + 1)
+                    count = self.get_bits(8) + 1
+                    self.copy_relocated_bytes(self.get_bits(12), count)
 
         if self.error or self.crc != 0:
             raise ValueError("Cine unpack failed")
@@ -136,10 +140,20 @@ def obj_param_name(param_idx: int) -> str:
 
 
 class Decompiler:
-    def __init__(self, script: bytes, idx: int):
+    def __init__(
+        self,
+        script: bytes,
+        idx: int,
+        max_instructions: int | None = None,
+        continue_after_break: bool = False,
+        show_offsets: bool = False,
+    ):
         self.script = script
         self.idx = idx
         self.pos = 0
+        self.max_instructions = max_instructions
+        self.continue_after_break = continue_after_break
+        self.show_offsets = show_offsets
         self.compare1 = ""
         self.compare2 = ""
         self.lines = [f"--------- SCRIPT {idx} ---------\n"]
@@ -165,7 +179,9 @@ class Decompiler:
         return value
 
     def decompile(self) -> str:
+        instruction_count = 0
         while self.pos < len(self.script):
+            instruction_start = self.pos
             opcode = self.byte()
             if self.pos == len(self.script):
                 opcode = 0
@@ -284,7 +300,8 @@ class Decompiler:
                 line = f"palRotate({self.byte()},{self.byte()},{self.byte()})\n"
             elif op == 0x4F:
                 line = "break()\n"
-                self.pos = len(self.script)
+                if not self.continue_after_break:
+                    self.pos = len(self.script)
             elif op == 0x50:
                 line = "endScript()\n\n"
             elif op == 0x51:
@@ -373,7 +390,12 @@ class Decompiler:
                 line = f"Unsupported opcode {op:X} in decompileScript\n\n"
                 self.pos = len(self.script)
 
+            if self.show_offsets and line:
+                line = f"{instruction_start:04d}: {line}"
             self.lines.append(line)
+            instruction_count += 1
+            if self.max_instructions is not None and instruction_count >= self.max_instructions:
+                break
         return "".join(self.lines)
 
 

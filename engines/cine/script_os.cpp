@@ -715,6 +715,14 @@ int FWScript::o2_loadBg() {
 	byte param = getNextByte();
 
 	debugC(5, kCineDebugScript, "Line: %d: useBg(%d)", _line, param);
+#ifdef CINE_TRACE_BUILD
+	if (g_cine->getGameType() == Cine::GType_OS &&
+		(scumm_stricmp(currentPrcName, "EGOU.PRC") == 0 ||
+		 scumm_stricmp(currentPrcName, "LABY.PRC") == 0)) {
+		traceCineRuntime("selectBg.op91", "script=%d line=%d bg=%d oldBg=%u",
+			_index, _line, param, renderer->currentBg());
+	}
+#endif
 
 	if (param <= 8) {
 		renderer->selectBg(param);

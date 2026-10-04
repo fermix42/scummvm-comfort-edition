@@ -22,10 +22,13 @@
 
 #include "common/endian.h"
 #include "common/stream.h"
+#include "common/util.h"
 
 #include "cine/cine.h"
 #include "cine/main_loop.h"
 #include "cine/object.h"
+#include "cine/part.h"
+#include "cine/script.h"
 #include "cine/various.h"
 #include "cine/bg_list.h"
 
@@ -33,11 +36,27 @@ namespace Cine {
 
 uint32 var8;
 
+static bool shouldTraceMazeIncrusts() {
+	return g_cine->getGameType() == Cine::GType_OS &&
+		(scumm_stricmp(currentPrcName, "EGOU.PRC") == 0 ||
+		 scumm_stricmp(currentPrcName, "LABY.PRC") == 0);
+}
+
 /**
  * Add masked sprite to the background
  * @param objIdx Sprite description
  */
 void addToBGList(int16 objIdx) {
+#ifdef CINE_TRACE_BUILD
+	if (shouldTraceMazeIncrusts()) {
+		traceCineRuntime("addToBGList", "obj=%d currentBg=%u bgName=%s frame=%d x=%d y=%d part=%u mask=%u",
+			objIdx, renderer->currentBg(), renderer->getBgName(renderer->currentBg()),
+			g_cine->_objectTable[objIdx].frame, g_cine->_objectTable[objIdx].x,
+			g_cine->_objectTable[objIdx].y, g_cine->_objectTable[objIdx].part,
+			g_cine->_objectTable[objIdx].mask);
+	}
+#endif
+
 	createBgIncrustListElement(objIdx, 0);
 
 	renderer->incrustSprite(g_cine->_bgIncrustList.back());
@@ -80,6 +99,14 @@ void createBgIncrustListElement(int16 objIdx, int16 param) {
 	tmp.frame = g_cine->_objectTable[objIdx].frame;
 	tmp.part = g_cine->_objectTable[objIdx].part & 0x0f;
 	tmp.bgIdx = renderer->currentBg();
+
+#ifdef CINE_TRACE_BUILD
+	if (shouldTraceMazeIncrusts()) {
+		traceCineRuntime("createBgIncrust", "obj=%d param=%d bgIdx=%d bgName=%s x=%d y=%d frame=%d part=%d",
+			tmp.objIdx, tmp.param, tmp.bgIdx, renderer->getBgName(tmp.bgIdx),
+			tmp.x, tmp.y, tmp.frame, tmp.part);
+	}
+#endif
 
 	g_cine->_bgIncrustList.push_back(tmp);
 }

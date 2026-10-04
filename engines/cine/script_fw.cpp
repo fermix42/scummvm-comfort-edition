@@ -44,6 +44,10 @@ uint16 compareVars(int16 a, int16 b);
 static bool acceptAnyColorCode();
 static bool isColorProtectionColorChoiceReject(int scriptIndex, byte varIdx, byte varType, int16 value);
 static bool isColorProtectionRetryLoad(const char *prcName);
+static bool patchOsEuVgaJetskiSequence();
+static bool isStalePalaisDockTransitionSignal(int scriptIndex, int scriptLine, byte varIdx, int16 value);
+static bool shouldIgnoreDuplicatePalaisDockScriptStart(byte scriptIdx);
+static void retirePalaisDockScriptsForJetski(int scriptIndex, int scriptLine, byte varIdx, int16 value);
 #ifdef CINE_TRACE_BUILD
 static void traceCineState(const char *event, const Common::String &detail);
 #endif
@@ -1367,6 +1371,12 @@ int FWScript::o1_startGlobalScript() {
 		warning("EGOU.PRC startScript(46) Disabled. CHEAT!");
 		return 0;
 	}
+	if (shouldIgnoreDuplicatePalaisDockScriptStart(param)) {
+#ifdef CINE_TRACE_BUILD
+		traceCineRuntime("workaround.ignoreDuplicatePalaisDockScriptStart", "line=%d script=%d", _line, param);
+#endif
+		return 0;
+	}
 
 	addScriptToGlobalScripts(param);
 
@@ -1643,22 +1653,43 @@ int FWScript::o1_message() {
 int FWScript::o1_loadGlobalVar() {
 	byte varIdx = getNextByte();
 	byte varType = getNextByte();
+	int16 oldValue = _globalVars[varIdx];
+	int16 newValue = oldValue;
 
 	if (varType) {
 		byte dataIdx = getNextByte();
 
 		if (varType == 1) {
 			debugC(5, kCineDebugScript, "Line: %d: globalVars[%d] = var[%d]", _line, varIdx, dataIdx);
-			_globalVars[varIdx] = _localVars[dataIdx];
+			newValue = _localVars[dataIdx];
+			_globalVars[varIdx] = newValue;
 		} else {
 			debugC(5, kCineDebugScript, "Line: %d: globalVars[%d] = globalVars[%d]", _line, varIdx, dataIdx);
-			_globalVars[varIdx] = _globalVars[dataIdx];
+			newValue = _globalVars[dataIdx];
+			_globalVars[varIdx] = newValue;
 		}
+#ifdef CINE_TRACE_BUILD
+		traceCineRuntime("globalVar.write", "script=%d line=%d var=%d type=%d source=%d old=%d new=%d",
+			_index, _line, varIdx, varType, dataIdx, oldValue, newValue);
+#endif
 	} else {
 		uint16 value = getNextWord();
+		if (isStalePalaisDockTransitionSignal(_index, _line, varIdx, value)) {
+#ifdef CINE_TRACE_BUILD
+			traceCineRuntime("workaround.ignoreStalePalaisDockTransitionSignal", "script=%d line=%d var=%d old=%d ignored=%d",
+				_index, _line, varIdx, oldValue, value);
+#endif
+			return 0;
+		}
 
 		debugC(5, kCineDebugScript, "Line: %d: globalVars[%d] = %d", _line, varIdx, value);
-		_globalVars[varIdx] = value;
+		newValue = value;
+		_globalVars[varIdx] = newValue;
+		retirePalaisDockScriptsForJetski(_index, _line, varIdx, newValue);
+#ifdef CINE_TRACE_BUILD
+		traceCineRuntime("globalVar.write", "script=%d line=%d var=%d type=0 old=%d new=%d",
+			_index, _line, varIdx, oldValue, newValue);
+#endif
 	}
 
 	return 0;
@@ -2171,6 +2202,59 @@ static bool isColorProtectionRetryLoad(const char *prcName) {
 
 	return !scumm_stricmp(prcName, COPY_PROT_FAIL_PRC_NAME) ||
 		(g_cine->_copyProtectionColorScreen && !scumm_stricmp(prcName, BOOT_PRC_NAME));
+}
+
+static bool patchOsEuVgaJetskiSequence() {
+	return g_cine->getGameType() == Cine::GType_OS &&
+		g_cine->getLanguage() == Common::EN_GRB &&
+		g_cine->getPlatform() == Common::kPlatformDOS &&
+		g_cine->mayHave256Colors() &&
+		!(g_cine->getFeatures() & GF_CD) &&
+		ConfMan.getBool("patch_os_eu_vga_jetski");
+}
+
+static bool isStalePalaisDockTransitionSignal(int scriptIndex, int scriptLine, byte varIdx, int16 value) {
+	if (!patchOsEuVgaJetskiSequence() || scumm_stricmp(currentPrcName, "PALAIS1.PRC") != 0) {
+		return false;
+	}
+
+	// Script 19 is a palace/dock walk-off transition helper. The European VGA
+	// data can leave it alive after script 21 starts jetski scene 50, where
+	// Bond's jetski object crosses the old dock boundary and signals script 18
+	// to reload dock scene 49 over the active minigame.
+	return g_cine->_globalVars[240] == 50 && scriptIndex == 19 && (scriptLine == 220 || scriptLine == 414) &&
+		varIdx == 243 && value == 1;
+}
+
+static bool shouldIgnoreDuplicatePalaisDockScriptStart(byte scriptIdx) {
+	if (!patchOsEuVgaJetskiSequence() || scumm_stricmp(currentPrcName, "PALAIS1.PRC") != 0 ||
+			(scriptIdx != 18 && scriptIdx != 19 && scriptIdx != 20)) {
+		return false;
+	}
+
+	for (const auto &script : g_cine->_globalScripts) {
+		if (script->_index == scriptIdx) {
+			return true;
+		}
+	}
+
+	return false;
+}
+
+static void retirePalaisDockScriptsForJetski(int scriptIndex, int scriptLine, byte varIdx, int16 value) {
+	if (!patchOsEuVgaJetskiSequence() || scumm_stricmp(currentPrcName, "PALAIS1.PRC") != 0 ||
+			scriptIndex != 21 || scriptLine != 119 || varIdx != 240 || value != 50) {
+		return;
+	}
+
+	for (const auto &script : g_cine->_globalScripts) {
+		if (script->_index == 18 || script->_index == 19 || script->_index == 20) {
+#ifdef CINE_TRACE_BUILD
+			traceCineRuntime("workaround.retirePalaisDockScriptForJetski", "script=%d", script->_index);
+#endif
+			script->_index = -1;
+		}
+	}
 }
 
 #ifdef CINE_TRACE_BUILD

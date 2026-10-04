@@ -39,7 +39,16 @@ This file tracks user-facing changes maintained in ScummVM Comfort Edition.
 ### Operation Stealth cheats
 
 - Added Operation Stealth cheat options for the DOS 256-color release.
+- Confirmed by completing the European VGA version with all Operation Stealth cheats enabled and the European VGA jetski patch enabled.
 - `Disable guard detection` prevents guard/labyrinth failure scripts from killing the player.
 - `Accept any color code` lets the color copy-protection screen play normally while counting any selected colors as accepted.
 - `Freeze jetski energy` prevents the jetski energy meter from depleting during the jetski minigames.
 - `Disable shark collision` lets the large underwater shark swim through the player without triggering the death sequence.
+- `Disable rat maze darkness` removes the darkness overlay from the rat maze while preserving normal maze movement and collision.
+
+### Operation Stealth European VGA jetski patch
+
+- Added `Patch: EU 256-color/VGA jetski sequence`, a game option for the European DOS VGA/256-color release of Operation Stealth.
+- The patch prevents duplicated dock sequence actors and retires stale dock scripts before the jetski minigame so the player jetski does not drift left or reload the dock scene over the ocean.
+- The option is enabled by default and is limited to the European DOS VGA/256-color version.
+- Confirmed by completing the European VGA version with the patch enabled.
