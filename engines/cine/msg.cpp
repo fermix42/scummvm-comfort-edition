@@ -20,13 +20,87 @@
  */
 
 #include "common/debug.h"
+#include "common/config-manager.h"
 #include "common/endian.h"
 #include "common/textconsole.h"
+#include "common/util.h"
 
+#include "cine/cine.h"
 #include "cine/msg.h"
 #include "cine/various.h"
 
 namespace Cine {
+
+static bool shouldCleanupAmigaText() {
+	return g_cine->getGameType() == Cine::GType_OS &&
+		g_cine->getPlatform() == Common::kPlatformAmiga &&
+		(!ConfMan.hasKey("cleanup_os_amiga_text") || ConfMan.getBool("cleanup_os_amiga_text"));
+}
+
+static Common::String stripAmigaMessageControls(const char *message) {
+	Common::String result;
+
+	for (const char *p = message; *p; ++p) {
+		if (*p == '\\' && (p[1] == 'p' || p[1] == 's') && Common::isDigit(p[2])) {
+			p += 2;
+			while (Common::isDigit(p[1]))
+				++p;
+			while (p[1] == ' ')
+				++p;
+		} else if (*p == '\\' && Common::isDigit(p[1])) {
+			++p;
+			while (Common::isDigit(p[1]))
+				++p;
+			while (p[1] == ' ')
+				++p;
+		} else {
+			result += *p;
+		}
+	}
+
+	return result;
+}
+
+static Common::String normalizeMessage(const char *message, const char *msgName, uint index) {
+	if (!shouldCleanupAmigaText())
+		return message;
+
+	Common::String result = stripAmigaMessageControls(message);
+
+	if (g_cine->getLanguage() == Common::EN_GRB && scumm_stricmp(msgName, "BATEAU.MSG") == 0 &&
+			index == 4 && result.hasPrefix("A very light Un tr")) {
+		result = "A very light whistle tells you the bracelet is inflating.";
+	}
+
+	if (g_cine->getLanguage() == Common::EN_GRB && scumm_stricmp(msgName, "VILLE.MSG") == 0 &&
+			index == 3 && result.hasSuffix("vous le prenez.")) {
+		result = "OK. You take it.";
+	}
+
+	if (g_cine->getLanguage() == Common::EN_GRB && scumm_stricmp(msgName, "SALLE59.MSG") == 0) {
+		if (index == 136 && result.hasPrefix("Vous actionnez")) {
+			result = "You play with the on/off switch on the razor. It turns on.";
+		} else if (index == 172 && result.hasSuffix("Docteur WHY ?")) {
+			result = "\"Why the number 346, Doctor Why?\"";
+		} else if (index == 174 && result.hasPrefix("Docteur WHY")) {
+			result = "\"Doctor Why, a transmission from the Stealth.\"";
+		}
+	}
+
+	if (g_cine->getLanguage() == Common::EN_GRB && scumm_stricmp(msgName, "DOUCHE.MSG") == 0) {
+		if (index == 22 && result.hasPrefix("-Vous pouvez disposer")) {
+			result = "\"You can leave.\"";
+		} else if (index == 172 && result.hasSuffix("Docteur WHY ?")) {
+			result = "\"Why the number 346, Doctor Why?\"";
+		} else if (index == 174 && result.hasPrefix("Docteur WHY")) {
+			result = "\"Doctor Why, a transmission from the Stealth.\"";
+		} else if (index == 207 && result.hasPrefix("Ok! Vous enlacez")) {
+			result = "OK! You secure the bomb with your elastic band.";
+		}
+	}
+
+	return result;
+}
 
 int16 loadMsg(char *pMsgName) {
 	uint32 sourceSize;
@@ -58,7 +132,7 @@ int16 loadMsg(char *pMsgName) {
 		// This code works around input data that has empty strings residing outside the input
 		// buffer (e.g. message indices 58-254 in BATEAU.MSG in PROCS08 in Operation Stealth).
 		if (messageDataPos < sourceSize) {
-			g_cine->_messageTable.push_back((const char *)(dataPtr + messageDataPos));
+			g_cine->_messageTable.push_back(normalizeMessage((const char *)(dataPtr + messageDataPos), pMsgName, i));
 		} else {
 			if (messageLen > 0) { // Only warn about overflowing non-empty strings
 				warning("loadMsg(%s): message (%d. / %d) is overflowing the input buffer. Replacing it with an empty string", pMsgName, i + 1, count);

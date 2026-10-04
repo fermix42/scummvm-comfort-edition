@@ -656,6 +656,18 @@ int FWScript::o2_op8D() {
 	debugC(5, kCineDebugScript, "Line: %d: o2_op8D(%d, %d, %d, %d, %d, %d, %d, %d)", _line, objIdx1, xAdd1, yAdd1, maskAdd1, objIdx2, xAdd2, yAdd2, maskAdd2);
 
 	_compare = compareObjectParamRanges(objIdx1, xAdd1, yAdd1, maskAdd1, objIdx2, xAdd2, yAdd2, maskAdd2);
+#ifdef CINE_TRACE_BUILD
+	if (scumm_stricmp(currentPrcName, "SOUSMAR2.PRC") == 0 &&
+			(objIdx1 == 1 || objIdx2 == 1 || (objIdx1 >= 70 && objIdx1 <= 73) || (objIdx2 >= 70 && objIdx2 <= 73))) {
+		const ObjectStruct &obj1 = g_cine->_objectTable[objIdx1];
+		const ObjectStruct &obj2 = g_cine->_objectTable[objIdx2];
+		traceCineRuntime("shark.compareRange",
+			"script=%d line=%d args=%u,%u,%u,%u,%u,%u,%u,%u result=%d obj%u={x:%d y:%d mask:%u frame:%d part:%u} obj%u={x:%d y:%d mask:%u frame:%d part:%u}",
+			_index, _line, objIdx1, xAdd1, yAdd1, maskAdd1, objIdx2, xAdd2, yAdd2, maskAdd2, _compare,
+			objIdx1, obj1.x, obj1.y, obj1.mask, obj1.frame, obj1.part,
+			objIdx2, obj2.x, obj2.y, obj2.mask, obj2.frame, obj2.part);
+	}
+#endif
 	return 0;
 }
 

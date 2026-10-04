@@ -38,13 +38,16 @@ This file tracks user-facing changes maintained in ScummVM Comfort Edition.
 
 ### Operation Stealth cheats
 
-- Added Operation Stealth cheat options for the DOS 256-color release.
+- Added Operation Stealth cheat options for the DOS 256-color and Amiga releases.
 - Confirmed by completing the European VGA version with all Operation Stealth cheats enabled and the European VGA jetski patch enabled.
 - `Disable guard detection` prevents guard/labyrinth failure scripts from killing the player.
 - `Accept any color code` lets the color copy-protection screen play normally while counting any selected colors as accepted.
 - `Freeze jetski energy` prevents the jetski energy meter from depleting during the jetski minigames.
 - `Disable shark collision` lets the large underwater shark swim through the player without triggering the death sequence.
 - `Disable rat maze darkness` removes the darkness overlay from the rat maze while preserving normal maze movement and collision.
+- `Patch: Amiga text cleanup` hides Amiga inline text layout codes and fixes known mixed-language English text leftovers.
+- `Freeze final countdown` prevents the Amiga final timed escape sequence from expiring.
+- `Click to advance cutscenes` lets timed Operation Stealth cutscene captions wait for a player click before advancing.
 
 ### Operation Stealth European VGA jetski patch
 

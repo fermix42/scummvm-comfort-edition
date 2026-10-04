@@ -48,8 +48,13 @@ static bool shouldDisableScript36SharkHit(uint16 objIdx1, uint16 xAdd1, uint16 y
 		return false;
 	}
 
-	return objIdx1 == 1 && xAdd1 == 40 && yAdd1 == 20 && maskAdd1 == 5 &&
-		objIdx2 == 70 && xAdd2 == 100 && yAdd2 == 20 && maskAdd2 == 1;
+	if (objIdx1 != 1 || xAdd1 != 40 || yAdd1 != 20 || maskAdd1 != 5 ||
+			objIdx2 != 70 || maskAdd2 != 1) {
+		return false;
+	}
+
+	return (xAdd2 == 100 && yAdd2 == 20) ||
+		(xAdd2 == 110 && yAdd2 == 40);
 }
 
 /** Resets all elements in the object table. */

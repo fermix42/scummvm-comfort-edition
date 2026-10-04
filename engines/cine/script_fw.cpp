@@ -47,6 +47,7 @@ static bool isColorProtectionRetryLoad(const char *prcName);
 static bool patchOsEuVgaJetskiSequence();
 static bool isStalePalaisDockTransitionSignal(int scriptIndex, int scriptLine, byte varIdx, int16 value);
 static bool shouldIgnoreDuplicatePalaisDockScriptStart(byte scriptIdx);
+static bool shouldFreezeFinalEscapeCountdown(int scriptIndex, int scriptLine, byte varIdx, byte labelIdx);
 static void retirePalaisDockScriptsForJetski(int scriptIndex, int scriptLine, byte varIdx, int16 value);
 #ifdef CINE_TRACE_BUILD
 static void traceCineState(const char *event, const Common::String &detail);
@@ -1335,6 +1336,23 @@ int FWScript::o1_loop() {
 	byte varIdx = getNextByte();
 	byte labelIdx = getNextByte();
 
+	if (shouldFreezeFinalEscapeCountdown(_index, _line, varIdx, labelIdx)) {
+		_localVars[varIdx] = MAX<int16>(_localVars[varIdx], 1);
+#ifdef CINE_TRACE_BUILD
+		traceCineRuntime("cheat.freezeFinalCountdown", "script=%d line=%d var=%d label=%d value=%d",
+			_index, _line, varIdx, labelIdx, _localVars[varIdx]);
+#endif
+	}
+
+	if (hasCutsceneTextAdvanceRequest(_index)) {
+		_localVars[varIdx] = 0;
+		markCutsceneTextDelayLoopSkipped();
+#ifdef CINE_TRACE_BUILD
+		traceCineRuntime("cheat.advanceCutsceneTextLoop", "script=%d line=%d var=%d label=%d",
+			_index, _line, varIdx, labelIdx);
+#endif
+	}
+
 	_localVars[varIdx]--;
 
 	if (_localVars[varIdx] >= 0) {
@@ -1646,6 +1664,11 @@ int FWScript::o1_message() {
 
 	debugC(5, kCineDebugScript, "Line: %d: message(%d,%d,%d,%d,%d)", _line, param1, param2, param3, param4, param5);
 
+	if ((int16)param5 < 0) {
+		consumeCutsceneTextAdvanceRequest(_index);
+		noteCutsceneTextScript(_index);
+	}
+
 	addMessage(param1, param2, param3, param4, param5);
 	return 0;
 }
@@ -1723,6 +1746,8 @@ int FWScript::o1_compareGlobalVar() {
 		// gameplay to verify that copy protection was successfully passed).
 		if (varIdx == 255 && (g_cine->getGameType() == Cine::GType_FW)) {
 			_compare = kCmpEQ;
+		} else if (shouldBypassCutsceneTextSpeechGate(_index, varIdx, value)) {
+			_compare = kCmpGT;
 		} else {
 			_compare = compareVars(_globalVars[varIdx], value);
 		}
@@ -2239,6 +2264,14 @@ static bool shouldIgnoreDuplicatePalaisDockScriptStart(byte scriptIdx) {
 	}
 
 	return false;
+}
+
+static bool shouldFreezeFinalEscapeCountdown(int scriptIndex, int scriptLine, byte varIdx, byte labelIdx) {
+	return g_cine->getGameType() == Cine::GType_OS &&
+		g_cine->getPlatform() == Common::kPlatformAmiga &&
+		ConfMan.getBool("freeze_final_countdown") &&
+		scumm_stricmp(currentPrcName, "SALLE59.PRC") == 0 &&
+		scriptIndex == 92 && scriptLine == 277 && varIdx == 1 && labelIdx == 30;
 }
 
 static void retirePalaisDockScriptsForJetski(int scriptIndex, int scriptLine, byte varIdx, int16 value) {

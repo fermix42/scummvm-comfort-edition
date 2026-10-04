@@ -538,6 +538,7 @@ void CineEngine::mainLoop(int bootScriptIdx) {
 				_messageLen = 800;
 
 			manageEvents(MAIN_LOOP_WAIT_FOR_PLAYER_CLICK, UNTIL_MOUSE_BUTTON_UP_DOWN_UP);
+			finishCutsceneTextClickWait();
 			stopTextToSpeech();
 			waitForPlayerClick = 0;
 		}

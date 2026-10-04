@@ -146,6 +146,40 @@ static const ADExtraGuiOptionsMap optionsList[] = {
 			0
 		}
 	},
+	{
+		GAMEOPTION_CLEANUP_OS_AMIGA_TEXT,
+		{
+			_s("Patch: Amiga text cleanup"),
+			_s("Hide Amiga Operation Stealth inline text layout codes and fix a mixed French/English bracelet message"),
+			"cleanup_os_amiga_text",
+			true,
+			0,
+			0
+		}
+	},
+	{
+		GAMEOPTION_FREEZE_FINAL_COUNTDOWN,
+		{
+			_s("Freeze final countdown"),
+			_s("Prevent Operation Stealth's final timed escape sequence from expiring"),
+			"freeze_final_countdown",
+			false,
+			0,
+			0,
+			kExtraGuiOptionFlagCheat
+		}
+	},
+	{
+		GAMEOPTION_CLICK_TO_ADVANCE_CUTSCENES,
+		{
+			_s("Click to advance cutscenes"),
+			_s("Require a click before advancing Operation Stealth cutscene text"),
+			"click_to_advance_cutscenes",
+			false,
+			0,
+			0
+		}
+	},
 
 	AD_EXTRA_GUI_OPTIONS_TERMINATOR
 };

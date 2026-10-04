@@ -44,7 +44,13 @@ FWRenderer *renderer = nullptr;
 static bool shouldDisableRatMazeDarkness() {
 	return g_cine->getGameType() == GType_OS &&
 		ConfMan.getBool("disable_rat_maze_darkness") &&
-		scumm_stricmp(currentPrcName, "EGOU.PRC") == 0;
+		(scumm_stricmp(currentPrcName, "EGOU.PRC") == 0 ||
+		 scumm_stricmp(currentPrcName, "LABY.PRC") == 0);
+}
+
+static bool shouldWaitForCutsceneText(int color) {
+	return color < 0 && g_cine->getGameType() == GType_OS &&
+		ConfMan.getBool("click_to_advance_cutscenes");
 }
 
 #define DEFAULT_MESSAGE_BG 1
@@ -2301,6 +2307,9 @@ void OSRenderer::renderOverlay(const Common::List<overlay>::iterator &it) {
 		_messageLen += g_cine->_messageTable[it->objIdx].size();
 		drawMessage(g_cine->_messageTable[it->objIdx].c_str(), it->x, it->y, it->width, it->color);
 		if (it->color >= 0) { // This test isn't in Future Wars's implementation
+			waitForPlayerClick = 1;
+		} else if (shouldWaitForCutsceneText(it->color)) {
+			beginCutsceneTextClickWait();
 			waitForPlayerClick = 1;
 		}
 		break;
