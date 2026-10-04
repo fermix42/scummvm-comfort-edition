@@ -46,5 +46,4 @@ Timestamps use ISO 8601 local time with UTC offset.
 - 2026-10-04T13:34:00-07:00: Cheat: Added `No alligators` for Deja Vu Macintosh to prevent the random sewer alligator encounter from spawning.
 - 2026-10-04T13:54:28-07:00: Cheat: Added `Unlimited inventory` for Deja Vu Macintosh to allow moves into the trench coat when only the normal capacity check would reject them.
 - 2026-10-04T14:21:01-07:00: Cheat: Added `Mugger won't kill` for Deja Vu Macintosh to keep the mugger encounter active while preventing repeated punches from advancing the mugger counter into the death branch.
-- 2026-10-04T16:08:00-07:00: Docs: Added Deja Vu Macintosh testing notes covering the walkthrough source, trace workflow, known scripts, and completed live-play validation.
 - 2026-10-04T16:08:00-07:00: Release: Verified the Windows Release x64 build with the Deja Vu Macintosh patches and launcher Cheats tab wiring.
