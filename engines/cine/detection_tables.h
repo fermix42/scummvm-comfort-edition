@@ -59,6 +59,15 @@ namespace Cine {
 	GAMEOPTION_FREEZE_FINAL_COUNTDOWN, \
 	GAMEOPTION_CLICK_TO_ADVANCE_CUTSCENES)
 
+#define GUIO_OS_ATARI_OPTIONS GUIO7( \
+	GAMEOPTION_DISABLE_GUARD_DETECTION, \
+	GAMEOPTION_ACCEPT_ANY_COLOR_CODE, \
+	GAMEOPTION_FREEZE_JETSKI_ENERGY, \
+	GAMEOPTION_DISABLE_SHARK_COLLISION, \
+	GAMEOPTION_DISABLE_RAT_MAZE_DARKNESS, \
+	GAMEOPTION_FREEZE_FINAL_COUNTDOWN, \
+	GAMEOPTION_CLICK_TO_ADVANCE_CUTSCENES)
+
 static const CINEGameDescription gameDescriptions[] = {
 	{
 		{
@@ -592,7 +601,7 @@ static const CINEGameDescription gameDescriptions[] = {
 			Common::EN_GRB,
 			Common::kPlatformAtariST,
 			ADGF_NO_FLAGS,
-			GUIO1(GUIO_NOMIDI)
+			GUIO_OS_ATARI_OPTIONS
 		},
 		GType_OS,
 		0,
@@ -606,7 +615,7 @@ static const CINEGameDescription gameDescriptions[] = {
 			Common::FR_FRA,
 			Common::kPlatformAtariST,
 			ADGF_NO_FLAGS,
-			GUIO1(GUIO_NOMIDI)
+			GUIO_OS_ATARI_OPTIONS
 		},
 		GType_OS,
 		0,
@@ -618,6 +627,7 @@ static const CINEGameDescription gameDescriptions[] = {
 #undef GUIO_OS_EU_VGA_OPTIONS
 #undef GUIO_OS_AMIGA_ITALIAN_OPTIONS
 #undef GUIO_OS_AMIGA_OPTIONS
+#undef GUIO_OS_ATARI_OPTIONS
 #undef GUIO_OS_VGA_CHEATS
 
 } // End of namespace Cine

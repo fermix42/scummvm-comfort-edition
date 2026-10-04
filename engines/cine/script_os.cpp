@@ -396,8 +396,8 @@ int FWScript::o2_loadPart() {
 }
 
 int FWScript::o2_playSample() {
-	if (g_cine->getPlatform() == Common::kPlatformAmiga || g_cine->getPlatform() == Common::kPlatformAtariST) {
-		// no-op in these versions
+	if (g_cine->getPlatform() == Common::kPlatformAmiga) {
+		// no-op in this version
 		getNextByte();
 		getNextByte();
 		getNextWord();

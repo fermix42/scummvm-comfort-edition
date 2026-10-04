@@ -62,6 +62,7 @@ Timestamp: 2026-10-04T00:19:17-07:00
 - 2026-10-04T00:19:17-07:00: `Patch: Amiga text cleanup` hides Amiga inline text layout codes and fixes known mixed-language English text leftovers.
 - 2026-10-04T00:19:17-07:00: `Freeze final countdown` prevents the Amiga final timed escape sequence from expiring.
 - 2026-10-04T00:19:17-07:00: `Click to advance cutscenes` lets timed Operation Stealth cutscene captions wait for a player click before advancing.
+- 2026-10-04T00:48:16-07:00: Restored music and sound effects for Atari ST Operation Stealth installs that use `MIDI.ON` and H32 sound resources.
 
 ### Operation Stealth European VGA jetski patch
 

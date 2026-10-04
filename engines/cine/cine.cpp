@@ -22,6 +22,7 @@
 #include "common/config-manager.h"
 #include "common/debug-channels.h"
 #include "common/events.h"
+#include "common/file.h"
 
 #include "backends/keymapper/keymapper.h"
 
@@ -246,7 +247,13 @@ Common::Error CineEngine::run() {
 		}
 	}
 
-	if (getPlatform() == Common::kPlatformDOS) {
+	bool usePCSound = getPlatform() == Common::kPlatformDOS;
+	if (!usePCSound && getGameType() == GType_OS && getPlatform() == Common::kPlatformAtariST) {
+		Common::File midiFlag;
+		usePCSound = midiFlag.open("midi.on");
+	}
+
+	if (usePCSound) {
 		g_sound = new PCSound(_mixer, this);
 	} else {
 		// Paula chipset for Amiga and Atari versions
