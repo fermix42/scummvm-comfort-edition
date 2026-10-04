@@ -53,6 +53,10 @@ public:
 	void branch(int16 amount);
 
 	ObjID getId();
+#ifdef MACVENTURE_TRACE_BUILD
+	uint32 getIP() const { return _ip; }
+	uint32 size() const { return _instructions.size(); }
+#endif
 
 private:
 
@@ -101,6 +105,22 @@ public:
 	int16 size() {
 		return 0x80 - sp;
 	}
+
+#ifdef MACVENTURE_TRACE_BUILD
+	Common::String formatStack(uint maxItems = 12) {
+		Common::String out("[");
+		int16 count = size();
+		for (int16 i = 0; i < count && i < (int16)maxItems; ++i) {
+			if (i)
+				out += ",";
+			out += Common::String::format("%d", stack[sp + i]);
+		}
+		if (count > (int16)maxItems)
+			out += ",...";
+		out += "]";
+		return out;
+	}
+#endif
 
 private:
 	int16 unneg16(int16 data) {
@@ -178,8 +198,8 @@ private:
 	void op88PUIB(EngineState *state, EngineFrame *frame, ScriptAsset *script);//push immediate.b
 	void op89PUI(EngineState *state, EngineFrame *frame, ScriptAsset *script);//push immediate
 	void op8aGGLO(EngineState *state, EngineFrame *frame);	//get global
-	void op8bSGLO(EngineState *state, EngineFrame *frame);	//set global
-	void op8cRAND(EngineState *state, EngineFrame *frame);	//random
+	void op8bSGLO(EngineState *state, EngineFrame *frame, ScriptAsset *script);	//set global
+	void op8cRAND(EngineState *state, EngineFrame *frame, ScriptAsset *script);	//random
 	void op8dCOPY(EngineState *state, EngineFrame *frame);	//copy
 	void op8eCOPYN(EngineState *state, EngineFrame *frame);	//copyn
 	void op8fSWAP(EngineState *state, EngineFrame *frame);	//swap
@@ -279,6 +299,15 @@ private:
 	void ope7CFIB(EngineState *state, EngineFrame *frame);	//calc fibonacci
 
 	void op00NOOP(byte op);
+
+#ifdef MACVENTURE_TRACE_BUILD
+	void traceScriptEvent(const char *event, EngineFrame *frame, EngineState *state, const char *fmt, ...);
+	void traceBranch(const char *event, EngineFrame *frame, EngineState *state, int16 amount, bool taken, uint32 newIP);
+
+	ObjID _traceScriptID;
+	uint32 _traceOffset;
+	byte _traceOpcode;
+#endif
 
 private:
 	MacVentureEngine *_engine;

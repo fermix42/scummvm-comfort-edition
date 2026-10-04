@@ -49,6 +49,7 @@ Common::Error MacVentureEngine::loadGameState(int slot) {
 	_world->loadGameFrom(saveFile);
 	reset();
 	setInitialFlags(kGameStatePlaying);
+	markConsoleTextRestored();
 	_world->setObjAttr(_world->getObjAttr(1, kAttrParentObject), kAttrContainerOpen, true);
 
 	ExtendedSavegameHeader header;

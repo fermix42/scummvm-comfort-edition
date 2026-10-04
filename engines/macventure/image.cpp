@@ -362,6 +362,13 @@ byte ImageAsset::walkHuff(const PPICHuff &huff, Common::BitStream8MSB &stream) {
 		_walkLast = ((_walkLast << 8) & 0xFF00) | (_walkLast >> 8);
 		return _walkLast & 0xFF;
 	}
+	if (stream.pos() + 16 > stream.size()) {
+#ifdef MACVENTURE_TRACE_BUILD
+		warning("MACVENTURE_TRACE image.walk_huff.eof pos=%u size=%u", stream.pos(), stream.size());
+#endif
+		_walkLast = 0;
+		return 0;
+	}
 	uint16 dw = stream.peekBits<16>();
 	uint16 i = 0;
 	for (;i < 16; i++) {

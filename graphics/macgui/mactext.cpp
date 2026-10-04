@@ -678,6 +678,10 @@ int MacText::getLineHeight(int line) {
 	return _canvas.getLineHeight(line);
 }
 
+int MacText::getLineY(int line) {
+	return _canvas.getLineY(line);
+}
+
 void MacText::setInterLinear(int interLinear) {
 	_canvas._interLinear = interLinear;
 

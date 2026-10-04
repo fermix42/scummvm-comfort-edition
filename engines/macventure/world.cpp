@@ -73,6 +73,9 @@ void World::startNewGame() {
 		error("WORLD: Could not load initial game configuration");
 
 	debugC(2, kMVDebugMain, "Loading save game state from %s", _startGameFileName.toString().c_str());
+#ifdef MACVENTURE_TRACE_BUILD
+	_engine->traceRuntime("world.start_new_game", "file=%s", _startGameFileName.toString().c_str());
+#endif
 	Common::SeekableReadStream *saveGameRes = Common::MacResManager::openFileOrDataFork(_startGameFileName);
 
 	_saveGame = new SaveGame(_engine, saveGameRes);
@@ -115,6 +118,10 @@ void World::setObjAttr(ObjID objID, uint32 attrID, Attribute value) {
 		// Intentionally empty, we don't seem to require this functionality
 	}
 
+#ifdef MACVENTURE_TRACE_BUILD
+	Attribute oldLogical = getObjAttr(objID, attrID);
+#endif
+
 	if (attrID == kAttrParentObject)
 		setParent(objID, value);
 
@@ -128,6 +135,9 @@ void World::setObjAttr(ObjID objID, uint32 attrID, Attribute value) {
 	oldVal &= ~_engine->getGlobalSettings()._attrMasks[attrID];
 	_saveGame->setAttr(idx, objID, (value | oldVal));
 	_engine->gameChanged();
+#ifdef MACVENTURE_TRACE_BUILD
+	_engine->traceRuntime("world.attr.set", "obj=%u attr=%u old=%u new=%u stored=0x%04x", objID, attrID, oldLogical, getObjAttr(objID, attrID), (uint)(value | oldVal));
+#endif
 }
 
 bool MacVenture::World::isObjActive(ObjID obj) {
@@ -190,7 +200,14 @@ Attribute World::getGlobal(uint32 attrID) {
 }
 
 void World::setGlobal(uint32 attrID, Attribute value) {
+#ifdef MACVENTURE_TRACE_BUILD
+	Attribute oldValue = getGlobal(attrID);
+#endif
+	value = _engine->clampGlobalValue(attrID, value);
 	_saveGame->setGlobal(attrID, value);
+#ifdef MACVENTURE_TRACE_BUILD
+	_engine->traceRuntime("world.global.set", "global=%u old=%u new=%u", attrID, oldValue, getGlobal(attrID));
+#endif
 }
 
 void World::updateObj(ObjID objID) {
@@ -231,11 +248,18 @@ void World::releaseChildren(ObjID objID) {
 
 Common::String World::getText(ObjID objID, ObjID source, ObjID target) {
 	if (objID & 0x8000) {
+#ifdef MACVENTURE_TRACE_BUILD
+		_engine->traceRuntime("world.text.get", "text=%u source=%u target=%u userInput=1", objID, source, target);
+#endif
 		return _engine->getUserInput();
 	}
 	TextAsset text = TextAsset(_engine, objID, source, target, _gameText, _engine->isOldText(), _engine->getDecodingHuffman());
 
-	return *text.decode();
+	Common::String decoded = *text.decode();
+#ifdef MACVENTURE_TRACE_BUILD
+	_engine->traceRuntime("world.text.get", "text=%u source=%u target=%u decoded=\"%s\"", objID, source, target, decoded.c_str());
+#endif
+	return decoded;
 }
 
 
@@ -296,6 +320,9 @@ void World::loadGameFrom(Common::InSaveFile *file) {
 	_saveGame = new SaveGame(_engine, file);
 	_engine->setConsoleText(_saveGame->getText());
 	calculateObjectRelations();
+#ifdef MACVENTURE_TRACE_BUILD
+	_engine->traceRuntime("world.load_game", "consoleTextBytes=%u", (uint)_saveGame->getText().size());
+#endif
 }
 
 void World::saveGameInto(Common::OutSaveFile *file) {

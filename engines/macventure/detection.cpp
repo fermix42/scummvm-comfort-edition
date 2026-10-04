@@ -29,19 +29,21 @@ namespace MacVenture {
 #define ADGF_DEFAULT (ADGF_DROPLANGUAGE|ADGF_DROPPLATFORM|ADGF_MACRESFORK)
 
 #define MACGAME(n, v, f, md5, s) {n, v, AD_ENTRY1s(f, md5, s), Common::EN_ANY, Common::kPlatformMacintosh, ADGF_DEFAULT|ADGF_TESTING, GUIO1(GUIO_NOMIDI)}
+#define DEJAVUMACGAME(v, f, md5, s) {"deja_vu", v, AD_ENTRY1s(f, md5, s), Common::EN_ANY, Common::kPlatformMacintosh, ADGF_DEFAULT|ADGF_TESTING, GUIO7(GUIO_NOMIDI, GAMEOPTION_DEJA_VU_FREEZE_POLICE_TIMER, GAMEOPTION_DEJA_VU_RIG_SLOT_MACHINE, GAMEOPTION_DEJA_VU_UNLIMITED_AMMO, GAMEOPTION_DEJA_VU_NO_ALLIGATORS, GAMEOPTION_DEJA_VU_UNLIMITED_INVENTORY, GAMEOPTION_DEJA_VU_MUGGER_WONT_KILL)}
 #define MACDEMO(n, v, f, md5, s) {n, v, AD_ENTRY1s(f, md5, s), Common::EN_ANY, Common::kPlatformMacintosh, ADGF_DEFAULT|ADGF_TESTING|ADGF_DEMO, GUIO1(GUIO_NOMIDI)}
 #define IIGSGAME(n, v, f, md5, s) {n, v, AD_ENTRY1s(f, md5, s), Common::EN_ANY, Common::kPlatformApple2GS, ADGF_DEFAULT|ADGF_UNSTABLE, GUIO1(GUIO_NOMIDI)}
 
 static const ADGameDescription gameDescriptions[] = {
 	// Original Mac releases (uses protection)
 	MACGAME("shadowgate", "", "Shadowgate", "b9e8e5d68a81cdbd2cbb5cfe8ea7a47d", 58886), // protection cracked
-	MACGAME("deja_vu", "", "xn--Dj Vu-sqa5d", "9e0436d1f24a1c8a3c9fd846f055201e", 58468), // original filename is "Déjà Vu", protection cracked
+	DEJAVUMACGAME("", "xn--Dj Vu-sqa5d", "9e0436d1f24a1c8a3c9fd846f055201e", 58468), // original filename is "Déjà Vu", protection cracked
 	MACGAME("uninvited", "", "Uninvited", "2cf518cddeda96bfc0cc9ba0bd91b42e", 58631), // v2.1D1, with protection
 	MACGAME("uninvited", "", "Uninvited", "20291feb9bce70a32979031631c42da1", 58639), // protection cracked
 
 	// 1993 Mac rereleases (identical to the Zojoi rereleases), no protection
 	MACGAME("shadowgate", "1993 rerelease", "Shadowgate", "0f4eb65cf369c6c75e4b991b986c34a2", 68718),
-	MACGAME("deja_vu", "1993 rerelease", "xn--Dj Vu-sqa5d", "0f4eb65cf369c6c75e4b991b986c34a2", 68778), // original filename is "Déjà Vu"
+	DEJAVUMACGAME("1993 rerelease", "xn--Dj Vu-sqa5d", "0f4eb65cf369c6c75e4b991b986c34a2", 68778), // original filename is "Déjà Vu"
+	DEJAVUMACGAME("1993 rerelease", "Deja Vu", "0f4eb65cf369c6c75e4b991b986c34a2", 68778), // ASCII filename from some MacBinary extractions
 	MACGAME("deja_vu2", "1993 rerelease", "Lost in Las Vegas", "0f4eb65cf369c6c75e4b991b986c34a2", 66264),
 	MACGAME("uninvited", "1993 rerelease", "Uninvited", "0f4eb65cf369c6c75e4b991b986c34a2", 68974),
 

@@ -68,13 +68,33 @@ class OptionsContainerWidget;
  * Currently, this can only be used for options with checkboxes.
  */
 struct ExtraGuiOption {
+	ExtraGuiOption() :
+			label(nullptr),
+			tooltip(nullptr),
+			configOption(nullptr),
+			defaultState(false),
+			groupId(0),
+			groupLeaderId(0),
+			flags(0) {
+	}
+
+	ExtraGuiOption(const char *optionLabel, const char *optionTooltip, const char *optionConfigOption, bool optionDefaultState, byte optionGroupId, byte optionGroupLeaderId, uint32 optionFlags = 0) :
+			label(optionLabel),
+			tooltip(optionTooltip),
+			configOption(optionConfigOption),
+			defaultState(optionDefaultState),
+			groupId(optionGroupId),
+			groupLeaderId(optionGroupLeaderId),
+			flags(optionFlags) {
+	}
+
 	const char *label;         /*!< Option label, e.g. "Fullscreen mode". */
 	const char *tooltip;       /*!< Option tooltip shown when the mouse cursor hovers over it. */
 	const char *configOption;  /*!< confMan key, e.g. "fullscreen". */
 	bool defaultState;         /*!< Default state of the checkbox (checked or not). */
 	byte groupId;        /*!< Set to the leader Id (groupLeaderId) for the checkbox's group, or 0 for no group. */
 	byte groupLeaderId;  /*!< Set to a non-zero value only for the leader of the checkbox group. When this leader checkbox is unchecked, disable all checkboxes in this group. One leader per group. */
-	uint32 flags = 0;    /*!< ExtraGuiOptionFlags bitmask for categorizing options. */
+	uint32 flags;        /*!< ExtraGuiOptionFlags bitmask for categorizing options. */
 };
 
 enum ExtraGuiOptionFlags {

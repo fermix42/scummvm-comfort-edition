@@ -22,11 +22,89 @@
 #include "base/plugins.h"
 
 #include "engines/advancedDetector.h"
+#include "common/config-manager.h"
 #include "common/system.h"
+#include "common/translation.h"
 
 #include "macventure/macventure.h"
 
 namespace MacVenture {
+
+static const ADExtraGuiOptionsMap optionsList[] = {
+	{
+		GAMEOPTION_DEJA_VU_FREEZE_POLICE_TIMER,
+		{
+			_s("Freeze police timer"),
+			_s("Prevent the police arrest timer from reaching the game-over state in Deja Vu"),
+			"deja_vu_freeze_police_timer",
+			false,
+			0,
+			0,
+			kExtraGuiOptionFlagCheat
+		}
+	},
+	{
+		GAMEOPTION_DEJA_VU_RIG_SLOT_MACHINE,
+		{
+			_s("Rig slot machine"),
+			_s("Force Deja Vu's slot machine roll to take the winning branch"),
+			"deja_vu_rig_slot_machine",
+			false,
+			0,
+			0,
+			kExtraGuiOptionFlagCheat
+		}
+	},
+	{
+		GAMEOPTION_DEJA_VU_UNLIMITED_AMMO,
+		{
+			_s("Unlimited ammo"),
+			_s("Prevent Deja Vu's gunshots from consuming loaded ammunition"),
+			"deja_vu_unlimited_ammo",
+			false,
+			0,
+			0,
+			kExtraGuiOptionFlagCheat
+		}
+	},
+	{
+		GAMEOPTION_DEJA_VU_NO_ALLIGATORS,
+		{
+			_s("No alligators"),
+			_s("Prevent Deja Vu's random sewer alligator encounter from triggering"),
+			"deja_vu_no_alligators",
+			false,
+			0,
+			0,
+			kExtraGuiOptionFlagCheat
+		}
+	},
+	{
+		GAMEOPTION_DEJA_VU_UNLIMITED_INVENTORY,
+		{
+			_s("Unlimited inventory"),
+			_s("Allow Deja Vu's trench coat inventory to exceed its normal capacity"),
+			"deja_vu_unlimited_inventory",
+			false,
+			0,
+			0,
+			kExtraGuiOptionFlagCheat
+		}
+	},
+	{
+		GAMEOPTION_DEJA_VU_MUGGER_WONT_KILL,
+		{
+			_s("Mugger won't kill"),
+			_s("Keep Deja Vu's mugger encounter active, but prevent repeated punches from reaching the death branch"),
+			"deja_vu_mugger_wont_kill",
+			false,
+			0,
+			0,
+			kExtraGuiOptionFlagCheat
+		}
+	},
+	AD_EXTRA_GUI_OPTIONS_TERMINATOR
+};
 
 const char *MacVentureEngine::getGameFileName() const {
 	return _gameDescription->filesDescriptions[0].fileName;
@@ -43,11 +121,32 @@ public:
 		return "macventure";
 	}
 
+	const ADExtraGuiOptionsMap *getAdvancedExtraGuiOptions() const override {
+		return MacVenture::optionsList;
+	}
+
+	bool isAdvancedExtraGuiOptionAllowedForTarget(const Common::String &target, const ADExtraGuiOptionsMap &entry) const override;
+
 protected:
 	Common::Error createInstance(OSystem *syst, Engine **engine, const ADGameDescription *desc) const override;
 	bool hasFeature(MetaEngineFeature f) const override;
 	int getMaximumSaveSlot() const override;
 };
+
+bool MacVentureMetaEngine::isAdvancedExtraGuiOptionAllowedForTarget(const Common::String &target, const ADExtraGuiOptionsMap &entry) const {
+	const bool isDejaVuCheat =
+		!strcmp(entry.guioFlag, GAMEOPTION_DEJA_VU_FREEZE_POLICE_TIMER) ||
+		!strcmp(entry.guioFlag, GAMEOPTION_DEJA_VU_RIG_SLOT_MACHINE) ||
+		!strcmp(entry.guioFlag, GAMEOPTION_DEJA_VU_UNLIMITED_AMMO) ||
+		!strcmp(entry.guioFlag, GAMEOPTION_DEJA_VU_NO_ALLIGATORS) ||
+		!strcmp(entry.guioFlag, GAMEOPTION_DEJA_VU_UNLIMITED_INVENTORY) ||
+		!strcmp(entry.guioFlag, GAMEOPTION_DEJA_VU_MUGGER_WONT_KILL);
+
+	if (!isDejaVuCheat)
+		return true;
+
+	return !ConfMan.hasKey("gameid", target) || ConfMan.get("gameid", target) == "deja_vu";
+}
 
 bool MacVentureMetaEngine::hasFeature(MetaEngineFeature f) const {
 	return

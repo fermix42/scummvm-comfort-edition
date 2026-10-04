@@ -1059,6 +1059,13 @@ int MacTextCanvas::getLineHeight(int line) {
 	return _text[line].height;
 }
 
+int MacTextCanvas::getLineY(int line) {
+	if ((uint)line >= _text.size())
+		return 0;
+
+	return _text[line].y;
+}
+
 void MacTextCanvas::recalcDims() {
 	if (_text.empty())
 		return;

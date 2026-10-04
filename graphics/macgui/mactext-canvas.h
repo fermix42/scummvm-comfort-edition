@@ -147,6 +147,7 @@ public:
 	 */
 	int getLineWidth(int line, bool enforce = false, int col = -1);
 	int getLineHeight(int line);
+	int getLineY(int line);
 	int getLineCharWidth(int line, bool enforce = false);
 
 	void splitString(const Common::U32String &str, int curLine, MacFontRun &defaultFormatting);

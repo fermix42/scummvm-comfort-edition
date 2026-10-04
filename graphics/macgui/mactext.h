@@ -152,6 +152,7 @@ public:
 	int getLastLineWidth();
 	int getTextHeight() { return _canvas._textMaxHeight; }
 	int getLineHeight(int line);
+	int getLineY(int line);
 	int getTextMaxWidth() { return _canvas._textMaxWidth; }
 
 	void setText(const Common::U32String &str);

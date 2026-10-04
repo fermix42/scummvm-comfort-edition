@@ -34,3 +34,17 @@ Timestamps use ISO 8601 local time with UTC offset.
 - 2026-10-04T08:13:13-07:00: Patch: Added `Patch: Atari ST final room` for Operation Stealth to ignore an invalid `SALLE59.REL` object-table load that corrupted Dr. Why, razor, and cigarette state.
 - 2026-10-04T08:20:27-07:00: UI: Limited `Freeze final countdown` to Amiga Operation Stealth entries, matching the cheat's Amiga-only runtime behavior.
 - 2026-10-04T08:37:04-07:00: UI: Filtered Operation Stealth platform-specific patch options so Amiga text cleanup, Amiga final countdown, Atari ST final room, and European VGA jetski patches only appear on their matching detected versions.
+- 2026-10-04T11:40:46-07:00: Patch: Added detection for the 1993 Macintosh rerelease of Deja Vu: A Nightmare Comes True.
+- 2026-10-04T11:40:46-07:00: Patch: Added Deja Vu Macintosh filename fallbacks for extracted installs that use plain ASCII names instead of the original accented resource filenames.
+- 2026-10-04T11:40:46-07:00: Patch: Fixed Deja Vu Macintosh title-screen loading from raw resource-fork data.
+- 2026-10-04T11:40:46-07:00: Patch: Fixed a Deja Vu Macintosh startup crash caused by decoding the raw title resource with the wrong image path.
+- 2026-10-04T11:40:46-07:00: Patch: Fixed Deja Vu Macintosh `Click to continue` paging so long intro text starts at the first hidden line instead of skipping ahead.
+- 2026-10-04T12:55:42-07:00: Patch: Fixed Deja Vu Macintosh save loading so restored console history opens at the current bottom state instead of requiring `Click to continue` through the whole transcript.
+- 2026-10-04T11:59:05-07:00: Cheat: Added `Freeze police timer` for Deja Vu Macintosh to prevent the police arrest timer from reaching the game-over state.
+- 2026-10-04T12:38:09-07:00: Cheat: Added `Rig slot machine` for Deja Vu Macintosh to redirect the first-pull loser script and force the slot machine roll down the existing jackpot branch.
+- 2026-10-04T13:34:00-07:00: Cheat: Added `Unlimited ammo` for Deja Vu Macintosh so gunshots keep their loaded cartridge while preserving the normal shot handling.
+- 2026-10-04T13:34:00-07:00: Cheat: Added `No alligators` for Deja Vu Macintosh to prevent the random sewer alligator encounter from spawning.
+- 2026-10-04T13:54:28-07:00: Cheat: Added `Unlimited inventory` for Deja Vu Macintosh to allow moves into the trench coat when only the normal capacity check would reject them.
+- 2026-10-04T14:21:01-07:00: Cheat: Added `Mugger won't kill` for Deja Vu Macintosh to keep the mugger encounter active while preventing repeated punches from advancing the mugger counter into the death branch.
+- 2026-10-04T16:08:00-07:00: Docs: Added Deja Vu Macintosh testing notes covering the walkthrough source, trace workflow, known scripts, and completed live-play validation.
+- 2026-10-04T16:08:00-07:00: Release: Verified the Windows Release x64 build with the Deja Vu Macintosh patches and launcher Cheats tab wiring.

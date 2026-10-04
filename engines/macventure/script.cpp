@@ -40,6 +40,12 @@ ScriptEngine::ScriptEngine(MacVentureEngine *engine, World *world) {
 	_engine = engine;
 	_world = world;
 	_scripts = new Container(_engine->getFilePath(kFilterPathID));
+#ifdef MACVENTURE_TRACE_BUILD
+	_traceScriptID = 0;
+	_traceOffset = 0;
+	_traceOpcode = 0;
+	_engine->traceRuntime("script.container.open", "filter=%s", _engine->getFilePath(kFilterPathID).toString().c_str());
+#endif
 }
 
 ScriptEngine::~ScriptEngine() {
@@ -60,6 +66,10 @@ bool ScriptEngine::runControl(ControlAction action, ObjID source, ObjID destinat
 	_frames.push_back(frame);
 	debugC(3, kMVDebugScript, "Stored frame %d, action: %d src: %d dest: %d point: (%d, %d)",
 		_frames.size() - 1, frame.action, frame.src, frame.dest, frame.x, frame.y);
+#ifdef MACVENTURE_TRACE_BUILD
+	_engine->traceRuntime("control.begin", "action=%d src=%u dest=%u delta=(%d,%d) frames=%u",
+		frame.action, frame.src, frame.dest, frame.x, frame.y, (uint)_frames.size());
+#endif
 
 	return resume(true);
 }
@@ -77,6 +87,9 @@ bool ScriptEngine::resume(bool execAll) {
 
 void ScriptEngine::reset() {
 	_frames.clear();
+#ifdef MACVENTURE_TRACE_BUILD
+	_engine->traceRuntime("script.reset", "frames=0");
+#endif
 }
 
 bool ScriptEngine::execFrame(bool execAll) {
@@ -162,8 +175,15 @@ bool ScriptEngine::loadScript(EngineFrame *frame, uint32 scriptID) {
 		debugC(2, kMVDebugScript, "Loading function %d", scriptID);
 		// Insert the new script at the front
 		frame->scripts.push_front(ScriptAsset(scriptID, _scripts));
+#ifdef MACVENTURE_TRACE_BUILD
+		_engine->traceRuntime("script.load", "script=%u size=%u action=%d src=%u dest=%u delta=(%d,%d) depth=%u",
+			scriptID, _scripts->getItemByteSize(scriptID), frame->action, frame->src, frame->dest, frame->x, frame->y, (uint)frame->scripts.size());
+#endif
 		return runFunc(frame);
 	}
+#ifdef MACVENTURE_TRACE_BUILD
+	_engine->traceRuntime("script.load.empty", "script=%u action=%d src=%u dest=%u", scriptID, frame->action, frame->src, frame->dest);
+#endif
 	return false;
 }
 
@@ -185,6 +205,12 @@ bool ScriptEngine::runFunc(EngineFrame *frame) {
 	while (script.hasNext()) {
 		op = script.fetch();
 		debugC(4, kMVDebugScript, "Running operation %d", op);
+#ifdef MACVENTURE_TRACE_BUILD
+		_traceScriptID = script.getId();
+		_traceOffset = script.getIP() - 1;
+		_traceOpcode = op;
+		traceScriptEvent("script.op", frame, state, "stack=%s", state->formatStack().c_str());
+#endif
 		if (!(op & 0x80)) {
 			state->push(op);
 		} else {
@@ -223,10 +249,10 @@ bool ScriptEngine::runFunc(EngineFrame *frame) {
 				op8aGGLO(state, frame);
 				break;
 			case 0x8b: //set global
-				op8bSGLO(state, frame);
+				op8bSGLO(state, frame, &script);
 				break;
 			case 0x8c: //random
-				op8cRAND(state, frame);
+				op8cRAND(state, frame, &script);
 				break;
 			case 0x8d: //copy
 				op8dCOPY(state, frame);
@@ -539,17 +565,45 @@ void ScriptEngine::ensureNonzeroDivisor(int16 divisor, byte opcode) {
 	}
 }
 
+#ifdef MACVENTURE_TRACE_BUILD
+void ScriptEngine::traceScriptEvent(const char *event, EngineFrame *frame, EngineState *state, const char *fmt, ...) {
+	va_list va;
+	va_start(va, fmt);
+	Common::String detail = Common::String::vformat(fmt, va);
+	va_end(va);
+
+	_engine->traceRuntime(event, "script=%u offset=%u opcode=0x%02x action=%d src=%u dest=%u delta=(%d,%d) depth=%u %s",
+		_traceScriptID, _traceOffset, _traceOpcode, frame->action, frame->src, frame->dest, frame->x, frame->y,
+		(uint)frame->scripts.size(), detail.c_str());
+}
+
+void ScriptEngine::traceBranch(const char *event, EngineFrame *frame, EngineState *state, int16 amount, bool taken, uint32 newIP) {
+	traceScriptEvent(event, frame, state, "amount=%d taken=%d newOffset=%u stack=%s",
+		amount, taken ? 1 : 0, newIP, state->formatStack().c_str());
+}
+#endif
+
 void MacVenture::ScriptEngine::op80GATT(EngineState *state, EngineFrame *frame) {
 	int16 obj = state->pop();
 	int16 attr = state->pop();
-	state->push(_world->getObjAttr(obj, attr));
+	int16 value = _world->getObjAttr(obj, attr);
+	state->push(value);
+#ifdef MACVENTURE_TRACE_BUILD
+	traceScriptEvent("script.attr.get", frame, state, "obj=%d attr=%d value=%d stack=%s", obj, attr, value, state->formatStack().c_str());
+#endif
 }
 
 void ScriptEngine::op81SATT(EngineState *state, EngineFrame *frame) {
 	int16 obj = state->pop();
 	int16 attr = state->pop();
 	int16 val = neg16(state->pop());
+#ifdef MACVENTURE_TRACE_BUILD
+	int16 oldVal = _world->getObjAttr(obj, attr);
+#endif
 	_world->setObjAttr(obj, attr, val);
+#ifdef MACVENTURE_TRACE_BUILD
+	traceScriptEvent("script.attr.set", frame, state, "obj=%d attr=%d old=%d new=%d stack=%s", obj, attr, oldVal, val, state->formatStack().c_str());
+#endif
 }
 
 void ScriptEngine::op82SUCH(EngineState *state, EngineFrame *frame) {
@@ -592,19 +646,33 @@ void ScriptEngine::op89PUI(EngineState *state, EngineFrame *frame, ScriptAsset *
 
 void ScriptEngine::op8aGGLO(EngineState *state, EngineFrame *frame) {
 	int16 idx = state->pop();
-	state->push(_world->getGlobal(idx));
+	int16 value = _world->getGlobal(idx);
+	state->push(value);
+#ifdef MACVENTURE_TRACE_BUILD
+	traceScriptEvent("script.global.get", frame, state, "global=%d value=%d stack=%s", idx, value, state->formatStack().c_str());
+#endif
 }
 
-void ScriptEngine::op8bSGLO(EngineState *state, EngineFrame *frame) {
+void ScriptEngine::op8bSGLO(EngineState *state, EngineFrame *frame, ScriptAsset *script) {
 	int16 idx = state->pop();
 	int16 val = neg16(state->pop());
+	int16 oldVal = _world->getGlobal(idx);
+	val = _engine->adjustGlobalValue(script->getId(), frame->action, idx, oldVal, val);
 	_world->setGlobal(idx, val);
 	_engine->gameChanged();
+#ifdef MACVENTURE_TRACE_BUILD
+	traceScriptEvent("script.global.set", frame, state, "global=%d old=%d new=%d stack=%s", idx, oldVal, _world->getGlobal(idx), state->formatStack().c_str());
+#endif
 }
 
-void ScriptEngine::op8cRAND(EngineState *state, EngineFrame *frame) {
+void ScriptEngine::op8cRAND(EngineState *state, EngineFrame *frame, ScriptAsset *script) {
 	int16 max = state->pop();
-	state->push(max > 0 ? _engine->randBetween(0, max - 1) : 0);
+	int16 value = max > 0 ? _engine->randBetween(0, max - 1) : 0;
+	value = _engine->adjustRandomValue(script->getId(), max, value);
+	state->push(value);
+#ifdef MACVENTURE_TRACE_BUILD
+	traceScriptEvent("script.random", frame, state, "max=%d result=%d stack=%s", max, value, state->formatStack().c_str());
+#endif
 }
 
 void ScriptEngine::op8dCOPY(EngineState *state, EngineFrame *frame) {
@@ -855,12 +923,18 @@ void ScriptEngine::opb0BRA(EngineState *state, EngineFrame *frame, ScriptAsset *
 	val = val | script->fetch();
 	val = neg16(val);
 	script->branch(val);
+#ifdef MACVENTURE_TRACE_BUILD
+	traceBranch("script.branch", frame, state, val, true, script->getIP());
+#endif
 }
 
 void ScriptEngine::opb1BRAB(EngineState *state, EngineFrame *frame, ScriptAsset *script) {
 	int16 val = script->fetch();
 	val = neg8(val);
 	script->branch(val);
+#ifdef MACVENTURE_TRACE_BUILD
+	traceBranch("script.branch.byte", frame, state, val, true, script->getIP());
+#endif
 }
 
 void ScriptEngine::opb2BEQ(EngineState *state, EngineFrame *frame, ScriptAsset *script) {
@@ -872,6 +946,9 @@ void ScriptEngine::opb2BEQ(EngineState *state, EngineFrame *frame, ScriptAsset *
 	if (b != 0) {
 		script->branch(val);
 	}
+#ifdef MACVENTURE_TRACE_BUILD
+	traceBranch("script.branch.eq", frame, state, val, b != 0, script->getIP());
+#endif
 }
 
 void ScriptEngine::opb3BEQB(EngineState *state, EngineFrame *frame, ScriptAsset *script) {
@@ -881,6 +958,9 @@ void ScriptEngine::opb3BEQB(EngineState *state, EngineFrame *frame, ScriptAsset 
 	if (b != 0) {
 		script->branch(val);
 	}
+#ifdef MACVENTURE_TRACE_BUILD
+	traceBranch("script.branch.eq.byte", frame, state, val, b != 0, script->getIP());
+#endif
 }
 
 void ScriptEngine::opb4BNE(EngineState *state, EngineFrame *frame, ScriptAsset *script) {
@@ -892,6 +972,9 @@ void ScriptEngine::opb4BNE(EngineState *state, EngineFrame *frame, ScriptAsset *
 	if (b == 0) {
 		script->branch(val);
 	}
+#ifdef MACVENTURE_TRACE_BUILD
+	traceBranch("script.branch.ne", frame, state, val, b == 0, script->getIP());
+#endif
 }
 
 void ScriptEngine::opb5BNEB(EngineState *state, EngineFrame *frame, ScriptAsset *script) {
@@ -901,12 +984,19 @@ void ScriptEngine::opb5BNEB(EngineState *state, EngineFrame *frame, ScriptAsset 
 	if (b == 0) {
 		script->branch(val);
 	}
+#ifdef MACVENTURE_TRACE_BUILD
+	traceBranch("script.branch.ne.byte", frame, state, val, b == 0, script->getIP());
+#endif
 }
 
 void ScriptEngine::opb6CLAT(EngineState *state, EngineFrame *frame) {
 	int16 rank = state->pop();
 	int16 func = state->pop();
+	func = _engine->adjustQueuedScript(func);
 	frame->saves.push_back(FunCall(func, rank));
+#ifdef MACVENTURE_TRACE_BUILD
+	traceScriptEvent("script.call_later", frame, state, "func=%d rank=%d savedCalls=%u stack=%s", func, rank, (uint)frame->saves.size(), state->formatStack().c_str());
+#endif
 }
 
 void ScriptEngine::opb7CCA(EngineState *state, EngineFrame *frame) {
@@ -954,6 +1044,10 @@ bool ScriptEngine::opbbFORK(EngineState *state, EngineFrame *frame) {
 	newframe.haltedInFamily = false;
 	newframe.haltedInFirst = false;
 	newframe.haltedInSaves = false;
+#ifdef MACVENTURE_TRACE_BUILD
+	traceScriptEvent("script.fork", frame, state, "newAction=%d newSrc=%u newDest=%u newDelta=(%d,%d) stack=%s",
+		newframe.action, newframe.src, newframe.dest, newframe.x, newframe.y, state->formatStack().c_str());
+#endif
 	_frames.push_front(newframe);
 	if (execFrame(true)) {
 		return true;
@@ -963,9 +1057,22 @@ bool ScriptEngine::opbbFORK(EngineState *state, EngineFrame *frame) {
 
 bool ScriptEngine::opbcCALL(EngineState *state, EngineFrame *frame, ScriptAsset &script) {
 	int16 id = state->pop();
+	uint popCount = _engine->skipScriptCallStackPopCount(script.getId(), id);
+	if (popCount) {
+		while (popCount-- && state->size())
+			state->pop();
+#ifdef MACVENTURE_TRACE_BUILD
+		traceScriptEvent("script.call.skip", frame, state, "target=%d stack=%s", id, state->formatStack().c_str());
+#endif
+		return false;
+	}
+
 	ScriptAsset newfun = ScriptAsset(id, _scripts);
 	ScriptAsset current = script;
 	debugC(2, kMVDebugScript, "Call function: %d", id);
+#ifdef MACVENTURE_TRACE_BUILD
+	traceScriptEvent("script.call.begin", frame, state, "target=%d stack=%s", id, state->formatStack().c_str());
+#endif
 	uint32 depth = frame->scripts.size();
 	if (loadScript(frame, id))
 		return true;
@@ -973,7 +1080,16 @@ bool ScriptEngine::opbcCALL(EngineState *state, EngineFrame *frame, ScriptAsset 
 		frame->scripts.pop_front();
 		script = frame->scripts.front();
 	}
+	if (state->size()) {
+		int16 result = state->peek(0);
+		int16 adjustedResult = _engine->adjustScriptResult(id, frame->action, frame->src, frame->dest, result);
+		if (adjustedResult != result)
+			state->poke(0, adjustedResult);
+	}
 	debugC(2, kMVDebugScript, "Return from fuction %d", id);
+#ifdef MACVENTURE_TRACE_BUILD
+	traceScriptEvent("script.call.end", frame, state, "target=%d stack=%s", id, state->formatStack().c_str());
+#endif
 	return false;
 }
 
@@ -1005,6 +1121,9 @@ void ScriptEngine::opc0TEXI(EngineState *state, EngineFrame *frame) {
 void ScriptEngine::opc1PTXT(EngineState *state, EngineFrame *frame) {
 	int16 tid = state->pop();
 	_engine->enqueueText(kTextPlain, frame->dest, frame->src, tid);
+#ifdef MACVENTURE_TRACE_BUILD
+	traceScriptEvent("script.text.enqueue", frame, state, "kind=plain text=%d stack=%s", tid, state->formatStack().c_str());
+#endif
 }
 
 void ScriptEngine::opc2PNEW(EngineState *state, EngineFrame *frame) {
@@ -1015,6 +1134,9 @@ void ScriptEngine::opc3PTNE(EngineState *state, EngineFrame *frame) {
 	int16 tid = state->pop();
 	_engine->enqueueText(kTextPlain, frame->dest, frame->src, tid);
 	_engine->enqueueText(kTextNewLine, frame->dest, frame->src, 0);
+#ifdef MACVENTURE_TRACE_BUILD
+	traceScriptEvent("script.text.enqueue", frame, state, "kind=plain_newline text=%d stack=%s", tid, state->formatStack().c_str());
+#endif
 }
 
 void ScriptEngine::opc4PNTN(EngineState *state, EngineFrame *frame) {
@@ -1022,11 +1144,17 @@ void ScriptEngine::opc4PNTN(EngineState *state, EngineFrame *frame) {
 	_engine->enqueueText(kTextNewLine, frame->dest, frame->src, 0);
 	_engine->enqueueText(kTextPlain, frame->dest, frame->src, tid);
 	_engine->enqueueText(kTextNewLine, frame->dest, frame->src, 0);
+#ifdef MACVENTURE_TRACE_BUILD
+	traceScriptEvent("script.text.enqueue", frame, state, "kind=newline_plain_newline text=%d stack=%s", tid, state->formatStack().c_str());
+#endif
 }
 
 void ScriptEngine::opc5PNUM(EngineState *state, EngineFrame *frame) {
 	int16 tid = state->pop();
 	_engine->enqueueText(kTextNumber, frame->dest, frame->src, tid);
+#ifdef MACVENTURE_TRACE_BUILD
+	traceScriptEvent("script.text.enqueue", frame, state, "kind=number value=%d stack=%s", tid, state->formatStack().c_str());
+#endif
 }
 
 void ScriptEngine::opc6P2(EngineState *state, EngineFrame *frame) {
@@ -1036,11 +1164,17 @@ void ScriptEngine::opc6P2(EngineState *state, EngineFrame *frame) {
 void ScriptEngine::opc7PLBG(EngineState *state, EngineFrame *frame) {
 	int16 target = state->pop();
 	_engine->enqueueSound(kSoundPlay, target);
+#ifdef MACVENTURE_TRACE_BUILD
+	traceScriptEvent("script.sound.enqueue", frame, state, "kind=background sound=%d stack=%s", target, state->formatStack().c_str());
+#endif
 }
 
 void ScriptEngine::opc8PLAW(EngineState *state, EngineFrame *frame) {
 	int16 target = state->pop();
 	_engine->enqueueSound(kSoundPlayAndWait, target);
+#ifdef MACVENTURE_TRACE_BUILD
+	traceScriptEvent("script.sound.enqueue", frame, state, "kind=wait sound=%d stack=%s", target, state->formatStack().c_str());
+#endif
 }
 
 void ScriptEngine::opc9WAIT(EngineState *state, EngineFrame *frame) {
@@ -1120,11 +1254,17 @@ void ScriptEngine::opd2GOVP(EngineState *state, EngineFrame *frame) {
 void ScriptEngine::opd3CAPC(EngineState *state, EngineFrame *frame) {
 	int16 obj = state->pop();
 	_world->captureChildren(obj);
+#ifdef MACVENTURE_TRACE_BUILD
+	traceScriptEvent("script.children.capture", frame, state, "obj=%d stack=%s", obj, state->formatStack().c_str());
+#endif
 }
 
 void ScriptEngine::opd4RELC(EngineState *state, EngineFrame *frame) {
 	int16 obj = state->pop();
 	_world->releaseChildren(obj);
+#ifdef MACVENTURE_TRACE_BUILD
+	traceScriptEvent("script.children.release", frame, state, "obj=%d stack=%s", obj, state->formatStack().c_str());
+#endif
 }
 
 void ScriptEngine::opd5DLOG(EngineState *state, EngineFrame *frame) {
@@ -1134,18 +1274,31 @@ void ScriptEngine::opd5DLOG(EngineState *state, EngineFrame *frame) {
 	} else {
 		state->push(0x00);
 	}
+#ifdef MACVENTURE_TRACE_BUILD
+	traceScriptEvent("script.dialog", frame, state, "text=%d result=%d stack=%s", txt, state->peek(0), state->formatStack().c_str());
+#endif
 }
 
 void ScriptEngine::opd6ACMD(EngineState *state, EngineFrame *frame) {
-	_engine->selectControl((ControlAction)state->pop());
+	ControlAction action = (ControlAction)state->pop();
+	_engine->selectControl(action);
+#ifdef MACVENTURE_TRACE_BUILD
+	traceScriptEvent("script.control.select", frame, state, "action=%d stack=%s", action, state->formatStack().c_str());
+#endif
 }
 
 void ScriptEngine::opd7LOSE(EngineState *state, EngineFrame *frame) {
 	_engine->loseGame();
+#ifdef MACVENTURE_TRACE_BUILD
+	traceScriptEvent("script.lose", frame, state, "stack=%s", state->formatStack().c_str());
+#endif
 }
 
 void ScriptEngine::opd8WIN(EngineState *state, EngineFrame *frame) {
 	_engine->winGame();
+#ifdef MACVENTURE_TRACE_BUILD
+	traceScriptEvent("script.win", frame, state, "stack=%s", state->formatStack().c_str());
+#endif
 }
 
 void ScriptEngine::opd9SLEEP(EngineState *state, EngineFrame *frame) {
@@ -1153,28 +1306,46 @@ void ScriptEngine::opd9SLEEP(EngineState *state, EngineFrame *frame) {
 	if (ticks > 0)
 		g_system->delayMillis((ticks * 1000) / 60);
 	_engine->preparedToRun();
+#ifdef MACVENTURE_TRACE_BUILD
+	traceScriptEvent("script.sleep", frame, state, "ticks=%d stack=%s", ticks, state->formatStack().c_str());
+#endif
 }
 
 void ScriptEngine::opdaCLICK(EngineState *state, EngineFrame *frame) {
 	_engine->updateState(false);
 	_engine->clickToContinue();
+#ifdef MACVENTURE_TRACE_BUILD
+	traceScriptEvent("script.click_to_continue", frame, state, "stack=%s", state->formatStack().c_str());
+#endif
 }
 
 void ScriptEngine::opdbROBQ(EngineState *state, EngineFrame *frame) {
 	_engine->runObjQueue();
+#ifdef MACVENTURE_TRACE_BUILD
+	traceScriptEvent("script.object_queue.run", frame, state, "stack=%s", state->formatStack().c_str());
+#endif
 }
 
 void ScriptEngine::opdcRSQ(EngineState *state, EngineFrame *frame) {
 	_engine->playSounds(true);
+#ifdef MACVENTURE_TRACE_BUILD
+	traceScriptEvent("script.sound_queue.run", frame, state, "stack=%s", state->formatStack().c_str());
+#endif
 }
 
 void ScriptEngine::opddRTQ(EngineState *state, EngineFrame *frame) {
 	_engine->printTexts();
+#ifdef MACVENTURE_TRACE_BUILD
+	traceScriptEvent("script.text_queue.run", frame, state, "stack=%s", state->formatStack().c_str());
+#endif
 }
 
 void ScriptEngine::opdeUPSC(EngineState *state, EngineFrame *frame) {
 	_engine->updateState(true);
 	_engine->preparedToRun();
+#ifdef MACVENTURE_TRACE_BUILD
+	traceScriptEvent("script.update_screen", frame, state, "stack=%s", state->formatStack().c_str());
+#endif
 }
 
 void ScriptEngine::opdfFMAI(EngineState *state, EngineFrame *frame) {
@@ -1182,6 +1353,9 @@ void ScriptEngine::opdfFMAI(EngineState *state, EngineFrame *frame) {
 	if (ticks > 0)
 		g_system->delayMillis((ticks * 1000) / 60);
 	_engine->revert();
+#ifdef MACVENTURE_TRACE_BUILD
+	traceScriptEvent("script.flash_main", frame, state, "ticks=%d stack=%s", ticks, state->formatStack().c_str());
+#endif
 }
 
 void ScriptEngine::ope0CHGR(EngineState *state, EngineFrame *frame) {
@@ -1205,6 +1379,9 @@ void ScriptEngine::ope2MDIV(EngineState *state, EngineFrame *frame) {
 void ScriptEngine::ope3UPOB(EngineState *state, EngineFrame *frame) {
 	int16 obj = state->pop();
 	_world->updateObj(obj);
+#ifdef MACVENTURE_TRACE_BUILD
+	traceScriptEvent("script.object.update", frame, state, "obj=%d stack=%s", obj, state->formatStack().c_str());
+#endif
 }
 
 void ScriptEngine::ope4PLEV(EngineState *state, EngineFrame *frame) {

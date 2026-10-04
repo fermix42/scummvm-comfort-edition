@@ -110,8 +110,14 @@ if (Test-Path $releaseProps) {
             '<PreprocessorDefinitions>',
             '<PreprocessorDefinitions>CINE_TRACE_BUILD;DUMP_SCRIPTS;'
         )
-        Set-Content -LiteralPath $releaseProps -Value $releasePropsContent -NoNewline
     }
+    if (-not $releasePropsContent.Contains('MACVENTURE_TRACE_BUILD')) {
+        $releasePropsContent = $releasePropsContent.Replace(
+            '<PreprocessorDefinitions>',
+            '<PreprocessorDefinitions>MACVENTURE_TRACE_BUILD;'
+        )
+    }
+    Set-Content -LiteralPath $releaseProps -Value $releasePropsContent -NoNewline
 }
 
 & 'C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\MSBuild\Current\Bin\amd64\MSBuild.exe' "$traceBuildDir\scummvm.sln" /m:1 /p:Configuration=Release /p:Platform=x64 /p:VcpkgEnableManifest=true /p:VcpkgTriplet=x64-windows /p:VcpkgInstalledDir="$substVcpkgInstalled" /p:PreferredToolArchitecture=x64 /v:normal "/flp:logfile=$repoRoot\msbuild-release-trace.log;verbosity=detailed"
@@ -133,14 +139,20 @@ if ($buildExitCode -eq 0) {
         'engines\cine\script.h',
         'engines\cine\script_fw.cpp',
         'engines\cine\object.cpp',
-        'engines\cine\various.cpp'
+        'engines\cine\various.cpp',
+        'engines\macventure\macventure.h',
+        'engines\macventure\macventure.cpp',
+        'engines\macventure\script.h',
+        'engines\macventure\script.cpp',
+        'engines\macventure\world.h',
+        'engines\macventure\world.cpp'
     )
     $manifestPath = "$traceOutputPath\trace-build-source-hashes.txt"
     $manifest = @()
     $manifest += "trace_exe=$substRepoRoot\$traceOutputPath\scummvm-trace.exe"
     $manifest += "built_at=$((Get-Date).ToString('s'))"
     $manifest += "git_head=$(git rev-parse HEAD)"
-    $manifest += "defines=CINE_TRACE_BUILD;DUMP_SCRIPTS"
+    $manifest += "defines=CINE_TRACE_BUILD;DUMP_SCRIPTS;MACVENTURE_TRACE_BUILD"
     $manifest += ''
     foreach ($hashInput in $hashInputs) {
         if (Test-Path $hashInput) {
@@ -151,10 +163,11 @@ if ($buildExitCode -eq 0) {
     Set-Content -LiteralPath $manifestPath -Value ($manifest -join "`r`n")
 
     @(
-        'Trace build for Operation Stealth/Cine diagnostics.',
+        'Trace build for Operation Stealth/Cine and Deja Vu/MacVenture diagnostics.',
         '',
         'Pin scummvm-trace.exe, not scummvm.exe, if you want the diagnostic build.',
-        'It writes cine-trace.log and DUMP_SCRIPTS text files into the process working directory.',
+        'It writes cine-trace.log, macventure-trace.log, and DUMP_SCRIPTS text files into the process working directory.',
+        'MacVenture tracing records script opcodes, script ids/offsets, branches, calls, random rolls, object/global writes, text, sound, and object queue activity.',
         'For ScummVM command-line script dumps, use -u/--dump-scripts after creating/choosing a writable working directory.'
     ) | Set-Content -LiteralPath "$traceOutputPath\TRACE_BUILD_README.txt"
 }

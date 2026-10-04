@@ -69,6 +69,80 @@ enum {
 
 const bool kLoadStaticMenus = true;
 
+static Common::SeekableReadStream *openRawResourceForkResource(const Common::Path &path, uint32 typeID, int16 resID) {
+	Common::SeekableReadStream *fork = Common::MacResManager::openFileOrDataFork(path);
+	if (!fork)
+		return nullptr;
+
+	if (fork->size() < 16) {
+		delete fork;
+		return nullptr;
+	}
+
+	uint32 dataOffset = fork->readUint32BE();
+	uint32 mapOffset = fork->readUint32BE();
+	uint32 dataLength = fork->readUint32BE();
+	uint32 mapLength = fork->readUint32BE();
+	if (dataOffset + dataLength > (uint32)fork->size() || mapOffset + mapLength > (uint32)fork->size()) {
+		delete fork;
+		return nullptr;
+	}
+
+	fork->seek(mapOffset + 24);
+	uint16 typeListOffset = fork->readUint16BE();
+	uint32 typeList = mapOffset + typeListOffset;
+	if (typeList + 2 > (uint32)fork->size()) {
+		delete fork;
+		return nullptr;
+	}
+
+	fork->seek(typeList);
+	uint16 typeCount = fork->readUint16BE() + 1;
+	for (uint16 typeIndex = 0; typeIndex < typeCount; ++typeIndex) {
+		uint32 typeEntry = typeList + 2 + typeIndex * 8;
+		if (typeEntry + 8 > (uint32)fork->size())
+			break;
+
+		fork->seek(typeEntry);
+		uint32 candidateType = fork->readUint32BE();
+		uint16 resourceCount = fork->readUint16BE() + 1;
+		uint32 refList = typeList + fork->readUint16BE();
+		if (candidateType != typeID)
+			continue;
+
+		for (uint16 resourceIndex = 0; resourceIndex < resourceCount; ++resourceIndex) {
+			uint32 ref = refList + resourceIndex * 12;
+			if (ref + 12 > (uint32)fork->size())
+				break;
+
+			fork->seek(ref);
+			int16 candidateID = fork->readSint16BE();
+			fork->skip(3);
+			uint32 itemOffset = fork->readByte() << 16;
+			itemOffset |= fork->readByte() << 8;
+			itemOffset |= fork->readByte();
+			if (candidateID != resID)
+				continue;
+
+			uint32 itemPosition = dataOffset + itemOffset;
+			if (itemPosition + 4 > (uint32)fork->size())
+				break;
+
+			fork->seek(itemPosition);
+			uint32 itemLength = fork->readUint32BE();
+			if (itemPosition + 4 + itemLength > (uint32)fork->size())
+				break;
+
+			Common::SeekableReadStream *resource = fork->readStream(itemLength);
+			delete fork;
+			return resource;
+		}
+	}
+
+	delete fork;
+	return nullptr;
+}
+
 static const Graphics::MacMenuData menuSubItems[] = {
 	{ kMenuHighLevel,	"File",				0, 0, false },
 	{ kMenuHighLevel,	"Edit",				0, 0, false },
@@ -165,29 +239,59 @@ Gui::~Gui() {
 }
 
 void Gui::initGUI() {
+#ifdef MACVENTURE_TRACE_BUILD
+	_engine->traceRuntime("gui.init.begin", "screen=%dx%d", kScreenWidth, kScreenHeight);
+#endif
 	_screen.create(kScreenWidth, kScreenHeight, Graphics::PixelFormat::createFormatCLUT8());
 	_wm.setScreen(&_screen);
 
 	// Menu
 	_menu = _wm.addMenu();
+#ifdef MACVENTURE_TRACE_BUILD
+	_engine->traceRuntime("gui.menu.created", "menu=%p", (const void *)_menu);
+#endif
 	if (!loadMenus())
 		error("GUI: Could not load menus");
+#ifdef MACVENTURE_TRACE_BUILD
+	_engine->traceRuntime("gui.menus.loaded", "");
+#endif
 	_menu->setCommandsCallback(menuCommandsCallback, this);
 	_menu->calcDimensions();
 
+#ifdef MACVENTURE_TRACE_BUILD
+	_engine->traceRuntime("gui.graphics.before", "");
+#endif
 	loadGraphics();
+#ifdef MACVENTURE_TRACE_BUILD
+	_engine->traceRuntime("gui.graphics.after", "graphics=%p", (const void *)_graphics);
+#endif
 
 	if (!loadWindows())
 		error("GUI: Could not load windows");
+#ifdef MACVENTURE_TRACE_BUILD
+	_engine->traceRuntime("gui.windows.loaded", "");
+#endif
 
 	initWindows();
+#ifdef MACVENTURE_TRACE_BUILD
+	_engine->traceRuntime("gui.windows.initialized", "");
+#endif
 
 	assignObjReferences();
+#ifdef MACVENTURE_TRACE_BUILD
+	_engine->traceRuntime("gui.obj_refs.assigned", "");
+#endif
 
 	if (!loadControls())
 		error("GUI: Could not load controls");
+#ifdef MACVENTURE_TRACE_BUILD
+	_engine->traceRuntime("gui.controls.loaded", "");
+#endif
 
 	draw();
+#ifdef MACVENTURE_TRACE_BUILD
+	_engine->traceRuntime("gui.init.end", "");
+#endif
 
 }
 
@@ -244,11 +348,23 @@ bool Gui::decodeTitleScreen() {
 	Common::MacResManager resMan;
 	Common::Path titlePath = _engine->getFilePath(kTitlePathID);
 
+#ifdef MACVENTURE_TRACE_BUILD
+	_engine->traceRuntime("gui.title.decode.begin", "path=%s", titlePath.toString().c_str());
+#endif
 	if (resMan.open(titlePath)) {
 		Common::SeekableReadStream *stream = resMan.getResource(MKTAG('P', 'P', 'I', 'C'), 0);
+		if (!stream) {
+#ifdef MACVENTURE_TRACE_BUILD
+			_engine->traceRuntime("gui.title.ppic.normal.missing", "path=%s", titlePath.toString().c_str());
+#endif
+			stream = openRawResourceForkResource(titlePath, MKTAG('P', 'P', 'I', 'C'), 0);
+		}
 
 		if (stream) {
 			// New PPICT title screen
+#ifdef MACVENTURE_TRACE_BUILD
+			_engine->traceRuntime("gui.title.ppic.opened", "path=%s size=%d", titlePath.toString().c_str(), (int)stream->size());
+#endif
 			ImageAsset *title = new ImageAsset(stream);
 
 			_screen.fillRect(Common::Rect(kScreenWidth, kScreenHeight), kColorBlack);
@@ -257,9 +373,27 @@ bool Gui::decodeTitleScreen() {
 			delete title;
 		} else {
 			// Old PACK title screen
+#ifdef MACVENTURE_TRACE_BUILD
+			_engine->traceRuntime("gui.title.pack.open.begin", "path=%s", titlePath.toString().c_str());
+#endif
 			stream = Common::MacResManager::openFileOrDataFork(titlePath);
 			if (!stream)
 				return false;
+
+			if (stream->size() >= 16) {
+				uint32 dataOffset = stream->readUint32BE();
+				uint32 mapOffset = stream->readUint32BE();
+				uint32 dataLength = stream->readUint32BE();
+				uint32 mapLength = stream->readUint32BE();
+				stream->seek(0);
+				if (dataOffset + dataLength <= (uint32)stream->size() && mapOffset + mapLength <= (uint32)stream->size()) {
+#ifdef MACVENTURE_TRACE_BUILD
+					_engine->traceRuntime("gui.title.pack.raw_fork.skip", "path=%s size=%d", titlePath.toString().c_str(), (int)stream->size());
+#endif
+					delete stream;
+					return false;
+				}
+			}
 
 			stream->seek(0x200);
 
@@ -321,17 +455,37 @@ bool Gui::displayTitleScreenAndWait(uint32 ms) {
 void Gui::drawTitle() {
 	bool success = true;
 
+#ifdef MACVENTURE_TRACE_BUILD
+	_engine->traceRuntime("gui.title.begin", "");
+#endif
 	_wm.pushCursor(Graphics::kMacCursorOff);
 
-	if (decodeStartupScreen())
+	if (decodeStartupScreen()) {
+#ifdef MACVENTURE_TRACE_BUILD
+		_engine->traceRuntime("gui.title.startup.decoded", "");
+#endif
 		success = displayTitleScreenAndWait(4000);
+#ifdef MACVENTURE_TRACE_BUILD
+		_engine->traceRuntime("gui.title.startup.displayed", "success=%d", success ? 1 : 0);
+#endif
+	}
 
 	if (success) {
-		if (decodeTitleScreen())
+		if (decodeTitleScreen()) {
+#ifdef MACVENTURE_TRACE_BUILD
+			_engine->traceRuntime("gui.title.title.decoded", "");
+#endif
 			displayTitleScreenAndWait(4000);
+#ifdef MACVENTURE_TRACE_BUILD
+			_engine->traceRuntime("gui.title.title.displayed", "");
+#endif
+		}
 	}
 
 	_wm.popCursor();
+#ifdef MACVENTURE_TRACE_BUILD
+	_engine->traceRuntime("gui.title.end", "success=%d", success ? 1 : 0);
+#endif
 }
 
 void Gui::clearControls() {
@@ -1168,12 +1322,11 @@ void Gui::printText(const Common::String &text) {
 }
 
 void Gui::scrollConsoleToRow(uint row) {
-	int lineHeight = _outConsoleWindow->getLineHeight(0) + _outConsoleWindow->getLineSpacing();
-	if (lineHeight <= 0) {
+	if (row >= (uint)_outConsoleWindow->getRowCount()) {
 		_outConsoleWindow->scrollToBottom();
 		return;
 	}
-	_outConsoleWindow->scrollTo(row * lineHeight);
+	_outConsoleWindow->scrollTo(_outConsoleWindow->getLineY(row));
 }
 
 uint Gui::getConsoleRowCount() {

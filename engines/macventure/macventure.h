@@ -53,6 +53,13 @@
 
 struct ADGameDescription;
 
+#define GAMEOPTION_DEJA_VU_FREEZE_POLICE_TIMER GUIO_GAMEOPTIONS1
+#define GAMEOPTION_DEJA_VU_RIG_SLOT_MACHINE    GUIO_GAMEOPTIONS2
+#define GAMEOPTION_DEJA_VU_UNLIMITED_AMMO      GUIO_GAMEOPTIONS3
+#define GAMEOPTION_DEJA_VU_NO_ALLIGATORS       GUIO_GAMEOPTIONS4
+#define GAMEOPTION_DEJA_VU_UNLIMITED_INVENTORY GUIO_GAMEOPTIONS5
+#define GAMEOPTION_DEJA_VU_MUGGER_WONT_KILL    GUIO_GAMEOPTIONS6
+
 namespace MacVenture {
 
 class SaveFileManager;
@@ -305,6 +312,13 @@ public:
 
 	Common::String getConsoleText() const;
 	void setConsoleText(const Common::String &text);
+	void markConsoleTextRestored();
+	uint16 clampGlobalValue(uint32 attrID, uint16 value) const;
+	int16 adjustGlobalValue(uint32 scriptID, ControlAction action, uint32 globalID, int16 oldValue, int16 value) const;
+	int16 adjustRandomValue(uint32 scriptID, int16 max, int16 value) const;
+	int16 adjustQueuedScript(uint32 scriptID) const;
+	int16 adjustScriptResult(uint32 scriptID, ControlAction action, ObjID source, ObjID destination, int16 result) const;
+	uint skipScriptCallStackPopCount(uint32 currentScriptID, int16 targetScriptID) const;
 
 	// Attributes consult
 	Common::Point getObjPosition(ObjID objID);
@@ -330,6 +344,10 @@ public:
 	Common::Point getDeltaPoint();
 	ObjID getDestObject();
 	ControlAction getSelectedControl();
+
+#ifdef MACVENTURE_TRACE_BUILD
+	void traceRuntime(const char *event, const char *fmt, ...);
+#endif
 
 private:
 	void processEvents();
@@ -398,6 +416,7 @@ private: // Attributes
 	bool _enginePaused;
 	uint32 _nextFrameTime;
 	uint _consoleRowsSincePause;
+	uint _consolePageStartRow;
 
 	Common::Array<QueuedObject> _objQueue;
 	Common::Array<QueuedObject> _inQueue;
