@@ -82,6 +82,7 @@ protected:
 
 	PCSoundDriver *_soundDriver;
 	PCSoundFxPlayer *_player;
+	Audio::SoundHandle _rawSoundHandles[4];
 
 	uint8 _currentMusic, _currentMusicStatus, _currentBgSlot;
 };

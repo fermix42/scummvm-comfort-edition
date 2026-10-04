@@ -336,7 +336,7 @@ const ExtraGuiOptions AdvancedMetaEngineBase::getExtraGuiOptions(const Common::S
 
 	// Add all the applying extra GUI options.
 	for (const ADExtraGuiOptionsMap *entry = extraGuiOptions; entry->guioFlag; ++entry) {
-		if (guiOptions.contains(entry->guioFlag))
+		if (guiOptions.contains(entry->guioFlag) && isAdvancedExtraGuiOptionAllowedForTarget(target, *entry))
 			options.push_back(entry->option);
 	}
 

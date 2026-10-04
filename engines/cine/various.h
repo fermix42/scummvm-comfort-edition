@@ -124,13 +124,6 @@ extern uint16 mouseUpdateStatus;
 extern uint16 dummyU16;
 
 void getMouseData(uint16 param, uint16 *pButton, uint16 *pX, uint16 *pY);
-void noteCutsceneTextScript(int scriptIndex);
-void beginCutsceneTextClickWait();
-void finishCutsceneTextClickWait();
-bool hasCutsceneTextAdvanceRequest(int scriptIndex);
-bool consumeCutsceneTextAdvanceRequest(int scriptIndex);
-void markCutsceneTextDelayLoopSkipped();
-bool shouldBypassCutsceneTextSpeechGate(int scriptIndex, byte varIdx, int16 value);
 
 uint16 processKeyboard(uint16 param);
 

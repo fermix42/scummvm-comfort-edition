@@ -715,6 +715,11 @@ protected:
 	virtual const ADExtraGuiOptionsMap *getAdvancedExtraGuiOptions() const { return nullptr; }
 
 	/**
+	 * Returns whether a mapped extra GUI option should be shown for a saved target.
+	 */
+	virtual bool isAdvancedExtraGuiOptionAllowedForTarget(const Common::String &target, const ADExtraGuiOptionsMap &entry) const { return true; }
+
+	/**
 	 * Returns the set of features that need to be enabled for the
 	 * extended save format to work
 	 */

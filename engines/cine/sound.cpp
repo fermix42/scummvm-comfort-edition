@@ -1223,6 +1223,9 @@ PCSound::PCSound(Audio::Mixer *mixer, CineEngine *vm)
 }
 
 PCSound::~PCSound() {
+	for (int i = 0; i < ARRAYSIZE(_rawSoundHandles); ++i) {
+		_mixer->stopHandle(_rawSoundHandles[i]);
+	}
 	delete _player;
 	delete _soundDriver;
 }
@@ -1247,6 +1250,9 @@ static uint8 musicCDTracks[11] = {
 
 void PCSound::loadMusic(const char *name) {
 	debugC(5, kCineDebugSound, "PCSound::loadMusic('%s')", name);
+	for (int i = 0; i < ARRAYSIZE(_rawSoundHandles); ++i) {
+		_mixer->stopHandle(_rawSoundHandles[i]);
+	}
 
 	if (_vm->getGameType() == GType_FW && (_vm->getFeatures() & GF_CD)) {
 		_currentMusic = 0;
@@ -1295,6 +1301,9 @@ void PCSound::setBgMusic(int num) {
 
 void PCSound::stopMusic() {
 	debugC(5, kCineDebugSound, "PCSound::stopMusic()");
+	for (int i = 0; i < ARRAYSIZE(_rawSoundHandles); ++i) {
+		_mixer->stopHandle(_rawSoundHandles[i]);
+	}
 
 	if (_vm->getGameType() == GType_FW && (_vm->getFeatures() & GF_CD)) {
 		if (_currentBgSlot != 1)
@@ -1330,11 +1339,38 @@ void PCSound::playSound(int mode, int channel, int param3, int param4, int param
 
 void PCSound::playSound(int channel, int frequency, const uint8 *data, int size, int volumeStep, int stepCount, int volume, int repeat) {
 	debugC(5, kCineDebugSound, "PCSound::playSound() channel %d size %d", channel, size);
+	if (_vm->getGameType() == GType_OS && _vm->getPlatform() == Common::kPlatformAtariST) {
+		if (channel < 0 || channel >= (int)ARRAYSIZE(_rawSoundHandles)) {
+			warning("PCSound::playSound: Channel number out of range (%d)", channel);
+			return;
+		}
+
+		_mixer->stopHandle(_rawSoundHandles[channel]);
+		if (frequency > 0 && size > 0) {
+			byte *sound = (byte *)malloc(size);
+			if (sound) {
+				memcpy(sound, data, size);
+
+				sound[0] = sound[1] = sound[size - 2] = sound[size - 1] = 0;
+				frequency = ((frequency * 2) / 20) + 50;
+
+				Audio::SeekableAudioStream *stream = Audio::makeRawStream(sound, size, PaulaSound::PAULA_FREQ / frequency, 0);
+				_mixer->playStream(Audio::Mixer::kSFXSoundType, &_rawSoundHandles[channel],
+				                   Audio::makeLoopingAudioStream(stream, repeat ? 0 : 1),
+				                   -1, volume * Audio::Mixer::kMaxChannelVolume / 63);
+			}
+		}
+		return;
+	}
+
 	_soundDriver->playSample(data, size, channel, volume);
 }
 
 void PCSound::stopSound(int channel) {
 	debugC(5, kCineDebugSound, "PCSound::stopSound() channel %d", channel);
+	if (channel >= 0 && channel < (int)ARRAYSIZE(_rawSoundHandles)) {
+		_mixer->stopHandle(_rawSoundHandles[channel]);
+	}
 	_soundDriver->resetChannel(channel);
 }
 

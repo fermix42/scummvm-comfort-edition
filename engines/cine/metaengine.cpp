@@ -23,6 +23,9 @@
 
 #include "engines/advancedDetector.h"
 
+#include "common/config-manager.h"
+#include "common/language.h"
+#include "common/platform.h"
 #include "common/system.h"
 #include "common/textconsole.h"
 #include "common/translation.h"
@@ -170,17 +173,16 @@ static const ADExtraGuiOptionsMap optionsList[] = {
 		}
 	},
 	{
-		GAMEOPTION_CLICK_TO_ADVANCE_CUTSCENES,
+		GAMEOPTION_PATCH_OS_ATARI_ST_FINAL_ROOM,
 		{
-			_s("Click to advance cutscenes"),
-			_s("Require a click before advancing Operation Stealth cutscene text"),
-			"click_to_advance_cutscenes",
-			false,
+			_s("Patch: Atari ST final room"),
+			_s("Fixes the Atari ST Operation Stealth final room so the razor distraction can interrupt Dr. Why"),
+			"patch_os_atari_st_final_room",
+			true,
 			0,
 			0
 		}
 	},
-
 	AD_EXTRA_GUI_OPTIONS_TERMINATOR
 };
 
@@ -206,6 +208,8 @@ public:
 		return Cine::optionsList;
 	}
 
+	bool isAdvancedExtraGuiOptionAllowedForTarget(const Common::String &target, const ADExtraGuiOptionsMap &entry) const override;
+
 	Common::Error createInstance(OSystem *syst, Engine **engine, const Cine::CINEGameDescription *desc) const override;
 
 	bool hasFeature(MetaEngineFeature f) const override;
@@ -217,6 +221,45 @@ public:
 
 	Common::KeymapArray initKeymaps(const char *target) const override;
 };
+
+bool CineMetaEngine::isAdvancedExtraGuiOptionAllowedForTarget(const Common::String &target, const ADExtraGuiOptionsMap &entry) const {
+	const bool isOperationStealthOption =
+		!strcmp(entry.guioFlag, GAMEOPTION_DISABLE_GUARD_DETECTION) ||
+		!strcmp(entry.guioFlag, GAMEOPTION_ACCEPT_ANY_COLOR_CODE) ||
+		!strcmp(entry.guioFlag, GAMEOPTION_FREEZE_JETSKI_ENERGY) ||
+		!strcmp(entry.guioFlag, GAMEOPTION_DISABLE_SHARK_COLLISION) ||
+		!strcmp(entry.guioFlag, GAMEOPTION_PATCH_OS_EU_VGA_JETSKI) ||
+		!strcmp(entry.guioFlag, GAMEOPTION_DISABLE_RAT_MAZE_DARKNESS) ||
+		!strcmp(entry.guioFlag, GAMEOPTION_CLEANUP_OS_AMIGA_TEXT) ||
+		!strcmp(entry.guioFlag, GAMEOPTION_FREEZE_FINAL_COUNTDOWN) ||
+		!strcmp(entry.guioFlag, GAMEOPTION_PATCH_OS_ATARI_ST_FINAL_ROOM);
+
+	if (!isOperationStealthOption)
+		return true;
+
+	if (ConfMan.hasKey("gameid", target) && ConfMan.get("gameid", target) != "os")
+		return false;
+
+	const Common::Platform platform = ConfMan.hasKey("platform", target) ?
+		Common::parsePlatform(ConfMan.get("platform", target)) : Common::kPlatformUnknown;
+
+	if (!strcmp(entry.guioFlag, GAMEOPTION_CLEANUP_OS_AMIGA_TEXT) ||
+			!strcmp(entry.guioFlag, GAMEOPTION_FREEZE_FINAL_COUNTDOWN)) {
+		return platform == Common::kPlatformAmiga;
+	}
+
+	if (!strcmp(entry.guioFlag, GAMEOPTION_PATCH_OS_ATARI_ST_FINAL_ROOM))
+		return platform == Common::kPlatformAtariST;
+
+	if (!strcmp(entry.guioFlag, GAMEOPTION_PATCH_OS_EU_VGA_JETSKI)) {
+		const Common::Language language = ConfMan.hasKey("language", target) ?
+			Common::parseLanguage(ConfMan.get("language", target)) : Common::UNK_LANG;
+		const Common::String extra = ConfMan.hasKey("extra", target) ? ConfMan.get("extra", target) : Common::String();
+		return platform == Common::kPlatformDOS && language == Common::EN_GRB && extra == "256 colors";
+	}
+
+	return true;
+}
 
 bool CineMetaEngine::hasFeature(MetaEngineFeature f) const {
 	return

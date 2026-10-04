@@ -88,6 +88,32 @@ int16 loadObject(char *pObjectName) {
 
 	assert(numEntry <= NUM_MAX_OBJECT);
 
+#ifdef CINE_TRACE_BUILD
+	const bool traceFinalRoomObjectLoad =
+		g_cine->getGameType() == Cine::GType_OS &&
+		(g_cine->getPlatform() == Common::kPlatformAmiga || g_cine->getPlatform() == Common::kPlatformAtariST) &&
+		scumm_stricmp(pObjectName, "SALLE59.REL") == 0;
+	if (traceFinalRoomObjectLoad) {
+		traceCineRuntime("finalRoom.objectLoad.begin", "object=%s entries=%u entrySize=%u", pObjectName, numEntry, entrySize);
+	}
+#endif
+
+	// WORKAROUND: The Atari ST version of Operation Stealth loads SALLE59.REL
+	// through the object loader when entering Dr. Why's control room. This file
+	// is a REL script file, not an object table; its object header has
+	// entrySize == 0. Treating it as object data corrupts active endgame
+	// objects, including Dr. Why, the cigarette case, and the razor.
+	if (hacksEnabled && g_cine->getGameType() == Cine::GType_OS &&
+			g_cine->getPlatform() == Common::kPlatformAtariST &&
+			ConfMan.getBool("patch_os_atari_st_final_room") &&
+			scumm_stricmp(pObjectName, "SALLE59.REL") == 0 && entrySize == 0) {
+#ifdef CINE_TRACE_BUILD
+		traceCineRuntime("finalRoom.objectLoad.skipInvalidTable", "object=%s entries=%u entrySize=%u", pObjectName, numEntry, entrySize);
+#endif
+		free(dataPtr);
+		return 0;
+	}
+
 	for (i = 0; i < numEntry; i++) {
 		bool overwrite =
 			(g_cine->getGameType() == Cine::GType_FW && g_cine->_objectTable[i].costume != -2) ||
@@ -114,6 +140,12 @@ int16 loadObject(char *pObjectName) {
 		}
 		ptr += entrySize;
 	}
+
+#ifdef CINE_TRACE_BUILD
+	if (traceFinalRoomObjectLoad) {
+		traceCineRuntime("finalRoom.objectLoad.end", "object=%s", pObjectName);
+	}
+#endif
 
 	if (!strcmp(pObjectName, "INTRO.OBJ")) {
 		for (i = 0; i < 10; i++) {

@@ -38,12 +38,6 @@
 
 namespace Cine {
 
-static bool cutsceneTextWaitingForClick = false;
-static bool cutsceneTextAdvanceRequested = false;
-static bool cutsceneTextDelayLoopSkipped = false;
-static int cutsceneTextWaitScript = -1;
-static int cutsceneTextAdvanceScript = -1;
-
 int16 disableSystemMenu = 0;
 bool inMenu;
 bool runOnlyUntilFreePartRangeFirst200 = false;
@@ -1478,51 +1472,6 @@ void removeMessages() {
 			++it;
 		}
 	}
-}
-
-void noteCutsceneTextScript(int scriptIndex) {
-	cutsceneTextWaitScript = scriptIndex;
-}
-
-void beginCutsceneTextClickWait() {
-	cutsceneTextWaitingForClick = true;
-}
-
-void finishCutsceneTextClickWait() {
-	if (cutsceneTextWaitingForClick) {
-		cutsceneTextAdvanceRequested = true;
-		cutsceneTextDelayLoopSkipped = false;
-		cutsceneTextAdvanceScript = cutsceneTextWaitScript;
-		cutsceneTextWaitingForClick = false;
-	}
-}
-
-bool hasCutsceneTextAdvanceRequest(int scriptIndex) {
-	return cutsceneTextAdvanceRequested && cutsceneTextAdvanceScript == scriptIndex;
-}
-
-bool consumeCutsceneTextAdvanceRequest(int scriptIndex) {
-	bool requested = hasCutsceneTextAdvanceRequest(scriptIndex);
-	if (requested) {
-		cutsceneTextAdvanceRequested = false;
-		cutsceneTextDelayLoopSkipped = false;
-		cutsceneTextAdvanceScript = -1;
-	}
-
-	return requested;
-}
-
-void markCutsceneTextDelayLoopSkipped() {
-	cutsceneTextDelayLoopSkipped = true;
-}
-
-bool shouldBypassCutsceneTextSpeechGate(int scriptIndex, byte varIdx, int16 value) {
-	if (hasCutsceneTextAdvanceRequest(scriptIndex) && cutsceneTextDelayLoopSkipped && varIdx == 249 && value == 0) {
-		consumeCutsceneTextAdvanceRequest(scriptIndex);
-		return true;
-	}
-
-	return false;
 }
 
 uint16 processKeyboard(uint16 param) {

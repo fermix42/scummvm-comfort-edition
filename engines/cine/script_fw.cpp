@@ -51,6 +51,8 @@ static bool shouldFreezeFinalEscapeCountdown(int scriptIndex, int scriptLine, by
 static void retirePalaisDockScriptsForJetski(int scriptIndex, int scriptLine, byte varIdx, int16 value);
 #ifdef CINE_TRACE_BUILD
 static void traceCineState(const char *event, const Common::String &detail);
+static bool traceFinalRoomRazorScript(int scriptIndex);
+static bool traceFinalRoomRazorMessage(byte messageIdx);
 #endif
 
 
@@ -914,6 +916,12 @@ int FWScript::o1_compareObjectParam() {
 	debugC(5, kCineDebugScript, "Line: %d: compareObjectParam(objIdx:%d,type:%d,value:%d)", _line, objIdx, param1, param2);
 
 	_compare = compareObjectParam(objIdx, param1, param2);
+#ifdef CINE_TRACE_BUILD
+	if (traceFinalRoomRazorScript(_index)) {
+		traceCineRuntime("finalRoom.compareObject", "script=%d line=%d obj=%d param=%d value=%d result=%d",
+			_index, _line, objIdx, param1, param2, _compare);
+	}
+#endif
 	return 0;
 }
 
@@ -1344,15 +1352,6 @@ int FWScript::o1_loop() {
 #endif
 	}
 
-	if (hasCutsceneTextAdvanceRequest(_index)) {
-		_localVars[varIdx] = 0;
-		markCutsceneTextDelayLoopSkipped();
-#ifdef CINE_TRACE_BUILD
-		traceCineRuntime("cheat.advanceCutsceneTextLoop", "script=%d line=%d var=%d label=%d",
-			_index, _line, varIdx, labelIdx);
-#endif
-	}
-
 	_localVars[varIdx]--;
 
 	if (_localVars[varIdx] >= 0) {
@@ -1664,11 +1663,12 @@ int FWScript::o1_message() {
 
 	debugC(5, kCineDebugScript, "Line: %d: message(%d,%d,%d,%d,%d)", _line, param1, param2, param3, param4, param5);
 
-	if ((int16)param5 < 0) {
-		consumeCutsceneTextAdvanceRequest(_index);
-		noteCutsceneTextScript(_index);
+#ifdef CINE_TRACE_BUILD
+	if (traceFinalRoomRazorMessage(param1)) {
+		traceCineRuntime("finalRoom.message", "script=%d line=%d msg=%d box=%u,%u,%u,%u",
+			_index, _line, param1, param2, param3, param4, param5);
 	}
-
+#endif
 	addMessage(param1, param2, param3, param4, param5);
 	return 0;
 }
@@ -1746,13 +1746,17 @@ int FWScript::o1_compareGlobalVar() {
 		// gameplay to verify that copy protection was successfully passed).
 		if (varIdx == 255 && (g_cine->getGameType() == Cine::GType_FW)) {
 			_compare = kCmpEQ;
-		} else if (shouldBypassCutsceneTextSpeechGate(_index, varIdx, value)) {
-			_compare = kCmpGT;
 		} else {
 			_compare = compareVars(_globalVars[varIdx], value);
 		}
 	}
 
+#ifdef CINE_TRACE_BUILD
+	if (traceFinalRoomRazorScript(_index)) {
+		traceCineRuntime("finalRoom.compareGlobal", "script=%d line=%d var=%d type=%d result=%d",
+			_index, _line, varIdx, varType, _compare);
+	}
+#endif
 	return 0;
 }
 
@@ -2291,6 +2295,25 @@ static void retirePalaisDockScriptsForJetski(int scriptIndex, int scriptLine, by
 }
 
 #ifdef CINE_TRACE_BUILD
+static bool traceFinalRoomRazorScript(int scriptIndex) {
+	if (g_cine->getGameType() != Cine::GType_OS ||
+			(scumm_stricmp(currentPrcName, "SALLE59.PRC") != 0 && scumm_stricmp(currentPrcName, "DOUCHE6.PRC") != 0)) {
+		return false;
+	}
+
+	return scriptIndex == 87 || scriptIndex == 88 || scriptIndex == 89 ||
+		scriptIndex == 19 || scriptIndex == 37 || scriptIndex == 38;
+}
+
+static bool traceFinalRoomRazorMessage(byte messageIdx) {
+	if (g_cine->getGameType() != Cine::GType_OS ||
+			(scumm_stricmp(currentPrcName, "SALLE59.PRC") != 0 && scumm_stricmp(currentPrcName, "DOUCHE6.PRC") != 0)) {
+		return false;
+	}
+
+	return messageIdx == 136 || messageIdx == 138 || messageIdx == 153 || messageIdx == 155 || messageIdx == 156;
+}
+
 void traceCineRuntime(const char *event, const char *fmt, ...) {
 	if (!g_cine || g_cine->getGameType() != Cine::GType_OS) {
 		return;
@@ -2307,8 +2330,8 @@ static bool isTraceWatchedObject(int objIdx) {
 	static const int watchedObjects[] = {
 		1, 2, 3, 4, 5, 6, 7, 8, 10, 14, 15, 16, 20, 21, 22, 23, 24, 25, 26,
 		30, 31, 32, 33, 40, 41, 45, 50, 51, 81, 98, 99, 100, 101, 102, 103,
-		104, 105, 110, 111, 147, 150, 151, 152, 164, 70, 230, 231, 232, 233, 234,
-		235, 236, 237, 238, 239
+		104, 105, 110, 111, 147, 150, 151, 152, 164, 70, 175, 176, 177, 178,
+		179, 180, 181, 182, 230, 231, 232, 233, 234, 235, 236, 237, 238, 239
 	};
 
 	for (uint i = 0; i < ARRAYSIZE(watchedObjects); ++i) {
@@ -2347,12 +2370,13 @@ static void traceCineState(const char *event, const Common::String &detail) {
 	}
 
 	Common::String line = Common::String::format(
-		"CINE_TRACE %06u event=%s prc=%s detail=\"%s\" vars={v1:%d v2:%d v25:%d v200:%d v240:%d v241:%d v242:%d v243:%d v249:%d v250:%d}\n",
+		"CINE_TRACE %06u event=%s prc=%s detail=\"%s\" vars={v1:%d v2:%d v20:%d v25:%d v57:%d v200:%d v240:%d v241:%d v242:%d v243:%d v249:%d v250:%d v251:%d v252:%d}\n",
 		traceSeq++, event, currentPrcName, detail.c_str(),
-		g_cine->_globalVars[1], g_cine->_globalVars[2], g_cine->_globalVars[25],
-		g_cine->_globalVars[200], g_cine->_globalVars[240], g_cine->_globalVars[241],
+		g_cine->_globalVars[1], g_cine->_globalVars[2], g_cine->_globalVars[20],
+		g_cine->_globalVars[25], g_cine->_globalVars[57], g_cine->_globalVars[200],
+		g_cine->_globalVars[240], g_cine->_globalVars[241],
 		g_cine->_globalVars[242], g_cine->_globalVars[243], g_cine->_globalVars[249],
-		g_cine->_globalVars[250]);
+		g_cine->_globalVars[250], g_cine->_globalVars[251], g_cine->_globalVars[252]);
 
 	for (uint i = 0; i < g_cine->_objectTable.size(); ++i) {
 		if (!isTraceWatchedObject(i)) {
