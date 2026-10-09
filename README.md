@@ -95,6 +95,16 @@ it can be inside the window, and **Aspect ratio correction** preserves the
 game's intended shape. That means a 4:3 game in an ultra-wide window will still
 have side bars instead of being horizontally distorted.
 
+Some engines may also draw their own black space inside the game surface.
+For example, Operation Stealth in the Cine engine presents a `320x200` game
+surface to the graphics backend, but some scenes render the active artwork
+inside only part of that surface. Comfort Edition preserves the original
+presentation by default, and also provides an opt-in **Patch: Crop Cine display
+borders** game option for users who prefer to trim Cine's top presentation
+padding before ScummVM applies normal fit-to-window scaling. The patch keeps
+the bottom status/action text area visible because Operation Stealth uses that
+strip for gameplay feedback.
+
 For **Custom**, width and height are the outer window size in desktop
 coordinates, including the title bar and borders when **Borderless window** is
 off. A value of `0` for width or height fills the usable area on that axis.

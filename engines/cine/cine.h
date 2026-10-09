@@ -155,6 +155,10 @@ public:
 	uint32 getFeatures() const;
 	Common::Language getLanguage() const;
 	Common::Platform getPlatform() const;
+	bool isDisplayCropEnabled() const;
+	Common::Rect getDisplayCropRect() const;
+	Common::Point displayToGamePoint(const Common::Point &point) const;
+	Common::Point gameToDisplayPoint(const Common::Point &point) const;
 
 	bool loadSaveDirectory();
 	void makeSystemMenu();

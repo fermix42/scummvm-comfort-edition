@@ -270,7 +270,7 @@ void manageEvents(CallSource callSource, EventTarget eventTarget, bool useMaxMou
 						foundTarget = true;
 					}
 				}
-				mousePos = g_system->getEventManager()->getMousePos();
+				mousePos = g_cine->displayToGamePoint(g_system->getEventManager()->getMousePos());
 				for (auto &r : rects) {
 					if (r.contains(mousePos)) {
 						foundTarget = true;
@@ -344,7 +344,7 @@ void manageEvents(CallSource callSource, EventTarget eventTarget, bool useMaxMou
 				// responsive by updating it here.
 				if (allowPlayerInput && playerCommand != -1 && !mouseLeft && !mouseRight) {
 					// A player command is given, left and right mouse buttons are up
-					mousePos = eventMan->getMousePos();
+					mousePos = g_cine->displayToGamePoint(eventMan->getMousePos());
 					playerCommandMouseLeftRightUp(mousePos.x, mousePos.y);
 					renderer->drawCommand();
 				}
@@ -374,7 +374,7 @@ void manageEvents(CallSource callSource, EventTarget eventTarget, bool useMaxMou
 }
 
 void getMouseData(uint16 param, uint16 *pButton, uint16 *pX, uint16 *pY) {
-	Common::Point mouse = g_system->getEventManager()->getMousePos();
+	Common::Point mouse = g_cine->displayToGamePoint(g_system->getEventManager()->getMousePos());
 	*pX = mouse.x;
 	*pY = mouse.y;
 

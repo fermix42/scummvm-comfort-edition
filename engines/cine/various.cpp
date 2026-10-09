@@ -861,8 +861,13 @@ int16 makeMenuChoice(const CommandeType commandList[], uint16 height, uint16 X, 
 		X = 319 - width;
 	}
 
-	if (Y + paramY > 199) {
-		Y = 199 - paramY;
+	const Common::Rect displayCrop = g_cine->getDisplayCropRect();
+	if (Y + paramY > displayCrop.bottom) {
+		Y = MAX<int16>(displayCrop.top, displayCrop.bottom - paramY);
+	}
+
+	if (Y < displayCrop.top) {
+		Y = displayCrop.top;
 	}
 
 	menu = new SelectionMenu(Common::Point(X, Y), width, list);
@@ -963,7 +968,8 @@ int16 makeMenuChoice(const CommandeType commandList[], uint16 height, uint16 X, 
 
 				if (currentSelection != oldSelection) {
 					Common::Point currentSelectionCenter(X + width / 2, (currentSelection * 9) + Y + 8);
-					g_system->warpMouse(currentSelectionCenter.x, currentSelectionCenter.y);
+					const Common::Point displayPoint = g_cine->gameToDisplayPoint(currentSelectionCenter);
+					g_system->warpMouse(displayPoint.x, displayPoint.y);
 				}
 			} else if (mouseX > X && mouseX < X + width && mouseY > Y && mouseY < Y + paramY + 1) {
 				// Y value range for selection s:

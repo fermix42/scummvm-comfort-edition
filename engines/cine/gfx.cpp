@@ -1315,7 +1315,9 @@ void FWRenderer::blit(bool useCollisionPage) {
 	// Show the back buffer or the collision page. Normally the back
 	// buffer but showing the collision page is useful for debugging.
 	byte *source = (useCollisionPage ? collisionPage : _backBuffer);
-	g_system->copyRectToScreen(source, 320, 0, 0, 320, 200);
+	const Common::Rect displayCrop = g_cine->getDisplayCropRect();
+	source += displayCrop.top * 320 + displayCrop.left;
+	g_system->copyRectToScreen(source, 320, 0, 0, displayCrop.width(), displayCrop.height());
 	g_system->updateScreen();
 }
 
@@ -1790,8 +1792,12 @@ void SelectionMenu::drawMenu(FWRenderer &r, bool top) {
 	if (x + _width > 319)
 		x = 319 - _width;
 
-	if (y + height > 199)
-		y = 199 - height;
+	const Common::Rect displayCrop = g_cine->getDisplayCropRect();
+	if (y + height > displayCrop.bottom)
+		y = displayCrop.bottom - height;
+
+	if (y < displayCrop.top)
+		y = displayCrop.top;
 
 	byte doubleBorderColor = (r.useTransparentDialogBoxes() ? r.transparentDialogBoxStartColor() : 0) + 2;
 

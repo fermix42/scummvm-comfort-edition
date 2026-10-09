@@ -228,7 +228,8 @@ void CineEngine::syncSoundSettings() {
 
 Common::Error CineEngine::run() {
 	Graphics::ModeList modes;
-	modes.push_back(Graphics::Mode(320, 200));
+	const Common::Rect displayCrop = getDisplayCropRect();
+	modes.push_back(Graphics::Mode(displayCrop.width(), displayCrop.height()));
 	if (g_cine->getGameType() == GType_FW && (g_cine->getFeatures() & GF_CD)) {
 		modes.push_back(Graphics::Mode(640, 480));
 		initGraphicsModes(modes);
@@ -238,7 +239,7 @@ Common::Error CineEngine::run() {
 	}
 
 	// Initialize backend
-	initGraphics(320, 200);
+	initGraphics(displayCrop.width(), displayCrop.height());
 
 	if (g_cine->getGameType() == GType_FW && (g_cine->getFeatures() & GF_CD)) {
 		if (!existExtractedCDAudioFiles(19)  // tracks <19 are not used

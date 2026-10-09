@@ -6,6 +6,8 @@ Format: `Date/timestamp: Category: Description/Explanation`
 
 Timestamps use ISO 8601 local time with UTC offset. Entries are newest first.
 
+- 2026-10-09T13:06:04-07:00: Patch: Added `Patch: Crop Cine display borders` for Future Wars and Operation Stealth to trim Cine's top presentation padding before fit-to-window scaling while preserving the bottom status/action text area, with mouse coordinates translated back to the original `320x200` game space.
+- 2026-10-09T12:53:30-07:00: Docs: Documented that Cine/Operation Stealth can include black space inside the engine's `320x200` game surface, separate from backend fit-to-window side bars.
 - 2026-10-09T11:44:29-07:00: Achievements: Added configurable Comfort Edition achievement popup cards with icon/title-only display, popup location choices, optional voice alert playback from `ce-achievements.dat`, challenge-mode accent color, longer card visibility, compact width sizing, and updated shipped theme packages.
 - 2026-10-09T09:22:37-07:00: Achievements: Added Comfort Edition achievement unlock tracking, local queueing, link-token sync controls, repeat-popup control, and Challenge Mode controls in Global Options.
 - 2026-10-09T09:22:37-07:00: Achievements: Added Operation Stealth achievement event watchers and catalog/rule support for Comfort Edition achievement unlocks.

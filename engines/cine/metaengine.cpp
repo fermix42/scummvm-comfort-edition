@@ -202,6 +202,17 @@ static const ADExtraGuiOptionsMap optionsList[] = {
 			0
 		}
 	},
+	{
+		GAMEOPTION_PATCH_CINE_CROP_BORDERS,
+		{
+			_s("Patch: Crop Cine display borders"),
+			_s("Trim Cine's top presentation padding while preserving the bottom status area"),
+			"patch_cine_crop_borders",
+			false,
+			0,
+			0
+		}
+	},
 	AD_EXTRA_GUI_OPTIONS_TERMINATOR
 };
 
@@ -209,11 +220,41 @@ static const ADExtraGuiOptionsMap optionsList[] = {
 #define SAVEGAME_NAME_LEN (sizeof(Cine::currentSaveName[0]))
 #define SAVELIST_SIZE (MAX_SAVEGAMES * SAVEGAME_NAME_LEN)
 
+static const int kCineCropTop = 8;
+static const int kCineCropHeight = 192;
+
 bool CineEngine::mayHave256Colors() const { return getGameType() == Cine::GType_OS && getPlatform() == Common::kPlatformDOS; }
 int CineEngine::getGameType() const { return _gameDescription->gameType; }
 uint32 CineEngine::getFeatures() const { return _gameDescription->features; }
 Common::Language CineEngine::getLanguage() const { return _gameDescription->desc.language; }
 Common::Platform CineEngine::getPlatform() const { return _gameDescription->desc.platform; }
+
+bool CineEngine::isDisplayCropEnabled() const {
+	return ConfMan.getBool("patch_cine_crop_borders");
+}
+
+Common::Rect CineEngine::getDisplayCropRect() const {
+	if (!isDisplayCropEnabled())
+		return Common::Rect(320, 200);
+
+	return Common::Rect(0, kCineCropTop, 320, kCineCropTop + kCineCropHeight);
+}
+
+Common::Point CineEngine::displayToGamePoint(const Common::Point &point) const {
+	if (!isDisplayCropEnabled())
+		return point;
+
+	const Common::Rect displayCrop = getDisplayCropRect();
+	return Common::Point(CLIP<int16>(point.x, 0, 319), CLIP<int16>(point.y + displayCrop.top, 0, 199));
+}
+
+Common::Point CineEngine::gameToDisplayPoint(const Common::Point &point) const {
+	if (!isDisplayCropEnabled())
+		return point;
+
+	const Common::Rect displayCrop = getDisplayCropRect();
+	return Common::Point(CLIP<int16>(point.x, 0, displayCrop.width() - 1), CLIP<int16>(point.y - displayCrop.top, 0, displayCrop.height() - 1));
+}
 
 } // End of namespace Cine
 
