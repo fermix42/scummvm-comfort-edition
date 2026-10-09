@@ -1,6 +1,6 @@
 # ScummVM Comfort Edition
 
-ScummVM Comfort Edition is a personal fork of [ScummVM](https://www.scummvm.org/)
+ScummVM Comfort Edition is a fork of [ScummVM](https://www.scummvm.org/)
 focused on making classic adventure games more comfortable on modern displays,
 especially ultra-wide desktop setups.
 
