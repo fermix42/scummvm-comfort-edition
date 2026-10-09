@@ -249,6 +249,8 @@ Common::Error CineEngine::run() {
 
 	bool usePCSound = getPlatform() == Common::kPlatformDOS;
 	if (!usePCSound && getGameType() == GType_OS && getPlatform() == Common::kPlatformAtariST) {
+		// Atari ST Operation Stealth installs with MIDI.ON use the PC-style
+		// music/sound resources instead of the native Paula path.
 		Common::File midiFlag;
 		usePCSound = midiFlag.open("midi.on");
 	}

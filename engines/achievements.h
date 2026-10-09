@@ -123,6 +123,8 @@ public:
 	 * @param[in] id			   Internal ID of the achievement.
 	 */
 	bool setAchievement(const String &id);
+	bool setCEAchievement(const String &game, const String &variant, const String &achievement);
+	bool noteCEGameEvent(const String &game, const String &variant, const String &event);
 
 	/**
 	 * Check if an achievement as achieved.
@@ -260,6 +262,29 @@ public:
 	const StatDescription *getStatDescription(uint16 index) const;
 
 	/** @} */
+
+	bool isCEChallengeModeEnabled() const;
+	void setCEChallengeModeEnabled(bool enabled);
+	bool areCECheatsEnabled(const String &domain = String()) const;
+	void setCECheatsEnabled(bool enabled, const String &domain = String());
+	bool shouldApplyCECheat(const String &key, const String &domain = String()) const;
+	bool isCERepeatPopupsEnabled() const;
+	void setCERepeatPopupsEnabled(bool enabled);
+	bool isCEDisqualifyingAssistanceActive(const String &domain = String()) const;
+	void disableCEDisqualifyingAssistance();
+	void noteCEDisqualifyingAssistance(const String &flag);
+	Array<String> getCEAssistanceFlags(const String &domain = String()) const;
+
+	String getCELinkToken() const;
+	void setCELinkToken(const String &token);
+	uint32 getCEPendingEventCount() const;
+	String getCELastSyncStatus() const;
+	void retryCEQueuedEvents();
+	void testCELinkToken();
+	bool isCESyncBusy() const;
+
+	String getCEAchievementId(const String &game, uint index) const;
+	const char *const *getCEOperationStealthAchievementKeys() const;
 
 private:
 	String getCurrentLang() const;

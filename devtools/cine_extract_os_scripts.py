@@ -463,6 +463,16 @@ def main() -> None:
     parser.add_argument("--game-dir", required=True, type=Path)
     parser.add_argument("--out", required=True, type=Path)
     parser.add_argument("--unpacker-exe", type=Path)
+    parser.add_argument(
+        "--stop-at-break",
+        action="store_true",
+        help="stop each script at the first break() opcode, matching the older concise dumps",
+    )
+    parser.add_argument(
+        "--no-offsets",
+        action="store_true",
+        help="omit byte offsets from decompiled script lines",
+    )
     args = parser.parse_args()
 
     args.out.mkdir(parents=True, exist_ok=True)
@@ -501,7 +511,12 @@ def main() -> None:
             resource_dir.mkdir(parents=True, exist_ok=True)
             (resource_dir / f"{entry['name']}.bin").write_bytes(resource)
             for script in scripts:
-                text = Decompiler(script["body"], script["idx"]).decompile()
+                text = Decompiler(
+                    script["body"],
+                    script["idx"],
+                    continue_after_break=not args.stop_at_break,
+                    show_offsets=not args.no_offsets,
+                ).decompile()
                 if script["meta"]:
                     text = (
                         f"// REL params: p1={script['meta']['p1']} p2={script['meta']['p2']} p3={script['meta']['p3']}\n"

@@ -36,7 +36,17 @@ $env:VCPKG_OVERLAY_PORTS = "$substRepoRoot\.github\vcpkg-ports"
 
 Set-Location $substRepoRoot
 
-if (-not (Test-Path 'build-scummvm\scummvm.sln')) {
+$projectNeedsRefresh = -not (Test-Path 'build-scummvm\scummvm.sln')
+if (-not $projectNeedsRefresh -and (Test-Path 'build-scummvm\scummvm.vcxproj')) {
+    $projectContent = Get-Content -LiteralPath 'build-scummvm\scummvm.vcxproj' -Raw
+    $projectNeedsRefresh = -not $projectContent.Contains('..\engines\ce_achievements.cpp')
+}
+if (-not $projectNeedsRefresh -and (Test-Path 'build-scummvm\cine.vcxproj')) {
+    $cineProjectContent = Get-Content -LiteralPath 'build-scummvm\cine.vcxproj' -Raw
+    $projectNeedsRefresh = -not $cineProjectContent.Contains('..\engines\cine\achievements.cpp')
+}
+
+if ($projectNeedsRefresh) {
     if (-not (Test-Path 'build-create-project')) {
         New-Item -ItemType Directory -Path 'build-create-project' | Out-Null
     }

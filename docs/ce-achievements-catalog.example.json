@@ -1,0 +1,237 @@
+{
+  "achievements": [
+    {
+      "game": "operation-stealth",
+      "variant": "*",
+      "id": "passport_to_trouble",
+      "title": "Passport to Trouble",
+      "description": "Get the customs agent to accept the correct passport.",
+      "challenge_eligible": true,
+      "hidden": false
+    },
+    {
+      "game": "operation-stealth",
+      "variant": "*",
+      "id": "shave_and_a_briefing",
+      "title": "Shave and a Briefing",
+      "description": "Hear the razor recording.",
+      "challenge_eligible": true,
+      "hidden": false
+    },
+    {
+      "game": "operation-stealth",
+      "variant": "*",
+      "id": "say_it_with_flowers",
+      "title": "Say It with Flowers",
+      "description": "Meet the park contact and escape with his information.",
+      "challenge_eligible": true,
+      "hidden": false
+    },
+    {
+      "game": "operation-stealth",
+      "variant": "*",
+      "id": "safe_deposit_unsafe_withdrawal",
+      "title": "Safe Deposit, Unsafe Withdrawal",
+      "description": "Retrieve the bank device and reach the ambush.",
+      "challenge_eligible": true,
+      "hidden": false
+    },
+    {
+      "game": "operation-stealth",
+      "variant": "*",
+      "id": "escape_clause",
+      "title": "Escape Clause",
+      "description": "Escape the mine and flooded tunnels.",
+      "challenge_eligible": true,
+      "hidden": false
+    },
+    {
+      "game": "operation-stealth",
+      "variant": "*",
+      "id": "two_for_the_surface",
+      "title": "Two for the Surface",
+      "description": "Rescue Julia underwater and surface together.",
+      "challenge_eligible": true,
+      "hidden": false
+    },
+    {
+      "game": "operation-stealth",
+      "variant": "*",
+      "id": "palace_intrigue",
+      "title": "Palace Intrigue",
+      "description": "Reach the office through the palace mazes.",
+      "challenge_eligible": true,
+      "hidden": false
+    },
+    {
+      "game": "operation-stealth",
+      "variant": "*",
+      "id": "a_safe_bet",
+      "title": "A Safe Bet",
+      "description": "Open the palace safe and recover its envelope.",
+      "challenge_eligible": true,
+      "hidden": false
+    },
+    {
+      "game": "operation-stealth",
+      "variant": "*",
+      "id": "rats_all_folks",
+      "title": "Rats All, Folks!",
+      "description": "Clear the rat mazes inside the hidden underwater base.",
+      "challenge_eligible": true,
+      "hidden": true
+    },
+    {
+      "game": "operation-stealth",
+      "variant": "*",
+      "id": "dressed_to_infiltrate",
+      "title": "Dressed to Infiltrate",
+      "description": "Acquire the soldier disguise.",
+      "challenge_eligible": true,
+      "hidden": true
+    },
+    {
+      "game": "operation-stealth",
+      "variant": "*",
+      "id": "officially_unofficial",
+      "title": "Officially Unofficial",
+      "description": "Submit the authorized mission order.",
+      "challenge_eligible": true,
+      "hidden": true
+    },
+    {
+      "game": "operation-stealth",
+      "variant": "*",
+      "id": "virus_successfully_installed",
+      "title": "Virus Successfully Installed",
+      "description": "Install the virus from the compact disc.",
+      "challenge_eligible": true,
+      "hidden": true
+    },
+    {
+      "game": "operation-stealth",
+      "variant": "*",
+      "id": "order_of_the_banana",
+      "title": "Order of the Banana",
+      "description": "Receive the Santa Paragua Republic Order of the Banana.",
+      "challenge_eligible": true,
+      "hidden": true
+    },
+    {
+      "game": "operation-stealth",
+      "variant": "*",
+      "id": "well_read_intruder",
+      "title": "Well-Read Intruder",
+      "description": "Read all five humorous palace book titles.",
+      "challenge_eligible": true,
+      "hidden": true
+    },
+    {
+      "game": "operation-stealth",
+      "variant": "*",
+      "id": "corporate_espionage",
+      "title": "Corporate Espionage",
+      "description": "Read the Delphine Software mission order.",
+      "challenge_eligible": true,
+      "hidden": true
+    }
+  ],
+  "rules": [
+    {
+      "game": "operation-stealth",
+      "variant": "*",
+      "event": "customs_passport_accepted",
+      "achievement": "passport_to_trouble"
+    },
+    {
+      "game": "operation-stealth",
+      "variant": "*",
+      "event": "razor_recording_heard",
+      "achievement": "shave_and_a_briefing"
+    },
+    {
+      "game": "operation-stealth",
+      "variant": "*",
+      "event": "park_contact_info_obtained",
+      "achievement": "say_it_with_flowers"
+    },
+    {
+      "game": "operation-stealth",
+      "variant": "*",
+      "event": "bank_ambush_reached",
+      "achievement": "safe_deposit_unsafe_withdrawal"
+    },
+    {
+      "game": "operation-stealth",
+      "variant": "*",
+      "event": "mine_tunnels_escaped",
+      "achievement": "escape_clause"
+    },
+    {
+      "game": "operation-stealth",
+      "variant": "*",
+      "event": "julia_rescued_underwater",
+      "achievement": "two_for_the_surface"
+    },
+    {
+      "game": "operation-stealth",
+      "variant": "*",
+      "event": "palace_office_reached",
+      "achievement": "palace_intrigue"
+    },
+    {
+      "game": "operation-stealth",
+      "variant": "*",
+      "event": "palace_safe_envelope_recovered",
+      "achievement": "a_safe_bet"
+    },
+    {
+      "game": "operation-stealth",
+      "variant": "*",
+      "event": "rat_mazes_cleared",
+      "achievement": "rats_all_folks"
+    },
+    {
+      "game": "operation-stealth",
+      "variant": "*",
+      "event": "soldier_disguise_acquired",
+      "achievement": "dressed_to_infiltrate"
+    },
+    {
+      "game": "operation-stealth",
+      "variant": "*",
+      "event": "fingerprint_door_passed",
+      "achievement": "fingerprint_fiction"
+    },
+    {
+      "game": "operation-stealth",
+      "variant": "*",
+      "event": "authorized_mission_submitted",
+      "achievement": "officially_unofficial"
+    },
+    {
+      "game": "operation-stealth",
+      "variant": "*",
+      "event": "stealth_virus_installed",
+      "achievement": "virus_successfully_installed"
+    },
+    {
+      "game": "operation-stealth",
+      "variant": "*",
+      "event": "banana_order_awarded",
+      "achievement": "order_of_the_banana"
+    },
+    {
+      "game": "operation-stealth",
+      "variant": "*",
+      "event": "humorous_book_read",
+      "achievement": "well_read_intruder"
+    },
+    {
+      "game": "operation-stealth",
+      "variant": "*",
+      "event": "mission_order_read",
+      "achievement": "corporate_espionage"
+    }
+  ]
+}

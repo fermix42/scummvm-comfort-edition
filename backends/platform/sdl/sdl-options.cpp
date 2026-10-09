@@ -87,7 +87,7 @@ SdlWindowOptionsWidget::SdlWindowOptionsWidget(GUI::GuiObject *boss, const Commo
 			i < 2 ? _("Outer window size in desktop coordinates, including borders. 0 fills the usable area.") :
 			_("Offset from the usable desktop's top-left corner. Kept within the selected monitor."));
 	}
-	new GUI::StaticTextWidget(widgetsBoss(), "SdlWindowOptions.Note", _("Graphics: use Fit to window and aspect correction."));
+	new GUI::StaticTextWidget(widgetsBoss(), "SdlWindowOptions.Note", _("Places the window only; use Fit to window and aspect correction."));
 }
 
 void SdlWindowOptionsWidget::defineLayout(GUI::ThemeEval &layouts, const Common::String &name, const Common::String &overlay) const {

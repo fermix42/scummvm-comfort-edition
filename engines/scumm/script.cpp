@@ -23,6 +23,8 @@
 #include "common/util.h"
 #include "common/system.h"
 
+#include "engines/achievements.h"
+
 #include "scumm/actor.h"
 #include "scumm/object.h"
 #include "scumm/resource.h"
@@ -762,8 +764,8 @@ void ScummEngine::writeVar(uint var, int value) {
 			// direction state, not punch power.
 			const bool indyEnergyVar = (var == 193 || var == 194);
 			const bool opponentEnergyVar = (var == 195 || var == 196);
-			const bool strongPunches = ConfMan.getBool("indy3_strong_punches");
-			const bool invincibleIndy = ConfMan.getBool("indy3_invincible_indy");
+			const bool strongPunches = AchMan.shouldApplyCECheat("indy3_strong_punches");
+			const bool invincibleIndy = AchMan.shouldApplyCECheat("indy3_invincible_indy");
 
 			if (strongPunches && currentScriptSlotIs(43) && opponentEnergyVar && value < _scummVars[var]) {
 				int boostedDamage = (_scummVars[var] - value) * 5;

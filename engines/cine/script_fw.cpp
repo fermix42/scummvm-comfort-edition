@@ -37,6 +37,9 @@
 #include "cine/various.h"
 #include "cine/script.h"
 #include "cine/console.h"
+#include "cine/achievements.h"
+
+#include "engines/achievements.h"
 
 namespace Cine {
 
@@ -48,11 +51,16 @@ static bool patchOsEuVgaJetskiSequence();
 static bool isStalePalaisDockTransitionSignal(int scriptIndex, int scriptLine, byte varIdx, int16 value);
 static bool shouldIgnoreDuplicatePalaisDockScriptStart(byte scriptIdx);
 static bool shouldFreezeFinalEscapeCountdown(int scriptIndex, int scriptLine, byte varIdx, byte labelIdx);
+static bool ceAllowsCheat(const char *key) {
+	return AchMan.shouldApplyCECheat(key);
+}
+
 static void retirePalaisDockScriptsForJetski(int scriptIndex, int scriptLine, byte varIdx, int16 value);
 #ifdef CINE_TRACE_BUILD
 static void traceCineState(const char *event, const Common::String &detail);
 static bool traceFinalRoomRazorScript(int scriptIndex);
 static bool traceFinalRoomRazorMessage(byte messageIdx);
+static bool traceAirportPassportMessage(byte messageIdx);
 #endif
 
 
@@ -839,10 +847,16 @@ int FWScript::o1_modifyObjectParam() {
 	byte objIdx = getNextByte();
 	byte paramIdx = getNextByte();
 	int16 newValue = getNextWord();
+	int16 oldValue = getObjectParam(objIdx, paramIdx);
 
 	debugC(5, kCineDebugScript, "Line: %d: modifyObjectParam(objIdx:%d,paramIdx:%d,newValue:%d)", _line, objIdx, paramIdx, newValue);
+#ifdef CINE_TRACE_BUILD
+	traceCineRuntime("script.modifyObjectParam", "script=%d line=%d obj=%d param=%d new=%d old=%d",
+		_index, _line, objIdx, paramIdx, newValue, oldValue);
+#endif
 
 	modifyObjectParam(objIdx, paramIdx, newValue);
+	checkOperationStealthPalaceSafeEnvelopeAchievement(_index, _line, objIdx, paramIdx, oldValue, newValue);
 	return 0;
 }
 
@@ -933,8 +947,13 @@ int FWScript::o1_setupObject() {
 	int16 param4 = getNextWord();
 
 	debugC(5, kCineDebugScript, "Line: %d: setupObject(objIdx:%d,%d,%d,%d,%d)", _line, objIdx, param1, param2, param3, param4);
+#ifdef CINE_TRACE_BUILD
+	traceCineRuntime("script.setupObject", "script=%d line=%d obj=%d x=%d y=%d mask=%d frame=%d",
+		_index, _line, objIdx, param1, param2, param3, param4);
+#endif
 
 	setupObject(objIdx, param1, param2, param3, param4);
+	checkOperationStealthBananaOrderAchievementAfterAwardMessage(_index, _line, objIdx, param1, param2, param3, param4);
 	return 0;
 }
 
@@ -949,7 +968,8 @@ int FWScript::o1_checkCollision() {
 
 	_compare = checkCollision(objIdx, param1, param2, param3, param4);
 #ifdef CINE_TRACE_BUILD
-	traceCineRuntime("checkCollision", "line=%d obj=%d args=%d,%d,%d,%d result=%d", _line, objIdx, param1, param2, param3, param4, _compare);
+	traceCineRuntime("checkCollision", "script=%d line=%d obj=%d args=%d,%d,%d,%d result=%d",
+		_index, _line, objIdx, param1, param2, param3, param4, _compare);
 #endif
 	return 0;
 }
@@ -1154,6 +1174,10 @@ int FWScript::o1_modifyObjectParam2() {
 	byte newValue = getNextByte();
 
 	debugC(5, kCineDebugScript, "Line: %d: modifyObjectParam2(objIdx:%d,paramIdx:%d,var[%d])", _line, objIdx, paramIdx, newValue);
+#ifdef CINE_TRACE_BUILD
+	traceCineRuntime("script.modifyObjectParamFromVar", "script=%d line=%d obj=%d param=%d var=%d value=%d old=%d",
+		_index, _line, objIdx, paramIdx, newValue, _localVars[newValue], getObjectParam(objIdx, paramIdx));
+#endif
 
 	modifyObjectParam(objIdx, paramIdx, _localVars[newValue]);
 	return 0;
@@ -1373,10 +1397,10 @@ int FWScript::o1_startGlobalScript() {
 
 	debugC(5, kCineDebugScript, "Line: %d: startScript(%d)", _line, param);
 #ifdef CINE_TRACE_BUILD
-	traceCineRuntime("startGlobalScript", "line=%d script=%d", _line, param);
+	traceCineRuntime("startGlobalScript", "script=%d line=%d target=%d", _index, _line, param);
 #endif
 
-	const bool disableGuardDetection = labyrinthCheat || ConfMan.getBool("disable_guard_detection");
+	const bool disableGuardDetection = ceAllowsCheat("disable_guard_detection");
 
 	// Cheat for Scene 6 Guards Labyrinth Arcade Game to disable John's Death (to aid playtesting)
 	if (g_cine->getGameType() == Cine::GType_OS && disableGuardDetection && scumm_stricmp(currentPrcName, "LABY.PRC") == 0 && param == 46) {
@@ -1473,6 +1497,13 @@ int FWScript::o1_loadNewPrcName() {
 	const char *param2 = getNextString();
 
 	assert(param1 <= 3);
+#ifdef CINE_TRACE_BUILD
+	static const char *const loadKinds[] = { "prc", "rel", "object", "msg" };
+	traceCineRuntime("loadData", "script=%d line=%d kind=%s value=%s old={prc:%s rel:%s obj:%s msg:%s} pending={prc:%s rel:%s obj:%s msg:%s}",
+		_index, _line, loadKinds[param1], param2,
+		currentPrcName, currentRelName, currentObjectName, currentMsgName,
+		newPrcName, newRelName, newObjectName, newMsgName);
+#endif
 
 	switch (param1) {
 	case 0:
@@ -1664,12 +1695,20 @@ int FWScript::o1_message() {
 	debugC(5, kCineDebugScript, "Line: %d: message(%d,%d,%d,%d,%d)", _line, param1, param2, param3, param4, param5);
 
 #ifdef CINE_TRACE_BUILD
+	traceCineRuntime("message", "script=%d line=%d msg=%d box=%u,%u,%u,%u rel=%s msgFile=%s",
+		_index, _line, param1, param2, param3, param4, param5, currentRelName, currentMsgName);
 	if (traceFinalRoomRazorMessage(param1)) {
 		traceCineRuntime("finalRoom.message", "script=%d line=%d msg=%d box=%u,%u,%u,%u",
 			_index, _line, param1, param2, param3, param4, param5);
+	} else if (traceAirportPassportMessage(param1)) {
+		traceCineRuntime("airportPassport.message", "script=%d line=%d msg=%d box=%u,%u,%u,%u msgFile=%s rel=%s",
+			_index, _line, param1, param2, param3, param4, param5, currentMsgName, currentRelName);
 	}
 #endif
 	addMessage(param1, param2, param3, param4, param5);
+	checkOperationStealthRazorRecordingAchievementMessage(_index, _line, param1);
+	checkOperationStealthPassportAchievementMessage(_index, _line, param1);
+	checkOperationStealthDirectAchievementMessage(_index, _line, param1);
 	return 0;
 }
 
@@ -1695,6 +1734,17 @@ int FWScript::o1_loadGlobalVar() {
 		traceCineRuntime("globalVar.write", "script=%d line=%d var=%d type=%d source=%d old=%d new=%d",
 			_index, _line, varIdx, varType, dataIdx, oldValue, newValue);
 #endif
+		resetOperationStealthParkContactAchievementLatch(_index, varIdx, newValue);
+		checkOperationStealthBankAmbushAchievement(_index, _line, varIdx, newValue);
+		checkOperationStealthMineEscapeAchievement(_index, _line, varIdx, newValue);
+		checkOperationStealthJuliaRescueAchievement(_index, _line, varIdx, newValue);
+		checkOperationStealthPiranhaCageEscapeAchievement(_index, _line, varIdx, oldValue, newValue);
+		checkOperationStealthRatMazeAchievement(_index, _line, varIdx, oldValue, newValue);
+		checkOperationStealthSoldierDisguiseAchievement(_index, _line, varIdx, oldValue, newValue);
+		checkOperationStealthFingerprintDoorAchievement(_index, _line, varIdx, oldValue, newValue);
+		checkOperationStealthPalaceOfficeAchievement(_index, _line, varIdx, newValue);
+		checkOperationStealthParkContactAchievement(_index, _line, varIdx, newValue);
+		checkOperationStealthPassportAchievement(_index, _line, varIdx, oldValue, newValue);
 	} else {
 		uint16 value = getNextWord();
 		if (isStalePalaisDockTransitionSignal(_index, _line, varIdx, value)) {
@@ -1713,6 +1763,17 @@ int FWScript::o1_loadGlobalVar() {
 		traceCineRuntime("globalVar.write", "script=%d line=%d var=%d type=0 old=%d new=%d",
 			_index, _line, varIdx, oldValue, newValue);
 #endif
+		resetOperationStealthParkContactAchievementLatch(_index, varIdx, newValue);
+		checkOperationStealthBankAmbushAchievement(_index, _line, varIdx, newValue);
+		checkOperationStealthMineEscapeAchievement(_index, _line, varIdx, newValue);
+		checkOperationStealthJuliaRescueAchievement(_index, _line, varIdx, newValue);
+		checkOperationStealthPiranhaCageEscapeAchievement(_index, _line, varIdx, oldValue, newValue);
+		checkOperationStealthRatMazeAchievement(_index, _line, varIdx, oldValue, newValue);
+		checkOperationStealthSoldierDisguiseAchievement(_index, _line, varIdx, oldValue, newValue);
+		checkOperationStealthFingerprintDoorAchievement(_index, _line, varIdx, oldValue, newValue);
+		checkOperationStealthPalaceOfficeAchievement(_index, _line, varIdx, newValue);
+		checkOperationStealthParkContactAchievement(_index, _line, varIdx, newValue);
+		checkOperationStealthPassportAchievement(_index, _line, varIdx, oldValue, newValue);
 	}
 
 	return 0;
@@ -2211,7 +2272,7 @@ uint16 compareVars(int16 a, int16 b) {
 }
 
 static bool acceptAnyColorCode() {
-	return g_cine->getGameType() == Cine::GType_OS && ConfMan.getBool("accept_any_color_code");
+	return g_cine->getGameType() == Cine::GType_OS && ceAllowsCheat("accept_any_color_code");
 }
 
 static bool isColorProtectionColorChoiceReject(int scriptIndex, byte varIdx, byte varType, int16 value) {
@@ -2273,7 +2334,7 @@ static bool shouldIgnoreDuplicatePalaisDockScriptStart(byte scriptIdx) {
 static bool shouldFreezeFinalEscapeCountdown(int scriptIndex, int scriptLine, byte varIdx, byte labelIdx) {
 	return g_cine->getGameType() == Cine::GType_OS &&
 		g_cine->getPlatform() == Common::kPlatformAmiga &&
-		ConfMan.getBool("freeze_final_countdown") &&
+		ceAllowsCheat("freeze_final_countdown") &&
 		scumm_stricmp(currentPrcName, "SALLE59.PRC") == 0 &&
 		scriptIndex == 92 && scriptLine == 277 && varIdx == 1 && labelIdx == 30;
 }
@@ -2314,6 +2375,17 @@ static bool traceFinalRoomRazorMessage(byte messageIdx) {
 	return messageIdx == 136 || messageIdx == 138 || messageIdx == 153 || messageIdx == 155 || messageIdx == 156;
 }
 
+static bool traceAirportPassportMessage(byte messageIdx) {
+	if (g_cine->getGameType() != Cine::GType_OS ||
+			(scumm_stricmp(currentPrcName, "AIRPORT.PRC") != 0 &&
+			 scumm_stricmp(currentRelName, "AEROPORT.REL") != 0 &&
+			 scumm_stricmp(currentMsgName, "AEROPORT.MSG") != 0)) {
+		return false;
+	}
+
+	return messageIdx == 72 || (messageIdx >= 83 && messageIdx <= 96) || messageIdx == 105 || messageIdx == 114 || messageIdx == 155;
+}
+
 void traceCineRuntime(const char *event, const char *fmt, ...) {
 	if (!g_cine || g_cine->getGameType() != Cine::GType_OS) {
 		return;
@@ -2329,9 +2401,11 @@ void traceCineRuntime(const char *event, const char *fmt, ...) {
 static bool isTraceWatchedObject(int objIdx) {
 	static const int watchedObjects[] = {
 		1, 2, 3, 4, 5, 6, 7, 8, 10, 14, 15, 16, 20, 21, 22, 23, 24, 25, 26,
-		30, 31, 32, 33, 40, 41, 45, 50, 51, 81, 98, 99, 100, 101, 102, 103,
-		104, 105, 110, 111, 147, 150, 151, 152, 164, 70, 175, 176, 177, 178,
-		179, 180, 181, 182, 230, 231, 232, 233, 234, 235, 236, 237, 238, 239
+		30, 31, 32, 33, 39, 40, 41, 42, 44, 45, 50, 51, 54, 59, 65, 66, 67,
+		69, 70, 73, 74, 79, 81, 87, 88, 89, 90, 96, 97, 98, 99, 100, 101,
+		102, 103, 104, 105, 106, 110, 111, 147, 148, 149, 150, 151, 152, 164,
+		175, 176, 177, 178, 179, 180, 181, 182, 190, 191, 200, 201, 202, 210,
+		211, 230, 231, 232, 233, 234, 235, 236, 237, 238, 239
 	};
 
 	for (uint i = 0; i < ARRAYSIZE(watchedObjects); ++i) {
@@ -2370,10 +2444,13 @@ static void traceCineState(const char *event, const Common::String &detail) {
 	}
 
 	Common::String line = Common::String::format(
-		"CINE_TRACE %06u event=%s prc=%s detail=\"%s\" vars={v1:%d v2:%d v20:%d v25:%d v57:%d v200:%d v240:%d v241:%d v242:%d v243:%d v249:%d v250:%d v251:%d v252:%d}\n",
-		traceSeq++, event, currentPrcName, detail.c_str(),
-		g_cine->_globalVars[1], g_cine->_globalVars[2], g_cine->_globalVars[20],
-		g_cine->_globalVars[25], g_cine->_globalVars[57], g_cine->_globalVars[200],
+		"CINE_TRACE %06u event=%s prc=%s rel=%s msg=%s bg=%s detail=\"%s\" vars={v1:%d v2:%d v10:%d v11:%d v16:%d v20:%d v25:%d v43:%d v57:%d v97:%d v200:%d v240:%d v241:%d v242:%d v243:%d v249:%d v250:%d v251:%d v252:%d}\n",
+		traceSeq++, event, currentPrcName, currentRelName, currentMsgName,
+		renderer ? renderer->getBgName() : "", detail.c_str(),
+		g_cine->_globalVars[1], g_cine->_globalVars[2],
+		g_cine->_globalVars[10], g_cine->_globalVars[11], g_cine->_globalVars[16],
+		g_cine->_globalVars[20], g_cine->_globalVars[25], g_cine->_globalVars[43],
+		g_cine->_globalVars[57], g_cine->_globalVars[97], g_cine->_globalVars[200],
 		g_cine->_globalVars[240], g_cine->_globalVars[241],
 		g_cine->_globalVars[242], g_cine->_globalVars[243], g_cine->_globalVars[249],
 		g_cine->_globalVars[250], g_cine->_globalVars[251], g_cine->_globalVars[252]);

@@ -34,6 +34,7 @@
 #include "common/config-manager.h"
 #include "common/str-enc.h"
 #include "engines/advancedDetector.h"
+#include "engines/achievements.h"
 #include "engines/util.h"
 
 #include "macventure/macventure.h"
@@ -698,8 +699,7 @@ uint16 MacVentureEngine::clampGlobalValue(uint32 attrID, uint16 value) const {
 	if (strcmp(_gameDescription->gameId, "deja_vu") ||
 			attrID != kDejaVuPoliceTimerGlobal ||
 			value <= kDejaVuPoliceTimerMaxSafeValue ||
-			!ConfMan.hasKey("deja_vu_freeze_police_timer") ||
-			!ConfMan.getBool("deja_vu_freeze_police_timer")) {
+			!AchMan.shouldApplyCECheat("deja_vu_freeze_police_timer")) {
 		return value;
 	}
 
@@ -718,8 +718,7 @@ int16 MacVentureEngine::adjustGlobalValue(uint32 scriptID, ControlAction action,
 			globalID != kDejaVuMuggerCounterGlobal ||
 			oldValue != kDejaVuMuggerMaxSafeCounter ||
 			value != kDejaVuMuggerDeathCounter ||
-			!ConfMan.hasKey("deja_vu_mugger_wont_kill") ||
-			!ConfMan.getBool("deja_vu_mugger_wont_kill")) {
+			!AchMan.shouldApplyCECheat("deja_vu_mugger_wont_kill")) {
 		return value;
 	}
 
@@ -738,8 +737,7 @@ int16 MacVentureEngine::adjustRandomValue(uint32 scriptID, int16 max, int16 valu
 
 	if (scriptID == kDejaVuSlotMachineScript &&
 			max == kDejaVuSlotMachineRollMax &&
-			ConfMan.hasKey("deja_vu_rig_slot_machine") &&
-			ConfMan.getBool("deja_vu_rig_slot_machine")) {
+			AchMan.shouldApplyCECheat("deja_vu_rig_slot_machine")) {
 #ifdef MACVENTURE_TRACE_BUILD
 		const_cast<MacVentureEngine *>(this)->traceRuntime("cheat.rig_slot_machine", "script=%u max=%d requested=%d forced=%d",
 			scriptID, max, value, kDejaVuSlotMachineWinningRoll);
@@ -750,8 +748,7 @@ int16 MacVentureEngine::adjustRandomValue(uint32 scriptID, int16 max, int16 valu
 	if (scriptID == kDejaVuSewerAlligatorSpawnScript &&
 			max == kDejaVuSewerAlligatorRollMax &&
 			value == kDejaVuSewerAlligatorSpawnRoll &&
-			ConfMan.hasKey("deja_vu_no_alligators") &&
-			ConfMan.getBool("deja_vu_no_alligators")) {
+			AchMan.shouldApplyCECheat("deja_vu_no_alligators")) {
 #ifdef MACVENTURE_TRACE_BUILD
 		const_cast<MacVentureEngine *>(this)->traceRuntime("cheat.no_alligators", "script=%u max=%d requested=%d forced=0",
 			scriptID, max, value);
@@ -765,8 +762,7 @@ int16 MacVentureEngine::adjustRandomValue(uint32 scriptID, int16 max, int16 valu
 int16 MacVentureEngine::adjustQueuedScript(uint32 scriptID) const {
 	if (strcmp(_gameDescription->gameId, "deja_vu") ||
 			scriptID != kDejaVuSlotMachineFirstLossScript ||
-			!ConfMan.hasKey("deja_vu_rig_slot_machine") ||
-			!ConfMan.getBool("deja_vu_rig_slot_machine")) {
+			!AchMan.shouldApplyCECheat("deja_vu_rig_slot_machine")) {
 		return scriptID;
 	}
 
@@ -784,8 +780,7 @@ int16 MacVentureEngine::adjustScriptResult(uint32 scriptID, ControlAction action
 			action != kMoveObject ||
 			destination != kDejaVuTrenchCoatObject ||
 			result != kDejaVuMoveCapacityFailure ||
-			!ConfMan.hasKey("deja_vu_unlimited_inventory") ||
-			!ConfMan.getBool("deja_vu_unlimited_inventory")) {
+			!AchMan.shouldApplyCECheat("deja_vu_unlimited_inventory")) {
 		return result;
 	}
 
@@ -801,8 +796,7 @@ uint MacVentureEngine::skipScriptCallStackPopCount(uint32 currentScriptID, int16
 	if (strcmp(_gameDescription->gameId, "deja_vu") ||
 			currentScriptID != kDejaVuGunScript ||
 			targetScriptID != kDejaVuGunConsumeAmmoScript ||
-			!ConfMan.hasKey("deja_vu_unlimited_ammo") ||
-			!ConfMan.getBool("deja_vu_unlimited_ammo")) {
+			!AchMan.shouldApplyCECheat("deja_vu_unlimited_ammo")) {
 		return 0;
 	}
 

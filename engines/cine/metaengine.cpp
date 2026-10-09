@@ -42,6 +42,25 @@
 
 namespace Cine {
 
+static bool isOperationStealthOption(const ADExtraGuiOptionsMap &entry) {
+	return
+		!strcmp(entry.guioFlag, GAMEOPTION_DISABLE_GUARD_DETECTION) ||
+		!strcmp(entry.guioFlag, GAMEOPTION_ACCEPT_ANY_COLOR_CODE) ||
+		!strcmp(entry.guioFlag, GAMEOPTION_FREEZE_JETSKI_ENERGY) ||
+		!strcmp(entry.guioFlag, GAMEOPTION_DISABLE_SHARK_COLLISION) ||
+		!strcmp(entry.guioFlag, GAMEOPTION_DISABLE_RAT_MAZE_DARKNESS) ||
+		!strcmp(entry.guioFlag, GAMEOPTION_CLEANUP_OS_AMIGA_TEXT) ||
+		!strcmp(entry.guioFlag, GAMEOPTION_FREEZE_FINAL_COUNTDOWN) ||
+		!strcmp(entry.guioFlag, GAMEOPTION_PATCH_OS_EU_VGA_JETSKI) ||
+		!strcmp(entry.guioFlag, GAMEOPTION_PATCH_OS_ATARI_ST_FINAL_ROOM);
+}
+
+static bool isAmigaOperationStealthOption(const ADExtraGuiOptionsMap &entry) {
+	return
+		!strcmp(entry.guioFlag, GAMEOPTION_CLEANUP_OS_AMIGA_TEXT) ||
+		!strcmp(entry.guioFlag, GAMEOPTION_FREEZE_FINAL_COUNTDOWN);
+}
+
 static const ADExtraGuiOptionsMap optionsList[] = {
 	{
 		GAMEOPTION_ORIGINAL_SAVELOAD,
@@ -223,18 +242,7 @@ public:
 };
 
 bool CineMetaEngine::isAdvancedExtraGuiOptionAllowedForTarget(const Common::String &target, const ADExtraGuiOptionsMap &entry) const {
-	const bool isOperationStealthOption =
-		!strcmp(entry.guioFlag, GAMEOPTION_DISABLE_GUARD_DETECTION) ||
-		!strcmp(entry.guioFlag, GAMEOPTION_ACCEPT_ANY_COLOR_CODE) ||
-		!strcmp(entry.guioFlag, GAMEOPTION_FREEZE_JETSKI_ENERGY) ||
-		!strcmp(entry.guioFlag, GAMEOPTION_DISABLE_SHARK_COLLISION) ||
-		!strcmp(entry.guioFlag, GAMEOPTION_PATCH_OS_EU_VGA_JETSKI) ||
-		!strcmp(entry.guioFlag, GAMEOPTION_DISABLE_RAT_MAZE_DARKNESS) ||
-		!strcmp(entry.guioFlag, GAMEOPTION_CLEANUP_OS_AMIGA_TEXT) ||
-		!strcmp(entry.guioFlag, GAMEOPTION_FREEZE_FINAL_COUNTDOWN) ||
-		!strcmp(entry.guioFlag, GAMEOPTION_PATCH_OS_ATARI_ST_FINAL_ROOM);
-
-	if (!isOperationStealthOption)
+	if (!Cine::isOperationStealthOption(entry))
 		return true;
 
 	if (ConfMan.hasKey("gameid", target) && ConfMan.get("gameid", target) != "os")
@@ -243,10 +251,8 @@ bool CineMetaEngine::isAdvancedExtraGuiOptionAllowedForTarget(const Common::Stri
 	const Common::Platform platform = ConfMan.hasKey("platform", target) ?
 		Common::parsePlatform(ConfMan.get("platform", target)) : Common::kPlatformUnknown;
 
-	if (!strcmp(entry.guioFlag, GAMEOPTION_CLEANUP_OS_AMIGA_TEXT) ||
-			!strcmp(entry.guioFlag, GAMEOPTION_FREEZE_FINAL_COUNTDOWN)) {
+	if (Cine::isAmigaOperationStealthOption(entry))
 		return platform == Common::kPlatformAmiga;
-	}
 
 	if (!strcmp(entry.guioFlag, GAMEOPTION_PATCH_OS_ATARI_ST_FINAL_ROOM))
 		return platform == Common::kPlatformAtariST;

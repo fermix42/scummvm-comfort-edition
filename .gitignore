@@ -22,6 +22,14 @@ lib*.a
 /configure.stamp
 /.gdb_history
 /dumps
+/extras
+/AGENTS.md
+/script-dumps
+/resource-dumps
+/macventure-dumps
+/AUTO00.PRC_*.txt
+/docs/*game-atlas*
+/docs/*.generated.*
 /Credits.rtf
 /*.mshark
 /*.dSYM

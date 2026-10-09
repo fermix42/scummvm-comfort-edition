@@ -176,7 +176,20 @@ uint safeControlAccessMinMs() {
 
 void runObjectScript(int16 entryIdx) {
 #ifdef CINE_TRACE_BUILD
-	traceCineRuntime("runObjectScript", "entry=%d", entryIdx);
+	Common::String obj0Name;
+	Common::String obj1Name;
+	const int16 arg0 = commandVar1 > 0 ? commandVar3[0] : -1;
+	const int16 arg1 = commandVar1 > 1 ? commandVar3[1] : -1;
+	if (arg0 >= 0 && arg0 < (int16)g_cine->_objectTable.size())
+		obj0Name = g_cine->_objectTable[arg0].name;
+	if (arg1 >= 0 && arg1 < (int16)g_cine->_objectTable.size())
+		obj1Name = g_cine->_objectTable[arg1].name;
+
+	traceCineRuntime("runObjectScript",
+		"entry=%d rel=%s params=%d,%d,%d command=%d argc=%d args=%d:%s,%d:%s",
+		entryIdx, currentRelName, g_cine->_relTable[entryIdx]->_param1,
+		g_cine->_relTable[entryIdx]->_param2, g_cine->_relTable[entryIdx]->_param3,
+		playerCommand, commandVar1, arg0, obj0Name.c_str(), arg1, obj1Name.c_str());
 #endif
 
 	ScriptPtr tmp(g_cine->_scriptInfo->create(*g_cine->_relTable[entryIdx], entryIdx));

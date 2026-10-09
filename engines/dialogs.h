@@ -95,11 +95,12 @@ private:
 class ExtraGuiOptionsWidget : public OptionsContainerWidget {
 public:
 	enum {
-		kClickGroupLeaderCmd = 'CGLC'
+		kClickGroupLeaderCmd = 'CGLC',
+		kToggleCheatsCmd = 'CTGC'
 	};
 
 public:
-	ExtraGuiOptionsWidget(GuiObject *widgetsBoss, const Common::String &name, const Common::String &domain, const ExtraGuiOptions &options);
+	ExtraGuiOptionsWidget(GuiObject *widgetsBoss, const Common::String &name, const Common::String &domain, const ExtraGuiOptions &options, bool cheatOptions = false);
 	~ExtraGuiOptionsWidget() override;
 
 	virtual void handleCommand(GUI::CommandSender *sender, uint32 cmd, uint32 data) override;
@@ -107,6 +108,7 @@ public:
 	// OptionsContainerWidget API
 	void load() override;
 	bool save() override;
+	void setEnabled(bool e) override;
 
 protected:
 	void defineLayout(ThemeEval& layouts, const Common::String& layoutName, const Common::String& overlayedLayout) const override;
@@ -114,8 +116,15 @@ protected:
 private:
 	typedef Common::Array<CheckboxWidget *> CheckboxWidgetList;
 
+	void updateCheatGateState();
+
 	ExtraGuiOptions _options;
 	CheckboxWidgetList _checkboxes;
+	bool _cheatOptions;
+	bool _enabled;
+	bool _updatingCheatGate;
+	CheckboxWidget *_cheatsEnabledCheckbox;
+	StaticTextWidget *_cheatChallengeWarning;
 };
 
 } // End of namespace GUI

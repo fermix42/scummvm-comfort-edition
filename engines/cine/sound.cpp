@@ -1351,7 +1351,10 @@ void PCSound::playSound(int channel, int frequency, const uint8 *data, int size,
 			if (sound) {
 				memcpy(sound, data, size);
 
-				sound[0] = sound[1] = sound[size - 2] = sound[size - 1] = 0;
+				if (size >= 4)
+					sound[0] = sound[1] = sound[size - 2] = sound[size - 1] = 0;
+				// Atari ST Operation Stealth stores Paula-style sample periods,
+				// while this path runs through the PC sound backend.
 				frequency = ((frequency * 2) / 20) + 50;
 
 				Audio::SeekableAudioStream *stream = Audio::makeRawStream(sound, size, PaulaSound::PAULA_FREQ / frequency, 0);

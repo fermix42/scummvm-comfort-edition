@@ -42,6 +42,7 @@
 #include "graphics/font.h"
 
 #include "engines/dialogs.h"
+#include "engines/achievements.h"
 #include "engines/engine.h"
 #include "engines/metaengine.h"
 
@@ -446,9 +447,23 @@ void ConfigDialog::apply() {
 	OptionsDialog::apply();
 }
 
-ExtraGuiOptionsWidget::ExtraGuiOptionsWidget(GuiObject *containerBoss, const Common::String &name, const Common::String &domain, const ExtraGuiOptions &options) :
+ExtraGuiOptionsWidget::ExtraGuiOptionsWidget(GuiObject *containerBoss, const Common::String &name, const Common::String &domain, const ExtraGuiOptions &options, bool cheatOptions) :
 		OptionsContainerWidget(containerBoss, name, "ExtraGuiOptionsDialog", domain),
-		_options(options) {
+		_options(options),
+		_cheatOptions(cheatOptions),
+		_enabled(true),
+		_updatingCheatGate(false),
+		_cheatsEnabledCheckbox(nullptr),
+		_cheatChallengeWarning(nullptr) {
+
+	if (_cheatOptions) {
+		_cheatsEnabledCheckbox = new CheckboxWidget(widgetsBoss(), _dialogLayout + ".CheatsEnabled",
+			_("Enable cheats"), _("Allow this game's selected cheat options to take effect"), kToggleCheatsCmd);
+		_cheatChallengeWarning = new StaticTextWidget(widgetsBoss(), _dialogLayout + ".ChallengeWarning",
+			_("Challenge Mode is on; enabling cheats disables Challenge Mode and l33t credit."),
+			Common::U32String(), ThemeEngine::kFontStyleNormal, Common::UNK_LANG, false);
+		_cheatChallengeWarning->setFontColor(ThemeEngine::kFontColorOverride);
+	}
 
 	for (uint i = 0; i < _options.size(); i++) {
 		Common::String id = Common::String::format("%d", i + 1);
@@ -463,6 +478,25 @@ ExtraGuiOptionsWidget::~ExtraGuiOptionsWidget() {
 
 void ExtraGuiOptionsWidget::handleCommand(GUI::CommandSender *sender, uint32 cmd, uint32 data) {
 	switch (cmd) {
+	case kToggleCheatsCmd:
+		if (_updatingCheatGate)
+			break;
+		if (data != 0 && AchMan.isCEChallengeModeEnabled()) {
+			MessageDialog confirm(
+				_("Enabling cheats will disable Challenge Mode. Achievements earned with cheats enabled will not receive challenge or l33t credit. Continue?"),
+				_("Enable cheats"), _("Cancel"));
+			if (confirm.runModal() != GUI::kMessageOK) {
+				_updatingCheatGate = true;
+				_cheatsEnabledCheckbox->setState(false);
+				_updatingCheatGate = false;
+				updateCheatGateState();
+				break;
+			}
+			AchMan.setCEChallengeModeEnabled(false);
+		}
+		AchMan.setCECheatsEnabled(data != 0, _domain);
+		updateCheatGateState();
+		break;
 	case kClickGroupLeaderCmd: {
 		byte groupLeaderId = 0;
 
@@ -495,6 +529,9 @@ void ExtraGuiOptionsWidget::handleCommand(GUI::CommandSender *sender, uint32 cmd
 }
 
 void ExtraGuiOptionsWidget::load() {
+	if (_cheatOptions)
+		updateCheatGateState();
+
 	// Set the state of engine-specific checkboxes
 	for (uint j = 0; j < _options.size() && j < _checkboxes.size(); ++j) {
 		// The default values for engine-specific checkboxes are not set when
@@ -508,20 +545,65 @@ void ExtraGuiOptionsWidget::load() {
 			isChecked = ConfMan.getBool(_options[j].configOption, _domain);
 		_checkboxes[j]->setState(isChecked);
 	}
+
+	if (_cheatOptions)
+		updateCheatGateState();
 }
 
 bool ExtraGuiOptionsWidget::save() {
 	// Set the state of engine-specific checkboxes
 	for (uint i = 0; i < _options.size() && i < _checkboxes.size(); i++) {
-		ConfMan.setBool(_options[i].configOption, _checkboxes[i]->isEnabled() && _checkboxes[i]->getState(), _domain);
+		ConfMan.setBool(_options[i].configOption, (_cheatOptions || _checkboxes[i]->isEnabled()) && _checkboxes[i]->getState(), _domain);
 	}
 
 	return true;
 }
 
+void ExtraGuiOptionsWidget::setEnabled(bool e) {
+	_enabled = e;
+	for (uint i = 0; i < _checkboxes.size(); i++)
+		_checkboxes[i]->setEnabled(e);
+	if (_cheatsEnabledCheckbox)
+		_cheatsEnabledCheckbox->setEnabled(e);
+	if (_cheatOptions)
+		updateCheatGateState();
+}
+
+void ExtraGuiOptionsWidget::updateCheatGateState() {
+	if (!_cheatOptions)
+		return;
+
+	const bool challengeMode = AchMan.isCEChallengeModeEnabled();
+	const bool cheatsEnabled = AchMan.areCECheatsEnabled(_domain);
+
+	_updatingCheatGate = true;
+	if (_cheatsEnabledCheckbox) {
+		_cheatsEnabledCheckbox->setState(cheatsEnabled);
+		_cheatsEnabledCheckbox->setEnabled(_enabled);
+	}
+	_updatingCheatGate = false;
+
+	if (_cheatChallengeWarning) {
+		_cheatChallengeWarning->setVisible(challengeMode || !cheatsEnabled);
+		_cheatChallengeWarning->setLabel(challengeMode ?
+			_("Challenge Mode is on; enabling cheats disables Challenge Mode and l33t credit.") :
+			_("Cheats are off. Enable cheats to use selected cheat options."));
+	}
+
+	for (uint i = 0; i < _checkboxes.size(); i++)
+		_checkboxes[i]->setEnabled(_enabled && cheatsEnabled);
+}
+
 void ExtraGuiOptionsWidget::defineLayout(ThemeEval& layouts, const Common::String& layoutName, const Common::String& overlayedLayout) const {
 	layouts.addDialog(layoutName, overlayedLayout);
 	layouts.addLayout(GUI::ThemeLayout::kLayoutVertical).addPadding(0, 0, 0, 0);
+
+	if (_cheatOptions) {
+		layouts.addWidget("CheatsEnabled", "Checkbox");
+		// This is a StaticTextWidget, but Checkbox geometry gives it the same
+		// full-width row as the surrounding cheat controls.
+		layouts.addWidget("ChallengeWarning", "Checkbox");
+	}
 
 	for (uint i = 0; i < _options.size(); i++) {
 		Common::String id = Common::String::format("%d", i + 1);

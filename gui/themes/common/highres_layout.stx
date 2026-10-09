@@ -1247,6 +1247,47 @@
 		</layout>
 	</dialog>
 
+	<dialog name = 'GlobalOptions_Achievements' overlays = 'Dialog.GlobalOptions.TabWidget'>
+		<layout type = 'vertical' padding = '0, 0, 0, 0'>
+			<widget name = 'Container'/>
+		</layout>
+	</dialog>
+
+	<dialog name = 'GlobalOptions_Achievements_Container' overlays = 'GlobalOptions_Achievements.Container'>
+		<layout type = 'vertical' padding = '16, 16, 16, 16' spacing = '8'>
+			<layout type = 'horizontal' padding = '0, 0, 0, 0' spacing = '10' align = 'center'>
+				<widget name = 'LinkTokenDesc'
+						type = 'OptionsLabel'
+				/>
+				<widget name = 'LinkTokenEditText'
+						width = '230'
+						height = 'Globals.Line.Height'
+				/>
+				<widget name = 'LinkTokenTestButton'
+						type = 'Button'
+				/>
+			</layout>
+			<layout type = 'horizontal' padding = '0, 0, 0, 0' spacing = '10' align = 'center'>
+				<widget name = 'ChallengeMode'
+						type = 'Checkbox'
+				/>
+			</layout>
+			<layout type = 'horizontal' padding = '0, 0, 0, 0' spacing = '10' align = 'center'>
+				<widget name = 'RepeatPopups'
+						type = 'Checkbox'
+				/>
+			</layout>
+			<layout type = 'horizontal' padding = '0, 0, 0, 0' spacing = '10' align = 'center'>
+				<widget name = 'SyncNowButton'
+						type = 'Button'
+				/>
+				<widget name = 'QueueStatus'
+						height = 'Globals.Line.Height'
+				/>
+			</layout>
+		</layout>
+	</dialog>
+
 	<dialog name = 'GlobalOptions_Cloud' overlays = 'Dialog.GlobalOptions.TabWidget'>
 		<layout type = 'vertical' padding = '0, 0, 0, 0'>
 			<widget name = 'Container'

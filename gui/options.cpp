@@ -113,6 +113,9 @@ enum {
 	kFullscreenToggled		= 'oful',
 	kRandomSeedClearCmd     = 'rndc',
 	kViewLogCmd             = 'vwlg',
+	kCETestLinkCmd          = 'celt',
+	kCESyncNowCmd           = 'cesn',
+	kCEChallengeModeCmd     = 'cech',
 };
 
 enum {
@@ -2189,6 +2192,13 @@ GlobalOptionsDialog::GlobalOptionsDialog(LauncherDialog *launcher)
 	_guiConfirmExit = nullptr;
 	_guiDisableBDFScaling = nullptr;
 	_guiKineticScrolling = nullptr;
+	_ceLinkTokenDesc = nullptr;
+	_ceLinkToken = nullptr;
+	_ceLinkTestButton = nullptr;
+	_ceSyncNowButton = nullptr;
+	_ceChallengeModeCheckbox = nullptr;
+	_ceRepeatPopupsCheckbox = nullptr;
+	_ceQueueStatus = nullptr;
 
 #ifdef USE_UPDATES
 	_updatesPopUpDesc = nullptr;
@@ -2373,9 +2383,18 @@ void GlobalOptionsDialog::build() {
 	miscContainer->setBackgroundType(ThemeEngine::kWidgetBackgroundNo);
 	addMiscControls(miscContainer, "GlobalOptions_Misc_Container.", g_gui.useLowResGUI());
 
+	//
+	// 8) Achievements
+	//
+	tab->addTab(_("Achievements"), "GlobalOptions_Achievements");
+	ScrollContainerWidget *achievementsContainer = new ScrollContainerWidget(tab, "GlobalOptions_Achievements.Container", "GlobalOptions_Achievements_Container");
+	achievementsContainer->setTarget(this);
+	achievementsContainer->setBackgroundType(ThemeEngine::kWidgetBackgroundNo);
+	addCEAchievementControls(achievementsContainer, "GlobalOptions_Achievements_Container.", g_gui.useLowResGUI());
+
 #ifdef USE_CLOUD
 	//
-	// 8) The Cloud tab (remote storages)
+	// 9) The Cloud tab (remote storages)
 	//
 	if (!g_gui.useLowResGUI())
 		tab->addTab(_("Cloud"), "GlobalOptions_Cloud");
@@ -2794,6 +2813,34 @@ void GlobalOptionsDialog::addMiscControls(GuiObject *boss, const Common::String 
 #endif // USE_UPDATES
 }
 
+void GlobalOptionsDialog::addCEAchievementControls(GuiObject *boss, const Common::String &prefix, bool lowres) {
+	_ceLinkTokenDesc = new StaticTextWidget(boss, prefix + "LinkTokenDesc", _("CE Link token:"), _("Token created on the ScummVM Comfort Edition achievements website"));
+	_ceLinkToken = new EditTextWidget(boss, prefix + "LinkTokenEditText", AchMan.getCELinkToken(), Common::U32String());
+	_ceLinkTestButton = new ButtonWidget(boss, prefix + "LinkTokenTestButton", _("Test"), _("Test the saved CE Link token"), kCETestLinkCmd);
+	_ceSyncNowButton = new ButtonWidget(boss, prefix + "SyncNowButton", _("Sync now"), _("Retry queued achievement submissions"), kCESyncNowCmd);
+	_ceChallengeModeCheckbox = new CheckboxWidget(boss, prefix + "ChallengeMode", lowres ? _c("Challenge Mode", "lowres") : _("Challenge Mode"),
+		_("Disable disqualifying cheats and submit eligible achievements for Challenge credit"), kCEChallengeModeCmd);
+	_ceChallengeModeCheckbox->setState(AchMan.isCEChallengeModeEnabled());
+	_ceRepeatPopupsCheckbox = new CheckboxWidget(boss, prefix + "RepeatPopups", lowres ? _c("Repeat popups", "lowres") : _("Repeat achievement popups"),
+		_("Show CE achievement popups even when the local queue already has the event"));
+	_ceRepeatPopupsCheckbox->setState(AchMan.isCERepeatPopupsEnabled());
+	_ceQueueStatus = new StaticTextWidget(boss, prefix + "QueueStatus", Common::U32String(), Common::U32String(), ThemeEngine::kFontStyleNormal);
+	updateCEAchievementStatus();
+}
+
+void GlobalOptionsDialog::updateCEAchievementStatus() {
+	if (!_ceQueueStatus)
+		return;
+	Common::String status = Common::String::format("%u queued. %s",
+		AchMan.getCEPendingEventCount(), AchMan.getCELastSyncStatus().c_str());
+	_ceQueueStatus->setLabel(status);
+	_ceQueueStatus->markAsDirty();
+	if (_ceLinkTestButton)
+		_ceLinkTestButton->setEnabled(!AchMan.isCESyncBusy());
+	if (_ceSyncNowButton)
+		_ceSyncNowButton->setEnabled(!AchMan.isCESyncBusy());
+}
+
 #ifdef USE_CLOUD
 void GlobalOptionsDialog::addCloudControls(GuiObject *boss, const Common::String &prefix, bool lowres) {
 	_storagePopUpDesc = new StaticTextWidget(boss, prefix + "StoragePopupDesc", _("Active storage:"), _("Active cloud storage"));
@@ -3065,6 +3112,15 @@ void GlobalOptionsDialog::apply() {
 		ConfMan.setInt("autosave_period", autosavePeriod, _domain);
 	else
 		_autosavePeriodPopUp->setSelected(0);
+
+	if (_ceLinkToken)
+		AchMan.setCELinkToken(_ceLinkToken->getEditString().encode());
+
+	if (_ceChallengeModeCheckbox)
+		AchMan.setCEChallengeModeEnabled(_ceChallengeModeCheckbox->getState());
+
+	if (_ceRepeatPopupsCheckbox)
+		AchMan.setCERepeatPopupsEnabled(_ceRepeatPopupsCheckbox->getState());
 
 	if (gDebugLevel != (int32)(_debugLevelPopUp->getSelectedTag())) {
 		gDebugLevel = (int32)(_debugLevelPopUp->getSelectedTag());
@@ -3458,6 +3514,20 @@ void GlobalOptionsDialog::handleCommand(CommandSender *sender, uint32 cmd, uint3
 		g_gui.scheduleTopDialogRedraw();
 		break;
 	}
+	case kCEChallengeModeCmd:
+		if (_ceChallengeModeCheckbox && _ceChallengeModeCheckbox->getState())
+			AchMan.disableCEDisqualifyingAssistance();
+		break;
+	case kCETestLinkCmd:
+		apply();
+		AchMan.testCELinkToken();
+		updateCEAchievementStatus();
+		break;
+	case kCESyncNowCmd:
+		apply();
+		AchMan.retryCEQueuedEvents();
+		updateCEAchievementStatus();
+		break;
 #ifdef USE_CLOUD
 	case kCloudTabContainerReflowCmd: {
 		setupCloudTab();
@@ -3571,6 +3641,7 @@ void GlobalOptionsDialog::handleCommand(CommandSender *sender, uint32 cmd, uint3
 
 void GlobalOptionsDialog::handleTickle() {
 	OptionsDialog::handleTickle();
+	updateCEAchievementStatus();
 #ifdef USE_CLOUD
 	if (_redrawCloudTab) {
 		reflowLayout(); // recalculates scrollbar as well

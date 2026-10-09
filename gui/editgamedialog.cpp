@@ -43,6 +43,8 @@
 #include "gui/widgets/popup.h"
 #include "gui/widgets/scrollcontainer.h"
 
+#include "engines/achievements.h"
+
 #ifdef USE_CLOUD
 #include "backends/cloud/cloudmanager.h"
 #endif
@@ -600,6 +602,9 @@ void EditGameDialog::apply() {
 	if (_cheatOptions) {
 		_cheatOptions->save();
 	}
+
+	if (AchMan.isCEChallengeModeEnabled())
+		AchMan.disableCEDisqualifyingAssistance();
 
 	ConfMan.setBool("enable_hotspots", _enableHotspotsCheckbox->getState(), _domain);
 	ConfMan.setInt("hotspot_marker", _hotspotMarkerPopUp->getSelectedTag(), _domain);

@@ -2,6 +2,7 @@ MODULE := engines/cine
 
 MODULE_OBJS := \
 	anim.o \
+	achievements.o \
 	bg.o \
 	bg_list.o \
 	console.o \

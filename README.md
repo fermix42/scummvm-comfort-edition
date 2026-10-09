@@ -34,7 +34,29 @@ Comfort Edition is also meant to make games easier to relax with. As time goes
 on, I will add more optional cheats for more games when I feel the need. Cheats
 are game-specific, opt-in settings: they live in the **Cheats** tab under
 **Game Options**, and supported games can also change them from the in-game menu
-opened with **Ctrl+F5**.
+opened with **Ctrl+F5**. The Cheats tab has a master **Enable cheats** switch:
+individual cheat selections are remembered, but they do not affect gameplay
+unless cheats are enabled for that game.
+
+Some games also expose **Patch:** options in the regular **Game** tab. These
+are compatibility or quality-of-life fixes, not cheats, and they do not affect
+Challenge Mode or l33t credit. Cheat options are kept in the **Cheats** tab and
+are governed by the master cheat switch.
+
+Comfort Edition achievements are configured from **Global Options** >
+**Achievements**. Challenge Mode disables the cheat gate; turning cheats back on
+requires confirmation and turns Challenge Mode off, so later achievement unlocks
+do not receive challenge or l33t credit.
+
+To install or update the Comfort Edition achievement support pack:
+
+1. Download `ce-achievements.dat` from the Comfort Edition achievements website.
+2. Do not extract it; ScummVM CE reads the archive directly.
+3. Save it in ScummVM's configured extra path.
+
+ScummVM CE checks the configured extra path first, then the normal ScummVM data
+search path. Replacing the file with a newer website download updates the
+supported achievement metadata and icon assets.
 
 ## Ultra-Wide Window Layout
 
@@ -92,7 +114,7 @@ Current highlights include:
 
 - Ultra-wide desktop window layout options.
 - SCI Windows AVI scaling behavior tied to `enable_hq_video`.
-- A dedicated Cheats tab for cheat-style game options.
+- A dedicated Cheats tab and master cheat gate for cheat-style game options.
 - Optional cheats for Indiana Jones and the Last Crusade boxing.
 - Optional cheats for the DOS 256-color release of Operation Stealth.
 

@@ -54,7 +54,17 @@ if (-not (Test-Path 'build-create-project\Release\create_project.exe')) {
     }
 }
 
-if (-not (Test-Path "$traceBuildDir\scummvm.sln")) {
+$traceProjectNeedsRefresh = -not (Test-Path "$traceBuildDir\scummvm.sln")
+if (-not $traceProjectNeedsRefresh -and (Test-Path "$traceBuildDir\scummvm.vcxproj")) {
+    $traceProjectContent = Get-Content -LiteralPath "$traceBuildDir\scummvm.vcxproj" -Raw
+    $traceProjectNeedsRefresh = -not $traceProjectContent.Contains('..\engines\ce_achievements.cpp')
+}
+if (-not $traceProjectNeedsRefresh -and (Test-Path "$traceBuildDir\cine.vcxproj")) {
+    $traceCineProjectContent = Get-Content -LiteralPath "$traceBuildDir\cine.vcxproj" -Raw
+    $traceProjectNeedsRefresh = -not $traceCineProjectContent.Contains('..\engines\cine\achievements.cpp')
+}
+
+if ($traceProjectNeedsRefresh) {
     if (-not (Test-Path $traceBuildDir)) {
         New-Item -ItemType Directory -Path $traceBuildDir | Out-Null
     }
@@ -167,6 +177,8 @@ if ($buildExitCode -eq 0) {
         '',
         'Pin scummvm-trace.exe, not scummvm.exe, if you want the diagnostic build.',
         'It writes cine-trace.log, macventure-trace.log, and DUMP_SCRIPTS text files into the process working directory.',
+        'Cine tracing records script/resource context, messages, loadData transitions, global writes, object writes, setupObject calls, collision checks, global-script starts, and selected achievement-relevant object snapshots.',
+        'For Operation Stealth achievement checks, look for ceCandidate.* lines plus the surrounding message/globalVar.write/checkCollision/startGlobalScript entries.',
         'MacVenture tracing records script opcodes, script ids/offsets, branches, calls, random rolls, object/global writes, text, sound, and object queue activity.',
         'For ScummVM command-line script dumps, use -u/--dump-scripts after creating/choosing a writable working directory.'
     ) | Set-Content -LiteralPath "$traceOutputPath\TRACE_BUILD_README.txt"

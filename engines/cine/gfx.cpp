@@ -36,14 +36,17 @@
 #include "graphics/cursorman.h"
 #include "graphics/primitives.h"
 
+#include "engines/achievements.h"
+
 namespace Cine {
 
 byte *collisionPage;
 FWRenderer *renderer = nullptr;
 
 static bool shouldDisableRatMazeDarkness() {
-	return g_cine->getGameType() == GType_OS &&
-		ConfMan.getBool("disable_rat_maze_darkness") &&
+	if (g_cine->getGameType() != GType_OS || !AchMan.shouldApplyCECheat("disable_rat_maze_darkness"))
+		return false;
+	return
 		(scumm_stricmp(currentPrcName, "EGOU.PRC") == 0 ||
 		 scumm_stricmp(currentPrcName, "LABY.PRC") == 0);
 }

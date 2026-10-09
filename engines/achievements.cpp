@@ -28,11 +28,11 @@
 #include "common/compression/unzip.h"
 
 #include "engines/achievements.h"
+#include "engines/ce_achievements.h"
 
 namespace Common {
 
 DECLARE_SINGLETON(AchievementsManager);
-
 
 AchievementsManager::AchievementsManager() {
 	_iniFile = nullptr;
@@ -450,5 +450,92 @@ const StatDescription *AchievementsManager::getStatDescription(uint16 index) con
 	return &(_stats[index]);
 }
 
+bool AchievementsManager::setCEAchievement(const String &game, const String &variant, const String &achievement) {
+	return CEAchievements().unlock(*this, game, variant, achievement);
+}
+
+bool AchievementsManager::noteCEGameEvent(const String &game, const String &variant, const String &event) {
+	return CEAchievements().noteGameEvent(*this, game, variant, event);
+}
+
+bool AchievementsManager::isCEChallengeModeEnabled() const {
+	return CEAchievements().isChallengeModeEnabled();
+}
+
+void AchievementsManager::setCEChallengeModeEnabled(bool enabled) {
+	CEAchievements().setChallengeModeEnabled(enabled);
+}
+
+bool AchievementsManager::areCECheatsEnabled(const String &domain) const {
+	return CEAchievements().areCheatsEnabled(domain);
+}
+
+void AchievementsManager::setCECheatsEnabled(bool enabled, const String &domain) {
+	CEAchievements().setCheatsEnabled(enabled, domain);
+}
+
+bool AchievementsManager::shouldApplyCECheat(const String &key, const String &domain) const {
+	return CEAchievements().shouldApplyCheat(key, domain);
+}
+
+bool AchievementsManager::isCERepeatPopupsEnabled() const {
+	return CEAchievements().isRepeatPopupsEnabled();
+}
+
+void AchievementsManager::setCERepeatPopupsEnabled(bool enabled) {
+	CEAchievements().setRepeatPopupsEnabled(enabled);
+}
+
+bool AchievementsManager::isCEDisqualifyingAssistanceActive(const String &domain) const {
+	return CEAchievements().isDisqualifyingAssistanceActive(domain);
+}
+
+void AchievementsManager::disableCEDisqualifyingAssistance() {
+	CEAchievements().disableDisqualifyingAssistance();
+}
+
+void AchievementsManager::noteCEDisqualifyingAssistance(const String &flag) {
+	CEAchievements().noteDisqualifyingAssistance(flag);
+}
+
+Array<String> AchievementsManager::getCEAssistanceFlags(const String &domain) const {
+	return CEAchievements().getAssistanceFlags(domain);
+}
+
+String AchievementsManager::getCELinkToken() const {
+	return CEAchievements().getLinkToken();
+}
+
+void AchievementsManager::setCELinkToken(const String &token) {
+	CEAchievements().setLinkToken(token);
+}
+
+uint32 AchievementsManager::getCEPendingEventCount() const {
+	return CEAchievements().getPendingEventCount();
+}
+
+String AchievementsManager::getCELastSyncStatus() const {
+	return CEAchievements().getLastSyncStatus();
+}
+
+void AchievementsManager::retryCEQueuedEvents() {
+	CEAchievements().retryQueuedEvents();
+}
+
+void AchievementsManager::testCELinkToken() {
+	CEAchievements().testLinkToken();
+}
+
+bool AchievementsManager::isCESyncBusy() const {
+	return CEAchievements().isSyncBusy();
+}
+
+String AchievementsManager::getCEAchievementId(const String &game, uint index) const {
+	return CEAchievements().getAchievementId(game, index);
+}
+
+const char *const *AchievementsManager::getCEOperationStealthAchievementKeys() const {
+	return CEAchievements().getOperationStealthAchievementKeys();
+}
 
 } // End of namespace Common

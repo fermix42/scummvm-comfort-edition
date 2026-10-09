@@ -339,6 +339,19 @@ protected:
 	bool updateAutosavePeriod(int newValue);
 	void addMiscControls(GuiObject *boss, const Common::String &prefix, bool lowres);
 
+	//
+	// Achievement controls
+	//
+	StaticTextWidget *_ceLinkTokenDesc;
+	EditTextWidget *_ceLinkToken;
+	ButtonWidget *_ceLinkTestButton;
+	ButtonWidget *_ceSyncNowButton;
+	CheckboxWidget *_ceChallengeModeCheckbox;
+	CheckboxWidget *_ceRepeatPopupsCheckbox;
+	StaticTextWidget *_ceQueueStatus;
+	void addCEAchievementControls(GuiObject *boss, const Common::String &prefix, bool lowres);
+	void updateCEAchievementStatus();
+
 #ifdef USE_CLOUD
 	//
 	// Cloud controls

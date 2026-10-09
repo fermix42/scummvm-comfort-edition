@@ -3,6 +3,7 @@ MODULE := engines
 MODULE_OBJS := \
 	achievements.o \
 	advancedDetector.o \
+	ce_achievements.o \
 	dialogs.o \
 	engine.o \
 	game.o \

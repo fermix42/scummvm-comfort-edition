@@ -432,6 +432,8 @@ AVIPlayer::IOStatus AVIPlayer::init(const bool doublePixels) {
 	int16 width = videoWidth;
 	int16 height = videoHeight;
 	if (ConfMan.getBool("enable_hq_video")) {
+		// Comfort Edition treats SCI AVIs as window-fitted videos when HQ
+		// scaling is enabled. Other SCI video formats keep their own sizing.
 		height = screenHeight;
 		width = (int32)height * videoWidth / videoHeight;
 		if (width > screenWidth) {

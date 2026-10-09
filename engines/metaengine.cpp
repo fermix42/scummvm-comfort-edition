@@ -492,7 +492,7 @@ GUI::OptionsContainerWidget *MetaEngine::buildCheatOptionsWidget(GUI::GuiObject 
 		return nullptr;
 	}
 
-	return new GUI::ExtraGuiOptionsWidget(boss, name, target, cheatOptions);
+	return new GUI::ExtraGuiOptionsWidget(boss, name, target, cheatOptions, true);
 }
 
 bool MetaEngine::removeSaveState(const char *target, int slot) const {

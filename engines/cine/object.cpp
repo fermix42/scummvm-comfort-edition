@@ -30,10 +30,12 @@
 #include "cine/part.h"
 #include "cine/various.h"
 
+#include "engines/achievements.h"
+
 namespace Cine {
 
 static bool shouldFreezeJetskiEnergy(byte objIdx, byte paramIdx, int16 newValue) {
-	if (g_cine->getGameType() != Cine::GType_OS || !ConfMan.getBool("freeze_jetski_energy") ||
+	if (g_cine->getGameType() != Cine::GType_OS || !AchMan.shouldApplyCECheat("freeze_jetski_energy") ||
 		scumm_stricmp(currentPrcName, "PALAIS1.PRC") != 0 || g_cine->_globalVars[240] != 50) {
 		return false;
 	}
@@ -43,7 +45,7 @@ static bool shouldFreezeJetskiEnergy(byte objIdx, byte paramIdx, int16 newValue)
 
 static bool shouldDisableScript36SharkHit(uint16 objIdx1, uint16 xAdd1, uint16 yAdd1, uint16 maskAdd1,
 		uint16 objIdx2, uint16 xAdd2, uint16 yAdd2, uint16 maskAdd2) {
-	if (g_cine->getGameType() != Cine::GType_OS || !ConfMan.getBool("disable_shark_collision") ||
+	if (g_cine->getGameType() != Cine::GType_OS || !AchMan.shouldApplyCECheat("disable_shark_collision") ||
 		scumm_stricmp(currentPrcName, "SOUSMAR2.PRC") != 0) {
 		return false;
 	}
