@@ -211,6 +211,10 @@ bool AchievementsManager::unsetActiveDomain() {
 
 
 bool AchievementsManager::setAchievement(const String &id) {
+	return setAchievement(id, true);
+}
+
+bool AchievementsManager::setAchievement(const String &id, bool showOsd) {
 	if (!isReady()) {
 		warning("AchievementsManager::setAchievement('%s'): AchMan not ready, did you forget to call setActiveDomain()?", id.c_str());
 		return false;
@@ -236,7 +240,7 @@ bool AchievementsManager::setAchievement(const String &id) {
 	_iniFile->setKey(id, "achievements", "true");
 	_iniFile->saveToSaveFile(_iniFileName);
 
-	if (!ConfMan.getBool("disable_achievement_unlocked_osd") && !displayedMessage.empty() && g_system) {
+	if (showOsd && !ConfMan.getBool("disable_achievement_unlocked_osd") && !displayedMessage.empty() && g_system) {
 		U32String msg;
 		msg = Common::U32String::format("%S\n%S",
 			_("Achievement unlocked!").c_str(),
@@ -484,6 +488,30 @@ bool AchievementsManager::isCERepeatPopupsEnabled() const {
 
 void AchievementsManager::setCERepeatPopupsEnabled(bool enabled) {
 	CEAchievements().setRepeatPopupsEnabled(enabled);
+}
+
+bool AchievementsManager::areCEPopupsEnabled() const {
+	return CEAchievements().arePopupsEnabled();
+}
+
+void AchievementsManager::setCEPopupsEnabled(bool enabled) {
+	CEAchievements().setPopupsEnabled(enabled);
+}
+
+CEAchievementPopupLocation AchievementsManager::getCEPopupLocation() const {
+	return CEAchievements().getPopupLocation();
+}
+
+void AchievementsManager::setCEPopupLocation(CEAchievementPopupLocation location) {
+	CEAchievements().setPopupLocation(location);
+}
+
+bool AchievementsManager::isCEPopupSoundEnabled() const {
+	return CEAchievements().isPopupSoundEnabled();
+}
+
+void AchievementsManager::setCEPopupSoundEnabled(bool enabled) {
+	CEAchievements().setPopupSoundEnabled(enabled);
 }
 
 bool AchievementsManager::isCEDisqualifyingAssistanceActive(const String &domain) const {

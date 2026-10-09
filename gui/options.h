@@ -347,7 +347,11 @@ protected:
 	ButtonWidget *_ceLinkTestButton;
 	ButtonWidget *_ceSyncNowButton;
 	CheckboxWidget *_ceChallengeModeCheckbox;
+	CheckboxWidget *_cePopupsCheckbox;
+	StaticTextWidget *_cePopupLocationDesc;
+	PopUpWidget *_cePopupLocationPopUp;
 	CheckboxWidget *_ceRepeatPopupsCheckbox;
+	CheckboxWidget *_cePopupSoundCheckbox;
 	StaticTextWidget *_ceQueueStatus;
 	void addCEAchievementControls(GuiObject *boss, const Common::String &prefix, bool lowres);
 	void updateCEAchievementStatus();

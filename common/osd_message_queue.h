@@ -66,7 +66,7 @@ public:
 	/**
 	 * Add an image to the OSD message queue.
 	 */
-	void addImage(const Graphics::Surface *surface);
+	void addImage(const Graphics::Surface *surface, uint32 duration = kIconCleanupDelay);
 
 	/**
 	 * Common::EventSource interface
@@ -83,15 +83,17 @@ private:
 	struct OSDQueueEntry {
 		Common::U32String *_text;
 		Graphics::Surface *_image;
+		uint32 _duration;
 
 		OSDQueueEntry(const Common::U32String &msg);
-		OSDQueueEntry(const Graphics::Surface *surface);
+		OSDQueueEntry(const Graphics::Surface *surface, uint32 duration);
 		~OSDQueueEntry();
 	};
 
 	Mutex _mutex;
 	Queue<OSDQueueEntry *> _messages;
 	uint32 _lastUpdate;
+	uint32 _iconCleanupDelay;
 	bool _iconWasShown;
 };
 

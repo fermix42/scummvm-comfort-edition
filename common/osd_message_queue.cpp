@@ -21,6 +21,7 @@
 
 #include "common/osd_message_queue.h"
 #include "common/system.h"
+#include "common/util.h"
 
 #include "graphics/surface.h"
 
@@ -29,10 +30,10 @@ namespace Common {
 DECLARE_SINGLETON(OSDMessageQueue);
 
 OSDMessageQueue::OSDQueueEntry::OSDQueueEntry(const Common::U32String &msg)
-	: _text(new Common::U32String(msg)), _image(nullptr) {}
+	: _text(new Common::U32String(msg)), _image(nullptr), _duration(kIconCleanupDelay) {}
 
-OSDMessageQueue::OSDQueueEntry::OSDQueueEntry(const Graphics::Surface *surface)
-	: _text(nullptr), _image(nullptr) {
+OSDMessageQueue::OSDQueueEntry::OSDQueueEntry(const Graphics::Surface *surface, uint32 duration)
+	: _text(nullptr), _image(nullptr), _duration(duration) {
 	if (surface) {
 		_image = new Graphics::Surface();
 		_image->copyFrom(*surface);
@@ -48,7 +49,7 @@ OSDMessageQueue::OSDQueueEntry::~OSDQueueEntry() {
 	}
 }
 
-OSDMessageQueue::OSDMessageQueue() : _lastUpdate(0), _iconWasShown(false) {
+OSDMessageQueue::OSDMessageQueue() : _lastUpdate(0), _iconCleanupDelay(kIconCleanupDelay), _iconWasShown(false) {
 }
 
 OSDMessageQueue::~OSDMessageQueue() {
@@ -71,9 +72,9 @@ void OSDMessageQueue::addMessage(const Common::U32String &msg) {
 	_mutex.unlock();
 }
 
-void OSDMessageQueue::addImage(const Graphics::Surface *surface) {
+void OSDMessageQueue::addImage(const Graphics::Surface *surface, uint32 duration) {
 	_mutex.lock();
-	_messages.push(new OSDQueueEntry(surface));
+	_messages.push(new OSDQueueEntry(surface, duration));
 	_mutex.unlock();
 }
 
@@ -90,6 +91,7 @@ bool OSDMessageQueue::pollEvent(Common::Event &event) {
 
 			if (entry->_image) {
 				g_system->displayActivityIconOnOSD(entry->_image);
+				_iconCleanupDelay = MAX<uint32>(entry->_duration, kMinimumDelay);
 				_iconWasShown = true;
 			} else if (entry->_text) {
 				g_system->displayMessageOnOSD(*(entry->_text));
@@ -97,11 +99,12 @@ bool OSDMessageQueue::pollEvent(Common::Event &event) {
 
 			delete entry;
 		}
-	} else if (t - _lastUpdate >= kIconCleanupDelay) {
+	} else if (t - _lastUpdate >= _iconCleanupDelay) {
 		// If there are no messages, but the last message was an icon that was shown, clear it after a delay
 		if (_iconWasShown) {
 			g_system->displayActivityIconOnOSD(nullptr);
 			_iconWasShown = false;
+			_iconCleanupDelay = kIconCleanupDelay;
 		}
 	}
 	_mutex.unlock();

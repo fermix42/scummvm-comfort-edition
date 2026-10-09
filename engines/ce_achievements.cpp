@@ -22,15 +22,24 @@
 #include "engines/ce_achievements.h"
 #include "engines/achievements.h"
 
+#include "audio/audiostream.h"
+#include "audio/decoders/wave.h"
+#include "audio/mixer.h"
+
 #include "common/compression/unzip.h"
 #include "common/config-manager.h"
 #include "common/debug.h"
 #include "common/formats/json.h"
 #include "common/fs.h"
+#include "common/osd_message_queue.h"
 #include "common/savefile.h"
 #include "common/system.h"
 #include "common/translation.h"
 #include "common/util.h"
+#include "graphics/font.h"
+#include "graphics/fontman.h"
+#include "graphics/surface.h"
+#include "image/png.h"
 
 #ifdef USE_HTTP
 #include "backends/networking/http/connectionmanager.h"
@@ -47,9 +56,14 @@ static const char *const kCECatalogFile = "ce-achievements-catalog.json";
 static const char *const kCELinkTokenKey = "ce_link_token";
 static const char *const kCEChallengeModeKey = "ce_achievements_challenge_mode";
 static const char *const kCECheatsEnabledKey = "ce_cheats_enabled";
+static const char *const kCEPopupsEnabledKey = "ce_achievements_popups_enabled";
+static const char *const kCEPopupLocationKey = "ce_achievements_popup_location";
 static const char *const kCERepeatPopupsKey = "ce_achievements_repeat_popups";
+static const char *const kCEPopupSoundEnabledKey = "ce_achievements_popup_sound_enabled";
 static const char *const kCEInstallSecretKey = "ce_achievements_install_secret";
 static const char *const kCELastSyncStatusKey = "ce_achievements_last_sync_status";
+static const char *const kCEAchievementSoundMember = "sounds/achievement-sultry-clean.wav";
+static const uint32 kCEAchievementPopupDuration = 5 * 1000;
 
 static const char *const kCEOperationStealthKeys[] = {
 	"passport_to_trouble",
@@ -92,15 +106,205 @@ static String ceAchievementDisplayName(const String &achievement) {
 	return result.empty() ? achievement : result;
 }
 
-static void ceDisplayAchievementUnlockedOSD(const String &title) {
-	if (ConfMan.getBool("disable_achievement_unlocked_osd") || !g_system)
+static Common::Archive *ceOpenDataPack() {
+	Common::Archive *pack = nullptr;
+
+	if (!pack && ConfMan.hasKey("extrapath")) {
+		Common::FSDirectory extrapath(ConfMan.getPath("extrapath"));
+		pack = Common::makeZipArchive(extrapath.createReadStreamForMember(kCEDataFile));
+	}
+
+	if (!pack)
+		pack = Common::makeZipArchive(kCEDataFile);
+
+	return pack;
+}
+
+static bool ceAchievementPopupAllowed() {
+	return CEAchievements().arePopupsEnabled() && !ConfMan.getBool("disable_achievement_unlocked_osd") && g_system;
+}
+
+static const char *cePopupLocationToConfig(CEAchievementPopupLocation location) {
+	switch (location) {
+	case kCEAchievementPopupUpperLeft:
+		return "upper_left";
+	case kCEAchievementPopupUpperRight:
+		return "upper_right";
+	case kCEAchievementPopupTopCenter:
+		return "top_center";
+	case kCEAchievementPopupBottomCenter:
+		return "bottom_center";
+	case kCEAchievementPopupLowerRight:
+	default:
+		return "lower_right";
+	}
+}
+
+static CEAchievementPopupLocation cePopupLocationFromConfig(const String &location) {
+	if (location == "upper_left")
+		return kCEAchievementPopupUpperLeft;
+	if (location == "upper_right")
+		return kCEAchievementPopupUpperRight;
+	if (location == "top_center")
+		return kCEAchievementPopupTopCenter;
+	if (location == "bottom_center")
+		return kCEAchievementPopupBottomCenter;
+	return kCEAchievementPopupLowerRight;
+}
+
+static void ceBlitScaled(const Graphics::Surface &src, Graphics::Surface &dst, int dstX, int dstY, int dstW, int dstH) {
+	if (!src.getPixels() || !dst.getPixels() || dstW <= 0 || dstH <= 0)
 		return;
+
+	for (int y = 0; y < dstH; ++y) {
+		const int srcY = y * src.h / dstH;
+		for (int x = 0; x < dstW; ++x) {
+			const int srcX = x * src.w / dstW;
+			uint32 color = 0;
+			const byte *srcPixel = (const byte *)src.getBasePtr(srcX, srcY);
+			if (src.format.bytesPerPixel == 2)
+				color = READ_UINT16(srcPixel);
+			else if (src.format.bytesPerPixel == 3)
+				color = READ_UINT24(srcPixel);
+			else if (src.format.bytesPerPixel == 4)
+				color = READ_UINT32(srcPixel);
+
+			byte a, r, g, b;
+			src.format.colorToARGB(color, a, r, g, b);
+			if (a == 0)
+				continue;
+			dst.setPixel(dstX + x, dstY + y, dst.format.ARGBToColor(a, r, g, b));
+		}
+	}
+}
+
+static Graphics::Surface *ceLoadAchievementIcon(Common::Archive *pack, const CEAchievementDefinition *definition) {
+	if (!pack || !definition || definition->iconPath.empty())
+		return nullptr;
+
+	Common::SeekableReadStream *stream = pack->createReadStreamForMember(Common::Path(definition->iconPath));
+	if (!stream)
+		return nullptr;
+
+	Image::PNGDecoder decoder;
+	const bool loaded = decoder.loadStream(*stream);
+	delete stream;
+	if (!loaded || !decoder.getSurface())
+		return nullptr;
+
+	return decoder.getSurface()->convertTo(Graphics::PixelFormat::createFormatRGBA32(),
+		decoder.getPalette().data(), decoder.getPalette().size());
+}
+
+static Common::Rect ceAchievementCardRect(int screenW, int screenH, int cardW, int cardH) {
+	const int margin = 14;
+	switch (CEAchievements().getPopupLocation()) {
+	case kCEAchievementPopupUpperLeft:
+		return Common::Rect(margin, margin, margin + cardW, margin + cardH);
+	case kCEAchievementPopupUpperRight:
+		return Common::Rect(screenW - cardW - margin, margin, screenW - margin, margin + cardH);
+	case kCEAchievementPopupTopCenter:
+		return Common::Rect((screenW - cardW) / 2, margin, (screenW + cardW) / 2, margin + cardH);
+	case kCEAchievementPopupBottomCenter:
+		return Common::Rect((screenW - cardW) / 2, screenH - cardH - margin, (screenW + cardW) / 2, screenH - margin);
+	case kCEAchievementPopupLowerRight:
+	default:
+		return Common::Rect(screenW - cardW - margin, screenH - cardH - margin, screenW - margin, screenH - margin);
+	}
+}
+
+static bool ceDisplayAchievementUnlockedOSD(const String &title, const CEAchievementDefinition *definition, bool challengeStyle) {
+	if (!ceAchievementPopupAllowed())
+		return false;
+
+	Common::Archive *pack = ceOpenDataPack();
+	Graphics::Surface *icon = ceLoadAchievementIcon(pack, definition);
+	delete pack;
+
+	const int screenW = g_system->getOverlayWidth();
+	const int screenH = g_system->getOverlayHeight();
+	const Graphics::Font *font = FontMan.getFontByUsage(Graphics::FontManager::kLocalizedFont);
+	if (icon && screenW > 0 && screenH > 0 && font) {
+		const Graphics::PixelFormat format = Graphics::PixelFormat::createFormatRGBA32();
+		Graphics::Surface popup;
+		popup.create(screenW, screenH, format);
+		popup.fillRect(Common::Rect(0, 0, screenW, screenH), format.ARGBToColor(0, 0, 0, 0));
+
+		const int iconSize = 48;
+		const Common::U32String titleText(title);
+		const int cardPaddingW = 18 + iconSize + 14 + 14;
+		const int availableCardW = MAX(1, screenW - 12);
+		const int desiredCardW = cardPaddingW + font->getStringWidth(titleText);
+		const int cardW = MIN(availableCardW, MAX(250, MIN(420, desiredCardW)));
+		const int cardH = 72;
+		const Common::Rect card = ceAchievementCardRect(screenW, screenH, cardW, cardH);
+		const uint32 bg = format.ARGBToColor(220, 24, 24, 28);
+		const uint32 border = format.ARGBToColor(238, 236, 236, 236);
+		const uint32 accent = challengeStyle ? format.ARGBToColor(255, 232, 184, 64) : format.ARGBToColor(255, 64, 176, 220);
+		const uint32 text = format.ARGBToColor(255, 255, 255, 255);
+
+		popup.fillRect(card, bg);
+		popup.fillRect(Common::Rect(card.left, card.top, card.right, card.top + 2), border);
+		popup.fillRect(Common::Rect(card.left, card.bottom - 2, card.right, card.bottom), border);
+		popup.fillRect(Common::Rect(card.left, card.top, card.left + 2, card.bottom), border);
+		popup.fillRect(Common::Rect(card.right - 2, card.top, card.right, card.bottom), border);
+		popup.fillRect(Common::Rect(card.left, card.top, card.left + 6, card.bottom), accent);
+
+		const int iconX = card.left + 18;
+		const int iconY = card.top + (card.height() - iconSize) / 2;
+		ceBlitScaled(*icon, popup, iconX, iconY, iconSize, iconSize);
+
+		const int titleX = iconX + iconSize + 14;
+		const int titleY = card.top + (card.height() - font->getFontHeight()) / 2;
+		const int titleW = MAX(1, card.right - titleX - 14);
+		font->drawString(&popup, titleText, titleX, titleY, titleW, text, Graphics::kTextAlignLeft, 0, true);
+
+		Common::OSDMessageQueue::instance().addImage(&popup, kCEAchievementPopupDuration);
+		popup.free();
+		icon->free();
+		delete icon;
+		return true;
+	}
+
+	if (icon) {
+		icon->free();
+		delete icon;
+	}
 
 	U32String msg = Common::U32String::format("%S\n%S",
 		_("Achievement unlocked!").c_str(),
 		Common::U32String(title).c_str()
 	);
 	g_system->displayMessageOnOSD(msg);
+	return true;
+}
+
+static void cePlayAchievementUnlockedSound() {
+	if (!CEAchievements().isPopupSoundEnabled() || !ceAchievementPopupAllowed() || !g_system->getMixer())
+		return;
+
+	Common::Archive *pack = ceOpenDataPack();
+	if (!pack)
+		return;
+
+	Common::SeekableReadStream *stream = pack->createReadStreamForMember(kCEAchievementSoundMember);
+	delete pack;
+
+	if (!stream) {
+		warning("CE achievement sound '%s' is missing from '%s'", kCEAchievementSoundMember, kCEDataFile);
+		return;
+	}
+
+	Audio::AudioStream *audio = Audio::makeWAVStream(stream, DisposeAfterUse::YES);
+	if (!audio) {
+		delete stream;
+		warning("Could not decode CE achievement sound '%s'", kCEAchievementSoundMember);
+		return;
+	}
+
+	Audio::SoundHandle handle;
+	g_system->getMixer()->playStream(Audio::Mixer::kSFXSoundType, &handle, audio, -1,
+		Audio::Mixer::kMaxChannelVolume, 0, DisposeAfterUse::YES);
 }
 
 static String ceEscapeJson(const String &input) {
@@ -132,6 +336,7 @@ static bool ceParseCatalogDefinition(const JSONObject &obj, CEAchievementDefinit
 	definition.id = ceStringFromJson(obj, "id");
 	definition.title = ceStringFromJson(obj, "title");
 	definition.description = ceStringFromJson(obj, "description");
+	definition.iconPath = ceStringFromJson(obj, "icon");
 	definition.challengeEligible = ceBoolFromJson(obj, "challenge_eligible", true);
 	definition.hidden = ceBoolFromJson(obj, "hidden", false);
 
@@ -149,6 +354,7 @@ static bool ceParsePackAchievement(const String &game, const JSONObject &obj, CE
 	definition.title = ceStringFromJson(obj, "title");
 	definition.description = ceStringFromJson(obj, "public_description",
 		ceStringFromJson(obj, "locked_description", ceStringFromJson(obj, "description")));
+	definition.iconPath = ceStringFromJson(obj, "icon");
 	definition.challengeEligible = ceUIntFromJson(obj, "challenge_points", 0) > 0;
 	definition.hidden = ceBoolFromJson(obj, "spoiler", false);
 
@@ -357,11 +563,18 @@ bool CEAchievementService::unlock(AchievementsManager &achievements, const Strin
 	const bool nativeAlreadyAchieved = nativeReady && achievements.isAchieved(achievement);
 	bool localSet = true;
 	if (nativeReady)
-		localSet = achievements.setAchievement(achievement);
+		localSet = achievements.setAchievement(achievement, false);
 
 	const bool queuedNewEvent = queueAchievementEvent(game, variant, achievement);
-	if ((!nativeReady && queuedNewEvent) || (isRepeatPopupsEnabled() && (!nativeReady || nativeAlreadyAchieved)))
-		ceDisplayAchievementUnlockedOSD(getAchievementTitle(game, variant, achievement));
+	const bool localNewAchievement = nativeReady && !nativeAlreadyAchieved && localSet;
+	const bool cePopupNeeded = localNewAchievement || (!nativeReady && queuedNewEvent) || (isRepeatPopupsEnabled() && (!nativeReady || nativeAlreadyAchieved));
+	const CEAchievementDefinition *definition = findDefinition(game, variant, achievement);
+	const bool challengeStyle = isChallengeModeEnabled() && definition && definition->challengeEligible && !isDisqualifyingAssistanceActive();
+	bool cePopupShown = false;
+	if (cePopupNeeded)
+		cePopupShown = ceDisplayAchievementUnlockedOSD(definition ? definition->title : getAchievementTitle(game, variant, achievement), definition, challengeStyle);
+	if (cePopupShown)
+		cePlayAchievementUnlockedSound();
 
 	retryQueuedEvents();
 	return localSet;
@@ -511,16 +724,7 @@ void CEAchievementService::addBuiltinRules() const {
 }
 
 void CEAchievementService::loadBundledCatalog() const {
-	Common::Archive *pack = nullptr;
-
-	if (!pack && ConfMan.hasKey("extrapath")) {
-		Common::FSDirectory extrapath(ConfMan.getPath("extrapath"));
-		pack = Common::makeZipArchive(extrapath.createReadStreamForMember(kCEDataFile));
-	}
-
-	if (!pack)
-		pack = Common::makeZipArchive(kCEDataFile);
-
+	Common::Archive *pack = ceOpenDataPack();
 	if (!pack)
 		return;
 
@@ -744,6 +948,37 @@ bool CEAchievementService::isRepeatPopupsEnabled() const {
 
 void CEAchievementService::setRepeatPopupsEnabled(bool enabled) {
 	ConfMan.setBool(kCERepeatPopupsKey, enabled, ConfigManager::kApplicationDomain);
+	ConfMan.flushToDisk();
+}
+
+bool CEAchievementService::arePopupsEnabled() const {
+	return !ConfMan.hasKey(kCEPopupsEnabledKey, ConfigManager::kApplicationDomain) ||
+		ConfMan.getBool(kCEPopupsEnabledKey, ConfigManager::kApplicationDomain);
+}
+
+void CEAchievementService::setPopupsEnabled(bool enabled) {
+	ConfMan.setBool(kCEPopupsEnabledKey, enabled, ConfigManager::kApplicationDomain);
+	ConfMan.flushToDisk();
+}
+
+CEAchievementPopupLocation CEAchievementService::getPopupLocation() const {
+	if (!ConfMan.hasKey(kCEPopupLocationKey, ConfigManager::kApplicationDomain))
+		return kCEAchievementPopupLowerRight;
+	return cePopupLocationFromConfig(ConfMan.get(kCEPopupLocationKey, ConfigManager::kApplicationDomain));
+}
+
+void CEAchievementService::setPopupLocation(CEAchievementPopupLocation location) {
+	ConfMan.set(kCEPopupLocationKey, cePopupLocationToConfig(location), ConfigManager::kApplicationDomain);
+	ConfMan.flushToDisk();
+}
+
+bool CEAchievementService::isPopupSoundEnabled() const {
+	return !ConfMan.hasKey(kCEPopupSoundEnabledKey, ConfigManager::kApplicationDomain) ||
+		ConfMan.getBool(kCEPopupSoundEnabledKey, ConfigManager::kApplicationDomain);
+}
+
+void CEAchievementService::setPopupSoundEnabled(bool enabled) {
+	ConfMan.setBool(kCEPopupSoundEnabledKey, enabled, ConfigManager::kApplicationDomain);
 	ConfMan.flushToDisk();
 }
 

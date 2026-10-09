@@ -2197,7 +2197,11 @@ GlobalOptionsDialog::GlobalOptionsDialog(LauncherDialog *launcher)
 	_ceLinkTestButton = nullptr;
 	_ceSyncNowButton = nullptr;
 	_ceChallengeModeCheckbox = nullptr;
+	_cePopupsCheckbox = nullptr;
+	_cePopupLocationDesc = nullptr;
+	_cePopupLocationPopUp = nullptr;
 	_ceRepeatPopupsCheckbox = nullptr;
+	_cePopupSoundCheckbox = nullptr;
 	_ceQueueStatus = nullptr;
 
 #ifdef USE_UPDATES
@@ -2821,9 +2825,23 @@ void GlobalOptionsDialog::addCEAchievementControls(GuiObject *boss, const Common
 	_ceChallengeModeCheckbox = new CheckboxWidget(boss, prefix + "ChallengeMode", lowres ? _c("Challenge Mode", "lowres") : _("Challenge Mode"),
 		_("Disable disqualifying cheats and submit eligible achievements for Challenge credit"), kCEChallengeModeCmd);
 	_ceChallengeModeCheckbox->setState(AchMan.isCEChallengeModeEnabled());
+	_cePopupsCheckbox = new CheckboxWidget(boss, prefix + "Popups", lowres ? _c("Popups", "lowres") : _("Achievement popups"),
+		_("Show CE achievement popup cards"));
+	_cePopupsCheckbox->setState(AchMan.areCEPopupsEnabled());
+	_cePopupLocationDesc = new StaticTextWidget(boss, prefix + "PopupLocationDesc", lowres ? _c("Location:", "lowres") : _("Popup location:"), _("Where CE achievement popup cards appear"));
+	_cePopupLocationPopUp = new PopUpWidget(boss, prefix + "PopupLocationPopup");
+	_cePopupLocationPopUp->appendEntry(_("Upper left"), Common::kCEAchievementPopupUpperLeft);
+	_cePopupLocationPopUp->appendEntry(_("Upper right"), Common::kCEAchievementPopupUpperRight);
+	_cePopupLocationPopUp->appendEntry(_("Lower right"), Common::kCEAchievementPopupLowerRight);
+	_cePopupLocationPopUp->appendEntry(_("Top center"), Common::kCEAchievementPopupTopCenter);
+	_cePopupLocationPopUp->appendEntry(_("Bottom center"), Common::kCEAchievementPopupBottomCenter);
+	_cePopupLocationPopUp->setSelectedTag(AchMan.getCEPopupLocation());
 	_ceRepeatPopupsCheckbox = new CheckboxWidget(boss, prefix + "RepeatPopups", lowres ? _c("Repeat popups", "lowres") : _("Repeat achievement popups"),
 		_("Show CE achievement popups even when the local queue already has the event"));
 	_ceRepeatPopupsCheckbox->setState(AchMan.isCERepeatPopupsEnabled());
+	_cePopupSoundCheckbox = new CheckboxWidget(boss, prefix + "PopupSound", lowres ? _c("Voice alert", "lowres") : _("Achievement voice alert"),
+		_("Play the CE voice line when an achievement popup is shown"));
+	_cePopupSoundCheckbox->setState(AchMan.isCEPopupSoundEnabled());
 	_ceQueueStatus = new StaticTextWidget(boss, prefix + "QueueStatus", Common::U32String(), Common::U32String(), ThemeEngine::kFontStyleNormal);
 	updateCEAchievementStatus();
 }
@@ -3119,8 +3137,17 @@ void GlobalOptionsDialog::apply() {
 	if (_ceChallengeModeCheckbox)
 		AchMan.setCEChallengeModeEnabled(_ceChallengeModeCheckbox->getState());
 
+	if (_cePopupsCheckbox)
+		AchMan.setCEPopupsEnabled(_cePopupsCheckbox->getState());
+
+	if (_cePopupLocationPopUp)
+		AchMan.setCEPopupLocation((Common::CEAchievementPopupLocation)_cePopupLocationPopUp->getSelectedTag());
+
 	if (_ceRepeatPopupsCheckbox)
 		AchMan.setCERepeatPopupsEnabled(_ceRepeatPopupsCheckbox->getState());
+
+	if (_cePopupSoundCheckbox)
+		AchMan.setCEPopupSoundEnabled(_cePopupSoundCheckbox->getState());
 
 	if (gDebugLevel != (int32)(_debugLevelPopUp->getSelectedTag())) {
 		gDebugLevel = (int32)(_debugLevelPopUp->getSelectedTag());

@@ -57,8 +57,17 @@ struct CEAchievementDefinition {
 	String id;
 	String title;
 	String description;
+	String iconPath;
 	bool challengeEligible;
 	bool hidden;
+};
+
+enum CEAchievementPopupLocation {
+	kCEAchievementPopupUpperLeft,
+	kCEAchievementPopupUpperRight,
+	kCEAchievementPopupLowerRight,
+	kCEAchievementPopupTopCenter,
+	kCEAchievementPopupBottomCenter
 };
 
 struct CEAchievementRule {
@@ -83,6 +92,12 @@ public:
 	bool shouldApplyCheat(const String &key, const String &domain = String()) const;
 	bool isRepeatPopupsEnabled() const;
 	void setRepeatPopupsEnabled(bool enabled);
+	bool arePopupsEnabled() const;
+	void setPopupsEnabled(bool enabled);
+	CEAchievementPopupLocation getPopupLocation() const;
+	void setPopupLocation(CEAchievementPopupLocation location);
+	bool isPopupSoundEnabled() const;
+	void setPopupSoundEnabled(bool enabled);
 
 	bool isDisqualifyingAssistanceActive(const String &domain = String()) const;
 	void disableDisqualifyingAssistance();

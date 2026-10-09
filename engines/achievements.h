@@ -27,6 +27,7 @@
 #include "common/hashmap.h"
 #include "common/singleton.h"
 #include "common/str.h"
+#include "engines/ce_achievements.h"
 
 namespace Common {
 
@@ -123,6 +124,7 @@ public:
 	 * @param[in] id			   Internal ID of the achievement.
 	 */
 	bool setAchievement(const String &id);
+	bool setAchievement(const String &id, bool showOsd);
 	bool setCEAchievement(const String &game, const String &variant, const String &achievement);
 	bool noteCEGameEvent(const String &game, const String &variant, const String &event);
 
@@ -270,6 +272,12 @@ public:
 	bool shouldApplyCECheat(const String &key, const String &domain = String()) const;
 	bool isCERepeatPopupsEnabled() const;
 	void setCERepeatPopupsEnabled(bool enabled);
+	bool areCEPopupsEnabled() const;
+	void setCEPopupsEnabled(bool enabled);
+	CEAchievementPopupLocation getCEPopupLocation() const;
+	void setCEPopupLocation(CEAchievementPopupLocation location);
+	bool isCEPopupSoundEnabled() const;
+	void setCEPopupSoundEnabled(bool enabled);
 	bool isCEDisqualifyingAssistanceActive(const String &domain = String()) const;
 	void disableCEDisqualifyingAssistance();
 	void noteCEDisqualifyingAssistance(const String &flag);
