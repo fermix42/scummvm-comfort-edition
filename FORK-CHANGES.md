@@ -6,6 +6,9 @@ Format: `Date/timestamp: Category: Description/Explanation`
 
 Timestamps use ISO 8601 local time with UTC offset. Entries are newest first.
 
+- 2026-10-10T09:58:29-07:00: UI: Restored the Deja Vu Macintosh `About Deja Vu...` presentation from the original resource-fork artwork, including the lamp, smoke animation, final team image, and Deja Vu-only menu gating.
+- 2026-10-10T09:58:29-07:00: Patch: Added `Patch: Deja Vu speech cancel` for Deja Vu Macintosh so canceling glitched speech/text-entry prompts clears the pending command state.
+- 2026-10-10T09:58:29-07:00: Achievements: Added Deja Vu Macintosh Comfort Edition achievement event hooks and bundled rule mappings for story, exploration, gambling, failure, and optional challenge moments.
 - 2026-10-09T13:06:04-07:00: Patch: Added `Patch: Crop Cine display borders` for Future Wars and Operation Stealth to trim Cine's top presentation padding before fit-to-window scaling while preserving the bottom status/action text area, with mouse coordinates translated back to the original `320x200` game space.
 - 2026-10-09T12:53:30-07:00: Docs: Documented that Cine/Operation Stealth can include black space inside the engine's `320x200` game surface, separate from backend fit-to-window side bars.
 - 2026-10-09T11:44:29-07:00: Achievements: Added configurable Comfort Edition achievement popup cards with icon/title-only display, popup location choices, optional voice alert playback from `ce-achievements.dat`, challenge-mode accent color, longer card visibility, compact width sizing, and updated shipped theme packages.

@@ -103,6 +103,18 @@ static const ADExtraGuiOptionsMap optionsList[] = {
 			kExtraGuiOptionFlagCheat
 		}
 	},
+	{
+		GAMEOPTION_PATCH_DEJA_VU_SPEECH_CANCEL,
+		{
+			_s("Patch: Speech cancel"),
+			_s("Prevent canceled Deja Vu speech dialogs from being treated as spoken input"),
+			"patch_deja_vu_speech_cancel",
+			true,
+			0,
+			0,
+			0
+		}
+	},
 	AD_EXTRA_GUI_OPTIONS_TERMINATOR
 };
 
@@ -134,15 +146,16 @@ protected:
 };
 
 bool MacVentureMetaEngine::isAdvancedExtraGuiOptionAllowedForTarget(const Common::String &target, const ADExtraGuiOptionsMap &entry) const {
-	const bool isDejaVuCheat =
+	const bool isDejaVuOption =
 		!strcmp(entry.guioFlag, GAMEOPTION_DEJA_VU_FREEZE_POLICE_TIMER) ||
 		!strcmp(entry.guioFlag, GAMEOPTION_DEJA_VU_RIG_SLOT_MACHINE) ||
 		!strcmp(entry.guioFlag, GAMEOPTION_DEJA_VU_UNLIMITED_AMMO) ||
 		!strcmp(entry.guioFlag, GAMEOPTION_DEJA_VU_NO_ALLIGATORS) ||
 		!strcmp(entry.guioFlag, GAMEOPTION_DEJA_VU_UNLIMITED_INVENTORY) ||
-		!strcmp(entry.guioFlag, GAMEOPTION_DEJA_VU_MUGGER_WONT_KILL);
+		!strcmp(entry.guioFlag, GAMEOPTION_DEJA_VU_MUGGER_WONT_KILL) ||
+		!strcmp(entry.guioFlag, GAMEOPTION_PATCH_DEJA_VU_SPEECH_CANCEL);
 
-	if (!isDejaVuCheat)
+	if (!isDejaVuOption)
 		return true;
 
 	return !ConfMan.hasKey("gameid", target) || ConfMan.get("gameid", target) == "deja_vu";

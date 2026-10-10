@@ -285,13 +285,21 @@ bool MacResManager::open(const Path &fileName, Archive &archive) {
 	}
 	delete stream;
 
-	// Maybe file is in MacBinary but without .bin extension?
-	// Check it here
+	// Maybe file is in MacBinary or is a bare raw resource fork without an
+	// .rsrc extension? Check it here.
 	if (archiveMember) {
 		stream = archiveMember->createReadStream();
 		if (stream && isMacBinary(*stream)) {
 			stream->seek(0);
 			if (loadFromMacBinary(stream)) {
+				_baseFileName = fileName;
+				return true;
+			}
+		}
+
+		if (stream) {
+			stream->seek(0);
+			if (loadFromRawFork(stream)) {
 				_baseFileName = fileName;
 				return true;
 			}

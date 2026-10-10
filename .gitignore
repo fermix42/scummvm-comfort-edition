@@ -324,3 +324,6 @@ __pycache__/
 #Ignore Claude instruction files
 CLAUDE.md
 .claude
+
+#Ignore local testing notes
+/docs/testing/deja-vu-macintosh.md

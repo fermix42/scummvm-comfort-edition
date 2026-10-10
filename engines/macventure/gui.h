@@ -178,6 +178,7 @@ public:
 
 	void getTextFromUser(Common::String &title);
 	void setTextInput(const Common::String &str);
+	void cancelTextInput();
 	void closeDialog();
 
 	void loadGame();
@@ -191,6 +192,10 @@ private:
 	bool decodeStartupScreen();
 	bool decodeTitleScreen();
 	bool displayTitleScreenAndWait(uint32 ms);
+	Common::Path getAboutFileName() const;
+	bool displayAboutFrameAndWait(uint32 ms);
+	void blitPictToScreen(const Graphics::Surface *surface, int left, int top, bool transparentWhite = false);
+	void showAbout();
 
 private: // Attributes
 

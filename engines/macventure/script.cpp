@@ -53,6 +53,17 @@ ScriptEngine::~ScriptEngine() {
 		delete _scripts;
 }
 
+bool ScriptEngine::cancelPendingDialogResult() {
+	if (!_frames.size() || !_frames.front().state.size())
+		return false;
+
+	_frames.front().state.poke(0, 0);
+#ifdef MACVENTURE_TRACE_BUILD
+	_engine->traceRuntime("script.dialog.cancel_result", "stack=%s", _frames.front().state.formatStack().c_str());
+#endif
+	return true;
+}
+
 bool ScriptEngine::runControl(ControlAction action, ObjID source, ObjID destination, Common::Point delta) {
 	EngineFrame frame;
 	frame.action = action;
@@ -173,6 +184,7 @@ bool ScriptEngine::execFrame(bool execAll) {
 bool ScriptEngine::loadScript(EngineFrame *frame, uint32 scriptID) {
 	if (_scripts->getItemByteSize(scriptID) > 0) {
 		debugC(2, kMVDebugScript, "Loading function %d", scriptID);
+		_engine->checkDejaVuAchievementScript(scriptID, frame->action, frame->src, frame->dest);
 		// Insert the new script at the front
 		frame->scripts.push_front(ScriptAsset(scriptID, _scripts));
 #ifdef MACVENTURE_TRACE_BUILD
@@ -660,6 +672,7 @@ void ScriptEngine::op8bSGLO(EngineState *state, EngineFrame *frame, ScriptAsset 
 	val = _engine->adjustGlobalValue(script->getId(), frame->action, idx, oldVal, val);
 	_world->setGlobal(idx, val);
 	_engine->gameChanged();
+	_engine->checkDejaVuAchievementGlobalChange(script->getId(), frame->action, idx, oldVal, _world->getGlobal(idx));
 #ifdef MACVENTURE_TRACE_BUILD
 	traceScriptEvent("script.global.set", frame, state, "global=%d old=%d new=%d stack=%s", idx, oldVal, _world->getGlobal(idx), state->formatStack().c_str());
 #endif

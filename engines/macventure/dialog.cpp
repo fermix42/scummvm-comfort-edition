@@ -133,6 +133,7 @@ Dialog::~Dialog() {
 void Dialog::handleDialogAction(DialogElement *trigger, DialogAction action) {
 	switch(action) {
 	case kDACloseDialog:
+		_gui->cancelTextInput();
 		_gui->closeDialog();
 		break;
 	case kDASubmit:

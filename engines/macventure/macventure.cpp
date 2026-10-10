@@ -71,8 +71,75 @@ enum {
 	kDejaVuMuggerScript = 884,
 	kDejaVuMuggerCounterGlobal = 24,
 	kDejaVuMuggerDeathCounter = 5,
-	kDejaVuMuggerMaxSafeCounter = 4
+	kDejaVuMuggerMaxSafeCounter = 4,
+	kDejaVuPlayerObject = 1,
+	kDejaVuInventoryObject = 1,
+	kDejaVuRoomOffice = 20,
+	kDejaVuRoomYellowCab = 38,
+	kDejaVuRoomBlueCab = 44,
+	kDejaVuRoomGunPalace = 50,
+	kDejaVuCabDestinationWestEnd = 59,
+	kDejaVuSafeObject = 241,
+	kDejaVuTextBodyOffice = 701,
+	kDejaVuTextWakeUp = 1519,
+	kDejaVuTextCabArrives = 1624,
+	kDejaVuTextShotCabDivider = 1644,
+	kDejaVuTextAlligatorShot = 1646,
+	kDejaVuTextTrunkOpened = 1685,
+	kDejaVuTextWrongDrugChemopapain = 1800,
+	kDejaVuTextWrongDrugFatal1 = 1802,
+	kDejaVuTextWrongDrugFatal2 = 1804,
+	kDejaVuTextWrongDrugOfreeall = 1805,
+	kDejaVuTextWrongDrugPentathol = 1807,
+	kDejaVuTextAuburnRoad = 1812,
+	kDejaVuTextVegetableWarning = 1835,
+	kDejaVuTextMissingHardCopy = 1837,
+	kDejaVuTextGoodEnding = 1848,
+	kDejaVuTextVegetableEnding = 1850,
+	kDejaVuTextMurderWeaponConviction1 = 1853,
+	kDejaVuTextMurderWeaponConviction2 = 1857,
+	kDejaVuTextBadCaseStart = 1860,
+	kDejaVuTextBadCaseGun = 1864,
+	kDejaVuTextBadCaseEnvelope = 1866,
+	kDejaVuTextBadShot = 1867,
+	kDejaVuTextBadCaseFinal = 1868,
+	kDejaVuTextWhirlpool = 1871,
+	kDejaVuTextHardCopy = 1879,
+	kDejaVuTextOfficeFileStart = 1040,
+	kDejaVuTextOfficeFileEnd = 1042,
+	kDejaVuTextDrugFileStart = 1049,
+	kDejaVuTextDrugFileEnd = 1055,
+	kDejaVuTextMemoryBlockingDrug = 1053,
+	kDejaVuTextMercedesMap = 1058,
+	kDejaVuTextCarRegistration = 1067,
+	kDejaVuTextReceipt = 1068,
+	kDejaVuTextPenthousePhoto = 1083,
+	kDejaVuTextDiary = 1101,
+	kDejaVuTextSlotJackpot = 1751,
+	kDejaVuTextMuggerSecondPunch = 1768,
+	kDejaVuSyringeObject = 600,
+	kDejaVuHolsterObject = 388,
+	kDejaVuMurderWeaponObject = 418,
+	kDejaVuDiaryObject = 460
 };
+
+static const char *kDejaVuCEGame = "deja-vu";
+static const char *kDejaVuCEVariant = "macintosh-floppy";
+static const char *kDejaVuCabMaskKey = "ce_dejavu_cab_mask";
+static const char *kDejaVuOfficeFileMaskKey = "ce_dejavu_office_file_mask";
+static const char *kDejaVuDrugFileMaskKey = "ce_dejavu_drug_file_mask";
+static const char *kDejaVuChemicalMemoryMaskKey = "ce_dejavu_chemical_memory_mask";
+static const char *kDejaVuMercedesClueMaskKey = "ce_dejavu_mercedes_clue_mask";
+static const char *kDejaVuPatchSpeechCancelKey = "patch_deja_vu_speech_cancel";
+static const uint32 kDejaVuCabYellowMask = 1 << 0;
+static const uint32 kDejaVuCabBlueMask = 1 << 1;
+static const uint32 kDejaVuCabCompleteMask = kDejaVuCabYellowMask | kDejaVuCabBlueMask;
+static const uint32 kDejaVuChemicalSyringeMask = 1 << 0;
+static const uint32 kDejaVuChemicalReceiptMask = 1 << 1;
+static const uint32 kDejaVuChemicalCompleteMask = kDejaVuChemicalSyringeMask | kDejaVuChemicalReceiptMask;
+static const uint32 kDejaVuMercedesRegistrationMask = 1 << 0;
+static const uint32 kDejaVuMercedesMapMask = 1 << 1;
+static const uint32 kDejaVuMercedesCompleteMask = kDejaVuMercedesRegistrationMask | kDejaVuMercedesMapMask;
 
 #ifdef MACVENTURE_TRACE_BUILD
 static Common::String escapeTraceString(const Common::String &text) {
@@ -124,6 +191,7 @@ MacVentureEngine::MacVentureEngine(OSystem *syst, const ADGameDescription *gameD
 	_dataBundle = nullptr;
 
 	_nextFrameTime = 0;
+	_textEntryPending = false;
 
 	debug("MacVenture::MacVentureEngine()");
 }
@@ -375,6 +443,224 @@ void MacVentureEngine::setNewGameState() {
 	_world->setObjAttr(playerParent, kAttrContainerOpen, 1);
 }
 
+bool MacVentureEngine::isDejaVu() const {
+	return _gameDescription && Common::String(_gameDescription->gameId) == "deja_vu";
+}
+
+bool MacVentureEngine::shouldFixDejaVuSpeechCancel() const {
+	const Common::String domain = ConfMan.getActiveDomainName();
+	return isDejaVu() && (!ConfMan.hasKey(kDejaVuPatchSpeechCancelKey, domain) || ConfMan.getBool(kDejaVuPatchSpeechCancelKey, domain));
+}
+
+void MacVentureEngine::cancelPendingCommand() {
+	_currentSelection.clear();
+	_destObject = 0;
+	_selectedControl = kNoCommand;
+	_cmdReady = false;
+	setDeltaPoint(Common::Point(0, 0));
+	toggleExits();
+#ifdef MACVENTURE_TRACE_BUILD
+	traceRuntime("control.cancel_pending", "selection=0 dest=0 control=%d", _selectedControl);
+#endif
+}
+
+void MacVentureEngine::noteDejaVuAchievementEvent(const Common::String &event) {
+	if (!isDejaVu())
+		return;
+
+	AchMan.noteCEGameEvent(kDejaVuCEGame, kDejaVuCEVariant, event);
+}
+
+bool MacVentureEngine::isDejaVuObjectInInventory(ObjID objID) {
+	for (uint i = 0; i < 32 && objID != 0; ++i) {
+		if (objID == kDejaVuInventoryObject)
+			return true;
+		objID = _world->getObjAttr(objID, kAttrParentObject);
+	}
+
+	return false;
+}
+
+void MacVentureEngine::updateDejaVuAchievementMask(const char *key, uint32 bit, uint32 completeMask, const Common::String &event) {
+	const Common::String domain = ConfMan.getActiveDomainName();
+	uint32 mask = ConfMan.hasKey(key, domain) ? ConfMan.getInt(key, domain) : 0;
+	if ((mask & bit) == bit)
+		return;
+
+	mask |= bit;
+	ConfMan.setInt(key, mask, domain);
+	if ((mask & completeMask) == completeMask)
+		noteDejaVuAchievementEvent(event);
+}
+
+void MacVentureEngine::checkDejaVuAchievementInventory() {
+	if (!isDejaVu())
+		return;
+
+	if (isDejaVuObjectInInventory(kDejaVuTrenchCoatObject) &&
+			isDejaVuObjectInInventory(kDejaVuHolsterObject))
+		noteDejaVuAchievementEvent("outfit_recovered");
+
+	if (isDejaVuObjectInInventory(kDejaVuSyringeObject))
+		updateDejaVuAchievementMask(kDejaVuChemicalMemoryMaskKey, kDejaVuChemicalSyringeMask, kDejaVuChemicalCompleteMask, "chemical_memory_uncovered");
+}
+
+void MacVentureEngine::checkDejaVuAchievementScript(uint32 scriptID, ControlAction action, ObjID source, ObjID destination) {
+	(void)action;
+	(void)source;
+	(void)destination;
+
+	if (!isDejaVu())
+		return;
+
+	if (scriptID == kDejaVuSlotMachineScript)
+		noteDejaVuAchievementEvent("slot_machine_played");
+}
+
+void MacVentureEngine::checkDejaVuAchievementObjectChange(ObjID objID, uint32 attrID, int16 oldValue, int16 newValue) {
+	if (!isDejaVu() || oldValue == newValue)
+		return;
+
+	if (objID == kDejaVuSafeObject && attrID == kAttrContainerOpen && oldValue == 0 && newValue != 0)
+		noteDejaVuAchievementEvent("siegel_safe_opened");
+
+	if (attrID != kAttrParentObject) {
+		checkDejaVuAchievementInventory();
+		return;
+	}
+
+	if (objID == kDejaVuDiaryObject && !isDejaVuObjectInInventory(oldValue) && isDejaVuObjectInInventory(newValue))
+		noteDejaVuAchievementEvent("vickers_file_found");
+
+	if (objID == kDejaVuPlayerObject) {
+		switch (newValue) {
+		case kDejaVuRoomGunPalace:
+			noteDejaVuAchievementEvent("gun_palace_shopped");
+			break;
+		case kDejaVuRoomYellowCab:
+			updateDejaVuAchievementMask(kDejaVuCabMaskKey, kDejaVuCabYellowMask, kDejaVuCabCompleteMask, "both_cabs_ridden");
+			break;
+		case kDejaVuRoomBlueCab:
+			updateDejaVuAchievementMask(kDejaVuCabMaskKey, kDejaVuCabBlueMask, kDejaVuCabCompleteMask, "both_cabs_ridden");
+			break;
+		default:
+			break;
+		}
+	}
+
+	checkDejaVuAchievementInventory();
+}
+
+void MacVentureEngine::checkDejaVuAchievementGlobalChange(uint32 scriptID, ControlAction action, uint32 globalID, int16 oldValue, int16 newValue) {
+	(void)scriptID;
+	(void)action;
+
+	if (!isDejaVu() || oldValue == newValue)
+		return;
+
+	if (globalID == 19 && oldValue == 0 && newValue != 0)
+		noteDejaVuAchievementEvent("memory_recovered");
+}
+
+void MacVentureEngine::checkDejaVuAchievementText(ObjID textID, ObjID source, ObjID destination) {
+	if (!isDejaVu())
+		return;
+
+	if (textID >= kDejaVuTextOfficeFileStart && textID <= kDejaVuTextOfficeFileEnd) {
+		const uint32 bit = 1 << (textID - kDejaVuTextOfficeFileStart);
+		const uint32 completeMask = (1 << (kDejaVuTextOfficeFileEnd - kDejaVuTextOfficeFileStart + 1)) - 1;
+		updateDejaVuAchievementMask(kDejaVuOfficeFileMaskKey, bit, completeMask, "office_files_read");
+	}
+
+	if (textID >= kDejaVuTextDrugFileStart && textID <= kDejaVuTextDrugFileEnd) {
+		const uint32 bit = 1 << (textID - kDejaVuTextDrugFileStart);
+		const uint32 completeMask = (1 << (kDejaVuTextDrugFileEnd - kDejaVuTextDrugFileStart + 1)) - 1;
+		updateDejaVuAchievementMask(kDejaVuDrugFileMaskKey, bit, completeMask, "pharmacy_files_read");
+	}
+
+	switch (textID) {
+	case kDejaVuTextBodyOffice:
+		noteDejaVuAchievementEvent("body_found");
+		break;
+	case kDejaVuTextWakeUp:
+		noteDejaVuAchievementEvent("bathroom_stall_awakened");
+		break;
+	case kDejaVuTextMemoryBlockingDrug:
+		noteDejaVuAchievementEvent("memory_blocking_drug_identified");
+		break;
+	case kDejaVuTextPenthousePhoto:
+		noteDejaVuAchievementEvent("penthouse_lead");
+		break;
+	case kDejaVuTextCarRegistration:
+		updateDejaVuAchievementMask(kDejaVuMercedesClueMaskKey, kDejaVuMercedesRegistrationMask, kDejaVuMercedesCompleteMask, "glove_compartment_searched");
+		break;
+	case kDejaVuTextMercedesMap:
+		updateDejaVuAchievementMask(kDejaVuMercedesClueMaskKey, kDejaVuMercedesMapMask, kDejaVuMercedesCompleteMask, "glove_compartment_searched");
+		break;
+	case kDejaVuTextReceipt:
+		updateDejaVuAchievementMask(kDejaVuChemicalMemoryMaskKey, kDejaVuChemicalReceiptMask, kDejaVuChemicalCompleteMask, "chemical_memory_uncovered");
+		break;
+	case kDejaVuTextCabArrives:
+		if (_world->getGlobal(9) == kDejaVuCabDestinationWestEnd)
+			noteDejaVuAchievementEvent("west_end_reached");
+		break;
+	case kDejaVuTextShotCabDivider:
+	case kDejaVuTextBadShot:
+		noteDejaVuAchievementEvent("reckless_shot_fired");
+		break;
+	case kDejaVuTextAlligatorShot:
+		noteDejaVuAchievementEvent("alligator_survived");
+		break;
+	case kDejaVuTextTrunkOpened:
+		noteDejaVuAchievementEvent("mercedes_trunk_opened");
+		break;
+	case kDejaVuTextSlotJackpot:
+		noteDejaVuAchievementEvent("slot_jackpot_won");
+		break;
+	case kDejaVuTextMuggerSecondPunch:
+		noteDejaVuAchievementEvent("mugger_survived");
+		break;
+	case kDejaVuTextWrongDrugChemopapain:
+	case kDejaVuTextWrongDrugFatal1:
+	case kDejaVuTextWrongDrugFatal2:
+	case kDejaVuTextWrongDrugOfreeall:
+	case kDejaVuTextWrongDrugPentathol:
+		noteDejaVuAchievementEvent("wrong_drug_used");
+		break;
+	case kDejaVuTextAuburnRoad:
+		noteDejaVuAchievementEvent("auburn_road_reached");
+		break;
+	case kDejaVuTextVegetableWarning:
+	case kDejaVuTextVegetableEnding:
+		noteDejaVuAchievementEvent("memory_loss_game_over");
+		break;
+	case kDejaVuTextMissingHardCopy:
+	case kDejaVuTextBadCaseStart:
+	case kDejaVuTextBadCaseGun:
+	case kDejaVuTextBadCaseEnvelope:
+	case kDejaVuTextBadCaseFinal:
+		noteDejaVuAchievementEvent("bad_case_closed");
+		break;
+	case kDejaVuTextGoodEnding:
+		noteDejaVuAchievementEvent("case_cleared");
+		break;
+	case kDejaVuTextMurderWeaponConviction1:
+	case kDejaVuTextMurderWeaponConviction2:
+		noteDejaVuAchievementEvent("murder_weapon_conviction");
+		break;
+	case kDejaVuTextWhirlpool:
+		noteDejaVuAchievementEvent("whirlpool_item_lost");
+		if (source == kDejaVuMurderWeaponObject)
+			noteDejaVuAchievementEvent("planted_evidence_disposed");
+		break;
+	case kDejaVuTextHardCopy:
+		noteDejaVuAchievementEvent("notepad_shaded");
+		break;
+	default:
+		break;
+	}
+}
+
 void MacVentureEngine::reset() {
 	resetInternals();
 	resetGui();
@@ -388,6 +674,7 @@ void MacVentureEngine::resetInternals() {
 	_textQueue.clear();
 	_consoleRowsSincePause = 0;
 	_consolePageStartRow = 0;
+	_textEntryPending = false;
 }
 
 void MacVentureEngine::resetGui() {
@@ -628,6 +915,7 @@ bool MacVentureEngine::showTextEntry(ObjID text, ObjID srcObj, ObjID destObj) {
 	debugC(3, kMVDebugMain, "Showing speech dialog, asset %d from %d to %d", text, srcObj, destObj);
 	Common::String title = _world->getText(text, srcObj, destObj);
 	_gui->getTextFromUser(title);
+	_textEntryPending = shouldFixDejaVuSpeechCancel();
 
 	_prepared = false;
 	warning("Show text entry: not fully tested");
@@ -635,10 +923,32 @@ bool MacVentureEngine::showTextEntry(ObjID text, ObjID srcObj, ObjID destObj) {
 }
 
 void MacVentureEngine::setTextInput(const Common::String &content) {
+	_textEntryPending = false;
 	_prepared = true;
 	_userInput = content;
 	_clickToContinue = false;
 	_enginePaused = false;
+}
+
+void MacVentureEngine::cancelTextInput() {
+	if (!_textEntryPending || !shouldFixDejaVuSpeechCancel())
+		return;
+
+#ifdef MACVENTURE_TRACE_BUILD
+	bool canceledScriptResult = _scriptEngine->cancelPendingDialogResult();
+#else
+	_scriptEngine->cancelPendingDialogResult();
+#endif
+	_userInput.clear();
+	cancelPendingCommand();
+
+	_textEntryPending = false;
+	_prepared = true;
+	_clickToContinue = false;
+	_enginePaused = false;
+#ifdef MACVENTURE_TRACE_BUILD
+	traceRuntime("dialog.cancel_text_input", "fixed=1 canceledScriptResult=%d", canceledScriptResult ? 1 : 0);
+#endif
 }
 
 Common::String MacVentureEngine::getUserInput() {
@@ -976,6 +1286,7 @@ void MacVentureEngine::printTexts() {
 		case kTextPlain:
 			{
 				Common::String renderedText = _world->getText(text.asset, text.source, text.destination);
+				checkDejaVuAchievementText(text.asset, text.source, text.destination);
 #ifdef MACVENTURE_TRACE_BUILD
 				traceRuntime("queue.text.run.item", "type=plain text=%u source=%u target=%u rendered=\"%s\"",
 					text.asset, text.source, text.destination, escapeTraceString(renderedText).c_str());

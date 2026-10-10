@@ -721,6 +721,53 @@ void CEAchievementService::addBuiltinRules() const {
 	rule.event = "mission_order_read";
 	rule.achievement = "corporate_espionage";
 	addCatalogRule(rule);
+
+	struct BuiltinRuleDefinition {
+		const char *event;
+		const char *achievement;
+	};
+
+	static const BuiltinRuleDefinition dejaVuRules[] = {
+		{ "bathroom_stall_awakened", "rude_awakening" },
+		{ "outfit_recovered", "dressed_for_trouble" },
+		{ "body_found", "body_of_evidence" },
+		{ "chemical_memory_uncovered", "chemical_memory" },
+		{ "slot_machine_played", "house_money" },
+		{ "glove_compartment_searched", "mrs_sternwoods_shadow" },
+		{ "west_end_reached", "fare_to_west_end" },
+		{ "penthouse_lead", "penthouse_lead" },
+		{ "vickers_file_found", "vickers_file" },
+		{ "memory_blocking_drug_identified", "diagnosis_murder" },
+		{ "memory_recovered", "clear_headed" },
+		{ "siegel_safe_opened", "dead_mans_safe" },
+		{ "mercedes_trunk_opened", "trunk_discovery" },
+		{ "auburn_road_reached", "auburn_road" },
+		{ "notepad_shaded", "hard_copy" },
+		{ "planted_evidence_disposed", "clean_frame" },
+		{ "case_cleared", "citizen_of_the_week" },
+		{ "slot_jackpot_won", "one_armed_bandit" },
+		{ "alligator_survived", "sewer_survivor" },
+		{ "mugger_survived", "mugger_management" },
+		{ "both_cabs_ridden", "cab_hopper" },
+		{ "gun_palace_shopped", "gun_palace_regular" },
+		{ "office_files_read", "case_file_curious" },
+		{ "pharmacy_files_read", "pharmacology_major" },
+		{ "wrong_drug_used", "wrong_medicine" },
+		{ "reckless_shot_fired", "bad_shot" },
+		{ "bad_case_closed", "case_closed_badly" },
+		{ "memory_loss_game_over", "vegetable_status" },
+		{ "murder_weapon_conviction", "electric_goodbye" },
+		{ "whirlpool_item_lost", "down_the_whirlpool" },
+		{ nullptr, nullptr }
+	};
+
+	rule.game = "deja-vu";
+	rule.variant = "macintosh-floppy";
+	for (const BuiltinRuleDefinition *i = dejaVuRules; i->event; ++i) {
+		rule.event = i->event;
+		rule.achievement = i->achievement;
+		addCatalogRule(rule);
+	}
 }
 
 void CEAchievementService::loadBundledCatalog() const {

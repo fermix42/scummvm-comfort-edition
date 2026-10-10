@@ -118,9 +118,7 @@ void World::setObjAttr(ObjID objID, uint32 attrID, Attribute value) {
 		// Intentionally empty, we don't seem to require this functionality
 	}
 
-#ifdef MACVENTURE_TRACE_BUILD
 	Attribute oldLogical = getObjAttr(objID, attrID);
-#endif
 
 	if (attrID == kAttrParentObject)
 		setParent(objID, value);
@@ -135,6 +133,7 @@ void World::setObjAttr(ObjID objID, uint32 attrID, Attribute value) {
 	oldVal &= ~_engine->getGlobalSettings()._attrMasks[attrID];
 	_saveGame->setAttr(idx, objID, (value | oldVal));
 	_engine->gameChanged();
+	_engine->checkDejaVuAchievementObjectChange(objID, attrID, oldLogical, getObjAttr(objID, attrID));
 #ifdef MACVENTURE_TRACE_BUILD
 	_engine->traceRuntime("world.attr.set", "obj=%u attr=%u old=%u new=%u stored=0x%04x", objID, attrID, oldLogical, getObjAttr(objID, attrID), (uint)(value | oldVal));
 #endif
@@ -373,7 +372,6 @@ const Common::String &SaveGame::getText() {
 }
 
 void SaveGame::saveInto(MacVentureEngine *engine, Common::OutSaveFile *file) {
-	warning("Saving the game not yet tested!");
 	// Save attibutes
 	Common::Array<AttributeGroup>::const_iterator itg;
 	for (itg = _groups.begin(); itg != _groups.end(); itg++) {

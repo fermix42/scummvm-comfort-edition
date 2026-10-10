@@ -59,6 +59,7 @@ struct ADGameDescription;
 #define GAMEOPTION_DEJA_VU_NO_ALLIGATORS       GUIO_GAMEOPTIONS4
 #define GAMEOPTION_DEJA_VU_UNLIMITED_INVENTORY GUIO_GAMEOPTIONS5
 #define GAMEOPTION_DEJA_VU_MUGGER_WONT_KILL    GUIO_GAMEOPTIONS6
+#define GAMEOPTION_PATCH_DEJA_VU_SPEECH_CANCEL GUIO_GAMEOPTIONS7
 
 namespace MacVenture {
 
@@ -288,6 +289,7 @@ public:
 
 	bool showTextEntry(ObjID text, ObjID srcObj, ObjID destObj);
 	void setTextInput(const Common::String &content);
+	void cancelTextInput();
 	Common::String getUserInput();
 
 	// Data retrieval
@@ -319,6 +321,11 @@ public:
 	int16 adjustQueuedScript(uint32 scriptID) const;
 	int16 adjustScriptResult(uint32 scriptID, ControlAction action, ObjID source, ObjID destination, int16 result) const;
 	uint skipScriptCallStackPopCount(uint32 currentScriptID, int16 targetScriptID) const;
+	bool isDejaVu() const;
+	void checkDejaVuAchievementScript(uint32 scriptID, ControlAction action, ObjID source, ObjID destination);
+	void checkDejaVuAchievementText(ObjID textID, ObjID source, ObjID destination);
+	void checkDejaVuAchievementObjectChange(ObjID objID, uint32 attrID, int16 oldValue, int16 newValue);
+	void checkDejaVuAchievementGlobalChange(uint32 scriptID, ControlAction action, uint32 globalID, int16 oldValue, int16 newValue);
 
 	// Attributes consult
 	Common::Point getObjPosition(ObjID objID);
@@ -373,6 +380,12 @@ private:
 	bool isObjEnqueued(ObjID obj);
 
 	bool isGameRunning();
+	bool shouldFixDejaVuSpeechCancel() const;
+	void cancelPendingCommand();
+	void noteDejaVuAchievementEvent(const Common::String &event);
+	bool isDejaVuObjectInInventory(ObjID objID);
+	void checkDejaVuAchievementInventory();
+	void updateDejaVuAchievementMask(const char *key, uint32 bit, uint32 completeMask, const Common::String &event);
 
 	// Data loading
 	bool loadGlobalSettings();
@@ -414,6 +427,7 @@ private: // Attributes
 	bool _gameChanged;
 	bool _clickToContinue;
 	bool _enginePaused;
+	bool _textEntryPending;
 	uint32 _nextFrameTime;
 	uint _consoleRowsSincePause;
 	uint _consolePageStartRow;

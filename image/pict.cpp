@@ -565,7 +565,13 @@ void PICTDecoder::unpackBits(Common::SeekableReadStream &stream, bool compressed
 	int y2 = stream.readSint16BE();
 	int x2 = stream.readSint16BE();
 
-	stream.skip(8); // srcRect
+	// srcRect is the portion of the bitmap that should be copied. The bitmap
+	// bounds can include row padding beyond this rectangle.
+	Common::Rect srcRect;
+	srcRect.top = stream.readSint16BE();
+	srcRect.left = stream.readSint16BE();
+	srcRect.bottom = stream.readSint16BE();
+	srcRect.right = stream.readSint16BE();
 
 	// dstRect: where the bitmap maps to in the PICT's coordinate space.
 	// When bounds differs from picFrame (e.g., bitmap at screen coords
@@ -578,10 +584,10 @@ void PICTDecoder::unpackBits(Common::SeekableReadStream &stream, bool compressed
 	if (hasRegion)
 		stream.skip(stream.readUint16BE() - 2);
 
-	// Compute offset: map bitmap coords (bounds) to output surface coords
-	// via dstRect and _imageRect (picFrame).
-	int yOff = dstTop - _imageRect.top - y1;
-	int xOff = dstLeft - _imageRect.left - x1;
+	// Compute offset: map source rect coords to output surface coords via
+	// dstRect and _imageRect (picFrame).
+	int yOff = dstTop - _imageRect.top - srcRect.top;
+	int xOff = dstLeft - _imageRect.left - srcRect.left;
 
 	Common::Rect outputRect(_outputSurface->w, _outputSurface->h);
 
@@ -596,7 +602,7 @@ void PICTDecoder::unpackBits(Common::SeekableReadStream &stream, bool compressed
 
 				uint bit = bs.getBit();
 
-				if (outputRect.contains(xPos, yPos))
+				if (srcRect.contains(x, y) && outputRect.contains(xPos, yPos))
 					_outputSurface->setPixel(xPos, yPos, bit);
 			}
 		}
@@ -636,7 +642,7 @@ void PICTDecoder::unpackBits(Common::SeekableReadStream &stream, bool compressed
 				int xPos = x + xOff;
 				uint bit = bs.getBit();
 
-				if (outputRect.contains(xPos, yPos))
+				if (srcRect.contains(xPos - xOff, y) && outputRect.contains(xPos, yPos))
 					_outputSurface->setPixel(xPos, yPos, bit);
 
 				x++;

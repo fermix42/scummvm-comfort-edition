@@ -32,6 +32,7 @@
 #include "common/debug-channels.h"
 #include "common/debug.h"
 #include "image/bmp.h"
+#include "image/pict.h"
 #include "graphics/macgui/macfontmanager.h"
 #include "graphics/macgui/mactextwindow.h"
 #include "gui/gui-manager.h"
@@ -49,6 +50,10 @@ enum {
 enum {
 	kExitButtonWidth = 10,
 	kExitButtonHeight = 10
+};
+
+enum {
+	kAboutFilenameID = 0x81
 };
 
 enum {
@@ -149,8 +154,6 @@ static const Graphics::MacMenuData menuSubItems[] = {
 	{ kMenuHighLevel,	"Special",			0, 0, false },
 	{ kMenuHighLevel,	"Font",				0, 0, false },
 	{ kMenuHighLevel,	"FontSize",			0, 0, false },
-
-	//{ kMenuAbout,		"About",			kMenuActionAbout, 0, true},
 
 	{ kMenuFile,		"New",				kMenuActionNew, 0, true },
 	{ kMenuFile,		nullptr,				0, 0, false },
@@ -488,6 +491,154 @@ void Gui::drawTitle() {
 #endif
 }
 
+Common::Path Gui::getAboutFileName() const {
+	Common::SeekableReadStream *res = _resourceManager->getResource(MKTAG('S', 'T', 'R', ' '), kAboutFilenameID);
+	if (!res)
+		return Common::Path("Deja About");
+
+	byte length = res->readByte();
+	char *fileName = new char[length + 1];
+	res->read(fileName, length);
+	fileName[length] = '\0';
+
+	Common::U32String result(fileName, Common::kMacRoman);
+
+	delete[] fileName;
+	delete res;
+
+	Common::Path path(result);
+	if (!Common::File::exists(path))
+		path = Common::Path("Deja About");
+
+	return path;
+}
+
+bool Gui::displayAboutFrameAndWait(uint32 ms) {
+	g_system->copyRectToScreen(_screen.getPixels(), kScreenWidth, 0, 0, kScreenWidth, kScreenHeight);
+	g_system->updateScreen();
+
+	uint32 startTime = g_system->getMillis();
+
+	while (true) {
+		if (_engine->shouldQuit())
+			return false;
+
+		Common::Event event;
+		while (_engine->getEventManager()->pollEvent(event)) {
+			switch (event.type) {
+			case Common::EVENT_QUIT:
+			case Common::EVENT_RETURN_TO_LAUNCHER:
+				_engine->requestQuit();
+				return false;
+			case Common::EVENT_LBUTTONDOWN:
+				return true;
+			default:
+				break;
+			}
+		}
+
+		if (ms && g_system->getMillis() - startTime >= ms)
+			return true;
+
+		g_system->delayMillis(10);
+	}
+
+	return true;
+}
+
+void Gui::blitPictToScreen(const Graphics::Surface *surface, int left, int top, bool transparentWhite) {
+	if (!surface)
+		return;
+
+	for (int y = 0; y < surface->h; y++) {
+		int sy = top + y;
+		if (sy < 0 || sy >= kScreenHeight)
+			continue;
+
+		for (int x = 0; x < surface->w; x++) {
+			int sx = left + x;
+			if (sx < 0 || sx >= kScreenWidth)
+				continue;
+
+			if (surface->getPixel(x, y))
+				_screen.setPixel(sx, sy, kColorBlack);
+			else if (!transparentWhite)
+				_screen.setPixel(sx, sy, kColorWhite);
+		}
+	}
+}
+
+void Gui::showAbout() {
+	if (!_engine->isDejaVu())
+		return;
+
+	Common::MacResManager aboutResources;
+	Common::Path aboutPath = getAboutFileName();
+
+	if (!aboutResources.open(aboutPath)) {
+		warning("MacVenture About: Could not open %s", aboutPath.toString().c_str());
+		return;
+	}
+
+	static const int16 pictIDs[] = { 128, 129, 130, 131, 132, 133 };
+	static const uint32 frameDelays[] = { 900, 450, 450, 450, 450, 0 };
+	static const Common::Point aboutLampPos(271, 235);
+	static const Common::Point aboutSmokePos(60, 66);
+
+	Common::Event event;
+	while (_engine->getEventManager()->pollEvent(event)) {
+		switch (event.type) {
+		case Common::EVENT_QUIT:
+		case Common::EVENT_RETURN_TO_LAUNCHER:
+			_engine->requestQuit();
+			return;
+		default:
+			break;
+		}
+	}
+
+	_wm.pushCursor(Graphics::kMacCursorOff);
+	bool keepGoing = true;
+
+	for (uint i = 0; keepGoing && i < ARRAYSIZE(pictIDs); i++) {
+		Common::SeekableReadStream *stream = aboutResources.getResource(MKTAG('P', 'I', 'C', 'T'), pictIDs[i]);
+		if (!stream) {
+			warning("MacVenture About: Missing PICT %d", pictIDs[i]);
+			continue;
+		}
+
+		Image::PICTDecoder decoder;
+		_screen.fillRect(Common::Rect(kScreenWidth, kScreenHeight), kColorWhite);
+		if (decoder.loadStream(*stream)) {
+			const Graphics::Surface *surface = decoder.getSurface();
+			if (i == 0) {
+				blitPictToScreen(surface, aboutLampPos.x, aboutLampPos.y);
+			} else if (i < ARRAYSIZE(pictIDs) - 1) {
+				blitPictToScreen(surface, aboutSmokePos.x, aboutSmokePos.y);
+
+				Common::SeekableReadStream *lampStream = aboutResources.getResource(MKTAG('P', 'I', 'C', 'T'), pictIDs[0]);
+				if (lampStream) {
+					Image::PICTDecoder lampDecoder;
+					if (lampDecoder.loadStream(*lampStream))
+						blitPictToScreen(lampDecoder.getSurface(), aboutLampPos.x, aboutLampPos.y);
+					delete lampStream;
+				}
+			} else {
+				blitPictToScreen(surface, (kScreenWidth - surface->w) / 2, (kScreenHeight - surface->h) / 2);
+			}
+		} else {
+			warning("MacVenture About: Could not decode PICT %d", pictIDs[i]);
+		}
+
+		delete stream;
+
+		keepGoing = displayAboutFrameAndWait(frameDelays[i]);
+	}
+
+	_wm.popCursor();
+	markRedraw();
+}
+
 void Gui::clearControls() {
 	if (!_controlData)
 		return;
@@ -816,6 +967,13 @@ bool Gui::loadMenus() {
 	if (kLoadStaticMenus) {
 		// We assume that, if there are static menus, we don't need dynamic ones
 		_menu->addStaticMenus(menuSubItems);
+		if (_engine->isDejaVu()) {
+			Graphics::MacMenuSubMenu *aboutMenu = _menu->getSubmenu(nullptr, kMenuAbout);
+			if (!aboutMenu)
+				aboutMenu = _menu->addSubMenu(nullptr, kMenuAbout);
+			_menu->addMenuItem(aboutMenu, "About Deja Vu...", kMenuActionAbout, 0, 0, true);
+			_menu->calcDimensions();
+		}
 		return true;
 	}
 
@@ -825,7 +983,8 @@ bool Gui::loadMenus() {
 	if ((resArray = _resourceManager->getResIDArray(MKTAG('M', 'E', 'N', 'U'))).size() == 0)
 		return false;
 
-	_menu->addMenuItem(nullptr, "Abb", kMenuActionAbout, 0, 'A', true);
+	if (_engine->isDejaVu())
+		_menu->addMenuItem(nullptr, "Abb", kMenuActionAbout, 0, 'A', true);
 
 	for (iter = resArray.begin(); iter != resArray.end(); ++iter) {
 		_menu->loadMenuResource(_resourceManager, *iter);
@@ -1359,6 +1518,10 @@ void Gui::setTextInput(const Common::String &str) {
 	_engine->setTextInput(str);
 }
 
+void Gui::cancelTextInput() {
+	_engine->cancelTextInput();
+}
+
 void Gui::closeDialog() {
 	delete _dialog;
 	_dialog = nullptr;
@@ -1690,7 +1853,7 @@ void Gui::removeInventoryWindow(WindowReference ref) {
 void Gui::handleMenuAction(MenuAction action) {
 	switch (action)	{
 	case MacVenture::kMenuActionAbout:
-		warning("Unimplemented MacVenture Menu Action: About");
+		showAbout();
 		break;
 	case MacVenture::kMenuActionNew:
 		_engine->newGame();

@@ -171,6 +171,7 @@ public:
 	bool runControl(ControlAction action, ObjID source, ObjID destination, Common::Point delta);
 	bool resume(bool execAll);
 	void reset();
+	bool cancelPendingDialogResult();
 
 private:
 	bool execFrame(bool execAll);
