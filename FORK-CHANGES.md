@@ -6,6 +6,7 @@ Format: `Date/timestamp: Category: Description/Explanation`
 
 Timestamps use ISO 8601 local time with UTC offset. Entries are newest first.
 
+- 2026-10-10T15:07:49-07:00: UI: Updated Deja Vu Macintosh expanded desktop layout so the fixed command, scene, text, Self, and Exits windows are positioned relative to the larger desktop while inventory and container windows keep the original game-data cascade placement.
 - 2026-10-10T14:16:35-07:00: Detection: Hardened Macintosh resource-map parsing so malformed or false-positive resource forks fail detection cleanly instead of aborting target upgrades.
 - 2026-10-10T14:06:02-07:00: UI: Fixed MacVenture inventory/container z-order so newly opened container windows stay in front of the inventory window instead of being pushed behind it by the release click.
 - 2026-10-10T12:49:25-07:00: Patch: Added `Patch: Expanded desktop` for Deja Vu Macintosh to provide a larger MacVenture desktop for spacing out movable interface windows, while keeping the original game viewport semantics and centering title/About presentation artwork within the expanded surface.

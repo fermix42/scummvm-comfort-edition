@@ -74,8 +74,20 @@ enum {
 
 const bool kLoadStaticMenus = true;
 
-static void moveRectTo(Common::Rect &rect, int16 left, int16 top) {
+static void moveRectTo(Common::Rect &rect, int left, int top) {
 	rect.translate(left - rect.left, top - rect.top);
+}
+
+static int centerIn(int outerSize, int innerSize) {
+	return (outerSize - innerSize) / 2;
+}
+
+static int rightAlignToDesktop(const Common::Rect &rect, int desktopWidth) {
+	return desktopWidth - (kScreenWidth - rect.right) - rect.width();
+}
+
+static int bottomAlignToDesktop(const Common::Rect &rect, int desktopHeight) {
+	return desktopHeight - (kScreenHeight - rect.bottom) - rect.height();
 }
 
 static Common::SeekableReadStream *openRawResourceForkResource(const Common::Path &path, uint32 typeID, int16 resID) {
@@ -746,23 +758,30 @@ void Gui::applyExpandedDesktopLayout() {
 	if (!_engine->shouldUseExpandedDesktop())
 		return;
 
-	const int16 desktopWidth = _engine->getDesktopWidth();
+	const int desktopWidth = _engine->getDesktopWidth();
+	const int desktopHeight = _engine->getDesktopHeight();
 
 	WindowData &commands = findWindowData(kCommandsWindow);
+	WindowData &mainGame = findWindowData(kMainGameWindow);
+	WindowData &console = findWindowData(kOutConsoleWindow);
 	WindowData &self = findWindowData(kSelfWindow);
+	WindowData &exits = findWindowData(kExitsWindow);
 
-	const int16 commandsLeft = (desktopWidth - commands.bounds.width()) / 2;
-	moveRectTo(commands.bounds, commandsLeft, commands.bounds.top);
+	moveRectTo(commands.bounds, centerIn(desktopWidth, commands.bounds.width()), commands.bounds.top);
+	moveRectTo(mainGame.bounds, centerIn(desktopWidth, mainGame.bounds.width()), mainGame.bounds.top);
+	moveRectTo(console.bounds, centerIn(desktopWidth, console.bounds.width()), bottomAlignToDesktop(console.bounds, desktopHeight));
 
-	const int16 selfRightMargin = kScreenWidth - self.bounds.right;
-	const int16 selfLeft = desktopWidth - selfRightMargin - self.bounds.width();
-	moveRectTo(self.bounds, selfLeft, self.bounds.top);
+	moveRectTo(self.bounds, rightAlignToDesktop(self.bounds, desktopWidth), self.bounds.top);
+	moveRectTo(exits.bounds, rightAlignToDesktop(exits.bounds, desktopWidth), exits.bounds.top);
 
 #ifdef MACVENTURE_TRACE_BUILD
 	_engine->traceRuntime("gui.expanded_desktop.layout",
-		"commands=(%d,%d,%d,%d) self=(%d,%d,%d,%d)",
+		"commands=(%d,%d,%d,%d) main=(%d,%d,%d,%d) console=(%d,%d,%d,%d) self=(%d,%d,%d,%d) exits=(%d,%d,%d,%d)",
 		commands.bounds.left, commands.bounds.top, commands.bounds.right, commands.bounds.bottom,
-		self.bounds.left, self.bounds.top, self.bounds.right, self.bounds.bottom);
+		mainGame.bounds.left, mainGame.bounds.top, mainGame.bounds.right, mainGame.bounds.bottom,
+		console.bounds.left, console.bounds.top, console.bounds.right, console.bounds.bottom,
+		self.bounds.left, self.bounds.top, self.bounds.right, self.bounds.bottom,
+		exits.bounds.left, exits.bounds.top, exits.bounds.right, exits.bounds.bottom);
 #endif
 }
 
