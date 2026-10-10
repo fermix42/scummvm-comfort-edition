@@ -60,6 +60,7 @@ struct ADGameDescription;
 #define GAMEOPTION_DEJA_VU_UNLIMITED_INVENTORY GUIO_GAMEOPTIONS5
 #define GAMEOPTION_DEJA_VU_MUGGER_WONT_KILL    GUIO_GAMEOPTIONS6
 #define GAMEOPTION_PATCH_DEJA_VU_SPEECH_CANCEL GUIO_GAMEOPTIONS7
+#define GAMEOPTION_PATCH_DEJA_VU_EXPANDED_DESKTOP GUIO_GAMEOPTIONS8
 
 namespace MacVenture {
 
@@ -351,6 +352,9 @@ public:
 	Common::Point getDeltaPoint();
 	ObjID getDestObject();
 	ControlAction getSelectedControl();
+	bool shouldUseExpandedDesktop() const;
+	int getDesktopWidth() const { return _desktopWidth; }
+	int getDesktopHeight() const { return _desktopHeight; }
 
 #ifdef MACVENTURE_TRACE_BUILD
 	void traceRuntime(const char *event, const char *fmt, ...);
@@ -431,6 +435,8 @@ private: // Attributes
 	uint32 _nextFrameTime;
 	uint _consoleRowsSincePause;
 	uint _consolePageStartRow;
+	int _desktopWidth;
+	int _desktopHeight;
 
 	Common::Array<QueuedObject> _objQueue;
 	Common::Array<QueuedObject> _inQueue;

@@ -74,6 +74,10 @@ enum {
 
 const bool kLoadStaticMenus = true;
 
+static void moveRectTo(Common::Rect &rect, int16 left, int16 top) {
+	rect.translate(left - rect.left, top - rect.top);
+}
+
 static Common::SeekableReadStream *openRawResourceForkResource(const Common::Path &path, uint32 typeID, int16 resID) {
 	Common::SeekableReadStream *fork = Common::MacResManager::openFileOrDataFork(path);
 	if (!fork)
@@ -243,9 +247,9 @@ Gui::~Gui() {
 
 void Gui::initGUI() {
 #ifdef MACVENTURE_TRACE_BUILD
-	_engine->traceRuntime("gui.init.begin", "screen=%dx%d", kScreenWidth, kScreenHeight);
+	_engine->traceRuntime("gui.init.begin", "screen=%dx%d", _engine->getDesktopWidth(), _engine->getDesktopHeight());
 #endif
-	_screen.create(kScreenWidth, kScreenHeight, Graphics::PixelFormat::createFormatCLUT8());
+	_screen.create(_engine->getDesktopWidth(), _engine->getDesktopHeight(), Graphics::PixelFormat::createFormatCLUT8());
 	_wm.setScreen(&_screen);
 
 	// Menu
@@ -334,12 +338,16 @@ bool Gui::decodeStartupScreen() {
 	if (!stream)
 		return false;
 
+	const int left = (_engine->getDesktopWidth() - kScreenWidth) / 2;
+	const int top = (_engine->getDesktopHeight() - kScreenHeight) / 2;
+	_screen.fillRect(Common::Rect(_engine->getDesktopWidth(), _engine->getDesktopHeight()), kColorBlack);
+
 	for (int y = 0; y < kScreenHeight; y++) {
 		for (int x = 0; x < kScreenWidth / 8; x++) {
 			byte b = stream->readByte();
 
 			for (int z = 0; z < 8; z++) {
-				_screen.setPixel(8 * x + z, y, (b & (0x80 >> z)) ? kColorBlack : kColorWhite);
+				_screen.setPixel(left + 8 * x + z, top + y, (b & (0x80 >> z)) ? kColorBlack : kColorWhite);
 			}
 		}
 	}
@@ -370,8 +378,9 @@ bool Gui::decodeTitleScreen() {
 #endif
 			ImageAsset *title = new ImageAsset(stream);
 
-			_screen.fillRect(Common::Rect(kScreenWidth, kScreenHeight), kColorBlack);
-			title->blitInto(&_screen, 0, (kScreenHeight - title->getHeight()) / 2, kBlitDirect);
+			_screen.fillRect(Common::Rect(_engine->getDesktopWidth(), _engine->getDesktopHeight()), kColorBlack);
+			title->blitInto(&_screen, (_engine->getDesktopWidth() - title->getWidth()) / 2,
+				(_engine->getDesktopHeight() - title->getHeight()) / 2, kBlitDirect);
 
 			delete title;
 		} else {
@@ -399,6 +408,9 @@ bool Gui::decodeTitleScreen() {
 			}
 
 			stream->seek(0x200);
+			_screen.fillRect(Common::Rect(_engine->getDesktopWidth(), _engine->getDesktopHeight()), kColorBlack);
+			const int left = (_engine->getDesktopWidth() - kScreenWidth) / 2;
+			const int top = (_engine->getDesktopHeight() - 302) / 2;
 
 			for (int y = 0; y < 302; y++) {
 				byte line[72];
@@ -423,7 +435,7 @@ bool Gui::decodeTitleScreen() {
 				}
 
 				for (int x = 0; x < 512; x++)
-					_screen.setPixel(x, y, (line[x / 8] & (0x80 >> (x % 8))) ? kColorBlack : kColorWhite);
+					_screen.setPixel(left + x, top + y, (line[x / 8] & (0x80 >> (x % 8))) ? kColorBlack : kColorWhite);
 			}
 
 			delete stream;
@@ -434,7 +446,7 @@ bool Gui::decodeTitleScreen() {
 }
 
 bool Gui::displayTitleScreenAndWait(uint32 ms) {
-	g_system->copyRectToScreen(_screen.getPixels(), kScreenWidth, 0, 0, kScreenWidth, kScreenHeight);
+	g_system->copyRectToScreen(_screen.getPixels(), _screen.pitch, 0, 0, _engine->getDesktopWidth(), _engine->getDesktopHeight());
 
 	uint32 now = g_system->getMillis();
 	while (g_system->getMillis() < now + 3000) {
@@ -514,7 +526,7 @@ Common::Path Gui::getAboutFileName() const {
 }
 
 bool Gui::displayAboutFrameAndWait(uint32 ms) {
-	g_system->copyRectToScreen(_screen.getPixels(), kScreenWidth, 0, 0, kScreenWidth, kScreenHeight);
+	g_system->copyRectToScreen(_screen.getPixels(), _screen.pitch, 0, 0, _engine->getDesktopWidth(), _engine->getDesktopHeight());
 	g_system->updateScreen();
 
 	uint32 startTime = g_system->getMillis();
@@ -552,12 +564,12 @@ void Gui::blitPictToScreen(const Graphics::Surface *surface, int left, int top, 
 
 	for (int y = 0; y < surface->h; y++) {
 		int sy = top + y;
-		if (sy < 0 || sy >= kScreenHeight)
+		if (sy < 0 || sy >= _engine->getDesktopHeight())
 			continue;
 
 		for (int x = 0; x < surface->w; x++) {
 			int sx = left + x;
-			if (sx < 0 || sx >= kScreenWidth)
+			if (sx < 0 || sx >= _engine->getDesktopWidth())
 				continue;
 
 			if (surface->getPixel(x, y))
@@ -584,6 +596,8 @@ void Gui::showAbout() {
 	static const uint32 frameDelays[] = { 900, 450, 450, 450, 450, 0 };
 	static const Common::Point aboutLampPos(271, 235);
 	static const Common::Point aboutSmokePos(60, 66);
+	const int aboutStageLeft = (_engine->getDesktopWidth() - kScreenWidth) / 2;
+	const int aboutStageTop = (_engine->getDesktopHeight() - kScreenHeight) / 2;
 
 	Common::Event event;
 	while (_engine->getEventManager()->pollEvent(event)) {
@@ -608,23 +622,24 @@ void Gui::showAbout() {
 		}
 
 		Image::PICTDecoder decoder;
-		_screen.fillRect(Common::Rect(kScreenWidth, kScreenHeight), kColorWhite);
+		_screen.fillRect(Common::Rect(_engine->getDesktopWidth(), _engine->getDesktopHeight()), kColorWhite);
 		if (decoder.loadStream(*stream)) {
 			const Graphics::Surface *surface = decoder.getSurface();
 			if (i == 0) {
-				blitPictToScreen(surface, aboutLampPos.x, aboutLampPos.y);
+				blitPictToScreen(surface, aboutStageLeft + aboutLampPos.x, aboutStageTop + aboutLampPos.y);
 			} else if (i < ARRAYSIZE(pictIDs) - 1) {
-				blitPictToScreen(surface, aboutSmokePos.x, aboutSmokePos.y);
+				blitPictToScreen(surface, aboutStageLeft + aboutSmokePos.x, aboutStageTop + aboutSmokePos.y);
 
 				Common::SeekableReadStream *lampStream = aboutResources.getResource(MKTAG('P', 'I', 'C', 'T'), pictIDs[0]);
 				if (lampStream) {
 					Image::PICTDecoder lampDecoder;
 					if (lampDecoder.loadStream(*lampStream))
-						blitPictToScreen(lampDecoder.getSurface(), aboutLampPos.x, aboutLampPos.y);
+						blitPictToScreen(lampDecoder.getSurface(), aboutStageLeft + aboutLampPos.x, aboutStageTop + aboutLampPos.y);
 					delete lampStream;
 				}
 			} else {
-				blitPictToScreen(surface, (kScreenWidth - surface->w) / 2, (kScreenHeight - surface->h) / 2);
+				blitPictToScreen(surface, aboutStageLeft + (kScreenWidth - surface->w) / 2,
+					aboutStageTop + (kScreenHeight - surface->h) / 2);
 			}
 		} else {
 			warning("MacVenture About: Could not decode PICT %d", pictIDs[i]);
@@ -652,6 +667,9 @@ void Gui::clearControls() {
 void Gui::initWindows() {
 	Common::Rect bounds;
 	BorderBounds bbs(0 , 0, 0, 0, 0, 0);
+
+	applyExpandedDesktopLayout();
+
 	// Game Controls Window
 	_controlsWindow = _wm.addWindow(false, false, false);
 
@@ -716,6 +734,30 @@ void Gui::initWindows() {
 	_exitsWindow->setCallback(exitsWindowCallback, this);
 	_exitsWindow->setTitle(findWindowData(kExitsWindow).title);
 	_exitsWindow->setBackgroundPattern(kPatternLightGray);
+}
+
+void Gui::applyExpandedDesktopLayout() {
+	if (!_engine->shouldUseExpandedDesktop())
+		return;
+
+	const int16 desktopWidth = _engine->getDesktopWidth();
+
+	WindowData &commands = findWindowData(kCommandsWindow);
+	WindowData &self = findWindowData(kSelfWindow);
+
+	const int16 commandsLeft = (desktopWidth - commands.bounds.width()) / 2;
+	moveRectTo(commands.bounds, commandsLeft, commands.bounds.top);
+
+	const int16 selfRightMargin = kScreenWidth - self.bounds.right;
+	const int16 selfLeft = desktopWidth - selfRightMargin - self.bounds.width();
+	moveRectTo(self.bounds, selfLeft, self.bounds.top);
+
+#ifdef MACVENTURE_TRACE_BUILD
+	_engine->traceRuntime("gui.expanded_desktop.layout",
+		"commands=(%d,%d,%d,%d) self=(%d,%d,%d,%d)",
+		commands.bounds.left, commands.bounds.top, commands.bounds.right, commands.bounds.bottom,
+		self.bounds.left, self.bounds.top, self.bounds.right, self.bounds.bottom);
+#endif
 }
 
 const WindowData &Gui::getWindowData(WindowReference reference) {
@@ -1310,11 +1352,11 @@ void Gui::drawDraggedObjects() {
 			int h = asset->getHeight() + MIN((int16)0, _draggedObjects[i].pos.y);
 
 			// In case of overflow from the bottom/left
-			if (_draggedObjects[i].pos.x > 0 && _draggedObjects[i].pos.x + w > kScreenWidth) {
-				w = MAX(0, kScreenWidth - _draggedObjects[i].pos.x);
+			if (_draggedObjects[i].pos.x > 0 && _draggedObjects[i].pos.x + w > _engine->getDesktopWidth()) {
+				w = MAX(0, _engine->getDesktopWidth() - _draggedObjects[i].pos.x);
 			}
-			if (_draggedObjects[i].pos.y > 0 && _draggedObjects[i].pos.y + h > kScreenHeight) {
-				h = MAX(0, kScreenHeight - _draggedObjects[i].pos.y);
+			if (_draggedObjects[i].pos.y > 0 && _draggedObjects[i].pos.y + h > _engine->getDesktopHeight()) {
+				h = MAX(0, _engine->getDesktopHeight() - _draggedObjects[i].pos.y);
 			}
 
 			if (w <= 0 || h <= 0) {

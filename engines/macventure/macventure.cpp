@@ -131,6 +131,7 @@ static const char *kDejaVuDrugFileMaskKey = "ce_dejavu_drug_file_mask";
 static const char *kDejaVuChemicalMemoryMaskKey = "ce_dejavu_chemical_memory_mask";
 static const char *kDejaVuMercedesClueMaskKey = "ce_dejavu_mercedes_clue_mask";
 static const char *kDejaVuPatchSpeechCancelKey = "patch_deja_vu_speech_cancel";
+static const char *kDejaVuPatchExpandedDesktopKey = "patch_deja_vu_expanded_desktop";
 static const uint32 kDejaVuCabYellowMask = 1 << 0;
 static const uint32 kDejaVuCabBlueMask = 1 << 1;
 static const uint32 kDejaVuCabCompleteMask = kDejaVuCabYellowMask | kDejaVuCabBlueMask;
@@ -192,6 +193,8 @@ MacVentureEngine::MacVentureEngine(OSystem *syst, const ADGameDescription *gameD
 
 	_nextFrameTime = 0;
 	_textEntryPending = false;
+	_desktopWidth = kScreenWidth;
+	_desktopHeight = kScreenHeight;
 
 	debug("MacVenture::MacVentureEngine()");
 }
@@ -244,7 +247,18 @@ Common::Error MacVentureEngine::run() {
 #ifdef MACVENTURE_TRACE_BUILD
 	traceRuntime("engine.run.begin", "game=%s", getGameFileName());
 #endif
-	initGraphics(kScreenWidth, kScreenHeight);
+	if (shouldUseExpandedDesktop()) {
+		_desktopWidth = 768;
+		_desktopHeight = 512;
+	} else {
+		_desktopWidth = kScreenWidth;
+		_desktopHeight = kScreenHeight;
+	}
+#ifdef MACVENTURE_TRACE_BUILD
+	traceRuntime("engine.desktop", "expanded=%d width=%d height=%d",
+		shouldUseExpandedDesktop() ? 1 : 0, _desktopWidth, _desktopHeight);
+#endif
+	initGraphics(_desktopWidth, _desktopHeight);
 
 	setInitialFlags();
 
@@ -450,6 +464,11 @@ bool MacVentureEngine::isDejaVu() const {
 bool MacVentureEngine::shouldFixDejaVuSpeechCancel() const {
 	const Common::String domain = ConfMan.getActiveDomainName();
 	return isDejaVu() && (!ConfMan.hasKey(kDejaVuPatchSpeechCancelKey, domain) || ConfMan.getBool(kDejaVuPatchSpeechCancelKey, domain));
+}
+
+bool MacVentureEngine::shouldUseExpandedDesktop() const {
+	const Common::String domain = ConfMan.getActiveDomainName();
+	return isDejaVu() && ConfMan.getBool(kDejaVuPatchExpandedDesktopKey, domain);
 }
 
 void MacVentureEngine::cancelPendingCommand() {

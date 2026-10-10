@@ -115,6 +115,18 @@ static const ADExtraGuiOptionsMap optionsList[] = {
 			0
 		}
 	},
+	{
+		GAMEOPTION_PATCH_DEJA_VU_EXPANDED_DESKTOP,
+		{
+			_s("Patch: Expanded desktop"),
+			_s("Give Deja Vu's movable MacVenture windows a larger desktop area"),
+			"patch_deja_vu_expanded_desktop",
+			false,
+			0,
+			0,
+			0
+		}
+	},
 	AD_EXTRA_GUI_OPTIONS_TERMINATOR
 };
 
@@ -153,7 +165,8 @@ bool MacVentureMetaEngine::isAdvancedExtraGuiOptionAllowedForTarget(const Common
 		!strcmp(entry.guioFlag, GAMEOPTION_DEJA_VU_NO_ALLIGATORS) ||
 		!strcmp(entry.guioFlag, GAMEOPTION_DEJA_VU_UNLIMITED_INVENTORY) ||
 		!strcmp(entry.guioFlag, GAMEOPTION_DEJA_VU_MUGGER_WONT_KILL) ||
-		!strcmp(entry.guioFlag, GAMEOPTION_PATCH_DEJA_VU_SPEECH_CANCEL);
+		!strcmp(entry.guioFlag, GAMEOPTION_PATCH_DEJA_VU_SPEECH_CANCEL) ||
+		!strcmp(entry.guioFlag, GAMEOPTION_PATCH_DEJA_VU_EXPANDED_DESKTOP);
 
 	if (!isDejaVuOption)
 		return true;

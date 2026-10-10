@@ -256,6 +256,7 @@ private: // Methods
 	// Initializers
 	void initGUI();
 	void initWindows();
+	void applyExpandedDesktopLayout();
 	void assignObjReferences(); // Mainly guesswork
 
 	// Loaders
