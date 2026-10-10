@@ -6,6 +6,7 @@ Format: `Date/timestamp: Category: Description/Explanation`
 
 Timestamps use ISO 8601 local time with UTC offset. Entries are newest first.
 
+- 2026-10-10T16:50:55-07:00: UI: Fixed MacVenture container windows so open nested containers, such as Deja Vu's wall safe, close when the player leaves the location that made them reachable; validated with live Deja Vu safe testing.
 - 2026-10-10T16:41:09-07:00: Achievements: Added save-slot sidecars for Comfort Edition achievement popup suppression so repeated gameplay hooks do not replay popups within the same saved playthrough, while new games still start with a clean popup slate; validated with live Deja Vu sidecar testing.
 - 2026-10-10T15:07:49-07:00: UI: Updated Deja Vu Macintosh expanded desktop layout so the fixed command, scene, text, Self, and Exits windows are positioned relative to the larger desktop while inventory and container windows keep the original game-data cascade placement.
 - 2026-10-10T14:16:35-07:00: Detection: Hardened Macintosh resource-map parsing so malformed or false-positive resource forks fail detection cleanly instead of aborting target upgrades.

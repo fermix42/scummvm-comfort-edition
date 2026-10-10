@@ -1753,6 +1753,11 @@ void MacVentureEngine::checkObject(QueuedObject old) {
 	ObjID id = old.object;
 	if (id == 1) {
 		if (old.parent != _world->getObjAttr(id, kAttrParentObject)) {
+			if (old.parent) {
+				Common::Array<ObjID> oldParentChildren = _world->getChildren(old.parent, false);
+				for (uint i = 0; i < oldParentChildren.size(); i++)
+					enqueueObject(kUpdateObject, oldParentChildren[i]);
+			}
 			enqueueObject(kSetToPlayerParent, id);
 		}
 		if (old.offscreen != !!_world->getObjAttr(id, kAttrInvisible) ||
