@@ -561,20 +561,26 @@ CEAchievementService &CEAchievements() {
 bool CEAchievementService::unlock(AchievementsManager &achievements, const String &game, const String &variant, const String &achievement) {
 	const bool nativeReady = achievements.isReady();
 	const bool nativeAlreadyAchieved = nativeReady && achievements.isAchieved(achievement);
+	const String activeDomain = ConfMan.getActiveDomainName();
+	const bool assisted = !isChallengeModeEnabled() || isDisqualifyingAssistanceActive(activeDomain);
+	const String popupSeenKey = makePopupSeenKey(game, variant, achievement, assisted);
+	const bool popupAlreadySeen = hasPopupBeenSeen(popupSeenKey);
 	bool localSet = true;
 	if (nativeReady)
 		localSet = achievements.setAchievement(achievement, false);
 
 	const bool queuedNewEvent = queueAchievementEvent(game, variant, achievement);
 	const bool localNewAchievement = nativeReady && !nativeAlreadyAchieved && localSet;
-	const bool cePopupNeeded = localNewAchievement || (!nativeReady && queuedNewEvent) || (isRepeatPopupsEnabled() && (!nativeReady || nativeAlreadyAchieved));
+	const bool cePopupNeeded = !popupAlreadySeen && (localNewAchievement || nativeAlreadyAchieved || !nativeReady || queuedNewEvent);
 	const CEAchievementDefinition *definition = findDefinition(game, variant, achievement);
 	const bool challengeStyle = isChallengeModeEnabled() && definition && definition->challengeEligible && !isDisqualifyingAssistanceActive();
 	bool cePopupShown = false;
 	if (cePopupNeeded)
 		cePopupShown = ceDisplayAchievementUnlockedOSD(definition ? definition->title : getAchievementTitle(game, variant, achievement), definition, challengeStyle);
-	if (cePopupShown)
+	if (cePopupShown) {
+		markPopupSeen(popupSeenKey);
 		cePlayAchievementUnlockedSound();
+	}
 
 	retryQueuedEvents();
 	return localSet;
@@ -586,6 +592,22 @@ bool CEAchievementService::noteGameEvent(AchievementsManager &achievements, cons
 		return false;
 
 	return unlock(achievements, game, variant, rule->achievement);
+}
+
+void CEAchievementService::resetPopupState() {
+	_popupSidecarName.clear();
+	_popupSeenKeys.clear();
+}
+
+void CEAchievementService::loadPopupStateForSave(const String &saveName) {
+	_popupSidecarName = makePopupSidecarName(saveName);
+	if (!loadPopupSidecar(_popupSidecarName))
+		_popupSeenKeys.clear();
+}
+
+void CEAchievementService::savePopupStateForSave(const String &saveName) {
+	_popupSidecarName = makePopupSidecarName(saveName);
+	savePopupSidecar(_popupSidecarName);
 }
 
 void CEAchievementService::loadCatalogIfNeeded() const {
@@ -1127,6 +1149,92 @@ bool CEAchievementService::verifyEventSignature(const CEAchievementEvent &event)
 String CEAchievementService::makeEventId(const String &game, const String &variant, const String &achievement, bool assisted) const {
 	String profile = getOrCreateInstallSecret().substr(0, 16);
 	return String::format("%s:%s:%s:%s:%s", profile.c_str(), game.c_str(), variant.c_str(), achievement.c_str(), assisted ? "completion" : "challenge");
+}
+
+String CEAchievementService::makePopupSeenKey(const String &game, const String &variant, const String &achievement, bool assisted) const {
+	return String::format("%s:%s:%s:%s", assisted ? "completion" : "challenge", game.c_str(), variant.c_str(), achievement.c_str());
+}
+
+String CEAchievementService::makePopupSidecarName(const String &saveName) const {
+	return saveName + ".ce-achievements.json";
+}
+
+bool CEAchievementService::hasPopupBeenSeen(const String &key) const {
+	for (uint i = 0; i < _popupSeenKeys.size(); ++i) {
+		if (_popupSeenKeys[i] == key)
+			return true;
+	}
+	return false;
+}
+
+void CEAchievementService::markPopupSeen(const String &key) {
+	if (key.empty() || hasPopupBeenSeen(key))
+		return;
+
+	_popupSeenKeys.push_back(key);
+	if (!_popupSidecarName.empty())
+		savePopupSidecar(_popupSidecarName);
+}
+
+bool CEAchievementService::loadPopupSidecar(const String &sidecarName) {
+	_popupSeenKeys.clear();
+	if (sidecarName.empty() || !g_system)
+		return false;
+
+	Common::InSaveFile *in = g_system->getSavefileManager()->openForLoading(sidecarName);
+	if (!in)
+		return false;
+
+	String data = in->readString(0, in->size());
+	delete in;
+
+	JSONValue *root = JSON::parse(data);
+	if (!root || !root->isObject()) {
+		delete root;
+		warning("Ignoring invalid CE achievement popup sidecar '%s'.", sidecarName.c_str());
+		return false;
+	}
+
+	const JSONObject &obj = root->asObject();
+	if (obj.contains("popup_seen") && obj["popup_seen"]->isArray()) {
+		const JSONArray &seen = obj["popup_seen"]->asArray();
+		for (uint i = 0; i < seen.size(); ++i) {
+			if (seen[i]->isString()) {
+				const String key = seen[i]->asString();
+				if (!hasPopupBeenSeen(key))
+					_popupSeenKeys.push_back(key);
+			}
+		}
+	}
+
+	delete root;
+	return true;
+}
+
+bool CEAchievementService::savePopupSidecar(const String &sidecarName) const {
+	if (sidecarName.empty() || !g_system)
+		return false;
+
+	Common::OutSaveFile *out = g_system->getSavefileManager()->openForSaving(sidecarName, false);
+	if (!out) {
+		warning("Unable to open CE achievement popup sidecar '%s' for saving.", sidecarName.c_str());
+		return false;
+	}
+
+	String json = "{\"version\":1,\"popup_seen\":[";
+	for (uint i = 0; i < _popupSeenKeys.size(); ++i) {
+		if (i)
+			json += ",";
+		json += ceEscapeJson(_popupSeenKeys[i]);
+	}
+	json += "]}";
+
+	out->writeString(json);
+	out->finalize();
+	if (out->err())
+		warning("Could not save CE achievement popup sidecar '%s' correctly.", sidecarName.c_str());
+	delete out;
+	return true;
 }
 
 Array<CEAchievementEvent> CEAchievementService::loadQueue() const {

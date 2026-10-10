@@ -84,6 +84,9 @@ public:
 
 	bool unlock(AchievementsManager &achievements, const String &game, const String &variant, const String &achievement);
 	bool noteGameEvent(AchievementsManager &achievements, const String &game, const String &variant, const String &event);
+	void resetPopupState();
+	void loadPopupStateForSave(const String &saveName);
+	void savePopupStateForSave(const String &saveName);
 
 	bool isChallengeModeEnabled() const;
 	void setChallengeModeEnabled(bool enabled);
@@ -134,6 +137,12 @@ private:
 	bool verifyEventSignature(const CEAchievementEvent &event) const;
 	String getOrCreateInstallSecret() const;
 	String makeEventId(const String &game, const String &variant, const String &achievement, bool assisted) const;
+	String makePopupSeenKey(const String &game, const String &variant, const String &achievement, bool assisted) const;
+	String makePopupSidecarName(const String &saveName) const;
+	bool hasPopupBeenSeen(const String &key) const;
+	void markPopupSeen(const String &key);
+	bool loadPopupSidecar(const String &sidecarName);
+	bool savePopupSidecar(const String &sidecarName) const;
 	String currentTimeString() const;
 	void startRequest(CEAchievementSyncAction action, const String &url, const String &body = String(), int queueIndex = -1);
 	void requestSucceeded(const String &response, long httpCode);
@@ -143,6 +152,8 @@ private:
 
 	CEAchievementSyncAction _syncAction;
 	int _syncQueueIndex;
+	String _popupSidecarName;
+	Array<String> _popupSeenKeys;
 	mutable bool _catalogLoaded;
 	mutable Array<CEAchievementDefinition> _catalog;
 	mutable Array<CEAchievementRule> _rules;

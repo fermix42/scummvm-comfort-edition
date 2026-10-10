@@ -31,6 +31,7 @@
 
 #include "common/error.h"
 #include "common/savefile.h"
+#include "engines/ce_achievements.h"
 #include "engines/savestate.h"
 #include "gui/saveload.h"
 #include "graphics/thumbnail.h"
@@ -64,6 +65,7 @@ Common::Error MacVentureEngine::loadGameState(int slot) {
 	res = Common::kNoError;
 
 	delete saveFile;
+	Common::CEAchievements().loadPopupStateForSave(getSaveStateName(slot));
 	return res;
 }
 
@@ -82,6 +84,7 @@ Common::Error MacVentureEngine::saveGameState(int slot, const Common::String &de
 		warning("Could not save '%s' correctly.", saveFileName.c_str());
 
 	delete saveFile;
+	Common::CEAchievements().savePopupStateForSave(saveFileName);
 	return Common::kNoError;
 }
 

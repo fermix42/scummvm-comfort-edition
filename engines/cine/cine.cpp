@@ -26,6 +26,7 @@
 
 #include "backends/keymapper/keymapper.h"
 
+#include "engines/ce_achievements.h"
 #include "engines/util.h"
 
 #include "graphics/cursorman.h"
@@ -299,6 +300,7 @@ Common::Error CineEngine::run() {
 	_saveInputMenuOpen = false;
 
 	do {
+		Common::CEAchievements().resetPopupState();
 		initialize();
 
 		_restartRequested = false;

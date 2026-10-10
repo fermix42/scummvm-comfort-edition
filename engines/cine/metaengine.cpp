@@ -21,6 +21,7 @@
 
 #include "base/plugins.h"
 
+#include "engines/ce_achievements.h"
 #include "engines/advancedDetector.h"
 
 #include "common/config-manager.h"
@@ -697,6 +698,8 @@ namespace Cine {
 
 Common::Error CineEngine::loadGameState(int slot) {
 	bool gameLoaded = makeLoad(getSaveStateName(slot));
+	if (gameLoaded)
+		Common::CEAchievements().loadPopupStateForSave(getSaveStateName(slot));
 
 	return gameLoaded ? Common::kNoError : Common::kUnknownError;
 }
@@ -726,7 +729,9 @@ Common::Error CineEngine::saveGameState(int slot, const Common::String &desc, bo
 	delete fHandle;
 
 	// Save game
-	makeSave(getSaveStateName(slot), getTotalPlayTime() / 1000, desc, isAutosave);
+	const Common::String saveFileName = getSaveStateName(slot);
+	makeSave(saveFileName, getTotalPlayTime() / 1000, desc, isAutosave);
+	Common::CEAchievements().savePopupStateForSave(saveFileName);
 
 	checkDataDisk(-1);
 

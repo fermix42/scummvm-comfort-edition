@@ -35,6 +35,7 @@
 #include "common/str-enc.h"
 #include "engines/advancedDetector.h"
 #include "engines/achievements.h"
+#include "engines/ce_achievements.h"
 #include "engines/util.h"
 
 #include "macventure/macventure.h"
@@ -342,6 +343,7 @@ Common::Error MacVentureEngine::run() {
 #ifdef MACVENTURE_TRACE_BUILD
 		traceRuntime("engine.new_game.before", "save_slot=%d", directSaveSlotLoading);
 #endif
+		Common::CEAchievements().resetPopupState();
 		setNewGameState();
 #ifdef MACVENTURE_TRACE_BUILD
 		traceRuntime("engine.title.before", "state=%d", _gameState);
@@ -431,6 +433,7 @@ void MacVentureEngine::newGame() {
 #ifdef MACVENTURE_TRACE_BUILD
 	traceRuntime("game.new", "previousState=%d", _gameState);
 #endif
+	Common::CEAchievements().resetPopupState();
 	_world->startNewGame();
 	reset();
 	setInitialFlags();
