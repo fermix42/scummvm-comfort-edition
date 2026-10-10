@@ -193,6 +193,7 @@ MacVentureEngine::MacVentureEngine(OSystem *syst, const ADGameDescription *gameD
 
 	_nextFrameTime = 0;
 	_textEntryPending = false;
+	_pendingWindowFocus = kNoWindow;
 	_desktopWidth = kScreenWidth;
 	_desktopHeight = kScreenHeight;
 
@@ -403,6 +404,7 @@ Common::Error MacVentureEngine::run() {
 				if (busy)
 					_gui->setWaitCursor(false);
 
+				focusPendingWindow();
 				_gui->markRedraw();
 			}
 		}
@@ -1209,6 +1211,16 @@ void MacVentureEngine::updateState(bool pause) {
 	playSounds(pause);
 }
 
+void MacVentureEngine::focusPendingWindow() {
+	if (_pendingWindowFocus != kNoWindow) {
+#ifdef MACVENTURE_TRACE_BUILD
+		traceRuntime("engine.window.focus_pending", "window=%d", _pendingWindowFocus);
+#endif
+		_gui->bringToFront(_pendingWindowFocus);
+		_pendingWindowFocus = kNoWindow;
+	}
+}
+
 void MacVentureEngine::revert() {
 	_gui->invertWindowColors(kMainGameWindow);
 	preparedToRun();
@@ -1691,7 +1703,7 @@ void MacVentureEngine::focusObjectWindow(ObjID objID) {
 	if (objID) {
 		WindowReference win = getObjWindow(objID);
 		if (win)
-			_gui->bringToFront(win);
+			_pendingWindowFocus = win;
 	}
 }
 
@@ -1702,7 +1714,9 @@ void MacVentureEngine::openObject(ObjID objID) {
 		_world->getObjAttr(objID, kAttrPosX),
 		_world->getObjAttr(objID, kAttrPosY));
 
-	if (getObjWindow(objID)) {
+	WindowReference existingWindow = getObjWindow(objID);
+	if (existingWindow) {
+		_pendingWindowFocus = existingWindow;
 		return;
 	}
 	if (objID == _world->getObjAttr(1, kAttrParentObject)) {
@@ -1717,6 +1731,7 @@ void MacVentureEngine::openObject(ObjID objID) {
 		_gui->setWindowTitle(invID, title);
 		_gui->updateWindowInfo(invID, objID, _world->getChildren(objID, true));
 		_gui->updateWindow(invID, _world->getObjAttr(objID, kAttrContainerOpen));
+		_pendingWindowFocus = invID;
 	}
 }
 

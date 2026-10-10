@@ -768,10 +768,7 @@ bool MacWindowManager::isMenuActive() {
 }
 
 void MacWindowManager::setActiveWindow(int id) {
-	if (_activeWindow == id)
-		return;
-
-	if (_activeWindow != -1)
+	if (_activeWindow != id && _activeWindow != -1)
 		_windows[_activeWindow]->setActive(false);
 
 	_activeWindow = id;

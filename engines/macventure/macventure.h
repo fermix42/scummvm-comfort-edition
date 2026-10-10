@@ -274,6 +274,7 @@ public:
 	void runObjQueue();
 	void printTexts();
 	void playSounds(bool pause);
+	void focusPendingWindow();
 
 	Item removeOutlier(Layout &layout, bool flag, Common::Rect rect);
 	void cleanUp(WindowReference reference);
@@ -432,6 +433,7 @@ private: // Attributes
 	bool _clickToContinue;
 	bool _enginePaused;
 	bool _textEntryPending;
+	WindowReference _pendingWindowFocus;
 	uint32 _nextFrameTime;
 	uint _consoleRowsSincePause;
 	uint _consolePageStartRow;

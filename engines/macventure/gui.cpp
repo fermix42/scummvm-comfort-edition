@@ -313,6 +313,12 @@ void Gui::draw() {
 
 		drawWindows();
 
+		if (_activeWinRef != kNoWindow) {
+			Graphics::MacWindow *activeWindow = findWindow(_activeWinRef);
+			if (activeWindow)
+				_wm.setActiveWindow(activeWindow->getId());
+		}
+
 		_needsRedraw = false;
 	}
 
@@ -770,7 +776,8 @@ const Graphics::Font &Gui::getCurrentFont() {
 
 void Gui::bringToFront(WindowReference winID) {
 	if (winID != kNoWindow) {
-		_wm.setActiveWindow(findWindow(winID)->getId());
+		Graphics::MacWindow *win = findWindow(winID);
+		_wm.setActiveWindow(win->getId());
 	}
 	_activeWinRef = winID;
 
@@ -2291,6 +2298,8 @@ bool Gui::processInventoryEvents(WindowReference ref, WindowClick click, Common:
 		return true;
 
 	if (event.type == Common::EVENT_LBUTTONDOWN) {
+		bringToFront(ref);
+
 		WindowData &data = findWindowData((WindowReference)ref);
 
 		if (click == kBorderInner && !_draggedObjects.size()) {
@@ -2325,8 +2334,6 @@ bool Gui::processInventoryEvents(WindowReference ref, WindowClick click, Common:
 		if (_lassoBeingDrawn)
 			_lassoEnd = event.mouse;
 	} else if (event.type == Common::EVENT_LBUTTONUP) {
-		bringToFront(ref);
-
 		if (_lassoBeingDrawn && !_draggedObjects.size()) {
 			WindowData &data = findWindowData((WindowReference)ref);
 
