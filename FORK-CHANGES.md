@@ -6,6 +6,7 @@ Format: `Date/timestamp: Category: Description/Explanation`
 
 Timestamps use ISO 8601 local time with UTC offset. Entries are newest first.
 
+- 2026-10-10T11:35:07-07:00: UI: Fixed MacVenture `Clean Up` and `Mess Up` menu actions so choosing them with no active inventory/container window no longer crashes the game.
 - 2026-10-10T09:58:29-07:00: UI: Restored the Deja Vu Macintosh `About Deja Vu...` presentation from the original resource-fork artwork, including the lamp, smoke animation, final team image, and Deja Vu-only menu gating.
 - 2026-10-10T09:58:29-07:00: Patch: Added `Patch: Deja Vu speech cancel` for Deja Vu Macintosh so canceling glitched speech/text-entry prompts clears the pending command state.
 - 2026-10-10T09:58:29-07:00: Achievements: Added Deja Vu Macintosh Comfort Edition achievement event hooks and bundled rule mappings for story, exploration, gambling, failure, and optional challenge moments.

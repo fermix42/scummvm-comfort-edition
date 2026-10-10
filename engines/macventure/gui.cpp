@@ -1886,10 +1886,12 @@ void Gui::handleMenuAction(MenuAction action) {
 		warning("Unimplemented MacVenture Menu Action: Clear");
 		break;
 	case MacVenture::kMenuActionCleanUp:
-		_engine->cleanUp(_activeWinRef);
+		if (_activeWinRef >= kInventoryStart && _activeWinRef < kCommandsWindow && findWindow(_activeWinRef))
+			_engine->cleanUp(_activeWinRef);
 		break;
 	case MacVenture::kMenuActionMessUp:
-		_engine->messUp(_activeWinRef);
+		if (_activeWinRef >= kInventoryStart && _activeWinRef < kCommandsWindow && findWindow(_activeWinRef))
+			_engine->messUp(_activeWinRef);
 		break;
 	case MacVenture::kMenuActionCommand:
 		warning("Unimplemented MacVenture Menu Action: GENERIC");
