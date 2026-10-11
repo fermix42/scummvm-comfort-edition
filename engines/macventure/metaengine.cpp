@@ -116,6 +116,18 @@ static const ADExtraGuiOptionsMap optionsList[] = {
 		}
 	},
 	{
+		GAMEOPTION_DEJA_VU_TURN_COUNTER,
+		{
+			_s("Turn counter"),
+			_s("Show Deja Vu's memory-loss turn counter during play"),
+			"deja_vu_turn_counter",
+			false,
+			0,
+			0,
+			kExtraGuiOptionFlagCheat
+		}
+	},
+	{
 		GAMEOPTION_PATCH_DEJA_VU_SPEECH_CANCEL,
 		{
 			_s("Patch: Speech cancel"),
@@ -178,6 +190,7 @@ bool MacVentureMetaEngine::isAdvancedExtraGuiOptionAllowedForTarget(const Common
 		!strcmp(entry.guioFlag, GAMEOPTION_DEJA_VU_UNLIMITED_INVENTORY) ||
 		!strcmp(entry.guioFlag, GAMEOPTION_DEJA_VU_MUGGER_WONT_KILL) ||
 		!strcmp(entry.guioFlag, GAMEOPTION_DEJA_VU_NON_SUNDAY) ||
+		!strcmp(entry.guioFlag, GAMEOPTION_DEJA_VU_TURN_COUNTER) ||
 		!strcmp(entry.guioFlag, GAMEOPTION_PATCH_DEJA_VU_SPEECH_CANCEL) ||
 		!strcmp(entry.guioFlag, GAMEOPTION_PATCH_DEJA_VU_EXPANDED_DESKTOP);
 

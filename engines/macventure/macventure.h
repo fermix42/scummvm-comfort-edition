@@ -62,6 +62,7 @@ struct ADGameDescription;
 #define GAMEOPTION_PATCH_DEJA_VU_SPEECH_CANCEL GUIO_GAMEOPTIONS7
 #define GAMEOPTION_PATCH_DEJA_VU_EXPANDED_DESKTOP GUIO_GAMEOPTIONS8
 #define GAMEOPTION_DEJA_VU_NON_SUNDAY          GUIO_GAMEOPTIONS9
+#define GAMEOPTION_DEJA_VU_TURN_COUNTER        GUIO_GAMEOPTIONS10
 
 namespace MacVenture {
 
@@ -356,6 +357,8 @@ public:
 	ObjID getDestObject();
 	ControlAction getSelectedControl();
 	bool shouldUseExpandedDesktop() const;
+	bool shouldShowDejaVuTurnCounter() const;
+	int getDejaVuTurnCount();
 	int adjustWeekday(int weekday) const;
 	int getDesktopWidth() const { return _desktopWidth; }
 	int getDesktopHeight() const { return _desktopHeight; }

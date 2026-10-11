@@ -135,6 +135,7 @@ static const char *kDejaVuChemicalMemoryMaskKey = "ce_dejavu_chemical_memory_mas
 static const char *kDejaVuMercedesClueMaskKey = "ce_dejavu_mercedes_clue_mask";
 static const char *kDejaVuPatchSpeechCancelKey = "patch_deja_vu_speech_cancel";
 static const char *kDejaVuPatchExpandedDesktopKey = "patch_deja_vu_expanded_desktop";
+static const uint32 kDejaVuTurnCounterGlobal = 4;
 static const uint32 kDejaVuCabYellowMask = 1 << 0;
 static const uint32 kDejaVuCabBlueMask = 1 << 1;
 static const uint32 kDejaVuCabCompleteMask = kDejaVuCabYellowMask | kDejaVuCabBlueMask;
@@ -475,6 +476,17 @@ bool MacVentureEngine::shouldFixDejaVuSpeechCancel() const {
 bool MacVentureEngine::shouldUseExpandedDesktop() const {
 	const Common::String domain = ConfMan.getActiveDomainName();
 	return isDejaVu() && ConfMan.getBool(kDejaVuPatchExpandedDesktopKey, domain);
+}
+
+bool MacVentureEngine::shouldShowDejaVuTurnCounter() const {
+	return isDejaVu() && AchMan.shouldApplyCECheat("deja_vu_turn_counter");
+}
+
+int MacVentureEngine::getDejaVuTurnCount() {
+	if (!isDejaVu() || !_world)
+		return 0;
+
+	return _world->getGlobal(kDejaVuTurnCounterGlobal);
 }
 
 int MacVentureEngine::adjustWeekday(int weekday) const {

@@ -187,6 +187,7 @@ public:
 	void quitGame();
 
 	void createInnerSurface(Graphics::ManagedSurface *innerSurface, Graphics::ManagedSurface *outerSurface, const BorderBounds &borders);
+	void drawTurnCounterOverlay();
 
 private:
 	bool decodeStartupScreen();

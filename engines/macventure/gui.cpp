@@ -338,6 +338,7 @@ void Gui::draw() {
 
 	drawDraggedObjects();
 	drawDialog();
+	drawTurnCounterOverlay();
 	// TODO: When window titles with custom borders are in MacGui, this should be used.
 	//drawWindowTitle(kMainGameWindow, _mainGameWindow->getWindowSurface());
 }
@@ -1428,6 +1429,44 @@ void Gui::drawDialog() {
 	if (_dialog) {
 		_dialog->draw();
 	}
+}
+
+void Gui::drawTurnCounterOverlay() {
+	if (!_engine->shouldShowDejaVuTurnCounter())
+		return;
+
+	const Graphics::Font &font = getCurrentFont();
+	const Common::String text = Common::String::format("Turn: %d", _engine->getDejaVuTurnCount());
+	const int padding = 3;
+	const int badgeWidth = font.getStringWidth(text) + padding * 2;
+	const int badgeHeight = font.getFontHeight() + padding * 2;
+	const int desktopWidth = _engine->getDesktopWidth();
+	const int desktopHeight = _engine->getDesktopHeight();
+	int x = (desktopWidth - badgeWidth) / 2;
+	int y = 0;
+
+	if (_selfWindow && _exitsWindow) {
+		const Common::Rect selfBounds = _selfWindow->getDimensions();
+		const Common::Rect exitsBounds = _exitsWindow->getDimensions();
+		const int columnLeft = MIN(selfBounds.left, exitsBounds.left);
+		const int columnRight = MAX(selfBounds.right, exitsBounds.right);
+		const int gapTop = selfBounds.bottom;
+		const int gapBottom = exitsBounds.top;
+
+		x = columnLeft + (columnRight - columnLeft - badgeWidth) / 2;
+		y = gapTop + (gapBottom - gapTop - badgeHeight) / 2;
+	}
+
+	x = CLIP<int>(x, 0, MAX(0, desktopWidth - badgeWidth));
+	y = CLIP<int>(y, 0, MAX(0, desktopHeight - badgeHeight));
+
+	Graphics::ManagedSurface badge;
+	badge.create(badgeWidth, badgeHeight, _screen.format);
+	badge.fillRect(Common::Rect(badgeWidth, badgeHeight), kColorWhite);
+	badge.frameRect(Common::Rect(badgeWidth, badgeHeight), kColorBlack);
+	font.drawString(&badge, text, padding, padding, badgeWidth - padding * 2, kColorBlack);
+
+	g_system->copyRectToScreen(badge.getPixels(), badge.pitch, x, y, badgeWidth, badgeHeight);
 }
 
 void Gui::updateWindow(WindowReference winID, bool containerOpen) {

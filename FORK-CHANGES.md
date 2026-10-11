@@ -6,6 +6,7 @@ Format: `Date/timestamp: Category: Description/Explanation`
 
 Timestamps use ISO 8601 local time with UTC offset. Entries are newest first.
 
+- 2026-10-11T06:45:26-07:00: Cheat: Added Deja Vu Macintosh `Turn counter` to show the live memory-loss turn count from the game's own counter, dynamically centered between the Self and Exits windows when enabled.
 - 2026-10-11T05:56:34-07:00: Cheat: Restored MacVenture weekday checks to use the host calendar instead of always reporting Sunday, and added Deja Vu Macintosh `Force weekday` to treat real-world Sunday checks as Monday for testing and access to Pete's Gun Palace.
 - 2026-10-11T05:32:03-07:00: UI: Fixed MacVenture losing endings so the New Game/Load/Quit dialog waits until all paged ending text has been read, preserving `Click to continue` access for long death endings such as Deja Vu's electric-chair path.
 - 2026-10-10T21:11:21-07:00: Achievements: Corrected Deja Vu Macintosh `Clear Headed` to trigger only when the full memory-recovery chain completes after the glove-compartment photo starts the adult memories; removed the failed text-only hook and validated the achievement in live play.
