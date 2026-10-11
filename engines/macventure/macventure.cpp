@@ -87,6 +87,7 @@ enum {
 	kDejaVuTextShotCabDivider = 1644,
 	kDejaVuTextAlligatorShot = 1646,
 	kDejaVuTextTrunkOpened = 1685,
+	kDejaVuTextMemoryRecoveredFinal = 1715,
 	kDejaVuTextWrongDrugChemopapain = 1800,
 	kDejaVuTextWrongDrugFatal1 = 1802,
 	kDejaVuTextWrongDrugFatal2 = 1804,
@@ -578,12 +579,10 @@ void MacVentureEngine::checkDejaVuAchievementObjectChange(ObjID objID, uint32 at
 void MacVentureEngine::checkDejaVuAchievementGlobalChange(uint32 scriptID, ControlAction action, uint32 globalID, int16 oldValue, int16 newValue) {
 	(void)scriptID;
 	(void)action;
+	(void)globalID;
 
 	if (!isDejaVu() || oldValue == newValue)
 		return;
-
-	if (globalID == 19 && oldValue == 0 && newValue != 0)
-		noteDejaVuAchievementEvent("memory_recovered");
 }
 
 void MacVentureEngine::checkDejaVuAchievementText(ObjID textID, ObjID source, ObjID destination) {
@@ -637,6 +636,9 @@ void MacVentureEngine::checkDejaVuAchievementText(ObjID textID, ObjID source, Ob
 		break;
 	case kDejaVuTextTrunkOpened:
 		noteDejaVuAchievementEvent("mercedes_trunk_opened");
+		break;
+	case kDejaVuTextMemoryRecoveredFinal:
+		noteDejaVuAchievementEvent("memory_recovered");
 		break;
 	case kDejaVuTextSlotJackpot:
 		noteDejaVuAchievementEvent("slot_jackpot_won");

@@ -848,7 +848,10 @@ void Gui::updateWindowInfo(WindowReference ref, ObjID objID, const Common::Array
 
 void Gui::addChild(WindowReference target, ObjID child) {
 	WindowData &winData = findWindowData(target);
-	winData.children.push_back(DrawableObject(child, kBlitBIC));
+	uint index = 0;
+	while (index < winData.children.size() && winData.children[index].obj < child)
+		++index;
+	winData.children.insert_at(index, DrawableObject(child, kBlitBIC));
 	winData.updateScroll = true;
 	_engine->updateWindow(winData.refcon);
 }
@@ -2113,15 +2116,20 @@ bool Gui::processEvent(Common::Event &event) {
 	if (event.type != Common::EVENT_MOUSEMOVE)
 		markRedraw();
 
-	processed |= _cursor->processEvent(event);
-
-	if (_dialog && _dialog->processEvent(event)) {
-		return true;
+	if (_dialog) {
+		if (_dialog->processEvent(event) ||
+				Common::isMouseEvent(event) ||
+				event.type == Common::EVENT_KEYDOWN ||
+				event.type == Common::EVENT_KEYUP) {
+			return true;
+		}
 	}
 
 	if (event.type == Common::EVENT_KEYDOWN && _diplomaWindow && processDiplomaKey(event)) {
 		return true;
 	}
+
+	processed |= _cursor->processEvent(event);
 
 	if (event.type == Common::EVENT_MOUSEMOVE) {
 		if (_draggedObjects.size() && _draggedObjects[0].id != 0) {

@@ -6,6 +6,8 @@ Format: `Date/timestamp: Category: Description/Explanation`
 
 Timestamps use ISO 8601 local time with UTC offset. Entries are newest first.
 
+- 2026-10-10T20:17:36-07:00: UI: Fixed MacVenture modal speech/text-entry dialogs so OK/CANCEL clicks are consumed by the dialog and no longer pass through to inventory objects behind the button; also kept dynamic object overlays in sorted draw order so Deja Vu mugger damage art appears correctly.
+- 2026-10-10T20:17:36-07:00: Achievements: Fixed Deja Vu Macintosh `Clear Headed` so it triggers when the final recovered-memory text is shown instead of relying on an unrelated global change.
 - 2026-10-10T16:50:55-07:00: UI: Fixed MacVenture container windows so open nested containers, such as Deja Vu's wall safe, close when the player leaves the location that made them reachable; validated with live Deja Vu safe testing.
 - 2026-10-10T16:41:09-07:00: Achievements: Added save-slot sidecars for Comfort Edition achievement popup suppression so repeated gameplay hooks do not replay popups within the same saved playthrough, while new games still start with a clean popup slate; validated with live Deja Vu sidecar testing.
 - 2026-10-10T15:07:49-07:00: UI: Updated Deja Vu Macintosh expanded desktop layout so the fixed command, scene, text, Self, and Exits windows are positioned relative to the larger desktop while inventory and container windows keep the original game-data cascade placement.
