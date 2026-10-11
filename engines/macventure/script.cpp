@@ -1216,7 +1216,7 @@ void ScriptEngine::opcbDAY(EngineState *state, EngineFrame *frame) {
 	g_system->getTimeAndDate(t);
 
 	int weekday = 1 + t.tm_wday;
-	weekday = 1;
+	weekday = _engine->adjustWeekday(weekday);
 	state->push(weekday);
 
 	debugC(2, kMVDebugScript, "Current day of week: %d", weekday);

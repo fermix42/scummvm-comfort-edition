@@ -477,6 +477,17 @@ bool MacVentureEngine::shouldUseExpandedDesktop() const {
 	return isDejaVu() && ConfMan.getBool(kDejaVuPatchExpandedDesktopKey, domain);
 }
 
+int MacVentureEngine::adjustWeekday(int weekday) const {
+	if (isDejaVu() && weekday == 1 && AchMan.shouldApplyCECheat("deja_vu_non_sunday")) {
+#ifdef MACVENTURE_TRACE_BUILD
+		const_cast<MacVentureEngine *>(this)->traceRuntime("cheat.non_sunday", "requested=%d forced=2", weekday);
+#endif
+		return 2;
+	}
+
+	return weekday;
+}
+
 void MacVentureEngine::cancelPendingCommand() {
 	_currentSelection.clear();
 	_destObject = 0;

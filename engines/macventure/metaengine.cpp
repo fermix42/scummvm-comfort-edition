@@ -104,6 +104,18 @@ static const ADExtraGuiOptionsMap optionsList[] = {
 		}
 	},
 	{
+		GAMEOPTION_DEJA_VU_NON_SUNDAY,
+		{
+			_s("Force weekday"),
+			_s("Treat Deja Vu's real-world Sunday checks as Monday"),
+			"deja_vu_non_sunday",
+			false,
+			0,
+			0,
+			kExtraGuiOptionFlagCheat
+		}
+	},
+	{
 		GAMEOPTION_PATCH_DEJA_VU_SPEECH_CANCEL,
 		{
 			_s("Patch: Speech cancel"),
@@ -165,6 +177,7 @@ bool MacVentureMetaEngine::isAdvancedExtraGuiOptionAllowedForTarget(const Common
 		!strcmp(entry.guioFlag, GAMEOPTION_DEJA_VU_NO_ALLIGATORS) ||
 		!strcmp(entry.guioFlag, GAMEOPTION_DEJA_VU_UNLIMITED_INVENTORY) ||
 		!strcmp(entry.guioFlag, GAMEOPTION_DEJA_VU_MUGGER_WONT_KILL) ||
+		!strcmp(entry.guioFlag, GAMEOPTION_DEJA_VU_NON_SUNDAY) ||
 		!strcmp(entry.guioFlag, GAMEOPTION_PATCH_DEJA_VU_SPEECH_CANCEL) ||
 		!strcmp(entry.guioFlag, GAMEOPTION_PATCH_DEJA_VU_EXPANDED_DESKTOP);
 
