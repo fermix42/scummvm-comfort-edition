@@ -401,9 +401,8 @@ Common::Error MacVentureEngine::run() {
 					}
 				}
 
-				if (_gameState == kGameStateLosing) {
-					endGame();
-				}
+				if (_gameState == kGameStateLosing)
+					showLoseGameDialogIfReady();
 
 				if (busy)
 					_gui->setWaitCursor(false);
@@ -792,9 +791,19 @@ void MacVentureEngine::loseGame() {
 #ifdef MACVENTURE_TRACE_BUILD
 	traceRuntime("game.lose", "state=%d", _gameState);
 #endif
-	_gui->showPrebuiltDialog(kLoseGameDialog);
 	_paused = true;
-	//_gameState = kGameStateLosing;
+	_gameState = kGameStateLosing;
+	showLoseGameDialogIfReady();
+}
+
+void MacVentureEngine::showLoseGameDialogIfReady() {
+	if (_clickToContinue || !_textQueue.empty() || !_currentConsoleText.empty() || _gui->isDialogOpen())
+		return;
+
+#ifdef MACVENTURE_TRACE_BUILD
+	traceRuntime("game.lose.dialog", "state=%d", _gameState);
+#endif
+	_gui->showPrebuiltDialog(kLoseGameDialog);
 }
 
 void MacVentureEngine::clickToContinue() {

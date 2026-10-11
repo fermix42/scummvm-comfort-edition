@@ -6,6 +6,7 @@ Format: `Date/timestamp: Category: Description/Explanation`
 
 Timestamps use ISO 8601 local time with UTC offset. Entries are newest first.
 
+- 2026-10-11T05:32:03-07:00: UI: Fixed MacVenture losing endings so the New Game/Load/Quit dialog waits until all paged ending text has been read, preserving `Click to continue` access for long death endings such as Deja Vu's electric-chair path.
 - 2026-10-10T21:11:21-07:00: Achievements: Corrected Deja Vu Macintosh `Clear Headed` to trigger only when the full memory-recovery chain completes after the glove-compartment photo starts the adult memories; removed the failed text-only hook and validated the achievement in live play.
 - 2026-10-10T20:17:36-07:00: UI: Fixed MacVenture modal speech/text-entry dialogs so OK/CANCEL clicks are consumed by the dialog and no longer pass through to inventory objects behind the button; also kept dynamic object overlays in sorted draw order so Deja Vu mugger damage art appears correctly.
 - 2026-10-10T16:50:55-07:00: UI: Fixed MacVenture container windows so open nested containers, such as Deja Vu's wall safe, close when the player leaves the location that made them reachable; validated with live Deja Vu safe testing.

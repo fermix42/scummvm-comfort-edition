@@ -262,6 +262,7 @@ public:
 	void gameChanged();
 	void winGame();
 	void loseGame();
+	void showLoseGameDialogIfReady();
 	void clickToContinue();
 
 	void updateState(bool pause);
