@@ -23,6 +23,8 @@
 #define ENGINES_CE_ACHIEVEMENTS_H
 
 #include "common/array.h"
+#include "common/hash-str.h"
+#include "common/hashmap.h"
 #include "common/str.h"
 
 namespace Common {
@@ -87,6 +89,8 @@ public:
 	void resetPopupState();
 	void loadPopupStateForSave(const String &saveName);
 	void savePopupStateForSave(const String &saveName);
+	uint32 getPopupProgress(const String &key) const;
+	void setPopupProgress(const String &key, uint32 value);
 
 	bool isChallengeModeEnabled() const;
 	void setChallengeModeEnabled(bool enabled);
@@ -154,6 +158,7 @@ private:
 	int _syncQueueIndex;
 	String _popupSidecarName;
 	Array<String> _popupSeenKeys;
+	HashMap<String, uint32> _popupProgress;
 	mutable bool _catalogLoaded;
 	mutable Array<CEAchievementDefinition> _catalog;
 	mutable Array<CEAchievementRule> _rules;

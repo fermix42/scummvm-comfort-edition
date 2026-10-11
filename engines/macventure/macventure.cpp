@@ -530,13 +530,12 @@ bool MacVentureEngine::isDejaVuObjectInInventory(ObjID objID) {
 }
 
 void MacVentureEngine::updateDejaVuAchievementMask(const char *key, uint32 bit, uint32 completeMask, const Common::String &event) {
-	const Common::String domain = ConfMan.getActiveDomainName();
-	uint32 mask = ConfMan.hasKey(key, domain) ? ConfMan.getInt(key, domain) : 0;
+	uint32 mask = Common::CEAchievements().getPopupProgress(key);
 	if ((mask & bit) == bit)
 		return;
 
 	mask |= bit;
-	ConfMan.setInt(key, mask, domain);
+	Common::CEAchievements().setPopupProgress(key, mask);
 	if ((mask & completeMask) == completeMask)
 		noteDejaVuAchievementEvent(event);
 }

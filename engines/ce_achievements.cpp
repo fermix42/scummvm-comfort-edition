@@ -597,17 +597,34 @@ bool CEAchievementService::noteGameEvent(AchievementsManager &achievements, cons
 void CEAchievementService::resetPopupState() {
 	_popupSidecarName.clear();
 	_popupSeenKeys.clear();
+	_popupProgress.clear();
 }
 
 void CEAchievementService::loadPopupStateForSave(const String &saveName) {
 	_popupSidecarName = makePopupSidecarName(saveName);
-	if (!loadPopupSidecar(_popupSidecarName))
+	if (!loadPopupSidecar(_popupSidecarName)) {
 		_popupSeenKeys.clear();
+		_popupProgress.clear();
+	}
 }
 
 void CEAchievementService::savePopupStateForSave(const String &saveName) {
 	_popupSidecarName = makePopupSidecarName(saveName);
 	savePopupSidecar(_popupSidecarName);
+}
+
+uint32 CEAchievementService::getPopupProgress(const String &key) const {
+	if (key.empty())
+		return 0;
+
+	return _popupProgress.getValOrDefault(key, 0);
+}
+
+void CEAchievementService::setPopupProgress(const String &key, uint32 value) {
+	if (key.empty())
+		return;
+
+	_popupProgress.setVal(key, value);
 }
 
 void CEAchievementService::loadCatalogIfNeeded() const {
@@ -1178,6 +1195,7 @@ void CEAchievementService::markPopupSeen(const String &key) {
 
 bool CEAchievementService::loadPopupSidecar(const String &sidecarName) {
 	_popupSeenKeys.clear();
+	_popupProgress.clear();
 	if (sidecarName.empty() || !g_system)
 		return false;
 
@@ -1207,6 +1225,20 @@ bool CEAchievementService::loadPopupSidecar(const String &sidecarName) {
 		}
 	}
 
+	if (obj.contains("progress") && obj["progress"]->isObject()) {
+		const JSONObject &progress = obj["progress"]->asObject();
+		for (JSONObject::const_iterator it = progress.begin(); it != progress.end(); ++it) {
+			if (!it->_value || !it->_value->isIntegerNumber())
+				continue;
+
+			const long long int value = it->_value->asIntegerNumber();
+			if (value < 0 || value > 0xffffffffLL)
+				continue;
+
+			_popupProgress.setVal(it->_key, (uint32)value);
+		}
+	}
+
 	delete root;
 	return true;
 }
@@ -1227,7 +1259,17 @@ bool CEAchievementService::savePopupSidecar(const String &sidecarName) const {
 			json += ",";
 		json += ceEscapeJson(_popupSeenKeys[i]);
 	}
-	json += "]}";
+	json += "],\"progress\":{";
+	bool firstProgress = true;
+	for (HashMap<String, uint32>::const_iterator it = _popupProgress.begin(); it != _popupProgress.end(); ++it) {
+		if (!firstProgress)
+			json += ",";
+		firstProgress = false;
+		json += ceEscapeJson(it->_key);
+		json += ":";
+		json += String::format("%u", it->_value);
+	}
+	json += "}}";
 
 	out->writeString(json);
 	out->finalize();
