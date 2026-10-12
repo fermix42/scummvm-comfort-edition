@@ -36,6 +36,7 @@
 #include "common/system.h"
 #include "common/translation.h"
 #include "common/util.h"
+#include "engines/engine.h"
 #include "graphics/font.h"
 #include "graphics/fontman.h"
 #include "graphics/surface.h"
@@ -52,7 +53,9 @@ namespace Common {
 static const char *const kCEApiBaseUrl = "https://achievements.divineramen.net/api/v1";
 static const char *const kCEDataFile = "ce-achievements.dat";
 static const char *const kCEQueueFile = "ce-achievements-queue.json";
+static const char *const kCEPlaythroughRegistryFile = "ce-playthroughs.json";
 static const char *const kCECatalogFile = "ce-achievements-catalog.json";
+static const char *const kCEApiBaseUrlKey = "ce_achievements_api_base_url";
 static const char *const kCELinkTokenKey = "ce_link_token";
 static const char *const kCEChallengeModeKey = "ce_achievements_challenge_mode";
 static const char *const kCECheatsEnabledKey = "ce_cheats_enabled";
@@ -62,6 +65,15 @@ static const char *const kCERepeatPopupsKey = "ce_achievements_repeat_popups";
 static const char *const kCEPopupSoundEnabledKey = "ce_achievements_popup_sound_enabled";
 static const char *const kCEInstallSecretKey = "ce_achievements_install_secret";
 static const char *const kCELastSyncStatusKey = "ce_achievements_last_sync_status";
+static const char *const kCEActivePlaythroughTargetKey = "ce_active_playthrough_target";
+static const char *const kCEActivePlaythroughGameKey = "ce_active_playthrough_game";
+static const char *const kCEActivePlaythroughVariantKey = "ce_active_playthrough_variant";
+static const char *const kCEActiveClientPlaythroughIdKey = "ce_active_client_playthrough_id";
+static const char *const kCEActivePlaythroughIdKey = "ce_active_playthrough_id";
+static const char *const kCEActivePlaythroughStatusKey = "ce_active_playthrough_status";
+static const char *const kCEActivePlaythroughCasualKey = "ce_active_playthrough_casual";
+static const char *const kCEActivePlaythroughSyncEligibleKey = "ce_active_playthrough_sync_eligible";
+static const char *const kCEPlaythroughEventCounterKey = "ce_playthrough_event_counter";
 static const char *const kCEAchievementSoundMember = "sounds/achievement-sultry-clean.wav";
 static const uint32 kCEAchievementPopupDuration = 5 * 1000;
 
@@ -312,6 +324,17 @@ static String ceEscapeJson(const String &input) {
 	return JSON::stringify(&value);
 }
 
+static String ceStringArrayJson(const Array<String> &strings) {
+	String json = "[";
+	for (uint i = 0; i < strings.size(); ++i) {
+		if (i)
+			json += ",";
+		json += ceEscapeJson(strings[i]);
+	}
+	json += "]";
+	return json;
+}
+
 static String ceStringFromJson(const JSONObject &obj, const char *key, const String &fallback = String()) {
 	if (!obj.contains(key) || !obj[key]->isString())
 		return fallback;
@@ -460,6 +483,12 @@ static String ceHexDigest(const Array<byte> &bytes) {
 	for (uint i = 0; i < bytes.size(); ++i)
 		result += String::format("%02x", bytes[i]);
 	return result;
+}
+
+static String ceShortHash(const String &input) {
+	Array<byte> bytes;
+	ceAppendStringBytes(bytes, input);
+	return ceHexDigest(ceSha256(bytes)).substr(0, 16);
 }
 
 static String ceHmacSha256(const String &secret, const String &payload) {
@@ -1089,6 +1118,12 @@ void CEAchievementService::noteDisqualifyingAssistance(const String &flag) {
 		ConfMan.set("ce_achievements_assistance_flags", flags, ConfigManager::kApplicationDomain);
 		ConfMan.flushToDisk();
 	}
+
+	Array<String> auditFlags;
+	auditFlags.push_back(flag);
+	markActivePlaythroughCasual(auditFlags);
+	queuePlaythroughAuditEvent("cheat_enabled", true, "assisted", auditFlags,
+		String::format("{\"flag\":%s}", ceEscapeJson(flag).c_str()));
 }
 
 Array<String> CEAchievementService::getAssistanceFlags(const String &domain) const {
@@ -1140,31 +1175,296 @@ String CEAchievementService::getOrCreateInstallSecret() const {
 	return ConfMan.get(kCEInstallSecretKey, ConfigManager::kApplicationDomain);
 }
 
-String CEAchievementService::canonicalizeEvent(const CEAchievementEvent &event) const {
-	String flags = "[";
-	for (uint i = 0; i < event.assistanceFlags.size(); ++i) {
-		if (i)
-			flags += ",";
-		flags += ceEscapeJson(event.assistanceFlags[i]);
+String CEAchievementService::getApiBaseUrl() const {
+	if (ConfMan.hasKey(kCEApiBaseUrlKey, ConfigManager::kApplicationDomain))
+		return ConfMan.get(kCEApiBaseUrlKey, ConfigManager::kApplicationDomain);
+	return kCEApiBaseUrl;
+}
+
+String CEAchievementService::getActivePlaythroughId() const {
+	return ConfMan.hasKey(kCEActivePlaythroughIdKey, ConfigManager::kApplicationDomain) ?
+		ConfMan.get(kCEActivePlaythroughIdKey, ConfigManager::kApplicationDomain) : String();
+}
+
+String CEAchievementService::getActiveClientPlaythroughId() const {
+	return ConfMan.hasKey(kCEActiveClientPlaythroughIdKey, ConfigManager::kApplicationDomain) ?
+		ConfMan.get(kCEActiveClientPlaythroughIdKey, ConfigManager::kApplicationDomain) : String();
+}
+
+String CEAchievementService::getActivePlaythroughTarget() const {
+	return ConfMan.hasKey(kCEActivePlaythroughTargetKey, ConfigManager::kApplicationDomain) ?
+		ConfMan.get(kCEActivePlaythroughTargetKey, ConfigManager::kApplicationDomain) : String();
+}
+
+String CEAchievementService::getActivePlaythroughGame() const {
+	return ConfMan.hasKey(kCEActivePlaythroughGameKey, ConfigManager::kApplicationDomain) ?
+		ConfMan.get(kCEActivePlaythroughGameKey, ConfigManager::kApplicationDomain) : String();
+}
+
+String CEAchievementService::getActivePlaythroughVariant() const {
+	return ConfMan.hasKey(kCEActivePlaythroughVariantKey, ConfigManager::kApplicationDomain) ?
+		ConfMan.get(kCEActivePlaythroughVariantKey, ConfigManager::kApplicationDomain) : String();
+}
+
+String CEAchievementService::getActivePlaythroughStatus() const {
+	return ConfMan.hasKey(kCEActivePlaythroughStatusKey, ConfigManager::kApplicationDomain) ?
+		ConfMan.get(kCEActivePlaythroughStatusKey, ConfigManager::kApplicationDomain) : String();
+}
+
+bool CEAchievementService::isActivePlaythroughCasual() const {
+	return ConfMan.getBool(kCEActivePlaythroughCasualKey, ConfigManager::kApplicationDomain);
+}
+
+void CEAchievementService::setActivePlaythrough(const String &target, const String &game, const String &variant, const String &clientPlaythroughId, const String &playthroughId, const String &status, bool casual, bool syncEligible) const {
+	ConfMan.set(kCEActivePlaythroughTargetKey, target, ConfigManager::kApplicationDomain);
+	ConfMan.set(kCEActivePlaythroughGameKey, game, ConfigManager::kApplicationDomain);
+	ConfMan.set(kCEActivePlaythroughVariantKey, variant, ConfigManager::kApplicationDomain);
+	ConfMan.set(kCEActiveClientPlaythroughIdKey, clientPlaythroughId, ConfigManager::kApplicationDomain);
+	if (playthroughId.empty())
+		ConfMan.removeKey(kCEActivePlaythroughIdKey, ConfigManager::kApplicationDomain);
+	else
+		ConfMan.set(kCEActivePlaythroughIdKey, playthroughId, ConfigManager::kApplicationDomain);
+	ConfMan.set(kCEActivePlaythroughStatusKey, status, ConfigManager::kApplicationDomain);
+	ConfMan.setBool(kCEActivePlaythroughCasualKey, casual, ConfigManager::kApplicationDomain);
+	ConfMan.setBool(kCEActivePlaythroughSyncEligibleKey, syncEligible, ConfigManager::kApplicationDomain);
+	ConfMan.flushToDisk();
+}
+
+Array<CEPlaythroughRecord> CEAchievementService::loadPlaythroughRegistry() const {
+	Array<CEPlaythroughRecord> records;
+	if (!g_system)
+		return records;
+
+	Common::InSaveFile *in = g_system->getSavefileManager()->openForLoading(kCEPlaythroughRegistryFile);
+	if (!in)
+		return records;
+
+	String data = in->readString(0, in->size());
+	delete in;
+
+	JSONValue *root = JSON::parse(data);
+	if (!root || !root->isObject()) {
+		delete root;
+		return records;
 	}
-	flags += "]";
-	return String::format("{\"achievement\":%s,\"assistance_flags\":%s,\"assisted\":%s,\"event_id\":%s,\"game\":%s,\"history_status\":%s,\"occurred_at\":%s,\"variant\":%s}",
+
+	const JSONObject &obj = root->asObject();
+	if (!obj.contains("playthroughs") || !obj["playthroughs"]->isArray()) {
+		delete root;
+		return records;
+	}
+
+	const JSONArray &items = obj["playthroughs"]->asArray();
+	for (uint i = 0; i < items.size(); ++i) {
+		if (!items[i]->isObject())
+			continue;
+
+		const JSONObject &item = items[i]->asObject();
+		CEPlaythroughRecord record;
+		record.target = ceStringFromJson(item, "target");
+		record.game = ceStringFromJson(item, "game");
+		record.variant = ceStringFromJson(item, "variant");
+		record.clientPlaythroughId = ceStringFromJson(item, "client_playthrough_id");
+		record.playthroughId = ceStringFromJson(item, "playthrough");
+		record.title = ceStringFromJson(item, "title");
+		record.status = ceStringFromJson(item, "status");
+		record.archivedFromStatus = ceStringFromJson(item, "archived_from_status");
+		record.startedAt = ceStringFromJson(item, "started_at");
+		record.endedAt = ceStringFromJson(item, "ended_at");
+		record.casual = ceBoolFromJson(item, "casual");
+		const bool legacyArchived = ceBoolFromJson(item, "archived");
+		if (legacyArchived && record.status != "archived") {
+			if (record.archivedFromStatus.empty())
+				record.archivedFromStatus = record.status.empty() || record.status == "active" ? "abandoned" : record.status;
+			record.status = "archived";
+		}
+		if (record.status == "archived" && record.archivedFromStatus.empty())
+			record.archivedFromStatus = "abandoned";
+		record.archived = record.status == "archived";
+		record.syncEligible = ceBoolFromJson(item, "sync_eligible");
+		if (!record.target.empty() && !record.clientPlaythroughId.empty())
+			records.push_back(record);
+	}
+
+	delete root;
+	return records;
+}
+
+bool CEAchievementService::savePlaythroughRegistry(const Array<CEPlaythroughRecord> &records) const {
+	if (!g_system)
+		return false;
+
+	Common::OutSaveFile *out = g_system->getSavefileManager()->openForSaving(kCEPlaythroughRegistryFile, false);
+	if (!out)
+		return false;
+
+	String json = "{\"version\":1,\"playthroughs\":[";
+	for (uint i = 0; i < records.size(); ++i) {
+		if (i)
+			json += ",";
+		const CEPlaythroughRecord &record = records[i];
+		const bool archived = record.status == "archived";
+		json += String::format("{\"target\":%s,\"game\":%s,\"variant\":%s,\"client_playthrough_id\":%s,\"playthrough\":%s,\"title\":%s,\"status\":%s,\"archived_from_status\":%s,\"started_at\":%s,\"ended_at\":%s,\"casual\":%s,\"archived\":%s,\"sync_eligible\":%s}",
+			ceEscapeJson(record.target).c_str(), ceEscapeJson(record.game).c_str(),
+			ceEscapeJson(record.variant).c_str(), ceEscapeJson(record.clientPlaythroughId).c_str(),
+			ceEscapeJson(record.playthroughId).c_str(), ceEscapeJson(record.title).c_str(),
+			ceEscapeJson(record.status).c_str(), ceEscapeJson(record.archivedFromStatus).c_str(),
+			ceEscapeJson(record.startedAt).c_str(), ceEscapeJson(record.endedAt).c_str(),
+			record.casual ? "true" : "false", archived ? "true" : "false",
+			record.syncEligible ? "true" : "false");
+	}
+	json += "]}";
+
+	out->writeString(json);
+	out->finalize();
+	delete out;
+	return true;
+}
+
+void CEAchievementService::upsertPlaythroughRecord(const CEPlaythroughRecord &record) const {
+	if (record.target.empty() || record.clientPlaythroughId.empty())
+		return;
+
+	Array<CEPlaythroughRecord> records = loadPlaythroughRegistry();
+	for (uint i = 0; i < records.size(); ++i) {
+		if (records[i].clientPlaythroughId == record.clientPlaythroughId) {
+			records[i] = record;
+			savePlaythroughRegistry(records);
+			return;
+		}
+	}
+
+	records.push_back(record);
+	savePlaythroughRegistry(records);
+}
+
+void CEAchievementService::updatePlaythroughRecord(const String &clientPlaythroughId, const String &playthroughId, const String &status, bool casual, bool syncEligible, const String &endedAt) const {
+	if (clientPlaythroughId.empty())
+		return;
+
+	Array<CEPlaythroughRecord> records = loadPlaythroughRegistry();
+	for (uint i = 0; i < records.size(); ++i) {
+		if (records[i].clientPlaythroughId != clientPlaythroughId)
+			continue;
+
+		if (!playthroughId.empty())
+			records[i].playthroughId = playthroughId;
+		if (!status.empty() && !(status == "active" && records[i].status != "active"))
+			records[i].status = status;
+		if (!endedAt.empty())
+			records[i].endedAt = endedAt;
+		records[i].casual = casual;
+		records[i].syncEligible = syncEligible;
+		savePlaythroughRegistry(records);
+		return;
+	}
+}
+
+void CEAchievementService::clearActivePlaythrough() const {
+	ConfMan.removeKey(kCEActivePlaythroughTargetKey, ConfigManager::kApplicationDomain);
+	ConfMan.removeKey(kCEActivePlaythroughGameKey, ConfigManager::kApplicationDomain);
+	ConfMan.removeKey(kCEActivePlaythroughVariantKey, ConfigManager::kApplicationDomain);
+	ConfMan.removeKey(kCEActiveClientPlaythroughIdKey, ConfigManager::kApplicationDomain);
+	ConfMan.removeKey(kCEActivePlaythroughIdKey, ConfigManager::kApplicationDomain);
+	ConfMan.removeKey(kCEActivePlaythroughStatusKey, ConfigManager::kApplicationDomain);
+	ConfMan.removeKey(kCEActivePlaythroughCasualKey, ConfigManager::kApplicationDomain);
+	ConfMan.removeKey(kCEActivePlaythroughSyncEligibleKey, ConfigManager::kApplicationDomain);
+	ConfMan.flushToDisk();
+}
+
+void CEAchievementService::markActivePlaythroughCasual(const Array<String> &flags) const {
+	if (getActiveClientPlaythroughId().empty())
+		return;
+
+	ConfMan.setBool(kCEActivePlaythroughCasualKey, true, ConfigManager::kApplicationDomain);
+	String stored = ConfMan.hasKey("ce_achievements_assistance_flags", ConfigManager::kApplicationDomain) ?
+		ConfMan.get("ce_achievements_assistance_flags", ConfigManager::kApplicationDomain) : String();
+	for (uint i = 0; i < flags.size(); ++i) {
+		if (!stored.contains(flags[i])) {
+			if (!stored.empty())
+				stored += ",";
+			stored += flags[i];
+		}
+	}
+	if (!stored.empty())
+		ConfMan.set("ce_achievements_assistance_flags", stored, ConfigManager::kApplicationDomain);
+	ConfMan.flushToDisk();
+	updatePlaythroughRecord(getActiveClientPlaythroughId(), getActivePlaythroughId(), getActivePlaythroughStatus(), true, ConfMan.getBool(kCEActivePlaythroughSyncEligibleKey, ConfigManager::kApplicationDomain));
+}
+
+String CEAchievementService::makePlaythroughId(const String &target) const {
+	String profile = getOrCreateInstallSecret().substr(0, 16);
+	return String::format("%s:%s:run:%s:%u", profile.c_str(), target.c_str(), currentTimeString().c_str(), g_system->getMillis(true));
+}
+
+String CEAchievementService::makePlaythroughEventId(const String &type) const {
+	uint32 counter = ConfMan.getInt(kCEPlaythroughEventCounterKey, ConfigManager::kApplicationDomain) + 1;
+	ConfMan.setInt(kCEPlaythroughEventCounterKey, counter, ConfigManager::kApplicationDomain);
+	ConfMan.flushToDisk();
+	return String::format("%s:event:%s:%u", getActiveClientPlaythroughId().c_str(), type.c_str(), counter);
+}
+
+String CEAchievementService::canonicalizeEvent(const CEAchievementEvent &event) const {
+	String flags = ceStringArrayJson(event.assistanceFlags);
+	if (event.requestType == "playthrough_start") {
+		String body = String::format("{\"client_playthrough_id\":%s,\"game\":%s,\"started_at\":%s",
+			ceEscapeJson(event.clientPlaythroughId).c_str(),
+			ceEscapeJson(event.game).c_str(), ceEscapeJson(event.occurredAt).c_str());
+		if (!event.title.empty())
+			body += String::format(",\"title\":%s", ceEscapeJson(event.title).c_str());
+		body += String::format(",\"variant\":%s}", ceEscapeJson(event.variant).c_str());
+		return body;
+	}
+
+	if (event.requestType == "playthrough_end") {
+		return String::format("{\"ended_at\":%s,\"status\":%s}",
+			ceEscapeJson(event.occurredAt).c_str(), ceEscapeJson(event.status).c_str());
+	}
+
+	if (event.requestType == "playthrough_save") {
+		String body = String::format("{\"assistance_flags\":%s,\"client_save_id\":%s,\"created_at_client\":%s,\"label\":%s,\"save_hash\":%s,\"slot\":%s,\"tainted\":%s",
+			flags.c_str(), ceEscapeJson(event.clientSaveId).c_str(), ceEscapeJson(event.occurredAt).c_str(),
+			ceEscapeJson(event.label).c_str(), ceEscapeJson(event.saveHash).c_str(),
+			ceEscapeJson(event.slot).c_str(), event.tainted ? "true" : "false");
+		if (event.lastLoadedAt.empty())
+			body += ",\"last_loaded_at\":null}";
+		else
+			body += String::format(",\"last_loaded_at\":%s}", ceEscapeJson(event.lastLoadedAt).c_str());
+		return body;
+	}
+
+	if (event.requestType == "playthrough_event") {
+		return String::format("{\"assistance_flags\":%s,\"assisted\":%s,\"event_id\":%s,\"history_status\":%s,\"metadata\":%s,\"occurred_at\":%s,\"type\":%s}",
+			flags.c_str(), event.assisted ? "true" : "false", ceEscapeJson(event.eventId).c_str(),
+			ceEscapeJson(event.historyStatus).c_str(), event.metadata.empty() ? "{}" : event.metadata.c_str(),
+			ceEscapeJson(event.occurredAt).c_str(), ceEscapeJson(event.achievement).c_str());
+	}
+
+	String body = String::format("{\"achievement\":%s,\"assistance_flags\":%s,\"assisted\":%s,\"event_id\":%s,\"game\":%s,\"history_status\":%s,\"occurred_at\":%s",
 		ceEscapeJson(event.achievement).c_str(), flags.c_str(), event.assisted ? "true" : "false",
 		ceEscapeJson(event.eventId).c_str(), ceEscapeJson(event.game).c_str(),
-		ceEscapeJson(event.historyStatus).c_str(), ceEscapeJson(event.occurredAt).c_str(),
-		ceEscapeJson(event.variant).c_str());
+		ceEscapeJson(event.historyStatus).c_str(), ceEscapeJson(event.occurredAt).c_str());
+	if (!event.playthrough.empty())
+		body += String::format(",\"playthrough\":%s", ceEscapeJson(event.playthrough).c_str());
+	body += String::format(",\"variant\":%s}", ceEscapeJson(event.variant).c_str());
+	return body;
 }
 
 String CEAchievementService::signEvent(const CEAchievementEvent &event) const {
-	return ceHmacSha256(getOrCreateInstallSecret(), canonicalizeEvent(event));
+	return ceHmacSha256(getOrCreateInstallSecret(), event.method + "\n" + event.path + "\n" + canonicalizeEvent(event));
 }
 
 bool CEAchievementService::verifyEventSignature(const CEAchievementEvent &event) const {
 	return event.signature == signEvent(event);
 }
 
-String CEAchievementService::makeEventId(const String &game, const String &variant, const String &achievement, bool assisted) const {
+String CEAchievementService::makeEventId(const String &game, const String &variant, const String &achievement, bool assisted, const String &clientPlaythroughId) const {
 	String profile = getOrCreateInstallSecret().substr(0, 16);
+	if (!clientPlaythroughId.empty()) {
+		const String runHash = ceShortHash(clientPlaythroughId);
+		const String achievementHash = ceShortHash(game + ":" + variant + ":" + achievement);
+		return String::format("%s:%s:%s:%s", profile.c_str(), runHash.c_str(), achievementHash.c_str(), assisted ? "completion" : "challenge");
+	}
 	return String::format("%s:%s:%s:%s:%s", profile.c_str(), game.c_str(), variant.c_str(), achievement.c_str(), assisted ? "completion" : "challenge");
 }
 
@@ -1174,6 +1474,87 @@ String CEAchievementService::makePopupSeenKey(const String &game, const String &
 
 String CEAchievementService::makePopupSidecarName(const String &saveName) const {
 	return saveName + ".ce-achievements.json";
+}
+
+String CEAchievementService::hashSaveFile(const String &saveName) const {
+	if (saveName.empty() || !g_system)
+		return String();
+
+	Common::InSaveFile *in = g_system->getSavefileManager()->openForLoading(saveName);
+	if (!in)
+		return String();
+
+	Array<byte> bytes;
+	while (!in->eos()) {
+		byte buffer[1024];
+		uint32 read = in->read(buffer, sizeof(buffer));
+		for (uint32 i = 0; i < read; ++i)
+			bytes.push_back(buffer[i]);
+		if (read == 0)
+			break;
+	}
+	delete in;
+	return ceHexDigest(ceSha256(bytes));
+}
+
+bool CEAchievementService::loadPlaythroughSidecar(const String &sidecarName, bool &tainted, String &clientPlaythroughId, String &playthroughId) const {
+	tainted = false;
+	clientPlaythroughId.clear();
+	playthroughId.clear();
+	if (sidecarName.empty() || !g_system)
+		return false;
+
+	Common::InSaveFile *in = g_system->getSavefileManager()->openForLoading(sidecarName);
+	if (!in)
+		return false;
+
+	String data = in->readString(0, in->size());
+	delete in;
+
+	JSONValue *root = JSON::parse(data);
+	if (!root || !root->isObject()) {
+		delete root;
+		return false;
+	}
+	const JSONObject &obj = root->asObject();
+	tainted = ceBoolFromJson(obj, "tainted");
+	clientPlaythroughId = ceStringFromJson(obj, "client_playthrough_id");
+	playthroughId = ceStringFromJson(obj, "playthrough");
+	delete root;
+	return true;
+}
+
+bool CEAchievementService::savePlaythroughSidecar(const String &sidecarName, bool tainted, const String &clientPlaythroughId, const String &playthroughId) const {
+	if (sidecarName.empty() || !g_system)
+		return false;
+
+	Common::OutSaveFile *out = g_system->getSavefileManager()->openForSaving(sidecarName, false);
+	if (!out)
+		return false;
+
+	String json = String::format("{\"version\":1,\"client_playthrough_id\":%s,\"playthrough\":%s,\"tainted\":%s,\"popup_seen\":[",
+		ceEscapeJson(clientPlaythroughId).c_str(), ceEscapeJson(playthroughId).c_str(), tainted ? "true" : "false");
+	for (uint i = 0; i < _popupSeenKeys.size(); ++i) {
+		if (i)
+			json += ",";
+		json += ceEscapeJson(_popupSeenKeys[i]);
+	}
+	json += "],\"progress\":{";
+	bool firstProgress = true;
+	for (HashMap<String, uint32>::const_iterator it = _popupProgress.begin(); it != _popupProgress.end(); ++it) {
+		if (!firstProgress)
+			json += ",";
+		firstProgress = false;
+		json += ceEscapeJson(it->_key);
+		json += ":";
+		json += String::format("%u", it->_value);
+	}
+	json += "}}";
+
+	out->writeString(json);
+	out->finalize();
+	delete out;
+	return true;
 }
 
 bool CEAchievementService::hasPopupBeenSeen(const String &key) const {
@@ -1253,7 +1634,9 @@ bool CEAchievementService::savePopupSidecar(const String &sidecarName) const {
 		return false;
 	}
 
-	String json = "{\"version\":1,\"popup_seen\":[";
+	String json = String::format("{\"version\":1,\"client_playthrough_id\":%s,\"playthrough\":%s,\"tainted\":%s,\"popup_seen\":[",
+		ceEscapeJson(getActiveClientPlaythroughId()).c_str(), ceEscapeJson(getActivePlaythroughId()).c_str(),
+		isActivePlaythroughCasual() ? "true" : "false");
 	for (uint i = 0; i < _popupSeenKeys.size(); ++i) {
 		if (i)
 			json += ",";
@@ -1300,13 +1683,31 @@ Array<CEAchievementEvent> CEAchievementService::loadQueue() const {
 			continue;
 		const JSONObject &obj = array[i]->asObject();
 		CEAchievementEvent event;
+		event.requestType = ceStringFromJson(obj, "request_type", "achievement");
+		event.method = ceStringFromJson(obj, "method", "POST");
+		event.path = ceStringFromJson(obj, "path");
+		if (event.path.empty())
+			event.path = "/events";
 		event.eventId = ceStringFromJson(obj, "event_id");
 		event.game = ceStringFromJson(obj, "game");
 		event.variant = ceStringFromJson(obj, "variant");
 		event.achievement = ceStringFromJson(obj, "achievement");
+		event.playthrough = ceStringFromJson(obj, "playthrough");
+		event.clientPlaythroughId = ceStringFromJson(obj, "client_playthrough_id");
+		event.title = ceStringFromJson(obj, "title");
+		event.status = ceStringFromJson(obj, "status");
+		event.clientSaveId = ceStringFromJson(obj, "client_save_id");
+		event.slot = ceStringFromJson(obj, "slot");
+		event.label = ceStringFromJson(obj, "label");
+		event.saveHash = ceStringFromJson(obj, "save_hash");
+		event.metadata = ceStringFromJson(obj, "metadata");
+		if (event.metadata.empty() && obj.contains("metadata") && obj["metadata"])
+			event.metadata = JSON::stringify(obj["metadata"]);
 		event.assisted = ceBoolFromJson(obj, "assisted");
+		event.tainted = ceBoolFromJson(obj, "tainted");
 		event.historyStatus = ceStringFromJson(obj, "history_status");
 		event.occurredAt = ceStringFromJson(obj, "occurred_at");
+		event.lastLoadedAt = ceStringFromJson(obj, "last_loaded_at");
 		event.attemptCount = ceUIntFromJson(obj, "attempt_count");
 		event.lastAttemptAt = ceStringFromJson(obj, "last_attempt_at");
 		event.lastError = ceStringFromJson(obj, "last_error");
@@ -1336,18 +1737,19 @@ bool CEAchievementService::saveQueue(const Array<CEAchievementEvent> &events) co
 		const CEAchievementEvent &event = events[i];
 		if (i)
 			json += ",";
-		String flags = "[";
-		for (uint f = 0; f < event.assistanceFlags.size(); ++f) {
-			if (f)
-				flags += ",";
-			flags += ceEscapeJson(event.assistanceFlags[f]);
-		}
-		flags += "]";
-		json += String::format("{\"event_id\":%s,\"game\":%s,\"variant\":%s,\"achievement\":%s,\"assisted\":%s,\"history_status\":%s,\"assistance_flags\":%s,\"occurred_at\":%s,\"attempt_count\":%u,\"last_attempt_at\":%s,\"last_error\":%s,\"state\":%s,\"signature\":%s}",
+		String flags = ceStringArrayJson(event.assistanceFlags);
+		json += String::format("{\"request_type\":%s,\"method\":%s,\"path\":%s,\"event_id\":%s,\"game\":%s,\"variant\":%s,\"achievement\":%s,\"playthrough\":%s,\"client_playthrough_id\":%s,\"title\":%s,\"status\":%s,\"client_save_id\":%s,\"slot\":%s,\"label\":%s,\"save_hash\":%s,\"metadata\":%s,\"assisted\":%s,\"tainted\":%s,\"history_status\":%s,\"assistance_flags\":%s,\"occurred_at\":%s,\"last_loaded_at\":%s,\"attempt_count\":%u,\"last_attempt_at\":%s,\"last_error\":%s,\"state\":%s,\"signature\":%s}",
+			ceEscapeJson(event.requestType).c_str(), ceEscapeJson(event.method).c_str(), ceEscapeJson(event.path).c_str(),
 			ceEscapeJson(event.eventId).c_str(), ceEscapeJson(event.game).c_str(),
 			ceEscapeJson(event.variant).c_str(), ceEscapeJson(event.achievement).c_str(),
-			event.assisted ? "true" : "false", ceEscapeJson(event.historyStatus).c_str(),
-			flags.c_str(), ceEscapeJson(event.occurredAt).c_str(), event.attemptCount,
+			ceEscapeJson(event.playthrough).c_str(), ceEscapeJson(event.clientPlaythroughId).c_str(),
+			ceEscapeJson(event.title).c_str(), ceEscapeJson(event.status).c_str(),
+			ceEscapeJson(event.clientSaveId).c_str(), ceEscapeJson(event.slot).c_str(),
+			ceEscapeJson(event.label).c_str(), ceEscapeJson(event.saveHash).c_str(),
+			event.metadata.empty() ? "null" : event.metadata.c_str(),
+			event.assisted ? "true" : "false", event.tainted ? "true" : "false",
+			ceEscapeJson(event.historyStatus).c_str(), flags.c_str(),
+			ceEscapeJson(event.occurredAt).c_str(), ceEscapeJson(event.lastLoadedAt).c_str(), event.attemptCount,
 			ceEscapeJson(event.lastAttemptAt).c_str(), ceEscapeJson(event.lastError).c_str(),
 			ceEscapeJson(event.state).c_str(), ceEscapeJson(event.signature).c_str());
 	}
@@ -1359,28 +1761,478 @@ bool CEAchievementService::saveQueue(const Array<CEAchievementEvent> &events) co
 }
 
 bool CEAchievementService::queueAchievementEvent(const String &game, const String &variant, const String &achievement) {
+	if (!ConfMan.getBool(kCEActivePlaythroughSyncEligibleKey, ConfigManager::kApplicationDomain))
+		return false;
+	if (getActivePlaythroughStatus() != "active")
+		return false;
+	if (!game.empty() && getActivePlaythroughGame() != game)
+		return false;
+	if (!variant.empty() && getActivePlaythroughVariant() != variant)
+		return false;
+	const String clientPlaythroughId = getActiveClientPlaythroughId();
+	if (clientPlaythroughId.empty())
+		return false;
+
 	const String activeDomain = ConfMan.getActiveDomainName();
-	const bool assisted = !isChallengeModeEnabled() || isDisqualifyingAssistanceActive(activeDomain);
+	const bool assisted = !isChallengeModeEnabled() || isDisqualifyingAssistanceActive(activeDomain) || isActivePlaythroughCasual();
 	CEAchievementEvent event;
+	event.requestType = "achievement";
+	event.method = "POST";
+	event.path = "/events";
 	event.game = game;
 	event.variant = variant;
 	event.achievement = achievement;
+	event.playthrough = getActivePlaythroughId();
+	event.clientPlaythroughId = clientPlaythroughId;
 	event.assisted = assisted;
 	event.historyStatus = assisted ? "assisted" : "verified";
 	event.assistanceFlags = getAssistanceFlags(activeDomain);
 	event.occurredAt = currentTimeString();
 	event.attemptCount = 0;
 	event.state = "pending";
-	event.eventId = makeEventId(game, variant, achievement, assisted);
+	event.eventId = makeEventId(game, variant, achievement, assisted, clientPlaythroughId);
 	event.signature = signEvent(event);
 
+	return queueEvent(event);
+}
+
+bool CEAchievementService::queueEvent(const CEAchievementEvent &event) {
 	Array<CEAchievementEvent> events = loadQueue();
 	for (uint i = 0; i < events.size(); ++i) {
-		if (events[i].eventId == event.eventId)
+		if (events[i].eventId == event.eventId && events[i].requestType == event.requestType) {
+			if (events[i].signature != event.signature) {
+				warning("CE achievement event id reused with a changed payload: %s", event.eventId.c_str());
+				ConfMan.set(kCELastSyncStatusKey, "CE achievement queue bug: event id reused with a changed payload.", ConfigManager::kApplicationDomain);
+				ConfMan.flushToDisk();
+			}
 			return false;
+		}
 	}
 	events.push_back(event);
 	return saveQueue(events);
+}
+
+bool CEAchievementService::resolveQueuedAchievementPlaythroughs(Array<CEAchievementEvent> &events) const {
+	bool changed = false;
+	Array<CEPlaythroughRecord> records = loadPlaythroughRegistry();
+
+	for (uint i = 0; i < events.size(); ++i) {
+		CEAchievementEvent &event = events[i];
+		if (event.requestType != "achievement" || !event.playthrough.empty() || event.clientPlaythroughId.empty())
+			continue;
+		if (event.state == "synced" || event.state == "permanent_failure")
+			continue;
+
+		for (uint j = 0; j < records.size(); ++j) {
+			if (records[j].clientPlaythroughId != event.clientPlaythroughId)
+				continue;
+			if (records[j].playthroughId.empty())
+				break;
+			event.playthrough = records[j].playthroughId;
+			event.signature = signEvent(event);
+			changed = true;
+			break;
+		}
+	}
+
+	return changed;
+}
+
+bool CEAchievementService::queuePlaythroughAuditEvent(const String &type, bool assisted, const String &historyStatus, const Array<String> &flags, const String &metadata) {
+	if (!isActivePlaythroughSyncEligible())
+		return false;
+
+	CEAchievementEvent event;
+	event.requestType = "playthrough_event";
+	event.method = "POST";
+	event.path = "/playthroughs/" + getActivePlaythroughId() + "/events";
+	event.eventId = makePlaythroughEventId(type);
+	event.playthrough = getActivePlaythroughId();
+	event.achievement = type;
+	event.assisted = assisted;
+	event.historyStatus = historyStatus;
+	event.assistanceFlags = flags;
+	event.metadata = metadata;
+	event.occurredAt = currentTimeString();
+	event.attemptCount = 0;
+	event.state = "pending";
+	event.signature = signEvent(event);
+	const bool queued = queueEvent(event);
+	retryQueuedEvents();
+	return queued;
+}
+
+bool CEAchievementService::startPlaythroughForTarget(const String &target, const String &game, const String &variant, const String &title) {
+	if (target.empty())
+		return false;
+
+	const String clientPlaythroughId = makePlaythroughId(target);
+	const String startedAt = currentTimeString();
+	const bool syncEligible = !game.empty() && !variant.empty() && !getLinkToken().empty();
+	setActivePlaythrough(target, game, variant, clientPlaythroughId, String(), "active", false, syncEligible);
+
+	CEPlaythroughRecord record;
+	record.target = target;
+	record.game = game;
+	record.variant = variant;
+	record.clientPlaythroughId = clientPlaythroughId;
+	record.title = title;
+	record.status = "active";
+	record.startedAt = startedAt;
+	record.casual = false;
+	record.syncEligible = syncEligible;
+	upsertPlaythroughRecord(record);
+
+	if (!syncEligible)
+		return true;
+
+	CEAchievementEvent event;
+	event.requestType = "playthrough_start";
+	event.method = "POST";
+	event.path = "/playthroughs";
+	event.eventId = clientPlaythroughId;
+	event.clientPlaythroughId = clientPlaythroughId;
+	event.game = game;
+	event.variant = variant;
+	event.title = title;
+	event.occurredAt = startedAt;
+	event.attemptCount = 0;
+	event.state = "pending";
+	event.signature = signEvent(event);
+	const bool queued = queueEvent(event);
+	retryQueuedEvents();
+	return queued;
+}
+
+bool CEAchievementService::hasAchievementSupport(const String &game, const String &variant) const {
+	loadCatalogIfNeeded();
+	for (uint i = 0; i < _catalog.size(); ++i) {
+		if (_catalog[i].game != game)
+			continue;
+		if (_catalog[i].variant == variant || _catalog[i].variant.empty() || _catalog[i].variant == "*")
+			return true;
+	}
+	return false;
+}
+
+String CEAchievementService::getCurrentPlaythroughForTarget(const String &target) const {
+	if (!target.empty() && getActivePlaythroughTarget() == target)
+		return getActiveClientPlaythroughId();
+	return String();
+}
+
+Array<CEPlaythroughRecord> CEAchievementService::listPlaythroughsForTarget(const String &target) const {
+	Array<CEPlaythroughRecord> result;
+	Array<CEPlaythroughRecord> records = loadPlaythroughRegistry();
+	for (uint i = 0; i < records.size(); ++i) {
+		if (records[i].target == target)
+			result.push_back(records[i]);
+	}
+	return result;
+}
+
+String CEAchievementService::getDefaultLoadPlaythroughForTarget(const String &target) const {
+	String clientPlaythroughId;
+	String startedAt;
+	Array<CEPlaythroughRecord> records = listPlaythroughsForTarget(target);
+	for (uint i = 0; i < records.size(); ++i) {
+		if (!clientPlaythroughId.empty() && records[i].startedAt <= startedAt)
+			continue;
+		clientPlaythroughId = records[i].clientPlaythroughId;
+		startedAt = records[i].startedAt;
+	}
+	return clientPlaythroughId;
+}
+
+String CEAchievementService::getSavePlaythroughForTargetSlot(const String &target, int slot) const {
+	Array<String> saveNames;
+	if (g_engine && ConfMan.getActiveDomainName() == target)
+		saveNames.push_back(g_engine->getSaveStateName(slot));
+	saveNames.push_back(String::format("%s.%03d", target.c_str(), slot));
+	saveNames.push_back(String::format("%s.%d", target.c_str(), slot));
+
+	for (uint i = 0; i < saveNames.size(); ++i) {
+		bool tainted = false;
+		String clientPlaythroughId;
+		String playthroughId;
+		if (loadPlaythroughSidecar(makePopupSidecarName(saveNames[i]), tainted, clientPlaythroughId, playthroughId))
+			return clientPlaythroughId;
+	}
+	return String();
+}
+
+bool CEAchievementService::setPlaythroughStatusForTarget(const String &target, const String &clientPlaythroughId, const String &status) {
+	if (target.empty() || clientPlaythroughId.empty() || status.empty() || status == "active" || status == "untracked")
+		return false;
+
+	Array<CEPlaythroughRecord> records = loadPlaythroughRegistry();
+	CEPlaythroughRecord record;
+	bool found = false;
+	for (uint i = 0; i < records.size(); ++i) {
+		if (records[i].target != target || records[i].clientPlaythroughId != clientPlaythroughId)
+			continue;
+		if (records[i].status == status)
+			return false;
+		if (records[i].status == "completed" && status != "archived")
+			return false;
+		if (records[i].status == "active" && status == "archived")
+			return false;
+		if (records[i].status == "archived" && status != "completed" && status != "abandoned")
+			return false;
+
+		const String endedAt = (records[i].status == "active" || records[i].endedAt.empty()) ? currentTimeString() : records[i].endedAt;
+		if (status == "archived")
+			records[i].archivedFromStatus = records[i].status == "completed" ? "completed" : "abandoned";
+		else
+			records[i].archivedFromStatus.clear();
+		records[i].status = status;
+		records[i].archived = status == "archived";
+		records[i].endedAt = endedAt;
+		records[i].syncEligible = false;
+		record = records[i];
+		found = true;
+		break;
+	}
+
+	if (!found)
+		return false;
+
+	savePlaythroughRegistry(records);
+	if (getActivePlaythroughTarget() == target && getActiveClientPlaythroughId() == clientPlaythroughId)
+		setActivePlaythrough(record.target, record.game, record.variant, record.clientPlaythroughId,
+			record.playthroughId, record.status, record.casual, false);
+
+	if (record.playthroughId.empty())
+		return true;
+
+	CEAchievementEvent event;
+	event.requestType = "playthrough_end";
+	event.method = "PATCH";
+	event.path = "/playthroughs/" + record.playthroughId;
+	event.eventId = makePlaythroughEventId(String("status-") + status);
+	event.playthrough = record.playthroughId;
+	event.status = status;
+	event.occurredAt = record.endedAt;
+	event.attemptCount = 0;
+	event.state = "pending";
+	event.signature = signEvent(event);
+	const bool queued = queueEvent(event);
+	retryQueuedEvents();
+	return queued;
+}
+
+bool CEAchievementService::setPlaythroughArchivedForTarget(const String &target, const String &clientPlaythroughId, bool archived) {
+	if (target.empty() || clientPlaythroughId.empty())
+		return false;
+
+	Array<CEPlaythroughRecord> records = loadPlaythroughRegistry();
+	for (uint i = 0; i < records.size(); ++i) {
+		if (records[i].target != target || records[i].clientPlaythroughId != clientPlaythroughId)
+			continue;
+
+		if (archived)
+			return setPlaythroughStatusForTarget(target, clientPlaythroughId, "archived");
+
+		if (records[i].status != "archived")
+			return false;
+
+		const String restoredStatus = records[i].archivedFromStatus == "completed" ? "completed" : "abandoned";
+		return setPlaythroughStatusForTarget(target, clientPlaythroughId, restoredStatus);
+	}
+
+	return false;
+}
+
+bool CEAchievementService::deletePlaythroughForTarget(const String &target, const String &clientPlaythroughId) const {
+	if (target.empty() || clientPlaythroughId.empty())
+		return false;
+
+	Array<CEPlaythroughRecord> records = loadPlaythroughRegistry();
+	bool removed = false;
+	for (int i = (int)records.size() - 1; i >= 0; --i) {
+		if (records[i].target == target && records[i].clientPlaythroughId == clientPlaythroughId) {
+			records.remove_at(i);
+			removed = true;
+		}
+	}
+	if (!removed)
+		return false;
+
+	savePlaythroughRegistry(records);
+	if (getActivePlaythroughTarget() == target && getActiveClientPlaythroughId() == clientPlaythroughId)
+		clearActivePlaythrough();
+	return true;
+}
+
+bool CEAchievementService::clearSavePlaythroughForTargetSlot(const String &target, int slot, const String &clientPlaythroughId) const {
+	if (target.empty() || clientPlaythroughId.empty() || !g_system)
+		return false;
+
+	Array<String> saveNames;
+	if (g_engine && ConfMan.getActiveDomainName() == target)
+		saveNames.push_back(g_engine->getSaveStateName(slot));
+	saveNames.push_back(String::format("%s.%03d", target.c_str(), slot));
+	saveNames.push_back(String::format("%s.%d", target.c_str(), slot));
+
+	bool removed = false;
+	for (uint i = 0; i < saveNames.size(); ++i) {
+		bool tainted = false;
+		String sidecarClientPlaythroughId;
+		String playthroughId;
+		const String sidecarName = makePopupSidecarName(saveNames[i]);
+		if (loadPlaythroughSidecar(sidecarName, tainted, sidecarClientPlaythroughId, playthroughId) &&
+				sidecarClientPlaythroughId == clientPlaythroughId) {
+			g_system->getSavefileManager()->removeSavefile(sidecarName);
+			removed = true;
+		}
+	}
+	return removed;
+}
+
+bool CEAchievementService::endActivePlaythrough(const String &status) {
+	const String currentStatus = getActivePlaythroughStatus();
+	if (getActiveClientPlaythroughId().empty() || currentStatus == "completed")
+		return false;
+
+	const String nextStatus = status.empty() ? "completed" : status;
+	if (nextStatus == "active")
+		return false;
+
+	const String playthroughId = getActivePlaythroughId();
+	const String endedAt = currentTimeString();
+	setActivePlaythrough(getActivePlaythroughTarget(), getActivePlaythroughGame(), getActivePlaythroughVariant(),
+		getActiveClientPlaythroughId(), playthroughId, nextStatus, isActivePlaythroughCasual(), false);
+	updatePlaythroughRecord(getActiveClientPlaythroughId(), playthroughId, nextStatus, isActivePlaythroughCasual(), false, endedAt);
+
+	if (playthroughId.empty())
+		return true;
+
+	CEAchievementEvent event;
+	event.requestType = "playthrough_end";
+	event.method = "PATCH";
+	event.path = "/playthroughs/" + playthroughId;
+	event.eventId = makePlaythroughEventId("end");
+	event.playthrough = playthroughId;
+	event.status = nextStatus;
+	event.occurredAt = endedAt;
+	event.attemptCount = 0;
+	event.state = "pending";
+	event.signature = signEvent(event);
+	const bool queued = queueEvent(event);
+	retryQueuedEvents();
+	return queued;
+}
+
+bool CEAchievementService::hasActivePlaythroughInProgress() const {
+	return !getActiveClientPlaythroughId().empty() && getActivePlaythroughStatus() == "active";
+}
+
+bool CEAchievementService::isActivePlaythroughSyncEligible(const String &game, const String &variant) const {
+	if (!ConfMan.getBool(kCEActivePlaythroughSyncEligibleKey, ConfigManager::kApplicationDomain))
+		return false;
+	if (getActivePlaythroughStatus() != "active")
+		return false;
+	if (getActivePlaythroughId().empty())
+		return false;
+	if (!game.empty() && getActivePlaythroughGame() != game)
+		return false;
+	if (!variant.empty() && getActivePlaythroughVariant() != variant)
+		return false;
+	return true;
+}
+
+bool CEAchievementService::activatePlaythroughRecordForLoadedSave(const String &clientPlaythroughId, const String &playthroughId) const {
+	if (clientPlaythroughId.empty()) {
+		clearActivePlaythrough();
+		return false;
+	}
+
+	Array<CEPlaythroughRecord> records = loadPlaythroughRegistry();
+	for (uint i = 0; i < records.size(); ++i) {
+		if (records[i].clientPlaythroughId != clientPlaythroughId)
+			continue;
+
+		const bool syncEligible = records[i].syncEligible && records[i].status == "active" && !records[i].playthroughId.empty() &&
+			!records[i].game.empty() && !records[i].variant.empty();
+		setActivePlaythrough(records[i].target, records[i].game, records[i].variant,
+			records[i].clientPlaythroughId, records[i].playthroughId.empty() ? playthroughId : records[i].playthroughId,
+			records[i].status, records[i].casual, syncEligible);
+		return true;
+	}
+
+	clearActivePlaythrough();
+	return false;
+}
+
+void CEAchievementService::recordSaveCreated(const String &saveName, int slot, const String &label) {
+	if (getActiveClientPlaythroughId().empty())
+		return;
+
+	const bool tainted = isActivePlaythroughCasual() || getActivePlaythroughStatus() != "active";
+	savePlaythroughSidecar(makePopupSidecarName(saveName), tainted, getActiveClientPlaythroughId(), getActivePlaythroughId());
+	if (!isActivePlaythroughSyncEligible())
+		return;
+
+	CEAchievementEvent event;
+	event.requestType = "playthrough_save";
+	event.method = "POST";
+	event.path = "/playthroughs/" + getActivePlaythroughId() + "/saves";
+	event.eventId = makePlaythroughEventId("save");
+	event.playthrough = getActivePlaythroughId();
+	event.clientSaveId = String::format("%s:slot:%d", getActiveClientPlaythroughId().c_str(), slot);
+	event.slot = String::format("%d", slot);
+	event.label = label;
+	event.saveHash = hashSaveFile(saveName);
+	event.tainted = tainted;
+	event.assistanceFlags = tainted ? getAssistanceFlags() : Array<String>();
+	event.occurredAt = currentTimeString();
+	event.attemptCount = 0;
+	event.state = "pending";
+	event.signature = signEvent(event);
+	queueEvent(event);
+	retryQueuedEvents();
+}
+
+void CEAchievementService::recordSaveLoaded(const String &saveName, int slot) {
+	bool tainted = false;
+	String clientPlaythroughId;
+	String playthroughId;
+	if (!loadPlaythroughSidecar(makePopupSidecarName(saveName), tainted, clientPlaythroughId, playthroughId) ||
+			clientPlaythroughId.empty()) {
+		clearActivePlaythrough();
+		return;
+	}
+
+	activatePlaythroughRecordForLoadedSave(clientPlaythroughId, playthroughId);
+
+	if (tainted) {
+		Array<String> flags;
+		flags.push_back("tainted_save_loaded");
+		markActivePlaythroughCasual(flags);
+		queuePlaythroughAuditEvent("tainted_save_loaded", true, "assisted", flags, "{\"tainted\":true}");
+	}
+	if (!isActivePlaythroughSyncEligible() || playthroughId != getActivePlaythroughId())
+		return;
+
+	CEAchievementEvent event;
+	event.requestType = "playthrough_save";
+	event.method = "POST";
+	event.path = "/playthroughs/" + getActivePlaythroughId() + "/saves";
+	event.eventId = makePlaythroughEventId("save_load");
+	event.playthrough = getActivePlaythroughId();
+	event.clientSaveId = String::format("%s:slot:%d", clientPlaythroughId.c_str(), slot);
+	event.slot = String::format("%d", slot);
+	event.label = saveName;
+	event.saveHash = hashSaveFile(saveName);
+	event.tainted = tainted;
+	event.assistanceFlags = tainted ? getAssistanceFlags() : Array<String>();
+	event.occurredAt = currentTimeString();
+	event.lastLoadedAt = event.occurredAt;
+	event.attemptCount = 0;
+	event.state = "pending";
+	event.signature = signEvent(event);
+	queueEvent(event);
+	retryQueuedEvents();
 }
 
 uint32 CEAchievementService::getPendingEventCount() const {
@@ -1424,6 +2276,11 @@ void CEAchievementService::startRequest(CEAchievementSyncAction action, const St
 		memcpy(buffer, body.c_str(), body.size());
 		request->setBuffer(buffer, body.size());
 	}
+	if (action == kCEAchievementSyncQueue) {
+		Array<CEAchievementEvent> events = loadQueue();
+		if (queueIndex >= 0 && queueIndex < (int)events.size() && events[queueIndex].method == "PATCH")
+			request->usePatch();
+	}
 	_syncAction = action;
 	_syncQueueIndex = queueIndex;
 	ConnMan.addRequest(request);
@@ -1433,7 +2290,7 @@ void CEAchievementService::startRequest(CEAchievementSyncAction action, const St
 }
 
 void CEAchievementService::testLinkToken() {
-	startRequest(kCEAchievementSyncTestToken, String(kCEApiBaseUrl) + "/link");
+	startRequest(kCEAchievementSyncTestToken, getApiBaseUrl() + "/link");
 }
 
 void CEAchievementService::retryQueuedEvents() {
@@ -1444,26 +2301,40 @@ void CEAchievementService::submitNextQueuedEvent() {
 	if (_syncAction != kCEAchievementSyncIdle)
 		return;
 	Array<CEAchievementEvent> events = loadQueue();
+	if (resolveQueuedAchievementPlaythroughs(events))
+		saveQueue(events);
+	bool waitingForPlaythrough = false;
 	for (uint i = 0; i < events.size(); ++i) {
 		if (events[i].state == "synced" || events[i].state == "permanent_failure")
 			continue;
+		if (events[i].requestType == "achievement" && !events[i].clientPlaythroughId.empty() && events[i].playthrough.empty()) {
+			waitingForPlaythrough = true;
+			continue;
+		}
 		if (!verifyEventSignature(events[i])) {
-			events[i].assisted = true;
-			events[i].historyStatus = "assisted";
-			events[i].assistanceFlags.push_back("queue_signature_mismatch");
-			events[i].eventId = makeEventId(events[i].game, events[i].variant, events[i].achievement, true);
-			events[i].lastError = "Queue signature mismatch; downgraded to assisted.";
-			events[i].signature = signEvent(events[i]);
+			if (events[i].requestType != "achievement") {
+				events[i].state = "permanent_failure";
+				events[i].lastError = "Queue signature mismatch.";
+			} else {
+				events[i].assisted = true;
+				events[i].historyStatus = "assisted";
+				events[i].assistanceFlags.push_back("queue_signature_mismatch");
+				events[i].eventId = makeEventId(events[i].game, events[i].variant, events[i].achievement, true, events[i].clientPlaythroughId);
+				events[i].lastError = "Queue signature mismatch; downgraded to assisted.";
+				events[i].signature = signEvent(events[i]);
+			}
 			saveQueue(events);
+			if (events[i].state == "permanent_failure")
+				continue;
 		}
 
 		events[i].attemptCount++;
 		events[i].lastAttemptAt = currentTimeString();
 		saveQueue(events);
-		startRequest(kCEAchievementSyncQueue, String(kCEApiBaseUrl) + "/events", canonicalizeEvent(events[i]), i);
+		startRequest(kCEAchievementSyncQueue, getApiBaseUrl() + events[i].path, canonicalizeEvent(events[i]), i);
 		return;
 	}
-	finishRequest("Achievement queue is empty.");
+	finishRequest(waitingForPlaythrough ? "Achievement event is waiting for playthrough sync." : "Achievement queue is empty.");
 }
 
 void CEAchievementService::requestSucceeded(const String &response, long httpCode) {
@@ -1481,10 +2352,33 @@ void CEAchievementService::requestSucceeded(const String &response, long httpCod
 	Array<CEAchievementEvent> events = loadQueue();
 	if (_syncQueueIndex >= 0 && _syncQueueIndex < (int)events.size()) {
 		if (httpCode == 200 || httpCode == 201) {
+			if (events[_syncQueueIndex].requestType == "playthrough_start") {
+				JSONValue *root = JSON::parse(response);
+				if (root && root->isObject()) {
+					const JSONObject &obj = root->asObject();
+					if (obj.contains("playthrough") && obj["playthrough"]->isObject()) {
+						const JSONObject &playthrough = obj["playthrough"]->asObject();
+						const String playthroughId = ceStringFromJson(playthrough, "id");
+						const String modeStatus = ceStringFromJson(playthrough, "mode_status");
+						if (!playthroughId.empty()) {
+							events[_syncQueueIndex].playthrough = playthroughId;
+							const bool stillActive = events[_syncQueueIndex].clientPlaythroughId == getActiveClientPlaythroughId() &&
+								getActivePlaythroughStatus() == "active";
+							if (stillActive) {
+								setActivePlaythrough(getActivePlaythroughTarget(), events[_syncQueueIndex].game, events[_syncQueueIndex].variant,
+									events[_syncQueueIndex].clientPlaythroughId, playthroughId, "active", modeStatus == "casual", true);
+							}
+							updatePlaythroughRecord(events[_syncQueueIndex].clientPlaythroughId, playthroughId, stillActive ? "active" : String(), modeStatus == "casual", stillActive);
+						}
+					}
+				}
+				delete root;
+				resolveQueuedAchievementPlaythroughs(events);
+			}
 			events[_syncQueueIndex].state = "synced";
 			events[_syncQueueIndex].lastError.clear();
 			saveQueue(events);
-			finishRequest("Achievement event synced.");
+			finishRequest(events[_syncQueueIndex].requestType == "achievement" ? "Achievement event synced." : "CE playthrough event synced.");
 			submitNextQueuedEvent();
 			return;
 		}

@@ -36,6 +36,8 @@
 #include "cine/bg_list.h"
 #include "cine/various.h"
 
+#include "engines/ce_achievements.h"
+
 namespace Cine {
 
 int16 disableSystemMenu = 0;
@@ -399,10 +401,14 @@ int CineEngine::scummVMSaveLoadDialog(bool isSave) {
 		delete fHandle;
 
 		makeSave(saveFileName, getTotalPlayTime() / 1000, desc, false);
+		Common::CEAchievements().recordSaveCreated(saveFileName, slot, desc);
 
 		return true;
 	} else {
-		return makeLoad(saveFileName);
+		const bool loaded = makeLoad(saveFileName);
+		if (loaded)
+			Common::CEAchievements().recordSaveLoaded(saveFileName, slot);
+		return loaded;
 	}
 }
 
@@ -483,7 +489,8 @@ void CineEngine::makeSystemMenu() {
 						Common::sprintf_s(loadString, otherMessages[3], currentSaveName[selectedSave]);
 						renderer->drawString(loadString, 0);
 
-						loadGameState(selectedSave);
+						if (loadGameState(selectedSave).getCode() == Common::kNoError)
+							Common::CEAchievements().recordSaveLoaded(getSaveStateName(selectedSave), selectedSave);
 					} else {
 						renderer->drawString(otherMessages[4], 0);
 						waitPlayerInput();
@@ -555,6 +562,7 @@ void CineEngine::makeSystemMenu() {
 					renderer->drawString(saveString, 0);
 
 					makeSave(saveFileName, getTotalPlayTime() / 1000, Common::String((const char *)currentSaveName), false);
+					Common::CEAchievements().recordSaveCreated(saveFileName, selectedSave, Common::String((const char *)currentSaveName[selectedSave]));
 
 					checkDataDisk(-1);
 				} else {

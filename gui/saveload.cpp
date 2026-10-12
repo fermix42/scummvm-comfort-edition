@@ -105,11 +105,24 @@ int SaveLoadChooser::runModalWithMetaEngineAndTarget(const MetaEngine *engine, c
 	ConfMan.setActiveDomain(target);
 
 	int ret;
+	bool preservePlaythroughFilter = false;
+	Common::String preservedPlaythroughClientId;
+	bool preservedShowArchivedPlaythroughs = false;
 	do {
+		if (preservePlaythroughFilter)
+			_impl->setPreferredPlaythroughFilter(preservedPlaythroughClientId, preservedShowArchivedPlaythroughs);
+
 		ret = _impl->run(target, engine);
 #ifndef DISABLE_SAVELOADCHOOSER_GRID
 		if (ret == kSwitchSaveLoadDialog) {
+			preservePlaythroughFilter = _impl->hasPlaythroughFilterState();
+			if (preservePlaythroughFilter) {
+				preservedPlaythroughClientId = _impl->getSelectedPlaythroughClientId();
+				preservedShowArchivedPlaythroughs = _impl->getShowArchivedPlaythroughs();
+			}
 			selectChooser(engine);
+		} else {
+			preservePlaythroughFilter = false;
 		}
 #endif // !DISABLE_SAVELOADCHOOSER_GRID
 	} while (ret < -1);

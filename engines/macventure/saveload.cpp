@@ -66,6 +66,7 @@ Common::Error MacVentureEngine::loadGameState(int slot) {
 
 	delete saveFile;
 	Common::CEAchievements().loadPopupStateForSave(getSaveStateName(slot));
+	Common::CEAchievements().recordSaveLoaded(getSaveStateName(slot), slot);
 	return res;
 }
 
@@ -85,6 +86,7 @@ Common::Error MacVentureEngine::saveGameState(int slot, const Common::String &de
 
 	delete saveFile;
 	Common::CEAchievements().savePopupStateForSave(saveFileName);
+	Common::CEAchievements().recordSaveCreated(saveFileName, slot, desc);
 	return Common::kNoError;
 }
 

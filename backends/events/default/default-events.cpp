@@ -32,9 +32,46 @@
 #include "backends/keymapper/virtual-mouse.h"
 #include "backends/vkeybd/virtual-keyboard.h"
 
+#include "engines/ce_achievements.h"
 #include "engines/engine.h"
 #include "gui/debugger.h"
+#include "gui/dialog.h"
 #include "gui/message.h"
+#include "gui/widget.h"
+
+namespace {
+
+class CEPlaythroughExitDialog : public GUI::Dialog {
+public:
+	CEPlaythroughExitDialog(bool returnToLauncher) : GUI::Dialog(40, 40, 420, 106), _markComplete(nullptr) {
+		new GUI::StaticTextWidget(this, 10, 10, 400, 16,
+			returnToLauncher ? _("Return to the Launcher?") : _("Quit ScummVM?"), Graphics::kTextAlignLeft);
+		new GUI::StaticTextWidget(this, 10, 30, 400, 16,
+			_("Any unsaved progress will be lost."), Graphics::kTextAlignLeft, Common::U32String(), GUI::ThemeEngine::kFontStyleNormal);
+		_markComplete = new GUI::CheckboxWidget(this, 10, 54, 400, 20, _("Mark playthrough as complete"));
+		new GUI::ButtonWidget(this, 240, 80, 80, 20, _("Cancel"), Common::U32String(), GUI::kCloseCmd);
+		new GUI::ButtonWidget(this, 330, 80, 80, 20, returnToLauncher ? _("Launcher") : _("Quit"), Common::U32String(), GUI::kOKCmd);
+	}
+
+	bool markComplete() const {
+		return _markComplete && _markComplete->getState();
+	}
+
+protected:
+	void handleCommand(GUI::CommandSender *sender, uint32 cmd, uint32 data) override {
+		if (cmd == GUI::kOKCmd || cmd == GUI::kCloseCmd) {
+			setResult(cmd);
+			close();
+			return;
+		}
+		GUI::Dialog::handleCommand(sender, cmd, data);
+	}
+
+private:
+	GUI::CheckboxWidget *_markComplete;
+};
+
+} // End of anonymous namespace
 
 DefaultEventManager::DefaultEventManager(Common::EventSource *boss) :
 	_buttonState(0),
@@ -194,7 +231,24 @@ bool DefaultEventManager::pollEvent(Common::Event &event) {
 		break;
 
 	case Common::EVENT_RETURN_TO_LAUNCHER:
-		if (g_engine && !g_engine->hasFeature(Engine::kSupportsQuitDialogOverride) && ConfMan.getBool("confirm_exit")) {
+		if (g_engine && Common::CEAchievements().hasActivePlaythroughInProgress()) {
+			if (_confirmExitDialogActive) {
+				forwardEvent = false;
+				break;
+			}
+			_confirmExitDialogActive = true;
+			{
+				PauseToken pt;
+				if (g_engine)
+					pt = g_engine->pauseEngine();
+				CEPlaythroughExitDialog alert(true);
+				const bool accepted = alert.runModal() == GUI::kOKCmd;
+				forwardEvent = _shouldReturnToLauncher = accepted;
+				if (accepted && alert.markComplete())
+					Common::CEAchievements().endActivePlaythrough("completed");
+			}
+			_confirmExitDialogActive = false;
+		} else if (g_engine && !g_engine->hasFeature(Engine::kSupportsQuitDialogOverride) && ConfMan.getBool("confirm_exit")) {
 			if (_confirmExitDialogActive) {
 				forwardEvent = false;
 				break;
@@ -218,7 +272,24 @@ bool DefaultEventManager::pollEvent(Common::Event &event) {
 		break;
 
 	case Common::EVENT_QUIT:
-		if (g_engine && !g_engine->hasFeature(Engine::kSupportsQuitDialogOverride) && ConfMan.getBool("confirm_exit")) {
+		if (g_engine && Common::CEAchievements().hasActivePlaythroughInProgress()) {
+			if (_confirmExitDialogActive) {
+				forwardEvent = false;
+				break;
+			}
+			_confirmExitDialogActive = true;
+
+			{
+				PauseToken pt;
+				pt = g_engine->pauseEngine();
+				CEPlaythroughExitDialog alert(false);
+				const bool accepted = alert.runModal() == GUI::kOKCmd;
+				forwardEvent = _shouldQuit = accepted;
+				if (accepted && alert.markComplete())
+					Common::CEAchievements().endActivePlaythrough("completed");
+			}
+			_confirmExitDialogActive = false;
+		} else if (g_engine && !g_engine->hasFeature(Engine::kSupportsQuitDialogOverride) && ConfMan.getBool("confirm_exit")) {
 			if (_confirmExitDialogActive) {
 				forwardEvent = false;
 				break;

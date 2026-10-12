@@ -733,6 +733,12 @@ void MacVentureEngine::resetGui() {
 
 void MacVentureEngine::requestQuit() {
 	// TODO: Display save game dialog and such
+	if (Common::CEAchievements().hasActivePlaythroughInProgress()) {
+		Common::Event event;
+		event.type = Common::EVENT_QUIT;
+		g_system->getEventManager()->pushEvent(event);
+		return;
+	}
 	_gameState = kGameStateQuitting;
 }
 

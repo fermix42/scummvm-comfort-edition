@@ -54,6 +54,7 @@
 #include "gui/widgets/popup.h"
 #include "gui/widgets/grid.h"
 #include "gui/ThemeEval.h"
+#include "engines/ce_achievements.h"
 #include "engines/advancedDetector.h"
 
 #include "graphics/cursorman.h"
@@ -65,6 +66,38 @@
 #endif
 
 namespace GUI {
+
+class CEPlaythroughNameDialog : public Dialog {
+public:
+	CEPlaythroughNameDialog(const Common::String &defaultName) : Dialog(20, 20, 420, 92), _name(nullptr) {
+		new StaticTextWidget(this, 10, 12, 400, 16, _("Playthrough name:"), Graphics::kTextAlignLeft);
+		_name = new EditTextWidget(this, 10, 32, 400, 20, Common::U32String(defaultName));
+		new ButtonWidget(this, 230, 62, 80, 20, _("Cancel"), Common::U32String(), kCloseCmd);
+		new ButtonWidget(this, 320, 62, 80, 20, _("Start"), Common::U32String(), kOKCmd);
+	}
+
+	Common::String getName() const {
+		return _name ? _name->getEditString() : Common::String();
+	}
+
+	void open() override {
+		Dialog::open();
+		setFocusWidget(_name);
+	}
+
+protected:
+	void handleCommand(CommandSender *sender, uint32 cmd, uint32 data) override {
+		if (cmd == kOKCmd || cmd == kCloseCmd) {
+			setResult(cmd);
+			close();
+			return;
+		}
+		Dialog::handleCommand(sender, cmd, data);
+	}
+
+private:
+	EditTextWidget *_name;
+};
 
 enum {
 	kStartCmd = 'STRT',
@@ -127,6 +160,56 @@ const GroupingMode groupingModes[] = {
 
 static Common::String buildQualifiedGameName(const Common::String &engineId, const Common::String &gameId) {
 	return Common::String::format("%s:%s", engineId.c_str(), gameId.c_str());
+}
+
+static Common::String makeDefaultPlaythroughName(const Common::String &description) {
+	TimeDate td;
+	g_system->getTimeAndDate(td, false);
+	Common::String title = description.empty() ? _("Playthrough").encode() : description;
+	return Common::String::format("%s - %04d-%02d-%02d %02d:%02d",
+		title.c_str(), td.tm_year + 1900, td.tm_mon + 1, td.tm_mday, td.tm_hour, td.tm_min);
+}
+
+static Common::String getDomainValueOrEmpty(const Common::ConfigManager::Domain *domain, const Common::String &key) {
+	Common::String value;
+	if (domain)
+		domain->tryGetVal(key, value);
+	return value;
+}
+
+static void resolveCEAchievementTarget(const Common::ConfigManager::Domain *domain, Common::String &game, Common::String &variant) {
+	game = getDomainValueOrEmpty(domain, "ce_achievements_game");
+	variant = getDomainValueOrEmpty(domain, "ce_achievements_variant");
+	if (!game.empty() && !variant.empty())
+		return;
+
+	const Common::String engineId = getDomainValueOrEmpty(domain, "engineid");
+	const Common::String gameId = getDomainValueOrEmpty(domain, "gameid");
+	const Common::String platform = getDomainValueOrEmpty(domain, "platform");
+
+	if (engineId == "cine" && gameId == "os") {
+		game = "operation-stealth";
+		if (platform == "amiga")
+			variant = "amiga";
+		else if (platform == "atari")
+			variant = "atari-st";
+		else
+			variant = "dos-vga";
+		return;
+	}
+
+	if (engineId == "macventure" && gameId == "deja_vu" && platform == "macintosh") {
+		game = "deja-vu";
+		variant = "macintosh-floppy";
+		return;
+	}
+
+	if (game.empty())
+		game = gameId;
+	if (variant.empty())
+		variant = platform;
+	if (variant.empty())
+		variant = "*";
 }
 
 bool LauncherFilterMatcher(void *boss, int idx, const Common::U32String &item, const Common::U32String &token_) {
@@ -847,8 +930,27 @@ void LauncherDialog::handleCommand(CommandSender *sender, uint32 cmd, uint32 dat
 	case kStartCmd:
 		// Start the selected game.
 		if (item < 0 || isAddOn) return;
-		ConfMan.setActiveDomain(_domains[item]);
-		close();
+		{
+			Common::ConfigManager::Domain *domain = ConfMan.getDomain(_domains[item]);
+			Common::String description = getDomainValueOrEmpty(domain, "description");
+			if (description.empty())
+				description = _domains[item];
+			CEPlaythroughNameDialog dialog(makeDefaultPlaythroughName(description));
+			if (dialog.runModal() != kOKCmd)
+				return;
+
+			Common::String game;
+			Common::String variant;
+			resolveCEAchievementTarget(domain, game, variant);
+			if (!Common::CEAchievements().hasAchievementSupport(game, variant)) {
+				game.clear();
+				variant.clear();
+			}
+
+			Common::CEAchievements().startPlaythroughForTarget(_domains[item], game, variant, dialog.getName());
+			ConfMan.setActiveDomain(_domains[item]);
+			close();
+		}
 		break;
 	case kQuitCmd:
 		ConfMan.setActiveDomain("");

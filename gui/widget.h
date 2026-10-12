@@ -350,6 +350,7 @@ public:
 	void handleMouseLeft(int button) override	{ clearFlags(WIDGET_HILITED); markAsDirty(); }
 
 	void setState(bool state);
+	void setStateSilently(bool state);
 	void toggleState()			{ setState(!_state); }
 	bool getState() const		{ return _state; }
 

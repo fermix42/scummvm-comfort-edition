@@ -33,7 +33,9 @@
 #include "gui/message.h"
 #include "gui/gui-manager.h"
 #include "gui/ThemeEval.h"
+#include "gui/widget.h"
 #include "gui/widgets/edittext.h"
+#include "gui/widgets/popup.h"
 
 #include "graphics/scaler.h"
 #include "common/savefile.h"
@@ -171,10 +173,49 @@ enum {
 };
 #endif // !DISABLE_SAVELOADCHOOSER_GRID
 
+enum {
+	kPlaythroughSwitchCmd = 'CPTP',
+	kShowArchivedPlaythroughsCmd = 'SAPT',
+	kDeletePlaythroughCmd = 'DPTP',
+	kCompletePlaythroughCmd = 'MPTP',
+	kAbandonPlaythroughCmd = 'APTP',
+	kArchivePlaythroughCmd = 'RPTP'
+};
+
+class CEDeletePlaythroughDialog : public Dialog {
+public:
+	CEDeletePlaythroughDialog(const Common::String &title) : Dialog(40, 40, 360, 122), _deleteSaves(nullptr) {
+		new StaticTextWidget(this, 10, 10, 340, 16, _("Delete this playthrough locally?"), Graphics::kTextAlignLeft);
+		new StaticTextWidget(this, 10, 30, 340, 16, title, Graphics::kTextAlignLeft);
+		_deleteSaves = new CheckboxWidget(this, 10, 54, 340, 20, _("Also delete saves in this playthrough"));
+		new ButtonWidget(this, 170, 88, 80, 20, _("Cancel"), Common::U32String(), kCloseCmd);
+		new ButtonWidget(this, 260, 88, 80, 20, _("Delete"), Common::U32String(), kOKCmd);
+	}
+
+	bool shouldDeleteSaves() const {
+		return _deleteSaves && _deleteSaves->getState();
+	}
+
+protected:
+	void handleCommand(CommandSender *sender, uint32 cmd, uint32 data) override {
+		if (cmd == kOKCmd || cmd == kCloseCmd) {
+			setResult(cmd);
+			close();
+			return;
+		}
+		Dialog::handleCommand(sender, cmd, data);
+	}
+
+private:
+	CheckboxWidget *_deleteSaves;
+};
+
 SaveLoadChooserDialog::SaveLoadChooserDialog(const Common::String &dialogName, const bool saveMode)
 	: Dialog(dialogName), _metaEngine(nullptr), _delSupport(false), _metaInfoSupport(false),
 	_thumbnailSupport(false), _saveDateSupport(false), _playTimeSupport(false), _saveMode(saveMode),
-	_dialogWasShown(false)
+	_dialogWasShown(false), _playthroughPopup(nullptr), _showArchivedPlaythroughsCheckbox(nullptr), _completePlaythroughButton(nullptr),
+	_abandonPlaythroughButton(nullptr), _archivePlaythroughButton(nullptr), _deletePlaythroughButton(nullptr),
+	_hasPreferredPlaythroughFilter(false), _playthroughFilterEnabled(false), _showArchivedPlaythroughs(false)
 #ifndef DISABLE_SAVELOADCHOOSER_GRID
 	, _listButton(nullptr), _gridButton(nullptr)
 #endif // !DISABLE_SAVELOADCHOOSER_GRID
@@ -190,7 +231,9 @@ SaveLoadChooserDialog::SaveLoadChooserDialog(const Common::String &dialogName, c
 SaveLoadChooserDialog::SaveLoadChooserDialog(int x, int y, int w, int h, const bool saveMode)
 	: Dialog(x, y, w, h), _metaEngine(nullptr), _delSupport(false), _metaInfoSupport(false),
 	_thumbnailSupport(false), _saveDateSupport(false), _playTimeSupport(false), _saveMode(saveMode),
-	_dialogWasShown(false)
+	_dialogWasShown(false), _playthroughPopup(nullptr), _showArchivedPlaythroughsCheckbox(nullptr), _completePlaythroughButton(nullptr),
+	_abandonPlaythroughButton(nullptr), _archivePlaythroughButton(nullptr), _deletePlaythroughButton(nullptr),
+	_hasPreferredPlaythroughFilter(false), _playthroughFilterEnabled(false), _showArchivedPlaythroughs(false)
 #ifndef DISABLE_SAVELOADCHOOSER_GRID
 	, _listButton(nullptr), _gridButton(nullptr)
 #endif // !DISABLE_SAVELOADCHOOSER_GRID
@@ -217,22 +260,91 @@ void SaveLoadChooserDialog::open() {
 }
 
 void SaveLoadChooserDialog::close() {
+	if (_playthroughPopup)
+		_playthroughPopup->setVisible(false);
+	if (_showArchivedPlaythroughsCheckbox)
+		_showArchivedPlaythroughsCheckbox->setVisible(false);
+	if (_completePlaythroughButton)
+		_completePlaythroughButton->setVisible(false);
+	if (_abandonPlaythroughButton)
+		_abandonPlaythroughButton->setVisible(false);
+	if (_archivePlaythroughButton)
+		_archivePlaythroughButton->setVisible(false);
+	if (_deletePlaythroughButton)
+		_deletePlaythroughButton->setVisible(false);
 	Dialog::close();
+}
+
+Common::String SaveLoadChooserDialog::getSelectedPlaythroughClientId() const {
+	if (_playthroughPopup) {
+		const uint32 selectedTag = _playthroughPopup->getSelectedTag();
+		if (selectedTag < _playthroughs.size())
+			return _playthroughs[selectedTag].clientPlaythroughId;
+	}
+
+	return _selectedPlaythroughClientId;
+}
+
+void SaveLoadChooserDialog::setPreferredPlaythroughFilter(const Common::String &clientPlaythroughId, bool showArchived) {
+	_preferredPlaythroughClientId = clientPlaythroughId;
+	_hasPreferredPlaythroughFilter = true;
+	_selectedPlaythroughClientId = clientPlaythroughId;
+	_showArchivedPlaythroughs = showArchived;
 }
 
 int SaveLoadChooserDialog::run(const Common::String &target, const MetaEngine *metaEngine) {
 	_metaEngine = metaEngine;
 	_target = target;
+	if (!_hasPreferredPlaythroughFilter)
+		_selectedPlaythroughClientId.clear();
 	_delSupport = _metaEngine->hasFeature(MetaEngine::kSupportsDeleteSave);
 	_metaInfoSupport = _metaEngine->hasFeature(MetaEngine::kSavesSupportMetaInfo);
 	_thumbnailSupport = _metaInfoSupport && _metaEngine->hasFeature(MetaEngine::kSavesSupportThumbnail);
 	_saveDateSupport = _metaInfoSupport && _metaEngine->hasFeature(MetaEngine::kSavesSupportCreationDate);
 	_playTimeSupport = _metaInfoSupport && _metaEngine->hasFeature(MetaEngine::kSavesSupportPlayTime);
+	setupPlaythroughFilter();
 
 	return runIntern();
 }
 
 void SaveLoadChooserDialog::handleCommand(CommandSender *sender, uint32 cmd, uint32 data) {
+	if (cmd == kPlaythroughSwitchCmd) {
+		if (_playthroughPopup && data < _playthroughs.size())
+			_selectedPlaythroughClientId = _playthroughs[data].clientPlaythroughId;
+		updatePlaythroughActions();
+		updateSaveList(false);
+		return;
+	}
+	if (cmd == kShowArchivedPlaythroughsCmd) {
+		_showArchivedPlaythroughs = _showArchivedPlaythroughsCheckbox && _showArchivedPlaythroughsCheckbox->getState();
+		setupPlaythroughFilter();
+		updateSaveList(false);
+		return;
+	}
+	if (cmd == kDeletePlaythroughCmd) {
+		deleteSelectedPlaythrough();
+		return;
+	}
+	if (cmd == kCompletePlaythroughCmd) {
+		setSelectedPlaythroughStatus("completed");
+		return;
+	}
+	if (cmd == kAbandonPlaythroughCmd) {
+		setSelectedPlaythroughStatus("abandoned");
+		return;
+	}
+	if (cmd == kArchivePlaythroughCmd) {
+		bool archived = false;
+		for (uint i = 0; i < _playthroughs.size(); ++i) {
+			if (_playthroughs[i].clientPlaythroughId == _selectedPlaythroughClientId) {
+				archived = _playthroughs[i].archived;
+				break;
+			}
+		}
+		setSelectedPlaythroughArchived(!archived);
+		return;
+	}
+
 #ifndef DISABLE_SAVELOADCHOOSER_GRID
 	switch (cmd) {
 	case kListSwitchCmd:
@@ -314,6 +426,46 @@ void SaveLoadChooserDialog::reflowLayout() {
 #endif // !DISABLE_SAVELOADCHOOSER_GRID
 
 	Dialog::reflowLayout();
+
+	if (_playthroughPopup && _playthroughPopup->isVisible()) {
+		int16 x, y, w, h;
+		if (g_gui.xmlEval()->getWidgetData("SaveLoadChooser.List", x, y, w, h) && w > 0) {
+			const int gap = SCALEVALUE(6);
+			const int rowRight = MAX<int>(x + SCALEVALUE(180), getWidth() - SCALEVALUE(10));
+			const int rowW = MAX<int>(SCALEVALUE(120), rowRight - x);
+			const int minPopupW = SCALEVALUE(220);
+			const int archivedCheckboxW = SCALEVALUE(128);
+			const int statusButtonW = SCALEVALUE(78);
+			const int archiveButtonW = SCALEVALUE(86);
+			const int deleteButtonW = SCALEVALUE(96);
+			const int popupY = y;
+			const int actionsW = archivedCheckboxW + statusButtonW * 2 + archiveButtonW + deleteButtonW + gap * 5;
+			const bool singleRow = rowW >= minPopupW + actionsW;
+			const int popupW = singleRow ? rowW - actionsW : rowW;
+			int actionsX = singleRow ? x + popupW + gap : x;
+			const int actionsY = singleRow ? popupY : popupY + kLineHeight + gap;
+
+			_playthroughPopup->resize(x, popupY, popupW, kLineHeight, false);
+			if (_showArchivedPlaythroughsCheckbox && _showArchivedPlaythroughsCheckbox->isVisible()) {
+				_showArchivedPlaythroughsCheckbox->resize(actionsX, actionsY, archivedCheckboxW, kLineHeight, false);
+				actionsX += archivedCheckboxW + gap;
+			}
+			if (_completePlaythroughButton && _completePlaythroughButton->isVisible()) {
+				_completePlaythroughButton->resize(actionsX, actionsY, statusButtonW, kLineHeight, false);
+				actionsX += statusButtonW + gap;
+			}
+			if (_abandonPlaythroughButton && _abandonPlaythroughButton->isVisible()) {
+				_abandonPlaythroughButton->resize(actionsX, actionsY, statusButtonW, kLineHeight, false);
+				actionsX += statusButtonW + gap;
+			}
+			if (_archivePlaythroughButton && _archivePlaythroughButton->isVisible()) {
+				_archivePlaythroughButton->resize(actionsX, actionsY, archiveButtonW, kLineHeight, false);
+				actionsX += archiveButtonW + gap;
+			}
+			if (_deletePlaythroughButton && _deletePlaythroughButton->isVisible())
+				_deletePlaythroughButton->resize(actionsX, actionsY, deleteButtonW, kLineHeight, false);
+		}
+	}
 }
 
 void SaveLoadChooserDialog::updateSaveList(bool external) {
@@ -327,6 +479,7 @@ void SaveLoadChooserDialog::updateSaveList(bool external) {
 void SaveLoadChooserDialog::listSaves() {
 	if (!_metaEngine) return; //very strange
 	_saveList = _metaEngine->listSaves(_target.c_str(), _saveMode);
+	filterSavesForSelectedPlaythrough();
 
 #ifdef USE_CLOUD
 	//if there is Cloud support, add currently synced files as "locked" saves in the list
@@ -354,6 +507,270 @@ void SaveLoadChooserDialog::listSaves() {
 		Common::sort(_saveList.begin(), _saveList.end(), SaveStateDescriptorSlotComparator());
 	}
 #endif
+}
+
+void SaveLoadChooserDialog::setupPlaythroughFilter() {
+	_playthroughFilterEnabled = !_target.empty();
+	_playthroughs.clear();
+	const bool hadPreferredPlaythroughFilter = _hasPreferredPlaythroughFilter;
+	if (_hasPreferredPlaythroughFilter) {
+		_selectedPlaythroughClientId = _preferredPlaythroughClientId;
+		_preferredPlaythroughClientId.clear();
+		_hasPreferredPlaythroughFilter = false;
+	}
+
+	if (!_playthroughPopup) {
+		_playthroughPopup = new PopUpWidget(this, 10, 28, 320, 20, _("Playthrough"), kPlaythroughSwitchCmd);
+		_playthroughPopup->setVisible(false);
+	}
+	if (!_showArchivedPlaythroughsCheckbox) {
+		_showArchivedPlaythroughsCheckbox = new CheckboxWidget(this, 340, 28, 120, 20, _("Show archived"), Common::U32String(), kShowArchivedPlaythroughsCmd);
+		_showArchivedPlaythroughsCheckbox->setVisible(false);
+	}
+	if (!_completePlaythroughButton) {
+		_completePlaythroughButton = new ButtonWidget(this, 340, 28, 80, 20, _("Complete"), Common::U32String(), kCompletePlaythroughCmd);
+		_completePlaythroughButton->setVisible(false);
+		_completePlaythroughButton->setEnabled(false);
+	}
+	if (!_abandonPlaythroughButton) {
+		_abandonPlaythroughButton = new ButtonWidget(this, 428, 28, 80, 20, _("Abandon"), Common::U32String(), kAbandonPlaythroughCmd);
+		_abandonPlaythroughButton->setVisible(false);
+		_abandonPlaythroughButton->setEnabled(false);
+	}
+	if (!_archivePlaythroughButton) {
+		_archivePlaythroughButton = new ButtonWidget(this, 516, 28, 80, 20, _("Archive"), Common::U32String(), kArchivePlaythroughCmd);
+		_archivePlaythroughButton->setVisible(false);
+		_archivePlaythroughButton->setEnabled(false);
+	}
+	if (!_deletePlaythroughButton) {
+		_deletePlaythroughButton = new ButtonWidget(this, 604, 28, 90, 20, _("Delete Run"), Common::U32String(), kDeletePlaythroughCmd);
+		_deletePlaythroughButton->setVisible(false);
+		_deletePlaythroughButton->setEnabled(false);
+	}
+
+	if (!_playthroughFilterEnabled) {
+		if (_playthroughPopup)
+			_playthroughPopup->setVisible(false);
+		if (_showArchivedPlaythroughsCheckbox)
+			_showArchivedPlaythroughsCheckbox->setVisible(false);
+		if (_completePlaythroughButton)
+			_completePlaythroughButton->setVisible(false);
+		if (_abandonPlaythroughButton)
+			_abandonPlaythroughButton->setVisible(false);
+		if (_archivePlaythroughButton)
+			_archivePlaythroughButton->setVisible(false);
+		if (_deletePlaythroughButton)
+			_deletePlaythroughButton->setVisible(false);
+		return;
+	}
+
+	Common::Array<Common::CEPlaythroughRecord> allPlaythroughs = Common::CEAchievements().listPlaythroughsForTarget(_target);
+	for (uint i = 0; i < allPlaythroughs.size(); ++i) {
+		if (!_saveMode && allPlaythroughs[i].archived && !_showArchivedPlaythroughs)
+			continue;
+		_playthroughs.push_back(allPlaythroughs[i]);
+	}
+
+	if (!_saveMode) {
+		Common::CEPlaythroughRecord untracked;
+		untracked.target = _target;
+		untracked.title = _("Untracked Saves").encode();
+		untracked.status = "untracked";
+		_playthroughs.push_back(untracked);
+	}
+
+	if (_saveMode) {
+		_selectedPlaythroughClientId = Common::CEAchievements().getCurrentPlaythroughForTarget(_target);
+	} else if (!hadPreferredPlaythroughFilter && _selectedPlaythroughClientId.empty()) {
+		_selectedPlaythroughClientId = Common::CEAchievements().getDefaultLoadPlaythroughForTarget(_target);
+	}
+	if (!_saveMode) {
+		bool selectedIsVisible = _selectedPlaythroughClientId.empty();
+		for (uint i = 0; i < _playthroughs.size(); ++i) {
+			if (_playthroughs[i].clientPlaythroughId == _selectedPlaythroughClientId) {
+				selectedIsVisible = true;
+				break;
+			}
+		}
+		if (!selectedIsVisible) {
+			_selectedPlaythroughClientId.clear();
+			Common::String startedAt;
+			for (uint i = 0; i < _playthroughs.size(); ++i) {
+				if (_playthroughs[i].status == "untracked")
+					continue;
+				if (!_selectedPlaythroughClientId.empty() && _playthroughs[i].startedAt <= startedAt)
+					continue;
+				_selectedPlaythroughClientId = _playthroughs[i].clientPlaythroughId;
+				startedAt = _playthroughs[i].startedAt;
+			}
+		}
+	}
+	populatePlaythroughPopup();
+}
+
+void SaveLoadChooserDialog::populatePlaythroughPopup() {
+	if (!_playthroughPopup)
+		return;
+
+	_playthroughPopup->clearEntries();
+	int selected = 0;
+	for (uint i = 0; i < _playthroughs.size(); ++i) {
+		Common::String title = _playthroughs[i].title.empty() ? _("Playthrough").encode() : _playthroughs[i].title;
+		if (!_playthroughs[i].startedAt.empty() && _playthroughs[i].status != "untracked")
+			title += " - " + _playthroughs[i].startedAt;
+		Common::String statusLabel;
+		if (!_playthroughs[i].status.empty() && _playthroughs[i].status != "active" && _playthroughs[i].status != "untracked")
+			statusLabel = _playthroughs[i].status;
+		if (_playthroughs[i].archived) {
+			if (!statusLabel.empty() && statusLabel != "archived")
+				statusLabel += ", ";
+			if (statusLabel != "archived")
+				statusLabel += "archived";
+		}
+		if (!statusLabel.empty())
+			title += " (" + statusLabel + ")";
+		_playthroughPopup->appendEntry(title, i);
+		if (_playthroughs[i].clientPlaythroughId == _selectedPlaythroughClientId)
+			selected = i;
+	}
+	if (_playthroughs.size() > 0)
+		_selectedPlaythroughClientId = _playthroughs[selected].clientPlaythroughId;
+	_playthroughPopup->setSelected(selected);
+	_playthroughPopup->setVisible(!_saveMode && _playthroughFilterEnabled && !_playthroughs.empty());
+	if (_showArchivedPlaythroughsCheckbox) {
+		_showArchivedPlaythroughsCheckbox->setStateSilently(_showArchivedPlaythroughs);
+		_showArchivedPlaythroughsCheckbox->setVisible(!_saveMode && _playthroughFilterEnabled && !_playthroughs.empty());
+	}
+	updatePlaythroughActions();
+}
+
+void SaveLoadChooserDialog::filterSavesForSelectedPlaythrough() {
+	if (!_playthroughFilterEnabled)
+		return;
+
+	for (int i = (int)_saveList.size() - 1; i >= 0; --i) {
+		const Common::String savePlaythrough = Common::CEAchievements().getSavePlaythroughForTargetSlot(_target, _saveList[i].getSaveSlot());
+		if (savePlaythrough != _selectedPlaythroughClientId)
+			_saveList.remove_at(i);
+	}
+}
+
+int16 SaveLoadChooserDialog::getPlaythroughFilterHeight() const {
+	if (!_playthroughPopup || !_playthroughPopup->isVisible())
+		return 0;
+
+	int16 x, y, w, h;
+	if (!g_gui.xmlEval()->getWidgetData("SaveLoadChooser.List", x, y, w, h) || w <= 0)
+		return 0;
+
+	const int gap = SCALEVALUE(6);
+	const int rowRight = MAX<int>(x + SCALEVALUE(180), getWidth() - SCALEVALUE(10));
+	const int rowW = MAX<int>(SCALEVALUE(120), rowRight - x);
+	const int minPopupW = SCALEVALUE(220);
+	const int archivedCheckboxW = SCALEVALUE(128);
+	const int statusButtonW = SCALEVALUE(78);
+	const int archiveButtonW = SCALEVALUE(86);
+	const int deleteButtonW = SCALEVALUE(96);
+	const int actionsW = archivedCheckboxW + statusButtonW * 2 + archiveButtonW + deleteButtonW + gap * 5;
+
+	return (rowW >= minPopupW + actionsW) ? kLineHeight + SCALEVALUE(8) : kLineHeight * 2 + gap + SCALEVALUE(8);
+}
+
+void SaveLoadChooserDialog::updatePlaythroughActions() {
+	if (!_deletePlaythroughButton)
+		return;
+
+	Common::String status;
+	bool archived = false;
+	for (uint i = 0; i < _playthroughs.size(); ++i) {
+		if (_playthroughs[i].clientPlaythroughId == _selectedPlaythroughClientId) {
+			status = _playthroughs[i].status;
+			archived = _playthroughs[i].archived;
+			break;
+		}
+	}
+
+	const bool canManage = !_saveMode && _playthroughFilterEnabled && !_selectedPlaythroughClientId.empty() &&
+		status != "untracked" && !status.empty();
+	const bool canComplete = canManage && !archived && status == "active";
+	const bool canAbandon = canManage && !archived && status == "active";
+	const bool canArchive = canManage && (archived || status == "completed" || status == "abandoned");
+	const bool canDelete = !_saveMode && _playthroughFilterEnabled && !_selectedPlaythroughClientId.empty();
+
+	if (_completePlaythroughButton) {
+		_completePlaythroughButton->setVisible(!_saveMode && _playthroughFilterEnabled && !_playthroughs.empty());
+		_completePlaythroughButton->setEnabled(canComplete);
+	}
+	if (_abandonPlaythroughButton) {
+		_abandonPlaythroughButton->setVisible(!_saveMode && _playthroughFilterEnabled && !_playthroughs.empty());
+		_abandonPlaythroughButton->setEnabled(canAbandon);
+	}
+	if (_archivePlaythroughButton) {
+		_archivePlaythroughButton->setLabel(archived ? _("Unarchive") : _("Archive"));
+		_archivePlaythroughButton->setVisible(!_saveMode && _playthroughFilterEnabled && !_playthroughs.empty());
+		_archivePlaythroughButton->setEnabled(canArchive);
+	}
+
+	_deletePlaythroughButton->setVisible(!_saveMode && _playthroughFilterEnabled && !_playthroughs.empty());
+	_deletePlaythroughButton->setEnabled(canDelete);
+}
+
+void SaveLoadChooserDialog::setSelectedPlaythroughStatus(const Common::String &status) {
+	if (!_playthroughFilterEnabled || _selectedPlaythroughClientId.empty())
+		return;
+
+	if (!Common::CEAchievements().setPlaythroughStatusForTarget(_target, _selectedPlaythroughClientId, status))
+		return;
+
+	setupPlaythroughFilter();
+	updateSaveList(false);
+}
+
+void SaveLoadChooserDialog::setSelectedPlaythroughArchived(bool archived) {
+	if (!_playthroughFilterEnabled || _selectedPlaythroughClientId.empty())
+		return;
+
+	if (!Common::CEAchievements().setPlaythroughArchivedForTarget(_target, _selectedPlaythroughClientId, archived))
+		return;
+
+	if (!archived)
+		_showArchivedPlaythroughs = true;
+	setupPlaythroughFilter();
+	updateSaveList(false);
+}
+
+void SaveLoadChooserDialog::deleteSelectedPlaythrough() {
+	if (!_playthroughFilterEnabled || _selectedPlaythroughClientId.empty() || !_metaEngine)
+		return;
+
+	Common::String title = _("Playthrough").encode();
+	for (uint i = 0; i < _playthroughs.size(); ++i) {
+		if (_playthroughs[i].clientPlaythroughId == _selectedPlaythroughClientId) {
+			if (!_playthroughs[i].title.empty())
+				title = _playthroughs[i].title;
+			break;
+		}
+	}
+
+	CEDeletePlaythroughDialog dialog(title);
+	if (dialog.runModal() != kOKCmd)
+		return;
+
+	const Common::String deletedPlaythroughId = _selectedPlaythroughClientId;
+	if (dialog.shouldDeleteSaves()) {
+		for (int i = (int)_saveList.size() - 1; i >= 0; --i) {
+			const int saveSlot = _saveList[i].getSaveSlot();
+			Common::CEAchievements().clearSavePlaythroughForTargetSlot(_target, saveSlot, deletedPlaythroughId);
+			_metaEngine->removeSaveState(_target.c_str(), saveSlot);
+		}
+	} else {
+		for (uint i = 0; i < _saveList.size(); ++i)
+			Common::CEAchievements().clearSavePlaythroughForTargetSlot(_target, _saveList[i].getSaveSlot(), deletedPlaythroughId);
+	}
+
+	Common::CEAchievements().deletePlaythroughForTarget(_target, deletedPlaythroughId);
+	setupPlaythroughFilter();
+	updateSaveList(false);
 }
 
 void SaveLoadChooserDialog::activate(int slot, const Common::String &description) {
@@ -572,6 +989,14 @@ void SaveLoadChooserSimple::reflowLayout() {
 	addThumbnailContainer();
 
 	SaveLoadChooserDialog::reflowLayout();
+	const int16 playthroughFilterHeight = getPlaythroughFilterHeight();
+
+	if (playthroughFilterHeight > 0) {
+		int16 x, y, w, h;
+		if (!g_gui.xmlEval()->getWidgetData("SaveLoadChooser.List", x, y, w, h))
+			error("Could not load widget position for 'SaveLoadChooser.List'");
+		_list->resize(x, y + playthroughFilterHeight, w, MAX<int16>(kLineHeight, h - playthroughFilterHeight), false);
+	}
 
 	if (g_gui.xmlEval()->getVar("Globals.SaveLoadChooser.ExtInfo.Visible") == 1 && (_thumbnailSupport || _saveDateSupport || _playTimeSupport)) {
 		int16 x, y;
@@ -579,6 +1004,10 @@ void SaveLoadChooserSimple::reflowLayout() {
 
 		if (!g_gui.xmlEval()->getWidgetData("SaveLoadChooser.Thumbnail", x, y, w, h))
 			error("Error when loading position data for Save/Load Thumbnails");
+		if (playthroughFilterHeight > 0) {
+			y += playthroughFilterHeight;
+			h = MAX<int16>(kLineHeight, h - playthroughFilterHeight);
+		}
 
 		// Even if there is no thumbnail support, getWidgetData() will provide default thumbnail values
 		int thumbW = SCALEVALUE(kThumbnailWidth);
@@ -1002,6 +1431,11 @@ void SaveLoadChooserGrid::reflowLayout() {
 	int16 w;
 	if (!g_gui.xmlEval()->getWidgetData("SaveLoadChooser.List", x, y, w, availableHeight))
 		error("Could not load widget position for 'SaveLoadChooser.List'");
+	{
+		const int16 playthroughFilterHeight = getPlaythroughFilterHeight();
+		y += playthroughFilterHeight;
+		availableHeight = MAX<int16>(kLineHeight, availableHeight - playthroughFilterHeight);
+	}
 
 	const int16 buttonWidth = SCALEVALUE(kThumbnailWidth + 6);
 	const int16 buttonHeight = SCALEVALUE(kThumbnailHeight2 + 6);

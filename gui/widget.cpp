@@ -738,6 +738,13 @@ void CheckboxWidget::setState(bool state) {
 	sendCommand(_cmd, _state);
 }
 
+void CheckboxWidget::setStateSilently(bool state) {
+	if (_state != state) {
+		_state = state;
+		markAsDirty();
+	}
+}
+
 void CheckboxWidget::setOverride(bool enable) {
 	_overrideText = enable;
 }

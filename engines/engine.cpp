@@ -23,6 +23,7 @@
 #include "engines/dialogs.h"
 #include "engines/util.h"
 #include "engines/metaengine.h"
+#include "engines/ce_achievements.h"
 
 #include "common/config-manager.h"
 #include "common/events.h"
@@ -1053,6 +1054,8 @@ Common::Error Engine::loadGameState(int slot) {
 	}
 
 	delete saveFile;
+	if (result.getCode() == Common::kNoError)
+		Common::CEAchievements().recordSaveLoaded(getSaveStateName(slot), slot);
 	return result;
 }
 
@@ -1080,6 +1083,8 @@ Common::Error Engine::saveGameState(int slot, const Common::String &desc, bool i
 	}
 
 	delete saveFile;
+	if (result.getCode() == Common::kNoError)
+		Common::CEAchievements().recordSaveCreated(getSaveStateName(slot), slot, desc);
 	return result;
 }
 
@@ -1159,7 +1164,8 @@ void Engine::quitGame() {
 
 	event.type = Common::EVENT_QUIT;
 	g_system->getEventManager()->pushEvent(event);
-	_quitRequested = true;
+	if (!Common::CEAchievements().hasActivePlaythroughInProgress())
+		_quitRequested = true;
 }
 
 bool Engine::shouldQuit() {

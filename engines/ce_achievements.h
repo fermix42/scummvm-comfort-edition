@@ -38,14 +38,30 @@ enum CEAchievementSyncAction {
 };
 
 struct CEAchievementEvent {
+	CEAchievementEvent() : assisted(false), tainted(false), attemptCount(0) {}
+
+	String requestType;
+	String method;
+	String path;
 	String eventId;
 	String game;
 	String variant;
 	String achievement;
+	String playthrough;
+	String clientPlaythroughId;
+	String title;
+	String status;
+	String clientSaveId;
+	String slot;
+	String label;
+	String saveHash;
+	String metadata;
 	bool assisted;
+	bool tainted;
 	String historyStatus;
 	Array<String> assistanceFlags;
 	String occurredAt;
+	String lastLoadedAt;
 	uint32 attemptCount;
 	String lastAttemptAt;
 	String lastError;
@@ -79,6 +95,24 @@ struct CEAchievementRule {
 	String achievement;
 };
 
+struct CEPlaythroughRecord {
+	CEPlaythroughRecord() : casual(false), archived(false), syncEligible(false) {}
+
+	String target;
+	String game;
+	String variant;
+	String clientPlaythroughId;
+	String playthroughId;
+	String title;
+	String status;
+	String archivedFromStatus;
+	String startedAt;
+	String endedAt;
+	bool casual;
+	bool archived;
+	bool syncEligible;
+};
+
 class CEAchievementService {
 	friend class CEHttpRequest;
 public:
@@ -86,6 +120,21 @@ public:
 
 	bool unlock(AchievementsManager &achievements, const String &game, const String &variant, const String &achievement);
 	bool noteGameEvent(AchievementsManager &achievements, const String &game, const String &variant, const String &event);
+	bool startPlaythroughForTarget(const String &target, const String &game, const String &variant, const String &title);
+	bool endActivePlaythrough(const String &status);
+	bool hasActivePlaythroughInProgress() const;
+	bool isActivePlaythroughSyncEligible(const String &game = String(), const String &variant = String()) const;
+	bool hasAchievementSupport(const String &game, const String &variant) const;
+	String getCurrentPlaythroughForTarget(const String &target) const;
+	Array<CEPlaythroughRecord> listPlaythroughsForTarget(const String &target) const;
+	String getDefaultLoadPlaythroughForTarget(const String &target) const;
+	String getSavePlaythroughForTargetSlot(const String &target, int slot) const;
+	bool setPlaythroughStatusForTarget(const String &target, const String &clientPlaythroughId, const String &status);
+	bool setPlaythroughArchivedForTarget(const String &target, const String &clientPlaythroughId, bool archived);
+	bool deletePlaythroughForTarget(const String &target, const String &clientPlaythroughId) const;
+	bool clearSavePlaythroughForTargetSlot(const String &target, int slot, const String &clientPlaythroughId) const;
+	void recordSaveCreated(const String &saveName, int slot, const String &label);
+	void recordSaveLoaded(const String &saveName, int slot);
 	void resetPopupState();
 	void loadPopupStateForSave(const String &saveName);
 	void savePopupStateForSave(const String &saveName);
@@ -136,13 +185,37 @@ private:
 	Array<CEAchievementEvent> loadQueue() const;
 	bool saveQueue(const Array<CEAchievementEvent> &events) const;
 	bool queueAchievementEvent(const String &game, const String &variant, const String &achievement);
+	bool queueEvent(const CEAchievementEvent &event);
+	bool queuePlaythroughAuditEvent(const String &type, bool assisted, const String &historyStatus, const Array<String> &flags, const String &metadata);
 	String canonicalizeEvent(const CEAchievementEvent &event) const;
 	String signEvent(const CEAchievementEvent &event) const;
 	bool verifyEventSignature(const CEAchievementEvent &event) const;
 	String getOrCreateInstallSecret() const;
-	String makeEventId(const String &game, const String &variant, const String &achievement, bool assisted) const;
+	String getApiBaseUrl() const;
+	String getActivePlaythroughId() const;
+	String getActiveClientPlaythroughId() const;
+	String getActivePlaythroughTarget() const;
+	String getActivePlaythroughGame() const;
+	String getActivePlaythroughVariant() const;
+	String getActivePlaythroughStatus() const;
+	bool isActivePlaythroughCasual() const;
+	void setActivePlaythrough(const String &target, const String &game, const String &variant, const String &clientPlaythroughId, const String &playthroughId, const String &status, bool casual, bool syncEligible) const;
+	void clearActivePlaythrough() const;
+	void markActivePlaythroughCasual(const Array<String> &flags) const;
+	Array<CEPlaythroughRecord> loadPlaythroughRegistry() const;
+	bool savePlaythroughRegistry(const Array<CEPlaythroughRecord> &records) const;
+	void upsertPlaythroughRecord(const CEPlaythroughRecord &record) const;
+	void updatePlaythroughRecord(const String &clientPlaythroughId, const String &playthroughId, const String &status, bool casual, bool syncEligible, const String &endedAt = String()) const;
+	bool activatePlaythroughRecordForLoadedSave(const String &clientPlaythroughId, const String &playthroughId) const;
+	String makePlaythroughId(const String &target) const;
+	String makePlaythroughEventId(const String &type) const;
+	String makeEventId(const String &game, const String &variant, const String &achievement, bool assisted, const String &clientPlaythroughId = String()) const;
 	String makePopupSeenKey(const String &game, const String &variant, const String &achievement, bool assisted) const;
 	String makePopupSidecarName(const String &saveName) const;
+	String hashSaveFile(const String &saveName) const;
+	bool savePlaythroughSidecar(const String &sidecarName, bool tainted, const String &clientPlaythroughId, const String &playthroughId) const;
+	bool loadPlaythroughSidecar(const String &sidecarName, bool &tainted, String &clientPlaythroughId, String &playthroughId) const;
+	bool resolveQueuedAchievementPlaythroughs(Array<CEAchievementEvent> &events) const;
 	bool hasPopupBeenSeen(const String &key) const;
 	void markPopupSeen(const String &key);
 	bool loadPopupSidecar(const String &sidecarName);

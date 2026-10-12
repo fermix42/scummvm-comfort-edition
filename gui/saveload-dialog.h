@@ -25,9 +25,14 @@
 #include "gui/dialog.h"
 #include "gui/widgets/list.h"
 
+#include "engines/ce_achievements.h"
 #include "engines/metaengine.h"
 
 namespace GUI {
+
+class PopUpWidget;
+class ButtonWidget;
+class CheckboxWidget;
 
 #ifdef USE_CLOUD
 class SaveLoadChooserDialog;
@@ -95,6 +100,10 @@ public:
 
 	int run(const Common::String &target, const MetaEngine *metaEngine);
 	virtual const Common::String getResultString() const = 0;
+	Common::String getSelectedPlaythroughClientId() const;
+	bool getShowArchivedPlaythroughs() const { return _showArchivedPlaythroughs; }
+	bool hasPlaythroughFilterState() const { return !_saveMode && _playthroughFilterEnabled; }
+	void setPreferredPlaythroughFilter(const Common::String &clientPlaythroughId, bool showArchived);
 
 protected:
 	virtual int runIntern() = 0;
@@ -111,6 +120,14 @@ protected:
 	* or load from these.
 	*/
 	virtual void listSaves();
+	void setupPlaythroughFilter();
+	void populatePlaythroughPopup();
+	void filterSavesForSelectedPlaythrough();
+	int16 getPlaythroughFilterHeight() const;
+	void updatePlaythroughActions();
+	void deleteSelectedPlaythrough();
+	void setSelectedPlaythroughStatus(const Common::String &status);
+	void setSelectedPlaythroughArchived(bool archived);
 
 	void activate(int slot, const Common::String &description);
 
@@ -125,6 +142,18 @@ protected:
 	bool _dialogWasShown;
 	SaveStateList				_saveList;
 	Common::String			_resultString;
+	PopUpWidget *_playthroughPopup;
+	CheckboxWidget *_showArchivedPlaythroughsCheckbox;
+	ButtonWidget *_completePlaythroughButton;
+	ButtonWidget *_abandonPlaythroughButton;
+	ButtonWidget *_archivePlaythroughButton;
+	ButtonWidget *_deletePlaythroughButton;
+	Common::Array<Common::CEPlaythroughRecord> _playthroughs;
+	Common::String _selectedPlaythroughClientId;
+	Common::String _preferredPlaythroughClientId;
+	bool _hasPreferredPlaythroughFilter;
+	bool _playthroughFilterEnabled;
+	bool _showArchivedPlaythroughs;
 
 #ifndef DISABLE_SAVELOADCHOOSER_GRID
 	ButtonWidget *_listButton;
