@@ -6,6 +6,7 @@ Format: `Date/timestamp: Category: Description/Explanation`
 
 Timestamps use ISO 8601 local time with UTC offset. Entries are newest first.
 
+- 2026-10-13T16:36:49-07:00: Save/load: Added MI4 Windows play-session save banks with 160 slots per session, in-game save/load menus limited to the active session, and ScummVM list/gallery views ordered by native slot. Gallery thumbnails use existing save screenshots; legacy saves are preserved without changing the save format. Verified with isolated save-bank regression checks and live save/load/gallery testing.
 - 2026-10-13T07:40:25-07:00: Build: Enabled and compiled Escape from Monkey Island (MI4) support for the Windows version in CE Windows builds.
 - 2026-10-12T06:06:39-07:00: Achievements: Added Comfort Edition playthrough tracking with named sessions, active-run save grouping, local completion/abandon/archive/delete controls, durable playthrough API sync, casual-mode audit events, and repeat achievement event submission scoped to each playthrough.
 - 2026-10-11T07:13:04-07:00: Achievements: Fixed Deja Vu Macintosh multi-step popup progress, including `Case File Curious`, to persist through the achievement sidecar/transient state instead of stale global config masks so each saved playthrough can unlock independently.

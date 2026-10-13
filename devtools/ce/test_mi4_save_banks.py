@@ -39,14 +39,14 @@ def original_system_script(game):
     raise RuntimeError("PS2 system script not found")
 
 
-def run_engine(executable, config, *options):
+def run_engine(executable, config, *options, expect_marker=False):
     startup = None
     if hasattr(subprocess, "STARTUPINFO"):
         startup = subprocess.STARTUPINFO()
         startup.dwFlags |= subprocess.STARTF_USESHOWWINDOW
         startup.wShowWindow = 0
     stdout_path, stderr_path = config.parent / "stdout.log", config.parent / "stderr.log"
-    needs_marker = options == ("monkey4-ps2",)
+    needs_marker = expect_marker or options == ("monkey4-ps2",)
     with stdout_path.open("w") as stdout, stderr_path.open("w") as stderr:
         process = subprocess.Popen(
             [str(executable), f"--config={config}", "--debuglevel=2", *options],

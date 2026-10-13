@@ -552,7 +552,8 @@ void Lua_V1::GetSaveGameImage() {
 		return;
 	}
 	const char *filename = lua_getstring(param);
-	SaveGame *savedState = SaveGame::openForLoading(filename);
+	const Common::String resolved = g_grim->resolveCESaveFilename(filename);
+	SaveGame *savedState = g_grim->isCESaveVisibleInGame(resolved) ? SaveGame::openForLoading(resolved) : nullptr;
 	if (!savedState || !savedState->isCompatible()) {
 		delete savedState;
 		lua_pushnil();
@@ -599,6 +600,8 @@ void Lua_V1::SubmitSaveGameData() {
 		if (lua_isnil(table2))
 			break;
 		str = lua_getstring(table2);
+		if (count == 1 && g_grim->usesCEWindowsSaveBanks())
+			g_grim->setCESaveDescription(str);
 		if (g_grim->getGameType() == GType_MONKEY4 &&
 			g_grim->getGamePlatform() == Common::kPlatformPS2) {
 			if (count == 1) {
@@ -720,8 +723,10 @@ void Lua_V1::Remove() {
 			filename += ".ps2";
 		filename = g_grim->resolveCESaveFilename(filename);
 	}
+	if (g_grim->usesCEWindowsSaveBanks())
+		filename = g_grim->resolveCESaveFilename(filename);
 	if (g_system->getSavefileManager()->removeSavefile(filename)) {
-		if (g_grim->getGameType() == GType_MONKEY4 && g_grim->getGamePlatform() == Common::kPlatformPS2)
+		if (g_grim->usesCEWindowsSaveBanks() || (g_grim->getGameType() == GType_MONKEY4 && g_grim->getGamePlatform() == Common::kPlatformPS2))
 			g_system->getSavefileManager()->removeSavefile(filename + ".ce-achievements.json");
 		lua_pushuserdata(0);
 	} else {

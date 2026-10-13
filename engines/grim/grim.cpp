@@ -66,6 +66,7 @@
 #include "engines/ce_achievements.h"
 #include "engines/metaengine.h"
 #include "engines/grim/ce_ps2_saves.h"
+#include "engines/grim/ce_emi_windows_saves.h"
 #include "engines/grim/registry.h"
 #include "engines/grim/resource.h"
 #include "engines/grim/localize.h"
@@ -768,26 +769,48 @@ void GrimEngine::playAspyrLogo() {
 }
 
 Common::String GrimEngine::getSaveStateName(int slot) const {
-	if (_gameType == GType_MONKEY4 && _gamePlatform == Common::kPlatformPS2)
+	if (usesCEWindowsSaveBanks() || (_gameType == GType_MONKEY4 && _gamePlatform == Common::kPlatformPS2))
 		return getMetaEngine()->getSavegameFile(slot, _targetName.c_str());
 	return Engine::getSaveStateName(slot);
 }
 
-// Only the four player slots carry CE session metadata. Internal renderer
+// Only native player slots carry CE session metadata. Internal renderer
 // checkpoints and attract-mode saves must not change the active playthrough.
-static int ceEMIPS2SaveSlot(const Common::String &filename) {
-	return CEPS2Saves::playerSlot(filename);
+int GrimEngine::getCESaveSlot(const Common::String &filename) const {
+	if (usesCEWindowsSaveBanks())
+		return CEWindowsSaves::playerSlot(filename);
+	if (_gameType == GType_MONKEY4 && _gamePlatform == Common::kPlatformPS2)
+		return CEPS2Saves::playerSlot(filename);
+	return -1;
 }
 
 Common::String GrimEngine::resolveCESaveFilename(const Common::String &filename) const {
+	if (usesCEWindowsSaveBanks())
+		return CEWindowsSaves::resolveNative(_targetName, filename);
 	if (_gameType == GType_MONKEY4 && _gamePlatform == Common::kPlatformPS2)
 		return CEPS2Saves::resolveNative(_targetName, filename);
 	return filename;
 }
 
+Common::StringArray GrimEngine::listCEWindowsSavesInGame(const Common::String &pattern) const {
+	Common::StringArray names;
+	const int slot = CEWindowsSaves::playerSlot(pattern);
+	if (slot >= 0 && CEWindowsSaves::basename(pattern) == CEWindowsSaves::nativeFile(slot)) {
+		const Common::String filename = resolveCESaveFilename(pattern);
+		if (g_system->getSavefileManager()->exists(filename) && isCESaveVisibleInGame(filename))
+			names.push_back(CEWindowsSaves::nativeFile(slot));
+		return names;
+	}
+	for (const auto &name : CEWindowsSaves::nativeFiles(_targetName)) {
+		if (name.matchString(pattern, true))
+			names.push_back(name);
+	}
+	return names;
+}
+
 bool GrimEngine::isCESaveVisibleInGame(const Common::String &filename) const {
-	const int slot = ceEMIPS2SaveSlot(filename);
-	if (_gameType != GType_MONKEY4 || _gamePlatform != Common::kPlatformPS2 || slot < 0)
+	const int slot = getCESaveSlot(filename);
+	if (slot < 0)
 		return true;
 	// An empty session ID represents untracked saves, just as in CE's chooser.
 	return Common::CEAchievements().getSavePlaythroughForFile(filename) ==
@@ -797,7 +820,7 @@ bool GrimEngine::isCESaveVisibleInGame(const Common::String &filename) const {
 Common::Error GrimEngine::loadGameState(int slot) {
 	assert(slot >= 0);
 	if (getGameType() == GType_MONKEY4) {
-		if (getGamePlatform() == Common::kPlatformPS2) {
+		if (usesCEWindowsSaveBanks() || getGamePlatform() == Common::kPlatformPS2) {
 			_savegameFileName = getSaveStateName(slot);
 			if (_savegameFileName.empty())
 				return Common::Error(Common::kReadingFailed);
@@ -1399,8 +1422,8 @@ void GrimEngine::savegameRestore() {
 	g_movie->pause(false);
 
 	debug(2, "GrimEngine::savegameRestore() finished.");
-	const int ceSlot = ceEMIPS2SaveSlot(filename);
-	if (getGameType() == GType_MONKEY4 && getGamePlatform() == Common::kPlatformPS2 && ceSlot >= 0) {
+	const int ceSlot = getCESaveSlot(filename);
+	if (ceSlot >= 0) {
 		Common::CEAchievements().loadPopupStateForSave(filename);
 		Common::CEAchievements().recordSaveLoaded(filename, ceSlot);
 	}
@@ -1566,8 +1589,8 @@ void GrimEngine::savegameSave() {
 	delete _savedState;
 	_savedState = nullptr;
 
-	const int ceSlot = ceEMIPS2SaveSlot(filename);
-	if (saveSucceeded && getGameType() == GType_MONKEY4 && getGamePlatform() == Common::kPlatformPS2 && ceSlot >= 0) {
+	const int ceSlot = getCESaveSlot(filename);
+	if (saveSucceeded && ceSlot >= 0) {
 		Common::CEAchievements().savePopupStateForSave(filename);
 		Common::CEAchievements().recordSaveCreated(filename, ceSlot, _ceSaveDescription);
 	}

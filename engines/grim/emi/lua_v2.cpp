@@ -445,7 +445,10 @@ void Lua_V2::FileFindFirst() {
 		extension = "efmi###.gsv";
 
 	Common::SaveFileManager *saveFileMan = g_system->getSavefileManager();
-	g_grim->_listFiles = saveFileMan->listSavefiles(extension);
+	if (g_grim->usesCEWindowsSaveBanks() && Common::String(extension).hasPrefix("efmi"))
+		g_grim->_listFiles = g_grim->listCEWindowsSavesInGame(extension);
+	else
+		g_grim->_listFiles = saveFileMan->listSavefiles(extension);
 	Common::sort(g_grim->_listFiles.begin(), g_grim->_listFiles.end());
 	g_grim->_listFilesIter = g_grim->_listFiles.begin();
 

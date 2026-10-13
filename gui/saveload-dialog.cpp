@@ -1175,6 +1175,8 @@ void SaveLoadChooserSimple::close() {
 
 void SaveLoadChooserSimple::updateSaveList(bool external) {
 	SaveLoadChooserDialog::updateSaveList(external);
+	const bool compactLoadList = !_saveMode &&
+		_metaEngine->hasFeatureForTarget(MetaEngine::kSavesUseCompactLoadList, _target.c_str());
 
 	int curSlot = 0;
 	int saveSlot = 0;
@@ -1184,7 +1186,7 @@ void SaveLoadChooserSimple::updateSaveList(bool external) {
 	for (SaveStateList::const_iterator x = _saveList.begin(); x != _saveList.end(); ++x) {
 		// Handle gaps in the list of save games
 		saveSlot = x->getSaveSlot();
-		if (curSlot < saveSlot) {
+		if (!compactLoadList && curSlot < saveSlot) {
 			while (curSlot < saveSlot) {
 				SaveStateDescriptor dummySave(_metaEngine, curSlot, "");
 				_saveList.insert_at(curSlot, dummySave);
@@ -1226,7 +1228,7 @@ void SaveLoadChooserSimple::updateSaveList(bool external) {
 	}
 #endif
 
-	for (int i = curSlot; i <= maximumSaveSlots; i++) {
+	for (int i = curSlot; !compactLoadList && i <= maximumSaveSlots; i++) {
 		saveNames.push_back(emptyDesc);
 		SaveStateDescriptor dummySave(_metaEngine, i, "");
 		_saveList.push_back(dummySave);

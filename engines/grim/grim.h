@@ -91,6 +91,9 @@ public:
 	void setCESaveDescription(const Common::String &description) { _ceSaveDescription = description; }
 	bool isCESaveVisibleInGame(const Common::String &filename) const;
 	Common::String resolveCESaveFilename(const Common::String &filename) const;
+	bool usesCEWindowsSaveBanks() const { return _gameType == GType_MONKEY4 && _gamePlatform == Common::kPlatformWindows; }
+	int getCESaveSlot(const Common::String &filename) const;
+	Common::StringArray listCEWindowsSavesInGame(const Common::String &pattern) const;
 	bool isRemastered() const { return !!(_gameFlags & ADGF_REMASTERED); }
 
 	void setMode(EngineMode mode);

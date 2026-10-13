@@ -538,7 +538,10 @@ public:
 		 * - kSavesSupportCreationDate
 		 * - kSavesSupportPlayTime
 		 */
-		kSavesUseExtendedFormat
+		kSavesUseExtendedFormat,
+
+		/** CE: load-list IDs identify files, so do not display empty slot gaps. */
+		kSavesUseCompactLoadList
 	};
 
 	/**
@@ -579,6 +582,8 @@ public:
 
 	/** Target-specific capabilities; existing engines retain their defaults. */
 	virtual bool hasFeatureForTarget(MetaEngineFeature f, const char *target) const {
+		if (f == kSavesUseCompactLoadList)
+			return false; // CE: explicitly opt in per target; retain other lists.
 		return hasFeature(f);
 	}
 

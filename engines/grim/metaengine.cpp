@@ -22,6 +22,7 @@
 #include "engines/grim/grim.h"
 #include "engines/grim/savegame.h"
 #include "engines/grim/ce_ps2_saves.h"
+#include "engines/grim/ce_emi_windows_saves.h"
 #include "engines/grim/emi/emi.h"
 
 #include "common/system.h"
@@ -78,6 +79,13 @@ public:
 
 	SaveStateList listSaves(const char *target) const override;
 	Common::String getSavegameFile(int slot, const char *target = nullptr) const override;
+	bool removeSaveState(const char *target, int slot) const override;
+
+private:
+	// Keep chooser IDs stable until its next explicit refresh. Clearing a
+	// session sidecar must not change which file a displayed row identifies.
+	mutable Common::String _ceWindowsSaveTarget;
+	mutable Common::StringArray _ceWindowsSaveFiles;
 
 };
 
@@ -109,14 +117,21 @@ bool GrimMetaEngine::hasFeature(MetaEngineFeature f) const {
 }
 
 bool GrimMetaEngine::hasFeatureForTarget(MetaEngineFeature f, const char *target) const {
+	if (f == kSavesUseCompactLoadList && target && ConfMan.get("gameid", target) == "monkey4" &&
+	    Common::parsePlatform(ConfMan.get("platform", target)) == Common::kPlatformWindows)
+		return true;
 	if (target && ConfMan.get("gameid", target) == "monkey4" &&
-	    Common::parsePlatform(ConfMan.get("platform", target)) == Common::kPlatformPS2 &&
+	    (Common::parsePlatform(ConfMan.get("platform", target)) == Common::kPlatformPS2 ||
+	     Common::parsePlatform(ConfMan.get("platform", target)) == Common::kPlatformWindows) &&
 	    (f == kSavesSupportMetaInfo || f == kSavesSupportThumbnail))
 		return true;
 	return hasFeature(f);
 }
 
 SaveStateDescriptor GrimMetaEngine::querySaveMetaInfos(const char *target, int slot) const {
+	if (hasFeatureForTarget(kSavesSupportThumbnail, target) &&
+	    Common::parsePlatform(ConfMan.get("platform", target)) == Common::kPlatformWindows)
+		return CESaveMetadata::saveMetadata(this, getSavegameFile(slot, target), slot, MKTAG('S', 'U', 'B', 'S'));
 	if (hasFeatureForTarget(kSavesSupportThumbnail, target))
 		return CEPS2Saves::saveMetadata(this, CEPS2Saves::chooserFile(target, slot), slot);
 	return AdvancedMetaEngine::querySaveMetaInfos(target, slot);
@@ -141,10 +156,32 @@ Common::KeymapArray GrimMetaEngine::initKeymaps(const char *target) const {
 
 Common::String GrimMetaEngine::getSavegameFile(int slot, const char *target) const {
 	if (target && ConfMan.get("gameid", target) == "monkey4" &&
+	    Common::parsePlatform(ConfMan.get("platform", target)) == Common::kPlatformWindows) {
+		if (slot == kSavegameFilePattern)
+			return "efmi*.gsv";
+		if (_ceWindowsSaveTarget != target) {
+			_ceWindowsSaveFiles = CEWindowsSaves::files(target);
+			_ceWindowsSaveTarget = target;
+		}
+		return slot >= 0 && (uint)slot < _ceWindowsSaveFiles.size() ? _ceWindowsSaveFiles[slot] : Common::String();
+	}
+	if (target && ConfMan.get("gameid", target) == "monkey4" &&
 	    Common::parsePlatform(ConfMan.get("platform", target)) == Common::kPlatformPS2) {
 		return slot == kSavegameFilePattern ? "efmi*.ps2" : CEPS2Saves::chooserFile(target, slot);
 	}
 	return MetaEngine::getSavegameFile(slot, target);
+}
+
+bool GrimMetaEngine::removeSaveState(const char *target, int slot) const {
+	if (!target || ConfMan.get("gameid", target) != "monkey4" ||
+	    Common::parsePlatform(ConfMan.get("platform", target)) != Common::kPlatformWindows)
+		return AdvancedMetaEngine::removeSaveState(target, slot);
+	const Common::String filename = getSavegameFile(slot, target);
+	Common::SaveFileManager *manager = g_system->getSavefileManager();
+	if (filename.empty() || !manager->removeSavefile(filename))
+		return false;
+	manager->removeSavefile(filename + ".ce-achievements.json");
+	return true;
 }
 
 SaveStateList GrimMetaEngine::listSaves(const char *target) const {
@@ -164,6 +201,7 @@ SaveStateList GrimMetaEngine::listSaves(const char *target) const {
 
 	if (isDemo)
 		return saveList; // Demos do not support saving
+	const bool windowsBanks = gameId == "monkey4" && platform == Common::kPlatformWindows;
 
 	if (gameId == "monkey4" && platform == Common::kPlatformPS2) {
 		filenames = CEPS2Saves::files(target);
@@ -175,12 +213,17 @@ SaveStateList GrimMetaEngine::listSaves(const char *target) const {
 		return saveList;
 	}
 
-	filenames = platform == Common::kPlatformPS2 ? CEPS2Saves::files(target) : saveFileMan->listSavefiles(pattern);
+	if (windowsBanks) {
+		_ceWindowsSaveFiles = CEWindowsSaves::files(target);
+		_ceWindowsSaveTarget = target;
+		filenames = _ceWindowsSaveFiles;
+	} else
+		filenames = platform == Common::kPlatformPS2 ? CEPS2Saves::files(target) : saveFileMan->listSavefiles(pattern);
 
 	int chooserSlot = 0;
 	for (Common::StringArray::const_iterator file = filenames.begin(); file != filenames.end(); ++file) {
-		// PS2 chooser IDs distinguish sessions; descriptions retain slots 1-4.
-		int slotNum = platform == Common::kPlatformPS2 ? chooserSlot++ : atoi(file->c_str() + 4);
+		// Banked chooser IDs distinguish the same native slot in multiple sessions.
+		int slotNum = windowsBanks || platform == Common::kPlatformPS2 ? chooserSlot++ : atoi(file->c_str() + 4);
 		const int playerSlot = platform == Common::kPlatformPS2 ? CEPS2Saves::playerSlot(*file) : slotNum;
 
 		if (slotNum >= 0 && playerSlot >= 0) {
