@@ -85,7 +85,7 @@ jobs:
           if ($LASTEXITCODE) { exit $LASTEXITCODE }
           New-Item -ItemType Directory build-scummvm
           Set-Location build-scummvm
-          ../build-create-project/Release/create_project.exe .. --msvc --vcpkg
+          ../build-create-project/Release/create_project.exe .. --msvc --vcpkg --enable-engine=monkey4
           if ($LASTEXITCODE) { exit $LASTEXITCODE }
       - uses: microsoft/setup-msbuild@v2
       - name: Build Windows x64 Release

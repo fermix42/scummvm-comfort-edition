@@ -37,6 +37,14 @@ $env:VCPKG_OVERLAY_PORTS = "$substRepoRoot\.github\vcpkg-ports"
 Set-Location $substRepoRoot
 
 $projectNeedsRefresh = -not (Test-Path 'build-scummvm\scummvm.sln')
+if (-not $projectNeedsRefresh) {
+    $globalPropsPath = 'build-scummvm\ScummVM_Globalx64.props'
+    $projectNeedsRefresh = -not (Test-Path $globalPropsPath)
+    if (-not $projectNeedsRefresh) {
+        $globalPropsContent = Get-Content -LiteralPath $globalPropsPath -Raw
+        $projectNeedsRefresh = -not $globalPropsContent.Contains('ENABLE_MONKEY4')
+    }
+}
 if (-not $projectNeedsRefresh -and (Test-Path 'build-scummvm\scummvm.vcxproj')) {
     $projectContent = Get-Content -LiteralPath 'build-scummvm\scummvm.vcxproj' -Raw
     $projectNeedsRefresh = -not $projectContent.Contains('..\engines\ce_achievements.cpp')
@@ -67,7 +75,7 @@ if ($projectNeedsRefresh) {
 
     Push-Location 'build-scummvm'
     try {
-        ..\build-create-project\Release\create_project.exe .. --msvc --vcpkg --msvc-version 17
+        ..\build-create-project\Release\create_project.exe .. --msvc --vcpkg --msvc-version 17 --enable-engine=monkey4
         if ($LASTEXITCODE -ne 0) {
             exit $LASTEXITCODE
         }
