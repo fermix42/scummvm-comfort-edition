@@ -361,6 +361,10 @@ void GrimEngine::handleMouseAxis(byte axis, int16 position) {
 }
 
 void GrimEngine::handleJoyButton(Common::EventType operation, byte button) {
+	// Touchpad clicks have no original GrimE button number. The keymapper can
+	// bind them, but an unbound click must not alias an existing game control.
+	if (button == Common::JOYSTICK_BUTTON_TOUCHPAD)
+		return;
 	if (button > NUM_JOY_BUTTONS)
 		return;
 

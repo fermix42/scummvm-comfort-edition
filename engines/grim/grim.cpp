@@ -554,8 +554,78 @@ Common::KeymapArray GrimEngine::initKeymapsGrim(const char *target) {
 	return Keymap::arrayOf(engineKeyMap);
 }
 
+// These events carry remappable half-axis input to the PS2 script's native axes.
+static const uint32 kEMIPS2AxisActionBase = 0xce400;
+
+static bool useEMIPS2ConsoleProfile(const char *target) {
+	if (Common::parsePlatform(ConfMan.get("platform", target)) != Common::kPlatformPS2)
+		return false;
+	Common::String name = g_system->getGameControllerName();
+	name.toLowercase();
+	return name.contains("ps2 controller") || name.contains("ps4 controller") ||
+	       name.contains("playstation 2") || name.contains("playstation 4") ||
+	       name.contains("dualshock 2") || name.contains("dualshock 4");
+}
+
+static Common::KeymapArray initEMIPS2ConsoleKeymap() {
+	using namespace Common;
+	Keymap *keymap = new Keymap(Keymap::kKeymapTypeGame, "monkey4_ps2_console", _("Escape from Monkey Island (PlayStation controller)"));
+	// Send the game's native PlayStation controls, not overlapping PC shortcuts.
+	struct ButtonBinding { const char *id; const char *label; const char *input; int key; };
+	const ButtonBinding buttons[] = {
+		{ "CROSS", "Cross", "JOY_A", KEYCODE_JOY1_A },
+		{ "CIRCLE", "Circle", "JOY_B", KEYCODE_JOY1_B },
+		{ "SQUARE", "Square", "JOY_X", KEYCODE_JOY1_X },
+		{ "TRIANGLE", "Triangle", "JOY_Y", KEYCODE_JOY1_Y },
+		{ "START", "Start / Options", "JOY_START", KEYCODE_JOY1_START },
+		{ "SELECT", "Select / Share", "JOY_BACK", KEYCODE_JOY1_BACK },
+		{ "L1", "L1", "JOY_LEFT_SHOULDER", KEYCODE_JOY1_L1 },
+		{ "R1", "R1", "JOY_RIGHT_SHOULDER", KEYCODE_JOY1_R1 },
+		{ "L2", "L2", "JOY_LEFT_TRIGGER", KEYCODE_JOY1_L2 },
+		{ "R2", "R2", "JOY_RIGHT_TRIGGER", KEYCODE_JOY1_R2 },
+		{ "L3", "L3", "JOY_LEFT_STICK", KEYCODE_JOY1_LEFTSTICK },
+		{ "R3", "R3", "JOY_RIGHT_STICK", KEYCODE_JOY1_RIGHTSTICK },
+		{ "UP", "D-pad up", "JOY_UP", KEYCODE_JOY1_HUP },
+		{ "DOWN", "D-pad down", "JOY_DOWN", KEYCODE_JOY1_HDOWN },
+		{ "LEFT", "D-pad left", "JOY_LEFT", KEYCODE_JOY1_HLEFT },
+		{ "RIGHT", "D-pad right", "JOY_RIGHT", KEYCODE_JOY1_HRIGHT }
+	};
+	for (const auto &binding : buttons) {
+		Action *action = new Action(binding.id, _(binding.label));
+		action->setKeyEvent(KeyState(static_cast<KeyCode>(binding.key)));
+		action->addDefaultInputMapping(binding.input);
+		keymap->addAction(action);
+	}
+	const char *axisInputs[] = {
+		"JOY_LEFT_STICK_X-", "JOY_LEFT_STICK_X+", "JOY_LEFT_STICK_Y-", "JOY_LEFT_STICK_Y+",
+		"JOY_RIGHT_STICK_X-", "JOY_RIGHT_STICK_X+", "JOY_RIGHT_STICK_Y-", "JOY_RIGHT_STICK_Y+"
+	};
+	const char *axisLabels[] = { "Left stick left", "Left stick right", "Left stick up", "Left stick down",
+	                           "Right stick left", "Right stick right", "Right stick up", "Right stick down" };
+	for (uint i = 0; i < ARRAYSIZE(axisInputs); ++i) {
+		Action *action = new Action(axisInputs[i], _(axisLabels[i]));
+		action->setEvent(EVENT_CUSTOM_ENGINE_ACTION_AXIS);
+		action->event.customType = kEMIPS2AxisActionBase + i;
+		action->addDefaultInputMapping(axisInputs[i]);
+		keymap->addAction(action);
+	}
+	Action *menu = new Action("SCUMMVM_MENU", _("ScummVM menu"));
+	menu->setEvent(EVENT_MAINMENU);
+	menu->addDefaultInputMapping("JOY_TOUCHPAD");
+	menu->addDefaultInputMapping("C+F5");
+	keymap->addAction(menu);
+	Action *gameMenu = new Action("KEYBOARD_MENU", _("Game menu (keyboard)"));
+	gameMenu->setKeyEvent(KeyState(KEYCODE_F1));
+	gameMenu->addDefaultInputMapping("F1");
+	keymap->addAction(gameMenu);
+	debug("CE: MI4 PS2 console controller profile: %s", g_system->getGameControllerName().c_str());
+	return Keymap::arrayOf(keymap);
+}
+
 Common::KeymapArray GrimEngine::initKeymapsEMI(const char *target) {
 	using namespace Common;
+	if (useEMIPS2ConsoleProfile(target))
+		return initEMIPS2ConsoleKeymap();
 
 	Keymap *engineKeyMap = new Keymap(Keymap::kKeymapTypeGame, "monkey4", "Escape from the Monkey Island");
 	Action *act;
@@ -1061,6 +1131,14 @@ void GrimEngine::mainLoop() {
 		Common::Event event;
 		while (g_system->getEventManager()->pollEvent(event)) {
 			// Handle any buttons, keys and joystick operations
+			if (getGameType() == GType_MONKEY4 && getGamePlatform() == Common::kPlatformPS2 &&
+			    event.type == Common::EVENT_CUSTOM_ENGINE_ACTION_AXIS &&
+			    event.customType >= kEMIPS2AxisActionBase && event.customType < kEMIPS2AxisActionBase + 8) {
+				uint index = event.customType - kEMIPS2AxisActionBase;
+				int16 position = (index & 1) ? event.joystick.position : -event.joystick.position;
+				handleJoyAxis(index / 2, position);
+				continue;
+			}
 			Common::EventType type = event.type;
 			if (type == Common::EVENT_KEYDOWN || type == Common::EVENT_KEYUP) {
 				if (type == Common::EVENT_KEYDOWN) {

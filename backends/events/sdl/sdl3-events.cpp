@@ -984,6 +984,8 @@ bool SdlEventSource::handleJoystickRemoved(const SDL_JoyDeviceEvent &device, Com
 }
 
 int SdlEventSource::mapSDLControllerButtonToOSystem(Uint8 sdlButton) {
+	if (sdlButton == SDL_GAMEPAD_BUTTON_TOUCHPAD)
+		return Common::JOYSTICK_BUTTON_TOUCHPAD;
 	Common::JoystickButton osystemButtons[] = {
 	    Common::JOYSTICK_BUTTON_A,
 	    Common::JOYSTICK_BUTTON_B,

@@ -6,6 +6,8 @@ Format: `Date/timestamp: Category: Description/Explanation`
 
 Timestamps use ISO 8601 local time with UTC offset. Entries are newest first.
 
+- 2026-10-13T07:40:25-07:00: Controls: Added a remappable native PS2 controller profile for Escape from Monkey Island's PS2 edition when the connected controller is recognized as PS2 or PS4. Options maps to Start, Share maps to Select, both sticks and the other buttons feed the game's native controls, and PS4 touchpad click opens ScummVM's menu. Other controllers retain the existing defaults; validated by local startup checks and user gameplay testing.
+- 2026-10-13T07:40:25-07:00: Build: Enabled the optional Escape from Monkey Island subengine in CE Windows builds and documented the per-game classic OpenGL workaround for the reproduced PS2 startup crash with the shader renderer on the tested NVIDIA system. PS2 support remains experimental.
 - 2026-10-12T06:06:39-07:00: Achievements: Added Comfort Edition playthrough tracking with named sessions, active-run save grouping, local completion/abandon/archive/delete controls, durable playthrough API sync, casual-mode audit events, and repeat achievement event submission scoped to each playthrough.
 - 2026-10-11T07:13:04-07:00: Achievements: Fixed Deja Vu Macintosh multi-step popup progress, including `Case File Curious`, to persist through the achievement sidecar/transient state instead of stale global config masks so each saved playthrough can unlock independently.
 - 2026-10-11T06:45:26-07:00: Cheat: Added Deja Vu Macintosh `Turn counter` to show the live memory-loss turn count from the game's own counter, dynamically centered between the Self and Exits windows when enabled.

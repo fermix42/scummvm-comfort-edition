@@ -57,3 +57,38 @@ Validation on October 12, 2026:
 The game remains marked unstable in detection, and upstream lists PS2 as
 unsupported. Enabling compilation does not establish complete game support.
 Controller mapping changes are a separate concern from these startup fixes.
+
+## PlayStation controller profile
+
+For the PS2 game target, a controller whose backend-reported name identifies
+it as a PS2, PS4, PlayStation 2/4, or DualShock 2/4 selects the console
+keymap when the game starts. Other controllers and other game platforms
+retain the existing MI4 defaults. No USB-adapter IDs are guessed.
+
+The console keymap forwards each face button, D-pad direction, shoulder,
+trigger, stick click, Start, and Select to the PS2 scripts' corresponding
+native controller key. Options corresponds to Start; Share corresponds to
+Select. Both sticks feed the native joystick axes rather than emulating
+mouse movement or sending PC keyboard shortcuts.
+
+PS4 touchpad click opens ScummVM's menu. Ctrl+F5 remains available on all
+controllers, and F1 opens the game menu. The profile does not rely on the
+PS/Guide button, which other applications can intercept.
+
+All actions can be changed through the game's keymap settings. Console
+bindings use the separate `monkey4_ps2_console` keymap ID, so existing
+`monkey4` PC-style overrides do not inject overlapping keyboard actions
+into the console profile. Connect the controller before launching MI4;
+if changing controller families during play, relaunch to select the
+corresponding profile.
+
+Physical PS2 adapters must report a recognized PlayStation controller
+name and standard SDL button/axis mappings. Devices reported as generic
+joysticks use the existing defaults and remain manually configurable.
+
+Validation: the Windows Release x64 build completed with zero errors.
+An isolated launch with the connected PS4 Controller logged selection of
+the console profile and remained responsive. A launch with controller
+input disabled retained the fallback profile and remained responsive.
+The user confirmed the controller profile worked in gameplay on October
+13, 2026. A physical PS2 controller was not tested locally.

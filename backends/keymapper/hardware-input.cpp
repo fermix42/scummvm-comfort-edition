@@ -268,6 +268,7 @@ const HardwareInputTableEntry defaultJoystickButtons[] = {
 	{ "JOY_LEFT",           JOYSTICK_BUTTON_DPAD_LEFT,      _s("D-pad left")     },
 	{ "JOY_RIGHT",          JOYSTICK_BUTTON_DPAD_RIGHT,     _s("D-pad right")    },
 	{ "JOY_CENTER",         JOYSTICK_BUTTON_DPAD_CENTER,    _s("D-pad center")   },
+	{ "JOY_TOUCHPAD",       JOYSTICK_BUTTON_TOUCHPAD,       _s("Touchpad click") },
 	{ nullptr,              0,                              nullptr              }
 };
 

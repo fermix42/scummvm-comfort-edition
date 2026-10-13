@@ -712,6 +712,10 @@ Common::HardwareInputSet *OSystem_SDL::getHardwareInputSet() {
 	return inputSet;
 }
 
+Common::String OSystem_SDL::getGameControllerName() const {
+	return _eventSource->getGameControllerName();
+}
+
 void OSystem_SDL::logMessage(LogMessageType::Type type, const char *message) {
 	// First log to stdout/stderr
 	FILE *output = nullptr;

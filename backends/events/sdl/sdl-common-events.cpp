@@ -37,6 +37,25 @@ SdlEventSource::~SdlEventSource() {
 	closeJoystick();
 }
 
+Common::String SdlEventSource::getGameControllerName() const {
+	const char *name = nullptr;
+#if SDL_VERSION_ATLEAST(3, 0, 0)
+	if (_controller)
+		name = SDL_GetGamepadName(_controller);
+	else if (_joystick)
+		name = SDL_GetJoystickName(_joystick);
+#elif SDL_VERSION_ATLEAST(2, 0, 0)
+	if (_controller)
+		name = SDL_GameControllerName(_controller);
+	else if (_joystick)
+		name = SDL_JoystickName(_joystick);
+#else
+	if (_joystick)
+		name = SDL_JoystickName(ConfMan.getInt("joystick_num"));
+#endif
+	return name ? Common::String(name) : Common::String();
+}
+
 bool SdlEventSource::processMouseEvent(Common::Event &event, int x, int y, int relx, int rely) {
 	_mouseX = x;
 	_mouseY = y;

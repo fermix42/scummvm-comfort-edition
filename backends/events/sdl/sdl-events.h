@@ -57,6 +57,7 @@ public:
 
 	/** Returns whether a joystick is currently connected */
 	bool isJoystickConnected() const;
+	Common::String getGameControllerName() const;
 
 	/** Sets whether a game is currently running */
 	void setEngineRunning(bool value);

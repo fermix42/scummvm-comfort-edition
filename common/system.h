@@ -1619,6 +1619,9 @@ public:
 	 */
 	virtual Common::HardwareInputSet *getHardwareInputSet() { return nullptr; }
 
+	/** Name of the connected controller as recognized by the backend. */
+	virtual Common::String getGameControllerName() const { return Common::String(); }
+
 	/**
 	 * Return a platform-specific global keymap.
 	 *

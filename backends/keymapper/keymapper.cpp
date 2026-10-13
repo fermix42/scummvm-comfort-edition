@@ -285,7 +285,8 @@ Event Keymapper::executeAction(const Action *action, const Event &incomingEvent)
 	IncomingEventType incomingType = convertToIncomingEventType(incomingEvent);
 
 	if (outgoingEvent.type == EVENT_JOYAXIS_MOTION
-	        || outgoingEvent.type == EVENT_CUSTOM_BACKEND_ACTION_AXIS) {
+	        || outgoingEvent.type == EVENT_CUSTOM_BACKEND_ACTION_AXIS
+	        || outgoingEvent.type == EVENT_CUSTOM_ENGINE_ACTION_AXIS) {
 		if (incomingEvent.type == EVENT_JOYAXIS_MOTION) {
 			// At the moment only half-axes can be bound to actions, hence taking
 			//  the absolute value. If full axes were to be mappable, the action

@@ -71,6 +71,7 @@ public:
 	void fatalError() override;
 	Common::KeymapArray getGlobalKeymaps() override;
 	Common::HardwareInputSet *getHardwareInputSet() override;
+	Common::String getGameControllerName() const override;
 
 	// Logging
 	void logMessage(LogMessageType::Type type, const char *message) override;
