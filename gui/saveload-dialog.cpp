@@ -143,7 +143,7 @@ void SaveLoadCloudSyncProgressDialog::pollCloudMan() {
 #endif
 
 #ifndef DISABLE_SAVELOADCHOOSER_GRID
-SaveLoadChooserType getRequestedSaveLoadDialog(const MetaEngine *metaEngine) {
+SaveLoadChooserType getRequestedSaveLoadDialog(const MetaEngine *metaEngine, const char *target) {
 	const Common::String &userConfig = ConfMan.get("gui_saveload_chooser", Common::ConfigManager::kApplicationDomain);
 
 	// Check (and update if necessary) the theme config here. This catches
@@ -154,8 +154,8 @@ SaveLoadChooserType getRequestedSaveLoadDialog(const MetaEngine *metaEngine) {
 	g_gui.checkScreenChange();
 
 	if (g_gui.getGUIWidth() >= 640 && g_gui.getGUIHeight() >= 400
-		&& metaEngine->hasFeature(MetaEngine::kSavesSupportMetaInfo)
-		&& metaEngine->hasFeature(MetaEngine::kSavesSupportThumbnail)
+		&& metaEngine->hasFeatureForTarget(MetaEngine::kSavesSupportMetaInfo, target)
+		&& metaEngine->hasFeatureForTarget(MetaEngine::kSavesSupportThumbnail, target)
 		&& userConfig.equalsIgnoreCase("grid")) {
 		// In case we are 640x400 or higher, this dialog is not in save mode,
 		// the user requested the grid dialog and the engines supports it we
@@ -298,8 +298,8 @@ int SaveLoadChooserDialog::run(const Common::String &target, const MetaEngine *m
 	if (!_hasPreferredPlaythroughFilter)
 		_selectedPlaythroughClientId.clear();
 	_delSupport = _metaEngine->hasFeature(MetaEngine::kSupportsDeleteSave);
-	_metaInfoSupport = _metaEngine->hasFeature(MetaEngine::kSavesSupportMetaInfo);
-	_thumbnailSupport = _metaInfoSupport && _metaEngine->hasFeature(MetaEngine::kSavesSupportThumbnail);
+	_metaInfoSupport = _metaEngine->hasFeatureForTarget(MetaEngine::kSavesSupportMetaInfo, _target.c_str());
+	_thumbnailSupport = _metaInfoSupport && _metaEngine->hasFeatureForTarget(MetaEngine::kSavesSupportThumbnail, _target.c_str());
 	_saveDateSupport = _metaInfoSupport && _metaEngine->hasFeature(MetaEngine::kSavesSupportCreationDate);
 	_playTimeSupport = _metaInfoSupport && _metaEngine->hasFeature(MetaEngine::kSavesSupportPlayTime);
 	setupPlaythroughFilter();
@@ -408,7 +408,7 @@ void SaveLoadChooserDialog::handleTickle() {
 void SaveLoadChooserDialog::reflowLayout() {
 #ifndef DISABLE_SAVELOADCHOOSER_GRID
 	const SaveLoadChooserType currentType = getType();
-	const SaveLoadChooserType requestedType = getRequestedSaveLoadDialog(_metaEngine);
+	const SaveLoadChooserType requestedType = getRequestedSaveLoadDialog(_metaEngine, _target.c_str());
 
 	addChooserButtons();
 	if (currentType == kSaveLoadDialogList) {
@@ -649,7 +649,8 @@ void SaveLoadChooserDialog::filterSavesForSelectedPlaythrough() {
 		return;
 
 	for (int i = (int)_saveList.size() - 1; i >= 0; --i) {
-		const Common::String savePlaythrough = Common::CEAchievements().getSavePlaythroughForTargetSlot(_target, _saveList[i].getSaveSlot());
+		const int slot = _saveList[i].getSaveSlot();
+		const Common::String savePlaythrough = Common::CEAchievements().getSavePlaythroughForTargetSlot(_target, slot, _metaEngine->getSavegameFile(slot, _target.c_str()));
 		if (savePlaythrough != _selectedPlaythroughClientId)
 			_saveList.remove_at(i);
 	}
@@ -760,12 +761,14 @@ void SaveLoadChooserDialog::deleteSelectedPlaythrough() {
 	if (dialog.shouldDeleteSaves()) {
 		for (int i = (int)_saveList.size() - 1; i >= 0; --i) {
 			const int saveSlot = _saveList[i].getSaveSlot();
-			Common::CEAchievements().clearSavePlaythroughForTargetSlot(_target, saveSlot, deletedPlaythroughId);
+			Common::CEAchievements().clearSavePlaythroughForTargetSlot(_target, saveSlot, deletedPlaythroughId, _metaEngine->getSavegameFile(saveSlot, _target.c_str()));
 			_metaEngine->removeSaveState(_target.c_str(), saveSlot);
 		}
 	} else {
-		for (uint i = 0; i < _saveList.size(); ++i)
-			Common::CEAchievements().clearSavePlaythroughForTargetSlot(_target, _saveList[i].getSaveSlot(), deletedPlaythroughId);
+		for (uint i = 0; i < _saveList.size(); ++i) {
+			const int slot = _saveList[i].getSaveSlot();
+			Common::CEAchievements().clearSavePlaythroughForTargetSlot(_target, slot, deletedPlaythroughId, _metaEngine->getSavegameFile(slot, _target.c_str()));
+		}
 	}
 
 	Common::CEAchievements().deletePlaythroughForTarget(_target, deletedPlaythroughId);
@@ -1542,7 +1545,7 @@ int SaveLoadChooserGrid::runIntern() {
 	int slot;
 	do {
 		const SaveLoadChooserType currentType = getType();
-		const SaveLoadChooserType requestedType = getRequestedSaveLoadDialog(_metaEngine);
+		const SaveLoadChooserType requestedType = getRequestedSaveLoadDialog(_metaEngine, _target.c_str());
 
 		// Catch resolution changes when the save name dialog was open.
 		if (currentType != requestedType) {

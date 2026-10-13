@@ -51,6 +51,8 @@ public:
 	static uint SAVEGAME_MINOR_VERSION;
 
 	bool isCompatible() const;
+	/** Finish writing and report disk errors before recording save metadata. */
+	bool finalize();
 
 	uint saveMajorVersion() const;
 	uint saveMinorVersion() const;

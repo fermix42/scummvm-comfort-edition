@@ -577,6 +577,11 @@ public:
 	 */
 	virtual bool hasFeature(MetaEngineFeature f) const;
 
+	/** Target-specific capabilities; existing engines retain their defaults. */
+	virtual bool hasFeatureForTarget(MetaEngineFeature f, const char *target) const {
+		return hasFeature(f);
+	}
+
 	/**
 	 * Write the extended savegame header to the given savegame file.
 	 */

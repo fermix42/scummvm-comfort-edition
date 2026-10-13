@@ -618,6 +618,7 @@ void Lua_V1::SubmitSaveGameData() {
 		savedState->writeLESint32(localized.size() + 1);
 		savedState->write(localized.c_str(), localized.size() + 1);
 		savedState->endSection();
+		g_grim->setCESaveDescription(localized);
 	}
 }
 
@@ -630,7 +631,9 @@ void Lua_V1::GetSaveGameData() {
 		g_grim->getGamePlatform() == Common::kPlatformPS2) {
 		filename += ".ps2";
 	}
-	SaveGame *savedState = SaveGame::openForLoading(filename);
+	filename = g_grim->resolveCESaveFilename(filename);
+	const bool visibleInSession = g_grim->isCESaveVisibleInGame(filename);
+	SaveGame *savedState = visibleInSession ? SaveGame::openForLoading(filename) : nullptr;
 	lua_Object result = lua_createtable();
 
 	if (!savedState || !savedState->isCompatible()) {
@@ -641,7 +644,8 @@ void Lua_V1::GetSaveGameData() {
 		lua_pushobject(result);
 
 		if (!savedState) {
-			warning("Savegame %s is invalid", filename.c_str());
+			if (visibleInSession)
+				warning("Savegame %s is invalid", filename.c_str());
 		} else {
 			warning("Savegame %s is incompatible with this ScummVM build. Save version: %d.%d; current version: %d.%d",
 					filename.c_str(), savedState->saveMajorVersion(), savedState->saveMinorVersion(),
@@ -710,9 +714,17 @@ void Lua_V1::Save() {
 }
 
 void Lua_V1::Remove() {
-	if (g_system->getSavefileManager()->removeSavefile(luaL_check_string(1)))
+	Common::String filename(luaL_check_string(1));
+	if (g_grim->getGameType() == GType_MONKEY4 && g_grim->getGamePlatform() == Common::kPlatformPS2) {
+		if (!filename.hasSuffix(".ps2"))
+			filename += ".ps2";
+		filename = g_grim->resolveCESaveFilename(filename);
+	}
+	if (g_system->getSavefileManager()->removeSavefile(filename)) {
+		if (g_grim->getGameType() == GType_MONKEY4 && g_grim->getGamePlatform() == Common::kPlatformPS2)
+			g_system->getSavefileManager()->removeSavefile(filename + ".ce-achievements.json");
 		lua_pushuserdata(0);
-	else {
+	} else {
 		lua_pushnil();
 		lua_pushstring(g_system->getSavefileManager()->getErrorDesc().c_str());
 	}

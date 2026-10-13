@@ -47,9 +47,9 @@ SaveLoadChooser::~SaveLoadChooser() {
 	_impl = nullptr;
 }
 
-void SaveLoadChooser::selectChooser(const MetaEngine *engine) {
+void SaveLoadChooser::selectChooser(const MetaEngine *engine, const Common::String &target) {
 #ifndef DISABLE_SAVELOADCHOOSER_GRID
-	const SaveLoadChooserType requestedType = getRequestedSaveLoadDialog(engine);
+	const SaveLoadChooserType requestedType = getRequestedSaveLoadDialog(engine, target.c_str());
 	if (!_impl || _impl->getType() != requestedType) {
 		delete _impl;
 		_impl = nullptr;
@@ -91,7 +91,7 @@ int SaveLoadChooser::runModalWithCurrentTarget() {
 }
 
 int SaveLoadChooser::runModalWithMetaEngineAndTarget(const MetaEngine *engine, const Common::String &target) {
-	selectChooser(engine);
+	selectChooser(engine, target);
 	if (!_impl)
 		return -1;
 
@@ -120,7 +120,7 @@ int SaveLoadChooser::runModalWithMetaEngineAndTarget(const MetaEngine *engine, c
 				preservedPlaythroughClientId = _impl->getSelectedPlaythroughClientId();
 				preservedShowArchivedPlaythroughs = _impl->getShowArchivedPlaythroughs();
 			}
-			selectChooser(engine);
+			selectChooser(engine, target);
 		} else {
 			preservePlaythroughFilter = false;
 		}

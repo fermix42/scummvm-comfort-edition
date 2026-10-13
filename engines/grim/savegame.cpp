@@ -90,15 +90,24 @@ SaveGame::SaveGame() :
 
 SaveGame::~SaveGame() {
 	if (_saving) {
-		_outSaveFile->writeUint32BE(SAVEGAME_FOOTERTAG);
-		_outSaveFile->finalize();
-		if (_outSaveFile->err())
-			warning("SaveGame::~SaveGame() Can't write file. (Disk full?)");
-		delete _outSaveFile;
+		if (_outSaveFile)
+			finalize();
 	} else {
 		delete _inSaveFile;
 	}
 	free(_sectionBuffer);
+}
+
+bool SaveGame::finalize() {
+	assert(_saving && _outSaveFile);
+	_outSaveFile->writeUint32BE(SAVEGAME_FOOTERTAG);
+	_outSaveFile->finalize();
+	const bool success = !_outSaveFile->err();
+	if (!success)
+		warning("SaveGame::finalize() Can't write file. (Disk full?)");
+	delete _outSaveFile;
+	_outSaveFile = nullptr;
+	return success;
 }
 
 bool SaveGame::isCompatible() const {

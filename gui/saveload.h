@@ -37,7 +37,7 @@ protected:
 	const Common::U32String _buttonLabel;
 	const bool _saveMode;
 
-	void selectChooser(const MetaEngine *engine);
+	void selectChooser(const MetaEngine *engine, const Common::String &target);
 public:
 	SaveLoadChooser(bool saveMode);
 	SaveLoadChooser(const Common::U32String &title, const Common::U32String &buttonLabel, bool saveMode);

@@ -87,6 +87,10 @@ public:
 	virtual const char *getUpdateFilename();
 	bool canLoadGameStateCurrently(Common::U32String *msg = nullptr) override { return true; }
 	Common::Error loadGameState(int slot) override;
+	Common::String getSaveStateName(int slot) const override;
+	void setCESaveDescription(const Common::String &description) { _ceSaveDescription = description; }
+	bool isCESaveVisibleInGame(const Common::String &filename) const;
+	Common::String resolveCESaveFilename(const Common::String &filename) const;
 	bool isRemastered() const { return !!(_gameFlags & ADGF_REMASTERED); }
 
 	void setMode(EngineMode mode);
@@ -232,6 +236,7 @@ protected:
 	bool _savegameLoadRequest = false;
 	bool _savegameSaveRequest = false;
 	Common::String _savegameFileName;
+	Common::String _ceSaveDescription;
 	SaveGame *_savedState;
 	bool _justSaveLoaded;
 

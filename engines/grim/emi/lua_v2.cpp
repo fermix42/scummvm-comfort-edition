@@ -472,6 +472,11 @@ void Lua_V2::ThumbnailFromFile() {
 	}
 
 	int width = 256, height = 128;
+	filename = g_grim->resolveCESaveFilename(filename);
+	if (!g_grim->isCESaveVisibleInGame(filename)) {
+		lua_pushnil();
+		return;
+	}
 
 	SaveGame *savedState = SaveGame::openForLoading(filename);
 	if (!savedState || !savedState->isCompatible()) {

@@ -1944,8 +1944,19 @@ String CEAchievementService::getDefaultLoadPlaythroughForTarget(const String &ta
 	return clientPlaythroughId;
 }
 
-String CEAchievementService::getSavePlaythroughForTargetSlot(const String &target, int slot) const {
+String CEAchievementService::getSavePlaythroughForFile(const String &saveName) const {
+	bool tainted = false;
+	String clientPlaythroughId;
+	String playthroughId;
+	if (!saveName.empty())
+		loadPlaythroughSidecar(makePopupSidecarName(saveName), tainted, clientPlaythroughId, playthroughId);
+	return clientPlaythroughId;
+}
+
+String CEAchievementService::getSavePlaythroughForTargetSlot(const String &target, int slot, const String &saveName) const {
 	Array<String> saveNames;
+	if (!saveName.empty())
+		saveNames.push_back(saveName);
 	if (g_engine && ConfMan.getActiveDomainName() == target)
 		saveNames.push_back(g_engine->getSaveStateName(slot));
 	saveNames.push_back(String::format("%s.%03d", target.c_str(), slot));
@@ -2064,11 +2075,13 @@ bool CEAchievementService::deletePlaythroughForTarget(const String &target, cons
 	return true;
 }
 
-bool CEAchievementService::clearSavePlaythroughForTargetSlot(const String &target, int slot, const String &clientPlaythroughId) const {
+bool CEAchievementService::clearSavePlaythroughForTargetSlot(const String &target, int slot, const String &clientPlaythroughId, const String &saveName) const {
 	if (target.empty() || clientPlaythroughId.empty() || !g_system)
 		return false;
 
 	Array<String> saveNames;
+	if (!saveName.empty())
+		saveNames.push_back(saveName);
 	if (g_engine && ConfMan.getActiveDomainName() == target)
 		saveNames.push_back(g_engine->getSaveStateName(slot));
 	saveNames.push_back(String::format("%s.%03d", target.c_str(), slot));

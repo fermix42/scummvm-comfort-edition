@@ -21,6 +21,7 @@
 
 #include "engines/grim/grim.h"
 #include "engines/grim/savegame.h"
+#include "engines/grim/ce_ps2_saves.h"
 #include "engines/grim/emi/emi.h"
 
 #include "common/system.h"
@@ -70,10 +71,13 @@ public:
 	Common::Error createInstance(OSystem *syst, Engine **engine, const Grim::GrimGameDescription *desc) const override;
 
 	bool hasFeature(MetaEngineFeature f) const override;
+	bool hasFeatureForTarget(MetaEngineFeature f, const char *target) const override;
+	SaveStateDescriptor querySaveMetaInfos(const char *target, int slot) const override;
 
 	Common::KeymapArray initKeymaps(const char *target) const override;
 
 	SaveStateList listSaves(const char *target) const override;
+	Common::String getSavegameFile(int slot, const char *target = nullptr) const override;
 
 };
 
@@ -104,6 +108,20 @@ bool GrimMetaEngine::hasFeature(MetaEngineFeature f) const {
 		(f == kSupportsLoadingDuringStartup);
 }
 
+bool GrimMetaEngine::hasFeatureForTarget(MetaEngineFeature f, const char *target) const {
+	if (target && ConfMan.get("gameid", target) == "monkey4" &&
+	    Common::parsePlatform(ConfMan.get("platform", target)) == Common::kPlatformPS2 &&
+	    (f == kSavesSupportMetaInfo || f == kSavesSupportThumbnail))
+		return true;
+	return hasFeature(f);
+}
+
+SaveStateDescriptor GrimMetaEngine::querySaveMetaInfos(const char *target, int slot) const {
+	if (hasFeatureForTarget(kSavesSupportThumbnail, target))
+		return CEPS2Saves::saveMetadata(this, CEPS2Saves::chooserFile(target, slot), slot);
+	return AdvancedMetaEngine::querySaveMetaInfos(target, slot);
+}
+
 Common::KeymapArray GrimMetaEngine::initKeymaps(const char *target) const {
 	Common::String gameId = ConfMan.get("gameid", target);
 
@@ -119,6 +137,14 @@ Common::KeymapArray GrimMetaEngine::initKeymaps(const char *target) const {
 #endif
 
 	return AdvancedMetaEngine::initKeymaps(target);
+}
+
+Common::String GrimMetaEngine::getSavegameFile(int slot, const char *target) const {
+	if (target && ConfMan.get("gameid", target) == "monkey4" &&
+	    Common::parsePlatform(ConfMan.get("platform", target)) == Common::kPlatformPS2) {
+		return slot == kSavegameFilePattern ? "efmi*.ps2" : CEPS2Saves::chooserFile(target, slot);
+	}
+	return MetaEngine::getSavegameFile(slot, target);
 }
 
 SaveStateList GrimMetaEngine::listSaves(const char *target) const {
@@ -139,23 +165,40 @@ SaveStateList GrimMetaEngine::listSaves(const char *target) const {
 	if (isDemo)
 		return saveList; // Demos do not support saving
 
-	filenames = saveFileMan->listSavefiles(pattern);
+	if (gameId == "monkey4" && platform == Common::kPlatformPS2) {
+		filenames = CEPS2Saves::files(target);
+		for (uint index = 0; index < filenames.size(); ++index) {
+			SaveStateDescriptor desc = CEPS2Saves::saveMetadata(this, filenames[index], index);
+			if (!desc.getDescription().empty())
+				saveList.push_back(desc);
+		}
+		return saveList;
+	}
 
+	filenames = platform == Common::kPlatformPS2 ? CEPS2Saves::files(target) : saveFileMan->listSavefiles(pattern);
+
+	int chooserSlot = 0;
 	for (Common::StringArray::const_iterator file = filenames.begin(); file != filenames.end(); ++file) {
-		// Obtain the last digits of the filename, since they correspond to the save slot
-		int slotNum = atoi(file->c_str() + 4);
+		// PS2 chooser IDs distinguish sessions; descriptions retain slots 1-4.
+		int slotNum = platform == Common::kPlatformPS2 ? chooserSlot++ : atoi(file->c_str() + 4);
+		const int playerSlot = platform == Common::kPlatformPS2 ? CEPS2Saves::playerSlot(*file) : slotNum;
 
-		if (slotNum >= 0) {
+		if (slotNum >= 0 && playerSlot >= 0) {
 			SaveGame *savedState = SaveGame::openForLoading(*file);
 			if (savedState && savedState->isCompatible()) {
-				if (platform == Common::kPlatformPS2)
-					savedState->beginSection('PS2S');
-				else
-					savedState->beginSection('SUBS');
+				const uint32 sectionSize = savedState->beginSection(platform == Common::kPlatformPS2 ? 'PS2S' : 'SUBS');
 				strSize = savedState->readLESint32();
+				if (strSize <= 0 || strSize > (int32)sizeof(str) || sectionSize < 4 || (uint32)strSize > sectionSize - 4) {
+					delete savedState;
+					continue;
+				}
 				savedState->read(str, strSize);
+				str[strSize - 1] = '\0';
 				savedState->endSection();
-				saveList.push_back(SaveStateDescriptor(this, slotNum, str));
+				Common::String description(str);
+				if (platform == Common::kPlatformPS2)
+					description = Common::String::format(_("Slot %d - %s").encode().c_str(), playerSlot + 1, str);
+				saveList.push_back(SaveStateDescriptor(this, slotNum, description));
 			}
 			delete savedState;
 		}

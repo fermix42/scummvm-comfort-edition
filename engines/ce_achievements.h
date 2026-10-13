@@ -128,11 +128,12 @@ public:
 	String getCurrentPlaythroughForTarget(const String &target) const;
 	Array<CEPlaythroughRecord> listPlaythroughsForTarget(const String &target) const;
 	String getDefaultLoadPlaythroughForTarget(const String &target) const;
-	String getSavePlaythroughForTargetSlot(const String &target, int slot) const;
+	String getSavePlaythroughForTargetSlot(const String &target, int slot, const String &saveName = String()) const;
+	String getSavePlaythroughForFile(const String &saveName) const;
 	bool setPlaythroughStatusForTarget(const String &target, const String &clientPlaythroughId, const String &status);
 	bool setPlaythroughArchivedForTarget(const String &target, const String &clientPlaythroughId, bool archived);
 	bool deletePlaythroughForTarget(const String &target, const String &clientPlaythroughId) const;
-	bool clearSavePlaythroughForTargetSlot(const String &target, int slot, const String &clientPlaythroughId) const;
+	bool clearSavePlaythroughForTargetSlot(const String &target, int slot, const String &clientPlaythroughId, const String &saveName = String()) const;
 	void recordSaveCreated(const String &saveName, int slot, const String &label);
 	void recordSaveLoaded(const String &saveName, int slot);
 	void resetPopupState();
