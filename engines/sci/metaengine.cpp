@@ -179,10 +179,33 @@ static Common::String convertSierraGameId(Common::String sierraId, SciVersion sc
 
 namespace Sci {
 
+// SQ5 already exposes ORIGINAL_SAVELOAD in every supported target. Reuse that
+// presence flag and filter by game ID; these options belong only in Cheats,
+// separate from SCI's custom engine options widget.
+static const ADExtraGuiOptionsMap sq5CheatOptions[] = {
+	{ GAMEOPTION_ORIGINAL_SAVELOAD, {
+		_s("Battle Cruiser: infinite probes"),
+		_s("Keep probes available without consuming them in Space Quest V's Battle Cruiser game"),
+		"sq5_infinite_probes", false, 0, 0, kExtraGuiOptionFlagCheat } },
+	{ GAMEOPTION_ORIGINAL_SAVELOAD, {
+		_s("Battle Cruiser: probes do not take a turn"),
+		_s("Continue your turn after using a probe in Space Quest V's Battle Cruiser game"),
+		"sq5_free_probes", false, 0, 0, kExtraGuiOptionFlagCheat } },
+	{ GAMEOPTION_ORIGINAL_SAVELOAD, {
+		_s("Battle Cruiser: probes reveal the entire board"),
+		_s("Reveal Quirk's ships in all three sectors with one probe in Space Quest V's Battle Cruiser game"),
+		"sq5_full_board_probes", false, 0, 0, kExtraGuiOptionFlagCheat } },
+	AD_EXTRA_GUI_OPTIONS_TERMINATOR
+};
+
 class SciMetaEngine : public AdvancedMetaEngine<ADGameDescription> {
 public:
 	const char *getName() const override {
 		return "sci";
+	}
+	const ADExtraGuiOptionsMap *getAdvancedExtraGuiOptions() const override { return sq5CheatOptions; }
+	bool isAdvancedExtraGuiOptionAllowedForTarget(const Common::String &target, const ADExtraGuiOptionsMap &entry) const override {
+		return ConfMan.get("gameid", target) == "sq5";
 	}
 
 	Common::Error createInstance(OSystem *syst, Engine **engine, const ADGameDescription *desc) const override;
@@ -676,6 +699,8 @@ ADDetectedGame SciMetaEngine::fallbackDetectExtern(uint md5Bytes, const FileMap 
 
 void SciMetaEngine::registerDefaultSettings(const Common::String &target) const {
 	for (const ADExtraGuiOptionsMap *entry = optionsList; entry->guioFlag; ++entry)
+		ConfMan.registerDefault(entry->option.configOption, entry->option.defaultState);
+	for (const ADExtraGuiOptionsMap *entry = sq5CheatOptions; entry->guioFlag; ++entry)
 		ConfMan.registerDefault(entry->option.configOption, entry->option.defaultState);
 
 	for (const PopUpOptionsMap *entry = popUpOptionsList; entry->guioFlag; ++entry)

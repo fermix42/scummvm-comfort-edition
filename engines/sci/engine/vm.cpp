@@ -22,11 +22,13 @@
 #include "common/config-manager.h"
 #include "common/debug.h"
 #include "common/debug-channels.h"
+#include "engines/achievements.h"
 
 #include "sci/sci.h"
 #include "sci/console.h"
 #include "sci/engine/features.h"
 #include "sci/engine/guest_additions.h"
+#include "sci/engine/ce_sq5_battle.h"
 #include "sci/engine/state.h"
 #include "sci/engine/tts.h"
 #include "sci/engine/kernel.h"
@@ -652,6 +654,16 @@ void run_vm(EngineState *s) {
 
 		// Get opcode
 		const uint16 instructionOffset = s->xs->addr.pc.getOffset();
+		if (g_sci->getGameId() == GID_SQ5 && scr->getScriptNumber() == 850 && local_script == scr) {
+			const CESQ5BattleHook hook = ceSQ5BattleHook(scr->getBuf(), scr->getScriptSize(),
+				instructionOffset, s->variablesMax[VAR_LOCAL]);
+			if (hook != kCESQ5BattleNone) {
+				ceApplySQ5BattleHook(hook, s->variables[VAR_LOCAL], s->r_acc,
+					AchMan.shouldApplyCECheat("sq5_infinite_probes"),
+					AchMan.shouldApplyCECheat("sq5_free_probes"),
+					AchMan.shouldApplyCECheat("sq5_full_board_probes"));
+			}
+		}
 		byte extOpcode;
 		s->xs->addr.pc.incOffset(readPMachineInstruction(scr->getBuf(s->xs->addr.pc.getOffset()), extOpcode, opparams));
 		const byte opcode = extOpcode >> 1;
