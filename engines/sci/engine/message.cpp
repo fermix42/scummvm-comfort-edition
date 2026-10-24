@@ -21,6 +21,8 @@
 
 
 #include "sci/engine/message.h"
+#include "sci/sci.h"
+#include "sci/galaxy_data.h"
 #include "sci/engine/kernel.h"
 #include "sci/engine/seg_manager.h"
 #include "sci/engine/state.h"
@@ -196,6 +198,28 @@ bool MessageState::getRecord(CursorStack &stack, bool recurse, MessageRecord &re
 	// find a workaround for the requested message and use the prescribed module
 	int module = stack.getModule();
 	MessageTuple &tuple = stack.top();
+	if (g_sci->isSQ5TrashTalkin() && module==201 && tuple.noun==200 && tuple.verb==0 && tuple.cond==0) {
+		if (tuple.seq<1 || tuple.seq>2) return false;
+		record.tuple=tuple;record.refTuple=MessageTuple();
+		record.string=tuple.seq==1 ? "Good news, Cap'n! Got that cloaking device all hooked up. Just give the word from the bridge and I'll fire her up." : "Thanks, Chief.";
+		record.length=strlen(record.string);record.talker=tuple.seq==1?23:19;
+		return true;
+	}
+	const int chartLine=g_sci->_sq5ChartSpeakingRefusal;
+	if(chartLine>=0 && (chartLine<(int)ARRAYSIZE(galaxyPlaces)||chartLine==kGalaxyAlreadyHere) && module==201 &&
+	   tuple.noun==23 && tuple.verb==0 && tuple.cond==43) {
+		// Narrator::say can advance through consecutive messages synchronously.
+		// End each chart reply after its requested line so dialogs.cpp can
+		// restore the bridge actors before starting the separate followup.
+		if(tuple.seq!=g_sci->_sq5ChartSpeakingSequence) return false;
+		if(tuple.seq!=1 && !(tuple.seq==2 && chartLine<(int)ARRAYSIZE(galaxyPlaces) && galaxyPlaces[chartLine].followup[0])) return false;
+		loadGalaxyOverrides();
+		record.tuple=tuple;record.refTuple=MessageTuple();
+		record.string=chartLine==kGalaxyAlreadyHere?galaxyAlreadyHereText:(tuple.seq==2?galaxyPlaces[chartLine].followup:galaxyPlaces[chartLine].refusal);
+		record.length=strlen(record.string);record.talker=(chartLine==kGalaxyAlreadyHere||tuple.seq==2)?21:galaxyPlaces[chartLine].refusalSpeaker;
+		return true;
+	}
+
 	SciMessageWorkaroundSolution workaround = findMessageWorkaround(module, tuple.noun, tuple.verb, tuple.cond, tuple.seq);
 	if (workaround.type != MSG_WORKAROUND_NONE) {
 		module = workaround.module;
@@ -323,6 +347,17 @@ int MessageState::nextMessage(reg_t buf) {
 	if (!buf.isNull()) {
 		if (getRecord(_cursorStack, true, record)) {
 			outputString(buf, processString(record.string, record.length));
+			// Unlock only when the actual WD40 location message is delivered,
+			// not when a message-existence query probes this tuple.
+			if (g_sci->isSQ5TrashTalkin() && _cursorStack.getModule()==201 &&
+				record.tuple.noun==34 && record.tuple.verb==0 &&
+				record.tuple.cond==49 && record.tuple.seq==1)
+				g_sci->getEngineState()->sq5GoliathLocated=1;
+			Common::String voiceId=Common::String::format("%d-%d-%d-%d-%d", _cursorStack.getModule(), record.tuple.noun, record.tuple.verb, record.tuple.cond, record.tuple.seq);
+			const int chartLine=g_sci->_sq5ChartSpeakingRefusal;
+			if(chartLine>=0&&(chartLine<(int)ARRAYSIZE(galaxyPlaces)||chartLine==kGalaxyAlreadyHere)&&_cursorStack.getModule()==201&&record.tuple.noun==23&&record.tuple.verb==0&&record.tuple.cond==43)
+				voiceId=chartLine==kGalaxyAlreadyHere?galaxyAlreadyHereVoice:(record.tuple.seq==2?galaxyPlaces[chartLine].followupVoice:galaxyPlaces[chartLine].refusalVoice);
+			g_sci->_tts->bindVoice(buf,voiceId,processString(record.string,record.length));
 			_lastReturned = record.tuple;
 			_lastReturnedModule = _cursorStack.getModule();
 			_cursorStack.top().seq++;

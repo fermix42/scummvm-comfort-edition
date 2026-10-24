@@ -218,6 +218,8 @@ SciEngine::SciEngine(OSystem *syst, const ADGameDescription *desc, SciGameId gam
 }
 
 SciEngine::~SciEngine() {
+	delete _tts;
+	_tts = nullptr;
 #ifdef ENABLE_SCI32
 	delete _gfxControls32;
 	delete _gfxPaint32;
@@ -266,14 +268,20 @@ SciEngine::~SciEngine() {
 	delete[] _opcode_formats;
 
 	delete _scriptPatcher;
-	delete _tts;
 	delete _resMan;	// should be deleted last
 	g_sci = nullptr;
 }
 
 extern int showScummVMDialog(const Common::U32String &message, const Common::U32String &altButton = Common::U32String(), bool alignCenter = true);
 
+bool SciEngine::isSQ5TrashTalkin() const {
+	return _gameId == GID_SQ5 && _gameDescription->extra &&
+		!strcmp(_gameDescription->extra, "Trash Talkin' Edition v0.2.12");
+}
+
 Common::Error SciEngine::run() {
+	if (isSQ5TrashTalkin() && !ConfMan.hasKey("sq5_voice_path"))
+		ConfMan.setPath("sq5_voice_path", ConfMan.getPath("path").join("voices"));
 	_tts = new SciTTS();
 
 	_resMan = new ResourceManager();
@@ -1010,6 +1018,7 @@ void SciEngine::setLauncherLanguage() {
 }
 
 void SciEngine::pauseEngineIntern(bool pause) {
+	if (_sq5ChartKeepsAudio) return;
 	_mixer->pauseAll(pause);
 	if (_soundCmd)
 		_soundCmd->pauseAll(pause);

@@ -1192,6 +1192,23 @@ reg_t kDrawCel(EngineState *s, int argc, reg_t *argv) {
 		}
 	}
 
+	// SCI Talker portraits draw mouth layers directly rather than as cast actors.
+	// Substitute only the active talker's mouth cel; retain all script state.
+	if (g_sci->isSQ5TrashTalkin()) {
+		GfxView *mouthView = g_sci->_gfxCache->getView(viewId);
+		if (loopNo >= 0 && loopNo < mouthView->getLoopCount()) {
+			const int replacement = g_sci->_tts->recordedDrawMouthCel(viewId, loopNo, mouthView->getCelCount(loopNo));
+			if (replacement >= 0) celNo = replacement;
+		}
+	}
+	// Bea's front-facing academy eyes store closed/open in the opposite
+	// order to Blink's resting cel. Match the reviewed gallery without
+	// changing the script's blink cadence, expressions, or other poses.
+	if (g_sci->isSQ5TrashTalkin() && s->currentRoomNumber() == 119 &&
+		viewId == 133 && loopNo == 13 && celNo >= 0 && celNo < 2 &&
+		g_sci->_gfxCache->getView(viewId)->getCelCount(loopNo) == 2)
+		celNo = 1 - celNo;
+
 	g_sci->_gfxPaint16->kernelDrawCel(viewId, loopNo, celNo, x, y, priority, paletteNo, scaleX, scaleY, hiresMode, upscaledHiresHandle);
 
 	return s->r_acc;
@@ -1203,6 +1220,7 @@ reg_t kDisposeWindow(EngineState *s, int argc, reg_t *argv) {
 	if ((argc != 2) || (argv[1].isNull()))
 		reanimate = true;
 
+	g_sci->_tts->beginDialogueHandoff();
 	g_sci->_gfxPorts->kernelDisposeWindow(windowId, reanimate);
 	g_sci->_tts->stop();
 

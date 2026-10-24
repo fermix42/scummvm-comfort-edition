@@ -1,0 +1,150 @@
+{
+  "date_local": "2026-10-23",
+  "timezone": "America/Phoenix",
+  "status": "focused_integration_and_validation_complete",
+  "candidate": {
+    "path": "build-scummvm/Releasex64/scummvm-sq5-tte.exe",
+    "sha256": "1a0976b7363d2680fc77e8b6b6a76cf17a6cc024596a625b9e09f64836b5daef",
+    "configuration": "Windows Release x64"
+  },
+  "automated": {
+    "build": "pass",
+    "payload_files_verified": 2925,
+    "original_files_verified": 89,
+    "patch_recipes_verified": 32,
+    "importer_tests_passed": 5,
+    "wav_files_audited": 2851,
+    "timing_files_audited": 6,
+    "enhanced_detection_startup": "pass",
+    "original_detection_startup": "pass",
+    "tuple_audio_collisions_after_fix": 0,
+    "numeric_wave_patch_regression": "pass",
+    "runtime_evidence": "build-sq5-analysis/validation-audio-fix/validation.json"
+  },
+  "human": {
+    "intro_matching_speech_no_repetition": "pass",
+    "save_creation": "pass",
+    "restore_position": "pass",
+    "speech_after_load": "pass",
+    "atlas_display": "pass",
+    "atlas_cancel": "pass",
+    "planet_narration": "pass",
+    "course_confirmation": "pass",
+    "visible_portrait_lip_sync_no_facial_glitches": "pass",
+    "atlas_confirmation_animation": "pass",
+    "notes": [
+      "Female character visible mouth had good lip sync.",
+      "User reports Droole has no visible mouth in the observed appearance; not reported as an integration defect.",
+      "Atlas tested through an isolated debugger-prepared bridge fixture.",
+      "User confirmed the ending test passed: Flo mouth and both characters blinking correct, no smearing."
+    ],
+    "ending_flo_mouth": "pass",
+    "ending_flo_blink": "pass",
+    "ending_droole_blink": "pass",
+    "ending_no_smearing": "pass"
+  },
+  "limitations": [
+    "Natural story progression and all atlas unlock/refusal combinations not tested.",
+    "Live achievement API and account-linked Play Session isolation not tested.",
+    "Legacy-save guard path and cross-interpreter saves not separately tested.",
+    "No full-game or all-SCI-game regression claim."
+  ],
+  "delivery": {
+    "regular_executable_replaced": false,
+    "normal_launcher": "build-sq5-analysis/Launch SQ5 CE candidate.cmd",
+    "normal_saves": "build-sq5-analysis/human-saves",
+    "synthetic_atlas_launcher": "build-sq5-analysis/Launch SQ5 atlas test.cmd",
+    "synthetic_atlas_saves": "build-sq5-analysis/atlas-saves",
+    "ending_test_launcher": "build-sq5-analysis/Launch SQ5 CE ending test.cmd",
+    "repository_delivery": "Dedicated SQ5 scope only; commit and remote synchronization are recorded by Git and the final handoff."
+  },
+  "working_tree_source_snapshot_sha256": {
+    "engines/sci/detection_tables.h": "30ae65b17483208f7b022ebb1614ef165b011ca3a957494c6c1cf73b44808d64",
+    "engines/sci/dialogs.cpp": "57438ab3dbf70da9d3de41d67756033cf7d4b16574463baac9dadd7a2b89fa61",
+    "engines/sci/dialogs.h": "162f82280868bbb9903d22f1cbdcb7b4419c2e0732945bbac719f3d2d87cb7e6",
+    "engines/sci/engine/guest_additions.cpp": "aa8e2dd1026066d0b7ef3cbade76e0c4d145ac23db198a2b7c24eb4b5e8c0396",
+    "engines/sci/engine/kevent.cpp": "1ff5b759e52e0cf7a89d63d300facb47b1337c646dac3b9567d8a174a541d3a1",
+    "engines/sci/engine/kgraphics.cpp": "8d602bf839cfba6336b1e06567bf9721768489466987be487981bd7d128b3c7b",
+    "engines/sci/engine/kstring.cpp": "10a75d2e2b76741dcdaf44b112f5d14090b1cb28d483a03ac34f47fc2d9aef0f",
+    "engines/sci/engine/message.cpp": "bac3533336d271dccec7ee613e76f253383bcd2eec645ca675c1b8cc74409a21",
+    "engines/sci/engine/savegame.cpp": "853ee1f9b365c8ec946d1cb37641bcff65c94d30d0e6dd13df6237897d8bc9ed",
+    "engines/sci/engine/savegame.h": "27f500f8d474ffe0786fe41c73baa3aff26cc58d4cad43b70a4990dd48e82bff",
+    "engines/sci/engine/script.cpp": "deb943fb10147f03f3b651c2e9265650e06250cf9c39ec6b22399f1f33beece4",
+    "engines/sci/engine/script.h": "a619c71fd766316a9b4e86f7083a589f339f6f1d8a946f88f0587fa197a68f4a",
+    "engines/sci/engine/state.cpp": "0d9aef4a75ac719851c885ef576593b876243e556911cd422ecef87446894d04",
+    "engines/sci/engine/state.h": "15ec8df21e15208bffe99b022fafa92dd63c41aeb1851bba456cc05efdf40db0",
+    "engines/sci/engine/tts.cpp": "631656d836a241414739c81221100e51a5df094d7d3e3584caf36b10cf12cf57",
+    "engines/sci/engine/tts.h": "9500373c0ac065607383e9baab13a618910cf03985082deaf6f2ddbc993856b8",
+    "engines/sci/engine/vm.cpp": "4ad6a1be3d8a0e0e652e52f1c67e7050792df4505ffe966d99e2a0dbe2443a57",
+    "engines/sci/event.cpp": "f937c9e92375139305c0523c3d1c0baa21b860a333eb7791efff9587e0d2cdab",
+    "engines/sci/graphics/animate.cpp": "07ff146e7ac64cebcb8ee58da8bb3b8cb71810cbcd2d815a3ac4e821d3ee20f5",
+    "engines/sci/graphics/animate.h": "0b63ee7b605ba68a7cd7469d345be3a9f2b9dc49fa22c3180104e293b9db0226",
+    "engines/sci/graphics/controls16.cpp": "4fb1fae5333f1e96c8bd50794ad1390044419667b63dc713f286d8c3438a9803",
+    "engines/sci/graphics/paint16.cpp": "8ca27c4c1a49e89e19e9e964d05a533f6f12113a7c8c17f4afab1afa341df917",
+    "engines/sci/graphics/paint16.h": "8001cca7f2229c8841a848ba2fe5c5c274e04d5e8190c7688242c184d242b9d3",
+    "engines/sci/graphics/palette16.cpp": "41137af5b3eb351736a49363a0abdce7277506981f09a1874156291a44f13702",
+    "engines/sci/graphics/picture.cpp": "8ca2a46e5ced565a0584f5a1edbd66aa616c2df32f1a1abe0802e6f917c4b50b",
+    "engines/sci/graphics/screen.cpp": "5b81a6b475a957465940470f2d839da966d44ff9b4f4dc5cd12d6bcdedd96f07",
+    "engines/sci/graphics/screen.h": "146ff61a3f86a614fce0c4138824bfe1a5ef1af680ddfbd1502d9ff7e3ec1e63",
+    "engines/sci/graphics/transitions.cpp": "4fa1e1a51fc6d9b5c39b3f37bd187fb0787809a9fb93b75e116c5b1accaa8da6",
+    "engines/sci/resource/resource_audio.cpp": "35d725aa7c7e75cf13ef61a0f491473f338dd4a789169ca8729d6057936729ec",
+    "engines/sci/sci.cpp": "72c0576aef97acf4bff3a6e5d6d5baa1e0493366d484d60b7de7d6b6574bdab2",
+    "engines/sci/sci.h": "2e651fd99c9557970daa64adca7d75108cec261867592c3025b022886067123a",
+    "engines/sci/sound/soundcmd.cpp": "30c27eb63941a543ece45251ac6b12baf5bb0b68b59d734a4b14a7455537dab8",
+    "engines/sci/sound/soundcmd.h": "420d6a2f8b8f3436150e1ff15b90550e510cb96be878499c1cda3914b3e3b3c5",
+    "engines/sci/engine/recorded_mouth_profiles.h": "95db3d519c46f3fe1ec8f41b68c91ba40170b777fc023a5e37934fa4cdbc0388",
+    "engines/sci/galaxy_data.h": "8e56caee2961120bf6640e3b4254f3029416188f795ba000e1bbffeadc6f4665",
+    "devtools/ce/prepare_sq5_trash_talkin.py": "3bfc2a7a5bd2b01796a6846dbdc77b347fd0d172864561f02efa8bf47c219068",
+    "devtools/ce/test_sq5_trash_talkin.py": "f2601ebfa7b0ea25df573205e53e0f7e012c4c1c45d13f4a1d400c41e9adefac",
+    "devtools/ce/validate_sq5_trash_talkin.py": "57a819e3e1c3dec08e71b470e879e25c09af1e6de1358ddc0553d653ad7791f0",
+    "devtools/ce/sq5_tte_ending_art.py": "c52f2a642cbfd405da293327b63c028dbcbbbc05584ce6a69fa6e5c6c7953bf7"
+  },
+  "ending_recovery": {
+    "method": "exact named COFF symbols from hash-bound supplied runtime",
+    "total_bytes": 3450,
+    "assets": {
+      "kFloEndingMouth": {
+        "symbol": "_ZL15kFloEndingMouth",
+        "section": ".rdata",
+        "file_offset": 7661344,
+        "size": 450,
+        "sha256": "44e73a7a2b93968559244acb983cd6ec5eacac58eca1e012cc79e4312e82d65f"
+      },
+      "kEndingFloEyes0": {
+        "symbol": "_ZL15kEndingFloEyes0",
+        "section": ".rdata",
+        "file_offset": 7661824,
+        "size": 300,
+        "sha256": "507e70d476d2101eecfd169115cd3f31e3db8d166b7df21ecce7b5b8b6c53259"
+      },
+      "kEndingFloEyes1": {
+        "symbol": "_ZL15kEndingFloEyes1",
+        "section": ".rdata",
+        "file_offset": 7662144,
+        "size": 300,
+        "sha256": "b1f6ae57d675ca76e3ffc3debf1a65d655a8b783815e93248c9818adebde56f8"
+      },
+      "kEndingDrooleEyes0": {
+        "symbol": "_ZL18kEndingDrooleEyes0",
+        "section": ".rdata",
+        "file_offset": 7662464,
+        "size": 1200,
+        "sha256": "43d534373dfef3dbc0281a3b44cc36fbc9cd020252df89413932f29e42be9396"
+      },
+      "kEndingDrooleEyes1": {
+        "symbol": "_ZL18kEndingDrooleEyes1",
+        "section": ".rdata",
+        "file_offset": 7663680,
+        "size": 1200,
+        "sha256": "23958710b0d234aa0d40e665f283aab5774b82cd029680b6c40ecbc987577a59"
+      }
+    },
+    "reference_ending_playback": "closing bridge scene and Flo speech reached",
+    "ce_ending_playback": "closing bridge scene reached; mouth open during Flo line and neutral afterward observed by assistant",
+    "human_ending_overlay_check": "pass",
+    "report": "docs/testing/sq5-trash-talkin-ending-recovery.md"
+  },
+  "implementation_complete_for_reviewed_scope": true,
+  "all_focused_human_checkpoints_passed": true,
+  "full_game_validation_performed": false
+}

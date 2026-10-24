@@ -167,6 +167,13 @@ struct EngineState : public Common::Serializable {
 	SegmentId variablesSegment[4];	///< Same as above, contains segment IDs
 	int variablesMax[4];		///< Max. values for all variables
 
+	bool sq5MazeFadeReady = false;
+	bool sq5MazeFadePending = false; // Transient: hide relocation until arrival is drawn.
+	byte sq5MazeFadePalette[768] = {};
+	byte sq5MazeChoice = 0; // 0 unoffered, 1 declined, 2 skipped, 3 relocation pending.
+	uint16 sq5MazeOrigin = 0xffff; // First visited deck/cell; offer after one change.
+	byte sq5CloakAnnounced = 0; // Installation intercom: 0 pending, 1 restoring controls, 2 done (save v48).
+	byte sq5GoliathLocated = 0; // WD40 scan discovery, persisted in save version 47.
 	AbortGameState abortScriptProcessing;
 	int16 gameIsRestarting; // is set when restarting (=1) or restoring the game (=2)
 

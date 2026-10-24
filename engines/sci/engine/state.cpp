@@ -79,6 +79,8 @@ EngineState::~EngineState() {
 }
 
 void EngineState::reset(bool isRestoring) {
+	sq5MazeFadePending = false; sq5MazeFadeReady = false;
+	if (!isRestoring) { sq5GoliathLocated = 0; sq5CloakAnnounced = 0; sq5MazeChoice = 0; sq5MazeOrigin = 0xffff; }
 	if (!isRestoring) {
 		_memorySegmentSize = 0;
 		_fileHandles.resize(5);

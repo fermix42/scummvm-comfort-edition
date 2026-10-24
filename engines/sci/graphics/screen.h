@@ -83,6 +83,8 @@ public:
 
 	void clearForRestoreGame();
 	void copyToScreen();
+	void fadeMazePlayfield(bool fadeIn);
+	void syncMazeStatusBar();
 	void kernelSyncWithFramebuffer();
 	void copyRectToScreen(const Common::Rect &rect);
 	void copyHiResRectToScreen(const byte *srcBuffer, int pitch, int x, int y, int w, int h, const byte *colorMap);

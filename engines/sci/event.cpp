@@ -27,6 +27,7 @@
 #include "sci/event.h"
 #include "sci/console.h"
 #include "sci/engine/state.h"
+#include "sci/engine/tts.h"
 #include "sci/engine/kernel.h"
 #include "sci/graphics/drivers/gfxdriver.h"
 #ifdef ENABLE_SCI32
@@ -430,7 +431,8 @@ void EventManager::updateScreen() {
 	// Throttle the screen update rate to 60fps.
 	EngineState *s = g_sci->getEngineState();
 	if (g_system->getMillis() - s->_screenUpdateTime >= 1000 / 60) {
-		g_system->updateScreen();
+		if (!g_sci->_tts->deferDialogueFrame())
+			g_system->updateScreen();
 		s->_screenUpdateTime = g_system->getMillis();
 		// Throttle the checking of shouldQuit() to 60fps as well, since
 		// Engine::shouldQuit() invokes 2 virtual functions

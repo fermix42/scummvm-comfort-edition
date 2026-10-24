@@ -22,11 +22,18 @@
 #ifndef SCI_DIALOGS_H
 #define SCI_DIALOGS_H
 
+#include "engines/advancedDetector.h"
+#include "sci/engine/vm_types.h"
 #include "gui/ThemeEval.h"
 #include "gui/widget.h"
 #include "gui/widgets/popup.h"
 
 namespace Sci {
+struct SciEvent;
+void sq5MazeShortcut(SciEvent &event, int argc, reg_t *argv);
+void sq5CloakAnnouncement(SciEvent &event, int argc, reg_t *argv);
+void sq5NavigationMenu(SciEvent &event, int argc, reg_t *argv);
+void sq5AudioMenu(SciEvent &event, int argc, reg_t *argv);
 
 struct PopUpOptionsItem {
 	const char *label;

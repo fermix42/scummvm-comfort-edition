@@ -25,6 +25,7 @@
 
 #include "sci/sci.h"
 #include "sci/engine/state.h"
+#include "sci/engine/tts.h"
 #include "sci/graphics/screen.h"
 #include "sci/graphics/palette16.h"
 #include "sci/graphics/coordadjuster.h"
@@ -71,6 +72,7 @@ GuiResourceId GfxPicture::getResourceId() {
 //  Games like PQ1 use the "old" vector data picture format, but are actually SCI1.1
 //  We should leave this that way to decide the format on-the-fly instead of hardcoding it in any way
 void GfxPicture::draw(bool mirroredFlag, bool addToFlag, int16 EGApaletteNo) {
+	g_sci->_tts->recordedPicture(_resourceId);
 	_mirroredFlag = mirroredFlag;
 	_addToFlag = addToFlag;
 	_EGApaletteNo = EGApaletteNo;

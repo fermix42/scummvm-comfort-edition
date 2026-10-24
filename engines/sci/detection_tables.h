@@ -6448,6 +6448,16 @@ static const struct ADGameDescription SciGameDescriptions[] = {
 #undef GUIO_SQ4_CD
 #undef GUIO_SQ4_CD_WINDOWS
 
+	// CE: marker is the release's unmodified release.json, copied by the preparer.
+	{"sq5", "Trash Talkin' Edition v0.2.12", {
+		{"resource.map", 0, "66317c12ac6e818d1f7c17e83c1d9819", 6143},
+		{"resource.000", 0, "4147edc5045e6d62998018b5614c58ec", 5496486},
+		{"resource.msg", 0, "bb8ad78793c26bdb3f77498b1d6515a9", 125988},
+		{"sq5-tte-release.json", 0, "857b15810cf695c8ad59c0715586836c", 189},
+		AD_LISTEND},
+		Common::EN_ANY, Common::kPlatformDOS, ADGF_NO_FLAGS,
+		GUIO3(GAMEOPTION_ORIGINAL_SAVELOAD, GAMEOPTION_MIDI_MODE, GAMEOPTION_ENABLE_GMM_SAVE)},
+
 	// Space Quest 5 - English DOS
 	// Game version 1.03 or 1.04 from VERSION file
 	// SCI interpreter version 1.001.068

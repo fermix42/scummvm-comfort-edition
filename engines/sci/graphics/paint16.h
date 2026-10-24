@@ -43,6 +43,7 @@ public:
 
 	void debugSetEGAdrawingVisualize(bool state);
 
+	GuiResourceId currentPicture() const { return _currentPicture; }
 	void drawPicture(GuiResourceId pictureId, bool mirroredFlag, bool addToFlag, GuiResourceId paletteId);
 	void drawCelAndShow(GuiResourceId viewId, int16 loopNo, int16 celNo, uint16 leftPos, uint16 topPos, byte priority, uint16 paletteNo, uint16 scaleX = 128, uint16 scaleY = 128, uint16 scaleSignal = 0);
 	void drawCel(GuiResourceId viewId, int16 loopNo, int16 celNo, const Common::Rect &celRect, byte priority, uint16 paletteNo, uint16 scaleX = 128, uint16 scaleY = 128, uint16 scaleSignal = 0);
@@ -84,6 +85,7 @@ public:
 	void kernelPortraitUnload(uint16 portraitId);
 
 private:
+	GuiResourceId _currentPicture = -1;
 	ResourceManager *_resMan;
 	SegManager *_segMan;
 	AudioPlayer *_audio;

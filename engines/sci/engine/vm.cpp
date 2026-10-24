@@ -28,6 +28,7 @@
 #include "sci/engine/features.h"
 #include "sci/engine/guest_additions.h"
 #include "sci/engine/state.h"
+#include "sci/engine/tts.h"
 #include "sci/engine/kernel.h"
 #include "sci/engine/object.h"
 #include "sci/engine/script.h"
@@ -605,6 +606,31 @@ void run_vm(EngineState *s) {
 			s->variables[VAR_PARAM] = s->xs->variables_argp;
 		}
 
+		// Game::doit normally ignores a request to reload the current room.
+		// Force its normal room-change branch for this one queued shortcut;
+		// disposal and initialization still occur outside GetEvent's stack.
+		if (g_sci->isSQ5TrashTalkin() && s->sq5MazeChoice == 3 &&
+			scr->getScriptNumber() == 994 && s->xs->addr.pc.getOffset() == 0x624 &&
+			s->variables[VAR_GLOBAL][13].toUint16() == 1020)
+			s->r_acc = TRUE_REG;
+		// Native rm1020::init has now finished choosing its default entry cell.
+		// Redirect this one arrival before it builds the maze and awards discovery.
+		if (g_sci->isSQ5TrashTalkin() && s->sq5MazeChoice == 3 &&
+			scr->getScriptNumber() == 1020 && s->xs->addr.pc.getOffset() == 0x2b2) {
+			s->variables[VAR_GLOBAL][133] = make_reg(0, 2);
+			s->variables[VAR_GLOBAL][135] = make_reg(0, 26);
+			s->sq5MazeChoice = 2;
+		}
+		if (g_sci->isSQ5TrashTalkin() &&
+			(scr->getScriptNumber() == 30 || (scr->getScriptNumber() >= 216 && scr->getScriptNumber() <= 219)) &&
+			g_sci->_tts->selectionAt(s->xs->addr.pc, s->xs->objp, scr->getScriptNumber())) {
+			// A nested talker call changes VM variable pointers; refresh them
+			// before executing the original, unmodified next instruction.
+			s->xs = &s->_executionStack.back();
+			s->_executionStackPosChanged = true;
+			continue;
+		}
+
 		g_sci->checkAddressBreakpoint(s->xs->addr.pc);
 
 		// Debug if this has been requested:
@@ -625,6 +651,7 @@ void run_vm(EngineState *s) {
 			s->xs->addr.pc.getOffset(), scr->getBufSize());
 
 		// Get opcode
+		const uint16 instructionOffset = s->xs->addr.pc.getOffset();
 		byte extOpcode;
 		s->xs->addr.pc.incOffset(readPMachineInstruction(scr->getBuf(s->xs->addr.pc.getOffset()), extOpcode, opparams));
 		const byte opcode = extOpcode >> 1;
@@ -764,17 +791,29 @@ void run_vm(EngineState *s) {
 			if (s->r_acc.getOffset() || s->r_acc.getSegment())
 				s->xs->addr.pc.incOffset(opparams[0]);
 
-			if (s->xs->addr.pc.getOffset() >= local_script->getScriptSize())
+			if (!local_script->isValidJumpOffset(s->xs->addr.pc.getOffset()))
 				error("[VM] op_bt: request to jump past the end of script %d (offset %d, script is %d bytes)",
 					local_script->getScriptNumber(), s->xs->addr.pc.getOffset(), local_script->getScriptSize());
 			break;
 
 		case op_bnt: // 0x18 (24)
+			// SQ5 Talker:cycle and PriorityTalker:cycle redraw only after their cycler changes
+			// a cel. Recorded speech needs redraws even when that cycler stops.
+			// Enter the existing draw/show path, without modifying the mouth
+			// object, cycler, eyes, or the enclosing dialogue completion logic.
+			// Guard the exact original branches and the active owned mouth.
+			// Script 22 is used by the Klorox encounter and retains priority clipping.
+			if (g_sci->isSQ5TrashTalkin() && ((scr->getScriptNumber() == 928 && instructionOffset == 0x0a1c) ||
+				 (scr->getScriptNumber() == 22 && instructionOffset == 0x01b5)) && opparams[0] == 244 &&
+				s->xs->argc >= 1 && g_sci->_tts->recordedMouthCycle(s->xs->variables_argp[1])) {
+				s->xs->addr.pc.setOffset(scr->getScriptNumber() == 22 ? 0x01e4 : 0x0a4b);
+				break;
+			}
 			// Branch relative if not true
 			if (!(s->r_acc.getOffset() || s->r_acc.getSegment()))
 				s->xs->addr.pc.incOffset(opparams[0]);
 
-			if (s->xs->addr.pc.getOffset() >= local_script->getScriptSize())
+			if (!local_script->isValidJumpOffset(s->xs->addr.pc.getOffset()))
 				error("[VM] op_bnt: request to jump past the end of script %d (offset %d, script is %d bytes)",
 					local_script->getScriptNumber(), s->xs->addr.pc.getOffset(), local_script->getScriptSize());
 			break;
@@ -782,7 +821,7 @@ void run_vm(EngineState *s) {
 		case op_jmp: // 0x19 (25)
 			s->xs->addr.pc.incOffset(opparams[0]);
 
-			if (s->xs->addr.pc.getOffset() >= local_script->getScriptSize())
+			if (!local_script->isValidJumpOffset(s->xs->addr.pc.getOffset()))
 				error("[VM] op_jmp: request to jump past the end of script %d (offset %d, script is %d bytes)",
 					local_script->getScriptNumber(), s->xs->addr.pc.getOffset(), local_script->getScriptSize());
 			break;

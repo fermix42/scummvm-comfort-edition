@@ -150,6 +150,7 @@ reg_t kStrAt(EngineState *s, int argc, reg_t *argv) {
 		}
 	}
 
+	if (argc == 2) value = g_sci->_tts->logCharacter(argv[0], argv[1].toUint16(), value);
 	return make_reg(0, value);
 }
 
@@ -506,6 +507,13 @@ reg_t kMessage(EngineState *s, int argc, reg_t *argv) {
 
 	if (argc >= 6)
 		tuple = MessageTuple(argv[2].toUint16(), argv[3].toUint16(), argv[4].toUint16(), argv[5].toUint16());
+
+	// The maze Look pool retains only the two customized descriptions.
+	// Apply to both size and retrieval queries so text and voice stay aligned.
+	if (g_sci->isSQ5TrashTalkin() && module==1020 && argc>=6 &&
+		argv[2].toUint16()==5 && argv[3].toUint16()==1 &&
+		argv[4].toUint16()==0 && argv[5].toUint16()==1)
+		tuple=MessageTuple(5,1,0,2);
 
 	switch (func) {
 	case K_MESSAGE_GET:

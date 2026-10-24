@@ -61,6 +61,7 @@ public:
 
 	void processPlaySound(reg_t obj, bool playBed, bool restoring = false);
 	void processStopSound(reg_t obj, bool sampleFinishedPlaying);
+	bool isSoundPlaying(reg_t obj);
 	void initSoundResource(MusicEntry *newSound);
 
 	MusicType getMusicType() const;

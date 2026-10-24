@@ -182,6 +182,7 @@ public:
 	int getAutosaveSlot() const override { return -1; }
 
 	const SciGameId &getGameId() const { return _gameId; }
+	bool isSQ5TrashTalkin() const;
 	const char *getGameIdStr() const;
 	Common::Language getLanguage() const;
 
@@ -329,6 +330,17 @@ public:
 	GfxCursor32 *_gfxCursor32;
 #endif
 
+	// Chart pauses the game clock while letting the current ship audio continue.
+	bool _sq5ChartKeepsAudio = false;
+	int _sq5ChartPendingRefusal = -1;
+	int _sq5ChartFollowup = -1;
+	reg_t _sq5ChartFloActor, _sq5ChartFloArm, _sq5ChartFloFacing;
+	reg_t _sq5ChartRogerActor;
+	uint16 _sq5ChartRogerLoop=0, _sq5ChartRogerCel=0, _sq5ChartRogerX=0, _sq5ChartRogerY=0;
+	uint16 _sq5ChartFloLoop = 0, _sq5ChartFloCel = 0;
+	int _sq5ChartSpeakingRefusal = -1;
+	int _sq5ChartSpeakingSequence = 1;
+	reg_t _sq5ChartBeepToSkip = NULL_REG;
 	AudioPlayer *_audio;
 	Sync *_sync;
 	SoundCommandParser *_soundCmd;

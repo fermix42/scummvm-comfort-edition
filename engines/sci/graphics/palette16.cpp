@@ -504,6 +504,24 @@ void GfxPalette::copySysPaletteToScreen(bool update) {
 		}
 	}
 
+	// SQ5 leaves its opening artwork in the visual buffer beneath the
+	// starfield. Its nominal black mask is RGB(0, 0, 7), so both the
+	// emblem and black text erased over it remain faintly visible.
+	// Normalize this mask (including its intensity-scaled values) throughout
+	// the opening, menu/replay and ending, not just before sPixelIn: that script's
+	// local 8 is a persistent mode, not an artwork-visibility flag.
+	// Only change the output palette; retain the source colors and scripted
+	// intensities so the bright emblem, stars and fades still work normally.
+	if (g_sci->isSQ5TrashTalkin()) {
+		EngineState *state = g_sci->getEngineState();
+		if (state && (state->currentRoomNumber() == 100 || state->currentRoomNumber() == 104 || state->currentRoomNumber() == 1041)) {
+			for (int i = 0; i < 256; ++i) {
+				if (bpal[i * 3] == 0 && bpal[i * 3 + 1] == 0 && bpal[i * 3 + 2] <= 7)
+					bpal[i * 3 + 2] = 0;
+			}
+		}
+	}
+
 	if (g_sci->_gfxRemap16)
 		g_sci->_gfxRemap16->updateRemapping();
 

@@ -1116,7 +1116,7 @@ void GuestAdditions::syncMasterVolumeToScummVM(const int16 masterVolume) const {
 	// kDoAudioVolume
 	// TODO: In SCI16, the volume slider only changed the music volume.
 	// Is this non-standard behavior better, or just wrong?
-	if (getSciVersion() < SCI_VERSION_2) {
+	if (getSciVersion() < SCI_VERSION_2 && !(g_sci->isSQ5TrashTalkin() && ConfMan.hasKey("sq5_voice_path"))) {
 		ConfMan.setInt("sfx_volume", scummVMVolume);
 		ConfMan.setInt("speech_volume", scummVMVolume);
 	}

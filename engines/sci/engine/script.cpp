@@ -48,6 +48,7 @@ Script::~Script() {
 
 void Script::freeScript(const bool keepLocalsSegment) {
 	_nr = 0;
+	_sq5LegacyGuardOffset = 0;
 
 	_buf.clear();
 	_script.clear();

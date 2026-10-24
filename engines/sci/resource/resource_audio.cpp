@@ -259,6 +259,19 @@ void ResourceManager::readWaveAudioPatches() {
 	for (Common::ArchiveMemberList::const_iterator x = files.begin(); x != files.end(); ++x) {
 		Common::String name = (*x)->getFileName();
 
+		// CE's prepared SQ5 talkie keeps tuple recordings in a voices
+		// subdirectory, which SearchMan also searches. These are played by
+		// SciTTS, not SCI audio resources: atoi("104-1-0-0-1.wav") would
+		// otherwise replace sound 104 and its original music/cue sequence.
+		// Retain genuine numeric WAV patches and other games' behavior.
+		if (g_sci && g_sci->isSQ5TrashTalkin()) {
+			const char *end = name.c_str();
+			while (Common::isDigit(*end))
+				++end;
+			if (*end != '.')
+				continue;
+		}
+
 		if (Common::isDigit(name[0]))
 			processWavePatch(ResourceId(kResourceTypeAudio, atoi(name.c_str())), (*x)->getPathInArchive());
 	}

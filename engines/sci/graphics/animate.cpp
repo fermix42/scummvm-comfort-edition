@@ -25,6 +25,7 @@
 
 #include "sci/console.h"
 #include "sci/sci.h"
+#include "sci/engine/tts.h"
 #include "sci/event.h"
 #include "sci/engine/kernel.h"
 #include "sci/engine/script_patches.h"
@@ -261,6 +262,17 @@ void GfxAnimate::fill(byte &old_picNotValid) {
 		view = _cache->getView(it->viewId);
 
 		adjustInvalidCels(view, it);
+		// Only modify an existing cast entry: never spawn a portrait in scenes
+		// (such as the conference room) that intentionally omit avatars.
+		// Override only the active talker's registered mouth, after the legacy
+		// text-length cycler runs. Keep redraws alive even when that cycler ends.
+		const int speechCel = g_sci->_tts->recordedMouthCel(it->object, view->getCelCount(it->loopNo));
+		if (speechCel >= 0) {
+			it->celNo = speechCel;
+			// Rendering override only: preserve the script cycler and all eye/brow state.
+			it->signal |= kSignalForceUpdate;
+		}
+
 		processViewScaling(view, it);
 		setNsRect(view, it);
 
@@ -646,6 +658,89 @@ void GfxAnimate::animateShowPic() {
 		_cursor->kernelShow();
 }
 
+void GfxAnimate::updateEndingFloMouth(bool scenePresented) {
+	if (!g_sci->isSQ5TrashTalkin() || _s->currentRoomNumber() != 1041) return;
+	const byte *kFloEndingMouthData = g_sci->_tts->editionAsset("kFloEndingMouth", 450);
+	if (!kFloEndingMouthData) return;
+	const byte *kEndingFloEyes0 = g_sci->_tts->editionAsset("kEndingFloEyes0", 300);
+	if (!kEndingFloEyes0) return;
+	const byte *kEndingFloEyes1 = g_sci->_tts->editionAsset("kEndingFloEyes1", 300);
+	if (!kEndingFloEyes1) return;
+	const byte *kEndingDrooleEyes0 = g_sci->_tts->editionAsset("kEndingDrooleEyes0", 1200);
+	if (!kEndingDrooleEyes0) return;
+	const byte *kEndingDrooleEyes1 = g_sci->_tts->editionAsset("kEndingDrooleEyes1", 1200);
+	if (!kEndingDrooleEyes1) return;
+	const byte *const kFloEndingMouth[] = {kFloEndingMouthData, kFloEndingMouthData + 150, kFloEndingMouthData + 300};
+	// Room 1041 also runs the space shots and credits. A room number or a
+	// black palette alone cannot identify the bridge. Wait for picture 132
+	// AND its first complete cast presentation, never drawing during a load.
+	if (_paint16->currentPicture() != 132 || _screen->_picNotValid ||
+		_s->currentRoomNumber() != 1041) {
+		_endingFaceScenePresented = false;
+		_endingBlinkNext[0] = _endingBlinkNext[1] = 0;
+		_endingBlinkEnd[0] = _endingBlinkEnd[1] = 0;
+		return;
+	}
+	if (scenePresented) _endingFaceScenePresented = true;
+	if (!_endingFaceScenePresented) return;
+	if (g_sci->isSQ5TrashTalkin()) {
+		const int cel = g_sci->_tts->endingFloMouthCel();
+		if (cel < 0) {
+			_endingBlinkNext[0] = _endingBlinkNext[1] = 0;
+			_endingBlinkEnd[0] = _endingBlinkEnd[1] = 0;
+		}
+		if (cel >= 0) {
+			// Speech bubbles are drawn directly into the picture, not always
+			// registered as windows. Only replace an unobscured face patch.
+			// Compare colors, since the original palette has duplicate indices.
+			auto unobscured = [&](int x, int y, int w, int h, const byte *a, const byte *b, const byte *c) {
+				for (int row = 0; row < h; ++row) for (int col = 0; col < w; ++col) {
+					const int i = row * w + col;
+					const Color &actual = _palette->_sysPalette.colors[_screen->getVisual(x + col, y + row)];
+					auto matches = [&](byte index) {
+						const Color &expected = _palette->_sysPalette.colors[index];
+						return actual.r == expected.r && actual.g == expected.g && actual.b == expected.b;
+					};
+					if (!matches(a[i]) && !matches(b[i]) && !(c && matches(c[i]))) return false;
+				}
+				return true;
+			};
+			const uint32 now = g_system->getMillis();
+			for (int who = 0; who < 2; ++who) {
+				if (!_endingBlinkNext[who]) _endingBlinkNext[who] = now + (who ? 4700 : 2300);
+				if (now >= _endingBlinkNext[who]) {
+					// Independent random intervals; keep coincident blinks apart.
+					if (now < _endingBlinkEnd[1-who] + 600) {
+						_endingBlinkNext[who] = now + 850;
+					} else {
+						uint32 &seed = _endingBlinkSeed[who];
+						seed ^= seed << 13; seed ^= seed >> 17; seed ^= seed << 5;
+						_endingBlinkEnd[who] = now + (who ? 170 : 135);
+						_endingBlinkNext[who] = now + (who ? 4300 : 3200) + seed % (who ? 4200 : 3700);
+					}
+				}
+				const bool closed = now < _endingBlinkEnd[who];
+				const byte *pixels = who ? (closed ? kEndingDrooleEyes1 : kEndingDrooleEyes0) : (closed ? kEndingFloEyes1 : kEndingFloEyes0);
+				const int ex = who ? 17 : 275, ey = (who ? 81 : 80) + _ports->_picWind->top;
+				const int ew = who ? 48 : 30, eh = who ? 25 : 10;
+				if (!unobscured(ex, ey, ew, eh,
+					who ? kEndingDrooleEyes0 : kEndingFloEyes0,
+					who ? kEndingDrooleEyes1 : kEndingFloEyes1, nullptr)) continue;
+				for (int row = 0; row < eh; ++row)
+					for (int col = 0; col < ew; ++col)
+						_screen->putPixel(ex + col, ey + row, 1, pixels[row * ew + col], 0, 0);
+				_screen->copyRectToScreen(Common::Rect(ex, ey, ex + ew, ey + eh));
+			}
+			const int x = 290, y = 93 + _ports->_picWind->top;
+			if (!unobscured(x, y, 15, 10, kFloEndingMouth[0], kFloEndingMouth[1], kFloEndingMouth[2])) return;
+			for (int row = 0; row < 10; ++row)
+				for (int col = 0; col < 15; ++col)
+					_screen->putPixel(x + col, y + row, 1, kFloEndingMouth[cel][row * 15 + col], 0, 0);
+			_screen->copyRectToScreen(Common::Rect(x, y, x + 15, y + 10));
+		}
+	}
+}
+
 void GfxAnimate::kernelAnimate(reg_t listReference, bool cycle, int argc, reg_t *argv) {
 	// If necessary, delay this kAnimate for a running PalVary.
 	// See delayForPalVaryWorkaround() for details.
@@ -699,6 +794,15 @@ void GfxAnimate::kernelAnimate(reg_t listReference, bool cycle, int argc, reg_t 
 		animateShowPic();
 
 	updateScreen(old_picNotValid);
+	updateEndingFloMouth(true);
+
+	if (_s->sq5MazeFadePending && _s->sq5MazeFadeReady && g_sci->isSQ5TrashTalkin()) {
+		// drawCels/updateScreen have committed the full arrival, including
+		// Roger. Do not copy the background after restoreAndDelete.
+		_s->sq5MazeFadePending=false;
+		_s->sq5MazeFadeReady=false;
+		_screen->fadeMazePlayfield(true);
+	}
 	restoreAndDelete(argc, argv);
 
 	// We update the screen here as well, some scenes like EQ1 credits run w/o calling kGetEvent thus we wouldn't update

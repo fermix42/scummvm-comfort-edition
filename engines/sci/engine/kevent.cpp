@@ -28,7 +28,9 @@
 #include "sci/engine/savegame.h"
 #include "sci/engine/selector.h"
 #include "sci/engine/state.h"
+#include "sci/engine/tts.h"
 #include "sci/console.h"
+#include "sci/dialogs.h"
 #include "sci/debug.h"	// for g_debug_simulated_key
 #include "sci/event.h"
 #include "sci/graphics/animate.h"
@@ -42,6 +44,9 @@
 namespace Sci {
 
 reg_t kGetEvent(EngineState *s, int argc, reg_t *argv) {
+	g_sci->_tts->updateRecordedTiming();
+	// Flo uses a Narrator bubble: the room actor loop is paused while she speaks.
+	if (g_sci->isSQ5TrashTalkin()) g_sci->_gfxAnimate->updateEndingFloMouth();
 	SciEventType mask = (SciEventType)argv[0].toUint16();
 	reg_t obj = argv[1];
 	SciEvent curEvent;
@@ -70,6 +75,14 @@ reg_t kGetEvent(EngineState *s, int argc, reg_t *argv) {
 	}
 
 	curEvent = g_sci->getEventManager()->getSciEvent(mask);
+	if (!(mask & kSciEventPeek)) {
+		if (curEvent.type == kSciEventMousePress && g_sci->_tts->skipLogSection())
+			curEvent.type = kSciEventNone;
+		sq5AudioMenu(curEvent, argc, argv);
+		sq5NavigationMenu(curEvent, argc, argv);
+		sq5CloakAnnouncement(curEvent, argc, argv);
+		sq5MazeShortcut(curEvent, argc, argv);
+	}
 
 	// For Mac games with an icon bar, handle possible icon bar events first
 	if (g_sci->hasMacIconBar()) {

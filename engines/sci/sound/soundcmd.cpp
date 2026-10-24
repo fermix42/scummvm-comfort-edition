@@ -189,6 +189,12 @@ reg_t SoundCommandParser::kDoSoundPlay(EngineState *s, int argc, reg_t *argv) {
 }
 
 void SoundCommandParser::processPlaySound(reg_t obj, bool playBed, bool restoring) {
+	// The SQ5 chart already played this pad confirmation during its lock-in.
+	// Consume exactly the matching replay, leaving every other sound alone.
+	if (!obj.isNull() && obj==g_sci->_sq5ChartBeepToSkip) {
+		g_sci->_sq5ChartBeepToSkip=NULL_REG;
+		return;
+	}
 	MusicEntry *musicSlot = _music->getSlot(obj);
 
 	if (!restoring && musicSlot && isUninterruptableSoundPlaying(obj)) {
@@ -307,6 +313,12 @@ reg_t SoundCommandParser::kDoSoundStop(EngineState *s, int argc, reg_t *argv) {
 	debugC(kDebugLevelSound, "kDoSound(stop): %04x:%04x", PRINT_REG(argv[0]));
 	processStopSound(argv[0], false);
 	return s->r_acc;
+}
+
+bool SoundCommandParser::isSoundPlaying(reg_t obj) {
+	MusicEntry *slot = _music->getSlot(obj);
+	if (!slot || slot->status != kSoundPlaying) return false;
+	return slot->pStreamAud ? _music->isSoundActive(slot) : true;
 }
 
 void SoundCommandParser::processStopSound(reg_t obj, bool sampleFinishedPlaying) {

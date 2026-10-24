@@ -20,6 +20,8 @@
  */
 
 #include "sci/sci.h"
+#include "common/config-manager.h"
+#include "sci/engine/tts.h"
 #include "sci/engine/features.h"
 #include "sci/engine/state.h"
 #include "sci/engine/selector.h"
@@ -88,6 +90,7 @@ void GfxPaint16::debugSetEGAdrawingVisualize(bool state) {
 }
 
 void GfxPaint16::drawPicture(GuiResourceId pictureId, bool mirroredFlag, bool addToFlag, GuiResourceId paletteId) {
+	if (!addToFlag) _currentPicture = pictureId;
 	// Set up custom per-picture palette mod
 	doCustomPicPalette(_screen, pictureId);
 
@@ -139,6 +142,14 @@ void GfxPaint16::drawCel(GuiResourceId viewId, int16 loopNo, int16 celNo, const 
 
 // This version of drawCel is not supposed to call bitsShow()!
 void GfxPaint16::drawCel(GfxView *view, int16 loopNo, int16 celNo, const Common::Rect &celRect, byte priority, uint16 paletteNo, uint16 scaleX, uint16 scaleY, uint16 scaleSignal) {
+	// The bridge star chart owns navigation visuals. Suppress the original
+	// keypad at the shared cel renderer, covering its initial inset, digits,
+	// key-flash animation and dismissal (not just the chart's restore frame).
+	// Room 460's colony password screen uses this resource too and is unchanged.
+	if (g_sci->isSQ5TrashTalkin() && ConfMan.hasKey("sq5_voice_path") &&
+		g_sci->getEngineState()->currentRoomNumber() == 201 && view->getResourceId() == 992)
+		return;
+	g_sci->_tts->recordedCel(view->getResourceId(), loopNo, celNo);
 	Common::Rect clipRect = celRect;
 	clipRect.clip(_ports->_curPort->rect);
 	if (clipRect.isEmpty()) // nothing to draw
@@ -552,6 +563,7 @@ reg_t GfxPaint16::kernelDisplay(const char *text, uint16 languageSplitter, int a
 		}
 	}
 
+	if (bRedraw) g_sci->_tts->recordedText(text);
 	// now drawing the text
 	_text16->Size(rect, text, languageSplitter, -1, width);
 	rect.moveTo(_ports->getPort()->curLeft, _ports->getPort()->curTop);

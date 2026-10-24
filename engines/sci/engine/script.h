@@ -75,6 +75,7 @@ private:
 	SciSpan<byte> _script; /**< Script size includes alignment byte */
 	SciSpan<byte> _heap; /**< Start of heap if SCI1.1, NULL otherwise */
 
+	uint32 _sq5LegacyGuardOffset = 0; // Optional code tail for pre-scrubber-patch saves
 	uint _lockers; /**< Number of classes and objects that require this script */
 
 	SciSpan<const uint16> _exports; /**< Exports block or 0 if not present */
@@ -106,6 +107,10 @@ public:
 	uint16 getLocalsCount() const { return _localsCount; }
 
 	uint32 getScriptSize() const { return _script.size(); }
+	bool isValidJumpOffset(uint32 offset) const {
+		return offset < _script.size() ||
+			(_sq5LegacyGuardOffset && offset >= _sq5LegacyGuardOffset && offset < _buf->size());
+	}
 	uint32 getHeapSize() const { return _heap.size(); }
 	uint32 getBufSize() const { return _buf->size(); }
 	inline uint32 getHeapOffset() const {

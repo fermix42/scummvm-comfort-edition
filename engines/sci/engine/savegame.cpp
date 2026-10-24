@@ -28,6 +28,7 @@
 #include "graphics/thumbnail.h"
 
 #include "sci/sci.h"
+#include "sci/engine/tts.h"
 #include "sci/event.h"
 
 #include "sci/engine/features.h"
@@ -342,7 +343,7 @@ void SegManager::saveLoadWithSerializer(Common::Serializer &s) {
 
 static void sync_SavegameMetadata(Common::Serializer &s, SavegameMetadata &obj) {
 	s.syncString(obj.name);
-	s.syncVersion(CURRENT_SAVEGAME_VERSION);
+	s.syncVersion(g_sci && g_sci->isSQ5TrashTalkin() ? CURRENT_SAVEGAME_VERSION : STANDARD_SAVEGAME_VERSION);
 	obj.version = s.getVersion();
 	s.syncString(obj.gameVersion);
 	s.syncAsSint32LE(obj.saveDate);
@@ -393,6 +394,13 @@ static void sync_SavegameMetadata(Common::Serializer &s, SavegameMetadata &obj) 
 }
 
 void EngineState::saveLoadWithSerializer(Common::Serializer &s) {
+	if (s.isLoading()) sq5GoliathLocated = 0;
+	s.syncAsByte(sq5GoliathLocated, VER(47));
+	if (s.isLoading()) sq5CloakAnnounced = 0;
+	s.syncAsByte(sq5CloakAnnounced, VER(48));
+	if (s.isLoading()) { sq5MazeChoice = 0; sq5MazeOrigin = 0xffff; }
+	s.syncAsByte(sq5MazeChoice, VER(49));
+	s.syncAsUint16LE(sq5MazeOrigin, VER(49));
 	Common::String tmp;
 	s.syncString(tmp, VER(14), VER(23));			// OBSOLETE: Used to be gameVersion
 
@@ -592,6 +600,53 @@ void Script::saveLoadWithSerializer(Common::Serializer &s) {
 		const ObjMap::iterator end = _objects.end();
 		for (it = _objects.begin(); it != end; ++it) {
 			syncWithSerializer(s, it->_value);
+		}
+	}
+
+	// SQ5 Voice Studio originally appended a 43-byte scrubber guard to
+	// script 119. SCI1.1 places its heap after the code: this moved every
+	// saved heap address by 42 bytes (including alignment). Preserve the
+	// pre-guard layout when restoring an older save, and put the guard
+	// after the heap instead. No saved references or save files are edited.
+	static const byte scrubberGuard[] = {
+		0x8f,0x01,0x35,0x04,0x1a,0x30,0x20,0x00,0x83,0x1b,0x2e,0x1b,0x00,
+		0x8b,0x1a,0x35,0x02,0x20,0x2e,0x13,0x00,0x38,0xaa,0x00,0x39,0x04,
+		0x39,0x04,0x39,0x04,0x39,0x0c,0x76,0x81,0x5b,0x4a,0x0c,0x35,0x01,
+		0x48,0x32,0x86,0xf5
+	};
+	if (s.isLoading() && g_sci->isSQ5TrashTalkin() && _nr == 119 &&
+		_script.size() == 13077 && _heap.size() == 4676 &&
+		_buf->getUint16LEAt(148) == 13034 && !_objects.empty() &&
+		!memcmp(_script.getUnsafeDataAt(13034, sizeof(scrubberGuard)), scrubberGuard, sizeof(scrubberGuard))) {
+		bool legacyLayout = true;
+		for (ObjMap::const_iterator it = _objects.begin(); it != _objects.end(); ++it) {
+			const uint32 pos = it->_value.getPos().getOffset();
+			if (pos < 13035 || pos + 2 > 13035 + _heap.size() ||
+				_heap.getUint16LEAt(pos - 13035) != SCRIPT_OBJECT_MAGIC_NUMBER) {
+				legacyLayout = false;
+				break;
+			}
+		}
+		if (legacyLayout) {
+			Common::Array<byte> original;
+			original.resize(_buf->size());
+			memcpy(original.begin(), _buf->getUnsafeDataAt(0, _buf->size()), original.size());
+			const uint32 heapStart = 13035, heapSize = 4676;
+			const uint32 guardStart = heapStart + heapSize, guardSize = 43;
+			_buf.clear();
+			SciSpan<byte> buffer = _buf->allocate(guardStart + guardSize, "script.119 compatible buffer");
+			memcpy(buffer.getUnsafeDataAt(0, 13034), original.begin(), 13034);
+			buffer[13034] = 0;
+			memcpy(buffer.getUnsafeDataAt(heapStart, heapSize), original.begin() + 13077, heapSize);
+			memcpy(buffer.getUnsafeDataAt(guardStart, guardSize), original.begin() + 13034, guardSize);
+			buffer.setUint16SEAt(148, guardStart);
+			buffer.setUint16SEAt(guardStart + guardSize - 2, (uint16)(10395 - (guardStart + guardSize)));
+			_script = _buf->subspan(0, heapStart, "script.119");
+			_heap = _buf->subspan(heapStart, heapSize, "heap.119", 0);
+			_exports = _buf->subspan<const uint16>(8, _numExports * sizeof(uint16));
+			_localsOffset = heapStart + 4;
+			_sq5LegacyGuardOffset = guardStart;
+			identifyOffsets();
 		}
 	}
 
@@ -1438,6 +1493,7 @@ bool gamestate_restore(EngineState *s, int saveId) {
 }
 
 void gamestate_restore(EngineState *s, Common::SeekableReadStream *fh) {
+	g_sci->_tts->resetVoices();
 	SavegameMetadata meta;
 
 	Common::Serializer ser(fh, nullptr);
@@ -1541,7 +1597,7 @@ void set_savegame_metadata(Common::Serializer &ser, Common::WriteStream *fh, con
 	g_system->getTimeAndDate(curTime);
 
 	SavegameMetadata meta;
-	meta.version = CURRENT_SAVEGAME_VERSION;
+	meta.version = g_sci && g_sci->isSQ5TrashTalkin() ? CURRENT_SAVEGAME_VERSION : STANDARD_SAVEGAME_VERSION;
 	meta.name = savename;
 	meta.gameVersion = version;
 	meta.saveDate = ((curTime.tm_mday & 0xFF) << 24) | (((curTime.tm_mon + 1) & 0xFF) << 16) | ((curTime.tm_year + 1900) & 0xFFFF);

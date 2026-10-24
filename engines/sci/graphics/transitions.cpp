@@ -25,6 +25,9 @@
 
 #include "sci/sci.h"
 #include "sci/engine/state.h"
+#include "sci/engine/seg_manager.h"
+#include "sci/engine/selector.h"
+#include "sci/engine/kernel.h"
 #include "sci/graphics/drivers/gfxdriver.h"
 #include "sci/graphics/screen.h"
 #include "sci/graphics/palette16.h"
@@ -202,6 +205,22 @@ void GfxTransitions::doit(Common::Rect picRect) {
 // This may get called twice, if blackoutFlag is set. It will get once called
 // with blackoutFlag set and another time with no blackoutFlag.
 void GfxTransitions::doTransition(int16 number, bool blackoutFlag) {
+	// The transporter cure keeps the same room. Do not fade the restored
+	// scene after Roger's command; retain normal transitions elsewhere.
+	if (g_sci->isSQ5TrashTalkin() &&
+		g_sci->getEngineState()->currentRoomNumber() == 1050) {
+		SegManager *segMan = g_sci->getEngineState()->_segMan;
+		for (const reg_t obj : segMan->findObjectsByName("sPukoidsTransformed")) {
+			const uint16 state = readSelectorValue(segMan, obj, SELECTOR(state));
+			if (state == 12) {
+				// Skip the separate blackout pass as well as the reveal effect.
+				if (blackoutFlag) return;
+				number = SCI_TRANSITIONS_NONE;
+				break;
+			}
+		}
+	}
+
 	if (number != SCI_TRANSITIONS_FADEPALETTE) {
 		setNewPalette(blackoutFlag);
 	}

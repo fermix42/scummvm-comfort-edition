@@ -213,7 +213,71 @@ GfxScreen::~GfxScreen() {
 	delete _gfxDrv;
 }
 
+// The status bar can be drawn directly to the driver; its backing pixels
+// still contain the original blue SCI bar. Preserve what the player sees.
+void GfxScreen::syncMazeStatusBar() {
+	Common::Array<byte> frame;frame.resize(_displayPixels);
+	_gfxDrv->copyCurrentBitmap(&frame[0],_displayPixels);
+	memcpy(_displayScreen,&frame[0],10*_displayWidth);
+	memcpy(_visualScreen,&frame[0],10*_width);
+}
+
+// Use SCI's palette-intensity fade, not nearest-color pixel substitution.
+// Give the HUD temporary unused palette entries so it remains unchanged.
+void GfxScreen::fadeMazePlayfield(bool fadeIn) {
+	Common::Array<byte> frame;frame.resize(_displayPixels);
+	if(fadeIn)memcpy(&frame[0],_activeScreen,_displayPixels);
+	else _gfxDrv->copyCurrentBitmap(&frame[0],_displayPixels);
+	byte palette[768],work[768],hudMap[256];
+	bool used[256]={},hud[256]={},reserved[256]={};
+	grabPalette(palette,0,256);
+	for(int i=0;i<_displayPixels;++i)used[frame[i]]=true;
+	for(int i=0;i<10*_displayWidth;++i)hud[frame[i]]=true;
+	memcpy(work,palette,sizeof(work));
+	for(int c=0;c<256;++c) {
+		hudMap[c]=c;
+		if(!hud[c])continue;
+		int slot=255;while(slot>=0 && (used[slot] || reserved[slot]))--slot;
+		if(slot<0)slot=c;
+		reserved[slot]=true;hudMap[c]=slot;
+		memcpy(work+slot*3,palette+c*3,3);
+	}
+	for(int i=0;i<10*_displayWidth;++i)frame[i]=hudMap[frame[i]];
+	for(int n=0;n<=10;++n) {
+		int level=fadeIn?n:10-n;
+		for(int c=0;c<256;++c)if(!reserved[c])
+			for(int j=0;j<3;++j)work[c*3+j]=palette[c*3+j]*level/10;
+		_gfxDrv->setPalette(work,0,256,false,nullptr,nullptr);
+		_gfxDrv->copyRectToScreen(&frame[0],0,0,_displayWidth,0,0,_displayWidth,_displayHeight,nullptr,nullptr);
+		g_system->updateScreen();g_system->delayMillis(33);
+	}
+	if(!fadeIn) {
+		// Undo temporary HUD indices before restoring the normal palette.
+		// Otherwise those indices become unrelated blue/white palette colors
+		// throughout the black-screen dialogue.
+		byte inverse[256];for(int c=0;c<256;++c)inverse[c]=c;
+		for(int c=0;c<256;++c)if(hud[c])inverse[hudMap[c]]=c;
+		for(int i=0;i<10*_displayWidth;++i)frame[i]=inverse[frame[i]];
+		memset(&frame[10*_displayWidth],0,_displayPixels-10*_displayWidth);
+		_gfxDrv->setPalette(palette,0,256,false,nullptr,nullptr);
+		_gfxDrv->copyRectToScreen(&frame[0],0,0,_displayWidth,0,0,_displayWidth,_displayHeight,nullptr,nullptr);
+		g_system->updateScreen();
+	}
+	if(fadeIn) {
+		_gfxDrv->setPalette(palette,0,256,false,nullptr,nullptr);
+		_gfxDrv->copyRectToScreen(_activeScreen,0,0,_displayWidth,0,0,_displayWidth,_displayHeight,nullptr,nullptr);
+		g_system->updateScreen();
+	}
+}
+
 void GfxScreen::displayRect(const Common::Rect &rect, int x, int y) {
+	if (g_sci->isSQ5TrashTalkin() && g_sci->getEngineState()->sq5MazeFadePending && y+rect.height()>10) {
+		Common::Array<byte> hidden;hidden.resize(_displayPixels);
+		memcpy(&hidden[0],_activeScreen,_displayPixels);
+		memset(&hidden[10*_displayWidth],0,_displayPixels-10*_displayWidth);
+		_gfxDrv->copyRectToScreen(&hidden[0],rect.left,rect.top,_displayWidth,x,y,rect.width(),rect.height(),nullptr,nullptr);
+		return;
+	}
 	// Display rect from _activeScreen to screen location x, y.
 	// Clipping is assumed to be done already.
 	_gfxDrv->copyRectToScreen(_activeScreen, rect.left, rect.top,

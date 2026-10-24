@@ -93,6 +93,11 @@ public:
 		return _fastCastEnabled;
 	}
 
+	uint32 _endingBlinkNext[2] = {0, 0};
+	uint32 _endingBlinkEnd[2] = {0, 0};
+	uint32 _endingBlinkSeed[2] = {0x12571, 0x98231};
+	bool _endingFaceScenePresented = false;
+	void updateEndingFloMouth(bool scenePresented = false);
 	void disposeLastCast();
 	bool invoke(List *list, int argc, reg_t *argv);
 	void makeSortedList(List *list);

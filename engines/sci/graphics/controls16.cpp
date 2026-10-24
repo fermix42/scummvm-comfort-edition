@@ -390,6 +390,8 @@ void GfxControls16::kernelDrawButton(Common::Rect rect, reg_t obj, const char *t
 }
 
 void GfxControls16::kernelDrawText(Common::Rect rect, reg_t obj, const char *text, uint16 languageSplitter, int16 fontId, TextAlignment alignment, int16 style, bool hilite) {
+	if (!hilite)
+		g_sci->_tts->recordedText(text, readSelector(_segMan, obj, SELECTOR(text)));
 	g_sci->_tts->text(text);
 
 	if (!hilite) {
