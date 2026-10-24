@@ -265,3 +265,32 @@ gameplay or further human checkpoint is required for this focused handoff.
 
 Full playthrough, live achievement API regression, all other SCI titles,
 and cross-interpreter save portability are not claimed as validated.
+
+## Normal-launcher save-session regression (October 23, 2026)
+
+The earlier isolated save/load checkpoint did not exercise CE session filtering.
+The user later reported a successful save disappearing from the next save list.
+Both `sq5-1.000` (The Beginning) and `sq5-1.001` (Test) were present on disk,
+but neither had a CE session sidecar. SCI's `gamestate_save` bypasses the generic
+Engine save wrapper that records CE session ownership. Consequently the chooser
+filtered the existing files out of the active session.
+
+Edition-scoped hooks now record ownership after the save stream is finalized
+and checked, and restore ownership after a successful restore. Saves written by
+earlier builds without sidecars can be selected under **Untracked Saves**;
+loading one creates a local recovered session marked Casual with unknown history.
+No API game/variant identity is invented for recovery. Original save payloads
+are not rewritten by recovery. Original-floppy SQ5 and shared CE/Nox code are
+unchanged. Backups and isolated runtime evidence are under the ignored
+`build-sq5-analysis/save-session-fix` directory.
+
+Follow-up validation: Release x64 builds with zero warnings/errors. The old build's
+empty save list was reproduced with existing copied saves. Two new saves wrote
+version 49 files and matching session sidecars; the first remained visible on the
+second save, and both remained visible after restarting with a launcher restore.
+A tracked launcher restore and an in-game restore each activated their owning
+session. Loading a copied older save with no sidecar created a local Casual
+recovered session with `unknown_save_history`, preserving its payload hash.
+Both original user save files and all 733 unrelated CE/Nox file hashes were
+preserved. Runtime evidence is `build-sq5-analysis/save-session-fix/verification.json`.
+No account-linked transport validation was performed.

@@ -146,5 +146,26 @@
   },
   "implementation_complete_for_reviewed_scope": true,
   "all_focused_human_checkpoints_passed": true,
-  "full_game_validation_performed": false
+  "full_game_validation_performed": false,
+  "normal_launcher_save_session_regression": {
+    "status": "pass",
+    "cause": "SCI save path bypassed CE session ownership recording; session filter hid valid saves",
+    "edition_scoped": true,
+    "build": "Release x64, 0 warnings and 0 errors",
+    "executable_sha256": "b963af5af5d9eadfea7e8f0b104b7b04984f24edbc597d8b9ee1e4ddc55073ba",
+    "source_sha256": "d3f519e36d64bec1f0876133ca221c9badc18d19f5c5ad089b938e3d6b43ea41",
+    "checks": {
+      "old_build_empty_save_list_reproduced": true,
+      "two_separate_saves_same_session": true,
+      "first_save_visible_on_second_save": true,
+      "both_saves_visible_after_launcher_restore": true,
+      "tracked_launcher_restore_reactivates_owning_session": true,
+      "in_game_restore_reactivates_owning_session": true,
+      "untracked_launcher_restore_creates_local_casual_unknown_history_session": true,
+      "recovered_save_payload_unchanged": true,
+      "original_user_saves_unchanged": true
+    },
+    "old_save_access": "Load dialog > Untracked Saves; loading attaches a new local recovered session",
+    "network_or_account_validation_performed": false
+  }
 }

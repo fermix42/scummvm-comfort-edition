@@ -20,6 +20,8 @@
  */
 
 #include "common/savefile.h"
+#include "common/config-manager.h"
+#include "engines/ce_achievements.h"
 #include "common/stream.h"
 #include "common/system.h"
 #include "common/func.h"
@@ -49,7 +51,6 @@
 #include "sci/sound/music.h"
 
 #ifdef ENABLE_SCI32
-#include "common/config-manager.h"
 #include "common/gui_options.h"
 #include "sci/engine/guest_additions.h"
 #include "sci/graphics/cursor32.h"
@@ -1295,6 +1296,11 @@ bool gamestate_save(EngineState *s, int saveId, const Common::String &savename, 
 	}
 
 	delete saveStream;
+	if (g_sci->isSQ5TrashTalkin()) {
+		// SCI bypasses Engine::saveGameState, including its CE session hook.
+		Common::CEAchievements().recordSaveCreated(filename, saveId, savename);
+		Common::CEAchievements().savePopupStateForSave(filename);
+	}
 	return true;
 }
 
@@ -1328,6 +1334,20 @@ bool gamestate_save(EngineState *s, Common::WriteStream *fh, const Common::Strin
 extern int showScummVMDialog(const Common::U32String &message, const Common::U32String &altButton = Common::U32String(), bool alignCenter = true);
 
 void gamestate_afterRestoreFixUp(EngineState *s, int savegameId) {
+	if (g_sci->isSQ5TrashTalkin() && s->abortScriptProcessing == kAbortLoadGame) {
+		const Common::String filename = g_sci->getSavegameName(savegameId);
+		const bool hasSession = !Common::CEAchievements().getSavePlaythroughForFile(filename).empty();
+		Common::CEAchievements().loadPopupStateForSave(filename);
+		Common::CEAchievements().recordSaveLoaded(filename, savegameId);
+		if (!hasSession) {
+			// Earlier builds wrote no sidecar. Recover as an explicitly local,
+			// unknown-history session, rather than assigning another run's history.
+			if (Common::CEAchievements().startRecoveredPlaythroughForTarget(
+					ConfMan.getActiveDomainName(), Common::String(), Common::String(), "Recovered SQ5 save"))
+				Common::CEAchievements().recordSaveCreated(filename, savegameId, Common::String());
+		}
+	}
+
 	switch (g_sci->getGameId()) {
 	case GID_CAMELOT: {
 		// WORKAROUND: CAMELOT depends on its dynamic menu state persisting. The menu items'
@@ -1489,6 +1509,7 @@ bool gamestate_restore(EngineState *s, int saveId) {
 	delete saveStream;
 
 	gamestate_afterRestoreFixUp(s, saveId);
+
 	return true;
 }
 
