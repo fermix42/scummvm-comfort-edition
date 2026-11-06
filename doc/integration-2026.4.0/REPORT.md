@@ -37,3 +37,38 @@ The root build script hardcodes the accepted non-Git build. It must not be run
 unchanged for integration because that would overwrite the accepted executable.
 Use the existing checkout-relative clean-environment script inside the isolated
 worktree, preserving its configured toolchain and shared dependency paths.
+
+## Merge and build adaptations
+
+Local snapshot commit: 29e2ceb01611ac18654d82bfe2116db8183bd53d.
+Merge commit: b7c20945716 (both CE snapshot and official release are parents).
+The 162 incoming upstream commits touch 226 files; none overlap a CE-customized
+file. There were zero textual conflicts. All CE source/data blobs remain exact.
+The upstream changes include release metadata, translations, mm.dat, Nancy,
+MADS, Harvester, Hopkins WBASE, SCUMM clipping, audio and platform fixes.
+New game support already present in the shared development ancestor is retained
+in addition to these later release fixes.
+
+Intentional new divergence: devtools/create_project/create_project.cpp excludes
+backends/saves/savefile.cpp from the unit-test compile list because the upstream
+null_osystem.cpp includes that implementation itself with cloud disabled. This
+fixes 13 duplicate symbols without changing production save handling.
+
+The isolated clean-environment build script enables GIF, retaining HPL1 and
+Phoenix VR that the previous generator otherwise disabled for unmet dependencies.
+It explicitly bypasses global MSBuild vcpkg integration (which referred to an
+unrelated dwd-exult checkout and failed with an empty triplet), and supplies the
+existing include/library paths. No dependency installation or mutation of the
+accepted dependency tree is performed. All runtime DLLs are copied into the
+isolated output. The UnitTests switch generates and runs upstream tests from
+their required fixture directory, propagates the real exit code (the upstream
+post-build ignores it), then runs the existing SQ5 native regression via CTest.
+
+Automated results so far: upstream CxxTest 434/434 pass (0 skipped); CE SQ5
+importer 5/5 pass; SQ5 native regression 1/1 pass covering eight cheat combinations,
+depleted saves, board flags, turn decisions and opponent isolation; integration
+source/engine audit 7/7 pass. Initial importer run hit sandbox temp-directory
+permissions; rerun uses workspace-local TEMP/TMP. Initial CJK tests failed when
+launched from the wrong directory; all pass from build-tests with encoding.dat.
+The Windows upstream build reports four existing test warnings in span/blending;
+no warning suppression or ignored failing test is used.

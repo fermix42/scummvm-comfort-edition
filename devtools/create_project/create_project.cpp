@@ -2025,6 +2025,10 @@ void ProjectProvider::createProject(BuildSetup &setup) {
 
 		if (setup.tests) {
 			createModuleList(setup.srcDir + "/test", setup.defines, setup.testDirs, in, ex, pchDirs, pchEx);
+			// null_osystem.cpp includes this implementation with cloud disabled.
+			// Compiling it separately duplicates the save manager symbols on MSVC.
+			in.remove(setup.srcDir + "/backends/saves/savefile.cpp");
+			ex.push_back(setup.srcDir + "/backends/saves/savefile.cpp");
 		} else {
 			// Resource files
 			addResourceFiles(setup, in, ex);

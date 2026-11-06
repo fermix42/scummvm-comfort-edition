@@ -1,8 +1,8 @@
-param([switch]$NoxFocused)
+param([switch]$NoxFocused, [switch]$UnitTests)
 
 $ErrorActionPreference = 'Stop'
-$buildDirectory = if ($NoxFocused) { 'build-nox-focused' } else { 'build-scummvm' }
-$buildLogName = if ($NoxFocused) { 'msbuild-nox-focused.log' } else { 'msbuild-release.log' }
+$buildDirectory = if ($UnitTests) { 'build-tests' } elseif ($NoxFocused) { 'build-nox-focused' } else { 'build-scummvm' }
+$buildLogName = if ($UnitTests) { 'msbuild-tests.log' } elseif ($NoxFocused) { 'msbuild-nox-focused.log' } else { 'msbuild-release.log' }
 
 $repoRoot = Split-Path -Parent $MyInvocation.MyCommand.Path
 $workspaceRoot = Split-Path -Parent $repoRoot
@@ -39,14 +39,21 @@ $env:VCPKG_OVERLAY_TRIPLETS = "$substRepoRoot\.github\windows-layout-triplets"
 $env:VCPKG_OVERLAY_PORTS = "$substRepoRoot\.github\vcpkg-ports"
 
 Set-Location $substRepoRoot
+$solutionName = if ($UnitTests) { 'scummvm-tests' } else { 'scummvm' }
+if ($UnitTests) {
+    $shimDirectory = Join-Path $repoRoot 'build-python-shim'
+    New-Item -ItemType Directory -Path $shimDirectory -Force | Out-Null
+    Set-Content (Join-Path $shimDirectory 'python3.cmd') '@"C:\Users\aaron\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe" %*'
+    $env:Path = "$shimDirectory;$env:Path"
+}
 
-$projectNeedsRefresh = -not (Test-Path "$buildDirectory\scummvm.sln")
+$projectNeedsRefresh = -not (Test-Path "$buildDirectory\$solutionName.sln")
 if (-not $projectNeedsRefresh) {
     $globalPropsPath = "$buildDirectory\ScummVM_Globalx64.props"
     $projectNeedsRefresh = -not (Test-Path $globalPropsPath)
     if (-not $projectNeedsRefresh) {
         $globalPropsContent = Get-Content -LiteralPath $globalPropsPath -Raw
-        $projectNeedsRefresh = (-not $NoxFocused -and -not $globalPropsContent.Contains('ENABLE_MONKEY4')) -or -not $globalPropsContent.Contains('ENABLE_NOX')
+        $projectNeedsRefresh = (-not $NoxFocused -and -not $globalPropsContent.Contains('ENABLE_MONKEY4')) -or -not $globalPropsContent.Contains('ENABLE_NOX') -or (-not $NoxFocused -and -not $globalPropsContent.Contains('ENABLE_PHOENIXVR'))
     }
 }
 if (-not $projectNeedsRefresh -and (Test-Path "$buildDirectory\scummvm.vcxproj")) {
@@ -66,7 +73,7 @@ if (-not $projectNeedsRefresh) {
     }
 }
 
-if ($projectNeedsRefresh) {
+if ($projectNeedsRefresh -or $UnitTests) {
     if (-not (Test-Path 'build-create-project')) {
         New-Item -ItemType Directory -Path 'build-create-project' | Out-Null
     }
@@ -87,10 +94,12 @@ if ($projectNeedsRefresh) {
 
     Push-Location $buildDirectory
     try {
-        if ($NoxFocused) {
+        if ($UnitTests) {
+            ..\build-create-project\Release\create_project.exe .. --msvc --vcpkg --msvc-version 17 --tests
+        } elseif ($NoxFocused) {
             ..\build-create-project\Release\create_project.exe .. --msvc --vcpkg --msvc-version 17 --disable-all-engines --enable-engine=nox
         } else {
-            ..\build-create-project\Release\create_project.exe .. --msvc --vcpkg --msvc-version 17 --enable-engine=monkey4,nox
+            ..\build-create-project\Release\create_project.exe .. --msvc --vcpkg --msvc-version 17 --enable-gif --enable-engine=monkey4,nox
         }
         if ($LASTEXITCODE -ne 0) {
             exit $LASTEXITCODE
@@ -102,6 +111,9 @@ if ($projectNeedsRefresh) {
 
 $propsFiles = @(
 	"$buildDirectory\ScummVM_Globalx86.props",
+    "$buildDirectory\ScummVMTests_Globalx86.props",
+    "$buildDirectory\ScummVMTests_Globalx64.props",
+    "$buildDirectory\ScummVMTests_Globalarm64.props",
 	"$buildDirectory\ScummVM_Globalx64.props",
 	"$buildDirectory\ScummVM_Globalarm64.props"
 )
@@ -112,7 +124,7 @@ foreach ($propsFile in $propsFiles) {
 		$originalPropsContent = $propsContent
 		$vcpkgIncludePath = "$substVcpkgInstalled\x64-windows\include"
 		$vcpkgLibraryPath = "$substVcpkgInstalled\x64-windows\lib"
-		$vcpkgLibraries = 'SDL2.lib;SDL2_net.lib;zlib.lib;mad.lib;fribidi.lib;ogg.lib;vorbis.lib;vorbisfile.lib;FLAC.lib;libpng16.lib;mpeg2.lib;theoradec.lib;theora.lib;freetype.lib;jpeg.lib;libfluidsynth-3.lib;libcurl.lib;brotlidec.lib;brotlicommon.lib;bz2.lib;iconv.lib;intl.lib;charset.lib;glib-2.0.lib;gobject-2.0.lib;gmodule-2.0.lib;gthread-2.0.lib;pcre2-8.lib;ffi.lib;OpenAL32.lib;%(AdditionalDependencies)'
+		$vcpkgLibraries = 'SDL2.lib;SDL2_net.lib;zlib.lib;mad.lib;fribidi.lib;ogg.lib;vorbis.lib;vorbisfile.lib;FLAC.lib;libpng16.lib;mpeg2.lib;theoradec.lib;theora.lib;freetype.lib;jpeg.lib;libfluidsynth-3.lib;libcurl.lib;brotlidec.lib;brotlicommon.lib;bz2.lib;iconv.lib;intl.lib;charset.lib;glib-2.0.lib;gobject-2.0.lib;gmodule-2.0.lib;gthread-2.0.lib;pcre2-8.lib;ffi.lib;OpenAL32.lib;gif.lib;%(AdditionalDependencies)'
 		$oldIncludePath = '$(_ZVcpkgCurrentInstalledDir)include\SDL2%(AdditionalIncludeDirectories)'
 		$newIncludePath = "$vcpkgIncludePath;$vcpkgIncludePath\SDL2;%(AdditionalIncludeDirectories)"
 		$macroIncludePath = '$(_ZVcpkgCurrentInstalledDir)include;$(_ZVcpkgCurrentInstalledDir)include\SDL2%(AdditionalIncludeDirectories)'
@@ -135,7 +147,7 @@ foreach ($propsFile in $propsFiles) {
 	}
 }
 
-& 'C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\MSBuild\Current\Bin\amd64\MSBuild.exe' "$buildDirectory\scummvm.sln" /m:1 /p:Configuration=Release /p:Platform=x64 /p:VcpkgEnableManifest=true /p:VcpkgTriplet=x64-windows /p:VcpkgInstalledDir="$substVcpkgInstalled" /p:PreferredToolArchitecture=x64 /v:normal "/flp:logfile=$repoRoot\$buildLogName;verbosity=detailed"
+& 'C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\MSBuild\Current\Bin\amd64\MSBuild.exe' "$buildDirectory\$solutionName.sln" /m:1 /p:Configuration=Release /p:Platform=x64 /p:VcpkgEnabled=false /p:VcpkgEnableManifest=false /p:VcpkgManifestInstall=false /p:VcpkgRoot=S:\vcpkg\ /p:VcpkgTriplet=x64-windows /p:VcpkgInstalledDir="$substVcpkgInstalled" /p:PreferredToolArchitecture=x64 /v:normal "/flp:logfile=$repoRoot\$buildLogName;verbosity=detailed"
 $buildExitCode = $LASTEXITCODE
 
 if ($buildExitCode -eq 0) {
@@ -147,4 +159,20 @@ if ($buildExitCode -eq 0) {
 	}
 }
 
+if ($UnitTests -and $buildExitCode -eq 0) {
+    # The generated upstream post-build ignores test failures; run explicitly.
+    Push-Location $buildDirectory
+    try {
+        & ".\Releasex64\scummvm-tests.exe"
+        $buildExitCode = $LASTEXITCODE
+    } finally { Pop-Location }
+}
+if ($UnitTests -and $buildExitCode -eq 0) {
+    cmake -S devtools/ce -B build-ce-tests
+    if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+    cmake --build build-ce-tests --config Release
+    if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+    & 'C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\ctest.exe' --test-dir build-ce-tests -C Release --output-on-failure
+    $buildExitCode = $LASTEXITCODE
+}
 exit $buildExitCode
