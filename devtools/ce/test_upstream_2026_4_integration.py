@@ -61,7 +61,9 @@ class IntegrationTests(unittest.TestCase):
 
     def test_ce_sources_and_data_preserved(self):
         # Only the build script and this integration's own documentation adapt.
-        exceptions = {'run-build-release-cleanenv.ps1'}
+        exceptions = {'run-build-release-cleanenv.ps1',
+                      '.github/workflows/windows-release.yml',
+                      '.github/workflows/windows-layout-test.yml'}
         mismatches = [p for p in self.custom
                       if p not in exceptions and not p.startswith('doc/integration-2026.4.0/')
                       and self.ce.get(p) != self.integrated.get(p)]
@@ -89,6 +91,11 @@ class IntegrationTests(unittest.TestCase):
                 self.assertIn(f'engines\\{name}\\', project)
         self.assertIn('engines\\ce_achievements.cpp',
                       (ROOT / 'build-scummvm/scummvm.vcxproj').read_text())
+
+    def test_windows_packaging_retains_engine_coverage(self):
+        for name in ('windows-release.yml', 'windows-layout-test.yml'):
+            workflow = (ROOT / '.github/workflows' / name).read_text()
+            self.assertIn('--enable-gif --enable-engine=monkey4,nox', workflow)
 
 
 if __name__ == '__main__':
