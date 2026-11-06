@@ -1,0 +1,87 @@
+[2026-11-06 08:58:23] ScummVM 2026.4.0
+[2026-11-06 08:58:23] Vorbis FLAC MP3 RGB zLib MPEG2 FluidSynth Theora FreeType2 FriBiDi JPEG PNG GIF taskbar TTS cloud libcurl SDL_net ENet SDL2 TinyGL OpenGL (with shaders)
+[2026-11-06 08:58:23] --- Log opened.
+[2026-11-06 08:58:23] Running Escape From Monkey Island (Sony PlayStation 2/English)
+[2026-11-06 08:58:23] artAll.m4b: 0dc9a4df0d8553f277d8dc8e23b6249d, 34593974 bytes.
+[2026-11-06 08:58:25] WARNING: Lua_V2::GetActiveCD: set to CD: 1!
+[2026-11-06 08:58:25] WARNING: Lua_V2::LoadBundle: stub, name: melee!
+[2026-11-06 08:58:25] WARNING: Lua_V2::ActorStopMoving, actor: Guybrush!
+[2026-11-06 08:58:25] WARNING: Lua_V2::LockBackground, filename: cdt_cred4.til!
+[2026-11-06 08:58:25] WARNING: Lua_V2::LockBackground, filename: cdt_logo.til!
+[2026-11-06 08:58:25] WARNING: Lua_V2::LockBackground, filename: cdt_mlogo.til!
+[2026-11-06 08:58:25] WARNING: Lua_V2::LockBackground, filename: cdt_goldmonkey.til!
+[2026-11-06 08:58:25] WARNING: Lua_V2::LockChore, name: wear_default, filename: fx/mk4logo.cos!
+[2026-11-06 08:58:25] WARNING: Lua_V2::LockChore, name: wear_default, filename: guywedding.cos!
+[2026-11-06 08:58:25] WARNING: Lua_V2::LockChore, name: stand, filename: guywedding.cos!
+[2026-11-06 08:58:25] WARNING: Lua_V2::LockChore, name: idle, filename: guywedding.cos!
+[2026-11-06 08:58:25] WARNING: Lua_V2::LockChore, name: idle2, filename: guywedding.cos!
+[2026-11-06 08:58:25] WARNING: Lua_V2::LockChore, name: idle3, filename: guywedding.cos!
+[2026-11-06 08:58:25] WARNING: Lua_V2::LockChore, name: talk_akimbo, filename: guywedding.cos!
+[2026-11-06 08:58:25] WARNING: Lua_V2::LockChore, name: stepright_ball, filename: guywedding.cos!
+[2026-11-06 08:58:25] WARNING: Lua_V2::LockChore, name: mk_react_deflect, filename: guywedding.cos!
+[2026-11-06 08:58:25] WARNING: Lua_V2::LockChore, name: grog_punch, filename: guywedding.cos!
+[2026-11-06 08:58:25] WARNING: Lua_V2::LockChore, name: wear_default, filename: monkey.cos!
+[2026-11-06 08:58:25] WARNING: Lua_V2::LockChore, name: stand, filename: monkey.cos!
+[2026-11-06 08:58:25] WARNING: Lua_V2::LockChore, name: idle1, filename: monkey.cos!
+[2026-11-06 08:58:25] WARNING: Lua_V2::LockChore, name: talk_gesture1, filename: monkey.cos!
+[2026-11-06 08:58:25] WARNING: Lua_V2::LockChore, name: point, filename: monkey.cos!
+[2026-11-06 08:58:25] WARNING: Lua_V2::LockChore, name: point2, filename: monkey.cos!
+[2026-11-06 08:58:25] WARNING: Lua_V2::LockChore, name: headslap, filename: monkey.cos!
+[2026-11-06 08:58:25] WARNING: Lua_V2::LockChore, name: beatchest, filename: monkey.cos!
+[2026-11-06 08:58:25] WARNING: Lua_V2::LockChore, name: wavearms, filename: monkey.cos!
+[2026-11-06 08:58:25] WARNING: Lua_V2::LockChore, name: wear_default, filename: elaine_wedding.cos!
+[2026-11-06 08:58:25] WARNING: Lua_V2::LockChore, name: stand, filename: elaine_wedding.cos!
+[2026-11-06 08:58:25] WARNING: Lua_V2::LockChore, name: idle1, filename: elaine_wedding.cos!
+[2026-11-06 08:58:25] WARNING: Lua_V2::LockChore, name: reaction2, filename: elaine_wedding.cos!
+[2026-11-06 08:58:25] WARNING: Lua_V2::LockChore, name: foot_tap, filename: elaine_wedding.cos!
+[2026-11-06 08:58:25] WARNING: Lua_V2::LockChore, name: cross_arms, filename: elaine_wedding.cos!
+[2026-11-06 08:58:25] WARNING: Lua_V2::LockChore, name: wear_default, filename: carla.cos!
+[2026-11-06 08:58:25] WARNING: Lua_V2::LockChore, name: stand, filename: carla.cos!
+[2026-11-06 08:58:25] WARNING: Lua_V2::LockChore, name: idle1, filename: carla.cos!
+[2026-11-06 08:58:25] WARNING: Lua_V2::LockChore, name: wear_default, filename: otis.cos!
+[2026-11-06 08:58:25] WARNING: Lua_V2::LockChore, name: stand, filename: otis.cos!
+[2026-11-06 08:58:25] WARNING: Lua_V2::LockChore, name: idle1, filename: otis.cos!
+[2026-11-06 08:58:25] WARNING: Lua_V2::LockChore, name: idle2, filename: otis.cos!
+[2026-11-06 08:58:25] WARNING: Lua_V2::LockChore, name: wear_default, filename: navigator.cos!
+[2026-11-06 08:58:25] WARNING: Lua_V2::LockChore, name: stand, filename: navigator.cos!
+[2026-11-06 08:58:25] WARNING: Lua_V2::LockChore, name: idle1, filename: navigator.cos!
+[2026-11-06 08:58:25] WARNING: Lua_V2::DimScreen: dim: 1.000000!
+[2026-11-06 08:59:33] WARNING: Lua_V2::UnlockChore, name: wear_default, filename: guywedding.cos!
+[2026-11-06 08:59:33] WARNING: Lua_V2::UnlockChore, name: stand, filename: guywedding.cos!
+[2026-11-06 08:59:33] WARNING: Lua_V2::UnlockChore, name: idle, filename: guywedding.cos!
+[2026-11-06 08:59:33] WARNING: Lua_V2::UnlockChore, name: idle2, filename: guywedding.cos!
+[2026-11-06 08:59:33] WARNING: Lua_V2::UnlockChore, name: idle3, filename: guywedding.cos!
+[2026-11-06 08:59:33] WARNING: Lua_V2::UnlockChore, name: talk_akimbo, filename: guywedding.cos!
+[2026-11-06 08:59:33] WARNING: Lua_V2::UnlockChore, name: stepright_ball, filename: guywedding.cos!
+[2026-11-06 08:59:33] WARNING: Lua_V2::UnlockChore, name: mk_react_deflect, filename: guywedding.cos!
+[2026-11-06 08:59:33] WARNING: Lua_V2::UnlockChore, name: grog_punch, filename: guywedding.cos!
+[2026-11-06 08:59:33] WARNING: Lua_V2::UnlockChore, name: wear_default, filename: monkey.cos!
+[2026-11-06 08:59:33] WARNING: Lua_V2::UnlockChore, name: stand, filename: monkey.cos!
+[2026-11-06 08:59:33] WARNING: Lua_V2::UnlockChore, name: idle1, filename: monkey.cos!
+[2026-11-06 08:59:33] WARNING: Lua_V2::UnlockChore, name: talk_gesture1, filename: monkey.cos!
+[2026-11-06 08:59:33] WARNING: Lua_V2::UnlockChore, name: point, filename: monkey.cos!
+[2026-11-06 08:59:33] WARNING: Lua_V2::UnlockChore, name: point2, filename: monkey.cos!
+[2026-11-06 08:59:33] WARNING: Lua_V2::UnlockChore, name: headslap, filename: monkey.cos!
+[2026-11-06 08:59:33] WARNING: Lua_V2::UnlockChore, name: beatchest, filename: monkey.cos!
+[2026-11-06 08:59:33] WARNING: Lua_V2::UnlockChore, name: wavearms, filename: monkey.cos!
+[2026-11-06 08:59:33] WARNING: Lua_V2::UnlockChore, name: wear_default, filename: elaine_wedding.cos!
+[2026-11-06 08:59:33] WARNING: Lua_V2::UnlockChore, name: stand, filename: elaine_wedding.cos!
+[2026-11-06 08:59:33] WARNING: Lua_V2::UnlockChore, name: idle1, filename: elaine_wedding.cos!
+[2026-11-06 08:59:33] WARNING: Lua_V2::UnlockChore, name: reaction2, filename: elaine_wedding.cos!
+[2026-11-06 08:59:33] WARNING: Lua_V2::UnlockChore, name: foot_tap, filename: elaine_wedding.cos!
+[2026-11-06 08:59:33] WARNING: Lua_V2::UnlockChore, name: cross_arms, filename: elaine_wedding.cos!
+[2026-11-06 08:59:33] WARNING: Lua_V2::UnlockChore, name: wear_default, filename: carla.cos!
+[2026-11-06 08:59:33] WARNING: Lua_V2::UnlockChore, name: stand, filename: carla.cos!
+[2026-11-06 08:59:33] WARNING: Lua_V2::UnlockChore, name: idle1, filename: carla.cos!
+[2026-11-06 08:59:33] WARNING: Lua_V2::UnlockChore, name: wear_default, filename: otis.cos!
+[2026-11-06 08:59:33] WARNING: Lua_V2::UnlockChore, name: stand, filename: otis.cos!
+[2026-11-06 08:59:33] WARNING: Lua_V2::UnlockChore, name: idle1, filename: otis.cos!
+[2026-11-06 08:59:33] WARNING: Lua_V2::UnlockChore, name: idle2, filename: otis.cos!
+[2026-11-06 08:59:33] WARNING: Lua_V2::UnlockChore, name: wear_default, filename: navigator.cos!
+[2026-11-06 08:59:33] WARNING: Lua_V2::UnlockChore, name: stand, filename: navigator.cos!
+[2026-11-06 08:59:33] WARNING: Lua_V2::UnlockChore, name: idle1, filename: navigator.cos!
+[2026-11-06 08:59:33] WARNING: Text stack top not empty; deleting object!
+[2026-11-06 08:59:33] WARNING: Lua_V2::UndimAll: stub!
+[2026-11-06 08:59:33] WARNING: HACK: No default font set for PS2-version, just picking one for now!
+[2026-11-06 08:59:33] WARNING: SetReplayMode(1, demos/demo0.dem)!
+[2026-11-06 09:00:14] --- Log closed successfully.

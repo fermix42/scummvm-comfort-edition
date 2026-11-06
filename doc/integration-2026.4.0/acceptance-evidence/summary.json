@@ -1,0 +1,40 @@
+{
+  "counted_checks": {
+    "cxxtest": 442,
+    "native_executables": 2,
+    "importer": 5,
+    "preservation_engine_audit": 8,
+    "rebuilt_cli": 3,
+    "total": 460,
+    "failed": 0
+  },
+  "cold_process_driver": {
+    "fresh_processes": 2,
+    "failed": 0,
+    "already_counted_methods": true
+  },
+  "retained_nox": {
+    "runners": 4,
+    "rerun": false
+  },
+  "warning_provenance": {
+    "original_occurrences": 66,
+    "locations": 35,
+    "upstream_source": 64,
+    "ce_source": 2,
+    "new_integration_caused": 0,
+    "unestablished": 0
+  },
+  "build": {
+    "configuration": "Release x64",
+    "incremental_errors": 0,
+    "incremental_warnings": 0,
+    "original_clean_build_warnings": 66,
+    "elapsed": "00:02:42.55"
+  },
+  "packaging": {
+    "files": 182,
+    "import_closure": "PASS",
+    "published": false
+  }
+}

@@ -1,0 +1,37 @@
+[2026-11-06 08:51:08] ScummVM 2026.4.0
+[2026-11-06 08:51:08] Vorbis FLAC MP3 RGB zLib MPEG2 FluidSynth Theora FreeType2 FriBiDi JPEG PNG GIF taskbar TTS cloud libcurl SDL_net ENet SDL2 TinyGL OpenGL (with shaders)
+[2026-11-06 08:51:08] --- Log opened.
+[2026-11-06 08:51:09] Using joystick: Keychron Q5 HE
+[2026-11-06 08:51:09] Running Escape From Monkey Island (Windows/English)
+[2026-11-06 08:51:09] artAll.m4b: 61959da91d864bf5f4588daa4a5a3019, 18515664 bytes.
+[2026-11-06 08:51:09] Using joystick: Keychron Q5 HE
+[2026-11-06 08:51:09] WARNING: Couldn't open Textures/FullMonkeyMap.imt!
+[2026-11-06 08:51:09] WARNING: Found 125 music tracks, expected at least 100!
+[2026-11-06 08:51:10] WARNING: Lua_V2::GetActiveCD: return const CD 1!
+[2026-11-06 08:51:10] WARNING: Could not find sprite fx/up_arrow_small.sprb!
+[2026-11-06 08:51:10] WARNING: Could not find sprite fx/down_arrow_small.sprb!
+[2026-11-06 08:51:10] WARNING: Lua_V1::SetGamma, implement opcode, level: 1.000000!
+[2026-11-06 08:51:10] WARNING: Lua_V2::GetActiveCD: set to CD: 1!
+[2026-11-06 08:51:10] WARNING: Lua_V2::LoadBundle: stub, name: melee!
+[2026-11-06 08:51:10] WARNING: Lua_V2::ActorStopMoving, actor: Guybrush!
+[2026-11-06 08:51:10] WARNING: Lua_V2::LockBackground, filename: cdt_cred4.til!
+[2026-11-06 08:51:10] WARNING: Lua_V2::LockBackground, filename: cdt_logo.til!
+[2026-11-06 08:51:10] WARNING: Lua_V2::LockBackground, filename: cdt_mlogo.til!
+[2026-11-06 08:51:10] WARNING: Lua_V2::LockBackground, filename: cdt_goldmonkey.til!
+[2026-11-06 08:51:10] WARNING: Lua_V2::DimScreen: dim: 1.000000!
+[2026-11-06 08:52:39] WARNING: Lua_V2::DimScreen: dim: 1.000000!
+[2026-11-06 08:52:47] WARNING: Lua_V2::UndimAll: stub!
+[2026-11-06 08:52:47] WARNING: Lua_V2::UnLockBackground: stub, filename: cdt_cred4.til!
+[2026-11-06 08:52:47] WARNING: Lua_V2::UnLockBackground: stub, filename: cdt_logo.til!
+[2026-11-06 08:52:47] WARNING: Lua_V2::UnLockBackground: stub, filename: cdt_mlogo.til!
+[2026-11-06 08:52:47] WARNING: Lua_V2::UnLockBackground: stub, filename: cdt_goldmonkey.til!
+[2026-11-06 08:52:47] WARNING: Lua_V2::UndimAll: stub!
+[2026-11-06 08:52:47] WARNING: Lua_V2::ActorStopMoving, actor: Guybrush!
+[2026-11-06 08:52:47] WARNING: Could not find bitmap wed_topdown.til!
+[2026-11-06 08:52:47] WARNING: Lua_V2::LockChore, name: wear_coals, filename: fx/wed_fx.cos!
+[2026-11-06 08:52:47] WARNING: Lua_V2::LockChore, name: wear_smoke, filename: fx/wed_fx.cos!
+[2026-11-06 08:52:47] WARNING: Lua_V2::LockChore, name: wear_default, filename: props/fuse.cos!
+[2026-11-06 08:52:47] WARNING: Lua_V2::LockChore, name: wear_default, filename: fx/fuse_spark.cos!
+[2026-11-06 08:52:47] WARNING: Lua_V2::SetActorFOV: implement opcode. actor: Guybrush, param: 120.000000!
+[2026-11-06 08:52:47] WARNING: Lua_V2::DimScreen: dim: 1.000000!
+[2026-11-06 08:58:18] --- Log closed successfully.

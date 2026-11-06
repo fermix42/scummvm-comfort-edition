@@ -1,5 +1,9 @@
 # Integration baseline and preservation inventory
 
+The subsequent [acceptance audit](ACCEPTANCE.md) classifies all compiler warnings,
+adds regression evidence and links the [practical human checklist](HUMAN-ACCEPTANCE.md).
+It preserves the historical results below and identifies the current local package.
+
 Status: isolated integration candidate built and automatically tested; human acceptance pending.
 
 Original checkout: scummvm-private-feature-usable-desktop-window-layout-git, main,

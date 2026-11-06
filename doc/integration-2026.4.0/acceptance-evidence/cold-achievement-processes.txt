@@ -1,0 +1,2 @@
+PASS: testWriteOfflineAchievementFixture in a fresh process
+PASS: testReadOfflineAchievementFixture in a fresh process

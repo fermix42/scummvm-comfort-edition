@@ -1,0 +1,82 @@
+{
+  "scope": "Observed Windows GUI and bounded engine startup, not automatic save/load acceptance",
+  "launcher": {
+    "windowed_restart": "observed",
+    "titled_capture": {
+      "width": 1186,
+      "height": 893,
+      "x": 207,
+      "y": 100
+    },
+    "borderless_capture": {
+      "width": 1200,
+      "height": 900,
+      "x": 200,
+      "y": 100
+    },
+    "fullscreen_capture": {
+      "width": 5120,
+      "height": 1440,
+      "x": 0,
+      "y": 0
+    },
+    "cheats_tab": "observed for normally detected os-gb",
+    "challenge_gate": "observed",
+    "challenge_confirmation_cancel": "observed",
+    "actual_multiple_monitors": "unverified",
+    "alternate_dpi": "unverified",
+    "in_game_cursor_corners": "unverified",
+    "executable_sha256": "65f81176d29e82e5f3b131494cea294ac19ac137a7e3dd444731278af612ea76"
+  },
+  "mi4_windows": {
+    "detection": "PASS",
+    "original_intro": "observed",
+    "first_interactive_ship_scene": "observed",
+    "native_menu_input": "unverified",
+    "seed_save": "unavailable",
+    "save_load": "unverified",
+    "normal_close": "log receipt",
+    "executable_sha256": "7ed5bee7b1f415655930c9054a7974b74d7a2055311239d320be2181952e8d2f"
+  },
+  "mi4_ps2": {
+    "detection": "PASS",
+    "renderer": "opengl",
+    "animated_press_start_title": "observed",
+    "native_menu_input": "unverified",
+    "seed_save": "unavailable",
+    "save_load": "unverified",
+    "normal_close": "log receipt",
+    "executable_sha256": "7ed5bee7b1f415655930c9054a7974b74d7a2055311239d320be2181952e8d2f"
+  },
+  "new_upstream_games": {
+    "runtime": "unverified",
+    "reason": "No suitable legal data found in known installed game root",
+    "engines": [
+      "phoenixvr",
+      "dm",
+      "chamber",
+      "harvester",
+      "avalanche",
+      "fool",
+      "eem",
+      "wintermute additions"
+    ]
+  },
+  "live_sync": {
+    "verified": false,
+    "reason": "Historical authorized staging credential revoked; no new credentials or accounts created",
+    "production_traffic_sent": false
+  },
+  "retained_nox": {
+    "receipt_executable_sha256": "65f81176d29e82e5f3b131494cea294ac19ac137a7e3dd444731278af612ea76",
+    "suites": 4,
+    "rerun": false,
+    "production_source_changed": false
+  },
+  "logs": {
+    "mi4-ps2-startup.txt": "027cb023a5b5e47b59fc75c5a6ee9e54ef49da11c7b0ac63cc1c1481d5e57461",
+    "mi4-windows-startup.txt": "eeed7142b307a05c3e2b79b795e659c25ccb8384d9373a559bb6d96908f100fe"
+  },
+  "current_package_executable_sha256": "7ed5bee7b1f415655930c9054a7974b74d7a2055311239d320be2181952e8d2f",
+  "log_hash_encoding": "UTF-8 LF text, trailing whitespace trimmed; original .log files retained locally"
+}

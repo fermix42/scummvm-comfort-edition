@@ -1,0 +1,20 @@
+{
+  "original_head": "de742c2c66239011dbbd4ce0d23d48ffcd0d0045",
+  "tracked_local_files_checked": 10,
+  "original_local_changes_differing_from_preserved_snapshot": [],
+  "accepted_binaries": [
+    {
+      "path": "D:\\Codex Projects\\scummvm-private\\scummvm-private-feature-usable-desktop-window-layout\\build-scummvm\\Releasex64\\scummvm.exe",
+      "bytes": 217137152,
+      "mtime": 1791261551.4011538,
+      "sha256": "64d918cf885e78fceae03c01d7ab0d1e9668702fe390447d3f640912505a88db"
+    },
+    {
+      "path": "D:\\Codex Projects\\scummvm-private\\scummvm-private-feature-usable-desktop-window-layout-git\\build-scummvm\\Releasex64\\scummvm.exe",
+      "bytes": 188383232,
+      "mtime": 1792863817.091787,
+      "sha256": "1ba46e9095092690377942aeb5ec80fcaf69beeea2b3e7cbe1fa21a7d45378e9"
+    }
+  ],
+  "scope": "Read-only original checkout check; no source reset/clean/build or executable replacement performed"
+}

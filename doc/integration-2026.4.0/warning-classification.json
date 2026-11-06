@@ -1,0 +1,1147 @@
+{
+  "original_warning_count": 66,
+  "occurrences": [
+    {
+      "path": "engines/director/castmember/xtra.cpp",
+      "line": 130,
+      "column": 2,
+      "code": "C4065",
+      "message": "switch statement contains 'default' but no 'case' labels",
+      "project": "director.vcxproj",
+      "occurrence": 1,
+      "source_equal_ce_snapshot": true,
+      "source_equal_upstream_release": true,
+      "historical_evidence": {
+        "log": "mi4-before-controller-build.log",
+        "diagnostic": "S:\\ce-mi4-before-controller\\engines\\director\\castmember\\xtra.cpp(130,2): warning C4065: switch statement contains 'default' but no 'case' labels [S:\\ce-mi4-before-controller\\build-scummvm\\director.vcxproj]"
+      },
+      "classification": "Existing upstream warning",
+      "primary_category": "Existing upstream warning"
+    },
+    {
+      "path": "engines/director/castmember/xtra.cpp",
+      "line": 139,
+      "column": 2,
+      "code": "C4065",
+      "message": "switch statement contains 'default' but no 'case' labels",
+      "project": "director.vcxproj",
+      "occurrence": 2,
+      "source_equal_ce_snapshot": true,
+      "source_equal_upstream_release": true,
+      "historical_evidence": {
+        "log": "mi4-before-controller-build.log",
+        "diagnostic": "S:\\ce-mi4-before-controller\\engines\\director\\castmember\\xtra.cpp(130,2): warning C4065: switch statement contains 'default' but no 'case' labels [S:\\ce-mi4-before-controller\\build-scummvm\\director.vcxproj]"
+      },
+      "classification": "Existing upstream warning",
+      "primary_category": "Existing upstream warning"
+    },
+    {
+      "path": "backends/imgui/components/imgui_memory_editor.h",
+      "line": 578,
+      "column": 38,
+      "code": "C4775",
+      "message": "nonstandard extension used in format string '%IX' of function 'sscanf'",
+      "project": "director.vcxproj",
+      "occurrence": 3,
+      "source_equal_ce_snapshot": true,
+      "source_equal_upstream_release": true,
+      "historical_evidence": {
+        "log": "mi4-before-controller-build.log",
+        "diagnostic": "S:\\ce-mi4-before-controller\\backends\\imgui\\components\\imgui_memory_editor.h(578,38): warning C4775: nonstandard extension used in format string '%IX' of function 'sscanf' [S:\\ce-mi4-before-controller\\build-scummvm\\director.vcxproj]"
+      },
+      "classification": "Existing upstream warning",
+      "primary_category": "Toolchain or dependency (preexisting)"
+    },
+    {
+      "path": "backends/imgui/components/imgui_memory_editor.h",
+      "line": 578,
+      "column": 38,
+      "code": "C4775",
+      "message": "nonstandard extension used in format string '%IX' of function 'sscanf'",
+      "project": "director.vcxproj",
+      "occurrence": 4,
+      "source_equal_ce_snapshot": true,
+      "source_equal_upstream_release": true,
+      "historical_evidence": {
+        "log": "mi4-before-controller-build.log",
+        "diagnostic": "S:\\ce-mi4-before-controller\\backends\\imgui\\components\\imgui_memory_editor.h(578,38): warning C4775: nonstandard extension used in format string '%IX' of function 'sscanf' [S:\\ce-mi4-before-controller\\build-scummvm\\director.vcxproj]"
+      },
+      "classification": "Existing upstream warning",
+      "primary_category": "Toolchain or dependency (preexisting)"
+    },
+    {
+      "path": "backends/imgui/components/imgui_memory_editor.h",
+      "line": 578,
+      "column": 38,
+      "code": "C4775",
+      "message": "nonstandard extension used in format string '%IX' of function 'sscanf'",
+      "project": "director.vcxproj",
+      "occurrence": 5,
+      "source_equal_ce_snapshot": true,
+      "source_equal_upstream_release": true,
+      "historical_evidence": {
+        "log": "mi4-before-controller-build.log",
+        "diagnostic": "S:\\ce-mi4-before-controller\\backends\\imgui\\components\\imgui_memory_editor.h(578,38): warning C4775: nonstandard extension used in format string '%IX' of function 'sscanf' [S:\\ce-mi4-before-controller\\build-scummvm\\director.vcxproj]"
+      },
+      "classification": "Existing upstream warning",
+      "primary_category": "Toolchain or dependency (preexisting)"
+    },
+    {
+      "path": "backends/imgui/components/imgui_memory_editor.h",
+      "line": 578,
+      "column": 38,
+      "code": "C4775",
+      "message": "nonstandard extension used in format string '%IX' of function 'sscanf'",
+      "project": "director.vcxproj",
+      "occurrence": 6,
+      "source_equal_ce_snapshot": true,
+      "source_equal_upstream_release": true,
+      "historical_evidence": {
+        "log": "mi4-before-controller-build.log",
+        "diagnostic": "S:\\ce-mi4-before-controller\\backends\\imgui\\components\\imgui_memory_editor.h(578,38): warning C4775: nonstandard extension used in format string '%IX' of function 'sscanf' [S:\\ce-mi4-before-controller\\build-scummvm\\director.vcxproj]"
+      },
+      "classification": "Existing upstream warning",
+      "primary_category": "Toolchain or dependency (preexisting)"
+    },
+    {
+      "path": "backends/imgui/components/imgui_memory_editor.h",
+      "line": 578,
+      "column": 38,
+      "code": "C4775",
+      "message": "nonstandard extension used in format string '%IX' of function 'sscanf'",
+      "project": "director.vcxproj",
+      "occurrence": 7,
+      "source_equal_ce_snapshot": true,
+      "source_equal_upstream_release": true,
+      "historical_evidence": {
+        "log": "mi4-before-controller-build.log",
+        "diagnostic": "S:\\ce-mi4-before-controller\\backends\\imgui\\components\\imgui_memory_editor.h(578,38): warning C4775: nonstandard extension used in format string '%IX' of function 'sscanf' [S:\\ce-mi4-before-controller\\build-scummvm\\director.vcxproj]"
+      },
+      "classification": "Existing upstream warning",
+      "primary_category": "Toolchain or dependency (preexisting)"
+    },
+    {
+      "path": "backends/imgui/components/imgui_memory_editor.h",
+      "line": 578,
+      "column": 38,
+      "code": "C4775",
+      "message": "nonstandard extension used in format string '%IX' of function 'sscanf'",
+      "project": "director.vcxproj",
+      "occurrence": 8,
+      "source_equal_ce_snapshot": true,
+      "source_equal_upstream_release": true,
+      "historical_evidence": {
+        "log": "mi4-before-controller-build.log",
+        "diagnostic": "S:\\ce-mi4-before-controller\\backends\\imgui\\components\\imgui_memory_editor.h(578,38): warning C4775: nonstandard extension used in format string '%IX' of function 'sscanf' [S:\\ce-mi4-before-controller\\build-scummvm\\director.vcxproj]"
+      },
+      "classification": "Existing upstream warning",
+      "primary_category": "Toolchain or dependency (preexisting)"
+    },
+    {
+      "path": "backends/imgui/components/imgui_memory_editor.h",
+      "line": 578,
+      "column": 38,
+      "code": "C4775",
+      "message": "nonstandard extension used in format string '%IX' of function 'sscanf'",
+      "project": "director.vcxproj",
+      "occurrence": 9,
+      "source_equal_ce_snapshot": true,
+      "source_equal_upstream_release": true,
+      "historical_evidence": {
+        "log": "mi4-before-controller-build.log",
+        "diagnostic": "S:\\ce-mi4-before-controller\\backends\\imgui\\components\\imgui_memory_editor.h(578,38): warning C4775: nonstandard extension used in format string '%IX' of function 'sscanf' [S:\\ce-mi4-before-controller\\build-scummvm\\director.vcxproj]"
+      },
+      "classification": "Existing upstream warning",
+      "primary_category": "Toolchain or dependency (preexisting)"
+    },
+    {
+      "path": "backends/imgui/components/imgui_memory_editor.h",
+      "line": 578,
+      "column": 38,
+      "code": "C4775",
+      "message": "nonstandard extension used in format string '%IX' of function 'sscanf'",
+      "project": "director.vcxproj",
+      "occurrence": 10,
+      "source_equal_ce_snapshot": true,
+      "source_equal_upstream_release": true,
+      "historical_evidence": {
+        "log": "mi4-before-controller-build.log",
+        "diagnostic": "S:\\ce-mi4-before-controller\\backends\\imgui\\components\\imgui_memory_editor.h(578,38): warning C4775: nonstandard extension used in format string '%IX' of function 'sscanf' [S:\\ce-mi4-before-controller\\build-scummvm\\director.vcxproj]"
+      },
+      "classification": "Existing upstream warning",
+      "primary_category": "Toolchain or dependency (preexisting)"
+    },
+    {
+      "path": "backends/imgui/components/imgui_memory_editor.h",
+      "line": 578,
+      "column": 38,
+      "code": "C4775",
+      "message": "nonstandard extension used in format string '%IX' of function 'sscanf'",
+      "project": "director.vcxproj",
+      "occurrence": 11,
+      "source_equal_ce_snapshot": true,
+      "source_equal_upstream_release": true,
+      "historical_evidence": {
+        "log": "mi4-before-controller-build.log",
+        "diagnostic": "S:\\ce-mi4-before-controller\\backends\\imgui\\components\\imgui_memory_editor.h(578,38): warning C4775: nonstandard extension used in format string '%IX' of function 'sscanf' [S:\\ce-mi4-before-controller\\build-scummvm\\director.vcxproj]"
+      },
+      "classification": "Existing upstream warning",
+      "primary_category": "Toolchain or dependency (preexisting)"
+    },
+    {
+      "path": "backends/imgui/components/imgui_memory_editor.h",
+      "line": 578,
+      "column": 38,
+      "code": "C4775",
+      "message": "nonstandard extension used in format string '%IX' of function 'sscanf'",
+      "project": "director.vcxproj",
+      "occurrence": 12,
+      "source_equal_ce_snapshot": true,
+      "source_equal_upstream_release": true,
+      "historical_evidence": {
+        "log": "mi4-before-controller-build.log",
+        "diagnostic": "S:\\ce-mi4-before-controller\\backends\\imgui\\components\\imgui_memory_editor.h(578,38): warning C4775: nonstandard extension used in format string '%IX' of function 'sscanf' [S:\\ce-mi4-before-controller\\build-scummvm\\director.vcxproj]"
+      },
+      "classification": "Existing upstream warning",
+      "primary_category": "Toolchain or dependency (preexisting)"
+    },
+    {
+      "path": "backends/imgui/components/imgui_memory_editor.h",
+      "line": 578,
+      "column": 38,
+      "code": "C4775",
+      "message": "nonstandard extension used in format string '%IX' of function 'sscanf'",
+      "project": "director.vcxproj",
+      "occurrence": 13,
+      "source_equal_ce_snapshot": true,
+      "source_equal_upstream_release": true,
+      "historical_evidence": {
+        "log": "mi4-before-controller-build.log",
+        "diagnostic": "S:\\ce-mi4-before-controller\\backends\\imgui\\components\\imgui_memory_editor.h(578,38): warning C4775: nonstandard extension used in format string '%IX' of function 'sscanf' [S:\\ce-mi4-before-controller\\build-scummvm\\director.vcxproj]"
+      },
+      "classification": "Existing upstream warning",
+      "primary_category": "Toolchain or dependency (preexisting)"
+    },
+    {
+      "path": "backends/imgui/components/imgui_memory_editor.h",
+      "line": 578,
+      "column": 38,
+      "code": "C4775",
+      "message": "nonstandard extension used in format string '%IX' of function 'sscanf'",
+      "project": "director.vcxproj",
+      "occurrence": 14,
+      "source_equal_ce_snapshot": true,
+      "source_equal_upstream_release": true,
+      "historical_evidence": {
+        "log": "mi4-before-controller-build.log",
+        "diagnostic": "S:\\ce-mi4-before-controller\\backends\\imgui\\components\\imgui_memory_editor.h(578,38): warning C4775: nonstandard extension used in format string '%IX' of function 'sscanf' [S:\\ce-mi4-before-controller\\build-scummvm\\director.vcxproj]"
+      },
+      "classification": "Existing upstream warning",
+      "primary_category": "Toolchain or dependency (preexisting)"
+    },
+    {
+      "path": "backends/imgui/components/imgui_memory_editor.h",
+      "line": 578,
+      "column": 38,
+      "code": "C4775",
+      "message": "nonstandard extension used in format string '%IX' of function 'sscanf'",
+      "project": "director.vcxproj",
+      "occurrence": 15,
+      "source_equal_ce_snapshot": true,
+      "source_equal_upstream_release": true,
+      "historical_evidence": {
+        "log": "mi4-before-controller-build.log",
+        "diagnostic": "S:\\ce-mi4-before-controller\\backends\\imgui\\components\\imgui_memory_editor.h(578,38): warning C4775: nonstandard extension used in format string '%IX' of function 'sscanf' [S:\\ce-mi4-before-controller\\build-scummvm\\director.vcxproj]"
+      },
+      "classification": "Existing upstream warning",
+      "primary_category": "Toolchain or dependency (preexisting)"
+    },
+    {
+      "path": "engines/director/debugger/dt-save-state.cpp",
+      "line": 166,
+      "column": 29,
+      "code": "C4334",
+      "message": "'<<': result of 32-bit shift implicitly converted to 64 bits (was 64-bit shift intended?)",
+      "project": "director.vcxproj",
+      "occurrence": 16,
+      "source_equal_ce_snapshot": true,
+      "source_equal_upstream_release": true,
+      "historical_evidence": {
+        "log": "mi4-before-controller-build.log",
+        "diagnostic": "S:\\ce-mi4-before-controller\\engines\\director\\debugger\\dt-save-state.cpp(166,29): warning C4334: '<<': result of 32-bit shift implicitly converted to 64 bits (was 64-bit shift intended?) [S:\\ce-mi4-before-controller\\build-scummvm\\director.vcxproj]"
+      },
+      "classification": "Existing upstream warning",
+      "primary_category": "Existing upstream warning"
+    },
+    {
+      "path": "engines/director/transitions.cpp",
+      "line": 476,
+      "column": 21,
+      "code": "C4146",
+      "message": "unary minus operator applied to unsigned type, result still unsigned",
+      "project": "director.vcxproj",
+      "occurrence": 17,
+      "source_equal_ce_snapshot": true,
+      "source_equal_upstream_release": true,
+      "historical_evidence": {
+        "log": "mi4-before-controller-build.log",
+        "diagnostic": "S:\\ce-mi4-before-controller\\engines\\director\\transitions.cpp(476,21): warning C4146: unary minus operator applied to unsigned type, result still unsigned [S:\\ce-mi4-before-controller\\build-scummvm\\director.vcxproj]"
+      },
+      "classification": "Existing upstream warning",
+      "primary_category": "Existing upstream warning"
+    },
+    {
+      "path": "engines/director/transitions.cpp",
+      "line": 482,
+      "column": 52,
+      "code": "C4146",
+      "message": "unary minus operator applied to unsigned type, result still unsigned",
+      "project": "director.vcxproj",
+      "occurrence": 18,
+      "source_equal_ce_snapshot": true,
+      "source_equal_upstream_release": true,
+      "historical_evidence": {
+        "log": "mi4-before-controller-build.log",
+        "diagnostic": "S:\\ce-mi4-before-controller\\engines\\director\\transitions.cpp(476,21): warning C4146: unary minus operator applied to unsigned type, result still unsigned [S:\\ce-mi4-before-controller\\build-scummvm\\director.vcxproj]"
+      },
+      "classification": "Existing upstream warning",
+      "primary_category": "Existing upstream warning"
+    },
+    {
+      "path": "engines/director/transitions.cpp",
+      "line": 489,
+      "column": 18,
+      "code": "C4146",
+      "message": "unary minus operator applied to unsigned type, result still unsigned",
+      "project": "director.vcxproj",
+      "occurrence": 19,
+      "source_equal_ce_snapshot": true,
+      "source_equal_upstream_release": true,
+      "historical_evidence": {
+        "log": "mi4-before-controller-build.log",
+        "diagnostic": "S:\\ce-mi4-before-controller\\engines\\director\\transitions.cpp(476,21): warning C4146: unary minus operator applied to unsigned type, result still unsigned [S:\\ce-mi4-before-controller\\build-scummvm\\director.vcxproj]"
+      },
+      "classification": "Existing upstream warning",
+      "primary_category": "Existing upstream warning"
+    },
+    {
+      "path": "engines/director/transitions.cpp",
+      "line": 489,
+      "column": 53,
+      "code": "C4146",
+      "message": "unary minus operator applied to unsigned type, result still unsigned",
+      "project": "director.vcxproj",
+      "occurrence": 20,
+      "source_equal_ce_snapshot": true,
+      "source_equal_upstream_release": true,
+      "historical_evidence": {
+        "log": "mi4-before-controller-build.log",
+        "diagnostic": "S:\\ce-mi4-before-controller\\engines\\director\\transitions.cpp(476,21): warning C4146: unary minus operator applied to unsigned type, result still unsigned [S:\\ce-mi4-before-controller\\build-scummvm\\director.vcxproj]"
+      },
+      "classification": "Existing upstream warning",
+      "primary_category": "Existing upstream warning"
+    },
+    {
+      "path": "engines/director/transitions.cpp",
+      "line": 502,
+      "column": 18,
+      "code": "C4146",
+      "message": "unary minus operator applied to unsigned type, result still unsigned",
+      "project": "director.vcxproj",
+      "occurrence": 21,
+      "source_equal_ce_snapshot": true,
+      "source_equal_upstream_release": true,
+      "historical_evidence": {
+        "log": "mi4-before-controller-build.log",
+        "diagnostic": "S:\\ce-mi4-before-controller\\engines\\director\\transitions.cpp(476,21): warning C4146: unary minus operator applied to unsigned type, result still unsigned [S:\\ce-mi4-before-controller\\build-scummvm\\director.vcxproj]"
+      },
+      "classification": "Existing upstream warning",
+      "primary_category": "Existing upstream warning"
+    },
+    {
+      "path": "engines/director/transitions.cpp",
+      "line": 521,
+      "column": 18,
+      "code": "C4146",
+      "message": "unary minus operator applied to unsigned type, result still unsigned",
+      "project": "director.vcxproj",
+      "occurrence": 22,
+      "source_equal_ce_snapshot": true,
+      "source_equal_upstream_release": true,
+      "historical_evidence": {
+        "log": "mi4-before-controller-build.log",
+        "diagnostic": "S:\\ce-mi4-before-controller\\engines\\director\\transitions.cpp(476,21): warning C4146: unary minus operator applied to unsigned type, result still unsigned [S:\\ce-mi4-before-controller\\build-scummvm\\director.vcxproj]"
+      },
+      "classification": "Existing upstream warning",
+      "primary_category": "Existing upstream warning"
+    },
+    {
+      "path": "backends/imgui/components/imgui_memory_editor.h",
+      "line": 578,
+      "column": 38,
+      "code": "C4775",
+      "message": "nonstandard extension used in format string '%IX' of function 'sscanf'",
+      "project": "director.vcxproj",
+      "occurrence": 23,
+      "source_equal_ce_snapshot": true,
+      "source_equal_upstream_release": true,
+      "historical_evidence": {
+        "log": "mi4-before-controller-build.log",
+        "diagnostic": "S:\\ce-mi4-before-controller\\backends\\imgui\\components\\imgui_memory_editor.h(578,38): warning C4775: nonstandard extension used in format string '%IX' of function 'sscanf' [S:\\ce-mi4-before-controller\\build-scummvm\\director.vcxproj]"
+      },
+      "classification": "Existing upstream warning",
+      "primary_category": "Toolchain or dependency (preexisting)"
+    },
+    {
+      "path": "engines/eem/graphics.cpp",
+      "line": 480,
+      "column": 52,
+      "code": "C4018",
+      "message": "'>': signed/unsigned mismatch",
+      "project": "eem.vcxproj",
+      "occurrence": 24,
+      "source_equal_ce_snapshot": true,
+      "source_equal_upstream_release": true,
+      "historical_evidence": {
+        "log": "mi4-before-controller-build.log",
+        "diagnostic": "S:\\ce-mi4-before-controller\\engines\\eem\\graphics.cpp(480,52): warning C4018: '>': signed/unsigned mismatch [S:\\ce-mi4-before-controller\\build-scummvm\\eem.vcxproj]"
+      },
+      "classification": "Existing upstream warning",
+      "primary_category": "Existing upstream warning"
+    },
+    {
+      "path": "engines/eem/ui.cpp",
+      "line": 4465,
+      "column": 26,
+      "code": "C4018",
+      "message": "'>': signed/unsigned mismatch",
+      "project": "eem.vcxproj",
+      "occurrence": 25,
+      "source_equal_ce_snapshot": true,
+      "source_equal_upstream_release": true,
+      "historical_evidence": {
+        "log": "mi4-before-controller-build.log",
+        "diagnostic": "S:\\ce-mi4-before-controller\\engines\\eem\\ui.cpp(4465,26): warning C4018: '>': signed/unsigned mismatch [S:\\ce-mi4-before-controller\\build-scummvm\\eem.vcxproj]"
+      },
+      "classification": "Existing upstream warning",
+      "primary_category": "Existing upstream warning"
+    },
+    {
+      "path": "engines/eem/ui.cpp",
+      "line": 4859,
+      "column": 27,
+      "code": "C4018",
+      "message": "'>': signed/unsigned mismatch",
+      "project": "eem.vcxproj",
+      "occurrence": 26,
+      "source_equal_ce_snapshot": true,
+      "source_equal_upstream_release": true,
+      "historical_evidence": {
+        "log": "mi4-before-controller-build.log",
+        "diagnostic": "S:\\ce-mi4-before-controller\\engines\\eem\\ui.cpp(4465,26): warning C4018: '>': signed/unsigned mismatch [S:\\ce-mi4-before-controller\\build-scummvm\\eem.vcxproj]"
+      },
+      "classification": "Existing upstream warning",
+      "primary_category": "Existing upstream warning"
+    },
+    {
+      "path": "engines/eem/ui.cpp",
+      "line": 4986,
+      "column": 29,
+      "code": "C4018",
+      "message": "'>': signed/unsigned mismatch",
+      "project": "eem.vcxproj",
+      "occurrence": 27,
+      "source_equal_ce_snapshot": true,
+      "source_equal_upstream_release": true,
+      "historical_evidence": {
+        "log": "mi4-before-controller-build.log",
+        "diagnostic": "S:\\ce-mi4-before-controller\\engines\\eem\\ui.cpp(4465,26): warning C4018: '>': signed/unsigned mismatch [S:\\ce-mi4-before-controller\\build-scummvm\\eem.vcxproj]"
+      },
+      "classification": "Existing upstream warning",
+      "primary_category": "Existing upstream warning"
+    },
+    {
+      "path": "engines/fool/fool_game.cpp",
+      "line": 1127,
+      "column": 26,
+      "code": "C4245",
+      "message": "'argument': conversion from 'int' to 'uint32', signed/unsigned mismatch",
+      "project": "fool.vcxproj",
+      "occurrence": 28,
+      "source_equal_ce_snapshot": true,
+      "source_equal_upstream_release": true,
+      "historical_evidence": null,
+      "classification": "Existing upstream warning",
+      "targeted_compilation": {
+        "log": "warning-repro-fool.log",
+        "source_revision": "29e2ceb01611ac18654d82bfe2116db8183bd53d",
+        "scope": "Tagged/baseline source; integrated Release headers and compiler flags; no executable linked"
+      },
+      "primary_category": "Existing upstream warning"
+    },
+    {
+      "path": "engines/freescape/games/3dck/8bitUI.cpp",
+      "line": 173,
+      "column": 21,
+      "code": "C4018",
+      "message": "'<': signed/unsigned mismatch",
+      "project": "freescape.vcxproj",
+      "occurrence": 29,
+      "source_equal_ce_snapshot": true,
+      "source_equal_upstream_release": true,
+      "historical_evidence": {
+        "log": "mi4-before-controller-build.log",
+        "diagnostic": "S:\\ce-mi4-before-controller\\engines\\freescape\\games\\3dck\\8bitUI.cpp(173,21): warning C4018: '<': signed/unsigned mismatch [S:\\ce-mi4-before-controller\\build-scummvm\\freescape.vcxproj]"
+      },
+      "classification": "Existing upstream warning",
+      "primary_category": "Existing upstream warning"
+    },
+    {
+      "path": "engines/freescape/games/3dck/c64.cpp",
+      "line": 59,
+      "column": 37,
+      "code": "C4018",
+      "message": "'>': signed/unsigned mismatch",
+      "project": "freescape.vcxproj",
+      "occurrence": 30,
+      "source_equal_ce_snapshot": true,
+      "source_equal_upstream_release": true,
+      "historical_evidence": {
+        "log": "mi4-before-controller-build.log",
+        "diagnostic": "S:\\ce-mi4-before-controller\\engines\\freescape\\games\\3dck\\c64.cpp(59,37): warning C4018: '>': signed/unsigned mismatch [S:\\ce-mi4-before-controller\\build-scummvm\\freescape.vcxproj]"
+      },
+      "classification": "Existing upstream warning",
+      "primary_category": "Existing upstream warning"
+    },
+    {
+      "path": "engines/freescape/games/castle/c64.cpp",
+      "line": 488,
+      "column": 98,
+      "code": "C4018",
+      "message": "'>': signed/unsigned mismatch",
+      "project": "freescape.vcxproj",
+      "occurrence": 31,
+      "source_equal_ce_snapshot": true,
+      "source_equal_upstream_release": true,
+      "historical_evidence": {
+        "log": "mi4-before-controller-build.log",
+        "diagnostic": "S:\\ce-mi4-before-controller\\engines\\freescape\\games\\castle\\c64.cpp(488,98): warning C4018: '>': signed/unsigned mismatch [S:\\ce-mi4-before-controller\\build-scummvm\\freescape.vcxproj]"
+      },
+      "classification": "Existing upstream warning",
+      "primary_category": "Existing upstream warning"
+    },
+    {
+      "path": "engines/phoenixvr/phoenixvr.cpp",
+      "line": 742,
+      "column": 4,
+      "code": "C4065",
+      "message": "switch statement contains 'default' but no 'case' labels",
+      "project": "phoenixvr.vcxproj",
+      "occurrence": 32,
+      "source_equal_ce_snapshot": false,
+      "source_equal_upstream_release": true,
+      "historical_evidence": null,
+      "classification": "Existing upstream warning",
+      "targeted_compilation": {
+        "log": "warning-repro-phoenixvr.log",
+        "source_revision": "7d2709da5136866589f7602f5f5a7b17de03420e",
+        "scope": "Tagged/baseline source; integrated Release headers and compiler flags; no executable linked"
+      },
+      "primary_category": "Existing upstream warning"
+    },
+    {
+      "path": "engines/phoenixvr/phoenixvr.cpp",
+      "line": 768,
+      "column": 4,
+      "code": "C4065",
+      "message": "switch statement contains 'default' but no 'case' labels",
+      "project": "phoenixvr.vcxproj",
+      "occurrence": 33,
+      "source_equal_ce_snapshot": false,
+      "source_equal_upstream_release": true,
+      "historical_evidence": null,
+      "classification": "Existing upstream warning",
+      "targeted_compilation": {
+        "log": "warning-repro-phoenixvr.log",
+        "source_revision": "7d2709da5136866589f7602f5f5a7b17de03420e",
+        "scope": "Tagged/baseline source; integrated Release headers and compiler flags; no executable linked"
+      },
+      "primary_category": "Existing upstream warning"
+    },
+    {
+      "path": "engines/sci/graphics/screen.cpp",
+      "line": 234,
+      "column": 15,
+      "code": "C4018",
+      "message": "'<': signed/unsigned mismatch",
+      "project": "sci.vcxproj",
+      "occurrence": 34,
+      "source_equal_ce_snapshot": true,
+      "source_equal_upstream_release": false,
+      "historical_evidence": null,
+      "classification": "Existing CE warning",
+      "targeted_compilation": {
+        "log": "warning-repro-sci.log",
+        "source_revision": "29e2ceb01611ac18654d82bfe2116db8183bd53d",
+        "scope": "Tagged/baseline source; integrated Release headers and compiler flags; no executable linked"
+      },
+      "primary_category": "Existing CE warning"
+    },
+    {
+      "path": "engines/sci/dialogs.cpp",
+      "line": 907,
+      "column": 44,
+      "code": "C4189",
+      "message": "'c': local variable is initialized but not referenced",
+      "project": "sci.vcxproj",
+      "occurrence": 35,
+      "source_equal_ce_snapshot": true,
+      "source_equal_upstream_release": false,
+      "historical_evidence": null,
+      "classification": "Existing CE warning",
+      "targeted_compilation": {
+        "log": "warning-repro-sci.log",
+        "source_revision": "29e2ceb01611ac18654d82bfe2116db8183bd53d",
+        "scope": "Tagged/baseline source; integrated Release headers and compiler flags; no executable linked"
+      },
+      "primary_category": "Existing CE warning"
+    },
+    {
+      "path": "backends/imgui/components/imgui_memory_editor.h",
+      "line": 578,
+      "column": 38,
+      "code": "C4775",
+      "message": "nonstandard extension used in format string '%IX' of function 'sscanf'",
+      "project": "scumm.vcxproj",
+      "occurrence": 36,
+      "source_equal_ce_snapshot": true,
+      "source_equal_upstream_release": true,
+      "historical_evidence": {
+        "log": "mi4-before-controller-build.log",
+        "diagnostic": "S:\\ce-mi4-before-controller\\backends\\imgui\\components\\imgui_memory_editor.h(578,38): warning C4775: nonstandard extension used in format string '%IX' of function 'sscanf' [S:\\ce-mi4-before-controller\\build-scummvm\\director.vcxproj]"
+      },
+      "classification": "Existing upstream warning",
+      "primary_category": "Toolchain or dependency (preexisting)"
+    },
+    {
+      "path": "engines/scumm/insane/rebel2/render.cpp",
+      "line": 161,
+      "column": 10,
+      "code": "C4146",
+      "message": "unary minus operator applied to unsigned type, result still unsigned",
+      "project": "scumm.vcxproj",
+      "occurrence": 37,
+      "source_equal_ce_snapshot": true,
+      "source_equal_upstream_release": true,
+      "historical_evidence": {
+        "log": "mi4-before-controller-build.log",
+        "diagnostic": "S:\\ce-mi4-before-controller\\engines\\scumm\\insane\\rebel2\\render.cpp(161,10): warning C4146: unary minus operator applied to unsigned type, result still unsigned [S:\\ce-mi4-before-controller\\build-scummvm\\scumm.vcxproj]"
+      },
+      "classification": "Existing upstream warning",
+      "primary_category": "Existing upstream warning"
+    },
+    {
+      "path": "engines/teenagent/scene.cpp",
+      "line": 552,
+      "column": 3,
+      "code": "C4065",
+      "message": "switch statement contains 'default' but no 'case' labels",
+      "project": "teenagent.vcxproj",
+      "occurrence": 38,
+      "source_equal_ce_snapshot": true,
+      "source_equal_upstream_release": true,
+      "historical_evidence": {
+        "log": "mi4-before-controller-build.log",
+        "diagnostic": "S:\\ce-mi4-before-controller\\engines\\teenagent\\scene.cpp(552,3): warning C4065: switch statement contains 'default' but no 'case' labels [S:\\ce-mi4-before-controller\\build-scummvm\\teenagent.vcxproj]"
+      },
+      "classification": "Existing upstream warning",
+      "primary_category": "Existing upstream warning"
+    },
+    {
+      "path": "engines/tinsel/noir/spriter.cpp",
+      "line": 376,
+      "column": 11,
+      "code": "C4146",
+      "message": "unary minus operator applied to unsigned type, result still unsigned",
+      "project": "tinsel.vcxproj",
+      "occurrence": 39,
+      "source_equal_ce_snapshot": true,
+      "source_equal_upstream_release": true,
+      "historical_evidence": {
+        "log": "mi4-before-controller-build.log",
+        "diagnostic": "S:\\ce-mi4-before-controller\\engines\\tinsel\\noir\\spriter.cpp(376,11): warning C4146: unary minus operator applied to unsigned type, result still unsigned [S:\\ce-mi4-before-controller\\build-scummvm\\tinsel.vcxproj]"
+      },
+      "classification": "Existing upstream warning",
+      "primary_category": "Existing upstream warning"
+    },
+    {
+      "path": "engines/tinsel/noir/spriter.cpp",
+      "line": 380,
+      "column": 11,
+      "code": "C4146",
+      "message": "unary minus operator applied to unsigned type, result still unsigned",
+      "project": "tinsel.vcxproj",
+      "occurrence": 40,
+      "source_equal_ce_snapshot": true,
+      "source_equal_upstream_release": true,
+      "historical_evidence": {
+        "log": "mi4-before-controller-build.log",
+        "diagnostic": "S:\\ce-mi4-before-controller\\engines\\tinsel\\noir\\spriter.cpp(376,11): warning C4146: unary minus operator applied to unsigned type, result still unsigned [S:\\ce-mi4-before-controller\\build-scummvm\\tinsel.vcxproj]"
+      },
+      "classification": "Existing upstream warning",
+      "primary_category": "Existing upstream warning"
+    },
+    {
+      "path": "engines/twp/squirrel/sqstdrex.cpp",
+      "line": 568,
+      "column": 8,
+      "code": "C4611",
+      "message": "interaction between '_setjmp' and C++ object destruction is non-portable",
+      "project": "twp.vcxproj",
+      "occurrence": 41,
+      "source_equal_ce_snapshot": true,
+      "source_equal_upstream_release": true,
+      "historical_evidence": {
+        "log": "mi4-before-controller-build.log",
+        "diagnostic": "S:\\ce-mi4-before-controller\\engines\\twp\\squirrel\\sqstdrex.cpp(568,8): warning C4611: interaction between '_setjmp' and C++ object destruction is non-portable [S:\\ce-mi4-before-controller\\build-scummvm\\twp.vcxproj]"
+      },
+      "classification": "Existing upstream warning",
+      "primary_category": "Existing upstream warning"
+    },
+    {
+      "path": "engines/twp/squirrel/sqcompiler.cpp",
+      "line": 174,
+      "column": 12,
+      "code": "C4611",
+      "message": "interaction between '_setjmp' and C++ object destruction is non-portable",
+      "project": "twp.vcxproj",
+      "occurrence": 42,
+      "source_equal_ce_snapshot": true,
+      "source_equal_upstream_release": true,
+      "historical_evidence": {
+        "log": "mi4-before-controller-build.log",
+        "diagnostic": "S:\\ce-mi4-before-controller\\engines\\twp\\squirrel\\sqcompiler.cpp(174,12): warning C4611: interaction between '_setjmp' and C++ object destruction is non-portable [S:\\ce-mi4-before-controller\\build-scummvm\\twp.vcxproj]"
+      },
+      "classification": "Existing upstream warning",
+      "primary_category": "Existing upstream warning"
+    },
+    {
+      "path": "common/singleton.h",
+      "line": 59,
+      "column": 12,
+      "code": "C4506",
+      "message": "no definition for inline function 'T *Common::Singleton<T>::makeInstance(void)'",
+      "project": "scummvm.vcxproj",
+      "occurrence": 43,
+      "source_equal_ce_snapshot": true,
+      "source_equal_upstream_release": true,
+      "historical_evidence": {
+        "log": "mi4-before-controller-build.log",
+        "diagnostic": "S:\\ce-mi4-before-controller\\common\\singleton.h(59,12): warning C4506: no definition for inline function 'T *Common::Singleton<T>::makeInstance(void)' [S:\\ce-mi4-before-controller\\build-scummvm\\scummvm.vcxproj]"
+      },
+      "classification": "Existing upstream warning",
+      "primary_category": "Toolchain or dependency (preexisting)"
+    },
+    {
+      "path": "common/singleton.h",
+      "line": 59,
+      "column": 12,
+      "code": "C4506",
+      "message": "no definition for inline function 'T *Common::Singleton<T>::makeInstance(void)'",
+      "project": "scummvm.vcxproj",
+      "occurrence": 44,
+      "source_equal_ce_snapshot": true,
+      "source_equal_upstream_release": true,
+      "historical_evidence": {
+        "log": "mi4-before-controller-build.log",
+        "diagnostic": "S:\\ce-mi4-before-controller\\common\\singleton.h(59,12): warning C4506: no definition for inline function 'T *Common::Singleton<T>::makeInstance(void)' [S:\\ce-mi4-before-controller\\build-scummvm\\scummvm.vcxproj]"
+      },
+      "classification": "Existing upstream warning",
+      "primary_category": "Toolchain or dependency (preexisting)"
+    },
+    {
+      "path": "common/singleton.h",
+      "line": 59,
+      "column": 12,
+      "code": "C4506",
+      "message": "no definition for inline function 'T *Common::Singleton<T>::makeInstance(void)'",
+      "project": "scummvm.vcxproj",
+      "occurrence": 45,
+      "source_equal_ce_snapshot": true,
+      "source_equal_upstream_release": true,
+      "historical_evidence": {
+        "log": "mi4-before-controller-build.log",
+        "diagnostic": "S:\\ce-mi4-before-controller\\common\\singleton.h(59,12): warning C4506: no definition for inline function 'T *Common::Singleton<T>::makeInstance(void)' [S:\\ce-mi4-before-controller\\build-scummvm\\scummvm.vcxproj]"
+      },
+      "classification": "Existing upstream warning",
+      "primary_category": "Toolchain or dependency (preexisting)"
+    },
+    {
+      "path": "common/singleton.h",
+      "line": 59,
+      "column": 12,
+      "code": "C4506",
+      "message": "no definition for inline function 'T *Common::Singleton<T>::makeInstance(void)'",
+      "project": "scummvm.vcxproj",
+      "occurrence": 46,
+      "source_equal_ce_snapshot": true,
+      "source_equal_upstream_release": true,
+      "historical_evidence": {
+        "log": "mi4-before-controller-build.log",
+        "diagnostic": "S:\\ce-mi4-before-controller\\common\\singleton.h(59,12): warning C4506: no definition for inline function 'T *Common::Singleton<T>::makeInstance(void)' [S:\\ce-mi4-before-controller\\build-scummvm\\scummvm.vcxproj]"
+      },
+      "classification": "Existing upstream warning",
+      "primary_category": "Toolchain or dependency (preexisting)"
+    },
+    {
+      "path": "common/singleton.h",
+      "line": 59,
+      "column": 12,
+      "code": "C4506",
+      "message": "no definition for inline function 'T *Common::Singleton<T>::makeInstance(void)'",
+      "project": "scummvm.vcxproj",
+      "occurrence": 47,
+      "source_equal_ce_snapshot": true,
+      "source_equal_upstream_release": true,
+      "historical_evidence": {
+        "log": "mi4-before-controller-build.log",
+        "diagnostic": "S:\\ce-mi4-before-controller\\common\\singleton.h(59,12): warning C4506: no definition for inline function 'T *Common::Singleton<T>::makeInstance(void)' [S:\\ce-mi4-before-controller\\build-scummvm\\scummvm.vcxproj]"
+      },
+      "classification": "Existing upstream warning",
+      "primary_category": "Toolchain or dependency (preexisting)"
+    },
+    {
+      "path": "common/singleton.h",
+      "line": 59,
+      "column": 12,
+      "code": "C4506",
+      "message": "no definition for inline function 'T *Common::Singleton<T>::makeInstance(void)'",
+      "project": "scummvm.vcxproj",
+      "occurrence": 48,
+      "source_equal_ce_snapshot": true,
+      "source_equal_upstream_release": true,
+      "historical_evidence": {
+        "log": "mi4-before-controller-build.log",
+        "diagnostic": "S:\\ce-mi4-before-controller\\common\\singleton.h(59,12): warning C4506: no definition for inline function 'T *Common::Singleton<T>::makeInstance(void)' [S:\\ce-mi4-before-controller\\build-scummvm\\scummvm.vcxproj]"
+      },
+      "classification": "Existing upstream warning",
+      "primary_category": "Toolchain or dependency (preexisting)"
+    },
+    {
+      "path": "common/singleton.h",
+      "line": 59,
+      "column": 12,
+      "code": "C4506",
+      "message": "no definition for inline function 'T *Common::Singleton<T>::makeInstance(void)'",
+      "project": "scummvm.vcxproj",
+      "occurrence": 49,
+      "source_equal_ce_snapshot": true,
+      "source_equal_upstream_release": true,
+      "historical_evidence": {
+        "log": "mi4-before-controller-build.log",
+        "diagnostic": "S:\\ce-mi4-before-controller\\common\\singleton.h(59,12): warning C4506: no definition for inline function 'T *Common::Singleton<T>::makeInstance(void)' [S:\\ce-mi4-before-controller\\build-scummvm\\scummvm.vcxproj]"
+      },
+      "classification": "Existing upstream warning",
+      "primary_category": "Toolchain or dependency (preexisting)"
+    },
+    {
+      "path": "common/singleton.h",
+      "line": 59,
+      "column": 12,
+      "code": "C4506",
+      "message": "no definition for inline function 'T *Common::Singleton<T>::makeInstance(void)'",
+      "project": "scummvm.vcxproj",
+      "occurrence": 50,
+      "source_equal_ce_snapshot": true,
+      "source_equal_upstream_release": true,
+      "historical_evidence": {
+        "log": "mi4-before-controller-build.log",
+        "diagnostic": "S:\\ce-mi4-before-controller\\common\\singleton.h(59,12): warning C4506: no definition for inline function 'T *Common::Singleton<T>::makeInstance(void)' [S:\\ce-mi4-before-controller\\build-scummvm\\scummvm.vcxproj]"
+      },
+      "classification": "Existing upstream warning",
+      "primary_category": "Toolchain or dependency (preexisting)"
+    },
+    {
+      "path": "common/singleton.h",
+      "line": 59,
+      "column": 12,
+      "code": "C4506",
+      "message": "no definition for inline function 'T *Common::Singleton<T>::makeInstance(void)'",
+      "project": "scummvm.vcxproj",
+      "occurrence": 51,
+      "source_equal_ce_snapshot": true,
+      "source_equal_upstream_release": true,
+      "historical_evidence": {
+        "log": "mi4-before-controller-build.log",
+        "diagnostic": "S:\\ce-mi4-before-controller\\common\\singleton.h(59,12): warning C4506: no definition for inline function 'T *Common::Singleton<T>::makeInstance(void)' [S:\\ce-mi4-before-controller\\build-scummvm\\scummvm.vcxproj]"
+      },
+      "classification": "Existing upstream warning",
+      "primary_category": "Toolchain or dependency (preexisting)"
+    },
+    {
+      "path": "common/singleton.h",
+      "line": 59,
+      "column": 12,
+      "code": "C4506",
+      "message": "no definition for inline function 'T *Common::Singleton<T>::makeInstance(void)'",
+      "project": "scummvm.vcxproj",
+      "occurrence": 52,
+      "source_equal_ce_snapshot": true,
+      "source_equal_upstream_release": true,
+      "historical_evidence": {
+        "log": "mi4-before-controller-build.log",
+        "diagnostic": "S:\\ce-mi4-before-controller\\common\\singleton.h(59,12): warning C4506: no definition for inline function 'T *Common::Singleton<T>::makeInstance(void)' [S:\\ce-mi4-before-controller\\build-scummvm\\scummvm.vcxproj]"
+      },
+      "classification": "Existing upstream warning",
+      "primary_category": "Toolchain or dependency (preexisting)"
+    },
+    {
+      "path": "common/singleton.h",
+      "line": 59,
+      "column": 12,
+      "code": "C4506",
+      "message": "no definition for inline function 'T *Common::Singleton<T>::makeInstance(void)'",
+      "project": "scummvm.vcxproj",
+      "occurrence": 53,
+      "source_equal_ce_snapshot": true,
+      "source_equal_upstream_release": true,
+      "historical_evidence": {
+        "log": "mi4-before-controller-build.log",
+        "diagnostic": "S:\\ce-mi4-before-controller\\common\\singleton.h(59,12): warning C4506: no definition for inline function 'T *Common::Singleton<T>::makeInstance(void)' [S:\\ce-mi4-before-controller\\build-scummvm\\scummvm.vcxproj]"
+      },
+      "classification": "Existing upstream warning",
+      "primary_category": "Toolchain or dependency (preexisting)"
+    },
+    {
+      "path": "common/singleton.h",
+      "line": 59,
+      "column": 12,
+      "code": "C4506",
+      "message": "no definition for inline function 'T *Common::Singleton<T>::makeInstance(void)'",
+      "project": "scummvm.vcxproj",
+      "occurrence": 54,
+      "source_equal_ce_snapshot": true,
+      "source_equal_upstream_release": true,
+      "historical_evidence": {
+        "log": "mi4-before-controller-build.log",
+        "diagnostic": "S:\\ce-mi4-before-controller\\common\\singleton.h(59,12): warning C4506: no definition for inline function 'T *Common::Singleton<T>::makeInstance(void)' [S:\\ce-mi4-before-controller\\build-scummvm\\scummvm.vcxproj]"
+      },
+      "classification": "Existing upstream warning",
+      "primary_category": "Toolchain or dependency (preexisting)"
+    },
+    {
+      "path": "backends/graphics/opengl/renderer3d.cpp",
+      "line": 367,
+      "column": 31,
+      "code": "C4146",
+      "message": "unary minus operator applied to unsigned type, result still unsigned",
+      "project": "scummvm.vcxproj",
+      "occurrence": 55,
+      "source_equal_ce_snapshot": true,
+      "source_equal_upstream_release": true,
+      "historical_evidence": {
+        "log": "mi4-before-controller-build.log",
+        "diagnostic": "S:\\ce-mi4-before-controller\\backends\\graphics\\opengl\\renderer3d.cpp(367,31): warning C4146: unary minus operator applied to unsigned type, result still unsigned [S:\\ce-mi4-before-controller\\build-scummvm\\scummvm.vcxproj]"
+      },
+      "classification": "Existing upstream warning",
+      "primary_category": "Existing upstream warning"
+    },
+    {
+      "path": "backends/graphics/opengl/renderer3d.cpp",
+      "line": 368,
+      "column": 17,
+      "code": "C4146",
+      "message": "unary minus operator applied to unsigned type, result still unsigned",
+      "project": "scummvm.vcxproj",
+      "occurrence": 56,
+      "source_equal_ce_snapshot": true,
+      "source_equal_upstream_release": true,
+      "historical_evidence": {
+        "log": "mi4-before-controller-build.log",
+        "diagnostic": "S:\\ce-mi4-before-controller\\backends\\graphics\\opengl\\renderer3d.cpp(367,31): warning C4146: unary minus operator applied to unsigned type, result still unsigned [S:\\ce-mi4-before-controller\\build-scummvm\\scummvm.vcxproj]"
+      },
+      "classification": "Existing upstream warning",
+      "primary_category": "Existing upstream warning"
+    },
+    {
+      "path": "common/singleton.h",
+      "line": 59,
+      "column": 12,
+      "code": "C4506",
+      "message": "no definition for inline function 'T *Common::Singleton<T>::makeInstance(void)'",
+      "project": "scummvm.vcxproj",
+      "occurrence": 57,
+      "source_equal_ce_snapshot": true,
+      "source_equal_upstream_release": true,
+      "historical_evidence": {
+        "log": "mi4-before-controller-build.log",
+        "diagnostic": "S:\\ce-mi4-before-controller\\common\\singleton.h(59,12): warning C4506: no definition for inline function 'T *Common::Singleton<T>::makeInstance(void)' [S:\\ce-mi4-before-controller\\build-scummvm\\scummvm.vcxproj]"
+      },
+      "classification": "Existing upstream warning",
+      "primary_category": "Toolchain or dependency (preexisting)"
+    },
+    {
+      "path": "common/singleton.h",
+      "line": 59,
+      "column": 12,
+      "code": "C4506",
+      "message": "no definition for inline function 'T *Common::Singleton<T>::makeInstance(void)'",
+      "project": "scummvm.vcxproj",
+      "occurrence": 58,
+      "source_equal_ce_snapshot": true,
+      "source_equal_upstream_release": true,
+      "historical_evidence": {
+        "log": "mi4-before-controller-build.log",
+        "diagnostic": "S:\\ce-mi4-before-controller\\common\\singleton.h(59,12): warning C4506: no definition for inline function 'T *Common::Singleton<T>::makeInstance(void)' [S:\\ce-mi4-before-controller\\build-scummvm\\scummvm.vcxproj]"
+      },
+      "classification": "Existing upstream warning",
+      "primary_category": "Toolchain or dependency (preexisting)"
+    },
+    {
+      "path": "common/singleton.h",
+      "line": 59,
+      "column": 12,
+      "code": "C4506",
+      "message": "no definition for inline function 'T *Common::Singleton<T>::makeInstance(void)'",
+      "project": "scummvm.vcxproj",
+      "occurrence": 59,
+      "source_equal_ce_snapshot": true,
+      "source_equal_upstream_release": true,
+      "historical_evidence": {
+        "log": "mi4-before-controller-build.log",
+        "diagnostic": "S:\\ce-mi4-before-controller\\common\\singleton.h(59,12): warning C4506: no definition for inline function 'T *Common::Singleton<T>::makeInstance(void)' [S:\\ce-mi4-before-controller\\build-scummvm\\scummvm.vcxproj]"
+      },
+      "classification": "Existing upstream warning",
+      "primary_category": "Toolchain or dependency (preexisting)"
+    },
+    {
+      "path": "common/singleton.h",
+      "line": 59,
+      "column": 12,
+      "code": "C4506",
+      "message": "no definition for inline function 'T *Common::Singleton<T>::makeInstance(void)'",
+      "project": "scummvm.vcxproj",
+      "occurrence": 60,
+      "source_equal_ce_snapshot": true,
+      "source_equal_upstream_release": true,
+      "historical_evidence": {
+        "log": "mi4-before-controller-build.log",
+        "diagnostic": "S:\\ce-mi4-before-controller\\common\\singleton.h(59,12): warning C4506: no definition for inline function 'T *Common::Singleton<T>::makeInstance(void)' [S:\\ce-mi4-before-controller\\build-scummvm\\scummvm.vcxproj]"
+      },
+      "classification": "Existing upstream warning",
+      "primary_category": "Toolchain or dependency (preexisting)"
+    },
+    {
+      "path": "common/singleton.h",
+      "line": 59,
+      "column": 12,
+      "code": "C4506",
+      "message": "no definition for inline function 'T *Common::Singleton<T>::makeInstance(void)'",
+      "project": "scummvm.vcxproj",
+      "occurrence": 61,
+      "source_equal_ce_snapshot": true,
+      "source_equal_upstream_release": true,
+      "historical_evidence": {
+        "log": "mi4-before-controller-build.log",
+        "diagnostic": "S:\\ce-mi4-before-controller\\common\\singleton.h(59,12): warning C4506: no definition for inline function 'T *Common::Singleton<T>::makeInstance(void)' [S:\\ce-mi4-before-controller\\build-scummvm\\scummvm.vcxproj]"
+      },
+      "classification": "Existing upstream warning",
+      "primary_category": "Toolchain or dependency (preexisting)"
+    },
+    {
+      "path": "common/lua/ldo.cpp",
+      "line": 141,
+      "column": 3,
+      "code": "C4611",
+      "message": "interaction between '_setjmp' and C++ object destruction is non-portable",
+      "project": "scummvm.vcxproj",
+      "occurrence": 62,
+      "source_equal_ce_snapshot": true,
+      "source_equal_upstream_release": true,
+      "historical_evidence": {
+        "log": "mi4-before-controller-build.log",
+        "diagnostic": "S:\\ce-mi4-before-controller\\common\\lua\\ldo.cpp(141,3): warning C4611: interaction between '_setjmp' and C++ object destruction is non-portable [S:\\ce-mi4-before-controller\\build-scummvm\\scummvm.vcxproj]"
+      },
+      "classification": "Existing upstream warning",
+      "primary_category": "Existing upstream warning"
+    },
+    {
+      "path": "common/lua/lgc.cpp",
+      "line": 286,
+      "column": 45,
+      "code": "C4334",
+      "message": "'<<': result of 32-bit shift implicitly converted to 64 bits (was 64-bit shift intended?)",
+      "project": "scummvm.vcxproj",
+      "occurrence": 63,
+      "source_equal_ce_snapshot": true,
+      "source_equal_upstream_release": true,
+      "historical_evidence": {
+        "log": "mi4-before-controller-build.log",
+        "diagnostic": "S:\\ce-mi4-before-controller\\common\\lua\\lgc.cpp(286,45): warning C4334: '<<': result of 32-bit shift implicitly converted to 64 bits (was 64-bit shift intended?) [S:\\ce-mi4-before-controller\\build-scummvm\\scummvm.vcxproj]"
+      },
+      "classification": "Existing upstream warning",
+      "primary_category": "Existing upstream warning"
+    },
+    {
+      "path": "common/lua/ltable.cpp",
+      "line": 324,
+      "column": 5,
+      "code": "C4334",
+      "message": "'<<': result of 32-bit shift implicitly converted to 64 bits (was 64-bit shift intended?)",
+      "project": "scummvm.vcxproj",
+      "occurrence": 64,
+      "source_equal_ce_snapshot": true,
+      "source_equal_upstream_release": true,
+      "historical_evidence": {
+        "log": "mi4-before-controller-build.log",
+        "diagnostic": "S:\\ce-mi4-before-controller\\common\\lua\\ltable.cpp(324,5): warning C4334: '<<': result of 32-bit shift implicitly converted to 64 bits (was 64-bit shift intended?) [S:\\ce-mi4-before-controller\\build-scummvm\\scummvm.vcxproj]"
+      },
+      "classification": "Existing upstream warning",
+      "primary_category": "Existing upstream warning"
+    },
+    {
+      "path": "common/lua/ltable.cpp",
+      "line": 378,
+      "column": 5,
+      "code": "C4334",
+      "message": "'<<': result of 32-bit shift implicitly converted to 64 bits (was 64-bit shift intended?)",
+      "project": "scummvm.vcxproj",
+      "occurrence": 65,
+      "source_equal_ce_snapshot": true,
+      "source_equal_upstream_release": true,
+      "historical_evidence": {
+        "log": "mi4-before-controller-build.log",
+        "diagnostic": "S:\\ce-mi4-before-controller\\common\\lua\\ltable.cpp(324,5): warning C4334: '<<': result of 32-bit shift implicitly converted to 64 bits (was 64-bit shift intended?) [S:\\ce-mi4-before-controller\\build-scummvm\\scummvm.vcxproj]"
+      },
+      "classification": "Existing upstream warning",
+      "primary_category": "Existing upstream warning"
+    },
+    {
+      "path": "common/singleton.h",
+      "line": 59,
+      "column": 12,
+      "code": "C4506",
+      "message": "no definition for inline function 'T *Common::Singleton<T>::makeInstance(void)'",
+      "project": "scummvm.vcxproj",
+      "occurrence": 66,
+      "source_equal_ce_snapshot": true,
+      "source_equal_upstream_release": true,
+      "historical_evidence": {
+        "log": "mi4-before-controller-build.log",
+        "diagnostic": "S:\\ce-mi4-before-controller\\common\\singleton.h(59,12): warning C4506: no definition for inline function 'T *Common::Singleton<T>::makeInstance(void)' [S:\\ce-mi4-before-controller\\build-scummvm\\scummvm.vcxproj]"
+      },
+      "classification": "Existing upstream warning",
+      "primary_category": "Toolchain or dependency (preexisting)"
+    }
+  ],
+  "classification_counts": {
+    "Existing upstream warning": 64,
+    "Existing CE warning": 2
+  },
+  "primary_category_counts": {
+    "Existing upstream warning": 31,
+    "Toolchain or dependency (preexisting)": 33,
+    "Existing CE warning": 2
+  },
+  "method": "Count original diagnostics before Build succeeded; exclude repeated summary and template-context lines. Provenance requires matching historical diagnostics with identical CE source, or successful targeted compilation of the recorded baseline/tag source with Release flags. Toolchain/vendor diagnostics also retain their source provenance."
+}
