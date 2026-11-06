@@ -67,7 +67,7 @@ if (-not $projectNeedsRefresh) {
 }
 if (-not $projectNeedsRefresh -and (Test-Path "$buildDirectory\scummvm.vcxproj")) {
     $projectContent = Get-Content -LiteralPath "$buildDirectory\scummvm.vcxproj" -Raw
-    $projectNeedsRefresh = -not $projectContent.Contains('..\engines\ce_achievements.cpp')
+    $projectNeedsRefresh = -not $projectContent.Contains('..\engines\ce_achievements.cpp') -or -not $projectContent.Contains('..\engines\ce_test_cli.cpp')
 }
 if (-not $projectNeedsRefresh -and (Test-Path "$buildDirectory\cine.vcxproj")) {
     $cineProjectContent = Get-Content -LiteralPath "$buildDirectory\cine.vcxproj" -Raw

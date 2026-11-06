@@ -41,6 +41,7 @@ namespace Audio {
 class Mixer;
 }
 namespace Common {
+class JSONValue;
 class Error;
 class FSDirectory;
 class EventManager;
@@ -593,6 +594,9 @@ public:
 	 * Return the MetaEngine instance used by this engine.
 	 */
 	inline MetaEngine *getMetaEngine() const { return _metaEngine; }
+	// Optional semantic adapter. Called only on the engine thread in explicit test mode.
+	virtual Common::JSONValue *testCLIState();
+	virtual Common::JSONValue *testCLICommand(Common::JSONValue &request);
 
 	/**
 	 * Set the MetaEngine instance used by this engine.

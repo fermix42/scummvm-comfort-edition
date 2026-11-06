@@ -20,6 +20,7 @@
  */
 
 #include "engines/ce_achievements.h"
+#include "engines/ce_test_cli.h"
 #include "engines/achievements.h"
 
 #include "audio/audiostream.h"
@@ -49,6 +50,55 @@
 #endif
 
 namespace Common {
+
+bool CEAchievementService::selectPlaythroughForTarget(const String &target, const String &session) {
+	if (!CETestCLI::active()) return false;
+	StackLock lock(_stateMutex);
+	for (const auto &record : listPlaythroughsForTarget(target)) {
+		if (record.clientPlaythroughId != session || record.archived || record.status != "active") continue;
+		resetPopupState();
+		return activatePlaythroughRecordForLoadedSave(record.clientPlaythroughId, record.playthroughId);
+	}
+	return false;
+}
+
+JSONValue *CEAchievementService::testCLIState() const {
+	if (!CETestCLI::active()) return CETestCLI::unsupported();
+	StackLock lock(_stateMutex);
+	JSONObject o;
+	o["ok"] = new JSONValue(true);
+	o["sidecar"] = new JSONValue(_popupSidecarName);
+	JSONArray seen, queue, sessions, unlocked, assistance;
+	if (AchMan.isReady()) {
+		for (uint i = 0; i < AchMan.getAchievementCount(); ++i) {
+			const auto *definition = AchMan.getAchievementDescription(i);
+			if (definition && AchMan.isAchieved(definition->id)) unlocked.push_back(new JSONValue(definition->id));
+		}
+	}
+	for (const auto &flag : getAssistanceFlags()) assistance.push_back(new JSONValue(flag));
+	o["native_unlocked"] = new JSONValue(unlocked);
+	o["assistance"] = new JSONValue(assistance);
+	for (const auto &key : _popupSeenKeys) seen.push_back(new JSONValue(key));
+	o["seen"] = new JSONValue(seen);
+	JSONObject progress;
+	for (const auto &entry : _popupProgress) progress[entry._key] = new JSONValue((long long)entry._value);
+	o["progress"] = new JSONValue(progress);
+	for (const auto &e : loadQueue()) {
+		JSONObject q;
+		q["type"] = new JSONValue(e.requestType); q["achievement"] = new JSONValue(e.achievement);
+		q["session"] = new JSONValue(e.clientPlaythroughId); q["state"] = new JSONValue(e.state);
+		q["assisted"] = new JSONValue(e.assisted); queue.push_back(new JSONValue(q));
+	}
+	o["queue"] = new JSONValue(queue);
+	for (const auto &r : listPlaythroughsForTarget(ConfMan.getActiveDomainName())) {
+		JSONObject s;
+		s["id"] = new JSONValue(r.clientPlaythroughId); s["title"] = new JSONValue(r.title);
+		s["status"] = new JSONValue(r.status); s["casual"] = new JSONValue(r.casual);
+		sessions.push_back(new JSONValue(s));
+	}
+	o["sessions"] = new JSONValue(sessions);
+	return new JSONValue(o);
+}
 
 static const char *const kCEApiBaseUrl = "https://achievements.divineramen.net/api/v1";
 static const char *const kCEDataFile = "ce-achievements.dat";
@@ -2466,6 +2516,7 @@ void CEAchievementService::deferRateLimitedRequests(const String &retryAfter, co
 }
 
 void CEAchievementService::startRequest(CEAchievementSyncAction action, const String &url, const String &body, int queueIndex) {
+	if (CETestCLI::active()) return; // Test mode has no achievement transport, regardless of persisted settings.
 	StackLock lock(_stateMutex);
 #ifdef USE_HTTP
 	String token = getLinkToken();

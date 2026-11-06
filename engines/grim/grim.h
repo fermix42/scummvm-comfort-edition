@@ -116,6 +116,8 @@ public:
 	void playIrisAnimation(Iris::Direction dir, int x, int y, int time);
 
 	void mainLoop();
+	Common::JSONValue *testCLIState() override;
+	Common::JSONValue *testCLICommand(Common::JSONValue &request) override;
 	unsigned getFrameStart() const { return _frameStart; }
 	unsigned getFrameTime() const { return _frameTime; }
 

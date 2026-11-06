@@ -32,11 +32,35 @@
 // "ARRAYSIZE" for example.
 #define WIN32_LEAN_AND_MEAN
 #include <windows.h>
+#include <io.h>
 
 #include "backends/platform/sdl/win32/win32.h"
 #include "backends/platform/sdl/win32/win32_wrapper.h"
 #include "backends/plugins/win32/win32-provider.h"
 #include "base/main.h"
+#include "engines/ce_test_cli.h"
+
+static HANDLE cliInput = INVALID_HANDLE_VALUE, cliOutput = INVALID_HANDLE_VALUE;
+static int readCLI(char *buffer, unsigned size) {
+	DWORD available = 0, read = 0;
+	if (!PeekNamedPipe(cliInput, nullptr, 0, nullptr, &available, nullptr)) return -1;
+	if (!available) return 0;
+	if (!ReadFile(cliInput, buffer, available < size ? available : size, &read, nullptr)) return -1;
+	return (int)read;
+}
+static void writeCLI(const char *buffer, unsigned size) {
+	DWORD written = 0;
+	while (size && WriteFile(cliOutput, buffer, size, &written, nullptr) && written) {
+		buffer += written; size -= written;
+	}
+}
+static int cliUsageError(const char *code) {
+	Common::JSONValue *error = CETestCLI::error(code);
+	Common::String line = error->stringify() + "\n"; delete error;
+	DWORD written;
+	WriteFile(GetStdHandle(STD_OUTPUT_HANDLE), line.c_str(), line.size(), &written, nullptr);
+	return 64;
+}
 
 int __stdcall WinMain(HINSTANCE /*hInst*/, HINSTANCE /*hPrevInst*/,  LPSTR /*lpCmdLine*/, int /*iShowCmd*/) {
 #if !SDL_VERSION_ATLEAST(2, 0, 0)
@@ -59,6 +83,37 @@ int main(int argc, char *argv[]) {
 #ifdef UNICODE
 	argv = Win32::getArgvUtf8(&argc);
 #endif
+	bool testCLI = false, offscreen = false;
+	Common::String root;
+	for (int i = 1; i < argc; ++i) if (!strcmp(argv[i], "--test-cli")) testCLI = true;
+	Common::StringArray cliArgs;
+	if (testCLI) {
+#if !SDL_VERSION_ATLEAST(2, 0, 0) || SDL_VERSION_ATLEAST(3, 0, 0)
+		return cliUsageError("test_cli_requires_sdl2");
+#else
+		cliArgs.push_back(argv[0]);
+		for (int i = 1; i < argc; ++i) {
+			Common::String arg(argv[i]);
+			if (arg == "--test-cli") continue;
+			if (arg.hasPrefix("--test-root=")) root = arg.substr(12);
+			else if (arg == "--test-render=offscreen") offscreen = true;
+			else if (arg.hasPrefix("--extrapath=")) cliArgs.push_back(arg);
+			else return cliUsageError("unknown_test_option");
+		}
+		if (root.size() < 4 || root[1] != ':' || (root[2] != '\\' && root[2] != '/')) return cliUsageError("absolute_test_root_required");
+		cliInput = GetStdHandle(STD_INPUT_HANDLE);
+		if (GetFileType(cliInput) != FILE_TYPE_PIPE || GetFileType(GetStdHandle(STD_OUTPUT_HANDLE)) != FILE_TYPE_PIPE) return cliUsageError("stdin_stdout_pipes_required");
+		if (!DuplicateHandle(GetCurrentProcess(), GetStdHandle(STD_OUTPUT_HANDLE), GetCurrentProcess(), &cliOutput, 0, FALSE, DUPLICATE_SAME_ACCESS)) return 64;
+		if (_dup2(_fileno(stderr), _fileno(stdout)) != 0) return 64;
+		CETestCLI::activate(readCLI, writeCLI, root, offscreen);
+		SetErrorMode(SEM_FAILCRITICALERRORS | SEM_NOGPFAULTERRORBOX | SEM_NOOPENFILEERRORBOX);
+		SDL_setenv("SDL_AUDIODRIVER", "dummy", 1);
+		if (!offscreen) {
+			SDL_setenv("SDL_VIDEODRIVER", "dummy", 1);
+			SDL_SetHint(SDL_HINT_RENDER_DRIVER, "software");
+		}
+#endif
+	}
 
 	// Create our OSystem instance
 	g_system = new OSystem_Win32();
@@ -66,13 +121,24 @@ int main(int argc, char *argv[]) {
 
 	// Pre initialize the backend
 	g_system->init();
+#if SDL_VERSION_ATLEAST(2, 0, 0)
+	if (testCLI) CETestCLI::setVideoDriver(SDL_GetCurrentVideoDriver());
+#endif
 
 #ifdef DYNAMIC_MODULES
 	PluginManager::instance().addPluginProvider(new Win32PluginProvider());
 #endif
 
 	// Invoke the actual ScummVM main entry point:
-	int res = scummvm_main(argc, argv);
+	int res;
+	if (testCLI) {
+		if (CETestCLI::prepare(cliArgs)) {
+			Common::Array<const char *> args;
+			for (const auto &arg : cliArgs) args.push_back(arg.c_str());
+			res = scummvm_main(args.size(), args.data());
+		} else res = 64;
+		res = CETestCLI::finish(res);
+	} else res = scummvm_main(argc, argv);
 
 	// Free OSystem
 	g_system->destroy();

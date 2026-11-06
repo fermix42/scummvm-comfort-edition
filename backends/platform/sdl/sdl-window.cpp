@@ -22,6 +22,7 @@
 #define FORBIDDEN_SYMBOL_ALLOW_ALL
 
 #include "backends/platform/sdl/sdl-window.h"
+#include "engines/ce_test_cli.h"
 #include "backends/platform/sdl/sdl.h"
 #include "backends/platform/sdl/window-layout.h"
 
@@ -191,6 +192,7 @@ void SdlWindow::setResizable(bool resizable) {
 }
 
 void SdlWindow::grabMouse(bool grab) {
+	if (CETestCLI::active()) return;
 #if SDL_VERSION_ATLEAST(2, 0, 0)
 	if (_window) {
 #if SDL_VERSION_ATLEAST(3, 0, 0)
@@ -230,6 +232,7 @@ void SdlWindow::setMouseRect(const Common::Rect &rect) {
 }
 
 bool SdlWindow::lockMouse(bool lock) {
+	if (CETestCLI::active()) return false;
 #if SDL_VERSION_ATLEAST(3, 0, 0)
 	SDL_SetWindowRelativeMouseMode(_window, lock);
 	_inputLockState = lock;
@@ -262,6 +265,7 @@ bool SdlWindow::hasMouseFocus() const {
 }
 
 bool SdlWindow::warpMouseInWindow(int x, int y) {
+	if (CETestCLI::active()) return false;
 	if (hasMouseFocus()) {
 #if SDL_VERSION_ATLEAST(2, 0, 0)
 		if (_window) {
@@ -437,6 +441,10 @@ int SdlWindow::getDisplayIndex() const {
 }
 
 bool SdlWindow::createOrUpdateWindow(int width, int height, uint32 flags) {
+	if (CETestCLI::active()) {
+		flags &= ~(fullscreenMask | SDL_WINDOW_MAXIMIZED);
+		flags |= SDL_WINDOW_HIDDEN;
+	}
 #if SDL_VERSION_ATLEAST(3, 0, 0)
 	if (_inputGrabState) {
 		flags |= SDL_WINDOW_MOUSE_GRABBED;
@@ -527,6 +535,10 @@ bool SdlWindow::createOrUpdateWindow(int width, int height, uint32 flags) {
 	if (recreate) {
 		destroyWindow();
 		uint32 creationFlags = flags;
+		if (CETestCLI::active()) {
+			creationFlags &= ~(fullscreenMask | SDL_WINDOW_MAXIMIZED);
+			creationFlags |= SDL_WINDOW_HIDDEN;
+		}
 		if (useLayout && ConfMan.getBool("window_layout_borderless", Common::ConfigManager::kApplicationDomain))
 			creationFlags |= SDL_WINDOW_BORDERLESS;
 #if SDL_VERSION_ATLEAST(3, 0, 0)
@@ -550,6 +562,8 @@ bool SdlWindow::createOrUpdateWindow(int width, int height, uint32 flags) {
 		if (_window) {
 			setupIcon();
 		}
+	} else if (CETestCLI::active()) {
+		SDL_SetWindowSize(_window, width, height);
 	} else {
 		if (fullscreenFlags) {
 #if SDL_VERSION_ATLEAST(3, 0, 0)
@@ -586,7 +600,7 @@ bool SdlWindow::createOrUpdateWindow(int width, int height, uint32 flags) {
 	const bool shouldGrab = (flags & SDL_WINDOW_MOUSE_GRABBED) || fullscreenFlags;
 	SDL_SetWindowMouseGrab(_window, shouldGrab);
 #else
-	const bool shouldGrab = (flags & SDL_WINDOW_INPUT_GRABBED) || fullscreenFlags;
+	const bool shouldGrab = !CETestCLI::active() && ((flags & SDL_WINDOW_INPUT_GRABBED) || fullscreenFlags);
 	SDL_SetWindowGrab(_window, shouldGrab ? SDL_TRUE : SDL_FALSE);
 #endif
 #if SDL_VERSION_ATLEAST(2, 0, 18)
@@ -613,6 +627,7 @@ bool SdlWindow::createOrUpdateWindow(int width, int height, uint32 flags) {
 }
 
 void SdlWindow::applyWindowLayout() {
+	if (CETestCLI::active()) return;
 #if SDL_VERSION_ATLEAST(2, 0, 5)
 	if (!_window || (SDL_GetWindowFlags(_window) & fullscreenMask))
 		return;

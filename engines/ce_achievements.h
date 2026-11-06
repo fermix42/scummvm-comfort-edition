@@ -31,6 +31,7 @@
 namespace Common {
 
 class AchievementsManager;
+class JSONValue;
 
 enum CEAchievementSyncAction {
 	kCEAchievementSyncIdle,
@@ -119,6 +120,8 @@ class CEAchievementService {
 	friend class CEHttpRequest;
 public:
 	CEAchievementService();
+	JSONValue *testCLIState() const;
+	bool selectPlaythroughForTarget(const String &target, const String &session);
 
 	bool unlock(AchievementsManager &achievements, const String &game, const String &variant, const String &achievement);
 	bool noteGameEvent(AchievementsManager &achievements, const String &game, const String &variant, const String &event);

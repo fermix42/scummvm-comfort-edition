@@ -30,6 +30,7 @@
 #include "common/textconsole.h"
 #include "common/fs.h"
 #include "engines/engine.h"
+#include "engines/ce_test_cli.h"
 #include "gui/gui-manager.h"
 
 #if defined(USE_IMGUI)
@@ -630,6 +631,11 @@ void SdlEventSource::preprocessFingerMotion(SDL_Event *event) {
 }
 
 bool SdlEventSource::pollEvent(Common::Event &event) {
+	if (CETestCLI::active()) {
+		SDL_Event ignored;
+		while (SDL_PollEvent(&ignored)) {}
+		return false;
+	}
 	finishSimulatedMouseClicks();
 
 	// In case we still need to send a key up event for a key down from a

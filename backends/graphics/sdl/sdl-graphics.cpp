@@ -20,6 +20,7 @@
  */
 
 #include "backends/graphics/sdl/sdl-graphics.h"
+#include "engines/ce_test_cli.h"
 #include "backends/platform/sdl/sdl-sys.h"
 #include "backends/platform/sdl/sdl.h"
 #include "backends/events/sdl/sdl-events.h"
@@ -308,6 +309,7 @@ bool SdlGraphicsManager::notifyMousePosition(Common::Point &mouse) {
 }
 
 void SdlGraphicsManager::showSystemMouseCursor(bool visible) {
+	if (CETestCLI::active()) return;
 #if SDL_VERSION_ATLEAST(3, 0, 0)
 	if (visible) {
 		SDL_ShowCursor();

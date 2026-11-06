@@ -56,6 +56,7 @@
 #include "engines/grim/md5checkdialog.h"
 #include "engines/grim/debug.h"
 #include "engines/grim/grim.h"
+#include "engines/ce_test_cli.h"
 #include "engines/grim/lua.h"
 #include "engines/grim/lua_v1.h"
 #include "engines/grim/emi/poolsound.h"
@@ -1132,6 +1133,7 @@ void GrimEngine::mainLoop() {
 	_setupChanged = true;
 
 	for (;;) {
+		CETestCLI::frame();
 		uint32 startTime = g_system->getMillis();
 		if (_shortFrame) {
 			if (resetShortFrame) {

@@ -23,6 +23,7 @@
 #define SDL_FUNCTION_POINTER_IS_VOID_POINTER
 
 #include "backends/platform/sdl/sdl.h"
+#include "engines/ce_test_cli.h"
 #include "common/config-manager.h"
 #include "gui/EventRecorder.h"
 #include "common/taskbar.h"
@@ -111,11 +112,13 @@ OSystem_SDL::OSystem_SDL()
 }
 
 OSystem_SDL::~OSystem_SDL() {
+	if (!CETestCLI::active()) {
 #if SDL_VERSION_ATLEAST(3, 0, 0)
 	SDL_ShowCursor();
 #else
 	SDL_ShowCursor(SDL_ENABLE);
 #endif
+	}
 
 #ifdef USE_MULTIPLE_RENDERERS
 	clearGraphicsModes();
@@ -184,7 +187,7 @@ void OSystem_SDL::init() {
 	SDL_HideCursor();
 #else
 	// Disable OS cursor
-	SDL_ShowCursor(SDL_DISABLE);
+	if (!CETestCLI::active()) SDL_ShowCursor(SDL_DISABLE);
 #endif
 #endif
 
@@ -841,6 +844,7 @@ bool OSystem_SDL::setTextInClipboard(const Common::U32String &text) {
 }
 
 void OSystem_SDL::messageBox(LogMessageType::Type type, const char *message) {
+	if (CETestCLI::active()) { CETestCLI::fatal(message); return; }
 	Uint32 flags = 0;
 
 	switch (type) {

@@ -33,6 +33,7 @@
 #include "backends/vkeybd/virtual-keyboard.h"
 
 #include "engines/ce_achievements.h"
+#include "engines/ce_test_cli.h"
 #include "engines/engine.h"
 #include "gui/debugger.h"
 #include "gui/dialog.h"
@@ -117,6 +118,7 @@ void DefaultEventManager::init() {
 }
 
 bool DefaultEventManager::pollEvent(Common::Event &event) {
+	CETestCLI::pump();
 	_dispatcher.dispatch();
 
 	if (g_engine)
@@ -275,6 +277,9 @@ bool DefaultEventManager::pollEvent(Common::Event &event) {
 		break;
 
 	case Common::EVENT_QUIT:
+		// The pipe's explicit quit/EOF already confirms ending this disposable
+		// process. Preserve session status and use the normal shutdown path.
+		if (CETestCLI::active()) { _shouldQuit = true; break; }
 		if (g_engine && Common::CEAchievements().hasActivePlaythroughInProgress()) {
 			if (_confirmExitDialogActive) {
 				forwardEvent = false;

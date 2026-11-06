@@ -13,6 +13,21 @@ ROOT = Path(__file__).resolve().parents[2]
 UPSTREAM = '7d2709da5136866589f7602f5f5a7b17de03420e'
 CE = '29e2ceb01611ac18654d82bfe2116db8183bd53d'
 BASE = 'b72dad4a9c8e91139935cb83d234722199bc25c1'
+# Reviewed opt-in native controller hooks. All other upstream/CE blobs retain
+# the original exact-identity checks. Runtime tests verify these adaptations.
+NATIVE_CLI_ADAPTATIONS = {
+    'backends/events/default/default-events.cpp',
+    'backends/events/sdl/sdl2-events.cpp',
+    'backends/graphics/sdl/sdl-graphics.cpp',
+    'backends/platform/sdl/sdl-window.cpp',
+    'backends/platform/sdl/sdl.cpp',
+    'backends/platform/sdl/win32/win32-main.cpp',
+    'backends/platform/sdl/win32/win32.cpp',
+    'engines/ce_achievements.cpp', 'engines/ce_achievements.h',
+    'engines/engine.cpp', 'engines/engine.h',
+    'engines/grim/grim.cpp', 'engines/grim/grim.h',
+    'engines/grim/module.mk', 'engines/module.mk',
+}
 
 
 def git(*args):
@@ -54,15 +69,16 @@ class IntegrationTests(unittest.TestCase):
 
     def test_all_non_ce_upstream_blobs_exact(self):
         adaptations = {'devtools/create_project/create_project.cpp',
-                       'test/system/null_osystem.cpp', 'test/system/null_osystem.h'}
+                       'test/system/null_osystem.cpp', 'test/system/null_osystem.h'} | NATIVE_CLI_ADAPTATIONS
         mismatches = [p for p, blob in self.upstream.items()
                       if p not in self.custom and p not in adaptations
                       and self.integrated.get(p) != blob]
         self.assertEqual(mismatches, [])
 
     def test_ce_sources_and_data_preserved(self):
-        # Only the build script and this integration's own documentation adapt.
-        exceptions = {'run-build-release-cleanenv.ps1',
+        # Reviewed test hooks, build/workflows and the fork changelog adapt;
+        # all other original CE blobs retain exact identity.
+        exceptions = NATIVE_CLI_ADAPTATIONS | {'run-build-release-cleanenv.ps1', 'FORK-CHANGES.md',
                       '.github/workflows/windows-release.yml',
                       '.github/workflows/windows-layout-test.yml'}
         mismatches = [p for p in self.custom
@@ -92,6 +108,10 @@ class IntegrationTests(unittest.TestCase):
                 self.assertIn(f'engines\\{name}\\', project)
         self.assertIn('engines\\ce_achievements.cpp',
                       (ROOT / 'build-scummvm/scummvm.vcxproj').read_text())
+        self.assertIn('engines\\ce_test_cli.cpp',
+                      (ROOT / 'build-scummvm/scummvm.vcxproj').read_text())
+        self.assertIn('engines\\grim\\ce_test_cli.cpp',
+                      (ROOT / 'build-scummvm/grim.vcxproj').read_text())
 
     def test_windows_packaging_retains_engine_coverage(self):
         for name in ('windows-release.yml', 'windows-layout-test.yml'):

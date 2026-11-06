@@ -1,6 +1,7 @@
 MODULE := engines/grim
 
 MODULE_OBJS := \
+	ce_test_cli.o \
 	costume/bitmap_component.o \
 	costume/chore.o \
 	costume/colormap_component.o \

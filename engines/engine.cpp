@@ -20,6 +20,10 @@
  */
 
 #include "engines/engine.h"
+#include "engines/ce_test_cli.h"
+
+Common::JSONValue *Engine::testCLIState() { return CETestCLI::unsupported(); }
+Common::JSONValue *Engine::testCLICommand(Common::JSONValue &) { return CETestCLI::unsupported(); }
 #include "engines/dialogs.h"
 #include "engines/util.h"
 #include "engines/metaengine.h"
@@ -82,6 +86,7 @@ static void defaultOutputFormatter(char *dst, const char *src, size_t dstSize) {
 }
 
 static bool defaultErrorHandler(const char *msg) {
+	if (CETestCLI::active()) { CETestCLI::fatal(msg); return true; }
 	bool handled = false;
 
 	// Unless this error -originated- within the debugger itself, we

@@ -36,6 +36,7 @@
 
 #include "common/scummsys.h"
 #include "common/config-manager.h"
+#include "engines/ce_test_cli.h"
 #include "common/error.h"
 #include "common/textconsole.h"
 
@@ -150,6 +151,7 @@ OSystem_SDL::GraphicsManagerType OSystem_Win32::getDefaultGraphicsManager() cons
 #endif
 
 bool OSystem_Win32::hasFeature(Feature f) {
+	if (CETestCLI::active() && (f == kFeatureDisplayLogFile || f == kFeatureOpenUrl || f == kFeatureSystemBrowserDialog)) return false;
 	if (f == kFeatureDisplayLogFile || f == kFeatureOpenUrl)
 		return true;
 
@@ -162,6 +164,7 @@ bool OSystem_Win32::hasFeature(Feature f) {
 }
 
 bool OSystem_Win32::displayLogFile() {
+	if (CETestCLI::active()) return false;
 	if (_logFilePath.empty())
 		return false;
 
@@ -211,6 +214,7 @@ bool OSystem_Win32::displayLogFile() {
 }
 
 bool OSystem_Win32::openUrl(const Common::String &url) {
+	if (CETestCLI::active()) return false;
 	TCHAR *tUrl = Win32::stringToTchar(url);
 	SHELLEXECUTEINFO sei;
 
