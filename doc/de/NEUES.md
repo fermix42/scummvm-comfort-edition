@@ -1,7 +1,7 @@
 Umfangreichere Informationen über die Änderungen des aktuellen Codes findest Du unter:
         https://github.com/scummvm/scummvm/commits/
 
-#### 2026.4.0 "TBD" (XX.10.2026)
+#### 2026.4.0 "Never-slop" (10.10.2026)
 
  Neue Spiele:
    - Unterstützung für Mortadelo y Filemón: Una Aventura de Cine Edición Original hinzugefügt.
@@ -15,6 +15,9 @@ Umfangreichere Informationen über die Änderungen des aktuellen Codes findest D
    - Unterstützung für Mortadelo y Filemón: Mamelucos a la Romana hinzugefügt.
    - Unterstützung für Dracula: Resurrection hinzugefügt.
    - Unterstützung für Dracula 2: The Last Sanctuary hinzugefügt.
+   - Unterstützung für Amerzone: The Explorer's Legacy hinzugefügt.
+   - Unterstützung für The Cameron Files: The Secret at Loch Ness hinzugefügt.
+   - Unterstützung für The Messenger / Louvre: The Final Curse hinzugefügt.
    - Unterstützung für Nancy Drew: The Secret of Shadow Ranch hinzugefügt.
    - Unterstützung für Nancy Drew: Curse of Blackmoor Manor hinzugefügt.
    - Unterstützung für Nancy Drew: Secret of the Old Clock hinzugefügt.
@@ -44,6 +47,10 @@ Umfangreichere Informationen über die Änderungen des aktuellen Codes findest D
    - Unterstützung für Shadows on the Vatican series hinzugefügt.
    - Unterstützung für mehr als 140 weitere Wintermute-Spiele hinzugefügt.
    - Unterstützung für Der Schatz im Silbersee hinzugefügt.
+   - Unterstützung für The Fool's Errand hinzugefügt.
+   - Unterstützung für Harvester hinzugefügt.
+   - Unterstützung für Lord Avalot d'Argent hinzugefügt.
+   - Unterstützung für Dungeon Master hinzugefügt.
 
  Allgemein:
    - Zur Verbesserung der Perforamcen wurden die Audio-Mixer und -Konverter optimiert.
@@ -51,6 +58,9 @@ Umfangreichere Informationen über die Änderungen des aktuellen Codes findest D
    - Fehler korrigiert, durch den MIDI- und MT-32-Geräte in den Spiel-Optionen
      nicht überschrieben werden konnten
    - Der Nuked-OPL3 AdLib-Emulator wurden durch den Nuked-OPL3-fast-Fork ausgetauscht.
+   - Unterstützung für "verschleierte" InstallShield-Dateien hinzugefügt. Das betrifft
+     hauptsächlich einige Nancy Drew-Spiele, die jetzt auch gespielt werden können, ohne
+	 das Windows-Installationsprogramm vorher ausführen zu müssen.
 
  Asylum:
    - Fehlende oder falsche Schrittegeräusche in einigen Szenen wurden behoben.
@@ -130,6 +140,11 @@ Umfangreichere Informationen über die Änderungen des aktuellen Codes findest D
 
  Voyeur:
    - Die Bewegung aus der Ego-Perspektive beim Anblick der Villa entspricht jetzt dem Original.
+
+ Android-Portierung:
+   - Unterstützung für Android 17 hinzugefügt.
+   - Unterstützung für Text-to-Speech hinzugefügt.
+   - Unterstützung für externe MIDI-Geräte hinzugefügt.
 
  Atari-Portierung:
    - Unterstützung für die nFM-Bibliothek hinzugefügt.

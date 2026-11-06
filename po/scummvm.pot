@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ScummVM 2026.3.1git\n"
 "Report-Msgid-Bugs-To: scummvm-devel@lists.scummvm.org\n"
-"POT-Creation-Date: 2026-09-30 23:17+0000\n"
+"POT-Creation-Date: 2026-10-10 14:58+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -573,7 +573,7 @@ msgid "GFX"
 msgstr ""
 
 #: gui/editgamedialog.cpp:166 gui/options.cpp:2077 gui/options.cpp:2258
-#: backends/graphics/atari/atari-graphics.cpp:1056
+#: backends/graphics/atari/atari-graphics.cpp:1058
 #: backends/graphics/sdl/sdl-graphics.cpp:491
 msgid "Graphics"
 msgstr ""
@@ -2321,7 +2321,7 @@ msgid "Debug level:"
 msgstr ""
 
 #. I18N: Debug level -1, no messages
-#: gui/options.cpp:2760 gui/options.cpp:2897 audio/fmopl.cpp:112
+#: gui/options.cpp:2760 gui/options.cpp:2897 audio/fmopl.cpp:98
 msgid "None"
 msgstr ""
 
@@ -3654,7 +3654,7 @@ msgstr ""
 #: engines/composer/metaengine.cpp:114 engines/cruise/metaengine.cpp:173
 #: engines/draci/metaengine.cpp:200 engines/fool/metaengine.cpp:137
 #: engines/groovie/metaengine.cpp:205 engines/hdb/metaengine.cpp:207
-#: engines/hopkins/metaengine.cpp:213 engines/hugo/metaengine.cpp:134
+#: engines/hopkins/metaengine.cpp:238 engines/hugo/metaengine.cpp:134
 #: engines/illusions/metaengine.cpp:94 engines/kyra/engine/eobcommon.cpp:377
 #: engines/kyra/engine/lol.cpp:505 engines/lure/metaengine.cpp:177
 #: engines/made/metaengine.cpp:141 engines/mads/metaengine.cpp:270
@@ -3687,7 +3687,7 @@ msgstr ""
 #: engines/cge2/metaengine.cpp:222 engines/cine/metaengine.cpp:283
 #: engines/composer/metaengine.cpp:120 engines/cruise/metaengine.cpp:179
 #: engines/draci/metaengine.cpp:206 engines/fool/metaengine.cpp:148
-#: engines/groovie/metaengine.cpp:211 engines/hopkins/metaengine.cpp:219
+#: engines/groovie/metaengine.cpp:211 engines/hopkins/metaengine.cpp:244
 #: engines/hugo/metaengine.cpp:141 engines/illusions/metaengine.cpp:101
 #: engines/kyra/engine/eobcommon.cpp:378 engines/kyra/engine/lol.cpp:506
 #: engines/lure/metaengine.cpp:183 engines/made/metaengine.cpp:148
@@ -3794,72 +3794,64 @@ msgstr ""
 msgid "AdLib emulator"
 msgstr ""
 
-#: audio/fmopl.cpp:114
+#: audio/fmopl.cpp:100
 msgid "MAME OPL emulator"
 msgstr ""
 
-#: audio/fmopl.cpp:117
+#: audio/fmopl.cpp:103
 msgid "DOSBox OPL emulator"
 msgstr ""
 
-#: audio/fmopl.cpp:120
+#: audio/fmopl.cpp:106
 msgid "Nuked OPL emulator"
 msgstr ""
 
-#: audio/fmopl.cpp:123
+#: audio/fmopl.cpp:109
 msgid "ALSA Direct FM"
 msgstr ""
 
-#: audio/fmopl.cpp:126
+#: audio/fmopl.cpp:112
 msgid "OPL2LPT"
 msgstr ""
 
-#: audio/fmopl.cpp:127
+#: audio/fmopl.cpp:113
 msgid "OPL3LPT"
 msgstr ""
 
-#: audio/fmopl.cpp:130
+#: audio/fmopl.cpp:116
 msgid "RetroWave OPL3"
 msgstr ""
 
-#: audio/fmopl.cpp:133
+#: audio/fmopl.cpp:119
 msgid "[nFM] NokturnFM2 (OPL2)"
 msgstr ""
 
-#: audio/fmopl.cpp:134
+#: audio/fmopl.cpp:120
 msgid "[nFM] NokturnFM3 (OPL3)"
 msgstr ""
 
-#: audio/fmopl.cpp:135
-msgid "[nFM] RetroWave USB OPL3 Express (OPL3)"
-msgstr ""
-
-#: audio/fmopl.cpp:136
+#: audio/fmopl.cpp:121
 msgid "[nFM] Serdaco OPL2LPT (OPL2)"
 msgstr ""
 
-#: audio/fmopl.cpp:137
+#: audio/fmopl.cpp:122
 msgid "[nFM] Serdaco OPL3LPT (OPL3)"
 msgstr ""
 
-#: audio/fmopl.cpp:138
+#: audio/fmopl.cpp:123
 msgid "[nFM] Cheerful Electronics OPL2 Audio Board (OPL2)"
 msgstr ""
 
-#: audio/fmopl.cpp:139
+#: audio/fmopl.cpp:124
 msgid "[nFM] Cheerful Electronics OPL3 Duo! (2xOPL3)"
 msgstr ""
 
-#: audio/fmopl.cpp:140
+#: audio/fmopl.cpp:125
 msgid "[nFM] ST Bus ISA / VME SoundBlaster"
 msgstr ""
 
-#: audio/fmopl.cpp:141
+#: audio/fmopl.cpp:126
 msgid "[nFM] NatFeats / NULL"
-msgstr ""
-
-#: audio/fmopl.cpp:142
-msgid "[nFM] Nuked-OPL3 softsynth (OPL3)"
 msgstr ""
 
 #: audio/mididrv.cpp:232
@@ -4056,7 +4048,7 @@ msgstr ""
 msgid "Choose a new folder"
 msgstr ""
 
-#: backends/graphics/atari/atari-graphics.cpp:1060
+#: backends/graphics/atari/atari-graphics.cpp:1062
 #: backends/graphics/sdl/sdl-graphics.cpp:518 engines/scumm/help.cpp:103
 msgid "Toggle aspect ratio correction"
 msgstr ""
@@ -5782,7 +5774,7 @@ msgstr ""
 #: engines/chamber/metaengine.cpp:63 engines/cine/metaengine.cpp:270
 #: engines/cruise/metaengine.cpp:168 engines/dm/metaengine.cpp:70
 #: engines/draci/metaengine.cpp:195 engines/drascula/metaengine.cpp:205
-#: engines/efh/metaengine.cpp:256 engines/hopkins/metaengine.cpp:206
+#: engines/efh/metaengine.cpp:256 engines/hopkins/metaengine.cpp:229
 #: engines/hugo/metaengine.cpp:129 engines/hypno/metaengine.cpp:128
 #: engines/illusions/metaengine.cpp:89 engines/lab/metaengine.cpp:149
 #: engines/lure/metaengine.cpp:168 engines/made/metaengine.cpp:136
@@ -6313,7 +6305,7 @@ msgstr ""
 #: engines/cge2/metaengine.cpp:212 engines/chamber/metaengine.cpp:64
 #: engines/cine/metaengine.cpp:271 engines/cruise/metaengine.cpp:169
 #: engines/dm/metaengine.cpp:72 engines/draci/metaengine.cpp:196
-#: engines/drascula/metaengine.cpp:206 engines/hopkins/metaengine.cpp:207
+#: engines/drascula/metaengine.cpp:206 engines/hopkins/metaengine.cpp:230
 #: engines/hugo/metaengine.cpp:130 engines/hypno/metaengine.cpp:225
 #: engines/hypno/metaengine.cpp:324 engines/hypno/metaengine.cpp:372
 #: engines/illusions/metaengine.cpp:90 engines/lab/metaengine.cpp:152
@@ -6370,7 +6362,7 @@ msgid "Turn backward"
 msgstr ""
 
 #: engines/agos/metaengine.cpp:228 engines/dm/metaengine.cpp:132
-#: engines/hopkins/metaengine.cpp:269 engines/kyra/engine/eobcommon.cpp:383
+#: engines/hopkins/metaengine.cpp:294 engines/kyra/engine/eobcommon.cpp:383
 #: engines/kyra/engine/lol.cpp:517 engines/lab/metaengine.cpp:257
 #: engines/mm/mm1/metaengine.cpp:102 engines/mohawk/riven.cpp:901
 #: engines/pegasus/pegasus.cpp:2740 engines/twine/metaengine.cpp:353
@@ -6385,7 +6377,7 @@ msgid "Turn left"
 msgstr ""
 
 #: engines/agos/metaengine.cpp:234 engines/dm/metaengine.cpp:152
-#: engines/hopkins/metaengine.cpp:275 engines/kyra/engine/eobcommon.cpp:384
+#: engines/hopkins/metaengine.cpp:300 engines/kyra/engine/eobcommon.cpp:384
 #: engines/kyra/engine/lol.cpp:518 engines/lab/metaengine.cpp:271
 #: engines/mm/mm1/metaengine.cpp:103 engines/mohawk/riven.cpp:907
 #: engines/pegasus/pegasus.cpp:2747 engines/twine/metaengine.cpp:346
@@ -6809,7 +6801,7 @@ msgstr ""
 msgid "Escape keymappings"
 msgstr ""
 
-#: engines/bbvs/metaengine.cpp:117 engines/hopkins/metaengine.cpp:231
+#: engines/bbvs/metaengine.cpp:117 engines/hopkins/metaengine.cpp:256
 #: engines/illusions/metaengine.cpp:147 engines/sherlock/metaengine.cpp:839
 msgid "Open inventory"
 msgstr ""
@@ -7056,7 +7048,7 @@ msgstr ""
 #: engines/freescape/games/dark/dark.cpp:231
 #: engines/freescape/games/driller/driller.cpp:121
 #: engines/freescape/games/eclipse/eclipse.cpp:337
-#: engines/hopkins/metaengine.cpp:238 engines/hugo/metaengine.cpp:165
+#: engines/hopkins/metaengine.cpp:263 engines/hugo/metaengine.cpp:165
 #: engines/lure/metaengine.cpp:191 engines/made/metaengine.cpp:196
 #: engines/mads/metaengine.cpp:295 engines/mohawk/myst.cpp:583
 #: engines/mohawk/riven.cpp:864 engines/pegasus/pegasus.cpp:2825
@@ -7084,7 +7076,7 @@ msgstr ""
 #: engines/freescape/games/dark/dark.cpp:236
 #: engines/freescape/games/driller/driller.cpp:126
 #: engines/freescape/games/eclipse/eclipse.cpp:342
-#: engines/hopkins/metaengine.cpp:244 engines/made/metaengine.cpp:202
+#: engines/hopkins/metaengine.cpp:269 engines/made/metaengine.cpp:202
 #: engines/mohawk/myst_stacks/menu.cpp:283
 #: engines/mohawk/riven_stacks/aspit.cpp:349 engines/pegasus/pegasus.cpp:2831
 #: engines/petka/metaengine.cpp:203 engines/prince/metaengine.cpp:249
@@ -7220,7 +7212,7 @@ msgid "Look right"
 msgstr ""
 
 #: engines/buried/metaengine.cpp:218 engines/colony/metaengine.cpp:110
-#: engines/dm/metaengine.cpp:142 engines/hopkins/metaengine.cpp:257
+#: engines/dm/metaengine.cpp:142 engines/hopkins/metaengine.cpp:282
 #: engines/kyra/engine/eobcommon.cpp:379 engines/kyra/engine/lol.cpp:513
 #: engines/mohawk/riven.cpp:881 engines/titanic/metaengine.cpp:336
 #: engines/titanic/metaengine.cpp:378 engines/twine/metaengine.cpp:332
@@ -7308,7 +7300,7 @@ msgstr ""
 msgid "Enable Color Blind Mode by default"
 msgstr ""
 
-#: engines/cge/metaengine.cpp:215 engines/hopkins/metaengine.cpp:225
+#: engines/cge/metaengine.cpp:215 engines/hopkins/metaengine.cpp:250
 #: engines/sword1/metaengine.cpp:283
 msgid "Exit / Skip"
 msgstr ""
@@ -7551,7 +7543,7 @@ msgstr ""
 msgid "Use alternative camera controls"
 msgstr ""
 
-#: engines/colony/metaengine.cpp:117 engines/hopkins/metaengine.cpp:263
+#: engines/colony/metaengine.cpp:117 engines/hopkins/metaengine.cpp:288
 msgid "Move backward"
 msgstr ""
 
@@ -7929,7 +7921,7 @@ msgstr ""
 msgid "Toggle walk speed"
 msgstr ""
 
-#: engines/draci/metaengine.cpp:243 engines/hopkins/metaengine.cpp:302
+#: engines/draci/metaengine.cpp:243 engines/hopkins/metaengine.cpp:327
 #: engines/mohawk/myst.cpp:554 engines/mohawk/riven.cpp:835
 #: engines/nancy/input.cpp:233
 msgid "Open main menu"
@@ -9171,7 +9163,7 @@ msgid "Failed to delete file."
 msgstr ""
 
 #. I18N: Action in In Cold Blood
-#: engines/got/metaengine.cpp:74 engines/hopkins/metaengine.cpp:281
+#: engines/got/metaengine.cpp:74 engines/hopkins/metaengine.cpp:306
 #: engines/icb/icb.cpp:89 engines/ultima/ultima4/metaengine.cpp:55
 msgid "Fire"
 msgstr ""
@@ -9432,29 +9424,170 @@ msgstr ""
 msgid "Debug"
 msgstr ""
 
-#: engines/hopkins/metaengine.cpp:47 engines/hopkins/metaengine.cpp:59
-msgid "Gore Mode"
+#: engines/hopkins/base_enhancements.cpp:313
+msgid "Player"
+msgstr ""
+
+#. I18N: Exits the game
+#: engines/hopkins/base_enhancements.cpp:314 engines/lab/metaengine.cpp:166
+#: engines/lab/metaengine.cpp:191 engines/sherlock/metaengine.cpp:395
+#: engines/sherlock/metaengine.cpp:494 engines/sherlock/metaengine.cpp:538
+#: engines/sherlock/metaengine.cpp:549 engines/sherlock/metaengine.cpp:601
+#: engines/sherlock/metaengine.cpp:680 engines/supernova/metaengine.cpp:297
+#: engines/supernova/metaengine.cpp:373
+#: engines/ultima/ultima4/metaengine.cpp:54 engines/voyeur/metaengine.cpp:198
+#: engines/voyeur/metaengine.cpp:229 engines/wintermute/keymapper_tables.h:757
+#: engines/wintermute/keymapper_tables.h:1887
+msgid "Exit"
+msgstr ""
+
+#: engines/hopkins/base_enhancements.cpp:315
+msgid "Guard"
+msgstr ""
+
+#: engines/hopkins/base_enhancements.cpp:316
+msgid "Door"
+msgstr ""
+
+#: engines/hopkins/base_enhancements.cpp:317
+msgid "Game paused"
+msgstr ""
+
+#: engines/hopkins/base_enhancements.cpp:325
+msgid "M: close  A: autoplay  Esc: menu"
+msgstr ""
+
+#: engines/hopkins/base_enhancements.cpp:326
+msgid "M/Esc: close  A: autoplay"
+msgstr ""
+
+#: engines/hopkins/base_enhancements_autoplay.cpp:51
+msgid "Exit 1: Containers room"
+msgstr ""
+
+#: engines/hopkins/base_enhancements_autoplay.cpp:51
+msgid "Containers"
+msgstr ""
+
+#: engines/hopkins/base_enhancements_autoplay.cpp:52
+msgid "Exit 2: Turbines room"
+msgstr ""
+
+#: engines/hopkins/base_enhancements_autoplay.cpp:52
+msgid "Turbines"
+msgstr ""
+
+#: engines/hopkins/base_enhancements_autoplay.cpp:53
+msgid "Exit 3: Office"
+msgstr ""
+
+#: engines/hopkins/base_enhancements_autoplay.cpp:53
+msgid "Office"
+msgstr ""
+
+#: engines/hopkins/base_enhancements_autoplay.cpp:54
+msgid "Exit 4: Laboratory"
+msgstr ""
+
+#: engines/hopkins/base_enhancements_autoplay.cpp:54
+msgid "Laboratory"
+msgstr ""
+
+#: engines/hopkins/base_enhancements_autoplay.cpp:55
+msgid "Exit 5: Resurrection room"
+msgstr ""
+
+#: engines/hopkins/base_enhancements_autoplay.cpp:55
+msgid "Resurrection"
+msgstr ""
+
+#: engines/hopkins/base_enhancements_autoplay.cpp:56
+msgid "Exit 6: Dome"
+msgstr ""
+
+#: engines/hopkins/base_enhancements_autoplay.cpp:56
+msgid "Dome"
+msgstr ""
+
+#: engines/hopkins/base_enhancements_autoplay.cpp:656
+msgid "WBASE AUTOPLAY"
+msgstr ""
+
+#: engines/hopkins/base_enhancements_autoplay.cpp:659
+msgid "Fight your way to:"
+msgstr ""
+
+#: engines/hopkins/base_enhancements_autoplay.cpp:671
+msgid "Up/Down: choose"
+msgstr ""
+
+#: engines/hopkins/base_enhancements_autoplay.cpp:673
+msgid "Enter/Space: start"
+msgstr ""
+
+#: engines/hopkins/base_enhancements_autoplay.cpp:676
+msgid "A: resume / M: map"
+msgstr ""
+
+#: engines/hopkins/base_enhancements_autoplay.cpp:676
+msgid "Select a destination"
+msgstr ""
+
+#: engines/hopkins/base_enhancements_autoplay.cpp:677
+msgid "Esc/A: cancel"
 msgstr ""
 
 #: engines/hopkins/metaengine.cpp:48 engines/hopkins/metaengine.cpp:60
+msgid "Gore Mode"
+msgstr ""
+
+#: engines/hopkins/metaengine.cpp:49 engines/hopkins/metaengine.cpp:61
 msgid "Enable Gore Mode when available"
 msgstr ""
 
-#: engines/hopkins/metaengine.cpp:208
+#: engines/hopkins/metaengine.cpp:72
+msgid "Underwater base shooter enhancements"
+msgstr ""
+
+#: engines/hopkins/metaengine.cpp:73
+msgid "Enable navigation map and autoplay options for Windows base shooter"
+msgstr ""
+
+#: engines/hopkins/metaengine.cpp:83
+msgid "Underwater base shooter Forced Autoplay"
+msgstr ""
+
+#: engines/hopkins/metaengine.cpp:84
+msgid "Require an autoplay destination in Windows base shooter"
+msgstr ""
+
+#: engines/hopkins/metaengine.cpp:231
 msgid "Underwater base shooter"
 msgstr ""
 
-#: engines/hopkins/metaengine.cpp:250 engines/tinsel/metaengine.cpp:307
+#: engines/hopkins/metaengine.cpp:233
+msgid "WBASE enhancements"
+msgstr ""
+
+#: engines/hopkins/metaengine.cpp:275 engines/tinsel/metaengine.cpp:307
 #: engines/twine/metaengine.cpp:307
 msgid "Options menu"
 msgstr ""
 
-#: engines/hopkins/metaengine.cpp:288
+#: engines/hopkins/metaengine.cpp:313
 msgid "Exit through base doorway"
 msgstr ""
 
-#: engines/hopkins/metaengine.cpp:294
+#: engines/hopkins/metaengine.cpp:319
 msgid "Toggle floor and ceiling textures"
+msgstr ""
+
+#: engines/hopkins/metaengine.cpp:333
+msgid "WBASE enhancements: open navigation map"
+msgstr ""
+
+#: engines/hopkins/metaengine.cpp:338
+msgid "WBASE enhancements: choose autoplay destination"
 msgstr ""
 
 #: engines/hpl1/metaengine.cpp:76
@@ -10125,18 +10258,6 @@ msgstr ""
 #: engines/lab/metaengine.cpp:156 engines/queen/metaengine.cpp:148
 #: engines/sherlock/metaengine.cpp:334 engines/sherlock/metaengine.cpp:779
 msgid "Journal keymappings"
-msgstr ""
-
-#. I18N: Exits the game
-#: engines/lab/metaengine.cpp:166 engines/lab/metaengine.cpp:191
-#: engines/sherlock/metaengine.cpp:395 engines/sherlock/metaengine.cpp:494
-#: engines/sherlock/metaengine.cpp:538 engines/sherlock/metaengine.cpp:549
-#: engines/sherlock/metaengine.cpp:601 engines/sherlock/metaengine.cpp:680
-#: engines/supernova/metaengine.cpp:297 engines/supernova/metaengine.cpp:373
-#: engines/ultima/ultima4/metaengine.cpp:54 engines/voyeur/metaengine.cpp:198
-#: engines/voyeur/metaengine.cpp:229 engines/wintermute/keymapper_tables.h:757
-#: engines/wintermute/keymapper_tables.h:1887
-msgid "Exit"
 msgstr ""
 
 #: engines/lab/metaengine.cpp:179

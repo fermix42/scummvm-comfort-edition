@@ -1,7 +1,7 @@
 For a more comprehensive changelog of the latest experimental code, see:
         https://github.com/scummvm/scummvm/commits/
 
-#### 2026.4.0 (2026-10-XX)
+#### 2026.4.0 "Never-slop" (2026-10-10)
 
  New games:
    - Added support for Mortadelo y Filemón: Una Aventura de Cine Edición Original.
@@ -47,6 +47,10 @@ For a more comprehensive changelog of the latest experimental code, see:
    - Added support for Shadows on the Vatican series.
    - Added support for other Wintermute engine games, over 140 titles.
    - Added support for Der Schatz im Silbersee (Treasure of the Silver Lake).
+   - Added support for The Fool's Errand.
+   - Added support for Harvester.
+   - Added support for Lord Avalot d'Argent.
+   - Added support for Dungeon Master.
 
  General:
    - Optimised mixing and rate converters, for better performance.
@@ -54,6 +58,9 @@ For a more comprehensive changelog of the latest experimental code, see:
    - Fixed bug with inability to specify game overrides for MIDI and MT-32
      devices.
    - Switched Nuked-OPL3 AdLib emulator to Nuked-OPL3-fast fork.
+   - Added support for "obfuscated" InstallShield files. This mainly affected
+     certain Nancy Drew games, that can now be run without having to run the
+     Windows installer first.
 
  Asylum:
    - Fixed missing or incorrect walking sounds in some scenes.
@@ -73,6 +80,7 @@ For a more comprehensive changelog of the latest experimental code, see:
 
  Hopkins:
    - Added the missing underwater base 3D first-person shooter.
+   - Optional quality-of-life HUD for underwater base shooter with map and autopilot.
 
  Kyra:
    - Added support for Korean fan-translation of kyra1 (added in 2026.3.0).
@@ -131,7 +139,12 @@ For a more comprehensive changelog of the latest experimental code, see:
    - Fixed time-based puzzles sometimes getting stuck after restarting ScummVM.
 
  Voyeur:
-   - Match original first person movement with mouse when looking at mansion
+   - Match original first person movement with mouse when looking at mansion.
+
+ Android port:
+   - Support Android 17.
+   - Add TTS support.
+   - Add external MIDI device support.
 
  Atari port:
    - Added integration with nFM library.
