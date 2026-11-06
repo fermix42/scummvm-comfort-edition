@@ -7,3 +7,6 @@ target_compile_definitions(sq5_battle_cheats PRIVATE WIN32)
 # Assertions are the checks in this existing regression executable.
 target_compile_options(sq5_battle_cheats PRIVATE /UNDEBUG)
 add_test(NAME sq5_battle_cheats COMMAND sq5_battle_cheats)
+add_executable(msvc_warning_contract test_msvc_warning_contract.cpp)
+target_compile_options(msvc_warning_contract PRIVATE /UNDEBUG)
+add_test(NAME msvc_warning_contract COMMAND msvc_warning_contract)

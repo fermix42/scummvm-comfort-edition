@@ -8,6 +8,19 @@
 #undef USE_CLOUD
 #endif
 #include "../backends/saves/savefile.cpp"
+#include "backends/saves/default/default-saves.h"
+
+class AcceptanceSaveSystem : public OSystem_NULL {
+public:
+	AcceptanceSaveSystem() : OSystem_NULL(true) {
+		_savefileManager = new DefaultSaveFileManager();
+	}
+};
+
+void Common::install_null_g_system_with_saves() {
+	g_system = new AcceptanceSaveSystem();
+	g_system->initBackend();
+}
 
 //#define DISPLAY_ERROR_MESSAGES
 

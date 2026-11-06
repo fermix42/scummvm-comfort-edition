@@ -1,4 +1,4 @@
-param([switch]$NoxFocused, [switch]$UnitTests)
+param([switch]$NoxFocused, [switch]$UnitTests, [switch]$WarningAudit)
 
 $ErrorActionPreference = 'Stop'
 $buildDirectory = if ($UnitTests) { 'build-tests' } elseif ($NoxFocused) { 'build-nox-focused' } else { 'build-scummvm' }
@@ -39,6 +39,15 @@ $env:VCPKG_OVERLAY_TRIPLETS = "$substRepoRoot\.github\windows-layout-triplets"
 $env:VCPKG_OVERLAY_PORTS = "$substRepoRoot\.github\vcpkg-ports"
 
 Set-Location $substRepoRoot
+if ($WarningAudit) {
+    & 'C:\Users\aaron\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' devtools/ce/prepare_warning_repro.py
+    if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+    foreach ($engine in @('sci', 'fool', 'phoenixvr')) {
+        & 'C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\MSBuild\Current\Bin\amd64\MSBuild.exe' "build-scummvm\acceptance-warning-$engine.vcxproj" /t:ClCompile /p:Configuration=Release /p:Platform=x64 /p:VcpkgEnabled=false /p:VcpkgEnableManifest=false /p:VcpkgManifestInstall=false /v:minimal "/flp:logfile=$repoRoot\warning-repro-$engine.log;verbosity=normal"
+        if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+    }
+    exit 0
+}
 $solutionName = if ($UnitTests) { 'scummvm-tests' } else { 'scummvm' }
 if ($UnitTests) {
     $shimDirectory = Join-Path $repoRoot 'build-python-shim'

@@ -53,7 +53,8 @@ class IntegrationTests(unittest.TestCase):
         self.assertFalse(self.upstream.keys() - self.integrated.keys())
 
     def test_all_non_ce_upstream_blobs_exact(self):
-        adaptations = {'devtools/create_project/create_project.cpp'}
+        adaptations = {'devtools/create_project/create_project.cpp',
+                       'test/system/null_osystem.cpp', 'test/system/null_osystem.h'}
         mismatches = [p for p, blob in self.upstream.items()
                       if p not in self.custom and p not in adaptations
                       and self.integrated.get(p) != blob]
