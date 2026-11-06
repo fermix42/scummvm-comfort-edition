@@ -1,0 +1,72 @@
+{
+  "status": "VERIFIED",
+  "scope": "CE opening gameplay/audio, complete runtime codec, two session-qualified Engine slot1 saves, cold identical frames/identities and audio reset; no full campaign or lifecycle failure matrix",
+  "online_transport": false,
+  "executable_sha256": "65f81176d29e82e5f3b131494cea294ac19ac137a7e3dd444731278af612ea76",
+  "original_sha256": {
+    "D:\\Codex Projects\\Nox Archaist\\Nox Archaist HDV (v119).HDV": "c42a95c7a356548c78957f98693e92d33c9bae3ff5126d9887c2980e5a490c3c",
+    "D:\\Codex Projects\\Nox Archaist\\Nox Archaist Lord of Storms HDV (v137).HDV": "90ec012a317c56ab9a5182a1a877227fa7a18ebed72567d2bf08888956b635c9"
+  },
+  "summary": {
+    "new_game": "1",
+    "movement": "1",
+    "modal_open": "1",
+    "frames": "162",
+    "inputs": "18",
+    "audio_samples": "727831",
+    "audio_nonzero": "137857",
+    "native_sector_calls": "1",
+    "x": "25",
+    "y": "38"
+  },
+  "cold_summary": {
+    "cold_load": "1",
+    "continuation": "1",
+    "restored_x": "25",
+    "restored_y": "38",
+    "x": "24",
+    "y": "38"
+  },
+  "engine_saves": "PASS\tsessions=2\tlogical_slot=1\tgeneration_writes=4",
+  "engine_cold": "PASS\tsessions=2\tlogical_slot=1\tengine_cold_loads=2\taudio_flushes=2\tsaved_mode_restored=1",
+  "argv": [
+    "D:\\Codex Projects\\scummvm-private\\scummvm-2026.4.0-integration\\build-scummvm\\Releasex64\\scummvm.exe",
+    "--gfx-mode=surfacesdl",
+    "--config=D:\\Codex Projects\\scummvm-private\\integration-validation-local\\nox-gameplay-modern\\20261106-073905\\gameplay.ini",
+    "--savepath=D:\\Codex Projects\\scummvm-private\\integration-validation-local\\nox-gameplay-modern\\20261106-073905\\saves",
+    "--logfile=D:\\Codex Projects\\scummvm-private\\integration-validation-local\\nox-gameplay-modern\\20261106-073905\\engine.log",
+    "nox-gameplay-test"
+  ],
+  "cold_argv": [
+    "D:\\Codex Projects\\scummvm-private\\scummvm-2026.4.0-integration\\build-scummvm\\Releasex64\\scummvm.exe",
+    "--gfx-mode=surfacesdl",
+    "--config=D:\\Codex Projects\\scummvm-private\\integration-validation-local\\nox-gameplay-modern\\20261106-073905\\gameplay.ini",
+    "--savepath=D:\\Codex Projects\\scummvm-private\\integration-validation-local\\nox-gameplay-modern\\20261106-073905\\saves",
+    "--logfile=D:\\Codex Projects\\scummvm-private\\integration-validation-local\\nox-gameplay-modern\\20261106-073905\\cold-engine.log",
+    "nox-gameplay-test"
+  ],
+  "artifacts": "D:\\Codex Projects\\scummvm-private\\integration-validation-local\\nox-gameplay-modern\\20261106-073905",
+  "immutable_transport_replay": false,
+  "sdl_video_driver": "dummy",
+  "host_lifecycle": "PASS\tpaced_ms=1002\tcpu_clocks=1020174\tpause=1\tresume=1\tglobal_menu=1\tquit=1",
+  "chooser_ui": "NOT STARTED",
+  "launcher_ui": "NOT STARTED",
+  "owner_contracts": "PASS\topaque_domains=5\trng_calls=64\tclock_calls=124\tinput_replays=2\troutine_pcm=22794\tinput_pcm=48000\tlive_unchanged=1\tprovenance=controlled_clones",
+  "saved_mode": "Modern",
+  "fresh_session_new_game_boundaries": {
+    "a06b": 2,
+    "1324": 2,
+    "1371": 2
+  },
+  "new_session_reset": "PASS\twrong_owner_rejected=1\tprior_playtime=461\tprior_audio_queued=8\tnew_playtime=0\tnew_audio_queued=0\tnew_world_boot=1",
+  "mode_defaults": "NOT STARTED",
+  "controlled_enhancement_generations": 0,
+  "observed_enhancement_generations": 4,
+  "metadata_management": "PASS\tdate=1\tplaytime=1\tactual_preview=1\tpaired_generation_deletion=2\tcross_session_isolation=1\tinvalid_handles=1\tstable_handles=1\tinitial_saves=2\tfinal_saves=2",
+  "metadata_ui": "PASS\trequested_grid=1\tactual=grid\tcancelled=1\tcaptured=1",
+  "save_callers": "NOT STARTED",
+  "grid_writes": "NOT STARTED",
+  "grid_cold": "NOT STARTED",
+  "original_interfaces": "NOT STARTED",
+  "independently_verified_mode_generations": 4
+}

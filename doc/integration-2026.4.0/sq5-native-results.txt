@@ -1,0 +1,19 @@
+Start testing: Nov 06 07:32 US Mountain Standard Time
+----------------------------------------------------------
+1/1 Testing: sq5_battle_cheats
+1/1 Test: sq5_battle_cheats
+Command: "S:/scummvm-2026.4.0-integration/build-ce-tests/Release/sq5_battle_cheats.exe"
+Directory: S:/scummvm-2026.4.0-integration/build-ce-tests
+"sq5_battle_cheats" start time: Nov 06 07:32 US Mountain Standard Time
+Output:
+----------------------------------------------------------
+All eight cheat combinations, depleted saves, board flags, turn decisions and opponent isolation passed.
+<end of output>
+Test time =   0.61 sec
+----------------------------------------------------------
+Test Passed.
+"sq5_battle_cheats" end time: Nov 06 07:32 US Mountain Standard Time
+"sq5_battle_cheats" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Nov 06 07:32 US Mountain Standard Time

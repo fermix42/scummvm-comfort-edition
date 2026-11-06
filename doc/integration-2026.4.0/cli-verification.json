@@ -1,0 +1,51 @@
+{
+  "status": "PASS",
+  "checks": 3,
+  "executable_sha256": "65f81176d29e82e5f3b131494cea294ac19ac137a7e3dd444731278af612ea76",
+  "engine_ids_verified": [
+    "nox",
+    "grim",
+    "cine",
+    "sci",
+    "macventure",
+    "phoenixvr",
+    "hpl1",
+    "dm",
+    "avalanche",
+    "chamber",
+    "fool",
+    "eem",
+    "harvester",
+    "wintermute"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "D:\\Codex Projects\\scummvm-private\\scummvm-2026.4.0-integration\\build-scummvm\\Releasex64\\scummvm.exe",
+        "--config=D:\\Codex Projects\\scummvm-private\\integration-validation-local\\cli\\isolated.ini",
+        "--savepath=D:\\Codex Projects\\scummvm-private\\integration-validation-local\\cli\\saves",
+        "--version"
+      ],
+      "exit": 0
+    },
+    {
+      "argv": [
+        "D:\\Codex Projects\\scummvm-private\\scummvm-2026.4.0-integration\\build-scummvm\\Releasex64\\scummvm.exe",
+        "--config=D:\\Codex Projects\\scummvm-private\\integration-validation-local\\cli\\isolated.ini",
+        "--savepath=D:\\Codex Projects\\scummvm-private\\integration-validation-local\\cli\\saves",
+        "--list-engines"
+      ],
+      "exit": 0
+    },
+    {
+      "argv": [
+        "D:\\Codex Projects\\scummvm-private\\scummvm-2026.4.0-integration\\build-scummvm\\Releasex64\\scummvm.exe",
+        "--config=D:\\Codex Projects\\scummvm-private\\integration-validation-local\\cli\\isolated.ini",
+        "--savepath=D:\\Codex Projects\\scummvm-private\\integration-validation-local\\cli\\saves",
+        "--list-all-games"
+      ],
+      "exit": 0
+    }
+  ],
+  "scope": "CLI version, compiled engine registration and detection catalog; no gameplay claim"
+}

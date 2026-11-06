@@ -1,0 +1,6 @@
+S:\scummvm-2026.4.0-integration\common\singleton.h(59,12): warning C4506:         ] [S:\scummvm-2026.4.0-integration\build-scummvm\scummvm.vcxproj]
+
+    66 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:09:42.32

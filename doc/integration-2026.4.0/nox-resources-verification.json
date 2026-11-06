@@ -1,0 +1,99 @@
+{
+  "status": "VERIFIED",
+  "scope": "M1.1, M1.2 registration/detection, M1.5 offline metadata only; no gameplay or online acceptance",
+  "executable_sha256": "65f81176d29e82e5f3b131494cea294ac19ac137a7e3dd444731278af612ea76",
+  "source_sha256": {
+    "D:\\Codex Projects\\Nox Archaist\\Nox Archaist HDV (v119).HDV": "c42a95c7a356548c78957f98693e92d33c9bae3ff5126d9887c2980e5a490c3c",
+    "D:\\Codex Projects\\Nox Archaist\\Nox Archaist Lord of Storms HDV (v137).HDV": "90ec012a317c56ab9a5182a1a877227fa7a18ebed72567d2bf08888956b635c9"
+  },
+  "summary": {
+    "files": "74",
+    "negative": "8",
+    "record_cases": "327712",
+    "storage_cases": "3",
+    "schema_cases": "7",
+    "metadata_cases": "22",
+    "enhancement_cases": "23"
+  },
+  "resource_files_exact": 74,
+  "offline_sessions": 2,
+  "commands": [
+    {
+      "name": "resources",
+      "argv": [
+        "D:\\Codex Projects\\scummvm-private\\scummvm-2026.4.0-integration\\build-scummvm\\Releasex64\\scummvm.exe",
+        "--gfx-mode=surfacesdl",
+        "--debuglevel=1",
+        "--config=D:\\Codex Projects\\scummvm-private\\integration-validation-local\\nox-resources\\20261106-073834\\test.ini",
+        "--savepath=D:\\Codex Projects\\scummvm-private\\integration-validation-local\\nox-resources\\20261106-073834\\saves",
+        "--logfile=D:\\Codex Projects\\scummvm-private\\integration-validation-local\\nox-resources\\20261106-073834\\engine.log",
+        "nox-resource-test"
+      ],
+      "exit": 0
+    },
+    {
+      "name": "engines",
+      "argv": [
+        "D:\\Codex Projects\\scummvm-private\\scummvm-2026.4.0-integration\\build-scummvm\\Releasex64\\scummvm.exe",
+        "--gfx-mode=surfacesdl",
+        "--list-engines"
+      ],
+      "exit": 0
+    },
+    {
+      "name": "detect-base",
+      "argv": [
+        "D:\\Codex Projects\\scummvm-private\\scummvm-2026.4.0-integration\\build-scummvm\\Releasex64\\scummvm.exe",
+        "--gfx-mode=surfacesdl",
+        "--detect",
+        "--path=D:\\Codex Projects\\scummvm-private\\integration-validation-local\\nox-resources\\20261106-073834\\base-renamed"
+      ],
+      "exit": 0
+    },
+    {
+      "name": "detect-expansion",
+      "argv": [
+        "D:\\Codex Projects\\scummvm-private\\scummvm-2026.4.0-integration\\build-scummvm\\Releasex64\\scummvm.exe",
+        "--gfx-mode=surfacesdl",
+        "--detect",
+        "--path=D:\\Codex Projects\\scummvm-private\\integration-validation-local\\nox-resources\\20261106-073834\\expansion-only"
+      ],
+      "exit": 0
+    },
+    {
+      "name": "detect-saved-image",
+      "argv": [
+        "D:\\Codex Projects\\scummvm-private\\scummvm-2026.4.0-integration\\build-scummvm\\Releasex64\\scummvm.exe",
+        "--gfx-mode=surfacesdl",
+        "--detect",
+        "--path=D:\\Codex Projects\\scummvm-private\\integration-validation-local\\nox-resources\\20261106-073834\\saved-image"
+      ],
+      "exit": 0
+    },
+    {
+      "name": "sessions-create",
+      "argv": [
+        "D:\\Codex Projects\\scummvm-private\\scummvm-2026.4.0-integration\\build-scummvm\\Releasex64\\scummvm.exe",
+        "--gfx-mode=surfacesdl",
+        "--config=D:\\Codex Projects\\scummvm-private\\integration-validation-local\\nox-resources\\20261106-073834\\sessions.ini",
+        "--savepath=D:\\Codex Projects\\scummvm-private\\integration-validation-local\\nox-resources\\20261106-073834\\saves",
+        "--logfile=D:\\Codex Projects\\scummvm-private\\integration-validation-local\\nox-resources\\20261106-073834\\sessions.log",
+        "nox-session-test"
+      ],
+      "exit": 0
+    },
+    {
+      "name": "sessions-cold",
+      "argv": [
+        "D:\\Codex Projects\\scummvm-private\\scummvm-2026.4.0-integration\\build-scummvm\\Releasex64\\scummvm.exe",
+        "--gfx-mode=surfacesdl",
+        "--config=D:\\Codex Projects\\scummvm-private\\integration-validation-local\\nox-resources\\20261106-073834\\sessions.ini",
+        "--savepath=D:\\Codex Projects\\scummvm-private\\integration-validation-local\\nox-resources\\20261106-073834\\saves",
+        "--logfile=D:\\Codex Projects\\scummvm-private\\integration-validation-local\\nox-resources\\20261106-073834\\sessions.log",
+        "nox-session-test"
+      ],
+      "exit": 0
+    }
+  ],
+  "artifacts": "D:\\Codex Projects\\scummvm-private\\integration-validation-local\\nox-resources\\20261106-073834"
+}

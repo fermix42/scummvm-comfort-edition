@@ -1,0 +1,135 @@
+{
+  "status": "VERIFIED",
+  "scope": "Actual local chooser mouse/confirmation archive/show/unarchive and delete with/without saves, empty session, exact-world recovery in a new Casual owner and cold restart. No website or complete corrupt-history/failure-matrix claim.",
+  "executable_sha256": "65f81176d29e82e5f3b131494cea294ac19ac137a7e3dd444731278af612ea76",
+  "fixture_executable_sha256": "bb70858867b68fca525c8508eef3ea6e674fb052c528ab77f43a96d5f2309df7",
+  "fixture": "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m2-final-local\\20261015-211020\\gameplay-modern\\20261015-211026",
+  "saved_mode": "Modern",
+  "original_sha256": {
+    "D:\\Codex Projects\\Nox Archaist\\Nox Archaist HDV (v119).HDV": "c42a95c7a356548c78957f98693e92d33c9bae3ff5126d9887c2980e5a490c3c",
+    "D:\\Codex Projects\\Nox Archaist\\Nox Archaist Lord of Storms HDV (v137).HDV": "90ec012a317c56ab9a5182a1a877227fa7a18ebed72567d2bf08888956b635c9"
+  },
+  "cases": [
+    {
+      "scenario": "archive",
+      "warm": "PASS\tscenario=1\tactual_mouse_actions=1\tconfirmation=0\tother_session_unchanged=1\tother_world_exact=1\tkept_recovered_casual=0",
+      "cold": "PASS\tscenario=1\tregistry=1\tworld_exact=1\tother_session_clean=1\tfiles_unchanged=1",
+      "captures": 4,
+      "commands": [
+        {
+          "argv": [
+            "D:\\Codex Projects\\scummvm-private\\scummvm-2026.4.0-integration\\build-scummvm\\Releasex64\\scummvm.exe",
+            "--gfx-mode=surfacesdl",
+            "--config=D:\\Codex Projects\\scummvm-private\\integration-validation-local\\nox-management\\20261106-073841\\archive\\management.ini",
+            "--savepath=D:\\Codex Projects\\scummvm-private\\integration-validation-local\\nox-management\\20261106-073841\\archive\\saves",
+            "--logfile=D:\\Codex Projects\\scummvm-private\\integration-validation-local\\nox-management\\20261106-073841\\archive\\warm-engine.log",
+            "nox-gameplay-test"
+          ],
+          "exit": 0
+        },
+        {
+          "argv": [
+            "D:\\Codex Projects\\scummvm-private\\scummvm-2026.4.0-integration\\build-scummvm\\Releasex64\\scummvm.exe",
+            "--gfx-mode=surfacesdl",
+            "--config=D:\\Codex Projects\\scummvm-private\\integration-validation-local\\nox-management\\20261106-073841\\archive\\management.ini",
+            "--savepath=D:\\Codex Projects\\scummvm-private\\integration-validation-local\\nox-management\\20261106-073841\\archive\\saves",
+            "--logfile=D:\\Codex Projects\\scummvm-private\\integration-validation-local\\nox-management\\20261106-073841\\archive\\cold-engine.log",
+            "nox-gameplay-test"
+          ],
+          "exit": 0
+        }
+      ]
+    },
+    {
+      "scenario": "delete-keep",
+      "warm": "PASS\tscenario=2\tactual_mouse_actions=1\tconfirmation=1\tother_session_unchanged=1\tother_world_exact=1\tkept_recovered_casual=1",
+      "cold": "PASS\tscenario=2\tregistry=1\tworld_exact=1\tother_session_clean=1\tfiles_unchanged=1",
+      "captures": 1,
+      "commands": [
+        {
+          "argv": [
+            "D:\\Codex Projects\\scummvm-private\\scummvm-2026.4.0-integration\\build-scummvm\\Releasex64\\scummvm.exe",
+            "--gfx-mode=surfacesdl",
+            "--config=D:\\Codex Projects\\scummvm-private\\integration-validation-local\\nox-management\\20261106-073841\\delete-keep\\management.ini",
+            "--savepath=D:\\Codex Projects\\scummvm-private\\integration-validation-local\\nox-management\\20261106-073841\\delete-keep\\saves",
+            "--logfile=D:\\Codex Projects\\scummvm-private\\integration-validation-local\\nox-management\\20261106-073841\\delete-keep\\warm-engine.log",
+            "nox-gameplay-test"
+          ],
+          "exit": 0
+        },
+        {
+          "argv": [
+            "D:\\Codex Projects\\scummvm-private\\scummvm-2026.4.0-integration\\build-scummvm\\Releasex64\\scummvm.exe",
+            "--gfx-mode=surfacesdl",
+            "--config=D:\\Codex Projects\\scummvm-private\\integration-validation-local\\nox-management\\20261106-073841\\delete-keep\\management.ini",
+            "--savepath=D:\\Codex Projects\\scummvm-private\\integration-validation-local\\nox-management\\20261106-073841\\delete-keep\\saves",
+            "--logfile=D:\\Codex Projects\\scummvm-private\\integration-validation-local\\nox-management\\20261106-073841\\delete-keep\\cold-engine.log",
+            "nox-gameplay-test"
+          ],
+          "exit": 0
+        }
+      ]
+    },
+    {
+      "scenario": "delete-saves",
+      "warm": "PASS\tscenario=3\tactual_mouse_actions=1\tconfirmation=1\tother_session_unchanged=1\tother_world_exact=1\tkept_recovered_casual=0",
+      "cold": "PASS\tscenario=3\tregistry=1\tworld_exact=1\tother_session_clean=1\tfiles_unchanged=1",
+      "captures": 1,
+      "commands": [
+        {
+          "argv": [
+            "D:\\Codex Projects\\scummvm-private\\scummvm-2026.4.0-integration\\build-scummvm\\Releasex64\\scummvm.exe",
+            "--gfx-mode=surfacesdl",
+            "--config=D:\\Codex Projects\\scummvm-private\\integration-validation-local\\nox-management\\20261106-073841\\delete-saves\\management.ini",
+            "--savepath=D:\\Codex Projects\\scummvm-private\\integration-validation-local\\nox-management\\20261106-073841\\delete-saves\\saves",
+            "--logfile=D:\\Codex Projects\\scummvm-private\\integration-validation-local\\nox-management\\20261106-073841\\delete-saves\\warm-engine.log",
+            "nox-gameplay-test"
+          ],
+          "exit": 0
+        },
+        {
+          "argv": [
+            "D:\\Codex Projects\\scummvm-private\\scummvm-2026.4.0-integration\\build-scummvm\\Releasex64\\scummvm.exe",
+            "--gfx-mode=surfacesdl",
+            "--config=D:\\Codex Projects\\scummvm-private\\integration-validation-local\\nox-management\\20261106-073841\\delete-saves\\management.ini",
+            "--savepath=D:\\Codex Projects\\scummvm-private\\integration-validation-local\\nox-management\\20261106-073841\\delete-saves\\saves",
+            "--logfile=D:\\Codex Projects\\scummvm-private\\integration-validation-local\\nox-management\\20261106-073841\\delete-saves\\cold-engine.log",
+            "nox-gameplay-test"
+          ],
+          "exit": 0
+        }
+      ]
+    },
+    {
+      "scenario": "empty-session",
+      "warm": "PASS\tscenario=4\tactual_mouse_actions=1\tconfirmation=1\tother_session_unchanged=1\tother_world_exact=1\tkept_recovered_casual=0",
+      "cold": "PASS\tscenario=4\tregistry=1\tworld_exact=1\tother_session_clean=1\tfiles_unchanged=1",
+      "captures": 5,
+      "commands": [
+        {
+          "argv": [
+            "D:\\Codex Projects\\scummvm-private\\scummvm-2026.4.0-integration\\build-scummvm\\Releasex64\\scummvm.exe",
+            "--gfx-mode=surfacesdl",
+            "--config=D:\\Codex Projects\\scummvm-private\\integration-validation-local\\nox-management\\20261106-073841\\empty-session\\management.ini",
+            "--savepath=D:\\Codex Projects\\scummvm-private\\integration-validation-local\\nox-management\\20261106-073841\\empty-session\\saves",
+            "--logfile=D:\\Codex Projects\\scummvm-private\\integration-validation-local\\nox-management\\20261106-073841\\empty-session\\warm-engine.log",
+            "nox-gameplay-test"
+          ],
+          "exit": 0
+        },
+        {
+          "argv": [
+            "D:\\Codex Projects\\scummvm-private\\scummvm-2026.4.0-integration\\build-scummvm\\Releasex64\\scummvm.exe",
+            "--gfx-mode=surfacesdl",
+            "--config=D:\\Codex Projects\\scummvm-private\\integration-validation-local\\nox-management\\20261106-073841\\empty-session\\management.ini",
+            "--savepath=D:\\Codex Projects\\scummvm-private\\integration-validation-local\\nox-management\\20261106-073841\\empty-session\\saves",
+            "--logfile=D:\\Codex Projects\\scummvm-private\\integration-validation-local\\nox-management\\20261106-073841\\empty-session\\cold-engine.log",
+            "nox-gameplay-test"
+          ],
+          "exit": 0
+        }
+      ]
+    }
+  ],
+  "artifacts": "D:\\Codex Projects\\scummvm-private\\integration-validation-local\\nox-management\\20261106-073841"
+}
