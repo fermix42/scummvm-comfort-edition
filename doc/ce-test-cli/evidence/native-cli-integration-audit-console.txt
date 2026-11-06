@@ -1,0 +1,13 @@
+test_all_non_ce_upstream_blobs_exact (__main__.IntegrationTests.test_all_non_ce_upstream_blobs_exact) ... ok
+test_ce_and_release_engines_have_real_compile_inputs (__main__.IntegrationTests.test_ce_and_release_engines_have_real_compile_inputs) ... ok
+test_ce_history_retained (__main__.IntegrationTests.test_ce_history_retained) ... ok
+test_ce_sources_and_data_preserved (__main__.IntegrationTests.test_ce_sources_and_data_preserved) ... ok
+test_every_default_engine_is_enabled_in_release (__main__.IntegrationTests.test_every_default_engine_is_enabled_in_release) ... ok
+test_exact_official_tag (__main__.IntegrationTests.test_exact_official_tag) ... ok
+test_no_upstream_paths_missing (__main__.IntegrationTests.test_no_upstream_paths_missing) ... ok
+test_windows_packaging_retains_engine_coverage (__main__.IntegrationTests.test_windows_packaging_retains_engine_coverage) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.686s
+
+OK

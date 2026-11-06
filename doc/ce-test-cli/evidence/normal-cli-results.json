@@ -1,0 +1,51 @@
+{
+  "status": "PASS",
+  "checks": 3,
+  "executable_sha256": "10cf1b4cd11d4f6f9912439ac5b991adf1a1155e386601eab1ccf59241f26bdc",
+  "engine_ids_verified": [
+    "nox",
+    "grim",
+    "cine",
+    "sci",
+    "macventure",
+    "phoenixvr",
+    "hpl1",
+    "dm",
+    "avalanche",
+    "chamber",
+    "fool",
+    "eem",
+    "harvester",
+    "wintermute"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "D:\\Codex Projects\\scummvm-private\\scummvm-native-test-cli\\build-scummvm\\Releasex64\\scummvm.exe",
+        "--config=D:\\Codex Projects\\scummvm-private\\native-cli-validation-local\\verified-normal-cli\\isolated.ini",
+        "--savepath=D:\\Codex Projects\\scummvm-private\\native-cli-validation-local\\verified-normal-cli\\saves",
+        "--version"
+      ],
+      "exit": 0
+    },
+    {
+      "argv": [
+        "D:\\Codex Projects\\scummvm-private\\scummvm-native-test-cli\\build-scummvm\\Releasex64\\scummvm.exe",
+        "--config=D:\\Codex Projects\\scummvm-private\\native-cli-validation-local\\verified-normal-cli\\isolated.ini",
+        "--savepath=D:\\Codex Projects\\scummvm-private\\native-cli-validation-local\\verified-normal-cli\\saves",
+        "--list-engines"
+      ],
+      "exit": 0
+    },
+    {
+      "argv": [
+        "D:\\Codex Projects\\scummvm-private\\scummvm-native-test-cli\\build-scummvm\\Releasex64\\scummvm.exe",
+        "--config=D:\\Codex Projects\\scummvm-private\\native-cli-validation-local\\verified-normal-cli\\isolated.ini",
+        "--savepath=D:\\Codex Projects\\scummvm-private\\native-cli-validation-local\\verified-normal-cli\\saves",
+        "--list-all-games"
+      ],
+      "exit": 0
+    }
+  ],
+  "scope": "CLI version, compiled engine registration and detection catalog; no gameplay claim"
+}

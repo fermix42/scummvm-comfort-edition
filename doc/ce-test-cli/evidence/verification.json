@@ -1,0 +1,313 @@
+{
+  "source_commit": "7d954c8e36d98f00d58e49d913c3ed4efe6092d9",
+  "branch": "codex/native-test-cli",
+  "parent": "2d0de89e8b875852a0aca2c69a2de9b3c8b445b9",
+  "upstream": "7d2709da5136866589f7602f5f5a7b17de03420e",
+  "executable": "D:\\Codex Projects\\scummvm-private\\scummvm-native-test-cli\\build-scummvm\\Releasex64\\scummvm.exe",
+  "executable_sha256": "10cf1b4cd11d4f6f9912439ac5b991adf1a1155e386601eab1ccf59241f26bdc",
+  "modes": {
+    "headless": {
+      "summary": [
+        {
+          "case": "activation-isolation",
+          "checks": 4,
+          "passed": true,
+          "missing_root": 64,
+          "forbidden_override": 64,
+          "occupied_root": 64
+        },
+        {
+          "case": "protocol",
+          "checks": 8,
+          "passed": true
+        },
+        {
+          "case": "generic-cine",
+          "passed": true,
+          "checks": 11
+        },
+        {
+          "case": "windows",
+          "passed": true,
+          "session": "98993bfa82eb199f:cli-game:run:2026-11-06T11:13:37Z:1714",
+          "scene": "wed.set",
+          "native_menu": true,
+          "cold_restore": true,
+          "bank_isolation": true,
+          "second_session": "98993bfa82eb199f:cli-game:run:2026-11-06T11:13:40Z:5134",
+          "save_a_sha256": "e83af56aa07dfc55702e0623afcc6eaaaf5fccf21f00e73be8bc0651ebca92bc"
+        },
+        {
+          "case": "ps2",
+          "passed": true,
+          "session": "bf0854f98769bca5:cli-game:run:2026-11-06T11:13:56Z:10815",
+          "scene": "wed.set",
+          "native_menu": true,
+          "cold_restore": true,
+          "bank_isolation": true,
+          "second_session": "bf0854f98769bca5:cli-game:run:2026-11-06T11:13:58Z:13284",
+          "save_a_sha256": "373f9c33e4f7d15cdc8db813e0b6d9bc05e8349ee2f4255a4faf2a70b14960d0"
+        }
+      ],
+      "transcripts": [
+        {
+          "path": "D:\\Codex Projects\\scummvm-private\\native-cli-validation-local\\verified-headless\\cine.jsonl",
+          "sha256": "89649302c3919d08f325415aa4eb7f2a1b2f0f76e5835429fd3c6c5e89dc60b3",
+          "records": 37,
+          "processes": 1
+        },
+        {
+          "path": "D:\\Codex Projects\\scummvm-private\\native-cli-validation-local\\verified-headless\\protocol.jsonl",
+          "sha256": "647a2ba050c392f2af5c2a2ea61db3e3f9b21cb17fca55862492de536b8b1aa8",
+          "records": 29,
+          "processes": 1
+        },
+        {
+          "path": "D:\\Codex Projects\\scummvm-private\\native-cli-validation-local\\verified-headless\\ps2.jsonl",
+          "sha256": "b7c94ddb53e0ef59409cc7a48ec13d9ae49efc430cfda5a3c19cd83908e5ef13",
+          "records": 611,
+          "processes": 2
+        },
+        {
+          "path": "D:\\Codex Projects\\scummvm-private\\native-cli-validation-local\\verified-headless\\windows.jsonl",
+          "sha256": "1fe9e5234a385fea893d8a38065a134b18c6b24459f778c674bb8b6feda7d024",
+          "records": 539,
+          "processes": 2
+        }
+      ],
+      "processes": 6,
+      "exit_codes": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "desktop_samples": 404,
+      "max_owned_windows": 0,
+      "max_visible_owned_windows": 0,
+      "foreground_handles": [
+        393248
+      ],
+      "cursor_positions": [
+        [
+          557,
+          1150
+        ]
+      ]
+    },
+    "offscreen": {
+      "summary": [
+        {
+          "case": "activation-isolation",
+          "checks": 4,
+          "passed": true,
+          "missing_root": 64,
+          "forbidden_override": 64,
+          "occupied_root": 64
+        },
+        {
+          "case": "protocol",
+          "checks": 8,
+          "passed": true
+        },
+        {
+          "case": "windows",
+          "passed": true,
+          "session": "8560a8003dc5fe0f:cli-game:run:2026-11-06T11:13:38Z:2024",
+          "scene": "wed.set",
+          "native_menu": true,
+          "cold_restore": true,
+          "bank_isolation": true,
+          "second_session": "8560a8003dc5fe0f:cli-game:run:2026-11-06T11:13:42Z:5413",
+          "save_a_sha256": "2c44139088094ecb1b97ea70ee8ed01f46e90723e11a4e05a6abb417b8299bd5"
+        },
+        {
+          "case": "ps2",
+          "passed": true,
+          "session": "1badf546a990068e:cli-game:run:2026-11-06T11:13:58Z:11812",
+          "scene": "wed.set",
+          "native_menu": true,
+          "cold_restore": true,
+          "bank_isolation": true,
+          "second_session": "1badf546a990068e:cli-game:run:2026-11-06T11:14:01Z:14265",
+          "save_a_sha256": "721a7b0a0493692041acc58716ead11535359031aaa93ea27b9d6ae410c0d8af"
+        }
+      ],
+      "transcripts": [
+        {
+          "path": "D:\\Codex Projects\\scummvm-private\\native-cli-validation-local\\verified-offscreen\\protocol.jsonl",
+          "sha256": "f96200e026c0b6f377450be6a60f6fa2530adf13ac078efcd21ab08a5b8ba4f0",
+          "records": 29,
+          "processes": 1
+        },
+        {
+          "path": "D:\\Codex Projects\\scummvm-private\\native-cli-validation-local\\verified-offscreen\\ps2.jsonl",
+          "sha256": "5f0cfcc5e5b1b39439a7140161c26acb512ef411d2dd8e6534320b06263411d0",
+          "records": 611,
+          "processes": 2
+        },
+        {
+          "path": "D:\\Codex Projects\\scummvm-private\\native-cli-validation-local\\verified-offscreen\\windows.jsonl",
+          "sha256": "464f952f5dbe127e80a3443ae0f68d53a76748d8513164534adaec5acbfc20f5",
+          "records": 539,
+          "processes": 2
+        }
+      ],
+      "processes": 5,
+      "exit_codes": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "desktop_samples": 392,
+      "max_owned_windows": 6,
+      "max_visible_owned_windows": 0,
+      "foreground_handles": [
+        393248
+      ],
+      "cursor_positions": [
+        [
+          557,
+          1150
+        ]
+      ]
+    }
+  },
+  "logs": {
+    "native-cli-verified-build-console.log": {
+      "path": "D:\\Codex Projects\\scummvm-private\\scummvm-native-test-cli\\native-cli-verified-build-console.log",
+      "sha256": "691000c5ab5a8894c2711bed22ff6da1b1ce56c324333ed8de91a4a63b80090c",
+      "errors": 0,
+      "warnings": 0,
+      "elapsed": "00:02:46.86"
+    },
+    "native-cli-verified-unit-console.log": {
+      "path": "D:\\Codex Projects\\scummvm-private\\scummvm-native-test-cli\\native-cli-verified-unit-console.log",
+      "sha256": "cc1e063d152db25eff3346f68709511262d0965d69dde763fa2e10412940525d"
+    },
+    "native-cli-importer-console.log": {
+      "path": "D:\\Codex Projects\\scummvm-private\\scummvm-native-test-cli\\native-cli-importer-console.log",
+      "sha256": "3fe68edd4c0fb085181b1c38b098bd9a30f9293138b6756410846957d39b22ee"
+    },
+    "native-cli-cold-process-console.log": {
+      "path": "D:\\Codex Projects\\scummvm-private\\scummvm-native-test-cli\\native-cli-cold-process-console.log",
+      "sha256": "132fefa0d2dc3391f62263fff51ae73fd39ff02cd9d9ffd9f4f71b013d1875f7"
+    },
+    "native-cli-integration-audit-console.log": {
+      "path": "D:\\Codex Projects\\scummvm-private\\scummvm-native-test-cli\\native-cli-integration-audit-console.log",
+      "sha256": "dd7806074d48d6079e2d6c13c15198edee90d75920b7bb6295d4b7c08e3ad37e"
+    }
+  },
+  "tests": {
+    "cxxtest_methods": 442,
+    "native_ctest": 2,
+    "importer": 5,
+    "integration_audit": 8,
+    "ordinary_cli": 3,
+    "common_native_cli_checks": 23,
+    "gameplay_scenarios": 4,
+    "failed_checks": 0,
+    "cold_achievement_methods_repeated_in_fresh_processes": 2,
+    "cold_methods_already_in_cxxtest_count": true
+  },
+  "thumbnails": {
+    "windows": {
+      "path": "D:\\Codex Projects\\scummvm-private\\native-cli-validation-local\\verified-headless\\thumbnails\\windows.png",
+      "sha256": "94f94f5d71296ba164f560eeb871059d0ee97fba23d279db67ca3cf828a7f857",
+      "source": "actual native SIMG section",
+      "visual_check": "Wedding Ship gameplay image inspected; not a desktop screenshot"
+    },
+    "ps2": {
+      "path": "D:\\Codex Projects\\scummvm-private\\native-cli-validation-local\\verified-headless\\thumbnails\\ps2.png",
+      "sha256": "11b32849bdc539193e702e7d52805e03b7aa3e68c3450734e388247126fcfdb5",
+      "source": "actual native SIMG section",
+      "visual_check": "Wedding Ship gameplay image inspected; not a desktop screenshot"
+    }
+  },
+  "preservation": {
+    "original_head": "de742c2c66239011dbbd4ce0d23d48ffcd0d0045",
+    "original_local_files": {
+      "backends/events/default/default-events.cpp": true,
+      "backends/graphics/surfacesdl/surfacesdl-graphics.cpp": true,
+      "backends/networking/http/curl/networkreadstream-curl.cpp": true,
+      "engines/ce_achievements.cpp": true,
+      "engines/ce_achievements.h": true,
+      "engines/metaengine.cpp": true,
+      "engines/metaengine.h": true,
+      "gui/launcher.cpp": true,
+      "gui/saveload-dialog.cpp": true,
+      "run-build-release-cleanenv.ps1": true
+    },
+    "accepted_binaries": [
+      {
+        "path": "D:\\Codex Projects\\scummvm-private\\scummvm-private-feature-usable-desktop-window-layout\\build-scummvm\\Releasex64\\scummvm.exe",
+        "sha256": "64d918cf885e78fceae03c01d7ab0d1e9668702fe390447d3f640912505a88db",
+        "unchanged": true
+      },
+      {
+        "path": "D:\\Codex Projects\\scummvm-private\\scummvm-private-feature-usable-desktop-window-layout-git\\build-scummvm\\Releasex64\\scummvm.exe",
+        "sha256": "1ba46e9095092690377942aeb5ec80fcaf69beeea2b3e7cbe1fa21a7d45378e9",
+        "unchanged": true
+      }
+    ],
+    "integration_head": "2d0de89e8b875852a0aca2c69a2de9b3c8b445b9",
+    "integration_status": "",
+    "integration_exe_sha256": "7ed5bee7b1f415655930c9054a7974b74d7a2055311239d320be2181952e8d2f",
+    "integration_exe_unchanged": true
+  },
+  "ordinary_cli": {
+    "status": "PASS",
+    "checks": 3,
+    "executable_sha256": "10cf1b4cd11d4f6f9912439ac5b991adf1a1155e386601eab1ccf59241f26bdc",
+    "engine_ids_verified": [
+      "nox",
+      "grim",
+      "cine",
+      "sci",
+      "macventure",
+      "phoenixvr",
+      "hpl1",
+      "dm",
+      "avalanche",
+      "chamber",
+      "fool",
+      "eem",
+      "harvester",
+      "wintermute"
+    ],
+    "commands": [
+      {
+        "argv": [
+          "D:\\Codex Projects\\scummvm-private\\scummvm-native-test-cli\\build-scummvm\\Releasex64\\scummvm.exe",
+          "--config=D:\\Codex Projects\\scummvm-private\\native-cli-validation-local\\verified-normal-cli\\isolated.ini",
+          "--savepath=D:\\Codex Projects\\scummvm-private\\native-cli-validation-local\\verified-normal-cli\\saves",
+          "--version"
+        ],
+        "exit": 0
+      },
+      {
+        "argv": [
+          "D:\\Codex Projects\\scummvm-private\\scummvm-native-test-cli\\build-scummvm\\Releasex64\\scummvm.exe",
+          "--config=D:\\Codex Projects\\scummvm-private\\native-cli-validation-local\\verified-normal-cli\\isolated.ini",
+          "--savepath=D:\\Codex Projects\\scummvm-private\\native-cli-validation-local\\verified-normal-cli\\saves",
+          "--list-engines"
+        ],
+        "exit": 0
+      },
+      {
+        "argv": [
+          "D:\\Codex Projects\\scummvm-private\\scummvm-native-test-cli\\build-scummvm\\Releasex64\\scummvm.exe",
+          "--config=D:\\Codex Projects\\scummvm-private\\native-cli-validation-local\\verified-normal-cli\\isolated.ini",
+          "--savepath=D:\\Codex Projects\\scummvm-private\\native-cli-validation-local\\verified-normal-cli\\saves",
+          "--list-all-games"
+        ],
+        "exit": 0
+      }
+    ],
+    "scope": "CLI version, compiled engine registration and detection catalog; no gameplay claim"
+  }
+}
