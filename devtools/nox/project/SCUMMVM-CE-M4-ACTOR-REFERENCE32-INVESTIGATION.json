@@ -1,0 +1,17 @@
+{
+  "status": "VERIFIED",
+  "scope": "Original actor-admission reference initialization corrected before native acceptance",
+  "failure": "Initial private reference omitted source-initialized NPC bit-mask data, so it missed384 removals. It was disqualified before native acceptance; metadata/input preserved.",
+  "resolution": "Reference-v2 loads original LOADER.P mask data. Accepted native32 matches12348 cases including394 removals and full1792 map-state bytes.",
+  "artifacts": {
+    "ce-m4-actor-admission-reference/metadata-rejected-original.json": "fc32717fb7d4529a656bc4227ff17e61964b48d867b49cc80c99c9ef20b72fbc",
+    "ce-m4-actor-admission-reference/metadata.json": "63eb4d338c52d0d61abead642fbc419b9820f376e3bdc5fc5273d920529e04f4",
+    "ce-m4-actor-admission32-oracle.log": "5885efe43296ba7694c63806293c8a5ecfed12a03032a4a655720a126c6f3755",
+    "ce-m4-actor-admission32-oracle-v2.log": "95e7c7cc489c74cd70a6b691c12728e72c2f07316a522e4b5856ab51d51ac01f",
+    "ce-m4-actor-admission-reference-v2/metadata.json": "106fa711e48e4636d8c80c2426270874f3a0f5d0b563b2bed48f35985f2f9d26"
+  },
+  "accepted_evidence": {
+    "path": "SCUMMVM-CE-M4-ACTORS32-UNIT.json",
+    "sha256": "887e35bbb13c90bd1558014ead55c01d6f9fa15331d8af478f5a1823781f3490"
+  }
+}

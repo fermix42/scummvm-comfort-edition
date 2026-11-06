@@ -1,0 +1,22 @@
+{
+  "status": "VERIFIED",
+  "scope": "Exact preserved52 engine source and executable restoration; no new compilation/gameplay claim",
+  "source_archive": {
+    "path": "ce-m3-access52-source.zip",
+    "sha256": "e0ecb548fbb51ad2f8153d992a40aa8ebe361512696e0bbbc8c3ee7fce99c9ca"
+  },
+  "executable": {
+    "path": "ce-m3-guardian6-binary\\scummvm-access52.exe",
+    "sha256": "ee396393c4ce5afdbf529f3a78b347872ebc758851c5fecba49eea83ec044865"
+  },
+  "unaccepted_changes_archive": {
+    "path": "ce-m3-unaccepted-relocation60-source.zip",
+    "sha256": "ee0ca4903247937f3ad7913f241f705b1f1e0b84f79cb4f0c533b206f99c19cf"
+  },
+  "restored_files": [
+    "engines/nox/runtime.h",
+    "engines/nox/search_object_validation.h",
+    "engines/nox/vortex_validation.h"
+  ],
+  "reason": "MSVC link-time crashes and separate MSBuild CLR access violations. Continue unchanged accepted engine with explicitly controlled external test fixtures; no M4."
+}

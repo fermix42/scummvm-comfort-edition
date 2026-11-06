@@ -1,0 +1,22 @@
+{
+  "status": "VERIFIED",
+  "scope": "New native base-light transition discrepancy; corrected26 acceptance pending",
+  "failure": "Case0 native port transitioned mode immediately. Actual original BCC preserves mode until threshold; original INC/DEC changes the level field but preserves X used to select the current mask.",
+  "correction": "Use >=2 threshold, update level with original direction, retain pre-transition mask index. Independent original disassembly and10240 reference outcomes establish required behavior.",
+  "artifacts": {
+    "ce-m4-binary/scummvm-light25-rejected.exe": "428e53685c4ab088a03e6bc2d5216279d54bed19e17f08340cea5b92f399de4b",
+    "ce-m4-light25-rejected-header.h": "711d34264d79cbbb547b19b4c0447bda95bbcbf76babcf1d018b3b00a1b5ff87",
+    "ce-m4-native-light25-tests.log": "2770406a1c8d5676de0d7ad19dadb979d0961ba5be8bc4c88db8227299013f51",
+    "ce-m4-light-focused25.log": "59d667b638717130bc50714adfa9677ed3be24967b83da3136e1c54558fe6572",
+    "ce-m4-light-reference/metadata.json": "3f36a0b5c8cac5a3a4edb8ed44debb3e5f7199bd9fc65c7cc26ec02979479535",
+    "ce-m4-terrain-light26-oracle.log": "47e94adcb92f27f4e79451d01b81b7928f7e25d0d253b9c26772f8c3768d31d5"
+  },
+  "next_action": "Complete build26 and compare all10240 source outcomes plus previous suites.",
+  "separate_oracle_bound": "Original terrain-light research hit200000 instruction bound on dense UM101, before producing any accepted corpus. Bound increased to1000000 based on355 possible source kernels plus selector work; no game logic or expected output changed.",
+  "resolution": "Corrected26 passes all10240 original base-mask outcomes plus previous native/cold suite. Native25 remains rejected.",
+  "accepted_evidence": {
+    "path": "SCUMMVM-CE-M4-LIGHT26-UNIT.json",
+    "sha256": "2b5c53745c91bf3b7674fcdd98f5408cf3042f9ad35adf465ec8bb040e0d1200"
+  },
+  "terrain_oracle_bound_result": "Corrected original terrain-light corpus completed1824 cases,26380816 instructions; private input/output fixture only, native terrain selection acceptance pending."
+}

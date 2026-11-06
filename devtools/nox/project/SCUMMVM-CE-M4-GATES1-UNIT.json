@@ -1,0 +1,69 @@
+{
+  "status": "VERIFIED",
+  "milestone": "M4",
+  "scope": "Native gate semantic-unit acceptance only, inside actual CE before Runtime construction",
+  "unit": {
+    "status": "VERIFIED",
+    "scope": "Native gate rule/resource units inside CE before Runtime construction; not ordinary native gameplay or M4 completion",
+    "command": [
+      "C:\\Program Files\\Python313\\python.exe",
+      "D:\\Codex Projects\\scummvm-private\\scummvm-private-feature-usable-desktop-window-layout-git\\devtools\\nox\\test_resources.py",
+      "--exe",
+      "D:\\Codex Projects\\scummvm-private\\scummvm-private-feature-usable-desktop-window-layout-git\\build-scummvm\\Releasex64\\scummvm.exe",
+      "--base",
+      "D:\\Codex Projects\\Nox Archaist\\Nox Archaist HDV (v119).HDV",
+      "--expansion",
+      "D:\\Codex Projects\\Nox Archaist\\Nox Archaist Lord of Storms HDV (v137).HDV",
+      "--artifacts",
+      "conversion\\ce-m4-native-gates1-tests",
+      "--native-video"
+    ],
+    "resource_report": "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-native-gates1-tests\\20261017-010043\\verification.json",
+    "gate_counts": {
+      "maps": "76",
+      "keyed": "38",
+      "compound": "5",
+      "plates": "14",
+      "portals": "57",
+      "cases": "337",
+      "ownership": "semantic-unit-only"
+    },
+    "executable_sha256": "7f29fd24af796088c9dc4bae420cdf8d01a9927c85f4c5855ddd799cd5aa24a5",
+    "source_sha256": {
+      "native_gates.h": "3c19eeaa79877c589db5f2de13ceb826ce42437e4cae6032b80d46c2859f2b85",
+      "native_gates_validation.h": "0789ab31cb010bfa0750a2db2ee37d8976fa8ef7c74678ec87f5671a00dba50e",
+      "native_maps.h": "f483271156807839323d95b98a8677837a0443e7284cd2fd4077bbf7c3aa780d",
+      "native_maps_validation.h": "83f6bcc201b5c6f57d24227ca4ecc15dce90b7b10a1af13a5464ed7d754874db"
+    },
+    "native_only_gameplay": "NOT STARTED",
+    "earned_native_campaign": "NOT STARTED"
+  },
+  "resource_files_exact": 74,
+  "offline_sessions": 2,
+  "source_archive": {
+    "path": "ce-m4-gates1-source.zip",
+    "sha256": "53b33da7dea5937b84d0032e47714646b671d412f441995cb62fa5d000e5f001"
+  },
+  "preserved_executable": {
+    "path": "ce-m4-binary\\scummvm-gates1.exe",
+    "sha256": "7f29fd24af796088c9dc4bae420cdf8d01a9927c85f4c5855ddd799cd5aa24a5"
+  },
+  "actual_compiled_native_units": [
+    "native_gates.h",
+    "native_gates_validation.h"
+  ],
+  "not_yet_compiled_units": [
+    "native_maps.h",
+    "native_maps_validation.h"
+  ],
+  "build": {
+    "log": "ce-m4-native-gates-build1.log",
+    "sha256": "525ed7aceb3a0a45a04b9edbebf69c571e2521f9acf795511b75e4332adbb13a",
+    "result": "PASS 0 warnings/errors,00:04:34.21"
+  },
+  "limitations": [
+    "337 source-shaped semantic checks, including every38 key record,5 compound records,14 plate records and57 nonzero-map portals. Paired control reversal is a focused data test.",
+    "Normal gameplay still executes through the compatibility runtime. No interpreter-disabled build, ordinary native Open/Travel, CPU ABI retirement, or earned native campaign claim.",
+    "M3 baseline is frozen. E-core child scope used; no OS/BIOS changes."
+  ]
+}

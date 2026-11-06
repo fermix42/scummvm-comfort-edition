@@ -1,0 +1,20 @@
+{
+  "status": "IN PROGRESS",
+  "task": "M2.2d4",
+  "report": {
+    "path": "ce-m2-caller-audit-modern/20261015-204050/verification.json",
+    "sha256": "1f7c33d46d379691383c6181163b0bf169ebdacb3167ebf08a73bcbc4ad06359",
+    "executable_sha256": "454e3a73135c39b00362dc8e095d11525882f488fc91f459440289e0033d0122"
+  },
+  "observation": "PASS\tq_key=1\tengine_save=1\tcancel=1\tprivate_disk_unchanged=1\tsession_unchanged=1\tlegacy_save_entries=2\tother_9600_entries=4\tother_fingerprint=2773126520\tother_return=89AA",
+  "finding": "Actual normal interface flow executes genuine save-overlay fingerprint twice. Q CE save/cancel itself passes and private disk unchanged across its measured operation; earlier additional entries need caller/parameter identification.",
+  "build": {
+    "session": 69154,
+    "warnings": 0,
+    "errors": 0,
+    "elapsed": "00:02:37.92"
+  },
+  "next_build": 35465,
+  "next_action": "Record return addresses and accumulator/X/map parameters for actual legacy save entries before selecting behavior.",
+  "production_dispatch_changed": false
+}

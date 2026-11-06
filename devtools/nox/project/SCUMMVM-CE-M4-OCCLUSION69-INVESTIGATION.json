@@ -1,0 +1,23 @@
+{
+  "status": "IN PROGRESS",
+  "scope": "Rejected first native ordered visibility repaint; original reference unchanged",
+  "executable": {
+    "path": "ce-m4-binary\\scummvm-occlusion69-rejected.exe",
+    "sha256": "07ac7502e5b6df6b454675d6635b81be4aaebe713ce2e7fc14041aa292533d3a"
+  },
+  "source_archive": {
+    "path": "ce-m4-occlusion69-rejected-source.zip",
+    "sha256": "44fefeb6fe86140bb031fe6f75d603847fe36a2022439e97f22f08a2bfe75a66"
+  },
+  "failure_log": {
+    "path": "ce-m4-native69.log",
+    "sha256": "5fe16bbd9a5f4a509761df4596f572d4dc0b9185fcf9b18b6533044e19ae617d"
+  },
+  "reference": {
+    "path": "ce-m4-occlusion-reference/input.bin",
+    "sha256": "2d5daf405f84ed170805aab493f795503bff0bb71434620d8095399d4fc7efb8"
+  },
+  "observed": "All402 geometric and40448 opacity comparisons pass. Full phase case4 action74 differs while final mask and action count match.",
+  "source_behavior": "The left/right edge sweep retains the preceding left-row register while advancing the right-row register. Thus the left edge lags one row, repeats cell0 and stops at153; later direction-specific sweeps supply additional cells. Source wait case begins edge draws33,17,67,51,101,85 rather than17,33,51,67. Preserve this ordering instead of normalizing it.",
+  "next": "Correct native left-edge lag, build new70 identity, rerun entire source comparison and native regressions. Do not accept69 as verified."
+}

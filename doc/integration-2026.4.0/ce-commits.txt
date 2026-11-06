@@ -1,0 +1,56 @@
+de742c2c66239011dbbd4ce0d23d48ffcd0d0045 SCI: add SQ5 Battle Cruiser probe cheats
+cd9937079ca7c87241fd02aff469e966edd65f32 SCI: retain SQ5 Trash Talkin saves in CE sessions
+790655ad6315a65cb25aa434461d9ed27aec7385 SCI: integrate SQ5 Trash Talkin Edition 0.2.12
+5f84c5cd08cbc54083cf72da8cfa1665294c2bca Add MI4 Windows play-session save banks and gallery support
+df6b375657b84fe5b53eb7c5acd5a097435f7151 Docs: keep MI4 Windows build entry and remove PS2 activities
+c1991d3899c5e81c913cf8579d5bfe8123132f8a CE: integrate MI4 PS2 saves with play sessions and gallery
+0e7751343867ed06a39441416db8483f3d71a6d4 CE: add native PlayStation controller profile for Monkey Island 4 PS2
+6c562fc2e4576fda4860b417bd927c884e66afa7 CE: enable Monkey Island 4 builds and document PS2 startup workaround
+86a0ab196e8173e2bd2c334edc207a908eacbd36 Docs: update CE changelog for playthroughs
+294c243238e15570fbc2a127f5e0db7f3d5183a0 CE: add playthrough tracking
+39bc300bdae9bfd7136204ba44d4385324f74f03 CE: store achievement progress in sidecars
+18f9c62983241b5f04dfe8592d3aa01c36638893 MACVENTURE: add Deja Vu turn counter cheat
+6fb713d9d6b8a4f815ea5d68f6dcd2fdf50eafe7 MACVENTURE: add Deja Vu weekday cheat
+dde12c13e2e9c641a0c93b5aafde0b5624197b11 MACVENTURE: defer losing dialog until text is read
+454816fc94d393cb3fe7d4497dbe8b1575df09d7 MACVENTURE: fix Deja Vu clear headed trigger
+8af541fa6c26a9f614241bc761fdcebcb2a4e9ae MACVENTURE: fix Deja Vu dialog and overlay handling
+c100e55d6785f6ab8970ffb7a9770726318fe23d Close unreachable MacVenture containers
+94b4280f0b0a46bb8484922a4f4c80ff013f2670 CE achievement popup sidecars
+a3b1e94affe5923e362f51837e278296b845265a MACVENTURE: Position fixed windows for expanded desktop
+3f26f03f360b02e663408492a743d5b49612baf2 COMMON: Reject malformed Mac resource maps
+4f090c6979dcc7ca2f28978af42af60a4ee27d84 MACVENTURE: Keep opened containers above inventory
+bf27ef91f08300d20e63a082f6f575c96d9fdb38 MACVENTURE: Add Deja Vu expanded desktop patch
+1cf34f0b5d362f07bfdf20228d3512f37eb1b0ed Guard MacVenture cleanup menu actions
+200e0d8f904da0ad6fb02e832ccd11f732f50b24 Add Deja Vu MacVenture achievements and About
+3f3c9b6571c20b7c9c185430e8edfcc8714509a8 Add Cine display border crop option
+1a330dec263be2add28bb1838a75e2dd991ad7da Update changelog for achievement popups
+e945c3e2dd601ac32d75c64ca202a39ae3fd026d Add configurable CE achievement popups
+71d88cb3e9abe07c93ebb5e41189ca0c5701bcc6 Add Comfort Edition achievements support
+d2650a5966f97604eeabb11146b24897fd477011 Update README.md
+fca3d4c437fd41eb617f57d60ee74b4193c0dee2 Keep Deja Vu testing notes local
+7c748eb6ddd09f25a384a0a8ba90c18837be7854 Add Deja Vu Macintosh support fixes
+1b3f5cf3d9d66d73b1470f5963c00d0382e3b853 OPERATION STEALTH PATCH OPTIONS
+a6f92ad2653c31124120a5e1ea6403f9805c1ace CINE: Restore Atari ST Operation Stealth sound
+a993e51964691df655a4c07cc8952ef32b447b25 DOCS: Add timestamps to Comfort changelog
+839f11520743a485f1e672d8e6b2e2558de5f923 CINE: Add Operation Stealth comfort options
+644f06edc41be95b4c90264ebd52a5876ecf9201 Add Operation Stealth VGA cheats and EU jetski patch
+2286f69ca1f78588027d68e2a4a74434f5f0e143 Make release packaging output decoding robust
+4fd0f7c0d30e106552c7bb709803fad91ccac661 Fix release notes YAML syntax
+d674ab2485d7348ab28affd15828d61e5855a603 Simplify release workflow trigger
+68e3947f8c3debe93368dbdc43a37f961a60a84d Fix release workflow tag handling
+3c8c8cd0e4df26a41f734b7e4424548dd4f031a5 Prepare first Comfort Edition binary release
+e3cf45e1d505815bd3f0775da3c06fe746699dd9 Rename fork metadata for Comfort Edition
+5ab91cdb7c8523598a3bc01817520561d454574b Update FORK-CHANGES.md
+85a7bf76fe02b9895fe6a51341bdf90c5fc95e22 Update FORK-CHANGES.md
+365c00cc799020bcd03f9e67c68b3334f3bd341e Add private cheat options and build tooling
+9681ef86a9bb0624c253f0b07180d97497c8cc51 Clarify SCI AVI scaling scope
+96bf471e9d029b41d998467e0d864f4bc9346552 Document private fork changes
+b499853e12d1d82830b6856ba19f2998d6a9017d Restore custom layout and game fixes
+f33c2ec4ca14fc4881910df654f9477d08c8e0fc CI: Use archived mirrors for pinned LIBMIKMOD source
+ee22feeb236df1fc2e0f959420e286e394164b56 CI: Repair LIBMIKMOD download and cache Release dependencies
+427f990db28eedf4db89ee814e08bc751eb46a1e CI: Use available GIFLIB source mirror
+342dacc5526a7fe61a8429aed40b8e1665af2bda CI: Mirror pinned GIFLIB archive for Windows test build
+aa31a6b34977d3e0ae236ca37cd23b63b6d074a5 CI: Package private Windows x64 layout test build
+9dfb67ff28579df4a195aea189a95c5a601ef871 SDL: Add configurable usable-desktop window layouts
+a5e736a170f44c1e2b4a45263289b8532c53de4c DEV: Import upstream ScummVM history into private workspace
+49a53743aacc0275cf12213631fbf123b17585bf Initialize private repository for ScummVM import

@@ -1,0 +1,18 @@
+{
+  "status": "IN PROGRESS",
+  "scope": "Rejected native owner implementation; never a gameplay pass",
+  "source_archive": {
+    "path": "ce-m4-world-no-input184-rejected-source.zip",
+    "sha256": "1389cca4ba83668b5482be64e0dc2155cacf5c7d8354f74f3e081162611d6e4b"
+  },
+  "executable": {
+    "path": "ce-m4-binary\\scummvm-world-no-input184-rejected.exe",
+    "sha256": "3730b35d2120015c0954b731dd6189431512d7c42c284582afeb458e9795cdf7"
+  },
+  "failure_log": {
+    "path": "ce-m4-world-settle184-reference.log",
+    "sha256": "c70589ac8b951191eedea845c837a3f16502e792eb646a78bece0d36256fbc91"
+  },
+  "finding": "Bounded original no-input probe did not return to world input after64 executions of100000 cycles. This rejects the research hypothesis of natural settling, not a native gameplay implementation. D560 delay is bounded but its tutorial caller continues waiting for input. Preserve trace/failure PNG; next test records idle state then supplies actual O+Up continuation.",
+  "next_action": "Correct the implementation using actual source evidence; preserve all original numeric reference outcomes and rerun affected CE checks."
+}

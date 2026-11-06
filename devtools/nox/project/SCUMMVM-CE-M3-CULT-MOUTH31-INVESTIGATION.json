@@ -1,0 +1,335 @@
+{
+  "status": "IN PROGRESS",
+  "milestone": "M3",
+  "scope": "Actual Cult mouth words/refusals, original consumed-flag/wall-removal effect and exact cold state; physical passage interrupted by original fixed guard encounter",
+  "verified_reports": [
+    {
+      "path": "ce-m3-cult-mouth-wrong31/20261016-175640/verification.json",
+      "sha256": "aab2e53d24622ceb3512a9ea0216c8834e1503fe6d07dc3b4ab5b8e318273e0e",
+      "result": {
+        "save": "ce-m3-cult-mouth-wrong31\\20261016-175640\\saves\\nox-ce-ed5939a032719adcfecdf986a9261c4a-7ae1dafa76a889bf8ef2115a9052da5a-slot001.g1",
+        "save_sha256": "f221c1a1f3bf6af0b44550cd0d51998a32149c5988572303dd7643b0f3afec1d",
+        "runtime_sha256": "e4c59299e63c953ce00ebcb8c8092674a2140057218dabc36b8e792ada464c02",
+        "generation": 50,
+        "slot": 1,
+        "PC": 29148,
+        "SP": 255,
+        "alternate": 0,
+        "stack_return": 0,
+        "map": 99,
+        "map_type": 2,
+        "xy": [
+          217,
+          101
+        ],
+        "pageflags": 255,
+        "research": 3,
+        "transport_flags": 0,
+        "keyflag_040F": 0,
+        "keyflag_0410": 63,
+        "party_count": 1,
+        "status": 0,
+        "level": 10,
+        "health": 125,
+        "maximum_health": 125,
+        "mana": 23,
+        "inactive": 0,
+        "STR_DEX_INT": [
+          8,
+          14,
+          110
+        ],
+        "Range": 10,
+        "Range_training_remaining": 54,
+        "weapon_range_bytes": [
+          1,
+          16
+        ],
+        "spell_slot1": 12,
+        "spell_quantity": 1,
+        "Ankh_quantity": 0,
+        "key_quantity": 0,
+        "staff_quantity": 0,
+        "enemy_health": 0,
+        "encounter_sprite": 192,
+        "ending_loop": 0
+      },
+      "wall_record": [
+        215,
+        100,
+        74,
+        50
+      ],
+      "consumed_temporary_flag042E": 0,
+      "initializations": "Retain actual PirateKey/BrownKey Search/doors/real level entry/self-map portal. Controlled source-safe mouth adjacency/noon only BEFORE actual Talk/word. No acceptance flag/item/HP/NPC outcome initialization; BrownKey is retained and must not be reported consumed.",
+      "executable_sha256": "c8a919270f0efd1946e79341536911b3fa8910ff5a81589e85a2356bf11ba5c7"
+    },
+    {
+      "path": "ce-m3-cult-mouth-bribe31/20261016-175646/verification.json",
+      "sha256": "d0a852a9753fdf58ce702c9d5883a38f906eed2025af069adb3c0bde5edb4c50",
+      "result": {
+        "save": "ce-m3-cult-mouth-bribe31\\20261016-175646\\saves\\nox-ce-ed5939a032719adcfecdf986a9261c4a-7ae1dafa76a889bf8ef2115a9052da5a-slot001.g1",
+        "save_sha256": "aec4ebb3aa5e530dcc55a5f9da06171b5ba367a6d38890d43ac9ef75fe32a6ed",
+        "runtime_sha256": "8a6a2ddde42f183eac372f088a1e5b0d7759fbf70ee88b825567a5e58881dd5a",
+        "generation": 50,
+        "slot": 1,
+        "PC": 29148,
+        "SP": 255,
+        "alternate": 0,
+        "stack_return": 0,
+        "map": 99,
+        "map_type": 2,
+        "xy": [
+          217,
+          101
+        ],
+        "pageflags": 255,
+        "research": 3,
+        "transport_flags": 0,
+        "keyflag_040F": 0,
+        "keyflag_0410": 63,
+        "party_count": 1,
+        "status": 0,
+        "level": 10,
+        "health": 125,
+        "maximum_health": 125,
+        "mana": 23,
+        "inactive": 0,
+        "STR_DEX_INT": [
+          8,
+          14,
+          110
+        ],
+        "Range": 10,
+        "Range_training_remaining": 54,
+        "weapon_range_bytes": [
+          1,
+          16
+        ],
+        "spell_slot1": 12,
+        "spell_quantity": 1,
+        "Ankh_quantity": 0,
+        "key_quantity": 0,
+        "staff_quantity": 0,
+        "enemy_health": 0,
+        "encounter_sprite": 192,
+        "ending_loop": 0
+      },
+      "wall_record": [
+        215,
+        100,
+        74,
+        50
+      ],
+      "consumed_temporary_flag042E": 0,
+      "initializations": "Retain actual PirateKey/BrownKey Search/doors/real level entry/self-map portal. Controlled source-safe mouth adjacency/noon only BEFORE actual Talk/word. No acceptance flag/item/HP/NPC outcome initialization; BrownKey is retained and must not be reported consumed.",
+      "executable_sha256": "c8a919270f0efd1946e79341536911b3fa8910ff5a81589e85a2356bf11ba5c7"
+    },
+    {
+      "path": "ce-m3-cult-mouth-vha31/20261016-175946/verification.json",
+      "sha256": "8542ebd80a97b6fe594fa127443e861a2b1d5b65728f4455efb980b276f23bbe",
+      "result": {
+        "save": "ce-m3-cult-mouth-vha31\\20261016-175946\\saves\\nox-ce-ed5939a032719adcfecdf986a9261c4a-7ae1dafa76a889bf8ef2115a9052da5a-slot001.g1",
+        "save_sha256": "72e608efeb9f1c8d3d24ef27119d938544c03e9bec670c968b34cd8e044d6209",
+        "runtime_sha256": "c759fa09ded7a76b4711d80e6225b25ceef17073ea36a21baa33b7f12e1270fb",
+        "generation": 50,
+        "slot": 1,
+        "PC": 29148,
+        "SP": 255,
+        "alternate": 0,
+        "stack_return": 0,
+        "map": 99,
+        "map_type": 2,
+        "xy": [
+          217,
+          101
+        ],
+        "pageflags": 255,
+        "research": 3,
+        "transport_flags": 0,
+        "keyflag_040F": 0,
+        "keyflag_0410": 63,
+        "party_count": 1,
+        "status": 0,
+        "level": 10,
+        "health": 125,
+        "maximum_health": 125,
+        "mana": 23,
+        "inactive": 0,
+        "STR_DEX_INT": [
+          8,
+          14,
+          110
+        ],
+        "Range": 10,
+        "Range_training_remaining": 54,
+        "weapon_range_bytes": [
+          1,
+          16
+        ],
+        "spell_slot1": 12,
+        "spell_quantity": 1,
+        "Ankh_quantity": 0,
+        "key_quantity": 0,
+        "staff_quantity": 0,
+        "enemy_health": 0,
+        "encounter_sprite": 192,
+        "ending_loop": 0
+      },
+      "wall_record": [
+        215,
+        100,
+        74,
+        254
+      ],
+      "consumed_temporary_flag042E": 0,
+      "initializations": "Retain actual PirateKey/BrownKey Search/doors/real level entry/self-map portal. Controlled source-safe mouth adjacency/noon only BEFORE actual Talk/word. No acceptance flag/item/HP/NPC outcome initialization; BrownKey is retained and must not be reported consumed.",
+      "executable_sha256": "c8a919270f0efd1946e79341536911b3fa8910ff5a81589e85a2356bf11ba5c7"
+    },
+    {
+      "path": "ce-m3-cult-mouth-obli31/20261016-175952/verification.json",
+      "sha256": "a425543511ef8648741649fac6a2e9253a66257deeb3c4acf1924abd7ae5d8b7",
+      "result": {
+        "save": "ce-m3-cult-mouth-obli31\\20261016-175952\\saves\\nox-ce-ed5939a032719adcfecdf986a9261c4a-7ae1dafa76a889bf8ef2115a9052da5a-slot001.g1",
+        "save_sha256": "126e5ba09ff107cdbfe156256dcaca1af00991ec6338a05cbe83fc19ca9aa840",
+        "runtime_sha256": "98e559a60f111e224dc1ba39d6680436b5fb75795d7aba6625b04412b5a993cf",
+        "generation": 50,
+        "slot": 1,
+        "PC": 29148,
+        "SP": 255,
+        "alternate": 0,
+        "stack_return": 0,
+        "map": 99,
+        "map_type": 2,
+        "xy": [
+          217,
+          101
+        ],
+        "pageflags": 255,
+        "research": 3,
+        "transport_flags": 0,
+        "keyflag_040F": 0,
+        "keyflag_0410": 63,
+        "party_count": 1,
+        "status": 0,
+        "level": 10,
+        "health": 125,
+        "maximum_health": 125,
+        "mana": 23,
+        "inactive": 0,
+        "STR_DEX_INT": [
+          8,
+          14,
+          110
+        ],
+        "Range": 10,
+        "Range_training_remaining": 54,
+        "weapon_range_bytes": [
+          1,
+          16
+        ],
+        "spell_slot1": 12,
+        "spell_quantity": 1,
+        "Ankh_quantity": 0,
+        "key_quantity": 0,
+        "staff_quantity": 0,
+        "enemy_health": 0,
+        "encounter_sprite": 192,
+        "ending_loop": 0
+      },
+      "wall_record": [
+        215,
+        100,
+        74,
+        254
+      ],
+      "consumed_temporary_flag042E": 0,
+      "initializations": "Retain actual PirateKey/BrownKey Search/doors/real level entry/self-map portal. Controlled source-safe mouth adjacency/noon only BEFORE actual Talk/word. No acceptance flag/item/HP/NPC outcome initialization; BrownKey is retained and must not be reported consumed.",
+      "executable_sha256": "c8a919270f0efd1946e79341536911b3fa8910ff5a81589e85a2356bf11ba5c7"
+    },
+    {
+      "path": "ce-m3-cult-mouth-blocked31/20261016-175957/verification.json",
+      "sha256": "f2cfaa89c8f0d11475b6b362ffc15c5204dcf65e6ec3c8d3d015fc89ab739ecf",
+      "result": {
+        "save": "ce-m3-cult-mouth-blocked31\\20261016-175957\\saves\\nox-ce-ed5939a032719adcfecdf986a9261c4a-7ae1dafa76a889bf8ef2115a9052da5a-slot001.g1",
+        "save_sha256": "93aaffb2ef40403da058ef5f401f7c17ddb7aaa5995fa2b876f50ead35d3cbba",
+        "runtime_sha256": "97d1db81fd513681e406259c2231e6fe02c357590e4a368f0cc445f156062ff5",
+        "generation": 52,
+        "slot": 1,
+        "PC": 29148,
+        "SP": 255,
+        "alternate": 0,
+        "stack_return": 0,
+        "map": 99,
+        "map_type": 2,
+        "xy": [
+          215,
+          101
+        ],
+        "pageflags": 255,
+        "research": 3,
+        "transport_flags": 0,
+        "keyflag_040F": 0,
+        "keyflag_0410": 63,
+        "party_count": 1,
+        "status": 0,
+        "level": 10,
+        "health": 125,
+        "maximum_health": 125,
+        "mana": 23,
+        "inactive": 0,
+        "STR_DEX_INT": [
+          8,
+          14,
+          110
+        ],
+        "Range": 10,
+        "Range_training_remaining": 54,
+        "weapon_range_bytes": [
+          1,
+          16
+        ],
+        "spell_slot1": 12,
+        "spell_quantity": 1,
+        "Ankh_quantity": 0,
+        "key_quantity": 0,
+        "staff_quantity": 0,
+        "enemy_health": 0,
+        "encounter_sprite": 192,
+        "ending_loop": 0
+      },
+      "wall_record": [
+        215,
+        100,
+        74,
+        50
+      ],
+      "consumed_temporary_flag042E": 0,
+      "initializations": "Retain actual portal/BrownKey and actual mouth answer/refusal. ZERO new position/flag/NPC/party controls. ActualLeft/Left/Up tests original removed or retained wall, no movement/wall outcome injected.",
+      "executable_sha256": "c8a919270f0efd1946e79341536911b3fa8910ff5a81589e85a2356bf11ba5c7"
+    }
+  ],
+  "source_archive": {
+    "path": "ce-m3-gates31-source.zip",
+    "sha256": "3e454d00a6ddd9d827a6a885d3778c85746da4c70fe61766902a52bfa794a061"
+  },
+  "preserved_executable": {
+    "path": "ce-m3-guardian6-binary\\scummvm-gates31.exe",
+    "sha256": "c8a919270f0efd1946e79341536911b3fa8910ff5a81589e85a2356bf11ba5c7"
+  },
+  "observed_blocker": {
+    "path": "ce-m3-cult-mouth-passage31/20261016-180001",
+    "memory_sha256": "fc7577a4479c134fef6a460816eed3831ce9706e0f55e00e003c5ce4ed33d96b",
+    "trace_sha256": "bfac12570902e5e3c430e39233c34702b877196380ba1893e5c673034d924e38",
+    "observation": "First actualLeft from217,101 triggers fixed BD8 Monk patrol; original10enemy admission8Monks191HP+2HighMonks137HP. Not Drakes, not a full victory/refusal report. No enemy/quest outcome initialized."
+  },
+  "source_semantics": [
+    "L063 actor0 VHA/OBLI P2.A sets42E02; dialogueEffects B3B2 tests bit2, B3BA writes BE03/aux5703=FE to remove wall215,100, B3F4 consumes bit2 viaAND FD. It is not a persistent acceptance flag.",
+    "Wrong/BRIBE leave original BE00[215,100,74,50], real Left/Left/Up remainsblocked215,101; BrownKey remains1. VHA/OBLI yield BE03FE, BrownKey remains1, full-runtime cold.",
+    "Physical pass not yet verified because fixed Monk patrol intercepted movement; next actual admission/controlled living-final-blow Cast/victory/BD8 death and movement. Separate checkpoints must remain explicit."
+  ],
+  "controlled_checkpoint": "VERIFIED",
+  "linked_gameplay_progression": "IN PROGRESS",
+  "earned_continuous_progression": "NOT STARTED",
+  "full_new_game_to_ending": "NOT STARTED"
+}

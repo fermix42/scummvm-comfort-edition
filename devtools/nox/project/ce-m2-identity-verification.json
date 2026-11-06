@@ -1,0 +1,32 @@
+{
+  "milestone": "M2",
+  "milestone_status": "IN PROGRESS",
+  "subtask": "M2.1c",
+  "status": "VERIFIED",
+  "scope": "Bounded NSM2 resource/mode chunks, explicit NSM1 defaults and actual saved-mode restoration; not complete Classic UI/lifecycle",
+  "build": {
+    "session": 4796,
+    "warnings": 0,
+    "errors": 0,
+    "elapsed": "00:02:36.20"
+  },
+  "executable_sha256": "d5452fdecf0681a3d622fe328d47c89a8a055a564ff0b6bc7233a0eb832b9dac",
+  "evidence": {
+    "resources": {
+      "path": "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m2-identity-resources\\20261015-132042\\verification.json",
+      "sha256": "5def1f5eeafc944d1c478e2297bf2a56f0efc7b5e1ce3bc51422f7e2b27d88d3"
+    },
+    "m1_migration": {
+      "path": "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m2-identity-migration\\20261015-132050\\verification.json",
+      "sha256": "45fe100d83859fae70c80287e633f91e329701c4810ede9ce3ae501557e7a65d"
+    },
+    "modern": {
+      "path": "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m2-identity-modern\\20261015-132056\\verification.json",
+      "sha256": "01e295c051c992e0a5ddbe3d6569e55e66fb413ea3ce4542a3b41416b225df85"
+    },
+    "classic": {
+      "path": "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m2-identity-classic\\20261015-132112\\verification.json",
+      "sha256": "3512a1f1634249596c893a69818da394d823701daa93cb04cf6f4c57d897cb79"
+    }
+  }
+}

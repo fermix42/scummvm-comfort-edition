@@ -1,0 +1,597 @@
+{
+  "milestone": "M3",
+  "status": "IN PROGRESS",
+  "scope": "Axea eighth-page award -> Valess research -> Nystul binding plus refusal/alternate cases; not complete campaign",
+  "executable_sha256": "4838f1c4c9e7cb826153aada4ef3520b832aad12e32246c1f156a1e5e03020ac",
+  "build_log": "ce-m3-vortex-build-17.log",
+  "build_result": "PASS; zero warnings/errors; 00:04:16.65",
+  "source_sha256": {
+    "engines/nox/backoff_validation.h": "7362aace99ec706f40295446abc3a9b41bb2ed2f841f89c61ed4f20a7c18b760",
+    "engines/nox/caller_validation.h": "ede6a33e41ad5fa9d9613fe36e203e7122ca9830a1b4b54e46ae9591cf632391",
+    "engines/nox/campaign_validation.h": "affdbfd37b705a4ccf77da35534bb096b77fff8b59138d1a816bd3bba7f4e577",
+    "engines/nox/configure.engine": "774fc9df4834ca0e64018b72f326d14989a40c08f5c7fd78d06bbea6ee42c015",
+    "engines/nox/cpu.inc": "41c0fdff3d9d3466871ae76144b430b9b13bd29a2873a8899ebad56e4e208b97",
+    "engines/nox/cycles.inc": "2b1024aeab86cda827aec30eb696547ced1d333226263647b29b1d34db3acd6e",
+    "engines/nox/detection.cpp": "32753d7b31fd8fe9f61eb27c676e6564d79764aa94cd5283c2508b8ac056dbd6",
+    "engines/nox/dialogue_validation.h": "5d2663dabee5c81507130bc126b3a1f4c9e91adc7b08a0e57d71e869a7b00dbd",
+    "engines/nox/enhancement_fixture.h": "13d45f7cf67cbec92f87777653c1ec51e65dd6b2b20538020b55f00fcd0718b5",
+    "engines/nox/enhancement_validation.h": "a24bde10489f8ca310c45c92050d21293aa974ee2eb86691a350aa372667e13a",
+    "engines/nox/enhancements.cpp": "5ed93907c2e0b1004c9978bbb91c32913de50d1706e9fd41c2027473b3069150",
+    "engines/nox/enhancements.h": "f0d73af3421c0597db87ace38b2d203c73640d43a5bade9b278cf6c1e7ff029d",
+    "engines/nox/grid_validation.h": "6032efc17e039528d63f2640d1b4308b899a9a7776c7c6c8fe4fa7e0ea752fa9",
+    "engines/nox/history_validation.h": "5601beeb58e2f8babad090e45369e3d3249e8d409d4e69db2ca3fad847c21b88",
+    "engines/nox/host_validation.h": "58f0082264e78c366b05e8a0999b0dcdde8e147160dc3be543042af2ab1da7a9",
+    "engines/nox/io_validation.h": "556bd69ec180bae521284e5876d121dffac2a7827f6fce1200924f8a2081d214",
+    "engines/nox/management_validation.h": "286355cdedac22164095549c47f97e21d63e13eb738fb94b3368bf79d1738e34",
+    "engines/nox/metadata_validation.h": "c2b7fe9b7d1fa277517ec337b3ab8390e39552125b1c460be04690232466db5c",
+    "engines/nox/metaengine.cpp": "d631b83dc7b3a816489aa3a546d965f06d1cf89e684582c3dedd602ef866b24b",
+    "engines/nox/mockingboard.cpp": "38d5c6a894cc7a6bd238b9ad9a6740ec5ff42c6f299b7f6ce858505a6c1817bc",
+    "engines/nox/mockingboard.h": "d0afe027dc9ff9b269b0c60bf04abc45566502a17aed25879316856911937f2e",
+    "engines/nox/module.mk": "47de2ac64575f926a8de7cc5060913a3b63a0554cb5c20824ab55cf67ac1085f",
+    "engines/nox/movement.cpp": "4b03de9dd50c4a4cfc6c2e2d7da9d3fc3fc80a697dfd236a3340c1d25b84fdf9",
+    "engines/nox/nox.cpp": "19487e9a956dc84395c8f05ebd35af0b26fb0ac5921e0262395393e99c661d2e",
+    "engines/nox/nox.h": "58c793af023f834225965dc0a10755138a7d9a087f58c3f27c206b6239cd2057",
+    "engines/nox/profile_validation.h": "2658f8c93149c8692e5ef5b79d1dc42836dbd60f4d15f75a0f0ed3dbbd84301a",
+    "engines/nox/records.h": "8045582e0ae5f83d027b8b197aa66a8309e9ff80f2117bce7edb86455eca9b7d",
+    "engines/nox/render.cpp": "bd7833eaccc812fad88b0d19e5070d9955e440142525ded89b3d30766120073a",
+    "engines/nox/resources.h": "1451464a6f8ea57039c3596c8aaa388701e5005fb3364b80b9e48bb04dc2cd95",
+    "engines/nox/runtime.cpp": "ae227d4a7d6e0001b4ce948f908c1a120e515c801fc6f5720ff4a1e50175f80f",
+    "engines/nox/runtime.h": "72b659618e2242ce463522d3e9f46ff15d58521fbeaf0a084775ed935c182e47",
+    "engines/nox/runtime_observers.cpp": "24a8193ecb7804e88df401cb65ddffed1c796f0571bcbb76d4dedd41319d93ca",
+    "engines/nox/runtime_state.cpp": "45a01b83702f87d34a57a004e9105c2b69e50c213511eb4a176bccaa9cdc6e9c",
+    "engines/nox/save_policy.h": "890bced00db32c534207055e5f6acf7247310102119da4c5bc66f13a4c7d72fc",
+    "engines/nox/saves.h": "9d0e92a7fb35952d35f2f2ecf0602ba48211162cb3f18b02a5a454919ac514f9",
+    "engines/nox/session_validation.cpp": "da83025980220829e5ec424e80ad067d6681e30893918a1196ec84ef0524d839",
+    "engines/nox/snapshot.h": "c3c8c9fd497391995084286e6f1cadc8ac5b9e9ed94965b6820043624e6d35de",
+    "engines/nox/speaker_audio.cpp": "b80e55470b95fcaf200f4346a0cb0bab8ce8ff3fe7e2436633da833a2da9f833",
+    "engines/nox/speaker_audio.h": "aad57abba83f4a02ee0780eb2eebc80e68a43181b285533dc3313f3ad307205f",
+    "engines/nox/validation.cpp": "7582907d58238d29057026968b03866e25fb7e760184497204896cd5dad8ef75",
+    "engines/nox/vortex_validation.h": "640a6bb167d302b459a829af2c7d3c88e419329f3e0afb014e9c0c399866a7d6"
+  },
+  "reports": [
+    {
+      "path": "ce-m3-vortex-controlled\\20261015-235455\\phase-1-complete.json",
+      "sha256": "668533cf7d2258fcd9523e8836aabe4da846961aec392ad219c0eca70782ddd5",
+      "mode": "Modern",
+      "phase": 1,
+      "scenario": null,
+      "ce_processes": 2
+    },
+    {
+      "path": "ce-m3-vortex-controlled\\20261015-235455\\phase-2-complete.json",
+      "sha256": "4c2da29bb66b62b0e44e93314110637efffc4c98215eb1813388d0984ec1d4de",
+      "mode": "Modern",
+      "phase": 2,
+      "scenario": null,
+      "ce_processes": 2
+    },
+    {
+      "path": "ce-m3-vortex-controlled\\20261015-235455\\phase-3-complete.json",
+      "sha256": "42b35238f95a1384550abcb999db6f2b5cc0b8625d51002e5fa0a1b88ccebc9a",
+      "mode": "Modern",
+      "phase": 3,
+      "scenario": null,
+      "ce_processes": 2
+    },
+    {
+      "path": "ce-m3-vortex-controlled-classic\\20261015-235455\\phase-1-complete.json",
+      "sha256": "478aedaacf44b166ce3522b01795efe7b2bd122de570bec58a1b0631f6687193",
+      "mode": "Classic",
+      "phase": 1,
+      "scenario": null,
+      "ce_processes": 2
+    },
+    {
+      "path": "ce-m3-vortex-controlled-classic\\20261015-235455\\phase-2-complete.json",
+      "sha256": "3b37c18198e149a5130a0e09099efd468eb439dd267a91daf3216e90dcbc7e7f",
+      "mode": "Classic",
+      "phase": 2,
+      "scenario": null,
+      "ce_processes": 2
+    },
+    {
+      "path": "ce-m3-vortex-controlled-classic\\20261015-235455\\phase-3-complete.json",
+      "sha256": "ac8e2c883502f34fe3bb0136c8fe0460dc32f820beaedc6c8e8b98d1cafc9932",
+      "mode": "Classic",
+      "phase": 3,
+      "scenario": null,
+      "ce_processes": 2
+    },
+    {
+      "path": "ce-m3-vortex-controlled-cases\\20261015-235521\\case-1\\verification.json",
+      "sha256": "7097afb1aaeff371271692ab4ef204526f0b5d04f8f91057a06187f312bfe5c0",
+      "mode": "Modern",
+      "phase": null,
+      "scenario": 1,
+      "ce_processes": 2
+    },
+    {
+      "path": "ce-m3-vortex-controlled-cases\\20261015-235521\\case-2\\verification.json",
+      "sha256": "9fce79cad82a2823eeb918c659e287df886d02e7767f9ee37de895d4fac1d7d5",
+      "mode": "Modern",
+      "phase": null,
+      "scenario": 2,
+      "ce_processes": 2
+    },
+    {
+      "path": "ce-m3-vortex-controlled-cases\\20261015-235521\\case-3\\verification.json",
+      "sha256": "2c792745c98f0a1d35e33bb346eca565237d2f1318bf9ed19957127cc938e40c",
+      "mode": "Modern",
+      "phase": null,
+      "scenario": 3,
+      "ce_processes": 2
+    },
+    {
+      "path": "ce-m3-vortex-controlled-cases-classic\\20261015-235521\\case-1\\verification.json",
+      "sha256": "6df34220c20235b22d76ec2d1147e0e0a9a8e38cc16a408df04c771cf9403081",
+      "mode": "Classic",
+      "phase": null,
+      "scenario": 1,
+      "ce_processes": 2
+    },
+    {
+      "path": "ce-m3-vortex-controlled-cases-classic\\20261015-235521\\case-2\\verification.json",
+      "sha256": "a6b65c5ec311082c725ec9d4c761eef40f73fa589d6661804e27a9a00e698982",
+      "mode": "Classic",
+      "phase": null,
+      "scenario": 2,
+      "ce_processes": 2
+    },
+    {
+      "path": "ce-m3-vortex-controlled-cases-classic\\20261015-235521\\case-3\\verification.json",
+      "sha256": "a10dd6a632cbb3974e113d267425984194cd7cc4369be83458f33a72dbabe6ab",
+      "mode": "Classic",
+      "phase": null,
+      "scenario": 3,
+      "ce_processes": 2
+    }
+  ],
+  "decoded_save_fields": [
+    {
+      "path": "ce-m3-vortex-controlled\\20261015-235455\\phase-1-saves\\nox-ce-ed5939a032719adcfecdf986a9261c4a-042605b2b48e017e5863d5c2f6433991-slot001.g1",
+      "save_sha256": "08874b2ae671ef53f3d793089f06a5a24c5b99e66310b2f9daae9bd837aae768",
+      "runtime_sha256": "9855039947c8a33cec0c230c9c06e57e0e5c17336da84b54a1186dbaf1bc636f",
+      "sequence": 2,
+      "pageflags": 255,
+      "research": 0,
+      "map": 35,
+      "map_type": 6,
+      "xy": [
+        34,
+        35
+      ],
+      "character_sha256": "91fd9c069bb396d3df5324fc601586fd70a669d538bf98aae3a8090b3ff642ac",
+      "party_count": 1,
+      "status": 0,
+      "level": 1,
+      "health": 50,
+      "mana": 8,
+      "strength_dexterity_intelligence": [
+        8,
+        8,
+        8
+      ],
+      "inactive": 0,
+      "maximum_health": 50,
+      "mode": "Modern",
+      "phase": 1,
+      "scenario": null
+    },
+    {
+      "path": "ce-m3-vortex-controlled\\20261015-235455\\phase-1-saves\\nox-ce-ed5939a032719adcfecdf986a9261c4a-042605b2b48e017e5863d5c2f6433991-slot002.g1",
+      "save_sha256": "21577de3584466bc15c74c6ef794209e365a426f4c2c2f84611e2f6966e69913",
+      "runtime_sha256": "880e3e02716244315c781a02948b8e39a6e35735dcfd1ddb993da1904b06ffa2",
+      "sequence": 2,
+      "pageflags": 253,
+      "research": 0,
+      "map": 7,
+      "map_type": 8,
+      "xy": [
+        25,
+        38
+      ],
+      "character_sha256": "91fd9c069bb396d3df5324fc601586fd70a669d538bf98aae3a8090b3ff642ac",
+      "party_count": 1,
+      "status": 0,
+      "level": 1,
+      "health": 50,
+      "mana": 8,
+      "strength_dexterity_intelligence": [
+        8,
+        8,
+        8
+      ],
+      "inactive": 0,
+      "maximum_health": 50,
+      "mode": "Modern",
+      "controlled_prerequisite": true
+    },
+    {
+      "path": "ce-m3-vortex-controlled\\20261015-235455\\phase-2-saves\\nox-ce-ed5939a032719adcfecdf986a9261c4a-042605b2b48e017e5863d5c2f6433991-slot001.g1",
+      "save_sha256": "39461b1944b1e54c829e4516987a2d1633808a3c162efefe2de5edcb0d016eb5",
+      "runtime_sha256": "791a02acd0c19e1cb0952a29b87e049147777e10183642e87cb44c7678c85ccf",
+      "sequence": 4,
+      "pageflags": 255,
+      "research": 1,
+      "map": 78,
+      "map_type": 7,
+      "xy": [
+        37,
+        38
+      ],
+      "character_sha256": "91fd9c069bb396d3df5324fc601586fd70a669d538bf98aae3a8090b3ff642ac",
+      "party_count": 1,
+      "status": 0,
+      "level": 1,
+      "health": 50,
+      "mana": 8,
+      "strength_dexterity_intelligence": [
+        8,
+        8,
+        8
+      ],
+      "inactive": 0,
+      "maximum_health": 50,
+      "mode": "Modern",
+      "phase": 2,
+      "scenario": null
+    },
+    {
+      "path": "ce-m3-vortex-controlled\\20261015-235455\\phase-3-saves\\nox-ce-ed5939a032719adcfecdf986a9261c4a-042605b2b48e017e5863d5c2f6433991-slot001.g1",
+      "save_sha256": "7a55c239d96aaa40a3755e96c8bedda99ac835c955c3cb1688754eb303f97965",
+      "runtime_sha256": "c6afe61ba3b35aee5a81aa2e715c4424e8b262e71d2eb0796deafb112a45ee21",
+      "sequence": 6,
+      "pageflags": 255,
+      "research": 3,
+      "map": 104,
+      "map_type": 2,
+      "xy": [
+        103,
+        24
+      ],
+      "character_sha256": "91fd9c069bb396d3df5324fc601586fd70a669d538bf98aae3a8090b3ff642ac",
+      "party_count": 1,
+      "status": 0,
+      "level": 1,
+      "health": 50,
+      "mana": 8,
+      "strength_dexterity_intelligence": [
+        8,
+        8,
+        8
+      ],
+      "inactive": 0,
+      "maximum_health": 50,
+      "mode": "Modern",
+      "phase": 3,
+      "scenario": null
+    },
+    {
+      "path": "ce-m3-vortex-controlled-classic\\20261015-235455\\phase-1-saves\\nox-ce-ed5939a032719adcfecdf986a9261c4a-6054b13e9725bf9dbe77e407e868d5d4-slot001.g1",
+      "save_sha256": "9d182421bb5aec468f418024f81c648a3dc32f79ccedb51f21d90a0219d2f416",
+      "runtime_sha256": "9855039947c8a33cec0c230c9c06e57e0e5c17336da84b54a1186dbaf1bc636f",
+      "sequence": 2,
+      "pageflags": 255,
+      "research": 0,
+      "map": 35,
+      "map_type": 6,
+      "xy": [
+        34,
+        35
+      ],
+      "character_sha256": "91fd9c069bb396d3df5324fc601586fd70a669d538bf98aae3a8090b3ff642ac",
+      "party_count": 1,
+      "status": 0,
+      "level": 1,
+      "health": 50,
+      "mana": 8,
+      "strength_dexterity_intelligence": [
+        8,
+        8,
+        8
+      ],
+      "inactive": 0,
+      "maximum_health": 50,
+      "mode": "Classic",
+      "phase": 1,
+      "scenario": null
+    },
+    {
+      "path": "ce-m3-vortex-controlled-classic\\20261015-235455\\phase-1-saves\\nox-ce-ed5939a032719adcfecdf986a9261c4a-6054b13e9725bf9dbe77e407e868d5d4-slot002.g1",
+      "save_sha256": "1a69b758b714949f205d56aee864e7dfd63223b6d611238e91d2c30f8203f8af",
+      "runtime_sha256": "880e3e02716244315c781a02948b8e39a6e35735dcfd1ddb993da1904b06ffa2",
+      "sequence": 2,
+      "pageflags": 253,
+      "research": 0,
+      "map": 7,
+      "map_type": 8,
+      "xy": [
+        25,
+        38
+      ],
+      "character_sha256": "91fd9c069bb396d3df5324fc601586fd70a669d538bf98aae3a8090b3ff642ac",
+      "party_count": 1,
+      "status": 0,
+      "level": 1,
+      "health": 50,
+      "mana": 8,
+      "strength_dexterity_intelligence": [
+        8,
+        8,
+        8
+      ],
+      "inactive": 0,
+      "maximum_health": 50,
+      "mode": "Classic",
+      "controlled_prerequisite": true
+    },
+    {
+      "path": "ce-m3-vortex-controlled-classic\\20261015-235455\\phase-2-saves\\nox-ce-ed5939a032719adcfecdf986a9261c4a-6054b13e9725bf9dbe77e407e868d5d4-slot001.g1",
+      "save_sha256": "9e38c4d5f97f40eb0f764e471a1a107c77662f574b9703dce38c810bec857ad5",
+      "runtime_sha256": "791a02acd0c19e1cb0952a29b87e049147777e10183642e87cb44c7678c85ccf",
+      "sequence": 4,
+      "pageflags": 255,
+      "research": 1,
+      "map": 78,
+      "map_type": 7,
+      "xy": [
+        37,
+        38
+      ],
+      "character_sha256": "91fd9c069bb396d3df5324fc601586fd70a669d538bf98aae3a8090b3ff642ac",
+      "party_count": 1,
+      "status": 0,
+      "level": 1,
+      "health": 50,
+      "mana": 8,
+      "strength_dexterity_intelligence": [
+        8,
+        8,
+        8
+      ],
+      "inactive": 0,
+      "maximum_health": 50,
+      "mode": "Classic",
+      "phase": 2,
+      "scenario": null
+    },
+    {
+      "path": "ce-m3-vortex-controlled-classic\\20261015-235455\\phase-3-saves\\nox-ce-ed5939a032719adcfecdf986a9261c4a-6054b13e9725bf9dbe77e407e868d5d4-slot001.g1",
+      "save_sha256": "1b1e56ac1f57331161edfcd49c1d4b2ab80c07806bc8b0b67205e957f578a820",
+      "runtime_sha256": "c6afe61ba3b35aee5a81aa2e715c4424e8b262e71d2eb0796deafb112a45ee21",
+      "sequence": 6,
+      "pageflags": 255,
+      "research": 3,
+      "map": 104,
+      "map_type": 2,
+      "xy": [
+        103,
+        24
+      ],
+      "character_sha256": "91fd9c069bb396d3df5324fc601586fd70a669d538bf98aae3a8090b3ff642ac",
+      "party_count": 1,
+      "status": 0,
+      "level": 1,
+      "health": 50,
+      "mana": 8,
+      "strength_dexterity_intelligence": [
+        8,
+        8,
+        8
+      ],
+      "inactive": 0,
+      "maximum_health": 50,
+      "mode": "Classic",
+      "phase": 3,
+      "scenario": null
+    },
+    {
+      "path": "ce-m3-vortex-controlled-cases\\20261015-235521\\case-1\\saves\\nox-ce-ed5939a032719adcfecdf986a9261c4a-042605b2b48e017e5863d5c2f6433991-slot001.g1",
+      "save_sha256": "3393b861ef9681a221afeb2f87778db4b4220da86cd97283056b26b4b7194579",
+      "runtime_sha256": "0522f74541c0b8772903fe2ccbcce6412bc99bcd4c7af53d5ba1c3004cf679cd",
+      "sequence": 4,
+      "pageflags": 253,
+      "research": 0,
+      "map": 78,
+      "map_type": 7,
+      "xy": [
+        37,
+        38
+      ],
+      "character_sha256": "91fd9c069bb396d3df5324fc601586fd70a669d538bf98aae3a8090b3ff642ac",
+      "party_count": 1,
+      "status": 0,
+      "level": 1,
+      "health": 50,
+      "mana": 8,
+      "strength_dexterity_intelligence": [
+        8,
+        8,
+        8
+      ],
+      "inactive": 0,
+      "maximum_health": 50,
+      "mode": "Modern",
+      "phase": null,
+      "scenario": 1
+    },
+    {
+      "path": "ce-m3-vortex-controlled-cases\\20261015-235521\\case-2\\saves\\nox-ce-ed5939a032719adcfecdf986a9261c4a-042605b2b48e017e5863d5c2f6433991-slot001.g1",
+      "save_sha256": "36055e51514a7a6239a828dc91faaf5a20863208713aef288d43aa7935e59855",
+      "runtime_sha256": "0cd52e6e5f2a8e110377b420bf3d0d828096927aa466909d5951c470e52843e9",
+      "sequence": 4,
+      "pageflags": 253,
+      "research": 0,
+      "map": 104,
+      "map_type": 2,
+      "xy": [
+        103,
+        24
+      ],
+      "character_sha256": "91fd9c069bb396d3df5324fc601586fd70a669d538bf98aae3a8090b3ff642ac",
+      "party_count": 1,
+      "status": 0,
+      "level": 1,
+      "health": 50,
+      "mana": 8,
+      "strength_dexterity_intelligence": [
+        8,
+        8,
+        8
+      ],
+      "inactive": 0,
+      "maximum_health": 50,
+      "mode": "Modern",
+      "phase": null,
+      "scenario": 2
+    },
+    {
+      "path": "ce-m3-vortex-controlled-cases\\20261015-235521\\case-3\\saves\\nox-ce-ed5939a032719adcfecdf986a9261c4a-042605b2b48e017e5863d5c2f6433991-slot001.g1",
+      "save_sha256": "267b3dac3f47af2d391dad6fe76fed30e8babe1191b58be520b811b7b5ab0aa3",
+      "runtime_sha256": "f9dd9c74120471842fe72194c79ff396f30f9641359d221b6003e666de25ee73",
+      "sequence": 4,
+      "pageflags": 255,
+      "research": 2,
+      "map": 104,
+      "map_type": 2,
+      "xy": [
+        103,
+        24
+      ],
+      "character_sha256": "91fd9c069bb396d3df5324fc601586fd70a669d538bf98aae3a8090b3ff642ac",
+      "party_count": 1,
+      "status": 0,
+      "level": 1,
+      "health": 50,
+      "mana": 8,
+      "strength_dexterity_intelligence": [
+        8,
+        8,
+        8
+      ],
+      "inactive": 0,
+      "maximum_health": 50,
+      "mode": "Modern",
+      "phase": null,
+      "scenario": 3
+    },
+    {
+      "path": "ce-m3-vortex-controlled-cases-classic\\20261015-235521\\case-1\\saves\\nox-ce-ed5939a032719adcfecdf986a9261c4a-6054b13e9725bf9dbe77e407e868d5d4-slot001.g1",
+      "save_sha256": "e2f5ffdfa87a0e1addd772c4fb98667d0715481e0e23d58457986a077fa48318",
+      "runtime_sha256": "0522f74541c0b8772903fe2ccbcce6412bc99bcd4c7af53d5ba1c3004cf679cd",
+      "sequence": 4,
+      "pageflags": 253,
+      "research": 0,
+      "map": 78,
+      "map_type": 7,
+      "xy": [
+        37,
+        38
+      ],
+      "character_sha256": "91fd9c069bb396d3df5324fc601586fd70a669d538bf98aae3a8090b3ff642ac",
+      "party_count": 1,
+      "status": 0,
+      "level": 1,
+      "health": 50,
+      "mana": 8,
+      "strength_dexterity_intelligence": [
+        8,
+        8,
+        8
+      ],
+      "inactive": 0,
+      "maximum_health": 50,
+      "mode": "Classic",
+      "phase": null,
+      "scenario": 1
+    },
+    {
+      "path": "ce-m3-vortex-controlled-cases-classic\\20261015-235521\\case-2\\saves\\nox-ce-ed5939a032719adcfecdf986a9261c4a-6054b13e9725bf9dbe77e407e868d5d4-slot001.g1",
+      "save_sha256": "d24e503480acceaa7f3a04bdb22c6393bcac42516ffea02c90d1e9bb3b581704",
+      "runtime_sha256": "0cd52e6e5f2a8e110377b420bf3d0d828096927aa466909d5951c470e52843e9",
+      "sequence": 4,
+      "pageflags": 253,
+      "research": 0,
+      "map": 104,
+      "map_type": 2,
+      "xy": [
+        103,
+        24
+      ],
+      "character_sha256": "91fd9c069bb396d3df5324fc601586fd70a669d538bf98aae3a8090b3ff642ac",
+      "party_count": 1,
+      "status": 0,
+      "level": 1,
+      "health": 50,
+      "mana": 8,
+      "strength_dexterity_intelligence": [
+        8,
+        8,
+        8
+      ],
+      "inactive": 0,
+      "maximum_health": 50,
+      "mode": "Classic",
+      "phase": null,
+      "scenario": 2
+    },
+    {
+      "path": "ce-m3-vortex-controlled-cases-classic\\20261015-235521\\case-3\\saves\\nox-ce-ed5939a032719adcfecdf986a9261c4a-6054b13e9725bf9dbe77e407e868d5d4-slot001.g1",
+      "save_sha256": "3f768919bdcc20c426b9e62790891217785c641e2c19eedf91e752a26fdf1d04",
+      "runtime_sha256": "f9dd9c74120471842fe72194c79ff396f30f9641359d221b6003e666de25ee73",
+      "sequence": 4,
+      "pageflags": 255,
+      "research": 2,
+      "map": 104,
+      "map_type": 2,
+      "xy": [
+        103,
+        24
+      ],
+      "character_sha256": "91fd9c069bb396d3df5324fc601586fd70a669d538bf98aae3a8090b3ff642ac",
+      "party_count": 1,
+      "status": 0,
+      "level": 1,
+      "health": 50,
+      "mana": 8,
+      "strength_dexterity_intelligence": [
+        8,
+        8,
+        8
+      ],
+      "inactive": 0,
+      "maximum_health": 50,
+      "mode": "Classic",
+      "phase": null,
+      "scenario": 3
+    }
+  ],
+  "ce_processes": 24,
+  "cold_processes": 12,
+  "controlled_checkpoint": "VERIFIED",
+  "linked_gameplay_progression": "VERIFIED",
+  "earned_continuous_progression": "NOT STARTED",
+  "full_new_game_to_ending": "NOT STARTED",
+  "initializations": [
+    "Original valid new-game party retained; full character record unchanged through Axea/Valess/Nystul, independently decoded",
+    "Before Axea only: BCD noon; source-checked private inventory item97 quantity7 plus main43E=FD, explicitly CONTROLLED seven pages, not earned",
+    "Authored exit loaders and source-supported party adjacency/camera/redraw before NPC operations; bounded pre-input retries if actor moves",
+    "No eighth-page/research/binding outcome injected after operations begin; retain actual Axea eight-page state across cold processes",
+    "Refusal cases branch from controlled seven-page checkpoint; alternate BIND branches from actual Axea award before Valess"
+  ],
+  "coverage": "Actual Axea award/repeat; Valess research/repeat and missing-page refusal; Nystul research-assisted and explicit pre-research binding, missing-page refusal and no duplicate; complete runtime/owner equality across cold saves in both modes",
+  "limitations": [
+    "Starting seven pages are controlled; no earned seven-pickup chain claim",
+    "Bound Nox Vortex spell subsequent ready/cast use remains untested",
+    "Complete mandatory-gate census and actual ending presentation remain untested",
+    "No earned continuous or full unassisted new-game-to-ending claim",
+    "Earlier template-based Vortex reports retain operation traces but are not accepted for controlled-party validity; see precondition investigation",
+    "Prior isolated page/Log reports bind their own historical executable/source and are not silently promoted to this executable"
+  ],
+  "originals_sha256": {
+    "Nox Archaist HDV (v119).HDV": "c42a95c7a356548c78957f98693e92d33c9bae3ff5126d9887c2980e5a490c3c",
+    "Nox Archaist Lord of Storms HDV (v137).HDV": "90ec012a317c56ab9a5182a1a877227fa7a18ebed72567d2bf08888956b635c9"
+  },
+  "standalone_executable_sha256": "d26b2e8dd19efc1420ae569892f8ae3bd6f39f06cbfd835758f95cfdd1e0d695",
+  "next_action": "Continue unblocked M3: bound spell integration and exact map8 ending trigger/presentation; no M4"
+}

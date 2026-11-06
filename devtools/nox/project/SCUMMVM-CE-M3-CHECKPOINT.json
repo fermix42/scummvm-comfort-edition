@@ -1,0 +1,223 @@
+{
+  "milestone": "M3",
+  "status": "IN PROGRESS",
+  "scope": "Bounded campaign checkpoint evidence, NOT full campaign completion",
+  "executable_sha256": "2d5b398b847b74afb1f6fe796d71689717e2519f23baa3b6fcf9435d5466a3e5",
+  "build_log": "ce-m3-build-9.log",
+  "source_sha256": {
+    "engines/nox/backoff_validation.h": "7362aace99ec706f40295446abc3a9b41bb2ed2f841f89c61ed4f20a7c18b760",
+    "engines/nox/caller_validation.h": "ede6a33e41ad5fa9d9613fe36e203e7122ca9830a1b4b54e46ae9591cf632391",
+    "engines/nox/configure.engine": "774fc9df4834ca0e64018b72f326d14989a40c08f5c7fd78d06bbea6ee42c015",
+    "engines/nox/cpu.inc": "41c0fdff3d9d3466871ae76144b430b9b13bd29a2873a8899ebad56e4e208b97",
+    "engines/nox/cycles.inc": "2b1024aeab86cda827aec30eb696547ced1d333226263647b29b1d34db3acd6e",
+    "engines/nox/detection.cpp": "32753d7b31fd8fe9f61eb27c676e6564d79764aa94cd5283c2508b8ac056dbd6",
+    "engines/nox/dialogue_validation.h": "3a4ee13a32c90a7fae8bfb05b4933475ead9a17001ccad0e0f8c6ddb3ab4696f",
+    "engines/nox/enhancement_fixture.h": "13d45f7cf67cbec92f87777653c1ec51e65dd6b2b20538020b55f00fcd0718b5",
+    "engines/nox/enhancement_validation.h": "a24bde10489f8ca310c45c92050d21293aa974ee2eb86691a350aa372667e13a",
+    "engines/nox/enhancements.cpp": "5ed93907c2e0b1004c9978bbb91c32913de50d1706e9fd41c2027473b3069150",
+    "engines/nox/enhancements.h": "f0d73af3421c0597db87ace38b2d203c73640d43a5bade9b278cf6c1e7ff029d",
+    "engines/nox/grid_validation.h": "6032efc17e039528d63f2640d1b4308b899a9a7776c7c6c8fe4fa7e0ea752fa9",
+    "engines/nox/history_validation.h": "5601beeb58e2f8babad090e45369e3d3249e8d409d4e69db2ca3fad847c21b88",
+    "engines/nox/host_validation.h": "58f0082264e78c366b05e8a0999b0dcdde8e147160dc3be543042af2ab1da7a9",
+    "engines/nox/io_validation.h": "556bd69ec180bae521284e5876d121dffac2a7827f6fce1200924f8a2081d214",
+    "engines/nox/management_validation.h": "286355cdedac22164095549c47f97e21d63e13eb738fb94b3368bf79d1738e34",
+    "engines/nox/metadata_validation.h": "c2b7fe9b7d1fa277517ec337b3ab8390e39552125b1c460be04690232466db5c",
+    "engines/nox/metaengine.cpp": "d631b83dc7b3a816489aa3a546d965f06d1cf89e684582c3dedd602ef866b24b",
+    "engines/nox/mockingboard.cpp": "38d5c6a894cc7a6bd238b9ad9a6740ec5ff42c6f299b7f6ce858505a6c1817bc",
+    "engines/nox/mockingboard.h": "d0afe027dc9ff9b269b0c60bf04abc45566502a17aed25879316856911937f2e",
+    "engines/nox/module.mk": "47de2ac64575f926a8de7cc5060913a3b63a0554cb5c20824ab55cf67ac1085f",
+    "engines/nox/movement.cpp": "4b03de9dd50c4a4cfc6c2e2d7da9d3fc3fc80a697dfd236a3340c1d25b84fdf9",
+    "engines/nox/nox.cpp": "652da62b9d81bb43e4510067b4b96a3cb5c5de3410f91a717d06a4bc6d075a9b",
+    "engines/nox/nox.h": "9d24a60c58aeadee57082f1d6f414544208b33a97fe01ac82ec1a556b5af0391",
+    "engines/nox/profile_validation.h": "2658f8c93149c8692e5ef5b79d1dc42836dbd60f4d15f75a0f0ed3dbbd84301a",
+    "engines/nox/records.h": "8045582e0ae5f83d027b8b197aa66a8309e9ff80f2117bce7edb86455eca9b7d",
+    "engines/nox/render.cpp": "bd7833eaccc812fad88b0d19e5070d9955e440142525ded89b3d30766120073a",
+    "engines/nox/resources.h": "1451464a6f8ea57039c3596c8aaa388701e5005fb3364b80b9e48bb04dc2cd95",
+    "engines/nox/runtime.cpp": "ae227d4a7d6e0001b4ce948f908c1a120e515c801fc6f5720ff4a1e50175f80f",
+    "engines/nox/runtime.h": "65e64ee3049b23f9a25fa9d03b810749658f04dd2839ddfb06d821d1bf25e371",
+    "engines/nox/runtime_observers.cpp": "24a8193ecb7804e88df401cb65ddffed1c796f0571bcbb76d4dedd41319d93ca",
+    "engines/nox/runtime_state.cpp": "45a01b83702f87d34a57a004e9105c2b69e50c213511eb4a176bccaa9cdc6e9c",
+    "engines/nox/save_policy.h": "890bced00db32c534207055e5f6acf7247310102119da4c5bc66f13a4c7d72fc",
+    "engines/nox/saves.h": "9d0e92a7fb35952d35f2f2ecf0602ba48211162cb3f18b02a5a454919ac514f9",
+    "engines/nox/session_validation.cpp": "da83025980220829e5ec424e80ad067d6681e30893918a1196ec84ef0524d839",
+    "engines/nox/snapshot.h": "c3c8c9fd497391995084286e6f1cadc8ac5b9e9ed94965b6820043624e6d35de",
+    "engines/nox/speaker_audio.cpp": "b80e55470b95fcaf200f4346a0cb0bab8ce8ff3fe7e2436633da833a2da9f833",
+    "engines/nox/speaker_audio.h": "aad57abba83f4a02ee0780eb2eebc80e68a43181b285533dc3313f3ad307205f",
+    "engines/nox/validation.cpp": "7582907d58238d29057026968b03866e25fb7e760184497204896cd5dad8ef75",
+    "backends/events/default/default-events.cpp": "04a82d66b59fed6d3685bb6d632594f698fe1ecc73bfe8d76f08101faab136ca",
+    "backends/graphics/surfacesdl/surfacesdl-graphics.cpp": "9a0d98f499180a48109377302c96ae74e4eafad2e6eda2e1b440fc5a81d0a776",
+    "backends/networking/http/curl/networkreadstream-curl.cpp": "c243260f6e4caf0e0e85f096c6b34b3785aab93ff437230dec28dbd26c30646a",
+    "engines/ce_achievements.cpp": "831cc94e8f7e7089f0d51fcf62752a7c99094e052e33cd9b0442ed78766d88f1",
+    "engines/ce_achievements.h": "c316373fce3a2837d9a3b9bf800b36797a60b4a6293da6e198e27e1a961b943d",
+    "engines/metaengine.cpp": "38f44a1787d982b101198484b6f969eeea1603a18aea750fe702c0518ade6a52",
+    "engines/metaengine.h": "0a0e69cbce98c072e67433c0bf99b8be93fc93533a9d89d777770ec1cf82f327",
+    "gui/launcher.cpp": "9e02cc9151b9dd3f76c52cbfe7de571065acaad088f09d95da9829426d4c234f",
+    "gui/saveload-dialog.cpp": "6af8ee1d591a87722f9aa34666bfb0c7dd61c47abe5704156b11d01e531173ce",
+    "run-build-release-cleanenv.ps1": "f88ea5dbbdfcb388cc11a43b781f4d7e7f927bb58c14210df24ea44654d5cd33",
+    "engines/nox/campaign_validation.h": "8e8c0dae4bfc7dc2e35d8867d5e5fff2ade114f9300497744fe1510302983e08",
+    "devtools/nox/test_campaign.py": "d26381ae651bfafd04a28e55b9d46f74311b130f08c77f7f98fefe44457db6cf"
+  },
+  "m2_source_changes": [
+    "engines/nox/nox.cpp",
+    "engines/nox/nox.h",
+    "engines/nox/runtime.h"
+  ],
+  "preserved": {
+    "Nox Archaist HDV (v119).HDV": true,
+    "Nox Archaist Lord of Storms HDV (v137).HDV": true,
+    "conversion/build/Release/nox_live.exe": true,
+    "conversion/SCUMMVM-CE-ARCHITECTURE-DECISION.md": true,
+    "conversion/ce-m1-source-baseline-20261015.zip": true
+  },
+  "cases": [
+    {
+      "path": "ce-m3-final-linked\\20261015-222552\\verification.json",
+      "sha256": "74a29c9a1ba8eb914c4122989f02048c10ae2481cc1213c274cb8e8d6eed14ce",
+      "mode": "Modern",
+      "page_mask": null,
+      "linked": true,
+      "status": "VERIFIED"
+    },
+    {
+      "path": "ce-m3-final-linked-classic\\20261015-222558\\verification.json",
+      "sha256": "9870fe157d19e4eb195554f9e72673ab777b2171cdc2bc0fcdb1ff3e747179ab",
+      "mode": "Classic",
+      "page_mask": null,
+      "linked": true,
+      "status": "VERIFIED"
+    },
+    {
+      "path": "ce-m3-final-pages\\20261015-222416\\verification.json",
+      "sha256": "8c0cf4ce71a225869e35fd42e408f993029ce7cbfe1f09c0ac0e182bf5eca966",
+      "mode": "Modern",
+      "page_mask": 4,
+      "linked": false,
+      "status": "VERIFIED"
+    },
+    {
+      "path": "ce-m3-final-pages\\20261015-222426\\verification.json",
+      "sha256": "ab29a68865bd28d0043b999a8cf5162c6ecee219d5f86d889381d28099a57962",
+      "mode": "Modern",
+      "page_mask": 8,
+      "linked": false,
+      "status": "VERIFIED"
+    },
+    {
+      "path": "ce-m3-final-pages\\20261015-222432\\verification.json",
+      "sha256": "e29889edfc22cb057e10863c66e12c8cab301957a22176be1b992dbeb59a0397",
+      "mode": "Modern",
+      "page_mask": 16,
+      "linked": false,
+      "status": "VERIFIED"
+    },
+    {
+      "path": "ce-m3-final-pages\\20261015-222438\\verification.json",
+      "sha256": "c1f26d36dc9fae3f26a6ed99fbb2c7e85d6c51dfbb77283415c4dbbd3a93d0c3",
+      "mode": "Modern",
+      "page_mask": 32,
+      "linked": false,
+      "status": "VERIFIED"
+    },
+    {
+      "path": "ce-m3-final-pages\\20261015-222443\\verification.json",
+      "sha256": "5d60a9a5e8fc8752e0aa712200cf39a07a64f61e4ad855f167076e5c098d0b43",
+      "mode": "Modern",
+      "page_mask": 64,
+      "linked": false,
+      "status": "VERIFIED"
+    },
+    {
+      "path": "ce-m3-final-pages\\20261015-222449\\verification.json",
+      "sha256": "0db888063469c43646ccaaa30da363cd01b94614aba77d2dacbda0ab89b79827",
+      "mode": "Modern",
+      "page_mask": 128,
+      "linked": false,
+      "status": "VERIFIED"
+    },
+    {
+      "path": "ce-m3-final-pages\\20261015-222454\\verification.json",
+      "sha256": "3f6704074c22f10998c10248e59f3dc5c282f43fdcfc93aa68a4ec08cfc2cabe",
+      "mode": "Modern",
+      "page_mask": 1,
+      "linked": false,
+      "status": "VERIFIED"
+    },
+    {
+      "path": "ce-m3-final-pages-classic\\20261015-222504\\verification.json",
+      "sha256": "6d97e19d175caf4d66c65e472dd9b026e4034c553b1209a1093045da27ca0ef6",
+      "mode": "Classic",
+      "page_mask": 4,
+      "linked": false,
+      "status": "VERIFIED"
+    },
+    {
+      "path": "ce-m3-final-pages-classic\\20261015-222510\\verification.json",
+      "sha256": "354a8677825d96cdf0f8431be2803187d1bde53c70efc2311fb07385e37870ec",
+      "mode": "Classic",
+      "page_mask": 8,
+      "linked": false,
+      "status": "VERIFIED"
+    },
+    {
+      "path": "ce-m3-final-pages-classic\\20261015-222516\\verification.json",
+      "sha256": "be417833534568106be17015f5294d10e4c582c3f7fe633c854a71b200fcfc6d",
+      "mode": "Classic",
+      "page_mask": 16,
+      "linked": false,
+      "status": "VERIFIED"
+    },
+    {
+      "path": "ce-m3-final-pages-classic\\20261015-222521\\verification.json",
+      "sha256": "b54d67b399113a9878477071ccc84ddb779ab5b8a880cc7153d34d4c052ed34f",
+      "mode": "Classic",
+      "page_mask": 32,
+      "linked": false,
+      "status": "VERIFIED"
+    },
+    {
+      "path": "ce-m3-final-pages-classic\\20261015-222527\\verification.json",
+      "sha256": "227265ef324f2e1ff69b4ed1653b123ba375b7c3d1b6c009e53dba2068a4c765",
+      "mode": "Classic",
+      "page_mask": 64,
+      "linked": false,
+      "status": "VERIFIED"
+    },
+    {
+      "path": "ce-m3-final-pages-classic\\20261015-222532\\verification.json",
+      "sha256": "90df51fc26725ba02249e95be37beaea48de285555e3390ca8a120f5d2e328d6",
+      "mode": "Classic",
+      "page_mask": 128,
+      "linked": false,
+      "status": "VERIFIED"
+    },
+    {
+      "path": "ce-m3-final-pages-classic\\20261015-222538\\verification.json",
+      "sha256": "8537c9831052e90fe6437c9b7c9ea5a146303105e089956322baebe4880c69ca",
+      "mode": "Classic",
+      "page_mask": 1,
+      "linked": false,
+      "status": "VERIFIED"
+    }
+  ],
+  "coverage_matrix": {
+    "path": "SCUMMVM-CE-M3-COVERAGE.json",
+    "sha256": "fa339c5a3716ad16f0ea0b31defd6751a02da93dcc4fdf02c7d7dd47ee2ecb6e"
+  },
+  "full_new_game_to_ending": "NOT STARTED",
+  "ending": "NOT STARTED",
+  "m4": "NOT STARTED",
+  "git_head": "5f84c5cd08cbc54083cf72da8cfa1665294c2bca",
+  "next_action": "Resolve remaining mandatory gates and link page acquisition to complete research/binding; actual ending conditions/presentation remain required.",
+  "document_sha256": {
+    "AGENTS.md": "8a176e9577802691301e222148c054e1864c818cf8068436f29516a4f7f66b36",
+    "conversion\\SCUMMVM-CE-ARCHITECTURE-DECISION.md": "ef3b87741a078fa95e74702053d7f504e16abb5a8d8b797684535bafa9a1a632",
+    "conversion\\SCUMMVM-CE-IMPLEMENTATION-PLAN.md": "76a5fa606f1c0a2274962bcb01f9ffc12e06ab2211c86507b0c5b71d741de0f4",
+    "conversion\\SCUMMVM-CE-PROGRESS.md": "136709f63c021bd4dac30cd115de315ebe6981542369fef97486bb668943cdc2"
+  },
+  "review_checks": {
+    "git_diff_check": "VERIFIED",
+    "new_files_whitespace": "VERIFIED",
+    "python_compile": "VERIFIED",
+    "recovery_mirrors": "VERIFIED"
+  }
+}

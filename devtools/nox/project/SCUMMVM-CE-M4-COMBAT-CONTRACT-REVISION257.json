@@ -1,0 +1,23 @@
+{
+  "status": "IN PROGRESS",
+  "scope": "Complete combat responsibility contract; native owner/evidence reconciliation and general admission source trace",
+  "contract": "SCUMMVM-CE-M4-COMBAT-CONTRACT.md",
+  "engine_changes": [],
+  "source_paths": [
+    "combat-contract-research/admission.asm",
+    "combat-contract-research/quick.asm",
+    "combat-contract-research/aux-resident.asm"
+  ],
+  "resolved": [
+    "General admission ordering, context-free bit128 descriptors, group124 override, group layout and template assignment",
+    "Template resource sorting is distinct from initiative; party actor order is retained",
+    "Battlefield table selection/substitution precedes parent-state retention and battle-mode preparation",
+    "Native dual/ranged/target/persistence ownership reconciled to actual257 evidence"
+  ],
+  "remaining": [
+    "U1-U7 narrowed source questions remain explicitly IN PROGRESS",
+    "Complete magic/status/AI/Quick/special caller contracts require further static traces before their coherent engine batches",
+    "General admission/terrain/rosters/exit integration remains missing; controlled initial-profile evidence is not full combat acceptance"
+  ],
+  "next_action": "Continue source analysis of count variation, status producers/consumers, all spell families and Quick policy; implement only coherent connected functionality once affected contract is established."
+}

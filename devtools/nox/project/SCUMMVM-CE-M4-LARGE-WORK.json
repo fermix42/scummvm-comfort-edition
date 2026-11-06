@@ -1,0 +1,57 @@
+{
+  "status": "IN PROGRESS",
+  "scope": "Connected authored world large/clipped actor spatial/movement/paint/contact/battle/return batch",
+  "last_accepted_build": "312",
+  "last_accepted_executable_sha256": "7ab3b4f15e991cefcae8fabc436952dc124a8b00d112d8cce0baebbd15124b98",
+  "source": {
+    "architectural_inventory": "world-bridge-research/world-shapes-inventory2.json",
+    "large_spatial": "world-bridge-research/large-world-geometry-source1/metadata.json",
+    "defined_vectors": 23106,
+    "unsafe_prefixes": 830,
+    "whole_large_turns": "world-bridge-research/large-world-turns-source1/metadata.json",
+    "defined_whole_turns": 27,
+    "unsafe_whole_prefixes": 9
+  },
+  "verified": [
+    {
+      "build": "309",
+      "scope": "23936 world large geometry/cold cases:23106 complete source vectors,830 source-unsafe prefixes explicitly bounded",
+      "report": "ce-m4-large309/native-core-verification.json"
+    },
+    {
+      "build": "310",
+      "scope": "Actual legal Ruin63 West move,large AI movement/contact,formation,cold flee and real Vortex/death/quest/reward/retirement/world/cold",
+      "report": "ce-m4-large310-workflows/verification.json",
+      "prose_correction": "ce-m4-large310-workflows/SETUP-CORRECTION.json"
+    },
+    {
+      "build": "312",
+      "evidence": {
+        "ce-m4-large312-source/native-core-verification.json": "04795d1365fed9ff0cb0912779bd3d6e1374402bf0c062394147f83fbf945f50",
+        "ce-m4-large312-workflows/verification.json": "433f7857f9a47aab98b5111a10a3e3aecfe555a9bb317dbc068c348119da0fcd",
+        "ce-m4-clip312-workflows/verification.json": "4634ccdbaa1559bbb6f82707ad0a46338e1f65e43eb55b4d75c960e5b4320772",
+        "ce-m4-clip312-matrix3/verification.json": "702aaad862630abb4aea4bab1b9ddcc5ae8c19b81c456895622a2a805ece1ba2"
+      }
+    }
+  ],
+  "changes": [
+    "ActorSpatial handles clipped large candidate coordinates,retained edges and source-known visibility aliases;bounds unowned actor/object reads rather than synthesizing adjacent bytes.",
+    "Compact and small-NPC action owners receive mask context and accept large shapes;authored dynamic big NPCs without special cursor clobber use shared action owners.",
+    "WorldActorTurn clears/repaints whole old footprints with source large rules.",
+    "Controlled world fixtures validate actual standing tile via normal terrain/object/actor traversal before input.",
+    "Large source snapshots reuse existing whole-surface validator with distinctNWLT tag/count;oldNSOT inputs retained."
+  ],
+  "failures": [
+    "309 controlled party tile24/8 had authored chest:source traversal correctly refused movement.310 uses source-clear tile24/9 and adds fixture standing validation.309 output retained,not a tested encounter.",
+    "310 driver parent-report location prose still24/8;actual bound invocation/config/snapshot24/9. Immutable SETUP-CORRECTION and exact executed driver copies preserved;future reports copy actual controlled fields automatically."
+  ],
+  "pending": [
+    "Cache sector-boundary/map-transition integration",
+    "Offscreen route-service callers",
+    "Remaining B2/B3,W1-W8 and full native acceptance"
+  ],
+  "next_commands": [
+    "Analyze and implement source cache recenter transaction preserving modified overlap and spawn state;qualify original sectors and complete move/cold/return integration."
+  ],
+  "large312_checkpoint": "SCUMMVM-CE-M4-LARGE312-CHECKPOINT.json"
+}

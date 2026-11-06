@@ -1,0 +1,94 @@
+{
+  "status": "VERIFIED",
+  "scope": "Combat specification reconciliation and stored identity audit only; not complete combat/M4 acceptance",
+  "contract_sha256": "e942e5f7d25743630ccc183d06b90716cb39fa95a057ca8f7835d1fc56cc54c4",
+  "frozen_evidence": {
+    "SCUMMVM-CE-M4-STATUS319-CHECKPOINT.json": {
+      "sha256": "41415fb88682a1875019a6747ec5e42905b5a986e896b592825532519628cfaf",
+      "rechecked_reports": {
+        "ce-m4-status319-source/verification.json": "d0b9f82b36af210617dfa4f45f56745188c328c2b1101ef017cd7916b6c9d6b1",
+        "ce-m4-status319-world/verification.json": "ebb4fe23e390f9c6349a0732f6bd6ce9c4cc97c1fa117d482d8de3364db2075c",
+        "ce-m4-status319-regression/verification.json": "90e51ac2d2507c97ff67d70b33a9148a082d8782f83b9de4724f979f0dfd31ab",
+        "ce-m4-status319-quick/verification.json": "63d909fa71ff90b76317b44cec099eb19f75569f5b640357450394a7b827250a"
+      }
+    },
+    "SCUMMVM-CE-M4-TRAVEL318-CHECKPOINT.json": {
+      "sha256": "aefb43ff891fa7a78615ffd698338a7eba0b50e1be1afc0e1e8ef017f6ce3a9f",
+      "rechecked_reports": {
+        "ce-m4-travel318-tests/native-core-verification.json": "0e581f36ae78c385657ea11a06bc041be0202b0c06a37b8a8be33947707fe50d",
+        "ce-m4-travel318-world/verification.json": "c5dddf2cfb5e9abe03ce39adce4e1df34be44dfecf4a047f114e20f7e332ccc2",
+        "ce-m4-travel318-regression/native-core-verification.json": "e289471e67e203eb7fec27ffe9a37857bf3cf0d60622c98c766d753e98f4727e",
+        "ce-m4-travel318-cache/verification.json": "36551141bec9d78ea551c5bdade3fe446785711e7d2ad09b36aae7ad68868820",
+        "ce-m4-travel318-battle/verification.json": "fdcda18d1f884e8c6125785b1ac0fefac7073bade9900853f1294ab2aaac425f"
+      }
+    },
+    "SCUMMVM-CE-M4-CACHE314-CHECKPOINT.json": {
+      "sha256": "543d2bcf4cbfd0e8885729b7ddd5820f04161583cfa81415f1826903c901c364",
+      "rechecked_reports": {
+        "ce-m4-cache314-tests/native-core-verification.json": "e69c2379dbceb685313228cb0af0924dba757671a000f3b38d49ee6d728cfb20",
+        "ce-m4-cache314-world/verification.json": "ff15d60388a55715e7fd570f41c5dd5a0c25364b0196ed49f3619e48e878f134",
+        "ce-m4-cache314-regression/native-core-verification.json": "e22d711774137b37bc2c2bb1edd2d511f8c1ec847da983206d6008fd952a8cac",
+        "ce-m4-cache314-battle/verification.json": "bd182c32f649f04a92f1d6bef6d03214549d5f9a57db6d23f223f6f344001891"
+      }
+    },
+    "SCUMMVM-CE-M4-LARGE312-CHECKPOINT.json": {
+      "sha256": "2ccd113cbb8ae93768c3b76ff200ba2bbd1705afa813227d7621e81e95320965",
+      "rechecked_reports": {
+        "ce-m4-large312-source/native-core-verification.json": "04795d1365fed9ff0cb0912779bd3d6e1374402bf0c062394147f83fbf945f50",
+        "ce-m4-large312-workflows/verification.json": "433f7857f9a47aab98b5111a10a3e3aecfe555a9bb317dbc068c348119da0fcd",
+        "ce-m4-clip312-workflows/verification.json": "4634ccdbaa1559bbb6f82707ad0a46338e1f65e43eb55b4d75c960e5b4320772",
+        "ce-m4-clip312-matrix3/verification.json": "702aaad862630abb4aea4bab1b9ddcc5ae8c19b81c456895622a2a805ece1ba2"
+      }
+    }
+  },
+  "current_native_owner_files": {
+    "BattleRound": {
+      "engines/nox/native_battle_round.h": "98ed2148b7e33c3a4a97fb61c27208950fb8f32636a59853c9ffdc597c102232"
+    },
+    "BattleRoster": {
+      "engines/nox/native_battle_roster.h": "0a21b5bcd5a994e209c22ddf8ffcc8c7b6661668b74fd0c3f7d090e48f6b6676"
+    },
+    "BattlePhysical": {
+      "engines/nox/native_battle_physical.h": "ebc97ced14118d8d1a7421056685f9d37fa0e0f5308ba9b1d0265341f770c988"
+    },
+    "BattleTargets": {
+      "engines/nox/native_battle_targets.h": "31926f330eb292f57dc7d85d6a6e7ffb51ab3b2f00ad9ecb32abf5c83f0b8d46"
+    },
+    "BattleReticle": {
+      "engines/nox/native_battle_reticle.h": "3614da90efc61ffaa9c8de57ee417c019efaf0c3ad0a054a7e0195033bff3336"
+    },
+    "BattleNpcDecision": {
+      "engines/nox/native_battle_npc_decision.h": "a54513a2bad730893f8df5f353bbe162d503532254653df3c1db2eca29623d7c"
+    },
+    "BattleTerminal": {
+      "engines/nox/native_battle_terminal.h": "2e20f50a466ea3dfe51b3a06e9d1bc1bede343874dba7e807887bf7cb6f7e1f6"
+    },
+    "BattleAftermath": {
+      "engines/nox/native_battle_aftermath.h": "75211a97d6c7cb2a78acacd6840328e99201b90b7e073720d6495ff33717fe48"
+    },
+    "BattleWorldReturn": {
+      "engines/nox/native_battle_world_return.h": "a4798bf09e06a93bfcf15dfa84e4f8d515d0ad7341d521b63843735f01a697c3"
+    },
+    "QuickBattle": {
+      "engines/nox/native_quick_battle.h": "02e0fd32d011a7554449a933b04bdf5a0792b593405632bd9d38c144ddc5be54"
+    },
+    "EncounterState": {
+      "engines/nox/native_encounter_state.h": "16ec5bae611c5a3287d7601e3b07b561d57789854198d9a4d148f191b697296d"
+    },
+    "BattleCastState": {
+      "engines/nox/native_battle_cast_state.h": "d3fb21038403c0ab540d9bf8a22ee64dc45ddbcfa9d8ca94ee5cbaf7bef661bb"
+    }
+  },
+  "source_manifest_sha256": "8a01f25eb666b791a091ba53e106be18a97665991f305295056e45a8dc32b9b0",
+  "engine_changes": false,
+  "gameplay_rerun": false,
+  "next_action": "Connected B2 source-defined service preservation/refusal/death recovery and battle/return/cold batch; no invented acquisition or cure; then B3 and remaining CE/campaign acceptance",
+  "status_source_inputs": {
+    "condition-resource-audit.json": "2ba10692a54806503624dfe755f3a7f485e29e1eb4ac519b2f38adc0a859d53a",
+    "quest-path-audit.json": "3162f3a4b83f1b540fb1fb553336f20707016f4f1ad1a6de0d74a9d8fd7bc358",
+    "native/party_membership.inc": "154fde3d422c0bd44da15d3f7fbafbbaa4fc0698921c19501aa09b1e9c1cf53b",
+    "native/battle_heal.inc": "32e7fae65308bfa56d687910afca0bb87381c0b7f678482045932bc0d71569e9",
+    "native/battle_resurrect.inc": "547a56b4412cee093913ba382e0d10acb8b3a5860967a74a5ed6e9bdd723ce6c",
+    "native/quest_temple.inc": "bd75f468d0a66817c245e49e46cadd445e3f772ac69f38edc3514b2ecf76c549"
+  }
+}

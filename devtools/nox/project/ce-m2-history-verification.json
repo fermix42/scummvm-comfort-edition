@@ -1,0 +1,56 @@
+{
+  "status": "VERIFIED",
+  "task": "M2.4c",
+  "scope": "Bounded missing/corrupt/mismatched/stale/legacy local sidecar behavior, both modes; no authentication or offline-link/storage-failure claim",
+  "executable_sha256": "99f38cf67fdc874b9a01af4e70f4421783c78152b7e695911e53bdba1a1042e8",
+  "build": {
+    "session": 47129,
+    "exit": 0,
+    "warnings": 33,
+    "errors": 0,
+    "elapsed": "00:08:20.02",
+    "log": "nox-m2-history-build.out.log"
+  },
+  "reports": [
+    {
+      "path": "ce-m2-history-gameplay-modern/20261015-180647/verification.json",
+      "sha256": "13ecd393144bab774089dfc9547edd1a94af621adc6c5665ad0eac2fabaeeb5a"
+    },
+    {
+      "path": "ce-m2-history-gameplay-classic/20261015-180748/verification.json",
+      "sha256": "b111deec0f05922a60c47ecafff867c48ad0402b24c699f0cb338f54d2d7b1fe"
+    },
+    {
+      "path": "ce-m2-history-modern/20261015-180724/verification.json",
+      "sha256": "ac752fabc866eb7c8227ece8d9db83d35d9eb21dc232edac70f266798db5a463"
+    },
+    {
+      "path": "ce-m2-history-classic/20261015-180823/verification.json",
+      "sha256": "cc0bedac32669f0045581fc9f39fb4a955a6ecf09ff24e1663bef124ad78be04"
+    },
+    {
+      "path": "ce-m2-history-management-modern/20261015-180849/verification.json",
+      "sha256": "1f2599ccec993d512d3528aa283a44e17abb20e5401531319fc3072c43a9571b"
+    },
+    {
+      "path": "ce-m2-history-management-classic/20261015-180918/verification.json",
+      "sha256": "b81477eef1590d9e8a57f43754c65d4d670d74687c7eee3898d8554b932a707d"
+    },
+    {
+      "path": "ce-m2-history-m1-migration-verified/20261015-181010/verification.json",
+      "sha256": "3b8ff0227c38d97275de9595c8295d82621e62fc2edbe85da1b7b7df7525b947"
+    }
+  ],
+  "source_sha256": {
+    "engines/ce_achievements.h": "31700d047aa2a046a6637c035e4adec7f6c1cbb11062a72d9dd93a353c52a543",
+    "engines/ce_achievements.cpp": "5537a38391100a2c2a8c8337f5607a894483b50c0a82a619dfc40c9f6c7185d4",
+    "engines/nox/nox.h": "352bb84bfd98c6e4f4c587f045378e2e9c3be1e9065ca0b56725e937455be502",
+    "engines/nox/nox.cpp": "b60bceb097987443269b3b60ec86d38a1d86f169c36543d414717ec8e672aadc",
+    "engines/nox/history_validation.h": "f14e28e0d070778f487fd7b7222962f906a3754c42f010032ccdc039fc47ce8a",
+    "engines/nox/management_validation.h": "286355cdedac22164095549c47f97e21d63e13eb738fb94b3368bf79d1738e34",
+    "engines/nox/saves.h": "c3e48afbdcbef70e47afc2e3684b6676cd9377eb287e26c0e12ce1f65d95b3c8",
+    "devtools/nox/test_save_history.py": "74a5a61aa01a95f7404c74e034e90d4c1ccb4ffadefcab880192719a8c49fe4e",
+    "devtools/nox/test_migration.py": "62ee2143a88942e6cc971e8a7e931e7d3f047daacde49aebd733019252c27283",
+    "devtools/nox/test_session_management.py": "c42b8df77e764c184369bf8879f35202515f9b4bd318ad9e438ac7e7640d6945"
+  }
+}

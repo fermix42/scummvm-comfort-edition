@@ -1,0 +1,65 @@
+{
+  "status": "VERIFIED",
+  "parent_task": "M2.4e2",
+  "reports": [
+    {
+      "path": "ce-m2-load-queue-modern/20261015-202746/verification.json",
+      "status": "VERIFIED",
+      "sha256": "c1a3df23773f08aa1c62b23e6b1816acfb8a372eb2c89e65d9a21112196315fc",
+      "executable_sha256": "12d466d9b39465208166aeae0cae28f92bb83bf07a0d8c568fe3ffe9f38ef816"
+    },
+    {
+      "path": "ce-m2-load-queue-classic/20261015-202756/verification.json",
+      "status": "VERIFIED",
+      "sha256": "4f5a6afbe08ac58cd95d3d12bfd09b8fd75537641de12e9eeaed9b08b537de99",
+      "executable_sha256": "12d466d9b39465208166aeae0cae28f92bb83bf07a0d8c568fe3ffe9f38ef816"
+    },
+    {
+      "path": "ce-m2-assistance-io-before/20261015-202805/verification.json",
+      "status": "IN PROGRESS",
+      "sha256": "df8f34742072ea0152452b7f0f6dfaa3fe72e465d6ba9517c9289f0490934560",
+      "executable_sha256": "12d466d9b39465208166aeae0cae28f92bb83bf07a0d8c568fe3ffe9f38ef816"
+    }
+  ],
+  "confirmed_defect": "Permanent Casual/reason gate fails after denied registry write and A/B switching; durable signed audit retains assistance.",
+  "correction_status": "VERIFIED",
+  "build_session": 35255,
+  "parent_status": "IN PROGRESS",
+  "scope": "Focused same-owner assistance recovery after readable registry rejects writes; A/B switching, cold reason persistence and raw registry repair in both modes. Healthy Modern gameplay/save/load. Earlier load-queue reports remain bound to their earlier executable.",
+  "executable_sha256": "9968930fe595e4523f304a1d655e6a6d6b731e1dcff7f42c3eb15e1e125bafdd",
+  "build": {
+    "session": 35255,
+    "warnings": 1,
+    "errors": 0,
+    "elapsed": "00:02:39.62",
+    "log": "nox-m2-assistance-io-correction-build.out.log"
+  },
+  "correction_reports": [
+    {
+      "path": "ce-m2-assistance-io-after-modern/20261015-203128/verification.json",
+      "sha256": "099dbb75b9cfadb8289cf363031c32f0497acac078f2a1584e1efd8d37e52496",
+      "status": "VERIFIED"
+    },
+    {
+      "path": "ce-m2-assistance-io-after-classic/20261015-203136/verification.json",
+      "sha256": "4b7dd068bedb2498dd326307d395625876204fe4c27d3e5545d95cee7832549a",
+      "status": "VERIFIED"
+    },
+    {
+      "path": "ce-m2-assistance-io-gameplay/20261015-203148/verification.json",
+      "sha256": "5038d47662c7bae4339e076e352c098a2c37a71456bd6a0e68333dd29f187eeb",
+      "status": "VERIFIED"
+    }
+  ],
+  "source_sha256": {
+    "engines/ce_achievements.cpp": "831cc94e8f7e7089f0d51fcf62752a7c99094e052e33cd9b0442ed78766d88f1",
+    "engines/nox/io_validation.h": "556bd69ec180bae521284e5876d121dffac2a7827f6fce1200924f8a2081d214",
+    "devtools/nox/test_io_failures.py": "e68d1e859e6c2ee7f553f75374e359aca272e8da6c08ab8d544b0c03b8bdcb63"
+  },
+  "limitations": [
+    "Full M2.4e2 and final M2 audit remain IN PROGRESS.",
+    "Assistance reproduction uses real CE assistance API with a diagnostic reason, not earned campaign gameplay.",
+    "No simultaneous queue-and-registry failure tested or claimed.",
+    "No network requests."
+  ]
+}

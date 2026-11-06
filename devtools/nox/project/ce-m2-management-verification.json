@@ -1,0 +1,20 @@
+{
+  "status": "VERIFIED",
+  "task": "M2.4b",
+  "scope": "Ordinary local archive/delete/keep-save workflows only",
+  "executable_sha256": "92bea67e4ce1bceb267a0facf028df49a0fed8465045df5f8d030134484b96d7",
+  "reports": [
+    {
+      "path": "ce-m2-management-modern/20261015-175410/verification.json",
+      "sha256": "f81f2afc49afc3dd92ca934652d864a2d92329274722fc812fe080cc8c3d090a",
+      "mode": "Modern",
+      "cases": 4
+    },
+    {
+      "path": "ce-m2-management-classic/20261015-175439/verification.json",
+      "sha256": "89571c5a5c3f3edb1ff36003ddc22152c1f6feb921ecdaf114070703bca88343",
+      "mode": "Classic",
+      "cases": 4
+    }
+  ]
+}

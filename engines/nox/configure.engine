@@ -1,0 +1,2 @@
+# Base v119 integration is experimental; enable explicitly during M1.
+add_engine nox "Nox Archaist" no

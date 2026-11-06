@@ -1,0 +1,24 @@
+{
+  "status": "VERIFIED",
+  "milestone": "M4",
+  "scope": "Rejected rule-comparison invocation, never native dialogue acceptance",
+  "observed": "Resource invocation timed out90s before a report; error dialog not machine-readable. Failure retained in ce-m4-native-rules5-tests.log/resource-driver.log.",
+  "diagnosis": "Common::File::open(Path) reads through SearchMan; absolute external oracle paths need the FSNode read-stream overload. Current code supplies absolute path to archive-member lookup, before rules execute. Fix and receipt instrumentation will confirm.",
+  "source_archive": {
+    "path": "ce-m4-rules5-rejected-source.zip",
+    "sha256": "de692ded7b5bf49264fc138ca62a5664c2f25ec2862c98ce2f7b0815c4c5cf1d"
+  },
+  "preserved_executable": {
+    "path": "ce-m4-binary\\scummvm-rules5-rejected.exe",
+    "sha256": "d8ff9d7eeaa1525ba25de8378e01526e33a83f5882cb0acd79bfa00bb36dbe80"
+  },
+  "log_sha256": "b85a7c720432aac382d3584eb1179eb0fa92c11a75ef2f3e26b4524eca09256a",
+  "independent_diagnosis": "Python source-level transcription agrees with all8451 legacy metadata/eligibility outputs; diagnostic only, not a substitute for compiled CE checks.",
+  "next_action": "Continue native dialogue flag transactions and identify remaining NPC services from source.",
+  "limitations": [
+    "No gameplay defect or host crash inferred from this timeout.",
+    "Native dialogue matching/conditions remain IN PROGRESS until actual CE comparison passes."
+  ],
+  "resolution": "Build6 uses the filesystem FSNode read-stream overload; all8451 actual CE comparisons pass. The original failed5 attempt remains rejected.",
+  "resolution_evidence": "SCUMMVM-CE-M4-RULES6-UNIT.json"
+}

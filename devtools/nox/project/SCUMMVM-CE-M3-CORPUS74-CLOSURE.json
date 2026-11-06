@@ -1,0 +1,250 @@
+{
+  "status": "VERIFIED",
+  "milestone": "M3",
+  "scope": "C3 source residual classification and C2 selected-route gate exclusions; controlled checkpoints remain explicit",
+  "source_image_sha256": "c42a95c7a356548c78957f98693e92d33c9bae3ff5126d9887c2980e5a490c3c",
+  "selector_source": {
+    "path": "native/dialogue_packets.cpp",
+    "sha256": "00f17edc98448429de4e0e17e135538e1cf6f2541cb67dcba89e10d987a21d28"
+  },
+  "actor_reference_count": 350,
+  "actor_classification": "350/350 have no runtime-selector-reachable actor-specific dialogue packet",
+  "private_classification": {
+    "path": "ce-m3-corpus74-reference-classification-local.json",
+    "sha256": "9c2190ad22cac52bb1a5037a8d310766849fb1967594e4d82939dc68719bd251"
+  },
+  "actor_notes": [
+    "Zero static coordinates do NOT imply padding: scheduled actors may start at0,0. All350 are classified by absence of a reachable actor-specific packet, not coordinates.",
+    "Generic guards, merchant/service actors, encounters and schedules may still operate. No claim that350 NPCs were individually played or that generic services have no code.",
+    "Actual generic merchant diagnostic and two non-conversational actors are separately bound in ACTOR52-CLASSIFICATION. Fixed actor quest predicates are separately enumerated, not inferred from packet absence."
+  ],
+  "fixed_actor_predicates": {
+    "count": 17,
+    "door_correlations": 1,
+    "source_inventory_sha256": "aca4305f4116475d2992750752d2e393834ecd8a8d744437169db6b34887697f",
+    "classification": "Selected-route Monks/Cultists predicates040C02/043802 have actual battle/passage evidence; opening actor040901 belongs to tested opening source state. Remaining actors do not supply a selected required reward/predicate; shared field4081 correlation is map2/52 side branch."
+  },
+  "keyed_door_count": 38,
+  "keyed_predicate_count": 19,
+  "keyed_predicates": [
+    {
+      "field": "0x408",
+      "mask": 1,
+      "maps": [
+        2
+      ],
+      "classification": "Excluded from selected required route",
+      "basis": "Map2 door correlates with fixed actor52/12,24; neither location nor predicate is consumed by the selected main-story rewards. Not confused with Town2 compound0409."
+    },
+    {
+      "field": "0x40c",
+      "mask": 1,
+      "maps": [
+        97
+      ],
+      "classification": "Actual predicate family verified",
+      "basis": "Pirate cave/key27"
+    },
+    {
+      "field": "0x40c",
+      "mask": 8,
+      "maps": [
+        30
+      ],
+      "classification": "Actual predicate family verified",
+      "basis": "Dark key/door18"
+    },
+    {
+      "field": "0x40f",
+      "mask": 16,
+      "maps": [
+        97
+      ],
+      "classification": "Actual predicate family verified",
+      "basis": "Devil key/door18"
+    },
+    {
+      "field": "0x418",
+      "mask": 2,
+      "maps": [
+        56
+      ],
+      "classification": "Actual predicate family verified",
+      "basis": "CASTLE73 Arcane"
+    },
+    {
+      "field": "0x418",
+      "mask": 4,
+      "maps": [
+        54
+      ],
+      "classification": "Actual predicate family verified",
+      "basis": "CASTLE73 Moat"
+    },
+    {
+      "field": "0x418",
+      "mask": 8,
+      "maps": [
+        76
+      ],
+      "classification": "Excluded from selected required route",
+      "basis": "Knomewaer117 branch on UM76. Selected library pages are Castle57/78; Nystul is104, guardian/key routes97/99. No selected required reward consumes key117/041808."
+    },
+    {
+      "field": "0x419",
+      "mask": 2,
+      "maps": [
+        19,
+        22
+      ],
+      "classification": "Actual predicate family verified",
+      "basis": "Rusty door25"
+    },
+    {
+      "field": "0x419",
+      "mask": 16,
+      "maps": [
+        98
+      ],
+      "classification": "Actual predicate family verified",
+      "basis": "CULT73 Brown"
+    },
+    {
+      "field": "0x41a",
+      "mask": 2,
+      "maps": [
+        46,
+        47
+      ],
+      "classification": "Actual predicate family verified",
+      "basis": "Skull cells/rescue18/26"
+    },
+    {
+      "field": "0x41a",
+      "mask": 8,
+      "maps": [
+        61
+      ],
+      "classification": "Excluded from selected required route",
+      "basis": "Iron79 RUIN61 branch and connected63/64 puzzles. Selected Drathe route is74->0->31->32; selected pages57/78, Jewels97/99/UM guardians. No required reward consumes Iron79/041A08."
+    },
+    {
+      "field": "0x41a",
+      "mask": 32,
+      "maps": [
+        70
+      ],
+      "classification": "Actual predicate family verified",
+      "basis": "Margrave/Tomb linked27"
+    },
+    {
+      "field": "0x41c",
+      "mask": 4,
+      "maps": [
+        48
+      ],
+      "classification": "Actual predicate family verified",
+      "basis": "Watcher/Guild linked27"
+    },
+    {
+      "field": "0x41e",
+      "mask": 2,
+      "maps": [
+        45,
+        48
+      ],
+      "classification": "Excluded from selected required route",
+      "basis": "Party Room doors in45/48; selected Castle pages57/78 do not use them. Same numerical bit as a Drathe plate does not establish shared story ownership."
+    },
+    {
+      "field": "0x42a",
+      "mask": 1,
+      "maps": [
+        38
+      ],
+      "classification": "Actual predicate family verified",
+      "basis": "Father STRICT-ALL52"
+    },
+    {
+      "field": "0x42e",
+      "mask": 32,
+      "maps": [
+        97
+      ],
+      "classification": "Excluded from selected required route",
+      "basis": "UM97 extra branch; selected Nystul104 access and all binding operations use demonstrated portal/COMP path. No selected required reward consumes this door predicate."
+    },
+    {
+      "field": "0x42e",
+      "mask": 128,
+      "maps": [
+        74
+      ],
+      "classification": "Excluded from selected required route",
+      "basis": "TOWN74 extra door; selected Ring and Drathe approaches are independently demonstrated without crossing it. No required reward consumes this door predicate."
+    },
+    {
+      "field": "0x432",
+      "mask": 1,
+      "maps": [
+        98
+      ],
+      "classification": "Excluded from selected required route",
+      "basis": "Two UM98 Guild-labelled doors230,97/223,69. Actual Pirate->control->Brown->lower-portal->mouth route leaves043201 clear, so neither is required. Item name87 alone is not predicate ownership."
+    },
+    {
+      "field": "0x43c",
+      "mask": 4,
+      "maps": [
+        9,
+        11,
+        14,
+        23,
+        24,
+        28,
+        35,
+        38,
+        44,
+        49,
+        59,
+        71,
+        74
+      ],
+      "classification": "Actual predicate family verified",
+      "basis": "Order doors13/27 and ORDER-PORTALS73"
+    }
+  ],
+  "compounds": [
+    {
+      "map": 99,
+      "classification": "Actual upper four plates, each missing-bit refusal, Open/passage/UM100 both modes SWITCH35"
+    },
+    {
+      "map": 2,
+      "classification": "Town2 compound0409 and plates2/4 are outside selected opening7->surface/royal route and all required reward locations; no main-story reward consumes compound predicate."
+    },
+    {
+      "map": 63,
+      "classification": "Iron/Grymvi side branch; no selected required reward or access dependency in61/63/64."
+    },
+    {
+      "map": 64,
+      "classification": "Same Iron/Grymvi branch; distinct lower041F0F from tested Cult upper041FF0."
+    },
+    {
+      "map": 32,
+      "classification": "Actual ACCESS52 room approach bypasses compound24,16 with all three low041E bits clear; no need to invent a plate prerequisite."
+    }
+  ],
+  "scripted_objects": [
+    "Castle78 paired wall/control: actual reversible Open, actual open passage and closed refusal CASTLE73.",
+    "UM98 paired wall/control, actual wall passage/Brown Search and lower portal: CULT73.",
+    "Nystul104 selfportal/COMP wall/refusal/room/binding: NYSTUL38 and NYSTUL-VORTEX39.",
+    "Order portals use original SRTN.COMBAT.S9C84 membership043C04 predicate: actual both pairs admission/refusal/linked return ORDER-PORTALS73.",
+    "Other type50/55/56 source-shaped records are repeated controls, text triggers, side-room travel or alternate Order links. A text-trigger record is not assumed ordinary floor or a separate quest reward. Full walking/scheduling is not claimed."
+  ],
+  "limitations": [
+    "Source classification does not substitute for actual operations: accepted operations are in named CE checkpoint audits.",
+    "Optional side quests and every repeated door/service are outside complete required base-campaign gate coverage; full continuous exploration is NOT STARTED."
+  ]
+}

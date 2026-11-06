@@ -1,0 +1,116 @@
+{
+  "milestone": "M2",
+  "milestone_status": "IN PROGRESS",
+  "subtask": "M2.3a",
+  "status": "VERIFIED",
+  "scope": "Per-runtime enhancement owners, bounded NXEH-v1/Runtime-v2 codec and explicit Runtime-v1 migration, controlled nonempty actual Engine save/cold reset/isolation and interrupted/corrupt rollback; excludes observed event capture, complete older-history lifecycle and campaign coverage",
+  "build": {
+    "session": 34064,
+    "warnings": 0,
+    "errors": 0,
+    "elapsed": "00:02:38.39"
+  },
+  "executable_sha256": "3f0b2bf007121ccb905e34db5805a09c050907fe15849c3bdbaa808717b5d947",
+  "criteria": {
+    "controlled_owner_contracts": 23,
+    "controlled_nonempty_generations_per_mode": 4,
+    "derived_cache_rebuild": "VERIFIED",
+    "all_prefix_truncations_preserve_owner": "VERIFIED",
+    "private_authored_cache_not_saved": "VERIFIED",
+    "real_killed_process_recovery_both_modes": "VERIFIED",
+    "actual_observed_capture": "NOT STARTED",
+    "full_M2_3": "IN PROGRESS"
+  },
+  "evidence": {
+    "modern": {
+      "path": "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m2-enhancement-fixture-modern\\20261015-154113\\verification.json",
+      "sha256": "c90fc567bc25e003502d0c26ae620bc92d32ffea39b9487912c8f32f3f060728",
+      "post_exit_generation_sha256": {
+        "nox-ce-ed5939a032719adcfecdf986a9261c4a-59ea15a6161ec5f52d6ede4159b80a7e-slot001.g0": "39d11f1f73dbbae0ab62a956d90fb971a2b0a501e74643e010198443ce8ff9ab",
+        "nox-ce-ed5939a032719adcfecdf986a9261c4a-59ea15a6161ec5f52d6ede4159b80a7e-slot001.g0.ce-achievements.json": "ae28458e7f129c05fcdda0607115d90db2f7c78d512cc1af8b64da7f62cb69fc",
+        "nox-ce-ed5939a032719adcfecdf986a9261c4a-59ea15a6161ec5f52d6ede4159b80a7e-slot001.g1": "88601ade58a96c67d7fdd58f7b73830dd764f3eecff8af5f9b4597c70d574646",
+        "nox-ce-ed5939a032719adcfecdf986a9261c4a-59ea15a6161ec5f52d6ede4159b80a7e-slot001.g1.ce-achievements.json": "ae28458e7f129c05fcdda0607115d90db2f7c78d512cc1af8b64da7f62cb69fc",
+        "nox-ce-ed5939a032719adcfecdf986a9261c4a-8185166256600ad1662d5f5e144b3bcf-slot001.g0": "6f37fa666ad696acebb886ed02da481fa9cbd08085731e083bea863b9b2e7357",
+        "nox-ce-ed5939a032719adcfecdf986a9261c4a-8185166256600ad1662d5f5e144b3bcf-slot001.g0.ce-achievements.json": "5a5f91de7ea6a10ef9ffe2a1d53872b2df3d9fe0f413e98a127702947ddf9947",
+        "nox-ce-ed5939a032719adcfecdf986a9261c4a-8185166256600ad1662d5f5e144b3bcf-slot001.g1": "78d446f5674d300996c3a5e7941b4e864a96055ceb3b361b2d980657c9470624",
+        "nox-ce-ed5939a032719adcfecdf986a9261c4a-8185166256600ad1662d5f5e144b3bcf-slot001.g1.ce-achievements.json": "5a5f91de7ea6a10ef9ffe2a1d53872b2df3d9fe0f413e98a127702947ddf9947"
+      }
+    },
+    "classic": {
+      "path": "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m2-enhancement-fixture-classic\\20261015-154141\\verification.json",
+      "sha256": "e8dfd487b67abbdf83a6c7857d23a40a40d03152527fb617abd1cab6230df07d",
+      "post_exit_generation_sha256": {
+        "nox-ce-ed5939a032719adcfecdf986a9261c4a-72e41412bc21705445eecd680b3e02b1-slot001.g0": "7bbd9b938670379967c0ca2bd500c9d5cc4bd102a9803b49abd2368033dc269d",
+        "nox-ce-ed5939a032719adcfecdf986a9261c4a-72e41412bc21705445eecd680b3e02b1-slot001.g0.ce-achievements.json": "7acf5e2e0f8abcbd4ea10e5e8eeef28bdf115a22cd3cda95897ae293aa69ee82",
+        "nox-ce-ed5939a032719adcfecdf986a9261c4a-72e41412bc21705445eecd680b3e02b1-slot001.g1": "3027ad9f1989ed018cb0fe9a0805d6529ded8b8f5f347de448b7a86f26867cc8",
+        "nox-ce-ed5939a032719adcfecdf986a9261c4a-72e41412bc21705445eecd680b3e02b1-slot001.g1.ce-achievements.json": "7acf5e2e0f8abcbd4ea10e5e8eeef28bdf115a22cd3cda95897ae293aa69ee82",
+        "nox-ce-ed5939a032719adcfecdf986a9261c4a-8482c0259d3184d87c98881392825931-slot001.g0": "83dc05250c590c48c81c092a496b19cf05f7a50d20aa5676e802467ecb6d5bc7",
+        "nox-ce-ed5939a032719adcfecdf986a9261c4a-8482c0259d3184d87c98881392825931-slot001.g0.ce-achievements.json": "8055966bfa55cfb623dadb4bbee877334caaf8b0565368429d5fb89c0aaac661",
+        "nox-ce-ed5939a032719adcfecdf986a9261c4a-8482c0259d3184d87c98881392825931-slot001.g1": "c68b7c9d6bbffdf103a1aaebbe916574fce6f4069708d61aae7e940947ceb4d6",
+        "nox-ce-ed5939a032719adcfecdf986a9261c4a-8482c0259d3184d87c98881392825931-slot001.g1.ce-achievements.json": "8055966bfa55cfb623dadb4bbee877334caaf8b0565368429d5fb89c0aaac661"
+      }
+    },
+    "resources": {
+      "path": "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m2-enhancement-final-resources\\20261015-154333\\verification.json",
+      "sha256": "ad12f95b28147d04e07958d52f7b95a4857b8f6ea151cf9734455ac98843b7e0"
+    },
+    "m1_migration": {
+      "path": "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m2-enhancement-m1-migration\\20261015-154340\\verification.json",
+      "sha256": "bdcf0007c328e3054e75f5af2d4a1bb615e7752abc0cdca66c33a5a1c828454b"
+    },
+    "failure_modern": {
+      "path": "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m2-enhancement-failure-modern\\20261015-154244\\failure-verification.json",
+      "sha256": "db7af10b5dd06eceaa84a0a6426a3f8f5ea2937b2dc3be6e39079f77b96be883"
+    },
+    "failure_classic": {
+      "path": "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m2-enhancement-failure-classic\\20261015-154302\\failure-verification.json",
+      "sha256": "f600178726f037f2a1eb83f119f06d881a7538c4d78a0bba4479f50b55e0d1be"
+    }
+  },
+  "source_sha256": {
+    "engines\\nox\\caller_validation.h": "ede6a33e41ad5fa9d9613fe36e203e7122ca9830a1b4b54e46ae9591cf632391",
+    "engines\\nox\\configure.engine": "774fc9df4834ca0e64018b72f326d14989a40c08f5c7fd78d06bbea6ee42c015",
+    "engines\\nox\\cpu.inc": "41c0fdff3d9d3466871ae76144b430b9b13bd29a2873a8899ebad56e4e208b97",
+    "engines\\nox\\cycles.inc": "2b1024aeab86cda827aec30eb696547ced1d333226263647b29b1d34db3acd6e",
+    "engines\\nox\\detection.cpp": "32753d7b31fd8fe9f61eb27c676e6564d79764aa94cd5283c2508b8ac056dbd6",
+    "engines\\nox\\enhancement_fixture.h": "13d45f7cf67cbec92f87777653c1ec51e65dd6b2b20538020b55f00fcd0718b5",
+    "engines\\nox\\enhancement_validation.h": "a24bde10489f8ca310c45c92050d21293aa974ee2eb86691a350aa372667e13a",
+    "engines\\nox\\enhancements.cpp": "5ed93907c2e0b1004c9978bbb91c32913de50d1706e9fd41c2027473b3069150",
+    "engines\\nox\\enhancements.h": "f0d73af3421c0597db87ace38b2d203c73640d43a5bade9b278cf6c1e7ff029d",
+    "engines\\nox\\grid_validation.h": "6032efc17e039528d63f2640d1b4308b899a9a7776c7c6c8fe4fa7e0ea752fa9",
+    "engines\\nox\\host_validation.h": "34f519e1f84b05b2d0e12b63c836a9b9f572149d7a7e2032067bc7ceef4f19ff",
+    "engines\\nox\\metadata_validation.h": "c2b7fe9b7d1fa277517ec337b3ab8390e39552125b1c460be04690232466db5c",
+    "engines\\nox\\metaengine.cpp": "3fc716eb9566e47dd9a2a8e78aaae65cab12ddc6f5cc587131944891e8ece4db",
+    "engines\\nox\\mockingboard.cpp": "38d5c6a894cc7a6bd238b9ad9a6740ec5ff42c6f299b7f6ce858505a6c1817bc",
+    "engines\\nox\\mockingboard.h": "d0afe027dc9ff9b269b0c60bf04abc45566502a17aed25879316856911937f2e",
+    "engines\\nox\\module.mk": "b43bad99e2471b8fb314528f6f15da1f335cf60b0b7826df4519ac5cf1622bc2",
+    "engines\\nox\\movement.cpp": "4b03de9dd50c4a4cfc6c2e2d7da9d3fc3fc80a697dfd236a3340c1d25b84fdf9",
+    "engines\\nox\\nox.cpp": "b852a78d87602055ef0dce923edb8b1f7b38a36e0a458cef2fcdbaa22a6f9508",
+    "engines\\nox\\nox.h": "399f5165a798259bf5303d9cde7346230c425cdfe7cee06daea4f06f3f284e13",
+    "engines\\nox\\records.h": "8045582e0ae5f83d027b8b197aa66a8309e9ff80f2117bce7edb86455eca9b7d",
+    "engines\\nox\\render.cpp": "bd7833eaccc812fad88b0d19e5070d9955e440142525ded89b3d30766120073a",
+    "engines\\nox\\resources.h": "1451464a6f8ea57039c3596c8aaa388701e5005fb3364b80b9e48bb04dc2cd95",
+    "engines\\nox\\runtime.cpp": "dce87de974e4e4950ecc0566acd46f9af450dda22806dde7ac5e391878909a18",
+    "engines\\nox\\runtime.h": "8ccd43595a1d26ca183f1fe904a90f33e1e51513ca04a34f353a585be779346c",
+    "engines\\nox\\runtime_state.cpp": "442bb62c2747bded061939ed6b99a5076c3df516d77353111b2ad5ac49eb3064",
+    "engines\\nox\\save_policy.h": "890bced00db32c534207055e5f6acf7247310102119da4c5bc66f13a4c7d72fc",
+    "engines\\nox\\saves.h": "c3e48afbdcbef70e47afc2e3684b6676cd9377eb287e26c0e12ce1f65d95b3c8",
+    "engines\\nox\\session_validation.cpp": "5d6d8620c28bc20b522400361abfa5dc060c35038e256ce74a46620b4c8b16b4",
+    "engines\\nox\\snapshot.h": "c3c8c9fd497391995084286e6f1cadc8ac5b9e9ed94965b6820043624e6d35de",
+    "engines\\nox\\speaker_audio.cpp": "b80e55470b95fcaf200f4346a0cb0bab8ce8ff3fe7e2436633da833a2da9f833",
+    "engines\\nox\\speaker_audio.h": "aad57abba83f4a02ee0780eb2eebc80e68a43181b285533dc3313f3ad307205f",
+    "engines\\nox\\validation.cpp": "7582907d58238d29057026968b03866e25fb7e760184497204896cd5dad8ef75",
+    "devtools\\nox\\diagnose_startup.py": "ddf7673e6698f0296e5ab972e4bae8884772c6d76f56d5770c0d1a39641f9aa6",
+    "devtools\\nox\\launcher_validation.h": "fe7160f3277a8855c6996ca486eeda414b920821cb711ef4ef0cae07b4946a11",
+    "devtools\\nox\\ONLINE-VERIFICATION.md": "6452578d560150718b8a360b559af7191aae587fd62a394098a157f03a317aab",
+    "devtools\\nox\\provision_hermesbox.py": "4921a2b26842fa8e429eacc5f11b49d3270723c10c29f2f11a4591963600b29b",
+    "devtools\\nox\\sync_project.py": "0b115fe49c43afa07b193a8a322c0b5d1bc1716666e0000bb5261c5d7dd22849",
+    "devtools\\nox\\test_failures.py": "9d2bacc4e8e97885ec98726f51b44017ddf33515dcb220b1ea050b355f9e51c8",
+    "devtools\\nox\\test_gameplay.py": "decbdcbe869190a52ef09d45f4d1e32b075736a7bad5166e2a8478e0377e8399",
+    "devtools\\nox\\test_migration.py": "fd55f2870154428da44dd803173ddcbc7b3a93ef705d10acf4b4a1edac3df81b",
+    "devtools\\nox\\test_online.py": "3162c4e0cf58db3e9cb2ddc509331bd4878785d72fd98af612aa8bea58678829",
+    "devtools\\nox\\test_resources.py": "61db177545a52fc8cbc73510c5c24d1f7cdb8987d5b9fc21b77edc3202b77934",
+    "devtools\\nox\\verify_hermesbox.py": "8c4243e4e32584511766b3c3f1338a0a48dd2e1c004f339dbafd618e2917d9bd",
+    "run-build-release-cleanenv.ps1": "04ec3d0152a54c87c308e16aaae8db8596f7be35005677752776aa0ed82796d0"
+  }
+}

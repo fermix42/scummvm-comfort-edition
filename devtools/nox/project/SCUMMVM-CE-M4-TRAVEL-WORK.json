@@ -1,0 +1,36 @@
+{
+  "status": "IN PROGRESS",
+  "scope": "Connected normal on-foot authored entry/arrival and parent leave,changed-map registry,NPC schedule,lighting,viewport,input/cold lifecycle",
+  "build": "318",
+  "executable_sha256": "c1afa6e91f4c0323720f30ae311ba5dcf2c98531ea3ad885df0c81a0d307f651",
+  "source": "world-bridge-research/travel-source3/metadata.json",
+  "source_cases": 1396,
+  "source_light_cases": 532,
+  "source_steps": 393843,
+  "verified": [
+    "ce-m4-travel318-tests/native-core-verification.json",
+    "ce-m4-travel318-world/verification.json",
+    "ce-m4-travel318-regression/native-core-verification.json",
+    "ce-m4-travel318-cache/verification.json",
+    "ce-m4-travel318-battle/verification.json"
+  ],
+  "changes": [
+    "Typed WorldTravelRules represents exit/arrival data,source exceptional battle/invalid/parent-only branches and day/night/dark-map classification.",
+    "WorldMove returns explicit actual arrival or local leave boundary;normal arrival commits actual ordered turn and clock before map transaction.",
+    "WorldInput joins WorldTravel resource registry,story/viewport and subsequent NPC map-entry schedule,source normal on-foot Y/N leave and typed NWIN3 persistent pending prompt;reads1/2.",
+    "NativeStartupHost reloads current-type wait/status/actors/lighting/occlusion/tile/battle owners on map transition.",
+    "318 source G7CD0 clear25-column message strip on both leave decisions;explicit post-No frame assertion added."
+  ],
+  "failures": [
+    "315 build lacked explicit WorldInput friendship for its atomic World adoption;316 corrected.",
+    "316 first full source selector comparison:UM97arrival table ends with valid sentinel atbyte255. Native loop incorrectly required5bytes even for sentinel;317 checks final single-byte sentinel without reading out of bounds. Original expected bytes unchanged.",
+    "Source inventory initial console command missing spaces around or256 caused SyntaxError,no artifact;corrected.",
+    "Source1/2 used type2 forUM76/77;source3 qualifies canonical localtype4 for these actual authored destinations. Prior artifacts retained.",
+    "317 whole travel driver first portal return used Right into authored wall tile60,then Left naturally reached12/8 notice instead of portal. Source terrain/objects confirm12/8 clear83 withnotice55;corrected actual path Left,Enter acknowledgement,Right. Original317 failed report/log retained;not an engine movement defect."
+  ],
+  "pending": [
+    "Parent-fallback capture/restore,special battle and transport callers",
+    "Remaining B2/B3,W1-W8 and native-only earned acceptance"
+  ],
+  "next_action": "Continue remaining connected M4 work. Resolve actual parent-fallback capture lifecycle via source data/copy services;special battle/transport callers remain explicit. Independent B2 party status/eligibility/possession/sleep lifecycle source analysis and implementation is unblocked;do not stop at this checkpoint. Full W1-W8,normal CE save/audio/session/native-only and earned ending acceptance remain."
+}

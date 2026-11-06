@@ -1,0 +1,21 @@
+{
+  "status": "VERIFIED",
+  "source_dependency": "UM98 paired control opens wall214,59; proposed continuous local access avoids both unexplained043201 doors",
+  "tests": [
+    "Modern/Classic retained Pirate entrance ->106actual moves to control",
+    "Retained control adjacency -> actualOpen",
+    "Retained actual wall opening -> source route/normal door/Brown Search",
+    "Retained Brown -> already proven Brown/lower/mouth chain"
+  ],
+  "limitations": [
+    "No new source/game logic changes required.",
+    "Read-only source path is a candidate until actual CE operation passes; original actor/object overlays checked by execution."
+  ],
+  "source_checkpoint": "Optional source-qualified one ordinary UM98BD0 [218,95,147,0] prior death before first route step, not earned. Source quest records unchanged.",
+  "build55_failure": "Header traversal guard incorrectly rejected valid initial 256-byte UM97 header encoded length0; no mutation occurred. Corrected length0=>256 as existing metadata loader, build56 pending.",
+  "historical_status": "IN PROGRESS",
+  "accepted_evidence": [
+    "SCUMMVM-CE-M3-CULT73-CHECKPOINT.json"
+  ],
+  "reconciliation": "Finite required gate operations accepted; controlled travel replaces unrelated long walks, not quest operations. Historical failed hypotheses remain preserved."
+}

@@ -1,0 +1,141 @@
+{
+  "status": "IN PROGRESS",
+  "milestone": "M3",
+  "scope": "All7 independent Search cases passed; linked collection failed at fourth Search, no linked acceptance yet",
+  "build": {
+    "log": "ce-m3-linked-pages-build-9.log",
+    "result": "PASS 0 warnings/errors 00:02:38.41"
+  },
+  "failures": [
+    {
+      "path": "ce-m3-linked-pages9\\20261016-143716",
+      "executable_sha256": "7e18f4d190af3bcfd877e84cebcf6fd6c37104923788a3404dfa91a7fc6a348c",
+      "trace_sha256": "7cd850b8211f9d4d5475235f68492cbf15bf42ba4294ac80f61dcb04d1e885d7",
+      "failed_criterion": "Actual fourth Search resulting count/flags/health or completion; current diagnostics do not distinguish. Do not infer game defect, capacity or setup cause before new evidence."
+    },
+    {
+      "path": "ce-m3-linked-pages9-classic\\20261016-143716",
+      "executable_sha256": "7e18f4d190af3bcfd877e84cebcf6fd6c37104923788a3404dfa91a7fc6a348c",
+      "trace_sha256": "7cd850b8211f9d4d5475235f68492cbf15bf42ba4294ac80f61dcb04d1e885d7",
+      "failed_criterion": "Actual fourth Search resulting count/flags/health or completion; current diagnostics do not distinguish. Do not infer game defect, capacity or setup cause before new evidence."
+    }
+  ],
+  "next_action": "Build11 positive initial25lockpicks plus original pre-Search seed0, safe-floor guard and actual seven pick/trap/award/repeat/cold; paired0lockpick refusal. No page outcomes initialized.",
+  "diagnosed_failure": {
+    "status": "VERIFIED",
+    "path": "ce-m3-linked-pages10\\20261016-144108",
+    "input_identity_sha256": "6dd7029c70a20d12ccca912a0ccc8ca7288008c23b4748e151234a75c47cdedb",
+    "failure_sha256": "c2796c024e3246b25b1e0c960791bb018f1d011f23714a50038f48dd7eade572",
+    "diagnostic_save": {
+      "save": "ce-m3-linked-pages10\\20261016-144108\\saves\\nox-ce-ed5939a032719adcfecdf986a9261c4a-0a80078576922dd80e300a1ebaecb9cb-slot003.g0",
+      "save_sha256": "a8cfbefb38d4f842b4ea9385db1584a97dccc04622f76d00b6cd2ef79960a04c",
+      "runtime_sha256": "a16b2251d145271afffd42a26c46107504d7b205542ef6ab3c306134fa3f6416",
+      "generation": 1,
+      "slot": 3,
+      "PC": 29148,
+      "SP": 255,
+      "alternate": 0,
+      "stack_return": 0,
+      "map": 78,
+      "map_type": 7,
+      "xy": [
+        33,
+        19
+      ],
+      "pageflags": 28,
+      "research": 0,
+      "transport_flags": 0,
+      "keyflag_040F": 0,
+      "keyflag_0410": 0,
+      "party_count": 1,
+      "status": 0,
+      "level": 1,
+      "health": 38,
+      "maximum_health": 50,
+      "mana": 8,
+      "inactive": 0,
+      "STR_DEX_INT": [
+        8,
+        8,
+        8
+      ],
+      "Range": 10,
+      "Range_training_remaining": 0,
+      "weapon_range_bytes": [
+        1,
+        16
+      ],
+      "spell_slot1": 50,
+      "spell_quantity": 0,
+      "Ankh_quantity": 0,
+      "key_quantity": 0,
+      "staff_quantity": 0,
+      "enemy_health": 0,
+      "encounter_sprite": 0,
+      "ending_loop": 0
+    },
+    "lockpicks_421": 0,
+    "source_tests": [
+      "Original SRTN.INVENTORY Search8A92/9A68 tests421;9AC5 consumes one; trap roll9AD1..9B36 can damage and leave chest/page unfound.",
+      "Original trap level1 word9BBC=50 divided by4 at9AE9..9B01 gives12, matching50->38.",
+      "Tile decimal86 is0x56, outside actual blocked ranges[0,84),[206,224),[142,150);6002/6094 are0. Earlier water diagnosis was unsupported and is retracted."
+    ],
+    "conclusion": "Original lockpick depletion/trap failure, not inventory stacking, page counter corruption, level-up or water damage. No CE game logic fix justified. Controlled prerequisite supplies and valid pre-Search seed will test the original success path, separate actual zero-pick refusal and retain all failure evidence."
+  },
+  "consumption_hypothesis_correction": {
+    "status": "VERIFIED",
+    "build": "ce-m3-linked-pages-build-11.log PASS0 warnings/errors00:02:41.18",
+    "probe": "ce-m3-linked-pages11/20261016-145234",
+    "result": {
+      "save": "ce-m3-linked-pages11\\20261016-145234\\saves\\nox-ce-ed5939a032719adcfecdf986a9261c4a-e792917a536f668166f455813ac5b9fa-slot003.g0",
+      "save_sha256": "6b2cfa65cd14820fcb4c550ed3817acb4e9b6366beb2221180b9d9de2460b749",
+      "runtime_sha256": "e9b7408ebb521d1b33384ce28bb208d4f385f7dd5f24b105c2b260d2efd8f8b0",
+      "generation": 1,
+      "slot": 3,
+      "PC": 29148,
+      "SP": 255,
+      "alternate": 0,
+      "stack_return": 0,
+      "map": 78,
+      "map_type": 7,
+      "xy": [
+        6,
+        9
+      ],
+      "pageflags": 4,
+      "research": 0,
+      "transport_flags": 0,
+      "keyflag_040F": 0,
+      "keyflag_0410": 0,
+      "party_count": 1,
+      "status": 0,
+      "level": 1,
+      "health": 50,
+      "maximum_health": 50,
+      "mana": 8,
+      "inactive": 0,
+      "STR_DEX_INT": [
+        8,
+        8,
+        8
+      ],
+      "Range": 10,
+      "Range_training_remaining": 0,
+      "weapon_range_bytes": [
+        1,
+        16
+      ],
+      "spell_slot1": 50,
+      "spell_quantity": 0,
+      "Ankh_quantity": 0,
+      "key_quantity": 0,
+      "staff_quantity": 0,
+      "enemy_health": 0,
+      "encounter_sprite": 0,
+      "ending_loop": 0
+    },
+    "actual_lockpicks": 25,
+    "correction": "First page awarded/HP50 with25picks unchanged. Source9AB5/9AC2 can take a success path without9AC5; one-pick-per-chest was an unsupported harness assumption. Do not enforce25->18. Observe actual qualified original DEC421 events and require exact before/after count ledger; repeat must have zero events/no count change. This preserves original conditional consumption rather than replacing it with a guessed count.",
+    "next": "Build12 adds a pure source-qualified DEC421 counter, no game-state/clocks changes; no game logic fix. Keep source12 exact warm/cold state and actual all7 awards required."
+  }
+}

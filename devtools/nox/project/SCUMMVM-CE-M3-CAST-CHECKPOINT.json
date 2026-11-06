@@ -1,0 +1,38 @@
+{
+  "milestone": "M3",
+  "status": "IN PROGRESS",
+  "scope": "Actual world battle-only refusal from retained real readiness state; not positive combat effect",
+  "build_log": "ce-m3-cast-build-1.log",
+  "build_result": "PASS,0 warnings/errors,00:02:34.51",
+  "executable_sha256": "7e342f00e9b162f7b9420f398ecd1ce6e3a22c8628a0375cd8cbc33a339da15e",
+  "source_sha256": {
+    "engines/nox/spell_validation.h": "c70da8357e58b9317e411cec1f35a26c3adeddc39d6f58c32c198d517ff23fe6",
+    "engines/nox/campaign_validation.h": "88c556a09fec62eb595a04850ab34ebf37fb60e0926ec8558634ec67d17e7169",
+    "engines/nox/runtime.h": "088d62fe9ab3500811bce34d9b285a05278f9136b0ee2b78c4351d0d1be8fafd",
+    "engines/nox/runtime.cpp": "01a61fed321205319073b465050946833f273a68a7a4838ba1a4f2b4ac3e3a93",
+    "engines/nox/runtime_observers.cpp": "8ec0cf4f17f6640c31e7421436b9d94a65bea608e2c1255709d3798442902e1c",
+    "engines/nox/nox.cpp": "646da4cfa384195956bb9286317f5024f9577b646e39e38cb23e6ef444a50769",
+    "engines/nox/nox.h": "7a922646fecbfbf06deb01092d2b7594c01667a49e43b0cd73d8f7a219c3bd2f",
+    "devtools/nox/test_spell_cast.py": "41fd897e791e9857008a2bf236aa38b578e1248280d0b3085d83d6b25830fecc"
+  },
+  "reports": [
+    {
+      "path": "ce-m3-spell-cast\\20261016-060503\\verification.json",
+      "sha256": "a213f5cb3de618042b32a44af6b8a0d542f9d802b634e78ad95cfcee276e20bd",
+      "mode": "Modern"
+    },
+    {
+      "path": "ce-m3-spell-cast-classic\\20261016-060503\\verification.json",
+      "sha256": "f0bf492f51cfebe4c8be4860e0bdbe0359b046751ea5fa07682cb35e877776ef",
+      "mode": "Classic"
+    }
+  ],
+  "processes": 4,
+  "cold_processes": 2,
+  "controlled_checkpoint": "VERIFIED",
+  "linked_gameplay_progression": "VERIFIED",
+  "earned_continuous_progression": "NOT STARTED",
+  "full_new_game_to_ending": "NOT STARTED",
+  "positive_battle_effect": "NOT STARTED",
+  "initializations": "No new state setup; inherit real readiness with explicitly controlled reachable mage and earlier seven pages. Real C/1/Return; guarded9D3A observation; no expected outcome injection."
+}

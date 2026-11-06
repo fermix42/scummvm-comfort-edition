@@ -1,0 +1,10 @@
+M	backends/events/default/default-events.cpp
+M	backends/graphics/surfacesdl/surfacesdl-graphics.cpp
+M	backends/networking/http/curl/networkreadstream-curl.cpp
+M	engines/ce_achievements.cpp
+M	engines/ce_achievements.h
+M	engines/metaengine.cpp
+M	engines/metaengine.h
+M	gui/launcher.cpp
+M	gui/saveload-dialog.cpp
+M	run-build-release-cleanenv.ps1

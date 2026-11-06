@@ -1,0 +1,25 @@
+{
+  "status": "VERIFIED",
+  "scope": "C3 dialogue-tail structural reachability subcriterion only",
+  "tails": 19,
+  "additional_reachable_aligned_first_match_packets": 0,
+  "termination_counts": {
+    "invalid-length": 15,
+    "truncated-header": 4
+  },
+  "source_image_sha256": "c42a95c7a356548c78957f98693e92d33c9bae3ff5126d9887c2980e5a490c3c",
+  "selector_source_sha256": "00f17edc98448429de4e0e17e135538e1cf6f2541cb67dcba89e10d987a21d28",
+  "local_audit": {
+    "path": "ce-m3-dialogue-tail43-local.json",
+    "sha256": "748b05b7df1dc6a0644dd81e824d650ebcefcd275467fe3514ec354015390dcb"
+  },
+  "script": {
+    "path": "audit_dialogue_tails43_m3.py",
+    "sha256": "b1ead8494c966ab0235d7658bb2ea4165f8f3b07d0cfd7c63d016c676736574b"
+  },
+  "limitations": [
+    "Current runtime selector rules, not arbitrary byte searches, define this structural reachability audit",
+    "C3 remains IN PROGRESS: three meaningful unresolved map actors and required-route scripted objects still need classification",
+    "No game engine change, gameplay run or campaign completion claimed"
+  ]
+}

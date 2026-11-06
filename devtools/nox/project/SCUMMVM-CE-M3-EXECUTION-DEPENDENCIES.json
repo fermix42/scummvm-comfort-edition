@@ -1,0 +1,108 @@
+{
+  "status": "VERIFIED",
+  "milestone": "M3",
+  "scope": "Read-only inventory of remaining execution coupling, not native-release acceptance",
+  "source_files": {
+    "engines/nox/runtime.cpp": "8875ca955ff8e840286532fa58ed63795c042ff2d7b1cedd78e61531fec2cac8",
+    "engines/nox/runtime.h": "2bd6a6d37c47e0bb496e948bedf3147d23f85214c87f7a29fb1c4f8cfeee696f",
+    "engines/nox/cpu.inc": "41c0fdff3d9d3466871ae76144b430b9b13bd29a2873a8899ebad56e4e208b97",
+    "engines/nox/movement.cpp": "4b03de9dd50c4a4cfc6c2e2d7da9d3fc3fc80a697dfd236a3340c1d25b84fdf9"
+  },
+  "dependencies": [
+    {
+      "domain": "Bootstrap and resource loading",
+      "resources": [
+        {
+          "name": "NA/LOADER.P",
+          "sha256": "b66b0d3ba3b55f34f2eb5b34746c0b33b6b1702bc485d0dfa3fac2b9f05b47d9",
+          "size": 10514
+        },
+        {
+          "name": "NOXARCH.SYSTEM",
+          "sha256": "bc960bd96a8508d6558e6736c68a643a7ccdf9fd1c7b8b7863b1777c46afaed8",
+          "size": 2385
+        },
+        {
+          "name": "NA/MOCK.DRIVER",
+          "sha256": "4ae0b6b048b3af977d959ae99c8d84bd7b2a46e3a394e68e3aed39c28dd26a04",
+          "size": 637
+        }
+      ],
+      "owner": "Runtime::initialize and Runtime::step, runtime.cpp",
+      "reason": "Original loader/driver instructions still execute through temporary CPU bridge; host block I/O substitutes disk service. Original HDV is copied into per-instance private image.",
+      "evidence": "Existing M1/M2 startup and every M3 executable invocation"
+    },
+    {
+      "domain": "World commands, transitions, current-cell effects",
+      "resources": [
+        {
+          "name": "NA/GAME",
+          "sha256": "ccdece6c58230fa1d85bc7e130ad22043ac1fdca86708b708dcd47161d4cbc7f",
+          "size": 13824
+        },
+        {
+          "name": "NA/LWR.MAIN.RTNS",
+          "sha256": "989a33ba497ccbd00f3191734bb753d618df2e384c0a4c825299e5a6a9b96f34",
+          "size": 5120
+        },
+        {
+          "name": "NA/BS.ROUTINES.BK1",
+          "sha256": "3422111e93f2159faf56efa14725fe0464f1084d9b8be109fbdd8634fe7314b8",
+          "size": 4096
+        },
+        {
+          "name": "NA/BS.ROUTINES.BK2",
+          "sha256": "607f7e97c6c70ccdbc89ac6ec34a48ca77e9f91c4ecc8e420cd77a02e8f8956a",
+          "size": 12286
+        }
+      ],
+      "owner": "Runtime::step/fallbackStep, cpu.inc; guarded movement.cpp",
+      "reason": "Native sector-cell movement does not replace original command loops, object predicates, map loading or pressure-plate effects. Original registers, bank switches, stack and world ABI remain required.",
+      "evidence": "SWITCH35 and MONKS-ALL34 actual movement/door/portal traces"
+    },
+    {
+      "domain": "Dialogue and original quest effects",
+      "resources": [
+        {
+          "name": "NA/SRTN.NPC.TALK",
+          "sha256": "db7507c2fb147822d45c9f179cd23d36ced698ae04fc8d0eb9450861cee1f845",
+          "size": 32831
+        }
+      ],
+      "owner": "Runtime::step/fallbackStep plus semantic Runtime enhancement observers",
+      "reason": "Original dialogue matching/effects remain executed code. Journal and gameplay-event capture observe completed operations; CE ownership of those records does not replace NPC quest logic.",
+      "evidence": "Actual Axea/Valess/Nystul, mouth, Archus/Styx and source-qualified word/reply evidence"
+    },
+    {
+      "domain": "Battle, damage, victory, ending",
+      "resources": [
+        {
+          "name": "NA/SRTN.COMBAT.S",
+          "sha256": "03d41f170eae24ff9594a76cb3976313d16ea9aa174badcd9adb26636d99a76d",
+          "size": 36418
+        }
+      ],
+      "owner": "Runtime::step/fallbackStep and runtime_observers.cpp",
+      "reason": "Original admission, spell calculations, enemy AI, death/victory dispatch and ending remain execution-coupled. Fixtures prepare BEFORE operations, and read-only observers do not supply expected outcomes.",
+      "evidence": "FINAL35 original defeat/ending/acknowledgement and full guardian traces"
+    },
+    {
+      "domain": "Inventory, Search, Open, item effects",
+      "resources": [
+        {
+          "name": "NA/SRTN.INVENTORY",
+          "sha256": "ec60f2adc90a457e06d29e257e1dd254c11b3c188c1872703bb0ba3890dc7f8c",
+          "size": 67130
+        }
+      ],
+      "owner": "Runtime::step/fallbackStep, cpu.inc",
+      "reason": "Original Search/Open/item predicates and record mutation still rely on runtime memory/stack/banks; decoded inventory and CE save/enhancement ownership are separate from gameplay execution ownership.",
+      "evidence": "Parchment/artifact/key Search and actual item/door/cold evidence"
+    }
+  ],
+  "limitations": [
+    "Resource/owner/reason inventory, not an instruction-address conversion queue. No fallback coverage percentage or interpreter-disabled claim.",
+    "M4 NOT STARTED; removal/replacement of these dependencies remains unauthorized. Proprietary resource payloads are not copied into this document."
+  ],
+  "current_reconciliation": "Exact restored52 source. Inventory remains a temporary execution-coupling disclosure; no M4 retirement or interpreter-disabled claim."
+}

@@ -1,0 +1,40 @@
+{
+  "status": "VERIFIED",
+  "parent_task": "M2.4e2",
+  "parent_status": "IN PROGRESS",
+  "scope": "Actual queue-write denial during CE save metadata registration on committed local saves in both modes; explicit sync failure, unchanged worlds/history and cold recovery; normal Modern gameplay/save/load regression.",
+  "executable_sha256": "6682080713f9e80082378bd795d43019aa53d563fe300cd8af703ad2ae5c3dae",
+  "build": {
+    "session": 94681,
+    "warnings": 1,
+    "errors": 0,
+    "elapsed": "00:02:39.89",
+    "log": "nox-m2-metadata-queue-build.out.log"
+  },
+  "reports": [
+    {
+      "path": "ce-m2-metadata-queue-modern/20261015-202246/verification.json",
+      "sha256": "82b4fcd0da8edf23a1560240ec4d0ad205c0925b7bc0477af8628961c891dd17"
+    },
+    {
+      "path": "ce-m2-metadata-queue-classic/20261015-202256/verification.json",
+      "sha256": "92fd31aa2e25b0eb0671fd2b214d5056d54a3d8e376121801494df344c84b41b"
+    },
+    {
+      "path": "ce-m2-metadata-queue-gameplay/20261015-202304/verification.json",
+      "sha256": "f967d241809cb8e10cd3bf7c13733cafd2bc0522f276670ad8041838ab0e6d63"
+    }
+  ],
+  "source_sha256": {
+    "engines/ce_achievements.cpp": "11eccbb0d0013fd606fbdd0fea7e6defcc6b0197e9f5deca508adb2cd2093cf3",
+    "engines/nox/io_validation.h": "a8ea2fc8efed252a3015478ad1135e4c5bc5fc35241ff5a654a85f6f90ec1f30",
+    "devtools/nox/test_io_failures.py": "2be1b1dd75e50ff51a8d16f6dddc3ca10de7009da3368c79151cc11b872bb215"
+  },
+  "limitations": [
+    "Metadata-save denial invokes the real CE metadata call on an existing committed save; it does not deny writes during the entire Nox save operation.",
+    "Load-history error branch changed but not separately fault-driven.",
+    "Message invocation executed, visual presentation not captured.",
+    "Permanent assistance registry failure remains unverified.",
+    "No network use; full M2 remains IN PROGRESS."
+  ]
+}

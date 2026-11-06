@@ -1,0 +1,37 @@
+{
+  "status": "IN PROGRESS",
+  "scope": "Combined spatial/contact117 not verified; component116 remains verified",
+  "failed_case": "6061: large NPC atrelative129/128, automatic contact queues correct request but candidate/blocked phase differs",
+  "source_archive": {
+    "path": "ce-m4-npc-contact116-source.zip",
+    "sha256": "d1b104692ec5f25ec241ba77c93075518ae3e0a096db071fa3e8d0af8868aa03"
+  },
+  "preserved_executable": {
+    "path": "ce-m4-binary\\scummvm-npc-contact116.exe",
+    "sha256": "8aac0515e5f8bfeec04867953f6345c4f37f19730daf97e777c264b95bbc796d"
+  },
+  "evidence": {
+    "ce-m4-actor-contact117-suite.log": "a16e991401287208638d016872e8b79e5583c9d1c0dcb20a53135099447a4380",
+    "ce-m4-actor-contact117-reference/metadata.json": "c11899012590b26617a2619101bcd03e23a4f371d10542cda4dc3e93d1ee3891",
+    "ce-m4-actor-contact118-reference/metadata.json": "ec48672f1265539cfa0f49b5b19d2960a077477dcf6899891c40dcb2f094b793",
+    "ce-m4-large-contact118-trace.json": "dc219dbd1f7a3ca4aadadc0193d3c0f35ba81139f18cdd8e46213d547166260d",
+    "ce-m4-large-auto-contact118-domain.json": "4a120ec63c9678ab69cb8b050205f64973e85df67e28fa5850821b8c86997e35"
+  },
+  "finding": "117 development fixture did not enforce size/state consistency.118 repeats actual source with corrected size bits and confirms helper clobbers subcell cursor; diagnostic118 observes14 out-of-vector candidate reads. Two authored large automatic-contact records exist (UM101 and RUIN32), both capability0/flags0. Full caller/observable-turn analysis remains required; no general CPU-layout owner may be introduced.",
+  "next_action": "Keep unsupported large automatic-contact handoff explicit; qualify complete NPC gameplay effects/inputs and continue independent ordinary turn and UI work.",
+  "limitations": [
+    "No native full phase or battle/campaign acceptance from this investigation.",
+    "Do not alter original source expected outcomes or infer that scratch differences are irrelevant until complete resulting gameplay effects are demonstrated."
+  ],
+  "stationary_domain_resolution": {
+    "status": "VERIFIED",
+    "evidence": "SCUMMVM-CE-M4-WORLD-PHASE128-UNIT.json",
+    "scope": "Actual authored UM101/RUIN32 stationary on-foot automatic-contact NPCs, full records/actual slots/standing terrain.1728 whole observable action results and actual six-owner cold queued-request continuation.",
+    "authored_record_proof": {
+      "path": "ce-m4-large-contact125-reference/authored-record-proof.json",
+      "sha256": "cd2b8877ca242f6ab0724880c2f4445f8186a9532cfbbd59e26515ecc05f110d"
+    },
+    "method": "Finish queued conversation in a stationary action whose subsequent intent consumes no collision decisions/RNG. Compare original complete resulting record, request, route, RNG, timer, position/phase, hidden/appearance and pattern/preferences; do not reproduce unused CPU-adjacent candidate reads.",
+    "remaining": "Moving large automatic-contact NPCs and party-vehicle contact remain unsupported; no whole actor/player loop or actual conversation UI acceptance."
+  }
+}

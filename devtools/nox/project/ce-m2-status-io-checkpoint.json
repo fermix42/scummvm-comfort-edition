@@ -1,0 +1,66 @@
+{
+  "status": "VERIFIED",
+  "parent_task": "M2.4e2",
+  "parent_status": "IN PROGRESS",
+  "scope": "Ten actual file-denial cases per initial save mode; normal archive/delete/recovery in both modes and Modern launcher/chooser/host lifecycle. Not the full M2 storage or provenance audit. Current-executable killed-process overwrite and corrupt-load rejection pass both modes with controlled nonempty enhancement owners.",
+  "executable_sha256": "5a295be7ada95e1c0b3975279ea01419414c21aa0d1ac18c780c6fc943f9aaee",
+  "build": {
+    "session": 53843,
+    "errors": 0,
+    "warnings": 1,
+    "elapsed": "00:02:40.14",
+    "log": "nox-m2-io-status-correction-build.out.log"
+  },
+  "reports": [
+    {
+      "path": "ce-m2-io-status-after-modern/20261015-200249/verification.json",
+      "sha256": "af6c84b1141001b8a37007c55a868e9ff0590c1a187bb30286d7887f9a80913d",
+      "status": "VERIFIED"
+    },
+    {
+      "path": "ce-m2-io-status-after-classic/20261015-200357/verification.json",
+      "sha256": "8372c8ec551ef9126e3af95e7ad4e56af7540d5b755d451096e92721def095c3",
+      "status": "VERIFIED"
+    },
+    {
+      "path": "ce-m2-status-management-modern/20261015-200809/verification.json",
+      "sha256": "59e1749dcd1da6c5cbe0904514fb732be4a12d8c5ff88d74b8cf729637b3c924",
+      "status": "VERIFIED"
+    },
+    {
+      "path": "ce-m2-status-management-classic/20261015-200922/verification.json",
+      "sha256": "abb654ad7faac4874abf51710e02b465d26c7bc03b2b23f338aac86685ed2f8a",
+      "status": "VERIFIED"
+    },
+    {
+      "path": "ce-m2-status-host-gameplay/20261015-201349/verification.json",
+      "sha256": "3c71bd202e513919f2cc467eb3d3ac30f1018678083e8157889e82ecc3ba5390",
+      "status": "VERIFIED"
+    },
+    {
+      "path": "ce-m2-status-failures-modern/20261015-201820/failure-verification.json",
+      "sha256": "549d2ebdb017c3a14c760c9b2a89c7060f8fae14ea0853a087b61a242174de8d",
+      "status": "VERIFIED"
+    },
+    {
+      "path": "ce-m2-status-failures-classic/20261015-201843/failure-verification.json",
+      "sha256": "060a76999dc2b7c2d0ac7808e7ff412bbf870c9f2aee2e64adeba2dd65a667ee",
+      "status": "VERIFIED"
+    }
+  ],
+  "source_sha256": {
+    "engines/ce_achievements.cpp": "c0ba679d7587807126ce704d55a00c959e58b9b1dd5fccf3e0ea4a1ce7c97ddf",
+    "gui/saveload-dialog.cpp": "6af8ee1d591a87722f9aa34666bfb0c7dd61c47abe5704156b11d01e531173ce",
+    "backends/events/default/default-events.cpp": "04a82d66b59fed6d3685bb6d632594f698fe1ecc73bfe8d76f08101faab136ca",
+    "engines/nox/io_validation.h": "43901ac3f9203d43a821f980475d13572793b549dba7842193fad4ea8888a3ea",
+    "devtools/nox/test_io_failures.py": "df45d142b0b9aef9d1d18ea82e2283055392ac6021bc5db3a000ecba0f9dcad9"
+  },
+  "confirmed_defect": "Completion/archive previously changed active status or registry despite denied registry/queue persistence. Four before-fix reproductions retained at ce-m2-io-status-before/20261015-195810/verification.json.",
+  "correction": "Persist registry and durable end event before changing active status; restore registry on queue failure. Surface failed status operations; cancel requested completion exit on failure.",
+  "limitations": [
+    "New failure message dialogs and prevented exit were source-reviewed, not separately driven under faults.",
+    "Save/load metadata queue and permanent assistance writer-result paths still require audit.",
+    "No network requests or server credential used.",
+    "Full M2.4e2 and M2 remain IN PROGRESS."
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "status": "IN PROGRESS",
+  "milestone": "M3",
+  "scope": "Actual14step corridor approach verified; original full2Cultist attempt failed victory/controller bound",
+  "accepted_approach": {
+    "path": "ce-m3-cultist-approach36/20261016-183716/verification.json",
+    "sha256": "8d63fae84813242c561ed8b9648071c228a618f07bd82a5f897c5318f392950b",
+    "result": {
+      "save": "ce-m3-cultist-approach36\\20261016-183716\\saves\\nox-ce-ed5939a032719adcfecdf986a9261c4a-7ae1dafa76a889bf8ef2115a9052da5a-slot001.g1",
+      "save_sha256": "dda89eacb4fedb5d5e52c39de90a243b1eae8b705d1d2e97c78e26b8c4155c86",
+      "runtime_sha256": "664b0a07f7db1275c8260d60ca8a25a0a3f2517d073dce3ae9931bd8a64b0f52",
+      "generation": 56,
+      "slot": 1,
+      "PC": 29148,
+      "SP": 255,
+      "alternate": 0,
+      "stack_return": 0,
+      "map": 99,
+      "map_type": 2,
+      "xy": [
+        212,
+        89
+      ],
+      "pageflags": 255,
+      "research": 3,
+      "transport_flags": 0,
+      "keyflag_040F": 0,
+      "keyflag_0410": 63,
+      "party_count": 1,
+      "status": 0,
+      "level": 10,
+      "health": 125,
+      "maximum_health": 125,
+      "mana": 23,
+      "inactive": 0,
+      "STR_DEX_INT": [
+        8,
+        14,
+        110
+      ],
+      "Range": 10,
+      "Range_training_remaining": 54,
+      "weapon_range_bytes": [
+        1,
+        16
+      ],
+      "spell_slot1": 12,
+      "spell_quantity": 1,
+      "Ankh_quantity": 0,
+      "key_quantity": 0,
+      "staff_quantity": 0,
+      "enemy_health": 0,
+      "encounter_sprite": 137,
+      "ending_loop": 0
+    },
+    "ce_processes": 2
+  },
+  "failed_attempt": {
+    "path": "ce-m3-cultist-full-battle36\\20261016-183721",
+    "artifacts": {
+      "input-identity.json": "783f865f14b53067f37887f85e69f874c8bc799bf6c6210908159ae41f338da0",
+      "saves\\nox-vortex-trace.tsv": "9bcaa3f41e88b3019364b36d02be87b9a1f1f9be522e12a396f8c5e674c15877",
+      "saves\\nox-vortex-failure.tsv": "3b07d2d6ee6be8893467078c36e50612d74ee8ee9afe2fb1a9a0dff7b27adcdc",
+      "saves\\nox-vortex-failure-memory.bin": "984497d044ba7428eaa1ae459ad29014cd9f848ef61cfb3152d3b28a28ae1a2d"
+    },
+    "result": "Original2x267HP full admission; actual Cast/damage/MP110->23, enemy0HP0/other267, partyHP4. Controllerinputbound512; no world victory/defeat predicate/Letter/cold result claimed."
+  },
+  "source_archive": {
+    "path": "ce-m3-cultists36-investigation-source.zip",
+    "sha256": "33356a523c6df078cef45ddb4a52333d9e9b3317f9b450764080ebf05a632bd2"
+  },
+  "preserved_executable": {
+    "path": "ce-m3-guardian6-binary\\scummvm-cultists36-investigation.exe",
+    "sha256": "d143e03d4fe841ac088ce422533d741b34952e058428e5fbd3613af644659b0c"
+  },
+  "build": {
+    "log": "ce-m3-cultist-build-36.log",
+    "result": "PASS0 warnings/errors00:02:38.15"
+  },
+  "next_action": "Separate explicitly staged valid livingenemy0HP1/otherdead checkpoint BEFORE actualCast after full original admission. Retain full-health attempt as failed; do not relabel as full victory. No game-logic change justified.",
+  "limitations": [
+    "Only failed one-spell controller policy tested for full2Cultist victory; does not establish unwinnability or a game defect.",
+    "Actual14step approach has no new position/party/NPC/HP/PRNG/quest control; controlled noon before walk only. Retained actual Monk victory/wall passage. No M4."
+  ]
+}

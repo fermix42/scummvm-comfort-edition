@@ -1,0 +1,7 @@
+{
+  "host": "hermesbox",
+  "non_admin": true,
+  "dedicated_credential_revoked": true,
+  "status": "VERIFIED",
+  "scope": "Only exact dedicated test credential revoked; account and test history retained"
+}

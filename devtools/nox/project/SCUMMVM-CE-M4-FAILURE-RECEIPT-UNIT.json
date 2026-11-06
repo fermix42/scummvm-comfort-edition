@@ -1,0 +1,28 @@
+{
+  "status": "VERIFIED",
+  "scope": "Harness regression for observed test-file error only; the deliberately invalid resource test remains rejected",
+  "argv": [
+    "C:\\Program Files\\Python313\\python.exe",
+    "D:\\Codex Projects\\scummvm-private\\scummvm-private-feature-usable-desktop-window-layout-git\\devtools\\nox\\test_resources.py",
+    "--exe",
+    "D:\\Codex Projects\\scummvm-private\\scummvm-private-feature-usable-desktop-window-layout-git\\build-scummvm\\Releasex64\\scummvm.exe",
+    "--base",
+    "D:\\Codex Projects\\Nox Archaist\\Nox Archaist HDV (v119).HDV",
+    "--expansion",
+    "D:\\Codex Projects\\Nox Archaist\\Nox Archaist Lord of Storms HDV (v137).HDV",
+    "--artifacts",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-failure-receipt-check2",
+    "--native-video",
+    "--native-dialogue-oracle",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-intentionally-absent-oracle"
+  ],
+  "driver_exit": 1,
+  "elapsed_seconds": 1.821557599992957,
+  "receipt": "ce-m4-failure-receipt-check2\\20261017-020223\\native-validation-rejected.json",
+  "receipt_sha256": "b8a6d629eab6c740e00eb5de9bdd146af827bd34513f481292b263022babf07b",
+  "executable_sha256": "c6e5e1393535d3c6f33d86cf59957dbeaee20a081e3afd39e39ae9b6114bfbca",
+  "native_validation_accepted": false,
+  "gameplay_acceptance": false,
+  "rejected_first_attempt": "ce-m4-failure-receipt-check: relocated identity-only exe lacked adjacent runtime dependencies and exited before engine.log; not an engine validation result.",
+  "result": "Exact native failure reason captured; only failed child terminated promptly without90-second modal wait"
+}

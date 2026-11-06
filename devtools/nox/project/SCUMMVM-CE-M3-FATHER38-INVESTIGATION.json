@@ -1,0 +1,80 @@
+{
+  "status": "IN PROGRESS",
+  "milestone": "M3",
+  "scope": "Actual wrong word/refusal/cold verified; physical blocked Left opens original automatic mouth conversation unhandled by world-only controller",
+  "accepted_wrong_word": {
+    "path": "ce-m3-father-word-wrong38\\20261016-185501/verification.json",
+    "sha256": "f0637edcb42c848b00d7c12039506cf7291e72169c5f77173dcaf181bd39a2e1",
+    "result": {
+      "save": "ce-m3-father-word-wrong38\\20261016-185501\\saves\\nox-ce-ed5939a032719adcfecdf986a9261c4a-7ae1dafa76a889bf8ef2115a9052da5a-slot001.g1",
+      "save_sha256": "15b4f55b4b2ceaa718c3949254e418ef8f80134195738f5f244d0b921e1c60c1",
+      "runtime_sha256": "83cf6c339f701a8f0d937e2028f204de9be50733bf3e9c54b25ede582c83aee9",
+      "generation": 24,
+      "slot": 1,
+      "PC": 29148,
+      "SP": 255,
+      "alternate": 0,
+      "stack_return": 0,
+      "map": 97,
+      "map_type": 2,
+      "xy": [
+        134,
+        72
+      ],
+      "pageflags": 255,
+      "research": 3,
+      "transport_flags": 0,
+      "keyflag_040F": 4,
+      "keyflag_0410": 63,
+      "party_count": 1,
+      "status": 0,
+      "level": 1,
+      "health": 50,
+      "maximum_health": 50,
+      "mana": 8,
+      "inactive": 0,
+      "STR_DEX_INT": [
+        8,
+        8,
+        8
+      ],
+      "Range": 10,
+      "Range_training_remaining": 0,
+      "weapon_range_bytes": [
+        1,
+        16
+      ],
+      "spell_slot1": 50,
+      "spell_quantity": 1,
+      "Ankh_quantity": 0,
+      "key_quantity": 0,
+      "staff_quantity": 0,
+      "enemy_health": 0,
+      "encounter_sprite": 0,
+      "ending_loop": 0
+    }
+  },
+  "observed_failure": {
+    "path": "ce-m3-father-passage-wrong38\\20261016-185507",
+    "artifacts": {
+      "saves\\nox-vortex-failure.tsv": "f5845fba9afd91b270a93630faf961423da4bb4d95e12bbdf86b6826139c1f16",
+      "saves\\nox-vortex-trace.tsv": "2f8b9eef9c4f0f4ae10fef58aef3138f3cdc61726aa231e2ba5c2519b960b9cf",
+      "saves\\nox-vortex-failure-memory.bin": "e01f114c42e29a729333da995caea22c9188f550ac6409f9eefebf080c1c2f5a",
+      "saves\\nox-vortex-failure.png": "63d8f5ddfa9c0118e486625332c48375ae5c491a3d0bf78286a38b816f9f3759"
+    },
+    "meaning": "ActualLeft stays134,72/Blocked and triggers original Who loves Daniel & Noah mouth prompt; pending conversationreturnAF4E, no battle. World settle controller cannot exit keyword prompt, no accepted physical result/cold. Diagnostic image visually inspected."
+  },
+  "source_archive": {
+    "path": "ce-m3-nystul38-source.zip",
+    "sha256": "6ddd05ec26e5159403bc3cc4857460387d937e5d1702f85ca4fe03df2436de04"
+  },
+  "preserved_executable": {
+    "path": "ce-m3-guardian6-binary\\scummvm-nystul38.exe",
+    "sha256": "1e65dd2583a77183c85aaea9a602c2540907155851ab1904e454f1de6f7eb0cf"
+  },
+  "next_action": "Reuse existing strict-word conversation controller with read-only current adjacency and realLeft trigger for this exact closed-door bump; actual Esc from observed word boundary, then verify blocked position/door/cold. Separate positive DAD/FATH and real passage. No game-logic change.",
+  "limitations": [
+    "Observed controller gap, not evidence of a gameplay defect or a passing full gate.",
+    "Source word effect writesBE93/aux5793=24hex and consumes042E20; original picture65 unchanged. No persistent flag/image-decrement oracle assumed. No M4."
+  ]
+}

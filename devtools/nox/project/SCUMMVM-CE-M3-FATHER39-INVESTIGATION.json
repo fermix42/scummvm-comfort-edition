@@ -1,0 +1,350 @@
+{
+  "status": "IN PROGRESS",
+  "milestone": "M3",
+  "scope": "Father closedLeft autoTalk/strict cancellation and DAD passage verified; FATH temporal-door discrepancy unresolved",
+  "reports": [
+    {
+      "path": "ce-m3-father-word-wrong38\\20261016-185501/verification.json",
+      "sha256": "f0637edcb42c848b00d7c12039506cf7291e72169c5f77173dcaf181bd39a2e1",
+      "result": {
+        "save": "ce-m3-father-word-wrong38\\20261016-185501\\saves\\nox-ce-ed5939a032719adcfecdf986a9261c4a-7ae1dafa76a889bf8ef2115a9052da5a-slot001.g1",
+        "save_sha256": "15b4f55b4b2ceaa718c3949254e418ef8f80134195738f5f244d0b921e1c60c1",
+        "runtime_sha256": "83cf6c339f701a8f0d937e2028f204de9be50733bf3e9c54b25ede582c83aee9",
+        "generation": 24,
+        "slot": 1,
+        "PC": 29148,
+        "SP": 255,
+        "alternate": 0,
+        "stack_return": 0,
+        "map": 97,
+        "map_type": 2,
+        "xy": [
+          134,
+          72
+        ],
+        "pageflags": 255,
+        "research": 3,
+        "transport_flags": 0,
+        "keyflag_040F": 4,
+        "keyflag_0410": 63,
+        "party_count": 1,
+        "status": 0,
+        "level": 1,
+        "health": 50,
+        "maximum_health": 50,
+        "mana": 8,
+        "inactive": 0,
+        "STR_DEX_INT": [
+          8,
+          8,
+          8
+        ],
+        "Range": 10,
+        "Range_training_remaining": 0,
+        "weapon_range_bytes": [
+          1,
+          16
+        ],
+        "spell_slot1": 50,
+        "spell_quantity": 1,
+        "Ankh_quantity": 0,
+        "key_quantity": 0,
+        "staff_quantity": 0,
+        "enemy_health": 0,
+        "encounter_sprite": 0,
+        "ending_loop": 0
+      },
+      "door_record": [
+        133,
+        72,
+        65,
+        18,
+        46,
+        32,
+        0,
+        0
+      ],
+      "executable_sha256": "1e65dd2583a77183c85aaea9a602c2540907155851ab1904e454f1de6f7eb0cf",
+      "scope": "FATH reply verified only; finaldoorclosed16/reenteredNPC means not accepted opening/passage"
+    },
+    {
+      "path": "ce-m3-father-bump-wrong39\\20261016-190235/verification.json",
+      "sha256": "b3f97ba1498f4289cf8059ff705c8d53ebf8df8fbbac87c4ea6e9e0090610cba",
+      "result": {
+        "save": "ce-m3-father-bump-wrong39\\20261016-190235\\saves\\nox-ce-ed5939a032719adcfecdf986a9261c4a-7ae1dafa76a889bf8ef2115a9052da5a-slot001.g1",
+        "save_sha256": "e10d554c09944f381af4a3a92d4015afa716c95165bd6541ab568c33363c6e1a",
+        "runtime_sha256": "1225ae1a6ea57d07a4bb5162bb00c9072f6eeb5d04a3243db0d45788e2f8eb0a",
+        "generation": 26,
+        "slot": 1,
+        "PC": 29148,
+        "SP": 255,
+        "alternate": 0,
+        "stack_return": 0,
+        "map": 97,
+        "map_type": 2,
+        "xy": [
+          134,
+          72
+        ],
+        "pageflags": 255,
+        "research": 3,
+        "transport_flags": 0,
+        "keyflag_040F": 4,
+        "keyflag_0410": 63,
+        "party_count": 1,
+        "status": 0,
+        "level": 1,
+        "health": 50,
+        "maximum_health": 50,
+        "mana": 8,
+        "inactive": 0,
+        "STR_DEX_INT": [
+          8,
+          8,
+          8
+        ],
+        "Range": 10,
+        "Range_training_remaining": 0,
+        "weapon_range_bytes": [
+          1,
+          16
+        ],
+        "spell_slot1": 50,
+        "spell_quantity": 1,
+        "Ankh_quantity": 0,
+        "key_quantity": 0,
+        "staff_quantity": 0,
+        "enemy_health": 0,
+        "encounter_sprite": 0,
+        "ending_loop": 0
+      },
+      "door_record": [
+        133,
+        72,
+        65,
+        18,
+        46,
+        32,
+        0,
+        0
+      ],
+      "executable_sha256": "b4a5a688903f1bf5f9365593d3ecd96ebcec050df4bcf813d82c48aaf06c1214",
+      "scope": "FATH reply verified only; finaldoorclosed16/reenteredNPC means not accepted opening/passage"
+    },
+    {
+      "path": "ce-m3-father-word-dad39\\20261016-190240/verification.json",
+      "sha256": "34a7ed49659d7da3586fe73cb0941214f040476ed9e7a018903b28d211508ff2",
+      "result": {
+        "save": "ce-m3-father-word-dad39\\20261016-190240\\saves\\nox-ce-ed5939a032719adcfecdf986a9261c4a-7ae1dafa76a889bf8ef2115a9052da5a-slot001.g1",
+        "save_sha256": "ab59df17125e00b218b76f8320c9804390c87879c2bc6614b035fabfd863a154",
+        "runtime_sha256": "a93aba1c74262f9e864ff68e0f88b35601ba9e79c1d7a0cfd688adbfb6d12f23",
+        "generation": 24,
+        "slot": 1,
+        "PC": 29148,
+        "SP": 255,
+        "alternate": 0,
+        "stack_return": 0,
+        "map": 97,
+        "map_type": 2,
+        "xy": [
+          134,
+          72
+        ],
+        "pageflags": 255,
+        "research": 3,
+        "transport_flags": 0,
+        "keyflag_040F": 4,
+        "keyflag_0410": 63,
+        "party_count": 1,
+        "status": 0,
+        "level": 1,
+        "health": 50,
+        "maximum_health": 50,
+        "mana": 8,
+        "inactive": 0,
+        "STR_DEX_INT": [
+          8,
+          8,
+          8
+        ],
+        "Range": 10,
+        "Range_training_remaining": 0,
+        "weapon_range_bytes": [
+          1,
+          16
+        ],
+        "spell_slot1": 50,
+        "spell_quantity": 1,
+        "Ankh_quantity": 0,
+        "key_quantity": 0,
+        "staff_quantity": 0,
+        "enemy_health": 0,
+        "encounter_sprite": 0,
+        "ending_loop": 0
+      },
+      "door_record": [
+        133,
+        72,
+        65,
+        35,
+        46,
+        32,
+        0,
+        0
+      ],
+      "executable_sha256": "b4a5a688903f1bf5f9365593d3ecd96ebcec050df4bcf813d82c48aaf06c1214",
+      "scope": "FATH reply verified only; finaldoorclosed16/reenteredNPC means not accepted opening/passage"
+    },
+    {
+      "path": "ce-m3-father-passage-dad39\\20261016-190244/verification.json",
+      "sha256": "fa3c385a9bf8473ba99d12c9ead02469275c26c85a9f7f6712c139333c0a1ee2",
+      "result": {
+        "save": "ce-m3-father-passage-dad39\\20261016-190244\\saves\\nox-ce-ed5939a032719adcfecdf986a9261c4a-7ae1dafa76a889bf8ef2115a9052da5a-slot001.g1",
+        "save_sha256": "3cce64270074961065b1f360c28da8a8abc7cb828f86207e02a0a71b65845264",
+        "runtime_sha256": "85b6ed761e1bea3b13317bc279c75ad4ff8f92ec689f59494f8846cacbb46a18",
+        "generation": 26,
+        "slot": 1,
+        "PC": 29148,
+        "SP": 255,
+        "alternate": 0,
+        "stack_return": 0,
+        "map": 97,
+        "map_type": 2,
+        "xy": [
+          132,
+          72
+        ],
+        "pageflags": 255,
+        "research": 3,
+        "transport_flags": 0,
+        "keyflag_040F": 4,
+        "keyflag_0410": 63,
+        "party_count": 1,
+        "status": 0,
+        "level": 1,
+        "health": 50,
+        "maximum_health": 50,
+        "mana": 8,
+        "inactive": 0,
+        "STR_DEX_INT": [
+          8,
+          8,
+          8
+        ],
+        "Range": 10,
+        "Range_training_remaining": 0,
+        "weapon_range_bytes": [
+          1,
+          16
+        ],
+        "spell_slot1": 50,
+        "spell_quantity": 1,
+        "Ankh_quantity": 0,
+        "key_quantity": 0,
+        "staff_quantity": 0,
+        "enemy_health": 0,
+        "encounter_sprite": 0,
+        "ending_loop": 0
+      },
+      "door_record": [
+        133,
+        72,
+        65,
+        40,
+        46,
+        32,
+        0,
+        0
+      ],
+      "executable_sha256": "b4a5a688903f1bf5f9365593d3ecd96ebcec050df4bcf813d82c48aaf06c1214",
+      "scope": "FATH reply verified only; finaldoorclosed16/reenteredNPC means not accepted opening/passage"
+    },
+    {
+      "path": "ce-m3-father-word-fath39\\20261016-190248/verification.json",
+      "sha256": "f6decfed2d214be99b73b1a078c6fafb41f2dac66efb86e3c1c0fad5eba0b7c9",
+      "result": {
+        "save": "ce-m3-father-word-fath39\\20261016-190248\\saves\\nox-ce-ed5939a032719adcfecdf986a9261c4a-7ae1dafa76a889bf8ef2115a9052da5a-slot001.g1",
+        "save_sha256": "e0dc3b522ac1b7ad7be1365946f42245b71e543b0f4e64a325ea52aa59f67240",
+        "runtime_sha256": "eacea5662346e99e97ce8df65d89126edc8f4f9c688f79b15bfbf828ab92c847",
+        "generation": 24,
+        "slot": 1,
+        "PC": 29148,
+        "SP": 255,
+        "alternate": 0,
+        "stack_return": 0,
+        "map": 97,
+        "map_type": 2,
+        "xy": [
+          134,
+          72
+        ],
+        "pageflags": 255,
+        "research": 3,
+        "transport_flags": 0,
+        "keyflag_040F": 4,
+        "keyflag_0410": 63,
+        "party_count": 1,
+        "status": 0,
+        "level": 1,
+        "health": 50,
+        "maximum_health": 50,
+        "mana": 8,
+        "inactive": 0,
+        "STR_DEX_INT": [
+          8,
+          8,
+          8
+        ],
+        "Range": 10,
+        "Range_training_remaining": 0,
+        "weapon_range_bytes": [
+          1,
+          16
+        ],
+        "spell_slot1": 50,
+        "spell_quantity": 1,
+        "Ankh_quantity": 0,
+        "key_quantity": 0,
+        "staff_quantity": 0,
+        "enemy_health": 0,
+        "encounter_sprite": 0,
+        "ending_loop": 0
+      },
+      "door_record": [
+        133,
+        72,
+        65,
+        16,
+        46,
+        32,
+        0,
+        0
+      ],
+      "executable_sha256": "b4a5a688903f1bf5f9365593d3ecd96ebcec050df4bcf813d82c48aaf06c1214",
+      "scope": "FATH reply verified only; finaldoorclosed16/reenteredNPC means not accepted opening/passage"
+    }
+  ],
+  "failed_attempt": {
+    "path": "ce-m3-father-passage-fath39\\20261016-190253",
+    "artifacts": {
+      "saves\\nox-vortex-trace.tsv": "b6ce882af4d52f4852d1b96a1e4cb30eaaca6b2b6605aa7f18f8ce7dc36db282",
+      "saves\\nox-vortex-failure.tsv": "0b44a2fa435235f8db0a410f1750ddb0c682950fc8a3f16f166ffeed54554451",
+      "saves\\nox-vortex-failure-memory.bin": "d42bb01531186cdb8f626fe4e2e5e918ddb0df13633040537a62a8a61494e63f"
+    },
+    "observation": "FATH correct success reply, but journal then records second blank-input opening/Goodbye; finaldoor16/closed and passageblocked134,72. DAD yields35 then real2Left->132,72/openstate40."
+  },
+  "source_archive": {
+    "path": "ce-m3-bump-vortex39-source.zip",
+    "sha256": "f83577827bdb52f66ba9738a877417f1c36495a594b23db5d1979cd5fe2c4c44"
+  },
+  "preserved_executable": {
+    "path": "ce-m3-guardian6-binary\\scummvm-bump-vortex39.exe",
+    "sha256": "b4a5a688903f1bf5f9365593d3ecd96ebcec050df4bcf813d82c48aaf06c1214"
+  },
+  "research": {
+    "path": "ce-m3-word-input39-research-local.asm",
+    "sha256": "da165785ee24234a154f0e248645796b74bdffb5c1ae5c2395be85692f9fe470",
+    "meaning": "Source input readerB97D initializesX13 and BA03/BA04 ends when countdownzero; four-letter auto-submit explanation RETRACTED. Strict conversation controller still sendsReturn at unobserved animation keyboard polls after32polls; remove only that strict-word fallback, retain exact1330scene acknowledgements, then retest."
+  },
+  "next_action": "Source40 minimal strict-word input fallback correction; new Father bothmodes and affected strict NPC word regressions. Preserve failed39/oldsource38 identities; no game-logic change or M4."
+}

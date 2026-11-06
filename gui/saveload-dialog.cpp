@@ -519,6 +519,14 @@ void SaveLoadChooserDialog::setupPlaythroughFilter() {
 		_hasPreferredPlaythroughFilter = false;
 	}
 
+	// Save choices are scoped to the active session. Do not create load-only
+	// controls here: hidden widgets still participate in mouse hit testing and
+	// would cover the first save row with an invisible session popup.
+	if (_saveMode) {
+		_selectedPlaythroughClientId = Common::CEAchievements().getCurrentPlaythroughForTarget(_target);
+		return;
+	}
+
 	if (!_playthroughPopup) {
 		_playthroughPopup = new PopUpWidget(this, 10, 28, 320, 20, _("Playthrough"), kPlaythroughSwitchCmd);
 		_playthroughPopup->setVisible(false);
@@ -720,8 +728,11 @@ void SaveLoadChooserDialog::setSelectedPlaythroughStatus(const Common::String &s
 	if (!_playthroughFilterEnabled || _selectedPlaythroughClientId.empty())
 		return;
 
-	if (!Common::CEAchievements().setPlaythroughStatusForTarget(_target, _selectedPlaythroughClientId, status))
+	if (!Common::CEAchievements().setPlaythroughStatusForTarget(_target, _selectedPlaythroughClientId, status)) {
+		MessageDialog alert(_("Could not update this Play Session. Please check the save folder and try again."));
+		alert.runModal();
 		return;
+	}
 
 	setupPlaythroughFilter();
 	updateSaveList(false);
@@ -731,8 +742,11 @@ void SaveLoadChooserDialog::setSelectedPlaythroughArchived(bool archived) {
 	if (!_playthroughFilterEnabled || _selectedPlaythroughClientId.empty())
 		return;
 
-	if (!Common::CEAchievements().setPlaythroughArchivedForTarget(_target, _selectedPlaythroughClientId, archived))
+	if (!Common::CEAchievements().setPlaythroughArchivedForTarget(_target, _selectedPlaythroughClientId, archived)) {
+		MessageDialog alert(_("Could not update this Play Session. Please check the save folder and try again."));
+		alert.runModal();
 		return;
+	}
 
 	if (!archived)
 		_showArchivedPlaythroughs = true;
@@ -761,13 +775,24 @@ void SaveLoadChooserDialog::deleteSelectedPlaythrough() {
 	if (dialog.shouldDeleteSaves()) {
 		for (int i = (int)_saveList.size() - 1; i >= 0; --i) {
 			const int saveSlot = _saveList[i].getSaveSlot();
-			Common::CEAchievements().clearSavePlaythroughForTargetSlot(_target, saveSlot, deletedPlaythroughId, _metaEngine->getSavegameFile(saveSlot, _target.c_str()));
-			_metaEngine->removeSaveState(_target.c_str(), saveSlot);
+			// Resolve once and let the engine remove a complete logical save
+			// before clearing generic CE metadata needed to validate that save.
+			const Common::String filename = _metaEngine->getSavegameFile(saveSlot, _target.c_str());
+			if (!_metaEngine->removeSaveState(_target.c_str(), saveSlot)) {
+				MessageDialog alert(_("Could not delete a saved game. The Play Session was kept."));
+				alert.runModal();
+				return;
+			}
+			Common::CEAchievements().clearSavePlaythroughForTargetSlot(_target, saveSlot, deletedPlaythroughId, filename);
 		}
 	} else {
 		for (uint i = 0; i < _saveList.size(); ++i) {
 			const int slot = _saveList[i].getSaveSlot();
-			Common::CEAchievements().clearSavePlaythroughForTargetSlot(_target, slot, deletedPlaythroughId, _metaEngine->getSavegameFile(slot, _target.c_str()));
+			if (!_metaEngine->detachSavePlaythrough(_target.c_str(), slot, deletedPlaythroughId)) {
+				MessageDialog alert(_("Could not detach a saved game. The Play Session was kept."));
+				alert.runModal();
+				return;
+			}
 		}
 	}
 
@@ -1234,6 +1259,17 @@ void SaveLoadChooserSimple::updateSaveList(bool external) {
 		_saveList.push_back(dummySave);
 	}
 
+	bool filteredSlots=false;
+	if(_saveMode){
+		for(int index=int(_saveList.size())-1;index>=0;--index){
+			if(!_metaEngine->isSaveSlotAllowed(_target.c_str(),_saveList[index].getSaveSlot())){
+				_saveList.remove_at(index);saveNames.remove_at(index);filteredSlots=true;
+			}
+		}
+	}
+	// The two-slot Classic policy uses native labels 1/2, not row indices 0/1.
+	const bool classicPair=filteredSlots&&_saveList.size()==2&&_saveList[0].getSaveSlot()==1&&_saveList[1].getSaveSlot()==2;
+	_list->setNumberingMode(classicPair?kListNumberingOne:kListNumberingZero);
 	int selected = _list->getSelected();
 	_list->setList(saveNames);
 	if (selected >= 0 && selected < (int)saveNames.size())
@@ -1387,12 +1423,17 @@ void SaveLoadChooserGrid::open() {
 
 			// In case there was a gap found use the slot.
 			if (lastSlot + 1 < curSlot) {
-				// Check that the save slot can be used for user saves.
-				SaveStateDescriptor desc = _metaEngine->querySaveMetaInfos(_target.c_str(), lastSlot + 1);
-				if (!desc.getWriteProtectedFlag()) {
-					_nextFreeSaveSlot = lastSlot + 1;
-					break;
+				for (int candidate = lastSlot + 1; candidate < curSlot; ++candidate) {
+					if (!_metaEngine->isSaveSlotAllowed(_target.c_str(), candidate))
+						continue;
+					SaveStateDescriptor desc = _metaEngine->querySaveMetaInfos(_target.c_str(), candidate);
+					if (!desc.getWriteProtectedFlag()) {
+						_nextFreeSaveSlot = candidate;
+						break;
+					}
 				}
+				if (_nextFreeSaveSlot != -1)
+					break;
 			}
 
 			lastSlot = curSlot;
@@ -1401,6 +1442,8 @@ void SaveLoadChooserGrid::open() {
 		// Use the next available slot otherwise.
 		const int maxSlot = _metaEngine->getMaximumSaveSlot();
 		for (int i = lastSlot; _nextFreeSaveSlot == -1 && i < maxSlot; ++i) {
+			if (!_metaEngine->isSaveSlotAllowed(_target.c_str(), i + 1))
+				continue;
 			// Check that the save slot can be used for user saves.
 			SaveStateDescriptor desc = _metaEngine->querySaveMetaInfos(_target.c_str(), i + 1);
 			if (!desc.getWriteProtectedFlag()) {
@@ -1653,7 +1696,7 @@ void SaveLoadChooserGrid::updateSaves() {
 		// We also disable and description the button if slot is locked
 		isWriteProtected = desc.getWriteProtectedFlag() ||
 			_saveList[i].getWriteProtectedFlag();
-		if ((_saveMode && isWriteProtected) || desc.getLocked()) {
+		if ((_saveMode && (isWriteProtected || !_metaEngine->isSaveSlotAllowed(_target.c_str(), saveSlot))) || desc.getLocked()) {
 			curButton.button->setEnabled(false);
 		} else {
 			curButton.button->setEnabled(true);

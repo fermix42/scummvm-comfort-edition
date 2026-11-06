@@ -1,0 +1,158 @@
+{
+  "status": "VERIFIED",
+  "scope": "Source-valid controlled preparation and subsequent actual CE warm/cold operation; no new engine build or earned initialization claim",
+  "reports": [
+    {
+      "report": "ce-m3-pirate-wall63\\20261016-221415\\verification.json",
+      "report_sha256": "92d8799e046fd7418a99ce6f2f5bda150fbba8b5082793f980d9fe913268da33",
+      "setup": "ce-m3-prepared-wall63\\setup.json",
+      "setup_sha256": "486359aa19c24dc1d5393ae890e477d7b13d201f438a937576e5e5383737fa9b",
+      "parent_report": "ce-m3-pirate-control55\\20261016-215512\\verification.json",
+      "parent_report_sha256": "d8b7f5d92954a4545d8e0d072de84dc34d0ecaa4a025dc92f7d8abd9a25b65e6",
+      "mode": "Modern",
+      "map": 98,
+      "main_changes": [],
+      "private_resource": "NA/DATA.MAP.UM",
+      "source": "CURRENT parent map tables, never expected door/quest values",
+      "quest_party_inventory_unchanged": true,
+      "cold_operation": "VERIFIED"
+    },
+    {
+      "report": "ce-m3-retained-Brown-gate63\\20261016-221748\\verification.json",
+      "report_sha256": "b0b34b8ff2d77c94abf29a8cee72a955bd15f6e142931c55ac06762c57673934",
+      "setup": "ce-m3-prepared-Brown-gate63\\setup.json",
+      "setup_sha256": "57fa09ab4988a7b5259f26a316171b017a259dc83c5f4381e1852c09cfc5ed2a",
+      "parent_report": "ce-m3-pirate-brown-trap63\\20261016-221503\\verification.json",
+      "parent_report_sha256": "d601f712d03ab31a7fb6368d2f0f8a4bf02ece725d9d76f071539009734287b6",
+      "mode": "Modern",
+      "map": 98,
+      "main_changes": [],
+      "private_resource": "NA/DATA.MAP.UM",
+      "source": "CURRENT parent map tables, never expected door/quest values",
+      "quest_party_inventory_unchanged": true,
+      "cold_operation": "VERIFIED"
+    },
+    {
+      "report": "ce-m3-pirate-wall-classic64\\20261016-222156\\verification.json",
+      "report_sha256": "cb04cf46288ac0e16197985b8c71c626f9903386157ee00af522667cbfae4c8f",
+      "setup": "ce-m3-prepared-wall-classic64\\setup.json",
+      "setup_sha256": "613996cecbd18526a6a466382d350cc7a51138d7cb33103f51a15cf52e889d98",
+      "parent_report": "ce-m3-pirate-control-classic64\\20261016-222151\\verification.json",
+      "parent_report_sha256": "078d10c8c27fd080958a6fcaf3855d563f2ebe4788d9628bc7442b8601df6842",
+      "mode": "Classic",
+      "map": 98,
+      "main_changes": [
+        "0xbd03"
+      ],
+      "private_resource": "NA/DATA.MAP.UM",
+      "source": "CURRENT parent map tables, never expected door/quest values",
+      "quest_party_inventory_unchanged": true,
+      "cold_operation": "VERIFIED"
+    },
+    {
+      "report": "ce-m3-pirate-Brown-search-classic64\\20261016-222201\\verification.json",
+      "report_sha256": "1004ac3a85a026d952f940f60e40f1096413ff4c272fc92f1ad799440cec1e0d",
+      "setup": "ce-m3-prepared-Brown-search-classic64\\setup.json",
+      "setup_sha256": "b55ce36a0b62cc8e4f55b3f3fd1f73780fadca510c9f62e8be3d1da229d95a92",
+      "parent_report": "ce-m3-pirate-wall-classic64\\20261016-222156\\verification.json",
+      "parent_report_sha256": "cb04cf46288ac0e16197985b8c71c626f9903386157ee00af522667cbfae4c8f",
+      "mode": "Classic",
+      "map": 98,
+      "main_changes": [],
+      "private_resource": "NA/DATA.MAP.UM",
+      "source": "CURRENT parent map tables, never expected door/quest values",
+      "quest_party_inventory_unchanged": true,
+      "cold_operation": "VERIFIED"
+    },
+    {
+      "report": "ce-m3-retained-Brown-gate-classic66\\20261016-223240\\verification.json",
+      "report_sha256": "6e9561b06bf2eb1b2569e5acca8dbe498bc6046374afd2c9db7568a51340ef4e",
+      "setup": "ce-m3-prepared-Brown-gate-classic66\\setup.json",
+      "setup_sha256": "fa9fabcbb6590789a6c9f248b2654b14536b8e5ed05160abe3c8ef38982f0eb7",
+      "parent_report": "ce-m3-pirate-Brown-search-classic64\\20261016-222201\\verification.json",
+      "parent_report_sha256": "1004ac3a85a026d952f940f60e40f1096413ff4c272fc92f1ad799440cec1e0d",
+      "mode": "Classic",
+      "map": 98,
+      "main_changes": [],
+      "private_resource": "NA/DATA.MAP.UM",
+      "source": "CURRENT parent map tables, never expected door/quest values",
+      "quest_party_inventory_unchanged": true,
+      "cold_operation": "VERIFIED"
+    },
+    {
+      "report": "ce-m3-castle-wall70\\20261016-224251\\verification.json",
+      "report_sha256": "01c5db30eb76dc6a7025af446773d1d89c0fcd36b2be0a346c3b65a648d91199",
+      "setup": "ce-m3-prepared-castle-wall69\\setup.json",
+      "setup_sha256": "1cd8c5b7e5a466f889b5eff31722c2d7925f2b0149bc736a3af826815a581c14",
+      "parent_report": "ce-m3-castle-control68\\20261016-224025\\verification.json",
+      "parent_report_sha256": "865e50aa0a9a27cab8c6588ace72433d8f04cedc6e20fcf8875f393c16c84f1c",
+      "mode": "Modern",
+      "map": 78,
+      "main_changes": [
+        "0xbd0f"
+      ],
+      "private_resource": "NA/DATA.MAP.CSTL",
+      "source": "CURRENT parent map tables, never expected door/quest values",
+      "quest_party_inventory_unchanged": true,
+      "cold_operation": "VERIFIED"
+    },
+    {
+      "report": "ce-m3-castle-wall-closed71\\20261016-224339\\verification.json",
+      "report_sha256": "bebe3a26d0ffe6790295d8b3665d0f64f0555d766c108fa6821c3348e3e46039",
+      "setup": "ce-m3-prepared-castle-closed71\\setup.json",
+      "setup_sha256": "accccf63d1f4584e0051aa98da198cef5872f4d913d01e44fea318d3bd16a81e",
+      "parent_report": "ce-m3-castle-control-reverse71\\20261016-224334\\verification.json",
+      "parent_report_sha256": "8cb7fd53c7be1fb55d847c926d6650191be9737c3ab21b30ad471e216eecc4db",
+      "mode": "Modern",
+      "map": 78,
+      "main_changes": [
+        "0xbd0f"
+      ],
+      "private_resource": "NA/DATA.MAP.CSTL",
+      "source": "CURRENT parent map tables, never expected door/quest values",
+      "quest_party_inventory_unchanged": true,
+      "cold_operation": "VERIFIED"
+    },
+    {
+      "report": "ce-m3-castle-wall71-classic\\20261016-224935\\verification.json",
+      "report_sha256": "a00e7630a2ff4e3cc038ded3a74b5a39e53b5c5541319b08ce16fd4ec679d3a1",
+      "setup": "ce-m3-prepared-castle-wall71-classic\\setup.json",
+      "setup_sha256": "aae83dd54c8cc452982f3811a855aa4b5169c0a84b8af1a2ed5cf5510a795925",
+      "parent_report": "ce-m3-castle-control71-classic\\20261016-224926\\verification.json",
+      "parent_report_sha256": "0b48370fed246d8bca3a1180b48ad807e1f52fc17a62f20697e7eeba25774734",
+      "mode": "Classic",
+      "map": 78,
+      "main_changes": [
+        "0xbd0f"
+      ],
+      "private_resource": "NA/DATA.MAP.CSTL",
+      "source": "CURRENT parent map tables, never expected door/quest values",
+      "quest_party_inventory_unchanged": true,
+      "cold_operation": "VERIFIED"
+    },
+    {
+      "report": "ce-m3-castle-wall-closed71-classic\\20261016-224951\\verification.json",
+      "report_sha256": "abe7a8a178d5223678760a607cd7c447aa4fd4e84db90e755ab4b5f576fa8b4c",
+      "setup": "ce-m3-prepared-castle-closed71-classic\\setup.json",
+      "setup_sha256": "0267d440f5db5abe0bffac2ad1f76f9e44d325a36ecb9b3739816d028b6ca7ec",
+      "parent_report": "ce-m3-castle-control-reverse71-classic\\20261016-224943\\verification.json",
+      "parent_report_sha256": "29eeb12e8ef2ac36afd40110f016b1c34c1c0d354a4294e7e4f10041bfa59269",
+      "mode": "Classic",
+      "map": 78,
+      "main_changes": [
+        "0xbd0f"
+      ],
+      "private_resource": "NA/DATA.MAP.CSTL",
+      "source": "CURRENT parent map tables, never expected door/quest values",
+      "quest_party_inventory_unchanged": true,
+      "cold_operation": "VERIFIED"
+    }
+  ],
+  "originals_unchanged": true,
+  "limitations": [
+    "Input setup.json stays IN PROGRESS as preparation-only metadata; this separate audit binds actual completed CE operations.",
+    "Relocation and named prior ordinary deaths are CONTROLLED, never earned travel/combat.",
+    "Only current map table caches and embedded PRIVATE map-resource blocks change; all other resources, quest flags and party/inventory are unchanged.",
+    "No transition, loot or requested wall outcome is injected after operation begins."
+  ]
+}

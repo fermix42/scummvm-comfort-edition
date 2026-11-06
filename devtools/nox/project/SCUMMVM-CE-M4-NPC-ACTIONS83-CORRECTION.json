@@ -1,0 +1,20 @@
+{
+  "status": "VERIFIED",
+  "finding": "Native NPC logical commit reversed horizontal directions2/3. Original uses2=east and3=west. Source/native intent, chosen direction3, shared state and full RNG exactly agree; only map X differs25 versus23.",
+  "diagnostic_log": "ce-m4-npc-actions82b-diagnostic.log",
+  "diagnostic_executable": {
+    "path": "ce-m4-binary\\scummvm-npc-actions82b-diagnostic.exe",
+    "sha256": "5b89a17ebf54d3ad6be77ca1048bfd40881ced74157ad8f89d782619238c230e"
+  },
+  "diagnostic_source": {
+    "path": "ce-m4-npc-actions82b-diagnostic-source.zip",
+    "sha256": "9b00bb1cea86d17681010717df1c93977ffde95bd7d2b174ed47e05282121aaf"
+  },
+  "correction": "Swap only native X deltas; preserve source oracle, thresholds and expected records unchanged.",
+  "remaining": "Changed build83 and complete suite required before verification.",
+  "resolution": {
+    "audit": "SCUMMVM-CE-M4-NPC-ACTIONS83-UNIT.json",
+    "sha256": "baee53b97b83718218da543da05b26dbb831862d693cba0ba4eef81960047179",
+    "result": "Corrected horizontal deltas; unchanged oracle all1536 linked operations and complete selected native regression PASS. Earlier remaining field records pre-verification state."
+  }
+}

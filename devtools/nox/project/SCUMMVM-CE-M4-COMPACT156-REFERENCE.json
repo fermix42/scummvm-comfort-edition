@@ -1,0 +1,53 @@
+{
+  "status": "VERIFIED",
+  "scope": "Source fixture diagnosis and corrected original reference only; native acceptance pending",
+  "rejected_reference": {
+    "status": "BLOCKED",
+    "reason": "Compact155 set current actor commit slot2CFC to0 while tracking slot4. Original physical commits updated another record and subsequent operations read stale actor coordinates. Geometry entry D565 also requires X0, not actor slot. No outcomes were supplied to either source run.",
+    "files": {
+      "ce-m4-compact155-reference\\input.bin": "2e7fa0e02903dc23e3f549cf728ea289829f19abacdbf795ba5f2591fb3ff30f",
+      "ce-m4-compact155-reference\\cold.bin": "75b0dce1e8a5e8da7555d0439885738c798360977eb4fde58208401cb1bd7954",
+      "ce-m4-compact155-reference\\metadata.json": "634e2c039701c5221dcf5f30d94440db3168c021eb735b47184ae070f39a2525",
+      "prepare_native_compact155_m4.py": "ce983ca33d9f013c6b8a2cf327008cd42e83402fda628ff63b47b0289e58f56a"
+    }
+  },
+  "corrected_reference": {
+    "metadata": {
+      "status": "VERIFIED",
+      "scope": "Actual original small compact actor preparation/gate/spatial/intent/pursuit-or-wander/intermediate-effects/physical-commit chains; controlled prepared scenes",
+      "groups": 3456,
+      "operations": 50555,
+      "battle_handoffs": 578,
+      "forced_waits": 32391,
+      "door_transitions": 83,
+      "original_steps": 30213642,
+      "cold": {
+        "group": 37,
+        "operation": 0
+      },
+      "input_sha256": "b11931a735c08def3a9928aef895ee123339d35b396f4f13685b3c7c5333f904",
+      "initialization": "Source-supported compact records/states, actual authored ship-rat location plus a separate controlled position, legal terrain and optional valid NPC/open object, timer/actor-enable/RNG/effect state before each chain. Scene lookups derive from resulting position before each operation; no supplied collision decisions or outcome mutations.",
+      "limitations": [
+        "Prepared scene component, not whole ordered object/actor loop or earned encounters.",
+        "Large/offscreen/viewport-exit/special225 actors, actual battle execution and ordinary native player loop remain required."
+      ]
+    },
+    "files": {
+      "ce-m4-compact156-reference\\input.bin": "b11931a735c08def3a9928aef895ee123339d35b396f4f13685b3c7c5333f904",
+      "ce-m4-compact156-reference\\cold.bin": "75b0dce1e8a5e8da7555d0439885738c798360977eb4fde58208401cb1bd7954",
+      "ce-m4-compact156-reference\\metadata.json": "3412d6061690158c366dbb58afa65ec1384c7d21fd67c34c6a6ab7af7cba53ae",
+      "prepare_native_compact156_m4.py": "2e4d97b7cf2ff17a0efbd7866003521e6d97deaf6fbec1b7347a42ac9f1e091e",
+      "ce-m4-compact156-reference.log": "3241d902f85df3f6fcccbbf4539afc4c3dfbca11b24cebc3abc023cdecc2170b",
+      "ce-m4-compact156-reference-scope.json": "84a6a2ad6958a9ca5e73ca499e2944a8f9b4e47b70fd3dc0219c3d60a5315832"
+    }
+  },
+  "initialization": [
+    "Current compact commit slot4 is initialized before each operation; X0 at geometry entry as the source caller sets it.",
+    "Player-direction4 is initialized before chains; original state and RNG/results are retained between actual operations.",
+    "The optional89D9 banked helper is bypassed by actual mapType8 source branch; it is required only for mapType255, excluded from this corpus."
+  ],
+  "limitations": [
+    "Controlled prepared-scene source oracle, not earned gameplay, complete ordered turn or native implementation acceptance.",
+    "Original155 outputs remain byte-identical and must never be used as a passing native oracle."
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "status": "VERIFIED",
+  "scope": "New native object-phase discrepancy, not an existing accepted gameplay regression",
+  "failure": "Controlled case4708: center cell with partyObject slot0. New native port returned before rendering/state work; original only skips lookup/portal assignment.",
+  "source_boundary": "Original actor_world.inc D11F->D142 bypasses lookup assignment but continues state/presentation. Native code now retains that continuation.",
+  "rejected_artifacts": {
+    "ce-m4-binary/scummvm-objects21-rejected.exe": "06bbd11ff32b3caa6609e5b027c2aefbdeb95791f761a9f42ee6103e23a502ef",
+    "ce-m4-objects21-rejected-header.h": "f86463cd232ef0d23b1d95ef0816f79a25edd4f5d90b2826b28bb60b7c77ade6",
+    "ce-m4-objects-focused21.log": "be8c843ff85dc560cf2681593313e81274664580a28cf65c38bbd8bfb1992a5a",
+    "ce-m4-native-objects21-tests.log": "64b7c656c59f4535c42f4536e9753a905c3a3177d277ec30970bed74c9c6bf90",
+    "ce-m4-native-objects21-tests-retry.log": "e871d55b4920bd3185f09075749d9e1241f97d8d7d381e666bffd4781fd7cfc6",
+    "ce-m4-objects-reference/metadata.json": "3730c20f167ac929ad51484bef346a31e4efda1deb131aa2b1d28f91ebc02419",
+    "ce-m4-native-objects21-tests\\20261017-031955\\native-validation-rejected.json": "6d0d32acc1686ab41a6e25cbae9fff2861fd5ca0c9ff4b9a17221ed9ac0646ef"
+  },
+  "corrected_header_sha256": "32878159c732a30bc034525256f4403762909f914e00264065e66e043f1f7df7",
+  "validation": "Corrected22 passes all4718 original object outcomes and full prior native/cold suite. Unit21 remains rejected; acceptance is OBJECTS22-UNIT.",
+  "platform": "First premature accept/test attempts were rejected by active-build/source-receipt guards; no gameplay ran or evidence was attributed by those attempts.",
+  "resolution_evidence": {
+    "path": "SCUMMVM-CE-M4-OBJECTS22-UNIT.json",
+    "sha256": "896fce1d738b73b2cb243869e0b2f97ba46eaa5661d36b63f7ce9b5a7036c636"
+  }
+}

@@ -1,0 +1,3573 @@
+{
+  "status": "VERIFIED",
+  "milestone": "M3",
+  "scope": "monks-all34 scoped actual operations, decoded results and exact cold saves both modes",
+  "reports": [
+    {
+      "path": "ce-m3-temple-monks34\\20261016-181724/verification.json",
+      "sha256": "3e2115301862e1434ef76259c73b1117bbe0da78cba1e9a3d851f271ed3d6e57",
+      "mode": "Modern",
+      "case": {
+        "id": "actual-Cult-fixed-Monks-admission-staged-Cast-victory",
+        "predecessor_label": "Vortex phase 38",
+        "map": 99,
+        "actor": 8,
+        "noon": false,
+        "repeat": false,
+        "routes": [],
+        "topics": [],
+        "reply": {
+          "resource": "",
+          "contains": ""
+        },
+        "battle": true,
+        "guard_encounter": true,
+        "recover": true,
+        "before": {
+          "flags": [
+            [
+              1070,
+              3,
+              0
+            ],
+            [
+              1049,
+              16,
+              16
+            ],
+            [
+              1080,
+              4,
+              0
+            ]
+          ],
+          "items": [
+            [
+              74,
+              1
+            ],
+            [
+              132,
+              1
+            ],
+            [
+              75,
+              0
+            ],
+            [
+              97,
+              8
+            ],
+            [
+              12,
+              1
+            ]
+          ]
+        },
+        "after": {
+          "flags": [
+            [
+              1070,
+              3,
+              0
+            ],
+            [
+              1049,
+              16,
+              16
+            ],
+            [
+              1080,
+              4,
+              0
+            ]
+          ],
+          "items": [
+            [
+              74,
+              1
+            ],
+            [
+              132,
+              1
+            ],
+            [
+              75,
+              0
+            ],
+            [
+              97,
+              8
+            ],
+            [
+              12,
+              1
+            ]
+          ]
+        },
+        "source_anchors": [
+          "Immutable UM99 original fixed BD8 [215,98,137,5], actual patrol currently215,101 after VHA; actualLeft from217,101 admits original encounter.",
+          "Immutable COMBAT.S2D3C Monk191HP/sprite137 and2D5C HighMonk137HP/sprite137; original8+2 full admission before controlled pre-Cast endpoint.",
+          "Original actorWorld D281 deadFF predicate; original actual victory must retire worldBD8, no world death flag initialized."
+        ],
+        "initializations": "Retain actual PirateKey/BrownKey/doors/portal/mouthVHA wallFE, consumed42E02 and actual guard patrol. CONTROLLED source-valid between-battle recoveryHP125/MP110 BEFORE realLeft only. Record original full10enemy admission; then DISTINCT controlled living enemy0HP1/other9dead/cache-consistent checkpoint BEFORE actualVortexCast, not earned damage/kills. No worldBD8 death, victory, wall, key, loot or position outcome injected. Actual MP87 cost, victory/worldBD8death/cold required."
+      },
+      "result": {
+        "save": "ce-m3-temple-monks34\\20261016-181724\\saves\\nox-ce-ed5939a032719adcfecdf986a9261c4a-7ae1dafa76a889bf8ef2115a9052da5a-slot001.g1",
+        "save_sha256": "2853b95b1e9a45f5f45f70d72f169935d34a7ceb2f9f9ff42875ecbf67054476",
+        "runtime_sha256": "5b0a2b9d32c5ca7fcfedcb90a4505587ec6eb245fd411f9de26d7350fa029509",
+        "generation": 52,
+        "slot": 1,
+        "PC": 29148,
+        "SP": 255,
+        "alternate": 0,
+        "stack_return": 0,
+        "map": 99,
+        "map_type": 2,
+        "xy": [
+          216,
+          101
+        ],
+        "pageflags": 255,
+        "research": 3,
+        "transport_flags": 0,
+        "keyflag_040F": 0,
+        "keyflag_0410": 63,
+        "party_count": 1,
+        "status": 0,
+        "level": 10,
+        "health": 125,
+        "maximum_health": 125,
+        "mana": 23,
+        "inactive": 0,
+        "STR_DEX_INT": [
+          8,
+          14,
+          110
+        ],
+        "Range": 10,
+        "Range_training_remaining": 54,
+        "weapon_range_bytes": [
+          1,
+          16
+        ],
+        "spell_slot1": 12,
+        "spell_quantity": 1,
+        "Ankh_quantity": 0,
+        "key_quantity": 0,
+        "staff_quantity": 0,
+        "enemy_health": 0,
+        "encounter_sprite": 137,
+        "ending_loop": 0
+      },
+      "executable_sha256": "872dce94798911e4394af42a1e02c34f5c4ff78c3440f6b71d471518b7dfa661",
+      "source_sha256": {
+        "engines/nox/backoff_validation.h": "7362aace99ec706f40295446abc3a9b41bb2ed2f841f89c61ed4f20a7c18b760",
+        "engines/nox/caller_validation.h": "ede6a33e41ad5fa9d9613fe36e203e7122ca9830a1b4b54e46ae9591cf632391",
+        "engines/nox/campaign_validation.h": "d4910018cf7288bb3e03f0d3e5aa8f551941486237d3062cbf8c406f48cf93b7",
+        "engines/nox/configure.engine": "774fc9df4834ca0e64018b72f326d14989a40c08f5c7fd78d06bbea6ee42c015",
+        "engines/nox/cpu.inc": "41c0fdff3d9d3466871ae76144b430b9b13bd29a2873a8899ebad56e4e208b97",
+        "engines/nox/cultist_validation.h": "654be8783d95ee92f8d757174dbedc581ac67317a6e7377b36ee9e36f051e299",
+        "engines/nox/cycles.inc": "2b1024aeab86cda827aec30eb696547ced1d333226263647b29b1d34db3acd6e",
+        "engines/nox/dark_key_validation.h": "5114e1958dd01104f0cd9ac08b3f771a5a87062911eb9042d54f34df01d0bb5e",
+        "engines/nox/detection.cpp": "32753d7b31fd8fe9f61eb27c676e6564d79764aa94cd5283c2508b8ac056dbd6",
+        "engines/nox/dialogue_validation.h": "5d2663dabee5c81507130bc126b3a1f4c9e91adc7b08a0e57d71e869a7b00dbd",
+        "engines/nox/enhancements.cpp": "5ed93907c2e0b1004c9978bbb91c32913de50d1706e9fd41c2027473b3069150",
+        "engines/nox/enhancements.h": "f0d73af3421c0597db87ace38b2d203c73640d43a5bade9b278cf6c1e7ff029d",
+        "engines/nox/enhancement_fixture.h": "13d45f7cf67cbec92f87777653c1ec51e65dd6b2b20538020b55f00fcd0718b5",
+        "engines/nox/enhancement_validation.h": "a24bde10489f8ca310c45c92050d21293aa974ee2eb86691a350aa372667e13a",
+        "engines/nox/grid_validation.h": "6032efc17e039528d63f2640d1b4308b899a9a7776c7c6c8fe4fa7e0ea752fa9",
+        "engines/nox/history_validation.h": "5601beeb58e2f8babad090e45369e3d3249e8d409d4e69db2ca3fad847c21b88",
+        "engines/nox/host_validation.h": "58f0082264e78c366b05e8a0999b0dcdde8e147160dc3be543042af2ab1da7a9",
+        "engines/nox/io_validation.h": "556bd69ec180bae521284e5876d121dffac2a7827f6fce1200924f8a2081d214",
+        "engines/nox/linked_pages_validation.h": "e1947a965bcda490fea92bfd3ee791a81d6bf3bc0748584e0ad722551e434148",
+        "engines/nox/management_validation.h": "286355cdedac22164095549c47f97e21d63e13eb738fb94b3368bf79d1738e34",
+        "engines/nox/metadata_validation.h": "c2b7fe9b7d1fa277517ec337b3ab8390e39552125b1c460be04690232466db5c",
+        "engines/nox/metaengine.cpp": "d631b83dc7b3a816489aa3a546d965f06d1cf89e684582c3dedd602ef866b24b",
+        "engines/nox/mockingboard.cpp": "38d5c6a894cc7a6bd238b9ad9a6740ec5ff42c6f299b7f6ce858505a6c1817bc",
+        "engines/nox/mockingboard.h": "d0afe027dc9ff9b269b0c60bf04abc45566502a17aed25879316856911937f2e",
+        "engines/nox/module.mk": "47de2ac64575f926a8de7cc5060913a3b63a0554cb5c20824ab55cf67ac1085f",
+        "engines/nox/movement.cpp": "4b03de9dd50c4a4cfc6c2e2d7da9d3fc3fc80a697dfd236a3340c1d25b84fdf9",
+        "engines/nox/nox.cpp": "8c5c5d737bc3743a525da70c000b70551b944550c8b92bad56b47bbc79989861",
+        "engines/nox/nox.h": "aac0544cb4bb5692e7114ad1cc74429ebb6b7aa9e090af2ea9376f2b87fb316c",
+        "engines/nox/profile_validation.h": "2658f8c93149c8692e5ef5b79d1dc42836dbd60f4d15f75a0f0ed3dbbd84301a",
+        "engines/nox/quest_battle_validation.h": "9090425dd5f4a50c49c46ac1f9c0a51ce247aae9ac9eac973258d1d9c84801b3",
+        "engines/nox/records.h": "8045582e0ae5f83d027b8b197aa66a8309e9ff80f2117bce7edb86455eca9b7d",
+        "engines/nox/render.cpp": "bd7833eaccc812fad88b0d19e5070d9955e440142525ded89b3d30766120073a",
+        "engines/nox/resources.h": "1451464a6f8ea57039c3596c8aaa388701e5005fb3364b80b9e48bb04dc2cd95",
+        "engines/nox/runtime.cpp": "8875ca955ff8e840286532fa58ed63795c042ff2d7b1cedd78e61531fec2cac8",
+        "engines/nox/runtime.h": "afaf653beafe0f47560d1f83830d95cf887555f769786f76775b099503d3aa85",
+        "engines/nox/runtime_observers.cpp": "7dbaac3c60a08887debb3db9eb5c16f38252dc96ca021afac06d3f103294819a",
+        "engines/nox/runtime_state.cpp": "d0c9c769e7fba6a8125754594fc5cc54dc54912c830f38c1a02f44ff24799b2d",
+        "engines/nox/saves.h": "9d0e92a7fb35952d35f2f2ecf0602ba48211162cb3f18b02a5a454919ac514f9",
+        "engines/nox/save_policy.h": "890bced00db32c534207055e5f6acf7247310102119da4c5bc66f13a4c7d72fc",
+        "engines/nox/search_object_validation.h": "7e88431afb708c292dd178be4ea2bbe5c60bd452852220d6e4b0e9b7fa6edeaf",
+        "engines/nox/session_validation.cpp": "da83025980220829e5ec424e80ad067d6681e30893918a1196ec84ef0524d839",
+        "engines/nox/shadow_checkpoint_validation.h": "1b886520edb2a907ce7d8f6f2c259ab1e0b85edbf7e7226d92eb313a2dd95f97",
+        "engines/nox/shadow_confrontation_validation.h": "3d7c3588d9e4bc1721acb9c0208313c4a54a7a7c72a442bd38a8c6ee996a7859",
+        "engines/nox/snapshot.h": "c3c8c9fd497391995084286e6f1cadc8ac5b9e9ed94965b6820043624e6d35de",
+        "engines/nox/speaker_audio.cpp": "b80e55470b95fcaf200f4346a0cb0bab8ce8ff3fe7e2436633da833a2da9f833",
+        "engines/nox/speaker_audio.h": "aad57abba83f4a02ee0780eb2eebc80e68a43181b285533dc3313f3ad307205f",
+        "engines/nox/spell_validation.h": "4fb3fefeed938e642b50ea25d7907ab9eb8419427492fe1b0c950dd5652a83f9",
+        "engines/nox/validation.cpp": "7582907d58238d29057026968b03866e25fb7e760184497204896cd5dad8ef75",
+        "engines/nox/vortex_validation.h": "ce7259c0ab6b5b7514de9db330db9ee1c08d21112f79f365b7f2ec36ddf5fe2e",
+        "devtools/nox/test_late_npc.py": "e0395fcb79f4753786bd1b861a4078292b1c6de76048f66459239c13a7f63e43"
+      },
+      "controlled_evidence": [
+        "CONTROLLED-before-next-battle-recovery HP125 MP110 not_earned_healing",
+        "CONTROLLED-before-distinct-Cast enemy0HP1 others_dead_not_earned quest_loot_untouched\ttype=255 map=99 side=0 actor=0 spell=12 MP=110 HP=125 effects=0 damaged=0 target=4,8 targeting=0 enemies=10 enemy0=1 enemy1=0 enemy2=0 enemy3=0 enemy4=0 enemy5=0 enemy6=0 enemy7=0 enemy8=0 enemy9=0 party=4,8 enemy=5,4 direction_pending=0 origin=10,10 dir=00 targets=48 enemy_flags=01,00,50  "
+      ],
+      "actual_world_guard_dead": true,
+      "persistent_original_Monk_defeat_040C02": true,
+      "decoded_wall_and_consumed_flag": {
+        "BE00": [
+          215,
+          100,
+          74,
+          254
+        ],
+        "042E": 0
+      }
+    },
+    {
+      "path": "ce-m3-monks-passage34\\20261016-181729/verification.json",
+      "sha256": "405cbff3d08aa1034095925cae74baaa06640b71f900f57217927a256c8ff951",
+      "mode": "Modern",
+      "case": {
+        "id": "actual-Monk-victory-to-Cult-mouth-wall-passage",
+        "predecessor_label": "Vortex phase 38",
+        "noon": true,
+        "repeat": false,
+        "map": 99,
+        "actor": 0,
+        "routes": [],
+        "topics": [],
+        "reply": {
+          "resource": "",
+          "contains": ""
+        },
+        "before": {
+          "flags": [
+            [
+              1070,
+              3,
+              0
+            ],
+            [
+              1049,
+              16,
+              16
+            ]
+          ],
+          "items": [
+            [
+              74,
+              1
+            ],
+            [
+              132,
+              1
+            ],
+            [
+              75,
+              0
+            ],
+            [
+              97,
+              8
+            ],
+            [
+              12,
+              1
+            ]
+          ]
+        },
+        "after": {
+          "flags": [
+            [
+              1070,
+              3,
+              0
+            ],
+            [
+              1049,
+              16,
+              16
+            ]
+          ],
+          "items": [
+            [
+              74,
+              1
+            ],
+            [
+              132,
+              1
+            ],
+            [
+              75,
+              0
+            ],
+            [
+              97,
+              8
+            ],
+            [
+              12,
+              1
+            ]
+          ]
+        },
+        "source_anchors": [
+          "UM99 original BE00 [215,100,74,50] wall; actual VHA/OBLI effect removes via BE03=FE and consumes42E02. Wrong/BRIBE leave wall50.",
+          "Retained real Talk ends at217,101; two actualLeft ->215,101 and actualUp must cross removed wall to215,100 or remain blocked215,101. No new position initialization."
+        ],
+        "initializations": "Retain actual Monk staged-final-Cast victory/worldBD8death and mouthwallFE. ZERO new position/party/NPC/flag/HP controls. ActualLeft/Up from retained216,101 ->215,101 ->215,100, unchanged actual postbattle health. No wall/movement/death outcome initialized.",
+        "world": {
+          "keys": [
+            8,
+            11
+          ],
+          "absent": [],
+          "expected_x": 215,
+          "expected_y": 100,
+          "health": 125,
+          "door_x": 215,
+          "door_y": 100,
+          "door_before": 65098,
+          "door_after_picture": 74
+        }
+      },
+      "result": {
+        "save": "ce-m3-monks-passage34\\20261016-181729\\saves\\nox-ce-ed5939a032719adcfecdf986a9261c4a-7ae1dafa76a889bf8ef2115a9052da5a-slot001.g1",
+        "save_sha256": "1d26c0d6d6f661ba428a8a41a9180447a0ded874cd29b8defa4a692a6f9fea39",
+        "runtime_sha256": "c0b559fa6a0cf9301751617e7715ea58249bdec0dca57d93d3009639cc138781",
+        "generation": 54,
+        "slot": 1,
+        "PC": 29148,
+        "SP": 255,
+        "alternate": 0,
+        "stack_return": 0,
+        "map": 99,
+        "map_type": 2,
+        "xy": [
+          215,
+          100
+        ],
+        "pageflags": 255,
+        "research": 3,
+        "transport_flags": 0,
+        "keyflag_040F": 0,
+        "keyflag_0410": 63,
+        "party_count": 1,
+        "status": 0,
+        "level": 10,
+        "health": 125,
+        "maximum_health": 125,
+        "mana": 23,
+        "inactive": 0,
+        "STR_DEX_INT": [
+          8,
+          14,
+          110
+        ],
+        "Range": 10,
+        "Range_training_remaining": 54,
+        "weapon_range_bytes": [
+          1,
+          16
+        ],
+        "spell_slot1": 12,
+        "spell_quantity": 1,
+        "Ankh_quantity": 0,
+        "key_quantity": 0,
+        "staff_quantity": 0,
+        "enemy_health": 0,
+        "encounter_sprite": 137,
+        "ending_loop": 0
+      },
+      "executable_sha256": "872dce94798911e4394af42a1e02c34f5c4ff78c3440f6b71d471518b7dfa661",
+      "source_sha256": {
+        "engines/nox/backoff_validation.h": "7362aace99ec706f40295446abc3a9b41bb2ed2f841f89c61ed4f20a7c18b760",
+        "engines/nox/caller_validation.h": "ede6a33e41ad5fa9d9613fe36e203e7122ca9830a1b4b54e46ae9591cf632391",
+        "engines/nox/campaign_validation.h": "d4910018cf7288bb3e03f0d3e5aa8f551941486237d3062cbf8c406f48cf93b7",
+        "engines/nox/configure.engine": "774fc9df4834ca0e64018b72f326d14989a40c08f5c7fd78d06bbea6ee42c015",
+        "engines/nox/cpu.inc": "41c0fdff3d9d3466871ae76144b430b9b13bd29a2873a8899ebad56e4e208b97",
+        "engines/nox/cultist_validation.h": "654be8783d95ee92f8d757174dbedc581ac67317a6e7377b36ee9e36f051e299",
+        "engines/nox/cycles.inc": "2b1024aeab86cda827aec30eb696547ced1d333226263647b29b1d34db3acd6e",
+        "engines/nox/dark_key_validation.h": "5114e1958dd01104f0cd9ac08b3f771a5a87062911eb9042d54f34df01d0bb5e",
+        "engines/nox/detection.cpp": "32753d7b31fd8fe9f61eb27c676e6564d79764aa94cd5283c2508b8ac056dbd6",
+        "engines/nox/dialogue_validation.h": "5d2663dabee5c81507130bc126b3a1f4c9e91adc7b08a0e57d71e869a7b00dbd",
+        "engines/nox/enhancements.cpp": "5ed93907c2e0b1004c9978bbb91c32913de50d1706e9fd41c2027473b3069150",
+        "engines/nox/enhancements.h": "f0d73af3421c0597db87ace38b2d203c73640d43a5bade9b278cf6c1e7ff029d",
+        "engines/nox/enhancement_fixture.h": "13d45f7cf67cbec92f87777653c1ec51e65dd6b2b20538020b55f00fcd0718b5",
+        "engines/nox/enhancement_validation.h": "a24bde10489f8ca310c45c92050d21293aa974ee2eb86691a350aa372667e13a",
+        "engines/nox/grid_validation.h": "6032efc17e039528d63f2640d1b4308b899a9a7776c7c6c8fe4fa7e0ea752fa9",
+        "engines/nox/history_validation.h": "5601beeb58e2f8babad090e45369e3d3249e8d409d4e69db2ca3fad847c21b88",
+        "engines/nox/host_validation.h": "58f0082264e78c366b05e8a0999b0dcdde8e147160dc3be543042af2ab1da7a9",
+        "engines/nox/io_validation.h": "556bd69ec180bae521284e5876d121dffac2a7827f6fce1200924f8a2081d214",
+        "engines/nox/linked_pages_validation.h": "e1947a965bcda490fea92bfd3ee791a81d6bf3bc0748584e0ad722551e434148",
+        "engines/nox/management_validation.h": "286355cdedac22164095549c47f97e21d63e13eb738fb94b3368bf79d1738e34",
+        "engines/nox/metadata_validation.h": "c2b7fe9b7d1fa277517ec337b3ab8390e39552125b1c460be04690232466db5c",
+        "engines/nox/metaengine.cpp": "d631b83dc7b3a816489aa3a546d965f06d1cf89e684582c3dedd602ef866b24b",
+        "engines/nox/mockingboard.cpp": "38d5c6a894cc7a6bd238b9ad9a6740ec5ff42c6f299b7f6ce858505a6c1817bc",
+        "engines/nox/mockingboard.h": "d0afe027dc9ff9b269b0c60bf04abc45566502a17aed25879316856911937f2e",
+        "engines/nox/module.mk": "47de2ac64575f926a8de7cc5060913a3b63a0554cb5c20824ab55cf67ac1085f",
+        "engines/nox/movement.cpp": "4b03de9dd50c4a4cfc6c2e2d7da9d3fc3fc80a697dfd236a3340c1d25b84fdf9",
+        "engines/nox/nox.cpp": "8c5c5d737bc3743a525da70c000b70551b944550c8b92bad56b47bbc79989861",
+        "engines/nox/nox.h": "aac0544cb4bb5692e7114ad1cc74429ebb6b7aa9e090af2ea9376f2b87fb316c",
+        "engines/nox/profile_validation.h": "2658f8c93149c8692e5ef5b79d1dc42836dbd60f4d15f75a0f0ed3dbbd84301a",
+        "engines/nox/quest_battle_validation.h": "9090425dd5f4a50c49c46ac1f9c0a51ce247aae9ac9eac973258d1d9c84801b3",
+        "engines/nox/records.h": "8045582e0ae5f83d027b8b197aa66a8309e9ff80f2117bce7edb86455eca9b7d",
+        "engines/nox/render.cpp": "bd7833eaccc812fad88b0d19e5070d9955e440142525ded89b3d30766120073a",
+        "engines/nox/resources.h": "1451464a6f8ea57039c3596c8aaa388701e5005fb3364b80b9e48bb04dc2cd95",
+        "engines/nox/runtime.cpp": "8875ca955ff8e840286532fa58ed63795c042ff2d7b1cedd78e61531fec2cac8",
+        "engines/nox/runtime.h": "afaf653beafe0f47560d1f83830d95cf887555f769786f76775b099503d3aa85",
+        "engines/nox/runtime_observers.cpp": "7dbaac3c60a08887debb3db9eb5c16f38252dc96ca021afac06d3f103294819a",
+        "engines/nox/runtime_state.cpp": "d0c9c769e7fba6a8125754594fc5cc54dc54912c830f38c1a02f44ff24799b2d",
+        "engines/nox/saves.h": "9d0e92a7fb35952d35f2f2ecf0602ba48211162cb3f18b02a5a454919ac514f9",
+        "engines/nox/save_policy.h": "890bced00db32c534207055e5f6acf7247310102119da4c5bc66f13a4c7d72fc",
+        "engines/nox/search_object_validation.h": "7e88431afb708c292dd178be4ea2bbe5c60bd452852220d6e4b0e9b7fa6edeaf",
+        "engines/nox/session_validation.cpp": "da83025980220829e5ec424e80ad067d6681e30893918a1196ec84ef0524d839",
+        "engines/nox/shadow_checkpoint_validation.h": "1b886520edb2a907ce7d8f6f2c259ab1e0b85edbf7e7226d92eb313a2dd95f97",
+        "engines/nox/shadow_confrontation_validation.h": "3d7c3588d9e4bc1721acb9c0208313c4a54a7a7c72a442bd38a8c6ee996a7859",
+        "engines/nox/snapshot.h": "c3c8c9fd497391995084286e6f1cadc8ac5b9e9ed94965b6820043624e6d35de",
+        "engines/nox/speaker_audio.cpp": "b80e55470b95fcaf200f4346a0cb0bab8ce8ff3fe7e2436633da833a2da9f833",
+        "engines/nox/speaker_audio.h": "aad57abba83f4a02ee0780eb2eebc80e68a43181b285533dc3313f3ad307205f",
+        "engines/nox/spell_validation.h": "4fb3fefeed938e642b50ea25d7907ab9eb8419427492fe1b0c950dd5652a83f9",
+        "engines/nox/validation.cpp": "7582907d58238d29057026968b03866e25fb7e760184497204896cd5dad8ef75",
+        "engines/nox/vortex_validation.h": "ce7259c0ab6b5b7514de9db330db9ee1c08d21112f79f365b7f2ec36ddf5fe2e",
+        "devtools/nox/test_late_npc.py": "e0395fcb79f4753786bd1b861a4078292b1c6de76048f66459239c13a7f63e43"
+      },
+      "controlled_evidence": [],
+      "persistent_original_Monk_defeat_040C02": true,
+      "decoded_wall_and_consumed_flag": {
+        "BE00": [
+          215,
+          100,
+          74,
+          254
+        ],
+        "042E": 0
+      }
+    },
+    {
+      "path": "ce-m3-monks-letter34\\20261016-181733/verification.json",
+      "sha256": "aea3631e6dd54c6db7a35cc36e4b841debb984f140a0feecf5f9c93e824e853b",
+      "mode": "Modern",
+      "case": {
+        "id": "actual-Monk-victory-wall-passage-to-Cult-Letter",
+        "predecessor_label": "Vortex phase 38",
+        "noon": true,
+        "repeat": false,
+        "map": 99,
+        "actor": 0,
+        "routes": [],
+        "topics": [],
+        "reply": {
+          "resource": "",
+          "contains": ""
+        },
+        "search": {
+          "type": 2,
+          "x": 213,
+          "y": 82,
+          "direction": 8,
+          "item": 75,
+          "field": 1080,
+          "mask": 4,
+          "health": 125,
+          "clear_ambient": true
+        },
+        "before": {
+          "flags": [
+            [
+              1080,
+              4,
+              0
+            ],
+            [
+              1036,
+              1,
+              1
+            ],
+            [
+              1049,
+              16,
+              16
+            ],
+            [
+              1070,
+              2,
+              0
+            ]
+          ],
+          "items": [
+            [
+              75,
+              0
+            ],
+            [
+              97,
+              8
+            ],
+            [
+              12,
+              1
+            ],
+            [
+              132,
+              1
+            ],
+            [
+              74,
+              1
+            ]
+          ]
+        },
+        "after": {
+          "flags": [
+            [
+              1080,
+              4,
+              4
+            ],
+            [
+              1036,
+              1,
+              1
+            ],
+            [
+              1049,
+              16,
+              16
+            ],
+            [
+              1070,
+              2,
+              0
+            ]
+          ],
+          "items": [
+            [
+              75,
+              1
+            ],
+            [
+              97,
+              8
+            ],
+            [
+              12,
+              1
+            ],
+            [
+              132,
+              1
+            ],
+            [
+              74,
+              1
+            ]
+          ]
+        },
+        "source_anchors": [
+          "Owned map original 12-byte Search53/misc2 record with exact item/flag; authored adjacency source terrain checked, original PRNG0x12345678 before each Search. Existing actual25picks inherited; no loot or quest outcome injected."
+        ],
+        "initializations": "Retain actual Pirate/Brown keys, doors/portal/mouth wall removal/actual staged Monk victory/real wall passage. Controlled safe Search adjacency and original PRNG/optional ambient prior-death checkpoint BEFORE Search only; fixedBD8 actual deadFF retained, no fixed actor outcome initialized. Actual Letter75/43804 required."
+      },
+      "result": {
+        "save": "ce-m3-monks-letter34\\20261016-181733\\saves\\nox-ce-ed5939a032719adcfecdf986a9261c4a-7ae1dafa76a889bf8ef2115a9052da5a-slot001.g1",
+        "save_sha256": "67ca4f0926b30bb787ce73588735b885297be26027ccbebbaf7fcc500067b698",
+        "runtime_sha256": "efbbd6bdac8830fcf1ffb7be51733810dd80fe82135013d0d4ab4bd812528f61",
+        "generation": 56,
+        "slot": 1,
+        "PC": 29148,
+        "SP": 255,
+        "alternate": 0,
+        "stack_return": 0,
+        "map": 99,
+        "map_type": 2,
+        "xy": [
+          214,
+          82
+        ],
+        "pageflags": 255,
+        "research": 3,
+        "transport_flags": 0,
+        "keyflag_040F": 0,
+        "keyflag_0410": 63,
+        "party_count": 1,
+        "status": 0,
+        "level": 10,
+        "health": 125,
+        "maximum_health": 125,
+        "mana": 23,
+        "inactive": 0,
+        "STR_DEX_INT": [
+          8,
+          14,
+          110
+        ],
+        "Range": 10,
+        "Range_training_remaining": 54,
+        "weapon_range_bytes": [
+          1,
+          16
+        ],
+        "spell_slot1": 12,
+        "spell_quantity": 1,
+        "Ankh_quantity": 0,
+        "key_quantity": 0,
+        "staff_quantity": 0,
+        "enemy_health": 0,
+        "encounter_sprite": 137,
+        "ending_loop": 0
+      },
+      "executable_sha256": "872dce94798911e4394af42a1e02c34f5c4ff78c3440f6b71d471518b7dfa661",
+      "source_sha256": {
+        "engines/nox/backoff_validation.h": "7362aace99ec706f40295446abc3a9b41bb2ed2f841f89c61ed4f20a7c18b760",
+        "engines/nox/caller_validation.h": "ede6a33e41ad5fa9d9613fe36e203e7122ca9830a1b4b54e46ae9591cf632391",
+        "engines/nox/campaign_validation.h": "d4910018cf7288bb3e03f0d3e5aa8f551941486237d3062cbf8c406f48cf93b7",
+        "engines/nox/configure.engine": "774fc9df4834ca0e64018b72f326d14989a40c08f5c7fd78d06bbea6ee42c015",
+        "engines/nox/cpu.inc": "41c0fdff3d9d3466871ae76144b430b9b13bd29a2873a8899ebad56e4e208b97",
+        "engines/nox/cultist_validation.h": "654be8783d95ee92f8d757174dbedc581ac67317a6e7377b36ee9e36f051e299",
+        "engines/nox/cycles.inc": "2b1024aeab86cda827aec30eb696547ced1d333226263647b29b1d34db3acd6e",
+        "engines/nox/dark_key_validation.h": "5114e1958dd01104f0cd9ac08b3f771a5a87062911eb9042d54f34df01d0bb5e",
+        "engines/nox/detection.cpp": "32753d7b31fd8fe9f61eb27c676e6564d79764aa94cd5283c2508b8ac056dbd6",
+        "engines/nox/dialogue_validation.h": "5d2663dabee5c81507130bc126b3a1f4c9e91adc7b08a0e57d71e869a7b00dbd",
+        "engines/nox/enhancements.cpp": "5ed93907c2e0b1004c9978bbb91c32913de50d1706e9fd41c2027473b3069150",
+        "engines/nox/enhancements.h": "f0d73af3421c0597db87ace38b2d203c73640d43a5bade9b278cf6c1e7ff029d",
+        "engines/nox/enhancement_fixture.h": "13d45f7cf67cbec92f87777653c1ec51e65dd6b2b20538020b55f00fcd0718b5",
+        "engines/nox/enhancement_validation.h": "a24bde10489f8ca310c45c92050d21293aa974ee2eb86691a350aa372667e13a",
+        "engines/nox/grid_validation.h": "6032efc17e039528d63f2640d1b4308b899a9a7776c7c6c8fe4fa7e0ea752fa9",
+        "engines/nox/history_validation.h": "5601beeb58e2f8babad090e45369e3d3249e8d409d4e69db2ca3fad847c21b88",
+        "engines/nox/host_validation.h": "58f0082264e78c366b05e8a0999b0dcdde8e147160dc3be543042af2ab1da7a9",
+        "engines/nox/io_validation.h": "556bd69ec180bae521284e5876d121dffac2a7827f6fce1200924f8a2081d214",
+        "engines/nox/linked_pages_validation.h": "e1947a965bcda490fea92bfd3ee791a81d6bf3bc0748584e0ad722551e434148",
+        "engines/nox/management_validation.h": "286355cdedac22164095549c47f97e21d63e13eb738fb94b3368bf79d1738e34",
+        "engines/nox/metadata_validation.h": "c2b7fe9b7d1fa277517ec337b3ab8390e39552125b1c460be04690232466db5c",
+        "engines/nox/metaengine.cpp": "d631b83dc7b3a816489aa3a546d965f06d1cf89e684582c3dedd602ef866b24b",
+        "engines/nox/mockingboard.cpp": "38d5c6a894cc7a6bd238b9ad9a6740ec5ff42c6f299b7f6ce858505a6c1817bc",
+        "engines/nox/mockingboard.h": "d0afe027dc9ff9b269b0c60bf04abc45566502a17aed25879316856911937f2e",
+        "engines/nox/module.mk": "47de2ac64575f926a8de7cc5060913a3b63a0554cb5c20824ab55cf67ac1085f",
+        "engines/nox/movement.cpp": "4b03de9dd50c4a4cfc6c2e2d7da9d3fc3fc80a697dfd236a3340c1d25b84fdf9",
+        "engines/nox/nox.cpp": "8c5c5d737bc3743a525da70c000b70551b944550c8b92bad56b47bbc79989861",
+        "engines/nox/nox.h": "aac0544cb4bb5692e7114ad1cc74429ebb6b7aa9e090af2ea9376f2b87fb316c",
+        "engines/nox/profile_validation.h": "2658f8c93149c8692e5ef5b79d1dc42836dbd60f4d15f75a0f0ed3dbbd84301a",
+        "engines/nox/quest_battle_validation.h": "9090425dd5f4a50c49c46ac1f9c0a51ce247aae9ac9eac973258d1d9c84801b3",
+        "engines/nox/records.h": "8045582e0ae5f83d027b8b197aa66a8309e9ff80f2117bce7edb86455eca9b7d",
+        "engines/nox/render.cpp": "bd7833eaccc812fad88b0d19e5070d9955e440142525ded89b3d30766120073a",
+        "engines/nox/resources.h": "1451464a6f8ea57039c3596c8aaa388701e5005fb3364b80b9e48bb04dc2cd95",
+        "engines/nox/runtime.cpp": "8875ca955ff8e840286532fa58ed63795c042ff2d7b1cedd78e61531fec2cac8",
+        "engines/nox/runtime.h": "afaf653beafe0f47560d1f83830d95cf887555f769786f76775b099503d3aa85",
+        "engines/nox/runtime_observers.cpp": "7dbaac3c60a08887debb3db9eb5c16f38252dc96ca021afac06d3f103294819a",
+        "engines/nox/runtime_state.cpp": "d0c9c769e7fba6a8125754594fc5cc54dc54912c830f38c1a02f44ff24799b2d",
+        "engines/nox/saves.h": "9d0e92a7fb35952d35f2f2ecf0602ba48211162cb3f18b02a5a454919ac514f9",
+        "engines/nox/save_policy.h": "890bced00db32c534207055e5f6acf7247310102119da4c5bc66f13a4c7d72fc",
+        "engines/nox/search_object_validation.h": "7e88431afb708c292dd178be4ea2bbe5c60bd452852220d6e4b0e9b7fa6edeaf",
+        "engines/nox/session_validation.cpp": "da83025980220829e5ec424e80ad067d6681e30893918a1196ec84ef0524d839",
+        "engines/nox/shadow_checkpoint_validation.h": "1b886520edb2a907ce7d8f6f2c259ab1e0b85edbf7e7226d92eb313a2dd95f97",
+        "engines/nox/shadow_confrontation_validation.h": "3d7c3588d9e4bc1721acb9c0208313c4a54a7a7c72a442bd38a8c6ee996a7859",
+        "engines/nox/snapshot.h": "c3c8c9fd497391995084286e6f1cadc8ac5b9e9ed94965b6820043624e6d35de",
+        "engines/nox/speaker_audio.cpp": "b80e55470b95fcaf200f4346a0cb0bab8ce8ff3fe7e2436633da833a2da9f833",
+        "engines/nox/speaker_audio.h": "aad57abba83f4a02ee0780eb2eebc80e68a43181b285533dc3313f3ad307205f",
+        "engines/nox/spell_validation.h": "4fb3fefeed938e642b50ea25d7907ab9eb8419427492fe1b0c950dd5652a83f9",
+        "engines/nox/validation.cpp": "7582907d58238d29057026968b03866e25fb7e760184497204896cd5dad8ef75",
+        "engines/nox/vortex_validation.h": "ce7259c0ab6b5b7514de9db330db9ee1c08d21112f79f365b7f2ec36ddf5fe2e",
+        "devtools/nox/test_late_npc.py": "e0395fcb79f4753786bd1b861a4078292b1c6de76048f66459239c13a7f63e43"
+      },
+      "controlled_evidence": [
+        "CONTROLLED-before-Search-ambient-dead-slots=0 not_earned_kills fixed_quest_actors_unchanged=1 ",
+        "CONTROLLED-before-Search-original-PRNG=305419896 repeat=0; no item/flag/HP initialization"
+      ],
+      "persistent_original_Monk_defeat_040C02": true,
+      "decoded_wall_and_consumed_flag": {
+        "BE00": [
+          215,
+          100,
+          74,
+          50
+        ],
+        "042E": 0
+      },
+      "continuity_correction": "Controlled Search adjacency redraw reloads authored wall50 and retires defeated guard via actual040C02. This is a new controlled location checkpoint, not uninterrupted wall passage/travel to Letter."
+    },
+    {
+      "path": "ce-m3-monks-archus33\\20261016-181737/verification.json",
+      "sha256": "5a40ade961e9b3afacc5d841b8e1f090db4d48a9c1c2daed8d88f0feead64764",
+      "mode": "Modern",
+      "case": {
+        "id": "letter-archus",
+        "predecessor_label": "Vortex phase 38",
+        "map": 58,
+        "actor": 8,
+        "noon": true,
+        "repeat": true,
+        "routes": [
+          [
+            98,
+            2
+          ],
+          [
+            97,
+            2
+          ],
+          [
+            78,
+            7
+          ],
+          [
+            54,
+            7
+          ],
+          [
+            58,
+            7
+          ]
+        ],
+        "topics": [
+          "DARK"
+        ],
+        "reply": {
+          "resource": "NA/DATA.TLK.L015",
+          "contains": "grave expression"
+        },
+        "before": {
+          "flags": [
+            [
+              1080,
+              28,
+              4
+            ]
+          ],
+          "items": [
+            [
+              75,
+              1
+            ],
+            [
+              97,
+              8
+            ],
+            [
+              12,
+              1
+            ]
+          ]
+        },
+        "after": {
+          "flags": [
+            [
+              1080,
+              28,
+              4
+            ]
+          ],
+          "items": [
+            [
+              75,
+              1
+            ],
+            [
+              97,
+              8
+            ],
+            [
+              12,
+              1
+            ]
+          ]
+        },
+        "source_anchors": [
+          "Owned L015 actor8 DARK narrates letter without prerequisite/flag writer. Actor104 DARK S28B checks43804 then P28C/P28D writes43808/10; missing predicate falls through original DFL."
+        ],
+        "initializations": "Retain actual cult Letter Search and all8pages/spell. CONTROLLED noon/authored routes/NPC adjacency only; missing-letter comparison uses actual original earlier branch, no outcome cleared. Actual dialogue/repeat/results/cold, no letter/quest output initialized."
+      },
+      "result": {
+        "save": "ce-m3-monks-archus33\\20261016-181737\\saves\\nox-ce-ed5939a032719adcfecdf986a9261c4a-7ae1dafa76a889bf8ef2115a9052da5a-slot001.g1",
+        "save_sha256": "4936460118fef622d0d6da8ffdf9da3aa65bc37ba45d25326505c78b0ce472c5",
+        "runtime_sha256": "c7852aefbfdc7bad05c9ace34ce9c68f0015a26f3d5654016bdffc3f4387af79",
+        "generation": 58,
+        "slot": 1,
+        "PC": 29148,
+        "SP": 255,
+        "alternate": 0,
+        "stack_return": 0,
+        "map": 58,
+        "map_type": 7,
+        "xy": [
+          32,
+          18
+        ],
+        "pageflags": 255,
+        "research": 3,
+        "transport_flags": 0,
+        "keyflag_040F": 0,
+        "keyflag_0410": 63,
+        "party_count": 1,
+        "status": 0,
+        "level": 10,
+        "health": 125,
+        "maximum_health": 125,
+        "mana": 23,
+        "inactive": 0,
+        "STR_DEX_INT": [
+          8,
+          14,
+          110
+        ],
+        "Range": 10,
+        "Range_training_remaining": 54,
+        "weapon_range_bytes": [
+          1,
+          16
+        ],
+        "spell_slot1": 12,
+        "spell_quantity": 1,
+        "Ankh_quantity": 0,
+        "key_quantity": 0,
+        "staff_quantity": 0,
+        "enemy_health": 0,
+        "encounter_sprite": 137,
+        "ending_loop": 0
+      },
+      "executable_sha256": "872dce94798911e4394af42a1e02c34f5c4ff78c3440f6b71d471518b7dfa661",
+      "source_sha256": {
+        "engines/nox/backoff_validation.h": "7362aace99ec706f40295446abc3a9b41bb2ed2f841f89c61ed4f20a7c18b760",
+        "engines/nox/caller_validation.h": "ede6a33e41ad5fa9d9613fe36e203e7122ca9830a1b4b54e46ae9591cf632391",
+        "engines/nox/campaign_validation.h": "d4910018cf7288bb3e03f0d3e5aa8f551941486237d3062cbf8c406f48cf93b7",
+        "engines/nox/configure.engine": "774fc9df4834ca0e64018b72f326d14989a40c08f5c7fd78d06bbea6ee42c015",
+        "engines/nox/cpu.inc": "41c0fdff3d9d3466871ae76144b430b9b13bd29a2873a8899ebad56e4e208b97",
+        "engines/nox/cultist_validation.h": "654be8783d95ee92f8d757174dbedc581ac67317a6e7377b36ee9e36f051e299",
+        "engines/nox/cycles.inc": "2b1024aeab86cda827aec30eb696547ced1d333226263647b29b1d34db3acd6e",
+        "engines/nox/dark_key_validation.h": "5114e1958dd01104f0cd9ac08b3f771a5a87062911eb9042d54f34df01d0bb5e",
+        "engines/nox/detection.cpp": "32753d7b31fd8fe9f61eb27c676e6564d79764aa94cd5283c2508b8ac056dbd6",
+        "engines/nox/dialogue_validation.h": "5d2663dabee5c81507130bc126b3a1f4c9e91adc7b08a0e57d71e869a7b00dbd",
+        "engines/nox/enhancements.cpp": "5ed93907c2e0b1004c9978bbb91c32913de50d1706e9fd41c2027473b3069150",
+        "engines/nox/enhancements.h": "f0d73af3421c0597db87ace38b2d203c73640d43a5bade9b278cf6c1e7ff029d",
+        "engines/nox/enhancement_fixture.h": "13d45f7cf67cbec92f87777653c1ec51e65dd6b2b20538020b55f00fcd0718b5",
+        "engines/nox/enhancement_validation.h": "a24bde10489f8ca310c45c92050d21293aa974ee2eb86691a350aa372667e13a",
+        "engines/nox/grid_validation.h": "6032efc17e039528d63f2640d1b4308b899a9a7776c7c6c8fe4fa7e0ea752fa9",
+        "engines/nox/history_validation.h": "5601beeb58e2f8babad090e45369e3d3249e8d409d4e69db2ca3fad847c21b88",
+        "engines/nox/host_validation.h": "58f0082264e78c366b05e8a0999b0dcdde8e147160dc3be543042af2ab1da7a9",
+        "engines/nox/io_validation.h": "556bd69ec180bae521284e5876d121dffac2a7827f6fce1200924f8a2081d214",
+        "engines/nox/linked_pages_validation.h": "e1947a965bcda490fea92bfd3ee791a81d6bf3bc0748584e0ad722551e434148",
+        "engines/nox/management_validation.h": "286355cdedac22164095549c47f97e21d63e13eb738fb94b3368bf79d1738e34",
+        "engines/nox/metadata_validation.h": "c2b7fe9b7d1fa277517ec337b3ab8390e39552125b1c460be04690232466db5c",
+        "engines/nox/metaengine.cpp": "d631b83dc7b3a816489aa3a546d965f06d1cf89e684582c3dedd602ef866b24b",
+        "engines/nox/mockingboard.cpp": "38d5c6a894cc7a6bd238b9ad9a6740ec5ff42c6f299b7f6ce858505a6c1817bc",
+        "engines/nox/mockingboard.h": "d0afe027dc9ff9b269b0c60bf04abc45566502a17aed25879316856911937f2e",
+        "engines/nox/module.mk": "47de2ac64575f926a8de7cc5060913a3b63a0554cb5c20824ab55cf67ac1085f",
+        "engines/nox/movement.cpp": "4b03de9dd50c4a4cfc6c2e2d7da9d3fc3fc80a697dfd236a3340c1d25b84fdf9",
+        "engines/nox/nox.cpp": "8c5c5d737bc3743a525da70c000b70551b944550c8b92bad56b47bbc79989861",
+        "engines/nox/nox.h": "aac0544cb4bb5692e7114ad1cc74429ebb6b7aa9e090af2ea9376f2b87fb316c",
+        "engines/nox/profile_validation.h": "2658f8c93149c8692e5ef5b79d1dc42836dbd60f4d15f75a0f0ed3dbbd84301a",
+        "engines/nox/quest_battle_validation.h": "9090425dd5f4a50c49c46ac1f9c0a51ce247aae9ac9eac973258d1d9c84801b3",
+        "engines/nox/records.h": "8045582e0ae5f83d027b8b197aa66a8309e9ff80f2117bce7edb86455eca9b7d",
+        "engines/nox/render.cpp": "bd7833eaccc812fad88b0d19e5070d9955e440142525ded89b3d30766120073a",
+        "engines/nox/resources.h": "1451464a6f8ea57039c3596c8aaa388701e5005fb3364b80b9e48bb04dc2cd95",
+        "engines/nox/runtime.cpp": "8875ca955ff8e840286532fa58ed63795c042ff2d7b1cedd78e61531fec2cac8",
+        "engines/nox/runtime.h": "afaf653beafe0f47560d1f83830d95cf887555f769786f76775b099503d3aa85",
+        "engines/nox/runtime_observers.cpp": "7dbaac3c60a08887debb3db9eb5c16f38252dc96ca021afac06d3f103294819a",
+        "engines/nox/runtime_state.cpp": "d0c9c769e7fba6a8125754594fc5cc54dc54912c830f38c1a02f44ff24799b2d",
+        "engines/nox/saves.h": "9d0e92a7fb35952d35f2f2ecf0602ba48211162cb3f18b02a5a454919ac514f9",
+        "engines/nox/save_policy.h": "890bced00db32c534207055e5f6acf7247310102119da4c5bc66f13a4c7d72fc",
+        "engines/nox/search_object_validation.h": "7e88431afb708c292dd178be4ea2bbe5c60bd452852220d6e4b0e9b7fa6edeaf",
+        "engines/nox/session_validation.cpp": "da83025980220829e5ec424e80ad067d6681e30893918a1196ec84ef0524d839",
+        "engines/nox/shadow_checkpoint_validation.h": "1b886520edb2a907ce7d8f6f2c259ab1e0b85edbf7e7226d92eb313a2dd95f97",
+        "engines/nox/shadow_confrontation_validation.h": "3d7c3588d9e4bc1721acb9c0208313c4a54a7a7c72a442bd38a8c6ee996a7859",
+        "engines/nox/snapshot.h": "c3c8c9fd497391995084286e6f1cadc8ac5b9e9ed94965b6820043624e6d35de",
+        "engines/nox/speaker_audio.cpp": "b80e55470b95fcaf200f4346a0cb0bab8ce8ff3fe7e2436633da833a2da9f833",
+        "engines/nox/speaker_audio.h": "aad57abba83f4a02ee0780eb2eebc80e68a43181b285533dc3313f3ad307205f",
+        "engines/nox/spell_validation.h": "4fb3fefeed938e642b50ea25d7907ab9eb8419427492fe1b0c950dd5652a83f9",
+        "engines/nox/validation.cpp": "7582907d58238d29057026968b03866e25fb7e760184497204896cd5dad8ef75",
+        "engines/nox/vortex_validation.h": "ce7259c0ab6b5b7514de9db330db9ee1c08d21112f79f365b7f2ec36ddf5fe2e",
+        "devtools/nox/test_late_npc.py": "e0395fcb79f4753786bd1b861a4078292b1c6de76048f66459239c13a7f63e43"
+      },
+      "controlled_evidence": [],
+      "persistent_original_Monk_defeat_040C02": true,
+      "decoded_reply_sha256": [
+        "041561c6890883c872de15f6f583dd2f76e14c00f79733fd24f8be897d532074",
+        "041561c6890883c872de15f6f583dd2f76e14c00f79733fd24f8be897d532074"
+      ],
+      "authored_map_records_unchanged_and_actual_defeat_flag_retained": true
+    },
+    {
+      "path": "ce-m3-monks-styx33\\20261016-181741/verification.json",
+      "sha256": "560e9b5519c0b1a38b5b48db7475883389a4c5d93528418a9fc71b4ad80a0c53",
+      "mode": "Modern",
+      "case": {
+        "id": "letter-styx",
+        "predecessor_label": "Vortex phase 38",
+        "map": 57,
+        "actor": 104,
+        "noon": true,
+        "repeat": true,
+        "routes": [
+          [
+            57,
+            7
+          ]
+        ],
+        "topics": [
+          "DARK"
+        ],
+        "reply": {
+          "resource": "NA/DATA.TLK.L015",
+          "contains": "blasted from his crown"
+        },
+        "before": {
+          "flags": [
+            [
+              1080,
+              28,
+              4
+            ]
+          ],
+          "items": [
+            [
+              75,
+              1
+            ],
+            [
+              97,
+              8
+            ],
+            [
+              12,
+              1
+            ]
+          ]
+        },
+        "after": {
+          "flags": [
+            [
+              1080,
+              28,
+              28
+            ]
+          ],
+          "items": [
+            [
+              75,
+              1
+            ],
+            [
+              97,
+              8
+            ],
+            [
+              12,
+              1
+            ]
+          ]
+        },
+        "source_anchors": [
+          "Owned L015 actor8 DARK narrates letter without prerequisite/flag writer. Actor104 DARK S28B checks43804 then P28C/P28D writes43808/10; missing predicate falls through original DFL."
+        ],
+        "initializations": "Retain actual cult Letter Search and all8pages/spell. CONTROLLED noon/authored routes/NPC adjacency only; missing-letter comparison uses actual original earlier branch, no outcome cleared. Actual dialogue/repeat/results/cold, no letter/quest output initialized."
+      },
+      "result": {
+        "save": "ce-m3-monks-styx33\\20261016-181741\\saves\\nox-ce-ed5939a032719adcfecdf986a9261c4a-7ae1dafa76a889bf8ef2115a9052da5a-slot001.g1",
+        "save_sha256": "7819c7c5faafd8fe8dc1caf52951fd68f8bc24ce5f9bfd54ce0509d1a44e4059",
+        "runtime_sha256": "c77ef01200450a6f2b037eed95ba411f20cdd1b2a8be76da8436fde4afb29e40",
+        "generation": 60,
+        "slot": 1,
+        "PC": 29148,
+        "SP": 255,
+        "alternate": 0,
+        "stack_return": 0,
+        "map": 57,
+        "map_type": 7,
+        "xy": [
+          6,
+          22
+        ],
+        "pageflags": 255,
+        "research": 3,
+        "transport_flags": 0,
+        "keyflag_040F": 0,
+        "keyflag_0410": 63,
+        "party_count": 1,
+        "status": 0,
+        "level": 10,
+        "health": 125,
+        "maximum_health": 125,
+        "mana": 23,
+        "inactive": 0,
+        "STR_DEX_INT": [
+          8,
+          14,
+          110
+        ],
+        "Range": 10,
+        "Range_training_remaining": 54,
+        "weapon_range_bytes": [
+          1,
+          16
+        ],
+        "spell_slot1": 12,
+        "spell_quantity": 1,
+        "Ankh_quantity": 0,
+        "key_quantity": 0,
+        "staff_quantity": 0,
+        "enemy_health": 0,
+        "encounter_sprite": 137,
+        "ending_loop": 0
+      },
+      "executable_sha256": "872dce94798911e4394af42a1e02c34f5c4ff78c3440f6b71d471518b7dfa661",
+      "source_sha256": {
+        "engines/nox/backoff_validation.h": "7362aace99ec706f40295446abc3a9b41bb2ed2f841f89c61ed4f20a7c18b760",
+        "engines/nox/caller_validation.h": "ede6a33e41ad5fa9d9613fe36e203e7122ca9830a1b4b54e46ae9591cf632391",
+        "engines/nox/campaign_validation.h": "d4910018cf7288bb3e03f0d3e5aa8f551941486237d3062cbf8c406f48cf93b7",
+        "engines/nox/configure.engine": "774fc9df4834ca0e64018b72f326d14989a40c08f5c7fd78d06bbea6ee42c015",
+        "engines/nox/cpu.inc": "41c0fdff3d9d3466871ae76144b430b9b13bd29a2873a8899ebad56e4e208b97",
+        "engines/nox/cultist_validation.h": "654be8783d95ee92f8d757174dbedc581ac67317a6e7377b36ee9e36f051e299",
+        "engines/nox/cycles.inc": "2b1024aeab86cda827aec30eb696547ced1d333226263647b29b1d34db3acd6e",
+        "engines/nox/dark_key_validation.h": "5114e1958dd01104f0cd9ac08b3f771a5a87062911eb9042d54f34df01d0bb5e",
+        "engines/nox/detection.cpp": "32753d7b31fd8fe9f61eb27c676e6564d79764aa94cd5283c2508b8ac056dbd6",
+        "engines/nox/dialogue_validation.h": "5d2663dabee5c81507130bc126b3a1f4c9e91adc7b08a0e57d71e869a7b00dbd",
+        "engines/nox/enhancements.cpp": "5ed93907c2e0b1004c9978bbb91c32913de50d1706e9fd41c2027473b3069150",
+        "engines/nox/enhancements.h": "f0d73af3421c0597db87ace38b2d203c73640d43a5bade9b278cf6c1e7ff029d",
+        "engines/nox/enhancement_fixture.h": "13d45f7cf67cbec92f87777653c1ec51e65dd6b2b20538020b55f00fcd0718b5",
+        "engines/nox/enhancement_validation.h": "a24bde10489f8ca310c45c92050d21293aa974ee2eb86691a350aa372667e13a",
+        "engines/nox/grid_validation.h": "6032efc17e039528d63f2640d1b4308b899a9a7776c7c6c8fe4fa7e0ea752fa9",
+        "engines/nox/history_validation.h": "5601beeb58e2f8babad090e45369e3d3249e8d409d4e69db2ca3fad847c21b88",
+        "engines/nox/host_validation.h": "58f0082264e78c366b05e8a0999b0dcdde8e147160dc3be543042af2ab1da7a9",
+        "engines/nox/io_validation.h": "556bd69ec180bae521284e5876d121dffac2a7827f6fce1200924f8a2081d214",
+        "engines/nox/linked_pages_validation.h": "e1947a965bcda490fea92bfd3ee791a81d6bf3bc0748584e0ad722551e434148",
+        "engines/nox/management_validation.h": "286355cdedac22164095549c47f97e21d63e13eb738fb94b3368bf79d1738e34",
+        "engines/nox/metadata_validation.h": "c2b7fe9b7d1fa277517ec337b3ab8390e39552125b1c460be04690232466db5c",
+        "engines/nox/metaengine.cpp": "d631b83dc7b3a816489aa3a546d965f06d1cf89e684582c3dedd602ef866b24b",
+        "engines/nox/mockingboard.cpp": "38d5c6a894cc7a6bd238b9ad9a6740ec5ff42c6f299b7f6ce858505a6c1817bc",
+        "engines/nox/mockingboard.h": "d0afe027dc9ff9b269b0c60bf04abc45566502a17aed25879316856911937f2e",
+        "engines/nox/module.mk": "47de2ac64575f926a8de7cc5060913a3b63a0554cb5c20824ab55cf67ac1085f",
+        "engines/nox/movement.cpp": "4b03de9dd50c4a4cfc6c2e2d7da9d3fc3fc80a697dfd236a3340c1d25b84fdf9",
+        "engines/nox/nox.cpp": "8c5c5d737bc3743a525da70c000b70551b944550c8b92bad56b47bbc79989861",
+        "engines/nox/nox.h": "aac0544cb4bb5692e7114ad1cc74429ebb6b7aa9e090af2ea9376f2b87fb316c",
+        "engines/nox/profile_validation.h": "2658f8c93149c8692e5ef5b79d1dc42836dbd60f4d15f75a0f0ed3dbbd84301a",
+        "engines/nox/quest_battle_validation.h": "9090425dd5f4a50c49c46ac1f9c0a51ce247aae9ac9eac973258d1d9c84801b3",
+        "engines/nox/records.h": "8045582e0ae5f83d027b8b197aa66a8309e9ff80f2117bce7edb86455eca9b7d",
+        "engines/nox/render.cpp": "bd7833eaccc812fad88b0d19e5070d9955e440142525ded89b3d30766120073a",
+        "engines/nox/resources.h": "1451464a6f8ea57039c3596c8aaa388701e5005fb3364b80b9e48bb04dc2cd95",
+        "engines/nox/runtime.cpp": "8875ca955ff8e840286532fa58ed63795c042ff2d7b1cedd78e61531fec2cac8",
+        "engines/nox/runtime.h": "afaf653beafe0f47560d1f83830d95cf887555f769786f76775b099503d3aa85",
+        "engines/nox/runtime_observers.cpp": "7dbaac3c60a08887debb3db9eb5c16f38252dc96ca021afac06d3f103294819a",
+        "engines/nox/runtime_state.cpp": "d0c9c769e7fba6a8125754594fc5cc54dc54912c830f38c1a02f44ff24799b2d",
+        "engines/nox/saves.h": "9d0e92a7fb35952d35f2f2ecf0602ba48211162cb3f18b02a5a454919ac514f9",
+        "engines/nox/save_policy.h": "890bced00db32c534207055e5f6acf7247310102119da4c5bc66f13a4c7d72fc",
+        "engines/nox/search_object_validation.h": "7e88431afb708c292dd178be4ea2bbe5c60bd452852220d6e4b0e9b7fa6edeaf",
+        "engines/nox/session_validation.cpp": "da83025980220829e5ec424e80ad067d6681e30893918a1196ec84ef0524d839",
+        "engines/nox/shadow_checkpoint_validation.h": "1b886520edb2a907ce7d8f6f2c259ab1e0b85edbf7e7226d92eb313a2dd95f97",
+        "engines/nox/shadow_confrontation_validation.h": "3d7c3588d9e4bc1721acb9c0208313c4a54a7a7c72a442bd38a8c6ee996a7859",
+        "engines/nox/snapshot.h": "c3c8c9fd497391995084286e6f1cadc8ac5b9e9ed94965b6820043624e6d35de",
+        "engines/nox/speaker_audio.cpp": "b80e55470b95fcaf200f4346a0cb0bab8ce8ff3fe7e2436633da833a2da9f833",
+        "engines/nox/speaker_audio.h": "aad57abba83f4a02ee0780eb2eebc80e68a43181b285533dc3313f3ad307205f",
+        "engines/nox/spell_validation.h": "4fb3fefeed938e642b50ea25d7907ab9eb8419427492fe1b0c950dd5652a83f9",
+        "engines/nox/validation.cpp": "7582907d58238d29057026968b03866e25fb7e760184497204896cd5dad8ef75",
+        "engines/nox/vortex_validation.h": "ce7259c0ab6b5b7514de9db330db9ee1c08d21112f79f365b7f2ec36ddf5fe2e",
+        "devtools/nox/test_late_npc.py": "e0395fcb79f4753786bd1b861a4078292b1c6de76048f66459239c13a7f63e43"
+      },
+      "controlled_evidence": [],
+      "persistent_original_Monk_defeat_040C02": true,
+      "decoded_reply_sha256": [
+        "8016c9e8d2227dcc73fe40c2c46266816f58d254e17af6f91e6209be01274c7e",
+        "8016c9e8d2227dcc73fe40c2c46266816f58d254e17af6f91e6209be01274c7e"
+      ],
+      "authored_map_records_unchanged_and_actual_defeat_flag_retained": true
+    },
+    {
+      "path": "ce-m3-cult-mouth-wrong33-classic\\20261016-181747/verification.json",
+      "sha256": "74d21530bcd66a391158f522bb3b57b3c2e5ba3c1c9c86e6562b33eabb1c1745",
+      "mode": "Classic",
+      "case": {
+        "id": "actual-Cult-mouth-WRONG",
+        "predecessor_label": "Vortex phase 38",
+        "noon": true,
+        "repeat": false,
+        "map": 99,
+        "actor": 0,
+        "routes": [],
+        "topics": [
+          "WRONG"
+        ],
+        "reply": {
+          "resource": "NA/DATA.TLK.L063",
+          "contains": "brown key"
+        },
+        "before": {
+          "flags": [
+            [
+              1070,
+              2,
+              0
+            ],
+            [
+              1049,
+              16,
+              16
+            ],
+            [
+              1036,
+              1,
+              1
+            ]
+          ],
+          "items": [
+            [
+              74,
+              1
+            ],
+            [
+              132,
+              1
+            ],
+            [
+              75,
+              0
+            ],
+            [
+              97,
+              8
+            ],
+            [
+              12,
+              1
+            ]
+          ]
+        },
+        "after": {
+          "flags": [
+            [
+              1070,
+              2,
+              0
+            ],
+            [
+              1049,
+              16,
+              16
+            ],
+            [
+              1036,
+              1,
+              1
+            ]
+          ],
+          "items": [
+            [
+              74,
+              1
+            ],
+            [
+              132,
+              1
+            ],
+            [
+              75,
+              0
+            ],
+            [
+              97,
+              8
+            ],
+            [
+              12,
+              1
+            ]
+          ]
+        },
+        "source_anchors": [
+          "UM99 BF0 [217,100,205,8,0,127,0,0]; actual Talk from safe south217,101.",
+          "L063 actor0 VHA/OBLI ->P2.A writes42E02. BRIBE prose only/no item transfer. DFL first warning sets42E01, original BYE clears42E01; no accepted flag."
+        ],
+        "initializations": "Retain actual PirateKey/BrownKey Search/doors/real level entry/self-map portal. Controlled source-safe mouth adjacency/noon only BEFORE actual Talk/word. No acceptance flag/item/HP/NPC outcome initialization; BrownKey is retained and must not be reported consumed.",
+        "strict_words": true
+      },
+      "result": {
+        "save": "ce-m3-cult-mouth-wrong33-classic\\20261016-181747\\saves\\nox-ce-ed5939a032719adcfecdf986a9261c4a-c35823f4d64fc8eb92504d091b31fd28-slot001.g1",
+        "save_sha256": "e76dfeea28447e79cac7c1c95541e42c74eddd92a796a5608bffd86004cbedc1",
+        "runtime_sha256": "e4c59299e63c953ce00ebcb8c8092674a2140057218dabc36b8e792ada464c02",
+        "generation": 50,
+        "slot": 1,
+        "PC": 29148,
+        "SP": 255,
+        "alternate": 0,
+        "stack_return": 0,
+        "map": 99,
+        "map_type": 2,
+        "xy": [
+          217,
+          101
+        ],
+        "pageflags": 255,
+        "research": 3,
+        "transport_flags": 0,
+        "keyflag_040F": 0,
+        "keyflag_0410": 63,
+        "party_count": 1,
+        "status": 0,
+        "level": 10,
+        "health": 125,
+        "maximum_health": 125,
+        "mana": 23,
+        "inactive": 0,
+        "STR_DEX_INT": [
+          8,
+          14,
+          110
+        ],
+        "Range": 10,
+        "Range_training_remaining": 54,
+        "weapon_range_bytes": [
+          1,
+          16
+        ],
+        "spell_slot1": 12,
+        "spell_quantity": 1,
+        "Ankh_quantity": 0,
+        "key_quantity": 0,
+        "staff_quantity": 0,
+        "enemy_health": 0,
+        "encounter_sprite": 192,
+        "ending_loop": 0
+      },
+      "executable_sha256": "872dce94798911e4394af42a1e02c34f5c4ff78c3440f6b71d471518b7dfa661",
+      "source_sha256": {
+        "engines/nox/backoff_validation.h": "7362aace99ec706f40295446abc3a9b41bb2ed2f841f89c61ed4f20a7c18b760",
+        "engines/nox/caller_validation.h": "ede6a33e41ad5fa9d9613fe36e203e7122ca9830a1b4b54e46ae9591cf632391",
+        "engines/nox/campaign_validation.h": "d4910018cf7288bb3e03f0d3e5aa8f551941486237d3062cbf8c406f48cf93b7",
+        "engines/nox/configure.engine": "774fc9df4834ca0e64018b72f326d14989a40c08f5c7fd78d06bbea6ee42c015",
+        "engines/nox/cpu.inc": "41c0fdff3d9d3466871ae76144b430b9b13bd29a2873a8899ebad56e4e208b97",
+        "engines/nox/cultist_validation.h": "654be8783d95ee92f8d757174dbedc581ac67317a6e7377b36ee9e36f051e299",
+        "engines/nox/cycles.inc": "2b1024aeab86cda827aec30eb696547ced1d333226263647b29b1d34db3acd6e",
+        "engines/nox/dark_key_validation.h": "5114e1958dd01104f0cd9ac08b3f771a5a87062911eb9042d54f34df01d0bb5e",
+        "engines/nox/detection.cpp": "32753d7b31fd8fe9f61eb27c676e6564d79764aa94cd5283c2508b8ac056dbd6",
+        "engines/nox/dialogue_validation.h": "5d2663dabee5c81507130bc126b3a1f4c9e91adc7b08a0e57d71e869a7b00dbd",
+        "engines/nox/enhancements.cpp": "5ed93907c2e0b1004c9978bbb91c32913de50d1706e9fd41c2027473b3069150",
+        "engines/nox/enhancements.h": "f0d73af3421c0597db87ace38b2d203c73640d43a5bade9b278cf6c1e7ff029d",
+        "engines/nox/enhancement_fixture.h": "13d45f7cf67cbec92f87777653c1ec51e65dd6b2b20538020b55f00fcd0718b5",
+        "engines/nox/enhancement_validation.h": "a24bde10489f8ca310c45c92050d21293aa974ee2eb86691a350aa372667e13a",
+        "engines/nox/grid_validation.h": "6032efc17e039528d63f2640d1b4308b899a9a7776c7c6c8fe4fa7e0ea752fa9",
+        "engines/nox/history_validation.h": "5601beeb58e2f8babad090e45369e3d3249e8d409d4e69db2ca3fad847c21b88",
+        "engines/nox/host_validation.h": "58f0082264e78c366b05e8a0999b0dcdde8e147160dc3be543042af2ab1da7a9",
+        "engines/nox/io_validation.h": "556bd69ec180bae521284e5876d121dffac2a7827f6fce1200924f8a2081d214",
+        "engines/nox/linked_pages_validation.h": "e1947a965bcda490fea92bfd3ee791a81d6bf3bc0748584e0ad722551e434148",
+        "engines/nox/management_validation.h": "286355cdedac22164095549c47f97e21d63e13eb738fb94b3368bf79d1738e34",
+        "engines/nox/metadata_validation.h": "c2b7fe9b7d1fa277517ec337b3ab8390e39552125b1c460be04690232466db5c",
+        "engines/nox/metaengine.cpp": "d631b83dc7b3a816489aa3a546d965f06d1cf89e684582c3dedd602ef866b24b",
+        "engines/nox/mockingboard.cpp": "38d5c6a894cc7a6bd238b9ad9a6740ec5ff42c6f299b7f6ce858505a6c1817bc",
+        "engines/nox/mockingboard.h": "d0afe027dc9ff9b269b0c60bf04abc45566502a17aed25879316856911937f2e",
+        "engines/nox/module.mk": "47de2ac64575f926a8de7cc5060913a3b63a0554cb5c20824ab55cf67ac1085f",
+        "engines/nox/movement.cpp": "4b03de9dd50c4a4cfc6c2e2d7da9d3fc3fc80a697dfd236a3340c1d25b84fdf9",
+        "engines/nox/nox.cpp": "8c5c5d737bc3743a525da70c000b70551b944550c8b92bad56b47bbc79989861",
+        "engines/nox/nox.h": "aac0544cb4bb5692e7114ad1cc74429ebb6b7aa9e090af2ea9376f2b87fb316c",
+        "engines/nox/profile_validation.h": "2658f8c93149c8692e5ef5b79d1dc42836dbd60f4d15f75a0f0ed3dbbd84301a",
+        "engines/nox/quest_battle_validation.h": "9090425dd5f4a50c49c46ac1f9c0a51ce247aae9ac9eac973258d1d9c84801b3",
+        "engines/nox/records.h": "8045582e0ae5f83d027b8b197aa66a8309e9ff80f2117bce7edb86455eca9b7d",
+        "engines/nox/render.cpp": "bd7833eaccc812fad88b0d19e5070d9955e440142525ded89b3d30766120073a",
+        "engines/nox/resources.h": "1451464a6f8ea57039c3596c8aaa388701e5005fb3364b80b9e48bb04dc2cd95",
+        "engines/nox/runtime.cpp": "8875ca955ff8e840286532fa58ed63795c042ff2d7b1cedd78e61531fec2cac8",
+        "engines/nox/runtime.h": "afaf653beafe0f47560d1f83830d95cf887555f769786f76775b099503d3aa85",
+        "engines/nox/runtime_observers.cpp": "7dbaac3c60a08887debb3db9eb5c16f38252dc96ca021afac06d3f103294819a",
+        "engines/nox/runtime_state.cpp": "d0c9c769e7fba6a8125754594fc5cc54dc54912c830f38c1a02f44ff24799b2d",
+        "engines/nox/saves.h": "9d0e92a7fb35952d35f2f2ecf0602ba48211162cb3f18b02a5a454919ac514f9",
+        "engines/nox/save_policy.h": "890bced00db32c534207055e5f6acf7247310102119da4c5bc66f13a4c7d72fc",
+        "engines/nox/search_object_validation.h": "7e88431afb708c292dd178be4ea2bbe5c60bd452852220d6e4b0e9b7fa6edeaf",
+        "engines/nox/session_validation.cpp": "da83025980220829e5ec424e80ad067d6681e30893918a1196ec84ef0524d839",
+        "engines/nox/shadow_checkpoint_validation.h": "1b886520edb2a907ce7d8f6f2c259ab1e0b85edbf7e7226d92eb313a2dd95f97",
+        "engines/nox/shadow_confrontation_validation.h": "3d7c3588d9e4bc1721acb9c0208313c4a54a7a7c72a442bd38a8c6ee996a7859",
+        "engines/nox/snapshot.h": "c3c8c9fd497391995084286e6f1cadc8ac5b9e9ed94965b6820043624e6d35de",
+        "engines/nox/speaker_audio.cpp": "b80e55470b95fcaf200f4346a0cb0bab8ce8ff3fe7e2436633da833a2da9f833",
+        "engines/nox/speaker_audio.h": "aad57abba83f4a02ee0780eb2eebc80e68a43181b285533dc3313f3ad307205f",
+        "engines/nox/spell_validation.h": "4fb3fefeed938e642b50ea25d7907ab9eb8419427492fe1b0c950dd5652a83f9",
+        "engines/nox/validation.cpp": "7582907d58238d29057026968b03866e25fb7e760184497204896cd5dad8ef75",
+        "engines/nox/vortex_validation.h": "ce7259c0ab6b5b7514de9db330db9ee1c08d21112f79f365b7f2ec36ddf5fe2e",
+        "devtools/nox/test_late_npc.py": "e0395fcb79f4753786bd1b861a4078292b1c6de76048f66459239c13a7f63e43"
+      },
+      "controlled_evidence": [],
+      "decoded_wall_and_consumed_flag": {
+        "BE00": [
+          215,
+          100,
+          74,
+          50
+        ],
+        "042E": 0
+      },
+      "decoded_reply_sha256": [
+        "1c376961010e446d75a540eec0f5c2f22c61ec9a1c442b40cf729b44370b6ccf"
+      ]
+    },
+    {
+      "path": "ce-m3-cult-mouth-bribe33-classic\\20261016-181752/verification.json",
+      "sha256": "cca2f0050409cd889d3f8e274a677c68365ad6c2ff077f5d301c7beff19f3fcf",
+      "mode": "Classic",
+      "case": {
+        "id": "actual-Cult-mouth-BRIBE",
+        "predecessor_label": "Vortex phase 38",
+        "noon": true,
+        "repeat": false,
+        "map": 99,
+        "actor": 0,
+        "routes": [],
+        "topics": [
+          "BRIBE"
+        ],
+        "reply": {
+          "resource": "NA/DATA.TLK.L063",
+          "contains": "Nice try"
+        },
+        "before": {
+          "flags": [
+            [
+              1070,
+              2,
+              0
+            ],
+            [
+              1049,
+              16,
+              16
+            ],
+            [
+              1036,
+              1,
+              1
+            ]
+          ],
+          "items": [
+            [
+              74,
+              1
+            ],
+            [
+              132,
+              1
+            ],
+            [
+              75,
+              0
+            ],
+            [
+              97,
+              8
+            ],
+            [
+              12,
+              1
+            ]
+          ]
+        },
+        "after": {
+          "flags": [
+            [
+              1070,
+              2,
+              0
+            ],
+            [
+              1049,
+              16,
+              16
+            ],
+            [
+              1036,
+              1,
+              1
+            ]
+          ],
+          "items": [
+            [
+              74,
+              1
+            ],
+            [
+              132,
+              1
+            ],
+            [
+              75,
+              0
+            ],
+            [
+              97,
+              8
+            ],
+            [
+              12,
+              1
+            ]
+          ]
+        },
+        "source_anchors": [
+          "UM99 BF0 [217,100,205,8,0,127,0,0]; actual Talk from safe south217,101.",
+          "L063 actor0 VHA/OBLI ->P2.A writes42E02. BRIBE prose only/no item transfer. DFL first warning sets42E01, original BYE clears42E01; no accepted flag."
+        ],
+        "initializations": "Retain actual PirateKey/BrownKey Search/doors/real level entry/self-map portal. Controlled source-safe mouth adjacency/noon only BEFORE actual Talk/word. No acceptance flag/item/HP/NPC outcome initialization; BrownKey is retained and must not be reported consumed.",
+        "strict_words": true
+      },
+      "result": {
+        "save": "ce-m3-cult-mouth-bribe33-classic\\20261016-181752\\saves\\nox-ce-ed5939a032719adcfecdf986a9261c4a-c35823f4d64fc8eb92504d091b31fd28-slot001.g1",
+        "save_sha256": "5d8bd62f52259a1f2c38f7cc0054d74198bf706e1db97d36f33df5f03212ac59",
+        "runtime_sha256": "8a6a2ddde42f183eac372f088a1e5b0d7759fbf70ee88b825567a5e58881dd5a",
+        "generation": 50,
+        "slot": 1,
+        "PC": 29148,
+        "SP": 255,
+        "alternate": 0,
+        "stack_return": 0,
+        "map": 99,
+        "map_type": 2,
+        "xy": [
+          217,
+          101
+        ],
+        "pageflags": 255,
+        "research": 3,
+        "transport_flags": 0,
+        "keyflag_040F": 0,
+        "keyflag_0410": 63,
+        "party_count": 1,
+        "status": 0,
+        "level": 10,
+        "health": 125,
+        "maximum_health": 125,
+        "mana": 23,
+        "inactive": 0,
+        "STR_DEX_INT": [
+          8,
+          14,
+          110
+        ],
+        "Range": 10,
+        "Range_training_remaining": 54,
+        "weapon_range_bytes": [
+          1,
+          16
+        ],
+        "spell_slot1": 12,
+        "spell_quantity": 1,
+        "Ankh_quantity": 0,
+        "key_quantity": 0,
+        "staff_quantity": 0,
+        "enemy_health": 0,
+        "encounter_sprite": 192,
+        "ending_loop": 0
+      },
+      "executable_sha256": "872dce94798911e4394af42a1e02c34f5c4ff78c3440f6b71d471518b7dfa661",
+      "source_sha256": {
+        "engines/nox/backoff_validation.h": "7362aace99ec706f40295446abc3a9b41bb2ed2f841f89c61ed4f20a7c18b760",
+        "engines/nox/caller_validation.h": "ede6a33e41ad5fa9d9613fe36e203e7122ca9830a1b4b54e46ae9591cf632391",
+        "engines/nox/campaign_validation.h": "d4910018cf7288bb3e03f0d3e5aa8f551941486237d3062cbf8c406f48cf93b7",
+        "engines/nox/configure.engine": "774fc9df4834ca0e64018b72f326d14989a40c08f5c7fd78d06bbea6ee42c015",
+        "engines/nox/cpu.inc": "41c0fdff3d9d3466871ae76144b430b9b13bd29a2873a8899ebad56e4e208b97",
+        "engines/nox/cultist_validation.h": "654be8783d95ee92f8d757174dbedc581ac67317a6e7377b36ee9e36f051e299",
+        "engines/nox/cycles.inc": "2b1024aeab86cda827aec30eb696547ced1d333226263647b29b1d34db3acd6e",
+        "engines/nox/dark_key_validation.h": "5114e1958dd01104f0cd9ac08b3f771a5a87062911eb9042d54f34df01d0bb5e",
+        "engines/nox/detection.cpp": "32753d7b31fd8fe9f61eb27c676e6564d79764aa94cd5283c2508b8ac056dbd6",
+        "engines/nox/dialogue_validation.h": "5d2663dabee5c81507130bc126b3a1f4c9e91adc7b08a0e57d71e869a7b00dbd",
+        "engines/nox/enhancements.cpp": "5ed93907c2e0b1004c9978bbb91c32913de50d1706e9fd41c2027473b3069150",
+        "engines/nox/enhancements.h": "f0d73af3421c0597db87ace38b2d203c73640d43a5bade9b278cf6c1e7ff029d",
+        "engines/nox/enhancement_fixture.h": "13d45f7cf67cbec92f87777653c1ec51e65dd6b2b20538020b55f00fcd0718b5",
+        "engines/nox/enhancement_validation.h": "a24bde10489f8ca310c45c92050d21293aa974ee2eb86691a350aa372667e13a",
+        "engines/nox/grid_validation.h": "6032efc17e039528d63f2640d1b4308b899a9a7776c7c6c8fe4fa7e0ea752fa9",
+        "engines/nox/history_validation.h": "5601beeb58e2f8babad090e45369e3d3249e8d409d4e69db2ca3fad847c21b88",
+        "engines/nox/host_validation.h": "58f0082264e78c366b05e8a0999b0dcdde8e147160dc3be543042af2ab1da7a9",
+        "engines/nox/io_validation.h": "556bd69ec180bae521284e5876d121dffac2a7827f6fce1200924f8a2081d214",
+        "engines/nox/linked_pages_validation.h": "e1947a965bcda490fea92bfd3ee791a81d6bf3bc0748584e0ad722551e434148",
+        "engines/nox/management_validation.h": "286355cdedac22164095549c47f97e21d63e13eb738fb94b3368bf79d1738e34",
+        "engines/nox/metadata_validation.h": "c2b7fe9b7d1fa277517ec337b3ab8390e39552125b1c460be04690232466db5c",
+        "engines/nox/metaengine.cpp": "d631b83dc7b3a816489aa3a546d965f06d1cf89e684582c3dedd602ef866b24b",
+        "engines/nox/mockingboard.cpp": "38d5c6a894cc7a6bd238b9ad9a6740ec5ff42c6f299b7f6ce858505a6c1817bc",
+        "engines/nox/mockingboard.h": "d0afe027dc9ff9b269b0c60bf04abc45566502a17aed25879316856911937f2e",
+        "engines/nox/module.mk": "47de2ac64575f926a8de7cc5060913a3b63a0554cb5c20824ab55cf67ac1085f",
+        "engines/nox/movement.cpp": "4b03de9dd50c4a4cfc6c2e2d7da9d3fc3fc80a697dfd236a3340c1d25b84fdf9",
+        "engines/nox/nox.cpp": "8c5c5d737bc3743a525da70c000b70551b944550c8b92bad56b47bbc79989861",
+        "engines/nox/nox.h": "aac0544cb4bb5692e7114ad1cc74429ebb6b7aa9e090af2ea9376f2b87fb316c",
+        "engines/nox/profile_validation.h": "2658f8c93149c8692e5ef5b79d1dc42836dbd60f4d15f75a0f0ed3dbbd84301a",
+        "engines/nox/quest_battle_validation.h": "9090425dd5f4a50c49c46ac1f9c0a51ce247aae9ac9eac973258d1d9c84801b3",
+        "engines/nox/records.h": "8045582e0ae5f83d027b8b197aa66a8309e9ff80f2117bce7edb86455eca9b7d",
+        "engines/nox/render.cpp": "bd7833eaccc812fad88b0d19e5070d9955e440142525ded89b3d30766120073a",
+        "engines/nox/resources.h": "1451464a6f8ea57039c3596c8aaa388701e5005fb3364b80b9e48bb04dc2cd95",
+        "engines/nox/runtime.cpp": "8875ca955ff8e840286532fa58ed63795c042ff2d7b1cedd78e61531fec2cac8",
+        "engines/nox/runtime.h": "afaf653beafe0f47560d1f83830d95cf887555f769786f76775b099503d3aa85",
+        "engines/nox/runtime_observers.cpp": "7dbaac3c60a08887debb3db9eb5c16f38252dc96ca021afac06d3f103294819a",
+        "engines/nox/runtime_state.cpp": "d0c9c769e7fba6a8125754594fc5cc54dc54912c830f38c1a02f44ff24799b2d",
+        "engines/nox/saves.h": "9d0e92a7fb35952d35f2f2ecf0602ba48211162cb3f18b02a5a454919ac514f9",
+        "engines/nox/save_policy.h": "890bced00db32c534207055e5f6acf7247310102119da4c5bc66f13a4c7d72fc",
+        "engines/nox/search_object_validation.h": "7e88431afb708c292dd178be4ea2bbe5c60bd452852220d6e4b0e9b7fa6edeaf",
+        "engines/nox/session_validation.cpp": "da83025980220829e5ec424e80ad067d6681e30893918a1196ec84ef0524d839",
+        "engines/nox/shadow_checkpoint_validation.h": "1b886520edb2a907ce7d8f6f2c259ab1e0b85edbf7e7226d92eb313a2dd95f97",
+        "engines/nox/shadow_confrontation_validation.h": "3d7c3588d9e4bc1721acb9c0208313c4a54a7a7c72a442bd38a8c6ee996a7859",
+        "engines/nox/snapshot.h": "c3c8c9fd497391995084286e6f1cadc8ac5b9e9ed94965b6820043624e6d35de",
+        "engines/nox/speaker_audio.cpp": "b80e55470b95fcaf200f4346a0cb0bab8ce8ff3fe7e2436633da833a2da9f833",
+        "engines/nox/speaker_audio.h": "aad57abba83f4a02ee0780eb2eebc80e68a43181b285533dc3313f3ad307205f",
+        "engines/nox/spell_validation.h": "4fb3fefeed938e642b50ea25d7907ab9eb8419427492fe1b0c950dd5652a83f9",
+        "engines/nox/validation.cpp": "7582907d58238d29057026968b03866e25fb7e760184497204896cd5dad8ef75",
+        "engines/nox/vortex_validation.h": "ce7259c0ab6b5b7514de9db330db9ee1c08d21112f79f365b7f2ec36ddf5fe2e",
+        "devtools/nox/test_late_npc.py": "e0395fcb79f4753786bd1b861a4078292b1c6de76048f66459239c13a7f63e43"
+      },
+      "controlled_evidence": [],
+      "decoded_wall_and_consumed_flag": {
+        "BE00": [
+          215,
+          100,
+          74,
+          50
+        ],
+        "042E": 0
+      },
+      "decoded_reply_sha256": [
+        "c95a769946e9a595c164c0f40b0e5cc57d26a34d7badfd1a0b1cadc453ad14d0"
+      ]
+    },
+    {
+      "path": "ce-m3-cult-mouth-vha33-classic\\20261016-181757/verification.json",
+      "sha256": "56a49fe4b015bdcddc7331f2fd46cf99c96e66e7362a117f877edd6c24d70808",
+      "mode": "Classic",
+      "case": {
+        "id": "actual-Cult-mouth-VHA",
+        "predecessor_label": "Vortex phase 38",
+        "noon": true,
+        "repeat": false,
+        "map": 99,
+        "actor": 0,
+        "routes": [],
+        "topics": [
+          "VHA"
+        ],
+        "reply": {
+          "resource": "NA/DATA.TLK.L063",
+          "contains": "They are expecting you"
+        },
+        "before": {
+          "flags": [
+            [
+              1070,
+              2,
+              0
+            ],
+            [
+              1049,
+              16,
+              16
+            ],
+            [
+              1036,
+              1,
+              1
+            ]
+          ],
+          "items": [
+            [
+              74,
+              1
+            ],
+            [
+              132,
+              1
+            ],
+            [
+              75,
+              0
+            ],
+            [
+              97,
+              8
+            ],
+            [
+              12,
+              1
+            ]
+          ]
+        },
+        "after": {
+          "flags": [
+            [
+              1070,
+              2,
+              0
+            ],
+            [
+              1049,
+              16,
+              16
+            ],
+            [
+              1036,
+              1,
+              1
+            ]
+          ],
+          "items": [
+            [
+              74,
+              1
+            ],
+            [
+              132,
+              1
+            ],
+            [
+              75,
+              0
+            ],
+            [
+              97,
+              8
+            ],
+            [
+              12,
+              1
+            ]
+          ]
+        },
+        "source_anchors": [
+          "UM99 BF0 [217,100,205,8,0,127,0,0]; actual Talk from safe south217,101.",
+          "L063 actor0 VHA/OBLI ->P2.A writes42E02. BRIBE prose only/no item transfer. DFL first warning sets42E01, original BYE clears42E01; no accepted flag.",
+          "Original dialogueEffects B3B2 tests42E02; B3BA writes BE03/aux5703=FE to remove wall215,100; B3F4 consumes42E02. Persistent acceptance flag is NOT expected. Actual wall removal/cold and subsequent movement are required."
+        ],
+        "initializations": "Retain actual PirateKey/BrownKey Search/doors/real level entry/self-map portal. Controlled source-safe mouth adjacency/noon only BEFORE actual Talk/word. No acceptance flag/item/HP/NPC outcome initialization; BrownKey is retained and must not be reported consumed.",
+        "strict_words": true
+      },
+      "result": {
+        "save": "ce-m3-cult-mouth-vha33-classic\\20261016-181757\\saves\\nox-ce-ed5939a032719adcfecdf986a9261c4a-c35823f4d64fc8eb92504d091b31fd28-slot001.g1",
+        "save_sha256": "e60b40f8a86037531997bc4b660d96c26dd44e388aceda7bc24528c54ca472fc",
+        "runtime_sha256": "c759fa09ded7a76b4711d80e6225b25ceef17073ea36a21baa33b7f12e1270fb",
+        "generation": 50,
+        "slot": 1,
+        "PC": 29148,
+        "SP": 255,
+        "alternate": 0,
+        "stack_return": 0,
+        "map": 99,
+        "map_type": 2,
+        "xy": [
+          217,
+          101
+        ],
+        "pageflags": 255,
+        "research": 3,
+        "transport_flags": 0,
+        "keyflag_040F": 0,
+        "keyflag_0410": 63,
+        "party_count": 1,
+        "status": 0,
+        "level": 10,
+        "health": 125,
+        "maximum_health": 125,
+        "mana": 23,
+        "inactive": 0,
+        "STR_DEX_INT": [
+          8,
+          14,
+          110
+        ],
+        "Range": 10,
+        "Range_training_remaining": 54,
+        "weapon_range_bytes": [
+          1,
+          16
+        ],
+        "spell_slot1": 12,
+        "spell_quantity": 1,
+        "Ankh_quantity": 0,
+        "key_quantity": 0,
+        "staff_quantity": 0,
+        "enemy_health": 0,
+        "encounter_sprite": 192,
+        "ending_loop": 0
+      },
+      "executable_sha256": "872dce94798911e4394af42a1e02c34f5c4ff78c3440f6b71d471518b7dfa661",
+      "source_sha256": {
+        "engines/nox/backoff_validation.h": "7362aace99ec706f40295446abc3a9b41bb2ed2f841f89c61ed4f20a7c18b760",
+        "engines/nox/caller_validation.h": "ede6a33e41ad5fa9d9613fe36e203e7122ca9830a1b4b54e46ae9591cf632391",
+        "engines/nox/campaign_validation.h": "d4910018cf7288bb3e03f0d3e5aa8f551941486237d3062cbf8c406f48cf93b7",
+        "engines/nox/configure.engine": "774fc9df4834ca0e64018b72f326d14989a40c08f5c7fd78d06bbea6ee42c015",
+        "engines/nox/cpu.inc": "41c0fdff3d9d3466871ae76144b430b9b13bd29a2873a8899ebad56e4e208b97",
+        "engines/nox/cultist_validation.h": "654be8783d95ee92f8d757174dbedc581ac67317a6e7377b36ee9e36f051e299",
+        "engines/nox/cycles.inc": "2b1024aeab86cda827aec30eb696547ced1d333226263647b29b1d34db3acd6e",
+        "engines/nox/dark_key_validation.h": "5114e1958dd01104f0cd9ac08b3f771a5a87062911eb9042d54f34df01d0bb5e",
+        "engines/nox/detection.cpp": "32753d7b31fd8fe9f61eb27c676e6564d79764aa94cd5283c2508b8ac056dbd6",
+        "engines/nox/dialogue_validation.h": "5d2663dabee5c81507130bc126b3a1f4c9e91adc7b08a0e57d71e869a7b00dbd",
+        "engines/nox/enhancements.cpp": "5ed93907c2e0b1004c9978bbb91c32913de50d1706e9fd41c2027473b3069150",
+        "engines/nox/enhancements.h": "f0d73af3421c0597db87ace38b2d203c73640d43a5bade9b278cf6c1e7ff029d",
+        "engines/nox/enhancement_fixture.h": "13d45f7cf67cbec92f87777653c1ec51e65dd6b2b20538020b55f00fcd0718b5",
+        "engines/nox/enhancement_validation.h": "a24bde10489f8ca310c45c92050d21293aa974ee2eb86691a350aa372667e13a",
+        "engines/nox/grid_validation.h": "6032efc17e039528d63f2640d1b4308b899a9a7776c7c6c8fe4fa7e0ea752fa9",
+        "engines/nox/history_validation.h": "5601beeb58e2f8babad090e45369e3d3249e8d409d4e69db2ca3fad847c21b88",
+        "engines/nox/host_validation.h": "58f0082264e78c366b05e8a0999b0dcdde8e147160dc3be543042af2ab1da7a9",
+        "engines/nox/io_validation.h": "556bd69ec180bae521284e5876d121dffac2a7827f6fce1200924f8a2081d214",
+        "engines/nox/linked_pages_validation.h": "e1947a965bcda490fea92bfd3ee791a81d6bf3bc0748584e0ad722551e434148",
+        "engines/nox/management_validation.h": "286355cdedac22164095549c47f97e21d63e13eb738fb94b3368bf79d1738e34",
+        "engines/nox/metadata_validation.h": "c2b7fe9b7d1fa277517ec337b3ab8390e39552125b1c460be04690232466db5c",
+        "engines/nox/metaengine.cpp": "d631b83dc7b3a816489aa3a546d965f06d1cf89e684582c3dedd602ef866b24b",
+        "engines/nox/mockingboard.cpp": "38d5c6a894cc7a6bd238b9ad9a6740ec5ff42c6f299b7f6ce858505a6c1817bc",
+        "engines/nox/mockingboard.h": "d0afe027dc9ff9b269b0c60bf04abc45566502a17aed25879316856911937f2e",
+        "engines/nox/module.mk": "47de2ac64575f926a8de7cc5060913a3b63a0554cb5c20824ab55cf67ac1085f",
+        "engines/nox/movement.cpp": "4b03de9dd50c4a4cfc6c2e2d7da9d3fc3fc80a697dfd236a3340c1d25b84fdf9",
+        "engines/nox/nox.cpp": "8c5c5d737bc3743a525da70c000b70551b944550c8b92bad56b47bbc79989861",
+        "engines/nox/nox.h": "aac0544cb4bb5692e7114ad1cc74429ebb6b7aa9e090af2ea9376f2b87fb316c",
+        "engines/nox/profile_validation.h": "2658f8c93149c8692e5ef5b79d1dc42836dbd60f4d15f75a0f0ed3dbbd84301a",
+        "engines/nox/quest_battle_validation.h": "9090425dd5f4a50c49c46ac1f9c0a51ce247aae9ac9eac973258d1d9c84801b3",
+        "engines/nox/records.h": "8045582e0ae5f83d027b8b197aa66a8309e9ff80f2117bce7edb86455eca9b7d",
+        "engines/nox/render.cpp": "bd7833eaccc812fad88b0d19e5070d9955e440142525ded89b3d30766120073a",
+        "engines/nox/resources.h": "1451464a6f8ea57039c3596c8aaa388701e5005fb3364b80b9e48bb04dc2cd95",
+        "engines/nox/runtime.cpp": "8875ca955ff8e840286532fa58ed63795c042ff2d7b1cedd78e61531fec2cac8",
+        "engines/nox/runtime.h": "afaf653beafe0f47560d1f83830d95cf887555f769786f76775b099503d3aa85",
+        "engines/nox/runtime_observers.cpp": "7dbaac3c60a08887debb3db9eb5c16f38252dc96ca021afac06d3f103294819a",
+        "engines/nox/runtime_state.cpp": "d0c9c769e7fba6a8125754594fc5cc54dc54912c830f38c1a02f44ff24799b2d",
+        "engines/nox/saves.h": "9d0e92a7fb35952d35f2f2ecf0602ba48211162cb3f18b02a5a454919ac514f9",
+        "engines/nox/save_policy.h": "890bced00db32c534207055e5f6acf7247310102119da4c5bc66f13a4c7d72fc",
+        "engines/nox/search_object_validation.h": "7e88431afb708c292dd178be4ea2bbe5c60bd452852220d6e4b0e9b7fa6edeaf",
+        "engines/nox/session_validation.cpp": "da83025980220829e5ec424e80ad067d6681e30893918a1196ec84ef0524d839",
+        "engines/nox/shadow_checkpoint_validation.h": "1b886520edb2a907ce7d8f6f2c259ab1e0b85edbf7e7226d92eb313a2dd95f97",
+        "engines/nox/shadow_confrontation_validation.h": "3d7c3588d9e4bc1721acb9c0208313c4a54a7a7c72a442bd38a8c6ee996a7859",
+        "engines/nox/snapshot.h": "c3c8c9fd497391995084286e6f1cadc8ac5b9e9ed94965b6820043624e6d35de",
+        "engines/nox/speaker_audio.cpp": "b80e55470b95fcaf200f4346a0cb0bab8ce8ff3fe7e2436633da833a2da9f833",
+        "engines/nox/speaker_audio.h": "aad57abba83f4a02ee0780eb2eebc80e68a43181b285533dc3313f3ad307205f",
+        "engines/nox/spell_validation.h": "4fb3fefeed938e642b50ea25d7907ab9eb8419427492fe1b0c950dd5652a83f9",
+        "engines/nox/validation.cpp": "7582907d58238d29057026968b03866e25fb7e760184497204896cd5dad8ef75",
+        "engines/nox/vortex_validation.h": "ce7259c0ab6b5b7514de9db330db9ee1c08d21112f79f365b7f2ec36ddf5fe2e",
+        "devtools/nox/test_late_npc.py": "e0395fcb79f4753786bd1b861a4078292b1c6de76048f66459239c13a7f63e43"
+      },
+      "controlled_evidence": [],
+      "decoded_wall_and_consumed_flag": {
+        "BE00": [
+          215,
+          100,
+          74,
+          254
+        ],
+        "042E": 0
+      },
+      "decoded_reply_sha256": [
+        "8eafc91ba0008ebea4cc5712cd421b51fd4194f7394d5346c5d56a4c385b6b64"
+      ]
+    },
+    {
+      "path": "ce-m3-cult-mouth-obli33-classic\\20261016-181802/verification.json",
+      "sha256": "7238331a414013499404cc6724248bae87f7ac3b4e07bbc56156489835fb2e1d",
+      "mode": "Classic",
+      "case": {
+        "id": "actual-Cult-mouth-OBLI",
+        "predecessor_label": "Vortex phase 38",
+        "noon": true,
+        "repeat": false,
+        "map": 99,
+        "actor": 0,
+        "routes": [],
+        "topics": [
+          "OBLI"
+        ],
+        "reply": {
+          "resource": "NA/DATA.TLK.L063",
+          "contains": "They are expecting you"
+        },
+        "before": {
+          "flags": [
+            [
+              1070,
+              2,
+              0
+            ],
+            [
+              1049,
+              16,
+              16
+            ],
+            [
+              1036,
+              1,
+              1
+            ]
+          ],
+          "items": [
+            [
+              74,
+              1
+            ],
+            [
+              132,
+              1
+            ],
+            [
+              75,
+              0
+            ],
+            [
+              97,
+              8
+            ],
+            [
+              12,
+              1
+            ]
+          ]
+        },
+        "after": {
+          "flags": [
+            [
+              1070,
+              2,
+              0
+            ],
+            [
+              1049,
+              16,
+              16
+            ],
+            [
+              1036,
+              1,
+              1
+            ]
+          ],
+          "items": [
+            [
+              74,
+              1
+            ],
+            [
+              132,
+              1
+            ],
+            [
+              75,
+              0
+            ],
+            [
+              97,
+              8
+            ],
+            [
+              12,
+              1
+            ]
+          ]
+        },
+        "source_anchors": [
+          "UM99 BF0 [217,100,205,8,0,127,0,0]; actual Talk from safe south217,101.",
+          "L063 actor0 VHA/OBLI ->P2.A writes42E02. BRIBE prose only/no item transfer. DFL first warning sets42E01, original BYE clears42E01; no accepted flag.",
+          "Original dialogueEffects B3B2 tests42E02; B3BA writes BE03/aux5703=FE to remove wall215,100; B3F4 consumes42E02. Persistent acceptance flag is NOT expected. Actual wall removal/cold and subsequent movement are required."
+        ],
+        "initializations": "Retain actual PirateKey/BrownKey Search/doors/real level entry/self-map portal. Controlled source-safe mouth adjacency/noon only BEFORE actual Talk/word. No acceptance flag/item/HP/NPC outcome initialization; BrownKey is retained and must not be reported consumed.",
+        "strict_words": true
+      },
+      "result": {
+        "save": "ce-m3-cult-mouth-obli33-classic\\20261016-181802\\saves\\nox-ce-ed5939a032719adcfecdf986a9261c4a-c35823f4d64fc8eb92504d091b31fd28-slot001.g1",
+        "save_sha256": "a1ab72f30eabf805b60cae06e8f6a60eb9bd090e620d6a6410d6a249375e5fbe",
+        "runtime_sha256": "98e559a60f111e224dc1ba39d6680436b5fb75795d7aba6625b04412b5a993cf",
+        "generation": 50,
+        "slot": 1,
+        "PC": 29148,
+        "SP": 255,
+        "alternate": 0,
+        "stack_return": 0,
+        "map": 99,
+        "map_type": 2,
+        "xy": [
+          217,
+          101
+        ],
+        "pageflags": 255,
+        "research": 3,
+        "transport_flags": 0,
+        "keyflag_040F": 0,
+        "keyflag_0410": 63,
+        "party_count": 1,
+        "status": 0,
+        "level": 10,
+        "health": 125,
+        "maximum_health": 125,
+        "mana": 23,
+        "inactive": 0,
+        "STR_DEX_INT": [
+          8,
+          14,
+          110
+        ],
+        "Range": 10,
+        "Range_training_remaining": 54,
+        "weapon_range_bytes": [
+          1,
+          16
+        ],
+        "spell_slot1": 12,
+        "spell_quantity": 1,
+        "Ankh_quantity": 0,
+        "key_quantity": 0,
+        "staff_quantity": 0,
+        "enemy_health": 0,
+        "encounter_sprite": 192,
+        "ending_loop": 0
+      },
+      "executable_sha256": "872dce94798911e4394af42a1e02c34f5c4ff78c3440f6b71d471518b7dfa661",
+      "source_sha256": {
+        "engines/nox/backoff_validation.h": "7362aace99ec706f40295446abc3a9b41bb2ed2f841f89c61ed4f20a7c18b760",
+        "engines/nox/caller_validation.h": "ede6a33e41ad5fa9d9613fe36e203e7122ca9830a1b4b54e46ae9591cf632391",
+        "engines/nox/campaign_validation.h": "d4910018cf7288bb3e03f0d3e5aa8f551941486237d3062cbf8c406f48cf93b7",
+        "engines/nox/configure.engine": "774fc9df4834ca0e64018b72f326d14989a40c08f5c7fd78d06bbea6ee42c015",
+        "engines/nox/cpu.inc": "41c0fdff3d9d3466871ae76144b430b9b13bd29a2873a8899ebad56e4e208b97",
+        "engines/nox/cultist_validation.h": "654be8783d95ee92f8d757174dbedc581ac67317a6e7377b36ee9e36f051e299",
+        "engines/nox/cycles.inc": "2b1024aeab86cda827aec30eb696547ced1d333226263647b29b1d34db3acd6e",
+        "engines/nox/dark_key_validation.h": "5114e1958dd01104f0cd9ac08b3f771a5a87062911eb9042d54f34df01d0bb5e",
+        "engines/nox/detection.cpp": "32753d7b31fd8fe9f61eb27c676e6564d79764aa94cd5283c2508b8ac056dbd6",
+        "engines/nox/dialogue_validation.h": "5d2663dabee5c81507130bc126b3a1f4c9e91adc7b08a0e57d71e869a7b00dbd",
+        "engines/nox/enhancements.cpp": "5ed93907c2e0b1004c9978bbb91c32913de50d1706e9fd41c2027473b3069150",
+        "engines/nox/enhancements.h": "f0d73af3421c0597db87ace38b2d203c73640d43a5bade9b278cf6c1e7ff029d",
+        "engines/nox/enhancement_fixture.h": "13d45f7cf67cbec92f87777653c1ec51e65dd6b2b20538020b55f00fcd0718b5",
+        "engines/nox/enhancement_validation.h": "a24bde10489f8ca310c45c92050d21293aa974ee2eb86691a350aa372667e13a",
+        "engines/nox/grid_validation.h": "6032efc17e039528d63f2640d1b4308b899a9a7776c7c6c8fe4fa7e0ea752fa9",
+        "engines/nox/history_validation.h": "5601beeb58e2f8babad090e45369e3d3249e8d409d4e69db2ca3fad847c21b88",
+        "engines/nox/host_validation.h": "58f0082264e78c366b05e8a0999b0dcdde8e147160dc3be543042af2ab1da7a9",
+        "engines/nox/io_validation.h": "556bd69ec180bae521284e5876d121dffac2a7827f6fce1200924f8a2081d214",
+        "engines/nox/linked_pages_validation.h": "e1947a965bcda490fea92bfd3ee791a81d6bf3bc0748584e0ad722551e434148",
+        "engines/nox/management_validation.h": "286355cdedac22164095549c47f97e21d63e13eb738fb94b3368bf79d1738e34",
+        "engines/nox/metadata_validation.h": "c2b7fe9b7d1fa277517ec337b3ab8390e39552125b1c460be04690232466db5c",
+        "engines/nox/metaengine.cpp": "d631b83dc7b3a816489aa3a546d965f06d1cf89e684582c3dedd602ef866b24b",
+        "engines/nox/mockingboard.cpp": "38d5c6a894cc7a6bd238b9ad9a6740ec5ff42c6f299b7f6ce858505a6c1817bc",
+        "engines/nox/mockingboard.h": "d0afe027dc9ff9b269b0c60bf04abc45566502a17aed25879316856911937f2e",
+        "engines/nox/module.mk": "47de2ac64575f926a8de7cc5060913a3b63a0554cb5c20824ab55cf67ac1085f",
+        "engines/nox/movement.cpp": "4b03de9dd50c4a4cfc6c2e2d7da9d3fc3fc80a697dfd236a3340c1d25b84fdf9",
+        "engines/nox/nox.cpp": "8c5c5d737bc3743a525da70c000b70551b944550c8b92bad56b47bbc79989861",
+        "engines/nox/nox.h": "aac0544cb4bb5692e7114ad1cc74429ebb6b7aa9e090af2ea9376f2b87fb316c",
+        "engines/nox/profile_validation.h": "2658f8c93149c8692e5ef5b79d1dc42836dbd60f4d15f75a0f0ed3dbbd84301a",
+        "engines/nox/quest_battle_validation.h": "9090425dd5f4a50c49c46ac1f9c0a51ce247aae9ac9eac973258d1d9c84801b3",
+        "engines/nox/records.h": "8045582e0ae5f83d027b8b197aa66a8309e9ff80f2117bce7edb86455eca9b7d",
+        "engines/nox/render.cpp": "bd7833eaccc812fad88b0d19e5070d9955e440142525ded89b3d30766120073a",
+        "engines/nox/resources.h": "1451464a6f8ea57039c3596c8aaa388701e5005fb3364b80b9e48bb04dc2cd95",
+        "engines/nox/runtime.cpp": "8875ca955ff8e840286532fa58ed63795c042ff2d7b1cedd78e61531fec2cac8",
+        "engines/nox/runtime.h": "afaf653beafe0f47560d1f83830d95cf887555f769786f76775b099503d3aa85",
+        "engines/nox/runtime_observers.cpp": "7dbaac3c60a08887debb3db9eb5c16f38252dc96ca021afac06d3f103294819a",
+        "engines/nox/runtime_state.cpp": "d0c9c769e7fba6a8125754594fc5cc54dc54912c830f38c1a02f44ff24799b2d",
+        "engines/nox/saves.h": "9d0e92a7fb35952d35f2f2ecf0602ba48211162cb3f18b02a5a454919ac514f9",
+        "engines/nox/save_policy.h": "890bced00db32c534207055e5f6acf7247310102119da4c5bc66f13a4c7d72fc",
+        "engines/nox/search_object_validation.h": "7e88431afb708c292dd178be4ea2bbe5c60bd452852220d6e4b0e9b7fa6edeaf",
+        "engines/nox/session_validation.cpp": "da83025980220829e5ec424e80ad067d6681e30893918a1196ec84ef0524d839",
+        "engines/nox/shadow_checkpoint_validation.h": "1b886520edb2a907ce7d8f6f2c259ab1e0b85edbf7e7226d92eb313a2dd95f97",
+        "engines/nox/shadow_confrontation_validation.h": "3d7c3588d9e4bc1721acb9c0208313c4a54a7a7c72a442bd38a8c6ee996a7859",
+        "engines/nox/snapshot.h": "c3c8c9fd497391995084286e6f1cadc8ac5b9e9ed94965b6820043624e6d35de",
+        "engines/nox/speaker_audio.cpp": "b80e55470b95fcaf200f4346a0cb0bab8ce8ff3fe7e2436633da833a2da9f833",
+        "engines/nox/speaker_audio.h": "aad57abba83f4a02ee0780eb2eebc80e68a43181b285533dc3313f3ad307205f",
+        "engines/nox/spell_validation.h": "4fb3fefeed938e642b50ea25d7907ab9eb8419427492fe1b0c950dd5652a83f9",
+        "engines/nox/validation.cpp": "7582907d58238d29057026968b03866e25fb7e760184497204896cd5dad8ef75",
+        "engines/nox/vortex_validation.h": "ce7259c0ab6b5b7514de9db330db9ee1c08d21112f79f365b7f2ec36ddf5fe2e",
+        "devtools/nox/test_late_npc.py": "e0395fcb79f4753786bd1b861a4078292b1c6de76048f66459239c13a7f63e43"
+      },
+      "controlled_evidence": [],
+      "decoded_wall_and_consumed_flag": {
+        "BE00": [
+          215,
+          100,
+          74,
+          254
+        ],
+        "042E": 0
+      },
+      "decoded_reply_sha256": [
+        "8eafc91ba0008ebea4cc5712cd421b51fd4194f7394d5346c5d56a4c385b6b64"
+      ]
+    },
+    {
+      "path": "ce-m3-temple-monks34-classic\\20261016-181807/verification.json",
+      "sha256": "822416607bb8160e13fe7b034c74e3e8ca98534601b27c27baf6a0a5639aacbf",
+      "mode": "Classic",
+      "case": {
+        "id": "actual-Cult-fixed-Monks-admission-staged-Cast-victory",
+        "predecessor_label": "Vortex phase 38",
+        "map": 99,
+        "actor": 8,
+        "noon": false,
+        "repeat": false,
+        "routes": [],
+        "topics": [],
+        "reply": {
+          "resource": "",
+          "contains": ""
+        },
+        "battle": true,
+        "guard_encounter": true,
+        "recover": true,
+        "before": {
+          "flags": [
+            [
+              1070,
+              3,
+              0
+            ],
+            [
+              1049,
+              16,
+              16
+            ],
+            [
+              1080,
+              4,
+              0
+            ]
+          ],
+          "items": [
+            [
+              74,
+              1
+            ],
+            [
+              132,
+              1
+            ],
+            [
+              75,
+              0
+            ],
+            [
+              97,
+              8
+            ],
+            [
+              12,
+              1
+            ]
+          ]
+        },
+        "after": {
+          "flags": [
+            [
+              1070,
+              3,
+              0
+            ],
+            [
+              1049,
+              16,
+              16
+            ],
+            [
+              1080,
+              4,
+              0
+            ]
+          ],
+          "items": [
+            [
+              74,
+              1
+            ],
+            [
+              132,
+              1
+            ],
+            [
+              75,
+              0
+            ],
+            [
+              97,
+              8
+            ],
+            [
+              12,
+              1
+            ]
+          ]
+        },
+        "source_anchors": [
+          "Immutable UM99 original fixed BD8 [215,98,137,5], actual patrol currently215,101 after VHA; actualLeft from217,101 admits original encounter.",
+          "Immutable COMBAT.S2D3C Monk191HP/sprite137 and2D5C HighMonk137HP/sprite137; original8+2 full admission before controlled pre-Cast endpoint.",
+          "Original actorWorld D281 deadFF predicate; original actual victory must retire worldBD8, no world death flag initialized."
+        ],
+        "initializations": "Retain actual PirateKey/BrownKey/doors/portal/mouthVHA wallFE, consumed42E02 and actual guard patrol. CONTROLLED source-valid between-battle recoveryHP125/MP110 BEFORE realLeft only. Record original full10enemy admission; then DISTINCT controlled living enemy0HP1/other9dead/cache-consistent checkpoint BEFORE actualVortexCast, not earned damage/kills. No worldBD8 death, victory, wall, key, loot or position outcome injected. Actual MP87 cost, victory/worldBD8death/cold required."
+      },
+      "result": {
+        "save": "ce-m3-temple-monks34-classic\\20261016-181807\\saves\\nox-ce-ed5939a032719adcfecdf986a9261c4a-c35823f4d64fc8eb92504d091b31fd28-slot001.g1",
+        "save_sha256": "348687e8a6e50ec9dff0b257abc4f6d219b9af17656240e535ec96363c7f1740",
+        "runtime_sha256": "5b0a2b9d32c5ca7fcfedcb90a4505587ec6eb245fd411f9de26d7350fa029509",
+        "generation": 52,
+        "slot": 1,
+        "PC": 29148,
+        "SP": 255,
+        "alternate": 0,
+        "stack_return": 0,
+        "map": 99,
+        "map_type": 2,
+        "xy": [
+          216,
+          101
+        ],
+        "pageflags": 255,
+        "research": 3,
+        "transport_flags": 0,
+        "keyflag_040F": 0,
+        "keyflag_0410": 63,
+        "party_count": 1,
+        "status": 0,
+        "level": 10,
+        "health": 125,
+        "maximum_health": 125,
+        "mana": 23,
+        "inactive": 0,
+        "STR_DEX_INT": [
+          8,
+          14,
+          110
+        ],
+        "Range": 10,
+        "Range_training_remaining": 54,
+        "weapon_range_bytes": [
+          1,
+          16
+        ],
+        "spell_slot1": 12,
+        "spell_quantity": 1,
+        "Ankh_quantity": 0,
+        "key_quantity": 0,
+        "staff_quantity": 0,
+        "enemy_health": 0,
+        "encounter_sprite": 137,
+        "ending_loop": 0
+      },
+      "executable_sha256": "872dce94798911e4394af42a1e02c34f5c4ff78c3440f6b71d471518b7dfa661",
+      "source_sha256": {
+        "engines/nox/backoff_validation.h": "7362aace99ec706f40295446abc3a9b41bb2ed2f841f89c61ed4f20a7c18b760",
+        "engines/nox/caller_validation.h": "ede6a33e41ad5fa9d9613fe36e203e7122ca9830a1b4b54e46ae9591cf632391",
+        "engines/nox/campaign_validation.h": "d4910018cf7288bb3e03f0d3e5aa8f551941486237d3062cbf8c406f48cf93b7",
+        "engines/nox/configure.engine": "774fc9df4834ca0e64018b72f326d14989a40c08f5c7fd78d06bbea6ee42c015",
+        "engines/nox/cpu.inc": "41c0fdff3d9d3466871ae76144b430b9b13bd29a2873a8899ebad56e4e208b97",
+        "engines/nox/cultist_validation.h": "654be8783d95ee92f8d757174dbedc581ac67317a6e7377b36ee9e36f051e299",
+        "engines/nox/cycles.inc": "2b1024aeab86cda827aec30eb696547ced1d333226263647b29b1d34db3acd6e",
+        "engines/nox/dark_key_validation.h": "5114e1958dd01104f0cd9ac08b3f771a5a87062911eb9042d54f34df01d0bb5e",
+        "engines/nox/detection.cpp": "32753d7b31fd8fe9f61eb27c676e6564d79764aa94cd5283c2508b8ac056dbd6",
+        "engines/nox/dialogue_validation.h": "5d2663dabee5c81507130bc126b3a1f4c9e91adc7b08a0e57d71e869a7b00dbd",
+        "engines/nox/enhancements.cpp": "5ed93907c2e0b1004c9978bbb91c32913de50d1706e9fd41c2027473b3069150",
+        "engines/nox/enhancements.h": "f0d73af3421c0597db87ace38b2d203c73640d43a5bade9b278cf6c1e7ff029d",
+        "engines/nox/enhancement_fixture.h": "13d45f7cf67cbec92f87777653c1ec51e65dd6b2b20538020b55f00fcd0718b5",
+        "engines/nox/enhancement_validation.h": "a24bde10489f8ca310c45c92050d21293aa974ee2eb86691a350aa372667e13a",
+        "engines/nox/grid_validation.h": "6032efc17e039528d63f2640d1b4308b899a9a7776c7c6c8fe4fa7e0ea752fa9",
+        "engines/nox/history_validation.h": "5601beeb58e2f8babad090e45369e3d3249e8d409d4e69db2ca3fad847c21b88",
+        "engines/nox/host_validation.h": "58f0082264e78c366b05e8a0999b0dcdde8e147160dc3be543042af2ab1da7a9",
+        "engines/nox/io_validation.h": "556bd69ec180bae521284e5876d121dffac2a7827f6fce1200924f8a2081d214",
+        "engines/nox/linked_pages_validation.h": "e1947a965bcda490fea92bfd3ee791a81d6bf3bc0748584e0ad722551e434148",
+        "engines/nox/management_validation.h": "286355cdedac22164095549c47f97e21d63e13eb738fb94b3368bf79d1738e34",
+        "engines/nox/metadata_validation.h": "c2b7fe9b7d1fa277517ec337b3ab8390e39552125b1c460be04690232466db5c",
+        "engines/nox/metaengine.cpp": "d631b83dc7b3a816489aa3a546d965f06d1cf89e684582c3dedd602ef866b24b",
+        "engines/nox/mockingboard.cpp": "38d5c6a894cc7a6bd238b9ad9a6740ec5ff42c6f299b7f6ce858505a6c1817bc",
+        "engines/nox/mockingboard.h": "d0afe027dc9ff9b269b0c60bf04abc45566502a17aed25879316856911937f2e",
+        "engines/nox/module.mk": "47de2ac64575f926a8de7cc5060913a3b63a0554cb5c20824ab55cf67ac1085f",
+        "engines/nox/movement.cpp": "4b03de9dd50c4a4cfc6c2e2d7da9d3fc3fc80a697dfd236a3340c1d25b84fdf9",
+        "engines/nox/nox.cpp": "8c5c5d737bc3743a525da70c000b70551b944550c8b92bad56b47bbc79989861",
+        "engines/nox/nox.h": "aac0544cb4bb5692e7114ad1cc74429ebb6b7aa9e090af2ea9376f2b87fb316c",
+        "engines/nox/profile_validation.h": "2658f8c93149c8692e5ef5b79d1dc42836dbd60f4d15f75a0f0ed3dbbd84301a",
+        "engines/nox/quest_battle_validation.h": "9090425dd5f4a50c49c46ac1f9c0a51ce247aae9ac9eac973258d1d9c84801b3",
+        "engines/nox/records.h": "8045582e0ae5f83d027b8b197aa66a8309e9ff80f2117bce7edb86455eca9b7d",
+        "engines/nox/render.cpp": "bd7833eaccc812fad88b0d19e5070d9955e440142525ded89b3d30766120073a",
+        "engines/nox/resources.h": "1451464a6f8ea57039c3596c8aaa388701e5005fb3364b80b9e48bb04dc2cd95",
+        "engines/nox/runtime.cpp": "8875ca955ff8e840286532fa58ed63795c042ff2d7b1cedd78e61531fec2cac8",
+        "engines/nox/runtime.h": "afaf653beafe0f47560d1f83830d95cf887555f769786f76775b099503d3aa85",
+        "engines/nox/runtime_observers.cpp": "7dbaac3c60a08887debb3db9eb5c16f38252dc96ca021afac06d3f103294819a",
+        "engines/nox/runtime_state.cpp": "d0c9c769e7fba6a8125754594fc5cc54dc54912c830f38c1a02f44ff24799b2d",
+        "engines/nox/saves.h": "9d0e92a7fb35952d35f2f2ecf0602ba48211162cb3f18b02a5a454919ac514f9",
+        "engines/nox/save_policy.h": "890bced00db32c534207055e5f6acf7247310102119da4c5bc66f13a4c7d72fc",
+        "engines/nox/search_object_validation.h": "7e88431afb708c292dd178be4ea2bbe5c60bd452852220d6e4b0e9b7fa6edeaf",
+        "engines/nox/session_validation.cpp": "da83025980220829e5ec424e80ad067d6681e30893918a1196ec84ef0524d839",
+        "engines/nox/shadow_checkpoint_validation.h": "1b886520edb2a907ce7d8f6f2c259ab1e0b85edbf7e7226d92eb313a2dd95f97",
+        "engines/nox/shadow_confrontation_validation.h": "3d7c3588d9e4bc1721acb9c0208313c4a54a7a7c72a442bd38a8c6ee996a7859",
+        "engines/nox/snapshot.h": "c3c8c9fd497391995084286e6f1cadc8ac5b9e9ed94965b6820043624e6d35de",
+        "engines/nox/speaker_audio.cpp": "b80e55470b95fcaf200f4346a0cb0bab8ce8ff3fe7e2436633da833a2da9f833",
+        "engines/nox/speaker_audio.h": "aad57abba83f4a02ee0780eb2eebc80e68a43181b285533dc3313f3ad307205f",
+        "engines/nox/spell_validation.h": "4fb3fefeed938e642b50ea25d7907ab9eb8419427492fe1b0c950dd5652a83f9",
+        "engines/nox/validation.cpp": "7582907d58238d29057026968b03866e25fb7e760184497204896cd5dad8ef75",
+        "engines/nox/vortex_validation.h": "ce7259c0ab6b5b7514de9db330db9ee1c08d21112f79f365b7f2ec36ddf5fe2e",
+        "devtools/nox/test_late_npc.py": "e0395fcb79f4753786bd1b861a4078292b1c6de76048f66459239c13a7f63e43"
+      },
+      "controlled_evidence": [
+        "CONTROLLED-before-next-battle-recovery HP125 MP110 not_earned_healing",
+        "CONTROLLED-before-distinct-Cast enemy0HP1 others_dead_not_earned quest_loot_untouched\ttype=255 map=99 side=0 actor=0 spell=12 MP=110 HP=125 effects=0 damaged=0 target=4,8 targeting=0 enemies=10 enemy0=1 enemy1=0 enemy2=0 enemy3=0 enemy4=0 enemy5=0 enemy6=0 enemy7=0 enemy8=0 enemy9=0 party=4,8 enemy=5,4 direction_pending=0 origin=10,10 dir=00 targets=48 enemy_flags=01,00,50  "
+      ],
+      "actual_world_guard_dead": true,
+      "persistent_original_Monk_defeat_040C02": true,
+      "decoded_wall_and_consumed_flag": {
+        "BE00": [
+          215,
+          100,
+          74,
+          254
+        ],
+        "042E": 0
+      }
+    },
+    {
+      "path": "ce-m3-monks-passage34-classic\\20261016-181811/verification.json",
+      "sha256": "c1b3e9a152779fcf22e6748c5a1731698206dbc53e5573b65a1773a7ec745990",
+      "mode": "Classic",
+      "case": {
+        "id": "actual-Monk-victory-to-Cult-mouth-wall-passage",
+        "predecessor_label": "Vortex phase 38",
+        "noon": true,
+        "repeat": false,
+        "map": 99,
+        "actor": 0,
+        "routes": [],
+        "topics": [],
+        "reply": {
+          "resource": "",
+          "contains": ""
+        },
+        "before": {
+          "flags": [
+            [
+              1070,
+              3,
+              0
+            ],
+            [
+              1049,
+              16,
+              16
+            ]
+          ],
+          "items": [
+            [
+              74,
+              1
+            ],
+            [
+              132,
+              1
+            ],
+            [
+              75,
+              0
+            ],
+            [
+              97,
+              8
+            ],
+            [
+              12,
+              1
+            ]
+          ]
+        },
+        "after": {
+          "flags": [
+            [
+              1070,
+              3,
+              0
+            ],
+            [
+              1049,
+              16,
+              16
+            ]
+          ],
+          "items": [
+            [
+              74,
+              1
+            ],
+            [
+              132,
+              1
+            ],
+            [
+              75,
+              0
+            ],
+            [
+              97,
+              8
+            ],
+            [
+              12,
+              1
+            ]
+          ]
+        },
+        "source_anchors": [
+          "UM99 original BE00 [215,100,74,50] wall; actual VHA/OBLI effect removes via BE03=FE and consumes42E02. Wrong/BRIBE leave wall50.",
+          "Retained real Talk ends at217,101; two actualLeft ->215,101 and actualUp must cross removed wall to215,100 or remain blocked215,101. No new position initialization."
+        ],
+        "initializations": "Retain actual Monk staged-final-Cast victory/worldBD8death and mouthwallFE. ZERO new position/party/NPC/flag/HP controls. ActualLeft/Up from retained216,101 ->215,101 ->215,100, unchanged actual postbattle health. No wall/movement/death outcome initialized.",
+        "world": {
+          "keys": [
+            8,
+            11
+          ],
+          "absent": [],
+          "expected_x": 215,
+          "expected_y": 100,
+          "health": 125,
+          "door_x": 215,
+          "door_y": 100,
+          "door_before": 65098,
+          "door_after_picture": 74
+        }
+      },
+      "result": {
+        "save": "ce-m3-monks-passage34-classic\\20261016-181811\\saves\\nox-ce-ed5939a032719adcfecdf986a9261c4a-c35823f4d64fc8eb92504d091b31fd28-slot001.g1",
+        "save_sha256": "c75bbee6f843eba95e493f45e3606f81f51f37830e50c090e8fc9a8443370284",
+        "runtime_sha256": "c0b559fa6a0cf9301751617e7715ea58249bdec0dca57d93d3009639cc138781",
+        "generation": 54,
+        "slot": 1,
+        "PC": 29148,
+        "SP": 255,
+        "alternate": 0,
+        "stack_return": 0,
+        "map": 99,
+        "map_type": 2,
+        "xy": [
+          215,
+          100
+        ],
+        "pageflags": 255,
+        "research": 3,
+        "transport_flags": 0,
+        "keyflag_040F": 0,
+        "keyflag_0410": 63,
+        "party_count": 1,
+        "status": 0,
+        "level": 10,
+        "health": 125,
+        "maximum_health": 125,
+        "mana": 23,
+        "inactive": 0,
+        "STR_DEX_INT": [
+          8,
+          14,
+          110
+        ],
+        "Range": 10,
+        "Range_training_remaining": 54,
+        "weapon_range_bytes": [
+          1,
+          16
+        ],
+        "spell_slot1": 12,
+        "spell_quantity": 1,
+        "Ankh_quantity": 0,
+        "key_quantity": 0,
+        "staff_quantity": 0,
+        "enemy_health": 0,
+        "encounter_sprite": 137,
+        "ending_loop": 0
+      },
+      "executable_sha256": "872dce94798911e4394af42a1e02c34f5c4ff78c3440f6b71d471518b7dfa661",
+      "source_sha256": {
+        "engines/nox/backoff_validation.h": "7362aace99ec706f40295446abc3a9b41bb2ed2f841f89c61ed4f20a7c18b760",
+        "engines/nox/caller_validation.h": "ede6a33e41ad5fa9d9613fe36e203e7122ca9830a1b4b54e46ae9591cf632391",
+        "engines/nox/campaign_validation.h": "d4910018cf7288bb3e03f0d3e5aa8f551941486237d3062cbf8c406f48cf93b7",
+        "engines/nox/configure.engine": "774fc9df4834ca0e64018b72f326d14989a40c08f5c7fd78d06bbea6ee42c015",
+        "engines/nox/cpu.inc": "41c0fdff3d9d3466871ae76144b430b9b13bd29a2873a8899ebad56e4e208b97",
+        "engines/nox/cultist_validation.h": "654be8783d95ee92f8d757174dbedc581ac67317a6e7377b36ee9e36f051e299",
+        "engines/nox/cycles.inc": "2b1024aeab86cda827aec30eb696547ced1d333226263647b29b1d34db3acd6e",
+        "engines/nox/dark_key_validation.h": "5114e1958dd01104f0cd9ac08b3f771a5a87062911eb9042d54f34df01d0bb5e",
+        "engines/nox/detection.cpp": "32753d7b31fd8fe9f61eb27c676e6564d79764aa94cd5283c2508b8ac056dbd6",
+        "engines/nox/dialogue_validation.h": "5d2663dabee5c81507130bc126b3a1f4c9e91adc7b08a0e57d71e869a7b00dbd",
+        "engines/nox/enhancements.cpp": "5ed93907c2e0b1004c9978bbb91c32913de50d1706e9fd41c2027473b3069150",
+        "engines/nox/enhancements.h": "f0d73af3421c0597db87ace38b2d203c73640d43a5bade9b278cf6c1e7ff029d",
+        "engines/nox/enhancement_fixture.h": "13d45f7cf67cbec92f87777653c1ec51e65dd6b2b20538020b55f00fcd0718b5",
+        "engines/nox/enhancement_validation.h": "a24bde10489f8ca310c45c92050d21293aa974ee2eb86691a350aa372667e13a",
+        "engines/nox/grid_validation.h": "6032efc17e039528d63f2640d1b4308b899a9a7776c7c6c8fe4fa7e0ea752fa9",
+        "engines/nox/history_validation.h": "5601beeb58e2f8babad090e45369e3d3249e8d409d4e69db2ca3fad847c21b88",
+        "engines/nox/host_validation.h": "58f0082264e78c366b05e8a0999b0dcdde8e147160dc3be543042af2ab1da7a9",
+        "engines/nox/io_validation.h": "556bd69ec180bae521284e5876d121dffac2a7827f6fce1200924f8a2081d214",
+        "engines/nox/linked_pages_validation.h": "e1947a965bcda490fea92bfd3ee791a81d6bf3bc0748584e0ad722551e434148",
+        "engines/nox/management_validation.h": "286355cdedac22164095549c47f97e21d63e13eb738fb94b3368bf79d1738e34",
+        "engines/nox/metadata_validation.h": "c2b7fe9b7d1fa277517ec337b3ab8390e39552125b1c460be04690232466db5c",
+        "engines/nox/metaengine.cpp": "d631b83dc7b3a816489aa3a546d965f06d1cf89e684582c3dedd602ef866b24b",
+        "engines/nox/mockingboard.cpp": "38d5c6a894cc7a6bd238b9ad9a6740ec5ff42c6f299b7f6ce858505a6c1817bc",
+        "engines/nox/mockingboard.h": "d0afe027dc9ff9b269b0c60bf04abc45566502a17aed25879316856911937f2e",
+        "engines/nox/module.mk": "47de2ac64575f926a8de7cc5060913a3b63a0554cb5c20824ab55cf67ac1085f",
+        "engines/nox/movement.cpp": "4b03de9dd50c4a4cfc6c2e2d7da9d3fc3fc80a697dfd236a3340c1d25b84fdf9",
+        "engines/nox/nox.cpp": "8c5c5d737bc3743a525da70c000b70551b944550c8b92bad56b47bbc79989861",
+        "engines/nox/nox.h": "aac0544cb4bb5692e7114ad1cc74429ebb6b7aa9e090af2ea9376f2b87fb316c",
+        "engines/nox/profile_validation.h": "2658f8c93149c8692e5ef5b79d1dc42836dbd60f4d15f75a0f0ed3dbbd84301a",
+        "engines/nox/quest_battle_validation.h": "9090425dd5f4a50c49c46ac1f9c0a51ce247aae9ac9eac973258d1d9c84801b3",
+        "engines/nox/records.h": "8045582e0ae5f83d027b8b197aa66a8309e9ff80f2117bce7edb86455eca9b7d",
+        "engines/nox/render.cpp": "bd7833eaccc812fad88b0d19e5070d9955e440142525ded89b3d30766120073a",
+        "engines/nox/resources.h": "1451464a6f8ea57039c3596c8aaa388701e5005fb3364b80b9e48bb04dc2cd95",
+        "engines/nox/runtime.cpp": "8875ca955ff8e840286532fa58ed63795c042ff2d7b1cedd78e61531fec2cac8",
+        "engines/nox/runtime.h": "afaf653beafe0f47560d1f83830d95cf887555f769786f76775b099503d3aa85",
+        "engines/nox/runtime_observers.cpp": "7dbaac3c60a08887debb3db9eb5c16f38252dc96ca021afac06d3f103294819a",
+        "engines/nox/runtime_state.cpp": "d0c9c769e7fba6a8125754594fc5cc54dc54912c830f38c1a02f44ff24799b2d",
+        "engines/nox/saves.h": "9d0e92a7fb35952d35f2f2ecf0602ba48211162cb3f18b02a5a454919ac514f9",
+        "engines/nox/save_policy.h": "890bced00db32c534207055e5f6acf7247310102119da4c5bc66f13a4c7d72fc",
+        "engines/nox/search_object_validation.h": "7e88431afb708c292dd178be4ea2bbe5c60bd452852220d6e4b0e9b7fa6edeaf",
+        "engines/nox/session_validation.cpp": "da83025980220829e5ec424e80ad067d6681e30893918a1196ec84ef0524d839",
+        "engines/nox/shadow_checkpoint_validation.h": "1b886520edb2a907ce7d8f6f2c259ab1e0b85edbf7e7226d92eb313a2dd95f97",
+        "engines/nox/shadow_confrontation_validation.h": "3d7c3588d9e4bc1721acb9c0208313c4a54a7a7c72a442bd38a8c6ee996a7859",
+        "engines/nox/snapshot.h": "c3c8c9fd497391995084286e6f1cadc8ac5b9e9ed94965b6820043624e6d35de",
+        "engines/nox/speaker_audio.cpp": "b80e55470b95fcaf200f4346a0cb0bab8ce8ff3fe7e2436633da833a2da9f833",
+        "engines/nox/speaker_audio.h": "aad57abba83f4a02ee0780eb2eebc80e68a43181b285533dc3313f3ad307205f",
+        "engines/nox/spell_validation.h": "4fb3fefeed938e642b50ea25d7907ab9eb8419427492fe1b0c950dd5652a83f9",
+        "engines/nox/validation.cpp": "7582907d58238d29057026968b03866e25fb7e760184497204896cd5dad8ef75",
+        "engines/nox/vortex_validation.h": "ce7259c0ab6b5b7514de9db330db9ee1c08d21112f79f365b7f2ec36ddf5fe2e",
+        "devtools/nox/test_late_npc.py": "e0395fcb79f4753786bd1b861a4078292b1c6de76048f66459239c13a7f63e43"
+      },
+      "controlled_evidence": [],
+      "persistent_original_Monk_defeat_040C02": true,
+      "decoded_wall_and_consumed_flag": {
+        "BE00": [
+          215,
+          100,
+          74,
+          254
+        ],
+        "042E": 0
+      }
+    },
+    {
+      "path": "ce-m3-monks-letter34-classic\\20261016-181816/verification.json",
+      "sha256": "9f655d1e000eda21687493475765c7ce53753f2ff93693c1980f7d9ad6be0219",
+      "mode": "Classic",
+      "case": {
+        "id": "actual-Monk-victory-wall-passage-to-Cult-Letter",
+        "predecessor_label": "Vortex phase 38",
+        "noon": true,
+        "repeat": false,
+        "map": 99,
+        "actor": 0,
+        "routes": [],
+        "topics": [],
+        "reply": {
+          "resource": "",
+          "contains": ""
+        },
+        "search": {
+          "type": 2,
+          "x": 213,
+          "y": 82,
+          "direction": 8,
+          "item": 75,
+          "field": 1080,
+          "mask": 4,
+          "health": 125,
+          "clear_ambient": true
+        },
+        "before": {
+          "flags": [
+            [
+              1080,
+              4,
+              0
+            ],
+            [
+              1036,
+              1,
+              1
+            ],
+            [
+              1049,
+              16,
+              16
+            ],
+            [
+              1070,
+              2,
+              0
+            ]
+          ],
+          "items": [
+            [
+              75,
+              0
+            ],
+            [
+              97,
+              8
+            ],
+            [
+              12,
+              1
+            ],
+            [
+              132,
+              1
+            ],
+            [
+              74,
+              1
+            ]
+          ]
+        },
+        "after": {
+          "flags": [
+            [
+              1080,
+              4,
+              4
+            ],
+            [
+              1036,
+              1,
+              1
+            ],
+            [
+              1049,
+              16,
+              16
+            ],
+            [
+              1070,
+              2,
+              0
+            ]
+          ],
+          "items": [
+            [
+              75,
+              1
+            ],
+            [
+              97,
+              8
+            ],
+            [
+              12,
+              1
+            ],
+            [
+              132,
+              1
+            ],
+            [
+              74,
+              1
+            ]
+          ]
+        },
+        "source_anchors": [
+          "Owned map original 12-byte Search53/misc2 record with exact item/flag; authored adjacency source terrain checked, original PRNG0x12345678 before each Search. Existing actual25picks inherited; no loot or quest outcome injected."
+        ],
+        "initializations": "Retain actual Pirate/Brown keys, doors/portal/mouth wall removal/actual staged Monk victory/real wall passage. Controlled safe Search adjacency and original PRNG/optional ambient prior-death checkpoint BEFORE Search only; fixedBD8 actual deadFF retained, no fixed actor outcome initialized. Actual Letter75/43804 required."
+      },
+      "result": {
+        "save": "ce-m3-monks-letter34-classic\\20261016-181816\\saves\\nox-ce-ed5939a032719adcfecdf986a9261c4a-c35823f4d64fc8eb92504d091b31fd28-slot001.g1",
+        "save_sha256": "db6e862a92b5bd1bdb56a0794724e70232df3a66028efaa8f2dac20c9620f932",
+        "runtime_sha256": "efbbd6bdac8830fcf1ffb7be51733810dd80fe82135013d0d4ab4bd812528f61",
+        "generation": 56,
+        "slot": 1,
+        "PC": 29148,
+        "SP": 255,
+        "alternate": 0,
+        "stack_return": 0,
+        "map": 99,
+        "map_type": 2,
+        "xy": [
+          214,
+          82
+        ],
+        "pageflags": 255,
+        "research": 3,
+        "transport_flags": 0,
+        "keyflag_040F": 0,
+        "keyflag_0410": 63,
+        "party_count": 1,
+        "status": 0,
+        "level": 10,
+        "health": 125,
+        "maximum_health": 125,
+        "mana": 23,
+        "inactive": 0,
+        "STR_DEX_INT": [
+          8,
+          14,
+          110
+        ],
+        "Range": 10,
+        "Range_training_remaining": 54,
+        "weapon_range_bytes": [
+          1,
+          16
+        ],
+        "spell_slot1": 12,
+        "spell_quantity": 1,
+        "Ankh_quantity": 0,
+        "key_quantity": 0,
+        "staff_quantity": 0,
+        "enemy_health": 0,
+        "encounter_sprite": 137,
+        "ending_loop": 0
+      },
+      "executable_sha256": "872dce94798911e4394af42a1e02c34f5c4ff78c3440f6b71d471518b7dfa661",
+      "source_sha256": {
+        "engines/nox/backoff_validation.h": "7362aace99ec706f40295446abc3a9b41bb2ed2f841f89c61ed4f20a7c18b760",
+        "engines/nox/caller_validation.h": "ede6a33e41ad5fa9d9613fe36e203e7122ca9830a1b4b54e46ae9591cf632391",
+        "engines/nox/campaign_validation.h": "d4910018cf7288bb3e03f0d3e5aa8f551941486237d3062cbf8c406f48cf93b7",
+        "engines/nox/configure.engine": "774fc9df4834ca0e64018b72f326d14989a40c08f5c7fd78d06bbea6ee42c015",
+        "engines/nox/cpu.inc": "41c0fdff3d9d3466871ae76144b430b9b13bd29a2873a8899ebad56e4e208b97",
+        "engines/nox/cultist_validation.h": "654be8783d95ee92f8d757174dbedc581ac67317a6e7377b36ee9e36f051e299",
+        "engines/nox/cycles.inc": "2b1024aeab86cda827aec30eb696547ced1d333226263647b29b1d34db3acd6e",
+        "engines/nox/dark_key_validation.h": "5114e1958dd01104f0cd9ac08b3f771a5a87062911eb9042d54f34df01d0bb5e",
+        "engines/nox/detection.cpp": "32753d7b31fd8fe9f61eb27c676e6564d79764aa94cd5283c2508b8ac056dbd6",
+        "engines/nox/dialogue_validation.h": "5d2663dabee5c81507130bc126b3a1f4c9e91adc7b08a0e57d71e869a7b00dbd",
+        "engines/nox/enhancements.cpp": "5ed93907c2e0b1004c9978bbb91c32913de50d1706e9fd41c2027473b3069150",
+        "engines/nox/enhancements.h": "f0d73af3421c0597db87ace38b2d203c73640d43a5bade9b278cf6c1e7ff029d",
+        "engines/nox/enhancement_fixture.h": "13d45f7cf67cbec92f87777653c1ec51e65dd6b2b20538020b55f00fcd0718b5",
+        "engines/nox/enhancement_validation.h": "a24bde10489f8ca310c45c92050d21293aa974ee2eb86691a350aa372667e13a",
+        "engines/nox/grid_validation.h": "6032efc17e039528d63f2640d1b4308b899a9a7776c7c6c8fe4fa7e0ea752fa9",
+        "engines/nox/history_validation.h": "5601beeb58e2f8babad090e45369e3d3249e8d409d4e69db2ca3fad847c21b88",
+        "engines/nox/host_validation.h": "58f0082264e78c366b05e8a0999b0dcdde8e147160dc3be543042af2ab1da7a9",
+        "engines/nox/io_validation.h": "556bd69ec180bae521284e5876d121dffac2a7827f6fce1200924f8a2081d214",
+        "engines/nox/linked_pages_validation.h": "e1947a965bcda490fea92bfd3ee791a81d6bf3bc0748584e0ad722551e434148",
+        "engines/nox/management_validation.h": "286355cdedac22164095549c47f97e21d63e13eb738fb94b3368bf79d1738e34",
+        "engines/nox/metadata_validation.h": "c2b7fe9b7d1fa277517ec337b3ab8390e39552125b1c460be04690232466db5c",
+        "engines/nox/metaengine.cpp": "d631b83dc7b3a816489aa3a546d965f06d1cf89e684582c3dedd602ef866b24b",
+        "engines/nox/mockingboard.cpp": "38d5c6a894cc7a6bd238b9ad9a6740ec5ff42c6f299b7f6ce858505a6c1817bc",
+        "engines/nox/mockingboard.h": "d0afe027dc9ff9b269b0c60bf04abc45566502a17aed25879316856911937f2e",
+        "engines/nox/module.mk": "47de2ac64575f926a8de7cc5060913a3b63a0554cb5c20824ab55cf67ac1085f",
+        "engines/nox/movement.cpp": "4b03de9dd50c4a4cfc6c2e2d7da9d3fc3fc80a697dfd236a3340c1d25b84fdf9",
+        "engines/nox/nox.cpp": "8c5c5d737bc3743a525da70c000b70551b944550c8b92bad56b47bbc79989861",
+        "engines/nox/nox.h": "aac0544cb4bb5692e7114ad1cc74429ebb6b7aa9e090af2ea9376f2b87fb316c",
+        "engines/nox/profile_validation.h": "2658f8c93149c8692e5ef5b79d1dc42836dbd60f4d15f75a0f0ed3dbbd84301a",
+        "engines/nox/quest_battle_validation.h": "9090425dd5f4a50c49c46ac1f9c0a51ce247aae9ac9eac973258d1d9c84801b3",
+        "engines/nox/records.h": "8045582e0ae5f83d027b8b197aa66a8309e9ff80f2117bce7edb86455eca9b7d",
+        "engines/nox/render.cpp": "bd7833eaccc812fad88b0d19e5070d9955e440142525ded89b3d30766120073a",
+        "engines/nox/resources.h": "1451464a6f8ea57039c3596c8aaa388701e5005fb3364b80b9e48bb04dc2cd95",
+        "engines/nox/runtime.cpp": "8875ca955ff8e840286532fa58ed63795c042ff2d7b1cedd78e61531fec2cac8",
+        "engines/nox/runtime.h": "afaf653beafe0f47560d1f83830d95cf887555f769786f76775b099503d3aa85",
+        "engines/nox/runtime_observers.cpp": "7dbaac3c60a08887debb3db9eb5c16f38252dc96ca021afac06d3f103294819a",
+        "engines/nox/runtime_state.cpp": "d0c9c769e7fba6a8125754594fc5cc54dc54912c830f38c1a02f44ff24799b2d",
+        "engines/nox/saves.h": "9d0e92a7fb35952d35f2f2ecf0602ba48211162cb3f18b02a5a454919ac514f9",
+        "engines/nox/save_policy.h": "890bced00db32c534207055e5f6acf7247310102119da4c5bc66f13a4c7d72fc",
+        "engines/nox/search_object_validation.h": "7e88431afb708c292dd178be4ea2bbe5c60bd452852220d6e4b0e9b7fa6edeaf",
+        "engines/nox/session_validation.cpp": "da83025980220829e5ec424e80ad067d6681e30893918a1196ec84ef0524d839",
+        "engines/nox/shadow_checkpoint_validation.h": "1b886520edb2a907ce7d8f6f2c259ab1e0b85edbf7e7226d92eb313a2dd95f97",
+        "engines/nox/shadow_confrontation_validation.h": "3d7c3588d9e4bc1721acb9c0208313c4a54a7a7c72a442bd38a8c6ee996a7859",
+        "engines/nox/snapshot.h": "c3c8c9fd497391995084286e6f1cadc8ac5b9e9ed94965b6820043624e6d35de",
+        "engines/nox/speaker_audio.cpp": "b80e55470b95fcaf200f4346a0cb0bab8ce8ff3fe7e2436633da833a2da9f833",
+        "engines/nox/speaker_audio.h": "aad57abba83f4a02ee0780eb2eebc80e68a43181b285533dc3313f3ad307205f",
+        "engines/nox/spell_validation.h": "4fb3fefeed938e642b50ea25d7907ab9eb8419427492fe1b0c950dd5652a83f9",
+        "engines/nox/validation.cpp": "7582907d58238d29057026968b03866e25fb7e760184497204896cd5dad8ef75",
+        "engines/nox/vortex_validation.h": "ce7259c0ab6b5b7514de9db330db9ee1c08d21112f79f365b7f2ec36ddf5fe2e",
+        "devtools/nox/test_late_npc.py": "e0395fcb79f4753786bd1b861a4078292b1c6de76048f66459239c13a7f63e43"
+      },
+      "controlled_evidence": [
+        "CONTROLLED-before-Search-ambient-dead-slots=0 not_earned_kills fixed_quest_actors_unchanged=1 ",
+        "CONTROLLED-before-Search-original-PRNG=305419896 repeat=0; no item/flag/HP initialization"
+      ],
+      "persistent_original_Monk_defeat_040C02": true,
+      "decoded_wall_and_consumed_flag": {
+        "BE00": [
+          215,
+          100,
+          74,
+          50
+        ],
+        "042E": 0
+      },
+      "continuity_correction": "Controlled Search adjacency redraw reloads authored wall50 and retires defeated guard via actual040C02. This is a new controlled location checkpoint, not uninterrupted wall passage/travel to Letter."
+    },
+    {
+      "path": "ce-m3-monks-archus33-classic\\20261016-181820/verification.json",
+      "sha256": "f362e5f52ea7d65c44194206c1d6aa49041bb5869e30df6055bb1976bcdf5c92",
+      "mode": "Classic",
+      "case": {
+        "id": "letter-archus",
+        "predecessor_label": "Vortex phase 38",
+        "map": 58,
+        "actor": 8,
+        "noon": true,
+        "repeat": true,
+        "routes": [
+          [
+            98,
+            2
+          ],
+          [
+            97,
+            2
+          ],
+          [
+            78,
+            7
+          ],
+          [
+            54,
+            7
+          ],
+          [
+            58,
+            7
+          ]
+        ],
+        "topics": [
+          "DARK"
+        ],
+        "reply": {
+          "resource": "NA/DATA.TLK.L015",
+          "contains": "grave expression"
+        },
+        "before": {
+          "flags": [
+            [
+              1080,
+              28,
+              4
+            ]
+          ],
+          "items": [
+            [
+              75,
+              1
+            ],
+            [
+              97,
+              8
+            ],
+            [
+              12,
+              1
+            ]
+          ]
+        },
+        "after": {
+          "flags": [
+            [
+              1080,
+              28,
+              4
+            ]
+          ],
+          "items": [
+            [
+              75,
+              1
+            ],
+            [
+              97,
+              8
+            ],
+            [
+              12,
+              1
+            ]
+          ]
+        },
+        "source_anchors": [
+          "Owned L015 actor8 DARK narrates letter without prerequisite/flag writer. Actor104 DARK S28B checks43804 then P28C/P28D writes43808/10; missing predicate falls through original DFL."
+        ],
+        "initializations": "Retain actual cult Letter Search and all8pages/spell. CONTROLLED noon/authored routes/NPC adjacency only; missing-letter comparison uses actual original earlier branch, no outcome cleared. Actual dialogue/repeat/results/cold, no letter/quest output initialized."
+      },
+      "result": {
+        "save": "ce-m3-monks-archus33-classic\\20261016-181820\\saves\\nox-ce-ed5939a032719adcfecdf986a9261c4a-c35823f4d64fc8eb92504d091b31fd28-slot001.g1",
+        "save_sha256": "8cf6ebbd35cff40906aecd882f5e9d97cba6366e017193ef053c9f5cd6ee36ee",
+        "runtime_sha256": "c7852aefbfdc7bad05c9ace34ce9c68f0015a26f3d5654016bdffc3f4387af79",
+        "generation": 58,
+        "slot": 1,
+        "PC": 29148,
+        "SP": 255,
+        "alternate": 0,
+        "stack_return": 0,
+        "map": 58,
+        "map_type": 7,
+        "xy": [
+          32,
+          18
+        ],
+        "pageflags": 255,
+        "research": 3,
+        "transport_flags": 0,
+        "keyflag_040F": 0,
+        "keyflag_0410": 63,
+        "party_count": 1,
+        "status": 0,
+        "level": 10,
+        "health": 125,
+        "maximum_health": 125,
+        "mana": 23,
+        "inactive": 0,
+        "STR_DEX_INT": [
+          8,
+          14,
+          110
+        ],
+        "Range": 10,
+        "Range_training_remaining": 54,
+        "weapon_range_bytes": [
+          1,
+          16
+        ],
+        "spell_slot1": 12,
+        "spell_quantity": 1,
+        "Ankh_quantity": 0,
+        "key_quantity": 0,
+        "staff_quantity": 0,
+        "enemy_health": 0,
+        "encounter_sprite": 137,
+        "ending_loop": 0
+      },
+      "executable_sha256": "872dce94798911e4394af42a1e02c34f5c4ff78c3440f6b71d471518b7dfa661",
+      "source_sha256": {
+        "engines/nox/backoff_validation.h": "7362aace99ec706f40295446abc3a9b41bb2ed2f841f89c61ed4f20a7c18b760",
+        "engines/nox/caller_validation.h": "ede6a33e41ad5fa9d9613fe36e203e7122ca9830a1b4b54e46ae9591cf632391",
+        "engines/nox/campaign_validation.h": "d4910018cf7288bb3e03f0d3e5aa8f551941486237d3062cbf8c406f48cf93b7",
+        "engines/nox/configure.engine": "774fc9df4834ca0e64018b72f326d14989a40c08f5c7fd78d06bbea6ee42c015",
+        "engines/nox/cpu.inc": "41c0fdff3d9d3466871ae76144b430b9b13bd29a2873a8899ebad56e4e208b97",
+        "engines/nox/cultist_validation.h": "654be8783d95ee92f8d757174dbedc581ac67317a6e7377b36ee9e36f051e299",
+        "engines/nox/cycles.inc": "2b1024aeab86cda827aec30eb696547ced1d333226263647b29b1d34db3acd6e",
+        "engines/nox/dark_key_validation.h": "5114e1958dd01104f0cd9ac08b3f771a5a87062911eb9042d54f34df01d0bb5e",
+        "engines/nox/detection.cpp": "32753d7b31fd8fe9f61eb27c676e6564d79764aa94cd5283c2508b8ac056dbd6",
+        "engines/nox/dialogue_validation.h": "5d2663dabee5c81507130bc126b3a1f4c9e91adc7b08a0e57d71e869a7b00dbd",
+        "engines/nox/enhancements.cpp": "5ed93907c2e0b1004c9978bbb91c32913de50d1706e9fd41c2027473b3069150",
+        "engines/nox/enhancements.h": "f0d73af3421c0597db87ace38b2d203c73640d43a5bade9b278cf6c1e7ff029d",
+        "engines/nox/enhancement_fixture.h": "13d45f7cf67cbec92f87777653c1ec51e65dd6b2b20538020b55f00fcd0718b5",
+        "engines/nox/enhancement_validation.h": "a24bde10489f8ca310c45c92050d21293aa974ee2eb86691a350aa372667e13a",
+        "engines/nox/grid_validation.h": "6032efc17e039528d63f2640d1b4308b899a9a7776c7c6c8fe4fa7e0ea752fa9",
+        "engines/nox/history_validation.h": "5601beeb58e2f8babad090e45369e3d3249e8d409d4e69db2ca3fad847c21b88",
+        "engines/nox/host_validation.h": "58f0082264e78c366b05e8a0999b0dcdde8e147160dc3be543042af2ab1da7a9",
+        "engines/nox/io_validation.h": "556bd69ec180bae521284e5876d121dffac2a7827f6fce1200924f8a2081d214",
+        "engines/nox/linked_pages_validation.h": "e1947a965bcda490fea92bfd3ee791a81d6bf3bc0748584e0ad722551e434148",
+        "engines/nox/management_validation.h": "286355cdedac22164095549c47f97e21d63e13eb738fb94b3368bf79d1738e34",
+        "engines/nox/metadata_validation.h": "c2b7fe9b7d1fa277517ec337b3ab8390e39552125b1c460be04690232466db5c",
+        "engines/nox/metaengine.cpp": "d631b83dc7b3a816489aa3a546d965f06d1cf89e684582c3dedd602ef866b24b",
+        "engines/nox/mockingboard.cpp": "38d5c6a894cc7a6bd238b9ad9a6740ec5ff42c6f299b7f6ce858505a6c1817bc",
+        "engines/nox/mockingboard.h": "d0afe027dc9ff9b269b0c60bf04abc45566502a17aed25879316856911937f2e",
+        "engines/nox/module.mk": "47de2ac64575f926a8de7cc5060913a3b63a0554cb5c20824ab55cf67ac1085f",
+        "engines/nox/movement.cpp": "4b03de9dd50c4a4cfc6c2e2d7da9d3fc3fc80a697dfd236a3340c1d25b84fdf9",
+        "engines/nox/nox.cpp": "8c5c5d737bc3743a525da70c000b70551b944550c8b92bad56b47bbc79989861",
+        "engines/nox/nox.h": "aac0544cb4bb5692e7114ad1cc74429ebb6b7aa9e090af2ea9376f2b87fb316c",
+        "engines/nox/profile_validation.h": "2658f8c93149c8692e5ef5b79d1dc42836dbd60f4d15f75a0f0ed3dbbd84301a",
+        "engines/nox/quest_battle_validation.h": "9090425dd5f4a50c49c46ac1f9c0a51ce247aae9ac9eac973258d1d9c84801b3",
+        "engines/nox/records.h": "8045582e0ae5f83d027b8b197aa66a8309e9ff80f2117bce7edb86455eca9b7d",
+        "engines/nox/render.cpp": "bd7833eaccc812fad88b0d19e5070d9955e440142525ded89b3d30766120073a",
+        "engines/nox/resources.h": "1451464a6f8ea57039c3596c8aaa388701e5005fb3364b80b9e48bb04dc2cd95",
+        "engines/nox/runtime.cpp": "8875ca955ff8e840286532fa58ed63795c042ff2d7b1cedd78e61531fec2cac8",
+        "engines/nox/runtime.h": "afaf653beafe0f47560d1f83830d95cf887555f769786f76775b099503d3aa85",
+        "engines/nox/runtime_observers.cpp": "7dbaac3c60a08887debb3db9eb5c16f38252dc96ca021afac06d3f103294819a",
+        "engines/nox/runtime_state.cpp": "d0c9c769e7fba6a8125754594fc5cc54dc54912c830f38c1a02f44ff24799b2d",
+        "engines/nox/saves.h": "9d0e92a7fb35952d35f2f2ecf0602ba48211162cb3f18b02a5a454919ac514f9",
+        "engines/nox/save_policy.h": "890bced00db32c534207055e5f6acf7247310102119da4c5bc66f13a4c7d72fc",
+        "engines/nox/search_object_validation.h": "7e88431afb708c292dd178be4ea2bbe5c60bd452852220d6e4b0e9b7fa6edeaf",
+        "engines/nox/session_validation.cpp": "da83025980220829e5ec424e80ad067d6681e30893918a1196ec84ef0524d839",
+        "engines/nox/shadow_checkpoint_validation.h": "1b886520edb2a907ce7d8f6f2c259ab1e0b85edbf7e7226d92eb313a2dd95f97",
+        "engines/nox/shadow_confrontation_validation.h": "3d7c3588d9e4bc1721acb9c0208313c4a54a7a7c72a442bd38a8c6ee996a7859",
+        "engines/nox/snapshot.h": "c3c8c9fd497391995084286e6f1cadc8ac5b9e9ed94965b6820043624e6d35de",
+        "engines/nox/speaker_audio.cpp": "b80e55470b95fcaf200f4346a0cb0bab8ce8ff3fe7e2436633da833a2da9f833",
+        "engines/nox/speaker_audio.h": "aad57abba83f4a02ee0780eb2eebc80e68a43181b285533dc3313f3ad307205f",
+        "engines/nox/spell_validation.h": "4fb3fefeed938e642b50ea25d7907ab9eb8419427492fe1b0c950dd5652a83f9",
+        "engines/nox/validation.cpp": "7582907d58238d29057026968b03866e25fb7e760184497204896cd5dad8ef75",
+        "engines/nox/vortex_validation.h": "ce7259c0ab6b5b7514de9db330db9ee1c08d21112f79f365b7f2ec36ddf5fe2e",
+        "devtools/nox/test_late_npc.py": "e0395fcb79f4753786bd1b861a4078292b1c6de76048f66459239c13a7f63e43"
+      },
+      "controlled_evidence": [],
+      "persistent_original_Monk_defeat_040C02": true,
+      "decoded_reply_sha256": [
+        "041561c6890883c872de15f6f583dd2f76e14c00f79733fd24f8be897d532074",
+        "041561c6890883c872de15f6f583dd2f76e14c00f79733fd24f8be897d532074"
+      ],
+      "authored_map_records_unchanged_and_actual_defeat_flag_retained": true
+    },
+    {
+      "path": "ce-m3-monks-styx33-classic\\20261016-181824/verification.json",
+      "sha256": "ddc0be3410f598a4c92776d3bde8d9f279ea3735012310ed2359d120aa0fa9df",
+      "mode": "Classic",
+      "case": {
+        "id": "letter-styx",
+        "predecessor_label": "Vortex phase 38",
+        "map": 57,
+        "actor": 104,
+        "noon": true,
+        "repeat": true,
+        "routes": [
+          [
+            57,
+            7
+          ]
+        ],
+        "topics": [
+          "DARK"
+        ],
+        "reply": {
+          "resource": "NA/DATA.TLK.L015",
+          "contains": "blasted from his crown"
+        },
+        "before": {
+          "flags": [
+            [
+              1080,
+              28,
+              4
+            ]
+          ],
+          "items": [
+            [
+              75,
+              1
+            ],
+            [
+              97,
+              8
+            ],
+            [
+              12,
+              1
+            ]
+          ]
+        },
+        "after": {
+          "flags": [
+            [
+              1080,
+              28,
+              28
+            ]
+          ],
+          "items": [
+            [
+              75,
+              1
+            ],
+            [
+              97,
+              8
+            ],
+            [
+              12,
+              1
+            ]
+          ]
+        },
+        "source_anchors": [
+          "Owned L015 actor8 DARK narrates letter without prerequisite/flag writer. Actor104 DARK S28B checks43804 then P28C/P28D writes43808/10; missing predicate falls through original DFL."
+        ],
+        "initializations": "Retain actual cult Letter Search and all8pages/spell. CONTROLLED noon/authored routes/NPC adjacency only; missing-letter comparison uses actual original earlier branch, no outcome cleared. Actual dialogue/repeat/results/cold, no letter/quest output initialized."
+      },
+      "result": {
+        "save": "ce-m3-monks-styx33-classic\\20261016-181824\\saves\\nox-ce-ed5939a032719adcfecdf986a9261c4a-c35823f4d64fc8eb92504d091b31fd28-slot001.g1",
+        "save_sha256": "b765290f8283233b6fb63e954ac2aa753f728677eed03a00cd4a558461379d82",
+        "runtime_sha256": "c77ef01200450a6f2b037eed95ba411f20cdd1b2a8be76da8436fde4afb29e40",
+        "generation": 60,
+        "slot": 1,
+        "PC": 29148,
+        "SP": 255,
+        "alternate": 0,
+        "stack_return": 0,
+        "map": 57,
+        "map_type": 7,
+        "xy": [
+          6,
+          22
+        ],
+        "pageflags": 255,
+        "research": 3,
+        "transport_flags": 0,
+        "keyflag_040F": 0,
+        "keyflag_0410": 63,
+        "party_count": 1,
+        "status": 0,
+        "level": 10,
+        "health": 125,
+        "maximum_health": 125,
+        "mana": 23,
+        "inactive": 0,
+        "STR_DEX_INT": [
+          8,
+          14,
+          110
+        ],
+        "Range": 10,
+        "Range_training_remaining": 54,
+        "weapon_range_bytes": [
+          1,
+          16
+        ],
+        "spell_slot1": 12,
+        "spell_quantity": 1,
+        "Ankh_quantity": 0,
+        "key_quantity": 0,
+        "staff_quantity": 0,
+        "enemy_health": 0,
+        "encounter_sprite": 137,
+        "ending_loop": 0
+      },
+      "executable_sha256": "872dce94798911e4394af42a1e02c34f5c4ff78c3440f6b71d471518b7dfa661",
+      "source_sha256": {
+        "engines/nox/backoff_validation.h": "7362aace99ec706f40295446abc3a9b41bb2ed2f841f89c61ed4f20a7c18b760",
+        "engines/nox/caller_validation.h": "ede6a33e41ad5fa9d9613fe36e203e7122ca9830a1b4b54e46ae9591cf632391",
+        "engines/nox/campaign_validation.h": "d4910018cf7288bb3e03f0d3e5aa8f551941486237d3062cbf8c406f48cf93b7",
+        "engines/nox/configure.engine": "774fc9df4834ca0e64018b72f326d14989a40c08f5c7fd78d06bbea6ee42c015",
+        "engines/nox/cpu.inc": "41c0fdff3d9d3466871ae76144b430b9b13bd29a2873a8899ebad56e4e208b97",
+        "engines/nox/cultist_validation.h": "654be8783d95ee92f8d757174dbedc581ac67317a6e7377b36ee9e36f051e299",
+        "engines/nox/cycles.inc": "2b1024aeab86cda827aec30eb696547ced1d333226263647b29b1d34db3acd6e",
+        "engines/nox/dark_key_validation.h": "5114e1958dd01104f0cd9ac08b3f771a5a87062911eb9042d54f34df01d0bb5e",
+        "engines/nox/detection.cpp": "32753d7b31fd8fe9f61eb27c676e6564d79764aa94cd5283c2508b8ac056dbd6",
+        "engines/nox/dialogue_validation.h": "5d2663dabee5c81507130bc126b3a1f4c9e91adc7b08a0e57d71e869a7b00dbd",
+        "engines/nox/enhancements.cpp": "5ed93907c2e0b1004c9978bbb91c32913de50d1706e9fd41c2027473b3069150",
+        "engines/nox/enhancements.h": "f0d73af3421c0597db87ace38b2d203c73640d43a5bade9b278cf6c1e7ff029d",
+        "engines/nox/enhancement_fixture.h": "13d45f7cf67cbec92f87777653c1ec51e65dd6b2b20538020b55f00fcd0718b5",
+        "engines/nox/enhancement_validation.h": "a24bde10489f8ca310c45c92050d21293aa974ee2eb86691a350aa372667e13a",
+        "engines/nox/grid_validation.h": "6032efc17e039528d63f2640d1b4308b899a9a7776c7c6c8fe4fa7e0ea752fa9",
+        "engines/nox/history_validation.h": "5601beeb58e2f8babad090e45369e3d3249e8d409d4e69db2ca3fad847c21b88",
+        "engines/nox/host_validation.h": "58f0082264e78c366b05e8a0999b0dcdde8e147160dc3be543042af2ab1da7a9",
+        "engines/nox/io_validation.h": "556bd69ec180bae521284e5876d121dffac2a7827f6fce1200924f8a2081d214",
+        "engines/nox/linked_pages_validation.h": "e1947a965bcda490fea92bfd3ee791a81d6bf3bc0748584e0ad722551e434148",
+        "engines/nox/management_validation.h": "286355cdedac22164095549c47f97e21d63e13eb738fb94b3368bf79d1738e34",
+        "engines/nox/metadata_validation.h": "c2b7fe9b7d1fa277517ec337b3ab8390e39552125b1c460be04690232466db5c",
+        "engines/nox/metaengine.cpp": "d631b83dc7b3a816489aa3a546d965f06d1cf89e684582c3dedd602ef866b24b",
+        "engines/nox/mockingboard.cpp": "38d5c6a894cc7a6bd238b9ad9a6740ec5ff42c6f299b7f6ce858505a6c1817bc",
+        "engines/nox/mockingboard.h": "d0afe027dc9ff9b269b0c60bf04abc45566502a17aed25879316856911937f2e",
+        "engines/nox/module.mk": "47de2ac64575f926a8de7cc5060913a3b63a0554cb5c20824ab55cf67ac1085f",
+        "engines/nox/movement.cpp": "4b03de9dd50c4a4cfc6c2e2d7da9d3fc3fc80a697dfd236a3340c1d25b84fdf9",
+        "engines/nox/nox.cpp": "8c5c5d737bc3743a525da70c000b70551b944550c8b92bad56b47bbc79989861",
+        "engines/nox/nox.h": "aac0544cb4bb5692e7114ad1cc74429ebb6b7aa9e090af2ea9376f2b87fb316c",
+        "engines/nox/profile_validation.h": "2658f8c93149c8692e5ef5b79d1dc42836dbd60f4d15f75a0f0ed3dbbd84301a",
+        "engines/nox/quest_battle_validation.h": "9090425dd5f4a50c49c46ac1f9c0a51ce247aae9ac9eac973258d1d9c84801b3",
+        "engines/nox/records.h": "8045582e0ae5f83d027b8b197aa66a8309e9ff80f2117bce7edb86455eca9b7d",
+        "engines/nox/render.cpp": "bd7833eaccc812fad88b0d19e5070d9955e440142525ded89b3d30766120073a",
+        "engines/nox/resources.h": "1451464a6f8ea57039c3596c8aaa388701e5005fb3364b80b9e48bb04dc2cd95",
+        "engines/nox/runtime.cpp": "8875ca955ff8e840286532fa58ed63795c042ff2d7b1cedd78e61531fec2cac8",
+        "engines/nox/runtime.h": "afaf653beafe0f47560d1f83830d95cf887555f769786f76775b099503d3aa85",
+        "engines/nox/runtime_observers.cpp": "7dbaac3c60a08887debb3db9eb5c16f38252dc96ca021afac06d3f103294819a",
+        "engines/nox/runtime_state.cpp": "d0c9c769e7fba6a8125754594fc5cc54dc54912c830f38c1a02f44ff24799b2d",
+        "engines/nox/saves.h": "9d0e92a7fb35952d35f2f2ecf0602ba48211162cb3f18b02a5a454919ac514f9",
+        "engines/nox/save_policy.h": "890bced00db32c534207055e5f6acf7247310102119da4c5bc66f13a4c7d72fc",
+        "engines/nox/search_object_validation.h": "7e88431afb708c292dd178be4ea2bbe5c60bd452852220d6e4b0e9b7fa6edeaf",
+        "engines/nox/session_validation.cpp": "da83025980220829e5ec424e80ad067d6681e30893918a1196ec84ef0524d839",
+        "engines/nox/shadow_checkpoint_validation.h": "1b886520edb2a907ce7d8f6f2c259ab1e0b85edbf7e7226d92eb313a2dd95f97",
+        "engines/nox/shadow_confrontation_validation.h": "3d7c3588d9e4bc1721acb9c0208313c4a54a7a7c72a442bd38a8c6ee996a7859",
+        "engines/nox/snapshot.h": "c3c8c9fd497391995084286e6f1cadc8ac5b9e9ed94965b6820043624e6d35de",
+        "engines/nox/speaker_audio.cpp": "b80e55470b95fcaf200f4346a0cb0bab8ce8ff3fe7e2436633da833a2da9f833",
+        "engines/nox/speaker_audio.h": "aad57abba83f4a02ee0780eb2eebc80e68a43181b285533dc3313f3ad307205f",
+        "engines/nox/spell_validation.h": "4fb3fefeed938e642b50ea25d7907ab9eb8419427492fe1b0c950dd5652a83f9",
+        "engines/nox/validation.cpp": "7582907d58238d29057026968b03866e25fb7e760184497204896cd5dad8ef75",
+        "engines/nox/vortex_validation.h": "ce7259c0ab6b5b7514de9db330db9ee1c08d21112f79f365b7f2ec36ddf5fe2e",
+        "devtools/nox/test_late_npc.py": "e0395fcb79f4753786bd1b861a4078292b1c6de76048f66459239c13a7f63e43"
+      },
+      "controlled_evidence": [],
+      "persistent_original_Monk_defeat_040C02": true,
+      "decoded_reply_sha256": [
+        "8016c9e8d2227dcc73fe40c2c46266816f58d254e17af6f91e6209be01274c7e",
+        "8016c9e8d2227dcc73fe40c2c46266816f58d254e17af6f91e6209be01274c7e"
+      ],
+      "authored_map_records_unchanged_and_actual_defeat_flag_retained": true
+    },
+    {
+      "path": "ce-m3-cult-mouth-blocked34-classic\\20261016-181946/verification.json",
+      "sha256": "4e5eae1531f6285eb576271de57f92090c8446fc11b9d83aa451f9b4a2864758",
+      "mode": "Classic",
+      "case": {
+        "id": "actual-Cult-mouth-wall-passage-False",
+        "predecessor_label": "Vortex phase 38",
+        "noon": true,
+        "repeat": false,
+        "map": 99,
+        "actor": 0,
+        "routes": [],
+        "topics": [],
+        "reply": {
+          "resource": "",
+          "contains": ""
+        },
+        "before": {
+          "flags": [
+            [
+              1070,
+              3,
+              0
+            ],
+            [
+              1049,
+              16,
+              16
+            ]
+          ],
+          "items": [
+            [
+              74,
+              1
+            ],
+            [
+              132,
+              1
+            ],
+            [
+              75,
+              0
+            ],
+            [
+              97,
+              8
+            ],
+            [
+              12,
+              1
+            ]
+          ]
+        },
+        "after": {
+          "flags": [
+            [
+              1070,
+              3,
+              0
+            ],
+            [
+              1049,
+              16,
+              16
+            ]
+          ],
+          "items": [
+            [
+              74,
+              1
+            ],
+            [
+              132,
+              1
+            ],
+            [
+              75,
+              0
+            ],
+            [
+              97,
+              8
+            ],
+            [
+              12,
+              1
+            ]
+          ]
+        },
+        "source_anchors": [
+          "UM99 original BE00 [215,100,74,50] wall; actual VHA/OBLI effect removes via BE03=FE and consumes42E02. Wrong/BRIBE leave wall50.",
+          "Retained real Talk ends at217,101; two actualLeft ->215,101 and actualUp must cross removed wall to215,100 or remain blocked215,101. No new position initialization."
+        ],
+        "initializations": "Retain actual portal/BrownKey and actual mouth answer/refusal. ZERO new position/flag/NPC/party controls. ActualLeft/Left/Up tests original removed or retained wall, no movement/wall outcome injected.",
+        "world": {
+          "keys": [
+            8,
+            8,
+            11
+          ],
+          "absent": [],
+          "expected_x": 215,
+          "expected_y": 101,
+          "health": 125,
+          "door_x": 215,
+          "door_y": 100,
+          "door_before": 12874,
+          "door_after_picture": 74
+        }
+      },
+      "result": {
+        "save": "ce-m3-cult-mouth-blocked34-classic\\20261016-181946\\saves\\nox-ce-ed5939a032719adcfecdf986a9261c4a-c35823f4d64fc8eb92504d091b31fd28-slot001.g1",
+        "save_sha256": "5ce65320bd1053b7b4da22a7d92bda5e3f1316fae1459bf2bbae40c288404fb0",
+        "runtime_sha256": "97d1db81fd513681e406259c2231e6fe02c357590e4a368f0cc445f156062ff5",
+        "generation": 52,
+        "slot": 1,
+        "PC": 29148,
+        "SP": 255,
+        "alternate": 0,
+        "stack_return": 0,
+        "map": 99,
+        "map_type": 2,
+        "xy": [
+          215,
+          101
+        ],
+        "pageflags": 255,
+        "research": 3,
+        "transport_flags": 0,
+        "keyflag_040F": 0,
+        "keyflag_0410": 63,
+        "party_count": 1,
+        "status": 0,
+        "level": 10,
+        "health": 125,
+        "maximum_health": 125,
+        "mana": 23,
+        "inactive": 0,
+        "STR_DEX_INT": [
+          8,
+          14,
+          110
+        ],
+        "Range": 10,
+        "Range_training_remaining": 54,
+        "weapon_range_bytes": [
+          1,
+          16
+        ],
+        "spell_slot1": 12,
+        "spell_quantity": 1,
+        "Ankh_quantity": 0,
+        "key_quantity": 0,
+        "staff_quantity": 0,
+        "enemy_health": 0,
+        "encounter_sprite": 192,
+        "ending_loop": 0
+      },
+      "executable_sha256": "872dce94798911e4394af42a1e02c34f5c4ff78c3440f6b71d471518b7dfa661",
+      "source_sha256": {
+        "engines/nox/backoff_validation.h": "7362aace99ec706f40295446abc3a9b41bb2ed2f841f89c61ed4f20a7c18b760",
+        "engines/nox/caller_validation.h": "ede6a33e41ad5fa9d9613fe36e203e7122ca9830a1b4b54e46ae9591cf632391",
+        "engines/nox/campaign_validation.h": "d4910018cf7288bb3e03f0d3e5aa8f551941486237d3062cbf8c406f48cf93b7",
+        "engines/nox/configure.engine": "774fc9df4834ca0e64018b72f326d14989a40c08f5c7fd78d06bbea6ee42c015",
+        "engines/nox/cpu.inc": "41c0fdff3d9d3466871ae76144b430b9b13bd29a2873a8899ebad56e4e208b97",
+        "engines/nox/cultist_validation.h": "654be8783d95ee92f8d757174dbedc581ac67317a6e7377b36ee9e36f051e299",
+        "engines/nox/cycles.inc": "2b1024aeab86cda827aec30eb696547ced1d333226263647b29b1d34db3acd6e",
+        "engines/nox/dark_key_validation.h": "5114e1958dd01104f0cd9ac08b3f771a5a87062911eb9042d54f34df01d0bb5e",
+        "engines/nox/detection.cpp": "32753d7b31fd8fe9f61eb27c676e6564d79764aa94cd5283c2508b8ac056dbd6",
+        "engines/nox/dialogue_validation.h": "5d2663dabee5c81507130bc126b3a1f4c9e91adc7b08a0e57d71e869a7b00dbd",
+        "engines/nox/enhancements.cpp": "5ed93907c2e0b1004c9978bbb91c32913de50d1706e9fd41c2027473b3069150",
+        "engines/nox/enhancements.h": "f0d73af3421c0597db87ace38b2d203c73640d43a5bade9b278cf6c1e7ff029d",
+        "engines/nox/enhancement_fixture.h": "13d45f7cf67cbec92f87777653c1ec51e65dd6b2b20538020b55f00fcd0718b5",
+        "engines/nox/enhancement_validation.h": "a24bde10489f8ca310c45c92050d21293aa974ee2eb86691a350aa372667e13a",
+        "engines/nox/grid_validation.h": "6032efc17e039528d63f2640d1b4308b899a9a7776c7c6c8fe4fa7e0ea752fa9",
+        "engines/nox/history_validation.h": "5601beeb58e2f8babad090e45369e3d3249e8d409d4e69db2ca3fad847c21b88",
+        "engines/nox/host_validation.h": "58f0082264e78c366b05e8a0999b0dcdde8e147160dc3be543042af2ab1da7a9",
+        "engines/nox/io_validation.h": "556bd69ec180bae521284e5876d121dffac2a7827f6fce1200924f8a2081d214",
+        "engines/nox/linked_pages_validation.h": "e1947a965bcda490fea92bfd3ee791a81d6bf3bc0748584e0ad722551e434148",
+        "engines/nox/management_validation.h": "286355cdedac22164095549c47f97e21d63e13eb738fb94b3368bf79d1738e34",
+        "engines/nox/metadata_validation.h": "c2b7fe9b7d1fa277517ec337b3ab8390e39552125b1c460be04690232466db5c",
+        "engines/nox/metaengine.cpp": "d631b83dc7b3a816489aa3a546d965f06d1cf89e684582c3dedd602ef866b24b",
+        "engines/nox/mockingboard.cpp": "38d5c6a894cc7a6bd238b9ad9a6740ec5ff42c6f299b7f6ce858505a6c1817bc",
+        "engines/nox/mockingboard.h": "d0afe027dc9ff9b269b0c60bf04abc45566502a17aed25879316856911937f2e",
+        "engines/nox/module.mk": "47de2ac64575f926a8de7cc5060913a3b63a0554cb5c20824ab55cf67ac1085f",
+        "engines/nox/movement.cpp": "4b03de9dd50c4a4cfc6c2e2d7da9d3fc3fc80a697dfd236a3340c1d25b84fdf9",
+        "engines/nox/nox.cpp": "8c5c5d737bc3743a525da70c000b70551b944550c8b92bad56b47bbc79989861",
+        "engines/nox/nox.h": "aac0544cb4bb5692e7114ad1cc74429ebb6b7aa9e090af2ea9376f2b87fb316c",
+        "engines/nox/profile_validation.h": "2658f8c93149c8692e5ef5b79d1dc42836dbd60f4d15f75a0f0ed3dbbd84301a",
+        "engines/nox/quest_battle_validation.h": "9090425dd5f4a50c49c46ac1f9c0a51ce247aae9ac9eac973258d1d9c84801b3",
+        "engines/nox/records.h": "8045582e0ae5f83d027b8b197aa66a8309e9ff80f2117bce7edb86455eca9b7d",
+        "engines/nox/render.cpp": "bd7833eaccc812fad88b0d19e5070d9955e440142525ded89b3d30766120073a",
+        "engines/nox/resources.h": "1451464a6f8ea57039c3596c8aaa388701e5005fb3364b80b9e48bb04dc2cd95",
+        "engines/nox/runtime.cpp": "8875ca955ff8e840286532fa58ed63795c042ff2d7b1cedd78e61531fec2cac8",
+        "engines/nox/runtime.h": "afaf653beafe0f47560d1f83830d95cf887555f769786f76775b099503d3aa85",
+        "engines/nox/runtime_observers.cpp": "7dbaac3c60a08887debb3db9eb5c16f38252dc96ca021afac06d3f103294819a",
+        "engines/nox/runtime_state.cpp": "d0c9c769e7fba6a8125754594fc5cc54dc54912c830f38c1a02f44ff24799b2d",
+        "engines/nox/saves.h": "9d0e92a7fb35952d35f2f2ecf0602ba48211162cb3f18b02a5a454919ac514f9",
+        "engines/nox/save_policy.h": "890bced00db32c534207055e5f6acf7247310102119da4c5bc66f13a4c7d72fc",
+        "engines/nox/search_object_validation.h": "7e88431afb708c292dd178be4ea2bbe5c60bd452852220d6e4b0e9b7fa6edeaf",
+        "engines/nox/session_validation.cpp": "da83025980220829e5ec424e80ad067d6681e30893918a1196ec84ef0524d839",
+        "engines/nox/shadow_checkpoint_validation.h": "1b886520edb2a907ce7d8f6f2c259ab1e0b85edbf7e7226d92eb313a2dd95f97",
+        "engines/nox/shadow_confrontation_validation.h": "3d7c3588d9e4bc1721acb9c0208313c4a54a7a7c72a442bd38a8c6ee996a7859",
+        "engines/nox/snapshot.h": "c3c8c9fd497391995084286e6f1cadc8ac5b9e9ed94965b6820043624e6d35de",
+        "engines/nox/speaker_audio.cpp": "b80e55470b95fcaf200f4346a0cb0bab8ce8ff3fe7e2436633da833a2da9f833",
+        "engines/nox/speaker_audio.h": "aad57abba83f4a02ee0780eb2eebc80e68a43181b285533dc3313f3ad307205f",
+        "engines/nox/spell_validation.h": "4fb3fefeed938e642b50ea25d7907ab9eb8419427492fe1b0c950dd5652a83f9",
+        "engines/nox/validation.cpp": "7582907d58238d29057026968b03866e25fb7e760184497204896cd5dad8ef75",
+        "engines/nox/vortex_validation.h": "ce7259c0ab6b5b7514de9db330db9ee1c08d21112f79f365b7f2ec36ddf5fe2e",
+        "devtools/nox/test_late_npc.py": "e0395fcb79f4753786bd1b861a4078292b1c6de76048f66459239c13a7f63e43"
+      },
+      "controlled_evidence": [],
+      "decoded_wall_and_consumed_flag": {
+        "BE00": [
+          215,
+          100,
+          74,
+          50
+        ],
+        "042E": 0
+      }
+    }
+  ],
+  "ce_processes": 30,
+  "cold_processes": 15,
+  "controlled_checkpoint": "VERIFIED",
+  "linked_gameplay_progression": "VERIFIED",
+  "earned_continuous_progression": "NOT STARTED",
+  "full_new_game_to_ending": "NOT STARTED",
+  "limitations": [
+    "All declared controls remain unearned. Authored route and adjacency do not demonstrate intervening access/travel or battles. Individual fixture provenance retained verbatim.",
+    "Only successful reports listed; historical failed experiments excluded and preserved. Complete mandatory gate census/continuous campaign are not claimed.",
+    "Current34 has15reports30process15cold; five additional31 reports10process5cold retain their own preserved31 source/executable identities. Never rebind old evidence to current binary.",
+    "Original full8Monks191HP+2HighMonks137HP admission -> distinct CONTROLLED living enemy0HP1/other9dead BEFORE real Cast, not earned damage/kills. ControlledHP125/MP110 recovery BEFORE actualLeft encounter. Actual Vortex/MP23/victory/worldBD8deadFF/040C02/cold, not a full-health10enemy victory.",
+    "ZERO new position/party/HP/flag control after battle before actualLeft/Up passage through original removed wall. Then a NEW controlled safe LetterSearch adjacency redraw reloads authored wall50. It is not uninterrupted travel from wall to Letter. Actual Monk defeat040C02 persists through Search/Archus/Styx; original actorWorld D2DB..D2ED suppresses sprite when its BD05/BD07 predicate is met. Authored map records remain original, not persistent runtime storage. The failed audit demanding private map deathFF/wallFE was an invalid oracle, retained in diagnostic log.",
+    "Actual WRONG/BRIBE keepwall50/key1; acceptedVHA/OBLI remove wallFE/consume42E02. Both keyword alternatives/refusals/cold and blocked/crossing movement both modes verified. Wall effect survives exact full-runtime save/load, not declared permanent across a map reload.",
+    "Direct source-underlay walking experiment ce-m3-monks-walk34/20261016-182452 excluded: real route reached original encounter2enemies267HP, MP23. No uninterrupted Letter travel or full physical route claim. Further encounter classification/route coverage IN PROGRESS.",
+    "Source census remains IN PROGRESS. No earned continuous/newgame-ending, full-health final win or M4 claim."
+  ],
+  "source_archive": {
+    "path": "ce-m3-monks34-source.zip",
+    "sha256": "d50835b2bf8963cdf92a3159174430d8e64688a443db9f25c745a8030426e0c8"
+  },
+  "preserved_executable": {
+    "path": "ce-m3-guardian6-binary\\scummvm-monks34.exe",
+    "sha256": "872dce94798911e4394af42a1e02c34f5c4ff78c3440f6b71d471518b7dfa661"
+  },
+  "build": {
+    "log": "ce-m3-monks-build-34.log",
+    "result": "PASS0 warnings/errors 00:02:35.25"
+  },
+  "prior_build31_evidence": [
+    {
+      "path": "ce-m3-cult-mouth-wrong31/20261016-175640/verification.json",
+      "sha256": "aab2e53d24622ceb3512a9ea0216c8834e1503fe6d07dc3b4ab5b8e318273e0e",
+      "result": {
+        "save": "ce-m3-cult-mouth-wrong31\\20261016-175640\\saves\\nox-ce-ed5939a032719adcfecdf986a9261c4a-7ae1dafa76a889bf8ef2115a9052da5a-slot001.g1",
+        "save_sha256": "f221c1a1f3bf6af0b44550cd0d51998a32149c5988572303dd7643b0f3afec1d",
+        "runtime_sha256": "e4c59299e63c953ce00ebcb8c8092674a2140057218dabc36b8e792ada464c02",
+        "generation": 50,
+        "slot": 1,
+        "PC": 29148,
+        "SP": 255,
+        "alternate": 0,
+        "stack_return": 0,
+        "map": 99,
+        "map_type": 2,
+        "xy": [
+          217,
+          101
+        ],
+        "pageflags": 255,
+        "research": 3,
+        "transport_flags": 0,
+        "keyflag_040F": 0,
+        "keyflag_0410": 63,
+        "party_count": 1,
+        "status": 0,
+        "level": 10,
+        "health": 125,
+        "maximum_health": 125,
+        "mana": 23,
+        "inactive": 0,
+        "STR_DEX_INT": [
+          8,
+          14,
+          110
+        ],
+        "Range": 10,
+        "Range_training_remaining": 54,
+        "weapon_range_bytes": [
+          1,
+          16
+        ],
+        "spell_slot1": 12,
+        "spell_quantity": 1,
+        "Ankh_quantity": 0,
+        "key_quantity": 0,
+        "staff_quantity": 0,
+        "enemy_health": 0,
+        "encounter_sprite": 192,
+        "ending_loop": 0
+      },
+      "wall_BE03": 50,
+      "executable_sha256": "c8a919270f0efd1946e79341536911b3fa8910ff5a81589e85a2356bf11ba5c7"
+    },
+    {
+      "path": "ce-m3-cult-mouth-bribe31/20261016-175646/verification.json",
+      "sha256": "d0a852a9753fdf58ce702c9d5883a38f906eed2025af069adb3c0bde5edb4c50",
+      "result": {
+        "save": "ce-m3-cult-mouth-bribe31\\20261016-175646\\saves\\nox-ce-ed5939a032719adcfecdf986a9261c4a-7ae1dafa76a889bf8ef2115a9052da5a-slot001.g1",
+        "save_sha256": "aec4ebb3aa5e530dcc55a5f9da06171b5ba367a6d38890d43ac9ef75fe32a6ed",
+        "runtime_sha256": "8a6a2ddde42f183eac372f088a1e5b0d7759fbf70ee88b825567a5e58881dd5a",
+        "generation": 50,
+        "slot": 1,
+        "PC": 29148,
+        "SP": 255,
+        "alternate": 0,
+        "stack_return": 0,
+        "map": 99,
+        "map_type": 2,
+        "xy": [
+          217,
+          101
+        ],
+        "pageflags": 255,
+        "research": 3,
+        "transport_flags": 0,
+        "keyflag_040F": 0,
+        "keyflag_0410": 63,
+        "party_count": 1,
+        "status": 0,
+        "level": 10,
+        "health": 125,
+        "maximum_health": 125,
+        "mana": 23,
+        "inactive": 0,
+        "STR_DEX_INT": [
+          8,
+          14,
+          110
+        ],
+        "Range": 10,
+        "Range_training_remaining": 54,
+        "weapon_range_bytes": [
+          1,
+          16
+        ],
+        "spell_slot1": 12,
+        "spell_quantity": 1,
+        "Ankh_quantity": 0,
+        "key_quantity": 0,
+        "staff_quantity": 0,
+        "enemy_health": 0,
+        "encounter_sprite": 192,
+        "ending_loop": 0
+      },
+      "wall_BE03": 50,
+      "executable_sha256": "c8a919270f0efd1946e79341536911b3fa8910ff5a81589e85a2356bf11ba5c7"
+    },
+    {
+      "path": "ce-m3-cult-mouth-vha31/20261016-175946/verification.json",
+      "sha256": "8542ebd80a97b6fe594fa127443e861a2b1d5b65728f4455efb980b276f23bbe",
+      "result": {
+        "save": "ce-m3-cult-mouth-vha31\\20261016-175946\\saves\\nox-ce-ed5939a032719adcfecdf986a9261c4a-7ae1dafa76a889bf8ef2115a9052da5a-slot001.g1",
+        "save_sha256": "72e608efeb9f1c8d3d24ef27119d938544c03e9bec670c968b34cd8e044d6209",
+        "runtime_sha256": "c759fa09ded7a76b4711d80e6225b25ceef17073ea36a21baa33b7f12e1270fb",
+        "generation": 50,
+        "slot": 1,
+        "PC": 29148,
+        "SP": 255,
+        "alternate": 0,
+        "stack_return": 0,
+        "map": 99,
+        "map_type": 2,
+        "xy": [
+          217,
+          101
+        ],
+        "pageflags": 255,
+        "research": 3,
+        "transport_flags": 0,
+        "keyflag_040F": 0,
+        "keyflag_0410": 63,
+        "party_count": 1,
+        "status": 0,
+        "level": 10,
+        "health": 125,
+        "maximum_health": 125,
+        "mana": 23,
+        "inactive": 0,
+        "STR_DEX_INT": [
+          8,
+          14,
+          110
+        ],
+        "Range": 10,
+        "Range_training_remaining": 54,
+        "weapon_range_bytes": [
+          1,
+          16
+        ],
+        "spell_slot1": 12,
+        "spell_quantity": 1,
+        "Ankh_quantity": 0,
+        "key_quantity": 0,
+        "staff_quantity": 0,
+        "enemy_health": 0,
+        "encounter_sprite": 192,
+        "ending_loop": 0
+      },
+      "wall_BE03": 254,
+      "executable_sha256": "c8a919270f0efd1946e79341536911b3fa8910ff5a81589e85a2356bf11ba5c7"
+    },
+    {
+      "path": "ce-m3-cult-mouth-obli31/20261016-175952/verification.json",
+      "sha256": "a425543511ef8648741649fac6a2e9253a66257deeb3c4acf1924abd7ae5d8b7",
+      "result": {
+        "save": "ce-m3-cult-mouth-obli31\\20261016-175952\\saves\\nox-ce-ed5939a032719adcfecdf986a9261c4a-7ae1dafa76a889bf8ef2115a9052da5a-slot001.g1",
+        "save_sha256": "126e5ba09ff107cdbfe156256dcaca1af00991ec6338a05cbe83fc19ca9aa840",
+        "runtime_sha256": "98e559a60f111e224dc1ba39d6680436b5fb75795d7aba6625b04412b5a993cf",
+        "generation": 50,
+        "slot": 1,
+        "PC": 29148,
+        "SP": 255,
+        "alternate": 0,
+        "stack_return": 0,
+        "map": 99,
+        "map_type": 2,
+        "xy": [
+          217,
+          101
+        ],
+        "pageflags": 255,
+        "research": 3,
+        "transport_flags": 0,
+        "keyflag_040F": 0,
+        "keyflag_0410": 63,
+        "party_count": 1,
+        "status": 0,
+        "level": 10,
+        "health": 125,
+        "maximum_health": 125,
+        "mana": 23,
+        "inactive": 0,
+        "STR_DEX_INT": [
+          8,
+          14,
+          110
+        ],
+        "Range": 10,
+        "Range_training_remaining": 54,
+        "weapon_range_bytes": [
+          1,
+          16
+        ],
+        "spell_slot1": 12,
+        "spell_quantity": 1,
+        "Ankh_quantity": 0,
+        "key_quantity": 0,
+        "staff_quantity": 0,
+        "enemy_health": 0,
+        "encounter_sprite": 192,
+        "ending_loop": 0
+      },
+      "wall_BE03": 254,
+      "executable_sha256": "c8a919270f0efd1946e79341536911b3fa8910ff5a81589e85a2356bf11ba5c7"
+    },
+    {
+      "path": "ce-m3-cult-mouth-blocked31/20261016-175957/verification.json",
+      "sha256": "f2cfaa89c8f0d11475b6b362ffc15c5204dcf65e6ec3c8d3d015fc89ab739ecf",
+      "result": {
+        "save": "ce-m3-cult-mouth-blocked31\\20261016-175957\\saves\\nox-ce-ed5939a032719adcfecdf986a9261c4a-7ae1dafa76a889bf8ef2115a9052da5a-slot001.g1",
+        "save_sha256": "93aaffb2ef40403da058ef5f401f7c17ddb7aaa5995fa2b876f50ead35d3cbba",
+        "runtime_sha256": "97d1db81fd513681e406259c2231e6fe02c357590e4a368f0cc445f156062ff5",
+        "generation": 52,
+        "slot": 1,
+        "PC": 29148,
+        "SP": 255,
+        "alternate": 0,
+        "stack_return": 0,
+        "map": 99,
+        "map_type": 2,
+        "xy": [
+          215,
+          101
+        ],
+        "pageflags": 255,
+        "research": 3,
+        "transport_flags": 0,
+        "keyflag_040F": 0,
+        "keyflag_0410": 63,
+        "party_count": 1,
+        "status": 0,
+        "level": 10,
+        "health": 125,
+        "maximum_health": 125,
+        "mana": 23,
+        "inactive": 0,
+        "STR_DEX_INT": [
+          8,
+          14,
+          110
+        ],
+        "Range": 10,
+        "Range_training_remaining": 54,
+        "weapon_range_bytes": [
+          1,
+          16
+        ],
+        "spell_slot1": 12,
+        "spell_quantity": 1,
+        "Ankh_quantity": 0,
+        "key_quantity": 0,
+        "staff_quantity": 0,
+        "enemy_health": 0,
+        "encounter_sprite": 192,
+        "ending_loop": 0
+      },
+      "wall_BE03": 50,
+      "executable_sha256": "c8a919270f0efd1946e79341536911b3fa8910ff5a81589e85a2356bf11ba5c7"
+    }
+  ],
+  "total_ce_processes": 40,
+  "total_cold_processes": 20
+}

@@ -1,0 +1,49 @@
+{
+  "status": "VERIFIED",
+  "parent_task": "M2.4f",
+  "parent_status": "IN PROGRESS",
+  "scope": "Representative M2 owner-content stages, not earned early/middle/late campaign stages (authority assigns campaign to M3).",
+  "executable_sha256": "1e872ea8f48ef9d6a3f3604c50025fc2fd2c9cf2935a5f96afd733a4ae7a1733",
+  "build": {
+    "session": 73254,
+    "warnings": 0,
+    "errors": 0,
+    "elapsed": "00:02:43.89",
+    "log": "nox-m2-state-profiles-build.out.log"
+  },
+  "reports": [
+    {
+      "path": "ce-m2-state-profiles-modern/20261015-210234/verification.json",
+      "sha256": "06e6bffa6e95313b329c30d7291f5425ce85f8539ec44a87efed95431328bbc3",
+      "status": "VERIFIED"
+    },
+    {
+      "path": "ce-m2-state-profiles-classic/20261015-210256/verification.json",
+      "sha256": "e7e14c0e4487081d7fad39da142a1579f5dea5dcb11f83ea4a2f8b36bc77f224",
+      "status": "VERIFIED"
+    }
+  ],
+  "profiles": {
+    "early": "Actual pre-dialogue owner: zero replies,two observed cells.",
+    "middle": "Actual completed dialogue in assisted adjacency fixture: nine replies,seven observed cells.",
+    "late": "Same observed world with explicitly controlled richer owner: nine replies,263 cells including256 revealed,16 annotations; exact owner gets permanent assistance reason."
+  },
+  "criteria": [
+    "Each profile written twice through Engine/SaveFileManager",
+    "Complete Runtime bytes identical in fresh process",
+    "Mode and owner exact, device queue empty",
+    "Unrelated B world files byte-identical and clean permanent history",
+    "Original HDV hashes unchanged",
+    "No achievement events or network attempts"
+  ],
+  "source_sha256": {
+    "engines/nox/nox.h": "2195c452786a52f93753a00f28010e469b35130d68b79665a7ed5984990c9f71",
+    "engines/nox/nox.cpp": "6f0fc2212fdb937734a098e6f5a735d7d0b5bae90cb1582769d7e8f93ea69005",
+    "engines/nox/profile_validation.h": "2658f8c93149c8692e5ef5b79d1dc42836dbd60f4d15f75a0f0ed3dbbd84301a",
+    "devtools/nox/test_state_profiles.py": "d279640375999151be72247282ce72979e85daa68d4b85adab48fbc182e5996b"
+  },
+  "limitations": [
+    "This does not establish campaign advancement, late quest correctness or M3 completion.",
+    "Complete final integration and latest-executable transport evidence remain M2.4f."
+  ]
+}

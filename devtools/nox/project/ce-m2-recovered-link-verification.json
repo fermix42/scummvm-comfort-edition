@@ -1,0 +1,65 @@
+{
+  "status": "VERIFIED",
+  "task": "M2.4d2",
+  "scope": "Recovered unknown-history completed and genuine older local archived before linking, preserved original identity/times, correct newest generation, terminal cold restart; bounded direct hermesbox validation",
+  "executable_sha256": "155d216f058c64996e704c77f3331397143684a44bbfb67479316bf9e4f01fa9",
+  "build": {
+    "session": 87241,
+    "exit": 0,
+    "warnings": 1,
+    "errors": 0,
+    "elapsed": "00:02:37.83",
+    "log": "nox-m2-recovered-patch-body-build.out.log"
+  },
+  "reports": [
+    {
+      "path": "ce-m2-recovered-fresh-modern/20261015-183659/verification.json",
+      "sha256": "290523cfc084c71eda3c06d7c8d139c7b5b68dd43c7df5a214177bfc74b9ee8d"
+    },
+    {
+      "path": "ce-m2-recovered-fresh-classic/20261015-183709/verification.json",
+      "sha256": "4d58eab2c28c5fc0dcf149f46f784f76ff035963ace02e5b04110f8bb599a1e5"
+    },
+    {
+      "path": "ce-m2-recovered-fixed-linked-modern/20261015-183731/verification.json",
+      "sha256": "ec191a8acc9105bac4163d7fb95f8b3764afa07f68afcf3930be1b4eff19809a"
+    },
+    {
+      "path": "ce-m2-recovered-fixed-linked-modern/20261015-183731/server-verification.json",
+      "sha256": "eceb5d0d5724627cb837b9927c8ac7ef973a7977dccac69e57ebf07c878fef31"
+    },
+    {
+      "path": "ce-m2-recovered-fixed-linked-classic/20261015-183948/verification.json",
+      "sha256": "f25ef50d9e08cedce438fe4871bde8c092f4d15b75cdd8ed4c860b923e2f578b"
+    },
+    {
+      "path": "ce-m2-recovered-fixed-linked-classic/20261015-183948/server-verification.json",
+      "sha256": "6c24ded181355e9e99b695df8d3bff1f89782c7d40a5f918900e05ba43c178a8"
+    },
+    {
+      "path": "ce-m2-recovered-account-cleanup.json",
+      "sha256": "ad8a6e982fd3765e4ec477ff07277a49cb4512536ba6653c44c8f07b3b771b13"
+    },
+    {
+      "path": "ce-m2-recovered-failed-account-cleanup.json",
+      "sha256": "ad8a6e982fd3765e4ec477ff07277a49cb4512536ba6653c44c8f07b3b771b13"
+    },
+    {
+      "path": "ce-m2-recovered-audit-failed-account-cleanup.json",
+      "sha256": "ad8a6e982fd3765e4ec477ff07277a49cb4512536ba6653c44c8f07b3b771b13"
+    }
+  ],
+  "source_sha256": {
+    "backends/networking/http/curl/networkreadstream-curl.cpp": "c243260f6e4caf0e0e85f096c6b34b3785aab93ff437230dec28dbd26c30646a",
+    "engines/ce_achievements.cpp": "770957b07b2fce4178f29bf85f0a6b0166af2d7186714bd913c420efedf0c1da",
+    "engines/nox/history_validation.h": "cededdf61542234ed506113589a0c3c8365038127251e9a803742063ce202063",
+    "devtools/nox/test_offline_link.py": "f88552b82dfabb200db1eda1aad39ac9ed96349cd6bd69f84dfd9906554fac65",
+    "devtools/nox/test_session_management.py": "9ce16af82160f6f513539d03e1f65506ad8eeb547bf636f58721e2b23afe0bb6",
+    "devtools/nox/verify_recovered_link.py": "0fe905a70e68b9f23ef3734199351a8c7ecdbea76bc3b398c552826b037682c5"
+  },
+  "verified_scenario_http_requests": 30,
+  "failed_scenario_forwarded_requests": 8,
+  "failed_empty_patch_attempts_not_forwarded": 1,
+  "ce_service_source_identical_to_verified_d1": true,
+  "credential_value_scan_files": 126
+}

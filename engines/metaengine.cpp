@@ -21,6 +21,7 @@
 
 #include "engines/metaengine.h"
 #include "engines/engine.h"
+#include "engines/ce_achievements.h"
 
 #include "backends/keymapper/action.h"
 #include "backends/keymapper/keymap.h"
@@ -493,6 +494,10 @@ GUI::OptionsContainerWidget *MetaEngine::buildCheatOptionsWidget(GUI::GuiObject 
 	}
 
 	return new GUI::ExtraGuiOptionsWidget(boss, name, target, cheatOptions, true);
+}
+
+bool MetaEngine::detachSavePlaythrough(const char *target, int slot, const Common::String &clientPlaythroughId) const {
+	return Common::CEAchievements().clearSavePlaythroughForTargetSlot(target, slot, clientPlaythroughId, getSavegameFile(slot, target));
 }
 
 bool MetaEngine::removeSaveState(const char *target, int slot) const {

@@ -1,0 +1,470 @@
+{
+  "status": "VERIFIED",
+  "milestone": "M3",
+  "scope": "Actual one-step sector event/original automatic private checkpoint -> legal whole CE save/cold; NOT Shadow encounter, refusal or ending",
+  "reports": [
+    {
+      "path": "ce-m3-shadow-checkpoint3/20261016-133758/verification.json",
+      "sha256": "acc90951218dc83ace5875bd7f814644d26ff8fa6be3cb9a014a976291c26e81",
+      "mode": "Modern",
+      "executable_sha256": "ea90a3011b266e9856f0a44ef9f342df45a3c2938c033f68f28e7270ba5f7681",
+      "source_sha256": {
+        "engines/nox/backoff_validation.h": "7362aace99ec706f40295446abc3a9b41bb2ed2f841f89c61ed4f20a7c18b760",
+        "engines/nox/caller_validation.h": "ede6a33e41ad5fa9d9613fe36e203e7122ca9830a1b4b54e46ae9591cf632391",
+        "engines/nox/campaign_validation.h": "c5b48f9db93e1c5d6fea273c6181b928ee66479092136107b049acf4cee7d5a0",
+        "engines/nox/configure.engine": "774fc9df4834ca0e64018b72f326d14989a40c08f5c7fd78d06bbea6ee42c015",
+        "engines/nox/cpu.inc": "41c0fdff3d9d3466871ae76144b430b9b13bd29a2873a8899ebad56e4e208b97",
+        "engines/nox/cultist_validation.h": "654be8783d95ee92f8d757174dbedc581ac67317a6e7377b36ee9e36f051e299",
+        "engines/nox/cycles.inc": "2b1024aeab86cda827aec30eb696547ced1d333226263647b29b1d34db3acd6e",
+        "engines/nox/dark_key_validation.h": "5114e1958dd01104f0cd9ac08b3f771a5a87062911eb9042d54f34df01d0bb5e",
+        "engines/nox/detection.cpp": "32753d7b31fd8fe9f61eb27c676e6564d79764aa94cd5283c2508b8ac056dbd6",
+        "engines/nox/dialogue_validation.h": "5d2663dabee5c81507130bc126b3a1f4c9e91adc7b08a0e57d71e869a7b00dbd",
+        "engines/nox/enhancements.cpp": "5ed93907c2e0b1004c9978bbb91c32913de50d1706e9fd41c2027473b3069150",
+        "engines/nox/enhancements.h": "f0d73af3421c0597db87ace38b2d203c73640d43a5bade9b278cf6c1e7ff029d",
+        "engines/nox/enhancement_fixture.h": "13d45f7cf67cbec92f87777653c1ec51e65dd6b2b20538020b55f00fcd0718b5",
+        "engines/nox/enhancement_validation.h": "a24bde10489f8ca310c45c92050d21293aa974ee2eb86691a350aa372667e13a",
+        "engines/nox/grid_validation.h": "6032efc17e039528d63f2640d1b4308b899a9a7776c7c6c8fe4fa7e0ea752fa9",
+        "engines/nox/history_validation.h": "5601beeb58e2f8babad090e45369e3d3249e8d409d4e69db2ca3fad847c21b88",
+        "engines/nox/host_validation.h": "58f0082264e78c366b05e8a0999b0dcdde8e147160dc3be543042af2ab1da7a9",
+        "engines/nox/io_validation.h": "556bd69ec180bae521284e5876d121dffac2a7827f6fce1200924f8a2081d214",
+        "engines/nox/management_validation.h": "286355cdedac22164095549c47f97e21d63e13eb738fb94b3368bf79d1738e34",
+        "engines/nox/metadata_validation.h": "c2b7fe9b7d1fa277517ec337b3ab8390e39552125b1c460be04690232466db5c",
+        "engines/nox/metaengine.cpp": "d631b83dc7b3a816489aa3a546d965f06d1cf89e684582c3dedd602ef866b24b",
+        "engines/nox/mockingboard.cpp": "38d5c6a894cc7a6bd238b9ad9a6740ec5ff42c6f299b7f6ce858505a6c1817bc",
+        "engines/nox/mockingboard.h": "d0afe027dc9ff9b269b0c60bf04abc45566502a17aed25879316856911937f2e",
+        "engines/nox/module.mk": "47de2ac64575f926a8de7cc5060913a3b63a0554cb5c20824ab55cf67ac1085f",
+        "engines/nox/movement.cpp": "4b03de9dd50c4a4cfc6c2e2d7da9d3fc3fc80a697dfd236a3340c1d25b84fdf9",
+        "engines/nox/nox.cpp": "2c3907893b52e1b610ef24577a0b6e0f22b7d6b85bd95669f387824893e6961f",
+        "engines/nox/nox.h": "8319f4e3bd2cca426329896f1146466d5e725f83451f99e1514f198736b937f3",
+        "engines/nox/profile_validation.h": "2658f8c93149c8692e5ef5b79d1dc42836dbd60f4d15f75a0f0ed3dbbd84301a",
+        "engines/nox/records.h": "8045582e0ae5f83d027b8b197aa66a8309e9ff80f2117bce7edb86455eca9b7d",
+        "engines/nox/render.cpp": "bd7833eaccc812fad88b0d19e5070d9955e440142525ded89b3d30766120073a",
+        "engines/nox/resources.h": "1451464a6f8ea57039c3596c8aaa388701e5005fb3364b80b9e48bb04dc2cd95",
+        "engines/nox/runtime.cpp": "2d5dd0cb89846be88a3c7b902bc056b7967302c73d345b5a7612f0276d3d81bf",
+        "engines/nox/runtime.h": "bd6d16f4e2343c6ebf565defb7a6b816d75c8ea8df60e1e530e9c8c90e946fb5",
+        "engines/nox/runtime_observers.cpp": "64245b9f3ce8cf130393c55569bcccf24278c1136b9e6a1aab5bf8cef22aa73f",
+        "engines/nox/runtime_state.cpp": "d0c9c769e7fba6a8125754594fc5cc54dc54912c830f38c1a02f44ff24799b2d",
+        "engines/nox/saves.h": "9d0e92a7fb35952d35f2f2ecf0602ba48211162cb3f18b02a5a454919ac514f9",
+        "engines/nox/save_policy.h": "890bced00db32c534207055e5f6acf7247310102119da4c5bc66f13a4c7d72fc",
+        "engines/nox/session_validation.cpp": "da83025980220829e5ec424e80ad067d6681e30893918a1196ec84ef0524d839",
+        "engines/nox/shadow_checkpoint_validation.h": "1b886520edb2a907ce7d8f6f2c259ab1e0b85edbf7e7226d92eb313a2dd95f97",
+        "engines/nox/snapshot.h": "c3c8c9fd497391995084286e6f1cadc8ac5b9e9ed94965b6820043624e6d35de",
+        "engines/nox/speaker_audio.cpp": "b80e55470b95fcaf200f4346a0cb0bab8ce8ff3fe7e2436633da833a2da9f833",
+        "engines/nox/speaker_audio.h": "aad57abba83f4a02ee0780eb2eebc80e68a43181b285533dc3313f3ad307205f",
+        "engines/nox/spell_validation.h": "9064d2e741bd5da236fd6b1b9969c2f64ec6b0fc57f2fa9a81e6f10973dde4b2",
+        "engines/nox/validation.cpp": "7582907d58238d29057026968b03866e25fb7e760184497204896cd5dad8ef75",
+        "engines/nox/vortex_validation.h": "8e67f09dd180d23936728ac98847ddfb5194b6c25d170b65832d41353f96c907",
+        "devtools/nox/test_shadow_checkpoint.py": "1588ddc5da97d18e917f14587bc00f183ad9f47b243c3a39f7d95fe37cf5ac3e"
+      },
+      "initializations": "Retain actual High Cultist death/journal/automatic Archus translation/Styx guidance43B06 and all3 Jewels/Key/Ring. CONTROLLED source-authored57->58->54->surface0 route and source-decoded OUTSIDE tile77 at152,176. Hash-bound source manifest independently decodes actual retained private sectors and verifies outside77/inside0 against owned original source cells; compiled fixture verifies those exact retained compressed-sector hashes and current original foot ranges. Valid game-written sectors need not equal pristine compressed bytes. SourceFA1D..FA44 identifies043B01 + original private-save helper8E0D/FE95, NOT a spawn/win condition. Actual Up enters sectorA9, observes one original internal private checkpoint caller and source043B01, then legal CE full-runtime result/cold. No story flag, NPC, battle, reward or ending outcome initialized. Actual Shadow encounter remains NOT STARTED.",
+      "source_fixture": {
+        "status": "VERIFIED",
+        "scope": "Independent SOURCE FIXTURE PREPARATION ONLY, not engine gameplay acceptance",
+        "mode": "Modern",
+        "predecessor_report_sha256": "5e0eedd1d31e6f45f0106c659247db8d3c3b6c1410a5541f8133d9deadb8f3ba",
+        "predecessor_save": "ce-m3-styx-journal2\\20261016-131559\\saves\\nox-ce-ed5939a032719adcfecdf986a9261c4a-042605b2b48e017e5863d5c2f6433991-slot001.g1",
+        "predecessor_save_sha256": "b78243c04e032e50e4a60a39baa616dacaab70612bc81398c46c8dea3ffec351",
+        "runtime_sha256": "26a22cedb1d962e4961758f70c04dde475eaad2d545f1ae9a8b5ee7d9919569f",
+        "private_image_sha256": "6ff3f621d2aa79fc577beba9d337c660482ba7ddc233aa82e1bce3afd34533c8",
+        "source_original_image_sha256": "c42a95c7a356548c78957f98693e92d33c9bae3ff5126d9887c2980e5a490c3c",
+        "resource": "NA/DATA.MAP.SURF",
+        "source_owner": "Actual retained game-written private map from verified prior whole-runtime save; independent decoding verifies relevant cells against owned source. Whole-sector compressed/decoded hashes need not equal pristine source after actual game writes.",
+        "hashes": {
+          "a9": "ac725da0",
+          "b9": "6c6b53ed"
+        },
+        "cells": [
+          {
+            "x": 152,
+            "y": 175,
+            "current_private_tile": 0,
+            "original_owned_source_tile": 0,
+            "decoded_sector_sha256": "063014cd2570b02e537f9c1958bced4a754baf2788ab3cd91f0901e4a326cf3b",
+            "encoded_sector_sha256": "7734ef1ce0b3ee2efe4df46165e4d417d4c1ba1006f24564a3b816fbfcb086ee"
+          },
+          {
+            "x": 152,
+            "y": 176,
+            "current_private_tile": 77,
+            "original_owned_source_tile": 77,
+            "decoded_sector_sha256": "292d67281b332cf5e5d1af322339c0f7dfaf2076c806407355991fb0a69d38bd",
+            "encoded_sector_sha256": "ac2feb140d06045f11dded14b3087927dbb0514389284bcaf598008665b0797b"
+          }
+        ],
+        "source_foot_profile": [
+          6,
+          36,
+          193,
+          205,
+          174,
+          182
+        ],
+        "controlled_initialization": "OUTSIDE152,176 tile77 only; real Up to152,175 tile0 invokes original pre-encounter private checkpoint. No flag/NPC/battle outcome initialized."
+      },
+      "owned_source_exact_blocks": [
+        {
+          "sector": 169,
+          "owned_source": "NA/DATA.MAP.SURF2",
+          "offset": 6000,
+          "length": 117,
+          "sha256": "7734ef1ce0b3ee2efe4df46165e4d417d4c1ba1006f24564a3b816fbfcb086ee"
+        },
+        {
+          "sector": 185,
+          "owned_source": "NA/DATA.MAP.SURF2",
+          "offset": 7109,
+          "length": 122,
+          "sha256": "ac2feb140d06045f11dded14b3087927dbb0514389284bcaf598008665b0797b"
+        }
+      ]
+    },
+    {
+      "path": "ce-m3-shadow-checkpoint3-classic/20261016-133810/verification.json",
+      "sha256": "07922edc0cc6e9d9706c6730c63afe3536ff40ac6057724bc57dd6989eac4837",
+      "mode": "Classic",
+      "executable_sha256": "ea90a3011b266e9856f0a44ef9f342df45a3c2938c033f68f28e7270ba5f7681",
+      "source_sha256": {
+        "engines/nox/backoff_validation.h": "7362aace99ec706f40295446abc3a9b41bb2ed2f841f89c61ed4f20a7c18b760",
+        "engines/nox/caller_validation.h": "ede6a33e41ad5fa9d9613fe36e203e7122ca9830a1b4b54e46ae9591cf632391",
+        "engines/nox/campaign_validation.h": "c5b48f9db93e1c5d6fea273c6181b928ee66479092136107b049acf4cee7d5a0",
+        "engines/nox/configure.engine": "774fc9df4834ca0e64018b72f326d14989a40c08f5c7fd78d06bbea6ee42c015",
+        "engines/nox/cpu.inc": "41c0fdff3d9d3466871ae76144b430b9b13bd29a2873a8899ebad56e4e208b97",
+        "engines/nox/cultist_validation.h": "654be8783d95ee92f8d757174dbedc581ac67317a6e7377b36ee9e36f051e299",
+        "engines/nox/cycles.inc": "2b1024aeab86cda827aec30eb696547ced1d333226263647b29b1d34db3acd6e",
+        "engines/nox/dark_key_validation.h": "5114e1958dd01104f0cd9ac08b3f771a5a87062911eb9042d54f34df01d0bb5e",
+        "engines/nox/detection.cpp": "32753d7b31fd8fe9f61eb27c676e6564d79764aa94cd5283c2508b8ac056dbd6",
+        "engines/nox/dialogue_validation.h": "5d2663dabee5c81507130bc126b3a1f4c9e91adc7b08a0e57d71e869a7b00dbd",
+        "engines/nox/enhancements.cpp": "5ed93907c2e0b1004c9978bbb91c32913de50d1706e9fd41c2027473b3069150",
+        "engines/nox/enhancements.h": "f0d73af3421c0597db87ace38b2d203c73640d43a5bade9b278cf6c1e7ff029d",
+        "engines/nox/enhancement_fixture.h": "13d45f7cf67cbec92f87777653c1ec51e65dd6b2b20538020b55f00fcd0718b5",
+        "engines/nox/enhancement_validation.h": "a24bde10489f8ca310c45c92050d21293aa974ee2eb86691a350aa372667e13a",
+        "engines/nox/grid_validation.h": "6032efc17e039528d63f2640d1b4308b899a9a7776c7c6c8fe4fa7e0ea752fa9",
+        "engines/nox/history_validation.h": "5601beeb58e2f8babad090e45369e3d3249e8d409d4e69db2ca3fad847c21b88",
+        "engines/nox/host_validation.h": "58f0082264e78c366b05e8a0999b0dcdde8e147160dc3be543042af2ab1da7a9",
+        "engines/nox/io_validation.h": "556bd69ec180bae521284e5876d121dffac2a7827f6fce1200924f8a2081d214",
+        "engines/nox/management_validation.h": "286355cdedac22164095549c47f97e21d63e13eb738fb94b3368bf79d1738e34",
+        "engines/nox/metadata_validation.h": "c2b7fe9b7d1fa277517ec337b3ab8390e39552125b1c460be04690232466db5c",
+        "engines/nox/metaengine.cpp": "d631b83dc7b3a816489aa3a546d965f06d1cf89e684582c3dedd602ef866b24b",
+        "engines/nox/mockingboard.cpp": "38d5c6a894cc7a6bd238b9ad9a6740ec5ff42c6f299b7f6ce858505a6c1817bc",
+        "engines/nox/mockingboard.h": "d0afe027dc9ff9b269b0c60bf04abc45566502a17aed25879316856911937f2e",
+        "engines/nox/module.mk": "47de2ac64575f926a8de7cc5060913a3b63a0554cb5c20824ab55cf67ac1085f",
+        "engines/nox/movement.cpp": "4b03de9dd50c4a4cfc6c2e2d7da9d3fc3fc80a697dfd236a3340c1d25b84fdf9",
+        "engines/nox/nox.cpp": "2c3907893b52e1b610ef24577a0b6e0f22b7d6b85bd95669f387824893e6961f",
+        "engines/nox/nox.h": "8319f4e3bd2cca426329896f1146466d5e725f83451f99e1514f198736b937f3",
+        "engines/nox/profile_validation.h": "2658f8c93149c8692e5ef5b79d1dc42836dbd60f4d15f75a0f0ed3dbbd84301a",
+        "engines/nox/records.h": "8045582e0ae5f83d027b8b197aa66a8309e9ff80f2117bce7edb86455eca9b7d",
+        "engines/nox/render.cpp": "bd7833eaccc812fad88b0d19e5070d9955e440142525ded89b3d30766120073a",
+        "engines/nox/resources.h": "1451464a6f8ea57039c3596c8aaa388701e5005fb3364b80b9e48bb04dc2cd95",
+        "engines/nox/runtime.cpp": "2d5dd0cb89846be88a3c7b902bc056b7967302c73d345b5a7612f0276d3d81bf",
+        "engines/nox/runtime.h": "bd6d16f4e2343c6ebf565defb7a6b816d75c8ea8df60e1e530e9c8c90e946fb5",
+        "engines/nox/runtime_observers.cpp": "64245b9f3ce8cf130393c55569bcccf24278c1136b9e6a1aab5bf8cef22aa73f",
+        "engines/nox/runtime_state.cpp": "d0c9c769e7fba6a8125754594fc5cc54dc54912c830f38c1a02f44ff24799b2d",
+        "engines/nox/saves.h": "9d0e92a7fb35952d35f2f2ecf0602ba48211162cb3f18b02a5a454919ac514f9",
+        "engines/nox/save_policy.h": "890bced00db32c534207055e5f6acf7247310102119da4c5bc66f13a4c7d72fc",
+        "engines/nox/session_validation.cpp": "da83025980220829e5ec424e80ad067d6681e30893918a1196ec84ef0524d839",
+        "engines/nox/shadow_checkpoint_validation.h": "1b886520edb2a907ce7d8f6f2c259ab1e0b85edbf7e7226d92eb313a2dd95f97",
+        "engines/nox/snapshot.h": "c3c8c9fd497391995084286e6f1cadc8ac5b9e9ed94965b6820043624e6d35de",
+        "engines/nox/speaker_audio.cpp": "b80e55470b95fcaf200f4346a0cb0bab8ce8ff3fe7e2436633da833a2da9f833",
+        "engines/nox/speaker_audio.h": "aad57abba83f4a02ee0780eb2eebc80e68a43181b285533dc3313f3ad307205f",
+        "engines/nox/spell_validation.h": "9064d2e741bd5da236fd6b1b9969c2f64ec6b0fc57f2fa9a81e6f10973dde4b2",
+        "engines/nox/validation.cpp": "7582907d58238d29057026968b03866e25fb7e760184497204896cd5dad8ef75",
+        "engines/nox/vortex_validation.h": "8e67f09dd180d23936728ac98847ddfb5194b6c25d170b65832d41353f96c907",
+        "devtools/nox/test_shadow_checkpoint.py": "1588ddc5da97d18e917f14587bc00f183ad9f47b243c3a39f7d95fe37cf5ac3e"
+      },
+      "initializations": "Retain actual High Cultist death/journal/automatic Archus translation/Styx guidance43B06 and all3 Jewels/Key/Ring. CONTROLLED source-authored57->58->54->surface0 route and source-decoded OUTSIDE tile77 at152,176. Hash-bound source manifest independently decodes actual retained private sectors and verifies outside77/inside0 against owned original source cells; compiled fixture verifies those exact retained compressed-sector hashes and current original foot ranges. Valid game-written sectors need not equal pristine compressed bytes. SourceFA1D..FA44 identifies043B01 + original private-save helper8E0D/FE95, NOT a spawn/win condition. Actual Up enters sectorA9, observes one original internal private checkpoint caller and source043B01, then legal CE full-runtime result/cold. No story flag, NPC, battle, reward or ending outcome initialized. Actual Shadow encounter remains NOT STARTED.",
+      "source_fixture": {
+        "status": "VERIFIED",
+        "scope": "Independent SOURCE FIXTURE PREPARATION ONLY, not engine gameplay acceptance",
+        "mode": "Classic",
+        "predecessor_report_sha256": "b9280aaf4212fa4de4fb035422ee583cae26b4aa73da13d4ddc0b81cdf494e06",
+        "predecessor_save": "ce-m3-styx-journal2-classic\\20261016-131616\\saves\\nox-ce-ed5939a032719adcfecdf986a9261c4a-6054b13e9725bf9dbe77e407e868d5d4-slot001.g1",
+        "predecessor_save_sha256": "494c7726d7e9486b2251cd5b80fd8538dd1c9079e23f351856c159f440a78166",
+        "runtime_sha256": "26a22cedb1d962e4961758f70c04dde475eaad2d545f1ae9a8b5ee7d9919569f",
+        "private_image_sha256": "6ff3f621d2aa79fc577beba9d337c660482ba7ddc233aa82e1bce3afd34533c8",
+        "source_original_image_sha256": "c42a95c7a356548c78957f98693e92d33c9bae3ff5126d9887c2980e5a490c3c",
+        "resource": "NA/DATA.MAP.SURF",
+        "source_owner": "Actual retained game-written private map from verified prior whole-runtime save; independent decoding verifies relevant cells against owned source. Whole-sector compressed/decoded hashes need not equal pristine source after actual game writes.",
+        "hashes": {
+          "a9": "ac725da0",
+          "b9": "6c6b53ed"
+        },
+        "cells": [
+          {
+            "x": 152,
+            "y": 175,
+            "current_private_tile": 0,
+            "original_owned_source_tile": 0,
+            "decoded_sector_sha256": "063014cd2570b02e537f9c1958bced4a754baf2788ab3cd91f0901e4a326cf3b",
+            "encoded_sector_sha256": "7734ef1ce0b3ee2efe4df46165e4d417d4c1ba1006f24564a3b816fbfcb086ee"
+          },
+          {
+            "x": 152,
+            "y": 176,
+            "current_private_tile": 77,
+            "original_owned_source_tile": 77,
+            "decoded_sector_sha256": "292d67281b332cf5e5d1af322339c0f7dfaf2076c806407355991fb0a69d38bd",
+            "encoded_sector_sha256": "ac2feb140d06045f11dded14b3087927dbb0514389284bcaf598008665b0797b"
+          }
+        ],
+        "source_foot_profile": [
+          6,
+          36,
+          193,
+          205,
+          174,
+          182
+        ],
+        "controlled_initialization": "OUTSIDE152,176 tile77 only; real Up to152,175 tile0 invokes original pre-encounter private checkpoint. No flag/NPC/battle outcome initialized."
+      },
+      "owned_source_exact_blocks": [
+        {
+          "sector": 169,
+          "owned_source": "NA/DATA.MAP.SURF2",
+          "offset": 6000,
+          "length": 117,
+          "sha256": "7734ef1ce0b3ee2efe4df46165e4d417d4c1ba1006f24564a3b816fbfcb086ee"
+        },
+        {
+          "sector": 185,
+          "owned_source": "NA/DATA.MAP.SURF2",
+          "offset": 7109,
+          "length": 122,
+          "sha256": "ac2feb140d06045f11dded14b3087927dbb0514389284bcaf598008665b0797b"
+        }
+      ]
+    }
+  ],
+  "decoded_save_fields": [
+    {
+      "mode": "Modern",
+      "before": {
+        "save": "ce-m3-shadow-checkpoint3\\20261016-133758\\saves\\nox-ce-ed5939a032719adcfecdf986a9261c4a-042605b2b48e017e5863d5c2f6433991-slot002.g1",
+        "save_sha256": "3d63c7b5b7a2a0aff40a3181de11ea40a01389d5c2e4c01b677d15bbc4ee14c4",
+        "runtime_sha256": "b2b30a78c170243cd54d91d9c5aeea39f5537a9cb2ae710dd9d8ae2d8691ceda",
+        "generation": 14,
+        "slot": 2,
+        "PC": 29148,
+        "SP": 255,
+        "alternate": 0,
+        "stack_return": 0,
+        "map": 0,
+        "map_type": 0,
+        "xy": [
+          152,
+          176
+        ],
+        "pageflags": 255,
+        "research": 67,
+        "transport_flags": 129,
+        "keyflag_040F": 16,
+        "keyflag_0410": 63,
+        "party_count": 1,
+        "status": 0,
+        "level": 10,
+        "health": 125,
+        "maximum_health": 125,
+        "mana": 110,
+        "inactive": 0,
+        "STR_DEX_INT": [
+          8,
+          14,
+          110
+        ],
+        "Range": 64,
+        "Range_training_remaining": 0,
+        "weapon_range_bytes": [
+          193,
+          240
+        ],
+        "spell_slot1": 12,
+        "spell_quantity": 1,
+        "Ankh_quantity": 0,
+        "key_quantity": 2,
+        "staff_quantity": 1,
+        "enemy_health": 0,
+        "encounter_sprite": 170,
+        "ending_loop": 0
+      },
+      "after": {
+        "save": "ce-m3-shadow-checkpoint3\\20261016-133758\\saves\\nox-ce-ed5939a032719adcfecdf986a9261c4a-042605b2b48e017e5863d5c2f6433991-slot001.g1",
+        "save_sha256": "dd8f85a2a4598cf2ce6846861d7f1d29c721d3eeb5b3d7cab84c9592031821e0",
+        "runtime_sha256": "6a8947b3a97db30498277695cbba3c0aa3dbce43787a79efbb39bd826c35b8af",
+        "generation": 62,
+        "slot": 1,
+        "PC": 29148,
+        "SP": 255,
+        "alternate": 0,
+        "stack_return": 0,
+        "map": 0,
+        "map_type": 0,
+        "xy": [
+          152,
+          175
+        ],
+        "pageflags": 255,
+        "research": 67,
+        "transport_flags": 129,
+        "keyflag_040F": 16,
+        "keyflag_0410": 63,
+        "party_count": 1,
+        "status": 0,
+        "level": 10,
+        "health": 125,
+        "maximum_health": 125,
+        "mana": 110,
+        "inactive": 0,
+        "STR_DEX_INT": [
+          8,
+          14,
+          110
+        ],
+        "Range": 64,
+        "Range_training_remaining": 0,
+        "weapon_range_bytes": [
+          193,
+          240
+        ],
+        "spell_slot1": 12,
+        "spell_quantity": 1,
+        "Ankh_quantity": 0,
+        "key_quantity": 2,
+        "staff_quantity": 1,
+        "enemy_health": 0,
+        "encounter_sprite": 170,
+        "ending_loop": 0
+      },
+      "flags43B_before": 6,
+      "flags43B_after": 7,
+      "private_image_before_sha256": "6ff3f621d2aa79fc577beba9d337c660482ba7ddc233aa82e1bce3afd34533c8",
+      "private_image_after_sha256": "87397c5b3faac774d5318650b344b12e20f9bec3b1565cd0a3a74b5e5116cf92"
+    },
+    {
+      "mode": "Classic",
+      "before": {
+        "save": "ce-m3-shadow-checkpoint3-classic\\20261016-133810\\saves\\nox-ce-ed5939a032719adcfecdf986a9261c4a-6054b13e9725bf9dbe77e407e868d5d4-slot002.g1",
+        "save_sha256": "dd5e5470294fcf5139a0613f3d5645046fa5125f095c0f1b228519a22737f06f",
+        "runtime_sha256": "b2b30a78c170243cd54d91d9c5aeea39f5537a9cb2ae710dd9d8ae2d8691ceda",
+        "generation": 14,
+        "slot": 2,
+        "PC": 29148,
+        "SP": 255,
+        "alternate": 0,
+        "stack_return": 0,
+        "map": 0,
+        "map_type": 0,
+        "xy": [
+          152,
+          176
+        ],
+        "pageflags": 255,
+        "research": 67,
+        "transport_flags": 129,
+        "keyflag_040F": 16,
+        "keyflag_0410": 63,
+        "party_count": 1,
+        "status": 0,
+        "level": 10,
+        "health": 125,
+        "maximum_health": 125,
+        "mana": 110,
+        "inactive": 0,
+        "STR_DEX_INT": [
+          8,
+          14,
+          110
+        ],
+        "Range": 64,
+        "Range_training_remaining": 0,
+        "weapon_range_bytes": [
+          193,
+          240
+        ],
+        "spell_slot1": 12,
+        "spell_quantity": 1,
+        "Ankh_quantity": 0,
+        "key_quantity": 2,
+        "staff_quantity": 1,
+        "enemy_health": 0,
+        "encounter_sprite": 170,
+        "ending_loop": 0
+      },
+      "after": {
+        "save": "ce-m3-shadow-checkpoint3-classic\\20261016-133810\\saves\\nox-ce-ed5939a032719adcfecdf986a9261c4a-6054b13e9725bf9dbe77e407e868d5d4-slot001.g1",
+        "save_sha256": "3f6c99772e89ce5d78803bfd390abfa0fe383ec128077e851f0cb2589cfa9580",
+        "runtime_sha256": "6a8947b3a97db30498277695cbba3c0aa3dbce43787a79efbb39bd826c35b8af",
+        "generation": 62,
+        "slot": 1,
+        "PC": 29148,
+        "SP": 255,
+        "alternate": 0,
+        "stack_return": 0,
+        "map": 0,
+        "map_type": 0,
+        "xy": [
+          152,
+          175
+        ],
+        "pageflags": 255,
+        "research": 67,
+        "transport_flags": 129,
+        "keyflag_040F": 16,
+        "keyflag_0410": 63,
+        "party_count": 1,
+        "status": 0,
+        "level": 10,
+        "health": 125,
+        "maximum_health": 125,
+        "mana": 110,
+        "inactive": 0,
+        "STR_DEX_INT": [
+          8,
+          14,
+          110
+        ],
+        "Range": 64,
+        "Range_training_remaining": 0,
+        "weapon_range_bytes": [
+          193,
+          240
+        ],
+        "spell_slot1": 12,
+        "spell_quantity": 1,
+        "Ankh_quantity": 0,
+        "key_quantity": 2,
+        "staff_quantity": 1,
+        "enemy_health": 0,
+        "encounter_sprite": 170,
+        "ending_loop": 0
+      },
+      "flags43B_before": 6,
+      "flags43B_after": 7,
+      "private_image_before_sha256": "6ff3f621d2aa79fc577beba9d337c660482ba7ddc233aa82e1bce3afd34533c8",
+      "private_image_after_sha256": "87397c5b3faac774d5318650b344b12e20f9bec3b1565cd0a3a74b5e5116cf92"
+    }
+  ],
+  "ce_processes": 4,
+  "cold_processes": 2,
+  "controlled_checkpoint": "VERIFIED",
+  "linked_gameplay_progression": "VERIFIED",
+  "earned_continuous_progression": "NOT STARTED",
+  "full_new_game_to_ending": "NOT STARTED",
+  "first_Shadow_encounter": "NOT STARTED",
+  "build": {
+    "log": "ce-m3-shadow-checkpoint-build-3.log",
+    "result": "PASS,0 warnings/errors,00:02:39.06"
+  },
+  "limitations": [
+    "Controlled authored57->58->54->surface route and source-valid outside152,176 tile77 only, before actual Up to152,175 tile0. No early43B01/NPC/reward outcome initialized.",
+    "Source FA1D..FA44 sets43B01 then invokes original8E0D/FE95 private save helper. Observed exactly1 legacy entry, returnFEA5,A50/X50,map0; original private image changes. CE explicit full-runtime snapshot remains authoritative, not original slot.",
+    "Decoded source fixture manifests bind exact verified predecessor save/private sectors and validate relevant tiles against owned source; valid retained sectors differ from pristine active MAP.SURF bytes. Both compressed blocks exactly occur in owned DATA.MAP.SURF2. No guessed map-version interpretation or full-geometry equivalence claimed.",
+    "Initial wrong return route and overly strict pristine compression guards failed before outside relocation; retained/excluded. First actual Shadow confrontation remains separate NOT STARTED."
+  ],
+  "source_archive": {
+    "path": "ce-m3-shadow-checkpoint3-source.zip",
+    "sha256": "62fcd904af2a14fdf2b799a7cac1994ca3b20be993bdeb07e785b356f9b34118"
+  },
+  "preserved_executable": {
+    "path": "ce-m3-guardian6-binary\\scummvm-shadow-checkpoint3.exe",
+    "sha256": "ea90a3011b266e9856f0a44ef9f342df45a3c2938c033f68f28e7270ba5f7681"
+  }
+}

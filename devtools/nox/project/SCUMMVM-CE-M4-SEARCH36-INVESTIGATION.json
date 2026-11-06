@@ -1,0 +1,20 @@
+{
+  "status": "VERIFIED",
+  "scope": "Reference fixture correction and evidence interpretation; native Search reward exact-byte acceptance unchanged",
+  "resolved": [
+    "Initial private reference incorrectly replaced map records at the save-aside service. Corrected to save aside first, load the real inventory at its resource descriptor, then restore the map after inventory persistence. No incorrect reference was accepted by CE.",
+    "Reference metadata outcome counts82 awards/53 capacity were inferred from inventory byte changes. A successful grant of an unlimited255 stack leaves its bytes unchanged. These inferred outcome labels are not semantic counts. The actual compiled native trace reports111 awards,135 repeats,24 capacity; all270 complete object/field/inventory outputs match independently executed original results."
+  ],
+  "retained_reference": {
+    "path": "ce-m4-search-reward-reference/metadata.json",
+    "sha256": "15b0a1adbf7e99d5d59c1165c58435bb06ee07cc47a03d8dac6787ae529e7543"
+  },
+  "exact_byte_proof": {
+    "path": "ce-m4-native-search-reward36-tests\\native-core-verification.json",
+    "sha256": "530701393b8eb7910ccb63048b70f002f9f6c16917d56662b098113345188f5d"
+  },
+  "remaining": [
+    "Original no-free-slot fatal path excluded explicitly; no claim of bounded original refusal or complete Search acceptance.",
+    "Lock/trap, ordinary loot, normal command scheduling and campaign integration remain required."
+  ]
+}

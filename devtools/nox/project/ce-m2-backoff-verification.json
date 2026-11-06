@@ -1,0 +1,46 @@
+{
+  "status": "VERIFIED",
+  "task": "M2.4e1",
+  "scope": "Observed429 bounded reproduction; numeric/date durable cooldown and cold same-signed-request resumption; default429 cold hold; permanent401/409/422; actual Modern/Classic save/session regression",
+  "executable_sha256": "231eeb5231bdfc688946cf108e5acaf2f8a5af425c41e3d2619cb9c63e5a9bdb",
+  "build": {
+    "session": 49595,
+    "warnings": 0,
+    "errors": 0,
+    "elapsed": "00:02:35.38",
+    "log": "nox-m2-backoff-viewport-scope-build.out.log"
+  },
+  "reports": [
+    {
+      "path": "ce-m2-backoff-final/20261015-190700/verification.json",
+      "sha256": "4729f7e2bf6ca18669edf404fa2cccd392d614d0696cf9fd06c011b056bceb62"
+    },
+    {
+      "path": "ce-m2-backoff-final-gameplay-modern/20261015-190545/verification.json",
+      "sha256": "9bec6b8c86ac06a6669c3498374f322829b20259c6575d2d19cf0e6eb969bfbb"
+    },
+    {
+      "path": "ce-m2-backoff-final-gameplay-classic/20261015-190623/verification.json",
+      "sha256": "c9a2e9503d6b8e02b176a7b7ec5ee0032bf93c6bdda0b04825720e27583f02db"
+    },
+    {
+      "path": "ce-m2-backoff-before/20261015-184818/verification.json",
+      "sha256": "48e7498214f9ec7e0643f9a52fb08f1a4958de1691425ea9df1dfca0e4527905"
+    }
+  ],
+  "source_sha256": {
+    "engines/ce_achievements.h": "8960db0bec0716c1af08cfa189d6bc21018adeebd30b48fc98c693f836ca2d54",
+    "engines/ce_achievements.cpp": "0f44a178a365ed3a92b0da7885ca9de7b355b0dcff8b41a8cf607cd3186fac5f",
+    "engines/nox/backoff_validation.h": "7362aace99ec706f40295446abc3a9b41bb2ed2f841f89c61ed4f20a7c18b760",
+    "engines/nox/history_validation.h": "5601beeb58e2f8babad090e45369e3d3249e8d409d4e69db2ca3fad847c21b88",
+    "engines/nox/host_validation.h": "58f0082264e78c366b05e8a0999b0dcdde8e147160dc3be543042af2ab1da7a9",
+    "devtools/nox/test_backoff.py": "8efe8d00de6111018f9b1e660d502e5f43be5bf10280814d945870715374a644"
+  },
+  "final_loopback_requests": 8,
+  "hermesbox_requests": 0,
+  "before_interval_seconds": 0.07339649999630637,
+  "retry_intervals_seconds": {
+    "numeric": 15.022059800015995,
+    "http-date": 15.31440209998982
+  }
+}

@@ -1,0 +1,203 @@
+{
+  "status": "VERIFIED",
+  "milestone": "M4",
+  "scope": "Controlled native Nystul conversation phase and opening rule units; not physical NPC admission or complete normal engine integration",
+  "unit": {
+    "status": "VERIFIED",
+    "scope": "Native rule/data/owner units inside CE before Runtime construction; not ordinary native gameplay or M4 completion",
+    "command": [
+      "C:\\Program Files\\Python313\\python.exe",
+      "D:\\Codex Projects\\scummvm-private\\scummvm-private-feature-usable-desktop-window-layout-git\\devtools\\nox\\test_resources.py",
+      "--exe",
+      "D:\\Codex Projects\\scummvm-private\\scummvm-private-feature-usable-desktop-window-layout-git\\build-scummvm\\Releasex64\\scummvm.exe",
+      "--base",
+      "D:\\Codex Projects\\Nox Archaist\\Nox Archaist HDV (v119).HDV",
+      "--expansion",
+      "D:\\Codex Projects\\Nox Archaist\\Nox Archaist Lord of Storms HDV (v137).HDV",
+      "--artifacts",
+      "conversion\\ce-m4-native-conversation10-tests",
+      "--native-video",
+      "--native-dialogue-oracle",
+      "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-dialogue-effects-reference",
+      "--native-inventory-oracle",
+      "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-inventory-reference",
+      "--native-dialogue-selection",
+      "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-dialogue-selection-reference",
+      "--native-dialogue-openings",
+      "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-dialogue-opening-reference",
+      "--native-conversation",
+      "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-conversation-reference"
+    ],
+    "resource_report": "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-native-conversation10-tests\\20261017-021940\\verification.json",
+    "gate_counts": {
+      "maps": "76",
+      "keyed": "38",
+      "compound": "5",
+      "plates": "14",
+      "portals": "57",
+      "cases": "337",
+      "ownership": "semantic-unit-only"
+    },
+    "executable_sha256": "2059e6404b8f39ad40296a3c78f951670b86caee78f7e37b7dd968579ee3a0b1",
+    "source_sha256": {
+      "native_clock.h": "f270eec76b75e96bbac284a25e57ca9738135af908491f4c080f968d3112ac5e",
+      "native_clock_validation.h": "120dbfa2811a977de961e35bda27da9fc96d3eb816b613ffaf3e016e4dc6ebf6",
+      "native_conversation.h": "09ba36042461a1f35d23a7795790eb3808a84f1843fdc78f394aed54325b1c20",
+      "native_conversation_validation.h": "0946ddb22f51d645a489819d957fea8542decf607557d8d62d5bc849c68fdf32",
+      "native_dialogue.h": "e0117b66dfd59bd02fd25efeac34076a95548676a60713b152f828d9c4aa8aea",
+      "native_dialogue_rules.h": "a16e964c0f05c3f415c80493502ff2418b83ad59b4d193810e6dadb1c9c6f222",
+      "native_dialogue_rules_validation.h": "2ae4331c01e853dcf3d482fe8150c1e0633c84f8baa4c427ad3e1dd86391a2ab",
+      "native_dialogue_validation.h": "816d99c7a8bbe1b87d900c186382cf9621f4904254aa0967e679e4ccf80ae484",
+      "native_gates.h": "3c19eeaa79877c589db5f2de13ceb826ce42437e4cae6032b80d46c2859f2b85",
+      "native_gates_validation.h": "0789ab31cb010bfa0750a2db2ee37d8976fa8ef7c74678ec87f5671a00dba50e",
+      "native_inventory.h": "551a385c1956fc65869cd6d022fed62ffeb5836494a9acacbea0065b336fdf81",
+      "native_inventory_validation.h": "0a71c10489d6aab34db5dfa24658a956ca1a70be03047c15b150ec45dfedc449",
+      "native_lz.h": "dea03488b3f6073389d2028b2ecc2a3420e7df63d550ea559746b7f691fb11f2",
+      "native_maps.h": "cb8d89622295405cbee3cd2e6206813385aea94ba480918bda005a02eeb7c91a",
+      "native_maps_validation.h": "83f6bcc201b5c6f57d24227ca4ecc15dce90b7b10a1af13a5464ed7d754874db",
+      "native_world.h": "4713787fd388623a6380fcd4da12f8eee9c053a291c0daf2dfac911fbb2b0ba9",
+      "native_world_validation.h": "53412acf08cdce63f19898313caf0554072b088ba44f92e946f5c12779ac744e"
+    },
+    "native_only_gameplay": "NOT STARTED",
+    "earned_native_campaign": "NOT STARTED",
+    "actual_compiled_native_units": [
+      "native_gates.h",
+      "native_gates_validation.h",
+      "native_conversation.h",
+      "native_conversation_validation.h",
+      "native_inventory.h",
+      "native_inventory_validation.h",
+      "native_maps.h",
+      "native_maps_validation.h",
+      "native_lz.h",
+      "native_dialogue.h",
+      "native_dialogue_validation.h",
+      "native_clock.h",
+      "native_clock_validation.h",
+      "native_dialogue_rules.h",
+      "native_dialogue_rules_validation.h",
+      "native_world.h",
+      "native_world_validation.h"
+    ],
+    "dialogue_openings": {
+      "status": "VERIFIED",
+      "trace": "native-dialogue-openings\tcases=1317\tmatched=1025\teligible=1025\townership=semantic-unit-only",
+      "oracle_sha256": {
+        "metadata.json": "c09de5574d1253925856c0cd99583174d5b36b6a341b58faa06c965a42ec420e",
+        "input.bin": "520bdf92727fe6b235c41015bb46e00dc2c3db8b37f8868139c90bacedd6a29b",
+        "expected.bin": "d2d3c5cc59351892402e31812a026af381a48c8909059d88f5d0ab22656d531f"
+      }
+    },
+    "conversation": {
+      "status": "VERIFIED",
+      "trace": "native-conversation\tcases=2\tactual_replies=6\tauthored_fields=66\tfull1536_inventory=1\texit_award=1\tlinked_repeat=1\tclosed_replay_refused=1\townership=controlled-semantic-phase",
+      "scope": "Controlled native Nystul reply/effect/exit award and retained repeat/refusal versus actual M3 states. Physical admission, UI, journal publishing, save integration and earned campaign excluded.",
+      "oracle_sha256": {
+        "metadata.json": "3dc362566b45ceeb12e7c81806058d3380748d48d4856fecba5531df18808d36",
+        "input.bin": "8f3abc6c690da25d187376eb1fc1150639784c80f0f2d9cd278a2ecb17b1cd7e"
+      }
+    },
+    "dialogue_selection": {
+      "status": "VERIFIED",
+      "trace": "native-dialogue-selection\tcases=16902\tmatched=11700\teligible=11700\townership=semantic-unit-only",
+      "scope": "First eligible original response from declaration and packet start, including continuation past ineligible matches; effects, presentation and NPC services excluded",
+      "oracle_sha256": {
+        "metadata.json": "9dcd86de4c97711a45d8271131af2f51cac453bf75f0a8272f4cd7c135471ee7",
+        "input.bin": "7fb37afbc97da36a433648e077e3b517530c85f0be3043dc8d27fbd9d65df6b7",
+        "expected.bin": "3e6914b69c6f4cc5c7123353724c220a00488173a9950a997ed0aadd35e5df38"
+      }
+    },
+    "inventory": {
+      "status": "VERIFIED",
+      "trace": "native-inventory\tactual_m3_handoffs=4\tfull1536_comparison=1\tlinked_stacks=1\tunlimited=1\tatomic_refusal=1\tgold=1\texit_handoff=1\townership=semantic-unit-only",
+      "scope": "Four exact inventory results versus frozen actual M3 Ankh/Nox Vortex awards, linked stacks and controlled rule boundaries. Full dialogue/services/new-game integration unverified.",
+      "oracle_sha256": {
+        "metadata.json": "04faed94cefcdd8984afdb15044e60b6681750eaff647d859f6e5891fe742d46",
+        "input.bin": "b04170e2c6cf428e6ea166d769a6e8b3e9147e7bbebcd62e410b83cb76df7b92"
+      }
+    },
+    "maps": {
+      "count": 76,
+      "decoded_sectors": 2660,
+      "terrain_metadata_and_state_tables": "VERIFIED"
+    },
+    "dialogue": {
+      "status": "VERIFIED",
+      "packets": 439,
+      "identity_and_full_contents": "VERIFIED",
+      "quest_matching_and_effects": "NOT STARTED"
+    },
+    "clock": {
+      "status": "VERIFIED",
+      "trace": "native-clock\thalf_turns=2880\tminutes=1440\thours=24\tmidnight=1\toriginal_light_expiry=1\towner=rule-unit-only",
+      "normal_scheduler_integration": "NOT STARTED"
+    },
+    "dialogue_rules": {
+      "status": "VERIFIED",
+      "trace": "native-dialogue-rules\tcases=8451\tmatched=8436\teligible=4906\townership=semantic-unit-only",
+      "scope": "Matching, typed metadata and eligibility versus local legacy semantic oracle; quest-service side effects and normal conversation integration unverified",
+      "oracle_sha256": {
+        "metadata.json": "ab0fc4c3d58dd301070f6c1ebb8251a8165ce003a0db79c2544df13457d58e99",
+        "input.bin": "ec72e73f2e9fb93befbcdd26e765d4791ccd792e85ca101fbeeda8f28f17310e",
+        "expected.bin": "744ae4cf939458317e1d825ad77184d948b5837248b87e7cd395999c40c96b9e"
+      }
+    },
+    "dialogue_field_transactions": {
+      "status": "IN PROGRESS",
+      "compared": 8449,
+      "unsupported": 2,
+      "trace": "native-dialogue-effects\tcompared=8449\tunsupported=2\tfull_field_comparison=1\tatomic_rejection=1\townership=semantic-unit-only",
+      "scope": "8449 contexts compare complete256 fields; two malformed original table-spill effects explicitly rejected without partial mutation and remain unverified for native gameplay",
+      "effects_sha256": "0231b38fbb4c1990d18deecd0f34fb48a005b47f3da58071273e74e6dbb020a4"
+    },
+    "world": {
+      "status": "VERIFIED",
+      "scope": "Native World operations/serialization only; no ordinary input/rendered gameplay claim",
+      "warm": "native-world\tphase=warm\tkey_refusal=1\tactual_open=1\tcontrol_reversal=1\tportal=1\tmulti_map_restore=1\tatomic_rejection=1\tcpu_execution=0",
+      "cold": "native-world\tphase=cold\tmap=54\tnative_open_retained=1\tcpu_execution=0",
+      "cold_argv": [
+        "D:\\Codex Projects\\scummvm-private\\scummvm-private-feature-usable-desktop-window-layout-git\\build-scummvm\\Releasex64\\scummvm.exe",
+        "--gfx-mode=surfacesdl",
+        "--config=D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-native-conversation10-tests\\native-cold\\cold.ini",
+        "--savepath=D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-native-conversation10-tests\\native-cold\\saves",
+        "--logfile=D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-native-conversation10-tests\\native-cold\\engine.log",
+        "nox-resource-test"
+      ],
+      "cold_exit": 0,
+      "input_state_sha256": "10b54f5b6bcd6b4e07af9b6ff1ea97a29ce3c0b60afb0cd847dc599a0294b98d",
+      "controlled_initialization": "Source-valid world profiles and authorization BEFORE native operations; no earned Search/key award or full party initialization claim"
+    },
+    "artifacts": {
+      "native-core-warm.tsv": "8d9460bfce40e74a36af6123d12fb9788dd19f446f399086ec19c3f1b29cb462",
+      "native-cold\\saves\\nox-native-world-state.bin": "10b54f5b6bcd6b4e07af9b6ff1ea97a29ce3c0b60afb0cd847dc599a0294b98d",
+      "native-cold\\saves\\nox-resource-validation.tsv": "b9584ed692338183fc9ed0d5947f2e844f4a110a739904e21110825ed1cc6d26",
+      "native-cold\\cold.ini": "f73cfef13c8cbd03ec21c279043f517c72e1d5cb9c7efdc491691cd3731a88cd"
+    }
+  },
+  "source_archive": {
+    "path": "ce-m4-conversation10-source.zip",
+    "sha256": "43472711a565b033e4308017840a4653baae0e51944f20561902e827a23c49a7"
+  },
+  "preserved_executable": {
+    "path": "ce-m4-binary\\scummvm-conversation10.exe",
+    "sha256": "2059e6404b8f39ad40296a3c78f951670b86caee78f7e37b7dd968579ee3a0b1"
+  },
+  "build": {
+    "log": "ce-m4-native-conversation-build10.log",
+    "sha256": "c40db342fc1f24020ad425aa76ab18578a0a3af4bcd3df66272200baae90a8aa",
+    "result": "PASS0/0,00:03:59.47"
+  },
+  "controlled_initialization": "Actual retained M3 pre-binding flags/inventory; source-supported map104/NPC16 context and service access before native opening. No bound flag/book/reply initialized.",
+  "linked_progression": "Native opening selection -> binding flag -> explicit conversation exit award -> retained native state -> new admission -> repeat opening -> BIND default refusal -> no duplicate award.",
+  "evidence_scope": [
+    "Two historical modes provide6 exact actual captured reply strings/recognition results,66 authored/request fields and all1536 inventory bytes.",
+    "1317 original opening contexts across439 packets match1025 eligible selections; all previous regressions pass.",
+    "Terminal reply does not award until explicit exit; closed conversation cannot award again."
+  ],
+  "limitations": [
+    "Physical admission, scheduling, travel, UI acknowledgement/farewell, journal events and complete native saving remain unverified.",
+    "Substitution/probability controls, recruitment, commerce/world/battle callbacks remain explicitly unsupported without partial reply effects.",
+    "Two malformed JOB effects remain open. Original travel scratch77..79 excluded from this semantic phase comparison.",
+    "Normal runtime remains interpreter-owned; native-only earned campaign and interpreter-disabled release NOT STARTED."
+  ]
+}

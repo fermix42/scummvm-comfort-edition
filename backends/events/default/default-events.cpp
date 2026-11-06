@@ -244,8 +244,11 @@ bool DefaultEventManager::pollEvent(Common::Event &event) {
 				CEPlaythroughExitDialog alert(true);
 				const bool accepted = alert.runModal() == GUI::kOKCmd;
 				forwardEvent = _shouldReturnToLauncher = accepted;
-				if (accepted && alert.markComplete())
-					Common::CEAchievements().endActivePlaythrough("completed");
+				if (accepted && alert.markComplete() && !Common::CEAchievements().endActivePlaythrough("completed")) {
+					forwardEvent = _shouldReturnToLauncher = false;
+					GUI::MessageDialog failed(_("Could not complete the Play Session. The game will remain open."));
+					failed.runModal();
+				}
 			}
 			_confirmExitDialogActive = false;
 		} else if (g_engine && !g_engine->hasFeature(Engine::kSupportsQuitDialogOverride) && ConfMan.getBool("confirm_exit")) {
@@ -285,8 +288,11 @@ bool DefaultEventManager::pollEvent(Common::Event &event) {
 				CEPlaythroughExitDialog alert(false);
 				const bool accepted = alert.runModal() == GUI::kOKCmd;
 				forwardEvent = _shouldQuit = accepted;
-				if (accepted && alert.markComplete())
-					Common::CEAchievements().endActivePlaythrough("completed");
+				if (accepted && alert.markComplete() && !Common::CEAchievements().endActivePlaythrough("completed")) {
+					forwardEvent = _shouldQuit = false;
+					GUI::MessageDialog failed(_("Could not complete the Play Session. The game will remain open."));
+					failed.runModal();
+				}
 			}
 			_confirmExitDialogActive = false;
 		} else if (g_engine && !g_engine->hasFeature(Engine::kSupportsQuitDialogOverride) && ConfMan.getBool("confirm_exit")) {

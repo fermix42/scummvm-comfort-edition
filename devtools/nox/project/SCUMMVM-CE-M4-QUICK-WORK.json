@@ -1,0 +1,117 @@
+{
+  "status": "IN PROGRESS",
+  "scope": "Full native forced-Quick supported victory workflow;all original Quick/ship/cannon branches remain required",
+  "build": "299",
+  "executable_sha256": "ebbd23a1585ed83df64f43b9999c58464164d86a746b0b89dd0f0234571635cd",
+  "native_evidence": {
+    "ce-m4-quick294-pipeline\\verification.json": "54c91b4655287b5d03c6fc600c09f8dde7ff3ff37b624a88cb85e0312d20414c",
+    "ce-m4-quick294-workflows\\verification.json": "96794066ea1f02cc02905360039eae0d158c0a7635166a73d1ea4c2db4464877",
+    "ce-m4-general294\\verification.json": "84ba95356225e3877b8e73f6ba068bfa97eff46113d96c56cf9864bdae91dd1f"
+  },
+  "verified": {
+    "status": "VERIFIED",
+    "scope": "Original full3/6-party prepare/battle/restore records and RNG;actual forced-Quick victory/any-key/results/all-member settlement/loot/world/next input;pending2-action fresh-process and full uninterrupted/cold identity",
+    "actual_Quick_CE_invocations": 12,
+    "ordinary_CE_invocations": 10,
+    "snapshot_schema": "Quick NBTS12;ordinary still11;read1..12",
+    "visual": "Six-party actual Quick victory frame inspected,functional authored victory/press-key text with native pane spacing"
+  },
+  "original": {
+    "full_battles": "combat-contract-research/quick-battle-reference7/input-provenance.json",
+    "adapter_audit": "combat-contract-research/quick-battle-reference8/metadata.json",
+    "adapter_audit_sha256": "fa9798b30b93557cd22484f34b337c3f4dffa7ae025c0d8576e67607bdf54f7c",
+    "physical_context": "combat-contract-research/quick-physical-reference/metadata.json",
+    "physical_context_cases": 960,
+    "physical_native_matrix": "VERIFIED:960 full record/RNG/credit comparisons on297..299",
+    "note": "Adapter-audit outputs equal accepted source7 exactly;coordinate conversion executes original,gameplay89F2 not adapted;only typed transport,bank service and inspected presentation adapted."
+  },
+  "remaining": [
+    "General parent/multi-enemy/mixed-level/all roster and supported exceptional mode callers",
+    "Forced-mode retained067D difficulty-context lifetime;Ask recomputation is qualified",
+    "Original grouped Quick visuals/animation/audio and ordinary CE preference/menu/save/session integration",
+    "Transport/cannons and general-world/large/offscreen/status/special campaign returns",
+    "Native-only release and earned native campaign/ending acceptance"
+  ],
+  "next_action": "Connect remaining general world ordered actor consumers: source-qualified cache-near offscreen AI and retained viewport-cell lifetime,large/clipped world actors and cache-edge transitions;then general parent/campaign/transport/cannon/status integration and W6-W8 normal CE audiovisual/save/session/native-only earned acceptance. Preserve303 actual surface tactical/Quick/flee/grace/return lineage;do not repeat completed tests without relevant drift.",
+  "current_evidence": {
+    "ce-m4-mode299-pipeline\\verification.json": "a085a93c359301ef4189893d17c165135a7c4b7185cb9ae852df2ce5e92f72ed",
+    "ce-m4-mode299-workflows\\verification.json": "60d2f64baf62bfbd5befd0a6296631849b0bdb73bb0ae592f09f55ccf9fafe7f",
+    "ce-m4-quick299-defeat\\verification.json": "818e151e97ec4bf874ab2defa64dbbb6ecbef98878e5219f341064ad114e75fc"
+  },
+  "enemy_defeat": {
+    "status": "VERIFIED",
+    "source": "combat-contract-research/quick-battle-reference9/input-provenance.json",
+    "diagnostic_source": "combat-contract-research/quick-battle-reference10/metadata.json",
+    "actual": "ce-m4-quick296-defeat/verification.json",
+    "actual_invocations": 4,
+    "scope": "50actual Quick actions,10enemy spell turns,MP doubling/saturation,party-list promotions,6real deaths,source-full-record/RNG equality,cold5-action continuation and terminal cold input;no results/rewards/world transition"
+  },
+  "skill_promotion_fix": {
+    "status": "VERIFIED",
+    "failed": "ce-m4-quick295-defeat/original-comparison.json",
+    "source_trace": "combat-contract-research/quick-battle-reference10/metadata.json",
+    "trigger": "Action36 preflight skill8;practice promotes9;source reloads9 before critical damage:power17*2+9*4-armor69=1. Native cached8 and dealt0.",
+    "fix": "Shared physical damage reloads post-practice skill;hit/critical eligibility retains earlier skill. No RNG or expected-output changes.",
+    "result": "All three whole Quick source cases55actions,per-step metadata snapshots,broad ordinary matrices and actual enemy/defeat workflow pass296."
+  },
+  "failures": [
+    {
+      "scope": "enemy admission source driver",
+      "failure": "Guessed sprite252 implied template136;actual descriptor correctly selects134",
+      "resolution": "Correct source-derived assertion toHP113/MP84/level4;exact completed native operation reused via receipt;no engine/input/outcome change"
+    },
+    {
+      "scope": "295 full Quick source differential and actual engine",
+      "failure": "Only enemyHP byte differed1 after50actions;allother records/RNG/actioncounts exact",
+      "resolution": "Trace actual source skill promotion and fix shared post-practice critical damage;source expected bytes unchanged"
+    },
+    {
+      "build": "298",
+      "scope": "Mode-choice driver and warning",
+      "failure": "Driver compared newly appended schema fields to older247 snapshot;one local quick variable shadow warning",
+      "resolution": "Compare stable full record region and unchanged RNG/action count;reuse exact completed invocation receipt;rename local presence byte.299 clean build and13actual workflows pass. No expected gameplay outcome changed."
+    }
+  ],
+  "active_experiment": {
+    "status": "VERIFIED",
+    "build": "299",
+    "scope": "Source mode policies/native Ask controller and pending mode context joined through T/Q battle/results/world and actual enemy/defeat/cold",
+    "counts": {
+      "mode_gates": 10240,
+      "input_choices": 80,
+      "difficulty_contexts": 4800,
+      "Quick_physical": 960,
+      "complete_original_Quick_battles": 3,
+      "complete_Quick_actions": 55,
+      "current_actual_mode_invocations": 9,
+      "current_actual_enemy_invocations": 4
+    },
+    "evidence": {
+      "ce-m4-mode299-pipeline\\verification.json": "a085a93c359301ef4189893d17c165135a7c4b7185cb9ae852df2ce5e92f72ed",
+      "ce-m4-mode299-workflows\\verification.json": "60d2f64baf62bfbd5befd0a6296631849b0bdb73bb0ae592f09f55ccf9fafe7f",
+      "ce-m4-quick299-defeat\\verification.json": "818e151e97ec4bf874ab2defa64dbbb6ecbef98878e5219f341064ad114e75fc"
+    }
+  },
+  "mode_policy_297": {
+    "status": "VERIFIED",
+    "evidence": "ce-m4-quick297-pipeline/verification.json",
+    "counts": "10240gates/80choices/4800advice/960Quickphysical plus3wholeQuick55actions"
+  },
+  "mode_selection": {
+    "status": "VERIFIED",
+    "scope": "Actual authored warning/Q-T prompt;free invalid/Escape/hidden-debug input;T battle/world;Q/two-action cold/source-matched victory/results/world;full cold/uninterrupted packet equality",
+    "snapshot": "NMDS1 in NBTS13;ordinary11,forcedQuick12 and reads1..13 retained",
+    "visual": "Source warning/Q-T prompt inspected on298;native pane preserves words and adapts blank spacing",
+    "source": "combat-contract-research/quick-mode-reference2/metadata.json"
+  },
+  "surface303": {
+    "status": "VERIFIED",
+    "checkpoint": "SCUMMVM-CE-M4-SURFACE303-CHECKPOINT.json",
+    "evidence": {
+      "ce-m4-surface303-workflows/verification.json": "1b4dd99f46d88d635b23b98666129ed73f1d443fcb39a2677004a67f0ab95c98",
+      "ce-m4-grace303-workflows/verification.json": "4f10778b7c944d90c3beeb82f68810ef8c8193111d88d517be410324c172faaf",
+      "ce-m4-pipeline303/verification.json": "951b09ce3d29b2ee551c549d144c4bfa70b6507aafe3f224ceb08655f953b7f8",
+      "ce-m4-world303/native-core-verification.json": "24f020a3d7f6b04fe7b3e180dc104547ef415dd3a09b280f237d0d744980a623"
+    }
+  }
+}

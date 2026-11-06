@@ -1204,6 +1204,15 @@ void SurfaceSdlGraphicsManager::updateScreen(SDL_Rect *dirtyRectList, int actual
 }
 
 void SurfaceSdlGraphicsManager::internUpdateScreen() {
+	// A target's graphics-mode transaction can request a redraw before its
+	// engine has called initSize(). There is no framebuffer to present yet.
+	// Restrict this to the pristine pre-init state; retain real surface errors
+	// after a size was requested or a graphics mode was established.
+	if (!_videoMode.setup && !_videoMode.screenWidth && !_videoMode.screenHeight &&
+	    !_screen && !_tmpscreen && !_hwScreen) {
+		debug(1, "Surface SDL: deferring redraw before initial graphics size");
+		return;
+	}
 	SDL_Surface *srcSurf, *origSurf;
 	int height, width;
 	int scale1;
@@ -1384,7 +1393,7 @@ void SurfaceSdlGraphicsManager::internUpdateScreen() {
 			dst.y += _maxExtraPixels;	// any pixel to scale it, and we want to avoid mem access crashes.
 
 			if (!blitSurface(origSurf, r, srcSurf, &dst))
-				error("SDL_BlitSurface failed: %s", SDL_GetError());
+				error("SDL_BlitSurface failed in dirty-rect copy (overlay=%d, source=%p, destination=%p): %s", _overlayVisible, (void *)origSurf, (void *)srcSurf, SDL_GetError());
 		}
 
 		SDL_LockSurface(srcSurf);
@@ -1989,7 +1998,7 @@ void SurfaceSdlGraphicsManager::clearOverlay() {
 	src.w = dst.w = _videoMode.screenWidth;
 	src.h = dst.h = _videoMode.screenHeight;
 	if (!blitSurface(_screen, &src, _tmpscreen, &dst))
-		error("SDL_BlitSurface failed: %s", SDL_GetError());
+		error("SDL_BlitSurface failed in clearOverlay (source=%p, destination=%p): %s", (void *)_screen, (void *)_tmpscreen, SDL_GetError());
 
 #if SDL_VERSION_ATLEAST(3, 0, 0)
 	const SDL_PixelFormatDetails *pixelFormatDetails = SDL_GetPixelFormatDetails(_tmpscreen->format);
@@ -2589,7 +2598,7 @@ void SurfaceSdlGraphicsManager::drawMouse() {
 	// clipping necessary
 
 	if (!blitSurface(_mouseSurface, nullptr, _hwScreen, &dst))
-		error("SDL_BlitSurface failed: %s", SDL_GetError());
+		error("SDL_BlitSurface failed in drawMouse (source=%p, destination=%p): %s", (void *)_mouseSurface, (void *)_hwScreen, SDL_GetError());
 }
 
 #pragma mark -

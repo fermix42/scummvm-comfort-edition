@@ -1,0 +1,66 @@
+{
+  "status": "IN PROGRESS",
+  "baseline": "SCUMMVM-CE-M4-NATIVE-SERVICES376-CHECKPOINT.json",
+  "source_contract": "M:F515..F582 authored special gate context;A group58/template127 fromHDV;R:992A..99D1 terminalending beforeadvancement/loot;Surface map8 notice1 isauthoredendingtext.",
+  "implemented_pending_acceptance": [
+    "NWIN9 owns scriptedShadowcallers withoutmanufacturing a worldcontact.",
+    "PreparedEncounter carriesactualcontactSprite;scriptedadmission resolves133/group58/3210HP andsource terrain63.",
+    "NBTS15/phase4 ownsterminalending;XP/armor restoreprecedeending;ordinaryloot/advancement andlateworldcontactretirement do notoccur.",
+    "EndingPresentation derivesalltext/title/chrome fromresourceowners;Return remains terminal;normalEngineQsave andcold allowed.",
+    "CharacterCreation coldadoption masksweaponflagsbits7/6 fromracefield,matchingexistingnative equipmentderivation.",
+    "Separate ending inputacceptance cannotmisreportworldreturn;ordinarycombatacceptance stillrequiresreturn/nextinput."
+  ],
+  "source_reference": {
+    "path": "native-ending-research378/metadata.json",
+    "sha256": "552f099109020580d55e650a4a0d2dcd8cdb6c8222ba0d3167bf726bd1e51dd1",
+    "gates": 20,
+    "post_victory_selections": 12
+  },
+  "failures_preserved": [
+    "377 initialfixtureapproach121131 isblockedterrain22;usevalidsouthapproach121133(tile192),actualNorthintogate121132.",
+    "377b generic6party autoapproach diesbeforebossHP1 kill;notanendingpass.",
+    "377b adjacentVortexspendsMPbutfailsbossguard;casterpower isinsufficient,nosuppressioncriteriaweakened.",
+    "377c sourcepre-finalparty coldrejected becauseweaponbit128 inracebyte wasreadasaninvalidrace. Sourceequipmentderived alreadyownsbits7/6;378masksdecodedrace,preservesrawrecord.",
+    "378 sourceparty full3210admission/cold andactualHP1kill reachedterminalending,thenoldgenericworld-return assertioncorrectlyrejected;379 addsdistinctterminalacceptance,not a weakenedworld-return test."
+  ],
+  "controlled_provenance": {
+    "path": "native-ending-research377/provenance.json",
+    "sha256": "7a901d963044b0e0a645d0f9600cb245d70ffdab049fab68970baaa2c3937493",
+    "scope": "Frozen M3pre-finalparty/gear/book/flags only;noendingoutcome imported. EnemyHP1 andadjacenthero beforeactualAttack arenext declared controlledboundary,notearned3210damage."
+  },
+  "remaining": [
+    "EarnedfullHP3210victory andwholecampaign",
+    "FirstShadow post-battle travelcontinuation andotherauthoredcallbacks",
+    "ForcedQuick retained067D lifetimes",
+    "Authoredmusic/SFXcueplacement,semanticCElifecycleevents,legacyimport",
+    "Native-onlyreleaseM4.2 thenearnedcampaignM4.3"
+  ],
+  "actual_ending379": {
+    "status": "VERIFIED",
+    "report": "ce-m4-native-ending379\\verification.json",
+    "sha256": "ab3a8d7535f2f5dbc9f79f4aa33a85fc056e00618cf7a42c95dca7fc74c8fbda",
+    "executable_sha256": "fb21ced97c61fc0269271ae949419ae2106105e0d2eae0765108a530889407c7",
+    "scope": "Actual native authored Ancestral Plane movement/gate,full3210HP admission/cold;separate controlled livingbossHP1/adjacenthero beforeactualphysicalattack/victoryack/ending,terminalackandcold. Not full3210HP victory,earnedcampaign,completepresentation/normalCEendinglifecycle.",
+    "runs": 7
+  },
+  "latest_verified_checkpoint": "SCUMMVM-CE-M4-NATIVE-ENDING379-CHECKPOINT.json",
+  "qualified_scope": "Authored special final gate and3210HP admission;controlledlivingbossHP1/adjacenthero ->actualphysicalkill/victoryack/nativeendingbody/terminalack/cold;normalendingCEsaves/Q/menu/recovery/cold Modern+Classic;notearnedcampaignorcompleteeditionUI",
+  "next_action": "Continue source-backed native audiovisual cue placement withowned persistence across actual battle/ending,fix sourceendingcaptioncolumn14,then remaining exceptionalB3/FirstShadowreturn/forcedQuick andW6events/legacy/normalmenu. ContinueautomaticallythroughW1-W6,thenM4.2 native-onlyauditandM4.3earnedcampaign;nostopatacheckpoint.",
+  "external_blocker": false,
+  "native_ending379": {
+    "executable_sha256": "fb21ced97c61fc0269271ae949419ae2106105e0d2eae0765108a530889407c7",
+    "reports": {
+      "ce-m4-native-ending379/verification.json": "ab3a8d7535f2f5dbc9f79f4aa33a85fc056e00618cf7a42c95dca7fc74c8fbda",
+      "ce-m4-native-ending379-player-modern/verification.json": "45251f2ba17fb59c666041375c3329e23fc7169d282fe6327c1a95a3c7e84727",
+      "ce-m4-native-ending379-player-classic/verification.json": "338c71cda8005026617ec3f5fdc05a52cad8356ecfecc1b9396832293c0fac30",
+      "ce-m4-native-ending379-normal-modern/verification.json": "c3326e41f1c1c1d41ba4c2fd94df0e46ea7a652289fee6063917850fd3b88eea",
+      "ce-m4-native-ending379-normal-classic/verification.json": "822900345780bade453e6b30ecd8d2c7f5f0c748567ed13d63c4fb8d47b689e1",
+      "ce-m4-native-ending379-sea-regression/verification.json": "464c859f69421d1c02368a04a74c6802ec495089461ecf01bc5e939d3426fac5",
+      "ce-m4-native-ending379-source\\20261018-164843\\saves\\nox-resource-validation.tsv": "e1737255f7522a484df508f3bcf987d020b9f57fb42827894158cf58c0ab1922",
+      "native-ending-research377/provenance.json": "7a901d963044b0e0a645d0f9600cb245d70ffdab049fab68970baaa2c3937493",
+      "native-ending-research378/metadata.json": "552f099109020580d55e650a4a0d2dcd8cdb6c8222ba0d3167bf726bd1e51dd1",
+      "native-ending-research378/presentation379.json": "b6f4088cf50f8c4d8d267073c037410cc4226192782ffb971ec1765312ade4ad",
+      "ce-m4-focused379.log": "665a0d57239684c12ffb81109393d9f809cdef3ec7afcaa158362c067bc7b58c"
+    }
+  }
+}

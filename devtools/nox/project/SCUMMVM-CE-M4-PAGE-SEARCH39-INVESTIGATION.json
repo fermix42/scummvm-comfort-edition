@@ -1,0 +1,24 @@
+{
+  "status": "VERIFIED",
+  "scope": "Resolved private creation-fixture error; no gameplay criterion changed",
+  "failure": "Original linked Search reference wrote the race initialization value at9AC0 instead of9ABF. Native Party::create exact864-byte check rejected the reference before any Search acceptance. Generic failure receipt lacked detailed context; retained as a diagnostic limitation.",
+  "correction": "Correct the private original creation setup to the previously qualified race value offset9ABF. Same CE executable passes the corrected reference without modifying native creation or Search logic.",
+  "rejected_reference": {
+    "path": "ce-m4-page-search-reference/input.bin",
+    "sha256": "8e60b01a7a599e8f369eda6f4af11c74d64d9f25a475de568fefbacc45ae4bf5"
+  },
+  "corrected_reference": {
+    "path": "ce-m4-page-search-reference-v2/input.bin",
+    "sha256": "6708889b122b3020be8d82e8a5e63e449690b423d26e945d249719e05df8fc8c"
+  },
+  "rejected_run": {
+    "path": "ce-m4-native-page-search39-suite.log",
+    "sha256": "0a4cee085a180a905c5ed6d26656fa169cbfa1a45aa6891b2a3d58675ef43315"
+  },
+  "accepted_run": {
+    "path": "ce-m4-native-page-search39b-tests\\native-core-verification.json",
+    "sha256": "9badfb2c8fe7cc0e247674625bd192912a3b85285db0fd25f0e35b826368fadd"
+  },
+  "executable_sha256": "41583dd2e6e1818d0723db9b65fd0901e66c03aa9e04a1c21968d0aa01c14023",
+  "platform_observation": "Unscoped Python original-lock reference expansion terminated with a native access violation. Existing per-process E-core scope was then applied; completed qualified reference uses that scope. Hardware/runtime root cause remains unconfirmed. Failed logs and the insufficient-trap first reference remain private."
+}

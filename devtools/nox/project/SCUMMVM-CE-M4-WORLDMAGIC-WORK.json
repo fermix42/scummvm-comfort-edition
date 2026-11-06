@@ -1,0 +1,14 @@
+{
+  "status": "IN PROGRESS",
+  "latest_verified_checkpoint": "SCUMMVM-CE-M4-WORLDMAGIC361-CHECKPOINT.json",
+  "accepted": "Qualified partial connected world Cast/orb/navigation,refusal/resurrection/full battle-return and shared travel;not complete combat/world magic/M4",
+  "next_action": "Resolve exceptional Quick/projectile and campaign caller lifetimes from assembly/HDV; integrate complete battle/terminal/return batches; complete remaining W1-W8 lifecycle/native-only/earned ending acceptance.",
+  "external_blocker": false,
+  "connected_projectile_batch": {
+    "status": "IN PROGRESS",
+    "latest_verified_checkpoint": "SCUMMVM-CE-M4-PROJECTILE365-CHECKPOINT.json",
+    "qualified_scope": "Qualified hostile world-shot transaction -> damage/protection ordefeat -> cold -> subsequentbattle/results/world;retained physical/cannon mode,not complete artillery/combat/M4",
+    "next_action": "Complete source-backed player world F cannon workflow and remaining projectile/campaign callers,then exceptional Quick lifetime andW1-W8 platform/native-only/earned ending acceptance. Keep coherent battle/return boundaries.",
+    "external_blocker": false
+  }
+}

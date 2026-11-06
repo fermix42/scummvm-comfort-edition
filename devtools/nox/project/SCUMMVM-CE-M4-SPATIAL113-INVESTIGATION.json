@@ -1,0 +1,19 @@
+{
+  "status": "IN PROGRESS",
+  "scope": "Rejected spatial implementation; not accepted gameplay",
+  "source_archive": {
+    "path": "ce-m4-spatial113-rejected-source.zip",
+    "sha256": "bb1cb3b8e40ae06e891139ab2c73baaa0542c20cc10a140d9c9435d9ddbad210"
+  },
+  "executable": {
+    "path": "ce-m4-binary\\scummvm-spatial113-rejected.exe",
+    "sha256": "68a3fee5c8ae310fca575b65b93c84f58b4c8f1cd4d4f63aeb8c4b410511938a"
+  },
+  "failure": "case5248 type0 large actor at120/123: native blocked2,1,1,2 vs original2,1,1,1",
+  "cause": "Original west-edge geometry writes sentinel to second candidate only; first candidate remains from prior probe. Native incorrectly replaced entire direction with sentinel. Explicit semantic candidate-cache owner and original before/after cache evidence required.",
+  "original_outcomes_preserved": "ce-m4-actor-spatial113-reference/input.bin",
+  "failed_test": "ce-m4-native-spatial113-tests/20261017-130545/native-validation-rejected.json",
+  "limitations": [
+    "No acceptance criterion changed; large edge behavior unresolved in113."
+  ]
+}

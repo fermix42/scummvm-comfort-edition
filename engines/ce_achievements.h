@@ -26,6 +26,7 @@
 #include "common/hash-str.h"
 #include "common/hashmap.h"
 #include "common/str.h"
+#include "common/mutex.h"
 
 namespace Common {
 
@@ -111,6 +112,7 @@ struct CEPlaythroughRecord {
 	bool casual;
 	bool archived;
 	bool syncEligible;
+	Array<String> assistanceFlags; // Permanent reasons belong to this session, never to a save.
 };
 
 class CEAchievementService {
@@ -121,21 +123,24 @@ public:
 	bool unlock(AchievementsManager &achievements, const String &game, const String &variant, const String &achievement);
 	bool noteGameEvent(AchievementsManager &achievements, const String &game, const String &variant, const String &event);
 	bool startPlaythroughForTarget(const String &target, const String &game, const String &variant, const String &title);
+	bool startRecoveredPlaythroughForTarget(const String &target, const String &game, const String &variant, const String &title);
 	bool endActivePlaythrough(const String &status);
 	bool hasActivePlaythroughInProgress() const;
 	bool isActivePlaythroughSyncEligible(const String &game = String(), const String &variant = String()) const;
 	bool hasAchievementSupport(const String &game, const String &variant) const;
+	bool hasPlaythroughSupportForTarget(const String &target, const String &game, const String &variant) const;
 	String getCurrentPlaythroughForTarget(const String &target) const;
 	Array<CEPlaythroughRecord> listPlaythroughsForTarget(const String &target) const;
 	String getDefaultLoadPlaythroughForTarget(const String &target) const;
 	String getSavePlaythroughForTargetSlot(const String &target, int slot, const String &saveName = String()) const;
 	String getSavePlaythroughForFile(const String &saveName) const;
+	bool hasCurrentSaveHistory(const String &saveName) const;
 	bool setPlaythroughStatusForTarget(const String &target, const String &clientPlaythroughId, const String &status);
 	bool setPlaythroughArchivedForTarget(const String &target, const String &clientPlaythroughId, bool archived);
-	bool deletePlaythroughForTarget(const String &target, const String &clientPlaythroughId) const;
-	bool clearSavePlaythroughForTargetSlot(const String &target, int slot, const String &clientPlaythroughId, const String &saveName = String()) const;
+	bool deletePlaythroughForTarget(const String &target, const String &clientPlaythroughId);
+	bool clearSavePlaythroughForTargetSlot(const String &target, int slot, const String &clientPlaythroughId, const String &saveName = String());
 	void recordSaveCreated(const String &saveName, int slot, const String &label);
-	void recordSaveLoaded(const String &saveName, int slot);
+	void recordSaveLoaded(const String &saveName, int slot, const String &label = String(), bool historyTrusted = true);
 	void resetPopupState();
 	void loadPopupStateForSave(const String &saveName);
 	void savePopupStateForSave(const String &saveName);
@@ -167,7 +172,7 @@ public:
 	String getLastSyncStatus() const;
 	void retryQueuedEvents();
 	void testLinkToken();
-	bool isSyncBusy() const { return _syncAction != kCEAchievementSyncIdle; }
+	bool isSyncBusy() const;
 
 	String getAchievementId(const String &game, uint index) const;
 	String getAchievementTitle(const String &game, const String &variant, const String &achievement) const;
@@ -205,7 +210,7 @@ private:
 	void markActivePlaythroughCasual(const Array<String> &flags) const;
 	Array<CEPlaythroughRecord> loadPlaythroughRegistry() const;
 	bool savePlaythroughRegistry(const Array<CEPlaythroughRecord> &records) const;
-	void upsertPlaythroughRecord(const CEPlaythroughRecord &record) const;
+	bool upsertPlaythroughRecord(const CEPlaythroughRecord &record) const;
 	void updatePlaythroughRecord(const String &clientPlaythroughId, const String &playthroughId, const String &status, bool casual, bool syncEligible, const String &endedAt = String()) const;
 	bool activatePlaythroughRecordForLoadedSave(const String &clientPlaythroughId, const String &playthroughId) const;
 	String makePlaythroughId(const String &target) const;
@@ -223,13 +228,19 @@ private:
 	bool savePopupSidecar(const String &sidecarName) const;
 	String currentTimeString() const;
 	void startRequest(CEAchievementSyncAction action, const String &url, const String &body = String(), int queueIndex = -1);
-	void requestSucceeded(const String &response, long httpCode);
-	void requestFailed(const String &response, long httpCode);
+	void requestSucceeded(const String &response, long httpCode, uint64 requestSerial, const String &eventKey);
+	void requestFailed(const String &response, long httpCode, uint64 requestSerial, const String &eventKey, const String &retryAfter = String(), const String &responseDate = String());
+	uint32 retryDelayRemaining() const;
+	void deferRateLimitedRequests(const String &retryAfter, const String &responseDate);
 	void submitNextQueuedEvent();
 	void finishRequest(const String &status);
 
 	CEAchievementSyncAction _syncAction;
 	int _syncQueueIndex;
+	uint64 _syncRequestSerial;
+	// SDL timer callbacks and UI callers share the queue/registry. Mutations
+	// nest through service helpers; the SDL backend mutex is recursive.
+	mutable Mutex _stateMutex;
 	String _popupSidecarName;
 	Array<String> _popupSeenKeys;
 	HashMap<String, uint32> _popupProgress;

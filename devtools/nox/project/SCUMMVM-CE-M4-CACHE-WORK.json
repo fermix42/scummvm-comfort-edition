@@ -1,0 +1,28 @@
+{
+  "status": "IN PROGRESS",
+  "scope": "Connected compressed world cache recenter,movement,story/actor window,persistence and battle regressions",
+  "build": "314",
+  "executable_sha256": "6777947b9e692b9b53a52ffa0cc7a9e416785731cb3e24a25ceaac783ff1d82b",
+  "source": "world-bridge-research/cache-source1/metadata.json",
+  "source_cases": 32,
+  "source_steps": 452582,
+  "changes": [
+    "WorldStory.advanceWindow exact source thresholds,mutable overlap,three actual immutable sector loads,linear byte center,working spawn preservation,quest patches,atomic state adoption.",
+    "WorldMove joins recenter before projection/actor turn;local leave remains explicit boundary.",
+    "Existing WorldStory validator accepts typed NWSC source fixtures with full window/records and32 serializer roundtrips/cold continuation."
+  ],
+  "verified": [
+    "ce-m4-cache314-tests/native-core-verification.json",
+    "ce-m4-cache314-world/verification.json",
+    "ce-m4-cache314-regression/native-core-verification.json",
+    "ce-m4-cache314-battle/verification.json"
+  ],
+  "failed": [
+    "313 test-only MemoryWriteStreamDynamic missing explicit ownership constructor;314 corrected DisposeAfterUse::YES. No313 executable accepted."
+  ],
+  "pending": [
+    "Normal on-foot map entry/leave and exceptional parent/special/transport callers",
+    "Remaining B2/B3,W1-W8 and native-only earned acceptance"
+  ],
+  "next_action": "Trace and integrate complete normal on-foot map transition ownership/continuations,using authored exits/arrival metadata and explicit special callers;continue remaining acceptance."
+}

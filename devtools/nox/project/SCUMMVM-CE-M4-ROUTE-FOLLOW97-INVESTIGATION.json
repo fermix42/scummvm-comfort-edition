@@ -1,0 +1,8 @@
+{
+  "status": "IN PROGRESS",
+  "reason": "Source movement phase changes at viewport boundary; initial native route follower took immutable phase and fails group81 operation21 hidden0/source1. Expected source outcomes retained unchanged. Fix by retaining native relative motion coordinates and phase across actual moves.",
+  "build_sha256": "fc5f357c71e7305b9aefc275b02fef733ea839e9a9ed3103744dd68d5e272670",
+  "source_archive_sha256": "a3c7300b4966bbce8e23916f6d6695149e78aef80f4a504acbc52c16bcbf447b",
+  "log": "ce-m4-route-follow97-suite.log",
+  "rejected": true
+}

@@ -1,0 +1,338 @@
+{
+  "status": "VERIFIED",
+  "scope": "All15 original advice branches reconciled with mechanically tested gates, explicit alternatives and source access classification.",
+  "source_record": "NA/DATA.TLK.L01D record0",
+  "decoded_index_sha256": "2510d93505c0ededde3a11d5e7c60e84d4d817417590132fb1e69780776bf4a7",
+  "branches": [
+    {
+      "branch": 0,
+      "conditions": [
+        {
+          "field": "0x43a",
+          "mask": 16,
+          "required_set": true
+        },
+        {
+          "field": "0x43a",
+          "mask": 32,
+          "required_set": false
+        }
+      ],
+      "covered_nodes": [
+        "lord-british-ankh",
+        "plane-transport"
+      ],
+      "operation_coverage": "VERIFIED",
+      "necessity": "Advice eligibility is not proof of a mechanical prerequisite",
+      "remaining": "No untested selected required gate identified; optional/alternative classification is in CAMPAIGN-DEPENDENCIES76 and CORPUS74.",
+      "route_classification": "Advice branch, not automatically a mechanical prerequisite; verified node evidence plus explicit selected-route dependencies."
+    },
+    {
+      "branch": 1,
+      "conditions": [
+        {
+          "field": "0x43a",
+          "mask": 4,
+          "required_set": true
+        },
+        {
+          "field": "0x43a",
+          "mask": 8,
+          "required_set": false
+        }
+      ],
+      "covered_nodes": [
+        "plane-transport",
+        "final-encounter",
+        "ending"
+      ],
+      "operation_coverage": "VERIFIED",
+      "necessity": "Advice eligibility is not proof of a mechanical prerequisite",
+      "remaining": "No untested selected required gate identified; optional/alternative classification is in CAMPAIGN-DEPENDENCIES76 and CORPUS74.",
+      "route_classification": "Advice branch, not automatically a mechanical prerequisite; verified node evidence plus explicit selected-route dependencies."
+    },
+    {
+      "branch": 2,
+      "conditions": [
+        {
+          "field": "0x43a",
+          "mask": 1,
+          "required_set": true
+        },
+        {
+          "field": "0x43a",
+          "mask": 2,
+          "required_set": false
+        }
+      ],
+      "covered_nodes": [
+        "shadow-revelation"
+      ],
+      "operation_coverage": "VERIFIED",
+      "necessity": "Advice eligibility is not proof of a mechanical prerequisite",
+      "remaining": "No untested selected required gate identified; optional/alternative classification is in CAMPAIGN-DEPENDENCIES76 and CORPUS74.",
+      "route_classification": "Advice branch, not automatically a mechanical prerequisite; verified node evidence plus explicit selected-route dependencies."
+    },
+    {
+      "branch": 3,
+      "conditions": [
+        {
+          "field": "0x43b",
+          "mask": 2,
+          "required_set": true
+        },
+        {
+          "field": "0x43b",
+          "mask": 4,
+          "required_set": false
+        }
+      ],
+      "covered_nodes": [
+        "high-cultist",
+        "shadow-revelation"
+      ],
+      "operation_coverage": "VERIFIED",
+      "necessity": "Advice eligibility is not proof of a mechanical prerequisite",
+      "remaining": "No untested selected required gate identified; optional/alternative classification is in CAMPAIGN-DEPENDENCIES76 and CORPUS74.",
+      "route_classification": "Advice branch, not automatically a mechanical prerequisite; verified node evidence plus explicit selected-route dependencies."
+    },
+    {
+      "branch": 4,
+      "conditions": [
+        {
+          "field": "0x438",
+          "mask": 32,
+          "required_set": true
+        },
+        {
+          "field": "0x438",
+          "mask": 64,
+          "required_set": false
+        }
+      ],
+      "covered_nodes": [
+        "jewels-temple",
+        "high-cultist"
+      ],
+      "operation_coverage": "VERIFIED",
+      "necessity": "Advice eligibility is not proof of a mechanical prerequisite",
+      "remaining": "No untested selected required gate identified; optional/alternative classification is in CAMPAIGN-DEPENDENCIES76 and CORPUS74.",
+      "route_classification": "Advice branch, not automatically a mechanical prerequisite; verified node evidence plus explicit selected-route dependencies."
+    },
+    {
+      "branch": 5,
+      "conditions": [
+        {
+          "field": "0x43a",
+          "mask": 64,
+          "required_set": true
+        },
+        {
+          "field": "0x43a",
+          "mask": 128,
+          "required_set": false
+        }
+      ],
+      "covered_nodes": [
+        "ring-vacous",
+        "dark-key"
+      ],
+      "operation_coverage": "VERIFIED",
+      "necessity": "Advice eligibility is not proof of a mechanical prerequisite",
+      "remaining": "No untested selected required gate identified; optional/alternative classification is in CAMPAIGN-DEPENDENCIES76 and CORPUS74.",
+      "route_classification": "Advice branch, not automatically a mechanical prerequisite; verified node evidence plus explicit selected-route dependencies."
+    },
+    {
+      "branch": 6,
+      "conditions": [
+        {
+          "field": "0x438",
+          "mask": 16,
+          "required_set": true
+        },
+        {
+          "field": "0x439",
+          "exact": 0
+        }
+      ],
+      "covered_nodes": [
+        "ghrodwir-elders",
+        "ol-rev-tomb",
+        "fire-jewel-guardian",
+        "air-jewel-guardian",
+        "water-jewel-guardian"
+      ],
+      "operation_coverage": "VERIFIED",
+      "necessity": "Advice eligibility is not proof of a mechanical prerequisite",
+      "remaining": "No untested selected required gate identified; optional/alternative classification is in CAMPAIGN-DEPENDENCIES76 and CORPUS74.",
+      "route_classification": "Advice branch, not automatically a mechanical prerequisite; verified node evidence plus explicit selected-route dependencies."
+    },
+    {
+      "branch": 7,
+      "conditions": [
+        {
+          "field": "0x43d",
+          "mask": 128,
+          "required_set": true
+        },
+        {
+          "field": "0x43f",
+          "mask": 1,
+          "required_set": false
+        }
+      ],
+      "covered_nodes": [
+        "holy-hairnet",
+        "fire-jewel-guardian"
+      ],
+      "operation_coverage": "VERIFIED",
+      "necessity": "Advice eligibility is not proof of a mechanical prerequisite",
+      "remaining": "No untested selected required gate identified; optional/alternative classification is in CAMPAIGN-DEPENDENCIES76 and CORPUS74.",
+      "route_classification": "Advice branch, not automatically a mechanical prerequisite; verified node evidence plus explicit selected-route dependencies."
+    },
+    {
+      "branch": 8,
+      "conditions": [
+        {
+          "field": "0x43d",
+          "mask": 32,
+          "required_set": true
+        },
+        {
+          "field": "0x43d",
+          "mask": 64,
+          "required_set": false
+        }
+      ],
+      "covered_nodes": [
+        "essence-angels",
+        "air-jewel-guardian"
+      ],
+      "operation_coverage": "VERIFIED",
+      "necessity": "Advice eligibility is not proof of a mechanical prerequisite",
+      "remaining": "No untested selected required gate identified; optional/alternative classification is in CAMPAIGN-DEPENDENCIES76 and CORPUS74.",
+      "route_classification": "Advice branch, not automatically a mechanical prerequisite; verified node evidence plus explicit selected-route dependencies."
+    },
+    {
+      "branch": 9,
+      "conditions": [
+        {
+          "field": "0x43c",
+          "mask": 1,
+          "required_set": true
+        },
+        {
+          "field": "0x43c",
+          "mask": 4,
+          "required_set": false
+        }
+      ],
+      "covered_nodes": [
+        "order-test"
+      ],
+      "operation_coverage": "VERIFIED",
+      "necessity": "Advice eligibility is not proof of a mechanical prerequisite",
+      "remaining": "No untested selected required gate identified; optional/alternative classification is in CAMPAIGN-DEPENDENCIES76 and CORPUS74.",
+      "route_classification": "Advice branch, not automatically a mechanical prerequisite; verified node evidence plus explicit selected-route dependencies."
+    },
+    {
+      "branch": 10,
+      "conditions": [
+        {
+          "field": "0x438",
+          "mask": 4,
+          "required_set": true
+        },
+        {
+          "field": "0x438",
+          "mask": 8,
+          "required_set": false
+        }
+      ],
+      "covered_nodes": [
+        "cult-letter"
+      ],
+      "operation_coverage": "VERIFIED",
+      "necessity": "Advice eligibility is not proof of a mechanical prerequisite",
+      "remaining": "No untested selected required gate identified; optional/alternative classification is in CAMPAIGN-DEPENDENCIES76 and CORPUS74.",
+      "route_classification": "Advice branch, not automatically a mechanical prerequisite; verified node evidence plus explicit selected-route dependencies."
+    },
+    {
+      "branch": 11,
+      "conditions": [
+        {
+          "field": "0x430",
+          "mask": 16,
+          "required_set": true
+        },
+        {
+          "field": "0x430",
+          "mask": 64,
+          "required_set": false
+        }
+      ],
+      "covered_nodes": [
+        "gordon-shrubbery"
+      ],
+      "operation_coverage": "VERIFIED",
+      "necessity": "Advice eligibility is not proof of a mechanical prerequisite",
+      "remaining": "No untested selected required gate identified; optional/alternative classification is in CAMPAIGN-DEPENDENCIES76 and CORPUS74.",
+      "route_classification": "Advice branch, not automatically a mechanical prerequisite; verified node evidence plus explicit selected-route dependencies."
+    },
+    {
+      "branch": 12,
+      "conditions": [
+        {
+          "field": "0x438",
+          "mask": 1,
+          "required_set": true
+        },
+        {
+          "field": "0x438",
+          "mask": 2,
+          "required_set": false
+        }
+      ],
+      "covered_nodes": [
+        "gordon-shrubbery",
+        "brown-key",
+        "cult-letter"
+      ],
+      "operation_coverage": "VERIFIED",
+      "necessity": "Advice eligibility is not proof of a mechanical prerequisite",
+      "remaining": "No untested selected required gate identified; optional/alternative classification is in CAMPAIGN-DEPENDENCIES76 and CORPUS74.",
+      "route_classification": "Advice branch, not automatically a mechanical prerequisite; verified node evidence plus explicit selected-route dependencies."
+    },
+    {
+      "branch": 13,
+      "conditions": [
+        {
+          "field": "0x437",
+          "mask": 32,
+          "required_set": true
+        },
+        {
+          "field": "0x437",
+          "mask": 64,
+          "required_set": false
+        }
+      ],
+      "covered_nodes": [
+        "yvviar-cult-investigation"
+      ],
+      "operation_coverage": "VERIFIED",
+      "necessity": "Advice eligibility is not proof of a mechanical prerequisite",
+      "remaining": "No untested selected required gate identified; optional/alternative classification is in CAMPAIGN-DEPENDENCIES76 and CORPUS74.",
+      "route_classification": "Advice branch, not automatically a mechanical prerequisite; verified node evidence plus explicit selected-route dependencies."
+    },
+    {
+      "branch": 14,
+      "conditions": [],
+      "covered_nodes": [],
+      "operation_coverage": "VERIFIED",
+      "necessity": "Advice eligibility is not proof of a mechanical prerequisite",
+      "remaining": "No untested selected required gate identified; optional/alternative classification is in CAMPAIGN-DEPENDENCIES76 and CORPUS74.",
+      "route_classification": "Advice branch, not automatically a mechanical prerequisite; verified node evidence plus explicit selected-route dependencies."
+    }
+  ]
+}

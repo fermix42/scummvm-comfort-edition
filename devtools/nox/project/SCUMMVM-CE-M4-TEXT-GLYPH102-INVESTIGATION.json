@@ -1,0 +1,75 @@
+{
+  "status": "IN PROGRESS",
+  "scope": "Rejected full CPU-memory-block glyph oracle; native rendered pixels are not disproved by this failure",
+  "rejected_executable_sha256": "d18cd659898f693c4f0c23d6a41758924e9cecf8fff75ff836b8ecef697579c3",
+  "source_archive_sha256": "36413215a3c188202f5f7bff1d953a804560003a74908d48352d6239058e5b72",
+  "failed_case": 0,
+  "log": "ce-m4-text-glyph102-suite.log",
+  "verified_source_full_digest_unchanged": true,
+  "changed_bytes": [
+    {
+      "page": 0,
+      "offset": 633,
+      "source_byte": 3,
+      "visible": false
+    },
+    {
+      "page": 0,
+      "offset": 760,
+      "source_byte": 0,
+      "visible": false
+    },
+    {
+      "page": 0,
+      "offset": 761,
+      "source_byte": 0,
+      "visible": false
+    },
+    {
+      "page": 0,
+      "offset": 762,
+      "source_byte": 0,
+      "visible": false
+    },
+    {
+      "page": 0,
+      "offset": 763,
+      "source_byte": 0,
+      "visible": false
+    },
+    {
+      "page": 0,
+      "offset": 764,
+      "source_byte": 0,
+      "visible": false
+    },
+    {
+      "page": 0,
+      "offset": 765,
+      "source_byte": 0,
+      "visible": false
+    },
+    {
+      "page": 0,
+      "offset": 766,
+      "source_byte": 0,
+      "visible": false
+    },
+    {
+      "page": 0,
+      "offset": 767,
+      "source_byte": 0,
+      "visible": false
+    },
+    {
+      "page": 0,
+      "offset": 3966,
+      "source_byte": 0,
+      "visible": false
+    }
+  ],
+  "visible_bytes_per_page": 7680,
+  "nonvisual_gaps_per_page": 512,
+  "reason": "Original glyph fetch writes8 scratch bytes22F8..22FF, page mask2279 and inverse2F7E in invisible HGR gaps. These are CPU-owned state, not glyph pixels. Native semantic frame must not alias them.",
+  "next": "Preserve every original full-block digest and add independent source visible-byte digests. Compare all15360 display bytes plus cursor/style state; assert native gaps preserve opaque initialization. Cold hashes continue actual native-owner state."
+}

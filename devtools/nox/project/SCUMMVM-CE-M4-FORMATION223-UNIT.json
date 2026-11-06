@@ -1,0 +1,32 @@
+{
+  "status": "VERIFIED",
+  "scope": "Controlled native single fixed formation plus unaffected linked world/cold regression; not integrated tactical battle",
+  "executable_sha256": "26f12d9991fe1506b8ca0b4e434ab9ad647ae1813ab875abe1fe319609828653",
+  "build": {
+    "log": "ce-m4-formation223-build.log",
+    "warnings": 0,
+    "errors": 0
+  },
+  "verification": {
+    "path": "ce-m4-formation223-native\\verification.json",
+    "sha256": "167cb233fafd6c02ed865f544f425eb7c2a52cbd648bd2e7ba90319f5764b345"
+  },
+  "reference": {
+    "path": "ce-m4-formation222-reference/metadata.json",
+    "sha256": "da518cbf924f35c31c6594eab58003959b7a335dc69a2631d52515973c9241db"
+  },
+  "cases": 8,
+  "exact_record_bytes": 20472,
+  "excluded_bytes": 8,
+  "findings": [
+    "Full original formation service adapters independently match actual retained CE input/output, all2048 stats and both256-byte actor arrays and RNG. ROM memory transfer added after the initial adapter ran into ROM; no gameplay or expected output changed.",
+    "Native source-derived group124/monster selection and actual RNG draws produce exact active formation; kind selection consumes its original draw even for equal fixed endpoints.",
+    "Original fills511 bytes then transfers512 from scratch9600..97ff. Last byte of inactive friendly slot15 receives unrelated scratch97ff=49. Native retains its existing inactive byte; this CPU alias is explicitly excluded from comparison. All other2047 stats and512 actor bytes per case remain exact.",
+    "Rejected native222 failed this single alias discrepancy. Native223 passes eight equivalent initialized RNG contexts; reference bytes unchanged."
+  ],
+  "limitations": [
+    "Only normal on-foot one fixed enemy/one party placement admitted. Generic counts/groups, alternate layouts/transports, summons, tactical presentation/input/combat/rewards/return remain required.",
+    "Formation owner not yet called by actual linked world contact. Current world/cold regression verifies preparation216 remains functional.",
+    "No earned native campaign or native-only release; W1/W4/W6 IN PROGRESS; M4.2/.3 NOT STARTED."
+  ]
+}

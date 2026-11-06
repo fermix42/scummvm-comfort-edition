@@ -1,0 +1,36 @@
+{
+  "status": "VERIFIED",
+  "scope": "Isolated SQLite-memory website session/API regressions and style; no deployed changes or live API claim",
+  "time": "2026-10-15T21:14:35.564730-07:00",
+  "command": [
+    "C:\\Users\\aaron\\.config\\herd-lite\\bin\\php.exe",
+    "vendor/bin/pest",
+    "tests/Feature/NoxPlaythroughApiTest.php",
+    "tests/Feature/GamePagesTest.php",
+    "tests/Feature/PlaythroughApiTest.php",
+    "--compact"
+  ],
+  "environment": {
+    "APP_ENV": "testing",
+    "DB_CONNECTION": "sqlite",
+    "DB_DATABASE": ":memory:",
+    "DB_URL": ""
+  },
+  "exit": 0,
+  "output": "{\"tool\":\"pest\",\"result\":\"passed\",\"tests\":27,\"passed\":27,\"assertions\":195,\"duration_ms\":23136}",
+  "stderr": "",
+  "pint_command": [
+    "C:\\Users\\aaron\\.config\\herd-lite\\bin\\php.exe",
+    "vendor/bin/pint",
+    "--test",
+    "database/seeders/DatabaseSeeder.php",
+    "database/seeders/NoxArchaistSeeder.php",
+    "tests/Feature/NoxPlaythroughApiTest.php"
+  ],
+  "pint_exit": 0,
+  "files_sha256": {
+    "database/seeders/DatabaseSeeder.php": "a8e1a0fa8d9b108c57f43892e7c23988d3e0b197eb79a0c61a9d783c66a74fd3",
+    "database/seeders/NoxArchaistSeeder.php": "2be923970f2363e6b33b2198e4c9c15fa3eda9cc9b233b3d89c7f1a08a1a8323",
+    "tests/Feature/NoxPlaythroughApiTest.php": "4e99eb78a2cb5fae6faac719a9f9eae1456c709561af8c7897fcf9583374e5b8"
+  }
+}

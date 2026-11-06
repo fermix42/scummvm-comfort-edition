@@ -1,0 +1,114 @@
+{
+  "status": "VERIFIED",
+  "tasks": [
+    "M2.2d3b",
+    "M2.3c"
+  ],
+  "milestone_status": "IN PROGRESS",
+  "executable_sha256": "44e29c7a1a0005acd6f8a92ac61ae15a30cfa1bc672d101fc32210241d0dca9d",
+  "build": {
+    "session": 83647,
+    "warnings": 0,
+    "errors": 0,
+    "elapsed": "00:02:37.16",
+    "log": "nox-m2-offline-fixture-update-build.out.log"
+  },
+  "reports": [
+    {
+      "path": "ce-m2-owner-final-lifecycle-modern/20261015-205453/verification.json",
+      "sha256": "d3538c82d9b029183ce20af360cffa2a787611e9d626e9c6158ffb6447591bd6",
+      "status": "VERIFIED"
+    },
+    {
+      "path": "ce-m2-owner-final-lifecycle-classic/20261015-205500/verification.json",
+      "sha256": "9a059b314d3aec39ee228f4727e413bde86a8542f70d2216cfea0204759e5a8c",
+      "status": "VERIFIED"
+    },
+    {
+      "path": "ce-m2-owner-final-default-owners-modern/20261015-205508/verification.json",
+      "sha256": "09fe05c68ebff52a6dedeeb368733bc2a0a3a9d27db3d6591f2488f0b4174149",
+      "status": "VERIFIED"
+    },
+    {
+      "path": "ce-m2-owner-final-default-owners-classic/20261015-205516/verification.json",
+      "sha256": "a7b0dd41334ac6d6c26cd5c5ee78979d5e56d625391821d228a7bb0c3b590e11",
+      "status": "VERIFIED"
+    },
+    {
+      "path": "ce-m2-current-owner-resources-corrected/20261015-205431/verification.json",
+      "sha256": "2b1c50a5b1fff0330d3498efda83f5b4368684dd47d3e3fb28a0ddc752e7808b",
+      "status": "VERIFIED"
+    },
+    {
+      "path": "ce-m2-current-owner-migration/20261015-205440/verification.json",
+      "sha256": "a46b4a1c3162c82426de7ac6d393aae347c47cf96b4e882cd92be8407996c302",
+      "status": "VERIFIED"
+    }
+  ],
+  "criteria": {
+    "defaults": "Actual default changes during live session do not change current world/mode; independently created next session adopts opposite mode; both initial directions and cold mode restoration.",
+    "owners": "Controlled complete opaque and enhancement owners survive full Engine saves, new-session reset and cold loading; wrong-owner save rejected; actual audio/playtime reset.",
+    "older_save": "Observed journal0/9, party1/2, discovered/used replies and world-associated CE progress restore from older/newer saves, complete Runtime bytes identical; permanent Casual/reasons remain on A and absent from B.",
+    "schema": "74 resources exact,8 negative parser cases,327712 record cases,3 storage,7 schema,22 metadata,23 enhancement contracts; optional/mandatory rejection and hidden authored-cache policy.",
+    "migration": "Actual frozen M1 saves cold-load through current executable without modifying originals.",
+    "offline_fixture": "Updated stale fixture to current durable offline contract: two eligible owners, two starts/six save records, all pending zero attempts, no achievements. Production behavior unchanged."
+  },
+  "related_verified_lifecycle_audits": [
+    "ce-m2-assistance-isolation-verification.json",
+    "ce-m2-management-verification.json",
+    "ce-m2-history-verification.json",
+    "ce-m2-offline-verification.json",
+    "ce-m2-recovered-link-verification.json",
+    "ce-m2-storage-verification.json"
+  ],
+  "provenance": [
+    "Observed journal lifecycle uses explicitly assisted authored-exit adjacency setup, not earned campaign travel.",
+    "Default owner matrix uses explicitly controlled owner fixtures; do not label those discoveries earned.",
+    "M2.4f early/middle/late representative-state provenance and complete final executable audit remain required."
+  ],
+  "source_sha256": {
+    "engines/nox/backoff_validation.h": "7362aace99ec706f40295446abc3a9b41bb2ed2f841f89c61ed4f20a7c18b760",
+    "engines/nox/caller_validation.h": "ede6a33e41ad5fa9d9613fe36e203e7122ca9830a1b4b54e46ae9591cf632391",
+    "engines/nox/configure.engine": "774fc9df4834ca0e64018b72f326d14989a40c08f5c7fd78d06bbea6ee42c015",
+    "engines/nox/cpu.inc": "41c0fdff3d9d3466871ae76144b430b9b13bd29a2873a8899ebad56e4e208b97",
+    "engines/nox/cycles.inc": "2b1024aeab86cda827aec30eb696547ced1d333226263647b29b1d34db3acd6e",
+    "engines/nox/detection.cpp": "32753d7b31fd8fe9f61eb27c676e6564d79764aa94cd5283c2508b8ac056dbd6",
+    "engines/nox/dialogue_validation.h": "e838b3c33d4d16c68820b01bbba3dd0fd7a0bdd34165bcac6dabad223e5f59e6",
+    "engines/nox/enhancement_fixture.h": "13d45f7cf67cbec92f87777653c1ec51e65dd6b2b20538020b55f00fcd0718b5",
+    "engines/nox/enhancement_validation.h": "a24bde10489f8ca310c45c92050d21293aa974ee2eb86691a350aa372667e13a",
+    "engines/nox/enhancements.cpp": "5ed93907c2e0b1004c9978bbb91c32913de50d1706e9fd41c2027473b3069150",
+    "engines/nox/enhancements.h": "f0d73af3421c0597db87ace38b2d203c73640d43a5bade9b278cf6c1e7ff029d",
+    "engines/nox/grid_validation.h": "6032efc17e039528d63f2640d1b4308b899a9a7776c7c6c8fe4fa7e0ea752fa9",
+    "engines/nox/history_validation.h": "5601beeb58e2f8babad090e45369e3d3249e8d409d4e69db2ca3fad847c21b88",
+    "engines/nox/host_validation.h": "58f0082264e78c366b05e8a0999b0dcdde8e147160dc3be543042af2ab1da7a9",
+    "engines/nox/io_validation.h": "556bd69ec180bae521284e5876d121dffac2a7827f6fce1200924f8a2081d214",
+    "engines/nox/management_validation.h": "286355cdedac22164095549c47f97e21d63e13eb738fb94b3368bf79d1738e34",
+    "engines/nox/metadata_validation.h": "c2b7fe9b7d1fa277517ec337b3ab8390e39552125b1c460be04690232466db5c",
+    "engines/nox/metaengine.cpp": "d631b83dc7b3a816489aa3a546d965f06d1cf89e684582c3dedd602ef866b24b",
+    "engines/nox/mockingboard.cpp": "38d5c6a894cc7a6bd238b9ad9a6740ec5ff42c6f299b7f6ce858505a6c1817bc",
+    "engines/nox/mockingboard.h": "d0afe027dc9ff9b269b0c60bf04abc45566502a17aed25879316856911937f2e",
+    "engines/nox/module.mk": "47de2ac64575f926a8de7cc5060913a3b63a0554cb5c20824ab55cf67ac1085f",
+    "engines/nox/movement.cpp": "4b03de9dd50c4a4cfc6c2e2d7da9d3fc3fc80a697dfd236a3340c1d25b84fdf9",
+    "engines/nox/nox.cpp": "d35e7627e2fca3c30862304e8439c6c746c3183e4c248c9f8d84dfc5b25ce156",
+    "engines/nox/nox.h": "7bb27440f2ffcefeee864d464c1c9638551f8913ebfcf1ba23bfc18e8bcfe77c",
+    "engines/nox/records.h": "8045582e0ae5f83d027b8b197aa66a8309e9ff80f2117bce7edb86455eca9b7d",
+    "engines/nox/render.cpp": "bd7833eaccc812fad88b0d19e5070d9955e440142525ded89b3d30766120073a",
+    "engines/nox/resources.h": "1451464a6f8ea57039c3596c8aaa388701e5005fb3364b80b9e48bb04dc2cd95",
+    "engines/nox/runtime.cpp": "ae227d4a7d6e0001b4ce948f908c1a120e515c801fc6f5720ff4a1e50175f80f",
+    "engines/nox/runtime.h": "78a284f0481cc9d6bac6e88897bcc18a79fa7032ab5c2ab0ba1e2c985d4851e4",
+    "engines/nox/runtime_observers.cpp": "24a8193ecb7804e88df401cb65ddffed1c796f0571bcbb76d4dedd41319d93ca",
+    "engines/nox/runtime_state.cpp": "45a01b83702f87d34a57a004e9105c2b69e50c213511eb4a176bccaa9cdc6e9c",
+    "engines/nox/save_policy.h": "890bced00db32c534207055e5f6acf7247310102119da4c5bc66f13a4c7d72fc",
+    "engines/nox/saves.h": "9d0e92a7fb35952d35f2f2ecf0602ba48211162cb3f18b02a5a454919ac514f9",
+    "engines/nox/session_validation.cpp": "da83025980220829e5ec424e80ad067d6681e30893918a1196ec84ef0524d839",
+    "engines/nox/snapshot.h": "c3c8c9fd497391995084286e6f1cadc8ac5b9e9ed94965b6820043624e6d35de",
+    "engines/nox/speaker_audio.cpp": "b80e55470b95fcaf200f4346a0cb0bab8ce8ff3fe7e2436633da833a2da9f833",
+    "engines/nox/speaker_audio.h": "aad57abba83f4a02ee0780eb2eebc80e68a43181b285533dc3313f3ad307205f",
+    "engines/nox/validation.cpp": "7582907d58238d29057026968b03866e25fb7e760184497204896cd5dad8ef75"
+  },
+  "limitations": [
+    "No complete campaign claim.",
+    "Related historical API/storage audits retain their own recorded executable identities; final same-executable reconciliation still pending.",
+    "No network/server use in these runs."
+  ]
+}

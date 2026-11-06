@@ -1,0 +1,70 @@
+{
+  "status": "VERIFIED",
+  "task": "M2.4d1",
+  "scope": "Ordinary offline creation/save/cold load and assistance A/clean B, later hermesbox link, bounded immutable replay and deletion cancellation; recovered/legacy/end-status link gates remain incomplete",
+  "executable_sha256": "1770ed0e50b76f10b290ba97e8ec5ff667a0f620d3090fcaf06456367fa21ace",
+  "build": {
+    "session": 58146,
+    "exit": 0,
+    "warnings": 0,
+    "errors": 0,
+    "elapsed": "00:02:33.59",
+    "log": "nox-m2-offline-diagnostic-corrected-build.out.log"
+  },
+  "reports": [
+    {
+      "path": "ce-m2-offline-final-gameplay-modern/20261015-182134/verification.json",
+      "sha256": "35cd2353a63d5533bd02d19a1e33565ba560bd06fdfc136a97e295fe125bec56"
+    },
+    {
+      "path": "ce-m2-offline-final-gameplay-classic/20261015-182247/verification.json",
+      "sha256": "6a5aef26ca3659aeca9e7f1ebb89b675828fc22c3e2372bd080a830d930c6884"
+    },
+    {
+      "path": "ce-m2-offline-linked-modern/20261015-182230/verification.json",
+      "sha256": "ae49ca69f4ad628374be85cf5ab0e73fb13238e18b645996a0284f7ff1d5c61f"
+    },
+    {
+      "path": "ce-m2-offline-linked-modern/20261015-182230/server-verification.json",
+      "sha256": "a7e00ed5068a94b8664d591c9ca45ef8dbc445215b668eb687636083a3774e14"
+    },
+    {
+      "path": "ce-m2-offline-linked-classic/20261015-182316/verification.json",
+      "sha256": "15ae4e628aaffec028891f824d74ba2af0415d5052534a81ba474c2f64cbce28"
+    },
+    {
+      "path": "ce-m2-offline-linked-classic/20261015-182316/server-verification.json",
+      "sha256": "6ee2d6d5feb00c35968e535ebb25af274f131c87657d0b412b14c01f1cee2981"
+    },
+    {
+      "path": "ce-m2-offline-management-modern/20261015-182414/verification.json",
+      "sha256": "b4ef3f3e7b4da9c4242d52add31849b49c22c05071644902eb9d0f6f5170f78c"
+    },
+    {
+      "path": "ce-m2-offline-management-classic/20261015-182448/verification.json",
+      "sha256": "bb5baf17faac02606700d21623ecff98aa6e4b1077fbaf99da0a8740982c58f8"
+    },
+    {
+      "path": "ce-m2-offline-local-check/20261015-182214/verification.json",
+      "sha256": "09a75e22eb1358b9daff027e54c9b29334033dd86694a9f226bce09e61ad6068"
+    },
+    {
+      "path": "ce-m2-offline-account-cleanup.json",
+      "sha256": "ad8a6e982fd3765e4ec477ff07277a49cb4512536ba6653c44c8f07b3b771b13"
+    },
+    {
+      "path": "ce-m2-offline-management-modern/20261015-182414/offline-deletion-verification.json",
+      "sha256": "db3cb37bb0f13e05b4cf5cd9db7cabbf168e3195610facbd7659b4cb8d20ccf6"
+    }
+  ],
+  "source_sha256": {
+    "engines/ce_achievements.cpp": "770957b07b2fce4178f29bf85f0a6b0166af2d7186714bd913c420efedf0c1da",
+    "engines/nox/history_validation.h": "cce5c29c9bd7666e9844f11e6dfd3d10714ead831cb264de57e6ea76835d623f",
+    "devtools/nox/test_offline_link.py": "c71136a9b5d8429d1f2d8295361c1f586588dc417b8b6ecd2fb8fb9496c25351",
+    "devtools/nox/test_session_management.py": "77fc5fef69f41a437029a54058f94ff8f45d07373c90de492c12689ba2e2aada",
+    "devtools/nox/verify_assistance_hermesbox.py": "e55e3424ae530751c74e3e1fd7c752674c2dfdc2eec1fcf65eecbaa6acac2f27"
+  },
+  "http_requests": 36,
+  "credential_revoked": true,
+  "credential_value_scan_files": 385
+}

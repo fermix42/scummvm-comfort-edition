@@ -1,0 +1,22 @@
+{
+  "status": "VERIFIED",
+  "scope": "Finite remaining Castle gate families, source dependencies only; no exhaustive walking or optional side-quest expansion",
+  "families": [
+    "Castle78 paired control49 -> wall50/FE and actual passage to source-valid page8 adjacency",
+    "Original Search Moat116/041804 -> corresponding Castle54 key door and absent-key refusal",
+    "Original Search Arcane115/041802 -> Castle56 key door and absent-key refusal",
+    "Order43C04 guarded type56 portal pairs54/57 and58/78, actual admission/refusal/return where selected"
+  ],
+  "maximum_cases": 28,
+  "modes": [
+    "Modern",
+    "Classic"
+  ],
+  "boundary": "All travel/floor/cache/seed initialization BEFORE tested operation is explicitly controlled; actual gates/items/outcomes and cold tests remain mandatory. Source-supported separate gate checkpoints, no continuous walking claim.",
+  "historical_status": "IN PROGRESS",
+  "accepted_evidence": [
+    "SCUMMVM-CE-M3-CASTLE73-CHECKPOINT.json",
+    "SCUMMVM-CE-M3-ORDER-PORTALS73-CHECKPOINT.json"
+  ],
+  "reconciliation": "Finite required gate operations accepted; controlled travel replaces unrelated long walks, not quest operations. Historical failed hypotheses remain preserved."
+}

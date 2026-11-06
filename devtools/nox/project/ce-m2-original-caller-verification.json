@@ -1,0 +1,60 @@
+{
+  "status": "VERIFIED",
+  "task": "M2.2d4",
+  "milestone_status": "IN PROGRESS",
+  "scope": "Resource/source-qualified original caller audit with actual New Game/Q/Continue gameplay in both modes; not complete campaign branch coverage.",
+  "executable_sha256": "154b113f6b6243d9bda067c9d1fa6ccf829852fbc72ec3bcdb848e0f3ea348dc",
+  "build": {
+    "session": 35465,
+    "warnings": 0,
+    "errors": 0,
+    "elapsed": "00:02:37.01",
+    "log": "nox-m2-caller-detail-build.out.log"
+  },
+  "reports": [
+    {
+      "path": "ce-m2-caller-detail-modern/20261015-204422/verification.json",
+      "sha256": "771fbaeee30916774388174cc2a87235ddd6a53cd14d5cd979b67482f7254885",
+      "observed_callers": "PASS\tq_key=1\tengine_save=1\tcancel=1\tprivate_disk_unchanged=1\tsession_unchanged=1\tlegacy_save_entries=2\tother_9600_entries=4\tother_fingerprint=2773126520\tother_return=89AA\tsave_callers=return:FEA5,a:49,x:49,map:8;return:FEA5,a:50,x:50,map:8;",
+      "original_continue": "PASS\tcontinue_key=1\tcancel=1\tengine_load=1\tsaved_mode=1\tlabel=Session B slot1"
+    },
+    {
+      "path": "ce-m2-caller-detail-classic/20261015-204642/verification.json",
+      "sha256": "0c83ee7153be7f3a7f53928377e2b7cefb3d2ac00ed9290c695c35a7bf58ee90",
+      "observed_callers": "PASS\tq_key=1\tengine_save=1\tcancel=1\tprivate_disk_unchanged=1\tsession_unchanged=1\tlegacy_save_entries=2\tother_9600_entries=4\tother_fingerprint=2773126520\tother_return=89AA\tsave_callers=return:FEA5,a:49,x:49,map:8;return:FEA5,a:50,x:50,map:8;",
+      "original_continue": "PASS\tcontinue_key=1\tcancel=1\tengine_load=1\tsaved_mode=1\tlabel=Session B slot1"
+    }
+  ],
+  "resource_oracle": {
+    "save_resource": "NA/SRTN.INVENTORY",
+    "offset": 53784,
+    "fingerprint_length": 433,
+    "fnv1a": 1297297889,
+    "bootstrap_resource": "NA/GAME",
+    "bootstrap_offset": 4334,
+    "bootstrap_sha256": "fcb8c5d579ed4019c29d12ec942001586af161dc51eb7df2f2b86d447c1b355a"
+  },
+  "classification": {
+    "player_save": "Original normal Q intercepted at resource-qualified command keyboard before legacy disk save, uses Engine dialog/serializer. Actual successful/cancelled UI writes verify committed sequence, unchanged private disk and exact current owner in both modes.",
+    "player_load": "Original opening Continue resource-qualified boundary delegates Engine load; cancellation and saved mode/frame/session tested in both modes.",
+    "observed_legacy_entries": "Two FEA5-return entries with X49 then50/map8 agree with original New Game bootstrap pair at GAME70F3/70F8 calling FE95; these prepare private original slot images before6052 is cleared. They are compatibility image initialization, not CE durable saves.",
+    "other_same_address": "Actual four other0x9600 entries have distinct fingerprint2773126520, lastreturn89AA. Original source separately identifies inventory/combat/merchant overlays there. No global9600 suppression or reclassification as saving.",
+    "internal_helper": "GAME8E0D source calls FE95 with last original slot. This remains private image compatibility I/O; Runtime has no SaveFileManager/CE durable write path. Those bytes persist only inside a committed whole-runtime CE snapshot, and original Continue cannot load them as authoritative CE saves. Natural campaign triggers not claimed tested."
+  },
+  "temporary_dependencies": [
+    "Original New Game private slot-image initialization and internal image/cache writes remain inside isolated Runtime disk until later semantic migration.",
+    "General original instruction interpretation remains until M4."
+  ],
+  "limitations": [
+    "No complete campaign/caller-branch coverage claimed; that remains M3.",
+    "Last distinct other-overlay fingerprint was not present in saved generations, so no resource-name match inferred for that last sample.",
+    "Diagnostics are transient, isolated-test-only and excluded from serializer.",
+    "No server requests or original resource writes."
+  ],
+  "source_sha256": {
+    "engines/nox/runtime.h": "78a284f0481cc9d6bac6e88897bcc18a79fa7032ab5c2ab0ba1e2c985d4851e4",
+    "engines/nox/runtime.cpp": "ae227d4a7d6e0001b4ce948f908c1a120e515c801fc6f5720ff4a1e50175f80f",
+    "engines/nox/nox.cpp": "d35e7627e2fca3c30862304e8439c6c746c3183e4c248c9f8d84dfc5b25ce156",
+    "engines/nox/runtime_state.cpp": "45a01b83702f87d34a57a004e9105c2b69e50c213511eb4a176bccaa9cdc6e9c"
+  }
+}

@@ -1,0 +1,923 @@
+{
+  "status": "VERIFIED",
+  "scope": "Test-only bookkeeping pause preserves queued actual gameplay audio during expensive owner/codec checks; unchanged session reset assertions",
+  "executable_sha256": "4b78403b190ca75dd6dba78dfb2a1806b913c933a04409ec43befad7a878d4de",
+  "source_archive": {
+    "path": "ce-m4-bookkeeping62-source.zip",
+    "sha256": "4b6e74c8604e1237e1ce01ff3b4ce8a918bd570308e34d834fedc265ca1ee25c"
+  },
+  "binary": {
+    "path": "ce-m4-binary\\scummvm-bookkeeping62.exe",
+    "sha256": "4b78403b190ca75dd6dba78dfb2a1806b913c933a04409ec43befad7a878d4de"
+  },
+  "native_regression": {
+    "status": "VERIFIED",
+    "scope": "Native rule/data/owner units inside CE before Runtime construction; not ordinary native gameplay or M4 completion",
+    "command": [
+      "C:\\Program Files\\Python313\\python.exe",
+      "D:\\Codex Projects\\scummvm-private\\scummvm-private-feature-usable-desktop-window-layout-git\\devtools\\nox\\test_resources.py",
+      "--exe",
+      "D:\\Codex Projects\\scummvm-private\\scummvm-private-feature-usable-desktop-window-layout-git\\build-nox-focused\\Releasex64\\scummvm.exe",
+      "--base",
+      "D:\\Codex Projects\\Nox Archaist\\Nox Archaist HDV (v119).HDV",
+      "--expansion",
+      "D:\\Codex Projects\\Nox Archaist\\Nox Archaist Lord of Storms HDV (v137).HDV",
+      "--artifacts",
+      "D:\\Codex Projects\\Nox Archaist\\conversion\\conversion\\ce-m4-native-bookkeeping62-tests",
+      "--native-video",
+      "--native-dialogue-oracle",
+      "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-dialogue-effects-reference",
+      "--native-inventory-oracle",
+      "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-inventory-reference",
+      "--native-dialogue-selection",
+      "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-dialogue-selection-reference",
+      "--native-dialogue-openings",
+      "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-dialogue-opening-reference",
+      "--native-conversation",
+      "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-conversation-reference",
+      "--native-dialogue-input",
+      "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-dialogue-input-reference",
+      "--native-pages-chain",
+      "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-pages-chain-reference",
+      "--native-search-reward",
+      "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-search-reward-reference",
+      "--native-lock",
+      "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-lock-reference-v2",
+      "--native-lock-party",
+      "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-lock-party-reference",
+      "--native-page-search",
+      "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-page-search-reference-v2",
+      "--native-book",
+      "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-book-reference",
+      "--native-cast-preparation",
+      "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-cast-reference",
+      "--native-vortex-targets",
+      "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-vortex-target-reference-v2",
+      "--native-spell-power",
+      "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-spell-damage-reference",
+      "--native-vortex-effect",
+      "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-vortex-hit-reference",
+      "--native-vortex-cast",
+      "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-vortex-cast-reference",
+      "--native-summon",
+      "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-summon-allocation-reference",
+      "--native-battle-records",
+      "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-battle-record-reference",
+      "--native-equipment-ownership",
+      "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-equipment-ownership-reference",
+      "--native-armor-ready",
+      "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-armor-ready-reference",
+      "--native-equipment-derived",
+      "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-equipment-derived-reference",
+      "--native-owned-armor",
+      "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-owned-armor-ready-reference",
+      "--native-weapon-ready",
+      "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-weapon-ready-reference",
+      "--native-owned-weapon",
+      "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-owned-weapon-ready-reference",
+      "--native-rng",
+      "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-rng-reference",
+      "--native-world-presentation",
+      "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-scene-reference",
+      "--native-tile-paint",
+      "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-tile-paint-reference",
+      "--native-actors",
+      "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-actor-admission-reference-v2",
+      "--native-actor-paint",
+      "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-actor-paint-reference",
+      "--native-lighting-chain",
+      "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-lighting-chain-reference",
+      "--native-personal-light",
+      "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-personal-light-reference",
+      "--native-terrain-light",
+      "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-terrain-light-reference",
+      "--native-light",
+      "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-light-reference",
+      "--native-visibility",
+      "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-visibility-reference-v2",
+      "--native-objects",
+      "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-objects-reference",
+      "--native-view",
+      "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-view-reference",
+      "--native-party",
+      "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-party-reference",
+      "--native-traversal",
+      "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-traversal-reference",
+      "--native-graphics",
+      "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-graphics-reference"
+    ],
+    "resource_report": "D:\\Codex Projects\\Nox Archaist\\conversion\\conversion\\ce-m4-native-bookkeeping62-tests\\20261017-075555\\verification.json",
+    "gate_counts": {
+      "maps": "76",
+      "keyed": "38",
+      "compound": "5",
+      "plates": "14",
+      "portals": "57",
+      "cases": "337",
+      "ownership": "semantic-unit-only"
+    },
+    "executable_sha256": "4b78403b190ca75dd6dba78dfb2a1806b913c933a04409ec43befad7a878d4de",
+    "source_sha256": {
+      "native_actors.h": "8c0e8211fcabd90034d90fe1cbd4690107cd86da8cb46a4c6944f533b21765af",
+      "native_actors_validation.h": "5ea58304a12a668612a9d54c8320c84a00560743841b075a0afb93b3940f9438",
+      "native_actor_paint.h": "8f1f6a02cd06f7c8a2d95ac2ce17c0e836413b69c6e4f643d357e1eb9bc8e625",
+      "native_actor_paint_validation.h": "1b886dc0bf06209330c68fcce14c3389bfdfc277ff1d6414be6f2885a243093a",
+      "native_armor_ready.h": "f9e8607057906066ecfe205e89ee8093aeb747b7f3b3adf4d2327be2d051e48d",
+      "native_armor_ready_validation.h": "72ce26881649f2187f600198f6b646eb38b340d181f0816e9d7018e0a8e525c7",
+      "native_battle_records_validation.h": "46b99e373a6363a859819e48e53fa45d017be4379125eadc806465456803583d",
+      "native_book.h": "809fc600360a762f68856c673e1c18b55a07f631d531a72f9f99520a498198cc",
+      "native_book_validation.h": "bb82f9a7642014f773054f207c18a239e581f3ad926e4cccb4735a51836369a2",
+      "native_cast.h": "4e719010ad353c6eca09089115c70f79322534094a81a5c192e2a6e6f369fef9",
+      "native_cast_validation.h": "1f83d801532bc82f646af1c8dd019da743b7eb36b357de73450ad60a7b1d2dd2",
+      "native_chain_validation.h": "3ff5f7600769b7db2a1d7e86d776ed21b503bca9c70b2823509fe79a983a381d",
+      "native_clock.h": "f270eec76b75e96bbac284a25e57ca9738135af908491f4c080f968d3112ac5e",
+      "native_clock_validation.h": "120dbfa2811a977de961e35bda27da9fc96d3eb816b613ffaf3e016e4dc6ebf6",
+      "native_conversation.h": "fc494cea97ac07447a59b3b59d0d15089053051fae7a484a0f76daa61214338a",
+      "native_conversation_validation.h": "0946ddb22f51d645a489819d957fea8542decf607557d8d62d5bc849c68fdf32",
+      "native_dialogue.h": "e0117b66dfd59bd02fd25efeac34076a95548676a60713b152f828d9c4aa8aea",
+      "native_dialogue_input.h": "5ab0903ce7e5a0149e2bc1579bdd656e3c9de1baf87ac22458b2af4736676c1a",
+      "native_dialogue_input_validation.h": "c61dbe0654eda8aa1c6e783c19100fdb1760c4efcfb1f4481b2d028576357df3",
+      "native_dialogue_rules.h": "a16e964c0f05c3f415c80493502ff2418b83ad59b4d193810e6dadb1c9c6f222",
+      "native_dialogue_rules_validation.h": "2ae4331c01e853dcf3d482fe8150c1e0633c84f8baa4c427ad3e1dd86391a2ab",
+      "native_dialogue_validation.h": "816d99c7a8bbe1b87d900c186382cf9621f4904254aa0967e679e4ccf80ae484",
+      "native_equipment_actions.h": "e1a777e9f4ac536afe4a3b592eb9504e2eac4ce980db413e5b29878f3ec991dd",
+      "native_equipment_derived.h": "c1876225ed0402b89cdc57fd4e6e7b922885f8c6740aec78987d1cba7d753023",
+      "native_equipment_derived_validation.h": "665a11b825b9b137bac5467e35da6de3b767b253ccc890cb73fca4b36a2d93cf",
+      "native_equipment_ownership.h": "ddde8604f78f1af5475e9f5e43783ed61ad224bb0b87205c5b1fe843bfefd737",
+      "native_equipment_ownership_validation.h": "cd98454801e5428ebf1278622377d27a4433271c9530f775ebe8b3ee3e18c48c",
+      "native_gates.h": "3c19eeaa79877c589db5f2de13ceb826ce42437e4cae6032b80d46c2859f2b85",
+      "native_gates_validation.h": "0789ab31cb010bfa0750a2db2ee37d8976fa8ef7c74678ec87f5671a00dba50e",
+      "native_graphics.h": "71569a9c90b9d4f0b28c831ddb7c57544bd64e68e3382b4d0b7c75f8ef72a80d",
+      "native_graphics_validation.h": "dc12950d42cd47943dd59f8f51959eda36f696807e5644c075a6c5fa90f58133",
+      "native_inventory.h": "551a385c1956fc65869cd6d022fed62ffeb5836494a9acacbea0065b336fdf81",
+      "native_inventory_validation.h": "0a71c10489d6aab34db5dfa24658a956ca1a70be03047c15b150ec45dfedc449",
+      "native_lighting.h": "ced9c9804bed67a1c22000fdba55a2347895285adb111e1fc8692a8b935b34cc",
+      "native_lighting_chain_validation.h": "c97ab4611402f3d65a3ace74c2881d3f5318be1ccb5931a87508615272cb2bea",
+      "native_lighting_validation.h": "52b67e8a0fdd88f190b3ccb6ad20259100aecae74a1fa64514d97fd0c76c3f8f",
+      "native_light_validation.h": "1c2b910831f68f0fa616dcfe03e152b63935c65c8f6f5d2d138a96fe3d2af2bc",
+      "native_lock.h": "64fcbb7a98f27b73a8591067417c9c1132a7394b31a859175ce1ecd613610fce",
+      "native_lock_party_validation.h": "09ad2b254418f647a1cd88ae5b99288bcf070720b4301c7f9afda8cd8998cfe3",
+      "native_lock_validation.h": "adbc558bed73cf790320b485ea3dc1b613521e437ce76ee769f1df4e9163f63d",
+      "native_lz.h": "dea03488b3f6073389d2028b2ecc2a3420e7df63d550ea559746b7f691fb11f2",
+      "native_maps.h": "cb8d89622295405cbee3cd2e6206813385aea94ba480918bda005a02eeb7c91a",
+      "native_maps_validation.h": "83f6bcc201b5c6f57d24227ca4ecc15dce90b7b10a1af13a5464ed7d754874db",
+      "native_objects.h": "32878159c732a30bc034525256f4403762909f914e00264065e66e043f1f7df7",
+      "native_objects_validation.h": "1fd1df1e386c42d8546257d8376187154510dfeacd217b6220d7d9508d038b44",
+      "native_owned_armor_validation.h": "8767a785e47c3cefff7ca2c68cf3cc7322aa8512b5160f87f2168a9839bb49bc",
+      "native_owned_weapon_validation.h": "2f5eccc8abec4f079c34ee4d375a8a7085cbad991204c228ee2b290376d5f270",
+      "native_page_search_validation.h": "74d145109d9615af7eacf4b7b94d92a63ac11afe0263e4c43c0f012d34ce40d2",
+      "native_party.h": "22f8ec26e26129c83464717c536eb68e049b3ef40a8a5fcfc8e453369077c5a8",
+      "native_party_validation.h": "5b9172ab5c6087a51ed1ac0534a5af0d2f26b388881b38a41ba66aa5cb9274a2",
+      "native_personal_light_validation.h": "cd79d8da548f257ce48e0651b9e160271813094ebfb46949228204a87b4088ae",
+      "native_position_validation.h": "d96b573a12ff06462adba0fd53fd752e9c9596471eb868e59da31a7df021ce86",
+      "native_quest_checkpoint.h": "4b662f656a6e18b7ba2f63ac5e4cae9714f3bb170e7fc0b81b82af9817075c8e",
+      "native_random.h": "7db95189ddb4236e1db4a049a967fa5c69b6b89fc1afc57b2571a3633f62c6e8",
+      "native_random_validation.h": "51c0829f6428097de8c8d5715b1ae977a8f337a11aa1621d4fb2e8db711ef117",
+      "native_search.h": "a59fe7fd43ad4b48237bb82f433f10b78f7939f579e18d4602a6d7c6afd9726b",
+      "native_search_validation.h": "700fcec73da219d966631eb5a9a5ac6b8a3dc9c600cf602fb7a5a6f717cdadd3",
+      "native_spell_power.h": "08d3c7703991935d4f77c561725c10147c2907efdab2107dfeeedca435f465cd",
+      "native_spell_power_validation.h": "e93a42ec116aaea82e28cd7080d78daffdea2f7322bab7ba88e4c80a229eb3bb",
+      "native_summon_pool.h": "3f1cdcd450b6a04d073dfcc42be3d6153801603734013ecfc5ea5b3be0bc7a20",
+      "native_summon_validation.h": "ad9ad957ee704e56ec0c55c8fb2672aff969cd3158ddcc2a9a1c0599548608ef",
+      "native_tile_paint.h": "fd420629205cdf903e891baaccd72d46140dd423c8ce85c9fa17badbb7265453",
+      "native_tile_paint_validation.h": "6905e7433d11cb00225efbbbf03b86a84a11309a28ee2c4cb43efaa6bd93ffda",
+      "native_traversal.h": "ee4cee3fcf1ba6c1d76ec3616e079dfcd9074efe5db536eeb7b04715cfc18b02",
+      "native_traversal_validation.h": "2341c9a3b1bbb4abea587b4e8676d41fdd7695f23d0d75f7706042a549e9f183",
+      "native_view_validation.h": "9e312e6390687e75b64debc77edab4d3c22163aff69dba83fe3b83d2c569a6de",
+      "native_visibility.h": "501143dfa988a2c9e80144b4637b5dfd6e777d15bd99f7bb06f49814f376191d",
+      "native_visibility_validation.h": "beab59925c833f41370d344ce0f938bab5fced499ffe70581649d45a405587af",
+      "native_vortex_cast.h": "36b7b30484e0cfab848efe780dcb272315bc52ff546183fe44cc6da23ae2b0f2",
+      "native_vortex_cast_validation.h": "4f490d0594c8c3f1d7cfd6035294f2b9ce9da392be6566795566de71915f0731",
+      "native_vortex_checkpoint.h": "dfeb3fa0d56a2779ff78de2f0b19b3a74bd301da549471b1e4bf4c918aefff5d",
+      "native_vortex_effect.h": "c4e0cde2c468102953c1d8b28ceec173b2aa2a13764dd88be2b0806e7a9e6490",
+      "native_vortex_effect_validation.h": "219a42ac20220f76fc000684d112d63dfb84e65aa176f801f1b0c050a13f5929",
+      "native_vortex_targets.h": "d560529af9c08f982843f4d4c32a8ef5ca5dbc72c137c8b5cd3c6975db48b766",
+      "native_vortex_targets_validation.h": "d14ce94304cbb6f2640bbd36ae6c9d3150c77f41775a616727736008f086265d",
+      "native_weapon_ready.h": "96f8819bb164757149c7b8af5b6a1922cc8e9714c50d8215d12b25b2af86723b",
+      "native_weapon_ready_validation.h": "5e287933da7af7e45becc3c637fef993466d9ddf33fe999c7295b7093c09c2ed",
+      "native_world.h": "6efa8ca01457dfe537f70e0558a6054c570910922bc6feb7fff7e7804d22b609",
+      "native_world_presentation.h": "9e522b34b6299f2ff3234577c1a7f1191a335bb41d92f1dafc03beace17731a1",
+      "native_world_presentation_validation.h": "893f425493297e7f423f5bcb9de95fa304875c0f68e3f6d1e95b49d3957c7848",
+      "native_world_validation.h": "53412acf08cdce63f19898313caf0554072b088ba44f92e946f5c12779ac744e"
+    },
+    "native_only_gameplay": "NOT STARTED",
+    "earned_native_campaign": "NOT STARTED",
+    "actual_compiled_native_units": [
+      "native_gates.h",
+      "native_gates_validation.h",
+      "native_search.h",
+      "native_search_validation.h",
+      "native_lock.h",
+      "native_lock_validation.h",
+      "native_lock_party_validation.h",
+      "native_page_search_validation.h",
+      "native_book.h",
+      "native_book_validation.h",
+      "native_cast.h",
+      "native_cast_validation.h",
+      "native_vortex_targets.h",
+      "native_vortex_targets_validation.h",
+      "native_spell_power.h",
+      "native_spell_power_validation.h",
+      "native_vortex_effect.h",
+      "native_vortex_effect_validation.h",
+      "native_vortex_cast.h",
+      "native_vortex_cast_validation.h",
+      "native_summon_pool.h",
+      "native_summon_validation.h",
+      "native_battle_records_validation.h",
+      "native_equipment_ownership.h",
+      "native_equipment_ownership_validation.h",
+      "native_armor_ready.h",
+      "native_armor_ready_validation.h",
+      "native_equipment_derived.h",
+      "native_equipment_derived_validation.h",
+      "native_equipment_actions.h",
+      "native_owned_armor_validation.h",
+      "native_weapon_ready.h",
+      "native_weapon_ready_validation.h",
+      "native_owned_weapon_validation.h",
+      "native_random.h",
+      "native_random_validation.h",
+      "native_world_presentation.h",
+      "native_world_presentation_validation.h",
+      "native_tile_paint.h",
+      "native_tile_paint_validation.h",
+      "native_actors.h",
+      "native_actors_validation.h",
+      "native_actor_paint.h",
+      "native_actor_paint_validation.h",
+      "native_lighting_chain_validation.h",
+      "native_personal_light_validation.h",
+      "native_lighting.h",
+      "native_lighting_validation.h",
+      "native_light_validation.h",
+      "native_visibility.h",
+      "native_visibility_validation.h",
+      "native_objects.h",
+      "native_objects_validation.h",
+      "native_view_validation.h",
+      "native_traversal.h",
+      "native_traversal_validation.h",
+      "native_graphics.h",
+      "native_graphics_validation.h",
+      "native_dialogue_input.h",
+      "native_dialogue_input_validation.h",
+      "native_chain_validation.h",
+      "native_conversation.h",
+      "native_conversation_validation.h",
+      "native_inventory.h",
+      "native_inventory_validation.h",
+      "native_maps.h",
+      "native_maps_validation.h",
+      "native_lz.h",
+      "native_dialogue.h",
+      "native_dialogue_validation.h",
+      "native_clock.h",
+      "native_clock_validation.h",
+      "native_dialogue_rules.h",
+      "native_dialogue_rules_validation.h",
+      "native_position_validation.h",
+      "native_traversal.h",
+      "native_party.h",
+      "native_party_validation.h",
+      "native_quest_checkpoint.h",
+      "native_world.h",
+      "native_world_validation.h"
+    ],
+    "search_reward": {
+      "status": "VERIFIED",
+      "trace": "native-search-reward\tcases=270\tawards=111\trepeats=135\tcapacity=24\tlock_phase=0\tcpu_execution=0",
+      "scope": "Controlled unlocked quest Search reward phase; lock/trap and ordinary input integration excluded",
+      "oracle_sha256": {
+        "metadata.json": "15b0a1adbf7e99d5d59c1165c58435bb06ee07cc47a03d8dac6787ae529e7543",
+        "input.bin": "cf043be103fc4ac8e7a9cebba1a0c839ef9bb39abac02afaee2d8a8879304c4b"
+      }
+    },
+    "lock": {
+      "status": "VERIFIED",
+      "trace": "native-lock\tcases=297\topened=203\tdamage_requests=55\tparty_callbacks_applied=0\tcpu_execution=0",
+      "scope": "Single Search lock attempt with real native RNG and recorded party effects; party callbacks and command integration unfinished",
+      "oracle_sha256": {
+        "metadata.json": "a01881ba604a533d2c547b9445202a1434d57389538727918af3afe9281920fe",
+        "input.bin": "a8e6023cfe8dd1031cbcef140f116c2946f9226136df8443a0c8dced120ced6c"
+      }
+    },
+    "lock_party": {
+      "status": "VERIFIED",
+      "trace": "native-lock-party\tcases=297\tpromotions=165\tparty_callbacks_applied=1\tgame_over_presentation=0\tcpu_execution=0",
+      "scope": "Linked native lock RNG/effects and party record application; normal command and death presentation unfinished",
+      "oracle_sha256": {
+        "metadata.json": "f4001a818dba040d872401118ad4ba3999c5a5509d4dcf5c57e23e770667fb2f",
+        "input.bin": "54de3ad37dbe401431f6166be977fd1753a2549394ed64b04153ddd76cba03bf"
+      }
+    },
+    "page_search": {
+      "status": "VERIFIED",
+      "trace": "native-page-search\tawards=7\trepeats=7\tno_tools_refusal=1\tretained_party_inventory_fields=1\tcontrolled_travel_rng=1\tcpu_execution=0",
+      "linked": "native-search-dialogue-link\tactual_native_Search_pages=7\tAxea_Valess_Nystul=1\tpage_outcome_initialization=0\tcontrolled_travel=1",
+      "scope": "Seven native Search awards feed actual native Axea/Valess/Nystul operations; controlled initial prerequisites/travel/RNG and component execution before Runtime construction",
+      "oracle_sha256": {
+        "metadata.json": "61eedeaebfd0dedc08f2c41843c40e4300d7267df4543dc5fd7484ac5e563b42",
+        "input.bin": "6708889b122b3020be8d82e8a5e63e449690b423d26e945d249719e05df8fc8c"
+      }
+    },
+    "book": {
+      "status": "VERIFIED",
+      "trace": "native-book\tcases=2800\treadied=800\tunreadied=400\tintelligence_refusal=800\tcombat_refusal=400\tcancelled=400\tcpu_execution=0",
+      "scope": "Owned book selection/eligibility and20-byte slot state; general equipment/UI/casting excluded",
+      "oracle_sha256": {
+        "metadata.json": "20103c8239f2aeb326bd70ac12436b10d649f31aee6757f8448480a4fd2a27b2",
+        "input.bin": "b46ed440862a2f39335e29f04eb2b726fc5d8ad99f2624174749ee936ba2a7db",
+        "caster.bin": "acc77fd611a33c125282ef2145c011f7946de80f0bc45010006c014c869a7e54",
+        "caster-metadata.json": "72cda9a7fc84f629622cb7e5cf6956a607889a25cdb3a274ad7601f43972ecad"
+      },
+      "linked_binding_readiness": {
+        "status": "VERIFIED",
+        "trace": "native-bound-book\tphase=warm\tactual_native_binding_inventory=1\tstarter_intelligence_refusal=1\tactual_ready_slot1=12\trequirement=110\tcontrolled_caster=1\tcasting=0\tcpu_execution=0",
+        "scope": "Retained native Search and actual native NPC/binding inventory, starter refusal, controlled supported caster BEFORE actual native Ready; no slot outcome import"
+      }
+    },
+    "cast": {
+      "status": "VERIFIED",
+      "trace": "native-cast\tcases=520\tprepared=92\tstandard_player=1\tmana_committed=0\teffects=0\tcpu_execution=0",
+      "scope": "Standard player cast prerequisites and cost/reach/target intent; no effect dispatch, mana commit or battle completion",
+      "oracle_sha256": {
+        "metadata.json": "27199cb3deed05a6ee0fa38a390f42f6960ced4310ddce8c61da8add8bf371ae",
+        "input.bin": "de66a891b0bedb3ff7afdd2b67cc3d5b6e284abed24bb18a12d16771ed19a37a"
+      },
+      "linked_readiness": {
+        "status": "VERIFIED",
+        "trace": "native-bound-cast\tactual_native_ready_slot=1\tworld_refusal=1\tbattle_preparation=1\tMP=110\tprepared_cost=87\tactual_effect=0\tcpu_execution=0"
+      }
+    },
+    "vortex_targets": {
+      "status": "VERIFIED",
+      "trace": "native-vortex-targets\tcases=9700\tselected=2071\tmaximum_qualified=37\tunsafe_context_rejected=1\tdamage=0\tcpu_execution=0",
+      "scope": "Resolved battle scene Vortex selection/order and source side/direction rules, at most37 targets; reachable actor count, damage/animation/turn integration unfinished",
+      "oracle_sha256": {
+        "metadata.json": "549b9b19d88a8f8e49f10546e9a60bbf2ad662e9384fd1deccf9bda34ade9d97",
+        "input.bin": "652f76d13e3f9bfd2e71b28d1137b6ee5955147bf5285c7f082bffa642ca096b"
+      }
+    },
+    "spell_power": {
+      "status": "VERIFIED",
+      "trace": "native-spell-power\tscaling_cases=34048\tvariation_cases=256\tretained_draws=64\thit_defense_HP=0\tmana_committed=0\tcpu_execution=0",
+      "scope": "Spell level attenuation, source variation bounds and retained RNG draws; complete hit/defense/status/HP/effect/mana operation remains unfinished",
+      "oracle_sha256": {
+        "metadata.json": "253335c65bed01158b3e947d80144b6a2ad8ad9c86e8bd3db662a4e24c2c741a",
+        "input.bin": "fed28de6c0dccd0c2c5c5717f6732609c49aa23037fa41753a9d127aa0ff7568"
+      }
+    },
+    "vortex_effect": {
+      "status": "VERIFIED",
+      "trace": "native-vortex-effect\tcases=3600\tkilled=1350\tfull_record_actor_lookup_credit=1\twhole_cast=0\tmana_committed=0\tcpu_execution=0",
+      "scope": "Standard-player Vortex per-target normalization/refusal, complete HP/status/actor/lookup and kill-credit owner; whole cast/mana/animation/turn integration unfinished",
+      "oracle_sha256": {
+        "metadata.json": "43b63f47618f3ddfafeae8fef38fa68719557af43aef7ed6aa8b84dac1feec66",
+        "input.bin": "1fc1cf32cf009fe3742fb4c78dca7eab2e50058a19545c58f4824658102f42b0"
+      }
+    },
+    "vortex_cast": {
+      "status": "VERIFIED",
+      "trace": "native-vortex-cast\tcases=288\tchains=96\tkilled=6\tmana_refusals=192\tempty_paid_casts=74\tfull_battle_records=1\tordinary_input=0\tcpu_execution=0",
+      "scope": "Owned logical Vortex preparation, marker, mana and ordered target effects with retained repeat/refusal chains; UI/animation/turn/world integration unfinished",
+      "oracle_sha256": {
+        "metadata.json": "42239f1acd6630893c12689ce668ffaedcbbef10d345e99f08639791a44c8c75",
+        "input.bin": "ace9bb8a4dee315f1eacc8b005743c1d1ec02dff16795a357bab509a3f121be3"
+      }
+    },
+    "binding_vortex_link": {
+      "status": "VERIFIED",
+      "trace": "native-binding-vortex-link\tphase=warm\tactual_binding_ready_book=1\tcontrolled_battle_entry=1\toriginal_living_Rat_HP=12\tactual_native_kill=1\tMP=23\tretained_mana_refusal=1\tearned_travel=0\tcpu_execution=0",
+      "scope": "Native Search/Axea/Valess/Nystul/Ready output retained into logical Vortex kill and subsequent mana refusal; explicit controlled battle/caster setup, no earned travel or whole battle claim.",
+      "restored_book_trace": "native-binding-vortex-link\tphase=restored-book\tactual_binding_ready_book=1\tcontrolled_battle_entry=1\toriginal_living_Rat_HP=12\tactual_native_kill=1\tMP=23\tretained_mana_refusal=1\tearned_travel=0\tcpu_execution=0"
+    },
+    "summon_pool": {
+      "status": "VERIFIED",
+      "trace": "native-summon-pool\tcases=68\tallocated=64\tfull_refusals=4\tretained_fill=16\toriginal_health_snapshot=1\tactor_placement=0\tcpu_execution=0",
+      "scope": "Source first unused/dead companion stat allocation, original-health snapshot and index; actor placement and whole spell/admission excluded",
+      "oracle_sha256": {
+        "metadata.json": "2ec6473d0ad4747624c22c4c87c2681e6130bade4d7fb1d7933c94b2d24a4137",
+        "input.bin": "553cde9c26d15b7f358086c0abd96e8cbbc8dd71ae7ddcb2a78bf5711ff5ed0c"
+      }
+    },
+    "battle_records": {
+      "status": "VERIFIED",
+      "trace": "native-battle-records\tcases=190\tenemy_slots=16\tcompanion_slots=16\tparty_slots=6\tfull_storage_comparison=1\tadjacent_compact_record_preserved=1\tadmission=0\tcpu_execution=0",
+      "scope": "Original battle actor/stat ownership across16 enemy,16 companion and6 player slots; explicit typed write protocol, no admission/damage/movement claim",
+      "oracle_sha256": {
+        "metadata.json": "b2f7b50934b2a00c7e7b4404467c29837f4f3dfb36cb5c6c52a3acc86fb54d01",
+        "input.bin": "b563e2345dfb6e060cbbab66c6afec4ed51627f42b8b44f8ad6afa39bd5540ce"
+      }
+    },
+    "equipment_ownership": {
+      "status": "VERIFIED",
+      "trace": "native-equipment-ownership\tcases=432\tparty_members=6\tcategory_and_weapon_ownership=1\tall_party_ready_count=1\tinventory_unchanged=1\tactual_Ready=0\tcpu_execution=0",
+      "scope": "Read-only equipment category/weapon ownership, two-handed occupancy and all-party ready-copy count; eligibility/commit/derived stats/UI excluded",
+      "oracle_sha256": {
+        "metadata.json": "7a9fc21b8493adcc3d5db110de0ccd9814f49152a1e6dee848a9f2954051f75b",
+        "input.bin": "bf0d64e973532feedea829d0a8ce9885e74517ad9fe9b8b63aad2379628ceec8"
+      }
+    },
+    "armor_ready": {
+      "status": "VERIFIED",
+      "trace": "native-armor-ready\tcases=742\tapplied=348\trefused=394\tfull_party_equipment_inventory=1\tdeferred_recalculation=1\tordinary_UI=0\tcpu_execution=0",
+      "scope": "World armor eligibility/unready and atomic owner/equipment/weight commit before deferred derived-stat recalculation; UI and full Ready acceptance excluded",
+      "oracle_sha256": {
+        "metadata.json": "00174d3cc03d9318da36ba9674397a9e7b51f6633c3c5e3188fd19b06faff970",
+        "input.bin": "e003d02b9b7a4e7c21c22bb2d998db5d6ae611f1f2b5c0647c0e537c947f5ffb"
+      }
+    },
+    "equipment_derived": {
+      "status": "VERIFIED",
+      "trace": "native-equipment-derived\tcases=1185\tall_DEX_values=256\tfull_character_record=1\tweapon_armor_fists_names_weight=1\tordinary_UI=0\tcpu_execution=0",
+      "scope": "Complete equipment-derived128-byte player recalculation with weapons/armor/fists/names/weight/decimal chance; ordinary Ready/UI/battle integration excluded",
+      "oracle_sha256": {
+        "metadata.json": "b828e060cb43db7afe45717ff6be8110b94f9efd532ae2113ea7f497aefe098f",
+        "input.bin": "8f10cdce3e8999a2574bfd2571b6506015c5ed5605def5e3fcb92b2ab3a6f26e"
+      }
+    },
+    "owned_armor": {
+      "status": "VERIFIED",
+      "trace": "native-owned-armor\tcases=742\tcomplete_commits=348\tactual_Party_Inventory_owners=1\tderived_recalculation=1\tfull_records=1\tordinary_UI=0\tcpu_execution=0",
+      "scope": "Owned Party/Inventory armor transaction plus complete derived recalculation; atomic refusals and full record outputs match original linked operations. Ordinary input/UI/general weapons excluded.",
+      "oracle_sha256": {
+        "metadata.json": "da4513bb273d7edf3873b6269b71775397a207bdc6eba92e3d5f12c9382e763f",
+        "input.bin": "cb550f12fcdc80cf575fc11f893d948951e4fad874bcda3d42eade78711c9e11"
+      }
+    },
+    "weapon_ready": {
+      "status": "VERIFIED",
+      "trace": "native-weapon-ready\tcases=1111\tcommitted=647\tfull_party_equipment_inventory=1\tdeferred_recalculation=1\tordinary_UI=0\tcpu_execution=0",
+      "scope": "World weapon Ready/unready hand/owner/equipment/weight transaction before derived recalculation; ordinary UI and new shield selection excluded",
+      "oracle_sha256": {
+        "metadata.json": "542e44279e28b50c433db77b49f5ac67adb2248bb018a63af45e01205549b46d",
+        "input.bin": "f24893e824bdeca9463d6dc3c3f52d9087ec63bd3cc48717e061c8890626d4ae"
+      }
+    },
+    "owned_weapon": {
+      "status": "VERIFIED",
+      "trace": "native-owned-weapon\tcases=1111\tcomplete_commits=647\tactual_Party_Inventory_owners=1\tderived_recalculation=1\tfull_records=1\tordinary_UI=0\tcpu_execution=0",
+      "scope": "Owned Party/Inventory weapon transaction plus complete derived recalculation; atomic refusals and full outputs match original linked operations. Ordinary UI, new shield selection and full native gameplay excluded.",
+      "oracle_sha256": {
+        "metadata.json": "328d3e3bd4d429da8f3c9df49a37a28fda7eab586b7a0b72d1887c5dfa32a050",
+        "input.bin": "c14be38162261c38c0d4db16fba4200a930403021c93df23371f65de8d0f3c77"
+      }
+    },
+    "rng": {
+      "status": "VERIFIED",
+      "trace": "native-rng\tsingle_cases=416\tentropy_cases=260\tstreams=8\tretained_draws=128\tkeyboard_interrupt=0\tcpu_execution=0",
+      "scope": "Non-interrupted original gameplay RNG, entropy initialization, retained streams and native persistence; input interruption/AI/combat integration unfinished",
+      "oracle_sha256": {
+        "metadata.json": "38c8b53c0d717c4870225b53ea8bb11b0b0b524236155f6f35b779e73113ac86",
+        "input.bin": "b21ec25eacea3a0b0c13044f36f04d63f95f317f955d63705cd342c0244ee3e7",
+        "cold.bin": "167bc21a593b28a6e641578051cc17896ea5d3674a3030b7e3a52ea30f996e6d"
+      },
+      "persistence": {
+        "status": "VERIFIED",
+        "warm": "native-rng-state\tphase=warm\tretained_draws=16\tnative_saved=1\tcpu_execution=0",
+        "cold": "native-rng-state\tphase=cold\toriginal_continuation_draws=16\tcpu_execution=0",
+        "input_state_sha256": "a0a1bfd291559b1f9e0a1ca05066a742532f77918ba61065ff3bf59120fe6cf1",
+        "scope": "Actual fresh CE process loads native14-byte RNG owner and continues the remaining16 original stream draws; full native game save excluded"
+      }
+    },
+    "world_presentation": {
+      "status": "VERIFIED",
+      "trace": "native-world-presentation\tcases=228\tpresentations=456\tmaps=76\tordered_draws=980\tfull_records_and_lookups=1\tretained_state=1\tcomplete_ai=0\tcpu_execution=0",
+      "scope": "Complete quiescent world object/actor presentation ordering with retained records/counters; controlled contexts; actor AI/turn and party/UI integration incomplete",
+      "oracle_sha256": {
+        "metadata.json": "b0bfc2453c746ff2a51148e7a945ad9b0025e50b7d0eade7fd07d811b484ade3",
+        "input.bin": "1562f73a9c92e7851db3a75ac77e572a1e7cf9f538e17d287b8682a7adf87fef"
+      }
+    },
+    "tile_paint": {
+      "status": "VERIFIED",
+      "trace": "native-tile-paint\tcases=32776\tstyles=8\tanimation_phases=4\trow_heights=8,16\tfull_plane_bytes=8192\tatomic_refusal=1\tcpu_execution=0",
+      "scope": "Original cache-miss tile raster, light variants,4 animation phases and8/16-row writes; complete scene scheduling and ordinary gameplay unfinished",
+      "oracle_sha256": {
+        "metadata.json": "18aeac181e20bba56932229a5173a254ff89b607f86e87ea60414e4db059d8d8",
+        "input.bin": "fb3826d905731e65ca906fe79552748030f9173a7ada35d6c1746b058e5ab162"
+      }
+    },
+    "actors": {
+      "status": "VERIFIED",
+      "trace": "native-actors\tcases=12348\tabsent=7716\tpresent=4238\tquest_removed=394\tfull_map_state=1792\tcomplete_ai=0\tcpu_execution=0",
+      "scope": "Controlled world actor admission/quest culling and appearance metadata; full1792 state comparison; AI/scheduling and ordinary gameplay unfinished",
+      "oracle_sha256": {
+        "metadata.json": "106fa711e48e4636d8c80c2426270874f3a0f5d0b563b2bed48f35985f2f9d26",
+        "input.bin": "0cd9a60af8eecc94d6e37e1de5489a44fa9db87c129fc150224546749fac4b35"
+      }
+    },
+    "actor_paint": {
+      "status": "VERIFIED",
+      "trace": "native-actor-paint\tcases=6668\tstyles=8\tfull_terrain=187\tactor_lookups=187\tkind_lookups=187\tdraws=8000\tcomplete_actor_owner=0\tcpu_execution=0",
+      "scope": "Controlled original actor paint/lookup/blend-request stage; admission/AI/record commit and actual blend raster remain incomplete",
+      "oracle_sha256": {
+        "metadata.json": "114ece9fe8e3ae0580de64fe09653990a7bcda671e804cd40a2c65726add8abf",
+        "input.bin": "52086b9a5d0ae17c327d6fb0dac8f54fe5b5d4f7bd9f98a0b843069c7a9d57c5"
+      }
+    },
+    "lighting_chain": {
+      "status": "VERIFIED",
+      "trace": "native-lighting-chain\tcases=760\tpreparations=1520\tmaps=76\tfull_cells=187\tretained_state=1\tcomplete_scene=0\tcpu_execution=0",
+      "scope": "Linked native base/additional/terrain lighting with naturally retained mask/state; controlled initialization; full actor/scene scheduling and ordinary gameplay incomplete",
+      "oracle_sha256": {
+        "metadata.json": "6525b51d91bea5371822ba997c5f5b15a0d815e6ff2cc238f2abc1852b5d6b51",
+        "input.bin": "e20e5ba4376b20e99389aef3fd42a2c662da20c03ca904e3f5026187b13b3903"
+      }
+    },
+    "personal_light": {
+      "status": "VERIFIED",
+      "trace": "native-personal-light\tcases=8192\tmodes=4\tlight_ticks=256\tfull_cells=187\tresource_indices=90\tcpu_execution=0",
+      "scope": "Original additional-light reveal with original source data; actor/scene scheduling and ordinary input integration unfinished",
+      "oracle_sha256": {
+        "metadata.json": "479577de94261bc4ce1f63a16b0087449e61c9c36fdde8f88ae4f600ee4b2282",
+        "input.bin": "9768a1f967ae0198d156a1e5b5b0cda8bcc5364f788f34882773f9fd898513fc"
+      }
+    },
+    "terrain_light": {
+      "status": "VERIFIED",
+      "trace": "native-terrain-light\tcases=1824\tmaps=76\tfloors=4\tfull_cells=187\touter_sources=1\tcomplete_scene=0\tcpu_execution=0",
+      "scope": "Original complete terrain-light source/reveal composition in controlled contexts across76 maps; additional spell path and scene scheduling unfinished",
+      "oracle_sha256": {
+        "metadata.json": "6701b16e02987ccaac3fc76c6a679371da9b3507fd0f89583da679b084081a8b",
+        "input.bin": "4ead5424dc9c135cbe2dd4eaaa85a93550fdf79d0428cda163b1816b39d299ab"
+      }
+    },
+    "light": {
+      "status": "VERIFIED",
+      "trace": "native-light\tcases=10240\tmodes=4\tlevels=5\ttransition_ticks=256\tfull_cells=187\tatomic_invalid_state=1\tcomplete_visibility=0\tcpu_execution=0",
+      "scope": "Original base visibility-mask/state transitions; additional light effects, source selection and full scene scheduling unfinished",
+      "oracle_sha256": {
+        "metadata.json": "3f36a0b5c8cac5a3a4edb8ed44debb3e5f7199bd9fc65c7cc26ec02979479535",
+        "input.bin": "85bbe16d15dd5c045c32af3c3135594841ffbe11df507dc6d7d8bc7947b405a1"
+      }
+    },
+    "visibility": {
+      "status": "VERIFIED",
+      "trace": "native-visibility\tcases=1065\tfull_cells=187\tchanged_cases=710\tunready_atomic=1\tcomplete_visibility=0\tcpu_execution=0",
+      "scope": "Original data-defined visibility reveal kernel; source selection/light masks and complete scheduling unfinished",
+      "oracle_sha256": {
+        "metadata.json": "ed27a1c7814b1bcea4cc03283a4e4b38dde706cef8075adcac208fbe0a31dd2c",
+        "input.bin": "b0c179532b215100eb828912fa0b397942247e9f748baa4ff7ea1e298b9a5ffb"
+      }
+    },
+    "objects": {
+      "status": "VERIFIED",
+      "trace": "native-objects\tcases=4718\tfull_records=256\tlookup_cells=187\tdraws=2060\tcomplete_actor_phase=0\tcpu_execution=0",
+      "scope": "Controlled single-object projection/door-settle/plate/draw-request phase; actor/visibility inputs explicit; full scene scheduling incomplete",
+      "oracle_sha256": {
+        "metadata.json": "3730c20f167ac929ad51484bef346a31e4efda1deb131aa2b1d28f91ebc02419",
+        "input.bin": "5129330014fe42aeb09252015006e1180f93dfb7a52ca5f3dbb79d82c737258e"
+      }
+    },
+    "view": {
+      "status": "VERIFIED",
+      "trace": "native-view\thistorical_maps=7\tterrain_cells=1309\tunready_atomic=1\tvisibility_and_composition=0\tcpu_execution=0",
+      "scope": "Native world terrain projection compared with actual historical CE arrays in all7 map families; visibility/lighting/actor composition and ordinary scene integration incomplete",
+      "oracle_sha256": {
+        "metadata.json": "c8959c4e2f70f26831106320c77b72326e108b12446235f448d7925caea2c5ee",
+        "input.bin": "80174f1acd918344ccd3e6d1dbc9f87a749bfa4cbe24bc01c7e154189297e44e"
+      }
+    },
+    "traversal": {
+      "status": "VERIFIED",
+      "trace": "native-traversal\tcases=1054720\tstyles=8\tall_object_states=256\tactor_priority=1\tunready_atomic=1\townership=controlled-rules",
+      "scope": "Controlled source algorithm equivalence; not complete movement turns or native gameplay",
+      "oracle_sha256": {
+        "metadata.json": "7407bcff469ad8f33ad77840e34e34ebb9be202a14f031c20593b0f815cd5c11",
+        "input.bin": "6dee3cc7cbe0c1baf6467e9eae8480fd8311d8e0049c7aca611474d85f1d6b60",
+        "expected.bin": "a13df9a7c6188a5d9dd53cd3bb50df165461fd11f4ce8828984de53216e40201"
+      }
+    },
+    "graphics": {
+      "status": "VERIFIED",
+      "trace": "native-graphics\tatlas_styles=8\thistorical_styles=7\tfonts=2\tcells=187\tfull_plane=1\tactual_screenshot_pixels=215040\tvisible_clear=1\tatomic_cell_refusal=1\townership=controlled-render-units",
+      "scope": "Original asset directory/atlases/fonts and full standard-HGR pixel interpretation/cell blits versus historical CE screenshot; scene visibility/UI/other modes and ordinary renderer integration excluded",
+      "oracle_sha256": {
+        "metadata.json": "19b1186976699cb7358a06a42ff6713f22c9fca72298e4080d75a92938f1d49e",
+        "input.bin": "ebde22b600be9b066c358b61d970cf588abc9182da96a66e83b4d2e644fb7aad"
+      }
+    },
+    "dialogue_input": {
+      "status": "VERIFIED",
+      "trace": "native-dialogue-input\tcases=2253\tresource_lexical_bytes=70\townership=semantic-unit-only",
+      "oracle_sha256": {
+        "metadata.json": "7da1bd26b8eb97677e7dc0cacb6ad14c89835c39d38206d5576cfed5c8d0120e",
+        "input.bin": "b9aa6db3cfd85b6db8e8d650db7d6f90944c01a8d64d34ab1363bf1c1f618d4c",
+        "expected.bin": "632594aa8722b1f7561d77ad1c2ed4a7d211fb31beb7a7ae21c8e2b4d79cebf4"
+      }
+    },
+    "pages_chain": {
+      "status": "VERIFIED",
+      "trace": "native-pages-chain\tcases=2\tstages=6\tconversations=12\tactual_replies=20\tauthored_fields=66\tfull1536_inventory=1\tworld_commit=1\tretained_native_state=1\townership=controlled-semantic-phases",
+      "scope": "Native Axea eighth-page/Valess research/Nystul binding with retained native flags/inventory; explicit controlled map profiles, physical admission/travel/UI/journal/full saves excluded",
+      "oracle_sha256": {
+        "metadata.json": "f2ec3d71cb764a5e0794bd2f4a7b1c0756e170cf650228e1a08e4b82f82e6bde",
+        "input.bin": "ebafc591ee747eb244b5c0aad5d30a5200257432745dd9382630edf214c75353"
+      }
+    },
+    "dialogue_openings": {
+      "status": "VERIFIED",
+      "trace": "native-dialogue-openings\tcases=1317\tmatched=1025\teligible=1025\townership=semantic-unit-only",
+      "oracle_sha256": {
+        "metadata.json": "c09de5574d1253925856c0cd99583174d5b36b6a341b58faa06c965a42ec420e",
+        "input.bin": "520bdf92727fe6b235c41015bb46e00dc2c3db8b37f8868139c90bacedd6a29b",
+        "expected.bin": "d2d3c5cc59351892402e31812a026af381a48c8909059d88f5d0ab22656d531f"
+      }
+    },
+    "conversation": {
+      "status": "VERIFIED",
+      "trace": "native-conversation\tcases=2\tactual_replies=6\tauthored_fields=66\tfull1536_inventory=1\texit_award=1\tlinked_repeat=1\tclosed_replay_refused=1\townership=controlled-semantic-phase",
+      "scope": "Controlled native Nystul reply/effect/exit award and retained repeat/refusal versus actual M3 states. Physical admission, UI, journal publishing, save integration and earned campaign excluded.",
+      "oracle_sha256": {
+        "metadata.json": "3dc362566b45ceeb12e7c81806058d3380748d48d4856fecba5531df18808d36",
+        "input.bin": "8f3abc6c690da25d187376eb1fc1150639784c80f0f2d9cd278a2ecb17b1cd7e"
+      }
+    },
+    "dialogue_selection": {
+      "status": "VERIFIED",
+      "trace": "native-dialogue-selection\tcases=16902\tmatched=11700\teligible=11700\townership=semantic-unit-only",
+      "scope": "First eligible original response from declaration and packet start, including continuation past ineligible matches; effects, presentation and NPC services excluded",
+      "oracle_sha256": {
+        "metadata.json": "9dcd86de4c97711a45d8271131af2f51cac453bf75f0a8272f4cd7c135471ee7",
+        "input.bin": "7fb37afbc97da36a433648e077e3b517530c85f0be3043dc8d27fbd9d65df6b7",
+        "expected.bin": "3e6914b69c6f4cc5c7123353724c220a00488173a9950a997ed0aadd35e5df38"
+      }
+    },
+    "inventory": {
+      "status": "VERIFIED",
+      "trace": "native-inventory\tactual_m3_handoffs=4\tfull1536_comparison=1\tlinked_stacks=1\tunlimited=1\tatomic_refusal=1\tgold=1\texit_handoff=1\townership=semantic-unit-only",
+      "scope": "Four exact inventory results versus frozen actual M3 Ankh/Nox Vortex awards, linked stacks and controlled rule boundaries. Full dialogue/services/new-game integration unverified.",
+      "oracle_sha256": {
+        "metadata.json": "04faed94cefcdd8984afdb15044e60b6681750eaff647d859f6e5891fe742d46",
+        "input.bin": "b04170e2c6cf428e6ea166d769a6e8b3e9147e7bbebcd62e410b83cb76df7b92"
+      }
+    },
+    "maps": {
+      "count": 76,
+      "decoded_sectors": 2660,
+      "terrain_metadata_and_state_tables": "VERIFIED"
+    },
+    "dialogue": {
+      "status": "VERIFIED",
+      "packets": 439,
+      "identity_and_full_contents": "VERIFIED",
+      "quest_matching_and_effects": "NOT STARTED"
+    },
+    "clock": {
+      "status": "VERIFIED",
+      "trace": "native-clock\thalf_turns=2880\tminutes=1440\thours=24\tmidnight=1\toriginal_light_expiry=1\towner=rule-unit-only",
+      "normal_scheduler_integration": "NOT STARTED"
+    },
+    "dialogue_rules": {
+      "status": "VERIFIED",
+      "trace": "native-dialogue-rules\tcases=8451\tmatched=8436\teligible=4906\townership=semantic-unit-only",
+      "scope": "Matching, typed metadata and eligibility versus local legacy semantic oracle; quest-service side effects and normal conversation integration unverified",
+      "oracle_sha256": {
+        "metadata.json": "ab0fc4c3d58dd301070f6c1ebb8251a8165ce003a0db79c2544df13457d58e99",
+        "input.bin": "ec72e73f2e9fb93befbcdd26e765d4791ccd792e85ca101fbeeda8f28f17310e",
+        "expected.bin": "744ae4cf939458317e1d825ad77184d948b5837248b87e7cd395999c40c96b9e"
+      }
+    },
+    "dialogue_field_transactions": {
+      "status": "IN PROGRESS",
+      "compared": 8449,
+      "unsupported": 2,
+      "trace": "native-dialogue-effects\tcompared=8449\tunsupported=2\tfull_field_comparison=1\tatomic_rejection=1\townership=semantic-unit-only",
+      "scope": "8449 contexts compare complete256 fields; two malformed original table-spill effects explicitly rejected without partial mutation and remain unverified for native gameplay",
+      "effects_sha256": "0231b38fbb4c1990d18deecd0f34fb48a005b47f3da58071273e74e6dbb020a4"
+    },
+    "vortex_persistence": {
+      "status": "VERIFIED",
+      "cold": "native-vortex-checkpoint\tphase=cold\tactual_result_restored=1\tcontinued_cast=1\tcontinued_mana_refusal=1\tcpu_execution=0",
+      "checkpoint_sha256": "d46945615c66f288e29d8981063984c5c43b0d82d899e14bb8c6feef2702477c",
+      "scope": "Partial logical Vortex owner checkpoint; fresh CE resumes actual native result without replaying first cast. Complete battle/save/turn/UI/session ownership excluded."
+    },
+    "world": {
+      "status": "VERIFIED",
+      "scope": "Native World operations/serialization only; no ordinary input/rendered gameplay claim",
+      "warm": "native-world\tphase=warm\tkey_refusal=1\tactual_open=1\tcontrol_reversal=1\tportal=1\tmulti_map_restore=1\tatomic_rejection=1\tcpu_execution=0",
+      "cold": "native-world\tphase=cold\tmap=54\tnative_open_retained=1\tcpu_execution=0",
+      "cold_argv": [
+        "D:\\Codex Projects\\scummvm-private\\scummvm-private-feature-usable-desktop-window-layout-git\\build-nox-focused\\Releasex64\\scummvm.exe",
+        "--gfx-mode=surfacesdl",
+        "--config=D:\\Codex Projects\\Nox Archaist\\conversion\\conversion\\ce-m4-native-bookkeeping62-tests\\native-cold\\cold.ini",
+        "--savepath=D:\\Codex Projects\\Nox Archaist\\conversion\\conversion\\ce-m4-native-bookkeeping62-tests\\native-cold\\saves",
+        "--logfile=D:\\Codex Projects\\Nox Archaist\\conversion\\conversion\\ce-m4-native-bookkeeping62-tests\\native-cold\\engine.log",
+        "nox-resource-test"
+      ],
+      "cold_exit": 0,
+      "input_state_sha256": "10b54f5b6bcd6b4e07af9b6ff1ea97a29ce3c0b60afb0cd847dc599a0294b98d",
+      "controlled_initialization": "Source-valid world profiles and authorization BEFORE native operations; no earned Search/key award or full party initialization claim"
+    },
+    "position": {
+      "status": "VERIFIED",
+      "warm": "native-position\tphase=warm\tclosed_refusal_atomic=1\tactual_open_then_move=1\tactor_refusal=1\tinvalid_occupancy_refusal=1\tresolved_occupancy_input=1\tcomplete_turn=0\tcpu_execution=0",
+      "cold": "native-position\tphase=cold\topen_and_position_retained=1\tcontinued_move=1\tcpu_execution=0",
+      "input_state_sha256": "61446d3d4cf0ee5184dd087d2be4f6f22ff337a243a0295df1cf56aa07fecdec",
+      "scope": "Linked Open/collision/position phases with resolved occupancy supplied explicitly; actor/visibility, clock, camera, encounters and complete player turn excluded",
+      "controlled_initialization": "Map54,type7,position38/15,keyfield24=4 BEFORE native Open; destination visible object slot32 and actor absence are explicit resolved phase inputs; no outcome injected"
+    },
+    "party": {
+      "status": "VERIFIED",
+      "warm": "native-party\tphase=warm\tcreated=1\tdamage=1\tatomic_load_refusal=1\tcomplete_new_game=0\tcpu_execution=0",
+      "cold": "native-party\tphase=cold\tfull_records_restored=1\tdamage_continued=1\tcpu_execution=0",
+      "input_state_sha256": "c70ed2c8a9873e767895ea3eaf2c6ad7b1cb4b091cf84fbca1c76d99d2f4d3c5",
+      "scope": "Owned initial character/equipment records and damage/persistence; full new-game transition, recruitment, inventory readiness and ordinary command loop incomplete",
+      "creation": "native-party-creation\tcases=105\tgenders=3\traces=5\tfull_records=864\tatomic_reinitialize_refusal=1\tcpu_execution=0",
+      "oracle_sha256": {
+        "metadata.json": "6721fde59e6389e0d05a268d73b792907ec05c457f000116dceb9ed0998584ff",
+        "input.bin": "cabf26e8770eef2d3d123258cf62878cd6f24b4dda9497315fdc41054c157f65"
+      }
+    },
+    "quest_checkpoint": {
+      "status": "VERIFIED",
+      "warm": "native-quest-checkpoint\tphase=warm\tactual_Search_pages=7\towners=world,party,inventory,rng,search\tcomplete_game_save=0",
+      "cold": "native-quest-checkpoint\tphase=cold\tactual_Search_pages=7\towners=world,party,inventory,rng,search\tcomplete_game_save=0",
+      "checkpoint_sha256": "9f23d18a5023011fc0de87a291862fa45804c969eb11d19f24db0a720076c30f",
+      "scope": "Actual fresh CE process restores native World/party/inventory/RNG/Search owners after seven native Search awards, then executes Axea/Valess/Nystul using restored prerequisites; complete game save and normal gameplay remain unfinished"
+    },
+    "book_persistence": {
+      "status": "VERIFIED",
+      "cold": "native-bound-book\tphase=cold\tactual_native_binding_inventory=1\tactual_ready_slot1=12\trequirement=110\tactual_assignment_restored=1\tcontrolled_caster=1\tcasting=0\tcpu_execution=0",
+      "checkpoint_sha256": "9bfe196421049d30dc577b876428994d06b944c49edec72375dafcb6581d6c81",
+      "scope": "Actual fresh CE loads the saved native Vortex shortcut/requirement assigned by native Ready; loaded assignment supplies real world refusal and battle preparation. Complete game save and actual effects remain unfinished."
+    },
+    "artifacts": {
+      "native-core-warm.tsv": "b70efe66e6cdda4e1e7d5a1378fa753a978f0630125a53c617ca7064f9df4f10",
+      "native-cold\\saves\\nox-native-world-state.bin": "10b54f5b6bcd6b4e07af9b6ff1ea97a29ce3c0b60afb0cd847dc599a0294b98d",
+      "native-cold\\saves\\nox-native-position-state.bin": "61446d3d4cf0ee5184dd087d2be4f6f22ff337a243a0295df1cf56aa07fecdec",
+      "native-cold\\saves\\nox-native-party-state.bin": "c70ed2c8a9873e767895ea3eaf2c6ad7b1cb4b091cf84fbca1c76d99d2f4d3c5",
+      "native-cold\\saves\\nox-resource-validation.tsv": "fbd9b2c3e49b3860aa725f4bb0ba118527c4f791764212766087746b3e58baa4",
+      "native-cold\\cold.ini": "4b8ea0a938786faee7f1249b33f5c7b6e2b952c506fccf33ef99327135358379",
+      "native-cold\\saves\\nox-native-rng-state.bin": "a0a1bfd291559b1f9e0a1ca05066a742532f77918ba61065ff3bf59120fe6cf1",
+      "native-cold\\saves\\nox-native-quest-checkpoint.bin": "9f23d18a5023011fc0de87a291862fa45804c969eb11d19f24db0a720076c30f",
+      "native-cold\\saves\\nox-native-book-state.bin": "9bfe196421049d30dc577b876428994d06b944c49edec72375dafcb6581d6c81",
+      "native-cold\\saves\\nox-native-vortex-checkpoint.bin": "d46945615c66f288e29d8981063984c5c43b0d82d899e14bb8c6feef2702477c"
+    }
+  },
+  "gameplay": {
+    "modern": {
+      "log": "ce-m4-new-game62-modern.log",
+      "sha256": "48c4a6197e657fcd9f3cddbf8b7ba5d5dc2fe4dfb6e4ffd717c5e3335e188e2f",
+      "report": {
+        "status": "VERIFIED",
+        "scope": "CE opening gameplay/audio, complete runtime codec, two session-qualified Engine slot1 saves, cold identical frames/identities and audio reset; no full campaign or lifecycle failure matrix",
+        "online_transport": false,
+        "executable_sha256": "4b78403b190ca75dd6dba78dfb2a1806b913c933a04409ec43befad7a878d4de",
+        "original_sha256": {
+          "D:\\Codex Projects\\Nox Archaist\\Nox Archaist HDV (v119).HDV": "c42a95c7a356548c78957f98693e92d33c9bae3ff5126d9887c2980e5a490c3c",
+          "D:\\Codex Projects\\Nox Archaist\\Nox Archaist Lord of Storms HDV (v137).HDV": "90ec012a317c56ab9a5182a1a877227fa7a18ebed72567d2bf08888956b635c9"
+        },
+        "summary": {
+          "new_game": "1",
+          "movement": "1",
+          "modal_open": "1",
+          "frames": "162",
+          "inputs": "18",
+          "audio_samples": "727831",
+          "audio_nonzero": "137857",
+          "native_sector_calls": "1",
+          "x": "25",
+          "y": "38"
+        },
+        "cold_summary": {
+          "cold_load": "1",
+          "continuation": "1",
+          "restored_x": "25",
+          "restored_y": "38",
+          "x": "24",
+          "y": "38"
+        },
+        "engine_saves": "PASS\tsessions=2\tlogical_slot=1\tgeneration_writes=4",
+        "engine_cold": "PASS\tsessions=2\tlogical_slot=1\tengine_cold_loads=2\taudio_flushes=2\tsaved_mode_restored=1",
+        "argv": [
+          "D:\\Codex Projects\\scummvm-private\\scummvm-private-feature-usable-desktop-window-layout-git\\build-nox-focused\\Releasex64\\scummvm.exe",
+          "--gfx-mode=surfacesdl",
+          "--config=D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-new-game62-modern\\20261017-075241\\gameplay.ini",
+          "--savepath=D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-new-game62-modern\\20261017-075241\\saves",
+          "--logfile=D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-new-game62-modern\\20261017-075241\\engine.log",
+          "nox-gameplay-test"
+        ],
+        "cold_argv": [
+          "D:\\Codex Projects\\scummvm-private\\scummvm-private-feature-usable-desktop-window-layout-git\\build-nox-focused\\Releasex64\\scummvm.exe",
+          "--gfx-mode=surfacesdl",
+          "--config=D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-new-game62-modern\\20261017-075241\\gameplay.ini",
+          "--savepath=D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-new-game62-modern\\20261017-075241\\saves",
+          "--logfile=D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-new-game62-modern\\20261017-075241\\cold-engine.log",
+          "nox-gameplay-test"
+        ],
+        "artifacts": "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-new-game62-modern\\20261017-075241",
+        "immutable_transport_replay": false,
+        "sdl_video_driver": "dummy",
+        "host_lifecycle": "NOT STARTED",
+        "chooser_ui": "NOT STARTED",
+        "launcher_ui": "NOT STARTED",
+        "owner_contracts": "PASS\topaque_domains=5\trng_calls=64\tclock_calls=124\tinput_replays=2\troutine_pcm=22794\tinput_pcm=48000\tlive_unchanged=1\tprovenance=controlled_clones",
+        "saved_mode": "Modern",
+        "fresh_session_new_game_boundaries": {
+          "a06b": 2,
+          "1324": 2,
+          "1371": 2
+        },
+        "new_session_reset": "PASS\twrong_owner_rejected=1\tprior_playtime=777\tprior_audio_queued=8\tnew_playtime=0\tnew_audio_queued=0\tnew_world_boot=1",
+        "mode_defaults": "NOT STARTED",
+        "controlled_enhancement_generations": 0,
+        "observed_enhancement_generations": 4,
+        "metadata_management": "NOT STARTED",
+        "metadata_ui": "NOT STARTED",
+        "save_callers": "NOT STARTED",
+        "grid_writes": "NOT STARTED",
+        "grid_cold": "NOT STARTED",
+        "original_interfaces": "NOT STARTED",
+        "independently_verified_mode_generations": 4
+      }
+    },
+    "classic": {
+      "log": "ce-m4-new-game62-classic.log",
+      "sha256": "2c5980b9b3bd7ed3e773fc1d6919552479a68dbc2a36f96c386a8544fca743ca",
+      "report": {
+        "status": "VERIFIED",
+        "scope": "CE opening gameplay/audio, complete runtime codec, two session-qualified Engine slot1 saves, cold identical frames/identities and audio reset; no full campaign or lifecycle failure matrix",
+        "online_transport": false,
+        "executable_sha256": "4b78403b190ca75dd6dba78dfb2a1806b913c933a04409ec43befad7a878d4de",
+        "original_sha256": {
+          "D:\\Codex Projects\\Nox Archaist\\Nox Archaist HDV (v119).HDV": "c42a95c7a356548c78957f98693e92d33c9bae3ff5126d9887c2980e5a490c3c",
+          "D:\\Codex Projects\\Nox Archaist\\Nox Archaist Lord of Storms HDV (v137).HDV": "90ec012a317c56ab9a5182a1a877227fa7a18ebed72567d2bf08888956b635c9"
+        },
+        "summary": {
+          "new_game": "1",
+          "movement": "1",
+          "modal_open": "1",
+          "frames": "162",
+          "inputs": "18",
+          "audio_samples": "727831",
+          "audio_nonzero": "137857",
+          "native_sector_calls": "1",
+          "x": "25",
+          "y": "38"
+        },
+        "cold_summary": {
+          "cold_load": "1",
+          "continuation": "1",
+          "restored_x": "25",
+          "restored_y": "38",
+          "x": "24",
+          "y": "38"
+        },
+        "engine_saves": "PASS\tsessions=2\tlogical_slot=1\tgeneration_writes=4",
+        "engine_cold": "PASS\tsessions=2\tlogical_slot=1\tengine_cold_loads=2\taudio_flushes=2\tsaved_mode_restored=1",
+        "argv": [
+          "D:\\Codex Projects\\scummvm-private\\scummvm-private-feature-usable-desktop-window-layout-git\\build-nox-focused\\Releasex64\\scummvm.exe",
+          "--gfx-mode=surfacesdl",
+          "--config=D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-new-game62-classic\\20261017-075540\\gameplay.ini",
+          "--savepath=D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-new-game62-classic\\20261017-075540\\saves",
+          "--logfile=D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-new-game62-classic\\20261017-075540\\engine.log",
+          "nox-gameplay-test"
+        ],
+        "cold_argv": [
+          "D:\\Codex Projects\\scummvm-private\\scummvm-private-feature-usable-desktop-window-layout-git\\build-nox-focused\\Releasex64\\scummvm.exe",
+          "--gfx-mode=surfacesdl",
+          "--config=D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-new-game62-classic\\20261017-075540\\gameplay.ini",
+          "--savepath=D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-new-game62-classic\\20261017-075540\\saves",
+          "--logfile=D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-new-game62-classic\\20261017-075540\\cold-engine.log",
+          "nox-gameplay-test"
+        ],
+        "artifacts": "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-new-game62-classic\\20261017-075540",
+        "immutable_transport_replay": false,
+        "sdl_video_driver": "dummy",
+        "host_lifecycle": "NOT STARTED",
+        "chooser_ui": "NOT STARTED",
+        "launcher_ui": "NOT STARTED",
+        "owner_contracts": "PASS\topaque_domains=5\trng_calls=64\tclock_calls=124\tinput_replays=2\troutine_pcm=22794\tinput_pcm=48000\tlive_unchanged=1\tprovenance=controlled_clones",
+        "saved_mode": "Classic",
+        "fresh_session_new_game_boundaries": {
+          "a06b": 2,
+          "1324": 2,
+          "1371": 2
+        },
+        "new_session_reset": "PASS\twrong_owner_rejected=1\tprior_playtime=725\tprior_audio_queued=8\tnew_playtime=0\tnew_audio_queued=0\tnew_world_boot=1",
+        "mode_defaults": "NOT STARTED",
+        "controlled_enhancement_generations": 0,
+        "observed_enhancement_generations": 0,
+        "metadata_management": "NOT STARTED",
+        "metadata_ui": "NOT STARTED",
+        "save_callers": "NOT STARTED",
+        "grid_writes": "NOT STARTED",
+        "grid_cold": "NOT STARTED",
+        "original_interfaces": "NOT STARTED",
+        "independently_verified_mode_generations": 4
+      }
+    }
+  },
+  "build_log": {
+    "path": "ce-m4-bookkeeping-focused62.log",
+    "sha256": "c9cd980c251380372bd7263c6405e27c6c9b83847f5bab4b324d2246a23e2e48"
+  },
+  "limitations": [
+    "Normal player execution still uses compatibility interpreter. Native-only release and earned campaign remain required.",
+    "The failed full61 lifecycle test is retained; this records the verified correction."
+  ]
+}

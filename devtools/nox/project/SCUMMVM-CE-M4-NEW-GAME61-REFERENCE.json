@@ -1,0 +1,35 @@
+{
+  "status": "VERIFIED",
+  "scope": "Actual original first new-game world command before movement, plus later real movement/Open tutorial; reference data only, not native new-game flow",
+  "executable_sha256": "6dbe19639af54ea9e5a89e9d4c5498094b5370c1b2a76cfa69af6ee216046319",
+  "source_raw": {
+    "path": "ce-m4-new-game61-modern\\20261017-074601\\saves\\nox-new-game-reference-a.bin",
+    "sha256": "6a3d0fa709e473577608a65ce3d10475dab9b23c3b88c21d4898956b910d6d4d"
+  },
+  "decoded_input": {
+    "path": "ce-m4-new-game-reference\\input.bin",
+    "sha256": "a3d5a476ab2eb98f181a64c85580e29c921b3c8c5acb51d1a2169cf3c8ae0c24"
+  },
+  "retained_inventory_equipment": {
+    "save": "ce-m4-new-game61-modern\\20261017-074601\\saves\\nox-ce-ed5939a032719adcfecdf986a9261c4a-f44dc781a0cadf8e5bf7ce73b29484ee-slot001.g1",
+    "sha256": "eba930f5bc691dcbbf5c1d2b385b0fec17c279867576f17af19c8b39c436e904",
+    "initial_template_match": true,
+    "initial_item_mutations": false,
+    "equipment_file_offset": 0,
+    "inventory_file_offset": 2560
+  },
+  "gameplay": {
+    "path": "ce-m4-new-game61-modern\\20261017-074601\\saves\\nox-gameplay.tsv",
+    "sha256": "93f07b8a1544c51a666c86e7cf4b2871c85e48ea0335daa5f4760e31321d46e7"
+  },
+  "initialization": "Actual Engine new-game menu/name input TRACE; no coordinate, inventory, stats or quest injection.",
+  "limitations": [
+    "Reference scope covers first world/data owners and actual opening input; native menu, initial actor/AI/scene scheduling and earned native campaign remain unverified.",
+    "Full test_gameplay run FAILED later at session-reset prior audio/playtime precondition; saved playtime is1308ms. No full session/lifecycle PASS claimed. Audio may drain during expensive validation bookkeeping; investigate without weakening nonempty-queue acceptance."
+  ],
+  "failure": {
+    "status": "IN PROGRESS",
+    "path": "ce-m4-new-game61-modern\\20261017-074601\\stderr.txt",
+    "sha256": "9d0e0d55c48b05dd8ada58c650d2c56a478e694f3180eeabce34ddbd7221483a"
+  }
+}

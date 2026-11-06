@@ -1,0 +1,537 @@
+{
+  "status": "VERIFIED",
+  "milestone": "M2",
+  "scope": "Complete authorized M2 acceptance, with every requirement reconciled to frozen source/executable and actual local/live evidence; stop before M3.",
+  "executable_sha256": "bb70858867b68fca525c8508eef3ea6e674fb052c528ab77f43a96d5f2309df7",
+  "build": {
+    "session": 99893,
+    "warnings": 0,
+    "errors": 0,
+    "elapsed": "00:02:40.44",
+    "log": "nox-m2-final-legacy-fixture-build.out.log"
+  },
+  "source_sha256": {
+    "engines/nox/backoff_validation.h": "7362aace99ec706f40295446abc3a9b41bb2ed2f841f89c61ed4f20a7c18b760",
+    "engines/nox/caller_validation.h": "ede6a33e41ad5fa9d9613fe36e203e7122ca9830a1b4b54e46ae9591cf632391",
+    "engines/nox/configure.engine": "774fc9df4834ca0e64018b72f326d14989a40c08f5c7fd78d06bbea6ee42c015",
+    "engines/nox/cpu.inc": "41c0fdff3d9d3466871ae76144b430b9b13bd29a2873a8899ebad56e4e208b97",
+    "engines/nox/cycles.inc": "2b1024aeab86cda827aec30eb696547ced1d333226263647b29b1d34db3acd6e",
+    "engines/nox/detection.cpp": "32753d7b31fd8fe9f61eb27c676e6564d79764aa94cd5283c2508b8ac056dbd6",
+    "engines/nox/dialogue_validation.h": "3a4ee13a32c90a7fae8bfb05b4933475ead9a17001ccad0e0f8c6ddb3ab4696f",
+    "engines/nox/enhancement_fixture.h": "13d45f7cf67cbec92f87777653c1ec51e65dd6b2b20538020b55f00fcd0718b5",
+    "engines/nox/enhancement_validation.h": "a24bde10489f8ca310c45c92050d21293aa974ee2eb86691a350aa372667e13a",
+    "engines/nox/enhancements.cpp": "5ed93907c2e0b1004c9978bbb91c32913de50d1706e9fd41c2027473b3069150",
+    "engines/nox/enhancements.h": "f0d73af3421c0597db87ace38b2d203c73640d43a5bade9b278cf6c1e7ff029d",
+    "engines/nox/grid_validation.h": "6032efc17e039528d63f2640d1b4308b899a9a7776c7c6c8fe4fa7e0ea752fa9",
+    "engines/nox/history_validation.h": "5601beeb58e2f8babad090e45369e3d3249e8d409d4e69db2ca3fad847c21b88",
+    "engines/nox/host_validation.h": "58f0082264e78c366b05e8a0999b0dcdde8e147160dc3be543042af2ab1da7a9",
+    "engines/nox/io_validation.h": "556bd69ec180bae521284e5876d121dffac2a7827f6fce1200924f8a2081d214",
+    "engines/nox/management_validation.h": "286355cdedac22164095549c47f97e21d63e13eb738fb94b3368bf79d1738e34",
+    "engines/nox/metadata_validation.h": "c2b7fe9b7d1fa277517ec337b3ab8390e39552125b1c460be04690232466db5c",
+    "engines/nox/metaengine.cpp": "d631b83dc7b3a816489aa3a546d965f06d1cf89e684582c3dedd602ef866b24b",
+    "engines/nox/mockingboard.cpp": "38d5c6a894cc7a6bd238b9ad9a6740ec5ff42c6f299b7f6ce858505a6c1817bc",
+    "engines/nox/mockingboard.h": "d0afe027dc9ff9b269b0c60bf04abc45566502a17aed25879316856911937f2e",
+    "engines/nox/module.mk": "47de2ac64575f926a8de7cc5060913a3b63a0554cb5c20824ab55cf67ac1085f",
+    "engines/nox/movement.cpp": "4b03de9dd50c4a4cfc6c2e2d7da9d3fc3fc80a697dfd236a3340c1d25b84fdf9",
+    "engines/nox/nox.cpp": "6f0fc2212fdb937734a098e6f5a735d7d0b5bae90cb1582769d7e8f93ea69005",
+    "engines/nox/nox.h": "2195c452786a52f93753a00f28010e469b35130d68b79665a7ed5984990c9f71",
+    "engines/nox/profile_validation.h": "2658f8c93149c8692e5ef5b79d1dc42836dbd60f4d15f75a0f0ed3dbbd84301a",
+    "engines/nox/records.h": "8045582e0ae5f83d027b8b197aa66a8309e9ff80f2117bce7edb86455eca9b7d",
+    "engines/nox/render.cpp": "bd7833eaccc812fad88b0d19e5070d9955e440142525ded89b3d30766120073a",
+    "engines/nox/resources.h": "1451464a6f8ea57039c3596c8aaa388701e5005fb3364b80b9e48bb04dc2cd95",
+    "engines/nox/runtime.cpp": "ae227d4a7d6e0001b4ce948f908c1a120e515c801fc6f5720ff4a1e50175f80f",
+    "engines/nox/runtime.h": "78a284f0481cc9d6bac6e88897bcc18a79fa7032ab5c2ab0ba1e2c985d4851e4",
+    "engines/nox/runtime_observers.cpp": "24a8193ecb7804e88df401cb65ddffed1c796f0571bcbb76d4dedd41319d93ca",
+    "engines/nox/runtime_state.cpp": "45a01b83702f87d34a57a004e9105c2b69e50c213511eb4a176bccaa9cdc6e9c",
+    "engines/nox/save_policy.h": "890bced00db32c534207055e5f6acf7247310102119da4c5bc66f13a4c7d72fc",
+    "engines/nox/saves.h": "9d0e92a7fb35952d35f2f2ecf0602ba48211162cb3f18b02a5a454919ac514f9",
+    "engines/nox/session_validation.cpp": "da83025980220829e5ec424e80ad067d6681e30893918a1196ec84ef0524d839",
+    "engines/nox/snapshot.h": "c3c8c9fd497391995084286e6f1cadc8ac5b9e9ed94965b6820043624e6d35de",
+    "engines/nox/speaker_audio.cpp": "b80e55470b95fcaf200f4346a0cb0bab8ce8ff3fe7e2436633da833a2da9f833",
+    "engines/nox/speaker_audio.h": "aad57abba83f4a02ee0780eb2eebc80e68a43181b285533dc3313f3ad307205f",
+    "engines/nox/validation.cpp": "7582907d58238d29057026968b03866e25fb7e760184497204896cd5dad8ef75",
+    "backends/events/default/default-events.cpp": "04a82d66b59fed6d3685bb6d632594f698fe1ecc73bfe8d76f08101faab136ca",
+    "backends/graphics/surfacesdl/surfacesdl-graphics.cpp": "9a0d98f499180a48109377302c96ae74e4eafad2e6eda2e1b440fc5a81d0a776",
+    "backends/networking/http/curl/networkreadstream-curl.cpp": "c243260f6e4caf0e0e85f096c6b34b3785aab93ff437230dec28dbd26c30646a",
+    "engines/ce_achievements.cpp": "831cc94e8f7e7089f0d51fcf62752a7c99094e052e33cd9b0442ed78766d88f1",
+    "engines/ce_achievements.h": "c316373fce3a2837d9a3b9bf800b36797a60b4a6293da6e198e27e1a961b943d",
+    "engines/metaengine.cpp": "38f44a1787d982b101198484b6f969eeea1603a18aea750fe702c0518ade6a52",
+    "engines/metaengine.h": "0a0e69cbce98c072e67433c0bf99b8be93fc93533a9d89d777770ec1cf82f327",
+    "gui/launcher.cpp": "9e02cc9151b9dd3f76c52cbfe7de571065acaad088f09d95da9829426d4c234f",
+    "gui/saveload-dialog.cpp": "6af8ee1d591a87722f9aa34666bfb0c7dd61c47abe5704156b11d01e531173ce",
+    "run-build-release-cleanenv.ps1": "f88ea5dbbdfcb388cc11a43b781f4d7e7f927bb58c14210df24ea44654d5cd33"
+  },
+  "requirements": [
+    {
+      "id": "M2.1",
+      "status": "VERIFIED",
+      "final_evidence": "resources, m1-migration, default-owners both modes, owner-profiles both modes",
+      "criterion": "All mutable owners accounted for, exact opaque preservation/continuation, version/schema migration and invalid-load transaction policy."
+    },
+    {
+      "id": "M2.2",
+      "status": "VERIFIED",
+      "final_evidence": "gameplay, grid, default-owners and management both modes; resource-qualified caller audit",
+      "criterion": "Unified interfaces and serializer; Modern metadata/multiple slots, exactly Classic1/2; no automatic/manual caller policy bypass; resolved enumeration/deletion."
+    },
+    {
+      "id": "M2.3",
+      "status": "VERIFIED",
+      "final_evidence": "dialogue including legacy migration, owner-profiles, resource enhancement contracts both modes",
+      "criterion": "Observed/discovered/used journal and reveal/explored state persist, reset and isolate without authored-information leakage or permanent-history rollback."
+    },
+    {
+      "id": "M2.4-local",
+      "status": "VERIFIED",
+      "final_evidence": "management, save-history, io, interrupted and owner-profiles both modes",
+      "criterion": "Same-slot/session/older-save lifecycle, archive/delete/unknown history, actual storage errors and killed overwrite/corrupt rollback; representative owner-content cold profiles."
+    },
+    {
+      "id": "M2.4-transport",
+      "status": "VERIFIED",
+      "final_evidence": "backoff-loopback and bounded dedicated-account ordinary/recovered API reconciliation",
+      "criterion": "Offline queue durable with zero attempts, immutable replay and correct server owners/flags/labels/hashes; no achievements; credentials revoked."
+    },
+    {
+      "id": "preservation",
+      "status": "VERIFIED",
+      "final_evidence": "ce-m2-standalone-final-verification.json plus original hashes",
+      "criterion": "Existing native binaries/regressions, source HDVs, M1 historical evidence and authoritative decision preserved; no push or deploy."
+    }
+  ],
+  "active_local_suite": {
+    "status": "VERIFIED",
+    "root": "ce-m2-final-local/20261015-211020",
+    "terminal_exit": 0
+  },
+  "standalone": {
+    "path": "ce-m2-standalone-final-verification.json",
+    "sha256": "8eb1aa773543931bdee52977eb2fc85e8c5f81a6b6d5f4e69b16442246efb495",
+    "tests": 6
+  },
+  "remaining": [],
+  "scope_boundary": "M3 earned campaign-stage/ending tests and M4 interpreter removal remain unauthorized. Representative M2 owner profiles never establish campaign progress.",
+  "completed_at": "2026-10-15T21:33:16.443971-07:00",
+  "local_suite": {
+    "status": "VERIFIED",
+    "path": "ce-m2-final-local/20261015-211020/local-final-summary.json",
+    "sha256": "499eeac1a3e083d59ff87b0d7b515a514d51ec53c794c69d99359a168ffbca4b",
+    "tasks": [
+      {
+        "name": "resources",
+        "path": "ce-m2-final-local/20261015-211020/resources/20261015-211020/verification.json",
+        "sha256": "e7dd1fc34ce8a62937ae48ca254f4f19199e184adb4f21751778380b7f85981b",
+        "status": "VERIFIED"
+      },
+      {
+        "name": "m1-migration",
+        "path": "ce-m2-final-local/20261015-211020/m1-migration/20261015-211024/verification.json",
+        "sha256": "de3f6dcdbc4166f8e0f536611dfa170be388811cfa4c7e751c745db5464dcfd2",
+        "status": "VERIFIED"
+      },
+      {
+        "name": "gameplay-modern",
+        "path": "ce-m2-final-local/20261015-211020/gameplay-modern/20261015-211026/verification.json",
+        "sha256": "2d79971417091a8b11aee31aabd6bbbdf5aeac51dca590c79ffb53cc97123d6f",
+        "status": "VERIFIED"
+      },
+      {
+        "name": "grid-modern",
+        "path": "ce-m2-final-local/20261015-211020/grid-modern/20261015-211040/verification.json",
+        "sha256": "0d879fd1a39ad3130ca51af9868cb2d755530a9daab5942a5e9294516208ef81",
+        "status": "VERIFIED"
+      },
+      {
+        "name": "default-owners-modern",
+        "path": "ce-m2-final-local/20261015-211020/default-owners-modern/20261015-211058/verification.json",
+        "sha256": "50ea32529801fef35207de8db8cff0664f56afe23d2110830eed34c4e644ed3e",
+        "status": "VERIFIED"
+      },
+      {
+        "name": "dialogue-modern",
+        "path": "ce-m2-final-local/20261015-211020/dialogue-modern/20261015-211105/verification.json",
+        "sha256": "0f8d108942975054f3d828c6796718e38857922197c42e9070b2641e4ddc700f",
+        "status": "VERIFIED"
+      },
+      {
+        "name": "offline-base-modern",
+        "path": "ce-m2-final-local/20261015-211020/offline-base-modern/20261015-211115/verification.json",
+        "sha256": "9c8646b621e093d7910ec95dd9f9aba41389066e7233a8eb54846ae4386c6010",
+        "status": "VERIFIED"
+      },
+      {
+        "name": "management-modern",
+        "path": "ce-m2-final-local/20261015-211020/management-modern/20261015-211122/verification.json",
+        "sha256": "cbdc28ee0810bf26445007fb69f5a3b0ba161ef9e0cbc37202df27550930d722",
+        "status": "VERIFIED"
+      },
+      {
+        "name": "save-history-modern",
+        "path": "ce-m2-final-local/20261015-211020/save-history-modern/20261015-211142/verification.json",
+        "sha256": "a7eaa466e1b77a3f4d6c8d4859c7c7eab102cd4cd1612ed5ecbdf5bed0e06756",
+        "status": "VERIFIED"
+      },
+      {
+        "name": "io-modern",
+        "path": "ce-m2-final-local/20261015-211020/io-modern/20261015-211200/verification.json",
+        "sha256": "ad30a78b64135dd8f26e6050de4a11b2b6e0cf779094bc60612a4fa57bf9d6b8",
+        "status": "VERIFIED"
+      },
+      {
+        "name": "interrupted-modern",
+        "path": "ce-m2-final-local/20261015-211020/interrupted-modern/20261015-211249/failure-verification.json",
+        "sha256": "6ae3eb0dd0f726d7352977baa96e883621ec51de7af7fc77833385987ceaa83d",
+        "status": "VERIFIED"
+      },
+      {
+        "name": "owner-profiles-modern",
+        "path": "ce-m2-final-local/20261015-211020/owner-profiles-modern/20261015-211301/verification.json",
+        "sha256": "90e25e0054f056ea6aa558f830b989de70380213b55924d7aa6cd08c5d55d861",
+        "status": "VERIFIED"
+      },
+      {
+        "name": "gameplay-classic",
+        "path": "ce-m2-final-local/20261015-211020/gameplay-classic/20261015-211312/verification.json",
+        "sha256": "82ab2b844f1c62d0aae473e399ba94013a82fa050f165eda89844207615dca62",
+        "status": "VERIFIED"
+      },
+      {
+        "name": "grid-classic",
+        "path": "ce-m2-final-local/20261015-211020/grid-classic/20261015-211326/verification.json",
+        "sha256": "c8c361e84dcc2189853dcd51a2fccaca00fe4ddf28f9f7aac40f129d9e8f0908",
+        "status": "VERIFIED"
+      },
+      {
+        "name": "default-owners-classic",
+        "path": "ce-m2-final-local/20261015-211020/default-owners-classic/20261015-211341/verification.json",
+        "sha256": "3adca456fb415aa9a904541a2ee209289ac8286e342265ba70eefc7098495279",
+        "status": "VERIFIED"
+      },
+      {
+        "name": "dialogue-classic",
+        "path": "ce-m2-final-local/20261015-211020/dialogue-classic/20261015-211348/verification.json",
+        "sha256": "fb7e18fabf395f939c410eca8ee01641f1e14282277d413dd319d02e9b22a341",
+        "status": "VERIFIED"
+      },
+      {
+        "name": "offline-base-classic",
+        "path": "ce-m2-final-local/20261015-211020/offline-base-classic/20261015-211358/verification.json",
+        "sha256": "f4173f60c43785bfa93f66b2b5ce052ebc79e7aa3a4d645f7969d975e48575f2",
+        "status": "VERIFIED"
+      },
+      {
+        "name": "management-classic",
+        "path": "ce-m2-final-local/20261015-211020/management-classic/20261015-211405/verification.json",
+        "sha256": "36a85d767faa50a7153c988052732e96443d29b8a58a85db3b6a355e51655d6f",
+        "status": "VERIFIED"
+      },
+      {
+        "name": "save-history-classic",
+        "path": "ce-m2-final-local/20261015-211020/save-history-classic/20261015-211425/verification.json",
+        "sha256": "97cdf848ffacedc1d5d44432376b800999f2cf43c5609a3e5cc0d67197b86d39",
+        "status": "VERIFIED"
+      },
+      {
+        "name": "io-classic",
+        "path": "ce-m2-final-local/20261015-211020/io-classic/20261015-211444/verification.json",
+        "sha256": "56e15df83229ed1c5552abaabf282dd36efd5e8cdad45f5b5bd141bb280fa8b2",
+        "status": "VERIFIED"
+      },
+      {
+        "name": "interrupted-classic",
+        "path": "ce-m2-final-local/20261015-211020/interrupted-classic/20261015-211533/failure-verification.json",
+        "sha256": "923aa49a0b6727be034e2e1022b268144634eb3e31e1eb0328871efb59985b09",
+        "status": "VERIFIED"
+      },
+      {
+        "name": "owner-profiles-classic",
+        "path": "ce-m2-final-local/20261015-211020/owner-profiles-classic/20261015-211544/verification.json",
+        "sha256": "12a99b12deeb57a9fafe39356b6a94c8f40f0f499acd0a3ca1320db94f44df14",
+        "status": "VERIFIED"
+      },
+      {
+        "name": "backoff-loopback",
+        "path": "ce-m2-final-local/20261015-211020/backoff-loopback/20261015-211556/verification.json",
+        "sha256": "64c74fd86587c36a83a729f1200439c5033098fa18db7a9e85bf723c858a361c",
+        "status": "VERIFIED"
+      }
+    ]
+  },
+  "online_suite": {
+    "status": "VERIFIED",
+    "path": "ce-m2-final-online/20261015-212403/online-final-summary.json",
+    "sha256": "403917b7d6ea9ed6b829ae734f5159db7659bfd85cd2ebd3edfc6b7d07fefd52",
+    "cases": [
+      {
+        "name": "ordinary-modern",
+        "mode": "Modern",
+        "status": "VERIFIED",
+        "path": "ce-m2-final-online/20261015-212005/ordinary-modern/20261015-212006/verification.json",
+        "sha256": "91ef75187b28a76e9cc0b52ff4962e586f490bf46c63a631d569f774740cc284",
+        "server_path": "ce-m2-final-online/20261015-212005/ordinary-modern/20261015-212006/server-observation.json",
+        "server_sha256": "03d741b5af049a708782c82994cc3ac89b9fa83d00eb51809060ad5d408fa723",
+        "http_requests": 18,
+        "zero_achievement_definitions": true,
+        "zero_achievement_events": true,
+        "non_admin": true
+      },
+      {
+        "name": "recovered-classic",
+        "mode": "Classic",
+        "status": "VERIFIED",
+        "path": "ce-m2-final-online/20261015-212403/recovered-classic/20261015-212404/verification.json",
+        "sha256": "7ba98599b9dc8b0d3d52defa459bc613c37e64df36fe03f0fd98dc8222621511",
+        "server_path": "ce-m2-final-online/20261015-212403/recovered-classic/20261015-212404/server-observation.json",
+        "server_sha256": "4b7a8be3d458a3943913995185124fcaba6f19fe577ea76333b65809495ae790",
+        "http_requests": 15,
+        "zero_achievement_definitions": true,
+        "zero_achievement_events": true,
+        "non_admin": true
+      },
+      {
+        "name": "ordinary-classic",
+        "mode": "Classic",
+        "status": "VERIFIED",
+        "path": "ce-m2-final-online/20261015-212403/ordinary-classic/20261015-212513/verification.json",
+        "sha256": "5d9244c8a0fd6ca6655ec99b1703f3a3786876fb2654d8a11388c6a033271b06",
+        "server_path": "ce-m2-final-online/20261015-212403/ordinary-classic/20261015-212513/server-observation.json",
+        "server_sha256": "efb6c0d7f53ce52e78c898f1cc199e7d7994928c8c5b0c60f7bbdca94f866611",
+        "http_requests": 18,
+        "zero_achievement_definitions": true,
+        "zero_achievement_events": true,
+        "non_admin": true
+      },
+      {
+        "name": "recovered-modern",
+        "mode": "Modern",
+        "status": "VERIFIED",
+        "path": "ce-m2-final-online/20261015-212403/recovered-modern/20261015-212521/verification.json",
+        "sha256": "b42a890158a0c61759b95f4511239bf7d37508f24a3cbfc3b58bfdbc0345591c",
+        "server_path": "ce-m2-final-online/20261015-212403/recovered-modern/20261015-212521/server-observation.json",
+        "server_sha256": "49e9e6dc2ab9db0ee6ebe29e94e42e59483a8665049b8a38fa96272926182c5c",
+        "http_requests": 15,
+        "zero_achievement_definitions": true,
+        "zero_achievement_events": true,
+        "non_admin": true
+      }
+    ],
+    "total_verified_http_requests": 66,
+    "cleanup_path": "ce-m2-final-online/20261015-212403/credential-cleanup.json",
+    "cleanup_sha256": "ad8a6e982fd3765e4ec477ff07277a49cb4512536ba6653c44c8f07b3b771b13",
+    "credential_revoked": true,
+    "request_policy": "Each relay caps24; no resend of completed Modern report; first18 finished in earlier run, resumed15 then61-second quiet gap then33. No server rate limit increased."
+  },
+  "website": {
+    "status": "VERIFIED",
+    "path": "ce-m2-website-final-verification.json",
+    "sha256": "e4a9258e7467bc6288cf45ec9db86c47d0d9249864a758832732e68ea010576b",
+    "tests": 27,
+    "assertions": 195,
+    "pint": "VERIFIED"
+  },
+  "preserved_sha256": {
+    "Nox Archaist HDV (v119).HDV": "c42a95c7a356548c78957f98693e92d33c9bae3ff5126d9887c2980e5a490c3c",
+    "Nox Archaist Lord of Storms HDV (v137).HDV": "90ec012a317c56ab9a5182a1a877227fa7a18ebed72567d2bf08888956b635c9",
+    "conversion/build/Release/nox_live.exe": "d26b2e8dd19efc1420ae569892f8ae3bd6f39f06cbfd835758f95cfdd1e0d695",
+    "conversion/SCUMMVM-CE-ARCHITECTURE-DECISION.md": "ef3b87741a078fa95e74702053d7f504e16abb5a8d8b797684535bafa9a1a632",
+    "conversion/ce-m1-source-baseline-20261015.zip": "65c5e5cee4931c81a9045efd2a5ec0af10e3328fcba170bf238f07bca730db20"
+  },
+  "confirmed_unresolved_m2_defects": [],
+  "blockers": [],
+  "next_action": "STOP: M3/M4 require explicit new authorization.",
+  "temporary_dependencies": [
+    "General original65C02 bridge and full isolated private source-image overlay until M4",
+    "Original bootstrap/internal slot and world-cache writes remain private compatibility state; user Q/Continue use CE saves"
+  ],
+  "limitations": [
+    "Representative M2 owner-content stages do not establish earned campaign stages/ending; M3 not started",
+    "Basev119 only; expansion deferred",
+    "Quiescent save eligibility, no arbitrary mid-command claim",
+    "Deterministic generated PCM/device-queue checks; no physical listening claim",
+    "Storage-error OSD visual presentation not separately captured",
+    "No atomic multi-file deletion across combined process crash/systemic failure claim",
+    "Local content binding is not tamper-proof"
+  ],
+  "git_state": {
+    "branch": "main",
+    "head": "5f84c5cd08cbc54083cf72da8cfa1665294c2bca",
+    "delivery": "Local uncommitted changes; no push/deploy/commit/destructive operation; website ops/dev untouched"
+  },
+  "m1_verification": {
+    "path": "SCUMMVM-CE-M1-VERIFICATION.json",
+    "sha256": "a443e786b99d6846b7cd12698700d2cb0f07afbe98cb4d2d401d2f8b255bf6c5"
+  },
+  "test_source_sha256": {
+    "devtools/nox/diagnose_startup.py": "ddf7673e6698f0296e5ab972e4bae8884772c6d76f56d5770c0d1a39641f9aa6",
+    "devtools/nox/enhancement_oracle.py": "c5f179eabb90c6c37c8d91865463cdb6ec752b6e580b3759df02a540b9838bd3",
+    "devtools/nox/provision_hermesbox.py": "4921a2b26842fa8e429eacc5f11b49d3270723c10c29f2f11a4591963600b29b",
+    "devtools/nox/revoke_hermesbox.py": "e59d2a92c0a93a1b434754a1822e5329d7d454d3c41b07a18dc3639e4fb7aa84",
+    "devtools/nox/run_final_local.py": "e99e946cfd39177ab3154357e886944ed4e52dbf1884efe699aa28c96359e947",
+    "devtools/nox/run_final_online.py": "580f36338d03a4b40030e46974151a7506f0bfee3ec40d6033907da87b050a10",
+    "devtools/nox/sync_project.py": "af69b93d0a89de643398c7cd4bbde7e51ffb3cf379ded2474c455cfd3d2f8819",
+    "devtools/nox/test_assistance_transport.py": "f549e8d73a168833589458bc5ac9cc31ac82b36fa826f5cbdf46ae37f8f091c0",
+    "devtools/nox/test_backoff.py": "8efe8d00de6111018f9b1e660d502e5f43be5bf10280814d945870715374a644",
+    "devtools/nox/test_dialogue.py": "9d74739cc152fa83e232d0948cd450b73aaf64bdf4925f384e0716c701bf1c42",
+    "devtools/nox/test_failures.py": "9d2bacc4e8e97885ec98726f51b44017ddf33515dcb220b1ea050b355f9e51c8",
+    "devtools/nox/test_gameplay.py": "4929b52ec8daa2cfaccc18f501c91f40d8468401e3b08b31f955849eae545b78",
+    "devtools/nox/test_io_failures.py": "e68d1e859e6c2ee7f553f75374e359aca272e8da6c08ab8d544b0c03b8bdcb63",
+    "devtools/nox/test_migration.py": "62ee2143a88942e6cc971e8a7e931e7d3f047daacde49aebd733019252c27283",
+    "devtools/nox/test_offline_link.py": "f88552b82dfabb200db1eda1aad39ac9ed96349cd6bd69f84dfd9906554fac65",
+    "devtools/nox/test_online.py": "3162c4e0cf58db3e9cb2ddc509331bd4878785d72fd98af612aa8bea58678829",
+    "devtools/nox/test_resources.py": "b852421a8fdd68aaf024169b80f6874c2effa63c0ef02d4b8c2aa40be351b397",
+    "devtools/nox/test_save_history.py": "74a5a61aa01a95f7404c74e034e90d4c1ccb4ffadefcab880192719a8c49fe4e",
+    "devtools/nox/test_session_management.py": "9ce16af82160f6f513539d03e1f65506ad8eeb547bf636f58721e2b23afe0bb6",
+    "devtools/nox/test_state_profiles.py": "d279640375999151be72247282ce72979e85daa68d4b85adab48fbc182e5996b",
+    "devtools/nox/verify_assistance_hermesbox.py": "e55e3424ae530751c74e3e1fd7c752674c2dfdc2eec1fcf65eecbaa6acac2f27",
+    "devtools/nox/verify_hermesbox.py": "8c4243e4e32584511766b3c3f1338a0a48dd2e1c004f339dbafd618e2917d9bd",
+    "devtools/nox/verify_recovered_link.py": "0fe905a70e68b9f23ef3734199351a8c7ecdbea76bc3b398c552826b037682c5"
+  },
+  "document_sha256": {
+    "D:\\Codex Projects\\Nox Archaist\\AGENTS.md": "7c1fcb4e576f44298f7d8fdc677db99d9f90f865c7c5690c92395c42d5ba7762",
+    "D:\\Codex Projects\\scummvm-private\\scummvm-private-feature-usable-desktop-window-layout-git\\AGENTS.md": "8187c7bc32c8d06a0686c2f0d860088b922fe9bb8e6d423c38a8053ae6eaebec",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\SCUMMVM-CE-IMPLEMENTATION-PLAN.md": "a8f2cd8fb1cd154d68c0772ca718b7c13244a7ef25d6dcb6f64c8a5d9041ea11",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\SCUMMVM-CE-PROGRESS.md": "6be0f07ed01d0ff899e223535754b8beb83e9c3ff36a53912732acacde3b8cc1",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\SCUMMVM-CE-STATE-OWNERS.md": "d193cd76edebc7b98a117f842ea6b69f65e4a4471080c6cb28d729c0a2ab7d1c"
+  },
+  "active_online_suite": {
+    "status": "VERIFIED",
+    "root": "ce-m2-final-online/20261015-212403",
+    "terminal_exit": 0
+  },
+  "actual_files_modified": {
+    "ce_tracked": [
+      "backends/events/default/default-events.cpp",
+      "backends/graphics/surfacesdl/surfacesdl-graphics.cpp",
+      "backends/networking/http/curl/networkreadstream-curl.cpp",
+      "engines/ce_achievements.cpp",
+      "engines/ce_achievements.h",
+      "engines/metaengine.cpp",
+      "engines/metaengine.h",
+      "gui/launcher.cpp",
+      "gui/saveload-dialog.cpp",
+      "run-build-release-cleanenv.ps1"
+    ],
+    "ce_new_module_and_tools": [
+      "devtools/nox/ONLINE-VERIFICATION.md",
+      "devtools/nox/diagnose_startup.py",
+      "devtools/nox/enhancement_oracle.py",
+      "devtools/nox/launcher_validation.h",
+      "devtools/nox/project/AGENTS.md",
+      "devtools/nox/project/SCUMMVM-CE-ARCHITECTURE-DECISION.md",
+      "devtools/nox/project/SCUMMVM-CE-IMPLEMENTATION-PLAN.md",
+      "devtools/nox/project/SCUMMVM-CE-M1-VERIFICATION.json",
+      "devtools/nox/project/SCUMMVM-CE-M1-WORK-LOG.md",
+      "devtools/nox/project/SCUMMVM-CE-M2-VERIFICATION.json",
+      "devtools/nox/project/SCUMMVM-CE-PROGRESS.md",
+      "devtools/nox/project/SCUMMVM-CE-STATE-OWNERS.md",
+      "devtools/nox/project/ce-m2-assistance-isolation-verification.json",
+      "devtools/nox/project/ce-m2-assistance-verified-account-cleanup.json",
+      "devtools/nox/project/ce-m2-assistance-website-contract-checkpoint.json",
+      "devtools/nox/project/ce-m2-backoff-verification.json",
+      "devtools/nox/project/ce-m2-caller-guards-verification.json",
+      "devtools/nox/project/ce-m2-defaults-verification.json",
+      "devtools/nox/project/ce-m2-dialogue-capture-verification.json",
+      "devtools/nox/project/ce-m2-enhancement-lifecycle-checkpoint.json",
+      "devtools/nox/project/ce-m2-enhancement-owners-verification.json",
+      "devtools/nox/project/ce-m2-grid-verification.json",
+      "devtools/nox/project/ce-m2-history-io-investigation.json",
+      "devtools/nox/project/ce-m2-history-verification.json",
+      "devtools/nox/project/ce-m2-identity-verification.json",
+      "devtools/nox/project/ce-m2-interfaces-verification.json",
+      "devtools/nox/project/ce-m2-io-checkpoint.json",
+      "devtools/nox/project/ce-m2-management-verification.json",
+      "devtools/nox/project/ce-m2-metadata-queue-checkpoint.json",
+      "devtools/nox/project/ce-m2-metadata-verification.json",
+      "devtools/nox/project/ce-m2-observed-capture-checkpoint.json",
+      "devtools/nox/project/ce-m2-offline-account-cleanup.json",
+      "devtools/nox/project/ce-m2-offline-verification.json",
+      "devtools/nox/project/ce-m2-original-caller-investigation.json",
+      "devtools/nox/project/ce-m2-original-caller-verification.json",
+      "devtools/nox/project/ce-m2-owner-checkpoint.json",
+      "devtools/nox/project/ce-m2-owner-lifecycle-verification.json",
+      "devtools/nox/project/ce-m2-policy-verification.json",
+      "devtools/nox/project/ce-m2-recovered-account-cleanup.json",
+      "devtools/nox/project/ce-m2-recovered-link-verification.json",
+      "devtools/nox/project/ce-m2-reset-verification.json",
+      "devtools/nox/project/ce-m2-schema-verification.json",
+      "devtools/nox/project/ce-m2-standalone-final-verification.json",
+      "devtools/nox/project/ce-m2-state-contracts-verification.json",
+      "devtools/nox/project/ce-m2-state-profiles-verification.json",
+      "devtools/nox/project/ce-m2-status-io-checkpoint.json",
+      "devtools/nox/project/ce-m2-storage-verification.json",
+      "devtools/nox/project/ce-m2-website-final-verification.json",
+      "devtools/nox/provision_hermesbox.py",
+      "devtools/nox/revoke_hermesbox.py",
+      "devtools/nox/run_final_local.py",
+      "devtools/nox/run_final_online.py",
+      "devtools/nox/sync_project.py",
+      "devtools/nox/test_assistance_transport.py",
+      "devtools/nox/test_backoff.py",
+      "devtools/nox/test_dialogue.py",
+      "devtools/nox/test_failures.py",
+      "devtools/nox/test_gameplay.py",
+      "devtools/nox/test_io_failures.py",
+      "devtools/nox/test_migration.py",
+      "devtools/nox/test_offline_link.py",
+      "devtools/nox/test_online.py",
+      "devtools/nox/test_resources.py",
+      "devtools/nox/test_save_history.py",
+      "devtools/nox/test_session_management.py",
+      "devtools/nox/test_state_profiles.py",
+      "devtools/nox/verify_assistance_hermesbox.py",
+      "devtools/nox/verify_hermesbox.py",
+      "devtools/nox/verify_recovered_link.py",
+      "engines/nox/backoff_validation.h",
+      "engines/nox/caller_validation.h",
+      "engines/nox/configure.engine",
+      "engines/nox/cpu.inc",
+      "engines/nox/cycles.inc",
+      "engines/nox/detection.cpp",
+      "engines/nox/dialogue_validation.h",
+      "engines/nox/enhancement_fixture.h",
+      "engines/nox/enhancement_validation.h",
+      "engines/nox/enhancements.cpp",
+      "engines/nox/enhancements.h",
+      "engines/nox/grid_validation.h",
+      "engines/nox/history_validation.h",
+      "engines/nox/host_validation.h",
+      "engines/nox/io_validation.h",
+      "engines/nox/management_validation.h",
+      "engines/nox/metadata_validation.h",
+      "engines/nox/metaengine.cpp",
+      "engines/nox/mockingboard.cpp",
+      "engines/nox/mockingboard.h",
+      "engines/nox/module.mk",
+      "engines/nox/movement.cpp",
+      "engines/nox/nox.cpp",
+      "engines/nox/nox.h",
+      "engines/nox/profile_validation.h",
+      "engines/nox/records.h",
+      "engines/nox/render.cpp",
+      "engines/nox/resources.h",
+      "engines/nox/runtime.cpp",
+      "engines/nox/runtime.h",
+      "engines/nox/runtime_observers.cpp",
+      "engines/nox/runtime_state.cpp",
+      "engines/nox/save_policy.h",
+      "engines/nox/saves.h",
+      "engines/nox/session_validation.cpp",
+      "engines/nox/snapshot.h",
+      "engines/nox/speaker_audio.cpp",
+      "engines/nox/speaker_audio.h",
+      "engines/nox/validation.cpp"
+    ],
+    "canonical_tracking": [
+      "AGENTS.md",
+      "conversion/SCUMMVM-CE-IMPLEMENTATION-PLAN.md",
+      "conversion/SCUMMVM-CE-PROGRESS.md",
+      "conversion/SCUMMVM-CE-STATE-OWNERS.md",
+      "conversion/SCUMMVM-CE-M2-VERIFICATION.json"
+    ],
+    "website": [
+      "database/seeders/DatabaseSeeder.php",
+      "database/seeders/NoxArchaistSeeder.php",
+      "tests/Feature/NoxPlaythroughApiTest.php"
+    ]
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "milestone": "M2",
+  "milestone_status": "IN PROGRESS",
+  "subtask": "M2.2c",
+  "status": "VERIFIED",
+  "scope": "Bounded optional date/actual-world preview with old-save compatibility; CE metadata API; pinned logical generation/sidecar deletion, invalid handles/target and cross-session preservation; actual Modern grid and Classic list capture",
+  "build": {
+    "session": 35373,
+    "warnings": 0,
+    "errors": 0,
+    "elapsed": "00:02:36.68"
+  },
+  "executable_sha256": "01486a921ba316e1f8a51ccdda92df5dfdf7e60e1d3d1c551fd1ba2098569cc4",
+  "evidence": {
+    "modern": {
+      "path": "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m2-metadata-final-modern\\20261015-143438\\verification.json",
+      "sha256": "4d5fe8acafb82360a0aae3b2e6e9973a0adf31dc1c919758c504d8a03daeb886"
+    },
+    "classic": {
+      "path": "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m2-metadata-final-classic\\20261015-143454\\verification.json",
+      "sha256": "f67528aa1c6669fca4f6497056c1ba285ea84fc4cf8baf2d07a9c8023840fa51"
+    },
+    "independent_diagnostic": {
+      "path": "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m2-metadata-independent\\20261015-143525\\verification.json",
+      "sha256": "83448aab3c77b3f675fa93b422843dc9e25721cbd3eacfbc7a6f8d2e7f4b6fe6"
+    },
+    "resources": {
+      "path": "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m2-metadata-final-resources\\20261015-143551\\verification.json",
+      "sha256": "7e277c2a06dc2c87163a03ab780d0da651a159b114543ff2ef83dd70472d38b1"
+    },
+    "m1_migration": {
+      "path": "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m2-metadata-final-migration\\20261015-143555\\verification.json",
+      "sha256": "17347aaa0525c4f8e22b0684080723dcd1db99fe059cd3b3ea2e2f5bc2bfdf75"
+    }
+  },
+  "source_sha256": {
+    "engines\\nox\\configure.engine": "774fc9df4834ca0e64018b72f326d14989a40c08f5c7fd78d06bbea6ee42c015",
+    "engines\\nox\\cpu.inc": "41c0fdff3d9d3466871ae76144b430b9b13bd29a2873a8899ebad56e4e208b97",
+    "engines\\nox\\cycles.inc": "2b1024aeab86cda827aec30eb696547ced1d333226263647b29b1d34db3acd6e",
+    "engines\\nox\\detection.cpp": "32753d7b31fd8fe9f61eb27c676e6564d79764aa94cd5283c2508b8ac056dbd6",
+    "engines\\nox\\host_validation.h": "a81537cd11981db3d3a73c9a2a48b412cd48ea796313aa1e71b9b42de7b38cb0",
+    "engines\\nox\\metadata_validation.h": "c2b7fe9b7d1fa277517ec337b3ab8390e39552125b1c460be04690232466db5c",
+    "engines\\nox\\metaengine.cpp": "3fc716eb9566e47dd9a2a8e78aaae65cab12ddc6f5cc587131944891e8ece4db",
+    "engines\\nox\\mockingboard.cpp": "38d5c6a894cc7a6bd238b9ad9a6740ec5ff42c6f299b7f6ce858505a6c1817bc",
+    "engines\\nox\\mockingboard.h": "d0afe027dc9ff9b269b0c60bf04abc45566502a17aed25879316856911937f2e",
+    "engines\\nox\\module.mk": "1048017dae69035ebfbdd3f241c1ba1d25d30a101d844304fbd4231b31c0564f",
+    "engines\\nox\\movement.cpp": "4b03de9dd50c4a4cfc6c2e2d7da9d3fc3fc80a697dfd236a3340c1d25b84fdf9",
+    "engines\\nox\\nox.cpp": "710962ba61d0850ad0f7063242b0a2505b3fdf49aba703268f4b182464560fe9",
+    "engines\\nox\\nox.h": "429b232c99d5d432d641281c780b0af765b9667d62a072e46be3c3fa4d367398",
+    "engines\\nox\\records.h": "8045582e0ae5f83d027b8b197aa66a8309e9ff80f2117bce7edb86455eca9b7d",
+    "engines\\nox\\render.cpp": "bd7833eaccc812fad88b0d19e5070d9955e440142525ded89b3d30766120073a",
+    "engines\\nox\\resources.h": "1451464a6f8ea57039c3596c8aaa388701e5005fb3364b80b9e48bb04dc2cd95",
+    "engines\\nox\\runtime.cpp": "dce87de974e4e4950ecc0566acd46f9af450dda22806dde7ac5e391878909a18",
+    "engines\\nox\\runtime.h": "db0a2952cb3c6825ee423e95e927997dc971245e32e8981395666327ef5ff0aa",
+    "engines\\nox\\runtime_state.cpp": "aaa29234fd715960d6f8b02387aa2c418686ea529cd3520d91f398fb1f49afbf",
+    "engines\\nox\\saves.h": "c3e48afbdcbef70e47afc2e3684b6676cd9377eb287e26c0e12ce1f65d95b3c8",
+    "engines\\nox\\save_policy.h": "890bced00db32c534207055e5f6acf7247310102119da4c5bc66f13a4c7d72fc",
+    "engines\\nox\\session_validation.cpp": "5d6d8620c28bc20b522400361abfa5dc060c35038e256ce74a46620b4c8b16b4",
+    "engines\\nox\\snapshot.h": "bed382954ff3561cda90080e509e8944502842a7581e671fa7cd834396b9b149",
+    "engines\\nox\\speaker_audio.cpp": "b80e55470b95fcaf200f4346a0cb0bab8ce8ff3fe7e2436633da833a2da9f833",
+    "engines\\nox\\speaker_audio.h": "aad57abba83f4a02ee0780eb2eebc80e68a43181b285533dc3313f3ad307205f",
+    "engines\\nox\\validation.cpp": "5bff8aabfbdea9824a5a53ad3abdc69319da9c50cf482676b27e5a765af52789",
+    "engines\\metaengine.h": "1e92062fc076a93e1ec515acc8a39109298a25a052f864ec1bbc12ef4c611d8e",
+    "gui\\saveload-dialog.cpp": "45ebe2314772bef39ceeaf374b165690eb9093da7c8303f1cd9fde4e038e1d5f",
+    "backends\\graphics\\surfacesdl\\surfacesdl-graphics.cpp": "9a0d98f499180a48109377302c96ae74e4eafad2e6eda2e1b440fc5a81d0a776",
+    "devtools\\nox\\test_gameplay.py": "6f79b5e9e458fdd03ab61e5ede46b792e728ec5e3f00ea43754784edde9dad25",
+    "devtools\\nox\\test_resources.py": "644a8282d1e2f2c8a16cd82b84cb45e06dbe85d3b17efd625de5fa9b0a79d580"
+  },
+  "limitations": [
+    "Grid was opened/captured/cancelled; grid New Save/overwrite tile click not yet exercised. List overwrite and grid slot-policy/API code separately covered.",
+    "No deletion-I/O-fault rollback claim; full lifecycle/failure matrix remains M2.4.",
+    "UI screenshot demonstrates real preview/description and Classic labels. Date/playtime verified via CE API; grid tooltip hover not exercised.",
+    "Scripted legacy-save policy and enhancement state remain unimplemented; M2 not verified."
+  ],
+  "corrected_test_error": "Original >8-color heuristic was invalid for actual six-color gameplay. Replaced by byte-exact canonical P565 oracle using independently captured gameplay PNG, retaining uniform-image rejection."
+}

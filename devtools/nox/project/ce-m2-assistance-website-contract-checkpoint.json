@@ -1,0 +1,18 @@
+{
+  "milestone": "M2",
+  "status": "VERIFIED",
+  "scope": "Isolated website contract tests only; no CE transport or production acceptance",
+  "environment": {
+    "app_env": "testing",
+    "database": "sqlite memory",
+    "production_changed": false
+  },
+  "command": "php vendor/bin/pest tests/Feature/NoxPlaythroughApiTest.php tests/Feature/GamePagesTest.php tests/Feature/PlaythroughApiTest.php --compact",
+  "php": "C:/Users/aaron/.config/herd-lite/bin/php.exe",
+  "result": {
+    "tests": 27,
+    "assertions": 195,
+    "passed": 27,
+    "duration_ms": 30166
+  }
+}

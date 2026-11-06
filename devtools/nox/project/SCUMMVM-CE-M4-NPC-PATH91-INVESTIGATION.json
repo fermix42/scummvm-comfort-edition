@@ -1,0 +1,23 @@
+{
+  "status": "IN PROGRESS",
+  "failure": "case0 call0 visited digest differs; primary counts/current point/RNG exactly agree.",
+  "finding": "Original fill excludes the final byte in each workspace. Rule oracle retains visited-tail128, route-tail0 and frontier-node-tail0. Native cleared all bytes. These are explicit data inputs, not legitimate grounds for a CPU bootstrap dependency.",
+  "source_initial_diagnostic": "inspect_path_firstcall91_m4.py",
+  "source_invariant_proof": "inspect_path_workspace_tails91_m4.py",
+  "invariants": "max frontier66<127; every returned route tail0; no root targets reserved visit cell. Initial three tail bytes therefore persist across all reference cases.",
+  "actual_CE_first_world_tails": {
+    "frontier_node_tail": 70,
+    "visited_tail": 232,
+    "route_tail": 255
+  },
+  "limitation": "Controlled rule-workspace inputs differ from actual opening state; normal-world initialization, nonzero-goal outer-hash and two source error contexts remain unverified.",
+  "executable": {
+    "path": "ce-m4-binary\\scummvm-npc-path91-rejected.exe",
+    "sha256": "0798a3ac0a5a2ce9f9604262fe7551cc2b9c2dc422b25fa588d5a74981d5369c"
+  },
+  "source": {
+    "path": "ce-m4-npc-path91-rejected-source.zip",
+    "sha256": "258caddab99858b08f5bf0dcdfdd5598be0af56fe513869c661c472dc8b8528e"
+  },
+  "log": "ce-m4-npc-path91-check.log"
+}

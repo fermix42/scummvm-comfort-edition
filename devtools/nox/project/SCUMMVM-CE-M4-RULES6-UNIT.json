@@ -1,0 +1,134 @@
+{
+  "status": "VERIFIED",
+  "milestone": "M4",
+  "scope": "Native typed response matching, metadata and eligibility units inside CE; not normal gameplay integration",
+  "unit": {
+    "status": "VERIFIED",
+    "scope": "Native rule/data/owner units inside CE before Runtime construction; not ordinary native gameplay or M4 completion",
+    "command": [
+      "C:\\Program Files\\Python313\\python.exe",
+      "D:\\Codex Projects\\scummvm-private\\scummvm-private-feature-usable-desktop-window-layout-git\\devtools\\nox\\test_resources.py",
+      "--exe",
+      "D:\\Codex Projects\\scummvm-private\\scummvm-private-feature-usable-desktop-window-layout-git\\build-scummvm\\Releasex64\\scummvm.exe",
+      "--base",
+      "D:\\Codex Projects\\Nox Archaist\\Nox Archaist HDV (v119).HDV",
+      "--expansion",
+      "D:\\Codex Projects\\Nox Archaist\\Nox Archaist Lord of Storms HDV (v137).HDV",
+      "--artifacts",
+      "conversion\\ce-m4-native-rules6-tests",
+      "--native-video",
+      "--native-dialogue-oracle",
+      "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-dialogue-reference"
+    ],
+    "resource_report": "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-native-rules6-tests\\20261017-014215\\verification.json",
+    "gate_counts": {
+      "maps": "76",
+      "keyed": "38",
+      "compound": "5",
+      "plates": "14",
+      "portals": "57",
+      "cases": "337",
+      "ownership": "semantic-unit-only"
+    },
+    "executable_sha256": "a1239358a51f645075426cd4b877ff1847bf49b875e336d3e8f62551dc31ecbc",
+    "source_sha256": {
+      "native_clock.h": "f270eec76b75e96bbac284a25e57ca9738135af908491f4c080f968d3112ac5e",
+      "native_clock_validation.h": "120dbfa2811a977de961e35bda27da9fc96d3eb816b613ffaf3e016e4dc6ebf6",
+      "native_dialogue.h": "e0117b66dfd59bd02fd25efeac34076a95548676a60713b152f828d9c4aa8aea",
+      "native_dialogue_rules.h": "384762db01aac79e51204949d38e1cf5e6602b1f363ac8ddbe8e00ed1f207530",
+      "native_dialogue_rules_validation.h": "aadbf79f977267232e894eb59726f39bb8bdad7922dc1d5abd4a0ea3a0987428",
+      "native_dialogue_validation.h": "816d99c7a8bbe1b87d900c186382cf9621f4904254aa0967e679e4ccf80ae484",
+      "native_gates.h": "3c19eeaa79877c589db5f2de13ceb826ce42437e4cae6032b80d46c2859f2b85",
+      "native_gates_validation.h": "0789ab31cb010bfa0750a2db2ee37d8976fa8ef7c74678ec87f5671a00dba50e",
+      "native_lz.h": "dea03488b3f6073389d2028b2ecc2a3420e7df63d550ea559746b7f691fb11f2",
+      "native_maps.h": "cb8d89622295405cbee3cd2e6206813385aea94ba480918bda005a02eeb7c91a",
+      "native_maps_validation.h": "83f6bcc201b5c6f57d24227ca4ecc15dce90b7b10a1af13a5464ed7d754874db",
+      "native_world.h": "4713787fd388623a6380fcd4da12f8eee9c053a291c0daf2dfac911fbb2b0ba9",
+      "native_world_validation.h": "53412acf08cdce63f19898313caf0554072b088ba44f92e946f5c12779ac744e"
+    },
+    "native_only_gameplay": "NOT STARTED",
+    "earned_native_campaign": "NOT STARTED",
+    "actual_compiled_native_units": [
+      "native_gates.h",
+      "native_gates_validation.h",
+      "native_maps.h",
+      "native_maps_validation.h",
+      "native_lz.h",
+      "native_dialogue.h",
+      "native_dialogue_validation.h",
+      "native_clock.h",
+      "native_clock_validation.h",
+      "native_dialogue_rules.h",
+      "native_dialogue_rules_validation.h",
+      "native_world.h",
+      "native_world_validation.h"
+    ],
+    "maps": {
+      "count": 76,
+      "decoded_sectors": 2660,
+      "terrain_metadata_and_state_tables": "VERIFIED"
+    },
+    "dialogue": {
+      "status": "VERIFIED",
+      "packets": 439,
+      "identity_and_full_contents": "VERIFIED",
+      "quest_matching_and_effects": "NOT STARTED"
+    },
+    "clock": {
+      "status": "VERIFIED",
+      "trace": "native-clock\thalf_turns=2880\tminutes=1440\thours=24\tmidnight=1\toriginal_light_expiry=1\towner=rule-unit-only",
+      "normal_scheduler_integration": "NOT STARTED"
+    },
+    "dialogue_rules": {
+      "status": "VERIFIED",
+      "trace": "native-dialogue-rules\tcases=8451\tmatched=8436\teligible=4906\townership=semantic-unit-only",
+      "scope": "Matching, typed metadata and eligibility versus local legacy semantic oracle; quest-service side effects and normal conversation integration unverified",
+      "oracle_sha256": {
+        "metadata.json": "2a10a3ac5eb868076e30e9188691ed5e5a85dbf1a3656b9194694fcb5f0ff227",
+        "input.bin": "ec72e73f2e9fb93befbcdd26e765d4791ccd792e85ca101fbeeda8f28f17310e",
+        "expected.bin": "744ae4cf939458317e1d825ad77184d948b5837248b87e7cd395999c40c96b9e"
+      }
+    },
+    "world": {
+      "status": "VERIFIED",
+      "scope": "Native World operations/serialization only; no ordinary input/rendered gameplay claim",
+      "warm": "native-world\tphase=warm\tkey_refusal=1\tactual_open=1\tcontrol_reversal=1\tportal=1\tmulti_map_restore=1\tatomic_rejection=1\tcpu_execution=0",
+      "cold": "native-world\tphase=cold\tmap=54\tnative_open_retained=1\tcpu_execution=0",
+      "cold_argv": [
+        "D:\\Codex Projects\\scummvm-private\\scummvm-private-feature-usable-desktop-window-layout-git\\build-scummvm\\Releasex64\\scummvm.exe",
+        "--gfx-mode=surfacesdl",
+        "--config=D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-native-rules6-tests\\native-cold\\cold.ini",
+        "--savepath=D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-native-rules6-tests\\native-cold\\saves",
+        "--logfile=D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-native-rules6-tests\\native-cold\\engine.log",
+        "nox-resource-test"
+      ],
+      "cold_exit": 0,
+      "input_state_sha256": "10b54f5b6bcd6b4e07af9b6ff1ea97a29ce3c0b60afb0cd847dc599a0294b98d",
+      "controlled_initialization": "Source-valid world profiles and authorization BEFORE native operations; no earned Search/key award or full party initialization claim"
+    },
+    "artifacts": {
+      "native-core-warm.tsv": "4f69f29f66d5e09f4ae4c573aeef12d7b8923abe03081129920c0adcfc5d3a54",
+      "native-cold\\saves\\nox-native-world-state.bin": "10b54f5b6bcd6b4e07af9b6ff1ea97a29ce3c0b60afb0cd847dc599a0294b98d",
+      "native-cold\\saves\\nox-resource-validation.tsv": "88909f911f047ccb943547d2ccd446fe3fb28778373725315aea831a87ba2322",
+      "native-cold\\cold.ini": "cb8f1514c74368931c43c0f0479cb221a759a32a355c749031797058369f9003"
+    }
+  },
+  "source_archive": {
+    "path": "ce-m4-rules6-source.zip",
+    "sha256": "fb564b370d9b8a96681c7456c440dc0cd11adc8a07aeaa0725cf93e69a26c5d8"
+  },
+  "preserved_executable": {
+    "path": "ce-m4-binary\\scummvm-rules6.exe",
+    "sha256": "a1239358a51f645075426cd4b877ff1847bf49b875e336d3e8f62551dc31ecbc"
+  },
+  "build": {
+    "log": "ce-m4-native-rules-build6.log",
+    "sha256": "47ab5074b0a6de1e3bfc3177c1489b64b8731f330bab6e4dfdc45887f01eb3a6",
+    "result": "PASS 0 warnings/errors,00:04:00.32"
+  },
+  "limitations": [
+    "8451 rule contexts cover2817 reachable declarations, including15 original not-found results; contexts are not full-game checkpoints.",
+    "All native maps/world/gates/packet/clock and resource/session regression checks passed again.",
+    "Normal runtime still uses the interpreter; quest effects and native-only earned campaign remain unverified."
+  ]
+}

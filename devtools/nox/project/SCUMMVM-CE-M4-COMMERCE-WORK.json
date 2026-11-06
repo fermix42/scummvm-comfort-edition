@@ -1,0 +1,97 @@
+{
+  "status": "IN PROGRESS",
+  "scope": "Connected native merchant/party-resource workflows",
+  "source_contract": "service-workflow-research\\commerce1\\analysis.json",
+  "last_accepted_build": "359",
+  "authored_offers": {
+    "food": 15,
+    "boats": 1,
+    "armory": 8,
+    "mounts": 3
+  },
+  "implementation_next": "Implement connected WorldNavigation owner andsource map-context transition,orb store/SallyForth/QuickExit/Illuminate/Reckoning/worldhealing plusnormal C input andcoldpersistence. TrackedDropcounter remainsopen. Preserve359.",
+  "remaining_uncertainties": [
+    "Castle11 reserved NPC-selector semantics.",
+    "Worldmagic/orb/source interactions and full normal inventory Use/Drop remain.",
+    "Original edition UI fidelity andnormal CE save/audio/session/native-only campaign acceptance remain.",
+    "A24B counter hook uses retained264/269;ordinary Drop does not set them. Five confirmed Torch cases remain unsupported atomically,not replaced with guessed removal-quantity subtraction."
+  ],
+  "external_blockers": [],
+  "partial_food_checkpoint": "SCUMMVM-CE-M4-VENDOR346-CHECKPOINT.json",
+  "running_regression": null,
+  "original_transport_reference": "service-workflow-research/commerce-transport-reference1/metadata.json",
+  "food_coverage": {
+    "qualified_maps": [
+      9,
+      28,
+      35,
+      41,
+      38,
+      47,
+      98,
+      100,
+      54,
+      76,
+      44,
+      72,
+      24,
+      74
+    ],
+    "unresolved_map11": {
+      "map": 11,
+      "status": "IN PROGRESS",
+      "reason": "Authored actorSlot1 padding produces reserved selection pointer0 in original,unlike castle15 E000 fallback;source-backed semantic ownership unresolved. Existing native scheduler rejects beforeinput;no criteria waived."
+    },
+    "actual_invocations": 87,
+    "native_source_cases": 9792
+  },
+  "vendor347_checkpoint": "SCUMMVM-CE-M4-VENDOR347-CHECKPOINT.json",
+  "inn346_regression": {
+    "status": "VERIFIED",
+    "actual_invocations": 15,
+    "path": "ce-m4-food346-inn-regression/verification.json"
+  },
+  "mounted348": {
+    "status": "IN PROGRESS",
+    "build": "ce-m4-focused348.log",
+    "warnings": 0,
+    "errors": 0,
+    "elapsed": "31.81s",
+    "executable_sha256": "e5c3da542d2d5561886966614d0eaa584ddafca0980d525973b4e6aaed3ed320",
+    "source_comparisons": "ce-m4-commerce348-source/20261018-130435/verification.json plusactualTSV:168carrier,800boatmount,9792food,27offers,896control/28pace",
+    "actual_test": "run_mounted_travel_battle_m4.py --artifacts ce-m4-mounted348-world --resume",
+    "actual_log": "ce-m4-mounted348-world-retry1.log",
+    "actual_first_transfer_passed": "Purchasedmount54,same-mapcontrolledapproach,Ypace2,Southleaveprompt,cold,No abortspendingpace,Yes movesownedrecordtoSurface177,62 withnewpartyObject andclearsoldrecord,cold. First routefilterwasoverlystrictgrass-only;sourcefooter-passable64 route selectedwithoutengine changes.",
+    "source_initialization": "NA/LOADER.P offset395 originalA9C08DC360 initializescursor192;newtypeddefaultcorrected. ExistingNTRN serializedcursorsarepreserved. Old291 controlledfixtureexplicitlyadds sourceGAMEN-initializedSurfacebeforefirstinput;currentNewGamealreadydoes.",
+    "source_gameplay": "Mainbank1DA96-DAC3 captures/clearsoldobject;DF05-DF2A allocatesnewobjectandrestorespicture/countatnewpartyposition. NativeWorldTravel commitsbothmapsandcontrol atomically;WorldInput usesnewpartyObject. SourceF46A/F4BD returntomaininput,soYes/No abortautomaticremainingsteps.",
+    "running_handle": 47121,
+    "next": "Inspectwhole2mount purchase/travel/pace/battle/return/X/cold test,resolvefailure,thenonfoottravel/food/shipregressions andallunblockedarmoryinformation/sharedrole0merchantwork."
+  },
+  "merchant_checkpoint": "SCUMMVM-CE-M4-MERCHANT349-CHECKPOINT.json",
+  "merchant_economics_cases": 2993,
+  "ordinary_merchant_build": "351",
+  "ordinary_merchant_status": "IN PROGRESS",
+  "next_connected_batch": {
+    "status": "IN PROGRESS",
+    "candidate": "native_inventory_window_candidate.h",
+    "scope": "Normal world I with party selection,weapon/armor Ready/Unready,book shortcuts and cold continuation;reuse EquipmentActions/SpellBook,then purchased equipment/battle/return. Candidate not yet installed or compiled.",
+    "boundary": "Inventory Use/Drop/special tools and original edition visuals remain separate missing source-backed workflows;do not claim complete inventory."
+  },
+  "inventory_checkpoint": "SCUMMVM-CE-M4-INVENTORY359-CHECKPOINT.json",
+  "active_build": "359",
+  "inventory_use_drop": {
+    "status": "IN PROGRESS",
+    "source_reference": "service-workflow-research/inventory-drop-reference354/metadata.json",
+    "source_comparison357": "ce-m4-inventory357-source/20261018-135419/saves/nox-resource-validation.tsv",
+    "source_comparison358": "ce-m4-inventory358-source",
+    "drop_cases": 120,
+    "matched_drop_cases": 115,
+    "unresolved_drop_cases": 5,
+    "all_readable_documents": 47,
+    "actual358_use_drop_invocations": 21,
+    "actual358_retention_invocations": 32,
+    "running": null,
+    "pending": "Inspect359 modal text frame;repeat acquired-resource fullbattle/world andsharedtravel regression,thenfreeze qualifiedpartial scope. Trace tracked-counterDrop caller andcomplete orb/worldmagic.",
+    "accepted_partial_checkpoint": "SCUMMVM-CE-M4-INVENTORY359-CHECKPOINT.json"
+  }
+}

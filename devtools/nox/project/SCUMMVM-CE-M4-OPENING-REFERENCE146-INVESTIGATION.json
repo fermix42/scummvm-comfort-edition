@@ -1,0 +1,18 @@
+{
+  "status": "IN PROGRESS",
+  "scope": "Rejected native owner implementation; never a gameplay pass",
+  "source_archive": {
+    "path": "ce-m4-opening-reference146-rejected-source.zip",
+    "sha256": "f14de8a39cd3f244a2372c496633b4604d806d78d2333f2372653ff3d8f47938"
+  },
+  "executable": {
+    "path": "ce-m4-binary\\scummvm-opening-reference146-rejected.exe",
+    "sha256": "7b60c03b44d4766c52c2039d57266b14f2969a94dd02188cdcc049b113378512"
+  },
+  "failure_log": {
+    "path": "ce-m4-opening-reference146.log",
+    "sha256": "680685e062cdd0cbab30331d10120c6eb6231ffd5891f269b3df2cdbabcf6a4b"
+  },
+  "finding": "New source-capture observer selected main keyboard sites1324/1371 and assumed direct stack returnA2B2. Actual original CE trace places creation/story waits in banked D560; no capture files were produced. Existing actual gameplay/cold checks passed before the new capture assertion rejected the run. Add the observed banked keyboard boundary and report actual main/aux text pointers; no native opening or source-oracle completion claimed.",
+  "next_action": "Correct the implementation using actual source evidence; preserve all original numeric reference outcomes and rerun affected CE checks."
+}

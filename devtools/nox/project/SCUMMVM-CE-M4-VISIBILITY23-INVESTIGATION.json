@@ -1,0 +1,23 @@
+{
+  "status": "VERIFIED",
+  "scope": "Resolved new native visibility kernel research/implementation discrepancies",
+  "failures": [
+    "Initial private reference omitted the file one-byte prefix and returned in one RTS step. It was rejected before CE acceptance; original metadata/input retained and explicitly disqualified.",
+    "Correct source reference runs1633197 steps across1065 contexts, guarded above300 per call. It caught reversed left/right kernel branch in native23 at case0. Rejected header/executable/log retained."
+  ],
+  "resolution": "Native24 reverses branch to match original. All1065 full187-cell results and prior suites/cold checks pass. Acceptance is VISIBILITY24-UNIT; no23 acceptance.",
+  "artifacts": {
+    "ce-m4-binary/scummvm-visibility23-rejected.exe": "400e9441fe052bc00967ad0c68b65aa620c47bf8d6583dcca337d7182dbe99b6",
+    "ce-m4-visibility23-rejected-header.h": "9a24e5883aa1993a8ba080f8099d23ec6d55572fd4159955cc9cb167fbb90c0c",
+    "ce-m4-native-visibility23-tests.log": "b77dbe8b7a772b602862541a6d505d6e3cfe954cca5ad9eb454ca2fbb503caa4",
+    "ce-m4-visibility23-oracle.log": "e45e6951168d9c63539fe0fb4c7b448baecdd285f4e6c82e230db28e9d80e139",
+    "ce-m4-visibility23-oracle-v2.log": "a4d08d6cf77de797475e39fee8e41632240bd6b95d7d138beab0102b27f7ab98",
+    "ce-m4-visibility-reference/metadata-rejected-original.json": "23575421156da03544ff20ff90bd91450705fecb8e31b0b397bada5d5939dec8",
+    "ce-m4-visibility-reference/metadata.json": "e6eeb05d23a54d7e6018cf96de4b8d8591be8d9336e4a0130c07a0b3818c5b0f",
+    "ce-m4-visibility-reference-v2/metadata.json": "ed27a1c7814b1bcea4cc03283a4e4b38dde706cef8075adcac208fbe0a31dd2c"
+  },
+  "accepted_evidence": {
+    "path": "SCUMMVM-CE-M4-VISIBILITY24-UNIT.json",
+    "sha256": "378f53037166ab799111f9b5ec221471accb608f56a28e2f3fd95d03926ffbb4"
+  }
+}

@@ -56,6 +56,9 @@
 #include "gui/ThemeEval.h"
 #include "engines/ce_achievements.h"
 #include "engines/advancedDetector.h"
+#ifdef ENABLE_NOX
+#include "devtools/nox/launcher_validation.h"
+#endif
 
 #include "graphics/cursorman.h"
 #ifdef USE_CLOUD
@@ -186,6 +189,12 @@ static void resolveCEAchievementTarget(const Common::ConfigManager::Domain *doma
 	const Common::String engineId = getDomainValueOrEmpty(domain, "engineid");
 	const Common::String gameId = getDomainValueOrEmpty(domain, "gameid");
 	const Common::String platform = getDomainValueOrEmpty(domain, "platform");
+
+	if (engineId == "nox" && gameId == "nox" && platform == "apple2") {
+		game = "nox-archaist";
+		variant = "apple2-v119";
+		return;
+	}
 
 	if (engineId == "cine" && gameId == "os") {
 		game = "operation-stealth";
@@ -448,9 +457,26 @@ void LauncherDialog::open() {
 	Dialog::open();
 
 	updateButtons();
+#ifdef ENABLE_NOX
+	if(ConfMan.hasKey("nox_launcher_validation",Common::ConfigManager::kApplicationDomain)&&
+	   ConfMan.getBool("nox_launcher_validation",Common::ConfigManager::kApplicationDomain)&&
+	   ConfMan.hasGameDomain("nox-gameplay-test")){
+		delete noxLauncherValidationSource;
+		noxLauncherValidationSource=nullptr;
+		Widget *start=findWidget("Launcher.StartButton");
+		if(start)noxLauncherValidationSource=new NoxLauncherValidationSource(*start,*g_system->getEventManager());
+	}
+#endif
 }
 
 void LauncherDialog::close() {
+#ifdef ENABLE_NOX
+	if(noxLauncherValidationSource){
+		if(noxLauncherValidationSource->clicks==2&&ConfMan.getActiveDomainName()=="nox-gameplay-test")
+			ConfMan.setBool("nox_launcher_action_verified",true,Common::ConfigManager::kTransientDomain);
+		delete noxLauncherValidationSource;noxLauncherValidationSource=nullptr;
+	}
+#endif
 	// Save last selection
 	const int sel = getSelected();
 	if (sel >= 0)
@@ -942,7 +968,7 @@ void LauncherDialog::handleCommand(CommandSender *sender, uint32 cmd, uint32 dat
 			Common::String game;
 			Common::String variant;
 			resolveCEAchievementTarget(domain, game, variant);
-			if (!Common::CEAchievements().hasAchievementSupport(game, variant)) {
+			if (!Common::CEAchievements().hasPlaythroughSupportForTarget(_domains[item], game, variant)) {
 				game.clear();
 				variant.clear();
 			}

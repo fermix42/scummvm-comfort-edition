@@ -1,0 +1,593 @@
+{
+  "status": "VERIFIED",
+  "milestone": "M4",
+  "scope": "Non-interrupted original gameplay RNG, entropy initialization, retained streams and native persistence; input interruption/AI/combat integration unfinished",
+  "unit": {
+    "status": "VERIFIED",
+    "scope": "Native rule/data/owner units inside CE before Runtime construction; not ordinary native gameplay or M4 completion",
+    "command": [
+      "C:\\Program Files\\Python313\\python.exe",
+      "D:\\Codex Projects\\scummvm-private\\scummvm-private-feature-usable-desktop-window-layout-git\\devtools\\nox\\test_resources.py",
+      "--exe",
+      "D:\\Codex Projects\\scummvm-private\\scummvm-private-feature-usable-desktop-window-layout-git\\build-nox-focused\\Releasex64\\scummvm.exe",
+      "--base",
+      "D:\\Codex Projects\\Nox Archaist\\Nox Archaist HDV (v119).HDV",
+      "--expansion",
+      "D:\\Codex Projects\\Nox Archaist\\Nox Archaist Lord of Storms HDV (v137).HDV",
+      "--artifacts",
+      "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-native-rng35-tests",
+      "--native-video",
+      "--native-dialogue-oracle",
+      "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-dialogue-effects-reference",
+      "--native-inventory-oracle",
+      "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-inventory-reference",
+      "--native-dialogue-selection",
+      "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-dialogue-selection-reference",
+      "--native-dialogue-openings",
+      "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-dialogue-opening-reference",
+      "--native-conversation",
+      "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-conversation-reference",
+      "--native-dialogue-input",
+      "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-dialogue-input-reference",
+      "--native-pages-chain",
+      "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-pages-chain-reference",
+      "--native-rng",
+      "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-rng-reference",
+      "--native-world-presentation",
+      "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-scene-reference",
+      "--native-tile-paint",
+      "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-tile-paint-reference",
+      "--native-actors",
+      "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-actor-admission-reference-v2",
+      "--native-actor-paint",
+      "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-actor-paint-reference",
+      "--native-lighting-chain",
+      "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-lighting-chain-reference",
+      "--native-personal-light",
+      "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-personal-light-reference",
+      "--native-terrain-light",
+      "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-terrain-light-reference",
+      "--native-light",
+      "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-light-reference",
+      "--native-visibility",
+      "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-visibility-reference-v2",
+      "--native-objects",
+      "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-objects-reference",
+      "--native-view",
+      "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-view-reference",
+      "--native-party",
+      "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-party-reference",
+      "--native-traversal",
+      "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-traversal-reference",
+      "--native-graphics",
+      "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-graphics-reference"
+    ],
+    "resource_report": "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-native-rng35-tests\\20261017-041608\\verification.json",
+    "gate_counts": {
+      "maps": "76",
+      "keyed": "38",
+      "compound": "5",
+      "plates": "14",
+      "portals": "57",
+      "cases": "337",
+      "ownership": "semantic-unit-only"
+    },
+    "executable_sha256": "70d9b34aae91c4e6463aa03aa179ed1b18c5022e1a9d5a5c1f6ca84d3265d928",
+    "source_sha256": {
+      "native_actors.h": "8c0e8211fcabd90034d90fe1cbd4690107cd86da8cb46a4c6944f533b21765af",
+      "native_actors_validation.h": "5ea58304a12a668612a9d54c8320c84a00560743841b075a0afb93b3940f9438",
+      "native_actor_paint.h": "8f1f6a02cd06f7c8a2d95ac2ce17c0e836413b69c6e4f643d357e1eb9bc8e625",
+      "native_actor_paint_validation.h": "1b886dc0bf06209330c68fcce14c3389bfdfc277ff1d6414be6f2885a243093a",
+      "native_chain_validation.h": "b76d06f158d14927d22f55f4a368f9b9b53b64beaff49a24a7cb85569bfcfca5",
+      "native_clock.h": "f270eec76b75e96bbac284a25e57ca9738135af908491f4c080f968d3112ac5e",
+      "native_clock_validation.h": "120dbfa2811a977de961e35bda27da9fc96d3eb816b613ffaf3e016e4dc6ebf6",
+      "native_conversation.h": "fc494cea97ac07447a59b3b59d0d15089053051fae7a484a0f76daa61214338a",
+      "native_conversation_validation.h": "0946ddb22f51d645a489819d957fea8542decf607557d8d62d5bc849c68fdf32",
+      "native_dialogue.h": "e0117b66dfd59bd02fd25efeac34076a95548676a60713b152f828d9c4aa8aea",
+      "native_dialogue_input.h": "5ab0903ce7e5a0149e2bc1579bdd656e3c9de1baf87ac22458b2af4736676c1a",
+      "native_dialogue_input_validation.h": "c61dbe0654eda8aa1c6e783c19100fdb1760c4efcfb1f4481b2d028576357df3",
+      "native_dialogue_rules.h": "a16e964c0f05c3f415c80493502ff2418b83ad59b4d193810e6dadb1c9c6f222",
+      "native_dialogue_rules_validation.h": "2ae4331c01e853dcf3d482fe8150c1e0633c84f8baa4c427ad3e1dd86391a2ab",
+      "native_dialogue_validation.h": "816d99c7a8bbe1b87d900c186382cf9621f4904254aa0967e679e4ccf80ae484",
+      "native_gates.h": "3c19eeaa79877c589db5f2de13ceb826ce42437e4cae6032b80d46c2859f2b85",
+      "native_gates_validation.h": "0789ab31cb010bfa0750a2db2ee37d8976fa8ef7c74678ec87f5671a00dba50e",
+      "native_graphics.h": "71569a9c90b9d4f0b28c831ddb7c57544bd64e68e3382b4d0b7c75f8ef72a80d",
+      "native_graphics_validation.h": "dc12950d42cd47943dd59f8f51959eda36f696807e5644c075a6c5fa90f58133",
+      "native_inventory.h": "551a385c1956fc65869cd6d022fed62ffeb5836494a9acacbea0065b336fdf81",
+      "native_inventory_validation.h": "0a71c10489d6aab34db5dfa24658a956ca1a70be03047c15b150ec45dfedc449",
+      "native_lighting.h": "ced9c9804bed67a1c22000fdba55a2347895285adb111e1fc8692a8b935b34cc",
+      "native_lighting_chain_validation.h": "c97ab4611402f3d65a3ace74c2881d3f5318be1ccb5931a87508615272cb2bea",
+      "native_lighting_validation.h": "52b67e8a0fdd88f190b3ccb6ad20259100aecae74a1fa64514d97fd0c76c3f8f",
+      "native_light_validation.h": "1c2b910831f68f0fa616dcfe03e152b63935c65c8f6f5d2d138a96fe3d2af2bc",
+      "native_lz.h": "dea03488b3f6073389d2028b2ecc2a3420e7df63d550ea559746b7f691fb11f2",
+      "native_maps.h": "cb8d89622295405cbee3cd2e6206813385aea94ba480918bda005a02eeb7c91a",
+      "native_maps_validation.h": "83f6bcc201b5c6f57d24227ca4ecc15dce90b7b10a1af13a5464ed7d754874db",
+      "native_objects.h": "32878159c732a30bc034525256f4403762909f914e00264065e66e043f1f7df7",
+      "native_objects_validation.h": "1fd1df1e386c42d8546257d8376187154510dfeacd217b6220d7d9508d038b44",
+      "native_party.h": "5e317b94d1530d8b12bdd689a97ad10ac266887b7eb1175801838eb4738eff9c",
+      "native_party_validation.h": "5b9172ab5c6087a51ed1ac0534a5af0d2f26b388881b38a41ba66aa5cb9274a2",
+      "native_personal_light_validation.h": "cd79d8da548f257ce48e0651b9e160271813094ebfb46949228204a87b4088ae",
+      "native_position_validation.h": "d96b573a12ff06462adba0fd53fd752e9c9596471eb868e59da31a7df021ce86",
+      "native_random.h": "7db95189ddb4236e1db4a049a967fa5c69b6b89fc1afc57b2571a3633f62c6e8",
+      "native_random_validation.h": "51c0829f6428097de8c8d5715b1ae977a8f337a11aa1621d4fb2e8db711ef117",
+      "native_tile_paint.h": "fd420629205cdf903e891baaccd72d46140dd423c8ce85c9fa17badbb7265453",
+      "native_tile_paint_validation.h": "6905e7433d11cb00225efbbbf03b86a84a11309a28ee2c4cb43efaa6bd93ffda",
+      "native_traversal.h": "ee4cee3fcf1ba6c1d76ec3616e079dfcd9074efe5db536eeb7b04715cfc18b02",
+      "native_traversal_validation.h": "2341c9a3b1bbb4abea587b4e8676d41fdd7695f23d0d75f7706042a549e9f183",
+      "native_view_validation.h": "9e312e6390687e75b64debc77edab4d3c22163aff69dba83fe3b83d2c569a6de",
+      "native_visibility.h": "501143dfa988a2c9e80144b4637b5dfd6e777d15bd99f7bb06f49814f376191d",
+      "native_visibility_validation.h": "beab59925c833f41370d344ce0f938bab5fced499ffe70581649d45a405587af",
+      "native_world.h": "86427d64579524f637d3d31efb99773b55dcc71b698a189c65fc0692cef84a5b",
+      "native_world_presentation.h": "9e522b34b6299f2ff3234577c1a7f1191a335bb41d92f1dafc03beace17731a1",
+      "native_world_presentation_validation.h": "893f425493297e7f423f5bcb9de95fa304875c0f68e3f6d1e95b49d3957c7848",
+      "native_world_validation.h": "53412acf08cdce63f19898313caf0554072b088ba44f92e946f5c12779ac744e"
+    },
+    "native_only_gameplay": "NOT STARTED",
+    "earned_native_campaign": "NOT STARTED",
+    "actual_compiled_native_units": [
+      "native_gates.h",
+      "native_gates_validation.h",
+      "native_random.h",
+      "native_random_validation.h",
+      "native_world_presentation.h",
+      "native_world_presentation_validation.h",
+      "native_tile_paint.h",
+      "native_tile_paint_validation.h",
+      "native_actors.h",
+      "native_actors_validation.h",
+      "native_actor_paint.h",
+      "native_actor_paint_validation.h",
+      "native_lighting_chain_validation.h",
+      "native_personal_light_validation.h",
+      "native_lighting.h",
+      "native_lighting_validation.h",
+      "native_light_validation.h",
+      "native_visibility.h",
+      "native_visibility_validation.h",
+      "native_objects.h",
+      "native_objects_validation.h",
+      "native_view_validation.h",
+      "native_traversal.h",
+      "native_traversal_validation.h",
+      "native_graphics.h",
+      "native_graphics_validation.h",
+      "native_dialogue_input.h",
+      "native_dialogue_input_validation.h",
+      "native_chain_validation.h",
+      "native_conversation.h",
+      "native_conversation_validation.h",
+      "native_inventory.h",
+      "native_inventory_validation.h",
+      "native_maps.h",
+      "native_maps_validation.h",
+      "native_lz.h",
+      "native_dialogue.h",
+      "native_dialogue_validation.h",
+      "native_clock.h",
+      "native_clock_validation.h",
+      "native_dialogue_rules.h",
+      "native_dialogue_rules_validation.h",
+      "native_position_validation.h",
+      "native_traversal.h",
+      "native_party.h",
+      "native_party_validation.h",
+      "native_world.h",
+      "native_world_validation.h"
+    ],
+    "rng": {
+      "status": "VERIFIED",
+      "trace": "native-rng\tsingle_cases=416\tentropy_cases=260\tstreams=8\tretained_draws=128\tkeyboard_interrupt=0\tcpu_execution=0",
+      "scope": "Non-interrupted original gameplay RNG, entropy initialization, retained streams and native persistence; input interruption/AI/combat integration unfinished",
+      "oracle_sha256": {
+        "metadata.json": "38c8b53c0d717c4870225b53ea8bb11b0b0b524236155f6f35b779e73113ac86",
+        "input.bin": "b21ec25eacea3a0b0c13044f36f04d63f95f317f955d63705cd342c0244ee3e7",
+        "cold.bin": "167bc21a593b28a6e641578051cc17896ea5d3674a3030b7e3a52ea30f996e6d"
+      },
+      "persistence": {
+        "status": "VERIFIED",
+        "warm": "native-rng-state\tphase=warm\tretained_draws=16\tnative_saved=1\tcpu_execution=0",
+        "cold": "native-rng-state\tphase=cold\toriginal_continuation_draws=16\tcpu_execution=0",
+        "input_state_sha256": "a0a1bfd291559b1f9e0a1ca05066a742532f77918ba61065ff3bf59120fe6cf1",
+        "scope": "Actual fresh CE process loads native14-byte RNG owner and continues the remaining16 original stream draws; full native game save excluded"
+      }
+    },
+    "world_presentation": {
+      "status": "VERIFIED",
+      "trace": "native-world-presentation\tcases=228\tpresentations=456\tmaps=76\tordered_draws=980\tfull_records_and_lookups=1\tretained_state=1\tcomplete_ai=0\tcpu_execution=0",
+      "scope": "Complete quiescent world object/actor presentation ordering with retained records/counters; controlled contexts; actor AI/turn and party/UI integration incomplete",
+      "oracle_sha256": {
+        "metadata.json": "b0bfc2453c746ff2a51148e7a945ad9b0025e50b7d0eade7fd07d811b484ade3",
+        "input.bin": "1562f73a9c92e7851db3a75ac77e572a1e7cf9f538e17d287b8682a7adf87fef"
+      }
+    },
+    "tile_paint": {
+      "status": "VERIFIED",
+      "trace": "native-tile-paint\tcases=32776\tstyles=8\tanimation_phases=4\trow_heights=8,16\tfull_plane_bytes=8192\tatomic_refusal=1\tcpu_execution=0",
+      "scope": "Original cache-miss tile raster, light variants,4 animation phases and8/16-row writes; complete scene scheduling and ordinary gameplay unfinished",
+      "oracle_sha256": {
+        "metadata.json": "18aeac181e20bba56932229a5173a254ff89b607f86e87ea60414e4db059d8d8",
+        "input.bin": "fb3826d905731e65ca906fe79552748030f9173a7ada35d6c1746b058e5ab162"
+      }
+    },
+    "actors": {
+      "status": "VERIFIED",
+      "trace": "native-actors\tcases=12348\tabsent=7716\tpresent=4238\tquest_removed=394\tfull_map_state=1792\tcomplete_ai=0\tcpu_execution=0",
+      "scope": "Controlled world actor admission/quest culling and appearance metadata; full1792 state comparison; AI/scheduling and ordinary gameplay unfinished",
+      "oracle_sha256": {
+        "metadata.json": "106fa711e48e4636d8c80c2426270874f3a0f5d0b563b2bed48f35985f2f9d26",
+        "input.bin": "0cd9a60af8eecc94d6e37e1de5489a44fa9db87c129fc150224546749fac4b35"
+      }
+    },
+    "actor_paint": {
+      "status": "VERIFIED",
+      "trace": "native-actor-paint\tcases=6668\tstyles=8\tfull_terrain=187\tactor_lookups=187\tkind_lookups=187\tdraws=8000\tcomplete_actor_owner=0\tcpu_execution=0",
+      "scope": "Controlled original actor paint/lookup/blend-request stage; admission/AI/record commit and actual blend raster remain incomplete",
+      "oracle_sha256": {
+        "metadata.json": "114ece9fe8e3ae0580de64fe09653990a7bcda671e804cd40a2c65726add8abf",
+        "input.bin": "52086b9a5d0ae17c327d6fb0dac8f54fe5b5d4f7bd9f98a0b843069c7a9d57c5"
+      }
+    },
+    "lighting_chain": {
+      "status": "VERIFIED",
+      "trace": "native-lighting-chain\tcases=760\tpreparations=1520\tmaps=76\tfull_cells=187\tretained_state=1\tcomplete_scene=0\tcpu_execution=0",
+      "scope": "Linked native base/additional/terrain lighting with naturally retained mask/state; controlled initialization; full actor/scene scheduling and ordinary gameplay incomplete",
+      "oracle_sha256": {
+        "metadata.json": "6525b51d91bea5371822ba997c5f5b15a0d815e6ff2cc238f2abc1852b5d6b51",
+        "input.bin": "e20e5ba4376b20e99389aef3fd42a2c662da20c03ca904e3f5026187b13b3903"
+      }
+    },
+    "personal_light": {
+      "status": "VERIFIED",
+      "trace": "native-personal-light\tcases=8192\tmodes=4\tlight_ticks=256\tfull_cells=187\tresource_indices=90\tcpu_execution=0",
+      "scope": "Original additional-light reveal with original source data; actor/scene scheduling and ordinary input integration unfinished",
+      "oracle_sha256": {
+        "metadata.json": "479577de94261bc4ce1f63a16b0087449e61c9c36fdde8f88ae4f600ee4b2282",
+        "input.bin": "9768a1f967ae0198d156a1e5b5b0cda8bcc5364f788f34882773f9fd898513fc"
+      }
+    },
+    "terrain_light": {
+      "status": "VERIFIED",
+      "trace": "native-terrain-light\tcases=1824\tmaps=76\tfloors=4\tfull_cells=187\touter_sources=1\tcomplete_scene=0\tcpu_execution=0",
+      "scope": "Original complete terrain-light source/reveal composition in controlled contexts across76 maps; additional spell path and scene scheduling unfinished",
+      "oracle_sha256": {
+        "metadata.json": "6701b16e02987ccaac3fc76c6a679371da9b3507fd0f89583da679b084081a8b",
+        "input.bin": "4ead5424dc9c135cbe2dd4eaaa85a93550fdf79d0428cda163b1816b39d299ab"
+      }
+    },
+    "light": {
+      "status": "VERIFIED",
+      "trace": "native-light\tcases=10240\tmodes=4\tlevels=5\ttransition_ticks=256\tfull_cells=187\tatomic_invalid_state=1\tcomplete_visibility=0\tcpu_execution=0",
+      "scope": "Original base visibility-mask/state transitions; additional light effects, source selection and full scene scheduling unfinished",
+      "oracle_sha256": {
+        "metadata.json": "3f36a0b5c8cac5a3a4edb8ed44debb3e5f7199bd9fc65c7cc26ec02979479535",
+        "input.bin": "85bbe16d15dd5c045c32af3c3135594841ffbe11df507dc6d7d8bc7947b405a1"
+      }
+    },
+    "visibility": {
+      "status": "VERIFIED",
+      "trace": "native-visibility\tcases=1065\tfull_cells=187\tchanged_cases=710\tunready_atomic=1\tcomplete_visibility=0\tcpu_execution=0",
+      "scope": "Original data-defined visibility reveal kernel; source selection/light masks and complete scheduling unfinished",
+      "oracle_sha256": {
+        "metadata.json": "ed27a1c7814b1bcea4cc03283a4e4b38dde706cef8075adcac208fbe0a31dd2c",
+        "input.bin": "b0c179532b215100eb828912fa0b397942247e9f748baa4ff7ea1e298b9a5ffb"
+      }
+    },
+    "objects": {
+      "status": "VERIFIED",
+      "trace": "native-objects\tcases=4718\tfull_records=256\tlookup_cells=187\tdraws=2060\tcomplete_actor_phase=0\tcpu_execution=0",
+      "scope": "Controlled single-object projection/door-settle/plate/draw-request phase; actor/visibility inputs explicit; full scene scheduling incomplete",
+      "oracle_sha256": {
+        "metadata.json": "3730c20f167ac929ad51484bef346a31e4efda1deb131aa2b1d28f91ebc02419",
+        "input.bin": "5129330014fe42aeb09252015006e1180f93dfb7a52ca5f3dbb79d82c737258e"
+      }
+    },
+    "view": {
+      "status": "VERIFIED",
+      "trace": "native-view\thistorical_maps=7\tterrain_cells=1309\tunready_atomic=1\tvisibility_and_composition=0\tcpu_execution=0",
+      "scope": "Native world terrain projection compared with actual historical CE arrays in all7 map families; visibility/lighting/actor composition and ordinary scene integration incomplete",
+      "oracle_sha256": {
+        "metadata.json": "c8959c4e2f70f26831106320c77b72326e108b12446235f448d7925caea2c5ee",
+        "input.bin": "80174f1acd918344ccd3e6d1dbc9f87a749bfa4cbe24bc01c7e154189297e44e"
+      }
+    },
+    "traversal": {
+      "status": "VERIFIED",
+      "trace": "native-traversal\tcases=1054720\tstyles=8\tall_object_states=256\tactor_priority=1\tunready_atomic=1\townership=controlled-rules",
+      "scope": "Controlled source algorithm equivalence; not complete movement turns or native gameplay",
+      "oracle_sha256": {
+        "metadata.json": "7407bcff469ad8f33ad77840e34e34ebb9be202a14f031c20593b0f815cd5c11",
+        "input.bin": "6dee3cc7cbe0c1baf6467e9eae8480fd8311d8e0049c7aca611474d85f1d6b60",
+        "expected.bin": "a13df9a7c6188a5d9dd53cd3bb50df165461fd11f4ce8828984de53216e40201"
+      }
+    },
+    "graphics": {
+      "status": "VERIFIED",
+      "trace": "native-graphics\tatlas_styles=8\thistorical_styles=7\tfonts=2\tcells=187\tfull_plane=1\tactual_screenshot_pixels=215040\tvisible_clear=1\tatomic_cell_refusal=1\townership=controlled-render-units",
+      "scope": "Original asset directory/atlases/fonts and full standard-HGR pixel interpretation/cell blits versus historical CE screenshot; scene visibility/UI/other modes and ordinary renderer integration excluded",
+      "oracle_sha256": {
+        "metadata.json": "19b1186976699cb7358a06a42ff6713f22c9fca72298e4080d75a92938f1d49e",
+        "input.bin": "ebde22b600be9b066c358b61d970cf588abc9182da96a66e83b4d2e644fb7aad"
+      }
+    },
+    "dialogue_input": {
+      "status": "VERIFIED",
+      "trace": "native-dialogue-input\tcases=2253\tresource_lexical_bytes=70\townership=semantic-unit-only",
+      "oracle_sha256": {
+        "metadata.json": "7da1bd26b8eb97677e7dc0cacb6ad14c89835c39d38206d5576cfed5c8d0120e",
+        "input.bin": "b9aa6db3cfd85b6db8e8d650db7d6f90944c01a8d64d34ab1363bf1c1f618d4c",
+        "expected.bin": "632594aa8722b1f7561d77ad1c2ed4a7d211fb31beb7a7ae21c8e2b4d79cebf4"
+      }
+    },
+    "pages_chain": {
+      "status": "VERIFIED",
+      "trace": "native-pages-chain\tcases=2\tstages=6\tconversations=12\tactual_replies=20\tauthored_fields=66\tfull1536_inventory=1\tworld_commit=1\tretained_native_state=1\townership=controlled-semantic-phases",
+      "scope": "Native Axea eighth-page/Valess research/Nystul binding with retained native flags/inventory; explicit controlled map profiles, physical admission/travel/UI/journal/full saves excluded",
+      "oracle_sha256": {
+        "metadata.json": "f2ec3d71cb764a5e0794bd2f4a7b1c0756e170cf650228e1a08e4b82f82e6bde",
+        "input.bin": "ebafc591ee747eb244b5c0aad5d30a5200257432745dd9382630edf214c75353"
+      }
+    },
+    "dialogue_openings": {
+      "status": "VERIFIED",
+      "trace": "native-dialogue-openings\tcases=1317\tmatched=1025\teligible=1025\townership=semantic-unit-only",
+      "oracle_sha256": {
+        "metadata.json": "c09de5574d1253925856c0cd99583174d5b36b6a341b58faa06c965a42ec420e",
+        "input.bin": "520bdf92727fe6b235c41015bb46e00dc2c3db8b37f8868139c90bacedd6a29b",
+        "expected.bin": "d2d3c5cc59351892402e31812a026af381a48c8909059d88f5d0ab22656d531f"
+      }
+    },
+    "conversation": {
+      "status": "VERIFIED",
+      "trace": "native-conversation\tcases=2\tactual_replies=6\tauthored_fields=66\tfull1536_inventory=1\texit_award=1\tlinked_repeat=1\tclosed_replay_refused=1\townership=controlled-semantic-phase",
+      "scope": "Controlled native Nystul reply/effect/exit award and retained repeat/refusal versus actual M3 states. Physical admission, UI, journal publishing, save integration and earned campaign excluded.",
+      "oracle_sha256": {
+        "metadata.json": "3dc362566b45ceeb12e7c81806058d3380748d48d4856fecba5531df18808d36",
+        "input.bin": "8f3abc6c690da25d187376eb1fc1150639784c80f0f2d9cd278a2ecb17b1cd7e"
+      }
+    },
+    "dialogue_selection": {
+      "status": "VERIFIED",
+      "trace": "native-dialogue-selection\tcases=16902\tmatched=11700\teligible=11700\townership=semantic-unit-only",
+      "scope": "First eligible original response from declaration and packet start, including continuation past ineligible matches; effects, presentation and NPC services excluded",
+      "oracle_sha256": {
+        "metadata.json": "9dcd86de4c97711a45d8271131af2f51cac453bf75f0a8272f4cd7c135471ee7",
+        "input.bin": "7fb37afbc97da36a433648e077e3b517530c85f0be3043dc8d27fbd9d65df6b7",
+        "expected.bin": "3e6914b69c6f4cc5c7123353724c220a00488173a9950a997ed0aadd35e5df38"
+      }
+    },
+    "inventory": {
+      "status": "VERIFIED",
+      "trace": "native-inventory\tactual_m3_handoffs=4\tfull1536_comparison=1\tlinked_stacks=1\tunlimited=1\tatomic_refusal=1\tgold=1\texit_handoff=1\townership=semantic-unit-only",
+      "scope": "Four exact inventory results versus frozen actual M3 Ankh/Nox Vortex awards, linked stacks and controlled rule boundaries. Full dialogue/services/new-game integration unverified.",
+      "oracle_sha256": {
+        "metadata.json": "04faed94cefcdd8984afdb15044e60b6681750eaff647d859f6e5891fe742d46",
+        "input.bin": "b04170e2c6cf428e6ea166d769a6e8b3e9147e7bbebcd62e410b83cb76df7b92"
+      }
+    },
+    "maps": {
+      "count": 76,
+      "decoded_sectors": 2660,
+      "terrain_metadata_and_state_tables": "VERIFIED"
+    },
+    "dialogue": {
+      "status": "VERIFIED",
+      "packets": 439,
+      "identity_and_full_contents": "VERIFIED",
+      "quest_matching_and_effects": "NOT STARTED"
+    },
+    "clock": {
+      "status": "VERIFIED",
+      "trace": "native-clock\thalf_turns=2880\tminutes=1440\thours=24\tmidnight=1\toriginal_light_expiry=1\towner=rule-unit-only",
+      "normal_scheduler_integration": "NOT STARTED"
+    },
+    "dialogue_rules": {
+      "status": "VERIFIED",
+      "trace": "native-dialogue-rules\tcases=8451\tmatched=8436\teligible=4906\townership=semantic-unit-only",
+      "scope": "Matching, typed metadata and eligibility versus local legacy semantic oracle; quest-service side effects and normal conversation integration unverified",
+      "oracle_sha256": {
+        "metadata.json": "ab0fc4c3d58dd301070f6c1ebb8251a8165ce003a0db79c2544df13457d58e99",
+        "input.bin": "ec72e73f2e9fb93befbcdd26e765d4791ccd792e85ca101fbeeda8f28f17310e",
+        "expected.bin": "744ae4cf939458317e1d825ad77184d948b5837248b87e7cd395999c40c96b9e"
+      }
+    },
+    "dialogue_field_transactions": {
+      "status": "IN PROGRESS",
+      "compared": 8449,
+      "unsupported": 2,
+      "trace": "native-dialogue-effects\tcompared=8449\tunsupported=2\tfull_field_comparison=1\tatomic_rejection=1\townership=semantic-unit-only",
+      "scope": "8449 contexts compare complete256 fields; two malformed original table-spill effects explicitly rejected without partial mutation and remain unverified for native gameplay",
+      "effects_sha256": "0231b38fbb4c1990d18deecd0f34fb48a005b47f3da58071273e74e6dbb020a4"
+    },
+    "world": {
+      "status": "VERIFIED",
+      "scope": "Native World operations/serialization only; no ordinary input/rendered gameplay claim",
+      "warm": "native-world\tphase=warm\tkey_refusal=1\tactual_open=1\tcontrol_reversal=1\tportal=1\tmulti_map_restore=1\tatomic_rejection=1\tcpu_execution=0",
+      "cold": "native-world\tphase=cold\tmap=54\tnative_open_retained=1\tcpu_execution=0",
+      "cold_argv": [
+        "D:\\Codex Projects\\scummvm-private\\scummvm-private-feature-usable-desktop-window-layout-git\\build-nox-focused\\Releasex64\\scummvm.exe",
+        "--gfx-mode=surfacesdl",
+        "--config=D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-native-rng35-tests\\native-cold\\cold.ini",
+        "--savepath=D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-native-rng35-tests\\native-cold\\saves",
+        "--logfile=D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-native-rng35-tests\\native-cold\\engine.log",
+        "nox-resource-test"
+      ],
+      "cold_exit": 0,
+      "input_state_sha256": "10b54f5b6bcd6b4e07af9b6ff1ea97a29ce3c0b60afb0cd847dc599a0294b98d",
+      "controlled_initialization": "Source-valid world profiles and authorization BEFORE native operations; no earned Search/key award or full party initialization claim"
+    },
+    "position": {
+      "status": "VERIFIED",
+      "warm": "native-position\tphase=warm\tclosed_refusal_atomic=1\tactual_open_then_move=1\tactor_refusal=1\tinvalid_occupancy_refusal=1\tresolved_occupancy_input=1\tcomplete_turn=0\tcpu_execution=0",
+      "cold": "native-position\tphase=cold\topen_and_position_retained=1\tcontinued_move=1\tcpu_execution=0",
+      "input_state_sha256": "61446d3d4cf0ee5184dd087d2be4f6f22ff337a243a0295df1cf56aa07fecdec",
+      "scope": "Linked Open/collision/position phases with resolved occupancy supplied explicitly; actor/visibility, clock, camera, encounters and complete player turn excluded",
+      "controlled_initialization": "Map54,type7,position38/15,keyfield24=4 BEFORE native Open; destination visible object slot32 and actor absence are explicit resolved phase inputs; no outcome injected"
+    },
+    "party": {
+      "status": "VERIFIED",
+      "warm": "native-party\tphase=warm\tcreated=1\tdamage=1\tatomic_load_refusal=1\tcomplete_new_game=0\tcpu_execution=0",
+      "cold": "native-party\tphase=cold\tfull_records_restored=1\tdamage_continued=1\tcpu_execution=0",
+      "input_state_sha256": "c70ed2c8a9873e767895ea3eaf2c6ad7b1cb4b091cf84fbca1c76d99d2f4d3c5",
+      "scope": "Owned initial character/equipment records and damage/persistence; full new-game transition, recruitment, inventory readiness and ordinary command loop incomplete",
+      "creation": "native-party-creation\tcases=105\tgenders=3\traces=5\tfull_records=864\tatomic_reinitialize_refusal=1\tcpu_execution=0",
+      "oracle_sha256": {
+        "metadata.json": "6721fde59e6389e0d05a268d73b792907ec05c457f000116dceb9ed0998584ff",
+        "input.bin": "cabf26e8770eef2d3d123258cf62878cd6f24b4dda9497315fdc41054c157f65"
+      }
+    },
+    "artifacts": {
+      "native-core-warm.tsv": "7d0e37721d5b7b3d717b3653c013038e373854f3ad2c00d7b07701667e34bf52",
+      "native-cold\\saves\\nox-native-world-state.bin": "10b54f5b6bcd6b4e07af9b6ff1ea97a29ce3c0b60afb0cd847dc599a0294b98d",
+      "native-cold\\saves\\nox-native-position-state.bin": "61446d3d4cf0ee5184dd087d2be4f6f22ff337a243a0295df1cf56aa07fecdec",
+      "native-cold\\saves\\nox-native-party-state.bin": "c70ed2c8a9873e767895ea3eaf2c6ad7b1cb4b091cf84fbca1c76d99d2f4d3c5",
+      "native-cold\\saves\\nox-resource-validation.tsv": "665e535f74c4cf66cde4cec73978f56646accc686ea3fa3f542bcf79bcfd8ed5",
+      "native-cold\\cold.ini": "3bd5bea762b4270e26ab0ad63d38e5370a9e84219b72ade54a4e67db25b2bc66",
+      "native-cold\\saves\\nox-native-rng-state.bin": "a0a1bfd291559b1f9e0a1ca05066a742532f77918ba61065ff3bf59120fe6cf1"
+    }
+  },
+  "source_archive": {
+    "path": "ce-m4-rng35-source.zip",
+    "sha256": "16d39c32f4d9d1f6ec108370ee49963f36caaed85b3641a8bf0d1cf5fbd8945e"
+  },
+  "preserved_executable": {
+    "path": "ce-m4-binary\\scummvm-rng35.exe",
+    "sha256": "70d9b34aae91c4e6463aa03aa179ed1b18c5022e1a9d5a5c1f6ca84d3265d928"
+  },
+  "build_log": {
+    "path": "ce-m4-rng-focused35.log",
+    "sha256": "6a44c80a631b092f172bdfe395766684de0af249cd0961bfebffa2a987f9be2d"
+  },
+  "build_receipt": {
+    "status": "VERIFIED",
+    "scope": "Nox-only release-x64 development build identity; not the full CE release or interpreter-disabled acceptance",
+    "build_configuration": "Nox-only with full detection enabled",
+    "executable": "D:\\Codex Projects\\scummvm-private\\scummvm-private-feature-usable-desktop-window-layout-git\\build-nox-focused\\Releasex64\\scummvm.exe",
+    "executable_sha256": "70d9b34aae91c4e6463aa03aa179ed1b18c5022e1a9d5a5c1f6ca84d3265d928",
+    "log": "ce-m4-rng-focused35.log",
+    "log_sha256": "6a44c80a631b092f172bdfe395766684de0af249cd0961bfebffa2a987f9be2d",
+    "warnings": 0,
+    "errors": 0,
+    "source_sha256": {
+      "engines/nox/backoff_validation.h": "7362aace99ec706f40295446abc3a9b41bb2ed2f841f89c61ed4f20a7c18b760",
+      "engines/nox/caller_validation.h": "ede6a33e41ad5fa9d9613fe36e203e7122ca9830a1b4b54e46ae9591cf632391",
+      "engines/nox/campaign_validation.h": "d4910018cf7288bb3e03f0d3e5aa8f551941486237d3062cbf8c406f48cf93b7",
+      "engines/nox/configure.engine": "774fc9df4834ca0e64018b72f326d14989a40c08f5c7fd78d06bbea6ee42c015",
+      "engines/nox/cpu.inc": "41c0fdff3d9d3466871ae76144b430b9b13bd29a2873a8899ebad56e4e208b97",
+      "engines/nox/cultist_validation.h": "654be8783d95ee92f8d757174dbedc581ac67317a6e7377b36ee9e36f051e299",
+      "engines/nox/cycles.inc": "2b1024aeab86cda827aec30eb696547ced1d333226263647b29b1d34db3acd6e",
+      "engines/nox/dark_key_validation.h": "5114e1958dd01104f0cd9ac08b3f771a5a87062911eb9042d54f34df01d0bb5e",
+      "engines/nox/detection.cpp": "32753d7b31fd8fe9f61eb27c676e6564d79764aa94cd5283c2508b8ac056dbd6",
+      "engines/nox/dialogue_validation.h": "5d2663dabee5c81507130bc126b3a1f4c9e91adc7b08a0e57d71e869a7b00dbd",
+      "engines/nox/enhancements.cpp": "5ed93907c2e0b1004c9978bbb91c32913de50d1706e9fd41c2027473b3069150",
+      "engines/nox/enhancements.h": "f0d73af3421c0597db87ace38b2d203c73640d43a5bade9b278cf6c1e7ff029d",
+      "engines/nox/enhancement_fixture.h": "13d45f7cf67cbec92f87777653c1ec51e65dd6b2b20538020b55f00fcd0718b5",
+      "engines/nox/enhancement_validation.h": "a24bde10489f8ca310c45c92050d21293aa974ee2eb86691a350aa372667e13a",
+      "engines/nox/grid_validation.h": "6032efc17e039528d63f2640d1b4308b899a9a7776c7c6c8fe4fa7e0ea752fa9",
+      "engines/nox/history_validation.h": "5601beeb58e2f8babad090e45369e3d3249e8d409d4e69db2ca3fad847c21b88",
+      "engines/nox/host_validation.h": "58f0082264e78c366b05e8a0999b0dcdde8e147160dc3be543042af2ab1da7a9",
+      "engines/nox/io_validation.h": "556bd69ec180bae521284e5876d121dffac2a7827f6fce1200924f8a2081d214",
+      "engines/nox/linked_pages_validation.h": "e1947a965bcda490fea92bfd3ee791a81d6bf3bc0748584e0ad722551e434148",
+      "engines/nox/management_validation.h": "286355cdedac22164095549c47f97e21d63e13eb738fb94b3368bf79d1738e34",
+      "engines/nox/metadata_validation.h": "c2b7fe9b7d1fa277517ec337b3ab8390e39552125b1c460be04690232466db5c",
+      "engines/nox/metaengine.cpp": "d631b83dc7b3a816489aa3a546d965f06d1cf89e684582c3dedd602ef866b24b",
+      "engines/nox/mockingboard.cpp": "38d5c6a894cc7a6bd238b9ad9a6740ec5ff42c6f299b7f6ce858505a6c1817bc",
+      "engines/nox/mockingboard.h": "d0afe027dc9ff9b269b0c60bf04abc45566502a17aed25879316856911937f2e",
+      "engines/nox/module.mk": "47de2ac64575f926a8de7cc5060913a3b63a0554cb5c20824ab55cf67ac1085f",
+      "engines/nox/movement.cpp": "4b03de9dd50c4a4cfc6c2e2d7da9d3fc3fc80a697dfd236a3340c1d25b84fdf9",
+      "engines/nox/native_actors.h": "8c0e8211fcabd90034d90fe1cbd4690107cd86da8cb46a4c6944f533b21765af",
+      "engines/nox/native_actors_validation.h": "5ea58304a12a668612a9d54c8320c84a00560743841b075a0afb93b3940f9438",
+      "engines/nox/native_actor_paint.h": "8f1f6a02cd06f7c8a2d95ac2ce17c0e836413b69c6e4f643d357e1eb9bc8e625",
+      "engines/nox/native_actor_paint_validation.h": "1b886dc0bf06209330c68fcce14c3389bfdfc277ff1d6414be6f2885a243093a",
+      "engines/nox/native_chain_validation.h": "b76d06f158d14927d22f55f4a368f9b9b53b64beaff49a24a7cb85569bfcfca5",
+      "engines/nox/native_clock.h": "f270eec76b75e96bbac284a25e57ca9738135af908491f4c080f968d3112ac5e",
+      "engines/nox/native_clock_validation.h": "120dbfa2811a977de961e35bda27da9fc96d3eb816b613ffaf3e016e4dc6ebf6",
+      "engines/nox/native_conversation.h": "fc494cea97ac07447a59b3b59d0d15089053051fae7a484a0f76daa61214338a",
+      "engines/nox/native_conversation_validation.h": "0946ddb22f51d645a489819d957fea8542decf607557d8d62d5bc849c68fdf32",
+      "engines/nox/native_dialogue.h": "e0117b66dfd59bd02fd25efeac34076a95548676a60713b152f828d9c4aa8aea",
+      "engines/nox/native_dialogue_input.h": "5ab0903ce7e5a0149e2bc1579bdd656e3c9de1baf87ac22458b2af4736676c1a",
+      "engines/nox/native_dialogue_input_validation.h": "c61dbe0654eda8aa1c6e783c19100fdb1760c4efcfb1f4481b2d028576357df3",
+      "engines/nox/native_dialogue_rules.h": "a16e964c0f05c3f415c80493502ff2418b83ad59b4d193810e6dadb1c9c6f222",
+      "engines/nox/native_dialogue_rules_validation.h": "2ae4331c01e853dcf3d482fe8150c1e0633c84f8baa4c427ad3e1dd86391a2ab",
+      "engines/nox/native_dialogue_validation.h": "816d99c7a8bbe1b87d900c186382cf9621f4904254aa0967e679e4ccf80ae484",
+      "engines/nox/native_gates.h": "3c19eeaa79877c589db5f2de13ceb826ce42437e4cae6032b80d46c2859f2b85",
+      "engines/nox/native_gates_validation.h": "0789ab31cb010bfa0750a2db2ee37d8976fa8ef7c74678ec87f5671a00dba50e",
+      "engines/nox/native_graphics.h": "71569a9c90b9d4f0b28c831ddb7c57544bd64e68e3382b4d0b7c75f8ef72a80d",
+      "engines/nox/native_graphics_validation.h": "dc12950d42cd47943dd59f8f51959eda36f696807e5644c075a6c5fa90f58133",
+      "engines/nox/native_inventory.h": "551a385c1956fc65869cd6d022fed62ffeb5836494a9acacbea0065b336fdf81",
+      "engines/nox/native_inventory_validation.h": "0a71c10489d6aab34db5dfa24658a956ca1a70be03047c15b150ec45dfedc449",
+      "engines/nox/native_lighting.h": "ced9c9804bed67a1c22000fdba55a2347895285adb111e1fc8692a8b935b34cc",
+      "engines/nox/native_lighting_chain_validation.h": "c97ab4611402f3d65a3ace74c2881d3f5318be1ccb5931a87508615272cb2bea",
+      "engines/nox/native_lighting_validation.h": "52b67e8a0fdd88f190b3ccb6ad20259100aecae74a1fa64514d97fd0c76c3f8f",
+      "engines/nox/native_light_validation.h": "1c2b910831f68f0fa616dcfe03e152b63935c65c8f6f5d2d138a96fe3d2af2bc",
+      "engines/nox/native_lz.h": "dea03488b3f6073389d2028b2ecc2a3420e7df63d550ea559746b7f691fb11f2",
+      "engines/nox/native_maps.h": "cb8d89622295405cbee3cd2e6206813385aea94ba480918bda005a02eeb7c91a",
+      "engines/nox/native_maps_validation.h": "83f6bcc201b5c6f57d24227ca4ecc15dce90b7b10a1af13a5464ed7d754874db",
+      "engines/nox/native_objects.h": "32878159c732a30bc034525256f4403762909f914e00264065e66e043f1f7df7",
+      "engines/nox/native_objects_validation.h": "1fd1df1e386c42d8546257d8376187154510dfeacd217b6220d7d9508d038b44",
+      "engines/nox/native_party.h": "5e317b94d1530d8b12bdd689a97ad10ac266887b7eb1175801838eb4738eff9c",
+      "engines/nox/native_party_validation.h": "5b9172ab5c6087a51ed1ac0534a5af0d2f26b388881b38a41ba66aa5cb9274a2",
+      "engines/nox/native_personal_light_validation.h": "cd79d8da548f257ce48e0651b9e160271813094ebfb46949228204a87b4088ae",
+      "engines/nox/native_position_validation.h": "d96b573a12ff06462adba0fd53fd752e9c9596471eb868e59da31a7df021ce86",
+      "engines/nox/native_random.h": "7db95189ddb4236e1db4a049a967fa5c69b6b89fc1afc57b2571a3633f62c6e8",
+      "engines/nox/native_random_validation.h": "51c0829f6428097de8c8d5715b1ae977a8f337a11aa1621d4fb2e8db711ef117",
+      "engines/nox/native_tile_paint.h": "fd420629205cdf903e891baaccd72d46140dd423c8ce85c9fa17badbb7265453",
+      "engines/nox/native_tile_paint_validation.h": "6905e7433d11cb00225efbbbf03b86a84a11309a28ee2c4cb43efaa6bd93ffda",
+      "engines/nox/native_traversal.h": "ee4cee3fcf1ba6c1d76ec3616e079dfcd9074efe5db536eeb7b04715cfc18b02",
+      "engines/nox/native_traversal_validation.h": "2341c9a3b1bbb4abea587b4e8676d41fdd7695f23d0d75f7706042a549e9f183",
+      "engines/nox/native_view_validation.h": "9e312e6390687e75b64debc77edab4d3c22163aff69dba83fe3b83d2c569a6de",
+      "engines/nox/native_visibility.h": "501143dfa988a2c9e80144b4637b5dfd6e777d15bd99f7bb06f49814f376191d",
+      "engines/nox/native_visibility_validation.h": "beab59925c833f41370d344ce0f938bab5fced499ffe70581649d45a405587af",
+      "engines/nox/native_world.h": "86427d64579524f637d3d31efb99773b55dcc71b698a189c65fc0692cef84a5b",
+      "engines/nox/native_world_presentation.h": "9e522b34b6299f2ff3234577c1a7f1191a335bb41d92f1dafc03beace17731a1",
+      "engines/nox/native_world_presentation_validation.h": "893f425493297e7f423f5bcb9de95fa304875c0f68e3f6d1e95b49d3957c7848",
+      "engines/nox/native_world_validation.h": "53412acf08cdce63f19898313caf0554072b088ba44f92e946f5c12779ac744e",
+      "engines/nox/nox.cpp": "8c5c5d737bc3743a525da70c000b70551b944550c8b92bad56b47bbc79989861",
+      "engines/nox/nox.h": "aac0544cb4bb5692e7114ad1cc74429ebb6b7aa9e090af2ea9376f2b87fb316c",
+      "engines/nox/profile_validation.h": "2658f8c93149c8692e5ef5b79d1dc42836dbd60f4d15f75a0f0ed3dbbd84301a",
+      "engines/nox/quest_battle_validation.h": "427ccaf94de482c96c2f491343047ace53da450f7ea197dc75fffd62a61b9925",
+      "engines/nox/records.h": "8045582e0ae5f83d027b8b197aa66a8309e9ff80f2117bce7edb86455eca9b7d",
+      "engines/nox/render.cpp": "bd7833eaccc812fad88b0d19e5070d9955e440142525ded89b3d30766120073a",
+      "engines/nox/resources.h": "1451464a6f8ea57039c3596c8aaa388701e5005fb3364b80b9e48bb04dc2cd95",
+      "engines/nox/runtime.cpp": "8875ca955ff8e840286532fa58ed63795c042ff2d7b1cedd78e61531fec2cac8",
+      "engines/nox/runtime.h": "2bd6a6d37c47e0bb496e948bedf3147d23f85214c87f7a29fb1c4f8cfeee696f",
+      "engines/nox/runtime_observers.cpp": "7dbaac3c60a08887debb3db9eb5c16f38252dc96ca021afac06d3f103294819a",
+      "engines/nox/runtime_state.cpp": "d0c9c769e7fba6a8125754594fc5cc54dc54912c830f38c1a02f44ff24799b2d",
+      "engines/nox/saves.h": "9d0e92a7fb35952d35f2f2ecf0602ba48211162cb3f18b02a5a454919ac514f9",
+      "engines/nox/save_policy.h": "890bced00db32c534207055e5f6acf7247310102119da4c5bc66f13a4c7d72fc",
+      "engines/nox/search_object_validation.h": "e5224251ed095cb365b29efa33bd5baeb4f434d4d37a2e76a594ad2f8c2b6af6",
+      "engines/nox/session_validation.cpp": "da83025980220829e5ec424e80ad067d6681e30893918a1196ec84ef0524d839",
+      "engines/nox/shadow_checkpoint_validation.h": "1b886520edb2a907ce7d8f6f2c259ab1e0b85edbf7e7226d92eb313a2dd95f97",
+      "engines/nox/shadow_confrontation_validation.h": "3d7c3588d9e4bc1721acb9c0208313c4a54a7a7c72a442bd38a8c6ee996a7859",
+      "engines/nox/snapshot.h": "c3c8c9fd497391995084286e6f1cadc8ac5b9e9ed94965b6820043624e6d35de",
+      "engines/nox/speaker_audio.cpp": "b80e55470b95fcaf200f4346a0cb0bab8ce8ff3fe7e2436633da833a2da9f833",
+      "engines/nox/speaker_audio.h": "aad57abba83f4a02ee0780eb2eebc80e68a43181b285533dc3313f3ad307205f",
+      "engines/nox/spell_validation.h": "1ef17a5094a0927b7acdd4659b3c9ac47d00096d77d574319fb358a63cc2a7cb",
+      "engines/nox/validation.cpp": "3f513bedf84c4e6bb212efad0444536aa83f428feac07f4f19963c5487150255",
+      "engines/nox/vortex_validation.h": "30c44caec6b5b76312ef8f223085982e5dd5650e8cdd1b9d248515a337ac0f89"
+    },
+    "modified_tracked_sha256": {
+      "backends/events/default/default-events.cpp": "04a82d66b59fed6d3685bb6d632594f698fe1ecc73bfe8d76f08101faab136ca",
+      "backends/graphics/surfacesdl/surfacesdl-graphics.cpp": "9a0d98f499180a48109377302c96ae74e4eafad2e6eda2e1b440fc5a81d0a776",
+      "backends/networking/http/curl/networkreadstream-curl.cpp": "c243260f6e4caf0e0e85f096c6b34b3785aab93ff437230dec28dbd26c30646a",
+      "engines/ce_achievements.cpp": "831cc94e8f7e7089f0d51fcf62752a7c99094e052e33cd9b0442ed78766d88f1",
+      "engines/ce_achievements.h": "c316373fce3a2837d9a3b9bf800b36797a60b4a6293da6e198e27e1a961b943d",
+      "engines/metaengine.cpp": "38f44a1787d982b101198484b6f969eeea1603a18aea750fe702c0518ade6a52",
+      "engines/metaengine.h": "0a0e69cbce98c072e67433c0bf99b8be93fc93533a9d89d777770ec1cf82f327",
+      "gui/launcher.cpp": "9e02cc9151b9dd3f76c52cbfe7de571065acaad088f09d95da9829426d4c234f",
+      "gui/saveload-dialog.cpp": "6af8ee1d591a87722f9aa34666bfb0c7dd61c47abe5704156b11d01e531173ce",
+      "run-build-release-cleanenv.ps1": "1b34a4245280687a50cb4fbd274da0524aa5535e48ad3947eb9debeef63c8e80"
+    },
+    "generated_props_sha256": "1be6694cad8a473a85c7e0a115a4c10ecd7ef4e31183ea0b6ac51acae868a818",
+    "build_script_before_extension_sha256": "f88ea5dbbdfcb388cc11a43b781f4d7e7f927bb58c14210df24ea44654d5cd33",
+    "warning_diagnostics": [],
+    "limitations": [
+      "Warning count is the actual build summary, never inferred from an earlier build.",
+      "Focused evidence never replaces the full release receipt; final M4 still requires full release and native-only earned campaign."
+    ]
+  },
+  "limitations": [
+    "Gameplay RNG excludes keyboard interruption and has not yet been integrated into AI or combat.",
+    "Component and cold continuation evidence does not establish native campaign completion."
+  ],
+  "acceptance_boundary": "M4 remains IN PROGRESS; ordinary native-only gameplay, interpreter-disabled full release and earned campaign acceptance remain required."
+}

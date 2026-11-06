@@ -1,0 +1,30 @@
+{
+  "status": "IN PROGRESS",
+  "scope": "Observed original predicate-domain overflow; reachable campaign/battle actor bound remains unresolved",
+  "observation": {
+    "original_actor_read_cell": 188,
+    "viewport_cells": 187,
+    "collected_targets": 38,
+    "input_resolved_actors": 187,
+    "detail": "('0x1829', 8, 188, 5, 5, 0, 187, 38)"
+  },
+  "source": "Original Vortex target38 path loads viewport exit index187 and then jumps to its increment, so scan continues at188 rather than terminating. Source reads beyond its187-cell lookup.",
+  "accepted_domain": "Separate v2 reference qualifies9700 contexts and at most37 collected targets. Native helper rejects a38th target atomically; this is an explicit temporary unsupported domain, not a completed gameplay criterion.",
+  "requirements": [
+    "Establish actual reachable native battle actor/large-sprite target multiplicity and maximum selected targets from authored encounter data and real CE states.",
+    "If38 selected targets are reachable, implement and qualify defined native behavior before declaring M4 complete; do not silently call the current guard full parity."
+  ],
+  "initial_reference_failures": [
+    "First private reference loaded the wrong resident bank; signature search identified BS.AUX.RTN.BK2 and its one-byte prefix. No wrong-bank outcome entered CE acceptance.",
+    "Initial187-actor artificial dense contexts triggered the out-of-viewport read. These are rule/fault contexts, not demonstrated campaign-valid scenes."
+  ],
+  "private_logs": {
+    "ce-m4-vortex-target45-reference.log": "b397bb2009b54429a33fbab515a680414c4d432fa510743a742efd3652ecd79b",
+    "ce-m4-vortex-target45-reference2.log": "8e56155b87cc06ee71b4ee8c1cfba604b8cbde7efd5d969d69b03a6c121c56bf"
+  },
+  "disqualified_metadata": {
+    "path": "ce-m4-vortex-target-reference/metadata.json",
+    "sha256": "41ef8c5765fcbdc44e59bacbf942ecec3feafb1f6cb6d859c95780ff0376984a",
+    "reason": "Its38-target-bound scope wording is not supported. Only v2 metadata/input is used by CE."
+  }
+}

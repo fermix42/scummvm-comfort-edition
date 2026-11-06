@@ -1,0 +1,25 @@
+{
+  "status": "VERIFIED",
+  "scope": "Pre-build semantic credit-model discrepancy resolved without changing original outputs",
+  "initial_credit_model_mismatches": 307,
+  "corrected_credit_model_mismatches": 0,
+  "findings": [
+    "Original percentage multiplication retains only its low16 bits before division by100; preserve that wrap.",
+    "The original category5/victim188 branch sets Y=0 but immediately replaces it with A=188 before indexing its six-entry table. Its observed v119 resource data byte is42. Native rules load that one named compatibility percentage as data and preserve the original subtract branch; no CPU state, PC or instruction execution is used."
+  ],
+  "source_reference": {
+    "path": "ce-m4-vortex-hit-reference/input.bin",
+    "sha256": "1fc1cf32cf009fe3742fb4c78dca7eab2e50058a19545c58f4824658102f42b0"
+  },
+  "initial_draft": {
+    "path": "ce-m4-vortex-effect47-initial-draft.h",
+    "sha256": "9b22d062d108220a48e40b1c2adc3b896664deafa2aaf3669fdc95390efb426d"
+  },
+  "accepted_unit": {
+    "path": "SCUMMVM-CE-M4-VORTEX-EFFECT47-UNIT.json",
+    "sha256": "1a031af8d28c729b3825da1c998680a3d3538ddebc93ff89e364e6c32c0c9783"
+  },
+  "limits": [
+    "Predicate record contexts are not all campaign-valid or earned states. Whole cast, mana commit, visual/turn integration and native campaign/ending acceptance remain required."
+  ]
+}

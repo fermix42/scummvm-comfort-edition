@@ -1,4 +1,8 @@
+param([switch]$NoxFocused)
+
 $ErrorActionPreference = 'Stop'
+$buildDirectory = if ($NoxFocused) { 'build-nox-focused' } else { 'build-scummvm' }
+$buildLogName = if ($NoxFocused) { 'msbuild-nox-focused.log' } else { 'msbuild-release.log' }
 
 $repoRoot = Split-Path -Parent $MyInvocation.MyCommand.Path
 $workspaceRoot = Split-Path -Parent $repoRoot
@@ -36,22 +40,30 @@ $env:VCPKG_OVERLAY_PORTS = "$substRepoRoot\.github\vcpkg-ports"
 
 Set-Location $substRepoRoot
 
-$projectNeedsRefresh = -not (Test-Path 'build-scummvm\scummvm.sln')
+$projectNeedsRefresh = -not (Test-Path "$buildDirectory\scummvm.sln")
 if (-not $projectNeedsRefresh) {
-    $globalPropsPath = 'build-scummvm\ScummVM_Globalx64.props'
+    $globalPropsPath = "$buildDirectory\ScummVM_Globalx64.props"
     $projectNeedsRefresh = -not (Test-Path $globalPropsPath)
     if (-not $projectNeedsRefresh) {
         $globalPropsContent = Get-Content -LiteralPath $globalPropsPath -Raw
-        $projectNeedsRefresh = -not $globalPropsContent.Contains('ENABLE_MONKEY4')
+        $projectNeedsRefresh = (-not $NoxFocused -and -not $globalPropsContent.Contains('ENABLE_MONKEY4')) -or -not $globalPropsContent.Contains('ENABLE_NOX')
     }
 }
-if (-not $projectNeedsRefresh -and (Test-Path 'build-scummvm\scummvm.vcxproj')) {
-    $projectContent = Get-Content -LiteralPath 'build-scummvm\scummvm.vcxproj' -Raw
+if (-not $projectNeedsRefresh -and (Test-Path "$buildDirectory\scummvm.vcxproj")) {
+    $projectContent = Get-Content -LiteralPath "$buildDirectory\scummvm.vcxproj" -Raw
     $projectNeedsRefresh = -not $projectContent.Contains('..\engines\ce_achievements.cpp')
 }
-if (-not $projectNeedsRefresh -and (Test-Path 'build-scummvm\cine.vcxproj')) {
-    $cineProjectContent = Get-Content -LiteralPath 'build-scummvm\cine.vcxproj' -Raw
+if (-not $projectNeedsRefresh -and (Test-Path "$buildDirectory\cine.vcxproj")) {
+    $cineProjectContent = Get-Content -LiteralPath "$buildDirectory\cine.vcxproj" -Raw
     $projectNeedsRefresh = -not $cineProjectContent.Contains('..\engines\cine\achievements.cpp')
+}
+if (-not $projectNeedsRefresh) {
+    $noxProjectPath = "$buildDirectory\nox.vcxproj"
+    $projectNeedsRefresh = -not (Test-Path $noxProjectPath)
+    if (-not $projectNeedsRefresh) {
+        $noxProjectContent = Get-Content -LiteralPath $noxProjectPath -Raw
+        $projectNeedsRefresh = -not $noxProjectContent.Contains('..\engines\nox\session_validation.cpp') -or -not $noxProjectContent.Contains('..\engines\nox\runtime_state.cpp') -or -not $noxProjectContent.Contains('..\engines\nox\enhancements.cpp') -or -not $noxProjectContent.Contains('..\engines\nox\runtime_observers.cpp')
+    }
 }
 
 if ($projectNeedsRefresh) {
@@ -69,13 +81,17 @@ if ($projectNeedsRefresh) {
         exit $LASTEXITCODE
     }
 
-    if (-not (Test-Path 'build-scummvm')) {
-        New-Item -ItemType Directory -Path 'build-scummvm' | Out-Null
+    if (-not (Test-Path $buildDirectory)) {
+        New-Item -ItemType Directory -Path $buildDirectory | Out-Null
     }
 
-    Push-Location 'build-scummvm'
+    Push-Location $buildDirectory
     try {
-        ..\build-create-project\Release\create_project.exe .. --msvc --vcpkg --msvc-version 17 --enable-engine=monkey4
+        if ($NoxFocused) {
+            ..\build-create-project\Release\create_project.exe .. --msvc --vcpkg --msvc-version 17 --disable-all-engines --enable-engine=nox
+        } else {
+            ..\build-create-project\Release\create_project.exe .. --msvc --vcpkg --msvc-version 17 --enable-engine=monkey4,nox
+        }
         if ($LASTEXITCODE -ne 0) {
             exit $LASTEXITCODE
         }
@@ -85,14 +101,15 @@ if ($projectNeedsRefresh) {
 }
 
 $propsFiles = @(
-	'build-scummvm\ScummVM_Globalx86.props',
-	'build-scummvm\ScummVM_Globalx64.props',
-	'build-scummvm\ScummVM_Globalarm64.props'
+	"$buildDirectory\ScummVM_Globalx86.props",
+	"$buildDirectory\ScummVM_Globalx64.props",
+	"$buildDirectory\ScummVM_Globalarm64.props"
 )
 
 foreach ($propsFile in $propsFiles) {
 	if (Test-Path $propsFile) {
 		$propsContent = Get-Content -LiteralPath $propsFile -Raw
+		$originalPropsContent = $propsContent
 		$vcpkgIncludePath = "$substVcpkgInstalled\x64-windows\include"
 		$vcpkgLibraryPath = "$substVcpkgInstalled\x64-windows\lib"
 		$vcpkgLibraries = 'SDL2.lib;SDL2_net.lib;zlib.lib;mad.lib;fribidi.lib;ogg.lib;vorbis.lib;vorbisfile.lib;FLAC.lib;libpng16.lib;mpeg2.lib;theoradec.lib;theora.lib;freetype.lib;jpeg.lib;libfluidsynth-3.lib;libcurl.lib;brotlidec.lib;brotlicommon.lib;bz2.lib;iconv.lib;intl.lib;charset.lib;glib-2.0.lib;gobject-2.0.lib;gmodule-2.0.lib;gthread-2.0.lib;pcre2-8.lib;ffi.lib;OpenAL32.lib;%(AdditionalDependencies)'
@@ -112,16 +129,18 @@ foreach ($propsFile in $propsFiles) {
 			$propsContent = $propsContent.Replace($linkStart, $linkSettings)
 		}
 
-		Set-Content -LiteralPath $propsFile -Value $propsContent -NoNewline
+		if ($propsContent -cne $originalPropsContent) {
+			Set-Content -LiteralPath $propsFile -Value $propsContent -NoNewline
+		}
 	}
 }
 
-& 'C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\MSBuild\Current\Bin\amd64\MSBuild.exe' build-scummvm\scummvm.sln /m:1 /p:Configuration=Release /p:Platform=x64 /p:VcpkgEnableManifest=true /p:VcpkgTriplet=x64-windows /p:VcpkgInstalledDir="$substVcpkgInstalled" /p:PreferredToolArchitecture=x64 /v:normal "/flp:logfile=$repoRoot\msbuild-release.log;verbosity=detailed"
+& 'C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\MSBuild\Current\Bin\amd64\MSBuild.exe' "$buildDirectory\scummvm.sln" /m:1 /p:Configuration=Release /p:Platform=x64 /p:VcpkgEnableManifest=true /p:VcpkgTriplet=x64-windows /p:VcpkgInstalledDir="$substVcpkgInstalled" /p:PreferredToolArchitecture=x64 /v:normal "/flp:logfile=$repoRoot\$buildLogName;verbosity=detailed"
 $buildExitCode = $LASTEXITCODE
 
 if ($buildExitCode -eq 0) {
 	$vcpkgBinPath = "$substVcpkgInstalled\x64-windows\bin"
-	$outputPath = 'build-scummvm\Releasex64'
+	$outputPath = "$buildDirectory\Releasex64"
 
 	if (Test-Path $vcpkgBinPath) {
 		Get-ChildItem -Path "$vcpkgBinPath\*.dll" | Copy-Item -Destination $outputPath -Force

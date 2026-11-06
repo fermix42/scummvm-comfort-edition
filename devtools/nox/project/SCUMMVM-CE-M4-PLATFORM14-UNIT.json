@@ -1,0 +1,59 @@
+{
+  "status": "VERIFIED",
+  "milestone": "M4",
+  "scope": "Build/test platform improvement and full/focused native-unit parity, not campaign completion",
+  "focused_build": {
+    "log": "ce-m4-nox-focused-build12.log",
+    "result": "PASS20warnings/0errors,00:02:29.19 initial build",
+    "executable_sha256": "7329197561e5c4b64f19f59968fb25b57ee4a43cdfccdc4b5116b5d1e4bd4036",
+    "warning_scope": "Common::Singleton<Networking::ConnectionManager> inline-definition diagnostics; no Nox source warning observed; not reported as zero warnings"
+  },
+  "default_regression": {
+    "log": "ce-m4-default-script-regression13.log",
+    "result": "PASS0/0,00:04:07.53",
+    "executable_sha256": "3e1b7adf0a9be773b9d047353b0422f37bcf7a73c308802f9cab5286943b41f2"
+  },
+  "unchanged_default_check": {
+    "log": "ce-m4-default-noop14.log",
+    "result": "PASS0/0,00:00:28.32",
+    "executable_unchanged": true,
+    "change": "Only write generated property files when their contents change; avoid a full same-source relink"
+  },
+  "traces": {
+    "sha256": "fc1518a8029ed9f7a583c70fc5dcad9babca5e41e1aed15e1f0673250c989579",
+    "identical_across": [
+      "ce-m4-native-chain11-tests",
+      "ce-m4-focused12-tests",
+      "ce-m4-default13-tests"
+    ]
+  },
+  "units": [
+    {
+      "path": "ce-m4-native-chain11-tests/native-core-verification.json",
+      "sha256": "efdd7e73fdd6e45f840b8aa1bf4dc7c24e9f7fa4f1d2cebb4c1e136f8ae68311"
+    },
+    {
+      "path": "ce-m4-focused12-tests/native-core-verification.json",
+      "sha256": "2583e6c881fa959df6cf1ef1ff4126c36c56387174ad432d4f8143149802914f"
+    },
+    {
+      "path": "ce-m4-default13-tests/native-core-verification.json",
+      "sha256": "9eb37894acaff609a38b490af8d6cb55a089c5a15ae3b8c84b1bbc8ab657366a"
+    }
+  ],
+  "engine_source_archive": {
+    "path": "ce-m4-chain11-source.zip",
+    "sha256": "242813b8a6a251a6c3bbdbb3c27eeb0448929bfcc1f3e446a0816d798d13effb"
+  },
+  "platform_source_archive": {
+    "path": "ce-m4-platform14-source.zip",
+    "sha256": "464667881739f4f4d586115965f0413d4a601fe2ebe482a345001f8c7a433b16"
+  },
+  "build_script_sha256": "1b34a4245280687a50cb4fbd274da0524aa5535e48ad3947eb9debeef63c8e80",
+  "baseline_script_sha256": "f88ea5dbbdfcb388cc11a43b781f4d7e7f927bb58c14210df24ea44654d5cd33",
+  "limitations": [
+    "Focused Nox builds have a separate output/log/receipt and retain full detection; default full CE build remains the release path.",
+    "No-op timing is not changed-source build timing; measure actual focused relink on next implementation.",
+    "All native unit evidence remains controlled semantic scope. Normal runtime still interprets original instructions. M4 remains IN PROGRESS."
+  ]
+}

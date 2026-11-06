@@ -1,0 +1,14 @@
+{
+  "status": "IN PROGRESS",
+  "failure": "Native NPC logical action differs at group0 chain1 turn6 result0",
+  "log": "ce-m4-npc-actions82-suite.log",
+  "executable": {
+    "path": "ce-m4-binary\\scummvm-npc-actions82-rejected.exe",
+    "sha256": "840f6d27e7639471cfd4e26314636b65614b777b09d800fa8807a495554c7707"
+  },
+  "source": {
+    "path": "ce-m4-npc-actions82-rejected-source.zip",
+    "sha256": "d1a9be2d23360261844b2b616b5e9608ed98eb7f109aa7581d0f5118ba7df69b"
+  },
+  "acceptance": "Not accepted; diagnose retained state difference without weakening source oracle."
+}

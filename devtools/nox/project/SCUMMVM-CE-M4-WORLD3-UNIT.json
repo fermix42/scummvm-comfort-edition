@@ -1,0 +1,98 @@
+{
+  "status": "VERIFIED",
+  "milestone": "M4",
+  "scope": "Native world operations and own native-state serialization/cold restoration inside CE before Runtime construction",
+  "unit": {
+    "status": "VERIFIED",
+    "scope": "Native gate rule/resource units inside CE before Runtime construction; not ordinary native gameplay or M4 completion",
+    "command": [
+      "C:\\Program Files\\Python313\\python.exe",
+      "D:\\Codex Projects\\scummvm-private\\scummvm-private-feature-usable-desktop-window-layout-git\\devtools\\nox\\test_resources.py",
+      "--exe",
+      "D:\\Codex Projects\\scummvm-private\\scummvm-private-feature-usable-desktop-window-layout-git\\build-scummvm\\Releasex64\\scummvm.exe",
+      "--base",
+      "D:\\Codex Projects\\Nox Archaist\\Nox Archaist HDV (v119).HDV",
+      "--expansion",
+      "D:\\Codex Projects\\Nox Archaist\\Nox Archaist Lord of Storms HDV (v137).HDV",
+      "--artifacts",
+      "conversion\\ce-m4-native-world3-tests",
+      "--native-video"
+    ],
+    "resource_report": "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-native-world3-tests\\20261017-011305\\verification.json",
+    "gate_counts": {
+      "maps": "76",
+      "keyed": "38",
+      "compound": "5",
+      "plates": "14",
+      "portals": "57",
+      "cases": "337",
+      "ownership": "semantic-unit-only"
+    },
+    "executable_sha256": "0b2ddb4b6a07f00704a62842bd7561012e2ee04f54fabaeb863cdf3b14ebcf61",
+    "source_sha256": {
+      "native_gates.h": "3c19eeaa79877c589db5f2de13ceb826ce42437e4cae6032b80d46c2859f2b85",
+      "native_gates_validation.h": "0789ab31cb010bfa0750a2db2ee37d8976fa8ef7c74678ec87f5671a00dba50e",
+      "native_maps.h": "f483271156807839323d95b98a8677837a0443e7284cd2fd4077bbf7c3aa780d",
+      "native_maps_validation.h": "83f6bcc201b5c6f57d24227ca4ecc15dce90b7b10a1af13a5464ed7d754874db",
+      "native_world.h": "4713787fd388623a6380fcd4da12f8eee9c053a291c0daf2dfac911fbb2b0ba9",
+      "native_world_validation.h": "53412acf08cdce63f19898313caf0554072b088ba44f92e946f5c12779ac744e"
+    },
+    "native_only_gameplay": "NOT STARTED",
+    "earned_native_campaign": "NOT STARTED",
+    "actual_compiled_native_units": [
+      "native_gates.h",
+      "native_gates_validation.h",
+      "native_maps.h",
+      "native_maps_validation.h",
+      "native_world.h",
+      "native_world_validation.h"
+    ],
+    "maps": {
+      "count": 76,
+      "decoded_sectors": 2660,
+      "terrain_metadata_and_state_tables": "VERIFIED"
+    },
+    "world": {
+      "status": "VERIFIED",
+      "scope": "Native World operations/serialization only; no ordinary input/rendered gameplay claim",
+      "warm": "native-world\tphase=warm\tkey_refusal=1\tactual_open=1\tcontrol_reversal=1\tportal=1\tmulti_map_restore=1\tatomic_rejection=1\tcpu_execution=0",
+      "cold": "native-world\tphase=cold\tmap=54\tnative_open_retained=1\tcpu_execution=0",
+      "cold_argv": [
+        "D:\\Codex Projects\\scummvm-private\\scummvm-private-feature-usable-desktop-window-layout-git\\build-scummvm\\Releasex64\\scummvm.exe",
+        "--gfx-mode=surfacesdl",
+        "--config=D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-native-world3-tests\\native-cold\\cold.ini",
+        "--savepath=D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-native-world3-tests\\native-cold\\saves",
+        "--logfile=D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-native-world3-tests\\native-cold\\engine.log",
+        "nox-resource-test"
+      ],
+      "cold_exit": 0,
+      "input_state_sha256": "10b54f5b6bcd6b4e07af9b6ff1ea97a29ce3c0b60afb0cd847dc599a0294b98d",
+      "controlled_initialization": "Source-valid world profiles and authorization BEFORE native operations; no earned Search/key award or full party initialization claim"
+    },
+    "artifacts": {
+      "native-core-warm.tsv": "c7cb7f650c794e98a3e0d8263bf1a6bc5b188eca948bf739345931127114073b",
+      "native-cold\\saves\\nox-native-world-state.bin": "10b54f5b6bcd6b4e07af9b6ff1ea97a29ce3c0b60afb0cd847dc599a0294b98d",
+      "native-cold\\saves\\nox-resource-validation.tsv": "c6e8baf0a96ffc9dfe2c4730eb3c5ea3a0b1ef12a14e345a72b99e7a4e768992",
+      "native-cold\\cold.ini": "299d9398ab8a7d7e016dfcc6504d34945c26d12ff6d6bac970b50496d70db7d1"
+    }
+  },
+  "source_archive": {
+    "path": "ce-m4-world3-source.zip",
+    "sha256": "471295c8ef8f9e1ecb2900ebee413f8c44ab697344cc3b9d550412a2e6cfd779"
+  },
+  "preserved_executable": {
+    "path": "ce-m4-binary\\scummvm-world3.exe",
+    "sha256": "0b2ddb4b6a07f00704a62842bd7561012e2ee04f54fabaeb863cdf3b14ebcf61"
+  },
+  "build": {
+    "log": "ce-m4-native-world-build3.log",
+    "sha256": "b204013955d27a0ecf1970159fdfca151df55da0bbdd8ee577856a155cbaa598",
+    "result": "PASS 0 warnings/errors,00:04:01.67"
+  },
+  "limitations": [
+    "Actual native model Open/refusal, reversible original Castle control, Order portal native destination load, multi-map roundtrip, atomic candidate rejection, cold native Open retention. No emulated CPU execution in these validation paths.",
+    "Original source Open marker41 is retained; later M3 quiescent marker40 is presentation normalization, not assumed identical byte state.",
+    "Native world owner is not yet connected to normal player input, presentation or the normal CE save payload. Native chunk is a development unit format, not a second player save system.",
+    "Party/inventory, new game, schedules, ordinary movement, dialogue, battles and audio still require native ownership. No interpreter-disabled release or earned native campaign claim."
+  ]
+}

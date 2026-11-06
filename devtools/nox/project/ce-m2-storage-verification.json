@@ -1,0 +1,95 @@
+{
+  "status": "VERIFIED",
+  "task": "M2.4e2",
+  "milestone_status": "IN PROGRESS",
+  "executable_sha256": "9968930fe595e4523f304a1d655e6a6d6b731e1dcff7f42c3eb15e1e125bafdd",
+  "build": {
+    "session": 35255,
+    "warnings": 1,
+    "errors": 0,
+    "elapsed": "00:02:39.62"
+  },
+  "reports": [
+    {
+      "path": "ce-m2-history-full-modern/20261015-203234/verification.json",
+      "sha256": "4ac20e6a37045ae63630c4dd29bf141859676db3b815f897d973a84e640c925a",
+      "status": "VERIFIED"
+    },
+    {
+      "path": "ce-m2-history-full-classic/20261015-203334/verification.json",
+      "sha256": "dab669e5b0694327ebcc819b80c2c7abb44b863c832ab0d0c814d2aca0546f95",
+      "status": "VERIFIED"
+    },
+    {
+      "path": "ce-m2-history-interrupted-modern/20261015-203429/failure-verification.json",
+      "sha256": "a3bb61c4af562d1278b6391a3e0bf80ec31d19d34c8125ea8b9c1810a07d1ed6",
+      "status": "VERIFIED"
+    },
+    {
+      "path": "ce-m2-history-interrupted-classic/20261015-203519/failure-verification.json",
+      "sha256": "7609f20ea119d2ea4b0636b31095cf5ed4b4dd5286f12bad96e0a701fb00bce8",
+      "status": "VERIFIED"
+    }
+  ],
+  "source_sha256": {
+    "engines/nox/backoff_validation.h": "7362aace99ec706f40295446abc3a9b41bb2ed2f841f89c61ed4f20a7c18b760",
+    "engines/nox/caller_validation.h": "ede6a33e41ad5fa9d9613fe36e203e7122ca9830a1b4b54e46ae9591cf632391",
+    "engines/nox/configure.engine": "774fc9df4834ca0e64018b72f326d14989a40c08f5c7fd78d06bbea6ee42c015",
+    "engines/nox/cpu.inc": "41c0fdff3d9d3466871ae76144b430b9b13bd29a2873a8899ebad56e4e208b97",
+    "engines/nox/cycles.inc": "2b1024aeab86cda827aec30eb696547ced1d333226263647b29b1d34db3acd6e",
+    "engines/nox/detection.cpp": "32753d7b31fd8fe9f61eb27c676e6564d79764aa94cd5283c2508b8ac056dbd6",
+    "engines/nox/dialogue_validation.h": "e838b3c33d4d16c68820b01bbba3dd0fd7a0bdd34165bcac6dabad223e5f59e6",
+    "engines/nox/enhancement_fixture.h": "13d45f7cf67cbec92f87777653c1ec51e65dd6b2b20538020b55f00fcd0718b5",
+    "engines/nox/enhancement_validation.h": "a24bde10489f8ca310c45c92050d21293aa974ee2eb86691a350aa372667e13a",
+    "engines/nox/enhancements.cpp": "5ed93907c2e0b1004c9978bbb91c32913de50d1706e9fd41c2027473b3069150",
+    "engines/nox/enhancements.h": "f0d73af3421c0597db87ace38b2d203c73640d43a5bade9b278cf6c1e7ff029d",
+    "engines/nox/grid_validation.h": "6032efc17e039528d63f2640d1b4308b899a9a7776c7c6c8fe4fa7e0ea752fa9",
+    "engines/nox/history_validation.h": "5601beeb58e2f8babad090e45369e3d3249e8d409d4e69db2ca3fad847c21b88",
+    "engines/nox/host_validation.h": "58f0082264e78c366b05e8a0999b0dcdde8e147160dc3be543042af2ab1da7a9",
+    "engines/nox/io_validation.h": "556bd69ec180bae521284e5876d121dffac2a7827f6fce1200924f8a2081d214",
+    "engines/nox/management_validation.h": "286355cdedac22164095549c47f97e21d63e13eb738fb94b3368bf79d1738e34",
+    "engines/nox/metadata_validation.h": "c2b7fe9b7d1fa277517ec337b3ab8390e39552125b1c460be04690232466db5c",
+    "engines/nox/metaengine.cpp": "d631b83dc7b3a816489aa3a546d965f06d1cf89e684582c3dedd602ef866b24b",
+    "engines/nox/mockingboard.cpp": "38d5c6a894cc7a6bd238b9ad9a6740ec5ff42c6f299b7f6ce858505a6c1817bc",
+    "engines/nox/mockingboard.h": "d0afe027dc9ff9b269b0c60bf04abc45566502a17aed25879316856911937f2e",
+    "engines/nox/module.mk": "47de2ac64575f926a8de7cc5060913a3b63a0554cb5c20824ab55cf67ac1085f",
+    "engines/nox/movement.cpp": "4b03de9dd50c4a4cfc6c2e2d7da9d3fc3fc80a697dfd236a3340c1d25b84fdf9",
+    "engines/nox/nox.cpp": "f0c0ded83411c90baf43b6425d66123ac58434063b55967a034f163a2004853a",
+    "engines/nox/nox.h": "7bb27440f2ffcefeee864d464c1c9638551f8913ebfcf1ba23bfc18e8bcfe77c",
+    "engines/nox/records.h": "8045582e0ae5f83d027b8b197aa66a8309e9ff80f2117bce7edb86455eca9b7d",
+    "engines/nox/render.cpp": "bd7833eaccc812fad88b0d19e5070d9955e440142525ded89b3d30766120073a",
+    "engines/nox/resources.h": "1451464a6f8ea57039c3596c8aaa388701e5005fb3364b80b9e48bb04dc2cd95",
+    "engines/nox/runtime.cpp": "85b9b48b4d5367f73255f99fc6d2d4a88030e6386ee4941c895eb6b107f84c74",
+    "engines/nox/runtime.h": "f524b889d9f47b3ede64aee4bc42f93162032fed755da28f6bc76b40027ce763",
+    "engines/nox/runtime_observers.cpp": "24a8193ecb7804e88df401cb65ddffed1c796f0571bcbb76d4dedd41319d93ca",
+    "engines/nox/runtime_state.cpp": "45a01b83702f87d34a57a004e9105c2b69e50c213511eb4a176bccaa9cdc6e9c",
+    "engines/nox/save_policy.h": "890bced00db32c534207055e5f6acf7247310102119da4c5bc66f13a4c7d72fc",
+    "engines/nox/saves.h": "9d0e92a7fb35952d35f2f2ecf0602ba48211162cb3f18b02a5a454919ac514f9",
+    "engines/nox/session_validation.cpp": "5d6d8620c28bc20b522400361abfa5dc060c35038e256ce74a46620b4c8b16b4",
+    "engines/nox/snapshot.h": "c3c8c9fd497391995084286e6f1cadc8ac5b9e9ed94965b6820043624e6d35de",
+    "engines/nox/speaker_audio.cpp": "b80e55470b95fcaf200f4346a0cb0bab8ce8ff3fe7e2436633da833a2da9f833",
+    "engines/nox/speaker_audio.h": "aad57abba83f4a02ee0780eb2eebc80e68a43181b285533dc3313f3ad307205f",
+    "engines/nox/validation.cpp": "7582907d58238d29057026968b03866e25fb7e760184497204896cd5dad8ef75",
+    "engines/ce_achievements.cpp": "831cc94e8f7e7089f0d51fcf62752a7c99094e052e33cd9b0442ed78766d88f1",
+    "engines/ce_achievements.h": "c316373fce3a2837d9a3b9bf800b36797a60b4a6293da6e198e27e1a961b943d",
+    "engines/metaengine.cpp": "38f44a1787d982b101198484b6f969eeea1603a18aea750fe702c0518ade6a52",
+    "engines/metaengine.h": "0a0e69cbce98c072e67433c0bf99b8be93fc93533a9d89d777770ec1cf82f327",
+    "gui/saveload-dialog.cpp": "6af8ee1d591a87722f9aa34666bfb0c7dd61c47abe5704156b11d01e531173ce",
+    "backends/events/default/default-events.cpp": "04a82d66b59fed6d3685bb6d632594f698fe1ecc73bfe8d76f08101faab136ca",
+    "devtools/nox/test_io_failures.py": "e68d1e859e6c2ee7f553f75374e359aca272e8da6c08ab8d544b0c03b8bdcb63",
+    "devtools/nox/test_failures.py": "9d2bacc4e8e97885ec98726f51b44017ddf33515dcb220b1ea050b355f9e51c8"
+  },
+  "acceptance": {
+    "read_write_delete": "Actual Windows sharing denial for world reads, world replacement, commit sidecar, logical deletion; exact live world/owner/history preservation, prior complete pair and independent B retained, release before shutdown and cold equality in both modes.",
+    "session_history": "Registry/queue denials for session creation, completion/archive; explicit rejection and prior status/history retained. Save/load metadata denials report history failure, preserve committed local worlds.",
+    "permanent_assistance": "Registry-denied assistance survives switching and cold reload via signed same-owner audit recovery; exact one-of-two registry reason owner.",
+    "interrupted_corrupt": "Owned child killed during real partial overwrite; prior generation retained and cold recovered. Checksummed malformed runtime candidate and failed oversized save reject without live replacement; controlled nonempty owners both modes."
+  },
+  "provenance": "Actual observed dialogue in explicitly assisted authored-exit adjacency fixture for I/O tests; controlled owner fixture for interrupted/corrupt tests. No earned campaign claim.",
+  "limitations": [
+    "File locks are released before shutdown; atomic multi-file deletion across a simultaneous process crash/systemic storage failure is not claimed.",
+    "Metadata denial cases call real CE metadata operation on an already committed world; normal local save/load regression separately passed.",
+    "Full M2 caller/provenance/owner and final same-build integration audit remains incomplete.",
+    "No network requests."
+  ]
+}

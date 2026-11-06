@@ -1,0 +1,23 @@
+{
+  "status": "IN PROGRESS",
+  "scope": "Rejected initial native actor intent policy; original oracle unchanged",
+  "source_archive": {
+    "path": "ce-m4-actor-intent74-rejected-source.zip",
+    "sha256": "63740dbd929c8c76d8a88ccca8bde6d5bfba03a8af681d1bc94f1aaed808112b"
+  },
+  "executable": {
+    "path": "ce-m4-binary\\scummvm-actor-intent74-rejected.exe",
+    "sha256": "c468062781423474f4a0c8494cb54ffad05fb253e09ab31da4ff3f1f6deb7320"
+  },
+  "failure_log": {
+    "path": "ce-m4-native74.log",
+    "sha256": "bb7383e21a99f9250d4eae57a9c5c1cc9b6ca32d0403f82dee317f21042e69d9"
+  },
+  "reference": {
+    "path": "ce-m4-actor-intent-reference/input.bin",
+    "sha256": "f04c3546806cf0a31a5e98f5c0aa53804c23a9d02cb89b802ac71e4468c367aa"
+  },
+  "source_observation": "Compact actor state17 uses source roll66 and chooses generic wander. The compact bit0 branch wanders when roll<128; extended NPC random wander uses roll>=128. Native74 incorrectly used >=128 for both.",
+  "rng_default_discovery": "Actual source RNG restores inclusive1..255 default bounds. The initial producer incorrectly asserted0..255 and was corrected from observed source state before writing any accepted fixture; retained initial script and failed scope receipt.",
+  "next": "Preserve source expectations and correct compact branch in75; rerun full native suite."
+}

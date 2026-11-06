@@ -1,0 +1,52 @@
+{
+  "status": "VERIFIED",
+  "parent_task": "M2.4e2",
+  "parent_status": "IN PROGRESS",
+  "scope": "Six actual Windows sharing-denial cases in both initial modes, released before shutdown and exact cold recovery; actual healthy save/session regression; not complete writer-result/error audit",
+  "executable_sha256": "7ca53ee0ac8e95e3a38d76552c3ae4749cbc157286995f9e868be256b87eb2b6",
+  "build": {
+    "session": 7589,
+    "warnings": 0,
+    "errors": 0,
+    "elapsed": "00:02:40.71",
+    "log": "nox-m2-io-release-build.out.log"
+  },
+  "reports": [
+    {
+      "path": "ce-m2-io-after-modern/20261015-194336/verification.json",
+      "sha256": "fd7ad0e74df822510dddba0246c6ea6c963d3d8b5ab8e2ca168a32085c59ebb9"
+    },
+    {
+      "path": "ce-m2-io-after-classic/20261015-194438/verification.json",
+      "sha256": "d0ee221de29091ae45de4c49b1a6e5e01d7827cb0ac1b45aeb0e5c9f1de57838"
+    },
+    {
+      "path": "ce-m2-io-gameplay-modern/20261015-194922/verification.json",
+      "sha256": "0c16c4580ecdd3e67a42bc51b6718b72111d5952c92fbb48b14ef4f2336a803c"
+    },
+    {
+      "path": "ce-m2-io-gameplay-classic/20261015-194952/verification.json",
+      "sha256": "7e9df8112ef807f2ffcc09cd8b63fcccde1b0c8b157d3773d04165b53d5b359e"
+    },
+    {
+      "path": "ce-m2-io-before-modern/20261015-192158/verification.json",
+      "sha256": "35dcc2aa5a7758196a693ace1e2a1637455eb1de23a56611ddfc4e38d892cd0e"
+    }
+  ],
+  "source_sha256": {
+    "engines/ce_achievements.h": "c316373fce3a2837d9a3b9bf800b36797a60b4a6293da6e198e27e1a961b943d",
+    "engines/ce_achievements.cpp": "1765116980494175988bb3d1061ce85537b1c3d970bc9c6aa057ab5392d6d5a7",
+    "engines/nox/saves.h": "9d0e92a7fb35952d35f2f2ecf0602ba48211162cb3f18b02a5a454919ac514f9",
+    "engines/nox/metaengine.cpp": "d631b83dc7b3a816489aa3a546d965f06d1cf89e684582c3dedd602ef866b24b",
+    "engines/nox/nox.h": "7bb27440f2ffcefeee864d464c1c9638551f8913ebfcf1ba23bfc18e8bcfe77c",
+    "engines/nox/nox.cpp": "f0c0ded83411c90baf43b6425d66123ac58434063b55967a034f163a2004853a",
+    "engines/nox/io_validation.h": "61baa2a0cec5f36563813c5e0d82b47157cf62ce4917f69002bb6fc15daa7f34",
+    "devtools/nox/test_io_failures.py": "2fa0bb755c1dc44c32b5c1e1db7c1f3c32c1c443f88a1481a5a24f32fee36b79"
+  },
+  "network_requests": 0,
+  "remaining": [
+    "Save-metadata/status writer-failure result propagation audit and applicable focused runtime cases",
+    "Final enhanced interrupted-write/corrupt-candidate regression",
+    "Final M2 caller/provenance gates"
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "status": "VERIFIED",
+  "scope": "Canonical type4 UM76/77 full viewport composition, alongside remaining74 authored maps; controlled retained render chains only",
+  "executable_sha256": "522d598623c47f80631eb8dcec8a8c2a5e53691d8e7c52ab937a7c37c6b22593",
+  "preserved_build": "SCUMMVM-CE-M4-FULL77-REGRESSION.json",
+  "suite": {
+    "path": "ce-m4-native-canonical78-tests\\native-core-verification.json",
+    "sha256": "3d4115e0e00049533191bd2a9e35fac43062fdeb0e299302aec6a37b147ca72f"
+  },
+  "oracle": {
+    "path": "ce-m4-viewport-canonical78-reference\\metadata.json",
+    "sha256": "89371bfc17ce04222b462d0d06bcfd2a0fa25cbd2b741ea208d7d3980b751373"
+  },
+  "changed_files": [
+    "conversion/prepare_native_viewport_canonical78_m4.py",
+    "conversion/run_native_suite_m4.py"
+  ],
+  "validation": "304 source-executed viewport refreshes and complete selected native regression PASS. Engine source/executable unchanged; no rebuild necessary.",
+  "limitations": [
+    "No earned travel, normal UI/turn integration or M4.2/.3 acceptance.",
+    "Castle11/15 schedule padding remains unverified; castle11 zero-memory assumption rejected because combat decoding writes those bytes."
+  ]
+}

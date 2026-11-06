@@ -1,0 +1,18 @@
+{
+  "status": "IN PROGRESS",
+  "scope": "Rejected native owner implementation; never a gameplay pass",
+  "source_archive": {
+    "path": "ce-m4-native-wait169-rejected-source.zip",
+    "sha256": "ebd3707f1e0e65bb661a5ea3392da7d81560c827f439d63b77cff571a2c56021"
+  },
+  "executable": {
+    "path": "ce-m4-binary\\scummvm-native-wait169-rejected.exe",
+    "sha256": "4c0132abbd553a7f9da38f7c68817de5f2619a1d7283fe15538eedeb05c739fb"
+  },
+  "failure_log": {
+    "path": "ce-m4-native-wait169-input.log",
+    "sha256": "b8da087a6b79a238dca5d90c0cd7cb4888ede5f7726320cc487aa9011c06a31c"
+  },
+  "finding": "Input test was launched before build post-copy completed; DLL copy failed with sharing violation. Run rejected. State comparison subsequently differs at table offset1536, outside the schedule/compact/object/NPC record regions; investigate exact source read length before correcting comparator. No native pass.",
+  "next_action": "Correct the implementation using actual source evidence; preserve all original numeric reference outcomes and rerun affected CE checks."
+}

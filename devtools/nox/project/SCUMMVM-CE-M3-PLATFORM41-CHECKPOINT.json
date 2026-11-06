@@ -1,0 +1,28 @@
+{
+  "status": "VERIFIED",
+  "scope": "Testing-platform integrity/index/checkpoint runner and advice mapping, not M3 campaign completion",
+  "source": {
+    "m3_platform.py": "d052ed72aa9ed6a4a536840ac801ecb84c9dc2f42c37c22c4cddf51fdeb32a7a",
+    "test_m3_platform.py": "a495c2199231b5a9e2b42593460b181a45e41961a1380af9d202a3118e20b875",
+    "record_story_graph41_m3.py": "7658b9b88e3340f36e5330a541bd36ef3acd72c89d8fbd99eb36079a176e1ef6",
+    "M3-TEST-PLATFORM.md": "047b932abd8096ce50fb2ddc2e045fcbf2d5edaad22b7ca2eba403bc17cf1562"
+  },
+  "source_archive": {
+    "path": "ce-m3-platform41-source.zip",
+    "sha256": "2c98230cc32a41ce436faf26bbe2beedb08e0c8743fdf8ac79986efbe09c57a2"
+  },
+  "integrity": "VERIFIED",
+  "declared_references": 72,
+  "integrity_failures": 0,
+  "unit_tests": 3,
+  "engine_smoke": {
+    "path": "ce-m3-platform-smoke41\\20261016-194346\\verification.json",
+    "sha256": "6c8f2c0e105bc6aceb4d44d700421d0138a7a1c21d6730f920b2c2448a1a85e5"
+  },
+  "limitations": [
+    "Regression selector conservatively selects all72 on vortex controller changes due broad source inventories; no fine-grained acceleration claimed",
+    "Checkpoint reuse preserves existing label contracts; no state alias or outcome rewriting",
+    "15/15 advice mapping is verified scoped; complete C1 route proof and C2/C3 remain open",
+    "M4 NOT STARTED"
+  ]
+}

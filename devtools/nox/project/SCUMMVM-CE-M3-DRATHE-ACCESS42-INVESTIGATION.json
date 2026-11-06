@@ -1,0 +1,42 @@
+{
+  "status": "IN PROGRESS",
+  "scope": "C2 Drathe access investigation; candidate route avoids compound plate door, actual complete approach not verified",
+  "cases": [
+    {
+      "path": "ce-m3-drathe-access42\\20261016-202814",
+      "artifacts": {
+        "input-identity.json": "c5fb78644ea3481ace243b10676ef10b8a7505026c34d634e21066ef0eccb19d",
+        "invocations.json": "f0e34c9e03fe23edc5436c28d394f4d24d3184cb93abfa4889a146f0d56072d6",
+        "warm-stderr.txt": "bf8ae023885ad94a2db60010eef6b149e2041d8cf1c7e2ceaf47deb5f0d552d0",
+        "saves\\nox-vortex-failure-memory.bin": "a88ac2ab87deb15bdc43882e0ba667eb4e80d19cc2e4ecac91f521d701afc94f",
+        "saves\\nox-vortex-failure-site.tsv": "bc87de882988efed7a65e75b5080e44d043c724364517ce6a15c10a7f181f1e9",
+        "saves\\nox-vortex-failure.png": "d0607aa59f5ef9386d007932d5cb7dc772152278365ae3cb6bcad1a52c72d624",
+        "saves\\nox-vortex-trace.tsv": "4d1e79b4cd6c87322fa9a0a49a61cafe033664f4d76504b082d9ea84f5252f9f"
+      },
+      "classification": "initial route rejected before operation"
+    },
+    {
+      "path": "ce-m3-drathe-access42\\20261016-202832",
+      "artifacts": {
+        "input-identity.json": "29081ffcb80686a45a42f9269eb72c0f6ad249f0fd59caebcdcfe6bf83ec43f9",
+        "invocations.json": "1ecf457e48fa45190774f2cbcf82753ce681bc2caf166385be83dd79b9296526",
+        "warm-stderr.txt": "6f768ff8d36cd7b6b7b2ccc27f49d4a83e6bf5af03545d53edfccdf8115fb871",
+        "saves\\nox-vortex-failure-memory.bin": "46fe5a2777006d312b72b75b8df514bc78a0dd2ecebd8b181903fa8200e50d3d",
+        "saves\\nox-vortex-failure-site.tsv": "8db6c8e3afde66c48231ede2ab6c589da306e3fd4a479f48df7201533f07c455",
+        "saves\\nox-vortex-failure.png": "6f308438692b1a644fab469d1a2050960f3b9e6cedf7820e0c605a34b820ae3e",
+        "saves\\nox-vortex-trace.tsv": "7a12b351d4355e9f6f1170b4a53d4cc20d33d27a4420241b5ffb66bda27d4f28"
+      },
+      "classification": "actual approach interrupted by ambient battle before target; not accepted access"
+    }
+  ],
+  "source_script_sha256": "cf0e1b2f81b66739a4ee596ada2795fe0b8366d80976ecf6fe0505e791ac8d60",
+  "test_manifest": "SCUMMVM-CE-M3-ACCESS42-TEST-MANIFEST.json",
+  "findings": [
+    "Local source layout admits candidate path around compound door24,16 while041E low3bits remain0",
+    "Original F0F4..F111 handles type55; FC58 non69 branch invokes text pointer through FCE1. No position mutation identified in that branch",
+    "First fixture wrongly tried direct74->32 route; corrected using existing original74->surface0->31->32 chain",
+    "Actual source40 walk reaches32,17 before ambient battle; selective diagnostic frame inspected. No expected outcome written and no full route credit",
+    "No game-logic change, rebuild, M4 work, or claim of progression-blocking engine defect"
+  ],
+  "next_action": "Resolve supported deterministic approach/ambient encounter handling before retry; no repeated identical attempt"
+}

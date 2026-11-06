@@ -1,0 +1,24 @@
+{
+  "status": "IN PROGRESS",
+  "baseline": "SCUMMVM-CE-M4-NATIVE-ENDING379-CHECKPOINT.json",
+  "implemented": [
+    "Explicit source ending caption column 14.",
+    "Optional AUDI private checkpoint section; atomic validation and restoration, historical audio-free checkpoints retained.",
+    "Normal NPLS saves retain their separate audio envelope without clearing it when restoring embedded gameplay.",
+    "Actual victory acknowledgement selects the source ending music resource descriptor when music is enabled.",
+    "Lifecycle probe compares complete checkpoint audio and next 4800 PCM samples."
+  ],
+  "source_reference": {
+    "path": "native-audio-research380-reference1/metadata.json",
+    "cases": 72,
+    "original_steps": 7809396
+  },
+  "evidence": [
+    "380 source comparison passed 72 whole tracks,164952 ticks,144 sequencer cold restores and72 PCM continuations; ending20/12 and world references retained."
+  ],
+  "failures": [
+    "381 lifecycle exited 0xC00000FD: temporary large PlayerSessionState allocated on test stack. Scoped heap correction in382; no lifecycle pass claimed for381."
+  ],
+  "pending": "Build382, actual normal lifecycle/audio checkpoint PCM, linked final attack/ending cue/cold, ending lifecycle Modern/Classic, source batch and meaningful frame comparison.",
+  "next_action": "Finish connected audio acceptance, preserve evidence; continue remaining B3 and W6, then M4.2 and M4.3 when prerequisites are satisfied."
+}

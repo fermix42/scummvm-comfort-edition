@@ -1,0 +1,45 @@
+{
+  "status": "IN PROGRESS",
+  "scope": "Rejected integrated NPC phase; component116 and spatial114 remain verified",
+  "source_archive": {
+    "path": "ce-m4-npc-world121-rejected-source.zip",
+    "sha256": "f0c80857c9f86c05a91c3026855662b758c8cf369276f7cecf7e67e51ef25ff6"
+  },
+  "executable": {
+    "path": "ce-m4-binary\\scummvm-npc-world121-rejected.exe",
+    "sha256": "ddce853cdb594a5d0e56f7eda6b3ca199736d1bd5e6e4c12a15fb2784b6facd6"
+  },
+  "observed": {
+    "first_phase_header": [
+      1,
+      4,
+      0,
+      0,
+      0,
+      0,
+      1,
+      248,
+      186
+    ],
+    "first_preferences": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "source_record": [
+      11,
+      30,
+      137,
+      0,
+      77,
+      126,
+      0,
+      0
+    ]
+  },
+  "failure": "Native first paused-world result/direction/timer/RNG agree but preferences differ. Original preparation initializes the first four preferences to0; its fifth sentinel receives255. Source loop returns after accumulator becomes0, not to its255 load.",
+  "correction": "Reset all four actual preferences to0; remove speculativeFF decoder allowance and update cold evidence label. Every original119/120/121 expected outcome remains unchanged.",
+  "build_notes": "Initial121 compiled with one C4458 shadow warning.121b fixed local name,0 warnings/errors, but failed actual CE comparison. Both logs retained.",
+  "next_action": "Correct native preparation and rerun affected CE source comparison/cold continuation; no criteria or source results changed."
+}

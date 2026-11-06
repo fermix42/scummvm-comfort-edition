@@ -1,0 +1,111 @@
+{
+  "status": "VERIFIED",
+  "scope": "Named early/middle/late/pre-ending/ending cold-process evidence exists in both modes; existing fixture provenance retained",
+  "rows": [
+    {
+      "stage": "early-log-recognition",
+      "report": "ce-m3-final-linked/20261015-222552/verification.json",
+      "sha256": "74a29c9a1ba8eb914c4122989f02048c10ae2481cc1213c274cb8e8d6eed14ce",
+      "mode": "Modern",
+      "cold_invocations": 1,
+      "evidence": [
+        {
+          "path": "saves/nox-campaign-cold.tsv",
+          "sha256": "bde4f36002b152f67e8dc6540adfde5e5ade9d6fba7ade5204d7aa8337b084c1",
+          "result": "PASS\tprovenance=controlled-checkpoint\truntime_bytes=identical\tlog_count=1\tlinked_recognition=1"
+        }
+      ]
+    },
+    {
+      "stage": "early-log-recognition",
+      "report": "ce-m3-final-linked-classic/20261015-222558/verification.json",
+      "sha256": "9870fe157d19e4eb195554f9e72673ab777b2171cdc2bc0fcdb1ff3e747179ab",
+      "mode": "Classic",
+      "cold_invocations": 1,
+      "evidence": [
+        {
+          "path": "saves/nox-campaign-cold.tsv",
+          "sha256": "bde4f36002b152f67e8dc6540adfde5e5ade9d6fba7ade5204d7aa8337b084c1",
+          "result": "PASS\tprovenance=controlled-checkpoint\truntime_bytes=identical\tlog_count=1\tlinked_recognition=1"
+        }
+      ]
+    },
+    {
+      "stage": "middle-eight-pages-research-binding",
+      "report": "ce-m3-earned-pages-vortex12/20261016-145829/verification.json",
+      "sha256": "eef6e82077dc17fd4644f5dae91410a3ad88a8085a016d3658d24e7452e896f5",
+      "mode": "Modern",
+      "cold_invocations": 3,
+      "evidence": [
+        {
+          "path": "saves/nox-vortex-cold-3.tsv",
+          "sha256": "4a7bf75c522b87468b3ea94554e50c07f45af8ebb5ee655cbfa4bcaeff674955",
+          "result": "PASS\truntime_bytes=identical\tprovenance=controlled-map-setups-linked-gameplay"
+        }
+      ]
+    },
+    {
+      "stage": "middle-eight-pages-research-binding",
+      "report": "ce-m3-earned-pages-vortex12-classic/20261016-145844/verification.json",
+      "sha256": "d6db37614d43589a06b811b8af00ec6b5ee1ccf7601718c64523b00c1a051e4a",
+      "mode": "Classic",
+      "cold_invocations": 3,
+      "evidence": [
+        {
+          "path": "saves/nox-vortex-cold-3.tsv",
+          "sha256": "4a7bf75c522b87468b3ea94554e50c07f45af8ebb5ee655cbfa4bcaeff674955",
+          "result": "PASS\truntime_bytes=identical\tprovenance=controlled-map-setups-linked-gameplay"
+        }
+      ]
+    },
+    {
+      "stage": "late-high-cultist-journal-translation",
+      "report": "ce-m3-cultist-positive5/20261016-130705/verification.json",
+      "sha256": "347221933b36daefe4e9c00d26dc473227e7292ce391f7fda23980d6e72d8c5e",
+      "mode": "Modern",
+      "cold_invocations": 1,
+      "evidence": [
+        {
+          "path": "saves/nox-cultist-cold.tsv",
+          "sha256": "67775d1655e0c1f4349e8319b188d38295b1f9e4859a33f3f1724789a2fda175",
+          "result": "PASS\truntime_bytes=identical journal156=1 043840=1 actual_teleport58_translation043B02=1"
+        }
+      ]
+    },
+    {
+      "stage": "late-high-cultist-journal-translation",
+      "report": "ce-m3-cultist-positive5-classic/20261016-130717/verification.json",
+      "sha256": "13866921b3e1750dca1e141db4950b0deeecc80ce67eead8d14f8080ffe009ab",
+      "mode": "Classic",
+      "cold_invocations": 1,
+      "evidence": [
+        {
+          "path": "saves/nox-cultist-cold.tsv",
+          "sha256": "67775d1655e0c1f4349e8319b188d38295b1f9e4859a33f3f1724789a2fda175",
+          "result": "PASS\truntime_bytes=identical journal156=1 043840=1 actual_teleport58_translation043B02=1"
+        }
+      ]
+    },
+    {
+      "stage": "pre-ending-ending-and-acknowledgement",
+      "report": "ce-m3-final-ending40/20261016-191851/verification.json",
+      "sha256": "0b9e96888fc7421dec866d9d48f1e791e8d99f0b63b2cc060fd2d106094869d2",
+      "mode": "Modern",
+      "cold_invocations": 3,
+      "evidence": []
+    },
+    {
+      "stage": "pre-ending-ending-and-acknowledgement",
+      "report": "ce-m3-final-ending40-classic/20261016-191910/verification.json",
+      "sha256": "3fbe98d53ee3602dedf5ee9e4c0635ed0b4294c5ae695e44a296a5e812ee9868",
+      "mode": "Classic",
+      "cold_invocations": 3,
+      "evidence": []
+    }
+  ],
+  "limitations": [
+    "No new engine execution or earned continuous run counted",
+    "C5 segment compatibility still IN PROGRESS until C1/C2 required-route proof is complete",
+    "Final endpoint remains controlled bossHP1; normal combat save is unsupported, legal pre-battle restoration used"
+  ]
+}

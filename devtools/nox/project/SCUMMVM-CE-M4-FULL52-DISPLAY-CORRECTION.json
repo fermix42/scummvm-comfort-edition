@@ -1,0 +1,11 @@
+{
+  "status": "VERIFIED",
+  "scope": "Display-only elapsed string correction; original frozen receipt retained unchanged",
+  "original": "SCUMMVM-CE-M4-FULL52-REGRESSION.json",
+  "original_sha256": "a81d6631f23c48ee76d73ea7714fdbdea2cee249823439d7fa4f71d8f2dd9145",
+  "incorrect_display": "00:000:04:00.98",
+  "actual_elapsed": "00:04:00.98",
+  "build_log": "ce-m4-default-full52.log",
+  "build_log_sha256": "1ca55997fdb0ac0b97d8427d71fde9ebb783e30dea882036166b362e85784313",
+  "functional_acceptance_changed": false
+}

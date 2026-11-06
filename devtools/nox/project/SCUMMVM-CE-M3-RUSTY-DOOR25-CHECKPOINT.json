@@ -1,0 +1,784 @@
+{
+  "status": "VERIFIED",
+  "milestone": "M3",
+  "scope": "rusty-door25 scoped actual operations, decoded results and exact cold saves both modes",
+  "reports": [
+    {
+      "path": "ce-m3-door-rusty-True25/20261016-161042/verification.json",
+      "sha256": "476b364025f57fdee2dd2453b51c4f9b75123f49645b650e20409999f9cfaae1",
+      "mode": "Modern",
+      "case": {
+        "id": "actual-rusty-door-True-controlled-prior-guard-death",
+        "predecessor_label": "Vortex phase 38",
+        "noon": true,
+        "repeat": false,
+        "map": 19,
+        "actor": 0,
+        "topics": [],
+        "routes": [],
+        "reply": {
+          "resource": "",
+          "contains": ""
+        },
+        "gate": {
+          "type": 3,
+          "x": 15,
+          "y": 27,
+          "direction": 21,
+          "closed_tile": 18,
+          "field": 1049,
+          "mask": 2,
+          "health": 125,
+          "open": true,
+          "expected_x": 16,
+          "expected_y": 27,
+          "defeated_rusty_guard": true
+        },
+        "before": {
+          "flags": [
+            [
+              1049,
+              2,
+              2
+            ]
+          ],
+          "items": [
+            [
+              72,
+              1
+            ],
+            [
+              97,
+              8
+            ]
+          ]
+        },
+        "after": {
+          "flags": [
+            [
+              1049,
+              2,
+              2
+            ]
+          ],
+          "items": [
+            [
+              72,
+              1
+            ],
+            [
+              97,
+              8
+            ]
+          ]
+        },
+        "source_anchors": [
+          "Owned map key-door source record, code18/exact key-field mask2. Real Search predecessor supplies actual key; negative actual earlier branch no key, no flag clearing. Original Open then real two-step passage/blocked step required.",
+          "Owned actor-world D281 LDA BD03,X/CMP255 skips dead fixed actors; only this source-record guard state initialized."
+        ],
+        "initializations": "CONTROLLED noon/authored routes and original outside source-floor adjacency only. Retain actual key Search state positive; negative real earlier state lacking key. No door/key/quest/movement outcome initialization; actual original O/direction/steps and exact cold save. CONTROLLED prior fixed guard BD4 death BEFORE door input: exact original RUIN19 record [13,27,158,1] at7495 guarded, BD07->FF original dead flag. No guard fight/damage/loot earned; this case tests door mechanics only. Key/door/quest outcomes remain real. Correction20: original redraw reloads map actor data, so matching source-valid private map actor records are controlled together with RAM before tested input. Original source HDV remains immutable; no quest/item/HP/door output initialized."
+      },
+      "result": {
+        "save": "ce-m3-door-rusty-True25\\20261016-161042\\saves\\nox-ce-ed5939a032719adcfecdf986a9261c4a-7ae1dafa76a889bf8ef2115a9052da5a-slot001.g1",
+        "save_sha256": "2b7ecaa3a332f1dad2c0f9f7608302e9d8a19671852c4aab1e542f97c586d56d",
+        "runtime_sha256": "433925b8dfb9ebdf5eff9fccb1dcb022d98a951732d3c3ce2c5558d381d8c930",
+        "generation": 16,
+        "slot": 1,
+        "PC": 29148,
+        "SP": 255,
+        "alternate": 0,
+        "stack_return": 0,
+        "map": 19,
+        "map_type": 3,
+        "xy": [
+          16,
+          27
+        ],
+        "pageflags": 255,
+        "research": 3,
+        "transport_flags": 0,
+        "keyflag_040F": 0,
+        "keyflag_0410": 63,
+        "party_count": 1,
+        "status": 0,
+        "level": 10,
+        "health": 125,
+        "maximum_health": 125,
+        "mana": 110,
+        "inactive": 0,
+        "STR_DEX_INT": [
+          8,
+          14,
+          110
+        ],
+        "Range": 10,
+        "Range_training_remaining": 54,
+        "weapon_range_bytes": [
+          1,
+          16
+        ],
+        "spell_slot1": 12,
+        "spell_quantity": 1,
+        "Ankh_quantity": 0,
+        "key_quantity": 0,
+        "staff_quantity": 0,
+        "enemy_health": 0,
+        "encounter_sprite": 0,
+        "ending_loop": 0
+      },
+      "executable_sha256": "63cd59da112615bc58ba34d11f8dda0ffb78da8f4653e66d59dad2d451ff0c46",
+      "source_sha256": {
+        "engines/nox/backoff_validation.h": "7362aace99ec706f40295446abc3a9b41bb2ed2f841f89c61ed4f20a7c18b760",
+        "engines/nox/caller_validation.h": "ede6a33e41ad5fa9d9613fe36e203e7122ca9830a1b4b54e46ae9591cf632391",
+        "engines/nox/campaign_validation.h": "d4910018cf7288bb3e03f0d3e5aa8f551941486237d3062cbf8c406f48cf93b7",
+        "engines/nox/configure.engine": "774fc9df4834ca0e64018b72f326d14989a40c08f5c7fd78d06bbea6ee42c015",
+        "engines/nox/cpu.inc": "41c0fdff3d9d3466871ae76144b430b9b13bd29a2873a8899ebad56e4e208b97",
+        "engines/nox/cultist_validation.h": "654be8783d95ee92f8d757174dbedc581ac67317a6e7377b36ee9e36f051e299",
+        "engines/nox/cycles.inc": "2b1024aeab86cda827aec30eb696547ced1d333226263647b29b1d34db3acd6e",
+        "engines/nox/dark_key_validation.h": "5114e1958dd01104f0cd9ac08b3f771a5a87062911eb9042d54f34df01d0bb5e",
+        "engines/nox/detection.cpp": "32753d7b31fd8fe9f61eb27c676e6564d79764aa94cd5283c2508b8ac056dbd6",
+        "engines/nox/dialogue_validation.h": "5d2663dabee5c81507130bc126b3a1f4c9e91adc7b08a0e57d71e869a7b00dbd",
+        "engines/nox/enhancements.cpp": "5ed93907c2e0b1004c9978bbb91c32913de50d1706e9fd41c2027473b3069150",
+        "engines/nox/enhancements.h": "f0d73af3421c0597db87ace38b2d203c73640d43a5bade9b278cf6c1e7ff029d",
+        "engines/nox/enhancement_fixture.h": "13d45f7cf67cbec92f87777653c1ec51e65dd6b2b20538020b55f00fcd0718b5",
+        "engines/nox/enhancement_validation.h": "a24bde10489f8ca310c45c92050d21293aa974ee2eb86691a350aa372667e13a",
+        "engines/nox/grid_validation.h": "6032efc17e039528d63f2640d1b4308b899a9a7776c7c6c8fe4fa7e0ea752fa9",
+        "engines/nox/history_validation.h": "5601beeb58e2f8babad090e45369e3d3249e8d409d4e69db2ca3fad847c21b88",
+        "engines/nox/host_validation.h": "58f0082264e78c366b05e8a0999b0dcdde8e147160dc3be543042af2ab1da7a9",
+        "engines/nox/io_validation.h": "556bd69ec180bae521284e5876d121dffac2a7827f6fce1200924f8a2081d214",
+        "engines/nox/linked_pages_validation.h": "6692c099cd24961dd5940167fb1f5d7cb0a3f1b315e4cda1a39670d0ae220dab",
+        "engines/nox/management_validation.h": "286355cdedac22164095549c47f97e21d63e13eb738fb94b3368bf79d1738e34",
+        "engines/nox/metadata_validation.h": "c2b7fe9b7d1fa277517ec337b3ab8390e39552125b1c460be04690232466db5c",
+        "engines/nox/metaengine.cpp": "d631b83dc7b3a816489aa3a546d965f06d1cf89e684582c3dedd602ef866b24b",
+        "engines/nox/mockingboard.cpp": "38d5c6a894cc7a6bd238b9ad9a6740ec5ff42c6f299b7f6ce858505a6c1817bc",
+        "engines/nox/mockingboard.h": "d0afe027dc9ff9b269b0c60bf04abc45566502a17aed25879316856911937f2e",
+        "engines/nox/module.mk": "47de2ac64575f926a8de7cc5060913a3b63a0554cb5c20824ab55cf67ac1085f",
+        "engines/nox/movement.cpp": "4b03de9dd50c4a4cfc6c2e2d7da9d3fc3fc80a697dfd236a3340c1d25b84fdf9",
+        "engines/nox/nox.cpp": "8c5c5d737bc3743a525da70c000b70551b944550c8b92bad56b47bbc79989861",
+        "engines/nox/nox.h": "aac0544cb4bb5692e7114ad1cc74429ebb6b7aa9e090af2ea9376f2b87fb316c",
+        "engines/nox/profile_validation.h": "2658f8c93149c8692e5ef5b79d1dc42836dbd60f4d15f75a0f0ed3dbbd84301a",
+        "engines/nox/quest_battle_validation.h": "9dfe3f78eb428fa55ea78bfe82fd79acc050ecf745ac8aede032a5f29159ee63",
+        "engines/nox/records.h": "8045582e0ae5f83d027b8b197aa66a8309e9ff80f2117bce7edb86455eca9b7d",
+        "engines/nox/render.cpp": "bd7833eaccc812fad88b0d19e5070d9955e440142525ded89b3d30766120073a",
+        "engines/nox/resources.h": "1451464a6f8ea57039c3596c8aaa388701e5005fb3364b80b9e48bb04dc2cd95",
+        "engines/nox/runtime.cpp": "8875ca955ff8e840286532fa58ed63795c042ff2d7b1cedd78e61531fec2cac8",
+        "engines/nox/runtime.h": "16560913e4ef59d416a52a87b7c6eb718aeeee6a72f3628021a6ef3d753b35a3",
+        "engines/nox/runtime_observers.cpp": "ac6943ccae17f42456ab26d6e1d46bb229a5a41ba49775406d9c612348c8494c",
+        "engines/nox/runtime_state.cpp": "d0c9c769e7fba6a8125754594fc5cc54dc54912c830f38c1a02f44ff24799b2d",
+        "engines/nox/saves.h": "9d0e92a7fb35952d35f2f2ecf0602ba48211162cb3f18b02a5a454919ac514f9",
+        "engines/nox/save_policy.h": "890bced00db32c534207055e5f6acf7247310102119da4c5bc66f13a4c7d72fc",
+        "engines/nox/search_object_validation.h": "34f51b6363a9c1c0d7a5b2646f8ad0404b3d7d180988f49bf00aaad773654da2",
+        "engines/nox/session_validation.cpp": "da83025980220829e5ec424e80ad067d6681e30893918a1196ec84ef0524d839",
+        "engines/nox/shadow_checkpoint_validation.h": "1b886520edb2a907ce7d8f6f2c259ab1e0b85edbf7e7226d92eb313a2dd95f97",
+        "engines/nox/shadow_confrontation_validation.h": "9b26b853f0bd8e54384aae5967c38687c0f9d0a7f2d8a6151d75576f54cc428b",
+        "engines/nox/snapshot.h": "c3c8c9fd497391995084286e6f1cadc8ac5b9e9ed94965b6820043624e6d35de",
+        "engines/nox/speaker_audio.cpp": "b80e55470b95fcaf200f4346a0cb0bab8ce8ff3fe7e2436633da833a2da9f833",
+        "engines/nox/speaker_audio.h": "aad57abba83f4a02ee0780eb2eebc80e68a43181b285533dc3313f3ad307205f",
+        "engines/nox/spell_validation.h": "9a398f09bba6f60394cf31e639a0730221c17ade426c04aefc84216009d02412",
+        "engines/nox/validation.cpp": "7582907d58238d29057026968b03866e25fb7e760184497204896cd5dad8ef75",
+        "engines/nox/vortex_validation.h": "61ed6506f732461cf3ebc551e97bb7350cfd1902aebdc1358a01c0eb6e74b9b4",
+        "devtools/nox/test_late_npc.py": "303faef05d5b024c2c2359c2a3cfba5d0e3ad4fc99c6356d77f50790f7c09942"
+      },
+      "controlled_evidence": [
+        "CONTROLLED-before-door-fixedBD4-guard-deadFF not_earned_combat no_key_quest_loot_door_outcome_initialized=1"
+      ]
+    },
+    {
+      "path": "ce-m3-door-rusty-False25/20261016-161046/verification.json",
+      "sha256": "5b2f9230526133f659be5d0e65ca3cc2e2a5be496d258aa23606fbfcc2b3509c",
+      "mode": "Modern",
+      "case": {
+        "id": "actual-rusty-door-False-controlled-prior-guard-death",
+        "predecessor_label": "Vortex world cast",
+        "noon": true,
+        "repeat": false,
+        "map": 19,
+        "actor": 0,
+        "topics": [],
+        "routes": [
+          [
+            97,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            20,
+            3
+          ],
+          [
+            19,
+            3
+          ]
+        ],
+        "reply": {
+          "resource": "",
+          "contains": ""
+        },
+        "gate": {
+          "type": 3,
+          "x": 15,
+          "y": 27,
+          "direction": 21,
+          "closed_tile": 18,
+          "field": 1049,
+          "mask": 2,
+          "health": 125,
+          "open": false,
+          "expected_x": 14,
+          "expected_y": 27,
+          "defeated_rusty_guard": true
+        },
+        "before": {
+          "flags": [
+            [
+              1049,
+              2,
+              0
+            ]
+          ],
+          "items": [
+            [
+              72,
+              0
+            ],
+            [
+              97,
+              8
+            ]
+          ]
+        },
+        "after": {
+          "flags": [
+            [
+              1049,
+              2,
+              0
+            ]
+          ],
+          "items": [
+            [
+              72,
+              0
+            ],
+            [
+              97,
+              8
+            ]
+          ]
+        },
+        "source_anchors": [
+          "Owned map key-door source record, code18/exact key-field mask2. Real Search predecessor supplies actual key; negative actual earlier branch no key, no flag clearing. Original Open then real two-step passage/blocked step required.",
+          "Owned actor-world D281 LDA BD03,X/CMP255 skips dead fixed actors; only this source-record guard state initialized."
+        ],
+        "initializations": "CONTROLLED noon/authored routes and original outside source-floor adjacency only. Retain actual key Search state positive; negative real earlier state lacking key. No door/key/quest/movement outcome initialization; actual original O/direction/steps and exact cold save. CONTROLLED prior fixed guard BD4 death BEFORE door input: exact original RUIN19 record [13,27,158,1] at7495 guarded, BD07->FF original dead flag. No guard fight/damage/loot earned; this case tests door mechanics only. Key/door/quest outcomes remain real. Correction20: original redraw reloads map actor data, so matching source-valid private map actor records are controlled together with RAM before tested input. Original source HDV remains immutable; no quest/item/HP/door output initialized."
+      },
+      "result": {
+        "save": "ce-m3-door-rusty-False25\\20261016-161046\\saves\\nox-ce-ed5939a032719adcfecdf986a9261c4a-7ae1dafa76a889bf8ef2115a9052da5a-slot001.g1",
+        "save_sha256": "d08008a0b55af9485291ac99a1ec3ee5ca70e2b715dc87f0d14d825f955e3f50",
+        "runtime_sha256": "03a33ecce6fdf739c1e7696391257a4a9823fb06d8c47ecd89d1f108cd325703",
+        "generation": 14,
+        "slot": 1,
+        "PC": 29148,
+        "SP": 255,
+        "alternate": 0,
+        "stack_return": 0,
+        "map": 19,
+        "map_type": 3,
+        "xy": [
+          14,
+          27
+        ],
+        "pageflags": 255,
+        "research": 3,
+        "transport_flags": 0,
+        "keyflag_040F": 0,
+        "keyflag_0410": 63,
+        "party_count": 1,
+        "status": 0,
+        "level": 10,
+        "health": 125,
+        "maximum_health": 125,
+        "mana": 110,
+        "inactive": 0,
+        "STR_DEX_INT": [
+          8,
+          14,
+          110
+        ],
+        "Range": 10,
+        "Range_training_remaining": 54,
+        "weapon_range_bytes": [
+          1,
+          16
+        ],
+        "spell_slot1": 12,
+        "spell_quantity": 1,
+        "Ankh_quantity": 0,
+        "key_quantity": 0,
+        "staff_quantity": 0,
+        "enemy_health": 0,
+        "encounter_sprite": 0,
+        "ending_loop": 0
+      },
+      "executable_sha256": "63cd59da112615bc58ba34d11f8dda0ffb78da8f4653e66d59dad2d451ff0c46",
+      "source_sha256": {
+        "engines/nox/backoff_validation.h": "7362aace99ec706f40295446abc3a9b41bb2ed2f841f89c61ed4f20a7c18b760",
+        "engines/nox/caller_validation.h": "ede6a33e41ad5fa9d9613fe36e203e7122ca9830a1b4b54e46ae9591cf632391",
+        "engines/nox/campaign_validation.h": "d4910018cf7288bb3e03f0d3e5aa8f551941486237d3062cbf8c406f48cf93b7",
+        "engines/nox/configure.engine": "774fc9df4834ca0e64018b72f326d14989a40c08f5c7fd78d06bbea6ee42c015",
+        "engines/nox/cpu.inc": "41c0fdff3d9d3466871ae76144b430b9b13bd29a2873a8899ebad56e4e208b97",
+        "engines/nox/cultist_validation.h": "654be8783d95ee92f8d757174dbedc581ac67317a6e7377b36ee9e36f051e299",
+        "engines/nox/cycles.inc": "2b1024aeab86cda827aec30eb696547ced1d333226263647b29b1d34db3acd6e",
+        "engines/nox/dark_key_validation.h": "5114e1958dd01104f0cd9ac08b3f771a5a87062911eb9042d54f34df01d0bb5e",
+        "engines/nox/detection.cpp": "32753d7b31fd8fe9f61eb27c676e6564d79764aa94cd5283c2508b8ac056dbd6",
+        "engines/nox/dialogue_validation.h": "5d2663dabee5c81507130bc126b3a1f4c9e91adc7b08a0e57d71e869a7b00dbd",
+        "engines/nox/enhancements.cpp": "5ed93907c2e0b1004c9978bbb91c32913de50d1706e9fd41c2027473b3069150",
+        "engines/nox/enhancements.h": "f0d73af3421c0597db87ace38b2d203c73640d43a5bade9b278cf6c1e7ff029d",
+        "engines/nox/enhancement_fixture.h": "13d45f7cf67cbec92f87777653c1ec51e65dd6b2b20538020b55f00fcd0718b5",
+        "engines/nox/enhancement_validation.h": "a24bde10489f8ca310c45c92050d21293aa974ee2eb86691a350aa372667e13a",
+        "engines/nox/grid_validation.h": "6032efc17e039528d63f2640d1b4308b899a9a7776c7c6c8fe4fa7e0ea752fa9",
+        "engines/nox/history_validation.h": "5601beeb58e2f8babad090e45369e3d3249e8d409d4e69db2ca3fad847c21b88",
+        "engines/nox/host_validation.h": "58f0082264e78c366b05e8a0999b0dcdde8e147160dc3be543042af2ab1da7a9",
+        "engines/nox/io_validation.h": "556bd69ec180bae521284e5876d121dffac2a7827f6fce1200924f8a2081d214",
+        "engines/nox/linked_pages_validation.h": "6692c099cd24961dd5940167fb1f5d7cb0a3f1b315e4cda1a39670d0ae220dab",
+        "engines/nox/management_validation.h": "286355cdedac22164095549c47f97e21d63e13eb738fb94b3368bf79d1738e34",
+        "engines/nox/metadata_validation.h": "c2b7fe9b7d1fa277517ec337b3ab8390e39552125b1c460be04690232466db5c",
+        "engines/nox/metaengine.cpp": "d631b83dc7b3a816489aa3a546d965f06d1cf89e684582c3dedd602ef866b24b",
+        "engines/nox/mockingboard.cpp": "38d5c6a894cc7a6bd238b9ad9a6740ec5ff42c6f299b7f6ce858505a6c1817bc",
+        "engines/nox/mockingboard.h": "d0afe027dc9ff9b269b0c60bf04abc45566502a17aed25879316856911937f2e",
+        "engines/nox/module.mk": "47de2ac64575f926a8de7cc5060913a3b63a0554cb5c20824ab55cf67ac1085f",
+        "engines/nox/movement.cpp": "4b03de9dd50c4a4cfc6c2e2d7da9d3fc3fc80a697dfd236a3340c1d25b84fdf9",
+        "engines/nox/nox.cpp": "8c5c5d737bc3743a525da70c000b70551b944550c8b92bad56b47bbc79989861",
+        "engines/nox/nox.h": "aac0544cb4bb5692e7114ad1cc74429ebb6b7aa9e090af2ea9376f2b87fb316c",
+        "engines/nox/profile_validation.h": "2658f8c93149c8692e5ef5b79d1dc42836dbd60f4d15f75a0f0ed3dbbd84301a",
+        "engines/nox/quest_battle_validation.h": "9dfe3f78eb428fa55ea78bfe82fd79acc050ecf745ac8aede032a5f29159ee63",
+        "engines/nox/records.h": "8045582e0ae5f83d027b8b197aa66a8309e9ff80f2117bce7edb86455eca9b7d",
+        "engines/nox/render.cpp": "bd7833eaccc812fad88b0d19e5070d9955e440142525ded89b3d30766120073a",
+        "engines/nox/resources.h": "1451464a6f8ea57039c3596c8aaa388701e5005fb3364b80b9e48bb04dc2cd95",
+        "engines/nox/runtime.cpp": "8875ca955ff8e840286532fa58ed63795c042ff2d7b1cedd78e61531fec2cac8",
+        "engines/nox/runtime.h": "16560913e4ef59d416a52a87b7c6eb718aeeee6a72f3628021a6ef3d753b35a3",
+        "engines/nox/runtime_observers.cpp": "ac6943ccae17f42456ab26d6e1d46bb229a5a41ba49775406d9c612348c8494c",
+        "engines/nox/runtime_state.cpp": "d0c9c769e7fba6a8125754594fc5cc54dc54912c830f38c1a02f44ff24799b2d",
+        "engines/nox/saves.h": "9d0e92a7fb35952d35f2f2ecf0602ba48211162cb3f18b02a5a454919ac514f9",
+        "engines/nox/save_policy.h": "890bced00db32c534207055e5f6acf7247310102119da4c5bc66f13a4c7d72fc",
+        "engines/nox/search_object_validation.h": "34f51b6363a9c1c0d7a5b2646f8ad0404b3d7d180988f49bf00aaad773654da2",
+        "engines/nox/session_validation.cpp": "da83025980220829e5ec424e80ad067d6681e30893918a1196ec84ef0524d839",
+        "engines/nox/shadow_checkpoint_validation.h": "1b886520edb2a907ce7d8f6f2c259ab1e0b85edbf7e7226d92eb313a2dd95f97",
+        "engines/nox/shadow_confrontation_validation.h": "9b26b853f0bd8e54384aae5967c38687c0f9d0a7f2d8a6151d75576f54cc428b",
+        "engines/nox/snapshot.h": "c3c8c9fd497391995084286e6f1cadc8ac5b9e9ed94965b6820043624e6d35de",
+        "engines/nox/speaker_audio.cpp": "b80e55470b95fcaf200f4346a0cb0bab8ce8ff3fe7e2436633da833a2da9f833",
+        "engines/nox/speaker_audio.h": "aad57abba83f4a02ee0780eb2eebc80e68a43181b285533dc3313f3ad307205f",
+        "engines/nox/spell_validation.h": "9a398f09bba6f60394cf31e639a0730221c17ade426c04aefc84216009d02412",
+        "engines/nox/validation.cpp": "7582907d58238d29057026968b03866e25fb7e760184497204896cd5dad8ef75",
+        "engines/nox/vortex_validation.h": "61ed6506f732461cf3ebc551e97bb7350cfd1902aebdc1358a01c0eb6e74b9b4",
+        "devtools/nox/test_late_npc.py": "303faef05d5b024c2c2359c2a3cfba5d0e3ad4fc99c6356d77f50790f7c09942"
+      },
+      "controlled_evidence": [
+        "CONTROLLED-before-door-fixedBD4-guard-deadFF not_earned_combat no_key_quest_loot_door_outcome_initialized=1"
+      ]
+    },
+    {
+      "path": "ce-m3-door-rusty-True25-classic/20261016-161240/verification.json",
+      "sha256": "8db965abc85aea5be9c597fe3b5b920d3d715f01b8e1f1dcc36cbbb4a09937d5",
+      "mode": "Classic",
+      "case": {
+        "id": "actual-rusty-door-True-controlled-prior-guard-death",
+        "predecessor_label": "Vortex phase 38",
+        "noon": true,
+        "repeat": false,
+        "map": 19,
+        "actor": 0,
+        "topics": [],
+        "routes": [],
+        "reply": {
+          "resource": "",
+          "contains": ""
+        },
+        "gate": {
+          "type": 3,
+          "x": 15,
+          "y": 27,
+          "direction": 21,
+          "closed_tile": 18,
+          "field": 1049,
+          "mask": 2,
+          "health": 125,
+          "open": true,
+          "expected_x": 16,
+          "expected_y": 27,
+          "defeated_rusty_guard": true
+        },
+        "before": {
+          "flags": [
+            [
+              1049,
+              2,
+              2
+            ]
+          ],
+          "items": [
+            [
+              72,
+              1
+            ],
+            [
+              97,
+              8
+            ]
+          ]
+        },
+        "after": {
+          "flags": [
+            [
+              1049,
+              2,
+              2
+            ]
+          ],
+          "items": [
+            [
+              72,
+              1
+            ],
+            [
+              97,
+              8
+            ]
+          ]
+        },
+        "source_anchors": [
+          "Owned map key-door source record, code18/exact key-field mask2. Real Search predecessor supplies actual key; negative actual earlier branch no key, no flag clearing. Original Open then real two-step passage/blocked step required.",
+          "Owned actor-world D281 LDA BD03,X/CMP255 skips dead fixed actors; only this source-record guard state initialized."
+        ],
+        "initializations": "CONTROLLED noon/authored routes and original outside source-floor adjacency only. Retain actual key Search state positive; negative real earlier state lacking key. No door/key/quest/movement outcome initialization; actual original O/direction/steps and exact cold save. CONTROLLED prior fixed guard BD4 death BEFORE door input: exact original RUIN19 record [13,27,158,1] at7495 guarded, BD07->FF original dead flag. No guard fight/damage/loot earned; this case tests door mechanics only. Key/door/quest outcomes remain real. Correction20: original redraw reloads map actor data, so matching source-valid private map actor records are controlled together with RAM before tested input. Original source HDV remains immutable; no quest/item/HP/door output initialized."
+      },
+      "result": {
+        "save": "ce-m3-door-rusty-True25-classic\\20261016-161240\\saves\\nox-ce-ed5939a032719adcfecdf986a9261c4a-c35823f4d64fc8eb92504d091b31fd28-slot001.g1",
+        "save_sha256": "dd5018c794e7e4bc6f912775f36612a6253a494ef6f5b288cdef0c421507704f",
+        "runtime_sha256": "433925b8dfb9ebdf5eff9fccb1dcb022d98a951732d3c3ce2c5558d381d8c930",
+        "generation": 16,
+        "slot": 1,
+        "PC": 29148,
+        "SP": 255,
+        "alternate": 0,
+        "stack_return": 0,
+        "map": 19,
+        "map_type": 3,
+        "xy": [
+          16,
+          27
+        ],
+        "pageflags": 255,
+        "research": 3,
+        "transport_flags": 0,
+        "keyflag_040F": 0,
+        "keyflag_0410": 63,
+        "party_count": 1,
+        "status": 0,
+        "level": 10,
+        "health": 125,
+        "maximum_health": 125,
+        "mana": 110,
+        "inactive": 0,
+        "STR_DEX_INT": [
+          8,
+          14,
+          110
+        ],
+        "Range": 10,
+        "Range_training_remaining": 54,
+        "weapon_range_bytes": [
+          1,
+          16
+        ],
+        "spell_slot1": 12,
+        "spell_quantity": 1,
+        "Ankh_quantity": 0,
+        "key_quantity": 0,
+        "staff_quantity": 0,
+        "enemy_health": 0,
+        "encounter_sprite": 0,
+        "ending_loop": 0
+      },
+      "executable_sha256": "63cd59da112615bc58ba34d11f8dda0ffb78da8f4653e66d59dad2d451ff0c46",
+      "source_sha256": {
+        "engines/nox/backoff_validation.h": "7362aace99ec706f40295446abc3a9b41bb2ed2f841f89c61ed4f20a7c18b760",
+        "engines/nox/caller_validation.h": "ede6a33e41ad5fa9d9613fe36e203e7122ca9830a1b4b54e46ae9591cf632391",
+        "engines/nox/campaign_validation.h": "d4910018cf7288bb3e03f0d3e5aa8f551941486237d3062cbf8c406f48cf93b7",
+        "engines/nox/configure.engine": "774fc9df4834ca0e64018b72f326d14989a40c08f5c7fd78d06bbea6ee42c015",
+        "engines/nox/cpu.inc": "41c0fdff3d9d3466871ae76144b430b9b13bd29a2873a8899ebad56e4e208b97",
+        "engines/nox/cultist_validation.h": "654be8783d95ee92f8d757174dbedc581ac67317a6e7377b36ee9e36f051e299",
+        "engines/nox/cycles.inc": "2b1024aeab86cda827aec30eb696547ced1d333226263647b29b1d34db3acd6e",
+        "engines/nox/dark_key_validation.h": "5114e1958dd01104f0cd9ac08b3f771a5a87062911eb9042d54f34df01d0bb5e",
+        "engines/nox/detection.cpp": "32753d7b31fd8fe9f61eb27c676e6564d79764aa94cd5283c2508b8ac056dbd6",
+        "engines/nox/dialogue_validation.h": "5d2663dabee5c81507130bc126b3a1f4c9e91adc7b08a0e57d71e869a7b00dbd",
+        "engines/nox/enhancements.cpp": "5ed93907c2e0b1004c9978bbb91c32913de50d1706e9fd41c2027473b3069150",
+        "engines/nox/enhancements.h": "f0d73af3421c0597db87ace38b2d203c73640d43a5bade9b278cf6c1e7ff029d",
+        "engines/nox/enhancement_fixture.h": "13d45f7cf67cbec92f87777653c1ec51e65dd6b2b20538020b55f00fcd0718b5",
+        "engines/nox/enhancement_validation.h": "a24bde10489f8ca310c45c92050d21293aa974ee2eb86691a350aa372667e13a",
+        "engines/nox/grid_validation.h": "6032efc17e039528d63f2640d1b4308b899a9a7776c7c6c8fe4fa7e0ea752fa9",
+        "engines/nox/history_validation.h": "5601beeb58e2f8babad090e45369e3d3249e8d409d4e69db2ca3fad847c21b88",
+        "engines/nox/host_validation.h": "58f0082264e78c366b05e8a0999b0dcdde8e147160dc3be543042af2ab1da7a9",
+        "engines/nox/io_validation.h": "556bd69ec180bae521284e5876d121dffac2a7827f6fce1200924f8a2081d214",
+        "engines/nox/linked_pages_validation.h": "6692c099cd24961dd5940167fb1f5d7cb0a3f1b315e4cda1a39670d0ae220dab",
+        "engines/nox/management_validation.h": "286355cdedac22164095549c47f97e21d63e13eb738fb94b3368bf79d1738e34",
+        "engines/nox/metadata_validation.h": "c2b7fe9b7d1fa277517ec337b3ab8390e39552125b1c460be04690232466db5c",
+        "engines/nox/metaengine.cpp": "d631b83dc7b3a816489aa3a546d965f06d1cf89e684582c3dedd602ef866b24b",
+        "engines/nox/mockingboard.cpp": "38d5c6a894cc7a6bd238b9ad9a6740ec5ff42c6f299b7f6ce858505a6c1817bc",
+        "engines/nox/mockingboard.h": "d0afe027dc9ff9b269b0c60bf04abc45566502a17aed25879316856911937f2e",
+        "engines/nox/module.mk": "47de2ac64575f926a8de7cc5060913a3b63a0554cb5c20824ab55cf67ac1085f",
+        "engines/nox/movement.cpp": "4b03de9dd50c4a4cfc6c2e2d7da9d3fc3fc80a697dfd236a3340c1d25b84fdf9",
+        "engines/nox/nox.cpp": "8c5c5d737bc3743a525da70c000b70551b944550c8b92bad56b47bbc79989861",
+        "engines/nox/nox.h": "aac0544cb4bb5692e7114ad1cc74429ebb6b7aa9e090af2ea9376f2b87fb316c",
+        "engines/nox/profile_validation.h": "2658f8c93149c8692e5ef5b79d1dc42836dbd60f4d15f75a0f0ed3dbbd84301a",
+        "engines/nox/quest_battle_validation.h": "9dfe3f78eb428fa55ea78bfe82fd79acc050ecf745ac8aede032a5f29159ee63",
+        "engines/nox/records.h": "8045582e0ae5f83d027b8b197aa66a8309e9ff80f2117bce7edb86455eca9b7d",
+        "engines/nox/render.cpp": "bd7833eaccc812fad88b0d19e5070d9955e440142525ded89b3d30766120073a",
+        "engines/nox/resources.h": "1451464a6f8ea57039c3596c8aaa388701e5005fb3364b80b9e48bb04dc2cd95",
+        "engines/nox/runtime.cpp": "8875ca955ff8e840286532fa58ed63795c042ff2d7b1cedd78e61531fec2cac8",
+        "engines/nox/runtime.h": "16560913e4ef59d416a52a87b7c6eb718aeeee6a72f3628021a6ef3d753b35a3",
+        "engines/nox/runtime_observers.cpp": "ac6943ccae17f42456ab26d6e1d46bb229a5a41ba49775406d9c612348c8494c",
+        "engines/nox/runtime_state.cpp": "d0c9c769e7fba6a8125754594fc5cc54dc54912c830f38c1a02f44ff24799b2d",
+        "engines/nox/saves.h": "9d0e92a7fb35952d35f2f2ecf0602ba48211162cb3f18b02a5a454919ac514f9",
+        "engines/nox/save_policy.h": "890bced00db32c534207055e5f6acf7247310102119da4c5bc66f13a4c7d72fc",
+        "engines/nox/search_object_validation.h": "34f51b6363a9c1c0d7a5b2646f8ad0404b3d7d180988f49bf00aaad773654da2",
+        "engines/nox/session_validation.cpp": "da83025980220829e5ec424e80ad067d6681e30893918a1196ec84ef0524d839",
+        "engines/nox/shadow_checkpoint_validation.h": "1b886520edb2a907ce7d8f6f2c259ab1e0b85edbf7e7226d92eb313a2dd95f97",
+        "engines/nox/shadow_confrontation_validation.h": "9b26b853f0bd8e54384aae5967c38687c0f9d0a7f2d8a6151d75576f54cc428b",
+        "engines/nox/snapshot.h": "c3c8c9fd497391995084286e6f1cadc8ac5b9e9ed94965b6820043624e6d35de",
+        "engines/nox/speaker_audio.cpp": "b80e55470b95fcaf200f4346a0cb0bab8ce8ff3fe7e2436633da833a2da9f833",
+        "engines/nox/speaker_audio.h": "aad57abba83f4a02ee0780eb2eebc80e68a43181b285533dc3313f3ad307205f",
+        "engines/nox/spell_validation.h": "9a398f09bba6f60394cf31e639a0730221c17ade426c04aefc84216009d02412",
+        "engines/nox/validation.cpp": "7582907d58238d29057026968b03866e25fb7e760184497204896cd5dad8ef75",
+        "engines/nox/vortex_validation.h": "61ed6506f732461cf3ebc551e97bb7350cfd1902aebdc1358a01c0eb6e74b9b4",
+        "devtools/nox/test_late_npc.py": "303faef05d5b024c2c2359c2a3cfba5d0e3ad4fc99c6356d77f50790f7c09942"
+      },
+      "controlled_evidence": [
+        "CONTROLLED-before-door-fixedBD4-guard-deadFF not_earned_combat no_key_quest_loot_door_outcome_initialized=1"
+      ]
+    },
+    {
+      "path": "ce-m3-door-rusty-False25-classic/20261016-161245/verification.json",
+      "sha256": "f8d32c386684205bab7aeb46562a00fb4be0b483622384949032576f1960bae5",
+      "mode": "Classic",
+      "case": {
+        "id": "actual-rusty-door-False-controlled-prior-guard-death",
+        "predecessor_label": "Vortex world cast",
+        "noon": true,
+        "repeat": false,
+        "map": 19,
+        "actor": 0,
+        "topics": [],
+        "routes": [
+          [
+            97,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            20,
+            3
+          ],
+          [
+            19,
+            3
+          ]
+        ],
+        "reply": {
+          "resource": "",
+          "contains": ""
+        },
+        "gate": {
+          "type": 3,
+          "x": 15,
+          "y": 27,
+          "direction": 21,
+          "closed_tile": 18,
+          "field": 1049,
+          "mask": 2,
+          "health": 125,
+          "open": false,
+          "expected_x": 14,
+          "expected_y": 27,
+          "defeated_rusty_guard": true
+        },
+        "before": {
+          "flags": [
+            [
+              1049,
+              2,
+              0
+            ]
+          ],
+          "items": [
+            [
+              72,
+              0
+            ],
+            [
+              97,
+              8
+            ]
+          ]
+        },
+        "after": {
+          "flags": [
+            [
+              1049,
+              2,
+              0
+            ]
+          ],
+          "items": [
+            [
+              72,
+              0
+            ],
+            [
+              97,
+              8
+            ]
+          ]
+        },
+        "source_anchors": [
+          "Owned map key-door source record, code18/exact key-field mask2. Real Search predecessor supplies actual key; negative actual earlier branch no key, no flag clearing. Original Open then real two-step passage/blocked step required.",
+          "Owned actor-world D281 LDA BD03,X/CMP255 skips dead fixed actors; only this source-record guard state initialized."
+        ],
+        "initializations": "CONTROLLED noon/authored routes and original outside source-floor adjacency only. Retain actual key Search state positive; negative real earlier state lacking key. No door/key/quest/movement outcome initialization; actual original O/direction/steps and exact cold save. CONTROLLED prior fixed guard BD4 death BEFORE door input: exact original RUIN19 record [13,27,158,1] at7495 guarded, BD07->FF original dead flag. No guard fight/damage/loot earned; this case tests door mechanics only. Key/door/quest outcomes remain real. Correction20: original redraw reloads map actor data, so matching source-valid private map actor records are controlled together with RAM before tested input. Original source HDV remains immutable; no quest/item/HP/door output initialized."
+      },
+      "result": {
+        "save": "ce-m3-door-rusty-False25-classic\\20261016-161245\\saves\\nox-ce-ed5939a032719adcfecdf986a9261c4a-c35823f4d64fc8eb92504d091b31fd28-slot001.g1",
+        "save_sha256": "8b3debbdc72c8204d1003ea99842c0c801b17edc29a189a0d497fac733de5463",
+        "runtime_sha256": "03a33ecce6fdf739c1e7696391257a4a9823fb06d8c47ecd89d1f108cd325703",
+        "generation": 14,
+        "slot": 1,
+        "PC": 29148,
+        "SP": 255,
+        "alternate": 0,
+        "stack_return": 0,
+        "map": 19,
+        "map_type": 3,
+        "xy": [
+          14,
+          27
+        ],
+        "pageflags": 255,
+        "research": 3,
+        "transport_flags": 0,
+        "keyflag_040F": 0,
+        "keyflag_0410": 63,
+        "party_count": 1,
+        "status": 0,
+        "level": 10,
+        "health": 125,
+        "maximum_health": 125,
+        "mana": 110,
+        "inactive": 0,
+        "STR_DEX_INT": [
+          8,
+          14,
+          110
+        ],
+        "Range": 10,
+        "Range_training_remaining": 54,
+        "weapon_range_bytes": [
+          1,
+          16
+        ],
+        "spell_slot1": 12,
+        "spell_quantity": 1,
+        "Ankh_quantity": 0,
+        "key_quantity": 0,
+        "staff_quantity": 0,
+        "enemy_health": 0,
+        "encounter_sprite": 0,
+        "ending_loop": 0
+      },
+      "executable_sha256": "63cd59da112615bc58ba34d11f8dda0ffb78da8f4653e66d59dad2d451ff0c46",
+      "source_sha256": {
+        "engines/nox/backoff_validation.h": "7362aace99ec706f40295446abc3a9b41bb2ed2f841f89c61ed4f20a7c18b760",
+        "engines/nox/caller_validation.h": "ede6a33e41ad5fa9d9613fe36e203e7122ca9830a1b4b54e46ae9591cf632391",
+        "engines/nox/campaign_validation.h": "d4910018cf7288bb3e03f0d3e5aa8f551941486237d3062cbf8c406f48cf93b7",
+        "engines/nox/configure.engine": "774fc9df4834ca0e64018b72f326d14989a40c08f5c7fd78d06bbea6ee42c015",
+        "engines/nox/cpu.inc": "41c0fdff3d9d3466871ae76144b430b9b13bd29a2873a8899ebad56e4e208b97",
+        "engines/nox/cultist_validation.h": "654be8783d95ee92f8d757174dbedc581ac67317a6e7377b36ee9e36f051e299",
+        "engines/nox/cycles.inc": "2b1024aeab86cda827aec30eb696547ced1d333226263647b29b1d34db3acd6e",
+        "engines/nox/dark_key_validation.h": "5114e1958dd01104f0cd9ac08b3f771a5a87062911eb9042d54f34df01d0bb5e",
+        "engines/nox/detection.cpp": "32753d7b31fd8fe9f61eb27c676e6564d79764aa94cd5283c2508b8ac056dbd6",
+        "engines/nox/dialogue_validation.h": "5d2663dabee5c81507130bc126b3a1f4c9e91adc7b08a0e57d71e869a7b00dbd",
+        "engines/nox/enhancements.cpp": "5ed93907c2e0b1004c9978bbb91c32913de50d1706e9fd41c2027473b3069150",
+        "engines/nox/enhancements.h": "f0d73af3421c0597db87ace38b2d203c73640d43a5bade9b278cf6c1e7ff029d",
+        "engines/nox/enhancement_fixture.h": "13d45f7cf67cbec92f87777653c1ec51e65dd6b2b20538020b55f00fcd0718b5",
+        "engines/nox/enhancement_validation.h": "a24bde10489f8ca310c45c92050d21293aa974ee2eb86691a350aa372667e13a",
+        "engines/nox/grid_validation.h": "6032efc17e039528d63f2640d1b4308b899a9a7776c7c6c8fe4fa7e0ea752fa9",
+        "engines/nox/history_validation.h": "5601beeb58e2f8babad090e45369e3d3249e8d409d4e69db2ca3fad847c21b88",
+        "engines/nox/host_validation.h": "58f0082264e78c366b05e8a0999b0dcdde8e147160dc3be543042af2ab1da7a9",
+        "engines/nox/io_validation.h": "556bd69ec180bae521284e5876d121dffac2a7827f6fce1200924f8a2081d214",
+        "engines/nox/linked_pages_validation.h": "6692c099cd24961dd5940167fb1f5d7cb0a3f1b315e4cda1a39670d0ae220dab",
+        "engines/nox/management_validation.h": "286355cdedac22164095549c47f97e21d63e13eb738fb94b3368bf79d1738e34",
+        "engines/nox/metadata_validation.h": "c2b7fe9b7d1fa277517ec337b3ab8390e39552125b1c460be04690232466db5c",
+        "engines/nox/metaengine.cpp": "d631b83dc7b3a816489aa3a546d965f06d1cf89e684582c3dedd602ef866b24b",
+        "engines/nox/mockingboard.cpp": "38d5c6a894cc7a6bd238b9ad9a6740ec5ff42c6f299b7f6ce858505a6c1817bc",
+        "engines/nox/mockingboard.h": "d0afe027dc9ff9b269b0c60bf04abc45566502a17aed25879316856911937f2e",
+        "engines/nox/module.mk": "47de2ac64575f926a8de7cc5060913a3b63a0554cb5c20824ab55cf67ac1085f",
+        "engines/nox/movement.cpp": "4b03de9dd50c4a4cfc6c2e2d7da9d3fc3fc80a697dfd236a3340c1d25b84fdf9",
+        "engines/nox/nox.cpp": "8c5c5d737bc3743a525da70c000b70551b944550c8b92bad56b47bbc79989861",
+        "engines/nox/nox.h": "aac0544cb4bb5692e7114ad1cc74429ebb6b7aa9e090af2ea9376f2b87fb316c",
+        "engines/nox/profile_validation.h": "2658f8c93149c8692e5ef5b79d1dc42836dbd60f4d15f75a0f0ed3dbbd84301a",
+        "engines/nox/quest_battle_validation.h": "9dfe3f78eb428fa55ea78bfe82fd79acc050ecf745ac8aede032a5f29159ee63",
+        "engines/nox/records.h": "8045582e0ae5f83d027b8b197aa66a8309e9ff80f2117bce7edb86455eca9b7d",
+        "engines/nox/render.cpp": "bd7833eaccc812fad88b0d19e5070d9955e440142525ded89b3d30766120073a",
+        "engines/nox/resources.h": "1451464a6f8ea57039c3596c8aaa388701e5005fb3364b80b9e48bb04dc2cd95",
+        "engines/nox/runtime.cpp": "8875ca955ff8e840286532fa58ed63795c042ff2d7b1cedd78e61531fec2cac8",
+        "engines/nox/runtime.h": "16560913e4ef59d416a52a87b7c6eb718aeeee6a72f3628021a6ef3d753b35a3",
+        "engines/nox/runtime_observers.cpp": "ac6943ccae17f42456ab26d6e1d46bb229a5a41ba49775406d9c612348c8494c",
+        "engines/nox/runtime_state.cpp": "d0c9c769e7fba6a8125754594fc5cc54dc54912c830f38c1a02f44ff24799b2d",
+        "engines/nox/saves.h": "9d0e92a7fb35952d35f2f2ecf0602ba48211162cb3f18b02a5a454919ac514f9",
+        "engines/nox/save_policy.h": "890bced00db32c534207055e5f6acf7247310102119da4c5bc66f13a4c7d72fc",
+        "engines/nox/search_object_validation.h": "34f51b6363a9c1c0d7a5b2646f8ad0404b3d7d180988f49bf00aaad773654da2",
+        "engines/nox/session_validation.cpp": "da83025980220829e5ec424e80ad067d6681e30893918a1196ec84ef0524d839",
+        "engines/nox/shadow_checkpoint_validation.h": "1b886520edb2a907ce7d8f6f2c259ab1e0b85edbf7e7226d92eb313a2dd95f97",
+        "engines/nox/shadow_confrontation_validation.h": "9b26b853f0bd8e54384aae5967c38687c0f9d0a7f2d8a6151d75576f54cc428b",
+        "engines/nox/snapshot.h": "c3c8c9fd497391995084286e6f1cadc8ac5b9e9ed94965b6820043624e6d35de",
+        "engines/nox/speaker_audio.cpp": "b80e55470b95fcaf200f4346a0cb0bab8ce8ff3fe7e2436633da833a2da9f833",
+        "engines/nox/speaker_audio.h": "aad57abba83f4a02ee0780eb2eebc80e68a43181b285533dc3313f3ad307205f",
+        "engines/nox/spell_validation.h": "9a398f09bba6f60394cf31e639a0730221c17ade426c04aefc84216009d02412",
+        "engines/nox/validation.cpp": "7582907d58238d29057026968b03866e25fb7e760184497204896cd5dad8ef75",
+        "engines/nox/vortex_validation.h": "61ed6506f732461cf3ebc551e97bb7350cfd1902aebdc1358a01c0eb6e74b9b4",
+        "devtools/nox/test_late_npc.py": "303faef05d5b024c2c2359c2a3cfba5d0e3ad4fc99c6356d77f50790f7c09942"
+      },
+      "controlled_evidence": [
+        "CONTROLLED-before-door-fixedBD4-guard-deadFF not_earned_combat no_key_quest_loot_door_outcome_initialized=1"
+      ]
+    }
+  ],
+  "ce_processes": 8,
+  "cold_processes": 4,
+  "controlled_checkpoint": "VERIFIED",
+  "linked_gameplay_progression": "VERIFIED",
+  "earned_continuous_progression": "NOT STARTED",
+  "full_new_game_to_ending": "NOT STARTED",
+  "limitations": [
+    "All declared controls remain unearned. Authored route and adjacency do not demonstrate intervening access/travel or battles. Individual fixture provenance retained verbatim.",
+    "Only successful reports listed; historical failed experiments excluded and preserved. Complete mandatory gate census/continuous campaign are not claimed.",
+    "Rusty only declared fixed guard prior death private map7498/RAMBD07FF, unearned guard combat. Raque actual 5-enemy admission, then controlled firstHP1/4dead BEFORE distinct real Cast, actual132/40C01; not full-health battle. No M4."
+  ],
+  "source_archive": {
+    "path": "ce-m3-gates-battles25-source.zip",
+    "sha256": "1432f700672fd157513a64810bbedc36a733b6b3ce2592f35248f5382f908cd7"
+  },
+  "preserved_executable": {
+    "path": "ce-m3-guardian6-binary\\scummvm-gates-battles25.exe",
+    "sha256": "63cd59da112615bc58ba34d11f8dda0ffb78da8f4653e66d59dad2d451ff0c46"
+  },
+  "build": {
+    "log": "ce-m3-quest-battle-build-25.log",
+    "result": "PASS 0 warnings/errors 00:02:40.97"
+  }
+}

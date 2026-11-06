@@ -1,0 +1,68 @@
+{
+  "status": "VERIFIED",
+  "scope": "Six preserved standalone binary regressions rerun; no standalone rebuild or campaign claim",
+  "time": "2026-10-15T21:11:21.433439-07:00",
+  "tests": [
+    {
+      "name": "party",
+      "binary": "D:\\Codex Projects\\Nox Archaist\\conversion\\build\\Release\\check_party.exe",
+      "sha256": "7ddd3b434ae654600ea8b7423788818c35ddd650bf830f7b95f92c32b7acd422",
+      "arguments": [],
+      "exit": 0,
+      "output": "Party record fields and full-bank round trips: 652 cases passed",
+      "stderr": ""
+    },
+    {
+      "name": "equipment",
+      "binary": "D:\\Codex Projects\\Nox Archaist\\conversion\\build\\Release\\check_equipment.exe",
+      "sha256": "0148d9316dbb7925200a9af77630e82f1566a58adc17c0f1dafe9139f994df5d",
+      "arguments": [
+        "Nox Archaist HDV (v119).HDV",
+        "Nox Archaist Extracted/NOXARCHAIST/NA/SRTN.INVENTORY"
+      ],
+      "exit": 0,
+      "output": "768 HDV item records match extraction; 504 ready placements; 65536 weight cases passed",
+      "stderr": ""
+    },
+    {
+      "name": "game_storage",
+      "binary": "D:\\Codex Projects\\Nox Archaist\\conversion\\build\\Release\\check_game_storage.exe",
+      "sha256": "64115372d94eeb0f58d29a59983b687e683171afcde41fb656a611d8a48f74b8",
+      "arguments": [
+        "Nox Archaist HDV (v119).HDV"
+      ],
+      "exit": 0,
+      "output": "12 read/write/restore chains, 6 protected or overflowing requests refused, 2 atomic extent failures",
+      "stderr": ""
+    },
+    {
+      "name": "conversation_journal",
+      "binary": "D:\\Codex Projects\\Nox Archaist\\conversion\\build\\Release\\check_conversation_journal.exe",
+      "sha256": "e2fb73862b5a7fb5e1364c464d476d9fa16fa329a8ed6fc4c6e36c290c257cef",
+      "arguments": [],
+      "exit": 0,
+      "output": "Journal: character isolation, discovery vs use, dynamic links, unknown/default replies, aliases, empty exit, search and eight completed response events passed",
+      "stderr": ""
+    },
+    {
+      "name": "world_events",
+      "binary": "D:\\Codex Projects\\Nox Archaist\\conversion\\build\\Release\\check_world_events.exe",
+      "sha256": "8a8b59c1e0206c6d1fe34f3b9aa323a5205e11aa5b16f773c16e625727355b8d",
+      "arguments": [],
+      "exit": 0,
+      "output": "World events: completed/blocked/moved turns, deferred interactions, interrupted attempts and stable location changes passed",
+      "stderr": ""
+    },
+    {
+      "name": "native_music",
+      "binary": "D:\\Codex Projects\\Nox Archaist\\conversion\\build\\Release\\check_native_music.exe",
+      "sha256": "c32de89bf7642e385e6432b28ef30f067955d6dd9972a04c7f79bcbb64c864f2",
+      "arguments": [
+        "Nox Archaist HDV (v119).HDV"
+      ],
+      "exit": 0,
+      "output": "{\"cases\":37632,\"guards\":37632,\"interrupts\":65536,\"contracts\":8}",
+      "stderr": ""
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "milestone": "M2",
+  "milestone_status": "IN PROGRESS",
+  "subtasks": {
+    "M2.1a": "VERIFIED",
+    "M2.1b": "VERIFIED",
+    "M2.1c": "NOT STARTED"
+  },
+  "scope": "State inventory and envelope-v2 completion/migration slice only",
+  "build": {
+    "session": 89133,
+    "warnings": 0,
+    "errors": 0,
+    "elapsed": "00:02:32.18"
+  },
+  "executable_sha256": "84602f55c645e5e45cbacde5c369e49b6097043855f50c62929f4a24353b2bb6",
+  "evidence": {
+    "resources": {
+      "path": "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m2-resources\\20261015-130851\\verification.json",
+      "sha256": "97e8e8edff3d2164eaf4b4f3921c52f3fa76d1ec04d19181b5f66245b8792ae6"
+    },
+    "m1_migration": {
+      "path": "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m2-migration\\20261015-130859\\verification.json",
+      "sha256": "fa1bae5b0164091e4cb5dcde1d3039ace6b5123ddf73d8dcdb9112c0dbb95607"
+    },
+    "gameplay": {
+      "path": "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m2-gameplay\\20261015-130905\\verification.json",
+      "sha256": "796c307d08485350f6f98dbd7a9720be920f5bec0d1ea7e24c11f3168af9c9b4"
+    },
+    "failure_recovery": {
+      "path": "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m2-failures\\20261015-131018\\recovery-verification.json",
+      "sha256": "0ccdcd2ab918fa480a0c8b014b19f19f4c9a9ee9cfefb1381d349b964ea45e98"
+    }
+  },
+  "failure_note": "Initial recovery launch failed before Nox: native Windows SDL invalid BlitSurface source; timeout retained. Recovery-only retry on same actual interrupted files passed. No automatic retry masking."
+}

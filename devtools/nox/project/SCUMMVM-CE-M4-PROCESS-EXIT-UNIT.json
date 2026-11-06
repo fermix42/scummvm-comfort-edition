@@ -1,0 +1,9 @@
+{
+  "status": "VERIFIED",
+  "scope": "Harness nonzero-exit reporting for known missing adjacent dependencies; not an engine crash or gameplay test",
+  "elapsed_seconds": 0.01396409998415038,
+  "executable_sha256": "c6e5e1393535d3c6f33d86cf59957dbeaee20a081e3afd39e39ae9b6114bfbca",
+  "receipt": "ce-m4-process-exit-check\\native-validation-rejected.json",
+  "receipt_sha256": "c4ad821c132c5cb2525a55e6d7cda03f4740c830e173e21b825c76a14e624c01",
+  "reason": "Validation process exited with code 0xC0000135 without a native validation failure receipt"
+}

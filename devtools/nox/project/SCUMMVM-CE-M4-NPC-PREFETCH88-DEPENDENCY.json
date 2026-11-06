@@ -1,0 +1,21 @@
+{
+  "status": "IN PROGRESS",
+  "scope": "Full retained next-minute NPC prefetch pipeline remains required",
+  "observation": "Original source reached its queue-capacity error boundary in controlled Town1,type6,21:59 ->22:00, with path generation deliberately omitted. No full next-minute fixture was accepted or written.",
+  "log": {
+    "path": "ce-m4-npc-prefetch88-reference.log",
+    "sha256": "9699351e2db95cddd94c7f7af048fea9e29c853223a458cb016c625dbfaac372"
+  },
+  "source_producer": {
+    "path": "prepare_native_npc_prefetch88_m4.py",
+    "sha256": "3ca3fe6d6d1dc97df2ae151a7f3aaa1db2baec5cbe9976f615fdc25db00af508"
+  },
+  "development_build": {
+    "path": "ce-m4-binary\\scummvm-npc-prefetch88-development.exe",
+    "sha256": "1a48906925424fd64d42207cf27e5c2584897a702c35c28b6366ae81c9d628b1",
+    "source_archive": "ce-m4-npc-prefetch88-development-source.zip",
+    "source_sha256": "d8686445a5ac7fffc530bff98830788e9f986e98459bddac63c4d18f88792ac8",
+    "result": "Compiled0warnings/0errors; not accepted as NPC prefetch gameplay validation"
+  },
+  "next": "Qualify repeated same-minute queue rules as separate bounded component89, then implement actual path generation and satisfy full next-minute pipeline. Do not count component89 as completion of this requirement."
+}

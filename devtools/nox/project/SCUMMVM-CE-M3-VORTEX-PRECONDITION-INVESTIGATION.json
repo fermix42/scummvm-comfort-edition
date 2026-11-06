@@ -1,0 +1,174 @@
+{
+  "milestone": "M3",
+  "status": "IN PROGRESS",
+  "scope": "Verified Vortex page/research/binding checkpoints and linked operations, not complete campaign",
+  "executable_sha256": "f12bf2c8b1455d8eb8d518bbb1f7c15995082e828e4374da98dcd97b36f145f7",
+  "build_log": "ce-m3-vortex-build-14.log",
+  "build_result": "PASS; zero warnings/errors; 00:02:39.64",
+  "source_sha256": {
+    "engines/nox/backoff_validation.h": "7362aace99ec706f40295446abc3a9b41bb2ed2f841f89c61ed4f20a7c18b760",
+    "engines/nox/caller_validation.h": "ede6a33e41ad5fa9d9613fe36e203e7122ca9830a1b4b54e46ae9591cf632391",
+    "engines/nox/campaign_validation.h": "affdbfd37b705a4ccf77da35534bb096b77fff8b59138d1a816bd3bba7f4e577",
+    "engines/nox/configure.engine": "774fc9df4834ca0e64018b72f326d14989a40c08f5c7fd78d06bbea6ee42c015",
+    "engines/nox/cpu.inc": "41c0fdff3d9d3466871ae76144b430b9b13bd29a2873a8899ebad56e4e208b97",
+    "engines/nox/cycles.inc": "2b1024aeab86cda827aec30eb696547ced1d333226263647b29b1d34db3acd6e",
+    "engines/nox/detection.cpp": "32753d7b31fd8fe9f61eb27c676e6564d79764aa94cd5283c2508b8ac056dbd6",
+    "engines/nox/dialogue_validation.h": "5d2663dabee5c81507130bc126b3a1f4c9e91adc7b08a0e57d71e869a7b00dbd",
+    "engines/nox/enhancement_fixture.h": "13d45f7cf67cbec92f87777653c1ec51e65dd6b2b20538020b55f00fcd0718b5",
+    "engines/nox/enhancement_validation.h": "a24bde10489f8ca310c45c92050d21293aa974ee2eb86691a350aa372667e13a",
+    "engines/nox/enhancements.cpp": "5ed93907c2e0b1004c9978bbb91c32913de50d1706e9fd41c2027473b3069150",
+    "engines/nox/enhancements.h": "f0d73af3421c0597db87ace38b2d203c73640d43a5bade9b278cf6c1e7ff029d",
+    "engines/nox/grid_validation.h": "6032efc17e039528d63f2640d1b4308b899a9a7776c7c6c8fe4fa7e0ea752fa9",
+    "engines/nox/history_validation.h": "5601beeb58e2f8babad090e45369e3d3249e8d409d4e69db2ca3fad847c21b88",
+    "engines/nox/host_validation.h": "58f0082264e78c366b05e8a0999b0dcdde8e147160dc3be543042af2ab1da7a9",
+    "engines/nox/io_validation.h": "556bd69ec180bae521284e5876d121dffac2a7827f6fce1200924f8a2081d214",
+    "engines/nox/management_validation.h": "286355cdedac22164095549c47f97e21d63e13eb738fb94b3368bf79d1738e34",
+    "engines/nox/metadata_validation.h": "c2b7fe9b7d1fa277517ec337b3ab8390e39552125b1c460be04690232466db5c",
+    "engines/nox/metaengine.cpp": "d631b83dc7b3a816489aa3a546d965f06d1cf89e684582c3dedd602ef866b24b",
+    "engines/nox/mockingboard.cpp": "38d5c6a894cc7a6bd238b9ad9a6740ec5ff42c6f299b7f6ce858505a6c1817bc",
+    "engines/nox/mockingboard.h": "d0afe027dc9ff9b269b0c60bf04abc45566502a17aed25879316856911937f2e",
+    "engines/nox/module.mk": "47de2ac64575f926a8de7cc5060913a3b63a0554cb5c20824ab55cf67ac1085f",
+    "engines/nox/movement.cpp": "4b03de9dd50c4a4cfc6c2e2d7da9d3fc3fc80a697dfd236a3340c1d25b84fdf9",
+    "engines/nox/nox.cpp": "19487e9a956dc84395c8f05ebd35af0b26fb0ac5921e0262395393e99c661d2e",
+    "engines/nox/nox.h": "58c793af023f834225965dc0a10755138a7d9a087f58c3f27c206b6239cd2057",
+    "engines/nox/profile_validation.h": "2658f8c93149c8692e5ef5b79d1dc42836dbd60f4d15f75a0f0ed3dbbd84301a",
+    "engines/nox/records.h": "8045582e0ae5f83d027b8b197aa66a8309e9ff80f2117bce7edb86455eca9b7d",
+    "engines/nox/render.cpp": "bd7833eaccc812fad88b0d19e5070d9955e440142525ded89b3d30766120073a",
+    "engines/nox/resources.h": "1451464a6f8ea57039c3596c8aaa388701e5005fb3364b80b9e48bb04dc2cd95",
+    "engines/nox/runtime.cpp": "ae227d4a7d6e0001b4ce948f908c1a120e515c801fc6f5720ff4a1e50175f80f",
+    "engines/nox/runtime.h": "cd88601b49fccaf83ab06dedeb159398d173a224dc73d4757e07fcef6e46c09a",
+    "engines/nox/runtime_observers.cpp": "24a8193ecb7804e88df401cb65ddffed1c796f0571bcbb76d4dedd41319d93ca",
+    "engines/nox/runtime_state.cpp": "45a01b83702f87d34a57a004e9105c2b69e50c213511eb4a176bccaa9cdc6e9c",
+    "engines/nox/save_policy.h": "890bced00db32c534207055e5f6acf7247310102119da4c5bc66f13a4c7d72fc",
+    "engines/nox/saves.h": "9d0e92a7fb35952d35f2f2ecf0602ba48211162cb3f18b02a5a454919ac514f9",
+    "engines/nox/session_validation.cpp": "da83025980220829e5ec424e80ad067d6681e30893918a1196ec84ef0524d839",
+    "engines/nox/snapshot.h": "c3c8c9fd497391995084286e6f1cadc8ac5b9e9ed94965b6820043624e6d35de",
+    "engines/nox/speaker_audio.cpp": "b80e55470b95fcaf200f4346a0cb0bab8ce8ff3fe7e2436633da833a2da9f833",
+    "engines/nox/speaker_audio.h": "aad57abba83f4a02ee0780eb2eebc80e68a43181b285533dc3313f3ad307205f",
+    "engines/nox/validation.cpp": "7582907d58238d29057026968b03866e25fb7e760184497204896cd5dad8ef75",
+    "engines/nox/vortex_validation.h": "06ec2dc5828a7f3e951e955cd5676afad13558e8e0b557a55e1f572dbc537d41"
+  },
+  "reports": [
+    {
+      "path": "ce-m3-vortex-current\\20261015-232923\\phase-1-complete.json",
+      "sha256": "57fdcc6943480962bfc126c4bdcec83edfe36c8fb9db6583385082081fced343",
+      "mode": "Modern",
+      "phase": 1,
+      "scenario": null,
+      "ce_processes": 2
+    },
+    {
+      "path": "ce-m3-vortex-current\\20261015-232923\\phase-2-complete.json",
+      "sha256": "10f55af27eb64a8533d834143ea7e315201cca0664da7f7926817df9f38cc331",
+      "mode": "Modern",
+      "phase": 2,
+      "scenario": null,
+      "ce_processes": 2
+    },
+    {
+      "path": "ce-m3-vortex-current\\20261015-232923\\phase-3-complete.json",
+      "sha256": "7c4e7277b542bce3c8b67c0e93c2c06ac65268848365ce42f87331947e80827a",
+      "mode": "Modern",
+      "phase": 3,
+      "scenario": null,
+      "ce_processes": 2
+    },
+    {
+      "path": "ce-m3-vortex-current-classic\\20261015-232923\\phase-1-complete.json",
+      "sha256": "88ca4448fd8e6b29f1b3eaed2ab87ad7cc612da4a05a008704f7a08d97b71a73",
+      "mode": "Classic",
+      "phase": 1,
+      "scenario": null,
+      "ce_processes": 2
+    },
+    {
+      "path": "ce-m3-vortex-current-classic\\20261015-232923\\phase-2-complete.json",
+      "sha256": "86309d7da39e0c461f25b935314a779afc12a2b7fe76dc80bf364e8b4d39f3a5",
+      "mode": "Classic",
+      "phase": 2,
+      "scenario": null,
+      "ce_processes": 2
+    },
+    {
+      "path": "ce-m3-vortex-current-classic\\20261015-232923\\phase-3-complete.json",
+      "sha256": "90a07c10edc72e5ef1644d0c3dcc34b08ec0bd70cd8f5416ad7a9fe1ecee7723",
+      "mode": "Classic",
+      "phase": 3,
+      "scenario": null,
+      "ce_processes": 2
+    },
+    {
+      "path": "ce-m3-vortex-cases-current\\20261015-232947\\case-1\\verification.json",
+      "sha256": "4bc8250771a6c7c22ba358161422afce0163055dc34148bbe106c4d8f0978a4d",
+      "mode": "Modern",
+      "phase": null,
+      "scenario": 1,
+      "ce_processes": 2
+    },
+    {
+      "path": "ce-m3-vortex-cases-current\\20261015-232947\\case-2\\verification.json",
+      "sha256": "6adcf94f5815abcc4cb4b705bc8492d3c645fa463960312b46f2cab7af3803e7",
+      "mode": "Modern",
+      "phase": null,
+      "scenario": 2,
+      "ce_processes": 2
+    },
+    {
+      "path": "ce-m3-vortex-cases-current\\20261015-232947\\case-3\\verification.json",
+      "sha256": "dd6861b1ff57448182af008421ca2a3a8f4f1dc7db1b136e3ff6be8897416827",
+      "mode": "Modern",
+      "phase": null,
+      "scenario": 3,
+      "ce_processes": 2
+    },
+    {
+      "path": "ce-m3-vortex-cases-current-classic\\20261015-232947\\case-1\\verification.json",
+      "sha256": "770095291a33ed10e703f68c2f309e6719c6478d675036aee2e1e5ffa8df6fad",
+      "mode": "Classic",
+      "phase": null,
+      "scenario": 1,
+      "ce_processes": 2
+    },
+    {
+      "path": "ce-m3-vortex-cases-current-classic\\20261015-232947\\case-2\\verification.json",
+      "sha256": "b11547ffaf094d02138d401485fc710003ad41cf987b8b22d547d9b0b64e4e95",
+      "mode": "Classic",
+      "phase": null,
+      "scenario": 2,
+      "ce_processes": 2
+    },
+    {
+      "path": "ce-m3-vortex-cases-current-classic\\20261015-232947\\case-3\\verification.json",
+      "sha256": "f4995015619ecd400e00f31a4fe7fafe330ab7288f07fb27739a2341247fb478",
+      "mode": "Classic",
+      "phase": null,
+      "scenario": 3,
+      "ce_processes": 2
+    }
+  ],
+  "ce_processes": 24,
+  "cold_processes": 12,
+  "controlled_checkpoint": "IN PROGRESS",
+  "linked_gameplay_progression": "VERIFIED",
+  "earned_continuous_progression": "NOT STARTED",
+  "full_new_game_to_ending": "NOT STARTED",
+  "coverage": "Seven real Search pickups, Axea eighth award/repeat; Valess research/repeat and missing-page refusal; Nystul research-assisted and explicit pre-research binding, missing-page refusal and no duplicate; cold full-runtime/owner equality in Modern and Classic",
+  "initializations": [
+    "Before first Search only: original full level7/155HP character template from DATA.SAVE.GAMEN at0xD00 activated in party slot0, BCD noon",
+    "Recorded authored exit loaders, source-guarded adjacency/camera/redraw before tested operations; up to8 adjacency retries if NPC moves during redraw",
+    "All tested page/research/book outcomes come from real CE operations; subsequent states retained; scenario cases branch only from hashed actual seven-page or eight-page saves"
+  ],
+  "limitations": [
+    "Bound book next-stage use is untested",
+    "Complete mandatory-gate census and actual ending presentation remain untested",
+    "No earned continuous or full unassisted new-game-to-ending claim",
+    "Prior M3 Log/isolated-page reports bind their own historical source/executable; not silently promoted to this executable"
+  ],
+  "originals_sha256": {
+    "Nox Archaist HDV (v119).HDV": "c42a95c7a356548c78957f98693e92d33c9bae3ff5126d9887c2980e5a490c3c",
+    "Nox Archaist Lord of Storms HDV (v137).HDV": "90ec012a317c56ab9a5182a1a877227fa7a18ebed72567d2bf08888956b635c9"
+  },
+  "standalone_executable_sha256": "d26b2e8dd19efc1420ae569892f8ae3bd6f39f06cbfd835758f95cfdd1e0d695",
+  "next_action": "Continue M3 with actual bound-book use and mandatory gate/ending source census; stop before M4",
+  "acceptance_correction": "Inactive-template marker45=1 was not cleared in the controlled profile. Final controlled-party validity not accepted; superseded by guarded recovery using original valid starter. Genuine operation traces retained as investigation evidence."
+}

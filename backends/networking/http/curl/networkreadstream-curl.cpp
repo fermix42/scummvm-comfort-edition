@@ -180,9 +180,11 @@ void NetworkReadStreamCurl::setupBufferContents(const byte *buffer, uint32 buffe
 		curl_easy_setopt(_easy, CURLOPT_READFUNCTION, curlReadDataCallback);
 		_sendingContentsBuffer = buffer;
 		_sendingContentsSize = bufferSize;
-	} else if (usingPatch) {
-		curl_easy_setopt(_easy, CURLOPT_CUSTOMREQUEST, "PATCH");
 	} else {
+		if (usingPatch)
+			curl_easy_setopt(_easy, CURLOPT_CUSTOMREQUEST, "PATCH");
+		// PATCH uses the supplied body just like POST; selecting the custom
+		// method must not bypass copying the request's bytes into libcurl.
 		if (post || bufferSize != 0) {
 			curl_easy_setopt(_easy, CURLOPT_POSTFIELDSIZE, bufferSize);
 #if LIBCURL_VERSION_NUM >= 0x071101

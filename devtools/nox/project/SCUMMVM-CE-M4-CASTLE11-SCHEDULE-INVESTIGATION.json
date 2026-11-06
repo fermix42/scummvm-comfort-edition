@@ -1,0 +1,83 @@
+{
+  "status": "IN PROGRESS",
+  "scope": "Bounded diagnostic of observed malformed authored schedule, not earned gameplay or valid campaign checkpoint certification",
+  "observations": [
+    {
+      "controlled_before_operation": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "result_marker": [
+        0,
+        0,
+        137,
+        0,
+        0,
+        255,
+        0,
+        0
+      ],
+      "selection": [
+        255,
+        1,
+        0,
+        0,
+        0,
+        187,
+        255,
+        255
+      ],
+      "steps": 5400
+    },
+    {
+      "controlled_before_operation": [
+        12,
+        9,
+        15,
+        6,
+        0,
+        7,
+        13,
+        0
+      ],
+      "result_marker": [
+        7,
+        13,
+        137,
+        0,
+        12,
+        255,
+        0,
+        0
+      ],
+      "selection": [
+        255,
+        1,
+        0,
+        0,
+        0,
+        187,
+        255,
+        255
+      ],
+      "steps": 5400
+    }
+  ],
+  "conclusion": "Original reserved-marker outcome depends on prior scratch bytes used by battlefield decoding. A constant zero fallback is invalid. Native semantic handling remains unimplemented pending combat-decoder ownership and relevance proof.",
+  "source_resources": {
+    "NA/GAME": "ccdece6c58230fa1d85bc7e130ad22043ac1fdca86708b708dcd47161d4cbc7f",
+    "NA/BS.ROUTINES.BK2": "607f7e97c6c70ccdbc89ac6ec34a48ca77e9f91c4ecc8e420cd77a02e8f8956a",
+    "NA/SRTN.INVENTORY": "ec60f2adc90a457e06d29e257e1dd254c11b3c188c1872703bb0ba3890dc7f8c",
+    "NA/DATA.MAP.CSTL": "c609294eeffb3e16b911c3daf5ae5cb8a5bd12e931201a6a69923c848e50cf85"
+  },
+  "limitations": [
+    "Second scratch pattern is explicitly controlled diagnostic data; no claim it was reached during ordinary gameplay.",
+    "Static generated reference shows combat writers; actual retained normal-game combat-to-castle chain still required."
+  ]
+}

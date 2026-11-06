@@ -1,0 +1,1827 @@
+{
+  "status": "VERIFIED",
+  "scope": "Declared scenario manifest; campaign acceptance is separately recorded, never inferred from counts",
+  "gates": [
+    {
+      "id": "opening-log",
+      "claimed_status": "VERIFIED",
+      "criteria": {
+        "prerequisites": "VERIFIED",
+        "successful_completion": "VERIFIED",
+        "relevant_refusal": "VERIFIED",
+        "resulting_state": "VERIFIED",
+        "cold_persistence": "VERIFIED",
+        "subsequent_compatibility": "VERIFIED"
+      },
+      "dependencies": [],
+      "evidence": [
+        "ce-m3-final-linked\\20261015-222552\\verification.json",
+        "ce-m3-final-linked-classic\\20261015-222558\\verification.json"
+      ],
+      "initializations": [
+        "Exactly one position/camera/redraw fixture at shipwreck map7/type8 (22,10), before real Open/Search. Original new-game party/items/flags retained. Permanent controlled assistance."
+      ],
+      "limitations": [
+        "Exactly one controlled setup before acquisition; subsequent return and recognition use actual retained gameplay state",
+        "No earned continuous or full new-game-to-ending claim"
+      ]
+    },
+    {
+      "id": "opening-exit",
+      "claimed_status": "VERIFIED",
+      "criteria": {
+        "prerequisites": "VERIFIED",
+        "successful_completion": "VERIFIED",
+        "relevant_refusal": "VERIFIED",
+        "resulting_state": "VERIFIED",
+        "cold_persistence": "VERIFIED",
+        "subsequent_compatibility": "VERIFIED"
+      },
+      "dependencies": [],
+      "evidence": [
+        "SCUMMVM-CE-M3-ACCESS26-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-LINKED27-CHECKPOINT.json"
+      ],
+      "initializations": [],
+      "limitations": [
+        "Actual source exit Left/world62,208 versus wrongRight remainsShip, cold; retained actual exit -> real castle entrance and real Up ship reentry62,207->7 17,11. Authored outside approaches remain controlled, not earned travel."
+      ]
+    },
+    {
+      "id": "royal-access",
+      "claimed_status": "VERIFIED",
+      "criteria": {
+        "prerequisites": "VERIFIED",
+        "successful_completion": "VERIFIED",
+        "relevant_refusal": "VERIFIED",
+        "resulting_state": "VERIFIED",
+        "cold_persistence": "VERIFIED",
+        "subsequent_compatibility": "VERIFIED"
+      },
+      "dependencies": [
+        "opening-exit"
+      ],
+      "evidence": [
+        "SCUMMVM-CE-M3-ACCESS26-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-LINKED27-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-STORY-ALL30-CHECKPOINT.json"
+      ],
+      "initializations": [],
+      "limitations": [
+        "Actual earlyLog/no-pages/HP50 startingWrit entersCastle54; all source stair54->58->57/libraryStyx/cold verified. Actual Pass at outside177,63 staysworld0, actualUp enters177,62 descriptor; source entrance has no Order condition, actual no43C04/no94 passes. No invented QueenWrit award/royal denial predicate. Controlled outside/stair adjacency, not earned travel."
+      ]
+    },
+    {
+      "id": "jewels-temple",
+      "claimed_status": "VERIFIED",
+      "criteria": {
+        "prerequisites": "VERIFIED",
+        "successful_completion": "VERIFIED",
+        "relevant_refusal": "VERIFIED",
+        "resulting_state": "VERIFIED",
+        "cold_persistence": "VERIFIED",
+        "subsequent_compatibility": "VERIFIED"
+      },
+      "dependencies": [
+        "fire-jewel-guardian",
+        "air-jewel-guardian",
+        "water-jewel-guardian"
+      ],
+      "evidence": [
+        "SCUMMVM-CE-M3-JEWEL-CHAIN-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-JEWEL-LORE-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-TEMPLE-ENTRY-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-CULTIST-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-LATE-NPC-CHECKPOINT.json"
+      ],
+      "initializations": [],
+      "limitations": [
+        "All3 required for source Styx recognition (exact4397), missing Fire4396 refuses recognition. This is not an absolute physical entry requirement.",
+        "Actual controlled outside168,160 -> three real steps to157 crosses field/floor/fire: withFire125HP, without90HP. Original fourth Up starts actual Cultist opening/ten-enemy battle; staged real High Cultist death/journal/automatic translation/cold compatible.",
+        "Only controlled clock/authored travel/outside position before gameplay; negative Fire omission and battle pre-final-blow endpoint explicit. Direct Air NPC225/Water231 protection remains separate untested terrain behavior."
+      ]
+    },
+    {
+      "id": "high-cultist",
+      "claimed_status": "VERIFIED",
+      "criteria": {
+        "prerequisites": "VERIFIED",
+        "successful_completion": "VERIFIED",
+        "relevant_refusal": "VERIFIED",
+        "resulting_state": "VERIFIED",
+        "cold_persistence": "VERIFIED",
+        "subsequent_compatibility": "VERIFIED"
+      },
+      "dependencies": [
+        "jewels-temple"
+      ],
+      "evidence": [
+        "SCUMMVM-CE-M3-TEMPLE-ENTRY-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-CULTIST-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-LATE-NPC-CHECKPOINT.json"
+      ],
+      "initializations": [],
+      "limitations": [
+        "Retain actual all3 Jewels/Key/Ring and actual Temple fire crossing. Source original full encounter10 enemies admitted. First6 Cult Guardians168/471HP, next2 Cultists169/267HP, last2 High Cultists170/471HP.",
+        "BEFORE tested ranged A/Return: explicitly CONTROLLED defeated other9 canonical records/cache/occupancy, first ACTUAL High Cultist slot8 remains livingHP1. Not earned prior damage/kills or full-health encounter victory. Actual hit71 kills sprite170; award156/043840, teleport58 and translation043B02 are not initialized.",
+        "Automatic original teleport/translation needs real page acknowledgements and Escape at topic input. Pure broad battle keyboard observer must stop acknowledging once normal legal idle world returns; normal execution reaches exact71DC for save. No gameplay bug or relaxed save criterion used.",
+        "Replay input generations restored from immutable actual phase36 predecessor only before new process; original operation result never changed in a running engine. Historical guard/pagination/idle-boundary failures excluded.",
+        "Actual all3 Jewel awards retained into original Styx recognition/refusal and High Cultist staged victory/journal/automatic translation/cold; no earned continuous or full-health Cultist-fight claim. Air NPC225/Water231 terrain resistance are separate untested predicates, not inferred from forcefield206."
+      ]
+    },
+    {
+      "id": "shadow-revelation",
+      "claimed_status": "VERIFIED",
+      "criteria": {
+        "prerequisites": "VERIFIED",
+        "successful_completion": "VERIFIED",
+        "relevant_refusal": "VERIFIED",
+        "resulting_state": "VERIFIED",
+        "cold_persistence": "VERIFIED",
+        "subsequent_compatibility": "VERIFIED"
+      },
+      "dependencies": [
+        "high-cultist"
+      ],
+      "evidence": [
+        "SCUMMVM-CE-M3-CULTIST-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-LATE-NPC-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-SHADOW-CHECKPOINT-EVENT.json",
+        "SCUMMVM-CE-M3-SHADOW-VORTEX-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-SHADOW-GUIDANCE-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-LATE-TRANSPORT-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-LATE-ENDING-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-FIRST-SHADOW-INVESTIGATION.json"
+      ],
+      "initializations": [],
+      "limitations": [
+        "Original fixture boundaries remain binding. Current source/necessity/segment classification is in CAMPAIGN-DEPENDENCIES76; historical limitations retain the earlier investigation state.",
+        "No earned continuous/full new-game-to-ending run. Controlled positions, stats, recovery and battle endpoints are unearned."
+      ]
+    },
+    {
+      "id": "axea-page",
+      "claimed_status": "VERIFIED",
+      "criteria": {
+        "prerequisites": "VERIFIED",
+        "successful_completion": "VERIFIED",
+        "relevant_refusal": "VERIFIED",
+        "resulting_state": "VERIFIED",
+        "cold_persistence": "VERIFIED",
+        "subsequent_compatibility": "VERIFIED"
+      },
+      "dependencies": [
+        "opening-exit"
+      ],
+      "evidence": [
+        "SCUMMVM-CE-M3-VORTEX-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-PARCHMENT-SEARCH-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-REAL-PAGES-VORTEX-CHECKPOINT.json"
+      ],
+      "initializations": [
+        "Before Axea: original valid starter retained; source-checked quantity7 item97 and43E=FD plus BCD noon CONTROLLED, not earned. Authored map/adjacency/redraw setups before real NPC operations. Actual Axea eighth-page state retained for research/binding."
+      ],
+      "limitations": [
+        "All seven source Search awards now retained into actual Axea eighth-page/research/binding/Ready/refusal/full-health Rat Vortex/cold, both modes. No page inventory/count/flag initialization.",
+        "CONTROLLED source-valid authored routes/adjacency/noon, initial25lockpicks and original PRNG0x12345678 before each firstSearch; source floor and original DEC421 ledger checked. Original level10 caster stats remain controlled before Ready. Not earned continuous exploration/leveling or full campaign."
+      ]
+    },
+    {
+      "id": "styx-page",
+      "claimed_status": "VERIFIED",
+      "criteria": {
+        "prerequisites": "VERIFIED",
+        "successful_completion": "VERIFIED",
+        "relevant_refusal": "VERIFIED",
+        "resulting_state": "VERIFIED",
+        "cold_persistence": "VERIFIED",
+        "subsequent_compatibility": "VERIFIED"
+      },
+      "dependencies": [
+        "Original library Search objects43E40/80/01, acquired through actual Search/repeat and retained to8pages/binding/cast"
+      ],
+      "evidence": [
+        "SCUMMVM-CE-M3-REAL-PAGES-VORTEX-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-ORDER-CHECKPOINT.json"
+      ],
+      "initializations": [],
+      "limitations": [
+        "Styx PAGES is an unconditional location clue, not an NPC inventory award or a mechanical prerequisite. Actual PAGES/repeat/no duplicate pages/cold tested after actual collection, not claimed to cause earlier acquisitions. Source library object identity and all3 actual pickups covered separately."
+      ]
+    },
+    {
+      "id": "vazarath-gemstone",
+      "claimed_status": "VERIFIED",
+      "criteria": {
+        "prerequisites": "VERIFIED",
+        "successful_completion": "VERIFIED",
+        "relevant_refusal": "VERIFIED",
+        "resulting_state": "VERIFIED",
+        "cold_persistence": "VERIFIED",
+        "subsequent_compatibility": "VERIFIED"
+      },
+      "dependencies": [
+        "fire-jewel-guardian"
+      ],
+      "evidence": [
+        "SCUMMVM-CE-M3-LINKED27-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-GUARDIAN-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-JEWEL-CHAIN-CHECKPOINT.json"
+      ],
+      "initializations": [],
+      "limitations": [
+        "Actual all8pages/bind/cast -> real DevilKey/Essence/FoolKey/Hairnet -> full2600HP Vazarath Vortex victory/cold both modes. Previous missing-Hairnet negative and subsequent Jewel chain apply to this same actor. Controlled mage/routes retained. Optional JOB probe failed/excluded; not required to attack this enemy."
+      ]
+    },
+    {
+      "id": "remaining-pages",
+      "claimed_status": "VERIFIED",
+      "criteria": {
+        "prerequisites": "VERIFIED",
+        "successful_completion": "VERIFIED",
+        "relevant_refusal": "VERIFIED",
+        "resulting_state": "VERIFIED",
+        "cold_persistence": "VERIFIED",
+        "subsequent_compatibility": "VERIFIED"
+      },
+      "dependencies": [],
+      "evidence": [
+        "SCUMMVM-CE-M3-VORTEX-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-PARCHMENT-SEARCH-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-REAL-PAGES-VORTEX-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-NYSTUL-VORTEX39-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-CASTLE73-CHECKPOINT.json"
+      ],
+      "initializations": [
+        "Before Axea: original valid starter retained; source-checked quantity7 item97 and43E=FD plus BCD noon CONTROLLED, not earned. Authored map/adjacency/redraw setups before real NPC operations. Actual Axea eighth-page state retained for research/binding."
+      ],
+      "limitations": [
+        "All seven source Search awards now retained into actual Axea eighth-page/research/binding/Ready/refusal/full-health Rat Vortex/cold, both modes. No page inventory/count/flag initialization.",
+        "CONTROLLED source-valid authored routes/adjacency/noon, initial25lockpicks and original PRNG0x12345678 before each firstSearch; source floor and original DEC421 ledger checked. Original level10 caster stats remain controlled before Ready. Not earned continuous exploration/leveling or full campaign.",
+        "39 retains actual all8page/research/Nystul physical word/wall/room/binding/Staff83 prefix through original lowINT refusal, controlled reachableMage BEFORE actualReady, world refusal and full12HP ShipRat actualVortex/cold both modes. Actual weapon83 retained UNREADIED owner0; no weapon83 combat claim."
+      ]
+    },
+    {
+      "id": "eight-page-check",
+      "claimed_status": "VERIFIED",
+      "criteria": {
+        "prerequisites": "VERIFIED",
+        "successful_completion": "VERIFIED",
+        "relevant_refusal": "VERIFIED",
+        "resulting_state": "VERIFIED",
+        "cold_persistence": "VERIFIED",
+        "subsequent_compatibility": "VERIFIED"
+      },
+      "dependencies": [
+        "axea-page",
+        "styx-page",
+        "remaining-pages"
+      ],
+      "evidence": [
+        "SCUMMVM-CE-M3-VORTEX-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-PARCHMENT-SEARCH-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-REAL-PAGES-VORTEX-CHECKPOINT.json"
+      ],
+      "initializations": [
+        "Before Axea: original valid starter retained; source-checked quantity7 item97 and43E=FD plus BCD noon CONTROLLED, not earned. Authored map/adjacency/redraw setups before real NPC operations. Actual Axea eighth-page state retained for research/binding."
+      ],
+      "limitations": [
+        "All seven source Search awards now retained into actual Axea eighth-page/research/binding/Ready/refusal/full-health Rat Vortex/cold, both modes. No page inventory/count/flag initialization.",
+        "CONTROLLED source-valid authored routes/adjacency/noon, initial25lockpicks and original PRNG0x12345678 before each firstSearch; source floor and original DEC421 ledger checked. Original level10 caster stats remain controlled before Ready. Not earned continuous exploration/leveling or full campaign."
+      ]
+    },
+    {
+      "id": "binding",
+      "claimed_status": "VERIFIED",
+      "criteria": {
+        "prerequisites": "VERIFIED",
+        "successful_completion": "VERIFIED",
+        "relevant_refusal": "VERIFIED",
+        "resulting_state": "VERIFIED",
+        "cold_persistence": "VERIFIED",
+        "subsequent_compatibility": "VERIFIED"
+      },
+      "dependencies": [
+        "Eight-page explicit BIND route OR research-assisted opening branch; Valess is not unconditional prerequisite"
+      ],
+      "evidence": [
+        "SCUMMVM-CE-M3-VORTEX-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-SPELL-READY-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-BATTLE-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-PARCHMENT-SEARCH-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-REAL-PAGES-VORTEX-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-NYSTUL38-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-NYSTUL-VORTEX39-CHECKPOINT.json"
+      ],
+      "initializations": [
+        "Before Axea: original valid starter retained; source-checked quantity7 item97 and43E=FD plus BCD noon CONTROLLED, not earned. Authored map/adjacency/redraw setups before real NPC operations. Actual Axea eighth-page state retained for research/binding."
+      ],
+      "limitations": [
+        "Original fixture boundaries remain binding. Current source/necessity/segment classification is in CAMPAIGN-DEPENDENCIES76; historical limitations retain the earlier investigation state.",
+        "No earned continuous/full new-game-to-ending run. Controlled positions, stats, recovery and battle endpoints are unearned."
+      ]
+    },
+    {
+      "id": "plane-transport",
+      "claimed_status": "VERIFIED",
+      "criteria": {
+        "prerequisites": "VERIFIED",
+        "successful_completion": "VERIFIED",
+        "relevant_refusal": "VERIFIED",
+        "resulting_state": "VERIFIED",
+        "cold_persistence": "VERIFIED",
+        "subsequent_compatibility": "VERIFIED"
+      },
+      "dependencies": [
+        "Lord British TRAVEL/ANKH actual award,43A18,item157",
+        "Max PORTAL/NO actual creation,43A38"
+      ],
+      "evidence": [
+        "SCUMMVM-CE-M3-TRANSPORT-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-SHADOW-GUIDANCE-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-LATE-TRANSPORT-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-LATE-ENDING-CHECKPOINT.json"
+      ],
+      "initializations": [
+        "Retained actual bound/readied spell predecessor; controlled authored exits and Shrine circle approach, then actual Up/TRAVEL/ANKH/repeat. Retained Ankh for Max, controlled route/adjacency. No Ankh or transport outcome injected.",
+        "After Max actual creation/repeat, three normal steps retain transient portal state; no portal redraw setup accepted."
+      ],
+      "limitations": [
+        "Actual Ankh/Max portal entry and return, retained actual final-encounter ending/ack/cold both modes verified. All controlled travel and finalHP1 remain explicit; no continuous/full-health-final victory claim."
+      ]
+    },
+    {
+      "id": "final-encounter",
+      "claimed_status": "VERIFIED",
+      "criteria": {
+        "prerequisites": "VERIFIED",
+        "successful_completion": "VERIFIED",
+        "relevant_refusal": "VERIFIED",
+        "resulting_state": "VERIFIED",
+        "cold_persistence": "VERIFIED",
+        "subsequent_compatibility": "VERIFIED"
+      },
+      "dependencies": [
+        "plane-transport"
+      ],
+      "evidence": [
+        "SCUMMVM-CE-M3-SHADOW-GUIDANCE-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-LATE-TRANSPORT-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-LATE-ENDING-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-FINAL29-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-FINAL31-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-FINAL35-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-FINAL37-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-FINAL40-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-ENDING75-CHECKPOINT.json"
+      ],
+      "initializations": [],
+      "limitations": [
+        "Original fixture boundaries remain binding. Current source/necessity/segment classification is in CAMPAIGN-DEPENDENCIES76; historical limitations retain the earlier investigation state.",
+        "No earned continuous/full new-game-to-ending run. Controlled positions, stats, recovery and battle endpoints are unearned."
+      ]
+    },
+    {
+      "id": "ending",
+      "claimed_status": "VERIFIED",
+      "criteria": {
+        "prerequisites": "VERIFIED",
+        "successful_completion": "VERIFIED",
+        "relevant_refusal": "VERIFIED",
+        "resulting_state": "VERIFIED",
+        "cold_persistence": "VERIFIED",
+        "subsequent_compatibility": "VERIFIED",
+        "post_ending_behavior": "VERIFIED"
+      },
+      "dependencies": [
+        "final-encounter"
+      ],
+      "evidence": [
+        "SCUMMVM-CE-M3-ENDING-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-SHADOW-GUIDANCE-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-LATE-TRANSPORT-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-LATE-ENDING-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-FINAL29-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-FINAL31-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-FINAL35-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-FINAL37-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-FINAL40-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-ENDING75-CHECKPOINT.json"
+      ],
+      "initializations": [
+        "Actual Max transport retained; controlled reachable level10 mage, owned UNREADIED Drake Staff and54 source-supported Range lessons before actual Ready. Actual encounter admission and original placement/defenses retained; living bossHP1 controlled BEFORE actual A/Return. Actual17damage, death, victory and original ending renderer follow."
+      ],
+      "limitations": [
+        "Original fixture boundaries remain binding. Current source/necessity/segment classification is in CAMPAIGN-DEPENDENCIES76; historical limitations retain the earlier investigation state.",
+        "No earned continuous/full new-game-to-ending run. Controlled positions, stats, recovery and battle endpoints are unearned."
+      ]
+    },
+    {
+      "id": "rusty-key",
+      "claimed_status": "VERIFIED",
+      "criteria": {
+        "prerequisites": "VERIFIED",
+        "successful_completion": "VERIFIED",
+        "relevant_refusal": "VERIFIED",
+        "resulting_state": "VERIFIED",
+        "cold_persistence": "VERIFIED",
+        "subsequent_compatibility": "VERIFIED"
+      },
+      "dependencies": [],
+      "evidence": [
+        "SCUMMVM-CE-M3-EARLY-SEARCH17-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-RUSTY-DOOR25-CHECKPOINT.json"
+      ],
+      "initializations": [],
+      "limitations": [
+        "Original fixture boundaries remain binding. Current source/necessity/segment classification is in CAMPAIGN-DEPENDENCIES76; historical limitations retain the earlier investigation state.",
+        "No earned continuous/full new-game-to-ending run. Controlled positions, stats, recovery and battle endpoints are unearned."
+      ]
+    },
+    {
+      "id": "skull-key",
+      "claimed_status": "VERIFIED",
+      "criteria": {
+        "prerequisites": "VERIFIED",
+        "successful_completion": "VERIFIED",
+        "relevant_refusal": "VERIFIED",
+        "resulting_state": "VERIFIED",
+        "cold_persistence": "VERIFIED",
+        "subsequent_compatibility": "VERIFIED"
+      },
+      "dependencies": [],
+      "evidence": [
+        "SCUMMVM-CE-M3-EARLY-SEARCH17-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-KEY-DOORS18-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-CHILDREN18-CHECKPOINT.json"
+      ],
+      "initializations": [],
+      "limitations": [
+        "Original fixture boundaries remain binding. Current source/necessity/segment classification is in CAMPAIGN-DEPENDENCIES76; historical limitations retain the earlier investigation state.",
+        "No earned continuous/full new-game-to-ending run. Controlled positions, stats, recovery and battle endpoints are unearned."
+      ]
+    },
+    {
+      "id": "page-bit-4",
+      "claimed_status": "VERIFIED",
+      "criteria": {
+        "prerequisites": "VERIFIED",
+        "successful_completion": "VERIFIED",
+        "relevant_refusal": "VERIFIED",
+        "resulting_state": "VERIFIED",
+        "cold_persistence": "VERIFIED",
+        "subsequent_compatibility": "VERIFIED"
+      },
+      "dependencies": [],
+      "evidence": [
+        "SCUMMVM-CE-M3-REAL-PAGES-VORTEX-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-PAGE57-PROVENANCE.json",
+        "SCUMMVM-CE-M3-CASTLE73-CHECKPOINT.json"
+      ],
+      "initializations": [
+        "Three authored-exit loader setups, then loaded-object-guarded adjacency/camera/redraw, all before actual Search. Empty initial page flags/items; no injected outcome."
+      ],
+      "limitations": [
+        "All seven source Search awards now retained into actual Axea eighth-page/research/binding/Ready/refusal/full-health Rat Vortex/cold, both modes. No page inventory/count/flag initialization.",
+        "CONTROLLED source-valid authored routes/adjacency/noon, initial25lockpicks and original PRNG0x12345678 before each firstSearch; source floor and original DEC421 ledger checked. Original level10 caster stats remain controlled before Ready. Not earned continuous exploration/leveling or full campaign."
+      ]
+    },
+    {
+      "id": "page-bit-8",
+      "claimed_status": "VERIFIED",
+      "criteria": {
+        "prerequisites": "VERIFIED",
+        "successful_completion": "VERIFIED",
+        "relevant_refusal": "VERIFIED",
+        "resulting_state": "VERIFIED",
+        "cold_persistence": "VERIFIED",
+        "subsequent_compatibility": "VERIFIED"
+      },
+      "dependencies": [],
+      "evidence": [
+        "SCUMMVM-CE-M3-REAL-PAGES-VORTEX-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-PAGE57-PROVENANCE.json",
+        "SCUMMVM-CE-M3-CASTLE73-CHECKPOINT.json"
+      ],
+      "initializations": [
+        "Three authored-exit loader setups, then loaded-object-guarded adjacency/camera/redraw, all before actual Search. Empty initial page flags/items; no injected outcome."
+      ],
+      "limitations": [
+        "All seven source Search awards now retained into actual Axea eighth-page/research/binding/Ready/refusal/full-health Rat Vortex/cold, both modes. No page inventory/count/flag initialization.",
+        "CONTROLLED source-valid authored routes/adjacency/noon, initial25lockpicks and original PRNG0x12345678 before each firstSearch; source floor and original DEC421 ledger checked. Original level10 caster stats remain controlled before Ready. Not earned continuous exploration/leveling or full campaign."
+      ]
+    },
+    {
+      "id": "page-bit-16",
+      "claimed_status": "VERIFIED",
+      "criteria": {
+        "prerequisites": "VERIFIED",
+        "successful_completion": "VERIFIED",
+        "relevant_refusal": "VERIFIED",
+        "resulting_state": "VERIFIED",
+        "cold_persistence": "VERIFIED",
+        "subsequent_compatibility": "VERIFIED"
+      },
+      "dependencies": [],
+      "evidence": [
+        "SCUMMVM-CE-M3-REAL-PAGES-VORTEX-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-PAGE57-PROVENANCE.json",
+        "SCUMMVM-CE-M3-CASTLE73-CHECKPOINT.json"
+      ],
+      "initializations": [
+        "Three authored-exit loader setups, then loaded-object-guarded adjacency/camera/redraw, all before actual Search. Empty initial page flags/items; no injected outcome."
+      ],
+      "limitations": [
+        "All seven source Search awards now retained into actual Axea eighth-page/research/binding/Ready/refusal/full-health Rat Vortex/cold, both modes. No page inventory/count/flag initialization.",
+        "CONTROLLED source-valid authored routes/adjacency/noon, initial25lockpicks and original PRNG0x12345678 before each firstSearch; source floor and original DEC421 ledger checked. Original level10 caster stats remain controlled before Ready. Not earned continuous exploration/leveling or full campaign."
+      ]
+    },
+    {
+      "id": "page-bit-32",
+      "claimed_status": "VERIFIED",
+      "criteria": {
+        "prerequisites": "VERIFIED",
+        "successful_completion": "VERIFIED",
+        "relevant_refusal": "VERIFIED",
+        "resulting_state": "VERIFIED",
+        "cold_persistence": "VERIFIED",
+        "subsequent_compatibility": "VERIFIED"
+      },
+      "dependencies": [],
+      "evidence": [
+        "SCUMMVM-CE-M3-REAL-PAGES-VORTEX-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-PAGE57-PROVENANCE.json",
+        "SCUMMVM-CE-M3-CASTLE73-CHECKPOINT.json"
+      ],
+      "initializations": [
+        "Three authored-exit loader setups, then loaded-object-guarded adjacency/camera/redraw, all before actual Search. Empty initial page flags/items; no injected outcome."
+      ],
+      "limitations": [
+        "All seven source Search awards now retained into actual Axea eighth-page/research/binding/Ready/refusal/full-health Rat Vortex/cold, both modes. No page inventory/count/flag initialization.",
+        "CONTROLLED source-valid authored routes/adjacency/noon, initial25lockpicks and original PRNG0x12345678 before each firstSearch; source floor and original DEC421 ledger checked. Original level10 caster stats remain controlled before Ready. Not earned continuous exploration/leveling or full campaign."
+      ]
+    },
+    {
+      "id": "page-bit-64",
+      "claimed_status": "VERIFIED",
+      "criteria": {
+        "prerequisites": "VERIFIED",
+        "successful_completion": "VERIFIED",
+        "relevant_refusal": "VERIFIED",
+        "resulting_state": "VERIFIED",
+        "cold_persistence": "VERIFIED",
+        "subsequent_compatibility": "VERIFIED"
+      },
+      "dependencies": [],
+      "evidence": [
+        "SCUMMVM-CE-M3-REAL-PAGES-VORTEX-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-PAGE57-PROVENANCE.json",
+        "SCUMMVM-CE-M3-CASTLE73-CHECKPOINT.json"
+      ],
+      "initializations": [
+        "Three authored-exit loader setups, then loaded-object-guarded adjacency/camera/redraw, all before actual Search. Empty initial page flags/items; no injected outcome."
+      ],
+      "limitations": [
+        "All seven source Search awards now retained into actual Axea eighth-page/research/binding/Ready/refusal/full-health Rat Vortex/cold, both modes. No page inventory/count/flag initialization.",
+        "CONTROLLED source-valid authored routes/adjacency/noon, initial25lockpicks and original PRNG0x12345678 before each firstSearch; source floor and original DEC421 ledger checked. Original level10 caster stats remain controlled before Ready. Not earned continuous exploration/leveling or full campaign."
+      ]
+    },
+    {
+      "id": "page-bit-128",
+      "claimed_status": "VERIFIED",
+      "criteria": {
+        "prerequisites": "VERIFIED",
+        "successful_completion": "VERIFIED",
+        "relevant_refusal": "VERIFIED",
+        "resulting_state": "VERIFIED",
+        "cold_persistence": "VERIFIED",
+        "subsequent_compatibility": "VERIFIED"
+      },
+      "dependencies": [],
+      "evidence": [
+        "SCUMMVM-CE-M3-REAL-PAGES-VORTEX-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-PAGE57-PROVENANCE.json",
+        "SCUMMVM-CE-M3-CASTLE73-CHECKPOINT.json"
+      ],
+      "initializations": [
+        "Three authored-exit loader setups, then loaded-object-guarded adjacency/camera/redraw, all before actual Search. Empty initial page flags/items; no injected outcome."
+      ],
+      "limitations": [
+        "All seven source Search awards now retained into actual Axea eighth-page/research/binding/Ready/refusal/full-health Rat Vortex/cold, both modes. No page inventory/count/flag initialization.",
+        "CONTROLLED source-valid authored routes/adjacency/noon, initial25lockpicks and original PRNG0x12345678 before each firstSearch; source floor and original DEC421 ledger checked. Original level10 caster stats remain controlled before Ready. Not earned continuous exploration/leveling or full campaign."
+      ]
+    },
+    {
+      "id": "page-bit-1",
+      "claimed_status": "VERIFIED",
+      "criteria": {
+        "prerequisites": "VERIFIED",
+        "successful_completion": "VERIFIED",
+        "relevant_refusal": "VERIFIED",
+        "resulting_state": "VERIFIED",
+        "cold_persistence": "VERIFIED",
+        "subsequent_compatibility": "VERIFIED"
+      },
+      "dependencies": [],
+      "evidence": [
+        "SCUMMVM-CE-M3-REAL-PAGES-VORTEX-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-PAGE57-PROVENANCE.json",
+        "SCUMMVM-CE-M3-CASTLE73-CHECKPOINT.json"
+      ],
+      "initializations": [
+        "Three authored-exit loader setups, then loaded-object-guarded adjacency/camera/redraw, all before actual Search. Empty initial page flags/items; no injected outcome."
+      ],
+      "limitations": [
+        "All seven source Search awards now retained into actual Axea eighth-page/research/binding/Ready/refusal/full-health Rat Vortex/cold, both modes. No page inventory/count/flag initialization.",
+        "CONTROLLED source-valid authored routes/adjacency/noon, initial25lockpicks and original PRNG0x12345678 before each firstSearch; source floor and original DEC421 ledger checked. Original level10 caster stats remain controlled before Ready. Not earned continuous exploration/leveling or full campaign."
+      ]
+    },
+    {
+      "id": "dark-plane-return-praevoc",
+      "claimed_status": "VERIFIED",
+      "criteria": {
+        "prerequisites": "VERIFIED",
+        "successful_completion": "VERIFIED",
+        "relevant_refusal": "VERIFIED",
+        "resulting_state": "VERIFIED",
+        "cold_persistence": "VERIFIED",
+        "subsequent_compatibility": "VERIFIED"
+      },
+      "dependencies": [
+        "040A bit01; already1 in independently decoded pre-ending readiness/cast saves"
+      ],
+      "evidence": [
+        "SCUMMVM-CE-M3-TRANSPORT-CHECKPOINT.json"
+      ],
+      "initializations": [
+        "No new controlled setup after actual Max plane arrival. Real Up/Down returns to Praevoc map68/type8 at23,20; full runtime/session cold in both modes."
+      ],
+      "limitations": [
+        "Inherited earlier controlled seven pages, mage and authored travel. Actual portal entry/return linked; full continuous campaign not demonstrated."
+      ]
+    },
+    {
+      "id": "bound-spell-readiness",
+      "claimed_status": "VERIFIED",
+      "criteria": {
+        "prerequisites": "VERIFIED",
+        "successful_completion": "VERIFIED",
+        "relevant_refusal": "VERIFIED",
+        "resulting_state": "VERIFIED",
+        "cold_persistence": "VERIFIED",
+        "subsequent_compatibility": "VERIFIED"
+      },
+      "dependencies": [
+        "binding",
+        "source-supported controlled reachable level10 caster for positive readiness"
+      ],
+      "evidence": [
+        "SCUMMVM-CE-M3-SPELL-READY-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-PARCHMENT-SEARCH-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-REAL-PAGES-VORTEX-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-NYSTUL-VORTEX39-CHECKPOINT.json"
+      ],
+      "initializations": [
+        "Retain actual Nystul award from controlled seven-page/Axea chain. First use original starter for refusal, then explicit source/manual-supported level10 caster before positive Ready. No book/slot outcome injection."
+      ],
+      "limitations": [
+        "All seven source Search awards now retained into actual Axea eighth-page/research/binding/Ready/refusal/full-health Rat Vortex/cold, both modes. No page inventory/count/flag initialization.",
+        "CONTROLLED source-valid authored routes/adjacency/noon, initial25lockpicks and original PRNG0x12345678 before each firstSearch; source floor and original DEC421 ledger checked. Original level10 caster stats remain controlled before Ready. Not earned continuous exploration/leveling or full campaign.",
+        "39 retains actual all8page/research/Nystul physical word/wall/room/binding/Staff83 prefix through original lowINT refusal, controlled reachableMage BEFORE actualReady, world refusal and full12HP ShipRat actualVortex/cold both modes. Actual weapon83 retained UNREADIED owner0; no weapon83 combat claim."
+      ]
+    },
+    {
+      "id": "vortex-world-refusal",
+      "claimed_status": "VERIFIED",
+      "criteria": {
+        "prerequisites": "VERIFIED",
+        "successful_completion": "VERIFIED",
+        "relevant_refusal": "VERIFIED",
+        "resulting_state": "VERIFIED",
+        "cold_persistence": "VERIFIED",
+        "subsequent_compatibility": "VERIFIED"
+      },
+      "dependencies": [
+        "bound-spell-readiness"
+      ],
+      "evidence": [
+        "SCUMMVM-CE-M3-CAST-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-PARCHMENT-SEARCH-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-REAL-PAGES-VORTEX-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-NYSTUL-VORTEX39-CHECKPOINT.json"
+      ],
+      "initializations": [
+        "No new setup after inherited real readiness checkpoint; actual C/1/Return. Earlier mage/seven-page setups remain controlled."
+      ],
+      "limitations": [
+        "All seven source Search awards now retained into actual Axea eighth-page/research/binding/Ready/refusal/full-health Rat Vortex/cold, both modes. No page inventory/count/flag initialization.",
+        "CONTROLLED source-valid authored routes/adjacency/noon, initial25lockpicks and original PRNG0x12345678 before each firstSearch; source floor and original DEC421 ledger checked. Original level10 caster stats remain controlled before Ready. Not earned continuous exploration/leveling or full campaign.",
+        "39 retains actual all8page/research/Nystul physical word/wall/room/binding/Staff83 prefix through original lowINT refusal, controlled reachableMage BEFORE actualReady, world refusal and full12HP ShipRat actualVortex/cold both modes. Actual weapon83 retained UNREADIED owner0; no weapon83 combat claim."
+      ]
+    },
+    {
+      "id": "vortex-battle-effect",
+      "claimed_status": "VERIFIED",
+      "criteria": {
+        "prerequisites": "VERIFIED",
+        "successful_completion": "VERIFIED",
+        "relevant_refusal": "VERIFIED",
+        "resulting_state": "VERIFIED",
+        "cold_persistence": "VERIFIED",
+        "subsequent_compatibility": "VERIFIED"
+      },
+      "dependencies": [
+        "bound-spell-readiness"
+      ],
+      "evidence": [
+        "SCUMMVM-CE-M3-BATTLE-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-PARCHMENT-SEARCH-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-REAL-PAGES-VORTEX-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-NYSTUL-VORTEX39-CHECKPOINT.json"
+      ],
+      "initializations": [],
+      "limitations": [
+        "All seven source Search awards now retained into actual Axea eighth-page/research/binding/Ready/refusal/full-health Rat Vortex/cold, both modes. No page inventory/count/flag initialization.",
+        "CONTROLLED source-valid authored routes/adjacency/noon, initial25lockpicks and original PRNG0x12345678 before each firstSearch; source floor and original DEC421 ledger checked. Original level10 caster stats remain controlled before Ready. Not earned continuous exploration/leveling or full campaign.",
+        "39 retains actual all8page/research/Nystul physical word/wall/room/binding/Staff83 prefix through original lowINT refusal, controlled reachableMage BEFORE actualReady, world refusal and full12HP ShipRat actualVortex/cold both modes. Actual weapon83 retained UNREADIED owner0; no weapon83 combat claim."
+      ]
+    },
+    {
+      "id": "lord-british-ankh",
+      "claimed_status": "VERIFIED",
+      "criteria": {
+        "prerequisites": "VERIFIED",
+        "successful_completion": "VERIFIED",
+        "relevant_refusal": "VERIFIED",
+        "resulting_state": "VERIFIED",
+        "cold_persistence": "VERIFIED",
+        "subsequent_compatibility": "VERIFIED"
+      },
+      "dependencies": [
+        "Real circle entry spawns Lord British; TRAVEL then ANKH"
+      ],
+      "evidence": [
+        "SCUMMVM-CE-M3-TRANSPORT-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-SHADOW-GUIDANCE-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-LATE-TRANSPORT-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-LATE-ENDING-CHECKPOINT.json"
+      ],
+      "initializations": [
+        "Controlled authored route, source-supported outside-circle24,24 only. Real Up activates Shrine; actual TRAVEL/ANKH awards157qty1 and43A18. Retained reward satisfies actual Max creation/entry."
+      ],
+      "limitations": [
+        "Travel is controlled, not earned. No continuous/full campaign claim."
+      ]
+    },
+    {
+      "id": "cult-letter",
+      "claimed_status": "VERIFIED",
+      "criteria": {
+        "prerequisites": "VERIFIED",
+        "successful_completion": "VERIFIED",
+        "relevant_refusal": "VERIFIED",
+        "resulting_state": "VERIFIED",
+        "cold_persistence": "VERIFIED",
+        "subsequent_compatibility": "VERIFIED"
+      },
+      "dependencies": [
+        "gordon-shrubbery",
+        "brown-key",
+        "cult-lower-portal",
+        "cult-magic-mouth",
+        "cult-temple-monks"
+      ],
+      "evidence": [
+        "SCUMMVM-CE-M3-EARLY-SEARCH17-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-LETTER17-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-RAQUE25-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-LINKED27-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-STORY-ALL30-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-GATES-ALL31-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-CULT-MOUTH31-INVESTIGATION.json",
+        "SCUMMVM-CE-M3-MONKS-ALL34-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-CULTISTS37-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-CULT73-CHECKPOINT.json"
+      ],
+      "initializations": [],
+      "limitations": [
+        "Actual retained Monk/wall result ->14real moves -> original full2Cultists267HP admission. Valid pre-encounter recovery and DISTINCT pre-Cast enemy0HP1/otherdead endpoint explicit/unearned; realCast/victory043802, not full-health winning fight.",
+        "Actual bump encounter returns party212,89 and enemydead212,88. Then9actualmoves/SearchLeft ->Letter75/43804/source trap31HP (61->30), ZERO new position/party/NPC/clock/HP/PRNG/quest controls. Both actual guard defeats, wallFE, inventory/flags/cold independently decoded; retained Letter ->realArchus/Styx/cold both modes.",
+        "Earlier controlled Search adjacency reports remain narrower scope; direct corridor now separately verified. Full36 failed attempt preserved; no continuous/newgame-to-ending or universally unavoidable route claim."
+      ]
+    },
+    {
+      "id": "order-test",
+      "claimed_status": "VERIFIED",
+      "criteria": {
+        "prerequisites": "VERIFIED",
+        "successful_completion": "VERIFIED",
+        "relevant_refusal": "VERIFIED",
+        "resulting_state": "VERIFIED",
+        "cold_persistence": "VERIFIED",
+        "subsequent_compatibility": "VERIFIED"
+      },
+      "dependencies": [
+        "cult-letter"
+      ],
+      "evidence": [
+        "SCUMMVM-CE-M3-ORDER-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-ORDER-DOOR-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-LATE-CASES17-CHECKPOINT.json"
+      ],
+      "initializations": [],
+      "limitations": [
+        "Actual Scales repeat/cold both modes with CONTROLLED prior ambient kills only; fixed questDragon BF120 independently unchanged/alive [69,35,172,20,0,126,0,1]. Real no-authorization firstSearch/Bruce pass/cold both modes proves43C01 clue not hard prerequisite. Alternate repeat met ambient Drake and is excluded; primary repeat passes.",
+        "Actual membership door passage/refusal/cold both modes; controlled routes/adjacency and unearned Dragon avoidance remain explicit. cult-letter is story-advice hypothesis, not established hard mechanical prerequisite."
+      ]
+    },
+    {
+      "id": "essence-angels",
+      "claimed_status": "VERIFIED",
+      "criteria": {
+        "prerequisites": "VERIFIED",
+        "successful_completion": "VERIFIED",
+        "relevant_refusal": "VERIFIED",
+        "resulting_state": "VERIFIED",
+        "cold_persistence": "VERIFIED",
+        "subsequent_compatibility": "VERIFIED"
+      },
+      "dependencies": [
+        "devils-key"
+      ],
+      "evidence": [
+        "SCUMMVM-CE-M3-ESSENCE-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-GUARDIAN-CHECKPOINT.json"
+      ],
+      "initializations": [
+        "Retains actual phase13 gate predecessor; source-valid Search adjacency70,104 is controlled before real S/Right.",
+        "Seven earlier pages and reachable mage remain controlled. No earned full-campaign claim."
+      ],
+      "limitations": [
+        "Acquisition/refusal/repeat/cold and original guardian effect/Jewel reward verified from explicit controlled travel/mage prerequisites. No continuous campaign claim."
+      ]
+    },
+    {
+      "id": "holy-hairnet",
+      "claimed_status": "VERIFIED",
+      "criteria": {
+        "prerequisites": "VERIFIED",
+        "successful_completion": "VERIFIED",
+        "relevant_refusal": "VERIFIED",
+        "resulting_state": "VERIFIED",
+        "cold_persistence": "VERIFIED",
+        "subsequent_compatibility": "VERIFIED"
+      },
+      "dependencies": [
+        "essence-angels"
+      ],
+      "evidence": [
+        "SCUMMVM-CE-M3-HAIRNET-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-GUARDIAN-CHECKPOINT.json"
+      ],
+      "initializations": [
+        "Retains actual Essence predecessor. Authored travel/shrubber adjacency and floor13,37 before Open are controlled. Door crossing and chamber walking to Search are actual.",
+        "Original Hairnet/item flags never initialized; missing key retains closed gate and no artifact."
+      ],
+      "limitations": [
+        "Acquisition/refusal/repeat/cold and original guardian effect/Jewel reward verified from explicit controlled travel/mage prerequisites. No continuous campaign claim."
+      ]
+    },
+    {
+      "id": "ghrodwir-elders",
+      "claimed_status": "VERIFIED",
+      "criteria": {
+        "prerequisites": "VERIFIED",
+        "successful_completion": "VERIFIED",
+        "relevant_refusal": "VERIFIED",
+        "resulting_state": "VERIFIED",
+        "cold_persistence": "VERIFIED",
+        "subsequent_compatibility": "VERIFIED"
+      },
+      "dependencies": [
+        "guild-children-rescue",
+        "margrave-key"
+      ],
+      "evidence": [
+        "SCUMMVM-CE-M3-TOMB-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-LINKED27-CHECKPOINT.json"
+      ],
+      "initializations": [],
+      "limitations": [
+        "Original fixture boundaries remain binding. Current source/necessity/segment classification is in CAMPAIGN-DEPENDENCIES76; historical limitations retain the earlier investigation state.",
+        "No earned continuous/full new-game-to-ending run. Controlled positions, stats, recovery and battle endpoints are unearned."
+      ]
+    },
+    {
+      "id": "ol-rev-tomb",
+      "claimed_status": "VERIFIED",
+      "criteria": {
+        "prerequisites": "VERIFIED",
+        "successful_completion": "VERIFIED",
+        "relevant_refusal": "VERIFIED",
+        "resulting_state": "VERIFIED",
+        "cold_persistence": "VERIFIED",
+        "subsequent_compatibility": "VERIFIED"
+      },
+      "dependencies": [
+        "ghrodwir-elders"
+      ],
+      "evidence": [
+        "SCUMMVM-CE-M3-TOMB-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-LINKED27-CHECKPOINT.json"
+      ],
+      "initializations": [],
+      "limitations": [
+        "Actual door/passage/Scroll pickup/read/cold re-read verified. Retained Scroll -> actual phylactery contact -> full-health Lich victory is linked gameplay; unrelated travel and Guild/rescue prerequisites remain controlled.",
+        "Additional27 retains actual cellrescue/Guild/MargraveKey into timed Tomb unlocking/door/Scroll/phylactery without Guild-prerequisite fixture. Original earlier controlled-prerequisite reports remain distinct."
+      ]
+    },
+    {
+      "id": "ring-vacous",
+      "claimed_status": "VERIFIED",
+      "criteria": {
+        "prerequisites": "VERIFIED",
+        "successful_completion": "VERIFIED",
+        "relevant_refusal": "VERIFIED",
+        "resulting_state": "VERIFIED",
+        "cold_persistence": "VERIFIED",
+        "subsequent_compatibility": "VERIFIED"
+      },
+      "dependencies": [
+        "Real KAYL response and original consumed042E80/timed-door special effect",
+        "Actual physical passage and Search at9,8 on TOWN74"
+      ],
+      "evidence": [
+        "SCUMMVM-CE-M3-RING-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-DARK-KEY-CHECKPOINT.json"
+      ],
+      "initializations": [],
+      "limitations": [
+        "Controlled equipment/recovery and battle pre-final-blow primaryHP1/dead secondaries; not earned kills/damage or full-health encounter victory.",
+        "Actual Ring acquisition/protection -> controlled endpoint -> real victory/Dark Key154/040C08 -> real Open/steps/UM97 arrival, paired refusals and cold replay both modes."
+      ]
+    },
+    {
+      "id": "gordon-shrubbery",
+      "claimed_status": "VERIFIED",
+      "criteria": {
+        "prerequisites": "VERIFIED",
+        "successful_completion": "VERIFIED",
+        "relevant_refusal": "VERIFIED",
+        "resulting_state": "VERIFIED",
+        "cold_persistence": "VERIFIED",
+        "subsequent_compatibility": "VERIFIED"
+      },
+      "dependencies": [
+        "Gordon hideout flag43040 follows actual shrubbery95/found43020; Thomas L019/144 OR Sally L015/32 award same95/43020."
+      ],
+      "evidence": [
+        "SCUMMVM-CE-M3-SHRUBBERY17-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-RAQUE25-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-LINKED27-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-STORY-ALL30-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-STRICT-ALL40-CHECKPOINT.json"
+      ],
+      "initializations": [],
+      "limitations": [
+        "Original fixture boundaries remain binding. Current source/necessity/segment classification is in CAMPAIGN-DEPENDENCIES76; historical limitations retain the earlier investigation state.",
+        "No earned continuous/full new-game-to-ending run. Controlled positions, stats, recovery and battle endpoints are unearned."
+      ]
+    },
+    {
+      "id": "devils-key",
+      "claimed_status": "VERIFIED",
+      "criteria": {
+        "prerequisites": "VERIFIED",
+        "successful_completion": "VERIFIED",
+        "relevant_refusal": "VERIFIED",
+        "resulting_state": "VERIFIED",
+        "cold_persistence": "VERIFIED",
+        "subsequent_compatibility": "VERIFIED"
+      },
+      "dependencies": [
+        "Explicit original Akora KEY branch at Uharad26/actor56; no Order flag initialization",
+        "Item149 and040F10 permit map97 door69,90"
+      ],
+      "evidence": [
+        "SCUMMVM-CE-M3-KEY-GATE-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-ESSENCE-CHECKPOINT.json"
+      ],
+      "initializations": [
+        "Retained real world-cast predecessor; controlled authored route and actor adjacency only. Actual key award quantity1, repeat quantity2, flags040F10/041040 and exact cold in both modes. Gate opening/refusal not yet passed.",
+        "Source-valid cave entrance and north approach only for gate tests; real no-key refusal and retained-key Open/Down/Down, no door outcome write. Exact cold includes dynamic open timer."
+      ],
+      "limitations": [
+        "Original fixture boundaries remain binding. Current source/necessity/segment classification is in CAMPAIGN-DEPENDENCIES76; historical limitations retain the earlier investigation state.",
+        "No earned continuous/full new-game-to-ending run. Controlled positions, stats, recovery and battle endpoints are unearned."
+      ]
+    },
+    {
+      "id": "fire-jewel-guardian",
+      "claimed_status": "VERIFIED",
+      "criteria": {
+        "prerequisites": "VERIFIED",
+        "successful_completion": "VERIFIED",
+        "relevant_refusal": "VERIFIED",
+        "resulting_state": "VERIFIED",
+        "cold_persistence": "VERIFIED",
+        "subsequent_compatibility": "VERIFIED",
+        "negative_cold_replay": "VERIFIED"
+      },
+      "dependencies": [
+        "Actual Hairnet found flag043F01 from Search",
+        "Original full-health Demon Lord defeat/reward"
+      ],
+      "evidence": [
+        "SCUMMVM-CE-M3-GUARDIAN-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-JEWEL-CHAIN-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-LATE-NPC-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-LINKED27-CHECKPOINT.json"
+      ],
+      "initializations": [],
+      "limitations": [
+        "Full original guardian HP/defenses, actual Vortex kill/award, missing artifact/condition refusal and exact cold both modes verified.",
+        "Actual Water -> controlled HP/MP recovery -> Fire -> controlled recovery -> Air retains all3 Jewels. Actual subsequent Styx3-Jewel recognition/repeat/cold and controlled-endpoint High Cultist journal/translation compatible. Not earned healing/travel/continuous run.",
+        "Direct Air NPC225/Water231 terrain damage protection not tested by Temple forcefield206; separate predicates remain in source census."
+      ]
+    },
+    {
+      "id": "air-jewel-guardian",
+      "claimed_status": "VERIFIED",
+      "criteria": {
+        "prerequisites": "VERIFIED",
+        "successful_completion": "VERIFIED",
+        "relevant_refusal": "VERIFIED",
+        "resulting_state": "VERIFIED",
+        "cold_persistence": "VERIFIED",
+        "subsequent_compatibility": "VERIFIED",
+        "negative_cold_replay": "VERIFIED"
+      },
+      "dependencies": [
+        "Actual Essence found flag043D40 from Search",
+        "Original full-health Archdevil defeat/reward"
+      ],
+      "evidence": [
+        "SCUMMVM-CE-M3-GUARDIAN-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-JEWEL-CHAIN-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-LATE-NPC-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-FINAL29-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-FINAL31-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-FINAL35-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-FINAL37-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-FINAL40-CHECKPOINT.json"
+      ],
+      "initializations": [],
+      "limitations": [
+        "Full original guardian HP/defenses, actual Vortex kill/award, missing artifact/condition refusal and exact cold both modes verified.",
+        "Actual Water -> controlled HP/MP recovery -> Fire -> controlled recovery -> Air retains all3 Jewels. Actual subsequent Styx3-Jewel recognition/repeat/cold and controlled-endpoint High Cultist journal/translation compatible. Not earned healing/travel/continuous run.",
+        "Direct Air NPC225/Water231 terrain damage protection not tested by Temple forcefield206; separate predicates remain in source census.",
+        "Additional linked actual8pages->real artifacts->full Fire/Vazarath win->controlled recovery before full1950HP Air/Vortex win/cold both modes."
+      ]
+    },
+    {
+      "id": "water-jewel-guardian",
+      "claimed_status": "VERIFIED",
+      "criteria": {
+        "prerequisites": "VERIFIED",
+        "successful_completion": "VERIFIED",
+        "relevant_refusal": "VERIFIED",
+        "resulting_state": "VERIFIED",
+        "cold_persistence": "VERIFIED",
+        "subsequent_compatibility": "VERIFIED"
+      },
+      "dependencies": [
+        "Original phylactery current-cell54 handler EA35/EA3D sets040C04",
+        "Original full-health Lich defeat/reward"
+      ],
+      "evidence": [
+        "SCUMMVM-CE-M3-JEWEL-CHAIN-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-WATER-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-LATE-NPC-CHECKPOINT.json"
+      ],
+      "initializations": [],
+      "limitations": [
+        "Full original guardian HP/defenses, actual Vortex kill/award, missing artifact/condition refusal and exact cold both modes verified.",
+        "Actual Water -> controlled HP/MP recovery -> Fire -> controlled recovery -> Air retains all3 Jewels. Actual subsequent Styx3-Jewel recognition/repeat/cold and controlled-endpoint High Cultist journal/translation compatible. Not earned healing/travel/continuous run.",
+        "Direct Air NPC225/Water231 terrain damage protection not tested by Temple forcefield206; separate predicates remain in source census."
+      ]
+    },
+    {
+      "id": "margrave-key",
+      "claimed_status": "VERIFIED",
+      "criteria": {
+        "prerequisites": "VERIFIED",
+        "successful_completion": "VERIFIED",
+        "relevant_refusal": "VERIFIED",
+        "resulting_state": "VERIFIED",
+        "cold_persistence": "VERIFIED",
+        "subsequent_compatibility": "VERIFIED"
+      },
+      "dependencies": [
+        "thieves-guild-boss"
+      ],
+      "evidence": [
+        "SCUMMVM-CE-M3-TOMB-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-LINKED27-CHECKPOINT.json"
+      ],
+      "initializations": [
+        "Guild-resolved043208 and child-rescued043502 CONTROLLED before actual Margrave award; prior seven pages/reachable mage remain controlled."
+      ],
+      "limitations": [
+        "Additional27 retains actual cellrescue/Guild/MargraveKey into timed Tomb unlocking/door/Scroll/phylactery without Guild-prerequisite fixture. Original earlier controlled-prerequisite reports remain distinct."
+      ]
+    },
+    {
+      "id": "thieves-guild-boss",
+      "claimed_status": "VERIFIED",
+      "criteria": {
+        "prerequisites": "VERIFIED",
+        "successful_completion": "VERIFIED",
+        "relevant_refusal": "VERIFIED",
+        "resulting_state": "VERIFIED",
+        "cold_persistence": "VERIFIED",
+        "subsequent_compatibility": "VERIFIED"
+      },
+      "dependencies": [],
+      "evidence": [
+        "SCUMMVM-CE-M3-ACCESS26-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-LINKED27-CHECKPOINT.json"
+      ],
+      "initializations": [],
+      "limitations": [
+        "Original fixture boundaries remain binding. Current source/necessity/segment classification is in CAMPAIGN-DEPENDENCIES76; historical limitations retain the earlier investigation state.",
+        "No earned continuous/full new-game-to-ending run. Controlled positions, stats, recovery and battle endpoints are unearned."
+      ]
+    },
+    {
+      "id": "guild-children-rescue",
+      "claimed_status": "VERIFIED",
+      "criteria": {
+        "prerequisites": "VERIFIED",
+        "successful_completion": "VERIFIED",
+        "relevant_refusal": "VERIFIED",
+        "resulting_state": "VERIFIED",
+        "cold_persistence": "VERIFIED",
+        "subsequent_compatibility": "VERIFIED"
+      },
+      "dependencies": [],
+      "evidence": [
+        "SCUMMVM-CE-M3-CHILDREN18-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-ACCESS26-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-LINKED27-CHECKPOINT.json"
+      ],
+      "initializations": [],
+      "limitations": [
+        "Actual keyed cell Open/girl bump-rescue43502 versus no-SkullKey closed/no-rescue, full replies/cold both modes. Girl occupied doorway blocks player; no full player passage claim. Original map leave/reentry then actualUp verifies BOTH sprites0/cold, refining earlier live-map retirement claim. Subsequent real Guild/Margrave84 retains43502; actual Tomb compatibility next."
+      ]
+    },
+    {
+      "id": "dark-key",
+      "claimed_status": "VERIFIED",
+      "criteria": {
+        "prerequisites": "VERIFIED",
+        "successful_completion": "VERIFIED",
+        "relevant_refusal": "VERIFIED",
+        "resulting_state": "VERIFIED",
+        "cold_persistence": "VERIFIED",
+        "subsequent_compatibility": "VERIFIED"
+      },
+      "dependencies": [
+        "ring-vacous"
+      ],
+      "evidence": [
+        "SCUMMVM-CE-M3-DARK-KEY-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-ACCESS52-CHECKPOINT.json"
+      ],
+      "initializations": [],
+      "limitations": [
+        "Controlled equipment/recovery and battle pre-final-blow primaryHP1/dead secondaries; not earned kills/damage or full-health encounter victory.",
+        "Actual Ring acquisition/protection -> controlled endpoint -> real victory/Dark Key154/040C08 -> real Open/steps/UM97 arrival, paired refusals and cold replay both modes."
+      ]
+    },
+    {
+      "id": "yvviar-cult-investigation",
+      "claimed_status": "VERIFIED",
+      "criteria": {
+        "prerequisites": "VERIFIED",
+        "successful_completion": "VERIFIED",
+        "relevant_refusal": "VERIFIED",
+        "resulting_state": "VERIFIED",
+        "cold_persistence": "VERIFIED",
+        "subsequent_compatibility": "VERIFIED"
+      },
+      "dependencies": [
+        "opening-exit"
+      ],
+      "evidence": [
+        "SCUMMVM-CE-M3-STORY-ALL30-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-STRICT-ALL40-CHECKPOINT.json"
+      ],
+      "initializations": [
+        "Real earlyLog/HP50/Writ or retained actual PirateKey/letter; controlled noon/authored route/NPC adjacency only."
+      ],
+      "limitations": [
+        "Early originalLog/HP50/noLetter -> actual CULT/STOP43740/43801/cold; no serious-letter opening, independent journal confirms. Retained actual PirateKey/cave/letter -> original Yvviar letter opening -> actual Archus/Styx4381C/cold both modes.",
+        "Source advice flag43740 guides British ADVI; no hard PirateKey/letter prerequisite invented. All route/noon/adjacency controls explicit. Opt-in exact word observer verified Yvviar, not universally all NPCs; optional strict Archus probe failed, existing default controller succeeds.",
+        "Earlier failed direct routes, STOP timing and wrong427 flag expectation preserved/excluded."
+      ]
+    },
+    {
+      "id": "opening-brig-door",
+      "claimed_status": "VERIFIED",
+      "criteria": {
+        "prerequisites": "VERIFIED",
+        "successful_completion": "VERIFIED",
+        "relevant_refusal": "VERIFIED",
+        "resulting_state": "VERIFIED",
+        "cold_persistence": "VERIFIED",
+        "subsequent_compatibility": "VERIFIED"
+      },
+      "dependencies": [],
+      "evidence": [
+        "SCUMMVM-CE-M3-GATES-ALL31-CHECKPOINT.json"
+      ],
+      "initializations": [
+        "Retain actual CaptainLog/originallevel1HP50/closed door/Rat; only source-safe floor25,38 before real OpenUp/steps."
+      ],
+      "limitations": [
+        "Actual originallevel1/HP50 OpenUp/crossing to25,36, tutorial Return/Escape target cancel; same picture67, high16->39 independently decoded/cold. ClosedUp blocked25,38/high16; retained result->real ship exit/cold both modes. No door/HP/Rat outcome initialization. Rat remains alive; actual full12HP ShipRat Vortex victory with controlledMage is separate, not earned initial-level melee."
+      ]
+    },
+    {
+      "id": "brown-key",
+      "claimed_status": "VERIFIED",
+      "criteria": {
+        "prerequisites": "VERIFIED",
+        "successful_completion": "VERIFIED",
+        "relevant_refusal": "VERIFIED",
+        "resulting_state": "VERIFIED",
+        "cold_persistence": "VERIFIED",
+        "subsequent_compatibility": "VERIFIED"
+      },
+      "dependencies": [
+        "gordon-shrubbery"
+      ],
+      "evidence": [
+        "SCUMMVM-CE-M3-GATES-ALL31-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-CULT73-CHECKPOINT.json"
+      ],
+      "initializations": [
+        "Actual PirateKey/cave/lower98 retained; safe Search adjacency/valid PRNG/optional prior ambient death before Search, safe door adjacency before Open. No key/door outcome initialized."
+      ],
+      "limitations": [
+        "Both modes actual Search/repeat/no duplicate, no-key refusal, real opening/passage/cold and next literal level entry verified. Controlled travel and ambient kills unearned."
+      ]
+    },
+    {
+      "id": "cult-lower-portal",
+      "claimed_status": "VERIFIED",
+      "criteria": {
+        "prerequisites": "VERIFIED",
+        "successful_completion": "VERIFIED",
+        "relevant_refusal": "VERIFIED",
+        "resulting_state": "VERIFIED",
+        "cold_persistence": "VERIFIED",
+        "subsequent_compatibility": "VERIFIED"
+      },
+      "dependencies": [
+        "brown-key"
+      ],
+      "evidence": [
+        "SCUMMVM-CE-M3-GATES-ALL31-CHECKPOINT.json",
+        "ce-m3-cult-portal-short31\\20261016-180445",
+        "ce-m3-cult-portal-short31-classic\\20261016-180449",
+        "SCUMMVM-CE-M3-CULT73-CHECKPOINT.json"
+      ],
+      "initializations": [
+        "ZERO new position/party/NPC/item/flag controls after actual BrownKey door."
+      ],
+      "limitations": [
+        "Original fixture boundaries remain binding. Current source/necessity/segment classification is in CAMPAIGN-DEPENDENCIES76; historical limitations retain the earlier investigation state.",
+        "No earned continuous/full new-game-to-ending run. Controlled positions, stats, recovery and battle endpoints are unearned."
+      ]
+    },
+    {
+      "id": "cult-magic-mouth",
+      "claimed_status": "VERIFIED",
+      "criteria": {
+        "prerequisites": "VERIFIED",
+        "successful_completion": "VERIFIED",
+        "relevant_refusal": "VERIFIED",
+        "resulting_state": "VERIFIED",
+        "cold_persistence": "VERIFIED",
+        "subsequent_compatibility": "VERIFIED"
+      },
+      "dependencies": [
+        "cult-lower-portal"
+      ],
+      "evidence": [
+        "SCUMMVM-CE-M3-CULT-MOUTH31-INVESTIGATION.json",
+        "SCUMMVM-CE-M3-MONKS-ALL34-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-STRICT-ALL40-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-CULT73-CHECKPOINT.json"
+      ],
+      "initializations": [
+        "Actual BrownKey/portal retained; only controlled safe Talk adjacency/noon. Actual word/effect; no wall or acceptance outcome initialization."
+      ],
+      "limitations": [
+        "Both word alternatives and WRONG/BRIBE, blocked physical movement, actual accepted-wall crossing after distinct controlled Monk battle endpoint, exact cold saves both modes. No uninterrupted walk to Letter claimed. Wall is a local effect: subsequent controlled map reload returns authored wall50; not claimed permanently removed across map reload."
+      ]
+    },
+    {
+      "id": "cult-temple-monks",
+      "claimed_status": "VERIFIED",
+      "criteria": {
+        "prerequisites": "VERIFIED",
+        "successful_completion": "VERIFIED",
+        "relevant_refusal": "VERIFIED",
+        "resulting_state": "VERIFIED",
+        "cold_persistence": "VERIFIED",
+        "subsequent_compatibility": "VERIFIED"
+      },
+      "dependencies": [
+        "cult-magic-mouth"
+      ],
+      "evidence": [
+        "SCUMMVM-CE-M3-CULT-MOUTH31-INVESTIGATION.json",
+        "SCUMMVM-CE-M3-MONKS-ALL34-CHECKPOINT.json"
+      ],
+      "initializations": [
+        "Actual full original8Monks191HP+2HighMonks137HP admission. Source-valid recovery125HP110MP BEFORE actual encounter; DISTINCT controlled livingenemy0HP1/other9dead BEFORE actualCast. No after-Cast expected outcome initialization."
+      ],
+      "limitations": [
+        "Full-health10enemy winning battle untested. Actual Cast/victory/worlddeadFF and original persistent040C02, actual wall crossing/cold both modes. Original actorWorld D2DB..D2ED removes guard sprite from reloaded map when040C02 set; original authored private map records remain unchanged. Generic Vortex refusal/defeat coverage separate."
+      ]
+    },
+    {
+      "id": "cult-corridor-cultists",
+      "claimed_status": "VERIFIED",
+      "criteria": {
+        "prerequisites": "VERIFIED",
+        "successful_completion": "VERIFIED",
+        "relevant_refusal": "VERIFIED",
+        "resulting_state": "VERIFIED",
+        "cold_persistence": "VERIFIED",
+        "subsequent_compatibility": "VERIFIED"
+      },
+      "dependencies": [
+        "cult-magic-mouth"
+      ],
+      "evidence": [
+        "ce-m3-monks-walk34/20261016-182452/saves/nox-vortex-failure-memory.bin",
+        "SCUMMVM-CE-M3-CULTISTS36-INVESTIGATION.json",
+        "SCUMMVM-CE-M3-CULTISTS37-CHECKPOINT.json"
+      ],
+      "initializations": [],
+      "limitations": [
+        "Actual retained Monk/wall result ->14real moves -> original full2Cultists267HP admission. Valid pre-encounter recovery and DISTINCT pre-Cast enemy0HP1/otherdead endpoint explicit/unearned; realCast/victory043802, not full-health winning fight.",
+        "Actual bump encounter returns party212,89 and enemydead212,88. Then9actualmoves/SearchLeft ->Letter75/43804/source trap31HP (61->30), ZERO new position/party/NPC/clock/HP/PRNG/quest controls. Both actual guard defeats, wallFE, inventory/flags/cold independently decoded; retained Letter ->realArchus/Styx/cold both modes.",
+        "Earlier controlled Search adjacency reports remain narrower scope; direct corridor now separately verified. Full36 failed attempt preserved; no continuous/newgame-to-ending or universally unavoidable route claim."
+      ]
+    },
+    {
+      "id": "cult-four-pressure-plates",
+      "claimed_status": "VERIFIED",
+      "criteria": {
+        "prerequisites": "VERIFIED",
+        "successful_completion": "VERIFIED",
+        "relevant_refusal": "VERIFIED",
+        "resulting_state": "VERIFIED",
+        "cold_persistence": "VERIFIED",
+        "subsequent_compatibility": "VERIFIED"
+      },
+      "dependencies": [],
+      "evidence": [
+        "SCUMMVM-CE-M3-SWITCH35-CHECKPOINT.json"
+      ],
+      "initializations": [
+        "Immutable-source-qualified safe adjacency BEFORE distinct real movement/Open; no expected plate, door or destination initialized. Four location checkpoints are controlled travel; resulting041F bits retained."
+      ],
+      "limitations": [
+        "Original fixture boundaries remain binding. Current source/necessity/segment classification is in CAMPAIGN-DEPENDENCIES76; historical limitations retain the earlier investigation state.",
+        "No earned continuous/full new-game-to-ending run. Controlled positions, stats, recovery and battle endpoints are unearned."
+      ]
+    },
+    {
+      "id": "nystul-maze-access",
+      "claimed_status": "VERIFIED",
+      "criteria": {
+        "prerequisites": "VERIFIED",
+        "successful_completion": "VERIFIED",
+        "relevant_refusal": "VERIFIED",
+        "resulting_state": "VERIFIED",
+        "cold_persistence": "VERIFIED",
+        "subsequent_compatibility": "VERIFIED"
+      },
+      "dependencies": [],
+      "evidence": [
+        "SCUMMVM-CE-M3-NYSTUL38-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-NYSTUL-VORTEX39-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-STRICT-ALL40-CHECKPOINT.json"
+      ],
+      "initializations": [
+        "Byte-identical selected actual prior phase2 researched8page state, no game-state edits. Authored map/portal approach and first magicmouth NPC adjacency CONTROLLED before operations. Actual word/passage/20moves/Talk/BIND has no new location/NPC/HP/flag control."
+      ],
+      "limitations": [
+        "Original fixture boundaries remain binding. Current source/necessity/segment classification is in CAMPAIGN-DEPENDENCIES76; historical limitations retain the earlier investigation state.",
+        "No earned continuous/full new-game-to-ending run. Controlled positions, stats, recovery and battle endpoints are unearned."
+      ]
+    },
+    {
+      "id": "nystul-archmage-staff",
+      "claimed_status": "VERIFIED",
+      "criteria": {
+        "prerequisites": "VERIFIED",
+        "successful_completion": "VERIFIED",
+        "relevant_refusal": "VERIFIED",
+        "resulting_state": "VERIFIED",
+        "cold_persistence": "VERIFIED",
+        "subsequent_compatibility": "VERIFIED"
+      },
+      "dependencies": [
+        "nystul-maze-access"
+      ],
+      "evidence": [
+        "SCUMMVM-CE-M3-NYSTUL38-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-NYSTUL-VORTEX39-CHECKPOINT.json"
+      ],
+      "initializations": [
+        "ZERO new position/NPC/party/clock/HP/inventory/flag controls after actual room arrival/binding; read-only current adjacency then actual MAZE."
+      ],
+      "limitations": [
+        "Actual83quantity1/040F04, repeated MAZE no duplicate/repeat dialogue/cold both modes. Subsequent compatibility here means retained binding and repeat interaction, not weapon Ready/combat; that remains untested. No earned repeated maze completion claimed from flavor text.",
+        "39 retains actual all8page/research/Nystul physical word/wall/room/binding/Staff83 prefix through original lowINT refusal, controlled reachableMage BEFORE actualReady, world refusal and full12HP ShipRat actualVortex/cold both modes. Actual weapon83 retained UNREADIED owner0; no weapon83 combat claim."
+      ]
+    },
+    {
+      "id": "father-mouth-door",
+      "claimed_status": "VERIFIED",
+      "criteria": {
+        "prerequisites": "VERIFIED",
+        "successful_completion": "VERIFIED",
+        "relevant_refusal": "VERIFIED",
+        "resulting_state": "VERIFIED",
+        "cold_persistence": "VERIFIED",
+        "subsequent_compatibility": "VERIFIED"
+      },
+      "dependencies": [],
+      "evidence": [
+        "SCUMMVM-CE-M3-FATHER38-INVESTIGATION.json",
+        "SCUMMVM-CE-M3-FATHER39-INVESTIGATION.json",
+        "SCUMMVM-CE-M3-STRICT-ALL40-CHECKPOINT.json"
+      ],
+      "initializations": [],
+      "limitations": [
+        "Original fixture boundaries remain binding. Current source/necessity/segment classification is in CAMPAIGN-DEPENDENCIES76; historical limitations retain the earlier investigation state.",
+        "No earned continuous/full new-game-to-ending run. Controlled positions, stats, recovery and battle endpoints are unearned."
+      ]
+    },
+    {
+      "id": "castle-control-wall",
+      "claimed_status": "VERIFIED",
+      "criteria": {
+        "prerequisites": "VERIFIED",
+        "successful_completion": "VERIFIED",
+        "relevant_refusal": "VERIFIED",
+        "resulting_state": "VERIFIED",
+        "cold_persistence": "VERIFIED",
+        "subsequent_compatibility": "VERIFIED"
+      },
+      "dependencies": [],
+      "evidence": [
+        "SCUMMVM-CE-M3-CASTLE73-CHECKPOINT.json"
+      ],
+      "initializations": [
+        "Source-valid map/floor BEFORE operation; original seed BEFORE Search; current-table cache preparation and named ordinary prior deaths explicitly declared where used."
+      ],
+      "limitations": [
+        "No earned traversal/grinding. No item, quest, gate or destination outcome injected."
+      ]
+    },
+    {
+      "id": "moat-key-door",
+      "claimed_status": "VERIFIED",
+      "criteria": {
+        "prerequisites": "VERIFIED",
+        "successful_completion": "VERIFIED",
+        "relevant_refusal": "VERIFIED",
+        "resulting_state": "VERIFIED",
+        "cold_persistence": "VERIFIED",
+        "subsequent_compatibility": "VERIFIED"
+      },
+      "dependencies": [],
+      "evidence": [
+        "SCUMMVM-CE-M3-CASTLE73-CHECKPOINT.json"
+      ],
+      "initializations": [
+        "Source-valid map/floor BEFORE operation; original seed BEFORE Search; current-table cache preparation and named ordinary prior deaths explicitly declared where used."
+      ],
+      "limitations": [
+        "No earned traversal/grinding. No item, quest, gate or destination outcome injected."
+      ]
+    },
+    {
+      "id": "arcane-key-door",
+      "claimed_status": "VERIFIED",
+      "criteria": {
+        "prerequisites": "VERIFIED",
+        "successful_completion": "VERIFIED",
+        "relevant_refusal": "VERIFIED",
+        "resulting_state": "VERIFIED",
+        "cold_persistence": "VERIFIED",
+        "subsequent_compatibility": "VERIFIED"
+      },
+      "dependencies": [],
+      "evidence": [
+        "SCUMMVM-CE-M3-CASTLE73-CHECKPOINT.json"
+      ],
+      "initializations": [
+        "Source-valid map/floor BEFORE operation; original seed BEFORE Search; current-table cache preparation and named ordinary prior deaths explicitly declared where used."
+      ],
+      "limitations": [
+        "No earned traversal/grinding. No item, quest, gate or destination outcome injected."
+      ]
+    },
+    {
+      "id": "order-castle-portals",
+      "claimed_status": "VERIFIED",
+      "criteria": {
+        "prerequisites": "VERIFIED",
+        "successful_completion": "VERIFIED",
+        "relevant_refusal": "VERIFIED",
+        "resulting_state": "VERIFIED",
+        "cold_persistence": "VERIFIED",
+        "subsequent_compatibility": "VERIFIED"
+      },
+      "dependencies": [],
+      "evidence": [
+        "SCUMMVM-CE-M3-ORDER-PORTALS73-CHECKPOINT.json"
+      ],
+      "initializations": [
+        "Source-valid map/floor BEFORE operation; original seed BEFORE Search; current-table cache preparation and named ordinary prior deaths explicitly declared where used."
+      ],
+      "limitations": [
+        "No earned traversal/grinding. No item, quest, gate or destination outcome injected."
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "SCUMMVM-CE-M3-ACCESS26-CHECKPOINT.json",
+      "sha256": "3a1fb58cce7b9eb8863684846e152a28b6926686a5cb51c37da044e07aba9432"
+    },
+    {
+      "path": "SCUMMVM-CE-M3-ACCESS52-CHECKPOINT.json",
+      "sha256": "b4973dd7b475a91279aa593d19be6f33e7f10eb85d307fa608d10538e113adda"
+    },
+    {
+      "path": "SCUMMVM-CE-M3-BATTLE-CHECKPOINT.json",
+      "sha256": "a929b1cb56b41f4f3107f2aecdcc44ccfdbcb779025efc03a11c968d6ff8719d"
+    },
+    {
+      "path": "SCUMMVM-CE-M3-CAST-CHECKPOINT.json",
+      "sha256": "46ed5aa239984378b9deb3eb3f17ee9e27fcca5ebc5b8790e1880aa1dd30e121"
+    },
+    {
+      "path": "SCUMMVM-CE-M3-CASTLE73-CHECKPOINT.json",
+      "sha256": "f2a38bdf52a108f7765f57c0808108ac4736296f890702b28ec763747c62b930"
+    },
+    {
+      "path": "SCUMMVM-CE-M3-CHILDREN18-CHECKPOINT.json",
+      "sha256": "bbc48fe9f15da7beceb603a22d735e25af6eaa6ae39de86efea1e22a28f432b6"
+    },
+    {
+      "path": "SCUMMVM-CE-M3-CULT-MOUTH31-INVESTIGATION.json",
+      "sha256": "4c64a818a410b5df6818c32c7a99a046addf9e40a1e349d0c173e808c80e02bc"
+    },
+    {
+      "path": "SCUMMVM-CE-M3-CULT73-CHECKPOINT.json",
+      "sha256": "a7e35f57f6875463ac7a084db5ca2f1c7d26580a311825d0912b132857deb81a"
+    },
+    {
+      "path": "SCUMMVM-CE-M3-CULTIST-CHECKPOINT.json",
+      "sha256": "cb78cae8c6c459c945668ceaa2d86b5fee3b8ab0e296af9a08171cc694922e83"
+    },
+    {
+      "path": "SCUMMVM-CE-M3-CULTISTS36-INVESTIGATION.json",
+      "sha256": "05eee4809d3d0c0b287507aa3bb1f6eb2bdeb5eaf501b99d5fa8dcc7f95c0863"
+    },
+    {
+      "path": "SCUMMVM-CE-M3-CULTISTS37-CHECKPOINT.json",
+      "sha256": "88df55427fbf895de18fe88e9df37db6a7fa77a558095504d05bdcb4b087f94f"
+    },
+    {
+      "path": "SCUMMVM-CE-M3-DARK-KEY-CHECKPOINT.json",
+      "sha256": "3691ab5fa5531d050b0d947f19e7afe445a1e8d76fb296f408fc702dbe1c563a"
+    },
+    {
+      "path": "SCUMMVM-CE-M3-EARLY-SEARCH17-CHECKPOINT.json",
+      "sha256": "1d049242fc5149c2690ca38c3ab1692bb797927d038201010375c65de3ba98c5"
+    },
+    {
+      "path": "SCUMMVM-CE-M3-ENDING-CHECKPOINT.json",
+      "sha256": "d60f9deff5e8eb7c5a14362b11c62d0ffb26e779c47cb0cf49e2b3b63e638e7c"
+    },
+    {
+      "path": "SCUMMVM-CE-M3-ENDING75-CHECKPOINT.json",
+      "sha256": "e3f88307b913df1e9c87143128e48faa2fc7d6623ed3c666bee8f86b6ef67050"
+    },
+    {
+      "path": "SCUMMVM-CE-M3-ESSENCE-CHECKPOINT.json",
+      "sha256": "51706732b58f17032aa20cd83fb065ff44f981e882a6a75ab9770a4932bfc518"
+    },
+    {
+      "path": "SCUMMVM-CE-M3-FATHER38-INVESTIGATION.json",
+      "sha256": "9bc11731726a679b0aa5f8be6badec5df3b6678763cf4772833431538ede8179"
+    },
+    {
+      "path": "SCUMMVM-CE-M3-FATHER39-INVESTIGATION.json",
+      "sha256": "7dfd95504ef4d45e0e91062376f30e687e4591bd6a47240388736e14eb8f5fc2"
+    },
+    {
+      "path": "SCUMMVM-CE-M3-FINAL29-CHECKPOINT.json",
+      "sha256": "27adfbf5662af6a9c1494e0c484774eb636f68af5838355a3d409c6520f68392"
+    },
+    {
+      "path": "SCUMMVM-CE-M3-FINAL31-CHECKPOINT.json",
+      "sha256": "43f5da5af338c532d1bacdfa77f572c711f0b439b87d1cbfbf687d9131f74f2e"
+    },
+    {
+      "path": "SCUMMVM-CE-M3-FINAL35-CHECKPOINT.json",
+      "sha256": "3f458ae9d1bc6138f79ef8916c864821a506bd4bef67f4f1750aba1577f415a4"
+    },
+    {
+      "path": "SCUMMVM-CE-M3-FINAL37-CHECKPOINT.json",
+      "sha256": "b5b5dcb6df01728fdb1d800a43e7b18848d3930f2b81e3f62818c1631e56d5e3"
+    },
+    {
+      "path": "SCUMMVM-CE-M3-FINAL40-CHECKPOINT.json",
+      "sha256": "df2dc1c658cda29204072f07169995bfaf686e14f7cbf473c24730d7212e76cb"
+    },
+    {
+      "path": "SCUMMVM-CE-M3-FIRST-SHADOW-INVESTIGATION.json",
+      "sha256": "e34bea0e7fe4ea3d9e9d590fc6dc83b746f69cdb16d284b400b83de250f59952"
+    },
+    {
+      "path": "SCUMMVM-CE-M3-GATES-ALL31-CHECKPOINT.json",
+      "sha256": "b006fbad9e2feecc6d99b2b75ab0ae0e8f90195a526710ec66c9b4f68215b7ce"
+    },
+    {
+      "path": "SCUMMVM-CE-M3-GUARDIAN-CHECKPOINT.json",
+      "sha256": "c9ad4813575ab39e2b67d09176bfc5f80deba2f080d83240938689b714072f47"
+    },
+    {
+      "path": "SCUMMVM-CE-M3-HAIRNET-CHECKPOINT.json",
+      "sha256": "0601643ea88445f80bd1fbf8407658ac7688526329e164bf8e75f00cda5f184b"
+    },
+    {
+      "path": "SCUMMVM-CE-M3-JEWEL-CHAIN-CHECKPOINT.json",
+      "sha256": "a08a2c78550c8a5466e0157f25f8b81f4432d9e1344598a2e777dd767342a937"
+    },
+    {
+      "path": "SCUMMVM-CE-M3-JEWEL-LORE-CHECKPOINT.json",
+      "sha256": "c8b4bb66eb3d727f3fb6df33513acfba26769974bdcf4bebdd2f26d2bd060cb2"
+    },
+    {
+      "path": "SCUMMVM-CE-M3-KEY-DOORS18-CHECKPOINT.json",
+      "sha256": "d20fcc2cc39651abd17cd8b779a9d5c033bea8c8b46153ad75c7d9915d4a0c67"
+    },
+    {
+      "path": "SCUMMVM-CE-M3-KEY-GATE-CHECKPOINT.json",
+      "sha256": "460373a7c44a702567e66947b89a632faf3a7ede72df8214348aec3117412936"
+    },
+    {
+      "path": "SCUMMVM-CE-M3-LATE-CASES17-CHECKPOINT.json",
+      "sha256": "38936d20e2d780b4ccfa1b449b1b733024ac9458b9ee12ed7200262072c4254b"
+    },
+    {
+      "path": "SCUMMVM-CE-M3-LATE-ENDING-CHECKPOINT.json",
+      "sha256": "5adb21119aa6c4f0679131037a8ea14bc657020ca882cd9db001d9b052c0d0dc"
+    },
+    {
+      "path": "SCUMMVM-CE-M3-LATE-NPC-CHECKPOINT.json",
+      "sha256": "d2f9880144256711f7af9d48a2704957521a2494d68a1adf9e12681d0051a2b0"
+    },
+    {
+      "path": "SCUMMVM-CE-M3-LATE-TRANSPORT-CHECKPOINT.json",
+      "sha256": "c5c45db57c0a3f59add12a1516f64d7615bf318bc32bb41b02c2290fd6958259"
+    },
+    {
+      "path": "SCUMMVM-CE-M3-LETTER17-CHECKPOINT.json",
+      "sha256": "7ed34759d4ec64c626f2e0a6a1737c90591c71371f218ae2ec961d47526f85ba"
+    },
+    {
+      "path": "SCUMMVM-CE-M3-LINKED27-CHECKPOINT.json",
+      "sha256": "d5360d992f7c2e843a9d0babcd57bc2d2f9c4d7be126c071ae51563ddc9749c5"
+    },
+    {
+      "path": "SCUMMVM-CE-M3-MONKS-ALL34-CHECKPOINT.json",
+      "sha256": "a113bc3a8b5c61caef0b6c47773143626c22bef68cb3e43b3a77154c52f0658e"
+    },
+    {
+      "path": "SCUMMVM-CE-M3-NYSTUL-VORTEX39-CHECKPOINT.json",
+      "sha256": "36d378eec5e4344684e7f01b5e4cbf8585e4803be898c1647bc8967687f5b5b2"
+    },
+    {
+      "path": "SCUMMVM-CE-M3-NYSTUL38-CHECKPOINT.json",
+      "sha256": "fe33e093a576460c1ede17ad1d0591dee33037a187700b9475394b184bff4454"
+    },
+    {
+      "path": "SCUMMVM-CE-M3-ORDER-CHECKPOINT.json",
+      "sha256": "b91cd2e107d043d51bae53501e57f4729cb0ecc9dd31ceb212f28105c7a195e6"
+    },
+    {
+      "path": "SCUMMVM-CE-M3-ORDER-DOOR-CHECKPOINT.json",
+      "sha256": "87adba87bece13d26858c34b773cee8f61458b9935c29352736105d7fdf20f8c"
+    },
+    {
+      "path": "SCUMMVM-CE-M3-ORDER-PORTALS73-CHECKPOINT.json",
+      "sha256": "fa863012b614481aa23b2d392381d4bf46ab51083cb4ef703ada72b6dd019b75"
+    },
+    {
+      "path": "SCUMMVM-CE-M3-PAGE57-PROVENANCE.json",
+      "sha256": "f732f6c759f1fff52b2179cd5a2fd22bef83e76fc5c428b4cf3e866befebbf05"
+    },
+    {
+      "path": "SCUMMVM-CE-M3-PARCHMENT-SEARCH-CHECKPOINT.json",
+      "sha256": "47f2b23f71b62f8b3b8c16a5f0472152c7c711af51a16b330118f1bd25c96b1f"
+    },
+    {
+      "path": "SCUMMVM-CE-M3-RAQUE25-CHECKPOINT.json",
+      "sha256": "b57f3957665ed223a076a79e425657afc6c97f9c6de2d5c0c2ac1eab3225a350"
+    },
+    {
+      "path": "SCUMMVM-CE-M3-REAL-PAGES-VORTEX-CHECKPOINT.json",
+      "sha256": "3bf82201d603be178b52905d7940a44cef14f619934fb8a85c319df2743ca03d"
+    },
+    {
+      "path": "SCUMMVM-CE-M3-RING-CHECKPOINT.json",
+      "sha256": "becb75c75efc43ed8b3bcdcafce045aba067c2b9b7e3e9e5d81aaacb2a999988"
+    },
+    {
+      "path": "SCUMMVM-CE-M3-RUSTY-DOOR25-CHECKPOINT.json",
+      "sha256": "196c60aef76014f2430cb96754572f19f9263bca5e6a666186f63f6fc7345667"
+    },
+    {
+      "path": "SCUMMVM-CE-M3-SHADOW-CHECKPOINT-EVENT.json",
+      "sha256": "6d921a7c9ff565b53d09e51517606d9358e0bbf451c296680ec0d080dc0f1527"
+    },
+    {
+      "path": "SCUMMVM-CE-M3-SHADOW-GUIDANCE-CHECKPOINT.json",
+      "sha256": "f3a228b239d9b8289365b373331184d09728d2156c4729aae599fd7f3338e423"
+    },
+    {
+      "path": "SCUMMVM-CE-M3-SHADOW-VORTEX-CHECKPOINT.json",
+      "sha256": "1da7ea270685954ebe97038b0432fbccfa846d0f3c702bb4a9f4bc392ff1ba63"
+    },
+    {
+      "path": "SCUMMVM-CE-M3-SHRUBBERY17-CHECKPOINT.json",
+      "sha256": "f0220cb2646706425f1411c39fdf5db56da85c2fe766d8042b98c574021db104"
+    },
+    {
+      "path": "SCUMMVM-CE-M3-SPELL-READY-CHECKPOINT.json",
+      "sha256": "e89810a7230f7b21b5123731ffa8760cac7f97d1ea8e086192494f0686bc5d5e"
+    },
+    {
+      "path": "SCUMMVM-CE-M3-STORY-ALL30-CHECKPOINT.json",
+      "sha256": "9cf1d4bddcec8ca9ae509ee0d3e55c4bebd77b46528ee9616f2efb03e0339730"
+    },
+    {
+      "path": "SCUMMVM-CE-M3-STRICT-ALL40-CHECKPOINT.json",
+      "sha256": "665faf9d4b113f8f9d2d92083cea975f08f5daf4a2bdd30c28f537b115faefb4"
+    },
+    {
+      "path": "SCUMMVM-CE-M3-SWITCH35-CHECKPOINT.json",
+      "sha256": "5f785568db64ce4de6f5f550ca86b50afd9df8a05c45febec8bff9b8f7d174a0"
+    },
+    {
+      "path": "SCUMMVM-CE-M3-TEMPLE-ENTRY-CHECKPOINT.json",
+      "sha256": "ae855ea2ede534c287a17328b96995f1a5870e937508696b066e60ed5e933cf1"
+    },
+    {
+      "path": "SCUMMVM-CE-M3-TOMB-CHECKPOINT.json",
+      "sha256": "1d37fef6c83327f4896720f072938b03cb679ae4c025a691461a1be65b6610bb"
+    },
+    {
+      "path": "SCUMMVM-CE-M3-TRANSPORT-CHECKPOINT.json",
+      "sha256": "86ee88c5ff15bf5afc80a6f2a3d6d381e6f29a65b1b1d097b6b162bfaabf8d53"
+    },
+    {
+      "path": "SCUMMVM-CE-M3-VORTEX-CHECKPOINT.json",
+      "sha256": "814deaa44b993f1402bde80fe977f859fab8fdfb4ca11c1c14413ca621728d94"
+    },
+    {
+      "path": "SCUMMVM-CE-M3-WATER-CHECKPOINT.json",
+      "sha256": "966703eed7f7c58be88afb03fce8672c77cc54703dc80d2710d3ee043a4ffa0f"
+    },
+    {
+      "path": "ce-m3-final-linked-classic\\20261015-222558\\verification.json",
+      "sha256": "9870fe157d19e4eb195554f9e72673ab777b2171cdc2bc0fcdb1ff3e747179ab"
+    },
+    {
+      "path": "ce-m3-final-linked\\20261015-222552\\verification.json",
+      "sha256": "74a29c9a1ba8eb914c4122989f02048c10ae2481cc1213c274cb8e8d6eed14ce"
+    }
+  ],
+  "closeout": "SCUMMVM-CE-M3-CLOSEOUT.md"
+}

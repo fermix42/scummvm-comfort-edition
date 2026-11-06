@@ -1,0 +1,70 @@
+{
+  "milestone": "M2",
+  "milestone_status": "IN PROGRESS",
+  "subtask": "M2.2a",
+  "status": "VERIFIED",
+  "scope": "Shared logical-slot save policy and actual Modern/Classic list chooser, API guards, restored modes and independent load handles; not complete in-game interfaces, metadata, grid or lifecycle",
+  "build": {
+    "session": 1353,
+    "warnings": 0,
+    "errors": 0,
+    "elapsed": "00:02:38.74"
+  },
+  "executable_sha256": "8e26c248898998bb47dd23e3e7323522c0c8f49db664fc3648d2e1be37fb3982",
+  "evidence": {
+    "modern": {
+      "path": "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m2-policy-modern-diagnostic\\20261015-135910\\verification.json",
+      "sha256": "f1f8f2f42285b88703337fed156d8dece59d1d41372f012f3e5d1f74c0d46b37"
+    },
+    "classic": {
+      "path": "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m2-policy-classic-diagnostic-final\\20261015-135926\\verification.json",
+      "sha256": "0d3c7f8ff8376b64bb3a95a18c293a94210b92e46d9586eb51403abab6da25da"
+    },
+    "m1_migration": {
+      "path": "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m2-policy-migration-diagnostic-final\\20261015-135940\\verification.json",
+      "sha256": "5fa9d01a0b705ddca94d57238f57b5ee88924db711c9cc10c2718cc5844b5863"
+    },
+    "resources": {
+      "path": "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m2-policy-resources-diagnostic-final\\20261015-135942\\verification.json",
+      "sha256": "4c7aca4ef4efbe0a296396304610b8775656a8ac079bc47170b35d9d67fa983e"
+    }
+  },
+  "source_sha256": {
+    "engines\\nox\\configure.engine": "774fc9df4834ca0e64018b72f326d14989a40c08f5c7fd78d06bbea6ee42c015",
+    "engines\\nox\\cpu.inc": "41c0fdff3d9d3466871ae76144b430b9b13bd29a2873a8899ebad56e4e208b97",
+    "engines\\nox\\cycles.inc": "2b1024aeab86cda827aec30eb696547ced1d333226263647b29b1d34db3acd6e",
+    "engines\\nox\\detection.cpp": "32753d7b31fd8fe9f61eb27c676e6564d79764aa94cd5283c2508b8ac056dbd6",
+    "engines\\nox\\host_validation.h": "1e191c652cf0d78f67fc47808da7611ef867fb5d5846cfecdc314bbe2efb598c",
+    "engines\\nox\\metaengine.cpp": "236e9bab03dd6da04e9b20ec1c91ef0987ffd31cfcc3dea5ee6ea970532a5313",
+    "engines\\nox\\mockingboard.cpp": "38d5c6a894cc7a6bd238b9ad9a6740ec5ff42c6f299b7f6ce858505a6c1817bc",
+    "engines\\nox\\mockingboard.h": "d0afe027dc9ff9b269b0c60bf04abc45566502a17aed25879316856911937f2e",
+    "engines\\nox\\module.mk": "1048017dae69035ebfbdd3f241c1ba1d25d30a101d844304fbd4231b31c0564f",
+    "engines\\nox\\movement.cpp": "4b03de9dd50c4a4cfc6c2e2d7da9d3fc3fc80a697dfd236a3340c1d25b84fdf9",
+    "engines\\nox\\nox.cpp": "fc3fb184b04ebe1335575715d979ed9741b00e9b47548d5d38a78bac5359ea11",
+    "engines\\nox\\nox.h": "429b232c99d5d432d641281c780b0af765b9667d62a072e46be3c3fa4d367398",
+    "engines\\nox\\records.h": "8045582e0ae5f83d027b8b197aa66a8309e9ff80f2117bce7edb86455eca9b7d",
+    "engines\\nox\\render.cpp": "bd7833eaccc812fad88b0d19e5070d9955e440142525ded89b3d30766120073a",
+    "engines\\nox\\resources.h": "1451464a6f8ea57039c3596c8aaa388701e5005fb3364b80b9e48bb04dc2cd95",
+    "engines\\nox\\runtime.cpp": "64594f2fa30b98cd3d7c016e77fe0ece686e3b987024f49ac46f88ed999624b1",
+    "engines\\nox\\runtime.h": "30ba0e5b9a1ad5216cf00863d72f4cd9a59078b8f7a399187093f27c0a5c9d28",
+    "engines\\nox\\runtime_state.cpp": "aaa29234fd715960d6f8b02387aa2c418686ea529cd3520d91f398fb1f49afbf",
+    "engines\\nox\\saves.h": "d79edc3104a8eb3bb324552dee7019a43529e8cb6b04bda36f196d4d79fb2af0",
+    "engines\\nox\\save_policy.h": "890bced00db32c534207055e5f6acf7247310102119da4c5bc66f13a4c7d72fc",
+    "engines\\nox\\session_validation.cpp": "5d6d8620c28bc20b522400361abfa5dc060c35038e256ce74a46620b4c8b16b4",
+    "engines\\nox\\snapshot.h": "bed382954ff3561cda90080e509e8944502842a7581e671fa7cd834396b9b149",
+    "engines\\nox\\speaker_audio.cpp": "b80e55470b95fcaf200f4346a0cb0bab8ce8ff3fe7e2436633da833a2da9f833",
+    "engines\\nox\\speaker_audio.h": "aad57abba83f4a02ee0780eb2eebc80e68a43181b285533dc3313f3ad307205f",
+    "engines\\nox\\validation.cpp": "400e51003a2d2e53e7c0e30fae0047fa8584b3f6cb2fa34c48916c107e310962",
+    "engines\\metaengine.h": "1e92062fc076a93e1ec515acc8a39109298a25a052f864ec1bbc12ef4c611d8e",
+    "gui\\saveload-dialog.cpp": "01efb923e6923b95069a14794c98247e6bb02df33753e7686e434c750767055f",
+    "backends\\graphics\\surfacesdl\\surfacesdl-graphics.cpp": "ae8495bb2a416fbc2cbad9546e6d58e9a3b6c5adb463302fa7bccacb20bc1482",
+    "devtools\\nox\\test_gameplay.py": "9741684d0dcf1a1462e5cd6c9f7cd90ea6c33f5d26d0af86de9e3d9dd667b475",
+    "devtools\\nox\\diagnose_startup.py": "ddf7673e6698f0296e5ab972e4bae8884772c6d76f56d5770c0d1a39641f9aa6"
+  },
+  "limitations": [
+    "Intermittent pre-engine SDL invalid-src blit remains unresolved. Diagnostics alone are not a fix. Six copied-fixture startup probes and this full serial regression set passed; prior failures are retained in progress.",
+    "Other-engine slot hook behavior is default true by source inspection and broad shared-header compile; other-engine gameplay not tested.",
+    "Classic slot2 visibility demonstrated; full positive slot2/session-management caller matrix remains M2.4.",
+    "Nox grid not advertised before M2.2c metadata support."
+  ]
+}

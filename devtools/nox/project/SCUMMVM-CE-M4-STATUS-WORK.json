@@ -1,0 +1,30 @@
+{
+  "status": "IN PROGRESS",
+  "scope": "Connected tactical/Quick party status eligibility,automatic nonparty turns,formation,input,results/flee/defeat and cold lifetime",
+  "build": "319",
+  "executable_sha256": "d478a7e62697a9dbd6e5d1d628aa90fbe8ff51b203a5ec664e398b74af89cf5b",
+  "source": "combat-contract-research/eligibility-reference1/metadata.json",
+  "source_cases": 5460,
+  "automatic_cases": 126,
+  "source_steps": 402066,
+  "verified": [
+    "ce-m4-status319-source/verification.json",
+    "ce-m4-status319-world/verification.json",
+    "ce-m4-status319-regression/verification.json",
+    "ce-m4-status319-quick/verification.json"
+  ],
+  "changes": [
+    "BattleRound firstEligibleParty and initial selection follow source lowstate<2;member0sleep skips toeligible1. Status1remainscommandable.",
+    "Noeligibleparty retains explicit automatic turn phase3 instead of rejecting. One automatic cycle calls existing NPCpursuit/physical/spell/death owners;no wake/reset invented.",
+    "EncounterState owns/persistsphase3;CE host advancesactualautomaticcycles andrejectsplayerbattlecommandsduringthem.",
+    "Before-world-input fixture conditions0/1/2 and HP<=source max72 areexplicit;optional observation checkpoint stops BEFORE automatic round1..128 without outcome injection.",
+    "Typed original source eligibility reference runs insideCE,plus broader retained physical/NPC/spell/Quick/geometry/reward/terminal source regression."
+  ],
+  "observed_failure": "Initial all-sleeping Rat profile reached observation before128 with381NPCactions and unchangedHP1;source enemyattackpower2,partyarmor38. Preserved asbounded survival,not a completed defeat or claimed enginebug. Source-authored Ruin63enemy power232 selectedbeforeinput completes actualenemy-inflicted defeat withno player actions;split cold/uninterruptedfullpacketsmatch.",
+  "pending": [
+    "Status acquisition/inn/temple clearing and normal CE defeat recovery",
+    "Parent fallback,special/transport/cannon",
+    "W2/W3 ordinary dialogue/quest/party/resources and remaining W1-W8"
+  ],
+  "next_action": "Continue connected B2 status acquisition/inn/temple and W2/W3 ordinary dialogue/quest/party/inventory workflows from existing semantic owners and source/data contracts. Travel fallback,special/transport/cannon remain. Full W1-W8/CE/audio/save/session/native-only and earned ending acceptance remain."
+}

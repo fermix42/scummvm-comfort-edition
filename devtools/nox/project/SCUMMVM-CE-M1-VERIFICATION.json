@@ -1,0 +1,223 @@
+{
+  "milestone": "M1",
+  "status": "VERIFIED",
+  "verified_at": "2026-10-15T12:44:39.457643",
+  "base_ce_commit": "5f84c5cd08cbc54083cf72da8cfa1665294c2bca",
+  "executable_sha256": "81a51beec3a1044812ba53a5c2166e12ceaa7d021b4f4563e6f521c89600fb44",
+  "build": {
+    "session": 78637,
+    "warnings": 0,
+    "errors": 0,
+    "elapsed": "00:02:33.64",
+    "command": "powershell.exe -NoProfile -ExecutionPolicy Bypass -File ./run-build-release-cleanenv.ps1"
+  },
+  "criteria": [
+    {
+      "task": "M1.0",
+      "status": "VERIFIED",
+      "criterion": "Persistent plan, instructions, scoped authorization and mirrored evidence",
+      "evidence": [
+        "progress",
+        "plan",
+        "instructions"
+      ]
+    },
+    {
+      "task": "M1.1",
+      "status": "VERIFIED",
+      "criterion": "Independent resource/record parity and malformed-input rejection",
+      "evidence": [
+        "resources"
+      ]
+    },
+    {
+      "task": "M1.2",
+      "status": "VERIFIED",
+      "criterion": "CE engine registration and exact base/expansion detection matrix",
+      "evidence": [
+        "resources"
+      ]
+    },
+    {
+      "task": "M1.3",
+      "status": "VERIFIED",
+      "criterion": "Real launcher, new game, render, movement, Open action and responsive menu/quit",
+      "evidence": [
+        "gameplay"
+      ]
+    },
+    {
+      "task": "M1.4",
+      "status": "VERIFIED",
+      "criterion": "Nonzero mixer PCM, elapsed pacing, pause/resume, cold-load reset and quit",
+      "evidence": [
+        "gameplay"
+      ]
+    },
+    {
+      "task": "M1.5",
+      "status": "VERIFIED",
+      "criterion": "Existing CE zero-award sessions, actual HTTP sync and immutable replay with independent ownership/hash audit",
+      "evidence": [
+        "resources",
+        "online",
+        "server"
+      ]
+    },
+    {
+      "task": "M1.6",
+      "status": "VERIFIED",
+      "criterion": "Full codec, actual chooser, two session-qualified slots, cold continuation, killed overwrite recovery and corrupt-load rollback",
+      "evidence": [
+        "gameplay",
+        "failures",
+        "resources"
+      ]
+    },
+    {
+      "task": "M1.7",
+      "status": "VERIFIED",
+      "criterion": "Same-binary destination suite, standalone preservation, original resources unchanged and documented limits",
+      "evidence": [
+        "gameplay",
+        "failures",
+        "resources",
+        "online",
+        "server",
+        "standalone"
+      ]
+    }
+  ],
+  "evidence": {
+    "gameplay": {
+      "path": "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m1-final\\20261015-123959\\verification.json",
+      "sha256": "c0deec625a3fffb751ffc9dc1ea5c050a3f7ddcaac669a7254df5bbe35985256"
+    },
+    "failures": {
+      "path": "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m1-final-failures\\20261015-124033\\failure-verification.json",
+      "sha256": "c0c57a43ce0069d43a19f5c283087dff2944b17e70a69993d9bc552ef302d863"
+    },
+    "resources": {
+      "path": "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m1-final-resources\\20261015-124054\\verification.json",
+      "sha256": "6a95df33dc8df47b3539e96d6e3e04a111e50624baf2721fc9deb370ff2c9d79"
+    },
+    "online": {
+      "path": "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m1-final-hermesbox\\20261015-124104\\verification.json",
+      "sha256": "e7a90fea38b7a89e7fc94d605532fa9896d54feaedbf29226113ab72a635ceae"
+    },
+    "server": {
+      "path": "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m1-final-hermesbox\\20261015-124104\\server-verification.json",
+      "sha256": "97e09493b17528134ca80ed1e8b13aa3e84774a230cdd78b791a429c1b62ec33"
+    },
+    "standalone": {
+      "path": "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m1-standalone-final-verification.json",
+      "sha256": "ab7595620e6e90e802adc2e199597e96f705563b05455407f89236ab61cf3b34"
+    },
+    "account_cleanup": {
+      "path": "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m1-test-account-cleanup.json",
+      "sha256": "fe16d6f122afc85318a492f4d24adc4708e077ae3702c3b6f5e38a01386594dc"
+    },
+    "website": {
+      "path": "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m1-website-final-verification.json",
+      "sha256": "3404dad6fdb4ba7ebe32e5ff0ef4b4b270784c9fbe3620fdcf71c67ed3ee013e"
+    },
+    "progress": {
+      "path": "D:\\Codex Projects\\Nox Archaist\\conversion\\SCUMMVM-CE-PROGRESS.md",
+      "sha256": "e8fa134ed4316c3fe457b89153f5d5e600f323fadcbc3926c7b5bacc75e0289c"
+    },
+    "plan": {
+      "path": "D:\\Codex Projects\\Nox Archaist\\conversion\\SCUMMVM-CE-IMPLEMENTATION-PLAN.md",
+      "sha256": "6d0c153e6381005976dfe667620353869c1621723237ff46605831f7ee8683e1"
+    },
+    "instructions": {
+      "path": "D:\\Codex Projects\\Nox Archaist\\AGENTS.md",
+      "sha256": "7e5aa38019705ae6b16df4413efaaeeb8a345d235a749bfbebb90d7aca48ad4e"
+    },
+    "historical_work_log": {
+      "path": "D:\\Codex Projects\\Nox Archaist\\conversion\\SCUMMVM-CE-M1-WORK-LOG.md",
+      "sha256": "4036a805680a9495e0ad835377924d06068a4a9bbb118afbb5e9a7f6ddc84355"
+    }
+  },
+  "compiled_sources_sha256": {
+    "engines/nox/cpu.inc": "41c0fdff3d9d3466871ae76144b430b9b13bd29a2873a8899ebad56e4e208b97",
+    "engines/nox/cycles.inc": "2b1024aeab86cda827aec30eb696547ced1d333226263647b29b1d34db3acd6e",
+    "engines/nox/detection.cpp": "21f8d2d0a870bc1698ce2392f4a8598eeb5c0200ef655f46c8deb47bc7ac48e2",
+    "engines/nox/host_validation.h": "4109be981383a6b1129c33537dcccf0ee7d11c165dce674ef5aa2204e65f2cf3",
+    "engines/nox/metaengine.cpp": "630abeb8113565632d53f84276084f491b3643f0a0ecdafaadef66b40d0ee666",
+    "engines/nox/mockingboard.cpp": "38d5c6a894cc7a6bd238b9ad9a6740ec5ff42c6f299b7f6ce858505a6c1817bc",
+    "engines/nox/mockingboard.h": "d0afe027dc9ff9b269b0c60bf04abc45566502a17aed25879316856911937f2e",
+    "engines/nox/movement.cpp": "4b03de9dd50c4a4cfc6c2e2d7da9d3fc3fc80a697dfd236a3340c1d25b84fdf9",
+    "engines/nox/nox.cpp": "27375e19c76bda05476945f6eda910854e9916ef651bff2087905e828dd1f2a4",
+    "engines/nox/nox.h": "14d688e07a5d316df4a9c92f06e1e71b8186ed387b9798eeb93f3487c34bb431",
+    "engines/nox/records.h": "8045582e0ae5f83d027b8b197aa66a8309e9ff80f2117bce7edb86455eca9b7d",
+    "engines/nox/render.cpp": "bd7833eaccc812fad88b0d19e5070d9955e440142525ded89b3d30766120073a",
+    "engines/nox/resources.h": "64c4d709bcecd8f1c531f30cefb7ae27d15126b54bc824e0b14ff8d385636f56",
+    "engines/nox/runtime.cpp": "64594f2fa30b98cd3d7c016e77fe0ece686e3b987024f49ac46f88ed999624b1",
+    "engines/nox/runtime.h": "30ba0e5b9a1ad5216cf00863d72f4cd9a59078b8f7a399187093f27c0a5c9d28",
+    "engines/nox/runtime_state.cpp": "aaa29234fd715960d6f8b02387aa2c418686ea529cd3520d91f398fb1f49afbf",
+    "engines/nox/saves.h": "7655fe6e0efc873aa0a43ca1eec3a77802af6ec670c303efd7b71ca7d5187af3",
+    "engines/nox/session_validation.cpp": "5d6d8620c28bc20b522400361abfa5dc060c35038e256ce74a46620b4c8b16b4",
+    "engines/nox/snapshot.h": "41dd045bf164c864b587859080dc635b8610045477a91e2ca04f7ef702e83280",
+    "engines/nox/speaker_audio.cpp": "b80e55470b95fcaf200f4346a0cb0bab8ce8ff3fe7e2436633da833a2da9f833",
+    "engines/nox/speaker_audio.h": "aad57abba83f4a02ee0780eb2eebc80e68a43181b285533dc3313f3ad307205f",
+    "engines/nox/validation.cpp": "cd5cda41696dda76d0274285b9a6b5f0819d0b9ffbf8eb7582edf2219723b693",
+    "engines/ce_achievements.cpp": "04f61167dfdff54d33ffda58c1e0b351db393ea828668e900f67cb45c592078e",
+    "engines/ce_achievements.h": "b1f4247666f44250920160a7f10b860c4a5a35ccd4098682025b669e6334f947",
+    "engines/metaengine.h": "fcf5d713d48f781468d6de9f9f4f94141cd5ccd8d6247590f294d6d58572c1af",
+    "gui/launcher.cpp": "9e02cc9151b9dd3f76c52cbfe7de571065acaad088f09d95da9829426d4c234f",
+    "devtools/nox/launcher_validation.h": "fe7160f3277a8855c6996ca486eeda414b920821cb711ef4ef0cae07b4946a11"
+  },
+  "original_sha256": {
+    "D:\\Codex Projects\\Nox Archaist\\Nox Archaist HDV (v119).HDV": "c42a95c7a356548c78957f98693e92d33c9bae3ff5126d9887c2980e5a490c3c",
+    "D:\\Codex Projects\\Nox Archaist\\Nox Archaist Lord of Storms HDV (v137).HDV": "90ec012a317c56ab9a5182a1a877227fa7a18ebed72567d2bf08888956b635c9"
+  },
+  "standalone_nox_live_sha256": "d26b2e8dd19efc1420ae569892f8ae3bd6f39f06cbfd835758f95cfdd1e0d695",
+  "website": {
+    "status": "VERIFIED",
+    "command": [
+      "C:/Users/aaron/.config/herd-lite/bin/php.exe",
+      "vendor/bin/pest",
+      "tests/Feature/NoxPlaythroughApiTest.php",
+      "tests/Feature/GamePagesTest.php",
+      "tests/Feature/PlaythroughApiTest.php",
+      "--compact"
+    ],
+    "environment": {
+      "APP_ENV": "testing",
+      "DB_CONNECTION": "sqlite",
+      "DB_DATABASE": ":memory:",
+      "DB_URL": ""
+    },
+    "tests": 27,
+    "assertions": 195,
+    "pint": "passed",
+    "files_sha256": {
+      "database/seeders/DatabaseSeeder.php": "a8e1a0fa8d9b108c57f43892e7c23988d3e0b197eb79a0c61a9d783c66a74fd3",
+      "database/seeders/NoxArchaistSeeder.php": "2be923970f2363e6b33b2198e4c9c15fa3eda9cc9b233b3d89c7f1a08a1a8323",
+      "tests/Feature/NoxPlaythroughApiTest.php": "4e99eb78a2cb5fae6faac719a9f9eae1456c709561af8c7897fcf9583374e5b8"
+    }
+  },
+  "limitations": [
+    "Bounded base-v119 opening gameplay, not a verified full campaign (M3).",
+    "Generic original-instruction compatibility runtime and machine-coupled music remain until M4.",
+    "Manual CE saves only; unified modern/classic policy, enhancement-state UI and complete session management matrix are M2.",
+    "Existing CE delete-without-saves may clear only a selected generation sidecar; backup-generation management remains M2.",
+    "SDL dummy video intermittently fails before engine startup; final host/resource tests use native Windows SDL.",
+    "Generated nonzero PCM/mixer behavior verified with dummy audio, not physical listening or hardware-output quality.",
+    "Working changes remain local and uncommitted; no push or website source deployment."
+  ],
+  "later_milestones": {
+    "M2": "NOT STARTED",
+    "M3": "NOT STARTED",
+    "M4": "NOT STARTED"
+  },
+  "final_checks": {
+    "compiled_sources_match_tested_binary_inputs": "VERIFIED",
+    "evidence_hashes": "VERIFIED",
+    "original_resource_hashes": "VERIFIED",
+    "architecture_unchanged": "VERIFIED",
+    "private_credentials_absent_from_source_and_tracking": "VERIFIED",
+    "ce_and_website_diff_check": "VERIFIED",
+    "python_syntax": "VERIFIED"
+  }
+}

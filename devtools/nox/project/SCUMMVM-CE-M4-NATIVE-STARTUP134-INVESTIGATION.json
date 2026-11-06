@@ -1,0 +1,20 @@
+{
+  "status": "IN PROGRESS",
+  "scope": "Rejected native owner implementation; never a gameplay pass",
+  "source_archive": {
+    "path": "ce-m4-native-startup134-rejected-source.zip",
+    "sha256": "b71be6ff02713f46ce7c2b13c4d6be6b480e8d4618bc824ae1a52c77af42a46a"
+  },
+  "executable": {
+    "path": "ce-m4-binary\\scummvm-native-startup134-rejected.exe",
+    "sha256": "4918d9f98284df88740435767a147af63dc4faa9ab8d81a20e110f973e9e180b"
+  },
+  "failure_log": {
+    "path": "ce-m4-native-startup134.log",
+    "sha256": "a914a7be0664e7a4a9e2889191b4a6e7f24bbe8d160483279a0ca1ea78314e42"
+  },
+  "finding": "Startup replay treated source exhaustion as processed queue exhaustion. EventDispatcher dispatch queues every key pair in one batch; host exited before pending key presses reached creation handler. 90-second bounded test rejected; no gameplay pass.",
+  "next_action": "Correct the implementation using actual source evidence; preserve all original numeric reference outcomes and rerun affected CE checks.",
+  "subsequent_diagnosis": "135 review identified external key-file open via SearchMan as the first rejected branch. The queued-event exhaustion issue also existed and was corrected before successful136/137;134 itself did not prove handler execution.",
+  "resolution": "SCUMMVM-CE-M4-NATIVE-STARTUP137-UNIT.json"
+}

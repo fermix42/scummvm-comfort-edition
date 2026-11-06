@@ -1,0 +1,98 @@
+{
+  "milestone": "M2",
+  "milestone_status": "IN PROGRESS",
+  "subtask": "M2.4a",
+  "status": "VERIFIED",
+  "scope": "Valid-session permanent assistance/reason isolation, older clean save loads, explicit legacy Casual migration and real queued metadata/immutable replay with authentic delayed clean start responses. Excludes archive/delete, missing or corrupt history, offline-to-link and transport backoff.",
+  "executable_sha256": "8f724a110aa26b46dc62275692fda4e13be395856b6276c2e2a81f69cd0c6f09",
+  "build": {
+    "session": 34704,
+    "elapsed": "00:02:36.57",
+    "errors": 0,
+    "warnings": 1,
+    "warning": "C4506 common/singleton.h Networking ConnectionManager inline template warning; log retained"
+  },
+  "evidence": {
+    "relay_modern": {
+      "path": "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m2-assistance-verified-modern\\20261015-173328\\relay-verification.json",
+      "sha256": "eb9d17005213e24f07064a33453322039004a9d4727caa32543b6743edfd830d"
+    },
+    "client_modern": {
+      "path": "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m2-assistance-verified-modern\\20261015-173328\\ce\\20261015-173329\\verification.json",
+      "sha256": "fed7771c706dfe3e848e35aca85401c583c9bc6c3ae6dedc15dcf45ad46c6b5d"
+    },
+    "server_modern": {
+      "path": "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m2-assistance-verified-modern\\20261015-173328\\ce\\20261015-173329\\server-verification.json",
+      "sha256": "21d313381ba7648a2a8cd70716e788945b5f6c48c83a6ac95a44bd85e5118a25"
+    },
+    "legacy_modern": {
+      "path": "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m2-assistance-verified-legacy-modern\\20261015-173352\\verification.json",
+      "sha256": "54cc8c7036cef3c835ba8d41e32c3d7c791c549e6b3d7b310e896a32edfe770e"
+    },
+    "relay_classic": {
+      "path": "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m2-assistance-verified-classic\\20261015-173440\\relay-verification.json",
+      "sha256": "f51ac4a9d70b47475fb07741a574a5aadcb470c8b58ad8117781241883ab219b"
+    },
+    "client_classic": {
+      "path": "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m2-assistance-verified-classic\\20261015-173440\\ce\\20261015-173440\\verification.json",
+      "sha256": "ceac2f081ca6284df46802760bcf89a97c26517087cc54537015f40717744e47"
+    },
+    "server_classic": {
+      "path": "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m2-assistance-verified-classic\\20261015-173440\\ce\\20261015-173440\\server-verification.json",
+      "sha256": "dd8424d093f6387883c4beae1857d015976ef607a5411c214e86e4d32ec90b2e"
+    },
+    "legacy_classic": {
+      "path": "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m2-assistance-verified-legacy-classic\\20261015-173426\\verification.json",
+      "sha256": "e2e43cdc22ec0ae0bc32e642cecf426e7620a29eb7805aa0859968e952432c4a"
+    },
+    "cleanup": {
+      "path": "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m2-assistance-verified-account-cleanup.json",
+      "sha256": "ad8a6e982fd3765e4ec477ff07277a49cb4512536ba6653c44c8f07b3b771b13"
+    }
+  },
+  "criteria": {
+    "modes": [
+      "Modern",
+      "Classic"
+    ],
+    "actual_saves_per_mode": 3,
+    "sessions_per_mode": 2,
+    "older_newer_cold_loads_per_process": 4,
+    "actual_api_requests_per_mode": 35,
+    "credential_budget_probe_per_mode": 1,
+    "http_request_breakdown": {
+      "playthrough_start_including_retries": 4,
+      "save_load_metadata_including_retries": 23,
+      "assistance_audits_including_retries": 8,
+      "achievements": 0
+    },
+    "authentic_delayed_clean_replies_per_mode": 1,
+    "older_clean_save_loads_preserve_permanent_taint": true,
+    "per_session_reason_arrays": true,
+    "legacy_unknown_assistance_explicit": true,
+    "independent_server_audit": true,
+    "zero_achievement_definitions_and_events": true,
+    "private_test_credential_revoked": true
+  },
+  "remaining_m2": [
+    "HTTP429 Retry-After/backoff, including cold process and immutable payload preservation",
+    "Archive/delete with and without saves; full generation/sidecar grouping",
+    "Missing/corrupt/unknown-history recovery",
+    "Offline creation then link/sync",
+    "Full failure/provenance matrix and original save caller identity audit"
+  ],
+  "source_sha256": {
+    "engines\\ce_achievements.cpp": "bf134c95f658f09b01cf2d33c0c6ca98deada56473f811fd2b495fcfc0c46857",
+    "engines\\ce_achievements.h": "3dc5c2e35cd82cd5c7df27d6aac51c8e40a3473d7a421f44380eccbae76bfcfb",
+    "engines\\nox\\nox.cpp": "ff874f3ddd30d14066361c6d69cbc4fbbdabb5d96e3fb5183b8a7758b4a7306d",
+    "engines\\nox\\dialogue_validation.h": "e838b3c33d4d16c68820b01bbba3dd0fd7a0bdd34165bcac6dabad223e5f59e6",
+    "devtools\\nox\\test_dialogue.py": "9bfad9a83115deb3efa8a8bbd30904724290aff8b2f21278e6f81e69c38ba3bf",
+    "devtools\\nox\\test_assistance_transport.py": "f549e8d73a168833589458bc5ac9cc31ac82b36fa826f5cbdf46ae37f8f091c0",
+    "devtools\\nox\\verify_assistance_hermesbox.py": "e55e3424ae530751c74e3e1fd7c752674c2dfdc2eec1fcf65eecbaa6acac2f27",
+    "devtools\\nox\\revoke_hermesbox.py": "e59d2a92c0a93a1b434754a1822e5329d7d454d3c41b07a18dc3639e4fb7aa84"
+  },
+  "retained_failed_runs": [
+    "ce-m2-assistance-transport-modern/20261015-171710",
+    "ce-m2-assistance-relay-ipv4-classic/20261015-172019"
+  ]
+}

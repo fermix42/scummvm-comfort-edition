@@ -1,0 +1,43 @@
+{
+  "status": "IN PROGRESS",
+  "last_frozen_checkpoint": "SCUMMVM-CE-M4-WORLDCANNON366-CHECKPOINT.json",
+  "native_owner": "PlayerSessionState owns the semantic world and continuation state;Engine calls staged native load anddurable generic saves withoutcompatibilityRuntime.",
+  "qualified_evidence": {
+    "build367": "zero warnings/errors32.73s;10 actual hostile/protection/battle/return owner regressions",
+    "build368": "zero warnings/errors33.14s;Modern andClassic warm/cold actualEngine saves,Qcancel,twoSessionisolation,freshBcreation/story,savedmode andpermanentassistancepass"
+  },
+  "remaining": [
+    "Supported compatibility/legacy save import",
+    "Nativeaudio/music continuity andsettings",
+    "Complete native newgame/Continue/menu/presentation/ending lifecycle",
+    "ExceptionalQuick retainedeffect context andremainingcampaign/large/edgecallers",
+    "Native-onlyreleaseandearnedcampaignactualendingacceptance"
+  ],
+  "external_blocker": false,
+  "latest_verified_checkpoint": "SCUMMVM-CE-M4-NATIVE-SERVICES376-CHECKPOINT.json",
+  "last_combat_checkpoint": "SCUMMVM-CE-M4-WORLDCANNON366-CHECKPOINT.json",
+  "next_action": "Continue dependency-complete B3 campaign-specific admission/return/ending and W6 semantic events,authored music/SFX cue placement,legacy import andnormalmenu. Keep retained067D forcedQuick andpartialedge contexts named. After required W1-W6 acceptance automatically execute M4.2 native-only compilation/audit andM4.3 earned campaign;no document/checkpoint stop.",
+  "native_lifecycle370": {
+    "reports": {
+      "ce-m4-native370-player-modern\\verification.json": "d2c68a22871248de2af3a4703bbc898725c5349ad32e2e845a75f03ccbaf72ff",
+      "ce-m4-native370-player-classic\\verification.json": "d4cdfa8d801155d8156fb74d82dc9345452d374c5742d100fc0a490da07baeac"
+    },
+    "executable_sha256": "cd3aba34ad9f00212d1d10dc609e32d3e9b4f00747c2449989773af60c25b996",
+    "scope": "Normal native Engine saves, real save/load choosers, Q cancellation, two Play Sessions, fresh creation/story, saved-mode restoration, permanent assistance, orphaned-save recovery and cold loading; not all W6 or M4"
+  },
+  "qualified_scope": "Native music sequencing/synthesis/persistence andCE mixer/menu/volume/save/session/recovery services,plus source-qualified compact/NPC footprint cannon andactual NPC-removal/sailing/whole sea-battle/return/cold;not complete W4/W6/M4",
+  "native_services376": {
+    "executable_sha256": "f77c9d2c1200c65faa28a5d1f7747e3952ccee7c1269355b0c2c717b9ca56762",
+    "reports": {
+      "ce-m4-native-audio376-player-modern/verification.json": "a15ae2ff6f026e064b466083e045782c1d6f654b4c7b592d5713884616432400",
+      "ce-m4-native-audio376-player-classic/verification.json": "6e59d25190bdc0398b2d69f28ecc907660e3cd09250bb0aa5ec24942dede5c7f",
+      "ce-m4-worldcannon376-npc/verification.json": "05631113cb5dceec1f5cfae8eab7e1b35a856ee8c032d4c13c01ba1d67c3413d",
+      "ce-m4-native-audio376-source\\20261018-161932\\saves\\nox-resource-validation.tsv": "8c62aa69691e3a03150428a2323eb71a13d16238d04f5b208ad39c9a123ea84b",
+      "native-audio-research371-reference5/metadata.json": "092465d42e2d922d0ef20a862bc72ab92dd8e560f5453d93c0b130027962ed93",
+      "native-audio-research371-reference5/qualification.json": "a2c6d0d626fe958c3f4c824f33a637aebf3b8b7d75ea2a078777df4ea2d16a40",
+      "world-projectile-research375/player-reference1/metadata.json": "d7542e292b70f791d6adee8713fa61cc54db9585b7008546a66e13512df136c0",
+      "world-projectile-research375/combined/metadata.json": "de46d646903a112f74cb73f603f27f7c79481264e92fda60b65938b9f43622a1",
+      "ce-m4-focused376.log": "708a97951f8fb01f813f8cd6b34e9cd0885f7590015c79fa74812dce8c8a20da"
+    }
+  }
+}

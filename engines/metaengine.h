@@ -340,7 +340,9 @@ public:
 	 * @param saveMode  If true, get the list for a save dialog.
 	 * @return A list of save state descriptors.
 	 */
-	SaveStateList listSaves(const char *target, bool saveMode) const;
+	// CE: banked engines may expose logical slots when saving and unique
+	// file IDs when loading. The default preserves existing engine behavior.
+	virtual SaveStateList listSaves(const char *target, bool saveMode) const;
 
 	/**
 	 * Return the slot number that is used for autosaves, or -1 for engines that
@@ -367,6 +369,11 @@ public:
 		return hasFeature(kSavesUseExtendedFormat) ? 99 : 0;
 	}
 
+	/** Filter active-session save choices without restricting cross-session load handles.
+	 * The default leaves existing engine chooser behavior unchanged.
+	 */
+	virtual bool isSaveSlotAllowed(const char *target, int slot) const { return true; }
+
 	/**
 	 * Remove the specified save state.
 	 *
@@ -380,6 +387,13 @@ public:
 	 * @param slot    Slot number of the save state to be removed.
 	 */
 	virtual bool removeSaveState(const char *target, int slot) const;
+
+	/** Keep a saved world while detaching its deleted CE Play Session.
+	 * Engines whose commit metadata also identifies the original owner may
+	 * retain that metadata and recover the world with unknown/Casual history.
+	 */
+	virtual bool detachSavePlaythrough(const char *target, int slot, const Common::String &clientPlaythroughId) const;
+
 
 	/**
 	 * Return meta information from the specified save state.

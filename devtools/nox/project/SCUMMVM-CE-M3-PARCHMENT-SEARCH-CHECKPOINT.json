@@ -1,0 +1,889 @@
+{
+  "status": "VERIFIED",
+  "milestone": "M3",
+  "scope": "All seven source parchment Search/repeat/cold cases VERIFIED independently both modes; linked collection/subsequent consumption pending",
+  "actual_search_repeat_cold": "VERIFIED",
+  "linked_seven_page_collection": "VERIFIED",
+  "reports": [
+    {
+      "path": "ce-m3-page-source7-1/20261016-142439/verification.json",
+      "sha256": "b92ab42509072e9d4b95a8019f10f39300fa4c340a853f530a090a967bbc8c7e",
+      "mode": "Modern",
+      "page": 1,
+      "mask": 4,
+      "result": {
+        "save": "ce-m3-page-source7-1\\20261016-142439\\saves\\nox-ce-ed5939a032719adcfecdf986a9261c4a-d84ec0d7da8d62f1475da064c365f72a-slot001.g1",
+        "save_sha256": "ed5e06ce7cf628d1f08aef2c8b0c47b626ce1a16ecba3df017c1c1d3de674071",
+        "runtime_sha256": "e29c2676cf85ef13455d239c2d853eb5530e10b4c67c252ad558bd6c6aa400e6",
+        "generation": 2,
+        "slot": 1,
+        "PC": 29148,
+        "SP": 255,
+        "alternate": 0,
+        "stack_return": 0,
+        "map": 78,
+        "map_type": 7,
+        "xy": [
+          6,
+          9
+        ],
+        "pageflags": 4,
+        "research": 0,
+        "transport_flags": 0,
+        "keyflag_040F": 0,
+        "keyflag_0410": 0,
+        "party_count": 1,
+        "status": 0,
+        "level": 1,
+        "health": 50,
+        "maximum_health": 50,
+        "mana": 8,
+        "inactive": 0,
+        "STR_DEX_INT": [
+          8,
+          8,
+          8
+        ],
+        "Range": 10,
+        "Range_training_remaining": 0,
+        "weapon_range_bytes": [
+          1,
+          16
+        ],
+        "spell_slot1": 50,
+        "spell_quantity": 0,
+        "Ankh_quantity": 0,
+        "key_quantity": 0,
+        "staff_quantity": 0,
+        "enemy_health": 0,
+        "encounter_sprite": 0,
+        "ending_loop": 0
+      },
+      "executable_sha256": "b5e81d8845503a3f99338cbc0e3e308aa319e883acfeab48bea64ab48d2ae8e9",
+      "source_sha256": {
+        "devtools\\nox\\test_campaign.py": "d26381ae651bfafd04a28e55b9d46f74311b130f08c77f7f98fefe44457db6cf",
+        "engines\\nox\\campaign_validation.h": "fa33505b73416cb349cd96fbb87d428dc297863679dccd7b5a7ea0413c8dda6d"
+      },
+      "initializations": "three authored-exit loader setups then source-guarded adjacency; all before tested Search; no page/item/quest outcomes injected"
+    },
+    {
+      "path": "ce-m3-page-source7-1-classic/20261016-142631/verification.json",
+      "sha256": "c7ba6a232c8a341349b523acec4912312bd9d077f633c77b8c6119dacec91578",
+      "mode": "Classic",
+      "page": 1,
+      "mask": 4,
+      "result": {
+        "save": "ce-m3-page-source7-1-classic\\20261016-142631\\saves\\nox-ce-ed5939a032719adcfecdf986a9261c4a-699f912ad79731a4f4de55f74f474651-slot001.g1",
+        "save_sha256": "2efcbde53dfd6f1826c40fab415736ff55ce3c1ebaa11d96d86764acab85257b",
+        "runtime_sha256": "e29c2676cf85ef13455d239c2d853eb5530e10b4c67c252ad558bd6c6aa400e6",
+        "generation": 2,
+        "slot": 1,
+        "PC": 29148,
+        "SP": 255,
+        "alternate": 0,
+        "stack_return": 0,
+        "map": 78,
+        "map_type": 7,
+        "xy": [
+          6,
+          9
+        ],
+        "pageflags": 4,
+        "research": 0,
+        "transport_flags": 0,
+        "keyflag_040F": 0,
+        "keyflag_0410": 0,
+        "party_count": 1,
+        "status": 0,
+        "level": 1,
+        "health": 50,
+        "maximum_health": 50,
+        "mana": 8,
+        "inactive": 0,
+        "STR_DEX_INT": [
+          8,
+          8,
+          8
+        ],
+        "Range": 10,
+        "Range_training_remaining": 0,
+        "weapon_range_bytes": [
+          1,
+          16
+        ],
+        "spell_slot1": 50,
+        "spell_quantity": 0,
+        "Ankh_quantity": 0,
+        "key_quantity": 0,
+        "staff_quantity": 0,
+        "enemy_health": 0,
+        "encounter_sprite": 0,
+        "ending_loop": 0
+      },
+      "executable_sha256": "b5e81d8845503a3f99338cbc0e3e308aa319e883acfeab48bea64ab48d2ae8e9",
+      "source_sha256": {
+        "devtools\\nox\\test_campaign.py": "d26381ae651bfafd04a28e55b9d46f74311b130f08c77f7f98fefe44457db6cf",
+        "engines\\nox\\campaign_validation.h": "fa33505b73416cb349cd96fbb87d428dc297863679dccd7b5a7ea0413c8dda6d"
+      },
+      "initializations": "three authored-exit loader setups then source-guarded adjacency; all before tested Search; no page/item/quest outcomes injected"
+    },
+    {
+      "path": "ce-m3-page-source7-2/20261016-142458/verification.json",
+      "sha256": "c6711c9ed92fab435175cb242eb3ee497966c15cefe671b355f7a6f89e407065",
+      "mode": "Modern",
+      "page": 2,
+      "mask": 8,
+      "result": {
+        "save": "ce-m3-page-source7-2\\20261016-142458\\saves\\nox-ce-ed5939a032719adcfecdf986a9261c4a-8dbb833c7f077b96377e9f6557f0a864-slot001.g1",
+        "save_sha256": "0bd4353adbefda44fc3f5c284b13ee8617049036822b97a7935c9c3cebcbd871",
+        "runtime_sha256": "2c10a9df10d1cc10058eba1883e6455e5d1426bf54afb5059725d11603d14ac6",
+        "generation": 2,
+        "slot": 1,
+        "PC": 29148,
+        "SP": 255,
+        "alternate": 0,
+        "stack_return": 0,
+        "map": 78,
+        "map_type": 7,
+        "xy": [
+          27,
+          12
+        ],
+        "pageflags": 8,
+        "research": 0,
+        "transport_flags": 0,
+        "keyflag_040F": 0,
+        "keyflag_0410": 0,
+        "party_count": 1,
+        "status": 0,
+        "level": 1,
+        "health": 50,
+        "maximum_health": 50,
+        "mana": 8,
+        "inactive": 0,
+        "STR_DEX_INT": [
+          8,
+          8,
+          8
+        ],
+        "Range": 10,
+        "Range_training_remaining": 0,
+        "weapon_range_bytes": [
+          1,
+          16
+        ],
+        "spell_slot1": 50,
+        "spell_quantity": 0,
+        "Ankh_quantity": 0,
+        "key_quantity": 0,
+        "staff_quantity": 0,
+        "enemy_health": 0,
+        "encounter_sprite": 0,
+        "ending_loop": 0
+      },
+      "executable_sha256": "b5e81d8845503a3f99338cbc0e3e308aa319e883acfeab48bea64ab48d2ae8e9",
+      "source_sha256": {
+        "devtools\\nox\\test_campaign.py": "d26381ae651bfafd04a28e55b9d46f74311b130f08c77f7f98fefe44457db6cf",
+        "engines\\nox\\campaign_validation.h": "fa33505b73416cb349cd96fbb87d428dc297863679dccd7b5a7ea0413c8dda6d"
+      },
+      "initializations": "three authored-exit loader setups then source-guarded adjacency; all before tested Search; no page/item/quest outcomes injected"
+    },
+    {
+      "path": "ce-m3-page-source7-2-classic/20261016-142631/verification.json",
+      "sha256": "d569242fe7f3dca4cc76bdc19b8ef2500722ba87658497eb2d8a21245ecbc4d3",
+      "mode": "Classic",
+      "page": 2,
+      "mask": 8,
+      "result": {
+        "save": "ce-m3-page-source7-2-classic\\20261016-142631\\saves\\nox-ce-ed5939a032719adcfecdf986a9261c4a-6658491f56fe9cb025f1ec652c2ec002-slot001.g1",
+        "save_sha256": "2f85fe4b3e4f50b9ebf3c4d7be3c4ac4aea4e257e1f1abe8c8ace36b399de255",
+        "runtime_sha256": "2c10a9df10d1cc10058eba1883e6455e5d1426bf54afb5059725d11603d14ac6",
+        "generation": 2,
+        "slot": 1,
+        "PC": 29148,
+        "SP": 255,
+        "alternate": 0,
+        "stack_return": 0,
+        "map": 78,
+        "map_type": 7,
+        "xy": [
+          27,
+          12
+        ],
+        "pageflags": 8,
+        "research": 0,
+        "transport_flags": 0,
+        "keyflag_040F": 0,
+        "keyflag_0410": 0,
+        "party_count": 1,
+        "status": 0,
+        "level": 1,
+        "health": 50,
+        "maximum_health": 50,
+        "mana": 8,
+        "inactive": 0,
+        "STR_DEX_INT": [
+          8,
+          8,
+          8
+        ],
+        "Range": 10,
+        "Range_training_remaining": 0,
+        "weapon_range_bytes": [
+          1,
+          16
+        ],
+        "spell_slot1": 50,
+        "spell_quantity": 0,
+        "Ankh_quantity": 0,
+        "key_quantity": 0,
+        "staff_quantity": 0,
+        "enemy_health": 0,
+        "encounter_sprite": 0,
+        "ending_loop": 0
+      },
+      "executable_sha256": "b5e81d8845503a3f99338cbc0e3e308aa319e883acfeab48bea64ab48d2ae8e9",
+      "source_sha256": {
+        "devtools\\nox\\test_campaign.py": "d26381ae651bfafd04a28e55b9d46f74311b130f08c77f7f98fefe44457db6cf",
+        "engines\\nox\\campaign_validation.h": "fa33505b73416cb349cd96fbb87d428dc297863679dccd7b5a7ea0413c8dda6d"
+      },
+      "initializations": "three authored-exit loader setups then source-guarded adjacency; all before tested Search; no page/item/quest outcomes injected"
+    },
+    {
+      "path": "ce-m3-page-source7-3/20261016-142458/verification.json",
+      "sha256": "d24468aa8dcaf9f6511dbb0511fd290036e684a061d002df673d476942134615",
+      "mode": "Modern",
+      "page": 3,
+      "mask": 16,
+      "result": {
+        "save": "ce-m3-page-source7-3\\20261016-142458\\saves\\nox-ce-ed5939a032719adcfecdf986a9261c4a-eec6dbc0f9df4cf6bf0ccb4c42186a7c-slot001.g1",
+        "save_sha256": "0a7706ba83b2feefd8a8f33996f7b069d7a8f1e3e090d069336afc2a23147238",
+        "runtime_sha256": "935cc20ee6f5fdd923b50c9fad39c1a1c793c1d3cf50b82f714e86e7d5645bcc",
+        "generation": 2,
+        "slot": 1,
+        "PC": 29148,
+        "SP": 255,
+        "alternate": 0,
+        "stack_return": 0,
+        "map": 78,
+        "map_type": 7,
+        "xy": [
+          10,
+          12
+        ],
+        "pageflags": 16,
+        "research": 0,
+        "transport_flags": 0,
+        "keyflag_040F": 0,
+        "keyflag_0410": 0,
+        "party_count": 1,
+        "status": 0,
+        "level": 1,
+        "health": 50,
+        "maximum_health": 50,
+        "mana": 8,
+        "inactive": 0,
+        "STR_DEX_INT": [
+          8,
+          8,
+          8
+        ],
+        "Range": 10,
+        "Range_training_remaining": 0,
+        "weapon_range_bytes": [
+          1,
+          16
+        ],
+        "spell_slot1": 50,
+        "spell_quantity": 0,
+        "Ankh_quantity": 0,
+        "key_quantity": 0,
+        "staff_quantity": 0,
+        "enemy_health": 0,
+        "encounter_sprite": 0,
+        "ending_loop": 0
+      },
+      "executable_sha256": "b5e81d8845503a3f99338cbc0e3e308aa319e883acfeab48bea64ab48d2ae8e9",
+      "source_sha256": {
+        "devtools\\nox\\test_campaign.py": "d26381ae651bfafd04a28e55b9d46f74311b130f08c77f7f98fefe44457db6cf",
+        "engines\\nox\\campaign_validation.h": "fa33505b73416cb349cd96fbb87d428dc297863679dccd7b5a7ea0413c8dda6d"
+      },
+      "initializations": "three authored-exit loader setups then source-guarded adjacency; all before tested Search; no page/item/quest outcomes injected"
+    },
+    {
+      "path": "ce-m3-page-source7-3-classic/20261016-142631/verification.json",
+      "sha256": "03147fb57da612ea6e1eb468e3f80990676d6faec82d0ab92143bdb21878fd09",
+      "mode": "Classic",
+      "page": 3,
+      "mask": 16,
+      "result": {
+        "save": "ce-m3-page-source7-3-classic\\20261016-142631\\saves\\nox-ce-ed5939a032719adcfecdf986a9261c4a-9fb7475c546e80dd0fa0285c66b14713-slot001.g1",
+        "save_sha256": "d755185d37efdcf8446bbb74daf82df389ebe93122c2f64cd5783249306d7277",
+        "runtime_sha256": "935cc20ee6f5fdd923b50c9fad39c1a1c793c1d3cf50b82f714e86e7d5645bcc",
+        "generation": 2,
+        "slot": 1,
+        "PC": 29148,
+        "SP": 255,
+        "alternate": 0,
+        "stack_return": 0,
+        "map": 78,
+        "map_type": 7,
+        "xy": [
+          10,
+          12
+        ],
+        "pageflags": 16,
+        "research": 0,
+        "transport_flags": 0,
+        "keyflag_040F": 0,
+        "keyflag_0410": 0,
+        "party_count": 1,
+        "status": 0,
+        "level": 1,
+        "health": 50,
+        "maximum_health": 50,
+        "mana": 8,
+        "inactive": 0,
+        "STR_DEX_INT": [
+          8,
+          8,
+          8
+        ],
+        "Range": 10,
+        "Range_training_remaining": 0,
+        "weapon_range_bytes": [
+          1,
+          16
+        ],
+        "spell_slot1": 50,
+        "spell_quantity": 0,
+        "Ankh_quantity": 0,
+        "key_quantity": 0,
+        "staff_quantity": 0,
+        "enemy_health": 0,
+        "encounter_sprite": 0,
+        "ending_loop": 0
+      },
+      "executable_sha256": "b5e81d8845503a3f99338cbc0e3e308aa319e883acfeab48bea64ab48d2ae8e9",
+      "source_sha256": {
+        "devtools\\nox\\test_campaign.py": "d26381ae651bfafd04a28e55b9d46f74311b130f08c77f7f98fefe44457db6cf",
+        "engines\\nox\\campaign_validation.h": "fa33505b73416cb349cd96fbb87d428dc297863679dccd7b5a7ea0413c8dda6d"
+      },
+      "initializations": "three authored-exit loader setups then source-guarded adjacency; all before tested Search; no page/item/quest outcomes injected"
+    },
+    {
+      "path": "ce-m3-page-source7-4/20261016-142458/verification.json",
+      "sha256": "5aedf71759887ece67f7e8b640e65f128038a747fee87b56927ee33260c7009a",
+      "mode": "Modern",
+      "page": 4,
+      "mask": 32,
+      "result": {
+        "save": "ce-m3-page-source7-4\\20261016-142458\\saves\\nox-ce-ed5939a032719adcfecdf986a9261c4a-c320178d8e9c4b84ca66ab7eeda7cd63-slot001.g1",
+        "save_sha256": "9b0ec3ae268aed8888d6a37cfcd3707c8d7952a996f1b39cecd03030ed8114d7",
+        "runtime_sha256": "0f89eb03126afe2a82dc31844e81e5378f2dfb978012dad3d181459f17ca3b35",
+        "generation": 2,
+        "slot": 1,
+        "PC": 29148,
+        "SP": 255,
+        "alternate": 0,
+        "stack_return": 0,
+        "map": 78,
+        "map_type": 7,
+        "xy": [
+          33,
+          19
+        ],
+        "pageflags": 32,
+        "research": 0,
+        "transport_flags": 0,
+        "keyflag_040F": 0,
+        "keyflag_0410": 0,
+        "party_count": 1,
+        "status": 0,
+        "level": 1,
+        "health": 50,
+        "maximum_health": 50,
+        "mana": 8,
+        "inactive": 0,
+        "STR_DEX_INT": [
+          8,
+          8,
+          8
+        ],
+        "Range": 10,
+        "Range_training_remaining": 0,
+        "weapon_range_bytes": [
+          1,
+          16
+        ],
+        "spell_slot1": 50,
+        "spell_quantity": 0,
+        "Ankh_quantity": 0,
+        "key_quantity": 0,
+        "staff_quantity": 0,
+        "enemy_health": 0,
+        "encounter_sprite": 0,
+        "ending_loop": 0
+      },
+      "executable_sha256": "b5e81d8845503a3f99338cbc0e3e308aa319e883acfeab48bea64ab48d2ae8e9",
+      "source_sha256": {
+        "devtools\\nox\\test_campaign.py": "d26381ae651bfafd04a28e55b9d46f74311b130f08c77f7f98fefe44457db6cf",
+        "engines\\nox\\campaign_validation.h": "fa33505b73416cb349cd96fbb87d428dc297863679dccd7b5a7ea0413c8dda6d"
+      },
+      "initializations": "three authored-exit loader setups then source-guarded adjacency; all before tested Search; no page/item/quest outcomes injected"
+    },
+    {
+      "path": "ce-m3-page-source7-4-classic/20261016-142631/verification.json",
+      "sha256": "a670fe922fea01a651fb1baf2bb61da5860e9417d673cfe04bdda991dd87aeae",
+      "mode": "Classic",
+      "page": 4,
+      "mask": 32,
+      "result": {
+        "save": "ce-m3-page-source7-4-classic\\20261016-142631\\saves\\nox-ce-ed5939a032719adcfecdf986a9261c4a-7ae875f6f7e529570798fdf477c6b2ed-slot001.g1",
+        "save_sha256": "edb40d88c48ba24f91bf0217093a6465906339a063c5ce064ef15cf909dfdd6c",
+        "runtime_sha256": "0f89eb03126afe2a82dc31844e81e5378f2dfb978012dad3d181459f17ca3b35",
+        "generation": 2,
+        "slot": 1,
+        "PC": 29148,
+        "SP": 255,
+        "alternate": 0,
+        "stack_return": 0,
+        "map": 78,
+        "map_type": 7,
+        "xy": [
+          33,
+          19
+        ],
+        "pageflags": 32,
+        "research": 0,
+        "transport_flags": 0,
+        "keyflag_040F": 0,
+        "keyflag_0410": 0,
+        "party_count": 1,
+        "status": 0,
+        "level": 1,
+        "health": 50,
+        "maximum_health": 50,
+        "mana": 8,
+        "inactive": 0,
+        "STR_DEX_INT": [
+          8,
+          8,
+          8
+        ],
+        "Range": 10,
+        "Range_training_remaining": 0,
+        "weapon_range_bytes": [
+          1,
+          16
+        ],
+        "spell_slot1": 50,
+        "spell_quantity": 0,
+        "Ankh_quantity": 0,
+        "key_quantity": 0,
+        "staff_quantity": 0,
+        "enemy_health": 0,
+        "encounter_sprite": 0,
+        "ending_loop": 0
+      },
+      "executable_sha256": "b5e81d8845503a3f99338cbc0e3e308aa319e883acfeab48bea64ab48d2ae8e9",
+      "source_sha256": {
+        "devtools\\nox\\test_campaign.py": "d26381ae651bfafd04a28e55b9d46f74311b130f08c77f7f98fefe44457db6cf",
+        "engines\\nox\\campaign_validation.h": "fa33505b73416cb349cd96fbb87d428dc297863679dccd7b5a7ea0413c8dda6d"
+      },
+      "initializations": "three authored-exit loader setups then source-guarded adjacency; all before tested Search; no page/item/quest outcomes injected"
+    },
+    {
+      "path": "ce-m3-page-source8-5/20261016-143047/verification.json",
+      "sha256": "f46b7747d7e4ac93f2f0ab78729c649880ff7297c46451bea85b09f749eecd05",
+      "mode": "Modern",
+      "page": 5,
+      "mask": 64,
+      "result": {
+        "save": "ce-m3-page-source8-5\\20261016-143047\\saves\\nox-ce-ed5939a032719adcfecdf986a9261c4a-abc316d3f2023c9b68932e26545aff58-slot001.g1",
+        "save_sha256": "97df800dfc54f5bf71563a48f7bfff3ba9457e1360a3d6f686d43bbd43a255b7",
+        "runtime_sha256": "cb054f7a93b85529f28ba40ad07e88cf6680980df44eef71ddfecba5cf2dc44a",
+        "generation": 2,
+        "slot": 1,
+        "PC": 29148,
+        "SP": 255,
+        "alternate": 0,
+        "stack_return": 0,
+        "map": 57,
+        "map_type": 7,
+        "xy": [
+          33,
+          1
+        ],
+        "pageflags": 64,
+        "research": 0,
+        "transport_flags": 0,
+        "keyflag_040F": 0,
+        "keyflag_0410": 0,
+        "party_count": 1,
+        "status": 0,
+        "level": 1,
+        "health": 50,
+        "maximum_health": 50,
+        "mana": 8,
+        "inactive": 0,
+        "STR_DEX_INT": [
+          8,
+          8,
+          8
+        ],
+        "Range": 10,
+        "Range_training_remaining": 0,
+        "weapon_range_bytes": [
+          1,
+          16
+        ],
+        "spell_slot1": 50,
+        "spell_quantity": 0,
+        "Ankh_quantity": 0,
+        "key_quantity": 0,
+        "staff_quantity": 0,
+        "enemy_health": 0,
+        "encounter_sprite": 0,
+        "ending_loop": 0
+      },
+      "executable_sha256": "1386f7dd6e36c2a16b89f3ff09ef6b90184410d933f511b58e5aa9e5edf49d94",
+      "source_sha256": {
+        "devtools\\nox\\test_campaign.py": "d26381ae651bfafd04a28e55b9d46f74311b130f08c77f7f98fefe44457db6cf",
+        "engines\\nox\\campaign_validation.h": "ab719f991d5a65cc72c55eee7c754357dd1ebf0e0ed444462aaf0da631b0f067"
+      },
+      "initializations": "three authored-exit loader setups then source-guarded adjacency; all before tested Search; no page/item/quest outcomes injected"
+    },
+    {
+      "path": "ce-m3-page-source8-5-classic/20261016-143058/verification.json",
+      "sha256": "29af1b84521355517cdf6876906369a0e15ff2d9a6437af342d44e8da79fcedf",
+      "mode": "Classic",
+      "page": 5,
+      "mask": 64,
+      "result": {
+        "save": "ce-m3-page-source8-5-classic\\20261016-143058\\saves\\nox-ce-ed5939a032719adcfecdf986a9261c4a-8750ddb9b801812d8739d59ec234bebb-slot001.g1",
+        "save_sha256": "b0affe1d63e1a0492eb567e780ae2c649a4b597fe75c138518788050a09b170e",
+        "runtime_sha256": "cb054f7a93b85529f28ba40ad07e88cf6680980df44eef71ddfecba5cf2dc44a",
+        "generation": 2,
+        "slot": 1,
+        "PC": 29148,
+        "SP": 255,
+        "alternate": 0,
+        "stack_return": 0,
+        "map": 57,
+        "map_type": 7,
+        "xy": [
+          33,
+          1
+        ],
+        "pageflags": 64,
+        "research": 0,
+        "transport_flags": 0,
+        "keyflag_040F": 0,
+        "keyflag_0410": 0,
+        "party_count": 1,
+        "status": 0,
+        "level": 1,
+        "health": 50,
+        "maximum_health": 50,
+        "mana": 8,
+        "inactive": 0,
+        "STR_DEX_INT": [
+          8,
+          8,
+          8
+        ],
+        "Range": 10,
+        "Range_training_remaining": 0,
+        "weapon_range_bytes": [
+          1,
+          16
+        ],
+        "spell_slot1": 50,
+        "spell_quantity": 0,
+        "Ankh_quantity": 0,
+        "key_quantity": 0,
+        "staff_quantity": 0,
+        "enemy_health": 0,
+        "encounter_sprite": 0,
+        "ending_loop": 0
+      },
+      "executable_sha256": "1386f7dd6e36c2a16b89f3ff09ef6b90184410d933f511b58e5aa9e5edf49d94",
+      "source_sha256": {
+        "devtools\\nox\\test_campaign.py": "d26381ae651bfafd04a28e55b9d46f74311b130f08c77f7f98fefe44457db6cf",
+        "engines\\nox\\campaign_validation.h": "ab719f991d5a65cc72c55eee7c754357dd1ebf0e0ed444462aaf0da631b0f067"
+      },
+      "initializations": "three authored-exit loader setups then source-guarded adjacency; all before tested Search; no page/item/quest outcomes injected"
+    },
+    {
+      "path": "ce-m3-page-source8-6/20261016-143047/verification.json",
+      "sha256": "081b06428a18fad720ca9968dac06def1802893d13d31f33f8fdd075069d334b",
+      "mode": "Modern",
+      "page": 6,
+      "mask": 128,
+      "result": {
+        "save": "ce-m3-page-source8-6\\20261016-143047\\saves\\nox-ce-ed5939a032719adcfecdf986a9261c4a-52c01d8e3ce7e0e3559e812896b2a87d-slot001.g1",
+        "save_sha256": "fac8347034365c912e6cedeb242ffbf39095df3d83b954f74ee345c8e7ce79b9",
+        "runtime_sha256": "b1c9095fcf50f7e9e8ca91a1e86f68a559d28c59de964762c6eead2488e555f0",
+        "generation": 2,
+        "slot": 1,
+        "PC": 29148,
+        "SP": 255,
+        "alternate": 0,
+        "stack_return": 0,
+        "map": 57,
+        "map_type": 7,
+        "xy": [
+          36,
+          36
+        ],
+        "pageflags": 128,
+        "research": 0,
+        "transport_flags": 0,
+        "keyflag_040F": 0,
+        "keyflag_0410": 0,
+        "party_count": 1,
+        "status": 0,
+        "level": 1,
+        "health": 50,
+        "maximum_health": 50,
+        "mana": 8,
+        "inactive": 0,
+        "STR_DEX_INT": [
+          8,
+          8,
+          8
+        ],
+        "Range": 10,
+        "Range_training_remaining": 0,
+        "weapon_range_bytes": [
+          1,
+          16
+        ],
+        "spell_slot1": 50,
+        "spell_quantity": 0,
+        "Ankh_quantity": 0,
+        "key_quantity": 0,
+        "staff_quantity": 0,
+        "enemy_health": 0,
+        "encounter_sprite": 0,
+        "ending_loop": 0
+      },
+      "executable_sha256": "1386f7dd6e36c2a16b89f3ff09ef6b90184410d933f511b58e5aa9e5edf49d94",
+      "source_sha256": {
+        "devtools\\nox\\test_campaign.py": "d26381ae651bfafd04a28e55b9d46f74311b130f08c77f7f98fefe44457db6cf",
+        "engines\\nox\\campaign_validation.h": "ab719f991d5a65cc72c55eee7c754357dd1ebf0e0ed444462aaf0da631b0f067"
+      },
+      "initializations": "three authored-exit loader setups then source-guarded adjacency; all before tested Search; no page/item/quest outcomes injected"
+    },
+    {
+      "path": "ce-m3-page-source8-6-classic/20261016-143058/verification.json",
+      "sha256": "d801259a363819755c2e57aa25aa77c834bc7a7548cd4e53d421d9202c05ad92",
+      "mode": "Classic",
+      "page": 6,
+      "mask": 128,
+      "result": {
+        "save": "ce-m3-page-source8-6-classic\\20261016-143058\\saves\\nox-ce-ed5939a032719adcfecdf986a9261c4a-667cc4320a1dff243ff5ff87c386207b-slot001.g1",
+        "save_sha256": "6d6d1de6836902b6ce0f027e0936f24422d060d8485d132c3bab094d3956b8e2",
+        "runtime_sha256": "b1c9095fcf50f7e9e8ca91a1e86f68a559d28c59de964762c6eead2488e555f0",
+        "generation": 2,
+        "slot": 1,
+        "PC": 29148,
+        "SP": 255,
+        "alternate": 0,
+        "stack_return": 0,
+        "map": 57,
+        "map_type": 7,
+        "xy": [
+          36,
+          36
+        ],
+        "pageflags": 128,
+        "research": 0,
+        "transport_flags": 0,
+        "keyflag_040F": 0,
+        "keyflag_0410": 0,
+        "party_count": 1,
+        "status": 0,
+        "level": 1,
+        "health": 50,
+        "maximum_health": 50,
+        "mana": 8,
+        "inactive": 0,
+        "STR_DEX_INT": [
+          8,
+          8,
+          8
+        ],
+        "Range": 10,
+        "Range_training_remaining": 0,
+        "weapon_range_bytes": [
+          1,
+          16
+        ],
+        "spell_slot1": 50,
+        "spell_quantity": 0,
+        "Ankh_quantity": 0,
+        "key_quantity": 0,
+        "staff_quantity": 0,
+        "enemy_health": 0,
+        "encounter_sprite": 0,
+        "ending_loop": 0
+      },
+      "executable_sha256": "1386f7dd6e36c2a16b89f3ff09ef6b90184410d933f511b58e5aa9e5edf49d94",
+      "source_sha256": {
+        "devtools\\nox\\test_campaign.py": "d26381ae651bfafd04a28e55b9d46f74311b130f08c77f7f98fefe44457db6cf",
+        "engines\\nox\\campaign_validation.h": "ab719f991d5a65cc72c55eee7c754357dd1ebf0e0ed444462aaf0da631b0f067"
+      },
+      "initializations": "three authored-exit loader setups then source-guarded adjacency; all before tested Search; no page/item/quest outcomes injected"
+    },
+    {
+      "path": "ce-m3-page-source8-7/20261016-143047/verification.json",
+      "sha256": "185ab8c0267643074922cd87dcf684a124ed3d25eabd0913f4a795b1263564ea",
+      "mode": "Modern",
+      "page": 7,
+      "mask": 1,
+      "result": {
+        "save": "ce-m3-page-source8-7\\20261016-143047\\saves\\nox-ce-ed5939a032719adcfecdf986a9261c4a-c84aac287528df58c927792be172727d-slot001.g1",
+        "save_sha256": "651a3cc257d232a29e32ec6127b5c836f4f5b1163b0ceda136982b850d9669e3",
+        "runtime_sha256": "03e5b7cc5fc1d4bd3943bf07ff3e5c2aaeaf2fcf698ea43d9db1992b313e837a",
+        "generation": 2,
+        "slot": 1,
+        "PC": 29148,
+        "SP": 255,
+        "alternate": 0,
+        "stack_return": 0,
+        "map": 57,
+        "map_type": 7,
+        "xy": [
+          44,
+          21
+        ],
+        "pageflags": 1,
+        "research": 0,
+        "transport_flags": 0,
+        "keyflag_040F": 0,
+        "keyflag_0410": 0,
+        "party_count": 1,
+        "status": 0,
+        "level": 1,
+        "health": 50,
+        "maximum_health": 50,
+        "mana": 8,
+        "inactive": 0,
+        "STR_DEX_INT": [
+          8,
+          8,
+          8
+        ],
+        "Range": 10,
+        "Range_training_remaining": 0,
+        "weapon_range_bytes": [
+          1,
+          16
+        ],
+        "spell_slot1": 50,
+        "spell_quantity": 0,
+        "Ankh_quantity": 0,
+        "key_quantity": 0,
+        "staff_quantity": 0,
+        "enemy_health": 0,
+        "encounter_sprite": 0,
+        "ending_loop": 0
+      },
+      "executable_sha256": "1386f7dd6e36c2a16b89f3ff09ef6b90184410d933f511b58e5aa9e5edf49d94",
+      "source_sha256": {
+        "devtools\\nox\\test_campaign.py": "d26381ae651bfafd04a28e55b9d46f74311b130f08c77f7f98fefe44457db6cf",
+        "engines\\nox\\campaign_validation.h": "ab719f991d5a65cc72c55eee7c754357dd1ebf0e0ed444462aaf0da631b0f067"
+      },
+      "initializations": "three authored-exit loader setups then source-guarded adjacency; all before tested Search; no page/item/quest outcomes injected"
+    },
+    {
+      "path": "ce-m3-page-source8-7-classic/20261016-143058/verification.json",
+      "sha256": "2cc537deb120487b1c0a4e6355bfc46550255b13b0eeee8cece720d6229d99d8",
+      "mode": "Classic",
+      "page": 7,
+      "mask": 1,
+      "result": {
+        "save": "ce-m3-page-source8-7-classic\\20261016-143058\\saves\\nox-ce-ed5939a032719adcfecdf986a9261c4a-9670d8f0a40727cb0169e44ed795ad29-slot001.g1",
+        "save_sha256": "59b4b2e46ce4342819c571b08949845b9765738d9f569f703cd8c7df60e99858",
+        "runtime_sha256": "03e5b7cc5fc1d4bd3943bf07ff3e5c2aaeaf2fcf698ea43d9db1992b313e837a",
+        "generation": 2,
+        "slot": 1,
+        "PC": 29148,
+        "SP": 255,
+        "alternate": 0,
+        "stack_return": 0,
+        "map": 57,
+        "map_type": 7,
+        "xy": [
+          44,
+          21
+        ],
+        "pageflags": 1,
+        "research": 0,
+        "transport_flags": 0,
+        "keyflag_040F": 0,
+        "keyflag_0410": 0,
+        "party_count": 1,
+        "status": 0,
+        "level": 1,
+        "health": 50,
+        "maximum_health": 50,
+        "mana": 8,
+        "inactive": 0,
+        "STR_DEX_INT": [
+          8,
+          8,
+          8
+        ],
+        "Range": 10,
+        "Range_training_remaining": 0,
+        "weapon_range_bytes": [
+          1,
+          16
+        ],
+        "spell_slot1": 50,
+        "spell_quantity": 0,
+        "Ankh_quantity": 0,
+        "key_quantity": 0,
+        "staff_quantity": 0,
+        "enemy_health": 0,
+        "encounter_sprite": 0,
+        "ending_loop": 0
+      },
+      "executable_sha256": "1386f7dd6e36c2a16b89f3ff09ef6b90184410d933f511b58e5aa9e5edf49d94",
+      "source_sha256": {
+        "devtools\\nox\\test_campaign.py": "d26381ae651bfafd04a28e55b9d46f74311b130f08c77f7f98fefe44457db6cf",
+        "engines\\nox\\campaign_validation.h": "ab719f991d5a65cc72c55eee7c754357dd1ebf0e0ed444462aaf0da631b0f067"
+      },
+      "initializations": "three authored-exit loader setups then source-guarded adjacency; all before tested Search; no page/item/quest outcomes injected"
+    }
+  ],
+  "ce_processes": 28,
+  "cold_processes": 14,
+  "controlled_checkpoint": "VERIFIED",
+  "linked_gameplay_progression": "VERIFIED",
+  "earned_continuous_progression": "NOT STARTED",
+  "full_new_game_to_ending": "NOT STARTED",
+  "limitations": [
+    "Authored loader routes/source-object adjacency before real Search only; no page inventory/count/quest outcome initialized. Not earned traversal of intervening story locks.",
+    "Independent cases each start without pages. Actual Search97qty1/matching43Ebit then repeat no duplicate/exact full Runtime cold. This does not yet prove seven retained acquisitions into Axea/research/binding.",
+    "Original57 route corrected54->58->57, no direct54->57. Initial candidate sliding scan is now validated by actual source object interaction, not presumed candidate alignment.",
+    "Later source-qualified ledger/valid nonzero-seed collection retains all7 real awards into actual eighth/research/binding/Ready/world-refusal/Rat both modes. Historical independent reports preserved; no earlier controlled seven-page start relabeled earned."
+  ],
+  "source_archive": {
+    "path": "ce-m3-page-search8-source.zip",
+    "sha256": "db43a3dbf3805918479ff7c9eea33d958730b1a3b07ed9312f91152c13fe1bc2"
+  },
+  "preserved_executable": {
+    "path": "ce-m3-guardian6-binary\\scummvm-page-search8.exe",
+    "sha256": "1386f7dd6e36c2a16b89f3ff09ef6b90184410d933f511b58e5aa9e5edf49d94"
+  },
+  "build": {
+    "log": "ce-m3-shadow-pages-build-8.log",
+    "result": "PASS 0 warnings/errors 00:02:38.35"
+  },
+  "subsequent_compatibility": "VERIFIED",
+  "related_evidence": "SCUMMVM-CE-M3-REAL-PAGES-VORTEX-CHECKPOINT.json"
+}

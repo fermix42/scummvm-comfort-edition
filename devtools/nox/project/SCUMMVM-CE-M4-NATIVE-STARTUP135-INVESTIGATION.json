@@ -1,0 +1,18 @@
+{
+  "status": "IN PROGRESS",
+  "scope": "Rejected native owner implementation; never a gameplay pass",
+  "source_archive": {
+    "path": "ce-m4-native-startup135-rejected-source.zip",
+    "sha256": "9e4569e90d89b7bea75b63bb26a104daa307c73e012b03f409ef9de3d42be792"
+  },
+  "executable": {
+    "path": "ce-m4-binary\\scummvm-native-startup135-rejected.exe",
+    "sha256": "91fa9f5fac9e30585214183380f5bf70a8dcd7eac908349ad1d295b5eb456ca8"
+  },
+  "failure_log": {
+    "path": "ce-m4-native-startup135-human.log",
+    "sha256": "3677aaadb655b667dadfef9071945b9c29a5ac05b46891106bf82c37d14add74"
+  },
+  "finding": "Private startup replay file opened through Common::File Path overload, which uses SearchMan rather than the external filesystem. Source Common/file.cpp40-58 confirms failure before event handling. Rejected child stopped after checking exact executable path; add FSNode open and explicit failure receipt. Earlier134 queue issue was found by code review, but external file open was the first failing branch.",
+  "next_action": "Correct the implementation using actual source evidence; preserve all original numeric reference outcomes and rerun affected CE checks."
+}

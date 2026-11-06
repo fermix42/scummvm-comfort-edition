@@ -1,0 +1,18 @@
+{
+  "status": "IN PROGRESS",
+  "scope": "Rejected native owner implementation; never a gameplay pass",
+  "source_archive": {
+    "path": "ce-m4-movement-effects131-rejected-source.zip",
+    "sha256": "ea1438419f3965df910b580b31394342896ac3dba193ad0f82640605f49afe5b"
+  },
+  "executable": {
+    "path": "ce-m4-binary\\scummvm-movement-effects131-rejected.exe",
+    "sha256": "5fe6529c32d96077a2e2671f251e46f6b53aa6fff84cafd2b71e5c93903ca369"
+  },
+  "failure_log": {
+    "path": "ce-m4-movement-effects131-suite.log",
+    "sha256": "3b342adfd53b311ebccbfcfa16df55e915210647063fe98138d6961404f748e5"
+  },
+  "finding": "Actual original case10916 at top viewport row0/column8 does not queue vertical effect138. Native incorrectly included row0; original vertical range is1..9. Original numeric outcomes remain unchanged.",
+  "next_action": "Correct the implementation using actual source evidence; preserve all original numeric reference outcomes and rerun affected CE checks."
+}

@@ -1,0 +1,13 @@
+{
+  "status": "VERIFIED",
+  "scope": "Controlled initial actual CE display scene; message36 cleared/centered/rendered by native owner in CE before Runtime construction. Visual inspected, actual pixels preserved by PPM-to-PNG conversion. Not an ordinary native player turn or earned campaign.",
+  "ppm": {
+    "path": "ce-m4-native-message-strip104-tests\\20261017-120330\\saves\\nox-native-message36.ppm",
+    "sha256": "b3cd83df053edab535784443cf5207818aca493df49cba53420f573a1e72f685"
+  },
+  "png": {
+    "path": "ce-m4-native-message-strip104-tests\\native-message36.png",
+    "sha256": "c57b10056722358bd1b5f35bdabc102fc2b742feb707376dd568757948507b99"
+  },
+  "evidence": "SCUMMVM-CE-M4-MESSAGE-STRIP104-UNIT.json"
+}

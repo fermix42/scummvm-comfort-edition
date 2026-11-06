@@ -1,0 +1,104 @@
+{
+  "milestone": "M2",
+  "milestone_status": "IN PROGRESS",
+  "subtask": "M2.1d",
+  "status": "VERIFIED",
+  "scope": "Opaque preservation and bounded original RNG/clock/input continuation on controlled clones; schema/derived-cache and invalid-load rollback. No earned campaign, full visibility or complete session/network lifecycle claim.",
+  "executable_sha256": "59d8cdb86eff641ab0f875565af5a087e4afc090622f8eceb28e9d07afa20c31",
+  "build": {
+    "session": 95380,
+    "elapsed": "00:02:36.15",
+    "warnings": 0,
+    "errors": 0
+  },
+  "criteria": {
+    "opaque_storage_domains": 5,
+    "opaque_mutation": "Every byte of main/aux RAM, both language-card/high-bank owners and private disk differs before exact candidate restore; party/companion/inventory/world/NPC/quest storage preserved opaquely, not semantically fabricated.",
+    "rng_calls": 64,
+    "clock_calls": 124,
+    "clock_oracle": "Independent BCD phase/minute/hour/day/light-expiration calculation",
+    "input_continuation": "64 fixed20000-clock slices, two direction inputs; includes modal continuation, no claim of completed modal",
+    "pcm": "Exact retained routine22794 and input48000 samples plus full synthesis state each slice; Runtime queue caps retained input PCM at48000.",
+    "reference": "Independent in-memory live Runtime copy, rebound audio callback; restored candidate decoded separately",
+    "live_world_unchanged": true,
+    "derived_cache_schema_contracts": 23,
+    "schema_cases": 7,
+    "metadata_cases": 22,
+    "actual_candidate_rollback": "Both-mode killed overwrite recovery, truncated runtime rejected with unchanged live bytes/session; synthetic enhancement state retained"
+  },
+  "evidence": {
+    "modern": {
+      "path": "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m2-state-contract-modern\\20261015-165819\\verification.json",
+      "sha256": "c386b35c4293b29214651299b64b2b9e7c5908ffdb7a13e9dcb1950a26f6f52e"
+    },
+    "classic": {
+      "path": "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m2-state-contract-classic\\20261015-165837\\verification.json",
+      "sha256": "e11ad9b7a9de340b8698248e514dea83706dde68d2c5f663a3a2ac8f0efabd35"
+    },
+    "failure_modern": {
+      "path": "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m2-state-contract-failures-modern\\20261015-165854\\failure-verification.json",
+      "sha256": "2cdd77c929f60eb628dcb49383a311d8283a6fbb11f2ad2c27db74ddb81cd250"
+    },
+    "failure_classic": {
+      "path": "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m2-state-contract-failures-classic\\20261015-165912\\failure-verification.json",
+      "sha256": "b3f01c98ffd1d0a4f447b158acc4d21027cad93d7d631129fd381968ef63b57f"
+    },
+    "resources": {
+      "path": "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m2-state-contract-resources\\20261015-165929\\verification.json",
+      "sha256": "8e7d2f5458e2cd20d9d35cc619862af5ea21cb502eeb85a5c138d99f5afbaf19"
+    },
+    "migration": {
+      "path": "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m2-state-contract-migration\\20261015-165937\\verification.json",
+      "sha256": "2c1b115ccc92d6dbccdc299342499d2707b9cbaef77ed0cadd423ffe3ffc1513"
+    },
+    "dialogue_modern": {
+      "path": "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m2-state-contract-dialogue-modern\\20261015-165944\\verification.json",
+      "sha256": "62f98a2b5ab3460dfb6ae1c65a144a514c093bf9b575c0cead2927785485cc65"
+    },
+    "dialogue_classic": {
+      "path": "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m2-state-contract-dialogue-classic\\20261015-165955\\verification.json",
+      "sha256": "e30885071638781a19498d24a6c85ad941bdb22c55bc08106dec41858ddd9d58"
+    }
+  },
+  "failed_experiments": [
+    "ce-m2-owner-contract-modern/20261015-165122",
+    "ce-m2-owner-contract-diagnostic/20261015-165439"
+  ],
+  "source_sha256": {
+    "devtools\\nox\\test_gameplay.py": "4929b52ec8daa2cfaccc18f501c91f40d8468401e3b08b31f955849eae545b78",
+    "engines\\nox\\caller_validation.h": "ede6a33e41ad5fa9d9613fe36e203e7122ca9830a1b4b54e46ae9591cf632391",
+    "engines\\nox\\configure.engine": "774fc9df4834ca0e64018b72f326d14989a40c08f5c7fd78d06bbea6ee42c015",
+    "engines\\nox\\cpu.inc": "41c0fdff3d9d3466871ae76144b430b9b13bd29a2873a8899ebad56e4e208b97",
+    "engines\\nox\\cycles.inc": "2b1024aeab86cda827aec30eb696547ced1d333226263647b29b1d34db3acd6e",
+    "engines\\nox\\detection.cpp": "32753d7b31fd8fe9f61eb27c676e6564d79764aa94cd5283c2508b8ac056dbd6",
+    "engines\\nox\\dialogue_validation.h": "02bb475410a65f4a7733ce171e57298bed3c4ed1f26817cdaa6fa94baa42c802",
+    "engines\\nox\\enhancement_fixture.h": "13d45f7cf67cbec92f87777653c1ec51e65dd6b2b20538020b55f00fcd0718b5",
+    "engines\\nox\\enhancement_validation.h": "a24bde10489f8ca310c45c92050d21293aa974ee2eb86691a350aa372667e13a",
+    "engines\\nox\\enhancements.cpp": "5ed93907c2e0b1004c9978bbb91c32913de50d1706e9fd41c2027473b3069150",
+    "engines\\nox\\enhancements.h": "f0d73af3421c0597db87ace38b2d203c73640d43a5bade9b278cf6c1e7ff029d",
+    "engines\\nox\\grid_validation.h": "6032efc17e039528d63f2640d1b4308b899a9a7776c7c6c8fe4fa7e0ea752fa9",
+    "engines\\nox\\host_validation.h": "34f519e1f84b05b2d0e12b63c836a9b9f572149d7a7e2032067bc7ceef4f19ff",
+    "engines\\nox\\metadata_validation.h": "c2b7fe9b7d1fa277517ec337b3ab8390e39552125b1c460be04690232466db5c",
+    "engines\\nox\\metaengine.cpp": "3fc716eb9566e47dd9a2a8e78aaae65cab12ddc6f5cc587131944891e8ece4db",
+    "engines\\nox\\mockingboard.cpp": "38d5c6a894cc7a6bd238b9ad9a6740ec5ff42c6f299b7f6ce858505a6c1817bc",
+    "engines\\nox\\mockingboard.h": "d0afe027dc9ff9b269b0c60bf04abc45566502a17aed25879316856911937f2e",
+    "engines\\nox\\module.mk": "47de2ac64575f926a8de7cc5060913a3b63a0554cb5c20824ab55cf67ac1085f",
+    "engines\\nox\\movement.cpp": "4b03de9dd50c4a4cfc6c2e2d7da9d3fc3fc80a697dfd236a3340c1d25b84fdf9",
+    "engines\\nox\\nox.cpp": "dbdb815fce1ff1d831867eda021238eb96d8573e9f2403b303594c70f58d9231",
+    "engines\\nox\\nox.h": "8a44d40fa2d2617d772388a41fa2476c652cc71de7bc5cd1d453f899405b719d",
+    "engines\\nox\\records.h": "8045582e0ae5f83d027b8b197aa66a8309e9ff80f2117bce7edb86455eca9b7d",
+    "engines\\nox\\render.cpp": "bd7833eaccc812fad88b0d19e5070d9955e440142525ded89b3d30766120073a",
+    "engines\\nox\\resources.h": "1451464a6f8ea57039c3596c8aaa388701e5005fb3364b80b9e48bb04dc2cd95",
+    "engines\\nox\\runtime.cpp": "85b9b48b4d5367f73255f99fc6d2d4a88030e6386ee4941c895eb6b107f84c74",
+    "engines\\nox\\runtime.h": "f524b889d9f47b3ede64aee4bc42f93162032fed755da28f6bc76b40027ce763",
+    "engines\\nox\\runtime_observers.cpp": "24a8193ecb7804e88df401cb65ddffed1c796f0571bcbb76d4dedd41319d93ca",
+    "engines\\nox\\runtime_state.cpp": "45a01b83702f87d34a57a004e9105c2b69e50c213511eb4a176bccaa9cdc6e9c",
+    "engines\\nox\\save_policy.h": "890bced00db32c534207055e5f6acf7247310102119da4c5bc66f13a4c7d72fc",
+    "engines\\nox\\saves.h": "c3e48afbdcbef70e47afc2e3684b6676cd9377eb287e26c0e12ce1f65d95b3c8",
+    "engines\\nox\\session_validation.cpp": "5d6d8620c28bc20b522400361abfa5dc060c35038e256ce74a46620b4c8b16b4",
+    "engines\\nox\\snapshot.h": "c3c8c9fd497391995084286e6f1cadc8ac5b9e9ed94965b6820043624e6d35de",
+    "engines\\nox\\speaker_audio.cpp": "b80e55470b95fcaf200f4346a0cb0bab8ce8ff3fe7e2436633da833a2da9f833",
+    "engines\\nox\\speaker_audio.h": "aad57abba83f4a02ee0780eb2eebc80e68a43181b285533dc3313f3ad307205f",
+    "engines\\nox\\validation.cpp": "7582907d58238d29057026968b03866e25fb7e760184497204896cd5dad8ef75"
+  }
+}

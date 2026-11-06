@@ -1,0 +1,19 @@
+{
+  "status": "VERIFIED",
+  "scope": "New actor-paint port discrepancy; corrected31 acceptance pending",
+  "failure": "Original case748: underworld type2 kind0 actor sprite139 on surface tile110 retains sprite139. New30 applied general capability0 surface substitution.",
+  "source": "Original E4D9-E4F8 gives type2/kind0 its own sprite185 condition and otherwise bypasses the general capability-zero substitution.",
+  "correction": "Separate the source special branch from the general surface rule.",
+  "artifacts": {
+    "ce-m4-binary/scummvm-actor-paint30-rejected.exe": "6ba81cbc7bdb211c1c750bc870698610e7cc392da28a8b21182861492d7fb819",
+    "ce-m4-actor-paint30-rejected-header.h": "a61badf7894e0bb5f1ec2f67ee7f5ca897b6b2bb32a2f18e5fece730fe30a653",
+    "ce-m4-native-actor-paint30-tests.log": "7885365434e949f06ae77aa546de35d7586bfe4bb1ab83007d0edb66101f10cb",
+    "ce-m4-actor-paint-focused30.log": "94d0d86bc6eecd685b2babafca03b169c92cb6dbcbaccc423ac0f7c7350b28dd",
+    "ce-m4-actor-paint-reference/metadata.json": "114ece9fe8e3ae0580de64fe09653990a7bcda671e804cd40a2c65726add8abf"
+  },
+  "resolution": "Corrected31 passes6668 original actor-paint outcomes and8000 draw requests plus previous suites. Native30 remains rejected.",
+  "accepted_evidence": {
+    "path": "SCUMMVM-CE-M4-ACTOR-PAINT31-UNIT.json",
+    "sha256": "83d510acd1a8a252d424fd19b3da8e68b5de72ac49beea4bc49638b8bbbe40a1"
+  }
+}

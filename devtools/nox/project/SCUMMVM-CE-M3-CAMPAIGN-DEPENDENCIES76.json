@@ -1,0 +1,101 @@
+{
+  "status": "VERIFIED",
+  "milestone": "M3",
+  "scope": "Selected campaign dependency/compatibility closure, with mechanical alternatives and every controlled segment boundary retained",
+  "chains": [
+    {
+      "nodes": [
+        "opening-exit",
+        "royal-access",
+        "opening-brig-door"
+      ],
+      "contract": "Actual source shipwreck exit and castle/library transitions; log/writ recognition separately demonstrated. Controlled outside approaches are not earned walking."
+    },
+    {
+      "nodes": [
+        "gordon-shrubbery",
+        "brown-key",
+        "cult-lower-portal",
+        "cult-magic-mouth",
+        "cult-temple-monks",
+        "cult-corridor-cultists",
+        "cult-letter",
+        "order-test"
+      ],
+      "contract": "Shrubbery95 -> Gordon/Raque132 -> actual Pirate entrance/control/Brown74 -> actual key door/selfportal/VHA wall -> original Monk/Cultist admissions and distinct controlled final-blow operations -> Letter75 -> Archus/Styx. Cult73 records explicit cache/travel/ordinary-death/one-cell boundaries. Order authorization is advice; actual Scales146/Bruce/Archus membership043C04/key94 demonstrated separately."
+    },
+    {
+      "nodes": [
+        "castle-control-wall",
+        "moat-key-door",
+        "arcane-key-door",
+        "order-castle-portals",
+        "remaining-pages",
+        "axea-page",
+        "eight-page-check",
+        "nystul-maze-access",
+        "binding",
+        "bound-spell-readiness",
+        "vortex-world-refusal",
+        "vortex-battle-effect"
+      ],
+      "contract": "Actual Castle control/keys/portals; source-valid Search positions yield seven retained pages (43E=FD,count7), actual Axea eighth (FF,count8), optional research, real Nystul binding/spell12, Ready and actual full12HP Rat Vortex. Source12 and source39 are distinct linked segments, not one continuous route."
+    },
+    {
+      "nodes": [
+        "devils-key",
+        "essence-angels",
+        "holy-hairnet",
+        "fire-jewel-guardian",
+        "air-jewel-guardian"
+      ],
+      "contract": "Actual149/key door ->112; actual Fool133/key door ->113; actual full2600 Fire and1950 Air Vortex victories/awards. Explicit legal125HP/110MP recovery between battles. Binding/page inventory in older guardian ancestry was controlled, and is independently constructible by actual source12 page chain; no shared save lineage claimed."
+    },
+    {
+      "nodes": [
+        "rusty-key",
+        "skull-key",
+        "guild-children-rescue",
+        "thieves-guild-boss",
+        "margrave-key",
+        "ghrodwir-elders",
+        "ol-rev-tomb",
+        "water-jewel-guardian"
+      ],
+      "contract": "Actual keys72/78 and gates; rescue43502; Watcher/Guild/orders77/43208 -> Margrave84/43210; actual timed elders43508/42A01 -> Scroll85/phylactery40C04 -> original Lich/Water Jewel. Separate controlled battle endpoints remain unearned."
+    },
+    {
+      "nodes": [
+        "ring-vacous",
+        "dark-key",
+        "jewels-temple",
+        "high-cultist",
+        "shadow-revelation",
+        "lord-british-ankh",
+        "plane-transport",
+        "final-encounter",
+        "ending"
+      ],
+      "contract": "Actual Ring155/Ready protects from death spell; actual Drathe admission/distinct controlled final blow ->154/Dark door. All3Jewels43907 are required for Styx recognition, not absolute physical Temple entry (actual missing-Fire crossing damages35HP). Actual High Cultist final-blow operation ->Journal156/43840/automatic translation43B02; Styx guidance ->Lord British157/43A18 ->Max portal43A38 ->plane8 ->actual ending/ack/cold. Full3210HP defeat is verified; full3210HP victory is not."
+    }
+  ],
+  "advice_branches": 15,
+  "advice_mapping": "SCUMMVM-CE-M3-STORY-GRAPH.json",
+  "physical_source_disposition": "SCUMMVM-CE-M3-CORPUS74-CLOSURE.json",
+  "stage_restoration": "SCUMMVM-CE-M3-STAGE-RESTORES42-CHECKPOINT.json",
+  "equivalence": "Separate segments are compatible source-supported party/inventory/quest contracts; this is neither identical save lineage nor earned continuous progression. Shared handlers support repeated ordinary door/Search refusal families; unique quest predicates have actual scoped CE cases.",
+  "controlled_boundaries": [
+    "Map/floor/camera/time and selected original PRNG BEFORE operations; no walking/grinding claim.",
+    "Current parent tables copied into auxiliary/private-map cache BEFORE relocation; independent CHECKPOINT71 audit proves no quest/inventory/HP outcomes written.",
+    "Named ordinary prior deaths and reachable caster stats/recovery BEFORE new operation; assistance remains permanent.",
+    "Full encounter admissions and distinct controlled survivingHP1 pre-attack checkpoints are separate tests. Actual rewards/transitions/ending are produced by CE, not injected.",
+    "Ending75 older controlled-inventory ancestry differs from source12 actual seven-Search lineage. Both contracts are tested; no giant chain claim."
+  ],
+  "untested": [
+    "Earned continuous campaign and full unassisted new-game-to-ending run.",
+    "Full-health3210HP final victory, full-health ten-enemy High Cultist/Monk and two-Cultist corridor victories where only admission/final-blow are claimed.",
+    "Automatic last-cell mouth and farther Drathe movement-triggered conversation completion via world-only runner; actual controlled-adjacent Talk gates are verified.",
+    "All optional side quests, repeated doors, generic merchant purchases, exhaustive exploration and unrestricted-PC stability."
+  ],
+  "M4": "NOT STARTED"
+}

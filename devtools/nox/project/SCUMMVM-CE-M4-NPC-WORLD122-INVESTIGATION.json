@@ -1,0 +1,21 @@
+{
+  "status": "IN PROGRESS",
+  "scope": "Rejected integrated NPC phase after preference correction; not a gameplay pass",
+  "source_archive": {
+    "path": "ce-m4-npc-world122-rejected-source.zip",
+    "sha256": "3262127f8cf1bb24580d2c725607aeec00cab184a2156c171b4406d97b0bf6b1"
+  },
+  "executable": {
+    "path": "ce-m4-binary\\scummvm-npc-world122-rejected.exe",
+    "sha256": "3792af39f94f0328f6e511cc5aaefdbe9fc5e07ecb993e8657135aceb9740c2d"
+  },
+  "failure_log": {
+    "path": "ce-m4-npc-world122-suite.log",
+    "sha256": "bca73e6869c962e29769749119bdd3800ee39b119de17c1e4f7f73173ad53f4d"
+  },
+  "finding": "CE validation returned an unannotated rejection after the earlier detailed preference mismatch was corrected. Add bounded stage/context diagnostics before changing any further behavior.",
+  "next_action": "Instrument validation rejection stages; preserve all original source results and reproduce once with added diagnostics.",
+  "resolution": "Added124 stage diagnostics locate rejection at cold checkpoint admission: guessed group90/op0 stays normally. Native compared source results correctly through that point. Actual source trace selects a real route move group96/op0 (11,30 ->12,30); reference126 retains all original numeric outcomes and changes only explicit checkpoint coordinates/prose.",
+  "diagnostic_executable_sha256": "7a7ef8b8aa8a882a9dd4b8286c1ecdc707f2770a12817d60b0420d262c37d792",
+  "diagnostic_log": "ce-m4-npc-world124-diagnostic.log"
+}

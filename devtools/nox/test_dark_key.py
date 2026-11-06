@@ -1,0 +1,25 @@
+#!/usr/bin/env python3
+# SPDX-License-Identifier: GPL-3.0-or-later
+"""Actual Lord Drathe final blow/loot from explicitly controlled battle endpoint."""
+import argparse,configparser,datetime,hashlib,json,os,shutil,subprocess,sys
+from pathlib import Path
+def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
+def main():
+ p=argparse.ArgumentParser(description=__doc__)
+ for n in ['exe','game','predecessor','artifacts']:p.add_argument('--'+n,type=Path,required=True)
+ p.add_argument('--missing-ring',action='store_true');a=p.parse_args();exe=a.exe.resolve(strict=True);game=a.game.resolve(strict=True);prior_root=a.predecessor.resolve(strict=True);prior=json.loads((prior_root/'verification.json').read_text());assert prior['status']=='VERIFIED'and prior['phase']==(33 if a.missing_ring else 32)
+ assert all(sha(prior_root/n)==h for n,h in prior['artifacts'].items())
+ root=a.artifacts.resolve()/datetime.datetime.now().strftime('%Y%m%d-%H%M%S');root.mkdir(parents=True);saves=root/'saves';shutil.copytree(prior_root/'saves',saves);ce=Path(__file__).resolve().parents[2]
+ sources={str(f.relative_to(ce)).replace('\\','/'):sha(f)for f in(ce/'engines/nox').iterdir()if f.is_file()};sources['devtools/nox/test_dark_key.py']=sha(Path(__file__));originals={str(f):sha(f)for f in game.glob('*.HDV')};assert originals
+ setup='Retain actual Ring155 or actual no-Ring state, all three earned Jewels, and controlled defensive item118 with actual Ready/cold from predecessor32/33. CONTROLLED owned UNREADIED Drake Staff71 and source-supported54 Range lessons (10->64, training54->0) BEFORE actual Ready and encounter. Controlled authored74->0->31->32/south15,21, then actual A/Up admits original full-health encounter. At first original player command BEFORE tested ranged attack: explicitly CONTROLLED source-valid secondary NPC dead statusFF/HP0/cacheFF/empty canonical occupancy, living primary3210->1. Definitions/primary defenses/total encounter count and all quest/reward outcomes retained. Actual A/Return attack, original victory/loot/Key award/world return or missing-Ring refusal. Initial damage/minion kills are NOT earned, no full encounter claim; no state injection after actual attack begins.'
+ identity=dict(argv=sys.argv,executable_sha256=sha(exe),source_sha256=sources,predecessor=str(prior_root),predecessor_report_sha256=sha(prior_root/'verification.json'),mode=prior['mode'],originals=originals,missing_ring=a.missing_ring,initializations=setup)
+ (root/'input-identity.json').write_text(json.dumps(identity,indent=2)+'\n');calls=[];startup=subprocess.STARTUPINFO();startup.dwFlags|=subprocess.STARTF_USESHOWWINDOW;startup.wShowWindow=0
+ for stage in(['warm','replay']if a.missing_ring else['warm','cold','replay']):
+  ini=configparser.ConfigParser(interpolation=None);ini['scummvm']={'updates_check':'0','gui_return_to_launcher':'false'};ini['nox-gameplay-test']={'engineid':'nox','gameid':'nox','platform':'apple2','path':str(game),'nox_gameplay_validation':'true','nox_campaign_validation':'true','nox_campaign_reload':'true','nox_classic_saves':str(prior['mode']=='Classic').lower(),'nox_dark_key_validation':'true','nox_dark_key_missing':str(a.missing_ring).lower(),'nox_dark_key_replay':str(stage=='replay').lower(),'nox_dark_key_check_only':str(stage=='cold').lower()};config=root/(stage+'.ini')
+  with config.open('w')as f:ini.write(f)
+  output=saves/('nox-dark-key-cold.tsv'if stage=='cold'else'nox-dark-key-replay.tsv'if stage=='replay'else'nox-dark-key.tsv');output.unlink(missing_ok=True)
+  argv=[str(exe),'--gfx-mode=surfacesdl',f'--config={config}',f'--savepath={saves}',f'--logfile={root/(stage+"-engine.log")}','nox-gameplay-test'];result=subprocess.run(argv,env=dict(os.environ,SDL_VIDEODRIVER='windows',SDL_AUDIODRIVER='dummy'),startupinfo=startup,capture_output=True,timeout=120);(root/(stage+'-stderr.txt')).write_bytes(result.stderr);calls.append(dict(stage=stage,argv=argv,exit=result.returncode));(root/'invocations.json').write_text(json.dumps(calls,indent=2)+'\n');assert originals=={str(f):sha(f)for f in game.glob('*.HDV')};assert result.returncode==0 and output.exists()and output.read_text().startswith('PASS\t'),str(root)
+ names=['nox-dark-key-refusal.bin','nox-dark-key-refusal-replay.bin']if a.missing_ring else['nox-dark-key-world.bin','nox-dark-key-world-replay.bin'];assert sha(saves/names[0])==sha(saves/names[1]),'Actual resulting runtime cold replay differs'
+ report=dict(identity,status='VERIFIED',invocations=calls,artifacts={str(f.relative_to(root)):sha(f)for f in saves.iterdir()if f.is_file()},controlled_checkpoint='VERIFIED',linked_gameplay_progression='VERIFIED',earned_continuous_progression='NOT STARTED',full_new_game_to_ending='NOT STARTED',full_health_encounter_victory='NOT STARTED',battle_final_blow_to_key='VERIFIED'if not a.missing_ring else'NOT STARTED',missing_ring_refusal='VERIFIED'if a.missing_ring else'NOT STARTED')
+ (root/'verification.json').write_text(json.dumps(report,indent=2)+'\n');print('VERIFIED:',root)
+if __name__=='__main__':main()

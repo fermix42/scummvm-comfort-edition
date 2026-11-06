@@ -1,0 +1,56 @@
+{
+  "status": "IN PROGRESS",
+  "milestone": "M3",
+  "scope": "First mortal-plane Shadow unchanged-HP/refusal hypothesis FAILED; actual magic staff hit12 plus independent original-source branch proof; not a verified CE defect",
+  "original_source": {
+    "resource": "NA/BS.AUX.RTN.BK2",
+    "sha256": "a9c1e05315b692d04e113ff150681bf74f17ba90700ed0751a714625ec65e89b",
+    "load_offset": 1,
+    "base": 53248
+  },
+  "independent_original_py65_branch_tests": {
+    "status": "VERIFIED",
+    "cases": [
+      {
+        "special": 9,
+        "attack": 110,
+        "defense": 127,
+        "original_program_counter_trace": [
+          "F0FB",
+          "F0FE",
+          "F12F"
+        ],
+        "outcome": "special weapon branch bypasses ordinary intelligence refusal"
+      },
+      {
+        "special": 0,
+        "attack": 110,
+        "defense": 127,
+        "original_program_counter_trace": [
+          "F0FB",
+          "F0FE",
+          "F100",
+          "F103",
+          "F106",
+          "F108"
+        ],
+        "outcome": "ordinary intelligence refusal"
+      }
+    ],
+    "provenance": "Isolated oracle inputs from actual recorded physical entry, not game-state fixture or earned progression. Original bytes executed independently by py65, no generated native replacement used."
+  },
+  "actual_probe": {
+    "path": "ce-m3-shadow-physical-seed0-8\\20261016-143044",
+    "identity_sha256": "6fdbfadb849f8450118e2f9a1bfc6180f00ab99e8c0838b2a708c868d1897696",
+    "failure_sha256": "9edafd2ffa04169db5f265cc2a5401e3105d7667509ef1cba020395a3a1b933c",
+    "executable_sha256": "1386f7dd6e36c2a16b89f3ff09ef6b90184410d933f511b58e5aa9e5edf49d94",
+    "controlled_initialization": "Retain ACTUAL sector entry/internal private checkpoint43B07 from verified source-supported outside setup, all actual Jewels/Key/Ring/journal/translation/Styx and real staff Ready. No new position, party, NPC, enemy HP, damage or quest initialization. CONTROLLED original four-byte RNG state6307..630A before A only; source1089..11BA increments/mixes any integer state including zero. Actual source hit roll and physical damage must run, never injected. Earlier6093=1 was an attack result/miss, NOT proof of terrain obstruction; previous placement experiments were unnecessary, failed and excluded. Original battle position retained. Actual bounded input path starts152,175. Source F53E..F584 identifies exact world0 position150,168 plus43B01 as first Shadow trigger; default U*7+LL follows actual retained source0/77/189/185 terrain. Original admission must match all32 owned COMBAT.S361C bytes, full3210HP/sprite133 and actual enemy-record highbit80; guardian-only scratch60D4 is not this predicate. Real ranged A/Return must enter original physical attack and preserve full enemyHP; stop at actual defeat or stable next player command, raw diagnostic only. No normal combat save/restore, victory, ending, or earned continuous campaign claim. Controlled pre-A seed=0.",
+    "original_enemy_HP": 3210,
+    "actual_enemy_HP": 3198,
+    "hit_chance": 84,
+    "hit_roll": 1,
+    "staff_special": 9
+  },
+  "conclusion": "Do not assume source high-bit99 implies every weapon deals zero damage. Actual Drake magic staff special9 follows original F0FB->F12F, bypassing ordinary INT110<127 refusal that special0 takes atF108. Source supports this distinct path; no CE game-logic fix justified by current evidence. Exact12-damage whole-operation independent reference and ordinary nonmagic refusal remain unverified. Prior expected unchanged-HP test remains failed, not relabeled PASS.",
+  "next_action": "Continue independent M3 linked pages. Later compare exact original full attack including12damage and ordinary weapon case; retain all failure evidence. No M4."
+}

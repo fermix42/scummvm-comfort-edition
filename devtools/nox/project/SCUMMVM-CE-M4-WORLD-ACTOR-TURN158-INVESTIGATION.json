@@ -1,0 +1,18 @@
+{
+  "status": "IN PROGRESS",
+  "scope": "Rejected native owner implementation; never a gameplay pass",
+  "source_archive": {
+    "path": "ce-m4-world-actor-turn158-rejected-source.zip",
+    "sha256": "857c1e56993f4481f9a4b4617ada64686db35952f3905b4e4677322cd5388e65"
+  },
+  "executable": {
+    "path": "ce-m4-binary\\scummvm-world-actor-turn158-rejected.exe",
+    "sha256": "1c895ecff4d74187b18d01f7cac68b9281a9f7992b965740c0b64bee7cde9189"
+  },
+  "failure_log": {
+    "path": "ce-m4-world-actor-turn158-suite.log",
+    "sha256": "7ebec18f6d98832e4d62d3f7d51bc0b85bfb8948a0beacc5f8975af80b98e8d6"
+  },
+  "finding": "Ordered turn differs from original source: initial native design advances facing and rebuilds empty occupancy on an ordinary wait; original D000 skips clearing when6153=0 and advances facing conditionally. Preserve failure before correction.",
+  "next_action": "Correct the implementation using actual source evidence; preserve all original numeric reference outcomes and rerun affected CE checks."
+}

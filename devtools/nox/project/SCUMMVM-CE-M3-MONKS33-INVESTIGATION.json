@@ -1,0 +1,30 @@
+{
+  "status": "IN PROGRESS",
+  "scope": "Failed Monk harness investigations, no victory acceptance",
+  "source_archive": {
+    "path": "ce-m3-monks33-investigation-source.zip",
+    "sha256": "ad9f1f922bc1c5f74d8066310131ff6cb07825ae15677df7133ad8a2bcc916cf"
+  },
+  "executable": {
+    "path": "ce-m3-guardian6-binary\\scummvm-monks33-investigation.exe",
+    "sha256": "be7bb32a948c1d3ee97ddf1ab63731968b72463a91bf6651faf75f412255050b"
+  },
+  "build": {
+    "log": "ce-m3-monks-build-33.log",
+    "result": "PASS0 warnings/errors 00:02:36.29"
+  },
+  "failures": [
+    {
+      "path": "ce-m3-temple-monks33/20261016-181204",
+      "reason": "Root generator broad version-number replacement changed expected PirateKey132 to133; no gameplay acceptance. Case corrected to132."
+    },
+    {
+      "path": "ce-m3-temple-monks33/20261016-181245",
+      "reason": "ActualLeft reaches original encounter notice atF14D, stack return9290 (owned GAME928E JSR1234), before inBattle/roster. Admission-only advance loop stops repeatedly at empty input and never acknowledges notice. Existing finishQuestBattle can acknowledge actual keyboard UI then validate full10Monk roster before controlledCast."
+    }
+  ],
+  "earlier_compile_failure": {
+    "log": "ce-m3-monks-build-32.log",
+    "reason": "Immutable HdvArchive pointer cannot invoke non-const read API; corrected by local archive opened from immutable image copy, no resource mutation. No executable claimed for failed compile."
+  }
+}

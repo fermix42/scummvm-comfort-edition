@@ -1,0 +1,26 @@
+{
+  "status": "VERIFIED",
+  "scope": "Original-only idle animation reference:16 retained operations at first-east notice and Open-return; no native animation acceptance",
+  "evidence": {
+    "ce-m4-animation198-investigation.json": "50a49cef7b642e9fd94cafb74c34632fdcf6a4446cd30a657b10a1ea9d4ca289",
+    "ce-m4-animation199b-proof.json": "50a49cef7b642e9fd94cafb74c34632fdcf6a4446cd30a657b10a1ea9d4ca289",
+    "ce-m4-animation198-probe.log": "c5adf1b4091afe2e28dbbcc69bd91bbc9e7b03efc537ffe27f5c61220871bd62",
+    "ce-m4-animation199-python-diagnosis.log": "bdb7880067bdd9ce21d9debb1da745ed52d584b60421f09322aa92e4e5e1da09",
+    "ce-m4-animation199b-probe.log": "b472d38adc4470c7e83ac44cb42bab22355de7022001e32ec9ab4ff1e143e4ac",
+    "ce-m4-animation199b-probe-scope.json": "f81584ef6db8041e3a05572bdb9ceb596e76028d4723dcf394cad80c39aaeee0",
+    "probe_world_animation198_m4.py": "3e1dea84bf37506a4dd987ac14e650d02185b35644e45656cc54fca9f2f2cfae",
+    "diagnose_animation199_m4.py": "3e9a3f723e858222e61ae0a9bd8b4ff3e7ded5cee3a8713aa0f74a38bfa86699",
+    "repeat_animation199b_m4.py": "636a3f13973d4b4ee834755fd322bc4f45028716920e21eca2359fc82dd18cec"
+  },
+  "observations": [
+    "Both original chains leave2048 gameplay fields/map/spawn bytes and six clock fields unchanged.",
+    "Original renderer uses a global phase, a16-step authored pattern cursor and five independently enabled phase groups; visible/hidden frame history and notice clipping remain relevant.",
+    "Two successful source probes are byte-identical, including operations, data copies, phase transitions and display selectors. The repeat was scoped to approved E-core affinity."
+  ],
+  "failure": "First198 invocation raised TypeError at hex(c.pc). An instrumented unchanged199 run succeeded, and the isolated unchanged repeat succeeded with byte-identical output. Root cause is unconfirmed; no engine defect inferred.",
+  "next": "Export named semantic animation/scene/two-frame input and retained original outcomes; implement native phases/raster/history/cold owner, integrate actual idle execution, then extend linked movement and all remaining M4 acceptance.",
+  "limitations": [
+    "No native animation cadence/frame-history pass. Current accepted executable remains197b.",
+    "Do not replace this operation with original instruction execution in the native owner. Normal Runtime and M4.2/.3 requirements remain unchanged."
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "status": "IN PROGRESS",
+  "failure": "Clock activation case3072 type5 map52 midnight; native skipped first255 row and stopped, while actual source skips its update but continues to subsequent rows.",
+  "finding": "Original clock scanner tests termination only on subsequent rows. Town52 begins255 followed by zero schedule rows until negative row336; midnight activates NPC0 route0/capability3. Map-entry initializer has different sentinel semantics and remains unchanged.",
+  "executable": {
+    "path": "ce-m4-binary\\scummvm-npc-clock84-rejected.exe",
+    "sha256": "e7af394de1340ad882f10c3b4b42c0882b2eb0a524608dfb34d3cc58cce158ef"
+  },
+  "source": {
+    "path": "ce-m4-npc-clock84-rejected-source.zip",
+    "sha256": "28ab3f92a4753e88bca1e2873a5c0152bab10b81b84cffb22e50d2bc5a793c15"
+  },
+  "log": "ce-m4-npc-clock84-suite.log",
+  "correction": "Remove only clock scanner first255 early exit. Unchanged original fixture and full suite must pass."
+}

@@ -1,0 +1,153 @@
+{
+  "status": "VERIFIED",
+  "scope": "Independent original-terrain reconciliation of current12 linked page fixtures, no new CE execution",
+  "reports": [
+    {
+      "path": "ce-m3-linked-pages12-seed1234/20261016-145807/verification.json",
+      "sha256": "54b33a0822a7c28a67cc1ee3dd11ddfb924c580a49e793018afa803b30d018b6",
+      "mode": "Modern",
+      "source_positions": [
+        {
+          "page": 1,
+          "map": 78,
+          "xy": [
+            6,
+            9
+          ],
+          "original_tile": 117
+        },
+        {
+          "page": 2,
+          "map": 78,
+          "xy": [
+            27,
+            12
+          ],
+          "original_tile": 86
+        },
+        {
+          "page": 3,
+          "map": 78,
+          "xy": [
+            10,
+            12
+          ],
+          "original_tile": 86
+        },
+        {
+          "page": 4,
+          "map": 78,
+          "xy": [
+            33,
+            19
+          ],
+          "original_tile": 86
+        },
+        {
+          "page": 5,
+          "map": 57,
+          "xy": [
+            33,
+            1
+          ],
+          "original_tile": 117
+        },
+        {
+          "page": 6,
+          "map": 57,
+          "xy": [
+            36,
+            36
+          ],
+          "original_tile": 86
+        },
+        {
+          "page": 7,
+          "map": 57,
+          "xy": [
+            44,
+            21
+          ],
+          "original_tile": 86
+        }
+      ],
+      "actual_trace_sha256": "db5ff7457bf33f0b76afdc8fcbe79dbdba3d03d5c75f217fd1be07c2e0b6dadc"
+    },
+    {
+      "path": "ce-m3-linked-pages12-seed1234-classic/20261016-145822/verification.json",
+      "sha256": "58536c9194ff6d8f569b8d1f2b0ede40cb6dd0e551686fe2ebc019362003a6f8",
+      "mode": "Classic",
+      "source_positions": [
+        {
+          "page": 1,
+          "map": 78,
+          "xy": [
+            6,
+            9
+          ],
+          "original_tile": 117
+        },
+        {
+          "page": 2,
+          "map": 78,
+          "xy": [
+            27,
+            12
+          ],
+          "original_tile": 86
+        },
+        {
+          "page": 3,
+          "map": 78,
+          "xy": [
+            10,
+            12
+          ],
+          "original_tile": 86
+        },
+        {
+          "page": 4,
+          "map": 78,
+          "xy": [
+            33,
+            19
+          ],
+          "original_tile": 86
+        },
+        {
+          "page": 5,
+          "map": 57,
+          "xy": [
+            33,
+            1
+          ],
+          "original_tile": 117
+        },
+        {
+          "page": 6,
+          "map": 57,
+          "xy": [
+            36,
+            36
+          ],
+          "original_tile": 86
+        },
+        {
+          "page": 7,
+          "map": 57,
+          "xy": [
+            44,
+            21
+          ],
+          "original_tile": 86
+        }
+      ],
+      "actual_trace_sha256": "db5ff7457bf33f0b76afdc8fcbe79dbdba3d03d5c75f217fd1be07c2e0b6dadc"
+    }
+  ],
+  "historical_reports": "October15 ce-m3-final-pages positions for bits8/16/128 were blocked and are superseded by source12 safe-floor chain; historical files retained, not current valid-setup acceptance",
+  "limitations": [
+    "Read-only terrain reconciliation is not earned physical approach.",
+    "Current twelve-report12 page/research/binding/Ready/Rat chain remains distinct from older controlled-inventory ancestry of ending52. C5 compatibility must disclose that boundary."
+  ]
+}
