@@ -1,0 +1,14 @@
+{
+  "implementation_commit": "81108692d45f1704a5b0e353a43e45557987d716",
+  "exe_sha256": "c2ab488b51ab30f16a91656e413c35358edfa6e42d05fd76096dfe3465969cdf",
+  "exe": "D:\\Codex Projects\\scummvm-private\\scummvm-native-portable-storage\\build-scummvm\\Releasex64\\scummvm.exe",
+  "human_exe": "D:\\Codex Projects\\scummvm-private\\scummvm-native-portable-storage\\portable-validation-local\\human-acceptance\\scummvm.exe",
+  "normal_checks": 50,
+  "cxxtest_checks": 442,
+  "ctest_executables": 2,
+  "native_cases": 8,
+  "native_gameplay_scenarios": 4,
+  "storage_checks_per_gameplay_scenario": 24,
+  "all_baseline_engine_defines": 138,
+  "preserved_files": 39
+}

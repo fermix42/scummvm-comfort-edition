@@ -1,0 +1,74 @@
+{
+  "cases": [
+    {
+      "case": "activation-isolation",
+      "checks": 4,
+      "passed": true,
+      "missing_root": 64,
+      "forbidden_override": 64,
+      "occupied_root": 64
+    },
+    {
+      "case": "protocol",
+      "checks": 8,
+      "passed": true
+    },
+    {
+      "case": "windows",
+      "passed": true,
+      "session": "27a4de0d38e18b63:cli-game:run:2026-11-06T22:20:14Z:2042",
+      "scene": "wed.set",
+      "native_menu": true,
+      "cold_restore": true,
+      "portable_storage_checks": 24,
+      "auxiliary_isolation": true,
+      "readonly_configuration_rejected": true,
+      "bank_isolation": true,
+      "second_session": "27a4de0d38e18b63:cli-game:run:2026-11-06T22:20:18Z:5464",
+      "save_a_sha256": "171a172f073b8dab4b5ccb13ae667e1f48f0f73345cec506e4da133b9ac87309"
+    },
+    {
+      "case": "ps2",
+      "passed": true,
+      "session": "f146fb39650eb9d9:cli-game:run:2026-11-06T22:20:36Z:11621",
+      "scene": "wed.set",
+      "native_menu": true,
+      "cold_restore": true,
+      "portable_storage_checks": 24,
+      "auxiliary_isolation": true,
+      "readonly_configuration_rejected": true,
+      "bank_isolation": true,
+      "second_session": "f146fb39650eb9d9:cli-game:run:2026-11-06T22:20:39Z:14091",
+      "save_a_sha256": "e06d3e7b91940801b67e3353763e23ee397274c17b711dc92c30e50bf8d38339"
+    }
+  ],
+  "observation": {
+    "status": "PASS",
+    "command": [
+      "C:\\Users\\aaron\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+      "-B",
+      "devtools/ce/test_native_cli.py",
+      "--exe",
+      "D:\\Codex Projects\\scummvm-private\\scummvm-native-portable-storage\\build-scummvm\\Releasex64\\scummvm.exe",
+      "--extra",
+      "D:\\Codex Projects\\scummvm-private\\scummvm-native-portable-storage\\dists\\engine-data",
+      "--artifacts",
+      "D:\\Codex Projects\\scummvm-private\\scummvm-native-portable-storage\\portable-validation-local\\offscreen-complete-scenarios",
+      "--windows",
+      "D:\\Games\\ScummVM\\Escape from Monkey Island (Multi-Platform)\\Escape from Monkey Island (Windows)",
+      "--ps2",
+      "D:\\Games\\ScummVM\\Escape from Monkey Island (Multi-Platform)\\Escape from Monkey Island (Playstation 2)",
+      "--offscreen"
+    ],
+    "exit": 0,
+    "successful_native_stream_write_records": 220,
+    "all_traced_writes_under": "D:\\Codex Projects\\scummvm-private\\scummvm-native-portable-storage\\portable-validation-local",
+    "controlled_profile_application_files": [],
+    "controlled_profile_system_gpu_files": [],
+    "real_profile_scummvm_notifications": [],
+    "controlled_profile_notifications": 0,
+    "real_profile_notifications": 963,
+    "observer_errors": [],
+    "limitation": "Directory notifications are not process-attributed kernel I/O tracing; raw notifications are retained. GPU-driver files are reported separately."
+  }
+}

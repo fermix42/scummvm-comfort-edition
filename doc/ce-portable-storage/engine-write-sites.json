@@ -3,9 +3,24 @@
   "pattern": "DumpFile|createWriteStream|fopen\\(|ofstream|GetTempPath|SHGetFolderPath|APPDATA|USERPROFILE",
   "references": [
     {
-      "file": "engines/access/asurface.cpp",
-      "line": 319,
-      "reference": "::Common::DumpFile outf;"
+      "file": "engines/ce_test_cli.cpp",
+      "line": 268,
+      "reference": "DumpFile file;"
+    },
+    {
+      "file": "engines/ce_test_cli.cpp",
+      "line": 289,
+      "reference": "WriteStream *marker = root.getChild(\"ce-test-cli.marker\").createWriteStream();"
+    },
+    {
+      "file": "engines/ce_test_cli.cpp",
+      "line": 314,
+      "reference": "WriteStream *stream = root.getChild(\"profile.ini\").createWriteStream();"
+    },
+    {
+      "file": "engines/agi/agi.h",
+      "line": 754,
+      "reference": "Common::DumpFile *_logFile; // File used for the log() agi command."
     },
     {
       "file": "engines/adl/adl.h",
@@ -23,119 +38,14 @@
       "reference": "Common::DumpFile outDisk;"
     },
     {
-      "file": "engines/access/debugger.cpp",
-      "line": 165,
-      "reference": "Common::DumpFile dumpFile;"
-    },
-    {
-      "file": "engines/alcachofa/console.cpp",
-      "line": 58,
-      "reference": "registerCmd(\"dumpFile\", WRAP_METHOD(Console, cmdDumpFile));"
-    },
-    {
-      "file": "engines/alcachofa/console.cpp",
-      "line": 354,
-      "reference": "bool Console::cmdDumpFile(int argc, const char **args) {"
-    },
-    {
-      "file": "engines/alcachofa/console.cpp",
-      "line": 367,
-      "reference": "DumpFile output;"
-    },
-    {
-      "file": "engines/alcachofa/console.h",
-      "line": 67,
-      "reference": "bool cmdDumpFile(int argc, const char **args);"
-    },
-    {
-      "file": "engines/alg/game.cpp",
-      "line": 361,
-      "reference": "Common::DumpFile dumpFile;"
-    },
-    {
       "file": "engines/access/player.cpp",
       "line": 176,
       "reference": "Common::DumpFile *outFile = new Common::DumpFile();"
     },
     {
-      "file": "engines/awe/resource.cpp",
-      "line": 238,
-      "reference": "Common::DumpFile out;"
-    },
-    {
-      "file": "engines/access/noctropolis/noctropolis_font.cpp",
-      "line": 107,
-      "reference": "Common::DumpFile dumpfile;"
-    },
-    {
-      "file": "engines/agos/debug.cpp",
-      "line": 456,
-      "reference": "Common::DumpFile out;"
-    },
-    {
-      "file": "engines/agi/op_cmd.cpp",
-      "line": 840,
-      "reference": "Common::DumpFile *&dumpFile = vm->_logFile;"
-    },
-    {
-      "file": "engines/agi/op_cmd.cpp",
-      "line": 855,
-      "reference": "dumpFile = new Common::DumpFile();"
-    },
-    {
-      "file": "engines/ags/console.cpp",
-      "line": 230,
-      "reference": "Common::DumpFile df;"
-    },
-    {
-      "file": "engines/agi/console.cpp",
-      "line": 670,
-      "reference": "Common::DumpFile file;"
-    },
-    {
-      "file": "engines/bagel/hodjnpodj/console.cpp",
-      "line": 56,
-      "reference": "Common::DumpFile df;"
-    },
-    {
-      "file": "engines/ags/lib/allegro/file.cpp",
-      "line": 154,
-      "reference": "PACKFILE *pack_fopen(AL_CONST char *filename, AL_CONST char *mode) {"
-    },
-    {
-      "file": "engines/ags/globals.h",
-      "line": 59,
-      "reference": "class DumpFile;"
-    },
-    {
-      "file": "engines/ags/globals.h",
-      "line": 398,
-      "reference": "Common::DumpFile *_scriptDumpFile = nullptr;"
-    },
-    {
-      "file": "engines/ags/globals.cpp",
-      "line": 436,
-      "reference": "delete _scriptDumpFile;"
-    },
-    {
-      "file": "engines/bladerunner/debugger.cpp",
-      "line": 1207,
-      "reference": "Common::WriteStream *saveFile = fs.createWriteStream();"
-    },
-    {
       "file": "engines/efh/utils.cpp",
       "line": 59,
       "reference": "Common::DumpFile dump;"
-    },
-    {
-      "file": "engines/bagel/hodjnpodj/pdq/convert.cpp",
-      "line": 57,
-      "reference": "if ((infile = fopen(argv[1], \"ra\")) != NULL) {"
-    },
-    {
-      "file": "engines/bagel/hodjnpodj/pdq/convert.cpp",
-      "line": 60,
-      "reference": "if ((outfile = fopen(\"OUT.DAT\", \"wb\")) != NULL) {"
     },
     {
       "file": "engines/efh/files.cpp",
@@ -148,14 +58,54 @@
       "reference": "Common::DumpFile dump;"
     },
     {
-      "file": "engines/agi/agi.h",
-      "line": 754,
-      "reference": "Common::DumpFile *_logFile; // File used for the log() agi command."
+      "file": "engines/access/noctropolis/noctropolis_font.cpp",
+      "line": 107,
+      "reference": "Common::DumpFile dumpfile;"
+    },
+    {
+      "file": "engines/agi/op_cmd.cpp",
+      "line": 840,
+      "reference": "Common::DumpFile *&dumpFile = vm->_logFile;"
+    },
+    {
+      "file": "engines/agi/op_cmd.cpp",
+      "line": 855,
+      "reference": "dumpFile = new Common::DumpFile();"
+    },
+    {
+      "file": "engines/agi/console.cpp",
+      "line": 670,
+      "reference": "Common::DumpFile file;"
     },
     {
       "file": "engines/cruise/volume.cpp",
       "line": 406,
       "reference": "Common::DumpFile fout;"
+    },
+    {
+      "file": "engines/access/debugger.cpp",
+      "line": 165,
+      "reference": "Common::DumpFile dumpFile;"
+    },
+    {
+      "file": "engines/access/asurface.cpp",
+      "line": 319,
+      "reference": "::Common::DumpFile outf;"
+    },
+    {
+      "file": "engines/gob/save/savefile.h",
+      "line": 283,
+      "reference": "Common::WriteStream *createWriteStream();"
+    },
+    {
+      "file": "engines/gob/save/savefile.cpp",
+      "line": 558,
+      "reference": "Common::WriteStream *SaveContainer::Part::createWriteStream() {"
+    },
+    {
+      "file": "engines/gob/save/savefile.cpp",
+      "line": 634,
+      "reference": "Common::WriteStream *pStream = p->createWriteStream();"
     },
     {
       "file": "engines/cruise/overlay.cpp",
@@ -168,6 +118,11 @@
       "reference": "fHandle = fopen(nameBundle, \"w+\");"
     },
     {
+      "file": "engines/gob/resources.cpp",
+      "line": 609,
+      "reference": "Common::DumpFile dump;"
+    },
+    {
       "file": "engines/cruise/decompiler.cpp",
       "line": 61,
       "reference": "FILE *fHandle = NULL;\t// FIXME: Use Common::DumpFile instead of FILE"
@@ -178,14 +133,49 @@
       "reference": "fHandle = fopen(buffer, \"w+\");"
     },
     {
-      "file": "engines/bagel/hodjnpodj/metagame/bgen/bdbgc.cpp",
-      "line": 857,
-      "reference": "xpOutput = fopen(dbgfile, \"a\") ;"
+      "file": "engines/director/archive.h",
+      "line": 125,
+      "reference": "void dumpChunk(Resource &res, Common::DumpFile &out);"
     },
     {
-      "file": "engines/bagel/hodjnpodj/metagame/bgen/bdbgc.cpp",
-      "line": 863,
-      "reference": "xpOutput = fopen(dbgfile, \"a\") ;"
+      "file": "engines/director/archive.cpp",
+      "line": 271,
+      "reference": "void Archive::dumpChunk(Resource &res, Common::DumpFile &out) {"
+    },
+    {
+      "file": "engines/director/archive.cpp",
+      "line": 384,
+      "reference": "Common::DumpFile out;"
+    },
+    {
+      "file": "engines/director/archive.cpp",
+      "line": 485,
+      "reference": "Common::DumpFile out;"
+    },
+    {
+      "file": "engines/director/archive.cpp",
+      "line": 707,
+      "reference": "Common::DumpFile out;"
+    },
+    {
+      "file": "engines/director/archive.cpp",
+      "line": 755,
+      "reference": "Common::DumpFile out;"
+    },
+    {
+      "file": "engines/director/archive.cpp",
+      "line": 966,
+      "reference": "Common::DumpFile out;"
+    },
+    {
+      "file": "engines/director/archive-save.cpp",
+      "line": 188,
+      "reference": "Common::DumpFile out;"
+    },
+    {
+      "file": "engines/director/archive-save.cpp",
+      "line": 696,
+      "reference": "Common::DumpFile out;"
     },
     {
       "file": "engines/zvision/core/console.h",
@@ -233,51 +223,6 @@
       "reference": "Common::DumpFile out;"
     },
     {
-      "file": "engines/ags/engine/ac/file.cpp",
-      "line": 248,
-      "reference": "const char *GameDataDirToken = \"$APPDATADIR$\";"
-    },
-    {
-      "file": "engines/macventure/macventure.cpp",
-      "line": 2093,
-      "reference": "static Common::DumpFile logFile;"
-    },
-    {
-      "file": "engines/cine/script_fw.cpp",
-      "line": 2431,
-      "reference": "static Common::DumpFile logFile;"
-    },
-    {
-      "file": "engines/cine/script_fw.cpp",
-      "line": 3608,
-      "reference": "Common::DumpFile fHandle;"
-    },
-    {
-      "file": "engines/cine/part.cpp",
-      "line": 365,
-      "reference": "Common::DumpFile out;"
-    },
-    {
-      "file": "engines/crab/ui/OptionMenu.cpp",
-      "line": 444,
-      "reference": "std::ofstream save(settingpath, std::ios::out);"
-    },
-    {
-      "file": "engines/macs2/macs2.cpp",
-      "line": 2368,
-      "reference": "Common::DumpFile *f = new Common::DumpFile();"
-    },
-    {
-      "file": "engines/macs2/debugtools.cpp",
-      "line": 1110,
-      "reference": "Common::DumpFile df;"
-    },
-    {
-      "file": "engines/director/debugger.h",
-      "line": 142,
-      "reference": "Common::DumpFile _out;"
-    },
-    {
       "file": "engines/director/score.cpp",
       "line": 1644,
       "reference": "Common::DumpFile screenshotFile;"
@@ -293,39 +238,129 @@
       "reference": "Common::DumpFile out;"
     },
     {
-      "file": "engines/director/archive.h",
-      "line": 125,
-      "reference": "void dumpChunk(Resource &res, Common::DumpFile &out);"
+      "file": "engines/gob/inter_v5.cpp",
+      "line": 349,
+      "reference": "FILE *f = fopen(\"SAVE\\\\SPEED.INF\", w);"
     },
     {
-      "file": "engines/director/archive.cpp",
-      "line": 271,
-      "reference": "void Archive::dumpChunk(Resource &res, Common::DumpFile &out) {"
+      "file": "engines/gob/inter_v5.cpp",
+      "line": 363,
+      "reference": "FILE *f = fopen(\"SAVE\\\\SPEED.INF\", r);"
     },
     {
-      "file": "engines/director/archive.cpp",
-      "line": 384,
+      "file": "engines/bladerunner/debugger.cpp",
+      "line": 1207,
+      "reference": "Common::WriteStream *saveFile = fs.createWriteStream();"
+    },
+    {
+      "file": "engines/mohawk/console.cpp",
+      "line": 583,
+      "reference": "// really be useless if the text console is not used. A DumpFile could also"
+    },
+    {
+      "file": "engines/dgds/dgds.cpp",
+      "line": 503,
+      "reference": "Common::DumpFile outf;"
+    },
+    {
+      "file": "engines/dgds/console.cpp",
+      "line": 146,
       "reference": "Common::DumpFile out;"
     },
     {
-      "file": "engines/director/archive.cpp",
-      "line": 485,
+      "file": "engines/dgds/console.cpp",
+      "line": 176,
+      "reference": "Common::DumpFile outf;"
+    },
+    {
+      "file": "engines/gob/console.cpp",
+      "line": 101,
+      "reference": "Common::DumpFile file;"
+    },
+    {
+      "file": "engines/crab/ui/OptionMenu.cpp",
+      "line": 444,
+      "reference": "std::ofstream save(settingpath, std::ios::out);"
+    },
+    {
+      "file": "engines/wintermute/debugger.h",
+      "line": 71,
+      "reference": "bool Cmd_DumpFile(int argc, const char **argv);"
+    },
+    {
+      "file": "engines/wintermute/debugger.cpp",
+      "line": 34,
+      "reference": "registerCmd(\"dump_file\", WRAP_METHOD(Console, Cmd_DumpFile));"
+    },
+    {
+      "file": "engines/wintermute/debugger.cpp",
+      "line": 314,
+      "reference": "bool Console::Cmd_DumpFile(int argc, const char **argv) {"
+    },
+    {
+      "file": "engines/wintermute/debugger.cpp",
+      "line": 330,
+      "reference": "Common::DumpFile *outFile = new Common::DumpFile();"
+    },
+    {
+      "file": "engines/ags/console.cpp",
+      "line": 230,
+      "reference": "Common::DumpFile df;"
+    },
+    {
+      "file": "engines/director/lingo/xlibs/u/unittest.cpp",
+      "line": 139,
+      "reference": "Common::SeekableWriteStream *stream = file.createWriteStream();"
+    },
+    {
+      "file": "engines/bagel/hodjnpodj/pdq/convert.cpp",
+      "line": 57,
+      "reference": "if ((infile = fopen(argv[1], \"ra\")) != NULL) {"
+    },
+    {
+      "file": "engines/bagel/hodjnpodj/pdq/convert.cpp",
+      "line": 60,
+      "reference": "if ((outfile = fopen(\"OUT.DAT\", \"wb\")) != NULL) {"
+    },
+    {
+      "file": "engines/agos/debug.cpp",
+      "line": 456,
       "reference": "Common::DumpFile out;"
     },
     {
-      "file": "engines/director/archive.cpp",
-      "line": 707,
+      "file": "engines/mm/xeen/debugger.cpp",
+      "line": 100,
+      "reference": "Common::DumpFile df;"
+    },
+    {
+      "file": "engines/wintermute/base/scriptables/script_value.cpp",
+      "line": 834,
+      "reference": "FILE* f = fopen(\"c:\\\\val.log\", \"a+\");"
+    },
+    {
+      "file": "engines/ags/engine/ac/file.cpp",
+      "line": 248,
+      "reference": "const char *GameDataDirToken = \"$APPDATADIR$\";"
+    },
+    {
+      "file": "engines/wintermute/base/scriptables/script_ext_mem_buffer.cpp",
+      "line": 436,
+      "reference": "Common::DumpFile f;"
+    },
+    {
+      "file": "engines/wintermute/base/scriptables/script_ext_file.cpp",
+      "line": 832,
+      "reference": "// Should replace fopen(..., \"ab+\") and fopen(..., \"a+\")"
+    },
+    {
+      "file": "engines/director/lingo/lingo-bytecode.cpp",
+      "line": 1324,
       "reference": "Common::DumpFile out;"
     },
     {
-      "file": "engines/director/archive.cpp",
-      "line": 755,
-      "reference": "Common::DumpFile out;"
-    },
-    {
-      "file": "engines/director/archive.cpp",
-      "line": 966,
-      "reference": "Common::DumpFile out;"
+      "file": "engines/director/debugger.h",
+      "line": 142,
+      "reference": "Common::DumpFile _out;"
     },
     {
       "file": "engines/director/debugger/debugtools.cpp",
@@ -338,79 +373,19 @@
       "reference": "Common::DumpFile bitmapFile;"
     },
     {
-      "file": "engines/director/archive-save.cpp",
-      "line": 188,
-      "reference": "Common::DumpFile out;"
+      "file": "engines/ags/globals.h",
+      "line": 59,
+      "reference": "class DumpFile;"
     },
     {
-      "file": "engines/director/archive-save.cpp",
-      "line": 696,
-      "reference": "Common::DumpFile out;"
+      "file": "engines/ags/globals.h",
+      "line": 398,
+      "reference": "Common::DumpFile *_scriptDumpFile = nullptr;"
     },
     {
-      "file": "engines/director/lingo/lingo-the.cpp",
-      "line": 1536,
-      "reference": "delete out.createWriteStream(false);"
-    },
-    {
-      "file": "engines/director/lingo/lingo-bytecode.cpp",
-      "line": 1324,
-      "reference": "Common::DumpFile out;"
-    },
-    {
-      "file": "engines/director/lingo/xlibs/u/unittest.cpp",
-      "line": 139,
-      "reference": "Common::SeekableWriteStream *stream = file.createWriteStream();"
-    },
-    {
-      "file": "engines/lure/debugger.cpp",
-      "line": 573,
-      "reference": "FILE *f = fopen(\"strings.txt\", \"w\");"
-    },
-    {
-      "file": "engines/lilliput/sound.cpp",
-      "line": 140,
-      "reference": "Common::DumpFile dmp;"
-    },
-    {
-      "file": "engines/hpl1/engine/system/low_level_system.cpp",
-      "line": 175,
-      "reference": "if(SUCCEEDED(SHGetFolderPath(NULL,"
-    },
-    {
-      "file": "engines/hpl1/engine/system/low_level_system.cpp",
-      "line": 205,
-      "reference": "FILE *f = _wfopen(fileName.c_str(),_W(\"r\"));"
-    },
-    {
-      "file": "engines/hpl1/engine/system/low_level_system.cpp",
-      "line": 207,
-      "reference": "FILE *f = fopen(cString::To8Char(fileName).c_str(),\"r\");"
-    },
-    {
-      "file": "engines/hpl1/engine/system/low_level_system.cpp",
-      "line": 244,
-      "reference": "std::ofstream OUT (cString::To8Char(destFileName).c_str(), std::ios::binary);"
-    },
-    {
-      "file": "engines/chamber/script.cpp",
-      "line": 4525,
-      "reference": "FILE *f = fopen(DEBUG_SCRIPT_LOG, \"at\");"
-    },
-    {
-      "file": "engines/chamber/script.cpp",
-      "line": 4597,
-      "reference": "FILE *f = fopen(DEBUG_SCRIPT_LOG, \"at\");"
-    },
-    {
-      "file": "engines/chamber/script.cpp",
-      "line": 4646,
-      "reference": "FILE *f = fopen(DEBUG_SCRIPT_LOG, \"at\");"
-    },
-    {
-      "file": "engines/chamber/kult.cpp",
-      "line": 67,
-      "reference": "FILE *f = fopen(filename, \"wb\");"
+      "file": "engines/ags/globals.cpp",
+      "line": 436,
+      "reference": "delete _scriptDumpFile;"
     },
     {
       "file": "engines/director/castmember/bitmap.cpp",
@@ -438,179 +413,14 @@
       "reference": "Common::DumpFile out;"
     },
     {
-      "file": "engines/harvester/script.cpp",
-      "line": 871,
-      "reference": "Common::ScopedPtr<Common::SeekableWriteStream> file(configNode.createWriteStream());"
+      "file": "engines/director/lingo/lingo-the.cpp",
+      "line": 1536,
+      "reference": "delete out.createWriteStream(false);"
     },
     {
-      "file": "engines/hpl1/engine/resources/LanguageFile.cpp",
-      "line": 178,
-      "reference": "FILE *pFile = fopen(sRawFile.c_str(),\"w+\");"
-    },
-    {
-      "file": "engines/wintermute/debugger.h",
-      "line": 71,
-      "reference": "bool Cmd_DumpFile(int argc, const char **argv);"
-    },
-    {
-      "file": "engines/wintermute/debugger.cpp",
-      "line": 34,
-      "reference": "registerCmd(\"dump_file\", WRAP_METHOD(Console, Cmd_DumpFile));"
-    },
-    {
-      "file": "engines/wintermute/debugger.cpp",
-      "line": 314,
-      "reference": "bool Console::Cmd_DumpFile(int argc, const char **argv) {"
-    },
-    {
-      "file": "engines/wintermute/debugger.cpp",
-      "line": 330,
-      "reference": "Common::DumpFile *outFile = new Common::DumpFile();"
-    },
-    {
-      "file": "engines/hpl1/engine/impl/tinyXML/tinyxml.cpp",
-      "line": 863,
-      "reference": "Common::ScopedPtr<Common::SeekableWriteStream> output(Common::FSNode(destination).createWriteStream());"
-    },
-    {
-      "file": "engines/ce_test_cli.cpp",
-      "line": 267,
-      "reference": "DumpFile file;"
-    },
-    {
-      "file": "engines/ce_test_cli.cpp",
-      "line": 288,
-      "reference": "WriteStream *marker = root.getChild(\"ce-test-cli.marker\").createWriteStream();"
-    },
-    {
-      "file": "engines/ce_test_cli.cpp",
-      "line": 313,
-      "reference": "WriteStream *stream = root.getChild(\"profile.ini\").createWriteStream();"
-    },
-    {
-      "file": "engines/kyra/gui/saveload_eob.cpp",
-      "line": 1131,
-      "reference": "Common::OutSaveFile *out = new Common::OutSaveFile(nf.createWriteStream());"
-    },
-    {
-      "file": "engines/wintermute/base/scriptables/script_value.cpp",
-      "line": 834,
-      "reference": "FILE* f = fopen(\"c:\\\\val.log\", \"a+\");"
-    },
-    {
-      "file": "engines/dgds/console.cpp",
-      "line": 146,
-      "reference": "Common::DumpFile out;"
-    },
-    {
-      "file": "engines/dgds/console.cpp",
-      "line": 176,
-      "reference": "Common::DumpFile outf;"
-    },
-    {
-      "file": "engines/dgds/dgds.cpp",
-      "line": 503,
-      "reference": "Common::DumpFile outf;"
-    },
-    {
-      "file": "engines/hpl1/engine/libraries/newton/Newton.cpp",
-      "line": 65,
-      "reference": "file = fopen(\"collisiontest.bin\", \"wb\");"
-    },
-    {
-      "file": "engines/m4/platform/sound/midi.cpp",
-      "line": 216,
-      "reference": "Common::DumpFile dump;"
-    },
-    {
-      "file": "engines/wintermute/base/scriptables/script_ext_mem_buffer.cpp",
-      "line": 436,
-      "reference": "Common::DumpFile f;"
-    },
-    {
-      "file": "engines/wintermute/base/scriptables/script_ext_file.cpp",
-      "line": 832,
-      "reference": "// Should replace fopen(..., \"ab+\") and fopen(..., \"a+\")"
-    },
-    {
-      "file": "engines/hpl1/engine/libraries/angelscript/sources/as_debug.h",
-      "line": 185,
-      "reference": "fp = fopen(\"AS_DEBUG/profiling_summary.txt\", \"wt\");"
-    },
-    {
-      "file": "engines/hpl1/engine/libraries/angelscript/sources/as_context.cpp",
-      "line": 86,
-      "reference": "FILE *f = fopen(\"AS_DEBUG/stats.txt\", \"wt\");"
-    },
-    {
-      "file": "engines/hpl1/engine/libraries/angelscript/sources/as_bytecode.cpp",
-      "line": 38,
-      "reference": "#include <stdio.h> // fopen(), fprintf(), fclose()"
-    },
-    {
-      "file": "engines/hpl1/engine/libraries/angelscript/sources/as_bytecode.cpp",
-      "line": 1917,
-      "reference": "FILE *file = fopen(path.AddressOf(), \"w\");"
-    },
-    {
-      "file": "engines/saga2/main.cpp",
-      "line": 529,
-      "reference": "Common::DumpFile out;"
-    },
-    {
-      "file": "engines/saga2/console.cpp",
-      "line": 431,
-      "reference": "Common::DumpFile dump;"
-    },
-    {
-      "file": "engines/icb/surface_manager.cpp",
-      "line": 867,
-      "reference": "Common::DumpFile dumpFile;"
-    },
-    {
-      "file": "engines/wage/world.cpp",
-      "line": 122,
-      "reference": "Common::DumpFile out;"
-    },
-    {
-      "file": "engines/wage/script.cpp",
-      "line": 108,
-      "reference": "Common::DumpFile out;"
-    },
-    {
-      "file": "engines/qdengine/system/graphics/gr_tile_animation.cpp",
-      "line": 688,
-      "reference": "Common::DumpFile bitmapFile;"
-    },
-    {
-      "file": "engines/ultima/ultima8/world/minimap.cpp",
-      "line": 330,
-      "reference": "Common::DumpFile dumpFile;"
-    },
-    {
-      "file": "engines/qdengine/qdcore/qd_sprite.cpp",
-      "line": 326,
-      "reference": "Common::DumpFile fh;"
-    },
-    {
-      "file": "engines/qdengine/qdcore/qd_camera.cpp",
-      "line": 1548,
-      "reference": "Common::DumpFile fh;"
-    },
-    {
-      "file": "engines/qdengine/qdcore/qd_game_dispatcher.cpp",
-      "line": 589,
+      "file": "engines/bagel/hodjnpodj/console.cpp",
+      "line": 56,
       "reference": "Common::DumpFile df;"
-    },
-    {
-      "file": "engines/ultima/ultima8/misc/debugger.cpp",
-      "line": 819,
-      "reference": "Common::DumpFile dumpFile;"
-    },
-    {
-      "file": "engines/groovie/resource.cpp",
-      "line": 118,
-      "reference": "Common::DumpFile outFile;"
     },
     {
       "file": "engines/glk/tads/tads2/built_in.h",
@@ -626,6 +436,11 @@
       "file": "engines/glk/tads/tads2/built_in.cpp",
       "line": 2475,
       "reference": "void biffopen(bifcxdef *ctx, int argc)"
+    },
+    {
+      "file": "engines/ags/lib/allegro/file.cpp",
+      "line": 154,
+      "reference": "PACKFILE *pack_fopen(AL_CONST char *filename, AL_CONST char *mode) {"
     },
     {
       "file": "engines/glk/tads/os_frob_tads.h",
@@ -648,29 +463,44 @@
       "reference": "OSFTDATA  = 4,      /* user data file (used with the TADS fopen() call) */"
     },
     {
-      "file": "engines/twine/scene/scene.cpp",
-      "line": 516,
+      "file": "engines/bagel/hodjnpodj/metagame/bgen/bdbgc.cpp",
+      "line": 857,
+      "reference": "xpOutput = fopen(dbgfile, \"a\") ;"
+    },
+    {
+      "file": "engines/bagel/hodjnpodj/metagame/bgen/bdbgc.cpp",
+      "line": 863,
+      "reference": "xpOutput = fopen(dbgfile, \"a\") ;"
+    },
+    {
+      "file": "engines/awe/resource.cpp",
+      "line": 238,
       "reference": "Common::DumpFile out;"
     },
     {
-      "file": "engines/twine/resources/hqr.cpp",
-      "line": 268,
+      "file": "engines/cine/part.cpp",
+      "line": 365,
       "reference": "Common::DumpFile out;"
     },
     {
-      "file": "engines/tinsel/music.cpp",
-      "line": 388,
-      "reference": "Common::DumpFile outFile;"
+      "file": "engines/glk/debugger.cpp",
+      "line": 64,
+      "reference": "Common::DumpFile df;"
     },
     {
-      "file": "engines/glk/quest/geas_util.cpp",
-      "line": 216,
-      "reference": "ofstream *filestr = new ofstream(logfile);"
+      "file": "engines/glk/debugger.cpp",
+      "line": 82,
+      "reference": "Common::DumpFile df;"
     },
     {
-      "file": "engines/tinsel/debugger.cpp",
-      "line": 274,
-      "reference": "Common::DumpFile dumpFile;"
+      "file": "engines/cine/script_fw.cpp",
+      "line": 2431,
+      "reference": "static Common::DumpFile logFile;"
+    },
+    {
+      "file": "engines/cine/script_fw.cpp",
+      "line": 3608,
+      "reference": "Common::DumpFile fHandle;"
     },
     {
       "file": "engines/wintermute/base/base_game.cpp",
@@ -678,29 +508,34 @@
       "reference": "Common::DumpFile *f = new Common::DumpFile;"
     },
     {
+      "file": "engines/glk/quest/geas_util.cpp",
+      "line": 216,
+      "reference": "ofstream *filestr = new ofstream(logfile);"
+    },
+    {
       "file": "engines/glk/magnetic/magnetic.h",
       "line": 261,
       "reference": "Common::DumpFile *_log1, *_log2;"
     },
     {
-      "file": "engines/twine/debugger/console.h",
-      "line": 67,
-      "reference": "bool doDumpFile(int argc, const char **argv);"
+      "file": "engines/glk/adrift/sxutils.cpp",
+      "line": 139,
+      "reference": "* sx_fopen()"
     },
     {
-      "file": "engines/twine/debugger/console.cpp",
-      "line": 51,
-      "reference": "registerCmd(\"dumpfile\", WRAP_METHOD(TwinEConsole, doDumpFile));"
-    },
-    {
-      "file": "engines/twine/debugger/console.cpp",
-      "line": 380,
-      "reference": "bool TwinEConsole::doDumpFile(int argc, const char **argv) {"
+      "file": "engines/glk/adrift/sxutils.cpp",
+      "line": 144,
+      "reference": "Common::SeekableReadStream *sx_fopen(const sc_char *name, const sc_char *extension, const sc_char *mode) {"
     },
     {
       "file": "engines/glk/magnetic/emu.cpp",
       "line": 268,
       "reference": "dbg_log = fopen(LOG_FILE, \"wt\");"
+    },
+    {
+      "file": "engines/glk/adrift/sxprotos.h",
+      "line": 58,
+      "reference": "extern Common::SeekableReadStream *sx_fopen(const sc_char *name,"
     },
     {
       "file": "engines/glk/level9/os_glk.cpp",
@@ -718,6 +553,26 @@
       "reference": "f = fopen(CODEFOLLOWFILE, \"w\");"
     },
     {
+      "file": "engines/chamber/script.cpp",
+      "line": 4525,
+      "reference": "FILE *f = fopen(DEBUG_SCRIPT_LOG, \"at\");"
+    },
+    {
+      "file": "engines/chamber/script.cpp",
+      "line": 4597,
+      "reference": "FILE *f = fopen(DEBUG_SCRIPT_LOG, \"at\");"
+    },
+    {
+      "file": "engines/chamber/script.cpp",
+      "line": 4646,
+      "reference": "FILE *f = fopen(DEBUG_SCRIPT_LOG, \"at\");"
+    },
+    {
+      "file": "engines/chamber/kult.cpp",
+      "line": 67,
+      "reference": "FILE *f = fopen(filename, \"wb\");"
+    },
+    {
       "file": "engines/glk/jacl/types.h",
       "line": 210,
       "reference": "Common::DumpFile *df = new Common::DumpFile();"
@@ -733,74 +588,19 @@
       "reference": "if ((outputFile = fopen(processed_file, \"w\")) == NULL) {"
     },
     {
-      "file": "engines/tetraedge/te/te_tiled_surface.cpp",
-      "line": 113,
-      "reference": "Common::DumpFile dumpFile;"
+      "file": "engines/gamos/vm.cpp",
+      "line": 1047,
+      "reference": "Common::DumpFile f;"
     },
     {
-      "file": "engines/tetraedge/te/te_text_base2.cpp",
-      "line": 113,
-      "reference": "Common::DumpFile dumpFile;"
+      "file": "engines/gamos/gamos.cpp",
+      "line": 4429,
+      "reference": "Common::DumpFile f;"
     },
     {
       "file": "engines/waynesworld/sound.cpp",
       "line": 185,
       "reference": "Common::DumpFile dump;"
-    },
-    {
-      "file": "engines/glk/debugger.cpp",
-      "line": 64,
-      "reference": "Common::DumpFile df;"
-    },
-    {
-      "file": "engines/glk/debugger.cpp",
-      "line": 82,
-      "reference": "Common::DumpFile df;"
-    },
-    {
-      "file": "engines/watchmaker/saveload.cpp",
-      "line": 195,
-      "reference": "if ((fhs = fopen(str, \"wb\")) == nullptr)"
-    },
-    {
-      "file": "engines/watchmaker/ll/ll_system.cpp",
-      "line": 111,
-      "reference": "else                        tempFile = fopen(name, \"rb\");"
-    },
-    {
-      "file": "engines/watchmaker/game_options.h",
-      "line": 70,
-      "reference": "fp = fopen(str, \"wb\");"
-    },
-    {
-      "file": "engines/trecision/console.h",
-      "line": 41,
-      "reference": "bool Cmd_DumpFile(int argc, const char **argv);"
-    },
-    {
-      "file": "engines/trecision/console.cpp",
-      "line": 37,
-      "reference": "registerCmd(\"dumpfile\",\t\t WRAP_METHOD(Console, Cmd_DumpFile));"
-    },
-    {
-      "file": "engines/trecision/console.cpp",
-      "line": 90,
-      "reference": "Common::DumpFile outFile;"
-    },
-    {
-      "file": "engines/trecision/console.cpp",
-      "line": 102,
-      "reference": "bool Console::Cmd_DumpFile(int argc, const char **argv) {"
-    },
-    {
-      "file": "engines/trecision/console.cpp",
-      "line": 117,
-      "reference": "Common::DumpFile outFile;"
-    },
-    {
-      "file": "engines/watchmaker/classes/do_keyboard.cpp",
-      "line": 299,
-      "reference": "if ((fh = fopen(str, \"rb\")) == NULL)"
     },
     {
       "file": "engines/glk/agt/vars.cpp",
@@ -831,6 +631,11 @@
       "file": "engines/glk/agt/util.cpp",
       "line": 543,
       "reference": "/* If rectype==NULL, buffopen() will return 0 on failure instead of"
+    },
+    {
+      "file": "engines/watchmaker/saveload.cpp",
+      "line": 195,
+      "reference": "if ((fhs = fopen(str, \"wb\")) == nullptr)"
     },
     {
       "file": "engines/glk/agt/os_glk.cpp",
@@ -903,9 +708,29 @@
       "reference": "long buffopen(fc_type fc, filetype ext,"
     },
     {
-      "file": "engines/got/gfx/gfx_chunks.cpp",
-      "line": 84,
-      "reference": "Common::DumpFile df;"
+      "file": "engines/watchmaker/ll/ll_system.cpp",
+      "line": 111,
+      "reference": "else                        tempFile = fopen(name, \"rb\");"
+    },
+    {
+      "file": "engines/alg/game.cpp",
+      "line": 361,
+      "reference": "Common::DumpFile dumpFile;"
+    },
+    {
+      "file": "engines/watchmaker/game_options.h",
+      "line": 70,
+      "reference": "fp = fopen(str, \"wb\");"
+    },
+    {
+      "file": "engines/watchmaker/classes/do_keyboard.cpp",
+      "line": 299,
+      "reference": "if ((fh = fopen(str, \"rb\")) == NULL)"
+    },
+    {
+      "file": "engines/lure/debugger.cpp",
+      "line": 573,
+      "reference": "FILE *f = fopen(\"strings.txt\", \"w\");"
     },
     {
       "file": "engines/groovie/video/roq.cpp",
@@ -913,34 +738,184 @@
       "reference": "Common::DumpFile out;"
     },
     {
-      "file": "engines/glk/adrift/sxutils.cpp",
-      "line": 139,
-      "reference": "* sx_fopen()"
+      "file": "engines/groovie/resource.cpp",
+      "line": 118,
+      "reference": "Common::DumpFile outFile;"
     },
     {
-      "file": "engines/glk/adrift/sxutils.cpp",
-      "line": 144,
-      "reference": "Common::SeekableReadStream *sx_fopen(const sc_char *name, const sc_char *extension, const sc_char *mode) {"
+      "file": "engines/alcachofa/console.h",
+      "line": 67,
+      "reference": "bool cmdDumpFile(int argc, const char **args);"
     },
     {
-      "file": "engines/glk/adrift/sxprotos.h",
+      "file": "engines/alcachofa/console.cpp",
       "line": 58,
-      "reference": "extern Common::SeekableReadStream *sx_fopen(const sc_char *name,"
+      "reference": "registerCmd(\"dumpFile\", WRAP_METHOD(Console, cmdDumpFile));"
     },
     {
-      "file": "engines/tetraedge/game/characters_shadow_opengl.cpp",
-      "line": 69,
+      "file": "engines/alcachofa/console.cpp",
+      "line": 354,
+      "reference": "bool Console::cmdDumpFile(int argc, const char **args) {"
+    },
+    {
+      "file": "engines/alcachofa/console.cpp",
+      "line": 367,
+      "reference": "DumpFile output;"
+    },
+    {
+      "file": "engines/lilliput/sound.cpp",
+      "line": 140,
+      "reference": "Common::DumpFile dmp;"
+    },
+    {
+      "file": "engines/m4/platform/sound/midi.cpp",
+      "line": 216,
+      "reference": "Common::DumpFile dump;"
+    },
+    {
+      "file": "engines/kyra/gui/saveload_eob.cpp",
+      "line": 1131,
+      "reference": "Common::OutSaveFile *out = new Common::OutSaveFile(nf.createWriteStream());"
+    },
+    {
+      "file": "engines/hpl1/engine/system/low_level_system.cpp",
+      "line": 175,
+      "reference": "if(SUCCEEDED(SHGetFolderPath(NULL,"
+    },
+    {
+      "file": "engines/hpl1/engine/system/low_level_system.cpp",
+      "line": 205,
+      "reference": "FILE *f = _wfopen(fileName.c_str(),_W(\"r\"));"
+    },
+    {
+      "file": "engines/hpl1/engine/system/low_level_system.cpp",
+      "line": 207,
+      "reference": "FILE *f = fopen(cString::To8Char(fileName).c_str(),\"r\");"
+    },
+    {
+      "file": "engines/hpl1/engine/system/low_level_system.cpp",
+      "line": 244,
+      "reference": "std::ofstream OUT (cString::To8Char(destFileName).c_str(), std::ios::binary);"
+    },
+    {
+      "file": "engines/wage/world.cpp",
+      "line": 122,
+      "reference": "Common::DumpFile out;"
+    },
+    {
+      "file": "engines/wage/script.cpp",
+      "line": 108,
+      "reference": "Common::DumpFile out;"
+    },
+    {
+      "file": "engines/harvester/script.cpp",
+      "line": 871,
+      "reference": "Common::ScopedPtr<Common::SeekableWriteStream> file(configNode.createWriteStream());"
+    },
+    {
+      "file": "engines/macventure/macventure.cpp",
+      "line": 2093,
+      "reference": "static Common::DumpFile logFile;"
+    },
+    {
+      "file": "engines/made/database.cpp",
+      "line": 109,
+      "reference": "FILE *o = fopen(filename, \"wb\");"
+    },
+    {
+      "file": "engines/mm/mm1/console.cpp",
+      "line": 506,
+      "reference": "Common::DumpFile df;"
+    },
+    {
+      "file": "engines/mm/mm1/console.cpp",
+      "line": 540,
+      "reference": "Common::DumpFile df;"
+    },
+    {
+      "file": "engines/macs2/macs2.cpp",
+      "line": 2368,
+      "reference": "Common::DumpFile *f = new Common::DumpFile();"
+    },
+    {
+      "file": "engines/ultima/ultima8/world/minimap.cpp",
+      "line": 330,
       "reference": "Common::DumpFile dumpFile;"
     },
     {
-      "file": "engines/gamos/vm.cpp",
-      "line": 1047,
+      "file": "engines/macs2/debugtools.cpp",
+      "line": 1110,
+      "reference": "Common::DumpFile df;"
+    },
+    {
+      "file": "engines/hpl1/engine/resources/LanguageFile.cpp",
+      "line": 178,
+      "reference": "FILE *pFile = fopen(sRawFile.c_str(),\"w+\");"
+    },
+    {
+      "file": "engines/icb/surface_manager.cpp",
+      "line": 867,
+      "reference": "Common::DumpFile dumpFile;"
+    },
+    {
+      "file": "engines/myst3/console.cpp",
+      "line": 305,
       "reference": "Common::DumpFile f;"
     },
     {
-      "file": "engines/gamos/gamos.cpp",
-      "line": 4429,
-      "reference": "Common::DumpFile f;"
+      "file": "engines/myst3/console.cpp",
+      "line": 374,
+      "reference": "Common::DumpFile outFile;"
+    },
+    {
+      "file": "engines/myst3/console.cpp",
+      "line": 469,
+      "reference": "Common::DumpFile outFile;"
+    },
+    {
+      "file": "engines/hpl1/engine/impl/tinyXML/tinyxml.cpp",
+      "line": 863,
+      "reference": "Common::ScopedPtr<Common::SeekableWriteStream> output(Common::FSNode(destination).createWriteStream());"
+    },
+    {
+      "file": "engines/mtropolis/plugin/midi.cpp",
+      "line": 568,
+      "reference": "Common::SharedPtr<Common::DumpFile> _dumpFile;"
+    },
+    {
+      "file": "engines/mtropolis/plugin/midi.cpp",
+      "line": 594,
+      "reference": "_dumpFile.reset(new Common::DumpFile());"
+    },
+    {
+      "file": "engines/startrek/console.h",
+      "line": 43,
+      "reference": "bool Cmd_DumpFile(int argc, const char **argv);"
+    },
+    {
+      "file": "engines/startrek/console.cpp",
+      "line": 36,
+      "reference": "registerCmd(\"filedump\",\t\tWRAP_METHOD(Console, Cmd_DumpFile));"
+    },
+    {
+      "file": "engines/startrek/console.cpp",
+      "line": 139,
+      "reference": "Common::DumpFile out;"
+    },
+    {
+      "file": "engines/startrek/console.cpp",
+      "line": 147,
+      "reference": "bool Console::Cmd_DumpFile(int argc, const char **argv) {"
+    },
+    {
+      "file": "engines/ultima/ultima8/misc/debugger.cpp",
+      "line": 819,
+      "reference": "Common::DumpFile dumpFile;"
+    },
+    {
+      "file": "engines/hpl1/engine/libraries/newton/Newton.cpp",
+      "line": 65,
+      "reference": "file = fopen(\"collisiontest.bin\", \"wb\");"
     },
     {
       "file": "engines/toltecs/resource.cpp",
@@ -948,78 +923,13 @@
       "reference": "Common::DumpFile o;"
     },
     {
-      "file": "engines/testbed/image.cpp",
-      "line": 96,
-      "reference": "// Common::DumpFile dumpFile;"
-    },
-    {
-      "file": "engines/ultima/shared/conf/xml_tree.cpp",
-      "line": 104,
+      "file": "engines/got/gfx/gfx_chunks.cpp",
+      "line": 84,
       "reference": "Common::DumpFile df;"
     },
     {
-      "file": "engines/testbed/fs.cpp",
-      "line": 159,
-      "reference": "Common::WriteStream *ws = fileToWrite.createWriteStream();"
-    },
-    {
-      "file": "engines/testbed/config.cpp",
-      "line": 232,
-      "reference": "ws = config.createWriteStream();"
-    },
-    {
-      "file": "engines/testbed/config-params.cpp",
-      "line": 49,
-      "reference": "_ws = Common::FSNode(_logDirectory).getChild(_logFilename).createWriteStream(false);"
-    },
-    {
-      "file": "engines/gob/save/savefile.h",
-      "line": 283,
-      "reference": "Common::WriteStream *createWriteStream();"
-    },
-    {
-      "file": "engines/gob/save/savefile.cpp",
-      "line": 558,
-      "reference": "Common::WriteStream *SaveContainer::Part::createWriteStream() {"
-    },
-    {
-      "file": "engines/gob/save/savefile.cpp",
-      "line": 634,
-      "reference": "Common::WriteStream *pStream = p->createWriteStream();"
-    },
-    {
-      "file": "engines/gob/resources.cpp",
-      "line": 609,
-      "reference": "Common::DumpFile dump;"
-    },
-    {
-      "file": "engines/ultima/nuvie/sound/adplug/fm_opl.cpp",
-      "line": 1182,
-      "reference": "sample[0]=fopen(\"sampsum.pcm\",\"wb\");"
-    },
-    {
-      "file": "engines/ultima/nuvie/sound/adplug/fm_opl.cpp",
-      "line": 1680,
-      "reference": "cymfile = fopen(\"3812_.cym\",\"wb\");"
-    },
-    {
-      "file": "engines/sword1/resman.cpp",
-      "line": 229,
-      "reference": "Common::DumpFile outf;"
-    },
-    {
-      "file": "engines/gob/inter_v5.cpp",
-      "line": 349,
-      "reference": "FILE *f = fopen(\"SAVE\\\\SPEED.INF\", w);"
-    },
-    {
-      "file": "engines/gob/inter_v5.cpp",
-      "line": 363,
-      "reference": "FILE *f = fopen(\"SAVE\\\\SPEED.INF\", r);"
-    },
-    {
-      "file": "engines/sky/disk.cpp",
-      "line": 440,
+      "file": "engines/stark/resources/textureset.cpp",
+      "line": 99,
       "reference": "Common::DumpFile out;"
     },
     {
@@ -1028,9 +938,84 @@
       "reference": "Common::DumpFile outFile;"
     },
     {
-      "file": "engines/sword2/resman.cpp",
-      "line": 398,
+      "file": "engines/stark/console.cpp",
+      "line": 100,
+      "reference": "Common::DumpFile outFile;"
+    },
+    {
+      "file": "engines/nancy/console.cpp",
+      "line": 259,
+      "reference": "Common::DumpFile dumpfile;"
+    },
+    {
+      "file": "engines/nancy/console.cpp",
+      "line": 368,
+      "reference": "Common::DumpFile f;"
+    },
+    {
+      "file": "engines/nancy/console.cpp",
+      "line": 793,
+      "reference": "Common::DumpFile f;"
+    },
+    {
+      "file": "engines/hpl1/engine/libraries/angelscript/sources/as_context.cpp",
+      "line": 86,
+      "reference": "FILE *f = fopen(\"AS_DEBUG/stats.txt\", \"wt\");"
+    },
+    {
+      "file": "engines/hpl1/engine/libraries/angelscript/sources/as_bytecode.cpp",
+      "line": 38,
+      "reference": "#include <stdio.h> // fopen(), fprintf(), fclose()"
+    },
+    {
+      "file": "engines/hpl1/engine/libraries/angelscript/sources/as_bytecode.cpp",
+      "line": 1917,
+      "reference": "FILE *file = fopen(path.AddressOf(), \"w\");"
+    },
+    {
+      "file": "engines/hpl1/engine/libraries/angelscript/sources/as_debug.h",
+      "line": 185,
+      "reference": "fp = fopen(\"AS_DEBUG/profiling_summary.txt\", \"wt\");"
+    },
+    {
+      "file": "engines/nancy/action/miscrecords.cpp",
+      "line": 455,
+      "reference": "Common::DumpFile outFile;"
+    },
+    {
+      "file": "engines/sky/disk.cpp",
+      "line": 440,
       "reference": "Common::DumpFile out;"
+    },
+    {
+      "file": "engines/sludge/imgloader.cpp",
+      "line": 60,
+      "reference": "Common::DumpFile *outFile = new Common::DumpFile();"
+    },
+    {
+      "file": "engines/nancy/resource.cpp",
+      "line": 416,
+      "reference": "Common::DumpFile dump;"
+    },
+    {
+      "file": "engines/nancy/resource.cpp",
+      "line": 513,
+      "reference": "Common::DumpFile dump;"
+    },
+    {
+      "file": "engines/sludge/floor.cpp",
+      "line": 260,
+      "reference": "Common::DumpFile dumpFile;"
+    },
+    {
+      "file": "engines/sludge/fileset.cpp",
+      "line": 225,
+      "reference": "Common::DumpFile dumpFile;"
+    },
+    {
+      "file": "engines/sludge/fileset.cpp",
+      "line": 256,
+      "reference": "Common::DumpFile dumpFile;"
     },
     {
       "file": "engines/sherlock/debugger.h",
@@ -1053,49 +1038,29 @@
       "reference": "Common::DumpFile dumpFile;"
     },
     {
-      "file": "engines/gob/console.cpp",
-      "line": 101,
-      "reference": "Common::DumpFile file;"
+      "file": "engines/twine/scene/scene.cpp",
+      "line": 516,
+      "reference": "Common::DumpFile out;"
     },
     {
-      "file": "engines/nancy/console.cpp",
-      "line": 259,
-      "reference": "Common::DumpFile dumpfile;"
+      "file": "engines/twine/resources/hqr.cpp",
+      "line": 268,
+      "reference": "Common::DumpFile out;"
     },
     {
-      "file": "engines/nancy/console.cpp",
-      "line": 368,
-      "reference": "Common::DumpFile f;"
+      "file": "engines/twine/debugger/console.h",
+      "line": 67,
+      "reference": "bool doDumpFile(int argc, const char **argv);"
     },
     {
-      "file": "engines/nancy/console.cpp",
-      "line": 793,
-      "reference": "Common::DumpFile f;"
+      "file": "engines/twine/debugger/console.cpp",
+      "line": 51,
+      "reference": "registerCmd(\"dumpfile\", WRAP_METHOD(TwinEConsole, doDumpFile));"
     },
     {
-      "file": "engines/ultima/nuvie/files/nuvie_io_file.h",
-      "line": 73,
-      "reference": "* it uses a Common::DumpFile instead"
-    },
-    {
-      "file": "engines/ultima/nuvie/files/nuvie_io_file.h",
-      "line": 78,
-      "reference": "Common::DumpFile _dumpFile;"
-    },
-    {
-      "file": "engines/ultima/nuvie/files/nuvie_io_file.cpp",
-      "line": 151,
-      "reference": "// Ensure it's a relative path, that we can open for writing using a DumpFile"
-    },
-    {
-      "file": "engines/nancy/resource.cpp",
-      "line": 416,
-      "reference": "Common::DumpFile dump;"
-    },
-    {
-      "file": "engines/nancy/resource.cpp",
-      "line": 513,
-      "reference": "Common::DumpFile dump;"
+      "file": "engines/twine/debugger/console.cpp",
+      "line": 380,
+      "reference": "bool TwinEConsole::doDumpFile(int argc, const char **argv) {"
     },
     {
       "file": "engines/scumm/resource.cpp",
@@ -1103,9 +1068,24 @@
       "reference": "Common::DumpFile out;"
     },
     {
-      "file": "engines/nancy/action/miscrecords.cpp",
-      "line": 455,
+      "file": "engines/tinsel/music.cpp",
+      "line": 388,
       "reference": "Common::DumpFile outFile;"
+    },
+    {
+      "file": "engines/tinsel/debugger.cpp",
+      "line": 274,
+      "reference": "Common::DumpFile dumpFile;"
+    },
+    {
+      "file": "engines/tetraedge/te/te_tiled_surface.cpp",
+      "line": 113,
+      "reference": "Common::DumpFile dumpFile;"
+    },
+    {
+      "file": "engines/tetraedge/te/te_text_base2.cpp",
+      "line": 113,
+      "reference": "Common::DumpFile dumpFile;"
     },
     {
       "file": "engines/sci/graphics/portrait.cpp",
@@ -1118,19 +1098,44 @@
       "reference": "Common::DumpFile *outFile = new Common::DumpFile();"
     },
     {
-      "file": "engines/myst3/console.cpp",
-      "line": 305,
-      "reference": "Common::DumpFile f;"
+      "file": "engines/sword2/resman.cpp",
+      "line": 398,
+      "reference": "Common::DumpFile out;"
     },
     {
-      "file": "engines/myst3/console.cpp",
-      "line": 374,
+      "file": "engines/trecision/console.h",
+      "line": 41,
+      "reference": "bool Cmd_DumpFile(int argc, const char **argv);"
+    },
+    {
+      "file": "engines/trecision/console.cpp",
+      "line": 37,
+      "reference": "registerCmd(\"dumpfile\",\t\t WRAP_METHOD(Console, Cmd_DumpFile));"
+    },
+    {
+      "file": "engines/trecision/console.cpp",
+      "line": 90,
       "reference": "Common::DumpFile outFile;"
     },
     {
-      "file": "engines/myst3/console.cpp",
-      "line": 469,
+      "file": "engines/trecision/console.cpp",
+      "line": 102,
+      "reference": "bool Console::Cmd_DumpFile(int argc, const char **argv) {"
+    },
+    {
+      "file": "engines/trecision/console.cpp",
+      "line": 117,
       "reference": "Common::DumpFile outFile;"
+    },
+    {
+      "file": "engines/saga2/console.cpp",
+      "line": 431,
+      "reference": "Common::DumpFile dump;"
+    },
+    {
+      "file": "engines/saga2/main.cpp",
+      "line": 529,
+      "reference": "Common::DumpFile out;"
     },
     {
       "file": "engines/sci/console.cpp",
@@ -1158,9 +1163,9 @@
       "reference": "Common::DumpFile out;"
     },
     {
-      "file": "engines/sci/engine/tts.h",
-      "line": 69,
-      "reference": "Common::DumpFile *_voiceCapture;"
+      "file": "engines/sword1/resman.cpp",
+      "line": 229,
+      "reference": "Common::DumpFile outf;"
     },
     {
       "file": "engines/sci/engine/tts.cpp",
@@ -1168,89 +1173,84 @@
       "reference": "_voiceCapture = new Common::DumpFile();"
     },
     {
-      "file": "engines/stark/resources/textureset.cpp",
-      "line": 99,
-      "reference": "Common::DumpFile out;"
+      "file": "engines/sci/engine/tts.h",
+      "line": 69,
+      "reference": "Common::DumpFile *_voiceCapture;"
     },
     {
-      "file": "engines/startrek/console.h",
-      "line": 43,
-      "reference": "bool Cmd_DumpFile(int argc, const char **argv);"
-    },
-    {
-      "file": "engines/startrek/console.cpp",
-      "line": 36,
-      "reference": "registerCmd(\"filedump\",\t\tWRAP_METHOD(Console, Cmd_DumpFile));"
-    },
-    {
-      "file": "engines/startrek/console.cpp",
-      "line": 139,
-      "reference": "Common::DumpFile out;"
-    },
-    {
-      "file": "engines/startrek/console.cpp",
-      "line": 147,
-      "reference": "bool Console::Cmd_DumpFile(int argc, const char **argv) {"
-    },
-    {
-      "file": "engines/stark/console.cpp",
-      "line": 100,
-      "reference": "Common::DumpFile outFile;"
-    },
-    {
-      "file": "engines/mohawk/console.cpp",
-      "line": 583,
-      "reference": "// really be useless if the text console is not used. A DumpFile could also"
-    },
-    {
-      "file": "engines/mm/xeen/debugger.cpp",
-      "line": 100,
-      "reference": "Common::DumpFile df;"
-    },
-    {
-      "file": "engines/mtropolis/plugin/midi.cpp",
-      "line": 568,
-      "reference": "Common::SharedPtr<Common::DumpFile> _dumpFile;"
-    },
-    {
-      "file": "engines/mtropolis/plugin/midi.cpp",
-      "line": 594,
-      "reference": "_dumpFile.reset(new Common::DumpFile());"
-    },
-    {
-      "file": "engines/mm/mm1/console.cpp",
-      "line": 506,
-      "reference": "Common::DumpFile df;"
-    },
-    {
-      "file": "engines/mm/mm1/console.cpp",
-      "line": 540,
-      "reference": "Common::DumpFile df;"
-    },
-    {
-      "file": "engines/sludge/fileset.cpp",
-      "line": 225,
+      "file": "engines/tetraedge/game/characters_shadow_opengl.cpp",
+      "line": 69,
       "reference": "Common::DumpFile dumpFile;"
     },
     {
-      "file": "engines/sludge/fileset.cpp",
-      "line": 256,
-      "reference": "Common::DumpFile dumpFile;"
+      "file": "engines/testbed/image.cpp",
+      "line": 96,
+      "reference": "// Common::DumpFile dumpFile;"
     },
     {
-      "file": "engines/sludge/floor.cpp",
-      "line": 260,
-      "reference": "Common::DumpFile dumpFile;"
+      "file": "engines/testbed/config.cpp",
+      "line": 232,
+      "reference": "ws = config.createWriteStream();"
     },
     {
-      "file": "engines/sludge/imgloader.cpp",
-      "line": 60,
-      "reference": "Common::DumpFile *outFile = new Common::DumpFile();"
+      "file": "engines/testbed/config-params.cpp",
+      "line": 49,
+      "reference": "_ws = Common::FSNode(_logDirectory).getChild(_logFilename).createWriteStream(false);"
     },
     {
-      "file": "engines/made/database.cpp",
-      "line": 109,
-      "reference": "FILE *o = fopen(filename, \"wb\");"
+      "file": "engines/testbed/fs.cpp",
+      "line": 159,
+      "reference": "Common::WriteStream *ws = fileToWrite.createWriteStream();"
+    },
+    {
+      "file": "engines/ultima/shared/conf/xml_tree.cpp",
+      "line": 104,
+      "reference": "Common::DumpFile df;"
+    },
+    {
+      "file": "engines/qdengine/qdcore/qd_camera.cpp",
+      "line": 1548,
+      "reference": "Common::DumpFile fh;"
+    },
+    {
+      "file": "engines/qdengine/system/graphics/gr_tile_animation.cpp",
+      "line": 688,
+      "reference": "Common::DumpFile bitmapFile;"
+    },
+    {
+      "file": "engines/ultima/nuvie/sound/adplug/fm_opl.cpp",
+      "line": 1182,
+      "reference": "sample[0]=fopen(\"sampsum.pcm\",\"wb\");"
+    },
+    {
+      "file": "engines/ultima/nuvie/sound/adplug/fm_opl.cpp",
+      "line": 1680,
+      "reference": "cymfile = fopen(\"3812_.cym\",\"wb\");"
+    },
+    {
+      "file": "engines/ultima/nuvie/files/nuvie_io_file.cpp",
+      "line": 151,
+      "reference": "// Ensure it's a relative path, that we can open for writing using a DumpFile"
+    },
+    {
+      "file": "engines/ultima/nuvie/files/nuvie_io_file.h",
+      "line": 73,
+      "reference": "* it uses a Common::DumpFile instead"
+    },
+    {
+      "file": "engines/ultima/nuvie/files/nuvie_io_file.h",
+      "line": 78,
+      "reference": "Common::DumpFile _dumpFile;"
+    },
+    {
+      "file": "engines/qdengine/qdcore/qd_game_dispatcher.cpp",
+      "line": 589,
+      "reference": "Common::DumpFile df;"
+    },
+    {
+      "file": "engines/qdengine/qdcore/qd_sprite.cpp",
+      "line": 326,
+      "reference": "Common::DumpFile fh;"
     }
   ]
 }

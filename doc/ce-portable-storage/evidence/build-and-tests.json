@@ -1,0 +1,16 @@
+{
+  "release": "PASS",
+  "final_incremental_warnings": 0,
+  "final_incremental_errors": 0,
+  "first_full_build_inherited_warnings": 67,
+  "cxxtest_tests": 442,
+  "cxxtest": "PASS",
+  "ctest_executables": 2,
+  "ctest": "PASS",
+  "logs": [
+    "msbuild-release.log",
+    "build-final-console.log",
+    "msbuild-tests.log",
+    "tests-final-console.log"
+  ]
+}

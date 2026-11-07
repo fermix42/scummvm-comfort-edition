@@ -233,7 +233,14 @@ def pilot(exe, root, extra, game, platform, offscreen):
             raise
         assert not outside.exists(), 'Owned test profile redirected an auxiliary write'
         readonly_root = root.parent/(root.name + '-readonly-config')
-        shutil.copytree(root, readonly_root)
+        # CopyFile2 can reject long sidecar destinations without an extended
+        # Win32 prefix, even though the long-path-aware CE executable uses them.
+        source_copy = str(root.resolve())
+        target_copy = str(readonly_root.resolve())
+        if os.name == 'nt':
+            source_copy = chr(92) * 2 + '?' + chr(92) + source_copy
+            target_copy = chr(92) * 2 + '?' + chr(92) + target_copy
+        shutil.copytree(source_copy, target_copy)
         profile = readonly_root/'profile.ini'
         original = hashlib.sha256(profile.read_bytes()).hexdigest()
         profile.chmod(stat.S_IREAD)
