@@ -85,7 +85,7 @@ class IntegrationTests(unittest.TestCase):
         # all other original CE blobs retain exact identity.
         exceptions = NATIVE_CLI_ADAPTATIONS | {'run-build-release-cleanenv.ps1', 'FORK-CHANGES.md',
                       '.github/workflows/windows-release.yml',
-                      '.github/workflows/windows-layout-test.yml'}
+                      '.github/workflows/windows-layout-test.yml', 'run-build-release-trace-cleanenv.ps1'}
         mismatches = [p for p in self.custom
                       if p not in exceptions and p not in CONSOLIDATION_EDITORIAL and not p.startswith('doc/integration-2026.4.0/')
                       and (self.portable.get(p) if p in self.portable_adaptations else self.ce.get(p)) != self.integrated.get(p)]
@@ -124,6 +124,21 @@ class IntegrationTests(unittest.TestCase):
                       (ROOT / 'build-scummvm/scummvm.vcxproj').read_text())
         self.assertIn('engines\\grim\\ce_test_cli.cpp',
                       (ROOT / 'build-scummvm/grim.vcxproj').read_text())
+
+    def test_consolidated_unicode_build_changes_are_exact(self):
+        # This build-policy change is checked as an exact transformation, not
+        # silently exempted from the earlier CE preservation contract.
+        name = 'run-build-release-trace-cleanenv.ps1'
+        before = git('show', PORTABLE + ':' + name)
+        expected = before.replace('--msvc-version 17', '--msvc-version 17 --use-windows-unicode')
+        self.assertEqual(git('show', 'HEAD:' + name), expected)
+        for name in ('.github/workflows/windows-release.yml', '.github/workflows/windows-layout-test.yml'):
+            before = git('show', PORTABLE + ':' + name)
+            expected = before.replace('create_project.exe .. --msvc --vcpkg --enable-gif',
+                                      'create_project.exe .. --msvc --vcpkg --use-windows-unicode --enable-gif')
+            self.assertEqual(git('show', 'HEAD:' + name), expected)
+        self.assertEqual(git('show', 'HEAD:run-build-release-cleanenv.ps1'),
+                         git('show', PORTABLE + ':run-build-release-cleanenv.ps1'))
 
     def test_windows_packaging_retains_engine_coverage(self):
         for name in ('windows-release.yml', 'windows-layout-test.yml'):
