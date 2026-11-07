@@ -330,3 +330,7 @@ CLAUDE.md
 
 # Disposable portable-storage runtime copies and observations
 /portable-validation-local/
+
+# Isolated consolidated validation and local portable release artifacts
+/consolidation-validation-local/
+/release-preparation-local/

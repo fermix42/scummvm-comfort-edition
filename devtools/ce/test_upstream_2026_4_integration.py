@@ -13,6 +13,9 @@ ROOT = Path(__file__).resolve().parents[2]
 UPSTREAM = '7d2709da5136866589f7602f5f5a7b17de03420e'
 CE = '29e2ceb01611ac18654d82bfe2116db8183bd53d'
 BASE = 'b72dad4a9c8e91139935cb83d234722199bc25c1'
+PORTABLE = 'd9868b2d7bc10be6752c6b9899f01c8aea20c3cd'
+NATIVE_CLI = '80f136b4e8d662225d132041d134d3acf0c079b7'
+CONSOLIDATION_EDITORIAL = {'.gitignore', 'AGENTS.md', 'README.md'}
 # Reviewed opt-in native controller hooks. All other upstream/CE blobs retain
 # the original exact-identity checks. Runtime tests verify these adaptations.
 NATIVE_CLI_ADAPTATIONS = {
@@ -51,6 +54,8 @@ class IntegrationTests(unittest.TestCase):
         cls.base = tree(BASE)
         cls.upstream = tree(UPSTREAM)
         cls.integrated = tree('HEAD')
+        cls.portable = tree(PORTABLE)
+        cls.portable_adaptations = set(git('diff', '--name-only', NATIVE_CLI, PORTABLE).splitlines())
         cls.custom = {p for p in cls.ce.keys() | cls.base.keys()
                       if cls.ce.get(p) != cls.base.get(p)}
 
@@ -71,8 +76,8 @@ class IntegrationTests(unittest.TestCase):
         adaptations = {'devtools/create_project/create_project.cpp',
                        'test/system/null_osystem.cpp', 'test/system/null_osystem.h'} | NATIVE_CLI_ADAPTATIONS
         mismatches = [p for p, blob in self.upstream.items()
-                      if p not in self.custom and p not in adaptations
-                      and self.integrated.get(p) != blob]
+                      if p not in self.custom and p not in adaptations and p not in CONSOLIDATION_EDITORIAL
+                      and self.integrated.get(p) != (self.portable.get(p) if p in self.portable_adaptations else blob)]
         self.assertEqual(mismatches, [])
 
     def test_ce_sources_and_data_preserved(self):
@@ -82,9 +87,16 @@ class IntegrationTests(unittest.TestCase):
                       '.github/workflows/windows-release.yml',
                       '.github/workflows/windows-layout-test.yml'}
         mismatches = [p for p in self.custom
-                      if p not in exceptions and not p.startswith('doc/integration-2026.4.0/')
-                      and self.ce.get(p) != self.integrated.get(p)]
+                      if p not in exceptions and p not in CONSOLIDATION_EDITORIAL and not p.startswith('doc/integration-2026.4.0/')
+                      and (self.portable.get(p) if p in self.portable_adaptations else self.ce.get(p)) != self.integrated.get(p)]
         self.assertEqual(mismatches, [])
+
+    def test_reviewed_portable_runtime_adaptations_are_exact(self):
+        # Accepted adaptations are pinned to an immutable milestone, not merely
+        # exempted from preservation checks. New consolidation runtime edits fail.
+        runtime = [p for p in self.portable_adaptations if p.endswith(('.cpp', '.h', '.manifest'))]
+        self.assertTrue(runtime)
+        self.assertEqual([p for p in runtime if self.integrated.get(p) != self.portable.get(p)], [])
 
     def test_every_default_engine_is_enabled_in_release(self):
         props = (ROOT / 'build-scummvm/ScummVM_Globalx64.props').read_text()

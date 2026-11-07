@@ -95,24 +95,45 @@ def save_ini(p, ini):
         ini.write(f)
 
 
+def copy_installation(source, destination):
+    source, destination = str(Path(source).resolve()), str(Path(destination).resolve())
+    if os.name == 'nt':
+        prefix = chr(92) * 2 + '?' + chr(92)
+        source, destination = prefix + source, prefix + destination
+    return shutil.copytree(source, destination)
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--exe', required=True, type=Path)
     parser.add_argument('--extra', required=True, type=Path)
     parser.add_argument('--nox', required=True, type=Path)
     parser.add_argument('--artifacts', required=True, type=Path)
+    parser.add_argument('--installation', type=Path, help='Copy the complete prepared portable package, including resources/docs/licenses')
+    parser.add_argument('--relocate-to', type=Path, help='Explicit fresh destination for an additional cross-drive relocation run')
     args = parser.parse_args()
     root = args.artifacts.resolve()
     root.mkdir(parents=True, exist_ok=False)
     exe, extra, nox = args.exe.resolve(), args.extra.resolve(), args.nox.resolve()
     a, b, cwd = root / 'A portable 日本語', root / 'B relocated Ω', root / 'unrelated cwd'
-    a.mkdir(); cwd.mkdir()
-    for p in exe.parent.iterdir():
+    if args.relocate_to:
+        b = args.relocate_to.resolve()
+        assert not b.exists() and b != root and not root.is_relative_to(b)
+        b.parent.mkdir(parents=True, exist_ok=True)
+    cwd.mkdir()
+    if args.installation:
+        installation = args.installation.resolve(strict=True)
+        assert (installation/exe.name).read_bytes() == exe.read_bytes()
+        copy_installation(installation, a)
+    else:
+        a.mkdir()
+    for p in ([] if args.installation else exe.parent.iterdir()):
         if p.suffix.lower() in ('.exe', '.dll') and p.name != 'scummvm-tests.exe':
             shutil.copy2(p, a / p.name)
     # Engine data remains inside the installation; game assets stay externally referenced.
-    (a / 'data').mkdir()
-    for p in extra.iterdir():
+    if not args.installation:
+        (a / 'data').mkdir()
+    for p in ([] if args.installation else extra.iterdir()):
         if p.is_file() and p.suffix.lower() in ('.dat', '.m4b', '.zip'):
             shutil.copy2(p, a / 'data' / p.name)
     profile = root / 'controlled profile'
@@ -199,9 +220,10 @@ def main():
         ini[target]['nox_host_validation'] = 'true'
         save_ini(a/'scummvm.ini', ini)
         before = {str(p.relative_to(a)): digest(p) for p in saves.iterdir() if p.is_file()}
-        shutil.copytree(a, b)
+        copy_installation(a, b)
         # Remove A from its original address, preserving it in the disposable artifacts.
         parked = root/'A parked after relocation'
+        assert a.resolve().is_relative_to(root) and parked.resolve().is_relative_to(root)
         a.rename(parked)
         run(b, ordinary, 'normal-cold-B')
         check('old installation address absent', not a.exists())
@@ -281,9 +303,12 @@ def main():
     writes = [line.split('\t', 1)[1] for line in trace.read_text(encoding='utf-8').splitlines() if line.startswith('WRITE\t')]
     check('native stream writes recorded', bool(writes))
     check('all traced writes under disposable installation/test locations',
-          all(Path(p).is_relative_to(root) for p in writes))
+          all(Path(p).is_relative_to(root) or Path(p).is_relative_to(b) for p in writes))
     evidence = {'status': 'PASS', 'checks': checks, 'check_count': len(checks),
                 'executable_sha256': digest(exe), 'normal_launches_use_test_cli': False,
+                'complete_installation_copied': str(args.installation.resolve()) if args.installation else None,
+                'relocated_executable_root': str(b),
+                'across_drives': a.drive.lower() != b.drive.lower(),
                 'observation': 'ReadDirectoryChangesW real/controlled profiles plus native stream trace',
                 'observed_system_gpu_driver_events': driver_events,
                 'real_profile_event_count': sum(len(w.events) for w in watchers[1:]),

@@ -71,7 +71,7 @@ if ($traceProjectNeedsRefresh) {
 
     Push-Location $traceBuildDir
     try {
-        ..\build-create-project\Release\create_project.exe .. --msvc --vcpkg --msvc-version 17
+        ..\build-create-project\Release\create_project.exe .. --msvc --vcpkg --msvc-version 17 --use-windows-unicode
         if ($LASTEXITCODE -ne 0) {
             exit $LASTEXITCODE
         }

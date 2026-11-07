@@ -6,7 +6,7 @@ This local checkout is intentionally not built from the ambient shell `PATH`.
 Use the checked-in clean environment build script from this repository root:
 
 ```powershell
-powershell.exe -NoProfile -ExecutionPolicy Bypass -File "D:\Codex Projects\scummvm-private\scummvm-native-portable-storage\run-build-release-cleanenv.ps1"
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File "D:\Codex Projects\scummvm-private\scummvm-ce-2026.4.0-consolidated\run-build-release-cleanenv.ps1"
 ```
 
 The script sets up the expected Windows build environment:
@@ -17,12 +17,12 @@ The script sets up the expected Windows build environment:
 - reuses the populated `vcpkg_installed` tree from the sibling non-Git checkout unless this Git clone has its own
 - generates `build-scummvm\scummvm.sln` if it does not already exist
 - builds the release x64 solution
-- writes the detailed build log to `D:\Codex Projects\scummvm-private\scummvm-native-portable-storage\msbuild-release.log`
+- writes the detailed build log to `D:\Codex Projects\scummvm-private\scummvm-ce-2026.4.0-consolidated\msbuild-release.log`
 
 The expected executable is:
 
 ```text
-D:\Codex Projects\scummvm-private\scummvm-native-portable-storage\build-scummvm\Releasex64\scummvm.exe
+D:\Codex Projects\scummvm-private\scummvm-ce-2026.4.0-consolidated\build-scummvm\Releasex64\scummvm.exe
 ```
 
 Do not try to rediscover `msbuild`, `cmake`, `ninja`, `bash`, `make`, `g++`,
@@ -56,3 +56,17 @@ profile as a storage destination. Use disposable portable installation copies
 or the native CLI's existing owned isolated roots. Preserve accepted binaries,
 legacy profiles and saves. Never add a silent AppData/Documents fallback.
 Read doc/ce-portable-storage/README.md before changing storage policy.
+
+## Consolidated development baseline
+
+Use this `codex/ce-2026.4.0-consolidated` worktree for subsequent CE work, subject
+to the user's final acceptance. It contains upstream v2026.4.0, the Native Test
+CLI and always-on portable storage through normal ancestry. Preserve historical
+branches, the dirty original main checkout and all accepted installations.
+Use the native `--test-cli` for gameplay tests whenever suitable engine
+capabilities exist; keep its owned-root restrictions and hidden rendering intact.
+Do not add unrelated adapters during consolidation. Read
+`doc/ce-consolidated/RELEASE-READINESS.md` and `HUMAN-ACCEPTANCE.md` for the
+candidate's evidence and outstanding acceptance boundaries. Never represent old
+receipts as fresh tests of another executable. Local packaging is authorized;
+publication, installation and merging into main require the user's decision.

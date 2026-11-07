@@ -1,3 +1,12 @@
+> **Consolidated CE development baseline:** official ScummVM v2026.4.0, preserved
+> CE enhancements, native opt-in gameplay Test CLI, and always-on portable storage.
+> Application-owned persistent state defaults beneath the executable directory;
+> explicit storage overrides are supported. See
+> [portable storage](doc/ce-portable-storage/README.md),
+> [native testing](doc/ce-test-cli/README.md), and the
+> [consolidated readiness report](doc/ce-consolidated/RELEASE-READINESS.md).
+> Publication and installation still require the user's acceptance.
+
 # ScummVM Comfort Edition
 
 ScummVM Comfort Edition is a fork of [ScummVM](https://www.scummvm.org/)

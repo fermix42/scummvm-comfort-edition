@@ -6,6 +6,8 @@ Format: `Date/timestamp: Category: Description/Explanation`
 
 Timestamps use ISO 8601 local time with UTC offset. Entries are newest first.
 
+- 2026-11-06T22:41:34-07:00: Release preparation: Consolidated official ScummVM v2026.4.0 support, all existing CE customizations, the opt-in native gameplay Test CLI and always-on executable-relative portable storage into one local development baseline. Prepared a complete portable Windows x64 package and separate automated evidence/human acceptance checklist; this does not publish or approve a release.
+
 - 2026-11-06T22:11:01-07:00: Storage: Windows CE now keeps configuration, saves, CE session/achievement metadata, screenshots, logs and process temporary files beside its executable by default. Explicit storage overrides remain supported; internal storage paths serialize relatively for relocation. No legacy files are imported automatically. See `doc/ce-portable-storage/` for migration, verification and limits.
 
 - 2026-11-06T11:10:00-07:00: Testing: Added an opt-in native `--test-cli` pipe interface to the normal Windows executable, with isolated profiles/saves, engine-thread input and bounded conditions, CE session inspection, TinyGL headless and hidden classic OpenGL modes, and an MI4 semantic/native-menu adapter. Actual retail menus create saves; the incomplete bare MI4 save path is explicitly rejected. See `doc/ce-test-cli/` for protocol, edition-specific workflows, evidence and limitations. Ordinary launches keep the interface inactive.
