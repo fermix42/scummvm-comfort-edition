@@ -1,0 +1,51 @@
+{
+  "status": "PASS",
+  "checks": 3,
+  "executable_sha256": "8cd74f6dd386c991dd2a4e9983e0bd4135ae99e45c26607fac46bf6f6818d80c",
+  "engine_ids_verified": [
+    "nox",
+    "grim",
+    "cine",
+    "sci",
+    "macventure",
+    "phoenixvr",
+    "hpl1",
+    "dm",
+    "avalanche",
+    "chamber",
+    "fool",
+    "eem",
+    "harvester",
+    "wintermute"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "D:\\Codex Projects\\scummvm-private\\scummvm-ce-2026.4.0-consolidated\\consolidation-validation-local\\package-runtime\\scummvm.exe",
+        "--config=D:\\Codex Projects\\scummvm-private\\scummvm-ce-2026.4.0-consolidated\\consolidation-validation-local\\cli-smoke\\isolated.ini",
+        "--savepath=D:\\Codex Projects\\scummvm-private\\scummvm-ce-2026.4.0-consolidated\\consolidation-validation-local\\cli-smoke\\saves",
+        "--version"
+      ],
+      "exit": 0
+    },
+    {
+      "argv": [
+        "D:\\Codex Projects\\scummvm-private\\scummvm-ce-2026.4.0-consolidated\\consolidation-validation-local\\package-runtime\\scummvm.exe",
+        "--config=D:\\Codex Projects\\scummvm-private\\scummvm-ce-2026.4.0-consolidated\\consolidation-validation-local\\cli-smoke\\isolated.ini",
+        "--savepath=D:\\Codex Projects\\scummvm-private\\scummvm-ce-2026.4.0-consolidated\\consolidation-validation-local\\cli-smoke\\saves",
+        "--list-engines"
+      ],
+      "exit": 0
+    },
+    {
+      "argv": [
+        "D:\\Codex Projects\\scummvm-private\\scummvm-ce-2026.4.0-consolidated\\consolidation-validation-local\\package-runtime\\scummvm.exe",
+        "--config=D:\\Codex Projects\\scummvm-private\\scummvm-ce-2026.4.0-consolidated\\consolidation-validation-local\\cli-smoke\\isolated.ini",
+        "--savepath=D:\\Codex Projects\\scummvm-private\\scummvm-ce-2026.4.0-consolidated\\consolidation-validation-local\\cli-smoke\\saves",
+        "--list-all-games"
+      ],
+      "exit": 0
+    }
+  ],
+  "scope": "CLI version, compiled engine registration and detection catalog; no gameplay claim"
+}

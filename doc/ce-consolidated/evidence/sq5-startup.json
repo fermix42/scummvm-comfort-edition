@@ -1,0 +1,62 @@
+{
+  "audio": {
+    "wav_files": 2851,
+    "formats": {
+      "(1, 2, 24000)": 1889,
+      "(1, 2, 48000)": 959,
+      "(2, 2, 48000)": 3
+    },
+    "timing_files": [
+      {
+        "id": "104-1-0-0-1",
+        "words": 57,
+        "duration_ms": 23600
+      },
+      {
+        "id": "104-1-0-0-2",
+        "words": 60,
+        "duration_ms": 19440
+      },
+      {
+        "id": "104-1-0-0-3",
+        "words": 38,
+        "duration_ms": 12560
+      },
+      {
+        "id": "104-1-0-0-4",
+        "words": 10,
+        "duration_ms": 5040
+      },
+      {
+        "id": "104-1-0-0-5",
+        "words": 12,
+        "duration_ms": 6080
+      },
+      {
+        "id": "104-1-0-0-6",
+        "words": 3,
+        "duration_ms": 2160
+      }
+    ]
+  },
+  "enhanced": {
+    "detection": "passed",
+    "startup_seconds": 12,
+    "engine_remained_running": true,
+    "edition_voice_initialization": true,
+    "speech_play_events": [],
+    "numeric_wave_patch": "passed",
+    "tuple_wave_patch_collisions": 0,
+    "termination": "bounded smoke process terminated by harness"
+  },
+  "original": {
+    "detection": "passed",
+    "startup_seconds": 12,
+    "engine_remained_running": true,
+    "edition_voice_initialization": false,
+    "speech_play_events": [],
+    "numeric_wave_patch": "passed",
+    "tuple_wave_patch_collisions": 0,
+    "termination": "bounded smoke process terminated by harness"
+  }
+}

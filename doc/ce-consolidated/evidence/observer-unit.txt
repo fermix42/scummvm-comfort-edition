@@ -1,0 +1,10 @@
+test_application_profile_files_never_become_system_resources (__main__.ObservationTests.test_application_profile_files_never_become_system_resources) ... ok
+test_direct3d_cache_and_journal_variants (__main__.ObservationTests.test_direct3d_cache_and_journal_variants) ... ok
+test_known_resource_ancestors_are_limited_to_directory_changes (__main__.ObservationTests.test_known_resource_ancestors_are_limited_to_directory_changes) ... ok
+test_sapi_shared_resource_is_exact (__main__.ObservationTests.test_sapi_shared_resource_is_exact) ... ok
+test_unknown_notifications_remain_failures (__main__.ObservationTests.test_unknown_notifications_remain_failures) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.001s
+
+OK

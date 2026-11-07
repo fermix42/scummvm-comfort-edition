@@ -1,0 +1,14 @@
+{
+  "release": "PASS",
+  "errors": 0,
+  "full_build_warnings": 67,
+  "full_build_elapsed": "00:09:46.66",
+  "cxxtest_methods": 442,
+  "cxxtest_executable_sha256": "5a1703697787049d5180064b7f3fc75a1273cb02379bc618d9ce1789c6e4fde8",
+  "ce_native_executables": 2,
+  "sq5_importer_methods": 5,
+  "observer_boundary_methods": 5,
+  "upstream_preservation_methods": 10,
+  "consolidation_audit_checks": 9,
+  "human_gameplay_tests": 0
+}

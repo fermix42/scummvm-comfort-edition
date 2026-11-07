@@ -1,0 +1,17 @@
+{
+  "snapshot": "29e2ceb01611ac18654d82bfe2116db8183bd53d",
+  "matching_files": [
+    "backends/events/default/default-events.cpp",
+    "backends/graphics/surfacesdl/surfacesdl-graphics.cpp",
+    "backends/networking/http/curl/networkreadstream-curl.cpp",
+    "engines/ce_achievements.cpp",
+    "engines/ce_achievements.h",
+    "engines/metaengine.cpp",
+    "engines/metaengine.h",
+    "gui/launcher.cpp",
+    "gui/saveload-dialog.cpp",
+    "run-build-release-cleanenv.ps1"
+  ],
+  "different_files": [],
+  "comparison": "normalize CRLF only; original files not modified"
+}

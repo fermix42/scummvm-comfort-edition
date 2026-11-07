@@ -21,8 +21,8 @@ for each completed item. Do not mark an unavailable case as passed.
   ownership, survive an offline retry and do not duplicate. Never use production
   credentials or upload copied personal progress. Native CLI deliberately blocks
   HTTP; its local queue checks are not a live synchronization pass.
-- [ ] **MI4 native Load menus — requires human acceptance where the current
-  report has no fresh automated menu receipt.** In each retail edition, choose a
+- [ ] **MI4 PS2 native Load menu — requires human acceptance.** Windows native Load
+  navigation and its confirmation dialog passed a fresh headless test. On PS2, choose a
   save through its actual native UI and confirm the correct scene and session.
   The existing deferred-load API/cold-restore tests alone do not prove menu use.
 - [ ] **Older MI4 saves — unavailable test data.** If legitimate pre-repair or

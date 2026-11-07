@@ -1,0 +1,38 @@
+{
+  "branch": "codex/ce-2026.4.0-consolidated",
+  "package_source_commit": "e66fc0817b621d849c71fa548a4497e79b3d67ed",
+  "exe_sha256": "8cd74f6dd386c991dd2a4e9983e0bd4135ae99e45c26607fac46bf6f6818d80c",
+  "runtime_milestone": "d9868b2d7bc10be6752c6b9899f01c8aea20c3cd",
+  "runtime_files_exact": 22139,
+  "engine_defines": 138,
+  "cxxtest_methods": 442,
+  "ce_native_executables": 2,
+  "sq5_importer_tests": 5,
+  "observer_boundary_tests": 5,
+  "upstream_preservation_tests": 10,
+  "consolidation_preservation_checks": 9,
+  "cli_smoke_checks": 3,
+  "mi4_protocol_groups": 8,
+  "mi4_gameplay_scenarios": 4,
+  "mi4_storage_checks_per_scenario": 24,
+  "native_load_menu_windows_scenarios": 1,
+  "portable_checks_per_relocation": 50,
+  "relocations": [
+    "D: to D:",
+    "D: to C:"
+  ],
+  "nox_gameplay_modes": [
+    "Modern",
+    "Classic"
+  ],
+  "nox_resource_commands": 7,
+  "nox_resource_files_exact": 74,
+  "nox_resource_sessions": 2,
+  "sq5_startup_scenarios": 2,
+  "sq5_wav_files": 2851,
+  "sq5_timing_files": 6,
+  "human_gameplay_tests": 0,
+  "original_files_unchanged": 51,
+  "confirmed_consolidation_regressions": [],
+  "path_environment": "Runtime tests used System32/Windows-only PATH with absolute Python/CE executables."
+}

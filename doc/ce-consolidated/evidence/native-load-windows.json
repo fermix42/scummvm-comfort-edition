@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "edition": "windows",
+  "renderer": "TinyGL/headless",
+  "native_save_menu": true,
+  "native_load_menu": true,
+  "direct_load_command_used": false,
+  "actor_changed_before_restore": true,
+  "exact_actor_restored": true,
+  "session_owner_restored": "fcfadefd20e47994:cli-game:run:2026-11-06T22:59:21Z:2371",
+  "scene": "wed.set",
+  "executable_sha256": "8cd74f6dd386c991dd2a4e9983e0bd4135ae99e45c26607fac46bf6f6818d80c",
+  "scope": "Existing native event/menu adapter only; no new engine adapter, evaluator or state mutation."
+}
