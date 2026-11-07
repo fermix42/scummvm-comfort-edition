@@ -258,7 +258,8 @@ static JSONValue *dispatch(JSONValue &req) {
 		// Fixed diagnostic names only, beneath the already owned/validated root.
 		// No request field can supply a filename or output directory.
 		const Path nested = ConfMan.getPath("dlcspath").join("ce-storage-probe/nested");
-		if (!FSNode(nested).createDirectory()) return error("storage_probe_directory_failed");
+		FSNode nestedDirectory(nested);
+		if (!nestedDirectory.isDirectory() && !nestedDirectory.createDirectory()) return error("storage_probe_directory_failed");
 		for (const char *key : {"cachepath", "temppath"}) {
 			const Path directory = ConfMan.getPath(key);
 			if (!FSNode(directory).exists() && !FSNode(directory).createDirectory()) return error("storage_probe_directory_failed");
