@@ -52,6 +52,7 @@
 #include "backends/printing/win32/win32-printman.h"
 
 #include "common/memstream.h"
+#include "common/md5.h"
 #include "common/ustr.h"
 
 #if defined(USE_TTS)
@@ -60,8 +61,7 @@
 
 #define DEFAULT_CONFIG_FILE "scummvm.ini"
 
-OSystem_Win32::OSystem_Win32() :
-	_isPortable(false) {
+OSystem_Win32::OSystem_Win32() {
 }
 
 void OSystem_Win32::init() {
@@ -124,15 +124,18 @@ void OSystem_Win32::initBackend() {
 		FreeConsole();
 	}
 
+	ConfMan.registerDefault("cachepath", Common::Path("cache"));
+	ConfMan.registerDefault("temppath", Common::Path("temp"));
+	ConfMan.registerDefault("screenshotpath", Common::Path("screenshots"));
+	Win32::configurePortableTemp(ConfMan.getPath("temppath"));
+
 	// Create the savefile manager
 	if (_savefileManager == nullptr)
-		_savefileManager = new WindowsSaveFileManager(_isPortable);
+		_savefileManager = new WindowsSaveFileManager(true);
 
 #if defined(USE_SPARKLE)
 	// Initialize updates manager
-	if (!_isPortable) {
-		_updateManager = new Win32UpdateManager((SdlWindow_Win32*)_window);
-	}
+	_updateManager = new Win32UpdateManager((SdlWindow_Win32*)_window);
 #endif
 
 	// Initialize text to speech
@@ -266,174 +269,92 @@ Common::String OSystem_Win32::getSystemLanguage() const {
 	return OSystem_SDL::getSystemLanguage();
 }
 
+// CE defaults are registered as relative paths, never serialized as the build location.
 Common::Path OSystem_Win32::getDefaultIconsPath() {
-	TCHAR iconsPath[MAX_PATH];
-
-	if (_isPortable) {
-		Win32::getProcessDirectory(iconsPath, MAX_PATH);
-		_tcscat(iconsPath, TEXT("\\Icons\\"));
-	} else {
-		// Use the Application Data directory of the user profile
-		if (!Win32::getApplicationDataDirectory(iconsPath)) {
-			return Common::Path();
-		}
-		_tcscat(iconsPath, TEXT("\\Icons\\"));
-		CreateDirectory(iconsPath, nullptr);
-	}
-
-	return Common::Path(Win32::tcharToString(iconsPath), Common::Path::kNativeSeparator);
+	return Common::Path("data/icons");
 }
 
 Common::Path OSystem_Win32::getDefaultDLCsPath() {
-	TCHAR dlcsPath[MAX_PATH];
+	return Common::Path("data/dlcs");
+}
 
-	if (_isPortable) {
-		Win32::getProcessDirectory(dlcsPath, MAX_PATH);
-		_tcscat(dlcsPath, TEXT("\\DLCs\\"));
-	} else {
-		// Use the Application Data directory of the user profile
-		if (!Win32::getApplicationDataDirectory(dlcsPath)) {
-			return Common::Path();
-		}
-		_tcscat(dlcsPath, TEXT("\\DLCs\\"));
-		CreateDirectory(dlcsPath, nullptr);
+static bool isStorageKey(const Common::String &key) {
+	return key == "savepath" || key == "screenshotpath" || key == "logfile" ||
+	       key == "iconspath" || key == "dlcspath" || key == "cachepath" || key == "temppath";
+}
+
+Common::Path OSystem_Win32::resolveStoragePath(const Common::String &key, const Common::Path &path) const {
+	if (CETestCLI::active()) {
+		// An owned test profile cannot redirect auxiliary writes outside its
+		// root. Save/config/log overrides are already enforced by prepare().
+		if (key == "screenshotpath") return Win32::portablePath("screenshots");
+		if (key == "cachepath") return Win32::portablePath("cache");
+		if (key == "temppath") return Win32::portablePath("temp");
+		if (key == "iconspath") return Win32::portablePath("data/icons");
+		if (key == "dlcspath") return Win32::portablePath("data/dlcs");
 	}
+	if (key == "engineprefs" && !path.empty()) {
+		Common::String source = path.toString('/');
+		Common::MemoryReadStream input((const byte *)source.c_str(), source.size());
+		return Win32::portablePath("data/engine-preferences").join(ConfMan.getActiveDomainName()).join(
+		    Common::computeStreamMD5AsString(input) + "-" + path.baseName());
+	}
+	if (key == "enginelog" && !path.empty()) {
+		// Absolute script-selected diagnostic destinations are explicit overrides.
+		if (Win32::resolvePortablePath(path) == path) return path;
+		Common::Path log = ConfMan.getPath("logfile");
+		Common::Path directory = log.empty() ? Win32::portablePath("logs") : log.getParent();
+		directory = directory.join(ConfMan.getActiveDomainName());
+		Win32::ensurePortableDirectory(directory);
+		return directory.join(path.baseName());
+	}
+	if (key == "enginecache" && !path.empty()) {
+		// This is an engine-derived cache name, not an explicit user storage
+		// selection. Never write a generated cache beside read-only game assets.
+		Common::String source = path.toString('/');
+		Common::MemoryReadStream input((const byte *)source.c_str(), source.size());
+		Common::String name = Common::computeStreamMD5AsString(input) + "-" + path.baseName();
+		Common::Path cache;
+		if (path.baseName().hasSuffix(".cfg")) {
+			cache = Win32::portablePath("data/hpl1"); // Persistent engine preferences, not disposable cache.
+		} else {
+			cache = ConfMan.getPath("cachepath");
+			if (cache.empty()) cache = Win32::portablePath("cache");
+			cache = cache.join("hpl1");
+		}
+		return cache.join(ConfMan.getActiveDomainName()).join(name);
+	}
+	if (key == "savepath") {
+		if (path.empty()) return Win32::portablePath("saves");
+		if (path == "None") return path; // Let the upstream legacy-value repair run.
+	}
+	return isStorageKey(key) && !path.empty() ? Win32::resolvePortablePath(path) : path;
+}
 
-	return Common::Path(Win32::tcharToString(dlcsPath), Common::Path::kNativeSeparator);
+Common::Path OSystem_Win32::storagePathForConfig(const Common::String &key, const Common::Path &path) const {
+	return isStorageKey(key) ? Win32::relativePortablePath(path) : path;
 }
 
 Common::Path OSystem_Win32::getScreenshotsPath() {
-	// If the user has configured a screenshots path, use it
-	Common::Path screenshotsPath = ConfMan.getPath("screenshotpath");
-	if (!screenshotsPath.empty()) {
-		return screenshotsPath;
-	}
-
-	TCHAR picturesPath[MAX_PATH];
-	if (_isPortable) {
-		Win32::getProcessDirectory(picturesPath, MAX_PATH);
-		_tcscat(picturesPath, TEXT("\\Screenshots\\"));
-	} else {
-		// Use the My Pictures folder
-		HRESULT hr = SHGetFolderPathFunc(nullptr, CSIDL_MYPICTURES, nullptr, SHGFP_TYPE_CURRENT, picturesPath);
-		if (hr != S_OK) {
-			if (hr != E_NOTIMPL) {
-				warning("Unable to locate My Pictures directory");
-			}
-			return Common::Path();
-		}
-		_tcscat(picturesPath, TEXT("\\ScummVM Screenshots\\"));
-	}
-
-	// If the directory already exists (as it should in most cases),
-	// we don't want to fail, but we need to stop on other errors (such as ERROR_PATH_NOT_FOUND)
-	if (!CreateDirectory(picturesPath, nullptr)) {
-		if (GetLastError() != ERROR_ALREADY_EXISTS)
-			error("Cannot create ScummVM Screenshots folder");
-	}
-
-	return Common::Path(Win32::tcharToString(picturesPath), Common::Path::kNativeSeparator);
+	Common::Path path = ConfMan.getPath("screenshotpath");
+	if (path.empty()) path = Win32::portablePath("screenshots");
+	Win32::ensurePortableDirectory(path);
+	return path;
 }
 
 Common::Path OSystem_Win32::getDefaultConfigFileName() {
-	TCHAR configFile[MAX_PATH];
+	return Win32::portablePath(DEFAULT_CONFIG_FILE);
+}
 
-	// if this is the first time the default config file name is requested
-	// then we need detect if we should run in portable mode. (and if it's
-	// never requested before the backend is initialized then a config file
-	// was provided on the command line and portable mode doesn't apply.)
-	if (!backendInitialized()) {
-		_isPortable = detectPortableConfigFile();
-	}
-
-	if (_isPortable) {
-		// Use the current process directory in portable mode
-		Win32::getProcessDirectory(configFile, MAX_PATH);
-		_tcscat(configFile, TEXT("\\" DEFAULT_CONFIG_FILE));
-	} else {
-		// Use the Application Data directory of the user profile
-		if (Win32::getApplicationDataDirectory(configFile)) {
-			_tcscat(configFile, TEXT("\\" DEFAULT_CONFIG_FILE));
-
-			FILE *tmp = nullptr;
-			if ((tmp = _tfopen(configFile, TEXT("r"))) == nullptr) {
-				// Check windows directory
-				TCHAR oldConfigFile[MAX_PATH];
-				uint ret = GetWindowsDirectory(oldConfigFile, MAX_PATH);
-				if (ret == 0 || ret > MAX_PATH)
-					error("Cannot retrieve the path of the Windows directory");
-
-				_tcscat(oldConfigFile, TEXT("\\" DEFAULT_CONFIG_FILE));
-				if ((tmp = _tfopen(oldConfigFile, TEXT("r")))) {
-					_tcscpy(configFile, oldConfigFile);
-
-					fclose(tmp);
-				}
-			} else {
-				fclose(tmp);
-			}
-		} else {
-			// Check windows directory
-			uint ret = GetWindowsDirectory(configFile, MAX_PATH);
-			if (ret == 0 || ret > MAX_PATH)
-				error("Cannot retrieve the path of the Windows directory");
-
-			_tcscat(configFile, TEXT("\\" DEFAULT_CONFIG_FILE));
-		}
-	}
-
-	return Common::Path(Win32::tcharToString(configFile), Common::Path::kNativeSeparator);
+Common::WriteStream *OSystem_Win32::createConfigWriteStream() {
+	Common::WriteStream *stream = OSystem::createConfigWriteStream();
+	if (!stream) Win32::portableStorageError(getDefaultConfigFileName());
+	return stream;
 }
 
 Common::Path OSystem_Win32::getDefaultLogFileName() {
-	TCHAR logFile[MAX_PATH];
-
-	if (_isPortable) {
-		Win32::getProcessDirectory(logFile, MAX_PATH);
-	} else {
-		// Use the Application Data directory of the user profile
-		if (!Win32::getApplicationDataDirectory(logFile)) {
-			return Common::Path();
-		}
-		_tcscat(logFile, TEXT("\\Logs"));
-		CreateDirectory(logFile, nullptr);
-	}
-
-	_tcscat(logFile, TEXT("\\scummvm.log"));
-
-	return Common::Path(Win32::tcharToString(logFile), Common::Path::kNativeSeparator);
-}
-
-bool OSystem_Win32::detectPortableConfigFile() {
-	// ScummVM operates in a "portable mode" if there is a config file in the
-	// same directory as the executable. In this mode, the executable's
-	// directory is used instead of the user's profile for application files.
-	// This approach is modeled off of the portable mode in Notepad++.
-
-	// Check if there is a config file in the same directory as the executable.
-	TCHAR portableConfigFile[MAX_PATH];
-	Win32::getProcessDirectory(portableConfigFile, MAX_PATH);
-	_tcscat(portableConfigFile, TEXT("\\" DEFAULT_CONFIG_FILE));
-	FILE *file = _tfopen(portableConfigFile, TEXT("r"));
-	if (file == nullptr) {
-		return false;
-	}
-	fclose(file);
-
-	// Check if we're running from Program Files on Vista+.
-	// If so then don't attempt to use local files due to UAC.
-	// (Notepad++ does this too.)
-	if (Win32::confirmWindowsVersion(6, 0)) {
-		TCHAR programFiles[MAX_PATH];
-		if (SHGetFolderPathFunc(nullptr, CSIDL_PROGRAM_FILES, nullptr, SHGFP_TYPE_CURRENT, programFiles) == S_OK) {
-			_tcscat(portableConfigFile, TEXT("\\"));
-			if (_tcsstr(portableConfigFile, programFiles) == portableConfigFile) {
-				return false;
-			}
-		}
-	}
-
-	return true;
+	Win32::ensurePortableDirectory(Win32::portablePath("logs"));
+	return Win32::portablePath("logs/scummvm.log");
 }
 
 namespace {

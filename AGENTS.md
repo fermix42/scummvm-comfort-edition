@@ -6,7 +6,7 @@ This local checkout is intentionally not built from the ambient shell `PATH`.
 Use the checked-in clean environment build script from this repository root:
 
 ```powershell
-powershell.exe -NoProfile -ExecutionPolicy Bypass -File "D:\Codex Projects\scummvm-private\scummvm-native-test-cli\run-build-release-cleanenv.ps1"
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File "D:\Codex Projects\scummvm-private\scummvm-native-portable-storage\run-build-release-cleanenv.ps1"
 ```
 
 The script sets up the expected Windows build environment:
@@ -17,12 +17,12 @@ The script sets up the expected Windows build environment:
 - reuses the populated `vcpkg_installed` tree from the sibling non-Git checkout unless this Git clone has its own
 - generates `build-scummvm\scummvm.sln` if it does not already exist
 - builds the release x64 solution
-- writes the detailed build log to `D:\Codex Projects\scummvm-private\scummvm-native-test-cli\msbuild-release.log`
+- writes the detailed build log to `D:\Codex Projects\scummvm-private\scummvm-native-portable-storage\msbuild-release.log`
 
 The expected executable is:
 
 ```text
-D:\Codex Projects\scummvm-private\scummvm-native-test-cli\build-scummvm\Releasex64\scummvm.exe
+D:\Codex Projects\scummvm-private\scummvm-native-portable-storage\build-scummvm\Releasex64\scummvm.exe
 ```
 
 Do not try to rediscover `msbuild`, `cmake`, `ninja`, `bash`, `make`, `g++`,
@@ -46,3 +46,13 @@ Nox M2 completion is recorded in devtools/nox/project/SCUMMVM-CE-M2-VERIFICATION
 ## Native gameplay test CLI
 
 Prefer the opt-in native test interface for supported gameplay regressions. Read doc/ce-test-cli/README.md and RESULTS.md for protocol, isolation, tested renderer/engine boundaries and current evidence. Use this worktree's clean-environment script. Keep the validated integration worktree and accepted binaries unchanged. Do not use desktop input automation for these tests.
+
+## Permanent CE storage policy
+
+ScummVM Comfort Edition is portable by default. Application-owned persistent
+state belongs beneath the executable directory unless the user explicitly
+configures an alternate path. Normal testing must not use the Windows user
+profile as a storage destination. Use disposable portable installation copies
+or the native CLI's existing owned isolated roots. Preserve accepted binaries,
+legacy profiles and saves. Never add a silent AppData/Documents fallback.
+Read doc/ce-portable-storage/README.md before changing storage policy.

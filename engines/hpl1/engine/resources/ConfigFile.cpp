@@ -27,6 +27,7 @@
 
 #include "hpl1/engine/resources/ConfigFile.h"
 #include "common/file.h"
+#include "common/system.h"
 #include "hpl1/debug.h"
 #include "hpl1/engine/impl/tinyXML/tinyxml.h"
 #include "hpl1/engine/resources/FileSearcher.h"
@@ -61,7 +62,9 @@ cConfigFile::~cConfigFile() {
 
 bool cConfigFile::Load() {
 	Common::File cf;
-	if (!cf.open(Common::Path(Common::String(msFile)))) {
+	const Common::Path source{Common::String(msFile)};
+	const Common::Path cache = g_system->resolveStoragePath("enginecache", source);
+	if (!cf.open(cache) && (cache == source || !cf.open(source))) {
 		Hpl1::logWarning(Hpl1::kDebugFilePath, "file %S could not be opened", msFile.c_str());
 		return false;
 	}

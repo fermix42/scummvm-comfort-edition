@@ -24,6 +24,9 @@ distribution.
 
 #include "hpl1/engine/impl/tinyXML/tinyxml.h"
 #include "common/file.h"
+#include "common/system.h"
+#include "common/fs.h"
+#include "common/ptr.h"
 #include "hpl1/debug.h"
 
 bool TiXmlBase::condenseWhiteSpace = true;
@@ -732,7 +735,9 @@ bool TiXmlDocument::LoadFile(const char *filename, TiXmlEncoding encoding) {
 
 	// reading in binary mode so that tinyxml can normalize the EOL
 	Common::File file;
-	file.open(Common::Path(value));
+	const Common::Path source(value);
+	const Common::Path cache = g_system->resolveStoragePath("enginecache", source);
+	if (!file.open(cache) && cache != source) file.open(source);
 
 	if (file.isOpen()) {
 		bool result = LoadFile(file, encoding);
@@ -853,11 +858,13 @@ bool TiXmlDocument::LoadFile(Common::SeekableReadStream &file, TiXmlEncoding enc
 
 bool TiXmlDocument::SaveFile(const char *filename) const {
 	// The old c stuff lives on...
-	Common::DumpFile df;
-	df.open(filename);
-	if (df.isOpen()) {
-		bool result = SaveFile(df);
-		return result;
+	if (!filename || !*filename) return false;
+	const Common::Path destination = g_system->resolveStoragePath("enginecache", Common::Path(filename));
+	Common::ScopedPtr<Common::SeekableWriteStream> output(Common::FSNode(destination).createWriteStream());
+	if (output) {
+		bool result = SaveFile(*output);
+		output->finalize();
+		return result && !output->err();
 	}
 	debugC(Hpl1::kDebugFilePath, "file %s not found", value.c_str());
 	return false;

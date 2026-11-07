@@ -1526,10 +1526,14 @@ void Lingo::setTheEntity(int entity, Datum &id, int field, Datum &d) {
 	case kTheTraceLogFile:
 	{
 		if (d.asString().size()) {
-			Common::Path logPath = ConfMan.getPath("path").appendComponent(d.asString());
+			Common::Path original = ConfMan.getPath("path").appendComponent(d.asString());
+			Common::Path logPath = g_system->resolveStoragePath("enginelog", Common::Path(d.asString()));
+			const Common::String selected = d.asString();
+			bool absolute = selected[0] == '/' || selected[0] == '\\' || (selected.size() > 1 && selected[1] == ':');
+			if (logPath == Common::Path(selected) && !absolute) logPath = original;
 			Common::FSNode out(logPath);
 			if (!out.exists())
-				out.createWriteStream(false);
+				delete out.createWriteStream(false);
 			if (out.isWritable())
 				g_director->_traceLogFile = logPath;
 			else

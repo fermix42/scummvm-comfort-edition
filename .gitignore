@@ -327,3 +327,6 @@ CLAUDE.md
 
 #Ignore local testing notes
 /docs/testing/deja-vu-macintosh.md
+
+# Disposable portable-storage runtime copies and observations
+/portable-validation-local/

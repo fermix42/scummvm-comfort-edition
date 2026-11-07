@@ -53,7 +53,10 @@ StdioStream::StdioStream(void *handle) : _handle(handle), _path(nullptr) {
 }
 
 StdioStream::~StdioStream() {
-	fclose((FILE *)_handle);
+#ifdef WIN32
+	if (_path) finalize();
+#endif
+	if (_handle) fclose((FILE *)_handle);
 
 	if (!_path) {
 		return;
@@ -70,6 +73,26 @@ StdioStream::~StdioStream() {
 
 	delete _path;
 }
+
+#ifdef WIN32
+void StdioStream::finalize() {
+	if (!_path) {
+		if (_handle && !flush()) _finalizeError = true;
+		return;
+	}
+	// Report an atomic replacement failure before callers check err(). Never
+	// replace the original with an incomplete stream; retain .tmp for recovery.
+	_finalizeError = ferror((FILE *)_handle) != 0;
+	if (fflush((FILE *)_handle) != 0) _finalizeError = true;
+	if (fclose((FILE *)_handle) != 0) _finalizeError = true;
+	_handle = nullptr;
+	Common::String temporary = *_path + ".tmp";
+	if (!_finalizeError && !moveFile(temporary, *_path)) _finalizeError = true;
+	Win32::tracePortableWrite(*_path, !_finalizeError);
+	if (_finalizeError) warning("ScummVM CE could not commit '%s'; original preserved and temporary file retained at '%s'. Use a writable installation or explicit path; no profile fallback is used", _path->c_str(), temporary.c_str());
+	delete _path; _path = nullptr;
+}
+#endif
 
 bool StdioStream::moveFile(const Common::String &src, const Common::String &dst) {
 #ifndef STDIOSTREAM_NO_ATOMIC_SUPPORT
@@ -92,6 +115,9 @@ bool StdioStream::moveFile(const Common::String &src, const Common::String &dst)
 }
 
 bool StdioStream::err() const {
+#ifdef WIN32
+	if (!_handle) return _finalizeError;
+#endif
 	return ferror((FILE *)_handle) != 0;
 }
 
@@ -195,6 +221,12 @@ StdioStream *StdioStream::makeFromPathHelper(const Common::String &path, WriteMo
 	FILE *handle = fopen(tmpPath.c_str(), writeMode == WriteMode_Read ? "rb" : "wb");
 #endif
 
+#if defined(WIN32)
+	if (writeMode != WriteMode_Read) {
+		Win32::tracePortableWrite(tmpPath, handle != nullptr);
+		if (!handle) warning("ScummVM CE cannot write '%s'. Choose a writable destination or move the installation to D:\\Games\\ScummVM CE; no profile fallback is used", tmpPath.c_str());
+	}
+#endif
 	if (!handle) {
 		return nullptr;
 	}

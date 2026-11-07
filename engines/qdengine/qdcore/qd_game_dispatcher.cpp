@@ -3189,13 +3189,18 @@ bool qdGameDispatcher::load_hall_of_fame() {
 	_hall_of_fame.clear();
 	_hall_of_fame.resize(_hall_of_fame_size);
 
-	Common::File fh;
-	if (fh.open(Common::Path("Resource/hof.dat"))) {
+	Common::ScopedPtr<Common::SeekableReadStream> fh(g_system->getSavefileManager()->openForLoading(ConfMan.getActiveDomainName() + "-hof.dat"));
+	if (!fh) {
+		Common::File *original = new Common::File();
+		if (original->open(Common::Path("Resource/hof.dat"))) fh.reset(original);
+		else delete original;
+	}
+	if (fh) {
 		char buf[1024];
 		for (int i = 0; i < _hall_of_fame_size; i++) {
-			fh.readLine(buf, 1024);
+			fh->readLine(buf, 1024);
 			_hall_of_fame[i]._player_name = buf;
-			fh.readLine(buf, 1024);
+			fh->readLine(buf, 1024);
 			_hall_of_fame[i]._score = atoi(buf);
 		}
 
@@ -3209,13 +3214,14 @@ bool qdGameDispatcher::save_hall_of_fame() const {
 	if (!_hall_of_fame_size)
 		return false;
 
-	Common::DumpFile fh;
-	if (fh.open(Common::Path("Resource/hof.dat"))) {
+	Common::ScopedPtr<Common::OutSaveFile> fh(g_system->getSavefileManager()->openForSaving(ConfMan.getActiveDomainName() + "-hof.dat", false));
+	if (fh) {
 		for (int i = 0; i < _hall_of_fame_size; i++) {
-			fh.writeString(Common::String::format("%s\r\n", _hall_of_fame[i]._player_name.c_str()));
-			fh.writeString(Common::String::format("%d\r\n", _hall_of_fame[i]._score));
+			fh->writeString(Common::String::format("%s\r\n", _hall_of_fame[i]._player_name.c_str()));
+			fh->writeString(Common::String::format("%d\r\n", _hall_of_fame[i]._score));
 		}
-		return true;
+		fh->finalize();
+		return !fh->err();
 	}
 
 	return false;

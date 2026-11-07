@@ -26,6 +26,9 @@
 
 #include "backends/fs/windows/windows-fs.h"
 #include "backends/fs/stdiostream.h"
+#include "common/array.h"
+#include "common/config-manager.h"
+#include "backends/platform/sdl/win32/win32_wrapper.h"
 
 bool WindowsFilesystemNode::exists() const {
 	// Check whether the file actually exists
@@ -79,9 +82,12 @@ const char* WindowsFilesystemNode::tcharToChar(const TCHAR *str) {
 #ifndef UNICODE
 	return str;
 #else
-	static char multiByteString[MAX_PATH];
-	WideCharToMultiByte(CP_UTF8, 0, str, _tcslen(str) + 1, multiByteString, MAX_PATH, nullptr, nullptr);
-	return multiByteString;
+	static thread_local Common::Array<char> buffer;
+	int count = WideCharToMultiByte(CP_UTF8, 0, str, -1, nullptr, 0, nullptr, nullptr);
+	buffer.resize(count ? count : 1);
+	buffer[0] = 0;
+	if (count) WideCharToMultiByte(CP_UTF8, 0, str, -1, buffer.data(), count, nullptr, nullptr);
+	return buffer.data();
 #endif
 }
 
@@ -89,9 +95,12 @@ const TCHAR* WindowsFilesystemNode::charToTchar(const char *str) {
 #ifndef UNICODE
 	return str;
 #else
-	static wchar_t wideCharString[MAX_PATH];
-	MultiByteToWideChar(CP_UTF8, 0, str, strlen(str) + 1, wideCharString, MAX_PATH);
-	return wideCharString;
+	static thread_local Common::Array<wchar_t> buffer;
+	int count = MultiByteToWideChar(CP_UTF8, MB_ERR_INVALID_CHARS, str, -1, nullptr, 0);
+	buffer.resize(count ? count : 1);
+	buffer[0] = 0;
+	if (count) MultiByteToWideChar(CP_UTF8, MB_ERR_INVALID_CHARS, str, -1, buffer.data(), count);
+	return buffer.data();
 #endif
 }
 
@@ -105,9 +114,11 @@ WindowsFilesystemNode::WindowsFilesystemNode() {
 
 WindowsFilesystemNode::WindowsFilesystemNode(const Common::String &p, const bool currentDir) {
 	if (currentDir) {
-		TCHAR path[MAX_PATH];
-		GetCurrentDirectory(MAX_PATH, path);
-		_path = tcharToChar(path);
+		Common::Array<TCHAR> path;
+		path.resize(GetCurrentDirectory(0, nullptr));
+		if (!path.size() || !GetCurrentDirectory(path.size(), path.data()))
+			error("ScummVM CE cannot determine its working directory");
+		_path = tcharToChar(path.data());
 	} else {
 		assert(p.size() > 0);
 		_path = p;
@@ -177,11 +188,8 @@ bool WindowsFilesystemNode::getChildren(AbstractFSList &myList, ListMode mode, b
 		// Files enumeration
 		WIN32_FIND_DATA desc;
 		HANDLE handle;
-		char searchPath[MAX_PATH + 10];
-
-		Common::sprintf_s(searchPath, "%s*", _path.c_str());
-
-		handle = FindFirstFile(charToTchar(searchPath), &desc);
+		Common::String searchPath = _path + "*";
+		handle = FindFirstFile(charToTchar(searchPath.c_str()), &desc);
 
 		if (handle == INVALID_HANDLE_VALUE)
 			return false;
@@ -227,12 +235,28 @@ Common::SeekableReadStream *WindowsFilesystemNode::createReadStream() {
 }
 
 Common::SeekableWriteStream *WindowsFilesystemNode::createWriteStream(bool atomic) {
+	// Downloaded data parents are lazy. Do not create arbitrary custom-path parents.
+	const Common::Path path(getPath(), Common::Path::kNativeSeparator);
+	const Common::String dataRoot = Win32::portablePath("data").toString(Common::Path::kNativeSeparator) + "\\";
+	Common::Path cache = ConfMan.getPath("cachepath");
+	if (cache.empty()) cache = Win32::portablePath("cache");
+	const Common::String cacheRoot = cache.toString(Common::Path::kNativeSeparator) + "\\";
+	if (getPath().hasPrefix(dataRoot) || getPath().hasPrefix(cacheRoot))
+		Win32::ensurePortableDirectory(path.getParent());
 	return StdioStream::makeFromPath(getPath(), atomic ?
 			StdioStream::WriteMode_WriteAtomic : StdioStream::WriteMode_Write);
 }
 
 bool WindowsFilesystemNode::createDirectory() {
-	if (CreateDirectory(charToTchar(_path.c_str()), nullptr) != 0)
+	// Download extraction can create a child before its data parent exists.
+	// Keep this lazy and restricted to the managed data tree.
+	const Common::String managed = Win32::portablePath("data").toString(Common::Path::kNativeSeparator) + "\\";
+	if (_path.hasPrefix(managed)) {
+		Win32::ensurePortableDirectory(Common::Path(_path, Common::Path::kNativeSeparator));
+		setFlags();
+		return _isValid && _isDirectory;
+	}
+	if (CreateDirectory(charToTchar(_path.c_str()), nullptr) != 0 || GetLastError() == ERROR_ALREADY_EXISTS)
 		setFlags();
 
 	return _isValid && _isDirectory;

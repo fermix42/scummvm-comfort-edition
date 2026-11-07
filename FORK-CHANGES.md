@@ -6,6 +6,8 @@ Format: `Date/timestamp: Category: Description/Explanation`
 
 Timestamps use ISO 8601 local time with UTC offset. Entries are newest first.
 
+- 2026-11-06T22:11:01-07:00: Storage: Windows CE now keeps configuration, saves, CE session/achievement metadata, screenshots, logs and process temporary files beside its executable by default. Explicit storage overrides remain supported; internal storage paths serialize relatively for relocation. No legacy files are imported automatically. See `doc/ce-portable-storage/` for migration, verification and limits.
+
 - 2026-11-06T11:10:00-07:00: Testing: Added an opt-in native `--test-cli` pipe interface to the normal Windows executable, with isolated profiles/saves, engine-thread input and bounded conditions, CE session inspection, TinyGL headless and hidden classic OpenGL modes, and an MI4 semantic/native-menu adapter. Actual retail menus create saves; the incomplete bare MI4 save path is explicitly rejected. See `doc/ce-test-cli/` for protocol, edition-specific workflows, evidence and limitations. Ordinary launches keep the interface inactive.
 
 - 2026-10-24T11:02:08-07:00: Cheat: Added three independent Space Quest V Battle Cruiser options: infinite probes, probes that do not consume a turn, and probes that reveal Quirk's ships across all three sectors. All are off by default and respect CE's master cheat switch and Challenge Mode restrictions. Verified with a Windows Release x64 build, native tests covering all eight combinations, startup checks with cheats enabled and disabled, and user-confirmed in-game testing.

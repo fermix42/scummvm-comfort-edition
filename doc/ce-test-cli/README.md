@@ -59,6 +59,9 @@ Maximum request line is 64 KiB; maximum nesting is 32. Requests are serialized.
 | `saves` | MetaEngine enumeration: chooser IDs, filenames, descriptions and CE owners |
 | `load` | MI4 `slot`: zero-based native slot in the active session bank; deferred production restore |
 | `save` | Returns `native_save_menu_required`; use the game's actual Save menu via input |
+| `storage` | Read-only effective storage paths after launch; all defaults remain under the owned test root |
+| `storage_probe` | Creates fixed diagnostic files in owned cache/temp and a nested downloaded-data directory; rejects existing probe files, accepts no filename/path fields |
+| `screenshot` | Requests the normal renderer screenshot; verify the actual output file separately |
 | `quit` | Sends normal quit event and shuts down; closing stdin also quits |
 
 One engine runs per process. Restart means quit and start a new process against

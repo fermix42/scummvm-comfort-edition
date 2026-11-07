@@ -29,6 +29,8 @@
 #include "common/formats/ini-file.h"
 #include "common/memstream.h"
 #include "common/serializer.h"
+#include "common/system.h"
+#include "common/ptr.h"
 #include "harvester/detection.h"
 #include "harvester/harvester.h"
 #include "harvester/parse_utils.h"
@@ -784,7 +786,13 @@ bool Script::reloadTownWorld(ResourceManager &resources) {
 
 bool Script::loadConfig(ResourceManager &resources) {
 	Common::Array<byte> configData;
-	if (!resources.loadFile(kStartupConfigPath, configData)) {
+	const Common::Path original = ConfMan.getPath("path").join(kStartupConfigPath);
+	const Common::Path preferences = g_system->resolveStoragePath("engineprefs", original);
+	Common::File overlay;
+	if (preferences != original && overlay.open(preferences)) {
+		configData.resize(overlay.size());
+		if (overlay.read(configData.data(), configData.size()) != configData.size()) return false;
+	} else if (!resources.loadFile(kStartupConfigPath, configData)) {
 		warning("Harvester: unable to load startup config '%s', using defaults", kStartupConfigPath);
 		return false;
 	}
@@ -857,17 +865,18 @@ bool Script::loadConfig(ResourceManager &resources) {
 }
 
 bool Script::saveConfig() const {
-	Common::DumpFile file;
 	const Common::FSNode gamePathNode(ConfMan.getPath("path"));
-	const Common::FSNode configNode = gamePathNode.getChild(kStartupConfigPath);
-	if (!file.open(configNode)) {
+	const Common::Path original = gamePathNode.getChild(kStartupConfigPath).getPath();
+	const Common::FSNode configNode(g_system->resolveStoragePath("engineprefs", original));
+	Common::ScopedPtr<Common::SeekableWriteStream> file(configNode.createWriteStream());
+	if (!file) {
 		warning("Harvester: unable to save startup config '%s'",
 			configNode.getPath().toString(Common::Path::kNativeSeparator).c_str());
 		return false;
 	}
 
 	auto writeKey = [&](const char *key, const Common::String &value) {
-		file.writeString(Common::String::format("%s=%s\n", key, value.c_str()));
+		file->writeString(Common::String::format("%s=%s\n", key, value.c_str()));
 	};
 
 	writeKey("FX_VOLUME", Common::String::format("%d", _fxVolumeLevel));
@@ -891,8 +900,8 @@ bool Script::saveConfig() const {
 	if (!_drive3Path.empty())
 		writeKey("DRIVE_3", _drive3Path);
 
-	file.flush();
-	return !file.err();
+	file->finalize();
+	return !file->err();
 }
 
 void Script::setFxVolumeLevel(int level) {

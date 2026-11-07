@@ -165,8 +165,10 @@ Common::OutSaveFile *DefaultSaveFileManager::openForSaving(const Common::String 
 
 	// Open the file for saving.
 	Common::SeekableWriteStream *const sf = fileNode.createWriteStream(false);
-	if (!sf)
+	if (!sf) {
+		setError(Common::kWritingFailed, Common::String::format("Cannot write save '%s'. Choose a writable save directory.", fileNode.getPath().toString(Common::Path::kNativeSeparator).c_str()));
 		return nullptr;
+	}
 	Common::OutSaveFile *const result = new Common::OutSaveFile(compress ? Common::wrapCompressedWriteStream(sf) : sf);
 
 	// Add file to cache now that it exists.

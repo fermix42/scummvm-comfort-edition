@@ -39,6 +39,9 @@ protected:
 	/** File handle to the actual file. */
 	void *_handle;
 	Common::String *_path;
+#ifdef WIN32
+	bool _finalizeError = false;
+#endif
 
 	static StdioStream *makeFromPathHelper(const Common::String &path, WriteMode writeMode,
 			StdioStream *(*factory)(void *handle));
@@ -63,6 +66,9 @@ public:
 
 	uint32 write(const void *dataPtr, uint32 dataSize) override;
 	bool flush() override;
+#ifdef WIN32
+	void finalize() override;
+#endif
 
 	int64 pos() const override;
 	int64 size() const override;

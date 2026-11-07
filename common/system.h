@@ -1887,6 +1887,10 @@ public:
 	 */
 	virtual Common::WriteStream *createConfigWriteStream();
 
+	/** Backend storage policy. Read-only game asset paths are deliberately excluded. */
+	virtual Common::Path resolveStoragePath(const Common::String &key, const Common::Path &path) const { return path; }
+	virtual Common::Path storagePathForConfig(const Common::String &key, const Common::Path &path) const { return path; }
+
 	/**
 	 * Get the default file name (or even path) where the user configuration
 	 * of ScummVM will be saved.

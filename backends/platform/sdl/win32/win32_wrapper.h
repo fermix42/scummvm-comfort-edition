@@ -28,21 +28,20 @@
 HRESULT SHGetFolderPathFunc(HWND hwnd, int csidl, HANDLE hToken, DWORD dwFlags, LPTSTR pszPath);
 
 // Helper functions
+#include "common/path.h"
+
 namespace Win32 {
 
-/**
- * Gets the full path to the ScummVM application data directory
- * in the user's profile and creates it if it doesn't exist.
- *
- * @param profileDirectory MAX_PATH sized output array
- *
- * @return True if the user's profile directory was found, false if
- * it was not.
- *
- * @note if the user's profile directory is found but the "ScummVM"
- * subdirectory can't be created then this function calls error().
- */
-bool getApplicationDataDirectory(TCHAR *profileDirectory);
+// Always-on CE portable storage; UTF-8 paths, discovered with wide Win32 APIs.
+Common::Path portablePath(const char *relative = "");
+Common::Path resolvePortablePath(const Common::Path &path);
+Common::Path relativePortablePath(const Common::Path &path);
+void ensurePortableDirectory(const Common::Path &path);
+void portableStorageError(const Common::Path &path);
+void initializePortableStorage(const Common::String &isolatedRoot = Common::String());
+void configurePortableTemp(const Common::Path &path);
+void tracePortableWrite(const Common::String &path, bool success);
+
 
 /**
  * Gets the full path to the directory that the currently executing

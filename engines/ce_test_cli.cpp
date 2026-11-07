@@ -9,6 +9,7 @@
 #include "common/system.h"
 #include "common/stream.h"
 #include "common/savefile.h"
+#include "common/file.h"
 #include "graphics/surface.h"
 #include "gui/gui-manager.h"
 #include "backends/keymapper/keymapper.h"
@@ -204,14 +205,14 @@ static JSONValue *dispatch(JSONValue &req) {
 		JSONObject o; o["ok"] = new JSONValue(true);
 		put(o, "protocol", "ce-test-cli/1");
 		put(o, "lifecycle", "one game per process; fresh process for restart");
-		put(o, "commands", "launch inspect status capabilities input advance wait assert saves save load session_create session_select quit");
+		put(o, "commands", "launch inspect status capabilities input advance wait assert saves save load session_create session_select storage screenshot storage_probe quit");
 		o["engine_adapter"] = g_engine ? g_engine->testCLIState() : unsupported();
 		return new JSONValue(o);
 	}
 	if (cmd == "quit") {
 		s_eof = true; return ok();
 	}
-	if (cmd != "input" && cmd != "assert" && cmd != "session_create" && cmd != "session_select" && cmd != "saves" && cmd != "save" && cmd != "load") return error("unknown_command");
+	if (cmd != "input" && cmd != "assert" && cmd != "session_create" && cmd != "session_select" && cmd != "saves" && cmd != "save" && cmd != "load" && cmd != "storage" && cmd != "screenshot" && cmd != "storage_probe") return error("unknown_command");
 	if (!g_engine) return error("not_running");
 	if (cmd == "input") return input(req);
 	if (cmd == "assert") {
@@ -246,6 +247,34 @@ static JSONValue *dispatch(JSONValue &req) {
 		}
 		o["saves"] = new JSONValue(saves); return new JSONValue(o);
 	}
+	if (cmd == "storage") {
+		JSONObject o; o["ok"] = new JSONValue(true);
+		for (const char *key : {"savepath", "screenshotpath", "logfile", "iconspath", "dlcspath", "cachepath", "temppath"})
+			put(o, key, g_system->resolveStoragePath(key, ConfMan.getPath(key)).toString(Path::kNativeSeparator));
+		put(o, "generated_cache", g_system->resolveStoragePath("enginecache", Path("maps/example.ainodes")).toString(Path::kNativeSeparator));
+		return new JSONValue(o);
+	}
+	if (cmd == "storage_probe") {
+		// Fixed diagnostic names only, beneath the already owned/validated root.
+		// No request field can supply a filename or output directory.
+		const Path nested = ConfMan.getPath("dlcspath").join("ce-storage-probe/nested");
+		if (!FSNode(nested).createDirectory()) return error("storage_probe_directory_failed");
+		for (const char *key : {"cachepath", "temppath"}) {
+			const Path directory = ConfMan.getPath(key);
+			if (!FSNode(directory).exists() && !FSNode(directory).createDirectory()) return error("storage_probe_directory_failed");
+			const Path filename = directory.join("ce-storage-probe.bin");
+			if (FSNode(filename).exists()) return error("storage_probe_file_exists");
+			DumpFile file;
+			if (!file.open(filename)) return error("storage_probe_write_failed");
+			file.writeString("CE storage diagnostic\n"); file.flush();
+			if (file.err()) return error("storage_probe_write_failed");
+		}
+		return ok();
+	}
+	if (cmd == "screenshot") {
+		g_system->saveScreenshot(); // Normal renderer and normal filename/path policy.
+		return ok(); // Acknowledges the request; the client must verify its output.
+	}
 	if (cmd == "save" || cmd == "load") return g_engine->testCLICommand(req);
 	return error("unknown_command");
 }
@@ -270,6 +299,10 @@ bool prepare(StringArray &arguments) {
 		String path = stringField(*req, "path"), game = stringField(*req, "game");
 		String platform = stringField(*req, "platform"), engine = stringField(*req, "engine");
 		bool safe = !path.empty() && path.findFirstOf("\r\n") == String::npos;
+		// Canonicalize caller-relative assets before the entry point anchors
+		// diagnostic output to the owned root. Absolute identities stay intact.
+		if (safe && path[0] != '/' && path[0] != '\\' && (path.size() < 2 || path[1] != ':'))
+			path = FSNode(Path(".")).getPath().join(Path(path, Path::kNativeSeparator)).normalize().toString(Path::kNativeSeparator);
 		for (const auto &id : {game, platform, engine}) {
 			if (id.empty() || id.size() > 40) safe = false;
 			for (char c : id) if (!((c >= 'a' && c <= 'z') || (c >= '0' && c <= '9') || c == '_')) safe = false;

@@ -58,6 +58,9 @@ if ($UnitTests) {
 
 $projectNeedsRefresh = -not (Test-Path "$buildDirectory\$solutionName.sln")
 if (-not $projectNeedsRefresh) {
+    $projectNeedsRefresh = -not (Get-Content "$buildDirectory\$solutionName.vcxproj" -Raw).Contains('<CharacterSet>Unicode</CharacterSet>')
+}
+if (-not $projectNeedsRefresh) {
     $globalPropsPath = "$buildDirectory\ScummVM_Globalx64.props"
     $projectNeedsRefresh = -not (Test-Path $globalPropsPath)
     if (-not $projectNeedsRefresh) {
@@ -104,11 +107,11 @@ if ($projectNeedsRefresh -or $UnitTests) {
     Push-Location $buildDirectory
     try {
         if ($UnitTests) {
-            ..\build-create-project\Release\create_project.exe .. --msvc --vcpkg --msvc-version 17 --tests
+            ..\build-create-project\Release\create_project.exe .. --msvc --vcpkg --msvc-version 17 --use-windows-unicode --tests
         } elseif ($NoxFocused) {
-            ..\build-create-project\Release\create_project.exe .. --msvc --vcpkg --msvc-version 17 --disable-all-engines --enable-engine=nox
+            ..\build-create-project\Release\create_project.exe .. --msvc --vcpkg --msvc-version 17 --use-windows-unicode --disable-all-engines --enable-engine=nox
         } else {
-            ..\build-create-project\Release\create_project.exe .. --msvc --vcpkg --msvc-version 17 --enable-gif --enable-engine=monkey4,nox
+            ..\build-create-project\Release\create_project.exe .. --msvc --vcpkg --msvc-version 17 --use-windows-unicode --enable-gif --enable-engine=monkey4,nox
         }
         if ($LASTEXITCODE -ne 0) {
             exit $LASTEXITCODE

@@ -11,6 +11,10 @@ import pathlib
 import hashlib
 import time
 import subprocess
+import shutil
+import stat
+import configparser
+import os
 from test_cli_client import Client
 
 
@@ -98,7 +102,7 @@ def activation(exe, root):
 def pilot(exe, root, extra, game, platform, offscreen):
     c = Client(exe, root, extra, offscreen)
     try:
-        c.launch(game, platform)
+        c.launch(os.path.relpath(game, pathlib.Path.cwd()), platform)
         state = c.command('advance', frames=2)
         # Ordinary intro/movie/dialogue input; credits are not gameplay evidence.
         deadline = time.monotonic() + 150
@@ -161,6 +165,25 @@ def pilot(exe, root, extra, game, platform, offscreen):
         assert {session, session_b} <= {s['session'] for s in banks}, banks
         assert len({s['file'] for s in banks}) >= 2, banks
         assert hashlib.sha256(save_a.read_bytes()).hexdigest() == hash_a
+        storage = c.command('storage')
+        for key, suffix in [('savepath', 'saves'), ('screenshotpath', 'screenshots'),
+                            ('cachepath', 'cache'), ('temppath', 'temp'),
+                            ('iconspath', 'data/icons'), ('dlcspath', 'data/dlcs')]:
+            assert pathlib.Path(storage[key]).resolve() == (root/suffix).resolve(), storage
+        assert pathlib.Path(storage['logfile']).resolve() == (root/'engine.log').resolve(), storage
+        assert pathlib.Path(storage['generated_cache']).is_relative_to(root/'cache/hpl1'), storage
+        c.command('screenshot')
+        c.command('advance', frames=2)
+        screenshots = list((root/'screenshots').glob('*.png'))
+        assert screenshots and screenshots[0].read_bytes().startswith(b'\x89PNG'), screenshots
+        assert (root/'temp').is_dir()
+        assert not (root/'cache').exists(), 'Unused cache should not be created'
+        c.command('storage_probe')
+        assert (root/'data/dlcs/ce-storage-probe/nested').is_dir()
+        assert (root/'cache/ce-storage-probe.bin').read_bytes() == b'CE storage diagnostic\n'
+        assert (root/'temp/ce-storage-probe.bin').read_bytes() == b'CE storage diagnostic\n'
+        assert c.command('storage_probe', check=False)['error'] == 'storage_probe_file_exists'
+
         queue = c.command('inspect')['ce']['queue']
         for owner in (session, session_b):
             assert any(e['type'] == 'playthrough_save' and e['session'] == owner for e in queue), queue
@@ -188,9 +211,50 @@ def pilot(exe, root, extra, game, platform, offscreen):
         c.command('wait', field='adapter.button_handler_kind', equals='function', timeout_ms=10000)
         assert c.command('inspect')['session'] == session_b
         c.close()
+        # A previously owned profile cannot redirect auxiliary test writes.
+        profile_ini = root/'profile.ini'
+        config = configparser.ConfigParser(interpolation=None)
+        config.read(profile_ini, encoding='utf-8')
+        outside = root.parent/(root.name + '-forbidden-auxiliary')
+        for key in ('screenshotpath', 'cachepath', 'temppath', 'iconspath', 'dlcspath'):
+            config['scummvm'][key] = str(outside/key)
+        with profile_ini.open('w', encoding='utf-8') as stream:
+            config.write(stream)
+        isolated = Client(exe, root, extra, offscreen)
+        try:
+            isolated.launch(game, platform)
+            protected = isolated.command('storage')
+            for key in ('screenshotpath', 'cachepath', 'temppath', 'iconspath', 'dlcspath'):
+                assert pathlib.Path(protected[key]).is_relative_to(root), protected
+            isolated.command('screenshot')
+            isolated.close()
+        except BaseException:
+            isolated.abort()
+            raise
+        assert not outside.exists(), 'Owned test profile redirected an auxiliary write'
+        readonly_root = root.parent/(root.name + '-readonly-config')
+        shutil.copytree(root, readonly_root)
+        profile = readonly_root/'profile.ini'
+        original = hashlib.sha256(profile.read_bytes()).hexdigest()
+        profile.chmod(stat.S_IREAD)
+        broken = None
+        rejected = False
+        try:
+            broken = Client(exe, readonly_root, extra, offscreen)
+            broken.launch(game, platform)
+            broken.command('session_create', title='Read-only configuration must fail')
+        except RuntimeError as exc:
+            rejected = 'configuration' in str(exc).lower()
+        finally:
+            if broken is not None:
+                broken.abort()
+            profile.chmod(stat.S_IREAD | stat.S_IWRITE)
+        assert rejected, 'Read-only configuration was not reported as an error'
+        assert hashlib.sha256(profile.read_bytes()).hexdigest() == original
+        assert (readonly_root/'profile.ini.tmp').is_file(), 'Failed atomic replacement did not retain recovery data'
         return {'case': platform, 'passed': True, 'session': session,
                 'scene': restored['adapter']['scene'], 'native_menu': True, 'cold_restore': True,
-                'bank_isolation': True, 'second_session': session_b, 'save_a_sha256': hash_a}
+                'portable_storage_checks': 24, 'auxiliary_isolation': True, 'readonly_configuration_rejected': True, 'bank_isolation': True, 'second_session': session_b, 'save_a_sha256': hash_a}
     except BaseException:
         c.abort()
         raise

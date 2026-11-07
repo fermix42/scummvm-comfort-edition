@@ -34,25 +34,9 @@
 #include "backends/saves/windows/windows-saves.h"
 #include "backends/platform/sdl/win32/win32_wrapper.h"
 
-WindowsSaveFileManager::WindowsSaveFileManager(bool isPortable) {
-	TCHAR defaultSavepath[MAX_PATH];
-
-	if (isPortable) {
-		Win32::getProcessDirectory(defaultSavepath, MAX_PATH);
-	} else {
-		// Use the Application Data directory of the user profile
-		if (!Win32::getApplicationDataDirectory(defaultSavepath)) {
-			return;
-		}
-	}
-
-	_tcscat(defaultSavepath, TEXT("\\Saved games"));
-	if (!CreateDirectory(defaultSavepath, nullptr)) {
-		if (GetLastError() != ERROR_ALREADY_EXISTS)
-			error("Cannot create ScummVM Saved games folder");
-	}
-
-	ConfMan.registerDefault("savepath", Common::Path(Win32::tcharToString(defaultSavepath), Common::Path::kNativeSeparator));
+WindowsSaveFileManager::WindowsSaveFileManager(bool /*isPortable*/) {
+	// No directories are created until the save manager actually needs them.
+	ConfMan.registerDefault("savepath", Common::Path("saves"));
 }
 
 Common::ErrorCode WindowsSaveFileManager::removeFile(const Common::FSNode &fileNode) {

@@ -79,9 +79,46 @@ int __stdcall WinMain(HINSTANCE /*hInst*/, HINSTANCE /*hPrevInst*/,  LPSTR /*lpC
 #endif
 }
 
+// Resolve explicitly supplied CLI filenames before anchoring legacy diagnostics.
+// Relative INI storage values remain executable-relative; explicit CLI paths keep
+// their established caller-working-directory semantics.
+static Common::String absoluteCLIPath(const Common::String &path) {
+	if (path.empty()) return path;
+	wchar_t *wide = Win32::ansiToUnicode(path.c_str());
+	Common::Array<wchar_t> buffer;
+	buffer.resize(GetFullPathNameW(wide, 0, nullptr, nullptr));
+	Common::String result(path);
+	if (buffer.size() && GetFullPathNameW(wide, buffer.size(), buffer.data(), nullptr)) {
+		char *utf8 = Win32::unicodeToAnsi(buffer.data()); result = utf8; free(utf8);
+	}
+	free(wide);
+	return result;
+}
+
+static void normalizeCLIPaths(Common::StringArray &args) {
+	const char *options[] = {"--config", "--savepath", "--logfile", "--screenshotpath", "--path",
+	                        "--extrapath", "--themepath", "--iconspath", "--dlcspath", "--soundfont",
+	                        "--record-file", "--playback-file", "-c", "-p"};
+	for (uint i = 1; i < args.size(); ++i) {
+		for (const char *option : options) {
+			Common::String name(option);
+			if (args[i] == name && i + 1 < args.size()) {
+				args[i + 1] = absoluteCLIPath(args[i + 1]); ++i; break;
+			}
+			if (args[i].hasPrefix(name + "=")) {
+				args[i] = name + "=" + absoluteCLIPath(args[i].substr(name.size() + 1)); break;
+			}
+			if (name.size() == 2 && args[i].hasPrefix(name) && args[i].size() > 2) {
+				args[i] = name + absoluteCLIPath(args[i].substr(2)); break;
+			}
+		}
+	}
+}
+
 int main(int argc, char *argv[]) {
 #ifdef UNICODE
-	argv = Win32::getArgvUtf8(&argc);
+	char **utf8Argv = Win32::getArgvUtf8(&argc);
+	argv = utf8Argv;
 #endif
 	bool testCLI = false, offscreen = false;
 	Common::String root;
@@ -115,6 +152,19 @@ int main(int argc, char *argv[]) {
 #endif
 	}
 
+	if (testCLI) normalizeCLIPaths(cliArgs);
+
+	Common::StringArray normalArguments;
+	Common::Array<char *> normalPointers;
+	if (!testCLI) {
+		for (int i = 0; i < argc; ++i) normalArguments.push_back(argv[i]);
+		normalizeCLIPaths(normalArguments);
+		for (const auto &arg : normalArguments) normalPointers.push_back(const_cast<char *>(arg.c_str()));
+		normalPointers.push_back(nullptr);
+		argv = normalPointers.data();
+		Win32::initializePortableStorage();
+	}
+
 	// Create our OSystem instance
 	g_system = new OSystem_Win32();
 	assert(g_system);
@@ -133,6 +183,7 @@ int main(int argc, char *argv[]) {
 	int res;
 	if (testCLI) {
 		if (CETestCLI::prepare(cliArgs)) {
+			Win32::initializePortableStorage(root);
 			Common::Array<const char *> args;
 			for (const auto &arg : cliArgs) args.push_back(arg.c_str());
 			res = scummvm_main(args.size(), args.data());
@@ -144,7 +195,7 @@ int main(int argc, char *argv[]) {
 	g_system->destroy();
 
 #ifdef UNICODE
-	Win32::freeArgvUtf8(argc, argv);
+	Win32::freeArgvUtf8(argc, utf8Argv);
 #endif
 
 	return res;

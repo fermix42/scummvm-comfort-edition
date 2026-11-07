@@ -294,16 +294,15 @@ void ConfigManager::flushToDisk() {
 		if (!stream)    // If writing to the config file is not possible, do nothing
 			return;
 	} else {
-		DumpFile *dump = new DumpFile();
-		assert(dump);
-
-		if (!dump->open(_filename)) {
+		stream = FSNode(_filename).createWriteStream();
+		if (!stream) {
+#ifdef WIN32
+			error("ScummVM CE cannot write configuration '%s'. Choose a writable --config path or move the installation to D:\\Games\\ScummVM CE; no profile fallback is used", _filename.toString(Common::Path::kNativeSeparator).c_str());
+#else
 			warning("Unable to write configuration file: %s", _filename.toString(Common::Path::kNativeSeparator).c_str());
-			delete dump;
+#endif
 			return;
 		}
-
-		stream = dump;
 	}
 
 	// Write the application domain
@@ -336,6 +335,14 @@ void ConfigManager::flushToDisk() {
 			writeDomain(*stream, domain._key, domain._value);
 	}
 
+	stream->finalize();
+	if (stream->err()) {
+#ifdef WIN32
+		error("ScummVM CE: configuration write failed. Move the installation to a writable directory or select a writable --config path; no profile fallback is used");
+#else
+		warning("Configuration write failed");
+#endif
+	}
 	delete stream;
 
 #endif // !__DC__
@@ -567,7 +574,8 @@ bool ConfigManager::getBool(const String &key, const String &domName) const {
 }
 
 Path ConfigManager::getPath(const String &key, const String &domName) const {
-	return Path::fromConfig(get(key, domName));
+	const Path path = Path::fromConfig(get(key, domName));
+	return g_system ? g_system->resolveStoragePath(key, path) : path;
 }
 
 float ConfigManager::getFloat(const String &key, const String &domName) const {
@@ -673,7 +681,7 @@ void ConfigManager::setBool(const String &key, bool value, const String &domName
 }
 
 void ConfigManager::setPath(const String &key, const Path &value, const String &domName) {
-	set(key, value.toConfig(), domName);
+	set(key, (g_system ? g_system->storagePathForConfig(key, value) : value).toConfig(), domName);
 }
 
 void ConfigManager::setFloat(const String &key, float value, const String &domName) {
