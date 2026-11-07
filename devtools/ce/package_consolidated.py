@@ -20,6 +20,11 @@ def sha(path):
 
 
 def manifest(folder, source, delivery=None):
+    # Refresh distribution-facing links and changelog without adding test profiles.
+    shutil.copy2(ROOT/'FORK-CHANGES.md', folder/'FORK-CHANGES.md')
+    readme = (ROOT/'README.md').read_text(encoding='utf-8')
+    readme = readme.replace('(doc/ce-portable-storage/README.md)', '(docs/PORTABLE-STORAGE.md)').replace('(doc/ce-test-cli/README.md)', '(docs/NATIVE-TEST-CLI.md)').replace('(doc/ce-consolidated/RELEASE-READINESS.md)', '(docs/RELEASE-READINESS.md)')
+    (folder/'README.md').write_text(readme, encoding='utf-8')
     forbidden = [p for p in folder.rglob('*') if p.is_file() and
                  (p.suffix.lower() in ('.gsv', '.ps2', '.hdv') or
                   p.name in ('ce-playthroughs.json', 'ce-achievements-queue.json', 'profile.ini') or
@@ -112,6 +117,11 @@ def main():
         assert prior['exe_sha256'] == sha(folder/'scummvm.exe')
         for source_doc in ('RELEASE-READINESS.md', 'HUMAN-ACCEPTANCE.md'):
             shutil.copy2(ROOT/'doc/ce-consolidated'/source_doc, folder/'docs'/source_doc)
+        report = folder/'docs/RELEASE-READINESS.md'
+        if args.delivery_sha:
+            report.write_text(report.read_text(encoding='utf-8')+'\nFinal local delivery commit: `'+args.delivery_sha+'`.\n', encoding='utf-8')
+        shutil.copy2(report, output/'RELEASE-READINESS.md')
+        shutil.copy2(folder/'docs/HUMAN-ACCEPTANCE.md', output/'HUMAN-ACCEPTANCE.md')
         result = manifest(folder, prior['source_sha'], args.delivery_sha)
         archive = output/ZIP_NAME
         assert not archive.exists(), 'Do not overwrite a previously sealed candidate'

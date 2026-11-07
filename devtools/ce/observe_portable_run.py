@@ -8,6 +8,7 @@ from pathlib import Path
 import re
 import subprocess
 from test_portable_storage import DirectoryWatch
+from storage_observation import system_resource_kind, classify_notifications, native_io_path
 
 
 def main():
@@ -41,24 +42,26 @@ def main():
     unexpected = []
     system_files = []
     for path in profile.rglob('*'):
-        if not path.is_file():
+        if not native_io_path(path).is_file():
             continue
         name = str(path.relative_to(profile)).replace('\\', '/').lower()
-        if (name.startswith(('appdata/local/nvidia/', 'appdata/locallow/nvidia/')) or
-                re.fullmatch(r'appdata/local/[0-9a-f]{16}\.nvph', name)):
+        if system_resource_kind(name):
             system_files.append(str(path.relative_to(profile)))
         else:
             unexpected.append(str(path))
     assert not unexpected, unexpected
+    system_events, unknown_events = classify_notifications(watchers[0].events, profile)
+    assert not unknown_events, unknown_events
     suspicious = [e for e in watchers[1].events if 'scummvm' in e['path'].lower()]
     assert not suspicious, suspicious
     writes = [l.split('\t', 1)[1] for l in trace.read_text(encoding='utf-8').splitlines() if l.startswith('WRITE\t')]
-    assert writes and all(Path(p).is_relative_to(root.parent) for p in writes), writes
+    assert writes and all(Path(p).is_relative_to(root.parent) and not Path(p).is_relative_to(profile) for p in writes), writes
     receipt = {'status': 'PASS', 'command': command, 'exit': result.returncode,
                'successful_native_stream_write_records': len(writes),
                'all_traced_writes_under': str(root.parent),
                'controlled_profile_application_files': unexpected,
-               'controlled_profile_system_gpu_files': system_files,
+               'controlled_profile_system_resource_files': system_files,
+               'observed_system_resource_events': system_events,
                'real_profile_scummvm_notifications': suspicious,
                'controlled_profile_notifications': len(watchers[0].events),
                'real_profile_notifications': len(watchers[1].events),
