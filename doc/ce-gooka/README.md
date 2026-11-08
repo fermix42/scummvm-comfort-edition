@@ -1,7 +1,8 @@
 # Gooka in Comfort Edition
 
-CE imports the experimental Gooka engine from
-[Kungergely/scummvm](https://github.com/Kungergely/scummvm), initially at
+CE imports the maintained experimental Gooka engine from
+[fermix42/scummvm](https://github.com/fermix42/scummvm), with original provenance
+from [Kungergely/scummvm](https://github.com/Kungergely/scummvm), initially at
 `66b8f9703e73fa7a2c9bd8e81ea312a824e97fdf` (November 4, 2026).
 Only `engines/gooka` is imported; the fork's ScummVM core is not merged.
 The upstream GPL notices and engine credits are preserved.
@@ -16,14 +17,16 @@ From this CE checkout, with Python 3.9 or later:
 
 ```powershell
 python devtools/ce/update_gooka.py --verify
-python devtools/ce/update_gooka.py
+python devtools/ce/update_gooka.py --ref <reviewed-40-character-fork-commit>
 python devtools/ce/test_update_gooka.py
 ```
 
-The updater resolves `master` to a commit before downloading, verifies Git blob
+The updater requires an exact reviewed commit (floating branches are rejected), verifies Git blob
 checksums, and records upstream and installed SHA-256 checksums in
 `devtools/ce/gooka-upstream.json`. Use `--ref <commit>` to import a specific
-revision or roll back to a known snapshot. It refuses updates when engine files
+revision or roll back to a known snapshot. `--checkout <local-fork-checkout>` reads
+the same pinned Git blobs locally, verifies their object hashes and fork origin,
+and never imports uncommitted working-copy changes. It refuses updates when engine files
 have local edits, additions, or deletions. Reconcile those edits before updating.
 All downloads finish before the installed snapshot is changed.
 
@@ -37,6 +40,35 @@ the engine directory. Run the offline checks before building.
 The checked-in Windows release and layout workflows explicitly enable Gooka;
 other builds can use `--enable-engine=gooka`. The upstream build-by-default
 setting and unstable detection flag remain intact.
+
+## Czech and English (development after v0.1.4)
+
+Game Options → Language offers Czech and English for the same Czech CD data
+through ScummVM's standard `ADGF_ADDENGLISH` capability. Restart to apply.
+The English resource-ID table is compiled into the executable, so the portable
+distribution needs no additional runtime loader, network or language asset.
+Default/Czech uses original CP1250 text; missing English entries warn and fall
+back to Czech. Game assets and save serialization/directories are unchanged.
+Original Czech voices/video remain; enable subtitles for English dialogue.
+Old targets with stale GUI options may need to be re-added to refresh the list.
+
+The owned data yields 835 text IDs (834 nonempty). All have English table entries;
+819 change text and 16 retain names, existing English, markers or whitespace.
+Seven entries remain flagged for contextual review: 856, 918, 1338, 1339, 1373,
+3216 and 3221. This is complete ID mapping, not a claim of complete reviewed
+screen coverage. Text baked into graphics/video is outside this lookup.
+
+The maintained extraction, translation, glossary, layout and synchronization
+instructions are in `engines/gooka/localization/README.md`. Keep full original
+Czech catalogs and owned data private; only translation resources/tools and
+original credit names belong in the fork. `english.json` is the correction source;
+`compile.py` generates the checked-in CP1250 table. English-only TextSprite
+wrapping and font-measured book layouts retain Czech presentation.
+
+Use `devtools/ce/test_gooka_localization_runtime.py` for bilingual resource
+rendering and cross-language original-save checks with the existing native CLI.
+This is focused localization development; the published v0.1.4 tag, binaries and
+assets remain untouched. Do not repeat unrelated engine or release acceptance.
 
 From the intended clean CE checkout, use its checked-in build script:
 

@@ -37,7 +37,7 @@ static const ADGameDescription gameDescriptions[] = {
 					"1.BIN","01055407c2d36d44cfba42df11f324aa", 6123520),
 		Common::CS_CZE,
 		Common::kPlatformWindows,
-		ADGF_UNSTABLE,
+		ADGF_UNSTABLE | ADGF_ADDENGLISH,
 		GUIO1(GUIO_MIDIGM)
 	},
 

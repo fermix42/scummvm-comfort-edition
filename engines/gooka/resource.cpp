@@ -24,6 +24,8 @@
  */
 
 #include "common/debug.h"
+#include "common/config-manager.h"
+#include "common/language.h"
 #include "common/formats/winexe_pe.h"
 #include "common/path.h"
 #include "common/ptr.h"
@@ -31,6 +33,7 @@
 
 #include "gooka/detection.h"
 #include "gooka/resource.h"
+#include "gooka/localization/english.h"
 
 namespace Gooka {
 
@@ -88,7 +91,25 @@ Common::String ResourceManager::getText(uint16 id) const {
 	Common::ScopedPtr<Common::SeekableReadStream> s(get(kResText, id));
 	if (!s)
 		return Common::String();
-	return s->readString();
+	const Common::String original = s->readString();
+	if (Common::parseLanguage(ConfMan.get("language")) != Common::EN_ANY)
+		return original;
+	uint first = 0;
+	uint end = ARRAYSIZE(kEnglishText);
+	while (first < end) {
+		const uint middle = first + (end - first) / 2;
+		if (kEnglishText[middle].id < id)
+			first = middle + 1;
+		else
+			end = middle;
+	}
+	if (first < ARRAYSIZE(kEnglishText) && kEnglishText[first].id == id) {
+		debugC(2, kDebugResource, "Gooka: English text %u", id);
+		return kEnglishText[first].text;
+	}
+	if (!original.empty())
+		warning("Gooka: missing English text %u; using original Czech", id);
+	return original;
 }
 
 } // End of namespace Gooka

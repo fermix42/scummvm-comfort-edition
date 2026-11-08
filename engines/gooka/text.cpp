@@ -26,6 +26,8 @@
  */
 
 #include "common/debug.h"
+#include "common/config-manager.h"
+#include "common/language.h"
 
 #include "graphics/surface.h"
 
@@ -231,6 +233,31 @@ TextSprite::TextSprite() : _fontId(kFontBold), _color(0), _outlineColor(0), _fla
 // FUN_00409db0 (text) + FUN_00409e20 (font) + FUN_00409e70 (colours) + FUN_00409e30 (flags).
 void TextSprite::setText(const Common::String &text, int fontId, uint32 color, uint32 outlineColor, uint32 flags) {
 	_text = text;
+	// English-only soft wrapping. Keep explicit alignment and paragraph controls.
+	if (Common::parseLanguage(ConfMan.get("language")) == Common::EN_ANY) {
+		const GookaFont *font = g_engine->getFont(fontId);
+		uint lineStart = 0;
+		uint lastSpace = 0;
+		int width = 0;
+		for (uint i = 0; font && i < _text.size(); ++i) {
+			if (isLineEnd(_text[i])) {
+				lineStart = i + 1;
+				lastSpace = 0;
+				width = 0;
+				continue;
+			}
+			if (_text[i] == ' ')
+				lastSpace = i;
+			width += font->getCharWidth((byte)_text[i]);
+			if (width > 590 && lastSpace > lineStart) {
+				_text.setChar('\n', lastSpace);
+				i = lastSpace;
+				lineStart = i + 1;
+				lastSpace = 0;
+				width = 0;
+			}
+		}
+	}
 	_fontId = fontId;
 	_color = color;
 	_outlineColor = outlineColor;

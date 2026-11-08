@@ -1,0 +1,833 @@
+# Resource ID<TAB>English text. Layout controls are restored from the owned catalog by compile.py.
+1	Needle
+2	Lockpick
+3	Mace
+4	Axe
+5	Bread
+6	Ladder
+7	Branch
+8	Books
+9	Portrait
+10	Bottle
+11	Scrap of paper
+12	Ham
+13	Ladle
+14	Document
+15	Book
+16	Small key
+17	Dagger
+18	Arrow
+19	Shaped branch
+20	Bow
+21	String
+22	Pouch
+23	Coal scuttle
+24	Bellows
+25	Full coal scuttle
+26	Tongs
+27	Key
+28	Broken key
+29	Broken key
+30	Key fragment in tongs
+31	Red-hot key fragment
+32	Bowl
+33	Hide
+34	Poisoned arrow
+35	Bowl of water
+36	Bowl of poison
+37	Hook
+38	Bowl of water
+39	Ornate belt
+40	Gold pendant
+41	Contraption
+42	Wire
+43	Rope
+44	Lamp
+45	Rope with hook
+46	Blanket
+47	Book
+48	Large key
+49	Shards
+50	Strange object
+51	Controller
+52	Seed
+53	Stalactite
+54	Chains
+55	File
+57	Ruiciman's book
+58	Candle
+59	Candle
+60	Candle
+61	Candle
+62	Fruit
+63	Stygra
+64	Gloves
+65	Shem
+66	Shem
+67	Shem
+68	Shem
+69	Controller I
+70	Controller II
+71	Controller III
+72	Controller IV
+73	LastItem
+74	FirstString
+400	I don't see anything unusual.
+408	Lidra
+410	Gooka
+443	Unlock
+444	Unlock
+445	Unlock
+446	Unlock
+447	Unlock
+448	Unlock
+449	Unlock
+450	Options
+451	Save game
+452	Load game
+453	Quit game
+454	New game
+455	Cancel
+456	Start again?
+457	Quit the game?
+458	Load
+459	Save
+460	Music volume
+461	Sound volume
+462	Show subtitles
+463	HiColor
+802	My sister always locks her room.
+804	Unlock
+805	There, unlocked.
+806	Fill bowl
+807	Fountain
+810	Safe
+811	Panel
+812	Destroy the back
+813	This is definitely a Marin-Danim device. Perhaps the controller can do something with it.
+814	Open
+815	Decode lock
+816	The skeleton said the mace was out of power, but perhaps it still has enough to destroy the back of the safe.
+818	Body
+819	Judge
+820	He's clutching a small key.
+821	Your Honour! This is my brother Gooka. I think he's the one who murdered our father!
+822	That's a serious accusation.
+823	He must have poisoned him with winter stalactites!
+824	Is that true? Do you have winter stalactites?
+825	Yes, I do.
+826	What for?
+827	I needed them for experiments. But they're safely stored away. I keep them cold so that no poison leaches out.
+828	That's it! Your Honour! That's how he poisoned our father!
+829	Woman, enough of this nonsense! Your father wasn't killed by winter stalactite poison. That's perfectly clear! That poison leaves purple blotches on the body, and your father's are green.
+830	As far as I know, that's caused by a very rare poison from distant lands called barut. I've never seen it here in Relov. Making it requires some very unusual ingredients.
+831	Gooka did it! I know he did!
+832	Be quiet. So far, nothing suggests that Gooka is the murderer.
+833	Your Honour, what ingredients are needed to make that poison?
+834	Even I don't know exactly. Your father Mahara mentioned it once when we were discussing rare poisons. But even he didn't have all the substances it requires.
+835	Will you find out who murdered Sage Mahara, Your Honour?
+836	Of course not! That's your task. Until you can prove your innocence, you may not leave the estate. I strongly suspect, indeed I'm almost certain, that the murderer had an accomplice in your household.
+837	You're probably right. My father rarely went out, and he never ate or drank outside the house.
+838	Show pouch
+839	Gooka, have you learned anything new about your father's case?
+840	Your Honour, I think my sister Baroda poisoned Father.
+841	That's not true! He did it, and now he's trying to blame me!
+842	I found this pouch in her room.
+843	It's made from the hide of an Algi beast. I don't know what's inside, and I didn't dare open it... What if...
+844	My lover will kill me! This wasn't supposed to happen!
+845	Your lover?
+846	I don't know his name. He's a foreigner, and he's beautiful! He promised to take me away from here and marry me!
+847	I see. Albert, take her away!
+848	So I'm no longer suspected of murder?
+849	No, but if you want to become a Sage, you must find out why your father was murdered. Your sister prepared the poison and gave it to him, but it wasn't her idea. She couldn't have obtained that foreign poison alone. And I'm sure her lover is long gone. So it's up to you, my dear Gooka.
+850	Yes, Your Excellency.
+851	Stop! Until Sage Mahara's murder has been solved, no one may touch anything in this room!
+852	I'm sorry.
+855	My trusty, sharp dagger.
+856	Hmm, Grandfather once brought down a mountain tuskhorn with this arrow.
+857	I left that here yesterday...
+860	Chest
+861	A pouch made of Algi hide, a skull and crossbones... I think the judge ought to see this!
+862	I could use a key for this lock...
+863	Force lock
+864	Where there's no key, there's brute force.
+865	Hmm, belts, ornaments, jewellery. That's Baroda all over.
+866	Pull at the bottom
+867	Well, well! A false bottom!
+868	Attach
+869	Let's tie the hook to the ladle with some wire...
+870	What possible use could this ridiculous thing have?
+871	I can't see anything in there.
+875	Fire
+876	Put coal on the fire
+877	Fan the fire
+878	Heat key fragment
+879	The fire is really hot now.
+880	The end of the fragment is hot enough to be half melted.
+881	Cook
+882	Ouch! That's hot!
+883	Put out fire
+884	Good morning, Korvana. What's for breakfast today?
+885	A terrible thing has happened, young master. A terrible thing. Your father is dead. The judge says you're to report to the study.
+886	What a dreadful morning, Korvana.
+887	Yes, young master. A tragedy. Such a tragedy...
+888	Korvana, have you noticed anything strange lately?
+889	What sort of strange thing?
+890	I don't know. Something unusual. Something that doesn't normally...
+891	Well, I don't know...
+892	Think!
+893	This house has been peaceful for years. Everything runs as it should. But now that I think about it, the only new thing lately is that your sister Baroda has taken up cooking.
+894	What?
+895	The afternoon before yesterday, I came into the kitchen and found your sister cooking something. She's never done that before. She must be thinking of marriage.
+896	My sister? C O O K I N G???
+897	Well, she said a friend had recommended a special spice for meat, and she wanted to try it.
+898	And she had her own spices?
+899	Yes, young master. She had several little bags.
+900	Thank you. You've been a great help.
+901	You don't happen to have a key to Baroda's room?
+902	Yes, I clean in there, but I found it broken this morning. You can have it.
+903	They've taken my sister away for murder.
+904	A tragedy, such a tragedy... How could your sister have done it?
+905	Apparently some man put her up to it.
+906	That might be the lanky fellow I saw with her behind the house three evenings ago.
+907	What lanky fellow?
+908	In the dim light, he reminded me very much of Sage Mahara and Master Digor when they first came to Relov.
+909	My father wasn't Bonian?
+910	No. Your father was much taller than anyone from around here.
+911	I thought that was just a coincidence. Where was he from?
+912	I don't know, but Master Digor was just as tall and thin. You take more after your mother, who was Bonian.
+913	And what happened to this Digor?
+914	I'm not sure. He vanished a few weeks later. That was when your father bought this house and began rebuilding the whole place.
+915	Do you know where he went?
+916	I can't say for certain. It was such a long time ago. But I think he was heading somewhere towards the northern sea.
+917	So you don't know anything else about him?
+918	Not really. Although, come to think of it, a mind-emptied messenger came from the sea once or twice over the years. He sat in the storeroom next door while he waited for your father's reply.
+919	Don't tell me you didn't ask where he was from.
+920	I did, but you know what they're like, young master. Nothing in their heads but their task. He kept going on about Avaral and King Heras and his adviser. Where is that?
+921	He was talking about the Svan kingdom. Perhaps this Digor knows something about my father's death. It looks as though I'll have to set out on a journey.
+924	Coal
+925	Scoop up coal
+928	By order of the judge, no one may leave this house.
+929	Damn.
+931	I can leave, but I don't know where to look beyond this house...
+1201	Thank you, Glux, my dear friend.
+1202	I was glad to help, my lord.
+1203	Here we are again.
+1204	Now we know the truth about Glux. I must go home and tell Father everything. Perhaps he'll finally understand what sort of man Penza is.
+1205	Meanwhile, I'll take another look around Orint Monastery. Glux mentioned a secret library beneath the altar.
+1206	Take care of yourself.
+1207	You too.
+1218	The door is locked.
+1219	This lockpick won't open this door.
+1220	Well, this door could be unlocked!
+1224	I'd better not disturb His Belligerence just now.
+1225	They won't just let me in.
+1226	Guard
+1227	Show credentials
+1228	Where do you think you're going, runt?!
+1229	Excuse me?
+1230	I said, where do you think you're going?
+1231	I'm looking for the king's adviser.
+1232	As if he'd have time to talk to you.
+1233	I am Gooka, son of Sage Mahara of Relov, and therefore a representative of the Bonian state. I have just arrived and seek the king's adviser.
+1234	Anyone could say that. I can't let every vagabond in. His Belligerence, King of Avaral, is discussing plans for a new war with his adviser. They don't wish to be disturbed.
+1235	Here are my father's credentials. If you read them, you'll see that they also apply to me as his heir. So kindly let me through.
+1236	All right. You may go in.
+1237	The guard wouldn't let me in.
+1240	Adviser
+1241	King
+1242	Your Belligerence, allow me to introduce myself. I am Gooka, son and sole heir of Sage Mahara, a member of the Bonian Council of Elders.
+1243	What brings a messenger from the distant Bonian realm? What tidings will delight our ears?
+1244	I bring greetings from Patriarch Lekan, my superior. He will always pray for your campaigns against the vile Cymiks, who make life so difficult for every civilised nation.
+1245	And I hope the god Glux heeds him.
+1246	He surely will. No one worships the sea god Glux more fervently than Patriarch Lekan. Not a day passes without his paying homage to our god in the Temple of the Fading Dawn.
+1247	We too attend devotions at Orint Monastery. Soon we shall offer our god Glux the greatest sacrifice a king can make: our daughter Lidra. We trust you will attend the ceremony as well.
+1248	Surely the kindly god Glux cannot ask us to... Of course, I would be delighted to attend. It is a great honour.
+1249	We sail tomorrow at dawn.
+1250	Your Belligerence, I have one more humble request.
+1251	Yes?
+1252	If Your Belligerence has no objection, I need to speak to your adviser.
+1253	Indeed? My adviser and dearest friend Penza will surely spare you a few moments of his precious time.
+1254	Penza? But I wanted to speak to your adviser Digor.
+1255	That traitor whom Glux himself recently punished? I would never have discovered his treachery against my rule without Penza here, and our beloved god Glux, who cut the treacherous Digor's life considerably short.
+1256	Is he dead?
+1257	Oh, no. While we were travelling through the Amarat Desert, inspecting our troops together, the great Glux himself suddenly descended upon Digor from a clear sky and struck him with bolts of wrath.
+1258	What happened?
+1259	In his terrible anger at Digor's arrogant sins, he punished him with a fate worse than death: he turned him into a senile, babbling old man who must be spoon-fed.
+1260	Where is he now?
+1261	We meant to leave him on the rubbish heap, but at Princess Lidra's request we kept him under heavy guard in his rooms.
+1262	May I see him?
+1263	I don't think that would be appropriate. If you intend to attend the sacrifice, you should not defile yourself with such a sinner's presence.
+1264	But I...
+1265	We dismiss you with our blessing, traveller. Go now to Orint Monastery and cleanse your soul before the coming ceremony.
+1266	Your Belligerence! Forgive me for troubling you once more with my insignificant presence.
+1267	We expected to see you again only at the sacrifice.
+1268	While studying at Orint Monastery, I came across...
+1269	But we sent you there to contemplate, not to study. For shame!
+1270	Nevertheless, I did, Your Belligerence, though I humbly apologise. And I found something I should like to clarify.
+1271	In Saint Ruiciman's book, Glux: The Established Facts, I learned that our beloved god Glux cannot fly. It even says he dislikes the air. So I don't understand how he could have attacked your former adviser from above.
+1272	Heresy, Your Belligerence! Heresy of the foulest kind! He denies the deeds of our god. With my own eyes, I saw our almighty god descend from the sky in terrible wrath.
+1273	Your words, dear Penza, are proof enough for us.
+1274	But it's written in Saint Ruiciman's book, and he...
+1275	I suggest you send him with your daughter Lidra as her servant. Let Glux himself decide what to do with such a heretic.
+1276	But I...
+1277	Let it be as my wise first adviser has said. Guards, seize him and take him to the ship. Clearly, we can delay the sacrifice no longer. Heresy and treason are spreading. We sail at once!
+1278	Your Belligerence. Princess.
+1279	Gooka! At last! What did you find at the monastery?
+1280	There really is a secret room beneath the altar. But there are no books there.
+1281	What is there, then?
+1282	You won't believe it, but there's an altar to Gurha the Time-Devourer. The very creature that did such harm to Digor.
+1283	Really?
+1284	When I followed Glux's advice and opened the secret entrance, I fell straight into a service. Their leader, apparently the high priest, immediately ordered them to put me in chains. He said I was under arrest for heresy.
+1285	The same accusation Penza made.
+1286	But he couldn't hold his tongue. He let slip that their god isn't Glux, but Gurha. He also told me Gurha lives in Parentis.
+1287	That's the abandoned city near the Western Mountains.
+1288	How could Glux's monks...
+1289	I'd say Penza has something to do with that too.
+1290	Where is he, anyway?
+1291	The moment he saw me alive and well, he went pale and hurried off. He said he had to consult the high priest of Orint Monastery about something urgent.
+1292	He may not have been lying about that. It seems Penza and the high priest are allies. But not your allies, Your Belligerence.
+1293	It's all so tangled. It seems Penza isn't the loyal friend he claimed to be, and my former adviser Digor was wrongly accused.
+1294	So you believe us now?
+1295	I no longer know what to believe. I certainly trust you more than Penza now. If only I could speak to Digor... I never liked him much. He could be very disagreeable when something displeased him, but...
+1296	Glux gave me a seed from the plant of youth. He says the juice of its fruit should help Digor. May I have your permission?
+1297	Very well. Try it.
+1298	But how will you get the fruit when all you have is a seed?
+1299	I'll think of something. Where can I find Digor?
+1300	In the rear wing of the palace. We've unlocked the door now, after trying to speak to him. But he's in a very bad way.
+1301	All right. I'd better go.
+1302	Young Master Gooka. Welcome, my friend. How did things go in Relov?
+1303	Yes, you were right. I found the shem.
+1304	Things are very bad here. Penza and the high priest have won over part of the army and declared my father a heretic who defies the will of Glux.
+1305	A heretic again? They really ought to think of something more original.
+1306	They've fortified Zweral. Fortunately, enough troops stayed loyal to us that we can hold them in check for now. Unless Gurham comes to their aid. We couldn't withstand Marin-Danim power for long.
+1307	What do you intend to do?
+1308	Our best hope is to be rid of Gurham once and for all. I've thought about it at length. Gooka, you're truly your father's son, and you've done very well so far. Would you undertake an extremely dangerous expedition?
+1309	I don't know. All I originally had to do was discover who killed my father and why. Now I know. On the other hand, after all this, I can't just walk away. What did you have in mind?
+1310	It may sound mad. You would have to enter the Forbidden Mountains and penetrate the Marin-Danim Fortress itself. Once inside, try to find the missing shem and take Gurham's from him somehow. Then find the ship's central control panel and blow the whole nest sky-high.
+1311	That really is a mad plan. I doubt I could survive it.
+1312	Yes, that's true.
+1313	But if we destroy the Fortress, we'll destroy all the inventions the Marin-Danim possess.
+1314	That's true too. But almost all that's left there are weapons, and the risk of their misuse is enormous. If only your father and I had realised it when we could still do something.
+1315	Wouldn't it be better if you did it yourself?
+1316	I'm not trying to shirk my responsibility, but I must stay here. Without my help, Avaral would fall.
+1317	That's right, Gooka. Without Digor, I would be dead and Avaral in ruins. If only I'd realised it sooner.
+1318	You're the only person who can succeed, Gooka, and the only one we can trust.
+1319	In that case... How do I get to the Fortress?
+1320	Excellent. The Fortress lies in the heart of the Forbidden Mountains. You can reach it through Alkan Pass. Be careful: Gurham has put sinchas there. You surely know how dangerous those toothed crustaceans are.
+1321	I've heard about them.
+1322	I think you'll see the Fortress in the distance just beyond the pass. In my day, we used a teleporter to get inside. That may have changed. After that, you're on your own.
+1323	Can't you give me any more advice?
+1324	I haven't been there for nearly half a century, so everything has probably changed. In my day, a lift linked the spaceship to the Fortress. I believe you could also get in through the sewer shafts. But as I said, things may be different now.
+1325	Is that everything?
+1326	I can't think of anything else. Above all, remember that you have the shems and the controller. They may come in useful.
+1327	And here are the gloves you wanted.
+1328	Gloves made of Algi hide? A wise decision.
+1329	Very well. Goodbye, Lidra. Goodbye, Digor. Goodbye, Your Belligerence. All I can do is try.
+1330	Take care of yourself. You must come back. I love you.
+1331	May Glux's will guide you!
+1332	Remember: the fate of all Janatris now rests on you alone!
+1335	Old man
+1336	Digor
+1337	Blah blah... Baa...
+1338	Mare mound mumblemare.
+1339	Whom the greens befall, let the milling call...
+1340	Hooha mmmm... Kuhkha.
+1341	Here, take this.
+1342	Where am I? What's happening? Run, all of you! Gurha!!!
+1343	Calm down. There's no danger now. You're in Avaral, in your own rooms.
+1344	Phew, I was lucky. When Gurha attacked me, I thought I was finished. You can't imagine the torment his anti-stasis field causes. You feel your body ageing and your mind slowly dying. After that, I remember nothing. Who are you, anyway?
+1345	I'm Gooka, son of Sage Mahara.
+1346	My dear old Mahara. Is he well?
+1347	He's dead, my lord. That's why I'm here.
+1348	That's bad news. Gurhama found us both.
+1349	Gurhama?
+1350	I owe you a long explanation.
+1351	That's all I want. Why did my father die?
+1352	Your father and I were members of the triumvirate that ruled the Marin-Danim after the civil wars.
+1353	What? But that would mean...
+1354	...that through your father, you're Marin-Danim. The son of a ruler, in fact.
+1355	Well, I never. Until recently, I thought the Marin-Danim were wicked demons from fairy tales.
+1356	Gurhama was the third member. Your father and I tried to restore our people's original purpose: to use our technological superiority for discreet intervention, maintaining peace, order and prosperity on Janatris.
+1357	Gurhama pretended to agree, but apparently he had other plans from the start. He soon took control of the army, and of research, or what remained of it. In secret, he turned it towards creating new creatures to serve him. That's how Gurha came to be.
+1358	By the time we found out, it was too late. We barely managed to escape, taking two important shems used to activate the most powerful weapons and devices.
+1359	We had no choice but to disappear among the other peoples. Your father stayed in Relov; I settled here in Avaral. But Gurhama never gave up. Besides his hatred for us, he desperately needs our shems.
+1360	Why are they so important?
+1361	If he found all four, he could activate the weapons systems of the spaceship hidden beneath the Marin-Danim stronghold, the Fortress.
+1362	How so?
+1363	The first Marin-Danim stayed aboard the ship, while the ancestors of the other peoples spread across the planet. That's why the Marin-Danim preserved the most ancient knowledge.
+1364	Eventually, there wasn't enough room aboard, so they built homes around the ship and on top of it. Over thousands of years, the whole ship vanished under layers of earth, and the Fortress rose above it. But the ship is still there.
+1365	Did Gurhama find your shem?
+1366	Not mine. Fortunately, Gurha isn't very bright. I lost my mind before Penza's thugs could beat its hiding place out of me. But I'm worried about your father's shem. How did he die?
+1367	My sister poisoned him. I've already uncovered that. But some man put her up to it. From the description, he could have been Marin-Danim. She tried to blame me.
+1368	They probably expected your sister to help them find the shem, but you upset their plans. In that case, it should still be in Relov.
+1369	Gooka, you must go home. If you can, find the shem and bring it back before they get to it.
+1370	All right, I'll try. One more question. I found this in the labyrinth on Glux's island. He said it's a controller, but it doesn't do anything.
+1371	Where did you get that? Was it really in Glux's labyrinth?
+1372	Yes.
+1373	I didn't believe anything like this still existed on Jantaris. It's an ancient Terran controller. Only two were ever brought to Jantaris.
+1374	What is it?
+1375	It can do almost anything, but you need the shems. The more shems you have, the more you can do with it. With one, for instance, you can operate most Marin-Danim electronic devices.
+1376	With two, you can control all creatures whose genetic code has been altered. Even Gurha.
+1377	What can it do with three shems?
+1378	I don't know. No more than two have ever been used together. I think the controller could help you in your search. I'll lend you my shem so you can activate it.
+1379	Thank you.
+1380	I think you now know everything you need. I have plenty of work waiting for me here in Avaral. Good luck.
+1381	Give
+1384	A stygra! I feel like a thief, but I'm sure this will come in handy. I doubt the Svans know its true value.
+1609	The grating is closed.
+1610	Buttons
+1611	Buttons
+1612	Buttons
+1613	Buttons
+1614	Buttons
+1615	Buttons
+1620	Librarian
+1621	I've heard your library has the world's greatest collection of books about our beloved god Glux.
+1622	Of course it does. We have writings by all our saints. To start at the beginning, there's Saint Alferos, Ametig, Anorad, Apid, Asanare...
+1623	I think that's enough.
+1624	We have six thousand eight hundred volumes altogether, every one about the god Glux.
+1625	Which has the most detailed information about him?
+1626	I don't know, but several of our monks have read almost every book here. They might help you choose. Brothers Raschi, Bodelain and Demotef live in the cells at the start of the corridor.
+1627	Thank you.
+1628	I'm most grateful, Brother, that you sent me to your learned brethren. They recommended Saint Ruiciman's Glux: The Established Facts.
+1629	They advised you well. It's a very well-written book, though in recent years our brothers have seldom consulted it. They prefer other works...
+1630	Thank you, but that one will do. If I need any further information, I'll be sure to ask your advice.
+1632	May I ask you something? I come from the distant Bonian land and seek information about the god Glux. They say the most learned scholars are here at Orint Monastery. Whom should I ask?
+1633	Forgive the interruption, but the librarian told me you're one of the few who have read the entire library.
+1634	I need to learn as much as possible about the god Glux. Which book would give me the most reliable information?
+1635	Brother Raschi sent me to you.
+1636	Brother Demotef sent me to you.
+1637	Brother Bodelian sent me to you.
+1638	Your brothers sent me to you.
+1639	I need the most thorough account of the god Glux's life.
+1640	Brother Raschi said he'd recommend a book with a silver oval on the cover.
+1641	I'm looking for a book with a silver oval on the cover, showing the god Glux in green and purple.
+1642	I'm looking for a book with a silver oval and a gold title, showing the god Glux in green and purple.
+1643	I'm looking for a book with a silver oval and a gold title, written in brown ink, showing the god Glux in green and purple.
+1644	I'm looking for a book on pale green parchment, with a silver oval and a gold title, written in brown ink, showing the god Glux in green and purple.
+1645	Thank you, then.
+1646	Thank you very much.
+1647	Naturally, the library has the most information. You'll find it at the end of the corridor you came along.
+1648	That's true. What do you need, traveller?
+1649	What about it?
+1650	What's the matter?
+1651	There are so many. I don't know what to suggest.
+1652	I think I know the one, but its name escapes me.
+1653	I remember it, but I can't recall its title just now.
+1654	Naturally, the library has the most information. You'll find it at the end of the corridor you came along.
+1655	That's true. What do you need, traveller?
+1656	What about it?
+1657	What's the matter?
+1658	There are so many. I don't know what to suggest.
+1659	I think I know the one, but its name escapes me.
+1660	I remember it, but I can't recall its title just now.
+1661	Naturally, the library has the most information. You'll find it at the end of the corridor you came along.
+1662	That's true. What do you need, traveller?
+1663	What about it?
+1664	What's the matter?
+1665	There are so many. I don't know what to suggest.
+1666	I think I know the one, but its name escapes me.
+1667	I remember it, but I can't recall its title just now.
+1668	I don't know. What exactly do you want to learn about him?
+1669	There was quite a good book with a silver oval on the cover. I can't recall the title. Perhaps one of my brothers can help, most likely Demotef or Bodelain. They've both read it.
+1670	Ah, the one with a green and purple Glux on the cover. I can't remember the title. Perhaps one of my brothers, Rashi or Bodelian, will remember it.
+1671	You probably mean the book with its title in gold lettering. The name escapes me, but my brothers should know something about it.
+1672	I can't remember the title, but it's definitely the one written in brown ink.
+1673	The brothers probably mean the book written on pale green parchment.
+1674	Oh! They should have said so sooner. Saint Ruiciman wrote it. It's called Glux: The Established Facts.
+1675	Monk
+1676	I don't know what to talk to him about just now.
+1677	I don't know what to talk to her about just now.
+1678	I don't know what to talk to them about just now.
+1681	What do you seek, traveller?
+1682	I'm looking for the King of Avaral's adviser.
+1683	Then you've come to the wrong place. He's at the castle. In case you don't know it, that's the big building on the next rock.
+1684	What brings you here, traveller?
+1685	The King of Avaral sent me here to contemplate the will of Glux in peace and study his teachings.
+1686	A commendable decision. Our establishment is ready to meet your every need in that regard.
+1687	May I come in, then?
+1688	Certainly. But it's customary for travellers to bring a small gift in honour of Glux.
+1689	Excuse me? What sort of gift do you mean?
+1690	A truly devout traveller wouldn't ask such foolish questions. Search your sinful conscience. Come back when you've worked it out.
+1691	Yes?
+1692	I have a gift for the god Glux.
+1693	Yes, that is an interesting gift indeed.
+1694	May I come in now?
+1695	I'd like to let you in, but I can't.
+1696	Why not?
+1697	Your gift is very nice, but I'm not sure such a trifle is worthy of our God's attention.
+1698	Yes! That's just the gift to please my God! What greater gift could there be than something his faithful servant urgently needs? Come in.
+1699	Hello! Is anyone there?
+1700	Please open up!
+1701	Hatch
+1702	Give gift
+1703	Give gift
+1706	Danim-Glux!
+1709	Who dares... You must be that Bonian snoop Penza warned me about.
+1710	You are under arrest, for you are an incorrigible heretic. Not only did you sow distrust of our words in the soul of our most gracious king, but our lord Glux refused to accept you as a sacrifice.
+1711	That can only mean your soul is so burdened with sin that you cannot be accepted as an offering! You will therefore be executed.
+1712	That's not true. I've spoken to Glux. He isn't...
+1713	Ha, ha, ha! What blasphemy! You claim to have spoken to Glux? You are condemned to death! You'll never get out of here!
+1714	What did that overgrown lizard tell you? About this place? Anything else? No! Our master is Gurha! Gurha the Time-Devourer! He flies here tomorrow evening, and then your earthly journey ends. Just as that godless Digor's life ended. Except that you will die.
+1715	He'll show you no mercy. He'll set aside plenty of time for you! Today he's still in his city, Parentis. But tomorrow evening, he'll feast on your time.
+1716	Take him to the torture chamber and chain him firmly to the altar. Our master will be pleased!
+1717	Place ladder
+1718	Altar
+1721	Yes, a good axe. That'll come in handy.
+1722	File through chain
+1723	That was about all this little saw could manage. It's completely blunt now.
+1724	Don't take that weapon.
+1725	You can talk, skeleton?
+1726	I can! And I'm not a skeleton. I was originally the first captain's bodyguard robot. They built me to frighten ordinary people. I guard this dangerous weapon. I was sent here to eliminate an outbreak of disease, but I was trapped. Yet I still have the power to destroy anyone who tries to take it.
+1727	But it's just an ordinary mace.
+1728	No. It's a Marin-Danim weapon, capable of destroying entire cities.
+1729	Glux himself sent me here to...
+1730	If it was Glux himself...
+1731	Yes, I visited him on his island.
+1732	If you know about his island, you must be telling the truth. You may take it. But handle it very carefully. Misuse it, and it will destroy everything around you.
+1733	Would that destroy Avaral?
+1734	Yes. Its energy output depends on the distance to your target. At arm's length, it works as a cutting tool; farther away, as a personal weapon. Aim into the distance, and it can destroy mountains and cities. But it's hung here for seven centuries, so the batteries are probably flat. You might find new ones in the tomb of the first captain of the spaceship that brought everyone to Janatris.
+1735	I know. Glux told me about that.
+1736	You see, after the captain died, the people left all his possessions with him.
+1737	Thank you for the weapon and the advice.
+1738	Albert
+1739	Poor Albert. How did he get here from Relov? His heart was stopped with a mind-emptying needle... A nasty way to die.
+1740	Make lockpick
+1741	That might do for this simple lock.
+1742	The grating is locked!
+1743	Unlock
+2001	It's too high.
+2002	The door won't open. It must be locked.
+2003	Tie on hook
+2004	I like clean bed linen... which is more than I can say for this blanket.
+2005	Knock down lamp
+2006	Your Highness, I'd like to...
+2007	Don't call me Your Highness. We're probably both going to die tomorrow anyway.
+2008	Probably?
+2009	We'll both be put on a little raft in the open sea, without food or water. They say that if the god Glux is willing, we may reach his island.
+2010	His island?
+2011	Yes, that's the legend. But no one can confirm it. As far as I know, none of the sacrifices has ever returned. Glux's priests say they reached him and now live in luxury as his servants. I don't know whether to believe it.
+2012	I'd say the fish picked their bones clean long ago. It's true, though, that during the ceremony you sometimes see land, or an island, in the distance. But no Svan sailor dares sail that far north. They say Glux would punish such presumption.
+2013	Do you think Glux demands sacrifices like that?
+2014	How should I know? People have occasionally been sacrificed to Glux, mostly slaves. But lately strange things have been happening in Avaral, like the sad business with Digor. The priests began claiming Glux was punishing us for our sins. After that, no sacrifice was good enough for them.
+2015	Did you know Digor?
+2016	Yes. He was probably the wisest man in Avaral. His advice brought us peace and prosperity. Until that crook Penza appeared and began flattering his way into my father's favour.
+2017	You don't like Penza either?
+2018	Certainly not! Can you believe that slimy man dared ask for my hand? When I laughed at him, he disappeared into Orint Monastery for the whole night. The next day, Glux's high priest announced that Avaral's sins were so great that only the king's daughter could atone for them. So here I am.
+2019	What a scoundrel.
+2020	The worst of it is that since Sage Digor's misfortune, the king trusts only Penza, and Avaral is going from bad to worse. I almost suspect Penza had something to do with the accident. I can't believe Glux would punish such a wise and honest man.
+2021	I don't think it was Glux. That's why I'm here. At the monastery, I discovered Glux can't fly. But Penza claimed Glux descended on Digor from the sky.
+2022	Really?
+2023	I went to tell the king, but Penza convinced him I was a heretic and had to be sacrificed.
+2024	Penza must be plotting treachery. He and the high priest are thick as thieves, urging the king into another war against the Cymiks. But the Cymiks are said to be stronger now than they've been in a hundred years. No one can win that war.
+2025	Perhaps a third party will be the winner?
+2026	Perhaps. Penza is the stepson of the Baron of Zweral, and spent years abroad. My maid says that when he returned, some people at the border saw him with strange, tall, pale riders. They then rode east towards the Forbidden Mountains.
+2027	The Marin-Danim are said to live there. Demons in human form.
+2028	Who knows? In any case, it hardly matters to us now. Tomorrow we'll be on a flimsy raft in the open sea. The day after, the fish will be picking our bones.
+2029	Perhaps Glux's priests are right, and we'll reach his island. Or we could try to escape this cabin and hide in the hold.
+2030	Unlikely. The priests have plenty of experience with that. This cabin is well secured against escape.
+2031	If you don't mind, I'd like to look around anyway.
+2032	As you wish, but I think it's a waste of time. Tell me when you've had enough.
+2033	You were right. We can't get out. All we can do is hope the priests aren't lying, and that we can reach Glux's island.
+2034	We'll see. In any case, if we're going to be alone together at sea tomorrow, we should get to know each other a little.
+2038	Take apart
+2039	And I've got my hook and ladle back.
+2040	Branch
+2041	Pull closer
+2042	Attach blanket
+2043	Hopefully it'll do as a sail.
+2044	Here we are, then. At least they let us keep our things.
+2045	There really is something in the distance. I don't care whether Glux is there or not. Either way, it would be good to reach it somehow.
+2046	It's at least fifty miles away. The current may be weak, but it's certainly not flowing that way.
+2047	Let's see what we can do.
+2050	I really don't want to go in there!
+2051	Sea
+2052	Animal
+2053	Scoop up water
+2054	Add poison
+2055	Dip arrow
+2056	The black powder made a green solution in the seawater!
+2057	I don't have an arrow!
+2058	Shoot arrow
+2059	That beast has a tough hide. The arrow barely scratched it.
+2060	There. That's that.
+2061	Cut off some hide
+2063	Give to Lidra
+2065	Young Master Gooka of Relov, there really is something to you.
+2066	Thank you for the compliment.
+2067	But what do we do now?
+2068	If this really is Glux's island, we should find either him or some trace of his presence. I think a word with him wouldn't hurt.
+2069	You wouldn't be afraid to speak to a god?
+2070	I would. But according to the book I borrowed from the monastery, the priests used to speak to Glux.
+2071	That could just be religious exaggeration. Perhaps it only meant their prayers.
+2072	Whatever the case, I'm determined to try. I think that if I'm humble enough, I'll be safe. Assuming we find Glux, of course.
+2073	Perhaps you'd find something if you got into that hut. Unless you're afraid of that big animal...
+2074	Do you think you could sew gloves from this hide?
+2075	Not here, unless I turn into a barbarian woman and learn to use bone needles. But if we ever get back to Avaral, it should be easy.
+2076	Don't worry. If we don't reach Avaral, the gloves probably won't do me any good anyway.
+2079	There are so many! I hope I find them all.
+2080	Corpse
+2081	Look! There's a rusty key here!
+2084	It's firmly attached. No chance of pulling it off.
+2085	Cut branch
+2086	They won't budge. They're rusty all over and secured by a big lock.
+2087	Unlock
+2088	The key fits, so it must be the right one, but it won't turn.
+2089	Oil
+2090	I'll oil the lock and hinges with oil from the lamp.
+2091	There we go.
+2094	Well, look at that.
+2095	What a strange object...
+2117	Oh, my lord! Forgive my sins...
+2118	Enough of that nonsense. Get up. I'm no one's lord.
+2119	Aren't you Glux, supreme God of the Bonians, the Svans and many other peoples?
+2120	I'm Glux, but I'm not a God.
+2121	What do you mean?
+2122	It's a long story. Who are you?
+2123	I'm Gooka, son of Sage Mahara. My father was murdered, and I'm trying to find out why...
+2124	I sense something familiar in your mind, as if you were one of my masters...
+2125	Masters?
+2126	Yes. The Marin-Danim.
+2127	What? The Marin-Danim really exist? I thought they were just stories to frighten little children...
+2128	No. They're all that remains of a great people. I don't know how much you know, so I'll start at the beginning. Humans arrived on Janatris, this planet, about five thousand years ago.
+2129	Arrived?
+2130	Yes, aboard a great ship that carried them between the stars from their home planet, Earth. The colonists spread across the continent, becoming the Bonians, Svans, Bavends, Cymiks and other peoples.
+2131	And the Marin-Danim?
+2132	The Marin-Danim stayed near the spaceship with its famous captain and leading scientists. That's why they preserved the most ancient knowledge.
+2133	Ancient knowledge?
+2134	Yes, knowledge from old Earth. The captain decreed that the Marin-Danim should discreetly help and protect the other colonists.
+2135	How?
+2136	In various ways. For instance, they created me. My task was to help all seafarers.
+2137	Created you? How can anyone create a living creature?
+2138	The Marin-Danim can. Or at least they could.
+2139	What happened next?
+2140	For a long time, everything went as the captain wished. But as Marin-Danim knowledge declined, their hatred and hunger for power grew.
+2141	That's often the way...
+2142	A devastating civil war broke out. Terrible epidemics decimated the Marin-Danim. The survivors withdrew to the Fortress built beside the spaceship.
+2143	And then?
+2144	I don't know. Gradually, I lost contact with them. The seafaring peoples I was meant to help proclaimed me a God. It became difficult to help them further. So I withdrew to this island with a few faithful helpers. But humans die so soon...
+2145	I also wanted to ask about this thing I found in the maze.
+2146	My helpers used it to repair various devices. It can do many things. You just have to use it.
+2147	It doesn't do anything.
+2148	Then I don't know. I never took an interest in the details. But there's a secret library at Orint Monastery. You might find the information you need there.
+2149	How do I get in?
+2150	Enter the sanctuary through the main entrance. Then press the jewel on my statue and say Danim-Glux. The entrance to the secret library will open.
+2151	I also wanted to ask whether you know a creature that impersonates you and can take years off someone's life.
+2152	That could be Gurha. Gurha the Time-Devourer. He appeared on Janatris recently, perhaps a hundred years ago. The Marin-Danim probably created him as a weapon. He looks a little like me, but unlike me he can levitate and create an anti-stasis field. He has no telepathic powers, though, and isn't very bright.
+2153	He attacked a friend of my late father's, and the man aged...
+2154	I may be able to help. I have a seed from Urburu, the tree of youth. The juice of its fruit should restore your father's friend's youth.
+2155	Thank you...
+2156	Don't thank me. I'll also help you get back to Avaral.
+2301	I'll hide here and wait until he flies away.
+2302	He's really going berserk!
+2305	Tree
+2306	Gurha!
+2307	Damn, Gurha's flying this way! He must have discovered his uninvited visitor. Quick, get out!
+2308	Plant seed
+2309	Rubble
+2310	Thanks to Gurha's rampage, those few moments lasted several years for the seed.
+2313	Knock down stalactite
+2314	Drive off Gurha
+2315	Glux and Digor said the Marin-Danim bred Gurha, so I hope this controller will work on him.
+2316	He's gone!
+2317	Phew. What now? I can't get past Gurha.
+2318	I'm not going there. Gurha's there!
+2319	Picking caustic stalactites bare-handed is a sure way to kill yourself. I need gloves made of something really tough...
+2320	Pick up stalactite
+2323	Hole
+2324	Altar
+2325	Place candle
+2326	Place candle
+2327	Place candle
+2328	Place candle
+2329	Stygra
+2330	Place stygra
+2331	The hole in the middle is exactly the right size!
+2332	I wonder what happens now...
+2333	Interesting... What was that supposed to mean?
+2401	Nice teeth.
+2403	Kill sincha
+2405	That's right, eat up!
+2407	I'll take a look at those knots.
+2408	It's playing music!
+2409	I think I've started something...
+2411	The door won't open.
+2412	Use controller
+2413	With one shem, the controller operates Marin-Danim devices. With two, it controls Marin-Danim animals. Let's see what three will do to the Marin-Danim themselves.
+2416	Grating
+2417	File through bars
+2420	Gurham
+2421	Get rid of that Bonian bastard!
+2422	The controller has immobilised them all!
+2423	Excellent, the fourth shem. Now, straight to the computer, and I'm done.
+2426	Wall
+2427	Loosen mortar
+2428	I'll try loosening the mortar.
+2429	Hmm, that loosened it. Now I can take the wall apart.
+2432	Who dares disturb the captain's eternal rest?
+2433	Wh... what's happening? Who are you? Is this the captain's tomb?
+2434	Yes. I'm its guardian mechanism.
+2435	Do you think I could take a look inside?
+2436	I think not. Unless you have a very good reason.
+2437	But I do. My task is to stop the evil Gurham from ruling this planet. Digor, former ruler of the Marin-Danim, sent me.
+2438	Perhaps. Since the secret entrance was finally bricked up, I've had no news. So I cannot judge. For such a case, I am equipped with an opening mechanism. Solve the puzzle, and I'll let you through.
+2439	What's the puzzle?
+2440	All I can tell you is that, in green components, the bottom input connects the side inputs; in red ones, it disconnects them. The current must light the bulb at the top right.
+2441	I'll try it, then.
+2442	Go ahead.
+2445	Look! That must be the missing shem!
+2446	Captain's mummy
+2610	Button
+2612	There's something here.
+2615	Lock
+2617	Decode lock
+2620	Computer
+2621	Use controller
+2622	SYSTEM STANDBY
+2623	SELF-DESTRUCTION INITIATED
+2624	PREPARE TO TELEPORT
+3203	Working notes for an encyclopaedia of Janatris
+3204	The Bonians. Farmers and craftsmen living mainly in the south, by the rivers Lov, Teko and Rego. Their state is a league of cities, each formally independent and led by a Patriarch elected for life by a body of sages and judges. The Council of Bonian Patriarchs elects a leader for the entire Bonian people. This is usually the Patriarch of Relov, their largest and richest city, which may therefore be regarded as their capital. The Bonian population is estimated at 300,000. Their economy is highly developed, surpassed only by that of the Bavends. They keep no standing army and rarely wage wars of conquest. In the past century they have often allied with the Bavends against the Svans, with the Svans against
+3205	the Cymiks, and with Chorians against Bavends, mainly in defence. Otherwise, they seek peace and brisk trade with their neighbours. The Bonians are lukewarm in matters of faith, though most worship the sea god Glux.
+3206	The Svans. A kingdom on the northern sea. The Svans prize personal prowess and heroism above all else; war is their favourite occupation. Though formidable warriors individually, their general lack of discipline and complete absence of strategic or tactical thinking prevent their kingdom from making lasting conquests. Their campaigns amount chiefly to raids on the practically helpless Cymiks. Their total population is around 250,000. The Svans traditionally neglect economic matters, which naturally does their economy little good. They nevertheless practise some maritime trade, herding and other forms of agriculture. Most craftsmanship is devoted to weapons.
+3207	The Svans are fanatical worshippers of the sea god Glux, to whom they even sacrifice humans. Near their royal castle, Avaral, stands Orint Monastery, the chief centre of Glux's worship.
+3208	The Cymiks. Nomads of the barren plains at the foot of the Western Mountains. The Cymiks rank lowest by far in terms of civilisation. Their lifestyle is extremely primitive. They spend most of their time gathering food, yet often go hungry. Scattered across the plains in individual families, they are almost defenceless against raids by neighbouring peoples. On the other hand, they own nothing, so no one except the Svans feels any need to wage war on them. Recent reports, however, suggest that the Cymiks are rising under a tribal chief who has begun to build a centralised power based in Taro.
+3209	Note: Legend says that the lands now inhabited by the Cymiks once held the powerful Xinian civilisation, centred on the city of Parentis. Neither its history nor the circumstances of its fall are known. The ruins of Parentis still stand, and are said to be inhabited by dreadful spirits and monsters.
+3210	The Bavends. An advanced civilisation on the eastern slopes of the Vidce Mountains. The Bavend Republic is essentially democratic, with an elected senate led by two or more consuls. The senate sits in the capital, Wabena. The Bavends are sworn pacifists. If forced to fight, they prefer mercenaries, though these are superbly led by Bavend generals. Their population is around one million. Their advanced civilisation underpins a thriving economy. Ingenious canals irrigate land that was once arid. They are skilled craftsmen, renowned for advanced architecture, and capable seafarers and traders.
+3211	The Chorians. The Chorians inhabit the north-eastern foothills of the Loba Mountains. Their society is strictly matriarchal: men keep house, while women hunt and fight. Like the Cymiks, they have no central authority. Unlike them, they are warlike, often engaging in piracy and raids on land. They form clans and tribes living in small coastal villages. Their population is around 120,000. Their economy is based on raising sheep and llamas, and is not highly developed. Their largest city is Xarag, with its temple to their god, Charia the Great. They sacrifice humans to him, chiefly captives taken on pirate raids.
+3212	Freshwater crab. A ten-legged creature half a metre across. Its greenish flesh is delicious and can even be eaten raw. It lives in communities whose members each have a special role. Warriors have a sting; shamans and sorcerers use small doses of its diluted venom for the psychedelic visions it brings. Irikan crystals. Probably the strongest known naturally occurring corrosive substance. Almost unobtainable today, their scant deposits were mined out by the Xinians long ago. They are probably of meteoritic origin.
+3213	Asmat scorpions. Enormous mountain scorpions, the most venomous organisms in Parentis. They are easily controlled with a special flute, the Asmat stygra. Their venom attacks the victim's nervous system, causing unbearable pain that soon kills. A single sting can kill up to a hundred people. An experienced sorcerer, however, can use the stygra to control the scorpion precisely enough that its sting does not kill, making it a tool of extremely unpleasant torture.
+3214	Algi. The largest feline predator on Janatris. Its hide is virtually indestructible, making it very hard to wound. Its sabre-like jaws, meanwhile, are a deadly threat to any careless hunter within reach. In practice, only very powerful poisons can be used to hunt it. The Algi's hide has some blood supply, so a mere scratch with a potent poison such as barut is enough. Given the toughness of its hide, a scratch is all one can hope to inflict.
+3215	Its durability gives Algi hide many practical uses, especially when handling dangerous substances.
+3216	Sincha. One of the most treacherous animals on Janatris. This mollusc is a virtually indestructible carnivore. It lurks in rocky crevices, waiting to crush its victims with hundreds of teeth. Reliable reports say corrosives can destroy it, for example a solution of Irikan crystals or another sufficiently aggressive substance.
+3217	Galha. A sea lizard about a metre long, with massive jaws and spines. Its skin is used for fencing gloves: it is very supple but protects the hands even against fairly heavy blows. Rampol. A climbing plant found in Bavendia and among the Chorians. It can be made into ropes and cords of excellent quality.
+3218	Caustic stalactites. An aggressive plant found in some underground spaces. Essentially colonies of single-celled organisms resembling stalactites, they feed on airborne microorganisms and dissolve the rock beneath them. They contain large quantities of a highly aggressive molecular acid that acts chiefly on living tissue. This gives them many practical uses, but they must be handled with extreme care and special equipment. In practice, only gloves made from Algi hide are relatively obtainable.
+3219	Grango. A lizard of the Western Mountains. It lives in herds and is rather shy. The Cymiks favour it as prey, though its timidity makes it an uncommon catch. Tree korel. A small furry animal with vivid purple fur. It lives in cat trees, feeding on leaves and occasionally carrion. Korels are playful and easily tamed, but sometimes fall into inexplicable, dangerous moods, so they are not often kept.
+3220	Harila. A small blue plant that grows on rocks. It feeds on the blood of animals injured by its tiny thorns. Olamina. A low-growing plant cultivated by the Chorians. It grows in rocky soil and bears nuts twice a year.
+3221	Asmat stygra. A ritual musical instrument. Sorcerers use it to hypnotise people and control Asmat scorpions. It is also said to be used in some particularly vile rites of black magic. The Asmat stygra is very rare: it can only be made from the wood of the krahut tree, which dies unless regularly watered with chracht blood. Likanu. A creature about the size of two palms. It sits on its hind feet and has blue fur. Easily tamed and gentle in nature, it is a common pet.
+3227	Turn over
+3405	Shape branch
+3406	Tie on string
+3407	It's hardly first-class craftsmanship, but it should work over a few metres.
+3408	Put in tongs
+3409	Join key fragments
+3410	Insert shem
+3411	Insert shem
+3412	Insert shem
+3413	Insert shem
+3414	...he swam behind us, and we sent our prayers to him. Glux, in his boundless mercy, answered: Be faithful still, my priests. I shall protect you from the evils of this world. And Brother Kratos swooned with joy, and never again could we bring him to his senses. And the god Glux showed himself to us in all his beauty.
+3415	His bright green shone splendidly against the ocean's deep blue. Waving his mighty tail, he rose almost wholly from the water, which streamed from him in glittering torrents. Rise to the heights of heaven's vault, as our prayers rise to thee! And he answered us: This I cannot do, for water is my element. I venture onto land as well, but the air is not to my liking.
+3416	And we clasped our hands and cried out in rapture: For thou art our sea god, O Glux! And our raft sailed on across the distant sea, while Glux vanished eastwards. We too turned east, rowing diligently after our beloved god. After two days, we beheld the shore, as our lord god Glux in his boundless mercy had deigned to promise.
+3417	Hmm, something doesn't add up. Didn't the king say Glux attacked Digor from the air? Perhaps I should pay him another visit...
+3500	An ordinary mind-emptying needle.
+3501	This lockpick should work on simpler locks.
+3502	There's a little green light glowing next to the words LOW POWER.
+3503	An ordinary axe.
+3504	The bread is still fairly fresh.
+3505	The ladder looks quite sturdy.
+3506	The branch is quite flexible.
+3507	I doubt a three-volume Bonian code of river law will be much use to me.
+3508	The painting is a fairly faithful portrait of my father.
+3509	A bottle of Three Oaks, the finest Bonian whisky. Father always appreciated a good drink.
+3510	There are numbers written on the scrap of paper. It must be something very important to have been hidden so carefully.
+3511	The finest ham you can buy in Relov.
+3512	An ordinary iron ladle.
+3513	This document is my father's hereditary appointment to the Bonian Council of Elders.
+3514	An ordinary little key. I don't know what it opens.
+3515	A normal dagger.
+3516	An ordinary arrow.
+3517	Add a bowstring and I'll have a bow.
+3518	A rather poor-quality bow, but usable.
+3519	An ordinary, strong piece of string.
+3520	A pouch made from Algi hide. There seems to be powder inside.
+3521	An ordinary coal scuttle.
+3522	These bellows are left over from my experiments in metallurgy.
+3523	The scuttle is full of coal.
+3524	Ordinary blacksmith's tongs.
+3525	An ordinary key.
+3526	The tip of a key. The grooves are intact, but I can't turn just the tip in the lock.
+3527	A piece of key with its tip missing.
+3528	The key fragment is held in the jaws of the tongs.
+3529	The end of the key is almost molten. I should be able to weld it now.
+3530	A tin bowl.
+3531	A piece of Algi hide.
+3532	The arrowhead is green with poison.
+3533	The bowl is full of water.
+3534	The bowl is full of green solution.
+3535	A fairly strong hook. The cook used it to hang a cauldron.
+3536	The bowl is full of water.
+3537	Baroda nagged Father for a week about this overdecorated belt until he bought it for her. Then she wore it once...
+3538	Quite a nice pendant, by Baroda's standards.
+3539	A strange contraption of wire, ladle and hook. But it holds together quite firmly.
+3540	Slightly rusty, but still usable wire.
+3541	An ordinary ship's rope.
+3542	An ordinary oil lamp.
+3543	A hook is tied to the rope.
+3544	A very worn-out blanket.
+3545	Book
+3546	A large, rusty key.
+3547	Shards
+3548	It's made of some strange white material, with one big button and lots of little ones.
+3549	It's made of some strange white material, with one big button and lots of little ones.
+3550	The seed looks quite ordinary.
+3551	A caustic stalactite. Nasty stuff.
+3552	I'm glad these chains aren't wrapped around me any more.
+3553	An ordinary old file. Father used it to clean the fireplace vents.
+3554	An ordinary beeswax candle.
+3555	An ordinary beeswax candle.
+3556	An ordinary beeswax candle.
+3557	An ordinary beeswax candle.
+3558	It looks quite tasty.
+3559	The stygra is really a special kind of flute.
+3560	A well-made Algi-hide glove is the best protection for handling dangerous materials.
+3561	The shem looks like a card with gold strips along the edge.
+3562	The shem looks like a card with gold strips along the edge.
+3563	The shem looks like a card with gold strips along the edge.
+3564	The shem looks like a card with gold strips along the edge.
+3565	It's made of some strange white material, with one big button and lots of little ones.
+3566	It's made of some strange white material, with one big button and lots of little ones.
+3567	It's made of some strange white material, with one big button and lots of little ones.
+3568	It's made of some strange white material, with one big button and lots of little ones.
+3569	The safe is made of some strange, hard metal.
+3570	Our fountain has good spring water.
+3571	Good hard coal for winter, or when the cook needs a hotter fire.
+3572	Poor Father. Such a horrible death...
+3573	The chief Bonian judge is strict, but usually fair.
+3574	Considering the trouble we're in, Lidra is taking it remarkably well.
+3575	He won't be getting up again. Fortunately.
+3576	The temple rubble is mixed with windblown earth.
+3577	The poor man looks completely unaware of the world.
+3578	Who knows what dark rites were performed here...
+3579	It looks as though something belongs in that hole...
+3580	The iron is very rusty now.
+3581	The wall is badly decayed. The mortar is starting to crumble.
+3582	Hmm, so this is the famous captain who brought humans to Janatris and founded the Marin-Danim people...
+3583	There's nothing here to control the computer with. It must work differently...
+3584	I've never seen such a strange tree...
+3585	Young master, wake up! Something terrible has happened. You're to go to your father's study. The judge is waiting for you.
+3586	Yes, yes, I'm coming.
+3600	The lock is locked!
+3601	There's a steel needle here.
+3602	Hmm, a pretty and very perverse young lady.
+3603	There we go!
+3604	I've always loved exotic weapons!
+3605	Girl's corpse
+3606	Executioner's corpse
+3607	Lock
+3608	Skeleton
+3609	Congratulations! You've reached the end of this demo.
+3610	That's the end of the game. Next comes the outro with the Fortress exploding.
+3816	Knot
+3817	Knot
+3818	Knot
+3819	Knot
+3820	Knot
+3821	Knot
+3822	Knot
+32758	OK
+32759	Cancel
+32760	Delete
+32761	Yes
+32762	No
+32763	Retry
