@@ -28,6 +28,10 @@ def main():
                SCUMMVM_CE_WRITE_TRACE=str(trace), PYTHONDONTWRITEBYTECODE='1')
     watchers = [DirectoryWatch(profile), DirectoryWatch(Path(os.environ['USERPROFILE']))]
     command = args.command[1:] if args.command[:1] == ['--'] else args.command
+    # Limit collection to this command's declared disposable artifacts. Other
+    # concurrent suites and historical receipts are not fresh evidence here.
+    trace_root = Path(command[command.index('--artifacts')+1]).resolve() if '--artifacts' in command else root
+    assert trace_root.is_relative_to(root.parent), 'Observed test artifacts must be siblings of the observer'
     try:
         result = subprocess.run(command, env=env, capture_output=True, timeout=480)
         (root/'stdout.txt').write_bytes(result.stdout)
@@ -38,6 +42,12 @@ def main():
         observations = [{'root': str(w.path), 'errors': w.errors, 'events': w.events} for w in watchers]
         (root/'directory-observations.json').write_text(json.dumps(observations, indent=2))
     assert result.returncode == 0, (result.returncode, root/'stdout.txt', root/'stderr.txt')
+    # CE never writes the collector path. Instrumentation is installation-local.
+    with trace.open('w', encoding='utf-8') as collected:
+        for local in trace_root.rglob('ce-write-trace.tsv'):
+            # Retain every destination, including external ones: filtering by
+            # destination here would conceal the very regressions we detect.
+            collected.write(local.read_text(encoding='utf-8'))
     assert not any(w.errors for w in watchers), 'Directory observation lost events'
     unexpected = []
     system_files = []
@@ -58,6 +68,8 @@ def main():
     assert writes and all(Path(p).is_relative_to(root.parent) and not Path(p).is_relative_to(profile) for p in writes), writes
     receipt = {'status': 'PASS', 'command': command, 'exit': result.returncode,
                'successful_native_stream_write_records': len(writes),
+               'trace_collection_root': str(trace_root),
+               'trace_records_may_include_copied_installation_history': True,
                'all_traced_writes_under': str(root.parent),
                'controlled_profile_application_files': unexpected,
                'controlled_profile_system_resource_files': system_files,

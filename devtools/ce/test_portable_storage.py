@@ -8,6 +8,7 @@ Native CLI tests retain their original, separately enforced owned test roots.
 """
 import argparse
 import configparser
+import csv
 import ctypes
 from ctypes import wintypes
 import hashlib
@@ -155,18 +156,20 @@ def main():
 
     def run(folder, argv, label, expected=0):
         command = [str(folder/exe.name), *argv]
-        trace_start = len(trace.read_text(encoding='utf-8').splitlines()) if trace.exists() else 0
+        local_trace = folder/'ce-write-trace.tsv'
+        trace_start = len(local_trace.read_text(encoding='utf-8').splitlines()) if local_trace.exists() else 0
         result = subprocess.run(command, cwd=cwd, env=env, capture_output=True, timeout=100,
                                 creationflags=getattr(subprocess, 'CREATE_NO_WINDOW', 0))
         (root/(label+'-stdout.txt')).write_bytes(result.stdout)
         (root/(label+'-stderr.txt')).write_bytes(result.stderr)
-        phase_trace = trace.read_text(encoding='utf-8').splitlines()[trace_start:] if trace.exists() else []
+        phase_trace = local_trace.read_text(encoding='utf-8').splitlines()[trace_start:] if local_trace.exists() else []
+        with trace.open('a', encoding='utf-8') as collected:
+            collected.write('\n'.join(phase_trace)+'\n')
         phase_writes = [line.split('\t', 1)[1] for line in phase_trace if line.startswith('WRITE\t')]
         commands.append({'argv': command, 'cwd': str(cwd), 'exit': result.returncode,
                          'successful_native_stream_writes': phase_writes})
-        if not any(arg.startswith(('--config=', '--savepath=', '--logfile=')) for arg in argv):
-            check(label+' default writes stay beneath this executable',
-                  all(Path(path).is_relative_to(folder) for path in phase_writes))
+        check(label+' all writes stay beneath this executable',
+              all(Path(path).is_relative_to(folder) for path in phase_writes))
         check(label+' exit', result.returncode == expected)
         return result
 
@@ -238,7 +241,7 @@ def main():
         check('configuration has no A storage dependency', str(a) not in (b/'scummvm.ini').read_text())
         check('A saves preserved', all(digest(parked/name) == sha for name, sha in before.items()))
         # Explicit paths: independent copy, separate save owner and normal gameplay.
-        custom = root/'explicit paths'; custom.mkdir()
+        custom = b/'explicit paths'; custom.mkdir()
         custom_saves = custom/'chosen saves'; custom_saves.mkdir()
         custom_ini = custom/'chosen.ini'
         selected = load_ini(b/'scummvm.ini')
@@ -268,6 +271,64 @@ def main():
                 '--savepath='+os.path.relpath(relative_cli_saves, cwd),
                 '--logfile='+str(custom/'relative-CLI.log'), *ordinary], 'relative-CLI-paths')
         check('explicit relative CLI config and savepath preserve caller semantics', (relative_cli_saves/'nox-engine-saves.tsv').is_file())
+        # Strict architecture: external CLI writes are errors, never a mode.
+        outside = root/'external storage'; outside.mkdir()
+        sentinel = outside/'official.ini'
+        sentinel.write_text('[scummvm]\nkeep=official\n', encoding='utf-8')
+        original = digest(sentinel)
+        for option, destination in (
+                ('--config', sentinel), ('-c', sentinel),
+                ('--savepath', outside/'saves'), ('--logfile', outside/'log.txt'),
+                ('--screenshotpath', outside/'screenshots'),
+                ('--iconspath', outside/'icons'), ('--dlcspath', outside/'dlcs'),
+                ('--savepath', b/'../escaped saves'),
+                ('--savepath', root/'B relocated Ω sibling/saves')):
+            result = subprocess.run([str(b/exe.name), option+'='+str(destination), '--version'],
+                                    cwd=cwd, env=env, capture_output=True, timeout=20)
+            check('external CLI destination rejected '+option+' '+str(destination),
+                  result.returncode != 0 and b'No Windows profile fallback' in result.stderr)
+        check('external official config unchanged', digest(sentinel) == original)
+        check('no external managed files', list(outside.iterdir()) == [sentinel])
+        # Legacy INI paths normalize without reading or changing external data.
+        legacy = load_ini(b/'scummvm.ini')
+        for key in ('savepath', 'screenshotpath', 'logfile', 'iconspath', 'dlcspath', 'cachepath', 'temppath'):
+            legacy['scummvm'][key] = str(outside/('legacy-'+key))
+        legacy[target]['savepath'] = str(outside/'legacy-game-saves')
+        legacy['scummvm']['extrapath'] = str(extra)
+        save_ini(b/'scummvm.ini', legacy)
+        run(b, ['--add', '--path='+str(nox)], 'normalize-legacy-config')
+        normalized = load_ini(b/'scummvm.ini')
+        for key in ('savepath', 'screenshotpath', 'logfile', 'iconspath', 'dlcspath', 'cachepath', 'temppath'):
+            check('normalized legacy '+key, not Path(normalized['scummvm'][key]).is_absolute()
+                  and '..' not in Path(normalized['scummvm'][key]).parts)
+        check('normalized per-game savepath', normalized[target]['savepath'] == 'saves')
+        # An absolute selection of the installation root must serialize as '.'
+        # too, rather than retaining the old installation address after a move.
+        normalized['scummvm']['cachepath'] = str(b)
+        save_ini(b/'scummvm.ini', normalized)
+        run(b, ['--add', '--path='+str(nox)], 'normalize-installation-root')
+        check('absolute executable-root storage serializes relatively', load_ini(b/'scummvm.ini')['scummvm']['cachepath'] == '.')
+        check('external engine assets preserved', normalized['scummvm']['extrapath'] == str(extra))
+        check('legacy external data never migrated or modified', list(outside.iterdir()) == [sentinel] and digest(sentinel) == original)
+        # Separate installations and an executable-only upgrade retain save bytes.
+        prior = {p.name: digest(p) for p in (b/'saves').iterdir() if p.is_file()}
+        independent = root/'independent installation'; independent.mkdir()
+        for p in b.iterdir():
+            if p.suffix.lower() in ('.exe', '.dll'): shutil.copy2(p, independent/p.name)
+        run(independent, ['--add', '--path='+str(nox)], 'independent-installation')
+        check('separate installation config independent', 'ce_playthrough_tracking' not in (independent/'scummvm.ini').read_text())
+        check('independent installation did not touch original saves', all(digest(b/'saves'/name) == sha for name, sha in prior.items()))
+        shutil.copy2(exe, b/exe.name)
+        run(b, ['--version'], 'upgrade-preservation')
+        check('upgrade preserves config and saves', (b/'scummvm.ini').is_file() and all(digest(b/'saves'/name) == sha for name, sha in prior.items()))
+        # A junction beneath the executable must not redirect managed output.
+        link = b/'escape-junction'
+        junction = subprocess.run(['cmd', '/c', 'mklink', '/J', str(link), str(outside)], capture_output=True)
+        check('test junction created', junction.returncode == 0)
+        result = subprocess.run([str(b/exe.name), '--logfile='+str(link/'escaped.log'), '--version'],
+                                cwd=cwd, env=env, capture_output=True, timeout=20)
+        check('junction storage escape rejected', result.returncode != 0 and not (outside/'escaped.log').exists())
+        link.rmdir()  # Remove only the junction entry, preserving its target.
         # Default path creation must fail explicitly when a component is a file.
         blocked = root/'blocked'; blocked.mkdir()
         for p in b.iterdir():
@@ -279,6 +340,22 @@ def main():
         check('invalid portable directory rejected', failure.returncode != 0)
         check('actionable portable storage error', b'No Windows profile fallback' in failure.stderr and b'D:\\Games\\ScummVM CE' in failure.stderr)
         check('blocked component preserved', (blocked/'temp').read_text() == 'preserve this file')
+        readonly = root/'read-only installation'; readonly.mkdir()
+        for p in b.iterdir():
+            if p.suffix.lower() in ('.exe', '.dll'): shutil.copy2(p, readonly/p.name)
+        identity = subprocess.check_output(['whoami', '/user', '/fo', 'csv', '/nh'], text=True)
+        sid = next(csv.reader(identity.splitlines()))[1]
+        # Deny write bits only. Generic W also denies SYNCHRONIZE, which can
+        # prevent CreateProcess from opening an otherwise executable image.
+        deny = subprocess.run(['icacls', str(readonly), '/deny', '*'+sid+':(OI)(CI)(WD,AD,WEA,WA)'], capture_output=True)
+        check('read-only test ACL installed', deny.returncode == 0)
+        try:
+            failure = subprocess.run([str(readonly/exe.name), '--version'], cwd=cwd, env=env,
+                                     capture_output=True, timeout=20)
+            check('read-only installation errors without profile fallback', failure.returncode != 0 and b'No Windows profile fallback' in failure.stderr)
+        finally:
+            restored = subprocess.run(['icacls', str(readonly), '/remove:d', '*'+sid, '/T'], capture_output=True)
+            check('disposable test ACL restored', restored.returncode == 0)
     finally:
         for w in watchers: w.close()
         observations = [{'root': str(w.path), 'events': w.events, 'errors': w.errors} for w in watchers]

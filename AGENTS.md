@@ -50,12 +50,15 @@ Prefer the opt-in native test interface for supported gameplay regressions. Read
 ## Permanent CE storage policy
 
 ScummVM Comfort Edition is portable by default. Application-owned persistent
-state belongs beneath the executable directory unless the user explicitly
-configures an alternate path. Normal testing must not use the Windows user
+state belongs beneath the executable directory permanently. External managed
+storage overrides are rejected on the CLI and normalized to local defaults in
+legacy INIs; game-data asset paths remain independent. Normal testing must not use the Windows user
 profile as a storage destination. Use disposable portable installation copies
 or the native CLI's existing owned isolated roots. Preserve accepted binaries,
 legacy profiles and saves. Never add a silent AppData/Documents fallback.
 Read doc/ce-portable-storage/README.md before changing storage policy.
+Run devtools/ce/test_strict_storage.py after storage or upstream changes. Review
+every raw-write inventory change; never refresh it merely to silence a failure.
 
 ## Consolidated development baseline
 

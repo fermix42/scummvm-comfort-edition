@@ -1,5 +1,9 @@
 # Storage inventory
 
+The [permanent strict policy](STRICT-STORAGE.md) supersedes the original
+external-override allowances in this table: managed overrides are now restricted
+to the installation tree. Existing engine routing and save formats are retained.
+
 Scope: all Windows CE default-path hooks; shared configuration/filesystem/save
 layers; engine-wide searches for raw C/C++/Win32 file operations, profile lookup,
 temporary APIs and write streams; focused persistence tracing for CE, Grim/MI4,

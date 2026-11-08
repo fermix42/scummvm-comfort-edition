@@ -1,0 +1,96 @@
+{
+  "status": "PASS",
+  "executable_sha256": "c1de17d5ecacc75d31b7fcc8a0d1f45370948944ce14843674d6a28c65d6d8c0",
+  "checks": [
+    {
+      "args": [
+        "--version"
+      ],
+      "exit": 0
+    },
+    {
+      "args": [
+        "--config=D:\\Codex Projects\\scummvm-private\\scummvm-ce-2026.4.0-consolidated\\strict-validation-local\\final-boundaries\\official data\\scummvm.ini",
+        "--version"
+      ],
+      "exit": 1
+    },
+    {
+      "args": [
+        "-c=D:\\Codex Projects\\scummvm-private\\scummvm-ce-2026.4.0-consolidated\\strict-validation-local\\final-boundaries\\official data\\scummvm.ini",
+        "--version"
+      ],
+      "exit": 1
+    },
+    {
+      "args": [
+        "--savepath=D:\\Codex Projects\\scummvm-private\\scummvm-ce-2026.4.0-consolidated\\strict-validation-local\\final-boundaries\\official data\\scummvm.ini",
+        "--version"
+      ],
+      "exit": 1
+    },
+    {
+      "args": [
+        "--logfile=D:\\Codex Projects\\scummvm-private\\scummvm-ce-2026.4.0-consolidated\\strict-validation-local\\final-boundaries\\official data\\scummvm.ini",
+        "--version"
+      ],
+      "exit": 1
+    },
+    {
+      "args": [
+        "--screenshotpath=D:\\Codex Projects\\scummvm-private\\scummvm-ce-2026.4.0-consolidated\\strict-validation-local\\final-boundaries\\official data\\scummvm.ini",
+        "--version"
+      ],
+      "exit": 1
+    },
+    {
+      "args": [
+        "--iconspath=D:\\Codex Projects\\scummvm-private\\scummvm-ce-2026.4.0-consolidated\\strict-validation-local\\final-boundaries\\official data\\scummvm.ini",
+        "--version"
+      ],
+      "exit": 1
+    },
+    {
+      "args": [
+        "--dlcspath=D:\\Codex Projects\\scummvm-private\\scummvm-ce-2026.4.0-consolidated\\strict-validation-local\\final-boundaries\\official data\\scummvm.ini",
+        "--version"
+      ],
+      "exit": 1
+    },
+    {
+      "args": [
+        "--savepath=D:\\Codex Projects\\scummvm-private\\scummvm-ce-2026.4.0-consolidated\\strict-validation-local\\final-boundaries\\CE spaces \u65e5\u672c\u8a9e\\..\\escaped",
+        "--version"
+      ],
+      "exit": 1
+    },
+    {
+      "args": [
+        "--savepath=D:\\Codex Projects\\scummvm-private\\scummvm-ce-2026.4.0-consolidated\\strict-validation-local\\final-boundaries\\CE spaces \u65e5\u672c\u8a9e sibling\\saves",
+        "--version"
+      ],
+      "exit": 1
+    },
+    {
+      "args": [
+        "--savepath=D:\\Codex Projects\\scummvm-private\\scummvm-ce-2026.4.0-consolidated\\strict-validation-local\\final-boundaries\\CE spaces \u65e5\u672c\u8a9e\\temp\\..\\..\\escaped",
+        "--version"
+      ],
+      "exit": 1
+    },
+    {
+      "args": [
+        "--savepath=D:\\Codex Projects\\scummvm-private\\scummvm-ce-2026.4.0-consolidated\\strict-validation-local\\final-boundaries\\CE spaces \u65e5\u672c\u8a9e\\local saves",
+        "--version"
+      ],
+      "exit": 0
+    },
+    {
+      "args": [
+        "--version"
+      ],
+      "exit": 0
+    }
+  ],
+  "scope": "Actual fresh launches, CLI boundaries, Unicode, unrelated CWD and relocation; gameplay is tested separately."
+}

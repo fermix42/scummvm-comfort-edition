@@ -1,0 +1,136 @@
+{
+  "final-mi4-observed": {
+    "status": "PASS",
+    "exit": 0,
+    "controlled_profile_application_files": [],
+    "controlled_profile_system_resource_files": [
+      "AppData\\Roaming\\Microsoft\\Speech\\Files\\UserLexicons\\SP_2A3A07D182B74B6CA3E77B70CE4430E5.dat",
+      "AppData\\Roaming\\Microsoft\\Speech\\Files\\UserLexicons\\SP_2D2BBEBD60294626BBEDE541C76E4FB2.dat",
+      "AppData\\Roaming\\Microsoft\\Speech\\Files\\UserLexicons\\SP_62A3483B893043DBA1249C5B324D1A2F.dat",
+      "AppData\\Roaming\\Microsoft\\Speech\\Files\\UserLexicons\\SP_F954048DFBE04097814595B416CC24BF.dat"
+    ],
+    "observed_system_resource_events": [
+      {
+        "action": 1,
+        "path": "D:\\Codex Projects\\scummvm-private\\scummvm-ce-2026.4.0-consolidated\\strict-validation-local\\final-mi4-observed\\controlled profile\\AppData\\Roaming\\Microsoft\\Speech\\Files\\UserLexicons\\SP_2D2BBEBD60294626BBEDE541C76E4FB2.dat",
+        "resource_kind": "windows_sapi_shared_user_lexicon"
+      },
+      {
+        "action": 3,
+        "path": "D:\\Codex Projects\\scummvm-private\\scummvm-ce-2026.4.0-consolidated\\strict-validation-local\\final-mi4-observed\\controlled profile\\AppData\\Roaming\\Microsoft\\Speech\\Files\\UserLexicons\\SP_2D2BBEBD60294626BBEDE541C76E4FB2.dat",
+        "resource_kind": "windows_sapi_shared_user_lexicon"
+      },
+      {
+        "action": 3,
+        "path": "D:\\Codex Projects\\scummvm-private\\scummvm-ce-2026.4.0-consolidated\\strict-validation-local\\final-mi4-observed\\controlled profile\\AppData\\Roaming\\Microsoft\\Speech\\Files\\UserLexicons\\SP_2D2BBEBD60294626BBEDE541C76E4FB2.dat",
+        "resource_kind": "windows_sapi_shared_user_lexicon"
+      },
+      {
+        "action": 1,
+        "path": "D:\\Codex Projects\\scummvm-private\\scummvm-ce-2026.4.0-consolidated\\strict-validation-local\\final-mi4-observed\\controlled profile\\AppData\\Local\\Microsoft",
+        "resource_kind": "windows_shell_cache_directory"
+      },
+      {
+        "action": 1,
+        "path": "D:\\Codex Projects\\scummvm-private\\scummvm-ce-2026.4.0-consolidated\\strict-validation-local\\final-mi4-observed\\controlled profile\\AppData\\Local\\Microsoft\\Windows",
+        "resource_kind": "windows_shell_cache_directory"
+      },
+      {
+        "action": 1,
+        "path": "D:\\Codex Projects\\scummvm-private\\scummvm-ce-2026.4.0-consolidated\\strict-validation-local\\final-mi4-observed\\controlled profile\\AppData\\Local\\Microsoft\\Windows\\Caches",
+        "resource_kind": "windows_shell_cache_directory"
+      },
+      {
+        "action": 1,
+        "path": "D:\\Codex Projects\\scummvm-private\\scummvm-ce-2026.4.0-consolidated\\strict-validation-local\\final-mi4-observed\\controlled profile\\AppData\\Roaming\\Microsoft\\Speech\\Files\\UserLexicons\\SP_2A3A07D182B74B6CA3E77B70CE4430E5.dat",
+        "resource_kind": "windows_sapi_shared_user_lexicon"
+      },
+      {
+        "action": 3,
+        "path": "D:\\Codex Projects\\scummvm-private\\scummvm-ce-2026.4.0-consolidated\\strict-validation-local\\final-mi4-observed\\controlled profile\\AppData\\Roaming\\Microsoft\\Speech\\Files\\UserLexicons\\SP_2A3A07D182B74B6CA3E77B70CE4430E5.dat",
+        "resource_kind": "windows_sapi_shared_user_lexicon"
+      },
+      {
+        "action": 3,
+        "path": "D:\\Codex Projects\\scummvm-private\\scummvm-ce-2026.4.0-consolidated\\strict-validation-local\\final-mi4-observed\\controlled profile\\AppData\\Roaming\\Microsoft\\Speech\\Files\\UserLexicons\\SP_2A3A07D182B74B6CA3E77B70CE4430E5.dat",
+        "resource_kind": "windows_sapi_shared_user_lexicon"
+      },
+      {
+        "action": 1,
+        "path": "D:\\Codex Projects\\scummvm-private\\scummvm-ce-2026.4.0-consolidated\\strict-validation-local\\final-mi4-observed\\controlled profile\\AppData\\Roaming\\Microsoft\\Speech\\Files\\UserLexicons\\SP_F954048DFBE04097814595B416CC24BF.dat",
+        "resource_kind": "windows_sapi_shared_user_lexicon"
+      },
+      {
+        "action": 3,
+        "path": "D:\\Codex Projects\\scummvm-private\\scummvm-ce-2026.4.0-consolidated\\strict-validation-local\\final-mi4-observed\\controlled profile\\AppData\\Roaming\\Microsoft\\Speech\\Files\\UserLexicons\\SP_F954048DFBE04097814595B416CC24BF.dat",
+        "resource_kind": "windows_sapi_shared_user_lexicon"
+      },
+      {
+        "action": 3,
+        "path": "D:\\Codex Projects\\scummvm-private\\scummvm-ce-2026.4.0-consolidated\\strict-validation-local\\final-mi4-observed\\controlled profile\\AppData\\Roaming\\Microsoft\\Speech\\Files\\UserLexicons\\SP_F954048DFBE04097814595B416CC24BF.dat",
+        "resource_kind": "windows_sapi_shared_user_lexicon"
+      },
+      {
+        "action": 1,
+        "path": "D:\\Codex Projects\\scummvm-private\\scummvm-ce-2026.4.0-consolidated\\strict-validation-local\\final-mi4-observed\\controlled profile\\AppData\\Roaming\\Microsoft\\Speech\\Files\\UserLexicons\\SP_62A3483B893043DBA1249C5B324D1A2F.dat",
+        "resource_kind": "windows_sapi_shared_user_lexicon"
+      },
+      {
+        "action": 3,
+        "path": "D:\\Codex Projects\\scummvm-private\\scummvm-ce-2026.4.0-consolidated\\strict-validation-local\\final-mi4-observed\\controlled profile\\AppData\\Roaming\\Microsoft\\Speech\\Files\\UserLexicons\\SP_62A3483B893043DBA1249C5B324D1A2F.dat",
+        "resource_kind": "windows_sapi_shared_user_lexicon"
+      },
+      {
+        "action": 3,
+        "path": "D:\\Codex Projects\\scummvm-private\\scummvm-ce-2026.4.0-consolidated\\strict-validation-local\\final-mi4-observed\\controlled profile\\AppData\\Roaming\\Microsoft\\Speech\\Files\\UserLexicons\\SP_62A3483B893043DBA1249C5B324D1A2F.dat",
+        "resource_kind": "windows_sapi_shared_user_lexicon"
+      }
+    ],
+    "real_profile_scummvm_notifications": [],
+    "observer_errors": [],
+    "limitation": "Directory notifications are not process-attributed kernel I/O tracing; raw notifications are retained. GPU-driver files are reported separately."
+  },
+  "ags-acceptance-observed": {
+    "status": "PASS",
+    "exit": 0,
+    "controlled_profile_application_files": [],
+    "controlled_profile_system_resource_files": [
+      "AppData\\Roaming\\Microsoft\\Speech\\Files\\UserLexicons\\SP_1AA0B78C78D34E2D9D58194E4294D6E0.dat"
+    ],
+    "observed_system_resource_events": [
+      {
+        "action": 1,
+        "path": "D:\\Codex Projects\\scummvm-private\\scummvm-ce-2026.4.0-consolidated\\strict-validation-local\\ags-acceptance-observed\\controlled profile\\AppData\\Roaming\\Microsoft\\Speech\\Files\\UserLexicons\\SP_1AA0B78C78D34E2D9D58194E4294D6E0.dat",
+        "resource_kind": "windows_sapi_shared_user_lexicon"
+      },
+      {
+        "action": 3,
+        "path": "D:\\Codex Projects\\scummvm-private\\scummvm-ce-2026.4.0-consolidated\\strict-validation-local\\ags-acceptance-observed\\controlled profile\\AppData\\Roaming\\Microsoft\\Speech\\Files\\UserLexicons\\SP_1AA0B78C78D34E2D9D58194E4294D6E0.dat",
+        "resource_kind": "windows_sapi_shared_user_lexicon"
+      },
+      {
+        "action": 3,
+        "path": "D:\\Codex Projects\\scummvm-private\\scummvm-ce-2026.4.0-consolidated\\strict-validation-local\\ags-acceptance-observed\\controlled profile\\AppData\\Roaming\\Microsoft\\Speech\\Files\\UserLexicons\\SP_1AA0B78C78D34E2D9D58194E4294D6E0.dat",
+        "resource_kind": "windows_sapi_shared_user_lexicon"
+      },
+      {
+        "action": 1,
+        "path": "D:\\Codex Projects\\scummvm-private\\scummvm-ce-2026.4.0-consolidated\\strict-validation-local\\ags-acceptance-observed\\controlled profile\\AppData\\Local\\Microsoft",
+        "resource_kind": "windows_shell_cache_directory"
+      },
+      {
+        "action": 1,
+        "path": "D:\\Codex Projects\\scummvm-private\\scummvm-ce-2026.4.0-consolidated\\strict-validation-local\\ags-acceptance-observed\\controlled profile\\AppData\\Local\\Microsoft\\Windows",
+        "resource_kind": "windows_shell_cache_directory"
+      },
+      {
+        "action": 1,
+        "path": "D:\\Codex Projects\\scummvm-private\\scummvm-ce-2026.4.0-consolidated\\strict-validation-local\\ags-acceptance-observed\\controlled profile\\AppData\\Local\\Microsoft\\Windows\\Caches",
+        "resource_kind": "windows_shell_cache_directory"
+      }
+    ],
+    "real_profile_scummvm_notifications": [],
+    "observer_errors": [],
+    "limitation": "Directory notifications are not process-attributed kernel I/O tracing; raw notifications are retained. GPU-driver files are reported separately."
+  }
+}

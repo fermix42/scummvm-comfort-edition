@@ -201,6 +201,10 @@ bool StdioStream::flush() {
 
 StdioStream *StdioStream::makeFromPathHelper(const Common::String &path, WriteMode writeMode,
 		StdioStream *(*factory)(void *handle)) {
+#ifdef WIN32
+	if (writeMode != WriteMode_Read)
+		Win32::requirePortableStoragePath(Common::Path(path, Common::Path::kNativeSeparator));
+#endif
 	Common::String tmpPath(path);
 
 	// If no atmoic support is compiled in, WriteMode_WriteAtomic must behave like WriteMode_Write
@@ -211,6 +215,10 @@ StdioStream *StdioStream::makeFromPathHelper(const Common::String &path, WriteMo
 	}
 #endif
 
+#ifdef WIN32
+	if (writeMode != WriteMode_Read)
+		Win32::requirePortableStoragePath(Common::Path(tmpPath, Common::Path::kNativeSeparator));
+#endif
 #if defined(WIN32) && defined(UNICODE)
 	wchar_t *wPath = Win32::stringToTchar(tmpPath);
 	FILE *handle = _wfopen(wPath, writeMode == WriteMode_Read ? L"rb" : L"wb");

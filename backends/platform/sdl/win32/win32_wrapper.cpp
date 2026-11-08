@@ -137,9 +137,62 @@ Common::Path resolvePortablePath(const Common::Path &path) {
 	return portablePath().join(path).normalize();
 }
 
+// Validate before opening, creating or deleting anything. GetFullPathNameW
+// collapses dot components; the separator boundary prevents sibling-prefix
+// escapes. Reparse points below the root could redirect an otherwise local
+// pathname outside the installation, so do not use them for managed storage.
+static Common::String absoluteStoragePath(const Common::Path &path) {
+	wchar_t *wide = ansiToUnicode(path.toString(Common::Path::kNativeSeparator).c_str());
+	Common::Array<wchar_t> buffer;
+	DWORD size = GetFullPathNameW(wide, 0, nullptr, nullptr);
+	buffer.resize(size);
+	DWORD length = size ? GetFullPathNameW(wide, size, buffer.data(), nullptr) : 0;
+	free(wide);
+	if (!length || length >= size) return Common::String();
+	char *utf8 = unicodeToAnsi(buffer.data());
+	Common::String result(utf8); free(utf8);
+	while (result.size() > 3 && result.lastChar() == '\\') result.deleteLastChar();
+	return result;
+}
+
+bool isPortableStoragePath(const Common::Path &path) {
+	Common::String root = absoluteStoragePath(portablePath());
+	Common::String candidate = absoluteStoragePath(resolvePortablePath(path));
+	if (root.empty() || candidate.empty()) return false;
+	if (candidate.equalsIgnoreCase(root)) return true;
+	if (!root.hasSuffix("\\")) root += '\\';
+	if (candidate.size() <= root.size() || !candidate.substr(0, root.size()).equalsIgnoreCase(root)) return false;
+	// Reject alternate data streams and Win32 names whose normalization can
+	// differ between the filesystem and the lexical containment check.
+	Common::String component;
+	for (uint i = root.size(); i <= candidate.size(); ++i) {
+		if (i < candidate.size() && candidate[i] != '\\') {
+			if (candidate[i] == ':') return false;
+			component += candidate[i];
+			continue;
+		}
+		if (component.empty() || component.lastChar() == '.' || component.lastChar() == ' ') return false;
+		Common::String stem = component.substr(0, component.find('.'));
+		stem.toUppercase();
+		if (stem == "CON" || stem == "PRN" || stem == "AUX" || stem == "NUL" ||
+		    (stem.size() == 4 && (stem.hasPrefix("COM") || stem.hasPrefix("LPT")) && stem[3] >= '1' && stem[3] <= '9')) return false;
+		component.clear();
+		wchar_t *wide = ansiToUnicode(candidate.substr(0, i).c_str());
+		DWORD attrs = GetFileAttributesW(wide); free(wide);
+		if (attrs != INVALID_FILE_ATTRIBUTES && (attrs & FILE_ATTRIBUTE_REPARSE_POINT)) return false;
+	}
+	return true;
+}
+
+void requirePortableStoragePath(const Common::Path &path) {
+	if (!isPortableStoragePath(path))
+		portableStorageError(path);
+}
+
 Common::Path relativePortablePath(const Common::Path &path) {
-	Common::String text = path.toString('/');
-	Common::String root = portablePath().toString('/');
+	Common::String text = Common::Path(absoluteStoragePath(path), Common::Path::kNativeSeparator).toString('/');
+	Common::String root = Common::Path(absoluteStoragePath(portablePath()), Common::Path::kNativeSeparator).toString('/');
+	if (text.equalsIgnoreCase(root)) return Common::Path(".");
 	if (!root.hasSuffix("/")) root += '/';
 	if (text.size() >= root.size() && text.substr(0, root.size()).equalsIgnoreCase(root))
 		return Common::Path(text.substr(root.size()));
@@ -166,6 +219,7 @@ void portableStorageError(const Common::Path &path) {
 }
 
 void ensurePortableDirectory(const Common::Path &path) {
+	requirePortableStoragePath(path);
 	Common::String text = path.toString(Common::Path::kNativeSeparator);
 	wchar_t *wide = ansiToUnicode(text.c_str());
 	DWORD attrs = GetFileAttributesW(wide);
@@ -176,7 +230,7 @@ void ensurePortableDirectory(const Common::Path &path) {
 	}
 	// Recursion is bounded by path components; tolerate concurrent creators.
 	Common::Path parent = path.getParent();
-	if (!parent.empty() && parent != path) ensurePortableDirectory(parent);
+	if (!parent.empty() && parent != path && isPortableStoragePath(parent)) ensurePortableDirectory(parent);
 	bool created = CreateDirectoryW(wide, nullptr) != 0;
 	if (!created && GetLastError() == ERROR_ALREADY_EXISTS) {
 		DWORD racedAttributes = GetFileAttributesW(wide);
@@ -199,7 +253,14 @@ void initializePortableStorage(const Common::String &isolatedRoot) {
 	configurePortableTemp(portablePath("temp"));
 }
 
+void selectPortableTestRoot(const Common::String &ownedRoot) {
+	// The caller has validated empty/previously-owned native CLI isolation.
+	// Do not change CWD yet: prepare() resolves caller-relative game assets.
+	s_storageRoot = ownedRoot;
+}
+
 void configurePortableTemp(const Common::Path &path) {
+	requirePortableStoragePath(path);
 	ensurePortableDirectory(path);
 	wchar_t *wide = ansiToUnicode(path.toString(Common::Path::kNativeSeparator).c_str());
 	bool configured = SetEnvironmentVariableW(L"TEMP", wide) && SetEnvironmentVariableW(L"TMP", wide);
@@ -221,13 +282,17 @@ void configurePortableTemp(const Common::Path &path) {
 }
 
 void tracePortableWrite(const Common::String &path, bool success) {
-	// Optional explicit diagnostics, never enabled by normal execution. Win32
-	// calls avoid recursively tracing the trace itself. No profile lookup.
+	// Optional diagnostics stay inside the active portable root too. The
+	// observer, outside CE, may collect these files after the process exits.
 	wchar_t destination[32768];
 	DWORD size = GetEnvironmentVariableW(L"SCUMMVM_CE_WRITE_TRACE", destination, ARRAYSIZE(destination));
 	if (!size || size >= ARRAYSIZE(destination)) return;
-	HANDLE file = CreateFileW(destination, FILE_APPEND_DATA, FILE_SHARE_READ | FILE_SHARE_WRITE,
+	Common::Path trace = portablePath("ce-write-trace.tsv");
+	if (!isPortableStoragePath(trace)) return;
+	wchar_t *traceName = ansiToUnicode(trace.toString(Common::Path::kNativeSeparator).c_str());
+	HANDLE file = CreateFileW(traceName, FILE_APPEND_DATA, FILE_SHARE_READ | FILE_SHARE_WRITE,
 	                          nullptr, OPEN_ALWAYS, FILE_ATTRIBUTE_NORMAL, nullptr);
+	free(traceName);
 	if (file == INVALID_HANDLE_VALUE) return;
 	wchar_t *wide = ansiToUnicode(path.c_str());
 	Common::Array<wchar_t> absolute;
@@ -275,6 +340,8 @@ struct Freer {
 };
 
 bool moveFile(const Common::String &src, const Common::String &dst) {
+	requirePortableStoragePath(Common::Path(src, Common::Path::kNativeSeparator));
+	requirePortableStoragePath(Common::Path(dst, Common::Path::kNativeSeparator));
 	Common::ScopedPtr<TCHAR, Freer<TCHAR>> tSrc(stringToTchar(src));
 	Common::ScopedPtr<TCHAR, Freer<TCHAR>> tDst(stringToTchar(dst));
 

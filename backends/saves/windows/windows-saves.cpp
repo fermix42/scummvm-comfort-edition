@@ -40,6 +40,7 @@ WindowsSaveFileManager::WindowsSaveFileManager(bool /*isPortable*/) {
 }
 
 Common::ErrorCode WindowsSaveFileManager::removeFile(const Common::FSNode &fileNode) {
+	Win32::requirePortableStoragePath(fileNode.getPath());
 	TCHAR *tFile = Win32::stringToTchar(fileNode.getPath().toString(Common::Path::kNativeSeparator));
 	int result = _tremove(tFile);
 	free(tFile);

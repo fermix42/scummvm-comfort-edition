@@ -1,0 +1,3208 @@
+{
+  "engines/agds/agds.cpp": [
+    "_mouseMap.remove(id);"
+  ],
+  "engines/agds/console.cpp": [
+    "_engine->getCurrentScreen()->remove(object);",
+    "_engine->getCurrentScreen()->remove(object);"
+  ],
+  "engines/agds/inventory.cpp": [
+    "bool Inventory::remove(const Common::String &name) {"
+  ],
+  "engines/agds/inventory.h": [
+    "bool remove(const Common::String &name);"
+  ],
+  "engines/agds/mouseMap.cpp": [
+    "void MouseMap::remove(int id) {"
+  ],
+  "engines/agds/mouseMap.h": [
+    "void remove(int id);"
+  ],
+  "engines/agds/process.cpp": [
+    "screen->remove(_processAnimation);"
+  ],
+  "engines/agds/process_opcodes.cpp": [
+    "screen->remove(object);",
+    "screen->remove(object);",
+    "_engine->inventory().remove(name);",
+    "_engine->getCurrentScreen()->remove(name);"
+  ],
+  "engines/agds/screen.cpp": [
+    "bool Screen::remove(const AnimationPtr &animation) {",
+    "bool Screen::remove(const ObjectPtr &object) {",
+    "bool Screen::remove(const Common::String &name) {",
+    "remove(object.name);"
+  ],
+  "engines/agds/screen.h": [
+    "bool remove(const AnimationPtr &animation);",
+    "bool found = remove(object);",
+    "bool remove(const Common::String &name);",
+    "bool remove(const ObjectPtr &object);"
+  ],
+  "engines/ags/engine/ac/file.cpp": [
+    "if (File::DeleteFile(rp.FullPath))",
+    "return File::DeleteFile(rp.AltPath) ? 1 : 0;"
+  ],
+  "engines/ags/engine/ac/global_game.cpp": [
+    "Shared::File::DeleteFile(nametouse);"
+  ],
+  "engines/ags/engine/debugging/file_based_ags_debugger.cpp": [
+    "File::DeleteFile(SENT_MESSAGE_FILE_NAME);",
+    "Stream *out = Shared::File::CreateFile(SENT_MESSAGE_FILE_NAME);",
+    "File::DeleteFile(\"dbgsend.tmp\");"
+  ],
+  "engines/ags/engine/game/savegame.cpp": [
+    "Stream *out = Shared::File::CreateFile(filename);"
+  ],
+  "engines/ags/engine/main/engine.cpp": [
+    "Stream *temp_s = Shared::File::CreateFile(tempPath);",
+    "temp_s = Shared::File::CreateFile(tempPath);",
+    "if (File::DeleteFile(tempPath))",
+    "if (!Directory::CreateDirectory(_GP(usetup).user_conf_dir) ||"
+  ],
+  "engines/ags/engine/main/quit.cpp": [
+    "File::DeleteFile(dfb.name);"
+  ],
+  "engines/ags/engine/platform/base/sys_main.cpp": [
+    "const char *env_drv = SDL_getenv(\"SDL_AUDIODRIVER\");"
+  ],
+  "engines/ags/engine/script/script_runtime.cpp": [
+    "_GP(simp).remove(name);"
+  ],
+  "engines/ags/engine/script/system_imports.cpp": [
+    "void SystemImports::remove(const String &name) {"
+  ],
+  "engines/ags/engine/script/system_imports.h": [
+    "void remove(const String &name);"
+  ],
+  "engines/ags/shared/ac/sprite_file.cpp": [
+    "std::unique_ptr<Stream> output(File::CreateFile(save_to_file));",
+    "Stream *out = File::CreateFile(filename);"
+  ],
+  "engines/ags/shared/core/asset_manager.cpp": [
+    "_activeLibs.remove(*it);"
+  ],
+  "engines/ags/shared/util/directory.cpp": [
+    "bool CreateDirectory(const String &path) {",
+    "if (!CreateDirectory(make_path))"
+  ],
+  "engines/ags/shared/util/directory.h": [
+    "bool   CreateDirectory(const String &path);"
+  ],
+  "engines/ags/shared/util/file.cpp": [
+    "bool File::DeleteFile(const String &filename) {"
+  ],
+  "engines/ags/shared/util/file.h": [
+    "bool        DeleteFile(const String &filename);",
+    "inline Stream *CreateFile(const String &filename) {"
+  ],
+  "engines/ags/shared/util/ini_util.cpp": [
+    "UStream fs(File::CreateFile(file));",
+    "UStream fs(File::CreateFile(file));"
+  ],
+  "engines/ags/tests/test_file.cpp": [
+    "File::DeleteFile(\"test.tmp\");"
+  ],
+  "engines/ags/tests/test_inifile.cpp": [
+    "Stream *fs = File::CreateFile(\"test.ini\");",
+    "fs = File::CreateFile(\"test.ini\");",
+    "File::DeleteFile(\"test.ini\");"
+  ],
+  "engines/asylum/console.cpp": [
+    "getScene()->getActor()->inventory.remove(index, count);"
+  ],
+  "engines/asylum/puzzles/pipes.cpp": [
+    "_connectedNodes.remove(_nodes[oldIndex[i]]);",
+    "connector->_connectedNodes.remove(_nodes[i]);",
+    "_connectedNodes.remove(*(*iter1));"
+  ],
+  "engines/asylum/puzzles/pipes.h": [
+    "void disconnect(Connector *connector) { _connectors.remove(connector); }"
+  ],
+  "engines/asylum/resources/encounters.cpp": [
+    "getScene()->getActor()->inventory.remove(getVariableInv(entry.param2), _scriptData.vars[1]);"
+  ],
+  "engines/asylum/resources/inventory.cpp": [
+    "void Inventory::remove(uint item, uint multipleDecr) {"
+  ],
+  "engines/asylum/resources/inventory.h": [
+    "void remove(uint item, uint multipleDecr);"
+  ],
+  "engines/asylum/resources/script.cpp": [
+    "actor->inventory.remove(cmd->param1, cmd->param2);"
+  ],
+  "engines/asylum/system/savegame.cpp": [
+    "void Savegame::remove() {"
+  ],
+  "engines/asylum/system/savegame.h": [
+    "void remove();"
+  ],
+  "engines/asylum/views/menu.cpp": [
+    "getSaveLoad()->remove();"
+  ],
+  "engines/avalanche/animation.cpp": [
+    "void AnimationType::remove() {",
+    "curSpr->remove();",
+    "_sprites[0]->remove();",
+    "_sprites[0]->remove();     // Lose Avvy.",
+    "tripSpr->remove(); // Deallocate the arrow.",
+    "tripSpr->remove(); // Deallocate the arrow.",
+    "spr->remove();",
+    "spr->remove();"
+  ],
+  "engines/avalanche/animation.h": [
+    "void remove();"
+  ],
+  "engines/avalanche/avalot.cpp": [
+    "avvy->remove();",
+    "spr->remove();",
+    "_animation->_sprites[i]->remove();"
+  ],
+  "engines/avalanche/timer.cpp": [
+    "_vm->_animation->_sprites[0]->remove();",
+    "spr->remove(); // Get rid of Robin Hood and Friar Tuck.",
+    "avvy->remove();",
+    "spr->remove();"
+  ],
+  "engines/bagel/boflib/queue.cpp": [
+    "// remove() must set _pQueueList to nullptr when it removes the last item"
+  ],
+  "engines/bagel/hodjnpodj/artparts/artparts.cpp": [
+    "SearchMan.remove(\"artparts_demo\");"
+  ],
+  "engines/bagel/hodjnpodj/libs/array.h": [
+    "void remove(T elem) {"
+  ],
+  "engines/bagel/hodjnpodj/metagame/bgen/bdbgc.cpp": [
+    "xpOutput = fopen(dbgfile, \"a\") ;",
+    "xpOutput = fopen(dbgfile, \"a\") ;"
+  ],
+  "engines/bagel/hodjnpodj/pdq/convert.cpp": [
+    "if ((infile = fopen(argv[1], \"ra\")) != NULL) {",
+    "if ((outfile = fopen(\"OUT.DAT\", \"wb\")) != NULL) {",
+    "fwrite(&curPhrase, sizeof(PHRASES), 1, outfile);"
+  ],
+  "engines/bagel/spacebar/baglib/log_msg.cpp": [
+    "_queuedMsgList->remove(i);"
+  ],
+  "engines/bagel/spacebar/baglib/pda.cpp": [
+    "_movieList->remove(i);"
+  ],
+  "engines/bagel/spacebar/baglib/rp_object.cpp": [
+    "pDObj = _pTouchedList->remove(0);",
+    "pDObj = _pUntouchedList->remove(0);",
+    "_pRPList->remove(i);"
+  ],
+  "engines/bagel/spacebar/baglib/storage_dev_win.cpp": [
+    "_pObjectList->remove(i);",
+    "_xStorageDeviceList.remove(pList);"
+  ],
+  "engines/bagel/spacebar/baglib/var.cpp": [
+    "_xVarList.remove(i);",
+    "_xVarList.remove(pList);",
+    "pVarList->remove(i);",
+    "_xVarList.remove(i);"
+  ],
+  "engines/bagel/spacebar/boflib/app.cpp": [
+    "_cCursorList.remove(nIndex);"
+  ],
+  "engines/bagel/spacebar/boflib/array.h": [
+    "void remove(T t) {"
+  ],
+  "engines/bagel/spacebar/boflib/gui/list_box.cpp": [
+    "_cTextItems.remove(nIndex);"
+  ],
+  "engines/bagel/spacebar/boflib/gui/window.cpp": [
+    "_parent->_children.remove(this);"
+  ],
+  "engines/bagel/spacebar/boflib/list.h": [
+    "T remove(CBofListNode<T> *pNode) {",
+    "T remove(int nNodeIndex) {",
+    "return remove(getNode(nNodeIndex));",
+    "remove(0);",
+    "return remove(_pHead);",
+    "return remove(_pTail);"
+  ],
+  "engines/bagel/spacebar/sraf_computer.cpp": [
+    "_pTeamList->remove(nTeamNumber);"
+  ],
+  "engines/bladerunner/actor.cpp": [
+    "_vm->_sceneObjects->remove(_id + kSceneObjectOffsetActors);"
+  ],
+  "engines/bladerunner/actor_clues.cpp": [
+    "remove(i);",
+    "void ActorClues::remove(int index) {"
+  ],
+  "engines/bladerunner/actor_clues.h": [
+    "void remove(int clueIndex);"
+  ],
+  "engines/bladerunner/audio_player.cpp": [
+    "void AudioPlayer::remove(int channel) {",
+    "audioPlayer->remove(channel);"
+  ],
+  "engines/bladerunner/audio_player.h": [
+    "void remove(int channel);"
+  ],
+  "engines/bladerunner/debugger.cpp": [
+    "_vm->_overlays->remove(overlayName.c_str());",
+    "if (!_vm->_sceneIsLoading && _vm->_sceneObjects->remove(objectId + kSceneObjectOffsetObjects)) {",
+    "if (!_vm->_sceneIsLoading && _vm->_sceneObjects->remove(objectId + kSceneObjectOffsetObjects)) {",
+    "if (_vm->_sceneObjects->remove(itemId + kSceneObjectOffsetItems)) {",
+    "if (_vm->_sceneObjects->remove(itemId + kSceneObjectOffsetItems)) {",
+    "if (regions->remove(regionID)) {",
+    "if (regions->remove(regionID)) {"
+  ],
+  "engines/bladerunner/items.cpp": [
+    "_vm->_sceneObjects->remove(itemId + kSceneObjectOffsetItems);",
+    "bool Items::remove(int itemId) {",
+    "_vm->_sceneObjects->remove(itemId + kSceneObjectOffsetItems);"
+  ],
+  "engines/bladerunner/items.h": [
+    "bool remove(int itemId);"
+  ],
+  "engines/bladerunner/metaengine.cpp": [
+    "return BladeRunner::SaveFileManager::remove(target, slot);"
+  ],
+  "engines/bladerunner/overlays.cpp": [
+    "void Overlays::remove(const Common::String &name) {"
+  ],
+  "engines/bladerunner/overlays.h": [
+    "void remove(const Common::String &name);"
+  ],
+  "engines/bladerunner/regions.cpp": [
+    "remove(i);",
+    "bool Regions::remove(int index) {"
+  ],
+  "engines/bladerunner/regions.h": [
+    "bool remove(int index);"
+  ],
+  "engines/bladerunner/savefile.cpp": [
+    "bool SaveFileManager::remove(const Common::String &target, int slot) {"
+  ],
+  "engines/bladerunner/savefile.h": [
+    "static bool remove(const Common::String &target, int slot);"
+  ],
+  "engines/bladerunner/scene_objects.cpp": [
+    "bool SceneObjects::remove(int sceneObjectId) {"
+  ],
+  "engines/bladerunner/scene_objects.h": [
+    "bool remove(int sceneObjectId);"
+  ],
+  "engines/bladerunner/script/police_maze.cpp": [
+    "if (_vm->_sceneObjects->remove(itemId + kSceneObjectOffsetItems)) {"
+  ],
+  "engines/bladerunner/script/script.cpp": [
+    "_vm->_items->remove(itemId);",
+    "_vm->_overlays->remove(overlay);",
+    "_vm->_scene->_exits->remove(index);",
+    "_vm->_scene->_regions->remove(index);"
+  ],
+  "engines/bladerunner/ui/kia_section_save.cpp": [
+    "BladeRunner::SaveFileManager::remove(_vm->getTargetName(), _saveList[_selectedLineId].getSaveSlot());"
+  ],
+  "engines/buried/buried.cpp": [
+    "_videos.remove(window);"
+  ],
+  "engines/buried/window.cpp": [
+    "_parent->_children.remove(this);",
+    "_parent->_topMostChildren.remove(this);",
+    "_parent->_children.remove(this);",
+    "_parent->_topMostChildren.remove(this);"
+  ],
+  "engines/cge/cge_main.cpp": [
+    "_vga->_showQ->insert(_vga->_showQ->remove(_hero));",
+    "_vga->_showQ->remove(_shadow);",
+    "_vga->_spareQ->append(_vga->_showQ->remove(spr));",
+    "_vga->_showQ->insert(_vga->_spareQ->remove(_shadow), _hero);"
+  ],
+  "engines/cge/detection.cpp": [
+    "SearchMan.remove(\"CGEMetaEngineDetection::fallbackDetect\");"
+  ],
+  "engines/cge/snail.cpp": [
+    "_vga->_showQ->insert(_vga->_spareQ->remove(spr));",
+    "_vga->_spareQ->append(_vga->_showQ->remove(spr));",
+    "_vga->_showQ->insert(_vga->_showQ->remove(spr));",
+    "_vga->_showQ->insert(_vga->_showQ->remove(s), spr);",
+    "_vga->_showQ->insert(_vga->_showQ->remove(spr->_prev), xspr);",
+    "_vga->_showQ->insert(_vga->_showQ->remove(xspr->_prev), spr);",
+    "_vga->_showQ->insert(_vga->_showQ->remove(slv), spr->_next);",
+    "_vga->_showQ->remove(spr);"
+  ],
+  "engines/cge/vga13h.cpp": [
+    "Sprite *s = remove(_head);",
+    "Sprite *Queue::remove(Sprite *spr) {"
+  ],
+  "engines/cge/vga13h.h": [
+    "Sprite *remove(Sprite *spr);"
+  ],
+  "engines/cge2/cge2_main.cpp": [
+    "_spare->update(_vga->_showQ->remove(_heroTab[i]->_ptr));"
+  ],
+  "engines/cge2/detection.cpp": [
+    "SearchMan.remove(\"CGE2MetaEngineDetection::fallbackDetect\");"
+  ],
+  "engines/cge2/snail.cpp": [
+    "_vga->_showQ->remove(spr);",
+    "_vga->_showQ->insert(_vga->_showQ->remove(spr->_prev), xspr);",
+    "_vga->_showQ->insert(_vga->_showQ->remove(spr2->_prev), spr);"
+  ],
+  "engines/cge2/spare.cpp": [
+    "_vm->_vga->_showQ->remove(spr);"
+  ],
+  "engines/cge2/vga13h.cpp": [
+    "Sprite *Queue::remove(Sprite *spr) {",
+    "_showQ->insert(_showQ->remove(spr));"
+  ],
+  "engines/cge2/vga13h.h": [
+    "Sprite *remove(Sprite *spr);"
+  ],
+  "engines/chamber/kult.cpp": [
+    "FILE *f = fopen(filename, \"wb\");",
+    "fwrite(data, 1, size, f);"
+  ],
+  "engines/chamber/script.cpp": [
+    "FILE *f = fopen(DEBUG_SCRIPT_LOG, \"at\");",
+    "FILE *f = fopen(DEBUG_SCRIPT_LOG, \"at\");",
+    "FILE *f = fopen(DEBUG_SCRIPT_LOG, \"at\");"
+  ],
+  "engines/crab/PathfindingAgent.cpp": [
+    "_nodeQueue.remove(currentIter->second);",
+    "Common::Array<PathfindingGraphNode const *>::iterator theEnd = Common::remove(returnVec.begin(), returnVec.end(), temp[i]);"
+  ],
+  "engines/crab/PriorityQueue.h": [
+    "void remove(Node const *node);",
+    "void PriorityQueue<Node>::remove(Node const *node) {",
+    "_open.erase(Common::remove(_open.begin(), _open.end(), node), _open.end());"
+  ],
+  "engines/crab/ui/OptionMenu.cpp": [
+    "std::ofstream save(settingpath, std::ios::out);"
+  ],
+  "engines/cruise/cruise_main.cpp": [
+    "_vm->_memList.remove(p);"
+  ],
+  "engines/cruise/decompiler.cpp": [
+    "fHandle = fopen(buffer, \"w+\");"
+  ],
+  "engines/cruise/overlay.cpp": [
+    "fHandle = fopen(nameBundle, \"w+\");"
+  ],
+  "engines/cryomni3d/objects.cpp": [
+    "void Inventory::remove(uint position) {",
+    "remove(it - begin());",
+    "remove(it - begin());"
+  ],
+  "engines/cryomni3d/objects.h": [
+    "void rename(uint newIdOBJ) { _idOBJ = newIdOBJ; }",
+    "void remove(uint position);"
+  ],
+  "engines/cryomni3d/versailles/logic.cpp": [
+    "obj->rename(111); // Brush has gold on it",
+    "obj->rename(112); // Brush has red on it"
+  ],
+  "engines/dgds/sound/drivers/adlib.cpp": [
+    "_voiceQueue.remove(voice);"
+  ],
+  "engines/director/game-quirks.cpp": [
+    "SearchMan.remove(kQuirksCacheArchive);"
+  ],
+  "engines/director/lingo/lingo-builtins.cpp": [
+    "g_director->_allOpenResFiles.remove(it._key);",
+    "g_director->_allOpenResFiles.remove(resFileName);"
+  ],
+  "engines/director/lingo/lingo-lex.cpp": [
+    "* we now use fwrite().",
+    "#define ECHO do { if (fwrite( yytext, (size_t) yyleng, 1, yyout )) {} } while (0)"
+  ],
+  "engines/director/movie.cpp": [
+    "g_director->_allOpenResFiles.remove(_sharedCast->getArchive()->getPathName());",
+    "g_director->_allOpenResFiles.remove(_cast->getArchive()->getPathName());",
+    "g_director->_allOpenResFiles.remove(_sharedCast->getArchive()->getPathName());"
+  ],
+  "engines/director/resource.cpp": [
+    "_allOpenResFiles.remove(path);"
+  ],
+  "engines/director/score.cpp": [
+    "const char *buildNumber = getenv(\"BUILD_NUMBER\");"
+  ],
+  "engines/director/window.cpp": [
+    "g_director->_allOpenResFiles.remove(previousSharedCastPath);"
+  ],
+  "engines/glk/agt/agility.h": [
+    "genfile fopen(const char *name, const char *how);",
+    "size_t fwrite(const void *ptr, size_t size, size_t nmemb, genfile stream);"
+  ],
+  "engines/glk/agt/filename.cpp": [
+    "genfile f = fopen(name, how);",
+    "f = fopen(name, filetype_info(ft, 1));",
+    "if (fwrite(buff, recsize, recnum, f) != (size_t)recnum) {"
+  ],
+  "engines/glk/agt/os_glk.cpp": [
+    "* into Glk usage and filemode, and also a mode for fopen()/fdopen().",
+    "file = fopen(filepath, \"r\");",
+    "retfile = fopen(filepath, fdtype);",
+    "retfile = fopen(g_vm->garglk_fileref_get_name(fileref), fdtype);"
+  ],
+  "engines/glk/agt/util.cpp": [
+    "genfile fopen(const char *name, const char *how) {",
+    "size_t fwrite(const void *ptr, size_t size, size_t nmemb, genfile stream) {"
+  ],
+  "engines/glk/comprehend/comprehend.cpp": [
+    "SearchMan.remove(\"Pics\");   // This also deletes it"
+  ],
+  "engines/glk/hugo/hemisc.cpp": [
+    "if (getenv(\"HUGO_SAVE\"))",
+    "hugo_makepath(savefile, \"\", getenv(\"HUGO_SAVE\"), fname, \"sav\");",
+    "if (getenv(\"HUGO_RECORD\"))",
+    "hugo_makepath(recordfile, \"\", getenv(\"HUGO_RECORD\"), fname, \"rec\");",
+    "if (getenv(hugo_strupr(envvar)))",
+    "hugo_makepath(temppath, \"\", getenv(hugo_strupr(envvar)), fname, ext);"
+  ],
+  "engines/glk/jacl/interpreter.cpp": [
+    "rename(out_name, in_name);",
+    "if (getenv(text_of_word(2)) != NULL) {",
+    "Common::strlcpy(resolved_setstring->value, getenv(text_of_word(2)), 256);"
+  ],
+  "engines/glk/jacl/jpp.cpp": [
+    "if ((outputFile = fopen(processed_file, \"w\")) == NULL) {",
+    "if ((outputFile = fopen(processed_file, \"w\")) == NULL) {"
+  ],
+  "engines/glk/level9/level9_main.cpp": [
+    "f = fopen(CODEFOLLOWFILE, \"a\");",
+    "f = fopen(CODEFOLLOWFILE, \"w\");"
+  ],
+  "engines/glk/level9/os_glk.cpp": [
+    "* The function uses fopen() rather than access() since fopen() is an ANSI"
+  ],
+  "engines/glk/magnetic/emu.cpp": [
+    "dbg_log = fopen(LOG_FILE, \"wt\");"
+  ],
+  "engines/glk/quest/geas_util.cpp": [
+    "const char *const logfile = getenv(\"GEAS_LOGFILE\");",
+    "ofstream *filestr = new ofstream(logfile);"
+  ],
+  "engines/glk/tads/os_filetype.h": [
+    "OSFTDATA  = 4,      /* user data file (used with the TADS fopen() call) */"
+  ],
+  "engines/glk/tads/os_frob_tads.h": [
+    "*   'mode' is a simplified stdio fopen() mode string.  The first",
+    "*   specifically not defined, since the fopen() handling of \"w+\" is to",
+    "*   Rename/move a file.  This should apply the usual C rename() behavior.",
+    "*   follows: if 'fname' is non-null, return fopen(fname,\"w+b\"); otherwise,",
+    "*   then call remove(fname); otherwise do nothing."
+  ],
+  "engines/glk/tads/tads2/built_in.cpp": [
+    "*   fopen(file, mode)."
+  ],
+  "engines/glk/utils.h": [
+    "void remove(T val) {"
+  ],
+  "engines/glk/windows.cpp": [
+    "pairWin->_children.remove(this);",
+    "pairWin->_children.remove(this);"
+  ],
+  "engines/gob/hotspots.cpp": [
+    "void Hotspots::remove(uint16 id) {",
+    "remove(i + (kStateFilled << 12));"
+  ],
+  "engines/gob/hotspots.h": [
+    "void remove(uint16 id);"
+  ],
+  "engines/gob/inter_v2.cpp": [
+    "_vm->_game->_hotspots->remove((stateType2 << 12) + id);"
+  ],
+  "engines/gob/inter_v5.cpp": [
+    "FILE *f = fopen(\"SAVE\\\\SPEED.INF\", w);",
+    "fwrite(&_cdSpeed,   sizeof(_cdSpeed),   1, f);",
+    "fwrite(&_ram,       sizeof(_ram),       1, f);",
+    "fwrite(&_cpuSpeed,  sizeof(_cpuSpeed),  1, f);",
+    "fwrite(&_drawSpeed, sizeof(_drawSpeed), 1, f);",
+    "fwrite(&_total,     sizeof(_total),     1, f);",
+    "FILE *f = fopen(\"SAVE\\\\SPEED.INF\", r);"
+  ],
+  "engines/gob/inter_v6.cpp": [
+    "_vm->_game->_hotspots->remove((stateType2 << 12) + id);"
+  ],
+  "engines/grim/actor.cpp": [
+    "openList.remove(node);"
+  ],
+  "engines/grim/costume/main_model_component.cpp": [
+    "_parentModel->_children.remove(this);"
+  ],
+  "engines/grim/emi/costume/emimesh_component.cpp": [
+    "_parentModel->_children.remove(this);"
+  ],
+  "engines/grim/emi/skeleton.cpp": [
+    "_activeAnims.remove(anim);"
+  ],
+  "engines/grim/grim.cpp": [
+    "_activeActors.remove(actor);",
+    "_talkingActors.remove(actor);"
+  ],
+  "engines/grim/lua/liolib.cpp": [
+    "return fwrite(buf, len, 1, stdout);",
+    "return fwrite(buf, len, 1, stderr);"
+  ],
+  "engines/grim/material.cpp": [
+    "_materials->remove(this);"
+  ],
+  "engines/grim/object.h": [
+    "obj->_pointers.remove(this);"
+  ],
+  "engines/grim/pool.h": [
+    "void removePointer(Ptr *pointer) { _pointers.remove(pointer); }"
+  ],
+  "engines/grim/resource.cpp": [
+    "_models.remove(m);",
+    "_colormaps.remove(c);",
+    "_keyframeAnims.remove(k);",
+    "_lipsyncs.remove(s);",
+    "_emiAnims.remove(a);"
+  ],
+  "engines/grim/set.cpp": [
+    "_states.remove(s);",
+    "_states.remove(s);"
+  ],
+  "engines/grim/set.h": [
+    "_states.remove(s);"
+  ],
+  "engines/harvester/resources.cpp": [
+    "_search.remove(archiveName);"
+  ],
+  "engines/hpl1/engine/libraries/angelscript/sources/as_bytecode.cpp": [
+    "#include <stdio.h> // fopen(), fprintf(), fclose()",
+    "#include \"as_debug.h\" // mkdir()",
+    "_mkdir(\"AS_DEBUG\");",
+    "fopen_s(&file, path.AddressOf(), \"w\");",
+    "FILE *file = fopen(path.AddressOf(), \"w\");"
+  ],
+  "engines/hpl1/engine/libraries/angelscript/sources/as_context.cpp": [
+    "#include \"as_debug.h\" // mkdir()",
+    "_mkdir(\"AS_DEBUG\");",
+    "fopen_s(&f, \"AS_DEBUG/stats.txt\", \"wt\");",
+    "FILE *f = fopen(\"AS_DEBUG/stats.txt\", \"wt\");"
+  ],
+  "engines/hpl1/engine/libraries/angelscript/sources/as_debug.h": [
+    "#define _mkdir(dirname) mkdir(dirname, S_IRWXU)",
+    "_mkdir(\"AS_DEBUG\");",
+    "fopen_s(&fp, \"AS_DEBUG/profiling_summary.txt\", \"wt\");",
+    "fp = fopen(\"AS_DEBUG/profiling_summary.txt\", \"wt\");"
+  ],
+  "engines/hpl1/engine/libraries/newton/Newton.cpp": [
+    "fwrite(buffer, size, 1, (FILE *)serializeHandle);",
+    "file = fopen(\"collisiontest.bin\", \"wb\");"
+  ],
+  "engines/hpl1/engine/libraries/newton/physics/dgNarrowPhaseCollision.cpp": [
+    "FILE * file = fopen (xxx, \"wb\");"
+  ],
+  "engines/hpl1/engine/resources/LanguageFile.cpp": [
+    "FILE *pFile = fopen(sRawFile.c_str(),\"w+\");"
+  ],
+  "engines/hpl1/engine/scene/World2D.cpp": [
+    "mlstSoundSources.remove(apSound);"
+  ],
+  "engines/hpl1/engine/system/low_level_system.cpp": [
+    "if(SUCCEEDED(SHGetFolderPath(NULL,",
+    "const char *home = getenv(\"HOME\");",
+    "FILE *f = _wfopen(fileName.c_str(),_W(\"r\"));",
+    "FILE *f = fopen(cString::To8Char(fileName).c_str(),\"r\");",
+    "remove(cString::To8Char(filePath).c_str());",
+    "std::ofstream OUT (cString::To8Char(destFileName).c_str(), std::ios::binary);",
+    "return CreateDirectory(path.c_str(),NULL)==TRUE;",
+    "return mkdir(cString::To8Char(path).c_str(),0755)==0;",
+    "return (rename(cString::To8Char(from).c_str(), cString::To8Char(to).c_str()) == 0);"
+  ],
+  "engines/hypno/lexer_arc.cpp": [
+    "* we now use fwrite().",
+    "#define ECHO do { if (fwrite( yytext, (size_t) yyleng, 1, yyout )) {} } while (0)"
+  ],
+  "engines/hypno/lexer_mis.cpp": [
+    "* we now use fwrite().",
+    "#define ECHO do { if (fwrite( yytext, (size_t) yyleng, 1, yyout )) {} } while (0)"
+  ],
+  "engines/illusions/actor.cpp": [
+    "_controls.remove(control);"
+  ],
+  "engines/illusions/dictionary.cpp": [
+    "_actorTypes.remove(id);",
+    "_fontResources.remove(id);",
+    "_sequences.remove(id);",
+    "_talkEntries.remove(id);",
+    "_controls.remove(objectId);"
+  ],
+  "engines/illusions/dictionary.h": [
+    "void remove(uint32 id) {"
+  ],
+  "engines/illusions/resources/actorresource.cpp": [
+    "_items.remove(actorInstance);"
+  ],
+  "engines/illusions/resources/backgroundresource.cpp": [
+    "_items.remove(backgroundInstance);"
+  ],
+  "engines/illusions/resources/talkresource.cpp": [
+    "_items.remove(talkInstance);"
+  ],
+  "engines/kyra/resource/resource.cpp": [
+    "_archiveFiles.remove(nameFixed);"
+  ],
+  "engines/lilliput/script.cpp": [
+    "_vm->_soundHandler->remove(); // Kill music",
+    "_vm->_soundHandler->remove();"
+  ],
+  "engines/lilliput/sound.cpp": [
+    "void LilliputSound::remove() {",
+    "debugC(1, kDebugSound, \"Lilliput::remove()\");"
+  ],
+  "engines/lilliput/sound.h": [
+    "void remove();"
+  ],
+  "engines/lure/debugger.cpp": [
+    "FILE *f = fopen(\"strings.txt\", \"w\");"
+  ],
+  "engines/m4/adv_r/adv_inv.cpp": [
+    "_G(inventory)->remove(name);"
+  ],
+  "engines/m4/adv_r/adv_inv.h": [
+    "virtual void remove(const Common::String &name) = 0;"
+  ],
+  "engines/m4/burger/gui/inventory.cpp": [
+    "bool Inventory::remove(const Common::String &name) {"
+  ],
+  "engines/m4/burger/gui/inventory.h": [
+    "bool remove(const Common::String &name);"
+  ],
+  "engines/m4/burger/inventory.cpp": [
+    "void Inventory::remove(const Common::String &name) {",
+    "_GI(inventory)->remove(name);"
+  ],
+  "engines/m4/burger/inventory.h": [
+    "void remove(const Common::String &name) override;"
+  ],
+  "engines/m4/fileio/fstream.cpp": [
+    "#include \"m4/fileio/fstream.h\""
+  ],
+  "engines/m4/riddle/gui/inventory.cpp": [
+    "bool Inventory::remove(const Common::String &name) {"
+  ],
+  "engines/m4/riddle/gui/inventory.h": [
+    "bool remove(const Common::String &name);"
+  ],
+  "engines/m4/riddle/inventory.cpp": [
+    "void Inventory::remove(const Common::String &name) {",
+    "_GI(inventory)->remove(name);"
+  ],
+  "engines/m4/riddle/inventory.h": [
+    "void remove(const Common::String &name) override;"
+  ],
+  "engines/m4/vars.h": [
+    "#include \"m4/fileio/fstream.h\""
+  ],
+  "engines/macs2/macs2.cpp": [
+    "SearchMan.remove(\"macs2amiga\");"
+  ],
+  "engines/macventure/macventure.cpp": [
+    "return layout.remove(outlier);",
+    "line.append(onScreen.remove(minIdx));",
+    "line.append(onScreen.remove(i));",
+    "offScreen.append(overflow.remove(0));",
+    "Item offscreenItem = offScreen.remove(0);"
+  ],
+  "engines/macventure/macventure.h": [
+    "Item remove(uint index) {"
+  ],
+  "engines/made/database.cpp": [
+    "FILE *o = fopen(filename, \"wb\");",
+    "fwrite(_objData, _objSize, 1, o);"
+  ],
+  "engines/mm/mm1/data/character.cpp": [
+    "void Inventory::remove(Entry *e) {",
+    "remove(e);"
+  ],
+  "engines/mm/mm1/data/character.h": [
+    "void remove(Entry *e);"
+  ],
+  "engines/mm/mm1/data/int_array.h": [
+    "void remove(uint val) {"
+  ],
+  "engines/mm/mm1/data/roster.cpp": [
+    "void Roster::remove(Character *entry) {"
+  ],
+  "engines/mm/mm1/data/roster.h": [
+    "void remove(Character *entry);"
+  ],
+  "engines/mm/mm1/views/character_manage.cpp": [
+    "g_globals->_roster.remove(g_globals->_currCharacter);"
+  ],
+  "engines/mm/mm1/views/locations/inn.cpp": [
+    "_partyChars.remove(charNum);"
+  ],
+  "engines/mm/mm1/views_enh/character_manage.cpp": [
+    "g_globals->_roster.remove(g_globals->_currCharacter);"
+  ],
+  "engines/mm/mm1/views_enh/locations/inn.cpp": [
+    "_partyChars.remove(charNum);",
+    "_partyChars.remove(charNum);"
+  ],
+  "engines/mm/xeen/files.cpp": [
+    "SearchMan.remove(\"intro\");",
+    "SearchMan.remove(\"data\");"
+  ],
+  "engines/mohawk/livingbooks.cpp": [
+    "_orderedItems.remove(delayedEvent.item);"
+  ],
+  "engines/myst3/myst3.cpp": [
+    "SearchMan.remove(\"MYST3_language_dir\");"
+  ],
+  "engines/nox/native_battle_physical.h": [
+    "if (!next.store(target) || !BattleRoster::remove(next,target)) return false;"
+  ],
+  "engines/nox/native_battle_roster.h": [
+    "static bool remove(BattleRecords &records,VortexVictim &actor) {"
+  ],
+  "engines/nox/native_battle_spell_damage.h": [
+    "if (!BattleRoster::remove(next,target)) return false;"
+  ],
+  "engines/nox/native_weapon_ready.h": [
+    "if (!keepExisting) for (uint i = 0; i < 2; ++i) if (removals[i] >= 0 && !remove(removals[i])) return kWeaponUnsupported;"
+  ],
+  "engines/parallaction/disk_br.cpp": [
+    "_sset.remove(\"part\");",
+    "_sset.remove(\"part\");"
+  ],
+  "engines/parallaction/disk_ns.cpp": [
+    "_sset.remove(_resArchiveName);",
+    "_sset.remove(_language);"
+  ],
+  "engines/parallaction/parallaction_br.cpp": [
+    "_location._animations.remove(_char._ani);",
+    "_location._animations.remove(_char._ani);"
+  ],
+  "engines/parallaction/parallaction_ns.cpp": [
+    "_location._animations.remove(_char._ani);",
+    "_location._animations.remove(_char._ani);"
+  ],
+  "engines/pegasus/items/inventory.cpp": [
+    "_inventoryList.remove(item);"
+  ],
+  "engines/pegasus/neighborhood/caldoria/caldoria.cpp": [
+    "_vm->getAllHotspots().remove(&_laundryZoomInSpot);",
+    "_vm->getAllHotspots().remove(&_laundryZoomOutSpot);",
+    "_vm->getAllHotspots().remove(&_cornbreadSpot);",
+    "_vm->getAllHotspots().remove(&_laundryZoomInSpot);",
+    "_vm->getAllHotspots().remove(&_laundryZoomOutSpot);",
+    "_vm->getAllHotspots().remove(&_cornbreadSpot);"
+  ],
+  "engines/pegasus/neighborhood/mars/mars.cpp": [
+    "_vm->getAllHotspots().remove(&_energyChoiceSpot);",
+    "_vm->getAllHotspots().remove(&_gravitonChoiceSpot);",
+    "_vm->getAllHotspots().remove(&_tractorChoiceSpot);",
+    "_vm->getAllHotspots().remove(&_shuttleViewSpot);",
+    "_vm->getAllHotspots().remove(&_shuttleTransportSpot);",
+    "_vm->getAllHotspots().remove(&_energyChoiceSpot);",
+    "_vm->getAllHotspots().remove(&_gravitonChoiceSpot);",
+    "_vm->getAllHotspots().remove(&_tractorChoiceSpot);",
+    "_vm->getAllHotspots().remove(&_shuttleViewSpot);",
+    "_vm->getAllHotspots().remove(&_shuttleTransportSpot);"
+  ],
+  "engines/pegasus/neighborhood/neighborhood.cpp": [
+    "_vm->getAllHotspots().remove(*it);",
+    "_vm->getAllHotspots().remove(*it);"
+  ],
+  "engines/pegasus/neighborhood/norad/alpha/noradalpha.cpp": [
+    "_vm->getAllHotspots().remove(&_thermalScanSpot);"
+  ],
+  "engines/pegasus/neighborhood/wsc/wsc.cpp": [
+    "_vm->getAllHotspots().remove(&_biotechImplantSpot);"
+  ],
+  "engines/pegasus/pegasus.cpp": [
+    "_timeBases.remove(timeBase);"
+  ],
+  "engines/pink/objects/walk/walk_shortest_path.cpp": [
+    "remove(_toVisit[i]);",
+    "void WalkShortestPath::remove(WalkLocation *location) {"
+  ],
+  "engines/pink/objects/walk/walk_shortest_path.h": [
+    "void remove(WalkLocation *location);"
+  ],
+  "engines/prince/resource.cpp": [
+    "SearchMan.remove(Common::String::format(\"%02d\", _locationNr));"
+  ],
+  "engines/private/lexer.cpp": [
+    "* we now use fwrite().",
+    "#define ECHO do { if (fwrite( yytext, (size_t) yyleng, 1, yyout )) {} } while (0)"
+  ],
+  "engines/qdengine/qdcore/qd_list.h": [
+    "void remove(Type *p);",
+    "remove(first());",
+    "remove(p);",
+    "inline void qdList<Type>::remove(Type *p) {"
+  ],
+  "engines/qdengine/qdcore/util/ResourceDispatcher.h": [
+    "users.remove(p);"
+  ],
+  "engines/saga/events.cpp": [
+    "_vm->_scene->_textList.remove(entry);"
+  ],
+  "engines/saga2/actor.cpp": [
+    "_moveTask->remove();",
+    "_moveTask->remove();",
+    "_moveTask->remove();",
+    "_moveTask->remove();",
+    "_moveTask->remove();",
+    "_followers->remove(bandMember);"
+  ],
+  "engines/saga2/band.h": [
+    "void remove(Actor *member) {",
+    "void remove(int index) {"
+  ],
+  "engines/saga2/contain.cpp": [
+    "g_vm->_cnm->remove(this);"
+  ],
+  "engines/saga2/contain.h": [
+    "void remove(ObjectID obj);",
+    "void remove(ContainerNode *cn) {",
+    "_list.remove(cn);",
+    "remove(cn);"
+  ],
+  "engines/saga2/imagcach.cpp": [
+    "imageNode->remove();",
+    "_nodes.remove(imageNode);"
+  ],
+  "engines/saga2/intrface.cpp": [
+    "g_vm->_indList.remove(this);"
+  ],
+  "engines/saga2/motion.cpp": [
+    "void MotionTask::remove(int16 returnVal) {",
+    "g_vm->_mTaskList->_list.remove(this);",
+    "remove();",
+    "remove();",
+    "remove();",
+    "remove();",
+    "remove();           // delete motion task",
+    "remove(kMotionWalkBlocked);",
+    "remove(kMotionCompleted);",
+    "remove(kMotionWalkBlocked);",
+    "remove();",
+    "remove();",
+    "remove(kMotionCompleted);",
+    "remove(kMotionCompleted);",
+    "remove();",
+    "remove();",
+    "remove();",
+    "remove();",
+    "remove();",
+    "remove();",
+    "remove();",
+    "if (a->nextAnimationFrame()) remove();",
+    "remove();",
+    "if (a->nextAnimationFrame()) remove();",
+    "remove();",
+    "remove();",
+    "remove();",
+    "remove();",
+    "remove();",
+    "remove();",
+    "remove();",
+    "mt->remove();",
+    "if (moveTaskDone) mt->remove();"
+  ],
+  "engines/saga2/motion.h": [
+    "void remove(int16 returnVal = kMotionInterrupted);",
+    "remove(kMotionCompleted);",
+    "if (isTurn()) remove();",
+    "if (isDefense()) remove();",
+    "if (isAttack()) remove();"
+  ],
+  "engines/saga2/objects.cpp": [
+    "void GameObject::remove() {             // removes from old list",
+    "remove();                           // remove from old list",
+    "remove();                       //  Remove from old list",
+    "remove();                       //  Remove from old list",
+    "_data.parentID = saveParent;          //  restore parent (cleared by remove())",
+    "obj->remove();",
+    "remove();"
+  ],
+  "engines/saga2/objects.h": [
+    "void remove();                   // removes from old list",
+    "bool remove(ObjectID enactor) {",
+    "return _prototype->remove(thisID(), enactor);"
+  ],
+  "engines/saga2/objproto.cpp": [
+    "bool ProtoObj::remove(ObjectID dObj, ObjectID enactor) {"
+  ],
+  "engines/saga2/objproto.h": [
+    "bool remove(ObjectID dObj, ObjectID enactor);"
+  ],
+  "engines/saga2/panel.cpp": [
+    "_window._contents.remove(this);",
+    "_contents.remove(ctl);",
+    "g_vm->_toolBase->_windowList.remove(this);",
+    "g_vm->_toolBase->_windowList.remove(this);",
+    "_list->_contents.remove(this);"
+  ],
+  "engines/saga2/panel.h": [
+    "l._contents.remove(this);",
+    "l._contents.remove(this);"
+  ],
+  "engines/saga2/path.cpp": [
+    "while (queue->remove(qi)) {",
+    "g_vm->_pathQueue.remove(pr);",
+    "while (squeue->remove(qi)) {",
+    "while (squeue->remove(qi)) {"
+  ],
+  "engines/saga2/priqueue.h": [
+    "bool remove(ITEM &result);           // remove an item",
+    "bool PriorityQueue<ITEM, size>::remove(ITEM &result) {"
+  ],
+  "engines/saga2/sensor.cpp": [
+    "g_vm->_sensorListList.remove(s);",
+    "g_vm->_sensorList.remove(p);"
+  ],
+  "engines/saga2/speech.cpp": [
+    "speechList.remove(this);",
+    "speechList.remove(this);",
+    "remove();",
+    "void SpeechTaskList::remove(Speech *p) {",
+    "_list.remove(p);",
+    "_inactiveList.remove(p);",
+    "void Speech::remove() {",
+    "speechList.remove(this);"
+  ],
+  "engines/saga2/speech.h": [
+    "void remove();                   //  Remove from active list",
+    "void remove(Speech *p);"
+  ],
+  "engines/saga2/tile.cpp": [
+    "void TileActivityTask::remove() {",
+    "g_vm->_aTaskList->_list.remove(this);",
+    "tat->remove();",
+    "g_vm->_platformLRU.remove(plIndex);"
+  ],
+  "engines/saga2/tile.h": [
+    "void remove();                   // tile activity task is finished."
+  ],
+  "engines/saga2/timers.cpp": [
+    "g_vm->_timers.remove(t);",
+    "g_vm->_timerLists.remove(this);"
+  ],
+  "engines/sci/engine/kpathing.cpp": [
+    "void remove(Vertex *elm) {",
+    "vertices.remove(vertex);",
+    "output.vertices.remove(output.vertices._head->_prev);"
+  ],
+  "engines/sci/graphics/ports.cpp": [
+    "_windowList.remove(pWnd);"
+  ],
+  "engines/sci/resource/resource.cpp": [
+    "_LRU.remove(res);"
+  ],
+  "engines/sci/resource/resource_audio.cpp": [
+    "_sources.remove(_audioMapSCI1);"
+  ],
+  "engines/sci/sound/drivers/adlib.cpp": [
+    "_voiceQueue.remove(voice);"
+  ],
+  "engines/scumm/detection_internal.h": [
+    "SearchMan.remove(\"tmpDiskImgDir\");"
+  ],
+  "engines/scumm/insane/rebel2/rebel.cpp": [
+    "SearchMan.remove(\"rebel2-mac-data\");"
+  ],
+  "engines/scumm/players/player_sid.cpp": [
+    "// TODO: remove (never NULL)"
+  ],
+  "engines/sherlock/scalpel/tsage/logo.cpp": [
+    "_objects[1].remove();",
+    "_objects[2].remove();"
+  ],
+  "engines/sherlock/scalpel/tsage/logo.h": [
+    "void remove() { _visage.clear(); }"
+  ],
+  "engines/sherlock/tattoo/widget_base.cpp": [
+    "ui._widgets.remove(this);"
+  ],
+  "engines/sludge/objtypes.cpp": [
+    "_allObjectTypes.remove(oT);"
+  ],
+  "engines/sludge/people.cpp": [
+    "_allPeople->remove(removePerson);"
+  ],
+  "engines/startrek/sound.cpp": [
+    "_midiSlotList.remove(&_midiSlots[i]);"
+  ],
+  "engines/supernova/game-manager.cpp": [
+    "void Inventory::remove(Object &obj) {"
+  ],
+  "engines/supernova/game-manager.h": [
+    "void remove(Object &obj);"
+  ],
+  "engines/supernova/supernova1/rooms.cpp": [
+    "_gm->_inventory.remove(*getObject(4));",
+    "_gm->_inventory.remove(*getObject(2));",
+    "_gm->_inventory.remove(*getObject(9));",
+    "_gm->_inventory.remove(*r->getObject(8));",
+    "_gm->_inventory.remove(*r->getObject(2));",
+    "_gm->_inventory.remove(*_gm->_rooms[CABIN_L2]->getObject(9));",
+    "_gm->_inventory.remove(*r->getObject(9));",
+    "_gm->_inventory.remove(*getObject(16));",
+    "_gm->_inventory.remove(*_gm->_rooms[CABIN_R3]->getObject(0)); // Chess board",
+    "_gm->_inventory.remove(*_gm->_rooms[ROGER]->getObject(8));",
+    "_gm->_inventory.remove(*_gm->_rooms[ROGER]->getObject(3));",
+    "_gm->_inventory.remove(*_gm->_rooms[ROGER]->getObject(7));",
+    "_gm->_inventory.remove(*_gm->_rooms[ROGER]->getObject(8));",
+    "_gm->_inventory.remove(*getObject(5));",
+    "_gm->_inventory.remove(*getObject(5));",
+    "_gm->_inventory.remove(obj1);",
+    "_gm->_inventory.remove(obj2);",
+    "_gm->_inventory.remove(*_gm->_rooms[CELL]->getObject(7));"
+  ],
+  "engines/supernova/supernova1/state.cpp": [
+    "_inventory.remove(*(_rooms[ROGER]->getObject(3)));",
+    "_inventory.remove(*(_rooms[ROGER]->getObject(7)));",
+    "_inventory.remove(*(_rooms[ROGER]->getObject(8)));",
+    "_inventory.remove(*moneyObject);",
+    "_inventory.remove(obj1);",
+    "_inventory.remove(obj1);",
+    "_inventory.remove(obj1);",
+    "_inventory.remove(*r->getObject(2));",
+    "_inventory.remove(*r->getObject(2));",
+    "_inventory.remove(*r->getObject(9));"
+  ],
+  "engines/supernova/supernova2/rooms.cpp": [
+    "_gm->_inventory.remove(obj1);",
+    "_gm->_inventory.remove(*_gm->_rooms[CULTURE_PALACE]->getObject(4));",
+    "_gm->_inventory.remove(_objectState[6]);",
+    "_gm->_inventory.remove(_objectState[6]);",
+    "_gm->_inventory.remove(*rope);",
+    "_gm->_inventory.remove(obj1);",
+    "_gm->_inventory.remove(obj2);",
+    "_gm->_inventory.remove(obj1);",
+    "_gm->_inventory.remove(obj2);",
+    "_gm->_inventory.remove(obj1);",
+    "_gm->_inventory.remove(obj2);"
+  ],
+  "engines/supernova/supernova2/state.cpp": [
+    "_inventory.remove(*o2);",
+    "_inventory.remove(*o1);"
+  ],
+  "engines/sword2/console.cpp": [
+    "_vm->_resman->remove(res);"
+  ],
+  "engines/sword2/logic.cpp": [
+    "_vm->_resman->remove(_objectKillList[i]);"
+  ],
+  "engines/sword2/resman.cpp": [
+    "void ResourceManager::remove(int res) {",
+    "remove(i);",
+    "remove(i);",
+    "remove(i);"
+  ],
+  "engines/sword2/resman.h": [
+    "void remove(int res);"
+  ],
+  "engines/teenagent/callbacks.cpp": [
+    "inventory->remove(kInvItemMouse);",
+    "inventory->remove(kInvItemRock);",
+    "inventory->remove(kInvItemMug);",
+    "inventory->remove(kInvItemShovelAct1);",
+    "inventory->remove(kInvItemDruggedFood);",
+    "inventory->remove(kInvItemSpring);",
+    "inventory->remove(kInvItemBird);",
+    "inventory->remove(kInvItemMugOfMud);",
+    "inventory->remove(kInvItemKaleidoscope);",
+    "inventory->remove(kInvItemBurningPaper);",
+    "inventory->remove(kInvItemRopeAndGrenade);",
+    "inventory->remove(kInvItemNugget);",
+    "inventory->remove(kInvItemPaintedPotato);",
+    "inventory->remove(kInvItemGrapplingHook);",
+    "inventory->remove(kInvItemPlasticApple);",
+    "inventory->remove(kInvItemDart);",
+    "inventory->remove(kInvItemSickleBlunt);",
+    "inventory->remove(kInvItemChocCandy);",
+    "inventory->remove(kInvItemFeatherDusterClean);",
+    "inventory->remove(kInvItemFirstFlower);",
+    "inventory->remove(kInvItemSecondFlower);",
+    "inventory->remove(kInvItemFirstFlower);",
+    "inventory->remove(kInvItemSecondFlower);",
+    "inventory->remove(kInvItemWrappedCandy);",
+    "inventory->remove(kInvItemNut);",
+    "inventory->remove(kInvItemBone);",
+    "inventory->remove(kInvItemCarJack);",
+    "inventory->remove(kInvItemSickleSharp);",
+    "inventory->remove(kInvItemShotgun);",
+    "inventory->remove(kInvItemHandkerchief);",
+    "inventory->remove(kInvItemSheetOfPaper);",
+    "inventory->remove(kInvItemBurningPaper);",
+    "inventory->remove(kInvItemToolboxFull);",
+    "inventory->remove(kInvItemToolboxHalfEmpty);",
+    "inventory->remove(kInvItemHandle);",
+    "inventory->remove(kInvItemFakeChilli);",
+    "inventory->remove(kInvItemWrappedCork);",
+    "inventory->remove(kInvItemMeat);",
+    "inventory->remove(kInvItemChilliWithLabel);",
+    "inventory->remove(kInvItemPlasticBag);",
+    "inventory->remove(kInvItemVideoTape);",
+    "inventory->remove(kInvItemShovelAct2);"
+  ],
+  "engines/teenagent/inventory.cpp": [
+    "void Inventory::remove(byte item) {",
+    "remove(id1);",
+    "remove(id2);"
+  ],
+  "engines/teenagent/inventory.h": [
+    "void remove(byte item);"
+  ],
+  "engines/tetraedge/game/amerzone_game.cpp": [
+    "_warpY->markerValidatedSignal().remove(this, &AmerzoneGame::onObjectClick);",
+    "_warpY->animFinishedSignal().remove(this, &AmerzoneGame::onAnimationFinished);",
+    "vidbgbtn->onMouseClickValidated().remove(this, &AmerzoneGame::onLockVideoButtonValidated);"
+  ],
+  "engines/tetraedge/game/bonus_menu.cpp": [
+    "inputmgr->_mouseMoveSignal.remove(this, &BonusMenu::onMouseMove);"
+  ],
+  "engines/tetraedge/game/character.cpp": [
+    "_model->bonesUpdatedSignal().remove(this, &Character::onBonesUpdate);",
+    "_curModelAnim->onFinished().remove(this, &Character::onModelAnimationFinished);",
+    "_curModelAnim->onFinished().remove(this, &Character::onModelAnimationFinished);",
+    "_model->bonesUpdatedSignal().remove(this, &Character::onBonesUpdate);",
+    "_curModelAnim->onFinished().remove(this, &Character::onModelAnimationFinished);",
+    "_curModelAnim->onFinished().remove(this, &Character::onModelAnimationFinished);"
+  ],
+  "engines/tetraedge/game/credits.cpp": [
+    "_curveAnim.onFinished().remove(this, &Credits::onBackgroundAnimFinished);"
+  ],
+  "engines/tetraedge/game/object3d.cpp": [
+    "_moveAnim.onFinished().remove(this, &Object3D::onMoveAnimFinished);",
+    "_moveAnim.onFinished().remove(this, &Object3D::onMoveAnimFinished);"
+  ],
+  "engines/tetraedge/game/puzzle_computer_hydra.cpp": [
+    "_transitionTimer.alarmSignal().remove(this, &PuzzleComputerHydra::enterCoordinatesScreen);",
+    "_transitionTimer.alarmSignal().remove(this, &PuzzleComputerHydra::enterSelectMode);",
+    "_transitionTimer.alarmSignal().remove(this, &PuzzleComputerHydra::enterChecklistScreen);",
+    "_transitionTimer.alarmSignal().remove(this, &PuzzleComputerHydra::hideUnavailableModeMsg);",
+    "_transitionTimer.alarmSignal().remove(this, &PuzzleComputerHydra::onTransitionTimer);",
+    "_transitionTimer.alarmSignal().remove(this, &PuzzleComputerHydra::onTransitionTimer);",
+    "_transitionTimer.alarmSignal().remove(this, &PuzzleComputerHydra::hideUnavailableModeMsg);"
+  ],
+  "engines/tetraedge/game/puzzle_hanjie.cpp": [
+    "inputMgr->_mouseLUpSignal.remove(this, &PuzzleHanjie::onMouseUp);"
+  ],
+  "engines/tetraedge/game/syberia_game.cpp": [
+    "_scene._character->onFinished().remove(this, &SyberiaGame::onDisplacementPlayerFinished);",
+    "_scene._character->onFinished().remove(this, &SyberiaGame::onDisplacementPlayerFinished);",
+    "skipbtn->onMouseClickValidated().remove(this, &Game::onSkipVideoButtonValidated);",
+    "vidbgbtn->onMouseClickValidated().remove(this, &SyberiaGame::onLockVideoButtonValidated);",
+    "video->_tiledSurfacePtr->_frameAnim.onStop().remove(this, &Game::onVideoFinished);",
+    "invbtn->onMouseClickValidated().remove(this, &Game::onInventoryButtonValidated);",
+    "g_engine->getInputMgr()->_mouseLUpSignal.remove(this, &SyberiaGame::onMouseClick);",
+    "_inGameGui.buttonLayoutChecked(\"skipVideoButton\")->onMouseClickValidated().remove(this, &Game::onSkipVideoButtonValidated);",
+    "_inGameGui.buttonLayoutChecked(\"videoBackgroundButton\")->onMouseClickValidated().remove(this, &Game::onLockVideoButtonValidated);",
+    "_inGameGui.spriteLayoutChecked(\"video\")->_tiledSurfacePtr->_frameAnim.onFinished().remove(this, &Game::onSkipVideoButtonValidated);",
+    "_inGameGui.buttonLayoutChecked(\"inventoryButton\")->onMouseClickValidated().remove(this, &Game::onInventoryButtonValidated);",
+    "character->_onCharacterAnimFinishedSignal.remove(this, &SyberiaGame::onCharacterAnimationFinished);",
+    "_scene._character->_characterAnimPlayerFinishedSignal.remove(this, &SyberiaGame::onCharacterAnimationPlayerFinished);",
+    "_scene._character->onFinished().remove(this, &SyberiaGame::onDisplacementPlayerFinished);",
+    "_randomSoundTimer.alarmSignal().remove(_randomSound, &RandomSound::onSoundFinished);",
+    "sound->_music.onStopSignal().remove(sound, &RandomSound::onSoundFinished);",
+    "c->_onCharacterAnimFinishedSignal.remove(this, &SyberiaGame::onCharacterAnimationFinished);",
+    "c->onFinished().remove(this, &SyberiaGame::onDisplacementPlayerFinished);",
+    "c->onFinished().remove(this, &SyberiaGame::onDisplacementFinished);",
+    "c->_onCharacterAnimFinishedSignal.remove(this, &SyberiaGame::onCharacterAnimationPlayerFinished);",
+    "c->onFinished().remove(this, &SyberiaGame::onDisplacementPlayerFinished);",
+    "_music.onStopSignal().remove(this, &RandomSound::onSoundFinished);",
+    "game->_randomSound->_music.onStopSignal().remove(this, &RandomSound::onSoundFinished);"
+  ],
+  "engines/tetraedge/game/youki_manager.cpp": [
+    "youki->_onCharacterAnimFinishedSignal.remove(this, &YoukiManager::onAnimFinished);",
+    "youki->onFinished().remove(this, &YoukiManager::onMoveFinished);",
+    "youki->_onCharacterAnimFinishedSignal.remove(this, &YoukiManager::onAnimFinished);",
+    "youki->onFinished().remove(this, &YoukiManager::onMoveFinished);"
+  ],
+  "engines/tetraedge/te/te_3d_object2.cpp": [
+    "_parent->onWorldVisibleChanged().remove(_onWorldVisibleChangedParentCallback);",
+    "_parent->onWorldTransformationMatrixChanged().remove(_onWorldTransformationMatrixChangedParentCallback);",
+    "_parent->onWorldColorChanged().remove(_onWorldColorChangedParentCallback);"
+  ],
+  "engines/tetraedge/te/te_button_layout.cpp": [
+    "inputmgr->_mouseMoveSignal.remove(_onMousePositionChangedCallback);",
+    "inputmgr->_mouseMoveSignal.remove(_onMousePositionChangedMaxPriorityCallback);",
+    "inputmgr->_mouseLDownSignal.remove(_onMouseLeftDownCallback);",
+    "inputmgr->_mouseLUpSignal.remove(_onMouseLeftUpCallback);",
+    "inputmgr->_mouseLUpSignal.remove(_onMouseLeftUpMaxPriorityCallback);"
+  ],
+  "engines/tetraedge/te/te_checkbox_layout.cpp": [
+    "inputmgr->_mouseMoveSignal.remove(_onMousePositionChangedCallback);",
+    "inputmgr->_mouseLDownSignal.remove(_onMouseLeftDownCallback);",
+    "inputmgr->_mouseLUpSignal.remove(_onMouseLeftUpCallback);",
+    "inputmgr->_mouseLUpSignal.remove(_onMouseLeftUpMaxPriorityCallback);"
+  ],
+  "engines/tetraedge/te/te_free_move_zone.cpp": [
+    "_camera->onViewportChangedSignal().remove(this, &TeFreeMoveZone::onViewportChanged);",
+    "_camera->onViewportChangedSignal().remove(this, &TeFreeMoveZone::onViewportChanged);"
+  ],
+  "engines/tetraedge/te/te_layout.cpp": [
+    "parent()->onSizeChanged().remove(_onParentSizeChangedCallback);",
+    "parent()->onWorldTransformationMatrixChanged().remove(_onParentWorldTransformationMatrixChangedCallback);",
+    "child->onSizeChanged().remove(_onChildSizeChangedCallback);",
+    "child->onSizeChanged().remove(_onChildSizeChangedCallback);",
+    "oldParent->onSizeChanged().remove(_onParentSizeChangedCallback);",
+    "oldParent->onWorldTransformationMatrixChanged().remove(_onParentWorldTransformationMatrixChangedCallback);",
+    "mainWindowLayout.onSizeChanged().remove(_onMainWindowChangedCallback);"
+  ],
+  "engines/tetraedge/te/te_scrolling_layout.cpp": [
+    "inputmgr->_mouseMoveSignal.remove(this, &TeScrollingLayout::onMouseMove);",
+    "inputmgr->_mouseLUpSignal.remove(this, &TeScrollingLayout::onMouseLeftUp);"
+  ],
+  "engines/tetraedge/te/te_signal.h": [
+    "void remove(const TeICallback0ParamPtr &item) {",
+    "template<class T> void remove(T *obj, typename TeCallback0Param<T>::TMethod method) {",
+    "this->remove(temp);",
+    "void remove(const TeICallback1ParamPtr<T> &item) {",
+    "template<class S> void remove(S *obj, typename TeCallback1Param<S, T>::TMethod method) {",
+    "this->remove(temp);",
+    "void remove(const TeICallback2ParamPtr<S, T> &item) {",
+    "template<class C> void remove(C *obj, typename TeCallback2Param<C, S, T>::TMethod method) {",
+    "this->remove(temp);"
+  ],
+  "engines/tetraedge/te/te_warp.cpp": [
+    "inputMgr->_mouseLDownSignal.remove(this, &TeWarp::onMouseLeftDown);",
+    "g_engine->getInputMgr()->_mouseLDownSignal.remove(this, &TeWarp::onMouseLeftDown);"
+  ],
+  "engines/tetraedge/te/te_warp_marker.cpp": [
+    "_marker->button().onMouseClickValidated().remove(this, &TeWarpMarker::onMarkerButtonValidated);",
+    "_marker->button().onMouseClickValidated().remove(this, &TeWarpMarker::onMarkerButtonValidated);"
+  ],
+  "engines/titanic/game_manager.cpp": [
+    "eventsList.remove(movieEvent);"
+  ],
+  "engines/titanic/sound/sound.cpp": [
+    "_sounds.remove(soundItem);",
+    "_sounds.remove(soundItem);",
+    "_sounds.remove(soundItem);"
+  ],
+  "engines/titanic/sound/sound_manager.cpp": [
+    "remove(item);",
+    "remove(item);"
+  ],
+  "engines/titanic/support/avi_surface.cpp": [
+    "_movieRangeInfo.remove(info);"
+  ],
+  "engines/titanic/support/movie.cpp": [
+    "_playingMovies->remove(this);"
+  ],
+  "engines/tony/sound.cpp": [
+    "g_vm->_activeSfx.remove(this);"
+  ],
+  "engines/tsage/blue_force/blueforce_dialogs.cpp": [
+    "dlg->remove();",
+    "dlg->remove();"
+  ],
+  "engines/tsage/blue_force/blueforce_logic.cpp": [
+    "void AObjectArray::remove(EventHandler *obj) {",
+    "void Timer::remove() {",
+    "remove();",
+    "void TimerExt::remove() {",
+    "Timer::remove();",
+    "remove();",
+    "void FollowerObject::remove() {",
+    "NamedObject::remove();",
+    "void FocusObject::remove() {",
+    "BF_GLOBALS._sceneItems.remove(this);",
+    "NamedObject::remove();",
+    "remove();",
+    "void SceneExt::remove() {",
+    "// Below code originally in Blue Force Scene::remove(). Placed here to avoid contaminating",
+    "_action->remove();",
+    "void PalettedScene::remove() {",
+    "SceneExt::remove();",
+    "(*i)->remove();",
+    "void SceneMessage::remove() {",
+    "Action::remove();",
+    "remove();",
+    "remove();"
+  ],
+  "engines/tsage/blue_force/blueforce_logic.h": [
+    "void remove(EventHandler *obj);",
+    "// The following line prevents compiler warnings about hiding the remove()",
+    "void remove() override { EventHandler::remove(); }",
+    "void remove() override;",
+    "void remove() override;",
+    "void remove() override;",
+    "void remove() override;",
+    "void remove() override;",
+    "void removeTimer(EventHandler *timer) { _timerList.remove(timer); }",
+    "void remove() override;",
+    "void remove() override;"
+  ],
+  "engines/tsage/blue_force/blueforce_scenes0.cpp": [
+    "remove();",
+    "_owner->remove();",
+    "void Scene50::remove() {",
+    "SceneExt::remove();",
+    "_text.remove();",
+    "_text.remove();",
+    "BF_GLOBALS._sceneItems.remove(&scene->_mirandaCard);",
+    "BF_GLOBALS._sceneItems.remove(&scene->_ticketBook);",
+    "remove();",
+    "remove();",
+    "remove();",
+    "void Scene60::remove() {"
+  ],
+  "engines/tsage/blue_force/blueforce_scenes0.h": [
+    "void remove() override;",
+    "void remove() override;"
+  ],
+  "engines/tsage/blue_force/blueforce_scenes1.cpp": [
+    "remove();",
+    "remove();",
+    "scene->_animationInset.remove();",
+    "remove();",
+    "scene->_object2.remove();",
+    "scene->_object4.remove();",
+    "scene->_object5.remove();",
+    "scene->_object10.remove();",
+    "scene->_object9.remove();",
+    "scene->_object6.remove();",
+    "scene->_object3.remove();",
+    "scene->_object3.remove();",
+    "remove();",
+    "remove();",
+    "remove();",
+    "remove();",
+    "remove();",
+    "remove();",
+    "remove();",
+    "owner->remove();",
+    "BF_GLOBALS._player.remove();",
+    "owner->remove();",
+    "owner->remove();",
+    "_object2.remove();",
+    "scene->_kidBody.remove();",
+    "scene->_flag.remove();"
+  ],
+  "engines/tsage/blue_force/blueforce_scenes2.cpp": [
+    "void Scene200::remove() {",
+    "SceneExt::remove();",
+    "void Scene210::remove() {",
+    "SceneExt::remove();",
+    "scene->_object1.remove();",
+    "scene->_object3.remove();",
+    "remove();",
+    "void Scene220::remove() {",
+    "SceneExt::remove();",
+    "scene->_object8.remove();",
+    "void Scene225::remove() {",
+    "SceneExt::remove();",
+    "void Scene265::remove() {",
+    "SceneExt::remove();",
+    "_object2.remove();",
+    "_object1.remove();",
+    "_object1.remove();",
+    "_object11.remove();",
+    "BF_GLOBALS._player._mover->remove();",
+    "scene->_jake.remove();"
+  ],
+  "engines/tsage/blue_force/blueforce_scenes2.h": [
+    "void remove() override;",
+    "void remove() override;",
+    "void remove() override;",
+    "void remove() override;",
+    "void remove() override;"
+  ],
+  "engines/tsage/blue_force/blueforce_scenes3.cpp": [
+    "remove();",
+    "remove();",
+    "remove();",
+    "remove();",
+    "remove();",
+    "_object7.remove();",
+    "_object6.remove();",
+    "_object2.remove();",
+    "_object9.remove();",
+    "_object9.remove();",
+    "remove();",
+    "void Scene330::remove() {",
+    "SceneExt::remove();",
+    "remove();",
+    "scene->_woman.remove();",
+    "scene->_child.remove();",
+    "remove();",
+    "remove();",
+    "remove();",
+    "remove();",
+    "remove();",
+    "remove();",
+    "remove();",
+    "remove();",
+    "void Scene340::remove() {",
+    "PalettedScene::remove();",
+    "remove();",
+    "void Scene342::remove() {",
+    "PalettedScene::remove();",
+    "remove();",
+    "scene->_fireBoxInset.remove();",
+    "remove();",
+    "void Scene350::remove() {",
+    "SceneExt::remove();",
+    "scene->_object9.remove();",
+    "remove();",
+    "scene->_action->remove();",
+    "remove();",
+    "_object10.remove();",
+    "remove();",
+    "BF_GLOBALS._sceneItems.remove(&BF_GLOBALS._player);",
+    "_laura.remove();",
+    "_object5.remove();",
+    "_greensGun.remove();",
+    "_greensGun.remove();",
+    "_harrison.remove();",
+    "_green.remove();",
+    "remove();",
+    "remove();",
+    "remove();",
+    "remove();",
+    "remove();",
+    "remove();",
+    "_object2.remove();"
+  ],
+  "engines/tsage/blue_force/blueforce_scenes3.h": [
+    "void remove() override;",
+    "void remove() override;",
+    "void remove() override;",
+    "void remove() override;"
+  ],
+  "engines/tsage/blue_force/blueforce_scenes4.cpp": [
+    "remove();",
+    "remove();",
+    "_passenger.remove();",
+    "_driver.remove();",
+    "_passenger.remove();",
+    "_driver.remove();",
+    "_harrison.remove();",
+    "remove();",
+    "scene->_gunAndWig.remove();",
+    "void Scene415::GunInset::remove() {",
+    "scene->_gunAndWig.remove();",
+    "FocusObject::remove();",
+    "remove();",
+    "remove();",
+    "scene->_theBullets.remove();",
+    "void Scene415::BulletsInset::remove() {",
+    "scene->_theBullets.remove();",
+    "FocusObject::remove();",
+    "remove();",
+    "scene->_dashDrawer.remove();",
+    "BF_GLOBALS._sceneItems.remove(&_theBullets);",
+    "BF_GLOBALS._sceneItems.remove(&_gunAndWig);",
+    "_weasel.remove();",
+    "_object2.remove();",
+    "_manager.remove();"
+  ],
+  "engines/tsage/blue_force/blueforce_scenes4.h": [
+    "void remove() override;",
+    "void remove() override;"
+  ],
+  "engines/tsage/blue_force/blueforce_scenes5.cpp": [
+    "remove();",
+    "remove();",
+    "void Scene551::TrunkInset::remove() {",
+    "scene->_trunkKits.remove();",
+    "FocusObject::remove();",
+    "remove();",
+    "remove();",
+    "BF_GLOBALS._sceneItems.remove(&scene->_nickel);",
+    "BF_GLOBALS._sceneItems.remove(&_item1);",
+    "BF_GLOBALS._sceneItems.remove(&_item2);",
+    "BF_GLOBALS._sceneItems.remove(&_item3);",
+    "BF_GLOBALS._sceneItems.remove(&_item4);",
+    "BF_GLOBALS._sceneItems.remove(&_item5);",
+    "BF_GLOBALS._sceneItems.remove(&_item6);",
+    "void Scene560::SafeInset::remove() {",
+    "_item1.remove();",
+    "_item2.remove();",
+    "_item3.remove();",
+    "_item4.remove();",
+    "_item5.remove();",
+    "_item6.remove();",
+    "_digit2.remove();",
+    "_digit1.remove();",
+    "_digit0.remove();",
+    "scene->_nickel.remove();",
+    "FocusObject::remove();",
+    "_item1.remove();",
+    "_item2.remove();",
+    "_item3.remove();",
+    "_item4.remove();",
+    "_item5.remove();",
+    "_item6.remove();",
+    "_digit2.remove();",
+    "_digit1.remove();",
+    "_digit0.remove();",
+    "BF_GLOBALS._sceneItems.remove(&scene->_nickel);",
+    "remove();",
+    "remove();",
+    "BF_GLOBALS._sceneItems.remove(&_item1);",
+    "void Scene560::BoxInset::remove() {",
+    "_item1.remove();",
+    "FocusObject::remove();",
+    "scene->_boxInset.remove();",
+    "_object6.remove();",
+    "_passwordText.remove();",
+    "_entryText.remove();",
+    "remove();",
+    "_passwordText.remove();",
+    "_entryText.remove();",
+    "remove();",
+    "void Scene570::IconManager::remove() {",
+    "_object1.remove();",
+    "EventHandler::remove();",
+    "(*i)->_sceneText.remove();",
+    "item->_sceneText.remove();",
+    "void Scene570::Icon::remove() {",
+    "_sceneText.remove();",
+    "NamedObject::remove();",
+    "scene->_object3.remove();",
+    "BF_GLOBALS._sceneItems.remove(&scene->_object3);",
+    "void Scene570::Object3::remove() {",
+    "scene->_printerIcon.remove();",
+    "scene->_iconManager.remove();",
+    "scene->_folder1.remove();",
+    "scene->_folder2.remove();",
+    "scene->_folder3.remove();",
+    "scene->_folder4.remove();",
+    "scene->_icon1.remove();",
+    "scene->_icon2.remove();",
+    "scene->_icon3.remove();",
+    "scene->_icon4.remove();",
+    "scene->_icon5.remove();",
+    "scene->_icon6.remove();",
+    "scene->_icon7.remove();",
+    "scene->_icon8.remove();",
+    "scene->_icon9.remove();",
+    "FocusObject::remove();",
+    "_iconManager._list.remove(&_icon1);",
+    "_icon1.remove();",
+    "remove();"
+  ],
+  "engines/tsage/blue_force/blueforce_scenes5.h": [
+    "void remove() override;",
+    "void remove() override;",
+    "void remove() override;",
+    "void remove() override;",
+    "void remove() override;",
+    "void remove() override;"
+  ],
+  "engines/tsage/blue_force/blueforce_scenes6.cpp": [
+    "BF_GLOBALS._player.remove();",
+    "scene->_ryan.remove();",
+    "scene->_object2.remove();",
+    "scene->_skidMarks.remove();",
+    "remove();",
+    "void Scene600::remove() {",
+    "SceneExt::remove();",
+    "BF_GLOBALS._player.remove();",
+    "_object1.remove();",
+    "_object2.remove();",
+    "_object3.remove();",
+    "_object4.remove();",
+    "_object5.remove();",
+    "_object6.remove();",
+    "void Scene666::remove() {",
+    "SceneExt::remove();"
+  ],
+  "engines/tsage/blue_force/blueforce_scenes6.h": [
+    "void remove() override;",
+    "void remove() override;"
+  ],
+  "engines/tsage/blue_force/blueforce_scenes7.cpp": [
+    "remove();",
+    "remove();",
+    "_stick.remove();"
+  ],
+  "engines/tsage/blue_force/blueforce_scenes8.cpp": [
+    "remove();",
+    "_car2.remove();",
+    "_lyle.remove();",
+    "remove();",
+    "remove();",
+    "remove();",
+    "remove();",
+    "_lyle.remove();",
+    "_lyle.remove();",
+    "_chair.remove();",
+    "_lyle.remove();",
+    "_faxMachineInset.remove();",
+    "scene->_object4.remove();",
+    "scene->_object5.remove();",
+    "void Scene830::remove() {",
+    "PalettedScene::remove();",
+    "_object6.remove();",
+    "_object5.remove();",
+    "_object1.remove();",
+    "void Scene840::BoatKeysInset::remove() {",
+    "_rentalKeys.remove();",
+    "_waveKeys.remove();",
+    "FocusObject::remove();",
+    "remove();",
+    "remove();",
+    "remove();",
+    "_object1.remove();",
+    "remove();",
+    "void Scene850::remove() {",
+    "SceneExt::remove();",
+    "remove();",
+    "BF_GLOBALS._sceneItems.remove(&_jar);",
+    "BF_GLOBALS._sceneItems.remove(&_rags);",
+    "void Scene870::CrateInset::remove() {",
+    "_jar.remove();",
+    "_rags.remove();",
+    "FocusObject::remove();",
+    "_jar.remove();",
+    "_rags.remove();",
+    "remove();",
+    "remove();",
+    "BF_GLOBALS._player.remove();",
+    "_lyle.remove();",
+    "void Scene870::remove() {",
+    "SceneExt::remove();"
+  ],
+  "engines/tsage/blue_force/blueforce_scenes8.h": [
+    "void remove() override;",
+    "void remove() override;",
+    "void remove() override;",
+    "void remove() override;",
+    "void remove() override;"
+  ],
+  "engines/tsage/blue_force/blueforce_scenes9.cpp": [
+    "remove();",
+    "scene->_dog.remove();",
+    "remove();",
+    "remove();",
+    "void Scene910::BreakerBoxInset::remove() {",
+    "_object13.remove();",
+    "_object14.remove();",
+    "_object15.remove();",
+    "_object16.remove();",
+    "_object17.remove();",
+    "_object18.remove();",
+    "_object19.remove();",
+    "_object20.remove();",
+    "_object21.remove();",
+    "_object22.remove();",
+    "_object23.remove();",
+    "_object24.remove();",
+    "_object25.remove();",
+    "_object26.remove();",
+    "_object27.remove();",
+    "_object28.remove();",
+    "FocusObject::remove();",
+    "scene->_breakerBoxInset.remove();",
+    "scene->_shadow.remove();",
+    "scene->_action2.remove();",
+    "scene->_breakerBoxInset.remove();",
+    "void Scene910::Object13::remove() {",
+    "BF_GLOBALS._sceneItems.remove(this);",
+    "SceneObject::remove();",
+    "scene->_breakerBoxInset._object27.remove();",
+    "scene->_breakerBoxInset._object28.remove();",
+    "void Scene910::Object25::remove() {",
+    "BF_GLOBALS._sceneItems.remove(this);",
+    "SceneObject::remove();",
+    "void Scene910::BlackPlug::remove() {",
+    "BF_GLOBALS._sceneItems.remove(this);",
+    "SceneObject::remove();",
+    "void Scene910::GeneratorInset::remove() {",
+    "_blackPlug.remove();",
+    "_powerButton.remove();",
+    "FocusObject::remove();",
+    "void Scene910::PowerButton::remove() {",
+    "_object32.remove();",
+    "SceneObject::remove();",
+    "void Scene910::remove() {",
+    "PalettedScene::remove();",
+    "BF_GLOBALS._sceneItems.remove(&_item16);",
+    "_action2.remove();",
+    "_shadow.remove();",
+    "_nico.remove();",
+    "_breakerBoxInset.remove();",
+    "_generatorInset.remove();",
+    "_crateWindow.remove();",
+    "remove();",
+    "scene->_box.remove();",
+    "remove();",
+    "void Scene930::Object4::remove() {",
+    "FocusObject::remove();",
+    "void Scene930::Object5::remove() {",
+    "FocusObject::remove();",
+    "remove();",
+    "remove();",
+    "remove();",
+    "remove();",
+    "void Scene935::remove() {",
+    "PalettedScene::remove();",
+    "scene->_object2.remove();",
+    "scene->_object3.remove();",
+    "scene->_object4.remove();",
+    "scene->_object5.remove();",
+    "scene->_object6.remove();",
+    "scene->_object7.remove();",
+    "scene->_object8.remove();",
+    "scene->_object9.remove();",
+    "scene->_object10.remove();",
+    "remove();",
+    "scene->_object2.remove();",
+    "void Scene940::remove() {",
+    "SceneExt::remove();"
+  ],
+  "engines/tsage/blue_force/blueforce_scenes9.h": [
+    "void remove() override;",
+    "void remove() override;",
+    "void remove() override;",
+    "void remove() override;",
+    "void remove() override;",
+    "void remove() override;",
+    "void remove() override;",
+    "void remove() override;",
+    "void remove() override;",
+    "void remove() override;",
+    "void remove() override;"
+  ],
+  "engines/tsage/blue_force/blueforce_speakers.cpp": [
+    "void VisualSpeaker::remove() {",
+    "_object2.remove();",
+    "_object1.remove();",
+    "Speaker::remove();"
+  ],
+  "engines/tsage/blue_force/blueforce_speakers.h": [
+    "void remove() override;"
+  ],
+  "engines/tsage/converse.cpp": [
+    "void SequenceManager::remove() {",
+    "_sceneText.remove();",
+    "Action::remove();",
+    "remove();",
+    "_sceneText.remove();",
+    "_sceneText.remove();",
+    "remove();",
+    "GLOBALS._gfxManagers.remove(&gfxManager);",
+    "void StripManager::remove() {",
+    "_activeSpeaker->remove();",
+    "Action::remove();",
+    "remove();",
+    "remove();",
+    "_activeSpeaker->remove();",
+    "void Speaker::remove() {",
+    "_sceneText.remove();",
+    "_object1.remove();",
+    "_object2.remove();"
+  ],
+  "engines/tsage/converse.h": [
+    "void remove() override;",
+    "void remove() override;",
+    "void remove() override;"
+  ],
+  "engines/tsage/core.cpp": [
+    "_action->remove();",
+    "remove();",
+    "void Action::remove() {",
+    "_action->remove();",
+    "void ObjectMover::remove() {",
+    "remove();",
+    "_sceneObject->_mover->remove();",
+    "_sceneObject->_mover->remove();",
+    "void PaletteRotation::remove() {",
+    "_scenePalette->_listeners.remove(this);",
+    "remove();",
+    "remove();",
+    "void PaletteFader::remove() {",
+    "_scenePalette->_listeners.remove(this);",
+    "obj->remove();",
+    "void SceneItem::remove() {",
+    "g_globals->_sceneItems.remove(this);",
+    "g_globals->_sceneText.remove();",
+    "g_globals->_sceneText.remove();",
+    "void SceneObjectWrapper::remove() {",
+    "_objectWrapper->remove();",
+    "_mover->remove();",
+    "void SceneObject::remove() {",
+    "SceneItem::remove();",
+    "g_globals->_sceneItems.remove(this);",
+    "g_globals->_sceneObjects->remove(this);",
+    "_objectWrapper->remove();",
+    "_mover->remove();",
+    "g_globals->_sceneObjects->remove(this);",
+    "_disabledRegions.remove(regionId);"
+  ],
+  "engines/tsage/core.h": [
+    "virtual void remove() {}",
+    "void remove() override;",
+    "void remove() override;",
+    "virtual void remove() = 0;",
+    "void remove() override;",
+    "void remove() override;",
+    "void remove() override;",
+    "void remove() override;",
+    "void remove() override;",
+    "void remove(SceneObject *sceneObj) {",
+    "_objList.remove(sceneObj);"
+  ],
+  "engines/tsage/graphics.cpp": [
+    "remove();",
+    "void GfxDialog::remove() {"
+  ],
+  "engines/tsage/graphics.h": [
+    "virtual void remove() { _owner = NULL; }",
+    "void remove() override;"
+  ],
+  "engines/tsage/ringworld/ringworld_dialogs.cpp": [
+    "dlg->remove();"
+  ],
+  "engines/tsage/ringworld/ringworld_scenes1.cpp": [
+    "scene->_laserShot1.remove();",
+    "scene->_laserShot2.remove();",
+    "scene->_beam.remove();",
+    "remove();",
+    "remove();",
+    "remove();",
+    "scene->_seekerTail.remove();",
+    "scene->_seekerHand.remove();",
+    "scene->_doorway.remove();",
+    "remove();",
+    "scene->_doorway.remove();",
+    "scene->_seeker.remove();",
+    "remove();",
+    "remove();",
+    "scene->_leftEntrance.remove();",
+    "scene->_doorway.remove();",
+    "remove();",
+    "remove();",
+    "remove();",
+    "remove();",
+    "scene->_message.remove();",
+    "scene->_redLights.remove();",
+    "scene->_controlButton.remove();",
+    "scene->_slaveButton.remove();",
+    "scene->_masterButton.remove();",
+    "scene->_diskDrive.remove();",
+    "scene->_dashboard.remove();",
+    "scene->_message.remove();",
+    "scene->_redLights.remove();",
+    "scene->_floppyDrive.remove();",
+    "remove();",
+    "scene->_nextButton.remove();",
+    "scene->_prevButton.remove();",
+    "scene->_exitButton.remove();",
+    "scene->_rose.remove();",
+    "scene->_object3.remove();",
+    "remove();",
+    "remove();",
+    "remove();",
+    "remove();",
+    "remove();",
+    "remove();",
+    "void Scene6100::remove() {",
+    "Scene::remove();"
+  ],
+  "engines/tsage/ringworld/ringworld_scenes1.h": [
+    "void remove() override;"
+  ],
+  "engines/tsage/ringworld/ringworld_scenes10.cpp": [
+    "_hotspotCleanedClothes.remove();",
+    "_sceneHotspot10.remove();",
+    "_hotspot1.remove();",
+    "scene->_object2._action->remove();",
+    "scene->_object2._action->remove();",
+    "_object2._action->remove();",
+    "_hotspot1.remove();",
+    "g_globals->_sceneItems.remove(this);",
+    "g_globals->_sceneItems.remove(this);",
+    "g_globals->_sceneItems.remove(this);",
+    "g_globals->_sceneItems.remove(&scene->_hotspot5);",
+    "g_globals->_sceneItems.remove(this);",
+    "g_globals->_sceneItems.remove(&_objScimitar);",
+    "g_globals->_sceneItems.remove(&_objSword);",
+    "g_globals->_sceneItems.remove(&_hotspot19);",
+    "_object9.remove();",
+    "remove();",
+    "_txtArray1[0].remove();",
+    "_txtArray1[1].remove();",
+    "_txtArray2[0].remove();",
+    "_txtArray2[1].remove();",
+    "remove();",
+    "remove();",
+    "_object8.remove();"
+  ],
+  "engines/tsage/ringworld/ringworld_scenes2.cpp": [
+    "scene->_object4.remove();",
+    "scene->_object3.remove();",
+    "scene->_object6.remove();",
+    "scene->_object7.remove();"
+  ],
+  "engines/tsage/ringworld/ringworld_scenes3.cpp": [
+    "scene->_object6.remove();",
+    "scene->_object9.remove();",
+    "scene->_object10.remove();",
+    "scene->_object8.remove();",
+    "_object6.remove();",
+    "_object6.remove();",
+    "remove();",
+    "remove();",
+    "remove();",
+    "scene->_object3.remove();",
+    "scene->_object2.remove();",
+    "remove();",
+    "remove();",
+    "remove();",
+    "remove();",
+    "remove();",
+    "remove();",
+    "_object3.remove();",
+    "_object3.remove();",
+    "_object2.remove();",
+    "_object2.remove();",
+    "_object2.remove();",
+    "scene->_visageHotspot.remove();",
+    "scene->_visageHotspot.remove();",
+    "scene->_visageHotspot.remove();",
+    "remove();",
+    "scene->_hotspot14.remove();",
+    "remove();",
+    "remove();",
+    "remove();",
+    "scene->_hotspot7.remove();",
+    "scene->_hotspot6.remove();",
+    "remove();",
+    "remove();",
+    "_hotspot5.remove();",
+    "_hotspot8.remove();",
+    "g_globals->_player.remove();",
+    "_hotspot5.remove();",
+    "_hotspot8.remove();",
+    "_hotspot5.remove();",
+    "remove();",
+    "remove();",
+    "remove();",
+    "remove();",
+    "scene->_hotspot2.remove();",
+    "remove();",
+    "g_globals->_sceneItems.remove(&scene->_hotspot10);",
+    "g_globals->_sceneItems.remove(&scene->_hotspot11);",
+    "g_globals->_sceneItems.remove(&scene->_hotspot12);",
+    "scene->_hotspot2.remove();",
+    "remove();",
+    "scene->_hotspot8.remove();",
+    "scene->_hotspot10.remove();",
+    "scene->_hotspot12.remove();",
+    "remove();",
+    "remove();",
+    "scene->_hotspot18.remove();",
+    "scene->_hotspot17.remove();",
+    "remove();",
+    "remove();",
+    "remove();",
+    "scene->_hotspot8.remove();",
+    "remove();",
+    "_hotspot8.remove();",
+    "remove();",
+    "remove();",
+    "scene->_hotspot16.remove();",
+    "remove();",
+    "remove();",
+    "_hotspot16.remove();",
+    "_hotspot8.remove();"
+  ],
+  "engines/tsage/ringworld/ringworld_scenes4.cpp": [
+    "scene->_hotspot1.remove();"
+  ],
+  "engines/tsage/ringworld/ringworld_scenes5.cpp": [
+    "scene->_lander.remove();",
+    "scene->_hotspot8.remove();",
+    "remove();",
+    "remove();",
+    "remove();",
+    "g_globals->_player.remove();",
+    "remove();",
+    "scene->_forceField.remove();",
+    "remove();",
+    "_hotspot8.remove();",
+    "_hotspot8.remove();",
+    "_forceField.remove();",
+    "_hotspot8.remove();",
+    "_olo.remove();",
+    "_olo.remove();",
+    "remove();",
+    "remove();",
+    "void Scene4025::remove() {",
+    "Scene::remove();",
+    "remove();",
+    "remove();",
+    "remove();",
+    "remove();",
+    "scene->_hotspot14.remove();",
+    "remove();",
+    "remove();",
+    "remove();",
+    "remove();",
+    "remove();",
+    "scene->_ladder.remove();",
+    "remove();",
+    "remove();",
+    "scene->_hotspot4.remove();",
+    "remove();",
+    "remove();",
+    "scene->_hotspot3.remove();",
+    "remove();",
+    "remove();",
+    "remove();",
+    "remove();",
+    "remove();",
+    "remove();",
+    "scene->_hotspot1.remove();",
+    "scene->_hotspot2.remove();",
+    "scene->_hotspot3.remove();",
+    "scene->_hotspot4.remove();",
+    "scene->_hotspot5.remove();",
+    "scene->_hotspot6.remove();",
+    "remove();",
+    "remove();",
+    "remove();",
+    "void Scene4300::remove() {",
+    "Scene::remove();",
+    "_hotspot16.remove();",
+    "void Scene4301::Action1::remove() {",
+    "_buttonList[_state].remove();",
+    "scene->_hotspot3.remove();",
+    "scene->_hotspot2.remove();",
+    "Action::remove();",
+    "_buttonList[_state].remove();",
+    "remove();",
+    "remove();"
+  ],
+  "engines/tsage/ringworld/ringworld_scenes5.h": [
+    "void remove() override;",
+    "void remove() override;",
+    "void remove() override;"
+  ],
+  "engines/tsage/ringworld/ringworld_scenes6.cpp": [
+    "scene->_hotspot3.remove();",
+    "scene->_hotspot4.remove();",
+    "scene->_hotspot2.remove();",
+    "remove();",
+    "remove();",
+    "remove();",
+    "remove();",
+    "remove();",
+    "remove();",
+    "remove();",
+    "scene->_hotspot14.remove();",
+    "remove();",
+    "remove();",
+    "remove();",
+    "remove();",
+    "remove();",
+    "_hotspot5.remove();"
+  ],
+  "engines/tsage/ringworld/ringworld_scenes8.cpp": [
+    "scene->_object8.remove();",
+    "remove();",
+    "scene->_object1.remove();",
+    "remove();",
+    "scene->_object4.remove();",
+    "remove();",
+    "remove();",
+    "scene->_object1.remove();",
+    "remove();",
+    "_object8.remove();",
+    "_object9.remove();",
+    "scene->_object4.remove();",
+    "remove();",
+    "scene->_object9.remove();",
+    "remove();",
+    "scene->_object25.remove();",
+    "remove();",
+    "remove();",
+    "remove();",
+    "remove();",
+    "remove();",
+    "remove();",
+    "scene->_sceneItem10.remove();",
+    "scene->_object15.remove();",
+    "scene->_sceneHotspot8.remove();",
+    "scene->_sceneHotspot9.remove();",
+    "scene->_object19.remove();",
+    "remove();",
+    "scene->_object13.remove();",
+    "remove();",
+    "scene->_easterEgg1.remove();",
+    "scene->_easterEgg2.remove();",
+    "remove();",
+    "scene->_sceneItem10.remove();",
+    "scene->_object14.remove();",
+    "scene->_object9.remove();",
+    "remove();",
+    "_emptyJar.remove();",
+    "_sceneItem10.remove();",
+    "_object15.remove();",
+    "_object9.remove();",
+    "_object10.remove();",
+    "_object14.remove();",
+    "_object19.remove();"
+  ],
+  "engines/tsage/ringworld/ringworld_speakers.cpp": [
+    "_sceneObject.remove();",
+    "_object3.remove();",
+    "_object3.remove();"
+  ],
+  "engines/tsage/ringworld2/ringworld2_airduct.cpp": [
+    "void Scene1200::LaserPanel::remove() {",
+    "scene->_sceneAreas.remove(&_jumper1);",
+    "scene->_sceneAreas.remove(&_jumper2);",
+    "scene->_sceneAreas.remove(&_jumper3);",
+    "_jumper1.remove();",
+    "_jumper2.remove();",
+    "_jumper3.remove();",
+    "ModalWindow::remove();"
+  ],
+  "engines/tsage/ringworld2/ringworld2_airduct.h": [
+    "void remove() override;"
+  ],
+  "engines/tsage/ringworld2/ringworld2_dialogs.cpp": [
+    "dlg->remove();",
+    "dlg->remove();"
+  ],
+  "engines/tsage/ringworld2/ringworld2_logic.cpp": [
+    "void SceneExt::remove() {",
+    "Scene::remove();",
+    "void SceneActor::remove() {",
+    "R2_GLOBALS._sceneItems.remove(this);",
+    "SceneObject::remove();",
+    "void SceneArea::remove() {",
+    "static_cast<SceneExt *>(R2_GLOBALS._sceneManager._scene)->_sceneAreas.remove(this);",
+    "void SceneAreaObject::remove() {",
+    "R2_GLOBALS._sceneItems.remove(this);",
+    "_object1.remove();",
+    "SceneArea::remove();",
+    "remove();",
+    "void AnimationPlayer::remove() {",
+    "void ModalWindow::remove() {",
+    "R2_GLOBALS._sceneItems.remove(&_object1);",
+    "_object1.remove();",
+    "SceneArea::remove();",
+    "remove();",
+    "remove();",
+    "void ScannerDialog::Slider::remove() {",
+    "static_cast<SceneExt *>(R2_GLOBALS._sceneManager._scene)->_sceneAreas.remove(this);",
+    "SceneActor::remove();",
+    "void ScannerDialog::remove() {",
+    "scene->_sceneAreas.remove(&_talkButton);",
+    "scene->_sceneAreas.remove(&_scanButton);",
+    "_talkButton.remove();",
+    "_scanButton.remove();",
+    "_slider.remove();",
+    "_obj4.remove();",
+    "_obj5.remove();",
+    "_obj6.remove();",
+    "_obj7.remove();",
+    "ModalWindow::remove();"
+  ],
+  "engines/tsage/ringworld2/ringworld2_logic.h": [
+    "void remove() override;",
+    "void remove() override;",
+    "void remove() override;",
+    "void remove() override;",
+    "void remove() override;",
+    "void remove() override;",
+    "void remove() override;",
+    "void remove() override;"
+  ],
+  "engines/tsage/ringworld2/ringworld2_outpost.cpp": [
+    "scene->_gameBoardSide[2]._outpostStation[0]._card.remove();",
+    "scene->_gameBoardSide[2]._outpostStation[1]._card.remove();",
+    "scene->_gameBoardSide[2]._outpostStation[2]._card.remove();",
+    "scene->_gameBoardSide[2]._outpostStation[3]._card.remove();",
+    "scene->_gameBoardSide[2]._outpostStation[4]._card.remove();",
+    "scene->_gameBoardSide[2]._outpostStation[5]._card.remove();",
+    "scene->_gameBoardSide[2]._outpostStation[6]._card.remove();",
+    "scene->_gameBoardSide[2]._outpostStation[7]._card.remove();",
+    "scene->_gameBoardSide[1]._outpostStation[0]._card.remove();",
+    "scene->_gameBoardSide[1]._outpostStation[1]._card.remove();",
+    "scene->_gameBoardSide[3]._outpostStation[0]._card.remove();",
+    "scene->_gameBoardSide[3]._outpostStation[1]._card.remove();",
+    "scene->_gameBoardSide[3]._outpostStation[2]._card.remove();",
+    "scene->_gameBoardSide[0]._outpostStation[0]._card.remove();",
+    "scene->_gameBoardSide[0]._outpostStation[1]._card.remove();",
+    "scene->_gameBoardSide[2]._handCard[2]._card.remove();",
+    "scene->_gameBoardSide[2]._handCard[3]._card.remove();",
+    "scene->_gameBoardSide[3]._handCard[2].remove();",
+    "scene->_upperDisplayCard[0].remove();",
+    "scene->_upperDisplayCard[1].remove();",
+    "scene->_upperDisplayCard[2].remove();",
+    "scene->_upperDisplayCard[3].remove();",
+    "scene->_upperDisplayCard[4].remove();",
+    "scene->_upperDisplayCard[5].remove();",
+    "scene->_upperDisplayCard[6].remove();",
+    "scene->_upperDisplayCard[7].remove();",
+    "scene->_lowerDisplayCard[0].remove();",
+    "scene->_lowerDisplayCard[1].remove();",
+    "scene->_lowerDisplayCard[2].remove();",
+    "scene->_lowerDisplayCard[3].remove();",
+    "scene->_lowerDisplayCard[4].remove();",
+    "scene->_lowerDisplayCard[5].remove();",
+    "scene->_lowerDisplayCard[6].remove();",
+    "scene->_lowerDisplayCard[7].remove();",
+    "scene->_gameBoardSide[2]._delayCard._card.remove();",
+    "scene->_gameBoardSide[3]._handCard[1].remove();",
+    "scene->_upperDisplayCard[0].remove();",
+    "scene->_upperDisplayCard[1].remove();",
+    "scene->_upperDisplayCard[2].remove();",
+    "scene->_upperDisplayCard[3].remove();",
+    "scene->_upperDisplayCard[4].remove();",
+    "scene->_upperDisplayCard[5].remove();",
+    "scene->_upperDisplayCard[6].remove();",
+    "scene->_upperDisplayCard[7].remove();",
+    "scene->_lowerDisplayCard[0].remove();",
+    "scene->_lowerDisplayCard[1].remove();",
+    "scene->_lowerDisplayCard[2].remove();",
+    "scene->_lowerDisplayCard[3].remove();",
+    "scene->_lowerDisplayCard[4].remove();",
+    "scene->_lowerDisplayCard[5].remove();",
+    "scene->_lowerDisplayCard[6].remove();",
+    "scene->_lowerDisplayCard[7].remove();",
+    "scene->_gameBoardSide[2]._handCard[0]._card.remove();",
+    "scene->_gameBoardSide[2]._delayCard.remove();",
+    "scene->_upperDisplayCard[0].remove();",
+    "scene->_upperDisplayCard[1].remove();",
+    "scene->_upperDisplayCard[2].remove();",
+    "scene->_upperDisplayCard[3].remove();",
+    "scene->_lowerDisplayCard[0].remove();",
+    "scene->_lowerDisplayCard[1].remove();",
+    "scene->_lowerDisplayCard[2].remove();",
+    "scene->_lowerDisplayCard[3].remove();",
+    "scene->_gameBoardSide[2]._handCard[1]._card.remove();",
+    "scene->_gameBoardSide[3]._handCard[i]._card.remove();",
+    "scene->_gameBoardSide[2]._handCard[i]._card.remove();",
+    "scene->_gameBoardSide[0]._handCard[i]._card.remove();",
+    "scene->_gameBoardSide[1]._handCard[i]._card.remove();",
+    "scene->_gameBoardSide[3]._outpostStation[i]._card.remove();",
+    "scene->_gameBoardSide[2]._outpostStation[i]._card.remove();",
+    "scene->_gameBoardSide[0]._outpostStation[i]._card.remove();",
+    "scene->_gameBoardSide[1]._outpostStation[i]._card.remove();",
+    "scene->_gameBoardSide[2]._delayCard._card.remove();",
+    "scene->_discardPile._card.remove();",
+    "scene->_stockPile.remove();",
+    "remove();",
+    "scene->_discardPile._card.remove();",
+    "scene->_shuffleAnimation._card.remove();",
+    "scene->_stockPile.remove();",
+    "scene->_stockPile.remove();",
+    "scene->_stockPile.remove();",
+    "scene->_stockPile.remove();",
+    "scene->_actionCard1->_card.remove();",
+    "scene->_actionCard1->_card.remove();",
+    "scene->_actionCard1->_card.remove();",
+    "scene->_actionCard1->_card.remove();",
+    "scene->_actionCard1->_card.remove();",
+    "scene->_actionCard1->_card.remove();",
+    "scene->_actionCard2->_card.remove();",
+    "scene->_actionCard1->_card.remove();",
+    "scene->_actionCard3->_card.remove();",
+    "scene->_actionCard1->_card.remove();",
+    "scene->_actionCard3->_card.remove();",
+    "scene->_actionCard1->_card.remove();",
+    "void Scene1337::remove() {",
+    "SceneExt::remove();",
+    "_gameBoardSide[2]._handCard[i]._card.remove();",
+    "dlg->remove();"
+  ],
+  "engines/tsage/ringworld2/ringworld2_outpost.h": [
+    "void remove() override;"
+  ],
+  "engines/tsage/ringworld2/ringworld2_scenes0.cpp": [
+    "void Scene100::remove() {",
+    "SceneExt::remove();",
+    "_tableLocker.remove();",
+    "_stasisNegator.remove();",
+    "_wardrobeColorAnim.remove();",
+    "_wardrobeTopAnim.remove();",
+    "R2_GLOBALS._sceneItems.remove(&_stasisNegator);",
+    "_steppingDisks.remove();",
+    "_sceneText1.remove();",
+    "_sceneText2.remove();",
+    "_infoDisk.remove();",
+    "_sceneText.remove();",
+    "void Scene150::remove() {",
+    "SceneExt::remove();",
+    "topItem->remove();",
+    "scene->_creditsList.remove(topItem);",
+    "void Scene160::remove() {",
+    "item->remove();",
+    "SceneExt::remove();",
+    "void Scene180::remove() {",
+    "SceneExt::remove();",
+    "_door.remove();",
+    "_shipDisplay.remove();",
+    "_webbster.remove();",
+    "_teal.remove();",
+    "_dutyOfficer.remove();",
+    "_door.remove();",
+    "_shipDisplay.remove();",
+    "_animationPlayer.remove();",
+    "scene->_textList[idx].remove();",
+    "void Scene205::remove() {",
+    "SceneExt::remove();",
+    "void Scene205Demo::remove() {",
+    "SceneExt::remove();",
+    "void Scene300::remove() {",
+    "SceneExt::remove();",
+    "_seeker.remove();",
+    "_sceneText1.remove();",
+    "_sceneText2.remove();",
+    "void Scene325::remove() {",
+    "SceneExt::remove();",
+    "_text1.remove();",
+    "_text1.remove();",
+    "_starGrid1.remove();",
+    "_starGrid2.remove();",
+    "_starGrid3.remove();",
+    "_starGrid4.remove();",
+    "_starGrid5.remove();",
+    "_starGrid6.remove();",
+    "_starGrid7.remove();",
+    "_starGrid8.remove();",
+    "_starGrid9.remove();",
+    "_starGrid10.remove();",
+    "_starGrid11.remove();",
+    "_starGrid12.remove();",
+    "_starGrid13.remove();",
+    "_text1.remove();",
+    "_objList[idx].remove();",
+    "void Scene400::remove() {",
+    "SceneExt::remove();",
+    "_sensorProbe.remove();",
+    "_reader.remove();",
+    "_attractorUnit.remove();",
+    "void Scene500::PanelDialog::remove() {",
+    "scene->_sceneAreas.remove(&_button1);",
+    "scene->_sceneAreas.remove(&_button2);",
+    "scene->_sceneAreas.remove(&_button3);",
+    "_button1.remove();",
+    "_button2.remove();",
+    "_button3.remove();",
+    "SceneAreaObject::remove();",
+    "_suit.remove();",
+    "_suit.remove();",
+    "_suit.remove();",
+    "_sonicStunner.remove();",
+    "_aerosol.remove();",
+    "_suit.remove();",
+    "_tanks1.remove();",
+    "_tanks2.remove();",
+    "void Scene600::remove() {",
+    "SceneExt::remove();",
+    "_smoke.remove();",
+    "_stasisField.remove();",
+    "R2_GLOBALS._sceneItems.remove(&_engineCompartment);",
+    "_aerosol.remove();",
+    "_scanner.remove();",
+    "void Scene700::remove() {",
+    "SceneExt::remove();",
+    "_cable.remove();",
+    "_comScanner.remove();",
+    "_sceneText.remove();",
+    "void Scene825::remove() {",
+    "SceneExt::remove();",
+    "_vertLine5.remove();",
+    "_sceneText.remove();",
+    "_vertLine5.remove();",
+    "_vertLine1.remove();",
+    "_vertLine2.remove();",
+    "_vertLine3.remove();",
+    "_vertLine4.remove();",
+    "_vertLine5.remove();",
+    "_clamp.remove();",
+    "_spark.remove();",
+    "_fiber.remove();",
+    "scene->_button2.remove();",
+    "scene->_button3.remove();",
+    "scene->_button4.remove();",
+    "scene->_button5.remove();",
+    "scene->_button6.remove();",
+    "scene->_button7.remove();",
+    "void Scene900::remove() {",
+    "SceneExt::remove();",
+    "_button2.remove();",
+    "_button3.remove();",
+    "_button4.remove();",
+    "_button5.remove();",
+    "_button6.remove();",
+    "_button7.remove();",
+    "_button2.remove();",
+    "_button3.remove();",
+    "_button2.remove();",
+    "_button3.remove();",
+    "_button4.remove();",
+    "_button5.remove();",
+    "_button6.remove();",
+    "_button7.remove();"
+  ],
+  "engines/tsage/ringworld2/ringworld2_scenes0.h": [
+    "void remove() override;",
+    "void remove() override;",
+    "void remove() override;",
+    "void remove() override;",
+    "void remove() override;",
+    "void remove() override;",
+    "void remove() override;",
+    "void remove() override;",
+    "void remove() override;",
+    "void remove() override;",
+    "void remove() override;",
+    "void remove() override;",
+    "void remove() override;",
+    "void remove() override;"
+  ],
+  "engines/tsage/ringworld2/ringworld2_scenes1.cpp": [
+    "void Scene1000::remove() {",
+    "SceneExt::remove();",
+    "_animationPlayer.remove();",
+    "void Scene1100::remove() {",
+    "SceneExt::remove();",
+    "_shipFormation.remove();",
+    "_shipFormationShadow.remove();",
+    "_runningGuy1.remove();",
+    "_runningGuy2.remove();",
+    "void Scene1500::remove() {",
+    "SceneExt::remove();",
+    "scene->_dishControlsWindow.remove();",
+    "void Scene1550::DishControlsWindow::remove() {",
+    "_button.remove();",
+    "_lever.remove();",
+    "ModalWindow::remove();",
+    "_dishControlsWindow.remove();",
+    "_dishControlsWindow.remove();",
+    "_dishControlsWindow.remove();",
+    "_junk[0].remove();",
+    "_airbag.remove();",
+    "_gyroscope.remove();",
+    "_wreckage2.remove();",
+    "_wreckage2.remove();",
+    "_wreckage2.remove();",
+    "_wreckage2.remove();",
+    "_wreckage2.remove();",
+    "_wreckage2.remove();",
+    "_wreckage2.remove();",
+    "_wreckage2.remove();",
+    "_diagnosticsDisplay.remove();",
+    "_joystick.remove();",
+    "_wallCorner1.remove();",
+    "_westWall.remove();",
+    "_northWall.remove();",
+    "_southWall.remove();",
+    "_wallCorner2.remove();",
+    "_eastWall.remove();",
+    "_junk[i].remove();",
+    "_wreckage.remove();",
+    "_shipComponents[i].remove();",
+    "_airbag.remove();",
+    "_joystick.remove();",
+    "_gyroscope.remove();",
+    "_wreckage4.remove();",
+    "_diagnosticsDisplay.remove();",
+    "_wreckage2.remove();",
+    "_wreckage3.remove();",
+    "_companion.remove();",
+    "_dish.remove();",
+    "_dishTowerShadow.remove();",
+    "_dishTower.remove();",
+    "_walkway.remove();",
+    "void Scene1575::remove() {",
+    "SceneExt::remove();",
+    "R2_GLOBALS._sceneItems.remove(&scene->_joystickPlug);",
+    "scene->_arrActor[5].remove();",
+    "R2_GLOBALS._sceneItems.remove(&scene->_screenSlot);",
+    "scene->_screenDisplay.remove();",
+    "remove();",
+    "R2_GLOBALS._sceneItems.remove(&scene->_storageCompartment);",
+    "remove();",
+    "remove();",
+    "void Scene1625::remove() {",
+    "SceneExt::remove();",
+    "_tealHead.remove();",
+    "_tealHead.remove();",
+    "_wire.remove();",
+    "_glass.remove();",
+    "_slabWest.remove();",
+    "_slabEast.remove();",
+    "_slabShadowWest.remove();",
+    "_slabShadowEast.remove();",
+    "_westPlatform.remove();",
+    "_rimTransportDoor.remove();",
+    "_rimTransport.remove();",
+    "_ledgeHopper.remove();",
+    "_hatch.remove();",
+    "void Scene1700::remove() {",
+    "SceneExt::remove();",
+    "void Scene1750::remove() {",
+    "SceneExt::remove();",
+    "void Scene1850::remove() {",
+    "SceneExt::remove();",
+    "_rimPosition.remove();",
+    "void Scene1900::remove() {",
+    "SceneExt::remove();",
+    "R2_GLOBALS._sceneItems.remove(&_button);",
+    "R2_GLOBALS._sceneItems.remove(&_door);",
+    "void Scene1925::remove() {",
+    "SceneExt::remove();",
+    "void Scene1945::remove() {",
+    "SceneExt::remove();",
+    "R2_GLOBALS._sceneItems.remove(&_gunpowder);"
+  ],
+  "engines/tsage/ringworld2/ringworld2_scenes1.h": [
+    "void remove() override;",
+    "void remove() override;",
+    "void remove() override;",
+    "void remove() override;",
+    "void remove() override;",
+    "void remove() override;",
+    "void remove() override;",
+    "void remove() override;",
+    "void remove() override;",
+    "void remove() override;",
+    "void remove() override;",
+    "void remove() override;"
+  ],
+  "engines/tsage/ringworld2/ringworld2_scenes2.cpp": [
+    "_companion.remove();",
+    "void Scene2000::remove() {",
+    "SceneExt::remove();",
+    "void Scene2350::remove() {",
+    "SceneExt::remove();",
+    "void Scene2425::remove() {",
+    "SceneExt::remove();",
+    "_gunPowder.remove();",
+    "_oilLamp.remove();",
+    "void Scene2435::remove() {",
+    "SceneExt::remove();",
+    "void Scene2440::remove() {",
+    "SceneExt::remove();",
+    "_oilLamp.remove();",
+    "void Scene2450::remove() {",
+    "SceneExt::remove();",
+    "_parker.remove();",
+    "_careTaker.remove();",
+    "_companion.remove();",
+    "scene->_lamp.remove();",
+    "void Scene2455::remove() {",
+    "SceneExt::remove();",
+    "_scrithKey.remove();",
+    "void Scene2525::remove() {",
+    "SceneExt::remove();",
+    "_glassDome.remove();",
+    "_flask.remove();",
+    "_tannerMask.remove();",
+    "_rebreatherTank.remove();",
+    "_rebreatherTank.remove();",
+    "void Scene2600::remove() {",
+    "//\t_rotation->remove();",
+    "SceneExt::remove();",
+    "_nej.remove();",
+    "_object4.remove();",
+    "_object3.remove();",
+    "_nej.remove();",
+    "_bird.remove();",
+    "void Scene2900::remove() {",
+    "SceneExt::remove();"
+  ],
+  "engines/tsage/ringworld2/ringworld2_scenes2.h": [
+    "void remove() override;",
+    "void remove() override;",
+    "void remove() override;",
+    "void remove() override;",
+    "void remove() override;",
+    "void remove() override;",
+    "void remove() override;",
+    "void remove() override;",
+    "void remove() override;",
+    "void remove() override;"
+  ],
+  "engines/tsage/ringworld2/ringworld2_scenes3.cpp": [
+    "void Scene3100::remove() {",
+    "SceneExt::remove();",
+    "_guard.remove();",
+    "_bulbOrWire.remove();",
+    "_foodTray.remove();",
+    "R2_GLOBALS._sceneItems.remove(&_doorBars);",
+    "void Scene3260::remove() {",
+    "SceneExt::remove();",
+    "_screen4.remove();",
+    "void Scene3350::remove() {",
+    "SceneExt::remove();",
+    "R2_GLOBALS._sceneItems.remove(&_door);",
+    "R2_GLOBALS._sceneItems.remove(&_itemArray[i]);",
+    "R2_GLOBALS._sceneItems.remove(&_background);",
+    "R2_GLOBALS._sceneItems.remove(&_door);",
+    "void Scene3375::remove() {",
+    "SceneExt::remove();",
+    "void Scene3385::remove() {",
+    "SceneExt::remove();",
+    "void Scene3395::remove() {",
+    "SceneExt::remove();",
+    "void Scene3400::remove() {",
+    "SceneExt::remove();",
+    "void Scene3500::remove() {",
+    "SceneExt::remove();",
+    "void Scene3600::remove() {",
+    "SceneExt::remove();",
+    "void Scene3700::remove() {",
+    "SceneExt::remove();",
+    "_balloon.remove();",
+    "_harness.remove();"
+  ],
+  "engines/tsage/ringworld2/ringworld2_scenes3.h": [
+    "void remove() override;",
+    "void remove() override;",
+    "void remove() override;",
+    "void remove() override;",
+    "void remove() override;",
+    "void remove() override;",
+    "void remove() override;",
+    "void remove() override;",
+    "void remove() override;",
+    "void remove() override;"
+  ],
+  "engines/tsage/ringworld2/ringworld2_speakers.cpp": [
+    "void VisualSpeaker::remove() {",
+    "Speaker::remove();",
+    "// TODO: Handle _field18 if used in Action. It looks only used in the original in remove()",
+    "_sceneText.remove();",
+    "_sceneText.remove();",
+    "_object1.remove();"
+  ],
+  "engines/tsage/ringworld2/ringworld2_speakers.h": [
+    "void remove() override;"
+  ],
+  "engines/tsage/ringworld2/ringworld2_vampire.cpp": [
+    "void Scene1950::KeypadWindow::remove() {",
+    "scene->_sceneAreas.remove(&_buttons[_buttonIndex]);",
+    "_buttons[_buttonIndex].remove();",
+    "ModalWindow::remove();",
+    "_northDoorway.remove();",
+    "_southDoorway.remove();",
+    "_vampire.remove();",
+    "_door.remove();",
+    "_scrolls.remove();",
+    "_cube.remove();",
+    "_containmentField.remove();",
+    "_gem.remove();",
+    "_pulsingLights.remove();",
+    "_scrolls.remove();",
+    "R2_GLOBALS._sceneItems.remove(&_background);",
+    "void Scene1950::remove() {",
+    "SceneExt::remove();",
+    "_KeypadWindow.remove();",
+    "_containmentField.remove();",
+    "_gem.remove();"
+  ],
+  "engines/tsage/ringworld2/ringworld2_vampire.h": [
+    "void remove() override;",
+    "void remove() override;"
+  ],
+  "engines/tsage/saveload.cpp": [
+    "_objList.remove(obj);",
+    "dynObjects.remove(pObj);"
+  ],
+  "engines/tsage/scenes.cpp": [
+    "_scene->remove();",
+    "sceneItem->remove();"
+  ],
+  "engines/tsage/scenes.h": [
+    "void removeHandler(GameHandler *entry) { _handlers.remove(entry); }"
+  ],
+  "engines/tsage/sherlock/sherlock_logo.cpp": [
+    "scene._object2.remove();",
+    "remove();"
+  ],
+  "engines/tsage/sound.cpp": [
+    "_soundList.remove(sound);",
+    "sfManager()._installedDrivers.remove(driver);",
+    "g_globals->_sounds.remove(this);",
+    "remove();",
+    "remove();",
+    "void PlayStream::remove() {"
+  ],
+  "engines/tsage/sound.h": [
+    "void remove() override;"
+  ],
+  "engines/twp/actorlib.cpp": [
+    "actor->_nodeAnim->remove();",
+    "actor->_node->remove();"
+  ],
+  "engines/twp/callback.cpp": [
+    "void Callback::remove() {"
+  ],
+  "engines/twp/callback.h": [
+    "void remove();"
+  ],
+  "engines/twp/dialog.cpp": [
+    "result = remove(result, '(', ')');",
+    "result = remove(result, '{', '}');"
+  ],
+  "engines/twp/motor.cpp": [
+    "_actor->_sayNode->remove();",
+    "_node->remove();",
+    "_node->remove();"
+  ],
+  "engines/twp/object.cpp": [
+    "_nodeAnim->remove();",
+    "_node->remove();"
+  ],
+  "engines/twp/objlib.cpp": [
+    "obj->_node->remove();"
+  ],
+  "engines/twp/scenegraph.cpp": [
+    "remove();",
+    "child->remove();",
+    "children[i]->remove();",
+    "void Node::remove() {"
+  ],
+  "engines/twp/scenegraph.h": [
+    "void remove();"
+  ],
+  "engines/twp/squirrel/sqarray.h": [
+    "_values.remove(idx);"
+  ],
+  "engines/twp/squirrel/squtils.h": [
+    "void remove(SQUnsignedInteger idx)"
+  ],
+  "engines/twp/syslib.cpp": [
+    "cb->remove();"
+  ],
+  "engines/twp/twp.cpp": [
+    "_room->_scene->remove();",
+    "obj->_node->remove();"
+  ],
+  "engines/twp/util.cpp": [
+    "Common::String remove(const Common::String &txt, char startC, char endC) {"
+  ],
+  "engines/twp/util.h": [
+    "Common::String remove(const Common::String &txt, char startC, char endC);"
+  ],
+  "engines/ultima/nuvie/actors/actor.cpp": [
+    "return container->remove(obj);",
+    "return inventory->remove(obj);"
+  ],
+  "engines/ultima/nuvie/core/obj.cpp": [
+    "bool Obj::remove(Obj *obj) {",
+    "if (container->remove(obj) == false)"
+  ],
+  "engines/ultima/nuvie/core/obj.h": [
+    "bool remove(Obj *obj);"
+  ],
+  "engines/ultima/nuvie/core/obj_manager.cpp": [
+    "obj_list->remove(obj);",
+    "temp_obj_list.remove(obj);",
+    "llist->remove(stack_with);",
+    "cont_obj->remove(obj); //remove from parent container."
+  ],
+  "engines/ultima/nuvie/files/u6_lzw.cpp": [
+    "//fwrite(destination_buffer, 1, destination_buffer_size, output_file);"
+  ],
+  "engines/ultima/nuvie/misc/u6_list.cpp": [
+    "bool U6LList::remove(void *data) {"
+  ],
+  "engines/ultima/nuvie/misc/u6_llist.h": [
+    "bool remove(void *data);"
+  ],
+  "engines/ultima/nuvie/misc/u6_misc.cpp": [
+    "int ret = mkdir(tmp_path.c_str());",
+    "int ret = mkdir(tmp_path.c_str(), mode);"
+  ],
+  "engines/ultima/nuvie/script/script.cpp": [
+    "if (cont_obj->remove(obj) == false)"
+  ],
+  "engines/ultima/nuvie/script/script_cutscene.h": [
+    "sprite_list.remove(s);"
+  ],
+  "engines/ultima/nuvie/sound/adplug/fm_opl.cpp": [
+    "sample[0]=fopen(\"sampsum.pcm\",\"wb\");",
+    "cymfile = fopen(\"3812_.cym\",\"wb\");"
+  ],
+  "engines/ultima/nuvie/usecode/u6_usecode.cpp": [
+    "obj_list->remove(portc_obj);"
+  ],
+  "engines/ultima/nuvie/usecode/usecode.cpp": [
+    "obj->container->remove(temp_obj); // a pop_back() may be more efficient"
+  ],
+  "engines/ultima/nuvie/views/container_widget.cpp": [
+    "//   container_obj->container->remove(selected_obj);"
+  ],
+  "engines/ultima/nuvie/views/inventory_widget.cpp": [
+    "//   container_obj->container->remove(selected_obj);"
+  ],
+  "engines/ultima/nuvie/views/view_manager.cpp": [
+    "gumps.remove(gump);",
+    "container_gumps.remove(gump);",
+    "doll_gumps.remove(gump);"
+  ],
+  "engines/ultima/ultima4/controllers/game_controller.cpp": [
+    "g_context->_location->_map->_annotations->remove(coords, tile);",
+    "g_context->_location->_map->_annotations->remove(*gate, g_context->_location->_map->translateFromRawTileIndex(0x40));",
+    "g_context->_location->_map->_annotations->remove(*gate, g_context->_location->_map->translateFromRawTileIndex(0x40));",
+    "g_context->_location->_map->_annotations->remove(*gate, g_context->_location->_map->translateFromRawTileIndex(0x41));",
+    "g_context->_location->_map->_annotations->remove(*gate, g_context->_location->_map->translateFromRawTileIndex(0x42));",
+    "g_context->_location->_map->_annotations->remove(*gate, g_context->_location->_map->translateFromRawTileIndex(0x43));",
+    "g_context->_location->_map->_annotations->remove(*gate, g_context->_location->_map->translateFromRawTileIndex(0x43));",
+    "g_context->_location->_map->_annotations->remove(*gate, g_context->_location->_map->translateFromRawTileIndex(0x42));",
+    "g_context->_location->_map->_annotations->remove(*gate, g_context->_location->_map->translateFromRawTileIndex(0x41));"
+  ],
+  "engines/ultima/ultima4/events/event_handler.cpp": [
+    "getTimer()->remove(&Controller::timerCallback, controller);"
+  ],
+  "engines/ultima/ultima4/events/timed_event_mgr.cpp": [
+    "TimedEventMgr::List::iterator TimedEventMgr::remove(List::iterator i) {",
+    "void TimedEventMgr::remove(TimedEvent *event) {",
+    "remove(i);",
+    "void TimedEventMgr::remove(TimedEvent::Callback theCallback, void *data) {",
+    "remove(i);",
+    "_events.remove(*i);"
+  ],
+  "engines/ultima/ultima4/events/timed_event_mgr.h": [
+    "List::iterator remove(List::iterator i);",
+    "void remove(TimedEvent *event);",
+    "void remove(TimedEvent::Callback theCallback, void *data = nullptr);"
+  ],
+  "engines/ultima/ultima4/game/creature.cpp": [
+    "remove();"
+  ],
+  "engines/ultima/ultima4/game/death.cpp": [
+    "eventHandler->getTimer()->remove(&deathTimer);"
+  ],
+  "engines/ultima/ultima4/game/object.cpp": [
+    "void Object::remove() {"
+  ],
+  "engines/ultima/ultima4/game/object.h": [
+    "void remove();  /**< Removes itself from any maps that it is a part of */"
+  ],
+  "engines/ultima/ultima4/game/player.cpp": [
+    "remove();"
+  ],
+  "engines/ultima/ultima4/game/spell.cpp": [
+    "g_context->_location->_map->_annotations->remove(i);",
+    "g_context->_location->_map->_annotations->remove(i);"
+  ],
+  "engines/ultima/ultima4/map/annotation.cpp": [
+    "void AnnotationMgr::remove(Coords coords, MapTile tile) {",
+    "remove(look_for);",
+    "void AnnotationMgr::remove(Annotation &a) {",
+    "void AnnotationMgr::remove(Annotation::List l) {",
+    "remove(*it);"
+  ],
+  "engines/ultima/ultima4/map/annotation.h": [
+    "void remove(Coords pos, MapTile tile);",
+    "void remove(Annotation &);",
+    "void remove(Annotation::List);"
+  ],
+  "engines/ultima/ultima4/map/movement.cpp": [
+    "g_context->_location->_map->_annotations->remove(g_context->_location->_map->_annotations->allAt(change1));",
+    "g_context->_location->_map->_annotations->remove(g_context->_location->_map->_annotations->allAt(change2));"
+  ],
+  "engines/ultima/ultima4/views/textview.cpp": [
+    "eventHandler->getTimer()->remove(&cursorTimer, this);"
+  ],
+  "engines/ultima/ultima8/gumps/gump.cpp": [
+    "_children.remove(gump);",
+    "_children.remove(gump);"
+  ],
+  "engines/ultima/ultima8/usecode/uc_list.h": [
+    "void remove(const uint8 *e) {",
+    "remove(l[i]);"
+  ],
+  "engines/ultima/ultima8/world/current_map.cpp": [
+    "_items[cx][cy].remove(item);"
+  ],
+  "engines/ultima/ultima8/world/world.h": [
+    "_ethereal.remove(objid);"
+  ],
+  "engines/vcruise/vcruise.cpp": [
+    "SearchMan.remove(\"VCruiseInstallerPackage\");"
+  ],
+  "engines/voyeur/events.cpp": [
+    "_intNodes.remove(node);"
+  ],
+  "engines/wage/detection.cpp": [
+    "SearchMan.remove(\"WageMetaEngineDetection::fallbackDetect\");",
+    "SearchMan.remove(\"WageMetaEngineDetection::fallbackDetect\");"
+  ],
+  "engines/wage/entities.cpp": [
+    "_currentScene->_objs.remove(this);"
+  ],
+  "engines/wage/world.cpp": [
+    "from->_chrs.remove(chr);"
+  ],
+  "engines/watchmaker/classes/do_keyboard.cpp": [
+    "if ((fh = fopen(str, \"rb\")) == NULL)"
+  ],
+  "engines/watchmaker/game.cpp": [
+    "remove(\"temp.tmp\");"
+  ],
+  "engines/watchmaker/game_options.h": [
+    "fp = fopen(str, \"wb\");",
+    "fwrite(&sound_on, sizeof(uint8), 1, fp);",
+    "fwrite(&sound_volume, sizeof(uint8), 1, fp);",
+    "fwrite(&music_on, sizeof(uint8), 1, fp);",
+    "fwrite(&music_volume, sizeof(uint8), 1, fp);",
+    "fwrite(&speech_on, sizeof(uint8), 1, fp);",
+    "fwrite(&speech_volume, sizeof(uint8), 1, fp);",
+    "fwrite(&subtitles_on, sizeof(uint8), 1, fp);",
+    "fwrite(&bShowRoomDescriptions, sizeof(uint8), 1, fp);",
+    "fwrite(&bShowExtraLocalizationStrings, sizeof(uint8), 1, fp);"
+  ],
+  "engines/watchmaker/ll/ll_system.cpp": [
+    "else                        tempFile = fopen(name, \"rb\");"
+  ],
+  "engines/watchmaker/saveload.cpp": [
+    "remove(_str);",
+    "rename(str,_str);",
+    "remove(_str);",
+    "rename(str,_str);",
+    "if ((fhs = fopen(str, \"wb\")) == nullptr)",
+    "fwrite(&WmVer,              sizeof(t3dU16),        1,              fhs);",
+    "fwrite(SaveName,                sizeof(char),          T3D_NAMELEN,    fhs);",
+    "fwrite(t3dCurRoom->Name,        sizeof(char),          T3D_NAMELEN,    fhs);",
+    "fwrite(&Room[i].flags,          sizeof(t3dU16),        1,              fhs);",
+    "fwrite(&Obj[i].name,            sizeof(t3dU16),        1,              fhs);",
+    "fwrite(Obj[i].examine,          sizeof(t3dU16),        MAX_PLAYERS,    fhs);",
+    "fwrite(Obj[i].action,           sizeof(t3dU16),        MAX_PLAYERS,    fhs);",
+    "fwrite(Obj[i].anim,         sizeof(t3dU16),        MAX_PLAYERS,    fhs);",
+    "fwrite(Obj[i].anim2,            sizeof(t3dU16),        MAX_PLAYERS,    fhs);",
+    "fwrite(&Obj[i].goroom,          sizeof(t3dU8),        1,              fhs);",
+    "fwrite(&Obj[i].ninv,            sizeof(t3dU8),        1,              fhs);",
+    "fwrite(&Obj[i].flags,           sizeof(t3dU16),        1,              fhs);",
+    "fwrite(&Obj[i].pos,         sizeof(t3dU8),        1,              fhs);",
+    "fwrite(&InvObj[i].name,     sizeof(t3dU16),        1,              fhs);",
+    "fwrite(InvObj[i].examine,       sizeof(t3dU16),        MAX_PLAYERS,    fhs);",
+    "fwrite(InvObj[i].action,        sizeof(t3dU16),        MAX_PLAYERS,    fhs);",
+    "fwrite(&InvObj[i].flags,        sizeof(t3dU16),        1,              fhs);",
+    "fwrite(&InvObj[i].uwobj,        sizeof(t3dU16),        1,              fhs);",
+    "fwrite(InvObj[i].anim,          sizeof(t3dU16),        MAX_PLAYERS,    fhs);",
+    "fwrite(InvObj[i].anim2,     sizeof(t3dU16),        MAX_PLAYERS,    fhs);",
+    "fwrite(&Sound[i].flags,         sizeof(t3dU8),        1,              fhs);",
+    "fwrite(&Dialog[i].flags,        sizeof(t3dU16),        1,              fhs);",
+    "fwrite(&Diary[i].startt,        sizeof(t3dU16),        1,              fhs);",
+    "fwrite(&Diary[i].endt,          sizeof(t3dU16),        1,              fhs);",
+    "fwrite(&Diary[i].end_hideobj,   sizeof(t3dU16),        1,              fhs);",
+    "fwrite(&DlgMenu[i].on,          sizeof(t3dU8),        1,              fhs);",
+    "fwrite(&PDALog[i].time,     sizeof(t3dS32),        1,              fhs);",
+    "fwrite(&PDALog[i].flags,        sizeof(t3dS32),        1,              fhs);",
+    "fwrite(&CurRoom,                sizeof(t3dS32),        1,              fhs);",
+    "fwrite(&CurInvObj,              sizeof(t3dS32),        1,              fhs);",
+    "fwrite(&BigInvObj,              sizeof(t3dS32),        1,              fhs);",
+    "fwrite(&CurPlayer,              sizeof(t3dS32),        1,              fhs);",
+    "fwrite(&CurSubMusic,            sizeof(t3dS32),        1,              fhs);",
+    "fwrite(Inv,                     sizeof(t3dU8),        MAX_PLAYERS * MAX_ICONS_IN_INV,   fhs);",
+    "fwrite(InvLen,                  sizeof(t3dU8),        MAX_PLAYERS,    fhs);",
+    "fwrite(InvBase,             sizeof(t3dU8),        MAX_PLAYERS,    fhs);",
+    "fwrite(PlayerPos,               sizeof(t3dU8),        T3D_MAX_CHARACTERS, fhs);",
+    "fwrite(&CameraTargetObj,        sizeof(t3dS32),        1,              fhs);",
+    "fwrite(&CameraTargetBone,       sizeof(t3dS32),        1,              fhs);",
+    "fwrite(Comb2D,                  sizeof(t3dS32),        5,              fhs);",
+    "fwrite(Comb2Q,                  sizeof(t3dS32),        5,              fhs);",
+    "fwrite(Comb19,                  sizeof(t3dS32),        3,              fhs);",
+    "fwrite(Comb1D,                  sizeof(t3dS32),        5,              fhs);",
+    "fwrite(&Forno25,                sizeof(t3dS32),        1,              fhs);",
+    "fwrite(&Frigo25,                sizeof(t3dS32),        1,              fhs);",
+    "fwrite(Comb31,                  sizeof(t3dS32),        5,              fhs);",
+    "fwrite(Comb33,                  sizeof(t3dS32),        4,              fhs);",
+    "fwrite(Comb42,                  sizeof(t3dS32),        12,             fhs);",
+    "fwrite(Comb44,                  sizeof(t3dS32),        3,              fhs);",
+    "fwrite(Comb45,                  sizeof(t3dS32),        5,              fhs);",
+    "fwrite(&bMoglieGym,         sizeof(t3dU8),     1,              fhs);",
+    "fwrite(&bMoglieSangue,          sizeof(t3dU8),     1,              fhs);",
+    "fwrite(&bNoPlayerSwitch,        sizeof(t3dU8),     1,              fhs);",
+    "fwrite(&bPorteEsternoBloccate,  sizeof(t3dU8),     1,              fhs);",
+    "fwrite(&bSezioneLabirinto,      sizeof(t3dU8),     1,              fhs);",
+    "fwrite(&MMList[i],          sizeof(struct SMeshModifier),      1,      fhs);",
+    "fwrite(PlayerStand,             sizeof(struct SPlayerStand),   MAX_PLAYERS,    fhs);",
+    "fwrite(&t3dCurTime,             sizeof(t3dS32),        1,              fhs);",
+    "fwrite(&Character[i]->Mesh->Trasl,      sizeof(t3dV3F),        1,      fhs);",
+    "fwrite(&Character[i]->Dir,              sizeof(t3dV3F),        1,      fhs);",
+    "fwrite(&Character[i]->Flags,            sizeof(t3dU8),        1,      fhs);",
+    "fwrite(&Character[i]->Walk.LookX,       sizeof(t3dF32),        1,      fhs);",
+    "fwrite(&Character[i]->Walk.LookZ,       sizeof(t3dF32),        1,      fhs);",
+    "fwrite(&Character[i]->Walk.CurX,        sizeof(t3dF32),        1,      fhs);",
+    "fwrite(&Character[i]->Walk.CurZ,        sizeof(t3dF32),        1,      fhs);",
+    "fwrite(&Character[i]->Walk.CurPanel,    sizeof(t3dS16),        1,      fhs);",
+    "fwrite(&Character[i]->Walk.OldPanel,    sizeof(t3dS16),        1,      fhs);",
+    "for (k = 0, x = 0; k < len; k++) fwrite(&x,    1,  1,  fhs);",
+    "fwrite(&UsedDlgMenu[i][j],      sizeof(t3dU8),     MAX_DLG_MENUS,              fhs);"
+  ],
+  "engines/wintermute/base/scriptables/script_ext_file.cpp": [
+    "// Should replace fopen(..., \"ab+\") and fopen(..., \"a+\")"
+  ],
+  "engines/wintermute/base/scriptables/script_value.cpp": [
+    "FILE* f = fopen(\"c:\\\\val.log\", \"a+\");"
+  ],
+  "engines/wintermute/ext/dll_kernel32.cpp": [
+    "// Specification: external \"kernel32.dll\" stdcall long GetEnvironmentVariableA(string, string, long)",
+    "// Known usage: GetEnvironmentVariableA(<EnvName>, <buffer>, 65535)"
+  ],
+  "engines/zvision/common/focus_list.h": [
+    "void remove(const T value) {"
+  ],
+  "engines/zvision/text/subtitle_manager.cpp": [
+    "_subsFocus.remove(it->_key);"
+  ],
+  "common/algorithm.h": [
+    "It remove(It first, It last, const T& val) {"
+  ],
+  "common/archive.cpp": [
+    "void SearchSet::remove(const String &name) {"
+  ],
+  "common/archive.h": [
+    "void remove(const String& name);"
+  ],
+  "common/coroutines.cpp": [
+    "_events.remove(evt);"
+  ],
+  "common/forbidden.h": [
+    "* as fopen(), setjmp(), etc.",
+    "#define fopen(a,b)\tFORBIDDEN_look_at_common_forbidden_h_for_more_info SYMBOL !%*",
+    "#define fwrite(a,b,c,d)\tFORBIDDEN_look_at_common_forbidden_h_for_more_info SYMBOL !%*",
+    "#define getenv(a)\tFORBIDDEN_look_at_common_forbidden_h_for_more_info SYMBOL !%*",
+    "#define mkdir(a,b)\tFORBIDDEN_look_at_common_forbidden_h_for_more_info SYMBOL !%*"
+  ],
+  "common/fs.h": [
+    "* @todo If createWriteStream() (or a hypothetical future mkdir() method) is used,"
+  ],
+  "common/list.h": [
+    "void remove(const t_T &val) {"
+  ],
+  "common/lua/lauxlib.cpp": [
+    "lf.f = fopen(filename, \"r\");",
+    "lf.f = freopen(filename, \"rb\", lf.f);  // reopen in binary mode"
+  ],
+  "common/lua/liolib.cpp": [
+    "*pf = fopen(filename, mode);",
+    "*pf = fopen(filename, \"r\");"
+  ],
+  "common/std/vector.h": [
+    "void remove(T element) {"
+  ],
+  "common/stream.h": [
+    "* supposed to match that of ISO C fwrite()."
+  ],
+  "graphics/macgui/macwindowmanager.cpp": [
+    "_windowStack.remove(_windows[id]);"
+  ],
+  "graphics/mfc/document.cpp": [
+    "m_viewList.remove(pView);"
+  ],
+  "graphics/mfc/libs/array.h": [
+    "bool remove(const T &value) {"
+  ],
+  "graphics/mfc/libs/event_loop.h": [
+    "void remove(CWnd *wnd) {",
+    "Common::List<CWnd *>::remove(wnd);",
+    "_kbdHookProc.remove((HOOKPROC)hook);"
+  ],
+  "graphics/mfc/win_app.cpp": [
+    "SearchMan.remove(\"CurrentDir\");"
+  ],
+  "graphics/mfc/wnd.cpp": [
+    "AfxGetApp()->afxUpdateWnds().remove(this);",
+    "m_pParentWnd->_ownedControls.remove(this);",
+    "AfxGetApp()->afxUpdateWnds().remove(this);",
+    "pParent->_ownedControls.remove(oldControl);",
+    "AfxGetApp()->afxUpdateWnds().remove(oldControl);"
+  ],
+  "graphics/nanosvg/nanosvg.h": [
+    "fp = fopen(filename, \"rb\");"
+  ],
+  "graphics/nanosvg/nanosvgrast.h": [
+    "FILE* fp = fopen(name, \"w\");"
+  ],
+  "graphics/opengl/shader.cpp": [
+    "SearchMan.remove(\"GRIM_SHADERS\");",
+    "SearchMan.remove(\"MYST3_SHADERS\");",
+    "SearchMan.remove(\"STARK_SHADERS\");",
+    "SearchMan.remove(\"WINTERMUTE_SHADERS\");",
+    "SearchMan.remove(\"PLAYGROUND3D_SHADERS\");",
+    "SearchMan.remove(\"FREESCAPE_SHADERS\");",
+    "SearchMan.remove(\"HPL1_SHADERS\");",
+    "SearchMan.remove(\"COLONY_SHADERS\");",
+    "SearchMan.remove(\"EXTRA_PATH\");"
+  ],
+  "audio/softsynth/mt32/FileStream.h": [
+    "#include <fstream>"
+  ],
+  "audio/softsynth/mt32/Part.cpp": [
+    "activePolys.remove(poly);",
+    "void PolyList::remove(Poly * const polyToRemove) {"
+  ],
+  "audio/softsynth/mt32/Part.h": [
+    "void remove(Poly * const poly);"
+  ],
+  "gui/integrity-dialog.cpp": [
+    "SearchMan.remove(gamePath.toString());"
+  ],
+  "backends/fs/abstract-fs.h": [
+    "* Returns the 'path' of the current node, usable in fopen()."
+  ],
+  "backends/fs/fs-factory.h": [
+    "* would be for calls to fopen().",
+    "* Returns a path suitable for systen functions such as fopen() for the given ScummVM path,"
+  ],
+  "backends/fs/stdiostream.cpp": [
+    "// for Windows unicode fopen(): _wfopen() and for Win32::moveFile()",
+    "if (!rename(src.c_str(), dst.c_str())) {",
+    "(void)remove(dst.c_str());",
+    "return !rename(src.c_str(), dst.c_str());",
+    "return fwrite(ptr, 1, len, (FILE *)_handle);",
+    "FILE *handle = _wfopen(wPath, writeMode == WriteMode_Read ? L\"rb\" : L\"wb\");",
+    "FILE *handle = fopen64(tmpPath.c_str(), writeMode == WriteMode_Read ? \"rb\" : \"wb\");",
+    "FILE *handle = fopen(tmpPath.c_str(), writeMode == WriteMode_Read ? \"rb\" : \"wb\");"
+  ],
+  "backends/fs/windows/windows-fs.cpp": [
+    "if (CreateDirectory(charToTchar(_path.c_str()), nullptr) != 0 || GetLastError() == ERROR_ALREADY_EXISTS)"
+  ],
+  "backends/saves/default/default-saves.cpp": [
+    "if (remove(filepath.c_str()) == 0)"
+  ],
+  "backends/networking/sdl_net/handlers/createdirectoryhandler.cpp": [
+    "CreateDirectoryHandler::CreateDirectoryHandler() {}",
+    "CreateDirectoryHandler::~CreateDirectoryHandler() {}"
+  ],
+  "backends/networking/sdl_net/handlers/createdirectoryhandler.h": [
+    "CreateDirectoryHandler();",
+    "~CreateDirectoryHandler() override;"
+  ],
+  "backends/platform/sdl/win32/win32.cpp": [
+    "freopen(\"CONIN$\",\"r\",stdin);",
+    "freopen(\"CONOUT$\",\"w\",stdout);",
+    "freopen(\"CONOUT$\",\"w\",stderr);"
+  ],
+  "backends/platform/sdl/win32/win32_wrapper.cpp": [
+    "HRESULT SHGetFolderPathFunc(HWND hwnd, int csidl, HANDLE hToken, DWORD dwFlags, LPTSTR pszPath) {",
+    "bool created = CreateDirectoryW(wide, nullptr) != 0;",
+    "probe = CreateFileW(filename, GENERIC_WRITE, 0, nullptr, CREATE_NEW,",
+    "DWORD size = GetEnvironmentVariableW(L\"SCUMMVM_CE_WRITE_TRACE\", destination, ARRAYSIZE(destination));",
+    "HANDLE file = CreateFileW(traceName, FILE_APPEND_DATA, FILE_SHARE_READ | FILE_SHARE_WRITE,",
+    "if (MoveFileEx(tSrc.get(), tDst.get(), MOVEFILE_REPLACE_EXISTING)) {",
+    "DeleteFile(tDst.get());",
+    "return MoveFile(tSrc.get(), tDst.get());"
+  ],
+  "backends/platform/sdl/win32/win32_wrapper.h": [
+    "HRESULT SHGetFolderPathFunc(HWND hwnd, int csidl, HANDLE hToken, DWORD dwFlags, LPTSTR pszPath);"
+  ],
+  "backends/imgui/imgui.cpp": [
+    "// We need a fopen() wrapper because MSVC/Windows fopen doesn't handle UTF-8 filenames.",
+    "return ::_wfopen(filename_wbuf, mode_wbuf);",
+    "return fopen(filename, mode);",
+    "ImU64   ImFileWrite(const void* data, ImU64 sz, ImU64 count, ImFileHandle f)    { return fwrite(data, (size_t)sz, (size_t)count, f); }",
+    "// FIXME: We could technically remove (last_glyph->AdvanceX - last_glyph->X1) from text_size.x here and save a few pixels."
+  ],
+  "backends/imgui/imstb_truetype.h": [
+    "fread(ttf_buffer, 1, 1<<20, fopen(\"c:/windows/fonts/times.ttf\", \"rb\"));",
+    "fread(ttf_buffer, 1, 1<<25, fopen(argc > 3 ? argv[3] : \"c:/windows/fonts/arialbd.ttf\", \"rb\"));",
+    "fread(buffer, 1, 1000000, fopen(\"c:/windows/fonts/arialbd.ttf\", \"rb\"));"
+  ]
+}

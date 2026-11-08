@@ -163,6 +163,20 @@ int main(int argc, char *argv[]) {
 		normalPointers.push_back(nullptr);
 		argv = normalPointers.data();
 		Win32::initializePortableStorage();
+		// A custom configuration is both read and written by ConfigManager.
+		// Reject it before reading another installation's settings. Other
+		// managed CLI destinations must also be inside this installation.
+		const char *storageOptions[] = {"--config", "-c", "--savepath", "--logfile",
+		                                "--screenshotpath", "--iconspath", "--dlcspath", "--record-file"};
+		for (uint i = 1; i < normalArguments.size(); ++i) {
+			for (const char *option : storageOptions) {
+				Common::String name(option), value;
+				if (normalArguments[i] == name && i + 1 < normalArguments.size()) value = normalArguments[i + 1];
+				else if (normalArguments[i].hasPrefix(name + "=")) value = normalArguments[i].substr(name.size() + 1);
+				else if (name == "-c" && normalArguments[i].hasPrefix(name)) value = normalArguments[i].substr(2);
+				if (!value.empty()) Win32::requirePortableStoragePath(Common::Path(value, Common::Path::kNativeSeparator));
+			}
+		}
 	}
 
 	// Create our OSystem instance
@@ -182,6 +196,11 @@ int main(int argc, char *argv[]) {
 	// Invoke the actual ScummVM main entry point:
 	int res;
 	if (testCLI) {
+		Common::FSNode testRoot(Common::Path(root, Common::Path::kNativeSeparator));
+		Common::FSList entries;
+		if (testRoot.isDirectory() && testRoot.getChildren(entries, Common::FSNode::kListAll) &&
+		    (entries.empty() || testRoot.getChild("ce-test-cli.marker").exists()))
+			Win32::selectPortableTestRoot(root);
 		if (CETestCLI::prepare(cliArgs)) {
 			Win32::initializePortableStorage(root);
 			Common::Array<const char *> args;

@@ -36,9 +36,12 @@ namespace Win32 {
 Common::Path portablePath(const char *relative = "");
 Common::Path resolvePortablePath(const Common::Path &path);
 Common::Path relativePortablePath(const Common::Path &path);
+bool isPortableStoragePath(const Common::Path &path);
+void requirePortableStoragePath(const Common::Path &path);
 void ensurePortableDirectory(const Common::Path &path);
 void portableStorageError(const Common::Path &path);
 void initializePortableStorage(const Common::String &isolatedRoot = Common::String());
+void selectPortableTestRoot(const Common::String &ownedRoot);
 void configurePortableTemp(const Common::Path &path);
 void tracePortableWrite(const Common::String &path, bool success);
 

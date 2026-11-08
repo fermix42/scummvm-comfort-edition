@@ -382,7 +382,11 @@ void ConfigManager::writeDomain(WriteStream &stream, const String &name, const D
 			// Write the key/value pair
 			stream.writeString(x._key);
 			stream.writeByte('=');
-			stream.writeString(x._value);
+			// CE's Windows backend normalizes only managed storage keys. Asset
+			// paths and other platforms retain their existing serialization.
+			const Path original = Path::fromConfig(x._value);
+			const Path normalized = g_system ? g_system->storagePathForConfig(x._key, original) : original;
+			stream.writeString(normalized == original ? x._value : normalized.toConfig());
 			stream.writeByte('\n');
 		}
 	}

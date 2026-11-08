@@ -1,0 +1,36 @@
+{
+  "status": "PASS",
+  "executable_sha256": "c1de17d5ecacc75d31b7fcc8a0d1f45370948944ce14843674d6a28c65d6d8c0",
+  "release_solution_build": {
+    "errors": 0,
+    "warnings": 0,
+    "elapsed": "00:02:45.05",
+    "incremental": true
+  },
+  "source_contract_tests": 5,
+  "standalone_launch_checks": 13,
+  "normal_portable_checks": 92,
+  "cli_smoke_checks": 3,
+  "observer_unit_tests": 5,
+  "source_preservation_tests": 10,
+  "ancestry_runtime_audit_checks": 9,
+  "inherited_runtime_resource_paths": 22139,
+  "runtime_mismatches": [],
+  "ags_game_autosave_and_cold_restore": true,
+  "ags_standard_timer_autosave_observed": true,
+  "mi4_platforms": [
+    "windows",
+    "ps2"
+  ],
+  "ce_owned_profile_writes_observed": false,
+  "unrelated_preexisting_gooka_changes_in_binary": true,
+  "publication_performed": false,
+  "limitations": [
+    "Representative engines; not a universal proof of all optional vendor/debug paths.",
+    "Directory notifications are not process-attributed kernel tracing.",
+    "Windows/driver resource writes are listed separately in filesystem.json.",
+    "Deeply nested custom save paths can exceed existing Windows/C-runtime path limits; errors do not fall back to profile storage."
+  ],
+  "complete_package_checks": 92,
+  "complete_package_files": 189
+}

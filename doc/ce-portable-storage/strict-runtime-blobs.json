@@ -1,0 +1,10 @@
+{
+  "backends/fs/stdiostream.cpp": "56d3f03ee97f24462a1db8bffd35cd7854a9a36e",
+  "backends/fs/windows/windows-fs.cpp": "39fb95692e0c6866e5670d3ea2ee94d76bea4209",
+  "backends/platform/sdl/win32/win32-main.cpp": "f3b43b2895ed08af16af2db4c1f626ed29808fb1",
+  "backends/platform/sdl/win32/win32.cpp": "8b3767bea610aa97dbde34bc9fab9344bbd66bc9",
+  "backends/platform/sdl/win32/win32_wrapper.cpp": "2efae28b23005b39510bb42591c139ad2813b7d3",
+  "backends/platform/sdl/win32/win32_wrapper.h": "7e071ea35547de63c980968f38f90b796669adde",
+  "backends/saves/windows/windows-saves.cpp": "e89185f726b10275f33c045ec985a888b6ed0a7b",
+  "common/config-manager.cpp": "5fc477e98d7654774d3fe1cdb49039ffecbfb720"
+}

@@ -102,6 +102,10 @@ jobs:
           python devtools/create_project/scripts/package-window-layout.py --root . --build build-scummvm/Releasex64 --vcpkg vcpkg_installed/x64-windows --vs "$vs" --sha "$sourceSha" --output package
           if ($LASTEXITCODE) { exit $LASTEXITCODE }
           "source_sha=$sourceSha" >> $env:GITHUB_OUTPUT
+      - name: Verify permanent portable storage boundaries
+        run: |
+          python -B devtools/ce/test_strict_storage.py --exe package/scummvm-comfort-edition-windows-x64/scummvm.exe --artifacts portable-storage-checks
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
       - name: Create release archive
         id: archive
         run: |

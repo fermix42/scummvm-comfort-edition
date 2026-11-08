@@ -98,6 +98,10 @@ jobs:
           $vs = & $vswhere -latest -products '*' -requires Microsoft.VisualStudio.Component.VC.Tools.x86.x64 -property installationPath
           python devtools/create_project/scripts/package-window-layout.py --root . --build build-scummvm/Releasex64 --vcpkg vcpkg_installed/x64-windows --vs "$vs" --sha "$env:GITHUB_SHA" --output package
           if ($LASTEXITCODE) { exit $LASTEXITCODE }
+      - name: Verify permanent portable storage boundaries
+        run: |
+          python -B devtools/ce/test_strict_storage.py --exe package/scummvm-comfort-edition-windows-x64/scummvm.exe --artifacts portable-storage-checks
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
       - name: Upload Windows test package
         uses: actions/upload-artifact@v4
         with:

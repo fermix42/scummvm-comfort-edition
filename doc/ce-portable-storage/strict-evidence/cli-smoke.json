@@ -1,0 +1,52 @@
+{
+  "status": "PASS",
+  "checks": 3,
+  "executable_sha256": "c1de17d5ecacc75d31b7fcc8a0d1f45370948944ce14843674d6a28c65d6d8c0",
+  "engine_ids_verified": [
+    "gooka",
+    "nox",
+    "grim",
+    "cine",
+    "sci",
+    "macventure",
+    "phoenixvr",
+    "hpl1",
+    "dm",
+    "avalanche",
+    "chamber",
+    "fool",
+    "eem",
+    "harvester",
+    "wintermute"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "D:\\Codex Projects\\scummvm-private\\scummvm-ce-2026.4.0-consolidated\\strict-validation-local\\final-smoke\\installation\\scummvm.exe",
+        "--config=D:\\Codex Projects\\scummvm-private\\scummvm-ce-2026.4.0-consolidated\\strict-validation-local\\final-smoke\\installation\\isolated.ini",
+        "--savepath=D:\\Codex Projects\\scummvm-private\\scummvm-ce-2026.4.0-consolidated\\strict-validation-local\\final-smoke\\installation\\saves",
+        "--version"
+      ],
+      "exit": 0
+    },
+    {
+      "argv": [
+        "D:\\Codex Projects\\scummvm-private\\scummvm-ce-2026.4.0-consolidated\\strict-validation-local\\final-smoke\\installation\\scummvm.exe",
+        "--config=D:\\Codex Projects\\scummvm-private\\scummvm-ce-2026.4.0-consolidated\\strict-validation-local\\final-smoke\\installation\\isolated.ini",
+        "--savepath=D:\\Codex Projects\\scummvm-private\\scummvm-ce-2026.4.0-consolidated\\strict-validation-local\\final-smoke\\installation\\saves",
+        "--list-engines"
+      ],
+      "exit": 0
+    },
+    {
+      "argv": [
+        "D:\\Codex Projects\\scummvm-private\\scummvm-ce-2026.4.0-consolidated\\strict-validation-local\\final-smoke\\installation\\scummvm.exe",
+        "--config=D:\\Codex Projects\\scummvm-private\\scummvm-ce-2026.4.0-consolidated\\strict-validation-local\\final-smoke\\installation\\isolated.ini",
+        "--savepath=D:\\Codex Projects\\scummvm-private\\scummvm-ce-2026.4.0-consolidated\\strict-validation-local\\final-smoke\\installation\\saves",
+        "--list-all-games"
+      ],
+      "exit": 0
+    }
+  ],
+  "scope": "CLI version, compiled engine registration and detection catalog; no gameplay claim"
+}

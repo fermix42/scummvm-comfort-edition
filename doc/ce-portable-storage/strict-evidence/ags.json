@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "engine": "ags",
+  "game": "primordia",
+  "save_files": [
+    "cli-game-prog.pri",
+    "cli-game.000",
+    "cli-game.002",
+    "cli-game.999",
+    "timestamps"
+  ],
+  "checkpoint_cold_restart": true,
+  "game_autosave": true,
+  "standard_autosave": true,
+  "scope": "Actual AGS launch, game-generated checkpoint save, cold restart requesting that slot, screenshot and storage probes."
+}

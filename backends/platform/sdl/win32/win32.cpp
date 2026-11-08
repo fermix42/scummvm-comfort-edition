@@ -300,8 +300,6 @@ Common::Path OSystem_Win32::resolveStoragePath(const Common::String &key, const 
 		    Common::computeStreamMD5AsString(input) + "-" + path.baseName());
 	}
 	if (key == "enginelog" && !path.empty()) {
-		// Absolute script-selected diagnostic destinations are explicit overrides.
-		if (Win32::resolvePortablePath(path) == path) return path;
 		Common::Path log = ConfMan.getPath("logfile");
 		Common::Path directory = log.empty() ? Win32::portablePath("logs") : log.getParent();
 		directory = directory.join(ConfMan.getActiveDomainName());
@@ -328,11 +326,26 @@ Common::Path OSystem_Win32::resolveStoragePath(const Common::String &key, const 
 		if (path.empty()) return Win32::portablePath("saves");
 		if (path == "None") return path; // Let the upstream legacy-value repair run.
 	}
-	return isStorageKey(key) && !path.empty() ? Win32::resolvePortablePath(path) : path;
+	if (isStorageKey(key) && !path.empty()) {
+		Common::Path resolved = Win32::resolvePortablePath(path);
+		if (Win32::isPortableStoragePath(resolved)) return resolved;
+		// Do not read, migrate or overwrite legacy external storage. Keep game
+		// asset keys separate. The normalized value is serialized on next flush.
+		warning("ScummVM CE: external %s '%s' replaced by its portable default; existing data was not migrated",
+		        key.c_str(), path.toString(Common::Path::kNativeSeparator).c_str());
+		if (key == "savepath") return Win32::portablePath("saves");
+		if (key == "screenshotpath") return Win32::portablePath("screenshots");
+		if (key == "logfile") return Win32::portablePath("logs/scummvm.log");
+		if (key == "iconspath") return Win32::portablePath("data/icons");
+		if (key == "dlcspath") return Win32::portablePath("data/dlcs");
+		if (key == "cachepath") return Win32::portablePath("cache");
+		if (key == "temppath") return Win32::portablePath("temp");
+	}
+	return path;
 }
 
 Common::Path OSystem_Win32::storagePathForConfig(const Common::String &key, const Common::Path &path) const {
-	return isStorageKey(key) ? Win32::relativePortablePath(path) : path;
+	return isStorageKey(key) ? Win32::relativePortablePath(resolveStoragePath(key, path)) : path;
 }
 
 Common::Path OSystem_Win32::getScreenshotsPath() {

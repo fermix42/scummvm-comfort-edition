@@ -4,6 +4,7 @@ import argparse
 import hashlib
 import json
 import os
+import shutil
 from pathlib import Path
 import subprocess
 
@@ -14,8 +15,14 @@ args = parser.parse_args()
 exe = args.exe.resolve(strict=True)
 root = args.artifacts.resolve()
 root.mkdir(parents=True, exist_ok=False)
-(root / 'saves').mkdir()
-(root / 'isolated.ini').write_text('[scummvm]\nupdates_check=0\n', encoding='utf-8')
+installation = root / 'installation'
+installation.mkdir()
+for dependency in exe.parent.iterdir():
+    if dependency.suffix.lower() in ('.exe', '.dll') and dependency.name != 'scummvm-tests.exe':
+        shutil.copy2(dependency, installation / dependency.name)
+exe = installation / exe.name
+(installation / 'saves').mkdir()
+(installation / 'isolated.ini').write_text('[scummvm]\nupdates_check=0\n', encoding='utf-8')
 startup = None
 if os.name == 'nt':
     startup = subprocess.STARTUPINFO()
@@ -25,8 +32,8 @@ outputs = {}
 commands = []
 for name, option in [('version', '--version'), ('engines', '--list-engines'),
                      ('games', '--list-all-games')]:
-    command = [str(exe), f'--config={root / "isolated.ini"}',
-               f'--savepath={root / "saves"}', option]
+    command = [str(exe), f'--config={installation / "isolated.ini"}',
+               f'--savepath={installation / "saves"}', option]
     result = subprocess.run(command, capture_output=True, timeout=60, startupinfo=startup)
     (root / f'{name}.stdout.txt').write_bytes(result.stdout)
     (root / f'{name}.stderr.txt').write_bytes(result.stderr)

@@ -1,0 +1,43 @@
+[
+  {
+    "case": "activation-isolation",
+    "checks": 4,
+    "passed": true,
+    "missing_root": 64,
+    "forbidden_override": 64,
+    "occupied_root": 64
+  },
+  {
+    "case": "protocol",
+    "checks": 8,
+    "passed": true
+  },
+  {
+    "case": "windows",
+    "passed": true,
+    "session": "fd1929520393cf42:cli-game:run:2026-11-08T13:10:52Z:1688",
+    "scene": "wed.set",
+    "native_menu": true,
+    "cold_restore": true,
+    "portable_storage_checks": 24,
+    "auxiliary_isolation": true,
+    "readonly_configuration_rejected": true,
+    "bank_isolation": true,
+    "second_session": "fd1929520393cf42:cli-game:run:2026-11-08T13:10:56Z:5105",
+    "save_a_sha256": "3adae40a23ac93d1d678fe1e0d934c5b5ba16951dcf9d9860341ab027053cca5"
+  },
+  {
+    "case": "ps2",
+    "passed": true,
+    "session": "4d3f02313d9fc3df:cli-game:run:2026-11-08T13:11:13Z:10923",
+    "scene": "wed.set",
+    "native_menu": true,
+    "cold_restore": true,
+    "portable_storage_checks": 24,
+    "auxiliary_isolation": true,
+    "readonly_configuration_rejected": true,
+    "bank_isolation": true,
+    "second_session": "4d3f02313d9fc3df:cli-game:run:2026-11-08T13:11:15Z:13405",
+    "save_a_sha256": "3b677d598e098aa1b09897f205a4747577c57877baa071c20ad77eb65238b53a"
+  }
+]

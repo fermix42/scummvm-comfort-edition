@@ -3,7 +3,9 @@
 Windows Comfort Edition stores application-owned state beside the actual
 executable by default. No adjacent INI or mode toggle is required. No normal
 startup path searches AppData, Documents, Windows, the registry or the home
-directory for a storage root. Explicit user storage overrides remain supported.
+directory for a storage root. This is permanent Windows CE architecture: managed
+storage overrides must stay inside this installation. No portable flag or marker
+is needed. See [strict policy audit](STRICT-STORAGE.md).
 
 ```text
 ScummVM CE/
@@ -30,9 +32,11 @@ meaning: they are converted to absolute paths before legacy diagnostic anchoring
 Storage settings in the INI (`savepath`, `screenshotpath`, `logfile`, `iconspath`, `dlcspath`,
 `cachepath`, `temppath`) resolve relative to the executable directory. Internal
 paths passed through ConfigManager's path setter serialize relatively. Absolute
-external overrides are preserved, including game-specific save paths and CLI
-`--config`/`--savepath`/`--logfile`. Existing absolute settings are not guessed to
-be defaults or rewritten on read. Game-data `path`, resource `extrapath`, ROMs,
+external managed-storage values in legacy INIs resolve to portable defaults,
+with a warning, and serialize relatively on the next configuration write. No
+external settings or saves are read, copied or changed. External CLI managed
+destinations, including `--config`/`--savepath`/`--logfile`, are rejected before
+backend startup. Game-data `path`, resource `extrapath`, ROMs,
 soundfonts and other read-only asset references are separate from storage.
 
 Absent defaults are registered in the defaults domain, not copied into the INI
@@ -49,7 +53,7 @@ actual native-menu gameplay-save tests.
 
 Directories are created when needed, tolerating concurrent creators and rejecting
 files used as directory components. `temp` is prepared early for native library
-temporary APIs. Explicit custom temppath replaces the process-local TEMP/TMP
+temporary APIs. An internal custom temppath replaces the process-local TEMP/TMP
 after configuration loads. HPL1 generated XML/AI caches use `cache/hpl1/<target>`. Its named `.cfg`
 preferences use `data/hpl1/<target>` instead. Cache reads fall back to bundled
 source XML without overwriting it. Harvester startup preferences use a portable
@@ -60,8 +64,8 @@ script trace logs default to the portable log directory. An unused `cache` direc
 
 Exit CE completely. Copy the **whole folder**, including `scummvm.ini`, `saves`
 and associated metadata, to the new location. Launch its executable. Internal
-relative storage settings follow the folder. Absolute external storage overrides
-and absolute game-data paths continue to refer to their selected locations;
+relative storage settings follow the folder. Absolute game-data paths continue
+to refer to their selected locations;
 change those deliberately if their destinations also move. DLLs must accompany
 the executable. Keep trusted engine data accessible (for example `data` through
 an explicit relative `extrapath=data`). Bundled read-only archives are not
@@ -106,8 +110,9 @@ installation copies, adds a target with the normal CLI, exercises the existing
 Nox gameplay/save/session fixture, then restores after relocation with the old
 address absent and a different caller working directory. It combines native
 recursive directory notifications with explicit Windows stream-write tracing.
-Set `SCUMMVM_CE_WRITE_TRACE` to an explicit diagnostic output file only when
-tracing is wanted. Trace output itself is an intentional external override.
+Set `SCUMMVM_CE_WRITE_TRACE=1` only when tracing is wanted. CE writes
+`ce-write-trace.tsv` beneath its active portable root. The observer collects
+that file after execution; CE never writes an external trace target.
 
 Representative runs cannot prove universal behavior across every optional engine
 and third-party library. OS-managed graphics caches, Windows shell preferences

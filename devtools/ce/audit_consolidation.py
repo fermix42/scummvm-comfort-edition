@@ -41,15 +41,17 @@ def main():
     assert git('rev-parse', 'v2026.4.0^{}').strip() == MILESTONES['official_upstream']
     checks.append('official tag exact identity')
     baseline, current = tree(MILESTONES['portable_storage']), tree('HEAD')
+    strict = json.loads((ROOT/'doc/ce-portable-storage/strict-runtime-blobs.json').read_text())
+    strict_metadata = {p: baseline[p].rsplit(' ', 1)[0]+' '+blob for p, blob in strict.items()}
     upstream = tree(MILESTONES['official_upstream'])
     assert not upstream.keys() - current.keys()
     checks.append('no official upstream paths missing')
     # Consolidation may update tools, documentation and policy, not runtime code/resources.
     runtime = {p for p in baseline if p.startswith(('engines/', 'backends/', 'common/', 'graphics/',
                'audio/', 'video/', 'image/', 'math/', 'base/', 'gui/', 'dists/', 'icons/'))}
-    changed = [p for p in sorted(runtime) if baseline[p] != current.get(p)]
+    changed = [p for p in sorted(runtime) if strict_metadata.get(p, baseline[p]) != current.get(p)]
     assert not changed, changed
-    checks.append('all inherited runtime source and resource blobs exact')
+    checks.append('runtime source/resources match inherited or pinned strict-storage baselines')
     groups = {
         'achievements_sync_sessions_ownership': ['engines/ce_achievements*', 'engines/achievements*', 'engines/engine.*'],
         'mi4_banks_and_native_adapter': ['engines/grim/*'],
@@ -84,7 +86,7 @@ def main():
     checks.append('all default engines and CE additions enabled')
     report = {'status': 'PASS', 'head': git('rev-parse', 'HEAD').strip(), 'milestones': MILESTONES,
               'checks': checks, 'check_count': len(checks), 'runtime_files_exact': len(runtime),
-              'runtime_differences': changed, 'feature_groups': coverage,
+              'strict_storage_blobs': strict, 'runtime_differences': changed, 'feature_groups': coverage,
               'default_engine_defines': sorted(expected), 'compiled_engine_defines': sorted(actual),
               'scope': 'Source/resource preservation and build registration, not per-engine gameplay acceptance.'}
     args.output.parent.mkdir(parents=True, exist_ok=True)

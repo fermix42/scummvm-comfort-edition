@@ -1,0 +1,14 @@
+name: CE permanent portable storage contract
+on: [push, pull_request, workflow_dispatch]
+jobs:
+  source-contract:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Check Windows storage boundaries and engine write inventory
+        run: python -B devtools/ce/test_strict_storage.py
+      - name: Check filesystem observer classification
+        run: python -B devtools/ce/test_storage_observation.py

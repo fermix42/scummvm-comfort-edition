@@ -248,6 +248,7 @@ Common::SeekableWriteStream *WindowsFilesystemNode::createWriteStream(bool atomi
 }
 
 bool WindowsFilesystemNode::createDirectory() {
+	Win32::requirePortableStoragePath(Common::Path(_path, Common::Path::kNativeSeparator));
 	// Download extraction can create a child before its data parent exists.
 	// Keep this lazy and restricted to the managed data tree.
 	const Common::String managed = Win32::portablePath("data").toString(Common::Path::kNativeSeparator) + "\\";
