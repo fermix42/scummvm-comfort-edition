@@ -72,7 +72,7 @@ if ($matching.Count -eq 0) {
     Invoke-CeGitHubCli release create $Tag --repo $Repository --draft --verify-tag --title "ScummVM Comfort Edition $Tag" --notes-file $Notes | Out-Null
 }
 # Drafts must be queried by ID/view, not the public tag endpoint.
-$release = Invoke-CeGitHubCli release view $Tag --repo $Repository --json id,tagName,isDraft,body,assets | ConvertFrom-Json
+$release = Invoke-CeGitHubCli release view $Tag --repo $Repository --json 'id,tagName,isDraft,body,assets' | ConvertFrom-Json
 if ($release.tagName -ne $Tag -or $release.body.Replace("`r`n","`n").TrimEnd() -ne $body.Replace("`r`n","`n").TrimEnd()) {
     throw 'Existing release notes/tag differ; refusing to edit'
 }
