@@ -11,8 +11,9 @@ param(
     [switch]$Publish
 )
 $ErrorActionPreference = 'Stop'
-function Gh {
-    $result = & gh @args
+$ghApplicationPath = (Get-Command gh.exe -CommandType Application -ErrorAction Stop).Source
+function Invoke-CeGitHubCli {
+    $result = & $ghApplicationPath @args
     if ($LASTEXITCODE) { throw "gh failed: $($args -join ' ')" }
     return $result
 }
@@ -54,24 +55,24 @@ Write-Output 'Local candidate identity verified; archive unchanged.'
 if (-not $Publish) { Write-Output 'Check only: no network mutations.'; return }
 
 # The old tag contains the old workflow. A branch-only edit cannot neutralize it.
-$legacy = Gh api "repos/$Repository/actions/workflows/374228258" | ConvertFrom-Json
+$legacy = Invoke-CeGitHubCli api "repos/$Repository/actions/workflows/374228258" | ConvertFrom-Json
 if ($legacy.path -ne '.github/workflows/windows-release.yml' -or $legacy.state -ne 'disabled_manually') {
     throw 'Permanently retire legacy workflow 374228258 before pushing any release tag; see PUBLICATION.md'
 }
-$ref = Gh api "repos/$Repository/git/ref/tags/$Tag" | ConvertFrom-Json
+$ref = Invoke-CeGitHubCli api "repos/$Repository/git/ref/tags/$Tag" | ConvertFrom-Json
 if ($ref.object.type -ne 'tag') { throw 'Release requires an existing annotated tag' }
-$tagObject = Gh api "repos/$Repository/git/tags/$($ref.object.sha)" | ConvertFrom-Json
+$tagObject = Invoke-CeGitHubCli api "repos/$Repository/git/tags/$($ref.object.sha)" | ConvertFrom-Json
 if ($tagObject.object.type -ne 'commit' -or $tagObject.object.sha -ne $SourceCommit) { throw 'Remote tag targets a different source' }
 
 # List rather than treating any failed GET as an absent release.
-$releases = Gh api --paginate "repos/$Repository/releases?per_page=100" --jq '.[] | {id,tag_name} | @json'
+$releases = Invoke-CeGitHubCli api --paginate "repos/$Repository/releases?per_page=100" --jq '.[] | {id,tag_name} | @json'
 $matching = @($releases | ForEach-Object { $_ | ConvertFrom-Json } | Where-Object tag_name -eq $Tag)
 if ($matching.Count -gt 1) { throw 'Duplicate release identity' }
 if ($matching.Count -eq 0) {
-    Gh release create $Tag --repo $Repository --draft --verify-tag --title "ScummVM Comfort Edition $Tag" --notes-file $Notes | Out-Null
+    Invoke-CeGitHubCli release create $Tag --repo $Repository --draft --verify-tag --title "ScummVM Comfort Edition $Tag" --notes-file $Notes | Out-Null
 }
 # Drafts must be queried by ID/view, not the public tag endpoint.
-$release = Gh release view $Tag --repo $Repository --json id,tagName,isDraft,body,assets | ConvertFrom-Json
+$release = Invoke-CeGitHubCli release view $Tag --repo $Repository --json id,tagName,isDraft,body,assets | ConvertFrom-Json
 if ($release.tagName -ne $Tag -or $release.body.Replace("`r`n","`n").TrimEnd() -ne $body.Replace("`r`n","`n").TrimEnd()) {
     throw 'Existing release notes/tag differ; refusing to edit'
 }
@@ -86,14 +87,14 @@ try {
         $name = Split-Path -Leaf $file
         if (@($release.assets | Where-Object name -eq $name).Count -eq 0) {
             if (-not $release.isDraft) { throw 'Published release is incomplete; refusing mutation' }
-            Gh release upload $Tag $file --repo $Repository | Out-Null
+            Invoke-CeGitHubCli release upload $Tag $file --repo $Repository | Out-Null
         }
-        Gh release download $Tag --repo $Repository --pattern $name --dir $temp | Out-Null
+        Invoke-CeGitHubCli release download $Tag --repo $Repository --pattern $name --dir $temp | Out-Null
         Assert-Hash (Join-Path $temp $name) (Get-FileHash -LiteralPath $file -Algorithm SHA256).Hash
     }
     # Draft assets, notes and source have now been verified; only now publish.
-    if ($release.isDraft) { Gh release edit $Tag --repo $Repository --draft=false | Out-Null }
-    $public = Gh api "repos/$Repository/releases/tags/$Tag" | ConvertFrom-Json
+    if ($release.isDraft) { Invoke-CeGitHubCli release edit $Tag --repo $Repository --draft=false | Out-Null }
+    $public = Invoke-CeGitHubCli api "repos/$Repository/releases/tags/$Tag" | ConvertFrom-Json
     if ($public.draft -or $public.tag_name -ne $Tag -or $public.body.Replace("`r`n","`n").TrimEnd() -ne $body.Replace("`r`n","`n").TrimEnd()) { throw 'Public release identity mismatch' }
     $publicZip = @($public.assets | Where-Object name -eq $zipName)
     if ($publicZip.Count -ne 1) { throw 'Missing public ZIP' }
