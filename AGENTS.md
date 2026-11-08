@@ -68,6 +68,13 @@ every raw-write inventory change; never refresh it merely to silence a failure.
 
 ## Consolidated development baseline
 
+For release publication, read `doc/ce-release/PUBLICATION.md`. Publish only the
+owner-approved immutable candidate using `devtools/ce/publish-approved-release.ps1`.
+Permanently retire legacy GitHub workflow ID 374228258 before any release-tag
+push: old tagged commits still contain the automatic publisher. Never temporarily
+disable/restore it, rebuild during publication, or replace approved artifacts.
+Publication and remote workflow configuration require explicit owner authorization.
+
 Use this `codex/ce-2026.4.0-consolidated` worktree for subsequent CE work, subject
 to the user's final acceptance. It contains upstream v2026.4.0, the Native Test
 CLI and always-on portable storage through normal ancestry. Preserve historical

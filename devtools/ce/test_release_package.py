@@ -38,11 +38,19 @@ class ReleaseTests(unittest.TestCase):
         self.assertTrue((ROOT/release['notes']).is_file())
 
     def test_publishing_cannot_clobber_existing_assets(self):
-        text=(ROOT/'.github/workflows/windows-release.yml').read_text()
+        text=(ROOT/'devtools/ce/publish-approved-release.ps1').read_text()
         self.assertNotIn('--clobber',text)
-        self.assertNotIn('gh release edit',text)
         self.assertIn('--verify-tag',text)
-        self.assertIn('Release already exists',text)
+        self.assertIn('refusing to edit',text)
+        self.assertIn('disabled_manually',text)
+        self.assertIn('if (-not $Publish)',text)
+        workflow=(ROOT/'.github/workflows/windows-candidate.yml').read_text()
+        self.assertIn('workflow_dispatch:',workflow)
+        self.assertNotIn('  push:',workflow)
+        self.assertNotIn('release create',workflow)
+        retired=(ROOT/'.github/workflows/windows-release.yml').read_text()
+        self.assertNotIn('  push:',retired)
+        self.assertNotIn('release create',retired)
 
 
 if __name__ == '__main__': unittest.main(verbosity=2)
