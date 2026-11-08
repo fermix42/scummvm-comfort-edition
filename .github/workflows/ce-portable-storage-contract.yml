@@ -12,3 +12,9 @@ jobs:
         run: python -B devtools/ce/test_strict_storage.py
       - name: Check filesystem observer classification
         run: python -B devtools/ce/test_storage_observation.py
+      - name: Check Gooka import and release archive safety
+        run: |
+          python -B devtools/ce/test_update_gooka.py
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          python -B devtools/ce/test_release_package.py
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }

@@ -99,7 +99,9 @@ jobs:
           $vswhere = "${env:ProgramFiles(x86)}/Microsoft Visual Studio/Installer/vswhere.exe"
           $vs = & $vswhere -latest -products '*' -requires Microsoft.VisualStudio.Component.VC.Tools.x86.x64 -property installationPath
           $sourceSha = git rev-parse HEAD
-          python devtools/create_project/scripts/package-window-layout.py --root . --build build-scummvm/Releasex64 --vcpkg vcpkg_installed/x64-windows --vs "$vs" --sha "$sourceSha" --output package
+          $ceRelease = Get-Content CE-RELEASE.json -Raw | ConvertFrom-Json
+          if ('${{ github.ref_name }}' -ne $ceRelease.proposed_tag) { throw 'Tag does not match the CE release version' }
+          python devtools/ce/prepare_ce_release.py --build build-scummvm/Releasex64 --vcpkg vcpkg_installed/x64-windows --vs "$vs" --sha "$sourceSha" --output package
           if ($LASTEXITCODE) { exit $LASTEXITCODE }
           "source_sha=$sourceSha" >> $env:GITHUB_OUTPUT
       - name: Verify permanent portable storage boundaries
@@ -109,14 +111,10 @@ jobs:
       - name: Create release archive
         id: archive
         run: |
-          $tag = '${{ github.ref_name }}'
-          $version = $tag.TrimStart('v')
-          $baseName = "scummvm-comfort-edition-$version-windows-x64"
-          Rename-Item -LiteralPath package/scummvm-comfort-edition-windows-x64 -NewName $baseName
-          $zip = "$baseName.zip"
-          Compress-Archive -Path "package/$baseName" -DestinationPath $zip -CompressionLevel Optimal
-          $hash = (Get-FileHash $zip -Algorithm SHA256).Hash.ToLower()
-          "$hash  $zip" | Set-Content -Encoding ascii "$zip.sha256"
+          python devtools/ce/prepare_ce_release.py --seal --sha '${{ steps.package.outputs.source_sha }}' --output package
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          $artifacts = Get-Content package/release-artifacts.json -Raw | ConvertFrom-Json
+          $zip = Join-Path package $artifacts.zip
           "zip=$zip" >> $env:GITHUB_OUTPUT
           "checksum=$zip.sha256" >> $env:GITHUB_OUTPUT
       - name: Publish GitHub release
@@ -126,19 +124,10 @@ jobs:
           $tag = '${{ github.ref_name }}'
           $title = "ScummVM Comfort Edition $tag"
           $repo = '${{ github.repository }}'
-          $sourceUrl = "https://github.com/$repo/tree/$tag"
-          $notes = @(
-            'Windows x64 portable build for users who do not want to build from source.'
-            ''
-            'Game data is not included.'
-            ''
-            'Corresponding source for this binary is available from the matching Git tag:'
-            $sourceUrl
-          ) -join "`n"
+          $ceRelease = Get-Content CE-RELEASE.json -Raw | ConvertFrom-Json
+          $artifacts = Get-Content package/release-artifacts.json -Raw | ConvertFrom-Json
+          $notesFile = Join-Path package $artifacts.draft_release_notes
           gh release view $tag *> $null
-          if ($LASTEXITCODE -ne 0) {
-            gh release create $tag --title $title --notes "$notes"
-          } else {
-            gh release edit $tag --title $title --notes "$notes"
-          }
-          gh release upload $tag "${{ steps.archive.outputs.zip }}" "${{ steps.archive.outputs.checksum }}" --clobber
+          if ($LASTEXITCODE -eq 0) { throw 'Release already exists; refusing to overwrite notes or assets' }
+          gh release create $tag "${{ steps.archive.outputs.zip }}" "${{ steps.archive.outputs.checksum }}" --verify-tag --title $title --notes-file $notesFile
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }

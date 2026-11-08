@@ -336,3 +336,7 @@ CLAUDE.md
 /release-preparation-local/
 # Local Gooka integration smoke outputs
 /gooka-validation-local/
+# Windows CI package/validation outputs and pinned dependency cache
+/package/
+/portable-storage-checks/
+/vcpkg_cache/
