@@ -2,6 +2,11 @@
 
 This file tracks user-facing changes maintained in ScummVM Comfort Edition.
 
+- 2026-11-08: Storage: Accepted strict executable-relative storage as permanent CE architecture. Managed external CLI destinations are rejected and legacy external INI storage values normalize to local defaults; no AppData fallback or automatic migration is provided.
+- 2026-11-08: Release preparation: Prepared CE-specific v0.1.4 metadata and draft notes, clean-source portable packaging without internal test presets/logs, repeatable ZIP assembly, and non-overwrite publishing guards. Publication remains subject to owner authorization.
+
+- 2026-11-07: Engine: Integrated the experimental Gooka engine from Kungergely/scummvm, enabled it in CE Windows builds, and added a revision-pinned updater with local-edit protection.
+
 Format: `Date/timestamp: Category: Description/Explanation`
 
 Timestamps use ISO 8601 local time with UTC offset. Entries are newest first.

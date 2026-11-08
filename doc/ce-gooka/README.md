@@ -38,10 +38,10 @@ The checked-in Windows release and layout workflows explicitly enable Gooka;
 other builds can use `--enable-engine=gooka`. The upstream build-by-default
 setting and unstable detection flag remain intact.
 
-For this workspace's consolidated tree, build through the workspace wrapper:
+From the intended clean CE checkout, use its checked-in build script:
 
 ```powershell
-powershell.exe -NoProfile -ExecutionPolicy Bypass -File "D:\Codex Projects\scummvm-private\run-build-release-cleanenv.ps1" -Consolidated
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File ".\run-build-release-cleanenv.ps1"
 ```
 
 The executable is `build-scummvm/Releasex64/scummvm.exe` beneath the consolidated
@@ -63,3 +63,32 @@ game data. Future updates are manual; no recurring updater is installed.
 
 Local CLI output and executable checksum are recorded in
 `gooka-validation-local/verification.json` beneath this checkout.
+
+## Release integration review (November 8, 2026)
+
+The existing engine snapshot and GNU make adaptation were recovered intact and
+committed separately from Windows build integration. Gooka adds one engine to
+the complete CE set; it does not replace the upstream ScummVM core or change
+the accepted strict-storage implementation. Saves use the standard extended
+SaveFileManager format and developer PNG dumps use the guarded filesystem API.
+No profile/registry/default-user storage producer was found in Gooka.
+
+The supplied Czech CD BIN files match the existing detector's sizes and MD5
+signatures exactly. The accompanying patch contains only `GAME.EXE`, which this
+engine does not use; it was not applied. Extract owned `0.BIN`..`11.BIN` and
+videos (`12.AVI`, `13.AVI`) into a separate game-data folder. Game files and
+screenshots are never included in CE release archives.
+
+`devtools/ce/test_gooka_runtime.py` uses the existing native controller to skip
+the opening video, and the imported opt-in `GOOKA_TEST` hooks for real rendered
+room transitions, click/tick handling, engine save/load and cold restoration.
+These exercise real game resources and serializers, not fabricated game state.
+They do not certify in-game save-dialog navigation, audible sound, full video
+playback or completion of the game. The initial unattended pilot timed out at
+100 seconds during the opening video; the bounded regression uses an ordinary
+Escape event instead of disabling video support.
+
+Upstream still marks Gooka unstable and includes incomplete shared NPC/room
+behavior (including rooms 1200, 2000, 2037 and 2049). Keep the unstable flag and
+experimental release-note status. Final candidate hashes and fresh results
+belong in the CE v0.1.4 readiness report, not the historical November 7 results.

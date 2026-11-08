@@ -522,6 +522,28 @@
   "engines/gob/inter_v6.cpp": [
     "_vm->_game->_hotspots->remove((stateType2 << 12) + id);"
   ],
+  "engines/gooka/game.h": [
+    "void removeItem(int item) { _inventory.remove(item); }               ///< FUN_0040fee0"
+  ],
+  "engines/gooka/gooka.cpp": [
+    "const char *testScript = getenv(\"GOOKA_TEST\");"
+  ],
+  "engines/gooka/inventory.cpp": [
+    "void Inventory::remove(int item) {"
+  ],
+  "engines/gooka/inventory.h": [
+    "void remove(int item);"
+  ],
+  "engines/gooka/rooms/room_3246.cpp": [
+    "// DeleteFileA(\"<savedir>\\GAME.SAVE\"): the title must start a new game instead of"
+  ],
+  "engines/gooka/scene.cpp": [
+    "g_engine->_scene->remove(this);",
+    "void Scene::remove(Sprite *sprite) {"
+  ],
+  "engines/gooka/scene.h": [
+    "void remove(Sprite *sprite);"
+  ],
   "engines/grim/actor.cpp": [
     "openList.remove(node);"
   ],

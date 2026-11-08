@@ -7,6 +7,10 @@
 > [consolidated readiness report](doc/ce-consolidated/RELEASE-READINESS.md).
 > Publication and installation still require the user's acceptance.
 
+The current candidate is **Comfort Edition v0.1.4**, based on ScummVM 2026.4.0.
+See the [draft release notes](doc/ce-release/0.1.4.md). Strict portable storage
+was accepted November 8, 2026 and remains permanent CE architecture.
+
 # ScummVM Comfort Edition
 
 ScummVM Comfort Edition is a fork of [ScummVM](https://www.scummvm.org/)
@@ -15,6 +19,9 @@ especially ultra-wide desktop setups.
 
 This repository keeps ScummVM's licensing, credits, and upstream history intact.
 For the original ScummVM project README, see [UPSTREAM-README.md](UPSTREAM-README.md).
+
+The experimental [Gooka engine](doc/ce-gooka/README.md) is included in CE Windows
+builds, with a pinned upstream snapshot and a manual update tool.
 
 ## Downloads
 

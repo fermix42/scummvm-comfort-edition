@@ -82,7 +82,7 @@ def main():
             if match:
                 expected.add(match[1].upper())
     assert not expected - actual, sorted(expected - actual)
-    assert {'NOX', 'MONKEY4', 'PHOENIXVR', 'SCI', 'CINE', 'MACVENTURE', 'SCUMM'} <= actual
+    assert {'NOX', 'MONKEY4', 'GOOKA', 'PHOENIXVR', 'SCI', 'CINE', 'MACVENTURE', 'SCUMM'} <= actual
     checks.append('all default engines and CE additions enabled')
     report = {'status': 'PASS', 'head': git('rev-parse', 'HEAD').strip(), 'milestones': MILESTONES,
               'checks': checks, 'check_count': len(checks), 'runtime_files_exact': len(runtime),

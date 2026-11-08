@@ -49,6 +49,12 @@ Prefer the opt-in native test interface for supported gameplay regressions. Read
 
 ## Permanent CE storage policy
 
+Strict portable storage was accepted as functionally complete on November 8,
+2026. It is permanent CE architecture. The accepted implementation commit is
+ea764d2d390; Gooka integration must retain it unchanged. Release preparation may
+create local candidates, but no push, remote tag, branch merge or publication
+is authorized until the owner approves the final readiness checkpoint.
+
 ScummVM Comfort Edition is portable by default. Application-owned persistent
 state belongs beneath the executable directory permanently. External managed
 storage overrides are rejected on the CLI and normalized to local defaults in

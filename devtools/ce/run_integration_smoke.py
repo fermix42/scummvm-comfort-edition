@@ -41,10 +41,11 @@ for name, option in [('version', '--version'), ('engines', '--list-engines'),
     assert result.returncode == 0, (name, result.returncode, result.stderr)
     outputs[name] = result.stdout.decode('utf-8', errors='replace')
 assert '2026.4.0' in outputs['version'], outputs['version']
-expected = ['nox', 'grim', 'cine', 'sci', 'macventure', 'phoenixvr', 'hpl1',
+expected = ['gooka', 'nox', 'grim', 'cine', 'sci', 'macventure', 'phoenixvr', 'hpl1',
             'dm', 'avalanche', 'chamber', 'fool', 'eem', 'harvester', 'wintermute']
 ids = {line.split()[0] for line in outputs['engines'].splitlines() if line.split()}
 assert set(expected) <= ids, sorted(set(expected) - ids)
+assert any(line.split()[:2] == ['gooka:gooka', 'Gooka'] for line in outputs['games'].splitlines()), 'Missing Gooka detection catalog entry'
 report = {'status': 'PASS', 'checks': 3, 'executable_sha256': hashlib.sha256(exe.read_bytes()).hexdigest(),
           'engine_ids_verified': expected, 'commands': commands,
           'scope': 'CLI version, compiled engine registration and detection catalog; no gameplay claim'}
