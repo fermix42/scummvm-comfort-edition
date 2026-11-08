@@ -58,6 +58,8 @@ class IntegrationTests(unittest.TestCase):
         cls.portable = tree(PORTABLE)
         strict = json.loads((ROOT/'doc/ce-portable-storage/strict-runtime-blobs.json').read_text())
         cls.strict = {p: cls.portable[p].rsplit(' ', 1)[0]+' '+blob for p, blob in strict.items()}
+        policy = json.loads((ROOT/'doc/ce-release/build-policy-blobs.json').read_text())
+        cls.reviewed = dict(cls.strict, **{p: '100644 blob '+blob for p, blob in policy.items()})
         cls.portable_adaptations = set(git('diff', '--name-only', NATIVE_CLI, PORTABLE).splitlines())
         cls.custom = {p for p in cls.ce.keys() | cls.base.keys()
                       if cls.ce.get(p) != cls.base.get(p)}
@@ -80,7 +82,7 @@ class IntegrationTests(unittest.TestCase):
                        'test/system/null_osystem.cpp', 'test/system/null_osystem.h'} | NATIVE_CLI_ADAPTATIONS
         mismatches = [p for p, blob in self.upstream.items()
                       if p not in self.custom and p not in adaptations and p not in CONSOLIDATION_EDITORIAL
-                      and self.integrated.get(p) != self.strict.get(p, self.portable.get(p) if p in self.portable_adaptations else blob)]
+                      and self.integrated.get(p) != self.reviewed.get(p, self.portable.get(p) if p in self.portable_adaptations else blob)]
         self.assertEqual(mismatches, [])
 
     def test_ce_sources_and_data_preserved(self):
@@ -91,7 +93,7 @@ class IntegrationTests(unittest.TestCase):
                       '.github/workflows/windows-layout-test.yml', 'run-build-release-trace-cleanenv.ps1'}
         mismatches = [p for p in self.custom
                       if p not in exceptions and p not in CONSOLIDATION_EDITORIAL and not p.startswith('doc/integration-2026.4.0/')
-                      and self.strict.get(p, self.portable.get(p) if p in self.portable_adaptations else self.ce.get(p)) != self.integrated.get(p)]
+                      and self.reviewed.get(p, self.portable.get(p) if p in self.portable_adaptations else self.ce.get(p)) != self.integrated.get(p)]
         self.assertEqual(mismatches, [])
 
     def test_reviewed_portable_runtime_adaptations_are_exact(self):
