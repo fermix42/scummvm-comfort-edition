@@ -1,0 +1,76 @@
+{
+  "date": "2026-11-08",
+  "status": "PASS_WITH_TRANSLATION_REVIEW_LIMITS",
+  "maintained_repository": "https://github.com/fermix42/scummvm",
+  "maintained_branch": "master",
+  "original_upstream": "https://github.com/Kungergely/scummvm",
+  "original_baseline": "66b8f9703e73fa7a2c9bd8e81ea312a824e97fdf",
+  "engine_commit": "d32f54d6cfecfe28e973b591a77ac482ea714e49",
+  "ce_integration_commit": "10498baabddb4052e9380881e938bfe99f15642a",
+  "development_executable_sha256": "faf947de237d4bcd98dfef67cda4377ea464709feecca2df74547306b8c1edc8",
+  "build": {
+    "configuration": "Windows x64 Release",
+    "script": "run-build-release-cleanenv.ps1",
+    "errors": 0,
+    "warnings": 0,
+    "elapsed": "00:03:16.72",
+    "scope": "Incremental development build of Gooka changes, not a new release candidate"
+  },
+  "catalog": {
+    "original_resource_ids": 835,
+    "nonempty_original_ids": 834,
+    "english_lookup_entries": 835,
+    "changed_text_entries": 819,
+    "retained_names_english_markers_or_whitespace": 16,
+    "unmapped_resource_ids": [],
+    "needs_context_review": [856, 918, 1338, 1339, 1373, 3216, 3221],
+    "native_speaker_signoff": false,
+    "private_original_catalog": "gooka-development/.local-gooka/catalog.json (excluded from Git)"
+  },
+  "focused_checks": {
+    "protected_importer_tests": "4 passed",
+    "imported_fork_files": 161,
+    "snapshot_local_edit_protection": true,
+    "ce_explicit_room_list_preserved": true,
+    "all_source_hashes_match_owned_text": true,
+    "all_original_control_and_picture_commands_preserved": true,
+    "all_translations_cp1250_roundtrip": true,
+    "all_encyclopaedia_lines_fit_original_250_pixel_columns": true,
+    "normal_target_gui_options": ["lang_Czech", "lang_English"],
+    "english_and_czech_launches": true,
+    "sampled_czech_resource_rendering_pixel_identical_to_v014": true,
+    "english_resource_rendering": true,
+    "real_in_game_menu_visually_reviewed": true,
+    "live_story_subtitle_visually_reviewed": "Resource 821, Your Honour! This is my brother Gooka...",
+    "inventory_names_and_puzzle_clues_resource_rendered": true,
+    "encyclopaedia_resource_rendered": true,
+    "original_v014_save_loaded_under_both_languages": true,
+    "shared_save_directory": true,
+    "original_save_bytes_preserved": true,
+    "restored_14_place_fields_match_original_in_both_languages": true
+  },
+  "presentation": {
+    "fonts": "Original bitmap fonts; no replacement",
+    "english_only_text_sprite_soft_wrap_pixels": 590,
+    "books": "Measured original font 403 advances, original line counts, paragraphs and picture positions",
+    "czech_runtime_layout_unchanged": true,
+    "offline_translation_delivery": "Compiled into scummvm.exe; no external language loader or network"
+  },
+  "private_runtime_evidence": "release-validation-local/gooka-localization-subtitles-20261108/verification.json and screenshots",
+  "limits": [
+    "Seven entries have explicit contextual-review notes; machine-assisted translation has no native-speaker signoff.",
+    "Complete resource-ID mapping does not prove every screen or every game path was reviewed.",
+    "Language options were verified in actual persisted target GUI options and language launches; manual widget navigation was not automated.",
+    "Representative subtitle, menu, inventory/puzzle labels and book text were checked; not a complete Gooka playthrough.",
+    "Original Czech audio and video remain; text embedded in graphics/video is outside the resource lookup.",
+    "Upstream engine remains experimental with existing incomplete room/NPC behavior."
+  ],
+  "scope_preservation": {
+    "unrelated_engines_or_core_modified": false,
+    "save_serialization_modified": false,
+    "game_data_modified_or_distributed": false,
+    "published_v014_tag_or_release_modified": false,
+    "new_ce_release_created": false,
+    "unrelated_release_acceptance_repeated": false
+  }
+}
