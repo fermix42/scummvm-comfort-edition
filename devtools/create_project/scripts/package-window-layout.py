@@ -50,6 +50,8 @@ def main():
         copy(path)
     for name in ("AUTHORS", "COPYING", "COPYRIGHT", "README.md", "UPSTREAM-README.md", "NEWS.md"):
         copy(root / name)
+    copy(root / "doc/ce-gooka/README.md", "doc/ce-gooka/README.md")
+    copy(root / "devtools/ce/gooka-upstream.json", "doc/ce-gooka/gooka-upstream.json")
     shutil.copytree(root / "LICENSES", dest / "LICENSES")
     for copyright_file in (args.vcpkg / "share").glob("*/copyright"):
         copy(copyright_file, Path("LICENSES/dependencies") / (copyright_file.parent.name + ".txt"))

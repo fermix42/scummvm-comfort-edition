@@ -65,7 +65,7 @@ if (-not $projectNeedsRefresh) {
     $projectNeedsRefresh = -not (Test-Path $globalPropsPath)
     if (-not $projectNeedsRefresh) {
         $globalPropsContent = Get-Content -LiteralPath $globalPropsPath -Raw
-        $projectNeedsRefresh = (-not $NoxFocused -and -not $globalPropsContent.Contains('ENABLE_MONKEY4')) -or -not $globalPropsContent.Contains('ENABLE_NOX') -or (-not $NoxFocused -and -not $globalPropsContent.Contains('ENABLE_PHOENIXVR'))
+        $projectNeedsRefresh = (-not $NoxFocused -and -not $globalPropsContent.Contains('ENABLE_MONKEY4')) -or -not $globalPropsContent.Contains('ENABLE_NOX') -or (-not $NoxFocused -and -not $globalPropsContent.Contains('ENABLE_PHOENIXVR')) -or (-not $NoxFocused -and -not $globalPropsContent.Contains('ENABLE_GOOKA'))
     }
 }
 if (-not $projectNeedsRefresh -and (Test-Path "$buildDirectory\scummvm.vcxproj")) {
@@ -75,6 +75,13 @@ if (-not $projectNeedsRefresh -and (Test-Path "$buildDirectory\scummvm.vcxproj")
 if (-not $projectNeedsRefresh -and (Test-Path "$buildDirectory\cine.vcxproj")) {
     $cineProjectContent = Get-Content -LiteralPath "$buildDirectory\cine.vcxproj" -Raw
     $projectNeedsRefresh = -not $cineProjectContent.Contains('..\engines\cine\achievements.cpp')
+}
+if (-not $projectNeedsRefresh -and -not $NoxFocused -and -not $UnitTests) {
+    $gookaProjectPath = "$buildDirectory\gooka.vcxproj"
+    $projectNeedsRefresh = -not (Test-Path $gookaProjectPath)
+    if (-not $projectNeedsRefresh) {
+        $projectNeedsRefresh = (Get-Item 'engines\gooka\module.mk').LastWriteTimeUtc -gt (Get-Item $gookaProjectPath).LastWriteTimeUtc
+    }
 }
 if (-not $projectNeedsRefresh) {
     $noxProjectPath = "$buildDirectory\nox.vcxproj"
@@ -111,7 +118,7 @@ if ($projectNeedsRefresh -or $UnitTests) {
         } elseif ($NoxFocused) {
             ..\build-create-project\Release\create_project.exe .. --msvc --vcpkg --msvc-version 17 --use-windows-unicode --disable-all-engines --enable-engine=nox
         } else {
-            ..\build-create-project\Release\create_project.exe .. --msvc --vcpkg --msvc-version 17 --use-windows-unicode --enable-gif --enable-engine=monkey4,nox
+            ..\build-create-project\Release\create_project.exe .. --msvc --vcpkg --msvc-version 17 --use-windows-unicode --enable-gif --enable-engine=monkey4,nox,gooka
         }
         if ($LASTEXITCODE -ne 0) {
             exit $LASTEXITCODE

@@ -334,3 +334,5 @@ CLAUDE.md
 # Isolated consolidated validation and local portable release artifacts
 /consolidation-validation-local/
 /release-preparation-local/
+# Local Gooka integration smoke outputs
+/gooka-validation-local/
