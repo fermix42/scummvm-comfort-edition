@@ -57,7 +57,7 @@ static Common::StringArray splitString(const Common::String &str, char sep) {
 }
 
 // Commands (separated by ';', arguments by ':'). Resource viewer (GOOKA_TEST="raw:..."):
-//   clear | img:id:frame:x:y | bg:id[:frame] | text:id[:font[:y]] | music:id | speech:id
+//   clear | img:id:frame:x:y | bg:id[:frame] | text:id[:font[:y]] | music:id | speech:id | video:id
 // Game (GOOKA_TEST="..."): newgame | room:id | hero:gx:gy:frame | click:x:y | rclick:x:y |
 //   move:x:y | ticks:n | esc | save:slot | load:slot
 // Both: wait:ms | shot:<path> | quit
@@ -81,6 +81,8 @@ void GookaEngine::runTestScript(const Common::String &script) {
 			drawText(_res->getText(a), b ? b : 404, 8, c ? c : 410, _lut[0x7FFF]);
 		} else if (op == "music") {
 			_music->play(a);
+		} else if (op == "video" && (a == 12 || a == 13)) {
+			playVideo(Common::Path(Common::String::format("%d.AVI", a)));
 		} else if (op == "speech") {
 			int handle = kNoSound;
 			_soundMan->play(&handle, a, 0, false, 0, 0, Audio::Mixer::kSpeechSoundType);

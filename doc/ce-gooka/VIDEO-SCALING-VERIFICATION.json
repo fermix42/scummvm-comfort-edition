@@ -1,0 +1,60 @@
+{
+  "status": "PASS",
+  "executable_sha256": "be2d0247f4892b30ddf5d870408da03eb4b2a7ee206ed5bd524a15e8a6a22c89",
+  "cases": [
+    {
+      "video": 12,
+      "scaling": false,
+      "rectangle": "400x300 at 120,90",
+      "exit": "skipped",
+      "screenshot": "12-original\\screenshots\\scummvm-cli-game-00000.png",
+      "screenshot_size": [
+        640,
+        480
+      ]
+    },
+    {
+      "video": 13,
+      "scaling": false,
+      "rectangle": "400x300 at 120,90",
+      "exit": "natural completion",
+      "screenshot": "13-original\\screenshots\\scummvm-cli-game-00000.png",
+      "screenshot_size": [
+        640,
+        480
+      ]
+    },
+    {
+      "video": 12,
+      "scaling": true,
+      "rectangle": "640x480 at 0,0",
+      "exit": "skipped",
+      "screenshot": "12-scaled\\screenshots\\scummvm-cli-game-00000.png",
+      "screenshot_size": [
+        640,
+        480
+      ]
+    },
+    {
+      "video": 13,
+      "scaling": true,
+      "rectangle": "640x480 at 0,0",
+      "exit": "natural completion",
+      "screenshot": "13-scaled\\screenshots\\scummvm-cli-game-00000.png",
+      "screenshot_size": [
+        640,
+        480
+      ]
+    }
+  ],
+  "option": "gooka_scale_videos",
+  "default": false,
+  "scope": "Real decoded video frames, backend screenshots, intro skip and complete outro playback; no full-game acceptance.",
+  "engine_commit": "8af362715a3765b3ed305524362fd08feda0fbed",
+  "build": {
+    "elapsed": "00:02:51.77",
+    "configuration": "Windows x64 Release",
+    "warnings": 0,
+    "errors": 0
+  }
+}

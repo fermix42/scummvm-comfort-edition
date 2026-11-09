@@ -26,12 +26,14 @@
 #define FORBIDDEN_SYMBOL_EXCEPTION_getenv
 
 #include "common/debug.h"
+#include "common/config-manager.h"
 #include "common/events.h"
 #include "common/ptr.h"
 #include "common/system.h"
 #include "common/textconsole.h"
 
 #include "engines/util.h"
+#include "graphics/blit.h"
 
 #include "gooka/detection.h"
 #include "gooka/font.h"
@@ -175,8 +177,23 @@ bool GookaEngine::playVideo(const Common::Path &filename) {
 		return false;
 	}
 
-	const int x = (_system->getWidth()  - decoder.getWidth())  / 2;
-	const int y = (_system->getHeight() - decoder.getHeight()) / 2;
+	int width = decoder.getWidth();
+	int height = decoder.getHeight();
+	if (width <= 0 || height <= 0)
+		return false;
+	if (ConfMan.hasKey("gooka_scale_videos") && ConfMan.getBool("gooka_scale_videos")) {
+		width = MAX(1, (int)((int64)width * _system->getHeight() / height));
+		height = _system->getHeight();
+		// Wider movies must still fit horizontally; never stretch or crop them.
+		if (width > _system->getWidth()) {
+			width = _system->getWidth();
+			height = MAX(1, (int)((int64)decoder.getHeight() * width / decoder.getWidth()));
+		}
+	}
+	const int x = (_system->getWidth() - width) / 2;
+	const int y = (_system->getHeight() - height) / 2;
+	debug("Gooka: AVI %s: %dx%d -> %dx%d at %d,%d", filename.toString().c_str(),
+		decoder.getWidth(), decoder.getHeight(), width, height, x, y);
 	const Graphics::PixelFormat screenFmt = _system->getScreenFormat();
 
 	// Black out the game graphics around the video
@@ -190,20 +207,26 @@ bool GookaEngine::playVideo(const Common::Path &filename) {
 	// In case the vid's color format isn't the same as the screen format
 	Graphics::Surface converted;
 	converted.create(decoder.getWidth(), decoder.getHeight(), screenFmt);
+	Graphics::Surface scaled;
+	if (width != decoder.getWidth() || height != decoder.getHeight())
+		scaled.create(width, height, screenFmt);
 
 	while (!shouldQuit() && !skipped && !decoder.endOfVideo()) {
 		if (decoder.needsUpdate()) {
 			const Graphics::Surface *frame = decoder.decodeNextFrame();
 			if (frame) {
-				if (frame->format == screenFmt) {
-					_system->copyRectToScreen(frame->getPixels(), frame->pitch,
-					                           x, y, frame->w, frame->h);
-				} else {
+				if (frame->format != screenFmt) {
 					Graphics::crossBlit((byte *)converted.getPixels(), (const byte *)frame->getPixels(),
 										converted.pitch, frame->pitch, frame->w, frame->h,
 										screenFmt, frame->format);
-					_system->copyRectToScreen(converted.getPixels(), converted.pitch, x, y, frame->w, frame->h);
+					frame = &converted;
 				}
+				if (scaled.getPixels()) {
+					Graphics::scaleBlit((byte *)scaled.getPixels(), (const byte *)frame->getPixels(),
+						scaled.pitch, frame->pitch, width, height, frame->w, frame->h, screenFmt);
+					frame = &scaled;
+				}
+				_system->copyRectToScreen(frame->getPixels(), frame->pitch, x, y, frame->w, frame->h);
 				_system->updateScreen();
 			}
 		}
@@ -219,6 +242,7 @@ bool GookaEngine::playVideo(const Common::Path &filename) {
 	}
 
 	converted.free();
+	scaled.free();
 	decoder.stop();
 
 	return !skipped;

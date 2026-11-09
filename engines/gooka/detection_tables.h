@@ -38,7 +38,7 @@ static const ADGameDescription gameDescriptions[] = {
 		Common::CS_CZE,
 		Common::kPlatformWindows,
 		ADGF_UNSTABLE | ADGF_ADDENGLISH,
-		GUIO1(GUIO_MIDIGM)
+		GUIO2(GUIO_MIDIGM, GUIO_GAMEOPTIONS1)
 	},
 
 	AD_TABLE_END_MARKER

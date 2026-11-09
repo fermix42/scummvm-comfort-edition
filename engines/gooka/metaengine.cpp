@@ -25,6 +25,7 @@
  */
 
 #include "engines/advancedDetector.h"
+#include "common/translation.h"
 
 #include "gooka/gooka.h"
 #include "gooka/detection.h"
@@ -38,6 +39,17 @@ public:
 
 	Common::Error createInstance(OSystem *syst, Engine **engine, const ADGameDescription *desc) const override;
 	bool hasFeature(MetaEngineFeature f) const override;
+	const ADExtraGuiOptionsMap *getAdvancedExtraGuiOptions() const override {
+		static const ADExtraGuiOptionsMap options[] = {
+			{ GUIO_GAMEOPTIONS1, {
+				_s("Scale videos to full height"),
+				_s("Enlarge AVI videos to fit the screen while preserving their aspect ratio."),
+				"gooka_scale_videos", false, 0, 0
+			} },
+			AD_EXTRA_GUI_OPTIONS_TERMINATOR
+		};
+		return options;
+	}
 };
 
 // Listing, deleting, thumbnails, dates and play time come from the extended
