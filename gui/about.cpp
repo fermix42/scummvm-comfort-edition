@@ -22,6 +22,7 @@
 #include "engines/metaengine.h"
 #include "base/plugins.h"
 #include "base/version.h"
+#include "base/ce_version.h"
 #include "common/events.h"
 #include "common/system.h"
 #include "common/translation.h"
@@ -110,7 +111,8 @@ void AboutDialog::buildLines() {
 	for (i = 0; i < 1; i++)
 		_lines.push_back(Common::U32String());
 
-	Common::String version("C0""ScummVM ");
+	addLine(Common::String("C0" SCUMMVM_CE_NAME));
+	Common::String version("C1""ScummVM ");
 	version += gScummVMVersion;
 	addLine(version);
 

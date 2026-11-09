@@ -21,6 +21,7 @@
 
 #include "common/scummsys.h"
 #include "base/version.h"
+#include "base/ce_version.h"
 
 #define INCLUDED_FROM_BASE_VERSION_CPP
 #include "base/internal_version.h"
@@ -80,10 +81,10 @@ const char gScummVMCompiler[] = ""
 	;
 
 #ifdef RELEASE_BUILD
-	const char gScummVMFullVersion[] = "ScummVM " SCUMMVM_VERSION;
+	const char gScummVMFullVersion[] = SCUMMVM_CE_NAME " (ScummVM " SCUMMVM_VERSION ")";
 	const char gScummVMBuildDate[] = SCUMMVM_VERSION;
 #else
-	const char gScummVMFullVersion[] = "ScummVM " SCUMMVM_VERSION SCUMMVM_REVISION " (" __DATE__ " " __TIME__ ")";
+	const char gScummVMFullVersion[] = SCUMMVM_CE_NAME " (ScummVM " SCUMMVM_VERSION SCUMMVM_REVISION ") (" __DATE__ " " __TIME__ ")";
 	const char gScummVMBuildDate[] = __DATE__ " " __TIME__;
 #endif
 

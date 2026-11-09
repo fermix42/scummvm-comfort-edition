@@ -5,7 +5,7 @@ Both owned CD files are 400×300. Previously they were copied at native size
 to the centre of the 640×480 game screen, leaving 120-pixel side borders and
 90-pixel top/bottom borders.
 
-Game Options → Engine → **Scale videos to full height** enables
+Game Options → Game → **Scale videos to full height** enables
 `gooka_scale_videos`. Default is off, preserving native-size playback. With
 the option enabled, both original videos fill the 640×480 game screen at
 their original 4:3 aspect ratio. The normal backend then presents that game

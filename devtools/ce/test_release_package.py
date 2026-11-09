@@ -4,6 +4,7 @@
 import hashlib
 import json
 import os
+import re
 from pathlib import Path
 import tempfile
 import unittest
@@ -36,6 +37,10 @@ class ReleaseTests(unittest.TestCase):
         self.assertEqual(release['proposed_tag'],'v'+release['version'])
         self.assertNotEqual(release['version'],release['upstream_version'])
         self.assertTrue((ROOT/release['notes']).is_file())
+        header=(ROOT/'base/ce_version.h').read_text()
+        self.assertEqual(re.search(r'#define SCUMMVM_CE_VERSION "([^"]+)"',header)[1],release['version'])
+        upstream=(ROOT/'base/internal_version.h').read_text()
+        self.assertEqual(re.search(r'#define SCUMMVM_VERSION "([^"]+)"',upstream)[1],release['upstream_version'])
 
     def test_publishing_cannot_clobber_existing_assets(self):
         text=(ROOT/'devtools/ce/publish-approved-release.ps1').read_text()

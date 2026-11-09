@@ -2,6 +2,10 @@
 
 This file tracks user-facing changes maintained in ScummVM Comfort Edition.
 
+- 2026-11-08: Release preparation: Prepare complete CE v0.1.5 on ScummVM 2026.4.0, with separate application/About CE identity and complete portable packaging; see doc/ce-release/0.1.5.md. Retain all prior CE engines, enhancements and strict portable storage.
+- 2026-11-08: Gooka: Add Czech/English language selection, all 835 mapped text IDs, 127 editorial revisions, English wrapping and book-column layout, the off-screen opening subtitle, and optional aspect-preserving full-height intro/ending video scaling. Keep the engine experimental and original game assets external. Pin maintained fork ff162f3b121aa8e9a98d5d592f5f3f16d97110a4 with focused development receipts.
+- 2026-11-08: Publication: Replace automatic rebuilding/publishing with the explicit immutable-candidate publisher, permanently retire the old workflow, and fix PowerShell CLI resolution and JSON argument handling. Candidate-only manual workflow and checksum/conflict/resumption safeguards are retained.
+
 - 2026-11-08: Storage: Accepted strict executable-relative storage as permanent CE architecture. Managed external CLI destinations are rejected and legacy external INI storage values normalize to local defaults; no AppData fallback or automatic migration is provided.
 - 2026-11-08: Release preparation: Prepared CE-specific v0.1.4 metadata and draft notes, clean-source portable packaging without internal test presets/logs, repeatable ZIP assembly, and non-overwrite publishing guards. Publication remains subject to owner authorization.
 

@@ -62,6 +62,14 @@ def main():
         for name in ('CE-RELEASE.json','FORK-CHANGES.md'):
             shutil.copy2(ROOT/name,folder/name)
         shutil.copy2(ROOT/release['notes'],folder/'RELEASE-NOTES.md')
+        for name in ('VIDEO-SCALING.md','OPENING-SUBTITLE-VERIFICATION.json',
+                     'LOCALIZATION-VERIFICATION.json','VIDEO-SCALING-VERIFICATION.json',
+                     'EDITORIAL-VERIFICATION.json'):
+            shutil.copy2(ROOT/'doc/ce-gooka'/name,folder/'doc/ce-gooka'/name)
+        for name in ('README.md','GLOSSARY.md'):
+            dest=folder/'engines/gooka/localization'/name
+            dest.parent.mkdir(parents=True,exist_ok=True)
+            shutil.copy2(ROOT/'engines/gooka/localization'/name,dest)
         for name in ('README.md','STRICT-STORAGE.md','ACCEPTANCE.md'):
             dest=folder/'doc/ce-portable-storage'/name;dest.parent.mkdir(parents=True,exist_ok=True)
             shutil.copy2(ROOT/'doc/ce-portable-storage'/name,dest)
@@ -71,6 +79,9 @@ def main():
         (folder/'README.md').write_text(readme,encoding='utf-8')
         (folder/'GOOKA-CREDITS.txt').write_text('Gooka engine: Gergely Kun (Gergely Kún)\n'
             'https://github.com/Kungergely/scummvm\nGPL-3.0-or-later; see COPYING and doc/ce-gooka/gooka-upstream.json.\n',encoding='utf-8')
+        with (folder/'GOOKA-CREDITS.txt').open('a',encoding='utf-8') as credits:
+            credits.write('Maintained engine and English localization: https://github.com/fermix42/scummvm\n'
+                          'See engines/gooka/localization/README.md for localization provenance.\n')
         (folder/'scummvm.ini').write_bytes(b'[scummvm]\nextrapath=.\n')
         (folder/'SOURCE-COMMIT.txt').write_text(source+'\n',encoding='ascii')
         base = json.loads((folder/'BUILD-MANIFEST.json').read_text())
