@@ -1,0 +1,59 @@
+{
+  "status": "PASS",
+  "date": "2026-11-08",
+  "engine_commit": "ff162f3b121aa8e9a98d5d592f5f3f16d97110a4",
+  "resource_ids": 835,
+  "editorial_revisions_imported_verbatim": 127,
+  "unchanged_entries": 708,
+  "rejected_revisions": [],
+  "remaining_context_review_flags": [
+    856,
+    918,
+    1338,
+    1339,
+    1373,
+    3216,
+    3221
+  ],
+  "json_excel_revisions_agree": true,
+  "source_hashes_and_current_english_matched_before_import": true,
+  "unrevised_english_and_all_other_metadata_preserved": true,
+  "cp1250_and_original_controls_preserved": true,
+  "significant_trailing_controls_preserved": true,
+  "compiler_output_matches_source": true,
+  "bootstrap_initialization_used": false,
+  "layout_adjustments_required": [],
+  "revised_encyclopaedia_pages": [],
+  "all_revised_lines_within_590_pixels": true,
+  "book_column_checks": "PASS",
+  "importer_tests": "4 passed",
+  "visual_revised_samples": [
+    836,
+    918,
+    1338,
+    1339,
+    1373,
+    3414,
+    3415,
+    3416
+  ],
+  "english_and_original_czech_rendering": "PASS",
+  "sampled_czech_pixels_match_v014": true,
+  "normal_language_selector_options": [
+    "Czech",
+    "English"
+  ],
+  "existing_save_load_under_both_languages": "PASS",
+  "original_saves_and_bin_resources_unchanged": true,
+  "gameplay_or_save_serialization_changes": false,
+  "build": {
+    "configuration": "Windows x64 Release development build",
+    "warnings": 0,
+    "elapsed": "00:02:55.59",
+    "errors": 0
+  },
+  "executable_sha256": "7aa6d17a3b8a0de3d74efea32b6dfd4dfaef50bdfaa98abb8a9bfc1ae7f245f8",
+  "editorial_json_sha256": "9164b4fafbc99d6ca6f7441745e51fc6ab84bf1c0843af1200d1bb20d9bd0f40",
+  "private_handoff_committed": false,
+  "release_prepared_or_published": false
+}
