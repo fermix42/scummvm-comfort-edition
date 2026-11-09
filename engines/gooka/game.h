@@ -139,6 +139,9 @@ public:
 	void clearBusy() { _nonBlocking = false; }
 	/* Hero faces front and says `line` (FUN_0040f7e0). */
 	void sayIdle(int line);
+	/* Subtitles for explicitly marked off-screen speech, independent of actors. */
+	void showOffscreenSubtitle(int line);
+	void hideOffscreenSubtitle();
 	/* The main sequencer (DAT_00449598). */
 	Sequencer &mainSequencer() { return _sequencer; }
 	///@}
@@ -227,6 +230,7 @@ private:
 	Common::Array<DynamicHotspot> _dynHotspots;
 	Sequencer _sequencer;
 	Common::RandomSource _random;
+	TextSprite _offscreenSubtitle;
 };
 
 /* Runs the primitive of the current sequencer instruction (primitives.cpp). */

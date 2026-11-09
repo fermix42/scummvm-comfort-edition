@@ -99,6 +99,7 @@ void Game::init() {
 
 // FUN_0041de10 (game part): everything back to the start, rooms reset their statics (event 2).
 void Game::reset() {
+	hideOffscreenSubtitle();
 	g_engine->_soundMan->stopAll();
 	_sequencer.stop();
 	_state.reset();
@@ -274,6 +275,23 @@ bool Game::sequenceBusy() const {
 }
 
 // FUN_0040f7e0: turn to the front first unless already standing in a front-like frame.
+void Game::showOffscreenSubtitle(int line) {
+	hideOffscreenSubtitle();
+	if (!_subtitles)
+		return;
+	_offscreenSubtitle.setText(g_engine->_res->getText(line), kFontBold, 0x000000, 0xFFFFFF, kTextBoxed);
+	const Common::Point size = _offscreenSubtitle.getSize();
+	_offscreenSubtitle.x = MAX(0, (kScreenWidth - size.x) / 2);
+	_offscreenSubtitle.y = 16;
+	_offscreenSubtitle.priority = 1000;
+	_offscreenSubtitle.show();
+}
+
+void Game::hideOffscreenSubtitle() {
+	_offscreenSubtitle.hide();
+	_offscreenSubtitle.clearText();
+}
+
 void Game::sayIdle(int line) {
 	const int f = _hero.frame;
 	if (f != 0 && f != 0x22 && f != 0x24 && f != 0x27 && f != 0x2a && _hero.isVisible()) {
@@ -296,6 +314,7 @@ void Game::sayIdle(int line) {
 
 // FUN_0040ecb0 + FUN_0040efb0
 void Game::changeRoom(int roomId, int fromRoom) {
+	hideOffscreenSubtitle();
 	const int previousRoom = fromRoom;
 	_skip = false;
 	leaveRoom();

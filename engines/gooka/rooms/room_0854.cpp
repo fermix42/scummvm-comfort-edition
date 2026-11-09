@@ -60,7 +60,7 @@ int Room0854::handleEvent(int event, int param) {
 			// The yield lets the new-game code place the hero before the scene starts
 			game()->enqueue({
 				seqYield(),
-				seqCall(kPrimSoundWait, { 3585 }),              // "Young master, wake up..."
+				seqCall(kPrimSoundWait, { 3585, 3585 }),        // Off-screen wake-up call
 				seqCall(kPrimDialogue, { 0, 3586, 3586, 0, 0, 0 }), // "Yeah, sure, coming."
 				seqCall(kPrimActOnHotspot, { 800 }),             // leave to the hall
 				seqEnd()

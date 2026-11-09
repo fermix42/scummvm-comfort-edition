@@ -1,0 +1,50 @@
+{
+  "status": "PASS",
+  "executable_sha256": "ca0eee8d91f6c13aa71769b80b65dea64bcab0474db8a805d18eb0d23e6f66f5",
+  "voice_3585_seconds": 7.523265306122449,
+  "cases": [
+    {
+      "language": "en",
+      "mode": "enabled",
+      "during_caption_pixels": 9584,
+      "after_caption_pixels": 37,
+      "final_room": 800
+    },
+    {
+      "language": "en",
+      "mode": "disabled",
+      "during_caption_pixels": 37,
+      "after_caption_pixels": 37,
+      "final_room": 800
+    },
+    {
+      "language": "en",
+      "mode": "skip",
+      "during_caption_pixels": 9584,
+      "after_caption_pixels": 0,
+      "final_room": 800
+    },
+    {
+      "language": "cz",
+      "mode": "enabled",
+      "during_caption_pixels": 8540,
+      "after_caption_pixels": 37,
+      "final_room": 800
+    },
+    {
+      "language": "cz",
+      "mode": "disabled",
+      "during_caption_pixels": 37,
+      "after_caption_pixels": 37,
+      "final_room": 800
+    },
+    {
+      "language": "cz",
+      "mode": "skip",
+      "during_caption_pixels": 8540,
+      "after_caption_pixels": 0,
+      "final_room": 800
+    }
+  ],
+  "scope": "Real audio completion/skip and captured caption band; original reply and exit sequence retained."
+}

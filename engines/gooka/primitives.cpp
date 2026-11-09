@@ -360,10 +360,18 @@ int runPrimitive(Sequencer &seq) {
 	case kPrimSound:
 		game->playSound(nullptr, seq.arg(0).value);
 		return 0;
-	case kPrimSoundWait:
-		if (seq.counter() == 0)
+	case kPrimSoundWait: {
+		const int subtitleId = seq.arg(1).value;
+		if (seq.counter() == 0) {
 			game->playSound(&game->_ambientHandle, seq.arg(0).value);
-		return game->isSoundPlaying(&game->_ambientHandle);
+			if (subtitleId)
+				game->showOffscreenSubtitle(subtitleId);
+		}
+		const bool playing = game->isSoundPlaying(&game->_ambientHandle);
+		if (subtitleId && (!playing || !game->_subtitles))
+			game->hideOffscreenSubtitle();
+		return playing;
+	}
 	case kPrimWaitHandle:
 		return game->isSoundPlaying(seq.arg(0).handle());
 	case kPrimAmbient:

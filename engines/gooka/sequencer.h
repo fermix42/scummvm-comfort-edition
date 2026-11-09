@@ -82,7 +82,7 @@ enum SeqPrim {
 	kPrimPlaceActor,        ///< 0x42ce40 (actor, gx | gy << 16, prio | frame << 16)
 	kPrimPlaceHero,         ///< 0x42cea0 (gx, gy, frame)
 	kPrimSound,             ///< 0x42ced0 (wav)
-	kPrimSoundWait,         ///< 0x42cf40 (wav): play on the shared handle and wait
+	kPrimSoundWait,         ///< 0x42cf40 (wav, optional subtitle id): play on the shared handle and wait
 	kPrimWaitHandle,        ///< 0x42cf80 (int *handle)
 	kPrimAmbient,           ///< 0x42cfa0 (wav): looping sound on the shared handle
 	kPrimAmbientStop,       ///< 0x42cfd0 ()
