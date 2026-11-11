@@ -399,6 +399,7 @@ private:
 	static bool isRawFork(SeekableReadStream &stream);
 
 	bool readMap();
+	uint32 seekResourceData(uint32 offset);
 
 	struct ResMap {
 		uint16 resAttr;
@@ -418,13 +419,13 @@ private:
 
 	struct ResType {
 		uint32 id;
-		uint16 items;
+		uint32 items;
 		uint16 offset;
 	};
 
 	struct Resource {
 		uint16 id;
-		int16 nameOffset;
+		int32 nameOffset;
 		byte attr;
 		uint32 dataOffset;
 		char *name;
@@ -432,12 +433,12 @@ private:
 
 	typedef Resource *ResPtr;
 
-	int32 _resForkOffset;
+	int64 _resForkOffset;
 	uint32 _resForkSize;
 
-	uint32 _dataOffset;
+	uint64 _dataOffset;
 	uint32 _dataLength;
-	uint32 _mapOffset;
+	uint64 _mapOffset;
 	uint32 _mapLength;
 	ResMap _resMap;
 	ResType *_resTypes;

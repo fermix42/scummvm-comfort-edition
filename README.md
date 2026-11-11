@@ -7,8 +7,8 @@
 > [consolidated readiness report](doc/ce-consolidated/RELEASE-READINESS.md).
 > Publication and installation still require the user's acceptance.
 
-The current candidate is **Comfort Edition v0.1.5**, based on ScummVM 2026.4.0.
-See the [draft release notes](doc/ce-release/0.1.5.md). Strict portable storage
+The current release is **Comfort Edition v0.1.6**, based on ScummVM 2026.4.0.
+See the [release notes](doc/ce-release/0.1.6.md). Strict portable storage
 was accepted November 8, 2026 and remains permanent CE architecture.
 
 # ScummVM Comfort Edition

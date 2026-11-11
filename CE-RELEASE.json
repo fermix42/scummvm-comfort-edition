@@ -1,6 +1,6 @@
 {
-  "version": "0.1.5",
-  "proposed_tag": "v0.1.5",
+  "version": "0.1.6",
+  "proposed_tag": "v0.1.6",
   "upstream_version": "2026.4.0",
-  "notes": "doc/ce-release/0.1.5.md"
+  "notes": "doc/ce-release/0.1.6.md"
 }

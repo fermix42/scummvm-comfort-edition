@@ -2,6 +2,8 @@
 
 This file tracks user-facing changes maintained in ScummVM Comfort Edition.
 
+- 2026-11-11: Detection: Fix the Macintosh resource parser crash during all-engine detection of Adventure: Welcome to the Genre. Validate complete fork/data/map regions, type and reference tables, names and resource payloads with overflow-safe arithmetic; preserve stream ownership and clean up partial maps. Keep valid raw, MacBinary and AppleDouble probing, including wide embedded-fork positions. Add 12 focused synthetic regression tests. Release as CE v0.1.6; see doc/ce-release/0.1.6.md.
+
 - 2026-11-08: Release preparation: Prepare complete CE v0.1.5 on ScummVM 2026.4.0, with separate application/About CE identity and complete portable packaging; see doc/ce-release/0.1.5.md. Retain all prior CE engines, enhancements and strict portable storage.
 - 2026-11-08: Gooka: Add Czech/English language selection, all 835 mapped text IDs, 127 editorial revisions, English wrapping and book-column layout, the off-screen opening subtitle, and optional aspect-preserving full-height intro/ending video scaling. Keep the engine experimental and original game assets external. Pin maintained fork ff162f3b121aa8e9a98d5d592f5f3f16d97110a4 with focused development receipts.
 - 2026-11-08: Publication: Replace automatic rebuilding/publishing with the explicit immutable-candidate publisher, permanently retire the old workflow, and fix PowerShell CLI resolution and JSON argument handling. Candidate-only manual workflow and checksum/conflict/resumption safeguards are retained.

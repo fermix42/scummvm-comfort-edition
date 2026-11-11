@@ -38,6 +38,58 @@
 
 namespace Common {
 
+// Subtraction avoids overflow even for untrusted 32-bit offsets and lengths.
+static bool resourceRangeFits(uint64 offset, uint64 length, uint64 size) {
+	return offset <= size && length <= size - offset;
+}
+
+// SeekableSubReadStream uses 32-bit absolute positions. Embedded forks can
+// cross that boundary even though each individual fork length is 32-bit.
+class MacForkStream : public SeekableReadStream {
+	DisposablePtr<SeekableReadStream> _parent;
+	uint64 _begin, _length, _pos;
+	bool _eos, _err;
+public:
+	MacForkStream(SeekableReadStream *parent, uint64 begin, uint64 end, DisposeAfterUse::Flag dispose = DisposeAfterUse::NO)
+		: _parent(parent, dispose), _begin(begin), _length(end - begin), _pos(0), _eos(false), _err(false) {
+		assert(begin <= end && end <= (uint64)parent->size());
+	}
+	bool eos() const override { return _eos; }
+	bool err() const override { return _err || _parent->err(); }
+	void clearErr() override { _eos = _err = false; _parent->clearErr(); }
+	int64 size() const override { return _length; }
+	int64 pos() const override { return _pos; }
+	uint32 read(void *data, uint32 length) override {
+		if (length > _length - _pos) {
+			length = _length - _pos;
+			_eos = true;
+		}
+		if (!_parent->seek(_begin + _pos)) {
+			_err = true;
+			return 0;
+		}
+		const uint32 bytesRead = _parent->read(data, length);
+		_pos += bytesRead;
+		if (bytesRead != length)
+			_err = true;
+		return bytesRead;
+	}
+	bool seek(int64 offset, int whence = SEEK_SET) override {
+		int64 base;
+		switch (whence) {
+		case SEEK_SET: base = 0; break;
+		case SEEK_CUR: base = _pos; break;
+		case SEEK_END: base = _length; break;
+		default: return false;
+		}
+		if (offset < -base || offset > (int64)_length - base)
+			return false;
+		_pos = base + offset;
+		_eos = false;
+		return true;
+	}
+};
+
 MacFinderInfo::MacFinderInfo() : type(0), creator(0), flags(0), position(0, 0), windowID(0) {
 }
 
@@ -122,18 +174,22 @@ void MacResManager::close() {
 	_resForkOffset = -1;
 	_mode = kResForkNone;
 
-	for (int i = 0; i < _resMap.numTypes; i++) {
-		for (int j = 0; j < _resTypes[i].items; j++)
-			if (_resLists[i][j].nameOffset != -1)
-				delete[] _resLists[i][j].name;
-
-		delete[] _resLists[i];
+	if (_resLists) {
+		for (int i = 0; i < _resMap.numTypes; i++) {
+			if (_resLists[i]) {
+				for (uint32 j = 0; j < _resTypes[i].items; j++)
+					delete[] _resLists[i][j].name;
+				delete[] _resLists[i];
+			}
+		}
 	}
 
 	delete[] _resLists; _resLists = nullptr;
 	delete[] _resTypes; _resTypes = nullptr;
 	delete _stream; _stream = nullptr;
-	_resMap.numTypes = 0;
+	_resMap.reset();
+	_resForkSize = 0;
+	_dataOffset = _dataLength = _mapOffset = _mapLength = 0;
 	_originalFileName.clear();
 }
 
@@ -157,14 +213,8 @@ String MacResManager::computeResForkMD5AsString(uint32 length, bool tail, Progre
 	if (!hasResFork())
 		return String();
 
-	_stream->seek(_resForkOffset);
-	uint32 dataOffset = _stream->readUint32BE() + _resForkOffset;
-	/* uint32 mapOffset = */ _stream->readUint32BE();
-	uint32 dataLength = _stream->readUint32BE();
-
-
-	SeekableSubReadStream resForkStream(_stream, dataOffset, dataOffset + dataLength);
-	if (tail && dataLength > length)
+	MacForkStream resForkStream(_stream, _dataOffset, _dataOffset + _dataLength);
+	if (tail && _dataLength > length)
 		resForkStream.seek(-(int64)length, SEEK_END);
 
 	return computeStreamMD5AsString(resForkStream, MIN<uint32>(length, _resForkSize), progressUpdateCallback, callbackParameter);
@@ -374,7 +424,7 @@ SeekableReadStream * MacResManager::openDataForkFromMacBinary(SeekableReadStream
 	}
 	inStream->seek(MBI_DFLEN);
 	uint32 dataSize = inStream->readUint32BE();
-	return new SeekableSubReadStream(inStream, MBI_INFOHDR, MBI_INFOHDR + dataSize, disposeAfterUse);
+	return new MacForkStream(inStream, MBI_INFOHDR, (uint64)MBI_INFOHDR + dataSize, disposeAfterUse);
 }
 
 SeekableReadStream * MacResManager::openFileOrDataFork(const Path &fileName, Archive &archive) {
@@ -407,7 +457,7 @@ SeekableReadStream * MacResManager::openFileOrDataFork(const Path &fileName, Arc
 		if (mayBeMacBinary && stream && isMacBinary(*stream)) {
 			stream->seek(MBI_DFLEN);
 			uint32 dataSize = stream->readUint32BE();
-			return new SeekableSubReadStream(stream, MBI_INFOHDR, MBI_INFOHDR + dataSize, DisposeAfterUse::YES);
+			return new MacForkStream(stream, MBI_INFOHDR, (uint64)MBI_INFOHDR + dataSize, DisposeAfterUse::YES);
 		}
 
 		// All formats other than Macbinary and AppleSingle (not supported) use
@@ -424,7 +474,7 @@ SeekableReadStream * MacResManager::openFileOrDataFork(const Path &fileName, Arc
 		if (stream && isMacBinary(*stream)) {
 			stream->seek(MBI_DFLEN);
 			uint32 dataSize = stream->readUint32BE();
-			return new SeekableSubReadStream(stream, MBI_INFOHDR, MBI_INFOHDR + dataSize, DisposeAfterUse::YES);
+			return new MacForkStream(stream, MBI_INFOHDR, (uint64)MBI_INFOHDR + dataSize, DisposeAfterUse::YES);
 		}
 		delete stream;
 	}
@@ -680,17 +730,23 @@ bool MacResManager::loadFromAppleDouble(SeekableReadStream *stream) {
 	stream->skip(20); // version + home file system
 
 	uint16 entryCount = stream->readUint16BE();
+	if (stream->size() < 26 || stream->err() || stream->eos() ||
+		!resourceRangeFits(26, (uint64)entryCount * 12, stream->size()))
+		return false;
 
+	int64 forkOffset = -1;
+	uint32 forkSize = 0;
 	for (uint16 i = 0; i < entryCount; i++) {
 		uint32 id = stream->readUint32BE();
 		uint32 offset = stream->readUint32BE();
 		uint32 length = stream->readUint32BE(); // length
+		if (stream->err() || stream->eos() || !resourceRangeFits(offset, length, stream->size()))
+			return false;
 
 		if (id == 2) {
 			// Found the resource fork!
-			_resForkOffset = offset;
-			_mode = kResForkAppleDouble;
-			_resForkSize = length;
+			forkOffset = offset;
+			forkSize = length;
 		} else if (id == 3 && length > 0) {
 			// Found the real name!
 			uint32 oldPos = stream->pos();
@@ -701,8 +757,12 @@ bool MacResManager::loadFromAppleDouble(SeekableReadStream *stream) {
 		}
 	}
 
-	if (_mode == kResForkAppleDouble)
+	if (forkOffset >= 0) {
+		_resForkOffset = forkOffset;
+		_resForkSize = forkSize;
+		_mode = kResForkAppleDouble;
 		return load(stream);
+	}
 
 	return false;
 }
@@ -772,7 +832,7 @@ bool MacResManager::getFinderInfoFromAppleDouble(SeekableReadStream *stream, Mac
 }
 
 bool MacResManager::readAndValidateMacBinaryHeader(SeekableReadStream &stream, byte (&infoHeader)[MBI_INFOHDR]) {
-	int resForkOffset = -1;
+	int64 resForkOffset = -1;
 
 	if (stream.read(infoHeader, MBI_INFOHDR) != MBI_INFOHDR)
 		return false;
@@ -802,12 +862,12 @@ bool MacResManager::readAndValidateMacBinaryHeader(SeekableReadStream &stream, b
 		uint32 dataSize = READ_BE_UINT32(infoHeader + MBI_DFLEN);
 		uint32 rsrcSize = READ_BE_UINT32(infoHeader + MBI_RFLEN);
 
-		uint32 dataSizePad = (((dataSize + 127) >> 7) << 7);
+		uint64 dataSizePad = ((uint64)dataSize + 127) & ~uint64(127);
 		// Files produced by ISOBuster are not padded, thus, compare with the actual size
 		// uint32 rsrcSizePad = (((rsrcSize + 127) >> 7) << 7);
 
 		// Length check
-		if (MBI_INFOHDR + dataSizePad + rsrcSize <= (uint32)stream.size()) {
+		if (stream.size() >= 0 && resourceRangeFits(MBI_INFOHDR + dataSizePad, rsrcSize, stream.size())) {
 			resForkOffset = MBI_INFOHDR + dataSizePad;
 		}
 	}
@@ -830,9 +890,10 @@ bool MacResManager::isRawFork(SeekableReadStream &stream) {
 	const uint32 dataLength = stream.readUint32BE();
 	const uint32 mapLength = stream.readUint32BE();
 
-	return    !stream.eos() && !stream.err()
-	       && dataOffset < (uint32)stream.size() && dataOffset + dataLength <= (uint32)stream.size()
-	       && mapOffset < (uint32)stream.size() && mapOffset + mapLength <= (uint32)stream.size();
+	return !stream.eos() && !stream.err() && stream.size() >= 16
+	       && dataOffset >= 16 && mapOffset >= 16 && mapLength >= 28
+	       && resourceRangeFits(dataOffset, dataLength, stream.size())
+	       && resourceRangeFits(mapOffset, mapLength, stream.size());
 }
 
 bool MacResManager::loadFromMacBinary(SeekableReadStream *stream) {
@@ -840,7 +901,8 @@ bool MacResManager::loadFromMacBinary(SeekableReadStream *stream) {
 		return false;
 
 	byte infoHeader[MBI_INFOHDR];
-	stream->read(infoHeader, MBI_INFOHDR);
+	if (stream->read(infoHeader, MBI_INFOHDR) != MBI_INFOHDR)
+		return false;
 
 	// Maybe we have MacBinary?
 	if (infoHeader[MBI_ZERO1] == 0 && infoHeader[MBI_ZERO2] == 0 &&
@@ -850,18 +912,17 @@ bool MacResManager::loadFromMacBinary(SeekableReadStream *stream) {
 		uint32 dataSize = READ_BE_UINT32(infoHeader + MBI_DFLEN);
 		uint32 rsrcSize = READ_BE_UINT32(infoHeader + MBI_RFLEN);
 
-		uint32 dataSizePad = (((dataSize + 127) >> 7) << 7);
+		uint64 dataSizePad = ((uint64)dataSize + 127) & ~uint64(127);
 		// Files produced by ISOBuster are not padded, thus, compare with the actual size
 		//uint32 rsrcSizePad = (((rsrcSize + 127) >> 7) << 7);
 
 		// Length check
-		if (MBI_INFOHDR + dataSizePad + rsrcSize <= (uint32)stream->size()) {
+		if (stream->size() >= 0 && resourceRangeFits(MBI_INFOHDR + dataSizePad, rsrcSize, stream->size())) {
 			_resForkOffset = MBI_INFOHDR + dataSizePad;
 			_resForkSize = rsrcSize;
-		}
-
-		if (_resForkOffset < 0)
+		} else {
 			return false;
+		}
 
 		byte nameLen = infoHeader[MBI_NAMELEN];
 		if (nameLen > 0) {
@@ -880,6 +941,9 @@ bool MacResManager::loadFromRawFork(SeekableReadStream *stream) {
 	if (!stream)
 		return false;
 
+	if (stream->size() < 0 || (uint64)stream->size() > 0xffffffffU)
+		return false;
+
 	_mode = kResForkRaw;
 	_resForkOffset = 0;
 	_resForkSize = stream->size();
@@ -893,38 +957,39 @@ bool MacResManager::load(SeekableReadStream *stream) {
 	if (_mode == kResForkNone)
 		return false;
 
-	if (_resForkSize == 0) {
+	// Embedded forks must fit their container, and every region must fit the
+	// fork itself, not merely some later bytes in the enclosing file.
+	bool valid = stream->size() >= 0 && _resForkOffset >= 0 &&
+		resourceRangeFits(_resForkOffset, _resForkSize, stream->size());
+	if (valid && _resForkSize == 0) {
 		_stream = stream;
 		return true;
 	}
-
-	stream->seek(_resForkOffset);
-
-	_dataOffset = stream->readUint32BE() + _resForkOffset;
-	_mapOffset = stream->readUint32BE() + _resForkOffset;
-	_dataLength = stream->readUint32BE();
-	_mapLength = stream->readUint32BE();
-
-	// do sanity check
-	if (stream->eos() || _dataOffset >= (uint32)stream->size() || _mapOffset >= (uint32)stream->size() ||
-			_dataLength + _mapLength  > (uint32)stream->size()) {
-		_resForkOffset = -1;
-		_mode = kResForkNone;
-		return false;
+	valid = valid && _resForkSize >= 16 && stream->seek(_resForkOffset);
+	if (valid) {
+		const uint32 dataOffset = stream->readUint32BE();
+		const uint32 mapOffset = stream->readUint32BE();
+		_dataLength = stream->readUint32BE();
+		_mapLength = stream->readUint32BE();
+		valid = !stream->err() && !stream->eos() &&
+			dataOffset >= 16 && mapOffset >= 16 && _mapLength >= 28 &&
+			resourceRangeFits(dataOffset, _dataLength, _resForkSize) &&
+			resourceRangeFits(mapOffset, _mapLength, _resForkSize) &&
+			((uint64)dataOffset + _dataLength <= mapOffset ||
+			 (uint64)mapOffset + _mapLength <= dataOffset);
+		_dataOffset = (uint64)dataOffset + _resForkOffset;
+		_mapOffset = (uint64)mapOffset + _resForkOffset;
 	}
 
-	debug(7, "got header: data %d [%d] map %d [%d]",
-		_dataOffset, _dataLength, _mapOffset, _mapLength);
-
-	_stream = stream;
-
-	if (!readMap()) {
-		delete[] _resTypes; _resTypes = nullptr;
-		delete[] _resLists; _resLists = nullptr;
+	if (valid) {
+		_stream = stream;
+		valid = readMap();
+	}
+	if (!valid) {
+		// The caller owns the input on failure. close() also handles maps
+		// that failed partway through population.
 		_stream = nullptr;
-		_resMap.reset();
-		_resForkOffset = -1;
-		_mode = kResForkNone;
+		close();
 		return false;
 	}
 	return true;
@@ -945,7 +1010,7 @@ MacResIDArray MacResManager::getResIDArray(uint32 typeID) {
 
 	res.resize(_resTypes[typeNum].items);
 
-	for (int i = 0; i < _resTypes[typeNum].items; i++)
+	for (uint32 i = 0; i < _resTypes[typeNum].items; i++)
 		res[i] = _resLists[typeNum][i].id;
 
 	return res;
@@ -977,7 +1042,7 @@ String MacResManager::getResName(uint32 typeID, uint16 resID) const {
 	if (typeNum == -1)
 		return "";
 
-	for (int i = 0; i < _resTypes[typeNum].items; i++)
+	for (uint32 i = 0; i < _resTypes[typeNum].items; i++)
 		if (_resLists[typeNum][i].id == resID)
 			return _resLists[typeNum][i].name;
 
@@ -997,7 +1062,7 @@ SeekableReadStream *MacResManager::getResource(uint32 typeID, uint16 resID) {
 	if (typeNum == -1)
 		return nullptr;
 
-	for (int i = 0; i < _resTypes[typeNum].items; i++)
+	for (uint32 i = 0; i < _resTypes[typeNum].items; i++)
 		if (_resLists[typeNum][i].id == resID) {
 			resNum = i;
 			break;
@@ -1006,8 +1071,7 @@ SeekableReadStream *MacResManager::getResource(uint32 typeID, uint16 resID) {
 	if (resNum == -1)
 		return nullptr;
 
-	_stream->seek(_dataOffset + _resLists[typeNum][resNum].dataOffset);
-	uint32 len = _stream->readUint32BE();
+	uint32 len = seekResourceData(_resLists[typeNum][resNum].dataOffset);
 
 	// Ignore resources with 0 length
 	if (!len)
@@ -1020,8 +1084,7 @@ SeekableReadStream *MacResManager::getResource(const String &fileName) {
 	for (uint32 i = 0; i < _resMap.numTypes; i++) {
 		for (uint32 j = 0; j < _resTypes[i].items; j++) {
 			if (_resLists[i][j].nameOffset != -1 && fileName.equalsIgnoreCase(_resLists[i][j].name)) {
-				_stream->seek(_dataOffset + _resLists[i][j].dataOffset);
-				uint32 len = _stream->readUint32BE();
+				uint32 len = seekResourceData(_resLists[i][j].dataOffset);
 
 				// Ignore resources with 0 length
 				if (!len)
@@ -1042,8 +1105,7 @@ SeekableReadStream *MacResManager::getResource(uint32 typeID, const String &file
 
 		for (uint32 j = 0; j < _resTypes[i].items; j++) {
 			if (_resLists[i][j].nameOffset != -1 && fileName.equalsIgnoreCase(_resLists[i][j].name)) {
-				_stream->seek(_dataOffset + _resLists[i][j].dataOffset);
-				uint32 len = _stream->readUint32BE();
+				uint32 len = seekResourceData(_resLists[i][j].dataOffset);
 
 				// Ignore resources with 0 length
 				if (!len)
@@ -1070,7 +1132,7 @@ uint32 MacResManager::getResLength(uint32 typeID, uint16 resID) {
 	if (typeNum == -1)
 		return 0;
 
-	for (int i = 0; i < _resTypes[typeNum].items; i++)
+	for (uint32 i = 0; i < _resTypes[typeNum].items; i++)
 		if (_resLists[typeNum][i].id == resID) {
 			resNum = i;
 			break;
@@ -1079,8 +1141,7 @@ uint32 MacResManager::getResLength(uint32 typeID, uint16 resID) {
 	if (resNum == -1)
 		return 0;
 
-	_stream->seek(_dataOffset + _resLists[typeNum][resNum].dataOffset);
-	uint32 len = _stream->readUint32BE();
+	uint32 len = seekResourceData(_resLists[typeNum][resNum].dataOffset);
 
 	return len;
 }
@@ -1101,90 +1162,113 @@ uint16 MacResManager::getResID(uint32 typeID, const Common::String &fileName) {
 }
 
 bool MacResManager::readMap() {
-	const uint32 streamSize = _stream->size();
-
-	if (_mapOffset + 28 > streamSize)
+	if (_mapLength < 28 || !_stream->seek(_mapOffset + 22))
 		return false;
-
-	_stream->seek(_mapOffset + 22);
 
 	_resMap.resAttr = _stream->readUint16BE();
 	_resMap.typeOffset = _stream->readUint16BE();
 	_resMap.nameOffset = _stream->readUint16BE();
-	const uint16 numTypes = _stream->readUint16BE();
-	if (numTypes == 0xffff)
+	if (_stream->err() || _stream->eos() || _resMap.typeOffset < 28 ||
+		_resMap.nameOffset < 28 || _resMap.nameOffset > _mapLength ||
+		!resourceRangeFits(_resMap.typeOffset, 2, _mapLength) ||
+		!_stream->seek(_mapOffset + _resMap.typeOffset))
 		return false;
-	_resMap.numTypes = numTypes + 1;
 
+	const uint16 count = _stream->readUint16BE();
 	if (_stream->err() || _stream->eos())
 		return false;
-
-	_stream->seek(_mapOffset + _resMap.typeOffset + 2);
-
-	debug(8, "numResTypes: %d total size: %u", _resMap.numTypes, unsigned(_stream->size()));
-
-	if (_stream->pos() + _resMap.numTypes * 8 > _stream->size())
+	// A count of -1 denotes an empty type list.
+	_resMap.numTypes = count == 0xffff ? 0 : count + 1;
+	if (!resourceRangeFits((uint64)_resMap.typeOffset + 2,
+			(uint64)_resMap.numTypes * 8, _mapLength))
 		return false;
 
 	_resTypes = new ResType[_resMap.numTypes];
 	uint64 totalItems = 0;
-
 	for (int i = 0; i < _resMap.numTypes; i++) {
 		_resTypes[i].id = _stream->readUint32BE();
-		_resTypes[i].items = _stream->readUint16BE();
+		_resTypes[i].items = (uint32)_stream->readUint16BE() + 1;
 		_resTypes[i].offset = _stream->readUint16BE();
-		_resTypes[i].items++;
-
 		totalItems += _resTypes[i].items;
-
-		debug(8, "resType: <%s> items: %d offset: %d (0x%x)", tag2str(_resTypes[i].id), _resTypes[i].items,  _resTypes[i].offset, _resTypes[i].offset);
-	}
-
-	if (_stream->err() || _stream->eos() || totalItems * 12 > (uint64)_stream->size()) {
-		delete[] _resTypes; _resTypes = nullptr;
-		return false;
-	}
-
-	for (int i = 0; i < _resMap.numTypes; i++) {
-		const uint32 itemListOffset = _resTypes[i].offset + _mapOffset + _resMap.typeOffset;
-		if (itemListOffset > streamSize || itemListOffset + _resTypes[i].items * 12 > streamSize) {
-			delete[] _resTypes; _resTypes = nullptr;
+		if (!resourceRangeFits((uint64)_resMap.typeOffset + _resTypes[i].offset,
+				(uint64)_resTypes[i].items * 12, _mapLength))
 			return false;
-		}
 	}
+	// Bound allocations even if malicious reference lists alias each other.
+	if (_stream->err() || _stream->eos() || totalItems > _mapLength / 12)
+		return false;
 
-	_resLists = new ResPtr[_resMap.numTypes];
-
+	// Validate all references, Pascal strings and payloads before allocating
+	// resource arrays or names. All positions are relative to their own region.
 	for (int i = 0; i < _resMap.numTypes; i++) {
-		_resLists[i] = new Resource[_resTypes[i].items];
-		_stream->seek(_resTypes[i].offset + _mapOffset + _resMap.typeOffset);
-
-		for (int j = 0; j < _resTypes[i].items; j++) {
-			ResPtr resPtr = _resLists[i] + j;
-
-			resPtr->id = _stream->readUint16BE();
-			resPtr->nameOffset = _stream->readUint16BE();
-			resPtr->dataOffset = _stream->readUint32BE();
-			_stream->readUint32BE();
-			resPtr->name = nullptr;
-
-			resPtr->attr = resPtr->dataOffset >> 24;
-			resPtr->dataOffset &= 0xFFFFFF;
-		}
-
-		for (int j = 0; j < _resTypes[i].items; j++) {
-			if (_resLists[i][j].nameOffset != -1) {
-				_stream->seek(_resLists[i][j].nameOffset + _mapOffset + _resMap.nameOffset);
-
-				byte len = _stream->readByte();
-				_resLists[i][j].name = new char[len + 1];
-				_resLists[i][j].name[len] = 0;
-				_stream->read(_resLists[i][j].name, len);
+		const uint64 refs = _mapOffset + _resMap.typeOffset + _resTypes[i].offset;
+		for (uint32 j = 0; j < _resTypes[i].items; j++) {
+			if (!_stream->seek(refs + (uint64)j * 12 + 2))
+				return false;
+			const uint16 name = _stream->readUint16BE();
+			const uint32 data = _stream->readUint32BE() & 0xffffff;
+			if (_stream->err() || _stream->eos() ||
+				!resourceRangeFits(data, 4, _dataLength) ||
+				!_stream->seek(_dataOffset + data))
+				return false;
+			const uint32 length = _stream->readUint32BE();
+			if (_stream->err() || _stream->eos() ||
+				!resourceRangeFits((uint64)data + 4, length, _dataLength))
+				return false;
+			if (name != 0xffff) {
+				const uint64 pos = (uint64)_resMap.nameOffset + name;
+				if (!resourceRangeFits(pos, 1, _mapLength) || !_stream->seek(_mapOffset + pos))
+					return false;
+				const byte nameLength = _stream->readByte();
+				if (_stream->err() || _stream->eos() || !resourceRangeFits(pos + 1, nameLength, _mapLength))
+					return false;
 			}
 		}
 	}
 
+	_resLists = new ResPtr[_resMap.numTypes]();
+	for (int i = 0; i < _resMap.numTypes; i++) {
+		_resLists[i] = new Resource[_resTypes[i].items]();
+		if (!_stream->seek(_mapOffset + _resMap.typeOffset + _resTypes[i].offset))
+			return false;
+		for (uint32 j = 0; j < _resTypes[i].items; j++) {
+			Resource &res = _resLists[i][j];
+			res.id = _stream->readUint16BE();
+			const uint16 name = _stream->readUint16BE();
+			res.nameOffset = name == 0xffff ? -1 : name;
+			const uint32 data = _stream->readUint32BE();
+			res.attr = data >> 24;
+			res.dataOffset = data & 0xffffff;
+			_stream->readUint32BE();
+		}
+		if (_stream->err() || _stream->eos())
+			return false;
+		for (uint32 j = 0; j < _resTypes[i].items; j++) {
+			Resource &res = _resLists[i][j];
+			if (res.nameOffset != -1) {
+				if (!_stream->seek(_mapOffset + _resMap.nameOffset + res.nameOffset))
+					return false;
+				const byte length = _stream->readByte();
+				res.name = new char[length + 1];
+				res.name[length] = 0;
+				if (_stream->read(res.name, length) != length || _stream->err() || _stream->eos())
+					return false;
+			}
+		}
+	}
 	return true;
+}
+
+// Recheck the length at access time too (streams need not be immutable).
+uint32 MacResManager::seekResourceData(uint32 offset) {
+	if (!_stream || !resourceRangeFits(offset, 4, _dataLength) ||
+		!_stream->seek(_dataOffset + offset))
+		return 0;
+	const uint32 length = _stream->readUint32BE();
+	if (_stream->err() || _stream->eos() ||
+		!resourceRangeFits((uint64)offset + 4, length, _dataLength))
+		return 0;
+	return length;
 }
 
 Path MacResManager::constructAppleDoubleName(const Path &name) {
@@ -1217,9 +1301,8 @@ void MacResManager::dumpRaw() {
 	Common::DumpFile out;
 
 	for (int i = 0; i < _resMap.numTypes; i++) {
-		for (int j = 0; j < _resTypes[i].items; j++) {
-			_stream->seek(_dataOffset + _resLists[i][j].dataOffset);
-			uint32 len = _stream->readUint32BE();
+		for (uint32 j = 0; j < _resTypes[i].items; j++) {
+			uint32 len = seekResourceData(_resLists[i][j].dataOffset);
 
 			if (dataSize < len) {
 				free(data);
