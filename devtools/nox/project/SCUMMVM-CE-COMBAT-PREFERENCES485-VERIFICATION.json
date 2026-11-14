@@ -1,0 +1,45 @@
+{
+  "status": "IN PROGRESS",
+  "scope": "Normal combat preference UI/configuration and native mode ownership implemented; focused verification VERIFIED. Complete engine qualification unfinished.",
+  "parent_commit": "f62678ff7b3",
+  "executable_sha256": "4a1aee0cd404c72eb9bc27c30170c14f0086afc3a9d0b02fb52b02b554592a66",
+  "source_hash_manifest": {
+    "path": "conversion/ce-native-combat-preferences485-focused/verification.json",
+    "sha256": "a4f22ea4592cc9d0dd008192953988fe46112d45b56722338e8fd63eb95480a5",
+    "scope": "All engine source hashes verified against frozen source ZIP."
+  },
+  "build": {
+    "result": "0 warnings,0 errors,2m50.28s",
+    "native_batches": 1,
+    "failures": []
+  },
+  "focused_validation": {
+    "status": "VERIFIED",
+    "report": "combat-preferences\tconfig_cases=9\tsource_advice_contexts=11\task_forced_quick_equivalence=11\tmode_quick_codecs=22\tforced_tactical=11\tselected_tactical_auto_cycle=1\tgui_layout_qualification=0\tcampaign=0\taudio_suite=0\n",
+    "source_method": "11 rows from hash-verified existing original9F1B4800-context corpus reused as data; no original/old suite rerun."
+  },
+  "ce_replacements": [
+    "Forced Quick now uses the existing original9F1B level-based advice/preservation flag, just as Ask->Quick. This removes unrelated graphics-scratch067D dependence and replaces previous native constantfalse. No guessed difficulty.",
+    "Native Tactical/Quick/Ask popup replaces original settings lifetime; original secret !/3 debug keys are not exposed as ordinary features."
+  ],
+  "historical_source_question": {
+    "classification": "UNKNOWN",
+    "scope": "Original forced-mode067D scratch lifetime/pixel-dependent parity remains unresolved; native CE policy intentionally replaces it. No original forced-mode parity claim."
+  },
+  "controlled_setup": "11 source advice contexts in declared source-format synthetic rosters; same initial records for Ask and forced Quick,actual mode codecs/metadata restore. One actual NewGame/group124 formation with pre-operation sleeping member tests selected-Tactical automatic round. Not earned combat/campaign.",
+  "remaining_qualifications": [
+    "Normal game-options widget layout/mouse/keyboard,normal Engine cold/session and earned battles remain separate qualification. No GUI layout acceptance claimed.",
+    "Older private mode0/action0 checkpoints remain preselection contexts. Selected/acted/terminal battles are not rewritten.",
+    "Normal CE save eligibility unchanged. No midbattle normal-save claim."
+  ],
+  "artifacts": {
+    "conversion/ce-m4-binary/scummvm-native-combat-preferences485.exe": "4a1aee0cd404c72eb9bc27c30170c14f0086afc3a9d0b02fb52b02b554592a66",
+    "conversion/ce-m4-binary/native-combat-preferences485-source.zip": "ecd31282fc8b3365919f6640ef2d9bf2a2d2072edf5e20a2a4235e25b9fe69ec",
+    "conversion/ce-native-combat-preferences485-focused/verification.json": "a4f22ea4592cc9d0dd008192953988fe46112d45b56722338e8fd63eb95480a5",
+    "conversion/ce-native-combat-preferences485-source.bin": "4088a220b71e571806d67256073f2f218204a2d7550cbb5d9bc82ad756e79efe",
+    "conversion/ce-native-combat-preferences485-source.json": "0a7433663e3f710728ef1a2bb07e4706bc57ca55ce6290c3b7112bd950c5488a",
+    "conversion/ce-native-combat-preferences485-build.log": "5bca1a9dfce2f77c8da25a92c4976e133f3f2fd6850d9426582b822db1deb4a3"
+  },
+  "audio": "Music/cue/mixer/synthesis owners unchanged; no audio/old suite/campaign.",
+  "next": "Authored service-role/price/skill and script producer closure; graphics/lifecycle integration remains later."
+}

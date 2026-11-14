@@ -1,3 +1,9 @@
+Preferences485: B-QUICK native-context implementation retired via explicit
+CE_REPLACEMENT using source9F1B level advice. Original forced067D historical
+scratch lifetime remains UNKNOWN parity,not an implementation or testing claim.
+Normal game-options layout/input/cold/session remains qualified separately.
+Next authored teacher price/skill and full script producers.
+
 Tactical481 and inventory482 known missing controls retired. Native lock/unlock,
 ordinary Tab,combat readiness/Use guards and partial recalculation implemented/
 focused verified. Broader normal Engine/cold/session/raster remains qualified.

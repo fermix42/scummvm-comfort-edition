@@ -5,6 +5,7 @@
 #include "backends/keymapper/action.h"
 #include "backends/keymapper/keymap.h"
 #include "nox/saves.h"
+#include "nox/options.h"
 #include "common/config-manager.h"
 #include "common/system.h"
 #include "common/translation.h"
@@ -21,6 +22,9 @@ public:
 		};
 		return options;
 	}
+    GUI::OptionsContainerWidget *buildEngineOptionsWidget(GUI::GuiObject *boss,const Common::String &name,const Common::String &target) const override {
+        return new Nox::OptionsWidget(boss,name,target);
+    }
 	bool isSaveSlotAllowed(const char *target,int slot) const override {
 		Nox::SaveMode mode=Nox::kModernSaveMode;
 		if(g_engine&&g_engine->getMetaEngine()==this&&ConfMan.getActiveDomainName()==target)

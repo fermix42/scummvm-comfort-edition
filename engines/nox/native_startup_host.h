@@ -54,10 +54,12 @@
 #include "nox/native_world_attack_validation.h"
 #include "nox/native_battle_party_control.h"
 #include "nox/native_battle_inventory.h"
+#include "nox/native_combat_mode_admission.h"
 #include "nox/native_tactical_controls_validation.h"
 #include "nox/native_battle_inventory_validation.h"
 #include "nox/native_battle_return_validation.h"
 #include "nox/native_dig_validation.h"
+#include "nox/native_combat_preferences_validation.h"
 #include "nox/native_player_lifecycle_validation.h"
 #include "nox/native_ending.h"
 namespace Nox {
@@ -89,6 +91,12 @@ inline Common::Error NoxEngine::runNativeStartup() {
         }
         return Common::Error(Common::kReadingFailed,reason);
     };
+    if (ConfMan.hasKey("nox_native_combat_preferences_fixture")) {
+        Common::File input;Common::String report;
+        if (!input.open(Common::FSNode(ConfMan.getPath("nox_native_combat_preferences_fixture"))) || !validateNativeCombatPreferences485(_resources,input,report)) return fail(report.empty()?"Combat preferences focused check failed":report.c_str());
+        Common::OutSaveFile *out=_system->getSavefileManager()->openForSaving("nox-native-combat-preferences.tsv",false);if (!out) return Common::kWritingFailed;
+        out->writeString(report);out->finalize();const bool ok=!out->err();delete out;return ok?Common::Error(Common::kNoError):Common::Error(Common::kWritingFailed);
+    }
     if (ConfMan.hasKey("nox_native_dig_fixture")) {
         Common::File input;Common::String report;
         if (!input.open(Common::FSNode(ConfMan.getPath("nox_native_dig_fixture"))) || !validateNativeDig484(_resources,input,report)) return fail(report.empty()?"Dig focused check failed":report.c_str());
@@ -570,18 +578,10 @@ inline Common::Error NoxEngine::runNativeStartup() {
     uint conversationAutomaticKeys=0;
     const bool autoPlay=replay && ConfMan.hasKey("nox_native_combat_finish_battle") && ConfMan.getBool("nox_native_combat_finish_battle");
     const bool endingAcceptance=autoPlay && ConfMan.hasKey("nox_native_combat_finish_ending") && ConfMan.getBool("nox_native_combat_finish_ending");
-    // Source setting609B=1 selects forced Quick before any battle action.
-    // Ask-mode/difficulty-message admission is a separate caller contract.
-    const bool forcedQuick=ConfMan.hasKey("nox_native_combat_quick") && ConfMan.getBool("nox_native_combat_quick");
-    const bool askQuick=ConfMan.hasKey("nox_native_combat_ask") && ConfMan.getBool("nox_native_combat_ask");
+    const Native::CombatPreference combatPreference=Native::CombatPreferences::read(ConfMan,ConfMan.getActiveDomainName(),replay);
     const int quickLimit=replay && ConfMan.hasKey("nox_native_quick_action_limit")?ConfMan.getInt("nox_native_quick_action_limit"):0;
     Native::QuickBattle quickRules;
-    if ((forcedQuick && askQuick) || quickLimit<0 || quickLimit>10000 || ((forcedQuick || askQuick || encounterState.quick.partyCount || encounterState.mode.selection==1) && !quickRules.load(_resources))) return fail("Native Quick policy setup unavailable");
-    auto prepareQuick=[&](Native::EncounterState &battle,bool preserveLevel) -> bool {
-        Common::Array<byte> group;
-        return !battle.round.allyCount && _resources.readRange("NA/SRTN.COMBAT.S",0x113c+uint(preparedEncounter.admission.group)*42,1,group) &&
-            Native::QuickBattle::prepare(battle.round.partyCount,battle.round.enemyCount,battle.round.category,(group[0]&128)!=0,preserveLevel,battle.records,battle.quick);
-    };
+    if (quickLimit<0 || quickLimit>10000 || ((combatPreference!=Native::kPreferTactical || encounterState.quick.partyCount || encounterState.mode.selection==1) && !quickRules.load(_resources))) return fail("Native Quick policy setup unavailable");
     Native::CombatFixtureInput automatic;uint automaticKeys=0;Common::String automaticTrace;
     auto recordStoryFrame=[&]() -> bool {
         Native::HgrFrame current;if (!storyBackdrop.render(current,storyAnimation) || !storyWindow.paint(current)) return false;
@@ -684,25 +684,12 @@ inline Common::Error NoxEngine::runNativeStartup() {
         // World queued shots retain the shared projectile presentation mode.
         // It is owned/persisted by the world turn, stable throughout battle.
         battleRound.setProjectileMode(turns.effects.projectileMode);
-        if (encounterState.presented && !encounterState.resultPhase && askQuick && !encounterState.mode.selection && !encounterState.quick.partyCount && !encounterState.command && !encounterState.round.actions) {
-            bool forbidFlee;
-            const bool tactical=Native::CombatModeRules::forcedTactical(encounterState.round.category,preparedEncounter.contactSprite,preparedEncounter.contextFlags,forbidFlee);
-            if (forbidFlee) encounterState.exit.control=128;
-            byte levels[6];for (uint i=0;i<encounterState.round.partyCount;++i) levels[i]=encounterState.records.stats[i*128+1];Native::CombatAdvice advice;
-            if (!Native::CombatModeRules::advice(levels,encounterState.round.partyCount,encounterState.records.stats[769],encounterState.round.mapId,
-                    encounterState.records.stats[784],encounterState.round.enemyCount,advice)) return fail("Native encounter mode advice rejected its owned levels");
-            encounterState.mode.selection=tactical?2:1;encounterState.mode.average=advice.average;encounterState.mode.difference=advice.difference;encounterState.mode.warning=advice.warning;
-            Native::HgrFrame image;const Common::String prompt=battlePresentation.modePrompt(advice.warning);
-            if (!battlePresentation.paint(preparedEncounter,encounterState,encounterState.phase,image,tactical?nullptr:&prompt)) return fail("Native combat mode prompt unavailable");
+        if (encounterState.presented && !encounterState.resultPhase && !encounterState.mode.selection && !encounterState.quick.partyCount && !encounterState.command && !encounterState.round.actions && !encounterState.inventory.active() &&
+            (encounterState.round.phase==Native::kBattlePartyTurn || encounterState.round.phase==Native::kBattleAutomaticTurn)) {
+            if (!Native::CombatModeAdmission::begin(_resources,preparedEncounter,combatPreference,encounterState)) return fail("Native combat preference admission failed");
+            Native::HgrFrame image;const Common::String prompt=battlePresentation.modePrompt(encounterState.mode.warning);
+            if (!battlePresentation.paint(preparedEncounter,encounterState,encounterState.phase,image,encounterState.mode.selection==1?&prompt:nullptr)) return fail("Native combat mode presentation unavailable");
             encounterState.frame=image;redraw=true;
-        }
-        if (encounterState.presented && !encounterState.resultPhase && forcedQuick && !encounterState.mode.selection && !encounterState.quick.partyCount) {
-            bool forbidFlee=false;
-            const bool tactical=Native::CombatModeRules::forcedTactical(encounterState.round.category,preparedEncounter.contactSprite,preparedEncounter.contextFlags,forbidFlee);
-            if (forbidFlee) encounterState.exit.control=128;
-            if (!tactical && !encounterState.command && !encounterState.round.actions) {
-                if (!prepareQuick(encounterState,false)) return fail("Native Quick preparation rejected its source-selected roster");
-            }
         }
         // A:9E8E..9EA0 reaches BK1:DF50 only after the mode decision and
         // roster preparation. Keep that cue/RNG transaction once per battle,
@@ -725,8 +712,7 @@ inline Common::Error NoxEngine::runNativeStartup() {
             if (!battlePresentation.paint(preparedEncounter,encounterState,encounterState.phase,image,notice)) return fail("Native Quick roster/outcome presentation failed");
             encounterState.frame=image;redraw=true;
         }
-        if (encounterState.presented && encounterState.round.phase==Native::kBattleAutomaticTurn && !encounterState.command &&
-                !encounterState.resultPhase && !encounterState.mode.selection && !encounterState.quick.partyCount) {
+        if (encounterState.presented && Native::CombatModeAdmission::automaticTactical(encounterState)) {
             if (replay && automaticRoundLimit && encounterState.round.rounds+1>=uint(automaticRoundLimit)) break;
             if (!battleRound.automatic(preparedEncounter.terrain.data(),187,encounterState.round,random,encounterState.records))
                 return fail("Native automatic status round could not complete");
@@ -753,7 +739,7 @@ inline Common::Error NoxEngine::runNativeStartup() {
             }
             storyCapture=false;
         }
-        if (replay && encounterState.presented && encounterState.round.phase==Native::kBattleAutomaticTurn && !encounterState.mode.selection && !encounterState.quick.partyCount) continue;
+        if (replay && encounterState.presented && Native::CombatModeAdmission::automaticTactical(encounterState)) continue;
         Common::Event event;bool generated=false;
         if (replay && encounterState.quick.partyCount && !encounterState.quick.phase) continue;
         const byte continuedDirection=sceneReady && !encounterState.presented?worldInput.automaticDirection():255;
@@ -846,8 +832,8 @@ inline Common::Error NoxEngine::runNativeStartup() {
                     const byte answer=event.kbd.ascii?byte(event.kbd.ascii):byte(key);
                     const Native::CombatModeChoice choice=Native::CombatModeRules::choose(255,true,answer);
                     if (!choice.accepted) continue;
-                    Native::EncounterState next=encounterState;next.mode.selection=choice.mode?3:2;
-                    if (choice.mode && !prepareQuick(next,(next.mode.difference&128)!=0)) return fail("Native selected Quick mode could not prepare its source roster");
+                    Native::EncounterState next=encounterState;
+                    if (!Native::CombatModeAdmission::select(_resources,preparedEncounter,choice.mode!=0,next)) return fail("Native selected combat mode preparation failed");
                     Native::HgrFrame image;if (!battlePresentation.paint(preparedEncounter,next,next.phase,image)) return fail("Native selected combat mode could not present");
                     next.frame=image;encounterState=next;redraw=true;continue;
                 }

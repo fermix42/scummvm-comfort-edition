@@ -1797,30 +1797,23 @@
     {
       "id": "combat.10",
       "subsystem": "combat",
-      "behavior": "Quick retained difficulty context lifetime",
-      "implementation": "UNKNOWN",
+      "behavior": "Deterministic native Quick advice ownership replacing original scratch lifetime",
+      "implementation": "CE_REPLACEMENT",
       "verification": {
-        "status": "NOT STARTED",
-        "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement."
+        "status": "VERIFIED",
+        "scope": "Existing source9F1B advice retained for both Quick preference paths,11 source contexts and mode/metadata codecs. Original forced067D historical lifetime remains UNKNOWN; not parity proof.",
+        "evidence": "SCUMMVM-CE-COMBAT-PREFERENCES485-VERIFICATION.json"
       },
       "native_owners": [
-        "engines/nox/native_encounter_admission.h",
-        "engines/nox/native_encounter_preparation.h",
-        "engines/nox/native_encounter_formation.h",
-        "engines/nox/native_battle_round.h",
-        "engines/nox/native_battle_attack.h",
-        "engines/nox/native_battle_npc_decision.h",
-        "engines/nox/native_battle_terminal.h",
-        "engines/nox/native_battle_rewards.h",
-        "engines/nox/native_battle_world_return.h",
+        "engines/nox/native_combat_mode_admission.h",
+        "engines/nox/native_combat_mode.h",
         "engines/nox/native_quick_battle.h"
       ],
       "original_evidence": [],
-      "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
+      "production_connection": "Forced and Ask Quick compute source level advice once, retain mode/metadata; no graphics scratch or constantfalse.",
       "fallback_dependencies": [],
-      "blockers": [
-        "B-QUICK"
-      ]
+      "blockers": [],
+      "historical_source_question": "Original forced067D lifetime remains UNKNOWN; explicit native source-level-based replacement selected, not machine-scratch parity."
     },
     {
       "id": "combat.11",
@@ -3085,6 +3078,31 @@
       "production_connection": "Actual D owns exclusive directions; source shovel/tile guards stage real coffin write and viewport/cache refresh. NWIN16 retains pending owner.",
       "fallback_dependencies": [],
       "blockers": []
+    },
+    {
+      "id": "interface.21",
+      "subsystem": "interface",
+      "behavior": "Normal Tactical Quick Ask game options and classic-save setting retention",
+      "implementation": "IMPLEMENTED",
+      "verification": {
+        "status": "VERIFIED",
+        "scope": "9 configuration cases,11 mode/advice connections,22 codecs,11 restrictions,actual selected-Tactical automatic cycle. GUI layout/input/normal cold/session remains qualified.",
+        "evidence": "SCUMMVM-CE-COMBAT-PREFERENCES485-VERIFICATION.json"
+      },
+      "native_owners": [
+        "engines/nox/options.h",
+        "engines/nox/metaengine.cpp",
+        "engines/nox/native_combat_preferences.h",
+        "engines/nox/native_combat_mode_admission.h",
+        "engines/nox/native_startup_host.h"
+      ],
+      "original_evidence": [
+        "SCUMMVM-CE-ENGINE-COMBAT-PREFERENCES-CONTRACT.md",
+        "A9CD8-9FAD;qualified source advice corpus"
+      ],
+      "production_connection": "Normal popup stores per-game preference; old private flags migrate,replay overrides retained. Actual host uses typed mode admission and permits Tactical mode2 automatic rounds.",
+      "fallback_dependencies": [],
+      "blockers": []
     }
   ],
   "additional_unclassified_scope": [
@@ -3744,6 +3762,23 @@
     {
       "path": "engines/nox/native_combat_mode.h",
       "sha256": "4bdcb693849592c5d29e2b2b84c7cdd94870e0a186a5f334580c3d3a6858c4e9",
+      "includes": [],
+      "explicit_boundaries": [],
+      "coverage": "Only individual requirement/evidence scopes are credited."
+    },
+    {
+      "path": "engines/nox/native_combat_mode_admission.h",
+      "sha256": "7cc89baa3b6c801c76f5e9e9aa3b62929393d347acfacb59d9b35915148eea6a",
+      "includes": [
+        "nox/native_encounter_state.h",
+        "nox/native_combat_preferences.h"
+      ],
+      "explicit_boundaries": [],
+      "coverage": "Only individual requirement/evidence scopes are credited."
+    },
+    {
+      "path": "engines/nox/native_combat_preferences.h",
+      "sha256": "a2b09517e0a13016a2e2b211c680ea6fe31b8f4fb3e8b687e606fe075c136068",
       "includes": [],
       "explicit_boundaries": [],
       "coverage": "Only individual requirement/evidence scopes are credited."
@@ -5095,7 +5130,7 @@
     },
     {
       "path": "engines/nox/native_startup_host.h",
-      "sha256": "b8ebac979fd2e6e667d0ce1364bdbd31f17a47f46277569ada488c336a433bd0",
+      "sha256": "af9ebc8e22e121ffeddf8570d9dc0c2dbd989e46f8f19d3be607ff6c9718dd97",
       "includes": [
         "nox/native_weapon_ready_validation.h",
         "nox/native_legacy_snapshot.h",
@@ -5148,88 +5183,90 @@
         "nox/native_world_attack_validation.h",
         "nox/native_battle_party_control.h",
         "nox/native_battle_inventory.h",
+        "nox/native_combat_mode_admission.h",
         "nox/native_tactical_controls_validation.h",
         "nox/native_battle_inventory_validation.h",
         "nox/native_battle_return_validation.h",
         "nox/native_dig_validation.h",
+        "nox/native_combat_preferences_validation.h",
         "nox/native_player_lifecycle_validation.h",
         "nox/native_ending.h"
       ],
       "explicit_boundaries": [
         {
-          "line": 530,
+          "line": 538,
           "text": "if (Native::NpcScheduler::apply(game.world,game.clock.hour,game.clock.minute,policy,game.schedule)==Native::kNpcScheduleUnsupported) return fail(\"Controlled map-entry schedule failed before input\");"
         },
         {
-          "line": 548,
+          "line": 556,
           "text": "if (!Native::EncounterPreparation::prepare(_resources,game,prepared,turns,worldInput.encounter(),preparedEncounter,worldInput.scriptedEncounter())) return fail(\"Native restored encounter preparation reached an unsupported admission\");"
         },
         {
-          "line": 714,
+          "line": 701,
           "text": "if (!quickRules.step(random,encounterState.records,encounterState.quick,encounterState.round.protectedTargets)) return fail(\"Native Quick scheduler/action reached an unsupported branch\");"
         },
         {
-          "line": 797,
+          "line": 783,
           "text": "if (!pacedReplay) { if (!advanceAnimation()) return fail(\"Native deterministic idle reached an unsupported animation boundary\");continue; }"
         },
         {
-          "line": 802,
+          "line": 788,
           "text": "if (!advanceAnimation()) return fail(\"Native live idle reached an unsupported animation boundary\");continue;"
         },
         {
-          "line": 871,
+          "line": 857,
           "text": "if (!aftermath.choose(take,all,game,encounterState,random) || !aftermath.paint(font,encounterState)) return fail(\"Native treasure decision reached an unsupported inventory/result branch\");"
         },
         {
-          "line": 879,
+          "line": 865,
           "text": "if (!aftermath.begin(worldInput.encounter(),game,encounterState,random,worldInput.scriptedEncounter(),preparedEncounter.contactSprite)) return fail(\"Native victory results reached an unsupported level/contact/loot branch\");"
         },
         {
-          "line": 919,
+          "line": 905,
           "text": "if (result==Native::kInventoryWindowUnsupported) return fail(\"Native battle inventory transaction failed\");"
         },
         {
-          "line": 959,
+          "line": 945,
           "text": "if (handled==Native::kBattleCastUnsupported) return fail(\"Native Cast reached an unsupported family/status/NPC continuation\");"
         },
         {
-          "line": 982,
+          "line": 968,
           "text": "!Native::BattleAttack::used(next.records,caster,next.attack.partyTargeting,next.attack,next.target)) return fail(\"Native tactical attack reached an unsupported weapon/turn policy\");"
         },
         {
-          "line": 989,
+          "line": 975,
           "text": "if (!battlePresentation.paint(preparedEncounter,next,next.phase,image)) return fail(\"Native tactical attack presentation reached an unsupported status\");"
         },
         {
-          "line": 1046,
+          "line": 1032,
           "text": "!battlePresentation.paint(preparedEncounter,next,next.phase,image)) return fail(\"Native tactical pass reached an unsupported turn/status policy\");"
         },
         {
-          "line": 1084,
+          "line": 1070,
           "text": "if (handled==Native::kWorldInputBoundary) return fail(\"Native world command reached an unsupported encounter/interaction boundary\");"
         },
         {
-          "line": 1085,
+          "line": 1071,
           "text": "if (handled==Native::kWorldInputUnsupported) return fail(\"Native world command could not complete its admitted phase\");"
         },
         {
-          "line": 1087,
+          "line": 1073,
           "text": "if (!Native::EncounterPreparation::prepare(_resources,game,prepared,turns,worldInput.encounter(),preparedEncounter,worldInput.scriptedEncounter())) return fail(\"Native encounter preparation reached an unsupported admission\");"
         },
         {
-          "line": 1088,
+          "line": 1074,
           "text": "if (!encounterState.begin(_resources,game,preparedEncounter,random)) return fail(\"Native encounter formation reached an unsupported layout/group\");"
         },
         {
-          "line": 1093,
+          "line": 1079,
           "text": "if (handled==Native::kWorldInputIgnored && event.kbd.keycode==Common::KEYCODE_SPACE) {"
         },
         {
-          "line": 1101,
+          "line": 1087,
           "text": "else if (result!=Native::kWorldWaitAdvanced) return fail(\"Native Wait reached an unsupported effect boundary\");"
         },
         {
-          "line": 1113,
+          "line": 1099,
           "text": "if (handled==Native::kWorldInputIgnored && event.kbd.keycode==Common::KEYCODE_SPACE && ConfMan.hasKey(\"nox_native_checkpoint_wait\") &&"
         }
       ],
@@ -7074,6 +7111,15 @@
         }
       ],
       "coverage": "Only individual requirement/evidence scopes are credited."
+    },
+    {
+      "path": "engines/nox/options.h",
+      "sha256": "bde59780e99f27496d7fcb694c96cf4d6879959e99f03cddbab350c358369ad7",
+      "includes": [
+        "nox/native_combat_preferences.h"
+      ],
+      "explicit_boundaries": [],
+      "coverage": "Only individual requirement/evidence scopes are credited."
     }
   ],
   "counts": {
@@ -7088,9 +7134,9 @@
       "ce_replacements": 0
     },
     "interface": {
-      "known_required": 17,
-      "native_implemented": 9,
-      "verified": 8,
+      "known_required": 18,
+      "native_implemented": 10,
+      "verified": 9,
       "partial": 8,
       "missing": 0,
       "unknown_required_rows": 3,
@@ -7138,14 +7184,14 @@
       "ce_replacements": 0
     },
     "combat": {
-      "known_required": 16,
+      "known_required": 17,
       "native_implemented": 4,
-      "verified": 4,
+      "verified": 5,
       "partial": 12,
       "missing": 0,
-      "unknown_required_rows": 1,
+      "unknown_required_rows": 0,
       "additional_unclassified_scope": 1,
-      "ce_replacements": 0
+      "ce_replacements": 1
     },
     "magic": {
       "known_required": 8,
@@ -7209,8 +7255,8 @@
     }
   },
   "last_milestone": {
-    "owner": "Dig484",
-    "evidence": "SCUMMVM-CE-DIG484-VERIFICATION.json"
+    "owner": "combat preferences485",
+    "evidence": "SCUMMVM-CE-COMBAT-PREFERENCES485-VERIFICATION.json"
   },
   "overall": {
     "fully_implemented_top_level_domains": 1,
@@ -7224,6 +7270,7 @@
   },
   "current_subsystem": {
     "status": "IN PROGRESS",
-    "scope": "Player combat preference options and deterministic source advice; remaining scripts/graphics/lifecycle closure."
-  }
+    "scope": "Authored service and script producer closure; preserve accepted control/audio owners."
+  },
+  "count_definition": "native_implemented counts IMPLEMENTED; CE_REPLACEMENT is separately reported. VERIFIED applies only to row evidence scope; no overall completion percentage."
 }

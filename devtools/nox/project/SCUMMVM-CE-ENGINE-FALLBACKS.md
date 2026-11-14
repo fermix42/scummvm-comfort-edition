@@ -1,3 +1,9 @@
+Preferences485 deliberately replaces forced067D graphics-scratch dependence
+with existing source9F1B level advice,matching Ask Quick. No guessed constant,
+CPU or ABI fallback. Normal CE popup/config replaces hidden private flags as
+player preference owner; legacy flags migrate. Original forced scratch parity
+remains UNKNOWN historical evidence; normal GUI/cold qualification separate.
+
 Inventory482 uses typed combat context instead of original mapFF/stats/page ABI.
 Partial B563 semantics preserve transaction weight/unrelated combat domains;
 NIWN3/NBTS18 persist native modal ownership. No CPU fallback or expanded normal

@@ -1,3 +1,49 @@
+# Combat preferences485 integrated - November14
+
+First build485 passed0 warnings/errors2m50.28s; first focused batch VERIFIED.
+9 real config cases,11 hash-bound source advice contexts,11 forced/Ask Quick
+matches,22 pending/prepared mode codecs/metadata restore,11 restrictions and
+one actual sleeping-party selected-Tactical NPC cycle. No old/source/audio suite
+or campaign. Normal menu layout/input/cold/session remains qualified; no GUI
+layout acceptance. Classic-save option retained,new normal Tactical/Quick/Ask
+popup and private flag migration/replay override implemented. Mode2 automatic
+host guard fixed. Source/executable frozen COMBAT-PREFERENCES485 receipt.
+No active build. Audio/cue/mixer/synthesis owners unchanged.
+Explicit CE_REPLACEMENT: forced Quick uses actual source9F1B level advice and
+128 preservation flag,matching Ask,never prior constantfalse or pixel067D.
+Historical forced scratch lifetime still UNKNOWN,not claimed solved/parity.
+B-QUICK missing native context retired via explicit replacement; matrix reports
+CE_REPLACEMENT separately from IMPLEMENTED counts. Native source semantics and
+normal qualification remain distinct. No normal battle-save expansion.
+Next source-driven service/script producer closure. Existing native training/
+payment/merchant/inn/temple owners substantial. Conversation's remaining
+unsupported callback predicate applies only serviceAccess2 (role17 teacher),
+nonzero price,field22 missing/outside1..63. Census479 had zero authored field21
+requests because admission sets serviceAccess; reconcile actual role17 map/
+packet field18/19/22 producers before inventing another service callback.
+Canonical tracking here; byte-identical recovery CE devtools/nox/project.
+
+# Active combat preferences485 - IN PROGRESS
+
+Dig484 committedf62678ff7b3. Normal Tactical/Quick/Ask game-options popup and
+retained classic-saves control implemented; new per-game nox_combat_mode0/1/2,
+legacy private flag migration and replay override. CombatModeAdmission joins
+existing source restriction/advice,Quick preparation and old mode/Quick codecs.
+Explicit CE replacement: source9F1B level advice for forced and Ask Quick,
+never constantfalse/pixel067D. Historical forced scratch lifetime remains
+unresolved parity,not claimed source-equivalent. Source group boost unchanged.
+Tactical nowrecords selectedmode2 once. Host automatic Tactical guard corrected
+to admit mode2 as well as legacy0,including replay loop; old guard stalled all-
+sleeping parties after Ask->Tactical. Terminal/acted/alreadyselected modes not
+rewritten. Normal CE save policy unchanged; audio/music cue machinery untouched.
+11 hash-bound existing original9F1B contexts selected as data, no original/old
+suite rerun. Focused batch:9 real config cases,11 advice connections/forced-vs-
+Ask Quick equality/restrictions,22 mode codecs,one actual sleeping-party NPC
+cycle. Normal GUI layout/input and normal Engine cold/session remain qualified.
+Build485 next; no485 native run. Modified metaengine/StartupHost,new options/
+CombatPreferences/CombatModeAdmission/focused fixture. Canonical tracking here,
+byte-identical recovery CE devtools/nox/project.
+
 # World Dig484 integrated - November14
 
 Build484b passed0 warnings/errors2m47.37s.824 original rules,actual Ruin31 coffin
