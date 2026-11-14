@@ -625,6 +625,10 @@ private:
             // Search can mutate object/guard records before its result is closed.
             // Keep the owned viewport cache coherent at that save boundary.
             if (!window.captureRecords(game.world)) return kWorldInputUnsupported;
+            // LWR1AC2 checks terminal party death before Search may retry or
+            // spend a world turn. Trap damage has already committed here.
+            bool alive=false;for (uint i=0;i<game.party.memberCount();++i) alive|=game.party.member(i)->bytes[0]!=255;
+            if (!alive) {_search.cancel(&frame);markDefeated();return kWorldInputDefeat;}
             if (result==kSearchInputClosed || result==kSearchInputAttempted) {
                 byte painted[187]={};
                 if (!window.captureRecords(game.world) || !WorldViewport::refreshAtWorld(game.world,window,_story,_actors,_lighting,_occlusion,_painter,game.appearance,game.clock.lightActive,

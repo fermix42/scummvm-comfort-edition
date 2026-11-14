@@ -81,6 +81,8 @@ public:
             const uint ascii=event.kbd.ascii;
             if (ascii<'1' || ascii>'6' || ascii-'0'>game.party.memberCount()) return kSearchInputHandled;
             member=byte(ascii-'0');
+            // Search9A86 sets living-only selection before GAME8600.
+            if (game.party.member(member-1)->bytes[0]==255) return kSearchInputHandled;
         }
         if (_door) {
             bool promoted=false;const SearchResult result=game.world.pickDoor(_x,_y,_slot,member,rules,_state,random,game.party,promoted);
@@ -112,7 +114,7 @@ public:
         default:warning("Native Search rejected result %u",uint(result));return kSearchInputUnsupported;
         }
     }
-    void cancel() {_phase=0;}
+    void cancel(HgrFrame *frame=nullptr) {if (frame) *frame=_underlay;_phase=0;}
     bool refresh(HdvArchive &archive,HgrFrame &frame) {_underlay=frame;return !active() || (_phase==2 && prompt(archive,frame,"Pick lock: party 1-6/Esc"));}
     bool save(Common::WriteStream &out) const {
         if (!active() || _phase>5) return false;

@@ -3277,6 +3277,29 @@
       "production_connection": "Shared WorldInput.travel initializes destinationwindow ->WorldViewport/lighting/ownedrecord capture. Same byte-sector topology as ordinary scrolling.",
       "fallback_dependencies": [],
       "blockers": []
+    },
+    {
+      "id": "lifecycle.08",
+      "subsystem": "lifecycle",
+      "behavior": "Search traps reject dead lockpickers and deliver terminal party defeat before retries/world turns",
+      "implementation": "IMPLEMENTED",
+      "verification": {
+        "status": "VERIFIED",
+        "scope": "Three actual traps,dead selection,two terminal deaths/nonfatal retry/six codecs/owned frame;not normalEnginecold/session/campaign.",
+        "evidence": "SCUMMVM-CE-SEARCH-DEFEAT495-VERIFICATION.json"
+      },
+      "native_owners": [
+        "engines/nox/native_search_input.h",
+        "engines/nox/native_world_input.h",
+        "engines/nox/native_startup_host.h"
+      ],
+      "original_evidence": [
+        "SCUMMVM-CE-ENGINE-SEARCH-DEFEAT-CONTRACT.md",
+        "LWR1AC2/1AFF andSearch9A86/9A8B"
+      ],
+      "production_connection": "Search actual party damage ->recordcapture ->living scan ->cancel/restore underlay ->markDefeated ->existing host defeat/status rendering. Nonfatal retry unchanged.",
+      "fallback_dependencies": [],
+      "blockers": []
     }
   ],
   "additional_unclassified_scope": [
@@ -5185,7 +5208,7 @@
     },
     {
       "path": "engines/nox/native_search_input.h",
-      "sha256": "8b3188ca64d6e9c1667984bde63c3afe681b533cdb543acb17bba94cd07b5d10",
+      "sha256": "ca3ad020ec3e32e045804ecbcf67e2f9d51dc34654c8ba99bbdd7511ba02a188",
       "includes": [
         "nox/native_new_game.h",
         "nox/native_text_window.h",
@@ -5304,7 +5327,7 @@
     },
     {
       "path": "engines/nox/native_startup_host.h",
-      "sha256": "3a4842d25efa46967d169eaf08fd1a241da15b509203f4bbbc673d7398e2d055",
+      "sha256": "d1659119443d6f1bf1f2494205399c804582c1d247e6738b1d69ba59e8b77b54",
       "includes": [
         "nox/native_weapon_ready_validation.h",
         "nox/native_legacy_snapshot.h",
@@ -6525,7 +6548,7 @@
     },
     {
       "path": "engines/nox/native_world_input.h",
-      "sha256": "5ec9f7c5ca6c82f5766553c39f5e7b5d67195b9d2a57a7abbc6686d8632fdc40",
+      "sha256": "8a1f13faee353d1bac498089b12cf6755ba4fd041270aebd72ea6143e4cd6b5f",
       "includes": [
         "nox/native_new_game.h",
         "nox/native_world_move.h",
@@ -7317,9 +7340,9 @@
   ],
   "counts": {
     "lifecycle": {
-      "known_required": 7,
-      "native_implemented": 3,
-      "verified": 1,
+      "known_required": 8,
+      "native_implemented": 4,
+      "verified": 2,
       "partial": 4,
       "missing": 0,
       "unknown_required_rows": 0,
@@ -7448,8 +7471,8 @@
     }
   },
   "last_milestone": {
-    "owner": "compressed window entry493",
-    "evidence": "SCUMMVM-CE-WINDOW-ENTRY493-VERIFICATION.json"
+    "owner": "Search party/terminal lifecycle495",
+    "evidence": "SCUMMVM-CE-SEARCH-DEFEAT495-VERIFICATION.json"
   },
   "overall": {
     "fully_implemented_top_level_domains": 1,
@@ -7463,7 +7486,7 @@
   },
   "current_subsystem": {
     "status": "IN PROGRESS",
-    "scope": "Shared lifecycle/graphics/native-owner connection review; accepted493 andstatic494 retained, no campaign or old suite rerun."
+    "scope": "Remaining shared lifecycle/graphics and authored producer connection review;no campaign/old suite rerun."
   },
   "count_definition": "native_implemented counts IMPLEMENTED; CE_REPLACEMENT is separately reported. VERIFIED applies only to row evidence scope; no overall completion percentage."
 }

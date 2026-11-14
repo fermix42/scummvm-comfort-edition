@@ -1,0 +1,62 @@
+{
+  "status": "VERIFIED",
+  "scope": "Search/lock party lifecycle: living-only selection,immediate terminal defeat,owned frame cleanup and nonfatal retry.",
+  "parent_commit": "c764a3c9cc5",
+  "executable_sha256": "8265efd231c9783e177c9454cd164d9acd84ac2e7c04b607bdc5231182cc9372",
+  "contract": "SCUMMVM-CE-ENGINE-SEARCH-DEFEAT-CONTRACT.md",
+  "builds": {
+    "495": {
+      "warnings": 0,
+      "errors": 0,
+      "elapsed": "00:03:00.81",
+      "log": "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-search-defeat495-build.log"
+    },
+    "495b": {
+      "warnings": 0,
+      "errors": 0,
+      "elapsed": "00:02:49.40",
+      "log": "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-search-defeat495b-build.log"
+    },
+    "495c": {
+      "warnings": 0,
+      "errors": 0,
+      "elapsed": "00:02:56.92",
+      "log": "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-search-defeat495c-build.log"
+    },
+    "495d": {
+      "warnings": 0,
+      "errors": 0,
+      "elapsed": "00:03:01.92",
+      "log": "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-search-defeat495d-build.log"
+    }
+  },
+  "native_batches": 2,
+  "failures": [
+    "495c first batch stopped in setup before Search: assumed two NewGame members,actual NewGame has one hero. Corrected explicitly declared source-template two-member checkpoint through Party codec."
+  ],
+  "extra_build_reasons": [
+    "495b: source9A86 living-only selector connection found;completed same owner before any native batch.",
+    "495c: static terminal frame ownership review found retained upper retry panel;restore owned underlay before existing defeat painter.",
+    "495d: correct one-member fixture assumption,retain all three acceptance profiles."
+  ],
+  "focused_validation": "search_defeat\tactual_traps=3\tdead_selection_refused=1\tterminal_deaths=2\tnonfatal_retry=1\tcore_input_codecs=6\tterminal_extra_turns=0\tcampaign=0\taudio_suite=0\n",
+  "source_manifest": {
+    "path": "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-search-defeat495d-focused\\verification.json",
+    "sha256": "61db143857d841b1c11fafb5182f7cdefcb815c4b066efa6c2e17684785132ef"
+  },
+  "source": "LWR1AC2->1AFC/1AFF party-death8383/E6AD;Search9A86 living-only30F8=0;retained lock37 original RNG seeds/difficulty8 damage41. Existing lock-party38 excluded terminal/render integration.",
+  "controlled_setup": "Actual authored Ruin31 chest28 at33,14,difficulty8. Two source-created hero/equipment template copies via Party codec before input (not earned recruitment/normal equipment ownership). Initial HP1/skills0/ten picks;first profile all alive,second last survivor,third other member survives at source HP50. SeedsBD0FD87C area41 and89E4AC58 single41 before first S/arrow/member. No expected damage/outcome injection. Direct core/input codecs,not normal Engine cold/session.",
+  "remaining_qualifications": [
+    "No campaign,earned approach,normal cold/session,audio or old lock/Search suite run.",
+    "Shared defeat painter is reused and called in focused batch;no fresh full Engine display/session claim."
+  ],
+  "artifacts": {
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-binary\\scummvm-native-search-defeat495d.exe": "8265efd231c9783e177c9454cd164d9acd84ac2e7c04b607bdc5231182cc9372",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-binary\\native-search-defeat495d-source.zip": "81ccb927dccc1f942d5a378b9d730f51ddb9c939f5ff33ac1d33cbf413e89e4f",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-search-defeat495d-focused\\verification.json": "61db143857d841b1c11fafb5182f7cdefcb815c4b066efa6c2e17684785132ef",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-search-defeat495-build.log": "44439c745353a26ed449bf6596b3ee3ec44fbd88ebfd00e203b3b9ebbf5f1cee",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-search-defeat495b-build.log": "84bed4efb8cf9c413ebfe14318bd76a90b4b43f43d085b9964c47ae63371a8d5",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-search-defeat495c-build.log": "04e2e09d06d42368476584cb204f2dff7f2ed9592c2f81fe49541192e120be3f",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-search-defeat495d-build.log": "965515405de83f93ef688034e2fe62228a23ee145df9eb79e423d536e14f397e"
+  }
+}

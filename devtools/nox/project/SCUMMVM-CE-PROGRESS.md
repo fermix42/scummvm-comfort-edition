@@ -1,4 +1,66 @@
-# Authored producer closure494 - VERIFIED static scope
+# Search trap lifecycle495 integrated - VERIFIED within contract
+
+495d clean build0/0 elapsed00:03:01.92;firstcorrectivefocusedbatchpasses
+3actualRuin31trap operations,2terminaldeaths,1nonfatalretry,deadselection
+refusal,6core/inputcodecs,exactterminalworldunderlay/noextraactors/clock/RNG.
+SourceoriginalLWR1AC2terminalcallback andSearch9A86living-onlyselector now
+connectedtoexistingnativeWorldInputmarkDefeated/hostpaintWorldDefeat.
+TerminalSearch cancels/restoresownedworldframebeforedefeat;survivingparty
+retainsretry. Source/exe frozensearch-defeat495d;receiptSEARCH-DEFEAT495.
+First495cnativebatchstoppedbeforeinput:NewGameonehero,fixtureexpectedtwo.
+DeclaredtwosourceherotemplatecopiesviaPartycodec correctedbeforeoperations;
+noearnedrecruitment/equipmentownership/normalcold/session/campaignclaim.
+Earlier495/495bbuilds0/0,noexecution;source-complete selector/framecorrections
+weredirectreasonsforextrabuilds. Nooldlock/Search/audio/campaignsuite.
+StaticworldParty.damagecallers nowcoveredbyexistingbarrier/hazards/sea owners
+andSearch495terminalconnection. Camp schedulehypothesisrejected:source05E1
+specialmaps50/52skipFBCA;allotherallowedCamp types<4skipitsNPCinitializer.
+No speculativeCamp/schedulechange. Continue remainingnative lifecycle/source
+ownerreview andsource-drivenplan;do notstopatthismilestone.
+
+# Search495 first focused setup failure - IN PROGRESS
++
++495c build0/0 2m56.92s; firstbatch stopsatprofile0setupbeforeanySearchinput.
++NewGame startsonehero,notassumedtwo,so partialdeathfixture prerequisitefailed.
++Declarecontrolledtwo-membercheckpointbyduplicatingsource-createdhero/equipment
++viaordinaryPartycodec BEFOREHP/skills/tools/RNGandfirstinput,matchingold38
++controlledparty-template approach. Noearnedrecruit/ownershipclaim. Preserveall
++threeacceptanceprofiles;donotweakennonfatal/lastsurvivorcriteria. 495d rebuild
++andfirstcorrectivenativebatchrequired. Earlier495/495bbuilds0/0(no runs).
++Directterminalframe/selectionfixesretained;no old/audio/campaign suite.
++
++# Search495 terminal frame ownership correction - IN PROGRESS
+
+Static final-owner review before anyfreshSearchbatch: shareddefeat painter
+clearslowerstatuspanel,notupperSearchretrywindow. CancelmustrestoreSearch
+ownedunderlaybeforehostdefeatpaint;noWorldViewport/AI/RNGphase replay.
+Addoptionalframe restoretoexistingcancel,onlyfatalcaller passesframe.
+Fatalfocusedcases assertexactworldunderlaybeforeexistingdefeatpaint.
+Thisdirectpresentationdefectrequires495c rebuildafter495b completes;no
+known-incomplete495/495b executable run,no corrective native rerun consumed.
+ThenonecompleteSearchparty/terminal focusedbatch;no unrelated newcases.
+
+# Search495 source-complete selection correction - IN PROGRESS
+
+Initial495 build completedbeforefreshnativebatch. Source reviewalsofound
+Search9A86sets30F8=0 beforeGAME8600,living-onlyselection. NativeSearchnumeric
+selection admitteddeadmembers. Addsamephase2deadfilter forchests/doors and
+actualdeadselection no-core/RNG/tool-change checkbeforelast-survivortrap.
+ThisispartofsameSearch/party lifecycleowner,notnewUI. Corrective495b build
+requiredfornewsource;no495native run/oldsuite. Thenonecompletefocusedbatch.
+
+# Search trap defeat495 - IN PROGRESS
++
++Shared lifecycle source review found realmissingterminalconnection: Search
++applies lethaltraprecords butdoesnot detectallpartydeath. Original LWR1AC2
++damage ->1AFC/1AFF calls8383/E6AD before returning;oldlock-party38 explicitly
++excluded game-over/render callback. Contract ENGINE-SEARCH-DEFEAT-CONTRACT.
++Connect aftersuccessfulSearch andrecordcapture,before worldwait/actor/clock;
++reuse existingmarkDefeated/hostpaintWorldDefeat. Nonfatalretryunchanged.
++OneactualRuin31chest28 focusedbatch withdeclaredHP/skills/tools andretained
++original37trap seeds,notinjectedoutcomes;oneintegrationbuild. Continueafterward.
++
++# Authored producer closure494 - VERIFIED static scope
 
 python conversion/census_native_producers494.py exit0:76maps,49/49commerce
 offers matchinitialroles,11storypatchrules usefour existingtyped effects.
