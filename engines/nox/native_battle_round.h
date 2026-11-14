@@ -15,11 +15,11 @@
 namespace Nox { namespace Native {
 enum BattleRoundPhase { kBattlePartyTurn,kBattleVictory,kBattleDefeat,kBattleAutomaticTurn };
 struct BattleRoundState {
-    byte partyCount,enemyCount,allyCount,activeParty,category,mapId,enemySpell,summonHealth[32];
+    byte partyCount,enemyCount,allyCount,activeParty,lockedParty,category,mapId,enemySpell,summonHealth[32];
     bool protectedTargets,specialSpell;
     BattleRoundPhase phase;
     uint32 rounds,actions;
-    BattleRoundState() : partyCount(1),enemyCount(1),allyCount(0),activeParty(0),category(0),mapId(7),enemySpell(0),protectedTargets(false),specialSpell(false),phase(kBattlePartyTurn),rounds(0),actions(0) { memset(summonHealth,0,32); }
+    BattleRoundState() : partyCount(1),enemyCount(1),allyCount(0),activeParty(0),lockedParty(0),category(0),mapId(7),enemySpell(0),protectedTargets(false),specialSpell(false),phase(kBattlePartyTurn),rounds(0),actions(0) { memset(summonHealth,0,32); }
 };
 // Native party -> allied summons -> enemy scheduling. The admitted ground
 // destination policy uses the parent family's authored terrain classes under
@@ -34,8 +34,28 @@ public:
         for (byte i=0;i<count;++i) if (aliveParty(records,i) && (records.compact[i*4+3]&63)<2) return i;
         return 255;
     }
+    // Original0623 is a one-based retained party choice, not an actor pointer.
+    static bool lockable(const BattleRecords &records,byte count,byte choice) {
+        return !choice || (choice<=count && choice<=6 && !(records.compact[(choice-1)*4+3]&63));
+    }
+    static byte retainedParty(const BattleRecords &records,BattleRoundState &state) {
+        if (!state.lockedParty) return 255;
+        if (!lockable(records,state.partyCount,state.lockedParty) || !aliveParty(records,state.lockedParty-1)) {state.lockedParty=0;return 255;}
+        return byte(state.lockedParty-1);
+    }
+    bool lockParty(byte choice,const byte *terrain,uint length,BattleRoundState &state,GameplayRandom &random,BattleRecords &records,bool &accepted) const {
+        accepted=false;if (!valid(state,terrain,length) || state.phase!=kBattlePartyTurn) return false;
+        if (!lockable(records,state.partyCount,choice)) return true;
+        BattleRoundState next=state;BattleRecords battle=records;GameplayRandom rng=random;
+        next.lockedParty=choice;
+        // DAB1 forces the remaining party slots to be skipped when locked.
+        // Unlock instead advances from the actual current party position.
+        if (!finish(next,rng,battle,terrain)) return false;
+        state=next;records=battle;random=rng;accepted=true;return true;
+    }
     static void initializeTurn(const BattleRecords &records,BattleRoundState &state) {
-        const byte selected=firstEligibleParty(records,state.partyCount);
+        const byte locked=retainedParty(records,state);
+        const byte selected=locked==255?firstEligibleParty(records,state.partyCount):locked;
         if (BattleTerminal::defeated(records,state.partyCount)) {state.phase=kBattleDefeat;return;}
         if (selected==255) {state.activeParty=byte(state.partyCount-1);state.phase=kBattleAutomaticTurn;return;}
         state.activeParty=selected;state.phase=phase(state,records);
@@ -144,7 +164,7 @@ public:
 
 private:
     static bool valid(const BattleRoundState &s,const byte *terrain,uint length) {
-        if (!terrain || length!=187 || !s.partyCount || s.partyCount>6 || s.enemyCount>16 || s.allyCount>16 || s.activeParty>=s.partyCount) return false;
+        if (!terrain || length!=187 || !s.partyCount || s.partyCount>6 || s.enemyCount>16 || s.allyCount>16 || s.activeParty>=s.partyCount || s.lockedParty>s.partyCount) return false;
         return s.category<=8 && s.category!=1;
     }
     bool collisions(const BattleRoundState &s,const BattleRecords &b,byte cell,const byte *terrain,byte *blocked) const {
@@ -186,7 +206,7 @@ private:
     }
     bool finish(BattleRoundState &s,GameplayRandom &rng,BattleRecords &b,const byte *terrain) const {
         s.phase=phase(s,b);if (s.phase==kBattleDefeat) return true;
-        for (uint i=s.activeParty+1;i<s.partyCount;++i) if (aliveParty(b,i) && (b.compact[i*4+3]&63)<2) { s.activeParty=byte(i);return true; }
+        if (!s.lockedParty) for (uint i=s.activeParty+1;i<s.partyCount;++i) if (aliveParty(b,i) && (b.compact[i*4+3]&63)<2) { s.activeParty=byte(i);return true; }
         for (uint side=0;side<2;++side) {
             const bool ally=side==0;
             for (uint i=0;i<(ally?s.allyCount:s.enemyCount);++i) {
@@ -215,6 +235,7 @@ private:
             }
         }
         ++s.rounds;
+        const byte locked=retainedParty(b,s);if (locked!=255) {s.activeParty=locked;return true;}
         for (uint i=0;i<s.partyCount;++i) if (aliveParty(b,i) && (b.compact[i*4+3]&63)<2) { s.activeParty=byte(i);return true; }
         s.activeParty=byte(s.partyCount-1);s.phase=kBattleAutomaticTurn;return true; // No eligible party input;retain the actual next automatic cycle.
     }

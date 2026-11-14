@@ -52,6 +52,8 @@
 #include "nox/native_dialogue_control_validation.h"
 #include "nox/native_callbacks_validation.h"
 #include "nox/native_world_attack_validation.h"
+#include "nox/native_battle_party_control.h"
+#include "nox/native_tactical_controls_validation.h"
 #include "nox/native_player_lifecycle_validation.h"
 #include "nox/native_ending.h"
 namespace Nox {
@@ -83,6 +85,12 @@ inline Common::Error NoxEngine::runNativeStartup() {
         }
         return Common::Error(Common::kReadingFailed,reason);
     };
+    if (ConfMan.hasKey("nox_native_tactical_controls_fixture")) {
+        Common::File input;Common::String report;
+        if (!input.open(Common::FSNode(ConfMan.getPath("nox_native_tactical_controls_fixture"))) || !validateNativeTacticalControls481(_resources,input,report)) return fail(report.empty()?"Tactical controls focused check failed":report.c_str());
+        Common::OutSaveFile *out=_system->getSavefileManager()->openForSaving("nox-native-tactical-controls.tsv",false);if (!out) return Common::kWritingFailed;
+        out->writeString(report);out->finalize();const bool ok=!out->err();delete out;return ok?Common::Error(Common::kNoError):Common::Error(Common::kWritingFailed);
+    }
     if (ConfMan.hasKey("nox_native_world_attack_fixture")) {
         Common::File input;Common::String report;
         if (!input.open(Common::FSNode(ConfMan.getPath("nox_native_world_attack_fixture"))) || !validateNativeWorldAttack480(_resources,input,report)) return fail(report.empty()?"World Attack focused check failed":report.c_str());
@@ -949,6 +957,16 @@ inline Common::Error NoxEngine::runNativeStartup() {
                     if (!battlePresentation.paint(preparedEncounter,next,next.phase,image)) return fail("Native tactical attack presentation reached an unsupported status");
                     next.frame=image;encounterState=next;random=after;redraw=true;continue;
                 }
+                byte lockedParty;
+                if (Native::BattlePartyControl::requested(event.kbd,lockedParty)) {
+                    Native::EncounterState next=encounterState;Native::GameplayRandom after=random;Native::HgrFrame image;bool accepted=false;
+                    if (!battleRound.lockParty(lockedParty,preparedEncounter.terrain.data(),preparedEncounter.terrain.size(),next.round,after,next.records,accepted)) return fail("Native party lock scheduling failed");
+#ifdef NOX_NATIVE_ONLY
+                    if (!accepted && !playNativeRefusal()) return fail("Native party lock refusal sound failed");
+#endif
+                    if (!battlePresentation.paint(preparedEncounter,next,next.phase,image)) return fail("Native party lock presentation failed");
+                    next.frame=image;encounterState=next;random=after;redraw=true;continue;
+                }
                 if (key==Common::KEYCODE_f) {
                     Native::EncounterState next=encounterState;Native::GameplayRandom after=random;Native::HgrFrame image;Native::CannonStep step;
                     const uint member=next.round.activeParty,index=member*4;
@@ -1001,11 +1019,10 @@ inline Common::Error NoxEngine::runNativeStartup() {
                 case Common::KEYCODE_UP:direction=0;break;case Common::KEYCODE_DOWN:direction=1;break;
                 case Common::KEYCODE_RIGHT:direction=2;break;case Common::KEYCODE_LEFT:direction=3;break;
                 default: {
-                    // The source dispatcher reports unmapped keys and reprompts
-                    // without retiring a turn. Keep known missing commands explicit.
-                    const char *pending="F+-=*\t!@#$%^";bool known=false;
-                    for (uint i=0;pending[i];++i) if (event.kbd.ascii==uint16(pending[i]) || key==pending[i] || (pending[i]=='F' && key==Common::KEYCODE_f)) known=true;
-                    if (known) return fail("Native tactical command reached an unimplemented action boundary");
+                    // Native immediate status/health presentation replaces original
+                    // +/- text delay and * arithmetic prose. Retired machine keys
+                    // use the ordinary invalid-key reply without a turn or crash.
+                    if (key==Common::KEYCODE_TAB) return fail("Native tactical inventory remains an unimplemented action boundary");
                     Native::HgrFrame image;const Common::String &notice=battlePresentation.invalidCommand();
                     if (!battlePresentation.paint(preparedEncounter,encounterState,encounterState.phase,image,&notice)) return fail("Native invalid command prompt failed");
                     encounterState.frame=image;redraw=true;continue;

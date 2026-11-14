@@ -1,3 +1,20 @@
+# Tactical controls481 integrated - November14
+
+Build481 passed0 warnings/errors2m48.78s; first focused batch VERIFIED.
+3024 original selection/round boundaries,189 retained admissions,14 shifted
+aliases,2 actual NPC cycles,lock/unlock NBTS17/legacy codecs and roster marker.
+No original AI/campaign execution; actual native NPC scheduling reused. Source
+unlock scratchBDFF dependency intentionally replaced; immediate native panes
+replace +/- delay and * arithmetic prose. Audio473 unchanged; no old suite.
+Source/executable frozen in TACTICAL-CONTROLS481 receipt. No active build.
+Next battle Tab inventory. Source guard AC7D: body armor not shields refuses6;
+books refuse9; AE70 item Use refuses10 in combat. Ordinary battle Tab owner is
+missing (world inventory does not substitute), explicit boundary retained.
+Need live battle records/gear/book and modal free-return ownership; source
+full equipment recalculation/battle temporary armor interaction to reconcile
+before connecting the UI. Quick067D/exceptional/script closure stays separate.
+Canonical tracking here; byte-identical recovery CE devtools/nox/project.
+
 # World Attack480 integrated - November14
 
 Build480c passed0 warnings/errors2m49.92s. Focused batch VERIFIED:2988 original

@@ -54,6 +54,13 @@ public:
         exit.control=EncounterAdmissionRules::initialNoFlee(round.category,prepared.contextFlags);BattleRound::initializeTurn(records,round);formed=true;return true;
     }
     bool save(Common::WriteStream &out) const {
+        if (round.lockedParty) {
+            if (!formed || quick.partyCount || round.lockedParty>round.partyCount || round.lockedParty>6) return false;
+            Common::ScopedPtr<EncounterState> base(new EncounterState(*this));base->round.lockedParty=0;
+            Common::MemoryWriteStreamDynamic body(DisposeAfterUse::YES);if (!base->save(body)) return false;
+            out.writeUint32BE(MKTAG('N','B','T','S'));out.writeUint16LE(17);out.writeByte(round.lockedParty);out.writeUint32LE(body.size());out.write(body.getData(),body.size());return !out.err();
+        }
+
         if ((presented && !formed) || presented!=oriented || phase>3) return false;
         if (mode.selection && !formed) return false;
         const uint16 baseVersion=mode.selection?13:quick.partyCount?12:11;
@@ -86,7 +93,16 @@ public:
     }
     bool load(Common::SeekableReadStream &in) {
         if (in.readUint32BE()!=MKTAG('N','B','T','S')) return false;
-        uint16 version=in.readUint16LE();if (version<1 || version>16) return false;
+        uint16 version=in.readUint16LE();
+        if (version==17) {
+            const byte locked=in.readByte();const uint32 size=in.readUint32LE();
+            if (!locked || locked>6 || size<6 || size>1048576 || int64(size)!=in.size()-in.pos()) return false;
+            Common::Array<byte> bytes;bytes.resize(size);if (in.read(bytes.data(),size)!=size || READ_BE_UINT32(bytes.data())!=MKTAG('N','B','T','S') || READ_LE_UINT16(bytes.data()+4)>=17) return false;
+            Common::ScopedPtr<EncounterState> next(new EncounterState);Common::MemoryReadStream body(bytes.data(),size);
+            if (!next->load(body) || !next->formed || next->quick.partyCount || locked>next->round.partyCount) return false;
+            next->round.lockedParty=locked;*this=*next;return true;
+        }
+        if (version<1 || version>16) return false;
         const bool ending=version==15,revelation=version==16;bool hasCannon=version==14;
         const byte state=in.readByte();EncounterState next;
         const byte base=state&7;

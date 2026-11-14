@@ -71,7 +71,7 @@ public:
         }
         for (uint m=0;m<battle.round.partyCount;++m) {
             const byte *member=records.stats+m*128;
-            const byte inverse=battle.command==2 && battle.cast.phase==kBattleCastParty && battle.cast.member==m?127:0;
+            const byte inverse=(battle.command==2 && battle.cast.phase==kBattleCastParty && battle.cast.member==m) || battle.round.lockedParty==m+1?127:0;
             for (uint i=0;i<14 && member[75+i];++i) {
                 if (!next.drawGlyph(_font,member[75+i],25+i,1+m*2,inverse)) return false;
                 if (m==battle.round.activeParty && !next.drawGlyph(_font,member[75+i],25+i,14,0)) return false;

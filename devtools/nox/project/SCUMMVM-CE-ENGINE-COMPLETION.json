@@ -2986,6 +2986,31 @@
       "production_connection": "Conversation queues native effects; World applies once before reply/end/payment; NCON4 persists pending ownership; NCUI8 persists exit redraw; WorldInput captures records and refreshes without an AI/clock turn.",
       "fallback_dependencies": [],
       "blockers": []
+    },
+    {
+      "id": "combat.15",
+      "subsystem": "combat",
+      "behavior": "Tactical retained party lock/unlock and obsolete machine display controls",
+      "implementation": "IMPLEMENTED",
+      "verification": {
+        "status": "VERIFIED",
+        "scope": "3024 original selection/party-cycle boundaries,189 retained admissions,14 aliases,2 actual NPC cycles,NBTS17/legacy continuation and roster distinction. Normal Engine/session/campaign remains qualified.",
+        "evidence": "SCUMMVM-CE-TACTICAL-CONTROLS481-VERIFICATION.json"
+      },
+      "native_owners": [
+        "engines/nox/native_battle_party_control.h",
+        "engines/nox/native_battle_round.h",
+        "engines/nox/native_encounter_state.h",
+        "engines/nox/native_battle_presentation.h",
+        "engines/nox/native_startup_host.h"
+      ],
+      "original_evidence": [
+        "ENGINE-TACTICAL-CONTROLS-CONTRACT",
+        "AUXD85D/DAB1/DDE3-DE22/E3C8"
+      ],
+      "production_connection": "Shifted punctuation uses existing round owner, retained party state and NBTS17; roster inverses lock member. Retired delay/math controls use ordinary invalid input.",
+      "fallback_dependencies": [],
+      "blockers": []
     }
   ],
   "additional_unclassified_scope": [
@@ -3418,7 +3443,7 @@
     },
     {
       "path": "engines/nox/native_battle_presentation.h",
-      "sha256": "47a9ea2d390242df1b7d8ae55fbfb4289e1a709087c5a8a13121ed421c593b7f",
+      "sha256": "25c773d0a0c2d141329823fc1d29bb56519611be6212a761e34e97f4fae5a4be",
       "includes": [
         "nox/native_encounter_state.h",
         "nox/native_opening_backdrop.h",
@@ -3466,7 +3491,7 @@
     },
     {
       "path": "engines/nox/native_battle_round.h",
-      "sha256": "ea5985ebb806abe4e1b01173848d544b899fdb928840350c293fcaa0e8ccabe9",
+      "sha256": "2a3a0696931dd556e7d26b3fc23d2b537f4e0441a9e2aeef504267d4d8ab3dc5",
       "includes": [
         "nox/native_battle_physical.h",
         "nox/native_actor_pursuit.h",
@@ -3833,7 +3858,7 @@
     },
     {
       "path": "engines/nox/native_encounter_state.h",
-      "sha256": "011d5442bebd80e5ce8c4969ef08ce207e075ec7a1dcd81f74fc39fd261310c8",
+      "sha256": "122a1f2179bf81740824e86609a4fae93843217b5f8fbb135aee0569c17a9c08",
       "includes": [
         "nox/native_encounter_preparation.h",
         "nox/native_encounter_formation.h",
@@ -4954,7 +4979,7 @@
     },
     {
       "path": "engines/nox/native_startup_host.h",
-      "sha256": "adab667c09bc0e5f904eb555d25f6885d4a0a4a69fa2eb35d7581c35ff866a50",
+      "sha256": "a5e2ec689a4f3ffa3ca7c802f8f9fb91a06523ab5bfc4943d717669ff85cf9c6",
       "includes": [
         "nox/native_weapon_ready_validation.h",
         "nox/native_legacy_snapshot.h",
@@ -6924,9 +6949,9 @@
       "ce_replacements": 0
     },
     "combat": {
-      "known_required": 13,
-      "native_implemented": 1,
-      "verified": 1,
+      "known_required": 14,
+      "native_implemented": 2,
+      "verified": 2,
       "partial": 12,
       "missing": 0,
       "unknown_required_rows": 1,
@@ -6995,8 +7020,8 @@
     }
   },
   "last_milestone": {
-    "owner": "world Attack480",
-    "evidence": "SCUMMVM-CE-WORLD-ATTACK480-VERIFICATION.json"
+    "owner": "tactical controls481",
+    "evidence": "SCUMMVM-CE-TACTICAL-CONTROLS481-VERIFICATION.json"
   },
   "overall": {
     "fully_implemented_top_level_domains": 1,
@@ -7010,6 +7035,6 @@
   },
   "current_subsystem": {
     "status": "IN PROGRESS",
-    "scope": "Complete tactical lock/unlock controls, then exceptional combat/script producer closure."
+    "scope": "Battle Tab inventory; then remaining Quick/exceptional/script producer closure."
   }
 }
