@@ -1,3 +1,5 @@
+497: no missing authored commerce offer. Extra roles are gated or bundled Test data; type4 UM76/77 scheduling corrected in source census. Prototype shops/Test dialogue do not block normal base-game completion. Legacy/debug qualifications retained; see SERVICE-ADMISSION497.
+
 Orb492 bind/choose mismatch retired;9 actual authored Use/Cast selections pass. Fullmap/cold/session qualification separate. Remaining service/script producer audit continues.
 
 Orb492: local exit extension withdrawn (ordinary path not established). Schedule row0 is route identity, not service role. Native orb X0 selection is a real bind/choose mismatch; see ENGINE-ORB-NAVIGATION-CONTRACT.

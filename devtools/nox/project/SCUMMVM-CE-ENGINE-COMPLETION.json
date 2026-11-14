@@ -2094,7 +2094,7 @@
       "id": "services.01",
       "subsystem": "services",
       "behavior": "Merchant catalog quote buy sell and capacity",
-      "implementation": "PARTIAL",
+      "implementation": "IMPLEMENTED",
       "verification": {
         "status": "NOT STARTED",
         "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement."
@@ -2108,11 +2108,17 @@
         "engines/nox/native_temple_service.h"
       ],
       "original_evidence": [
-        "SCUMMVM-CE-SOURCE-PRODUCERS494.md (static scope only)"
+        "SCUMMVM-CE-SOURCE-PRODUCERS494.md (static scope only)",
+        "SCUMMVM-CE-SERVICE-ADMISSION497.md"
       ],
       "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
       "fallback_dependencies": [],
-      "blockers": []
+      "blockers": [],
+      "source_review": {
+        "status": "VERIFIED",
+        "evidence": "SCUMMVM-CE-SERVICE-ADMISSION497.md",
+        "scope": "Known source producer/complete owner review only;runtime verification unchanged."
+      }
     },
     {
       "id": "services.02",
@@ -2140,7 +2146,7 @@
       "id": "services.03",
       "subsystem": "services",
       "behavior": "Training eligibility quantity price and stat commit",
-      "implementation": "PARTIAL",
+      "implementation": "IMPLEMENTED",
       "verification": {
         "status": "NOT STARTED",
         "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement."
@@ -2153,16 +2159,23 @@
         "engines/nox/native_inn_membership.h",
         "engines/nox/native_temple_service.h"
       ],
-      "original_evidence": [],
+      "original_evidence": [
+        "SCUMMVM-CE-SERVICE-ADMISSION497.md"
+      ],
       "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
       "fallback_dependencies": [],
-      "blockers": []
+      "blockers": [],
+      "source_review": {
+        "status": "VERIFIED",
+        "evidence": "SCUMMVM-CE-SERVICE-ADMISSION497.md",
+        "scope": "Known source producer/complete owner review only;runtime verification unchanged."
+      }
     },
     {
       "id": "services.04",
       "subsystem": "services",
       "behavior": "Inn rest price recovery and time passage",
-      "implementation": "PARTIAL",
+      "implementation": "IMPLEMENTED",
       "verification": {
         "status": "NOT STARTED",
         "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement."
@@ -2175,10 +2188,17 @@
         "engines/nox/native_inn_membership.h",
         "engines/nox/native_temple_service.h"
       ],
-      "original_evidence": [],
+      "original_evidence": [
+        "SCUMMVM-CE-SERVICE-ADMISSION497.md"
+      ],
       "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
       "fallback_dependencies": [],
-      "blockers": []
+      "blockers": [],
+      "source_review": {
+        "status": "VERIFIED",
+        "evidence": "SCUMMVM-CE-SERVICE-ADMISSION497.md",
+        "scope": "Known source producer/complete owner review only;runtime verification unchanged."
+      }
     },
     {
       "id": "services.05",
@@ -7448,9 +7468,9 @@
     },
     "services": {
       "known_required": 7,
-      "native_implemented": 0,
+      "native_implemented": 3,
       "verified": 0,
-      "partial": 7,
+      "partial": 4,
       "missing": 0,
       "unknown_required_rows": 0,
       "additional_unclassified_scope": 1,
@@ -7513,7 +7533,7 @@
   },
   "current_subsystem": {
     "status": "IN PROGRESS",
-    "scope": "Remaining native behavior/producer connection classification,then separate integration planning. Do not rewrite implemented owners or rerun accepted suites."
+    "scope": "Remaining membership/commerce-counter/temple/modal andnative producer/lifecycle closure. Bundled Test data is not a new normal-player completion queue."
   },
   "count_definition": "native_implemented counts IMPLEMENTED; CE_REPLACEMENT is separately reported. VERIFIED applies only to row evidence scope; no overall completion percentage."
 }

@@ -1,3 +1,18 @@
+# Normal service producer closure497 - VERIFIED static scope
+
+49authoredcommerceoffers matched;41extra initialrolesclassifiedbysource
+gates/Testdata,notmissingnativecommerce. UM76/77ordinarytype4 correction:
+localschedulingapplies;upcomingmax5/4over1440minutes,overallmax8unchanged.
+SourceTestmapIDs1..5formclosedrecordeddataisland(nooutsideincomingentrance/
+portal/inn). Preservehandlers/data/importscope,butdo notblocknormalgame
+completiononprototype shops/Testdialogueor rerun486. Notcampaignreachproof.
+SERVlCE-ADMISSION497.md recordsqualifications;localdetaileddata/sourcehashes.
+Knownservices.01merchant,03training,04innrest nowIMPLEMENTED,notblanketPARTIAL
+placeholders;runtimeverificationunchanged. Originalinn-reference1confirms
+room-entryschedule precedessleep,currentnativeorderingintentional,no fix.
+No build/native/audio/old suite. Continue remainingmembership/counter/temple/
+modal/nativeproducerclosures andseparateintegrationplanning,notmilestonestop.
+
 # Shared native owner review496 - VERIFIED static scope
 
 FourinitialPARTIALplaceholders reconciledagainstsource:story.03all11typed
