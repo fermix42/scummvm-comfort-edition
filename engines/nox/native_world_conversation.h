@@ -158,10 +158,16 @@ public:
             if(result==1) {_closing=_conversation.terminalReply();return show(archive,text,frame,&game.discovery,random,&game)?kWorldConversationHandled:kWorldConversationUnsupported;}
             return kWorldConversationHandled;
         }
-        if (key==Common::KEYCODE_BACKSPACE) { if (!_query.empty()) _query.deleteLastChar(); }
-        else if (key==Common::KEYCODE_RETURN) {
+        if (key==Common::KEYCODE_TAB) {
+            if (!_conversation.cycleVoice()) return kWorldConversationUnsupported;
+            return input(archive,frame)?kWorldConversationHandled:kWorldConversationUnsupported;
+        }
+        if (key==Common::KEYCODE_BACKSPACE || key==Common::KEYCODE_DELETE) { if (!_query.empty()) _query.deleteLastChar(); }
+        else if (key==Common::KEYCODE_RETURN || key==Common::KEYCODE_ESCAPE) {
             Common::Array<byte> raw;if (!archive.read("NA/SRTN.NPC.TALK",raw) || raw.size()!=32831) return kWorldConversationUnsupported;
-            Common::String submitted=_query;
+            // BA3F..BA62 trims leading spaces before Return/Escape submission.
+            uint first=0;while (first<_query.size() && _query[first]==' ') ++first;
+            Common::String submitted(_query.c_str()+first);
             if (submitted.empty()) for (uint i=0;i<3;++i) submitted+=char(raw[0xf8c+i]&127);
             bool farewell=submitted.size()>=3;
             for (uint i=0;i<3 && farewell;++i) farewell=(byte(submitted[i])&95)==(raw[0xf8c+i]&127);
@@ -693,6 +699,11 @@ private:
         GlyphFont font;if (!font.load(archive,1)) return false;
         for (uint row=19;row<22;++row) if (!frame.clearTextSpan(25,row,13)) return false;
         for (uint i=0;i<_query.size();++i) if (!frame.drawGlyph(font,byte(_query[i])|128,25+i%13,19+i/13,0)) return false;
+        if (!frame.clearTextSpan(25,22,13)) return false;
+        if (_hasDialogue && !_conversation.paymentPhase() && !_conversation.trainingPending()) {
+            const char *labels[]={"Tab: normal","Tab: yell","Tab: whisper"};const char *mode=labels[_conversation.context().voice];
+            for (uint i=0;mode[i];++i) if (!frame.drawGlyph(font,byte(mode[i])|128,25+i,22,0)) return false;
+        }
         return frame.drawGlyph(font,0xa0,25+_query.size()%13,19+_query.size()/13,127);
     }
     byte _stage,_type,_map,_slot;

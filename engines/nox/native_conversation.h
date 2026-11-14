@@ -64,6 +64,11 @@ public:
 		_paymentPhase=0;_paymentPresentation=false;_paymentQuery.clear();
 		_active = true; _terminal = false; _recognized = false; _completed = false; _reply.clear(); return true;
 	}
+    // Talk BA64: mode changes belong to the same pending keyword editor.
+    bool cycleVoice() {
+        if (!_active || _terminal || callbacksPending(_fields) || _paymentPhase || trainingPending()) return false;
+        _context.voice=byte((_context.voice+1)%3);return true;
+    }
 	ConversationResult opening(GameplayRandom *random=nullptr) { return respond(Common::String(), true,false,random); }
 	ConversationResult submit(const Common::String &query,GameplayRandom *random=nullptr) { return respond(query, false,false,random); }
 	ConversationResult closing(GameplayRandom *random=nullptr) { return respond("%END",false,true,random); }

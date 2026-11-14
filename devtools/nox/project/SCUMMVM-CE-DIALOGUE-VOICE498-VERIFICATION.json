@@ -1,0 +1,40 @@
+{
+  "status": "VERIFIED",
+  "scope": "Conversation voice and keyword editor production connection;focused actual authored reply/editor/codec verification,not whole NPC/engine acceptance.",
+  "parent_commit": "ab983f07ab3",
+  "executable_sha256": "34e1fe1256b19d93c9acad1e644113c80429facea599e68a1c3ff6c854146375",
+  "contract": "SCUMMVM-CE-ENGINE-DIALOGUE-VOICE-CONTRACT.md",
+  "build": {
+    "first498": "0warnings/0errors,2m52.47s,no native execution",
+    "complete498b": "0warnings/0errors,2m50.89s",
+    "extra_reason": "Final original editor pass also found Delete/Escape/leading-space trim missing;completed same editor before first focused native run."
+  },
+  "native_batches": 1,
+  "failures": [],
+  "focused_validation": "dialogue_voice\tactual_reply_modes=3\tcycles_no_core_RNG_turn_change=5\tcore_modal_codecs=2\thalf_query_preserved=1\tEscape_Delete_trim=1\treset_on_reopen=1\tmode_labels=1\tcampaign=0\taudio_suite=0\n",
+  "source_manifest": {
+    "path": "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-dialogue-voice498b-focused\\verification.json",
+    "sha256": "2fbaac2a1c888288ecc875f0dd840e75831b1e5c7d2e5fa7a78ce0d601524c5d"
+  },
+  "source_producers": {
+    "packets": 439,
+    "voice_Y_W_headers": 400,
+    "evidence": "ce-native-dialogue-voice498-source-local.json"
+  },
+  "source": "TalkB9E4/BA64 Tab voice0->1->2->0 andBAEA label;AE2A resetsadmission;B9D9/B9E0 Backspace/Delete andB9E8/B9EC Return/Escape;BA3F trimsleading spaces.",
+  "controlled_setup": "Actual Town9 Bridgit actor16/role35/packetL005,source09:00 schedule19,26 andlegal adjacent party checkpoint. Sourcefields/actors untouched after input starts;no earned approach/recruitment claim. Actual normal NAME andyell/whisper DFL replies match immutable local fixture. Two leading spaces+NAXQ/Backspace/Delete,5Tabcycles,core/modal codec,ME/Escape yields NAME;emptyEscapecloseswhisper,reopenNAMEprovesnormalreset. Actualmode labels/help checked.",
+  "ce_presentation": "Actionable Tab:normal/yell/whisper labels inexisting row22;existing native28-character allowance retained.",
+  "remaining_qualifications": [
+    "No normal Engine cold/session,earned approach,all400physicalproducer contexts,campaign,audio or old dialogue suite claim.",
+    "Existing NPC/body/raster/historical display-mode qualifications remain separate;new mode operation has no sound event or schema change."
+  ],
+  "artifacts": {
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-binary\\scummvm-native-dialogue-voice498b.exe": "34e1fe1256b19d93c9acad1e644113c80429facea599e68a1c3ff6c854146375",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-binary\\native-dialogue-voice498b-source.zip": "3287925aa2b2f937d56f46c58262a3ad548a271a389866fd1859e5084dfedc75",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-dialogue-voice498b-focused\\verification.json": "2fbaac2a1c888288ecc875f0dd840e75831b1e5c7d2e5fa7a78ce0d601524c5d",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-dialogue-voice498-source.bin": "04a47082bfbf7017f7b43320ec893e3aeb19421050b323a8bc581aa7e482acd5",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-dialogue-voice498-source-local.json": "47d0ce31f45717dcb249f4c51648b480bfbad98477c26fe68ca9ec479d68c617",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-dialogue-voice498-build.log": "05d3ea37420f60af2ba90d130de2b53c96e6eca90449c097694e7168f63f30f1",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-dialogue-voice498b-build.log": "f080dc936960cabb06549b4dbc4a8b4ed4a88f4e7acb30d8e6c29a02dbb657c7"
+  }
+}

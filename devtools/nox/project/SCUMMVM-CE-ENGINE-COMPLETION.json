@@ -3347,6 +3347,29 @@
       "production_connection": "Search actual party damage ->recordcapture ->living scan ->cancel/restore underlay ->markDefeated ->existing host defeat/status rendering. Nonfatal retry unchanged.",
       "fallback_dependencies": [],
       "blockers": []
+    },
+    {
+      "id": "npc.12",
+      "subsystem": "npc",
+      "behavior": "Actual keyword editor controls: normal/yell/whisper Tab cycle,Delete/Escape/leading trim and existing-codec voice/query continuation",
+      "implementation": "IMPLEMENTED",
+      "verification": {
+        "status": "VERIFIED",
+        "scope": "Three actual authored reply modes,five no-core/RNG/turn Tabcycles,halfquery/core-modal codecs/editor keys/reopenreset/labels;not all400physical contexts ornormalcold/session.",
+        "evidence": "SCUMMVM-CE-DIALOGUE-VOICE498-VERIFICATION.json"
+      },
+      "native_owners": [
+        "engines/nox/native_conversation.h",
+        "engines/nox/native_world_conversation.h",
+        "engines/nox/native_information_catalog.h"
+      ],
+      "original_evidence": [
+        "SCUMMVM-CE-ENGINE-DIALOGUE-VOICE-CONTRACT.md",
+        "TalkB9D9..BA79/BAEA andAE2A"
+      ],
+      "production_connection": "WorldInput activeTalk ->WorldConversation ordinary keywordTab/editor ->typedConversation voice ->existingDialogueRules andsourcebodies;NCON/NCUI/NWIN retain voice/query without schema change.",
+      "fallback_dependencies": [],
+      "blockers": []
     }
   ],
   "additional_unclassified_scope": [
@@ -4095,7 +4118,7 @@
     },
     {
       "path": "engines/nox/native_conversation.h",
-      "sha256": "a4b7f6c147d014f0e880ba783c82c205719a88f1ae1c158fb923084c279f1f19",
+      "sha256": "58e0e5aadd227a98c6c9fd51eb74cd1e167c95eb986dd25eb9bf3e0868f0082d",
       "includes": [
         "nox/native_dialogue_rules.h",
         "nox/native_dialogue_input.h",
@@ -4409,7 +4432,7 @@
     },
     {
       "path": "engines/nox/native_information_catalog.h",
-      "sha256": "77da5ddd1f12060018a2b98ce9a83f7e9cbff3d93b741623086b9d4a034986a5",
+      "sha256": "acb5020f1f631ff239da86c822c7df1c708ba47be265ff439ac0dd15f038660c",
       "includes": [
         "nox/native_world_presentation.h",
         "nox/native_lz.h"
@@ -5374,7 +5397,7 @@
     },
     {
       "path": "engines/nox/native_startup_host.h",
-      "sha256": "d1659119443d6f1bf1f2494205399c804582c1d247e6738b1d69ba59e8b77b54",
+      "sha256": "4336de1477a12890d9bf1dc52e5a15f3b63483281379d3fb7471e0fd9f4901ef",
       "includes": [
         "nox/native_weapon_ready_validation.h",
         "nox/native_legacy_snapshot.h",
@@ -6112,7 +6135,7 @@
     },
     {
       "path": "engines/nox/native_world_conversation.h",
-      "sha256": "e7517ac2f755098df50c16497eb90632d41d6d9dc5f1cfed8a71565800369e10",
+      "sha256": "76cb497bfcaf154ff5a41f534dd31bc7ba6c9591a7a116c7eb683372c7713f62",
       "includes": [
         "nox/native_new_game.h",
         "nox/native_recruitment.h",
@@ -7427,9 +7450,9 @@
       "ce_replacements": 0
     },
     "npc": {
-      "known_required": 11,
-      "native_implemented": 2,
-      "verified": 2,
+      "known_required": 12,
+      "native_implemented": 3,
+      "verified": 3,
       "partial": 8,
       "missing": 0,
       "unknown_required_rows": 0,
@@ -7518,8 +7541,8 @@
     }
   },
   "last_milestone": {
-    "owner": "Search party/terminal lifecycle495",
-    "evidence": "SCUMMVM-CE-SEARCH-DEFEAT495-VERIFICATION.json"
+    "owner": "Dialogue voice/keyword editor498",
+    "evidence": "SCUMMVM-CE-DIALOGUE-VOICE498-VERIFICATION.json"
   },
   "overall": {
     "fully_implemented_top_level_domains": 1,
@@ -7533,7 +7556,7 @@
   },
   "current_subsystem": {
     "status": "IN PROGRESS",
-    "scope": "Remaining membership/commerce-counter/temple/modal andnative producer/lifecycle closure. Bundled Test data is not a new normal-player completion queue."
+    "scope": "Remaining native service/lifecycle/script/interface producer connections;then separateintegration planning,no campaign/old suite."
   },
   "count_definition": "native_implemented counts IMPLEMENTED; CE_REPLACEMENT is separately reported. VERIFIED applies only to row evidence scope; no overall completion percentage."
 }

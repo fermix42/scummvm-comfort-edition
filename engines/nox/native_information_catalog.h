@@ -47,7 +47,7 @@ public:
     }
     bool help(Common::String &out) const {
         if (!_ready) return false;out=_help;
-        out+="\r\rComfort Edition\rTab: party roster.\rTab/Space again: inventory.\rIn combat, Tab: inventory.\rN: reorder party.\rV: cycle sound mode.";return true;
+        out+="\r\rComfort Edition\rTab: party roster.\rTab/Space again: inventory.\rIn combat, Tab: inventory.\rIn conversation, Tab: normal/yell/whisper.\rN: reorder party.\rV: cycle sound mode.";return true;
     }
     bool location(const World &world,Common::String &out) const {
         if (!_ready || !world.ready()) return false;
