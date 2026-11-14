@@ -47,7 +47,14 @@ public:
         next.started=true;next.count=enemies;next.partyCount=party;next.startingFood=food;next.startingGold=gold;state=next;return true;
     }
     bool advance(const BattleRecords &battle,Inventory &inventory,GameplayRandom &random,BattleLootState &state,byte *fields=nullptr,uint fieldSize=0) const {
-        if (!_ready || !state.started || state.pending || state.finished) return false;
+        return advanceContext(&battle,0,0,inventory,random,state,fields,fieldSize);
+    }
+    bool advanceGroup(byte level,byte descriptor,Inventory &inventory,GameplayRandom &random,BattleLootState &state) const {
+        if (!level || level>10 || state.scripted) return false;
+        return advanceContext(nullptr,level,descriptor,inventory,random,state,nullptr,0);
+    }
+    bool advanceContext(const BattleRecords *battle,byte groupLevel,byte groupDescriptor,Inventory &inventory,GameplayRandom &random,BattleLootState &state,byte *fields,uint fieldSize) const {
+        if (!_ready || !state.started || state.pending || state.finished || state.count>16) return false;
         BattleLootState next=state;Inventory items=inventory;GameplayRandom rng=random;
         if (next.scripted) {
             ItemDefinition definition;if (!_catalog.definition(next.kind,next.id,definition)) return false;
@@ -64,8 +71,8 @@ public:
             state=next;inventory=items;return true;
         }
         while (next.cursor<next.count) {
-            const byte *enemy=battle.stats+768+uint(next.cursor)*32;
-            const byte level=enemy[1]&127,descriptor=enemy[0];byte factor;
+            const byte *enemy=battle?battle->stats+768+uint(next.cursor)*32:nullptr;
+            const byte level=enemy?byte(enemy[1]&127):groupLevel,descriptor=enemy?enemy[0]:groupDescriptor;byte factor;
             if (!level || level>10 || !decimal(descriptor,factor)) return false;
             next.food=descriptor<33;
             bool currency=true;
@@ -116,6 +123,14 @@ public:
         if (take && items.grantOne(_catalog,next.kind,next.id)==kInventoryInvalid) return false;
         next.pending=false;
         if (!advance(battle,items,rng,next)) return false;
+        state=next;inventory=items;random=rng;return true;
+    }
+    bool chooseGroup(bool take,bool all,byte level,byte descriptor,Inventory &inventory,GameplayRandom &random,BattleLootState &state) const {
+        if (!_ready || !state.started || !state.pending || state.finished || state.scripted) return false;
+        BattleLootState next=state;Inventory items=inventory;GameplayRandom rng=random;
+        if (all) {next.takeAll=true;take=true;}
+        if (take && items.grantOne(_catalog,next.kind,next.id)==kInventoryInvalid) return false;
+        next.pending=false;if (!advanceGroup(level,descriptor,items,rng,next)) return false;
         state=next;inventory=items;random=rng;return true;
     }
     bool commit(uint16 &food,uint16 &gold,BattleLootState &state) const {

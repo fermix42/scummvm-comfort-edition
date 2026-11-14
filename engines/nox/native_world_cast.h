@@ -5,6 +5,7 @@
 #include "nox/native_new_game.h"
 #include "nox/native_party_selection.h"
 #include "nox/native_battle_restoration.h"
+#include "nox/native_sound_events.h"
 namespace Nox { namespace Native {
 enum WorldCastResult {kWorldCastHandled,kWorldCastClosed,kWorldCastTravel,kWorldCastUnsupported};
 // Whole world C workflow: slot -> living caster -> source refusal/effect or
@@ -12,7 +13,8 @@ enum WorldCastResult {kWorldCastHandled,kWorldCastClosed,kWorldCastTravel,kWorld
 // spent by the original9443/7128 command return,including cancellation.
 class WorldCast {
 public:
-    WorldCast() : _phase(0),_type(0),_map(0),_slot(255),_caster(255),_spell(255),_cost(0) {}
+    WorldCast() : _phase(0),_type(0),_map(0),_slot(255),_caster(255),_spell(255),_cost(0),_sounds(nullptr) {}
+    void setSoundEvents(SoundEvents *sounds) {_sounds=sounds;}
     bool active() const {return _phase!=0;}
     byte phase() const {return _phase;}
     bool matches(const World &world) const {return !active() || (world.ready() && world.mapType()==_type && world.mapId()==_map);}
@@ -43,9 +45,10 @@ public:
                     const CastResult result=rules.prepare(game.book,*game.party.member(_caster),_slot,false,preparation);
                     if (result!=kCastPrepared) {
                         if (result==kCastUnsupported) return kWorldCastUnsupported;
-                        _message=rules.refusal(result);_phase=5;
+                        _message=rules.refusal(result);_phase=5;if (_sounds) _sounds->push_back(kSpeakerRefusal);
                     } else {
                         _spell=preparation.spell;_cost=preparation.manaCost;_message=rules.name(_spell);
+                        if (_sounds) _sounds->push_back(kSpeakerSelection);
                         if (_spell>=49 && _spell<=51) {
                             _selection=PartySelection();if (!_selection.begin(game.party,_spell==49)) return kWorldCastUnsupported;_phase=3;
                         } else if (_spell==63) _phase=4;
@@ -136,7 +139,7 @@ private:
         else if (_phase==5) {if (!line(font,next,1,4,_message) || !line(font,next,1,22,"Press a key")) return false;}
         frame=next;return true;
     }
-    byte _phase,_type,_map,_slot,_caster,_spell,_cost;Common::String _message;HgrFrame _underlay;PartySelection _selection;NavigationPoint _destination;
+    byte _phase,_type,_map,_slot,_caster,_spell,_cost;Common::String _message;HgrFrame _underlay;PartySelection _selection;NavigationPoint _destination;SoundEvents *_sounds;
 };
 } }
 #endif

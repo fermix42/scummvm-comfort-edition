@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <!-- Select source inputs before Cpp targets compute their compile/link work. -->
+  <ItemGroup Condition="'$(NoxNativeOnly)'=='true' and '$(MSBuildProjectName)'=='nox'">
+    <ClCompile Remove="@(ClCompile)" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\engines\nox\metaengine.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\engines\nox\native_engine.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\engines\nox\enhancements.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\engines\nox\mockingboard.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\engines\nox\speaker_audio.cpp" />
+  </ItemGroup>
+  <ItemDefinitionGroup Condition="'$(NoxNativeOnly)'=='true' and '$(MSBuildProjectName)'=='nox'">
+    <ClCompile><ObjectFileName>$(IntDir)%(Filename).obj</ObjectFileName><PreprocessorDefinitions>NOX_NATIVE_ONLY;%(PreprocessorDefinitions)</PreprocessorDefinitions></ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(NoxNativeOnly)'=='true' and '$(MSBuildProjectName)'=='scummvm'">
+    <Link><GenerateMapFile>true</GenerateMapFile><MapFileName>$(OutDir)scummvm-nox-native.map</MapFileName></Link>
+  </ItemDefinitionGroup>
+</Project>

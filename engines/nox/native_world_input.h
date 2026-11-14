@@ -1,6 +1,7 @@
 /* SPDX-License-Identifier: GPL-3.0-or-later */
 #ifndef NOX_NATIVE_WORLD_INPUT_H
 #define NOX_NATIVE_WORLD_INPUT_H
+#include "common/ptr.h"
 #include "nox/native_new_game.h"
 #include "nox/native_world_move.h"
 #include "nox/native_world_travel.h"
@@ -9,6 +10,9 @@
 #include "nox/native_world_cast.h"
 #include "nox/native_world_cannon.h"
 #include "nox/native_world_open.h"
+#include "nox/native_world_camp.h"
+#include "nox/native_search_input.h"
+#include "nox/native_npc_navigation.h"
 #include "nox/native_text_window.h"
 #include "nox/native_opening_backdrop.h"
 #include "nox/native_ending.h"
@@ -18,28 +22,47 @@ enum WorldInputResult { kWorldInputIgnored,kWorldInputHandled,kWorldInputBoundar
 // No key stream carries positions, quest fields or expected outcomes.
 class WorldInput {
 public:
-    WorldInput() : _notice(false),_openDirection(false),_leave(false),_fireDirection(false),_fireProtected(false),_scriptedEncounter(false) {}
+    WorldInput() : _notice(false),_campNotice(false),_openDirection(false),_leave(false),_fireDirection(false),_fireProtected(false),_scriptedEncounter(false),_refusalSound(false),_sounds(nullptr) {}
     bool loadRules(HdvArchive &archive,byte type=8) {
         return _move.load(archive,type) && _open.load(archive,type) && _wait.load(archive,type) && _story.load(archive) &&
             _actors.load(archive,type) && _lighting.load(archive,type) && _occlusion.load(archive,type) && _painter.load(archive,type);
     }
-    bool noticeActive() const { return _fireDirection || _notice || _conversation.active() || _inventory.active() || _casting.active(); }
+    bool restoreWorldControls(const World &world,const WorldTransportState &state) {
+        if (!atWorldCommand() || !state.valid() || !world.ready() || world.onFoot()!=(state.object==255)) return false;
+        _transport=state;return true;
+    }
+    void setSoundEvents(SoundEvents *sounds) {_sounds=sounds;_conversation.setSoundEvents(sounds);_inventory.setSoundEvents(sounds);_casting.setSoundEvents(sounds);_move.setSoundEvents(sounds);_wait.setSoundEvents(sounds);}
+    bool pollWorldEvents(NewGame &game,WorldStory &window,const FixedMessageCatalog &catalog,TextGlyphSurface &text,HgrFrame &frame,
+            const WorldScene &scene,const LightState &light,byte animation,bool &changed) {
+        changed=false;if (!atWorldCommand() || !game.ready() || game.world.mapId()!=65) return true;
+        World candidate(game.world);WorldStory next=window;bool reveal=false;
+        if (!next.revealKeep(candidate,reveal)) return false;if (!reveal) return true;
+        const int column=24-int(candidate.x())+8,row=20-int(candidate.y())+5;
+        if (column<0 || column>=17 || row<0 || row>=11) return false;
+        const byte cell=byte(row*17+column);HgrFrame image=frame;TextGlyphSurface surface=text;
+        if (!_painter.draw(image,166,scene.actors.terrain[cell],light.mode,animation,cell,16) || !message(catalog,27,surface,image)) return false;
+        game.world.adoptState(candidate);window=next;frame=image;text=surface;changed=true;
+        if (_sounds) _sounds->push_back(kSpeakerSelection);return true;
+    }
+    bool takeRefusalSound() {const bool sound=_refusalSound;_refusalSound=false;return sound;}
+    bool noticeActive() const { return _search.active() || _fireDirection || _notice || _conversation.active() || _inventory.active() || _casting.active(); }
     void inheritCombatHistory(const WorldInput &other) {_fireProtected=other._fireProtected;}
-    bool wholeFrameMenu() const { return _casting.active() || _inventory.active() || _conversation.stage()>=22; }
+    bool wholeFrameMenu() const { return _search.active() || _casting.active() || _inventory.active() || _conversation.stage()>=22; }
     bool atWorldCommand() const {
-        return !_notice && !_openDirection && !_leave && !_fireDirection && !_encounter.battle && !_conversation.active() &&
+        return !_search.active() && !_notice && !_openDirection && !_leave && !_fireDirection && !_encounter.battle && !_conversation.active() &&
             !_inventory.active() && !_casting.active() && !_transport.defeated && !_transport.pendingSteps && !_transport.alignment;
     }
-    bool matchesWorld(const World &world) const { return _casting.matches(world) && _inventory.matches(world) && _conversation.matchesWorld(world) && world.onFoot()==(_transport.object==255); }
+    bool matchesWorld(const World &world) const { return _search.matches(world) && _casting.matches(world) && _inventory.matches(world) && _conversation.matchesWorld(world) && world.onFoot()==(_transport.object==255); }
     bool worldDefeated() const {return _transport.defeated;}
     byte transportObject() const {return _transport.object;}
     bool canRepositionMountedFixture() const {
         return _transport.used && _transport.object!=255 && !_transport.pendingSteps && !_transport.alignment && !_transport.defeated &&
-            !_fireDirection && !_notice && !_openDirection && !_leave && !_encounter.battle && !_conversation.active() && !_inventory.active() && !_casting.active();
+            !_search.active() && !_fireDirection && !_notice && !_openDirection && !_leave && !_encounter.battle && !_conversation.active() && !_inventory.active() && !_casting.active();
     }
     void markDefeated() {_transport.used=_transport.defeated=true;_transport.pendingSteps=0;_transport.pendingDirection=255;_transport.alignment=false;}
     byte automaticDirection() const {return !_fireDirection && !_encounter.battle && !_notice && !_openDirection && !_leave && !_conversation.active() && !_inventory.active() && !_casting.active() && !_transport.defeated && _transport.pendingSteps?_transport.pendingDirection:255;}
     byte conversationStage() const { return _conversation.stage(); }
+    const Common::String &visibleReply() const {return _conversation.visibleReply();}
     byte inventoryStage() const {return _inventory.phase();}
     bool selectingOpen() const { return _openDirection; }
     const WorldActorTurnEvent &encounter() const { return _encounter; }
@@ -50,7 +73,11 @@ public:
         WorldTravelPlan plan;plan.type=7;plan.map=58;plan.x=20;plan.y=13;plan.explicitArrival=true;
         const byte oldHour=game.clock.hour;game.clock.hour=9;
         if (!travel(archive,game,window,scene,turn,light,visibility,frame,plan,animation)) {game.clock.hour=oldHour;return false;}
-        return true;
+        // G:7139..7153 refreshes the arrival again after map-entry scheduling
+        // before selecting Archus. Ordinary travel retains its original order.
+        byte painted[187]={};
+        return WorldViewport::refreshAtWorld(game.world,window,_story,_actors,_lighting,_occlusion,_painter,game.appearance,
+                game.clock.lightActive,animation,painted,turn.presentation,light,visibility,frame,&scene);
     }
     bool beginTempleConversation(HdvArchive &archive,NewGame &game,const WorldScene &scene,HgrFrame &frame) {
         // G:7149 explicitly selects NPC8 after R's teleport. The authored
@@ -88,6 +115,22 @@ public:
         if (input.type!=Common::EVENT_KEYDOWN) return kWorldInputIgnored;
         if (_transport.defeated) return kWorldInputDefeat;
         if (_encounter.battle) return kWorldInputBoundary;
+        if (atWorldCommand() && game.world.mapType()>=4 && game.world.mapId()!=69) {
+            // Original input-loop services: activate the authored clock row,
+            // prefetch upcoming routes, then complete their semantic searches.
+            // Search work does not spend player turns or move an NPC itself.
+            World candidate(game.world);NpcScheduleState schedule=game.schedule;NpcRouteStore store=routes;GameplayRandom after=random;
+            if (NpcScheduler::activateAtClock(candidate,game.clock.hour,game.clock.minute)==kNpcScheduleUnsupported ||
+                    NpcScheduler::prefetchAtClock(candidate,game.clock.hour,game.clock.minute,schedule)==kNpcScheduleUnsupported) return kWorldInputUnsupported;
+            Common::ScopedPtr<NpcNavigation> navigation(new NpcNavigation);bool complete=false;
+            for (uint tick=0;tick<4096;++tick) {
+                const NpcNavigationResult result=navigation->advance(archive,candidate,window,schedule,store,after);
+                if (result==kNpcNavigationIdle || (result==kNpcNavigationStored && !navigation->active())) {complete=true;break;}
+                if (result!=kNpcNavigationSearching) {warning("Native scheduled route result %u",uint(result));return kWorldInputUnsupported;}
+            }
+            if (!complete || !window.captureRecords(candidate)) return kWorldInputUnsupported;
+            game.world.adoptState(candidate);game.schedule=schedule;routes=store;random=after;
+        }
         if (_casting.active()) {
             const WorldCastResult result=_casting.handle(input,archive,game,_transport.object!=255,frame);
             if (result==kWorldCastUnsupported) return kWorldInputBoundary;
@@ -104,6 +147,28 @@ public:
             }
             return kWorldInputHandled;
         }
+        if (_search.active()) {
+            const SearchInputResult result=_search.handle(input,archive,game,scene,random,frame,_transport.alarm);
+            if (_transport.alarm) _transport.used=true;
+            if (result==kSearchInputUnsupported) return kWorldInputBoundary;
+            // Search can mutate object/guard records before its result is closed.
+            // Keep the owned viewport cache coherent at that save boundary.
+            if (!window.captureRecords(game.world)) return kWorldInputUnsupported;
+            if (result==kSearchInputClosed || result==kSearchInputAttempted) {
+                byte painted[187]={};
+                if (!window.captureRecords(game.world) || !WorldViewport::refreshAtWorld(game.world,window,_story,_actors,_lighting,_occlusion,_painter,game.appearance,game.clock.lightActive,
+                        animation,painted,turn.presentation,light,visibility,frame,&scene) || !text.importPages(frame.data(),frame.data(),8192)) return kWorldInputUnsupported;
+                if (result==kSearchInputAttempted) {
+                    WorldActorTurnEvent raised;
+                    const WorldWaitResult advanced=_wait.run(game.world,window,scene,turn,game.clock,light,visibility,game.schedule,routes,random,catalog,text,frame,game.appearance,animation,raised,true,4,nullptr,&game.party);
+                    if (advanced==kWorldWaitBattle) {_search.cancel();_encounter=raised;return kWorldInputEncounter;}
+                    if (advanced==kWorldWaitDefeat) {_search.cancel();markDefeated();return kWorldInputDefeat;}
+                    if (advanced!=kWorldWaitAdvanced) return kWorldInputBoundary;
+                }
+                if (!_search.refresh(archive,frame)) return kWorldInputUnsupported;
+            }
+            return kWorldInputHandled;
+        }
         if (_inventory.active()) {
             const InventoryWindowResult result=_inventory.handle(input,archive,game,frame);
             if (result==kInventoryWindowUnsupported) return kWorldInputBoundary;
@@ -111,6 +176,7 @@ public:
             return kWorldInputHandled;
         }
         if (_conversation.active()) {
+            const uint priorPartyCount=game.party.memberCount();
             const byte priorObject=_transport.object;
             const byte dialogueActor=_conversation.actorSlot();const bool plainDialogue=_conversation.plainDialogue();
             byte id=255;const WorldConversationResult result=_conversation.handle(input,archive,game,scene,frame,id,&_transport);
@@ -130,6 +196,13 @@ public:
                 // Plain Talk returns its saved exploration raster. Source
                 // callbacks own explicit world redraws;do not replay actor
                 // admission/facing or apply cache-load patches merely to close.
+                if (plainDialogue && game.party.memberCount()!=priorPartyCount) {
+                    // Recruitment removes the source NPC and returns through
+                    // an explicit world redraw. Ordinary Talk keeps its raster.
+                    byte painted[187]={};
+                    if (!WorldViewport::refreshAtWorld(game.world,window,_story,_actors,_lighting,_occlusion,_painter,game.appearance,game.clock.lightActive,
+                        animation,painted,turn.presentation,light,visibility,frame,&scene)) return kWorldInputUnsupported;
+                }
                 if (!window.captureRecords(game.world) || !text.importPages(frame.data(),frame.data(),8192)) return kWorldInputUnsupported;
                 if (plainDialogue && (game.world.field(17)&32)) {
                     if (dialogueActor>240 || (dialogueActor&7)) return kWorldInputUnsupported;
@@ -150,7 +223,7 @@ public:
             if (input.kbd.keycode==Common::KEYCODE_n) { _leave=false;_transport.pendingSteps=0;_transport.pendingDirection=255;return kWorldInputHandled; }
             WorldTravelPlan plan;const StoryMapState *state=window.state();
             if (!state) return kWorldInputBoundary;
-            const WorldTravelResult selected=WorldTravelRules::leave(game.world.mapType(),game.world.mapId(),game.world.x(),game.world.y(),state->spawns,256,plan);
+            const WorldTravelResult selected=WorldTravelRules::leave(game.world.mapType(),game.world.mapId(),game.world.x(),game.world.y(),state->spawns,256,plan,game.appearance);
             if (selected==kTravelParentFallback) {
                 const NavigationPoint &parent=game.navigation.parent();
                 plan.type=parent.type;plan.map=parent.map;plan.x=parent.x;plan.y=parent.y;plan.explicitArrival=true;
@@ -167,6 +240,7 @@ public:
             if (!_window.ended()) return kWorldInputUnsupported;
             for (uint y=4;y<112;++y) for (uint x=24;x<40;++x)
                 if (!frame.putByte(x,y,_underlay.data()[HgrFrame::rowOffset(y)+x])) return kWorldInputUnsupported;
+            if (_campNotice) {_campNotice=false;_notice=false;return kWorldInputHandled;}
             if (!WorldMove::completeClock(game.world,game.clock)) return kWorldInputUnsupported;
             _notice=false;
             // The original notice does not acknowledge this key. Continue
@@ -192,8 +266,12 @@ public:
             if (!arrow) return kWorldInputHandled;
             WorldOpenEvent event;const WorldOpenResult opened=_open.run(game.world,scene,direction,event);
             if (opened==kWorldOpenUnsupported) return kWorldInputUnsupported;
-            if (opened==kWorldOpenInteraction || opened==kWorldOpenLock) return kWorldInputBoundary;
-            _openDirection=false;
+            if (opened==kWorldOpenInteraction) return kWorldInputBoundary;
+            if (opened==kWorldOpenLock) {
+                if (event.object>248 || game.world.currentTables()->data()[1024+event.object+3]!=17) return kWorldInputBoundary;
+                _openDirection=false;return _search.beginDoor(archive,game,event.object,frame)?kWorldInputHandled:kWorldInputUnsupported;
+            }
+            _openDirection=false;_refusalSound=event.sound;
             byte painted[187]={};
             if (opened==kWorldOpenChanged && !WorldViewport::refreshAtWorld(game.world,window,_story,_actors,_lighting,_occlusion,_painter,
                     246,game.clock.lightActive,animation,painted,turn.presentation,light,visibility,frame,&scene)) return kWorldInputUnsupported;
@@ -208,9 +286,27 @@ public:
         }
         if (input.kbd.keycode==Common::KEYCODE_y || input.kbd.keycode==Common::KEYCODE_j) {
             if (!_transport.used) {_transport.appearance=_transport.baseAppearance=_transport.statusAppearance=game.appearance;}
-            byte notice=255;if (input.kbd.keycode==Common::KEYCODE_y) WorldTransportControl::yell(_transport,notice);else WorldTransportControl::requestJump(_transport);
+            byte notice=255;if (input.kbd.keycode==Common::KEYCODE_y) WorldTransportControl::yell(_transport,notice);
+            else {_refusalSound=!WorldTransportControl::requestJump(_transport);}
             if (notice!=255 && !message(catalog,notice,text,frame)) return kWorldInputUnsupported;
             return kWorldInputHandled;
+        }
+        if (input.kbd.keycode==Common::KEYCODE_h) {
+            Common::String reply;const WorldCampResult camp=WorldCamp::run(game,scene,reply,archive);
+            if (camp==kCampUnsupported) return kWorldInputUnsupported;
+            if (camp==kCampCastleRefused) return message(catalog,18,text,frame)?kWorldInputHandled:kWorldInputUnsupported;
+            if (camp==kCampRested) {
+                Common::Array<byte> data;if (!archive.read("NA/GAME",data) ||
+                    !WorldTravelRules::lightMode(game.world.mapType(),game.world.mapId(),game.clock.hour,game.clock.minute,data.data()+0x10b1,data.size()-0x10b1,light.mode)) return kWorldInputUnsupported;
+                byte painted[187]={};
+                if (!WorldViewport::refreshAtWorld(game.world,window,_story,_actors,_lighting,_occlusion,_painter,game.appearance,0,
+                        animation,painted,turn.presentation,light,visibility,frame,&scene) || !window.captureRecords(game.world)) return kWorldInputUnsupported;
+            } else if (!WorldCamp::refusal(archive,camp,reply)) return kWorldInputUnsupported;
+            Common::Array<byte> body;for (uint i=0;i<reply.size();++i) body.push_back(reply[i]=='\n'?141:byte(reply[i])|128);
+            _underlay=frame;HgrFrame background=frame;if (!OpeningBackdrop::renderNoticeFrame(background)) return kWorldInputUnsupported;
+            frame=background;
+            TextWindow next;if (!next.begin(archive,body.data(),body.size(),25,13,1,12,11,&background) || !next.paint(frame)) return kWorldInputUnsupported;
+            _window=next;_notice=_campNotice=true;return kWorldInputHandled;
         }
         if (input.kbd.keycode==Common::KEYCODE_c) {
             if (!_casting.begin(archive,game,frame)) return kWorldInputUnsupported;
@@ -224,8 +320,20 @@ public:
             if (!_conversation.choose(game.world,frame) || !message(catalog,12,text,frame)) return kWorldInputUnsupported;
             return kWorldInputHandled;
         }
+        if (input.kbd.keycode==Common::KEYCODE_s) return _search.begin(archive,game,frame)?kWorldInputHandled:kWorldInputUnsupported;
         if (input.kbd.keycode==Common::KEYCODE_o) { _openDirection=true;return kWorldInputHandled; }
-        if (!arrow) return kWorldInputIgnored;
+        if (!arrow) {
+            const byte command=byte(input.kbd.ascii)&127;
+            // Original command-table entries have dedicated owners. A truly
+            // unknown printable key gives the authored free refusal instead
+            // of silently swallowing input; CE-owned keys are handled above.
+            static const char *known="3!GT\tOA/?N WLSVDHFCJYXBQ=I";
+            const byte upper=command>='a' && command<='z'?byte(command-32):command;
+            if (command>=32 && command<127 && !strchr(known,upper)) {
+                _refusalSound=true;return message(catalog,16,text,frame)?kWorldInputHandled:kWorldInputUnsupported;
+            }
+            return kWorldInputIgnored;
+        }
         if (!_transport.pendingSteps && _transport.object!=255) {
             if (_transport.pace>4) return kWorldInputBoundary;
             _transport.pendingSteps=MAX<byte>(1,_transport.pace);_transport.pendingDirection=byte(direction);_transport.moveCount=0;
@@ -279,6 +387,18 @@ public:
         return kWorldInputHandled;
     }
     bool save(Common::WriteStream &out) const {
+        if (_campNotice) {
+            if (!_notice) return false;
+            Common::ScopedPtr<WorldInput> baseOwner(new WorldInput(*this));baseOwner->_campNotice=false;
+            Common::MemoryWriteStreamDynamic body(DisposeAfterUse::YES);if (!baseOwner->save(body)) return false;
+            out.writeUint32BE(MKTAG('N','W','I','N'));out.writeUint16LE(12);out.writeUint32LE(body.size());out.write(body.getData(),body.size());return !out.err();
+        }
+        if (_search.active()) {
+            Common::ScopedPtr<WorldInput> baseOwner(new WorldInput(*this));WorldInput &base=*baseOwner;base._search.cancel();
+            if (!base.atWorldCommand()) return false;
+            Common::MemoryWriteStreamDynamic state(DisposeAfterUse::YES);if (!base.save(state)) return false;
+            out.writeUint32BE(MKTAG('N','W','I','N'));out.writeUint16LE(_search.doorPending()?14:_search.generatedPending()?13:11);out.writeUint32LE(state.size());out.write(state.getData(),state.size());return _search.save(out);
+        }
         if (_fireDirection && (_notice || _openDirection || _leave || _encounter.battle || _conversation.active() || _inventory.active() || _casting.active())) return false;
         if ((_conversation.active() && (_notice || _openDirection || _leave || _encounter.battle)) || (_leave && (_notice || _openDirection || _encounter.battle)) || (_notice && _openDirection) || (_encounter.battle && (_notice || _openDirection))) return false;
         if (!_transport.valid() || (_inventory.active() && (_notice || _openDirection || _leave || _encounter.battle || _conversation.active())) ||
@@ -304,8 +424,22 @@ public:
     }
     bool load(Common::SeekableReadStream &in,HdvArchive &archive,byte type=8) {
         if (in.readUint32BE()!=MKTAG('N','W','I','N')) return false;
-        uint version=in.readUint16LE();if (version<1 || version>9) return false;
-        WorldInput next;
+        uint version=in.readUint16LE();
+        if (version==12) {
+            const uint size=in.readUint32LE();if (size<6 || size>1048576 || size!=in.size()-in.pos()) return false;
+            Common::Array<byte> bytes;bytes.resize(size);if (in.read(bytes.data(),size)!=size || READ_LE_UINT16(bytes.data()+4)>=10) return false;
+            Common::MemoryReadStream body(bytes.data(),size);Common::ScopedPtr<WorldInput> nextOwner(new WorldInput);
+            if (!nextOwner->load(body,archive,type) || !nextOwner->_notice) return false;nextOwner->_campNotice=true;*this=*nextOwner;return true;
+        }
+        if (version==10 || version==11 || version==13 || version==14) {
+            const uint size=in.readUint32LE();if (size<6 || size>1048576 || size>in.size()-in.pos()) return false;
+            Common::Array<byte> bytes;bytes.resize(size);if (in.read(bytes.data(),size)!=size || READ_LE_UINT16(bytes.data()+4)>=10) return false;
+            Common::MemoryReadStream body(bytes.data(),size);Common::ScopedPtr<WorldInput> nextOwner(new WorldInput);WorldInput &next=*nextOwner;
+            if (!next.load(body,archive,type) || !next.atWorldCommand() || !next._search.load(in,archive,version>=11,version==13,version==14)) return false;
+            *this=next;return true;
+        }
+        if (version<1 || version>9) return false;
+        Common::ScopedPtr<WorldInput> nextOwner(new WorldInput);WorldInput &next=*nextOwner;
         const bool scripted=version==9;
         if (version>=8) {version=in.readByte();const byte fire=in.readByte(),protection=in.readByte();if (version<4 || version>7 || fire>1 || protection>1 || (!fire && !protection && !scripted)) return false;next._fireDirection=fire!=0;next._fireProtected=protection!=0;if (scripted && in.readByte()!=1) return false;next._scriptedEncounter=scripted;}
         const byte transport=version>=6?in.readByte():version==5?1:0;
@@ -353,10 +487,12 @@ private:
         for (uint y=184;y<192;++y) for (uint x=7;x<32;++x) if (!image.putByte(x,y,0)) return kWorldInputUnsupported;
         if (!nextText.importPages(image.data(),image.data(),8192)) return kWorldInputUnsupported;
         WorldActorTurnEvent encounter;
+        const uint soundStart=_sounds?_sounds->size():0;
         const WorldWaitResult result=_wait.run(candidate,nextWindow,nextScene,nextTurn,clock,nextLight,mask,schedule,nextRoutes,after,catalog,nextText,image,game.appearance,animation,encounter,true,4,nullptr,&party);
         if (result!=kWorldWaitAdvanced && result!=kWorldWaitBattle && result!=kWorldWaitDefeat) return kWorldInputBoundary;
         game.world.adoptState(candidate);game.party=party;game.clock=clock;game.schedule=schedule;window=nextWindow;scene=nextScene;turn=nextTurn;
         routes=nextRoutes;light=nextLight;visibility=mask;random=after;text=nextText;frame=image;_transport=controls;_fireDirection=false;
+        if (_sounds) _sounds->insert_at(soundStart,kSpeakerProjectile);
         if (result==kWorldWaitBattle) {_encounter=encounter;return kWorldInputEncounter;}
         if (result==kWorldWaitDefeat) {markDefeated();return kWorldInputDefeat;}
         return kWorldInputHandled;
@@ -401,31 +537,37 @@ private:
     }
     bool travel(HdvArchive &archive,NewGame &game,WorldStory &window,WorldScene &scene,WorldActorTurnState &turn,
             LightState &light,VisibilityMask &visibility,HgrFrame &frame,const WorldTravelPlan &plan,byte animation,bool innRest=false,bool recordOrigin=true) {
+        const auto reject=[&](const char *phase) {
+            warning("Native travel %u/%u to%u/%u at%u,%u failed: %s",uint(game.world.mapType()),uint(game.world.mapId()),
+                    uint(plan.type),uint(plan.map),uint(plan.x),uint(plan.y),phase);return false;
+        };
         World candidate(game.world);NpcScheduleState schedule=game.schedule;WorldStory nextWindow;WorldScene nextScene;
         WorldActorTurnState nextTurn=turn;LightState nextLight=light;VisibilityMask nextVisibility=visibility;HgrFrame nextFrame=frame;
         WorldTransportState nextTransport=_transport;
         WorldNavigation navigation=game.navigation;
-        if (recordOrigin && !navigation.enter(NavigationPoint(game.world.mapType(),game.world.mapId(),game.world.x(),game.world.y()),plan.type)) return false;
-        if (!WorldTravel::commit(candidate,plan,&nextTransport)) return false;
+        if (recordOrigin && !navigation.enter(NavigationPoint(game.world.mapType(),game.world.mapId(),game.world.x(),game.world.y()),plan.type)) return reject("navigation");
+        if (!WorldTravel::commit(candidate,plan,&nextTransport)) return reject("owned map/cargo");
         nextTurn.presentation.partyObject=nextTransport.object;
-        if (!nextWindow.initialize(candidate,candidate.currentTables()->data()+1536,256) || !loadRules(archive,plan.type)) return false;
+        if (!nextWindow.initialize(candidate,candidate.currentTables()->data()+1536,256)) return reject("window");
+        if (!loadRules(archive,plan.type)) return reject("rules");
         // M:FB0C selects permanent dark maps, otherwise the source day/night
         // boundary5:30..20:30. Preserve the light level/transition counter.
-        Common::Array<byte> data;if (!archive.read("NA/GAME",data)) return false;
+        Common::Array<byte> data;if (!archive.read("NA/GAME",data)) return reject("source data");
         if (innRest) nextLight.mode=1;
-        else if (!WorldTravelRules::lightMode(plan.type,plan.map,game.clock.hour,game.clock.minute,data.data()+0x10b1,data.size()-0x10b1,nextLight.mode)) return false;
+        else if (!WorldTravelRules::lightMode(plan.type,plan.map,game.clock.hour,game.clock.minute,data.data()+0x10b1,data.size()-0x10b1,nextLight.mode)) return reject("light mode");
         byte painted[187]={};
         if (!WorldViewport::refreshAtWorld(candidate,nextWindow,_story,_actors,_lighting,_occlusion,_painter,game.appearance,game.clock.lightActive,
-                animation,painted,nextTurn.presentation,nextLight,nextVisibility,nextFrame,&nextScene)) return false;
+                animation,painted,nextTurn.presentation,nextLight,nextVisibility,nextFrame,&nextScene)) return reject("viewport");
         // M:F69B refresh precedes F69E map-entry schedule. Capture its actual
         // resulting records for persistence without replaying actor admission.
         NpcSchedulePolicy policy={false,false};
-        if (NpcScheduler::apply(candidate,game.clock.hour,game.clock.minute,policy,schedule)==kNpcScheduleUnsupported || !nextWindow.captureRecords(candidate)) return false;
+        if (NpcScheduler::apply(candidate,game.clock.hour,game.clock.minute,policy,schedule)==kNpcScheduleUnsupported) return reject("NPC schedule");
+        if (!nextWindow.captureRecords(candidate)) return reject("record capture");
         TurnClock nextClock=game.clock;
         if (innRest) {
             byte hours;
             if (!InnService::sleep(nextClock,hours) || !WorldTravelRules::lightMode(plan.type,plan.map,nextClock.hour,nextClock.minute,
-                    data.data()+0x10b1,data.size()-0x10b1,nextLight.mode)) return false;
+                    data.data()+0x10b1,data.size()-0x10b1,nextLight.mode)) return reject("light mode");
         }
         game.world.adoptState(candidate);game.schedule=schedule;window=nextWindow;scene=nextScene;turn=nextTurn;light=nextLight;visibility=nextVisibility;frame=nextFrame;
         game.clock=nextClock;game.navigation=navigation;_transport=nextTransport;
@@ -437,9 +579,9 @@ private:
             if (!frame.putByte(x,y,surface.page(0)[HgrFrame::rowOffset(y)+x])) return false;
         return true;
     }
-    bool _notice,_openDirection,_leave,_fireDirection,_fireProtected,_scriptedEncounter;TextWindow _window;HgrFrame _underlay;
+    bool _notice,_campNotice,_openDirection,_leave,_fireDirection,_fireProtected,_scriptedEncounter,_refusalSound;TextWindow _window;HgrFrame _underlay;
     WorldActorTurnEvent _encounter;WorldConversation _conversation;WorldTransportState _transport;InventoryWindow _inventory;WorldCast _casting;
-    WorldMove _move;WorldOpen _open;WorldWait _wait;StoryMapPatches _story;ActorPaintRules _actors;TerrainLighting _lighting;OcclusionRules _occlusion;TilePainter _painter;
+    SearchInput _search;WorldMove _move;WorldOpen _open;WorldWait _wait;StoryMapPatches _story;ActorPaintRules _actors;TerrainLighting _lighting;OcclusionRules _occlusion;TilePainter _painter;SoundEvents *_sounds;
 };
 } }
 #endif

@@ -16,6 +16,37 @@ public:
         next._ready=true;*this=next;return true;
     }
     bool splash(HdvArchive &archive) {Common::Array<byte> song;return archive.read("NA/MUSIC.SPLASH",song)&&start(archive,song.data(),song.size());}
+    bool ambient(HdvArchive &archive,GameplayRandom &random,byte type,byte map) {
+        // A not-initialized service is also the supported old silent-save state.
+        if (!_ready) return true;
+        if (type<2) {
+            // Loader directory entries0/1 have no ambient-song extent.
+            _music.stop();_battleCue=false;
+            for (uint chip=0;chip<2;++chip) for (uint reg=8;reg<11;++reg) mock_set_ay_register(&_synth,chip,reg,0,_cycle);
+            return true;
+        }
+        Common::Array<byte> song,game;GameplayRandom after=random;
+        if (map==8 || map==65 || (map>=71 && map<74)) {
+            // GAME8ACF selects these authored descriptors before the pool loader.
+            const uint offset=map==8?0x2b4c:map==65?0x2b43:0x2b3a;
+            if (!archive.read("NA/GAME",game) || game.size()<offset+9 || !descriptorSong(archive,game.data()+offset,song)) return false;
+        } else {
+            if (type>8) return false;
+            static const char *resources[]={"","","UM","RUIN","UM","TOWN2","TOWN","CSTL","KEEP"};
+            Common::Array<byte> loader,data;
+            if (!archive.read("NA/LOADER.P",loader) || loader.size()<10121 || !archive.read(Common::String("NA/DATA.MAP.")+resources[type],data)) return false;
+            const byte *entry=loader.data()+9927+137+uint(type)*4;
+            const uint directory=entry[0]|(uint(entry[1])<<8)|(uint(entry[2])<<16);
+            if (!directory || directory>data.size() || data.size()-directory<15) return false;
+            byte draw;if (!after.next(1,191,draw)) return false;
+            const byte *record=data.data()+directory+uint(draw>>6)*5;
+            const uint offset=record[0]|(uint(record[1])<<8)|(uint(record[2])<<16),size=READ_LE_UINT16(record+3);
+            if (!size || size>16384 || offset>data.size() || size>data.size()-offset) return false;
+            song.resize(size);memcpy(song.data(),data.data()+offset,size);
+        }
+        MusicPlayback next;if (!next.start(archive,song.data(),song.size())) return false;
+        *this=next;random=after;return true;
+    }
     bool combat(HdvArchive &archive,GameplayRandom &random,byte map,byte sprite) {
         if (_battleCue) return true;
         Common::Array<byte> source,song;GameplayRandom nextRandom=random;

@@ -13,7 +13,8 @@ enum WorldWaitResult { kWorldWaitAdvanced,kWorldWaitBattle,kWorldWaitPendingEffe
 // services are explicit boundaries, never silently skipped.
 class WorldWait {
 public:
-    WorldWait() : _ready(false),_type(255) {}
+    WorldWait() : _ready(false),_type(255),_sounds(nullptr) {}
+    void setSoundEvents(SoundEvents *sounds) {_sounds=sounds;}
     bool load(HdvArchive &archive,byte type=8) {
         Common::Array<byte> game,footer;MapAssetRange range;
         if (!_turn.load(archive,type) || !_hazardRules.load(archive,type) || !_lighting.load(archive,type) || !_occlusion.load(archive,type) || !_painter.load(archive,type) ||
@@ -33,7 +34,7 @@ public:
         World candidate(world);WorldStory nextWindow=window;WorldScene nextScene;WorldActorTurnState next=state;
         TurnClock nextClock=clock;LightState nextLight=light;VisibilityMask nextVisibility=visibility;NpcScheduleState nextSchedule=schedule;
         NpcRouteStore nextStore=store;GameplayRandom after=random;TextGlyphSurface text=surface;HgrFrame nextFrame=frame;WorldActorTurnEvent raised;Party nextParty;if (party) nextParty=*party;bool defeated=false;
-        byte cleared[187]={};if (!nextVisibility.importMask(cleared,187) || !prepareSceneLighting(candidate,_lighting,candidate.coordinateSector(),appearance,clock.lightActive,nextLight,nextVisibility,&nextWindow) ||
+        SoundEvents effects;byte cleared[187]={};if (!nextVisibility.importMask(cleared,187) || !prepareSceneLighting(candidate,_lighting,candidate.coordinateSector(),appearance,clock.lightActive,nextLight,nextVisibility,&nextWindow) ||
             !_turn.run(candidate,scene,nextVisibility.cells(),187,next,nextSchedule,nextStore,after,catalog,text,nextScene,raised,direction,&nextWindow)) return kWorldWaitUnsupported;
         if (!raised.battle) {
             if (next.effects.active) return kWorldWaitPendingEffect;
@@ -42,11 +43,12 @@ public:
                 if (!party) return kWorldWaitPendingEffect;
                 WorldProjectileOutcome projectile;
                 if (!next.effects.originKnown || !WorldProjectile::hostile(next.effects.originX,next.effects.originY,next.effects.code,next.effects.projectileMode,after,projectile)) return kWorldWaitUnsupported;
+                effects.push_back(kSpeakerProjectile);if (projectile.hit) effects.push_back(kSpeakerActorHit);
                 projectileHit=projectile.hit;next.effects.queued=0;next.effects.projectileMode=true;
             }
             const byte slot=nextScene.actors.lookup[93];
             if (!party && slot!=255 && nextScene.actors.kinds[93]==0 && (*candidate.currentTables())[768+slot+2]==225) return kWorldWaitPendingEffect;
-            if (party && !_hazardRules.apply(candidate,nextScene,nextParty,catalog,text,nextFrame,defeated,projectileHit)) return kWorldWaitUnsupported;
+            if (party && !_hazardRules.apply(candidate,nextScene,nextParty,catalog,text,nextFrame,defeated,projectileHit,&effects)) return kWorldWaitUnsupported;
             if (completeClock && !defeated) {
                 ClockAdvance advance;if (!advanceTurnClock(clock,advance)) return kWorldWaitUnsupported;nextClock=advance.after;
                 candidate._fields[20]=nextClock.hourlyCounter;
@@ -65,10 +67,10 @@ public:
         }
         if (!nextWindow.captureRecords(candidate)) return kWorldWaitUnsupported;
         world.adoptState(candidate);window=nextWindow;scene=nextScene;state=next;clock=nextClock;light=nextLight;visibility=nextVisibility;
-        schedule=nextSchedule;store=nextStore;random=after;surface=text;frame=nextFrame;event=raised;if (party) *party=nextParty;return raised.battle?kWorldWaitBattle:defeated?kWorldWaitDefeat:kWorldWaitAdvanced;
+        schedule=nextSchedule;store=nextStore;random=after;surface=text;frame=nextFrame;event=raised;if (party) *party=nextParty;if (_sounds) for (uint i=0;i<effects.size();++i) _sounds->push_back(effects[i]);return raised.battle?kWorldWaitBattle:defeated?kWorldWaitDefeat:kWorldWaitAdvanced;
     }
 private:
-    bool _ready;byte _type,_hazards[4];WorldActorTurn _turn;WorldHazards _hazardRules;TerrainLighting _lighting;OcclusionRules _occlusion;TilePainter _painter;
+    bool _ready;byte _type,_hazards[4];SoundEvents *_sounds;WorldActorTurn _turn;WorldHazards _hazardRules;TerrainLighting _lighting;OcclusionRules _occlusion;TilePainter _painter;
 };
 } }
 #endif

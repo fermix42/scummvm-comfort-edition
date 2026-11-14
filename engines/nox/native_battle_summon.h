@@ -10,7 +10,8 @@ namespace Nox { namespace Native {
 // Special replacement ID18 delegates to its separate transactional owner.
 class BattleSummon {
 public:
-    BattleSummon() : _ready(false) {}
+    BattleSummon() : _ready(false),_sounds(nullptr) {}
+    void setSoundEvents(SoundEvents *sounds) {_sounds=sounds;_madCow.setSoundEvents(sounds);}
     bool load(HdvArchive &archive) {
         Common::Array<byte> data;if (!archive.readRange("NA/SRTN.COMBAT.S",0x6733,0x986,data)) return false;
         const uint offsets[]={0x205,0x225,0x245,0x1e5,0x265};
@@ -25,7 +26,7 @@ public:
         const int choice=spell==14?0:spell==16?1:spell==17?2:spell==19?3:spell==20?4:-1;
         VortexVictim caster;if (!_ready || choice<0 || !terrain || terrainSize!=187 || !objects || objectSize!=187 ||
             !blocking || blockingSize!=4 || !originalHealth || healthSize!=32 || !records.actor(casterCell,caster) || caster.stats[4]<cost) return false;
-        BattleRecords next=records;GameplayRandom rng=random;byte health[32];memcpy(health,originalHealth,32);SummonOutcome result;
+        SoundEvents effects;BattleRecords next=records;GameplayRandom rng=random;byte health[32];memcpy(health,originalHealth,32);SummonOutcome result;
         result.requested=choice?1:MAX<uint>(1,MIN<uint>(6,caster.stats[1]&127));
         const byte shape=byte(choice==2 || choice==3?9:1),sprite[]={233,243,225,234,252};
         const byte affiliation=caster.kind==3?3:caster.actor[4],opponent=caster.kind==3?1:caster.actor[5];
@@ -46,7 +47,7 @@ public:
             }
             if (slot==16) { ++result.refused;continue; }
             memcpy(next.stats+1280+slot*32,_templates[choice],32);memcpy(health+slot*2,_templates[choice]+2,2);++result.allocated;
-            if (!available(next,cell,shape,terrain,objects,blocking)) { ++result.failedPlacement;continue; }
+            if (!available(next,cell,shape,terrain,objects,blocking)) { ++result.failedPlacement;effects.push_back(kSpeakerRefusal);continue; }
             const byte index=byte(128+slot*8);byte *actor=next.extended+index;
             actor[0]=cell%17;actor[1]=cell/17;actor[2]=sprite[choice];actor[3]=shape;
             actor[4]=affiliation;actor[5]=opponent;actor[7]=0;
@@ -58,7 +59,7 @@ public:
         }
         // Reload: future callers may cast from the same pooled record bank.
         if (!next.actor(casterCell,caster)) return false;caster.stats[12]=255;if (!next.store(caster)) return false;
-        result.spentMana=true;records=next;random=rng;memcpy(originalHealth,health,32);outcome=result;return true;
+        result.spentMana=true;records=next;random=rng;memcpy(originalHealth,health,32);outcome=result;if (_sounds) for (uint i=0;i<effects.size();++i) _sounds->push_back(effects[i]);return true;
     }
 private:
     static bool available(const BattleRecords &records,byte cell,byte shape,const byte *terrain,const byte *objects,const byte *ranges) {
@@ -69,7 +70,7 @@ private:
         }
         return true;
     }
-    bool _ready;byte _templates[5][32],_friendly[31],_hostile[31];BattleMadCow _madCow;
+    bool _ready;SoundEvents *_sounds;byte _templates[5][32],_friendly[31],_hostile[31];BattleMadCow _madCow;
 };
 } }
 #endif

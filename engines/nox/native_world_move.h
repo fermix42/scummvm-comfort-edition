@@ -12,8 +12,12 @@ enum WorldMoveResult { kWorldMoveAdvanced,kWorldMoveNotice,kWorldMoveBlocked,kWo
 // Encounters, special terrain and other arrival effects are explicit boundaries.
 class WorldMove {
 public:
-    WorldMove() : _type(255) {}
-    bool load(HdvArchive &archive,byte type=8) { if (!_story.load(archive) || !_rules.load(archive,type) || !_transportRules.load(archive,type) || !_turn.load(archive,type) || !_painter.load(archive,type)) return false;_type=type;return true; }
+    WorldMove() : _type(255),_quietGround(255),_sounds(nullptr) {}
+    void setSoundEvents(SoundEvents *sounds) {_sounds=sounds;_turn.setSoundEvents(sounds);}
+    bool load(HdvArchive &archive,byte type=8) {
+        Common::Array<byte> game,quiet;MapAssetRange assets;
+        if (!archive.read("NA/GAME",game) || !resolveMapAssets(game,type,assets) || !archive.readRange(assets.resource,assets.offset+assets.size+67,1,quiet) || quiet.size()!=1) return false;
+        _quietGround=quiet[0];if (!_story.load(archive) || !_rules.load(archive,type) || !_transportRules.load(archive,type) || !_turn.load(archive,type) || !_painter.load(archive,type)) return false;_type=type;return true; }
     static bool completeClock(World &world,TurnClock &clock) {
         ClockAdvance advance;if (!advanceTurnClock(clock,advance)) return false;
         clock=advance.after;world._fields[20]=clock.hourlyCounter;return true;
@@ -54,6 +58,7 @@ public:
             if (motion.requiresInteraction) return kWorldMoveBoundary;
             if (motion.message!=255 && !showTransportEffect(catalog,motion.message,nextText,nextFrame)) return kWorldMoveUnsupported;
             if (motion.interrupted || motion.blocked) {
+                if (motion.blocked && _sounds) _sounds->push_back(kSpeakerImpact);
                 transferControls();random=after;text=nextText;frame=nextFrame;return motion.interrupted?kWorldMoveInterrupted:kWorldMoveBlocked;
             }
             if (motion.seaEvent) {
@@ -67,7 +72,7 @@ public:
             if (!map || (!map->compressed && (x>=48 || y>=48))) return kWorldMoveLeave;
             candidate._x=x;candidate._y=y;object[0]=byte(object[0]+dx);object[1]=byte(object[1]+dy);position=kPositionMoved;
         } else position=WorldCommand::move(input,candidate,nextWindow,scene,_rules,decision);
-        if (position==kPositionBlocked) return kWorldMoveBlocked;
+        if (position==kPositionBlocked) {if (_sounds) _sounds->push_back(kSpeakerImpact);return kWorldMoveBlocked;}
         if (position!=kPositionMoved) return position==kPositionNeedsInteraction?kWorldMoveBoundary:kWorldMoveUnsupported;
         bool needsExit=false;if (!nextWindow.advanceWindow(candidate,direction,_story,needsExit)) return kWorldMoveUnsupported;
         if (needsExit) return kWorldMoveLeave;
@@ -104,6 +109,8 @@ public:
             transferControls();return kWorldMoveEncounter;
         }
         if (result!=kWorldWaitAdvanced) return result==kWorldWaitPendingEffect?kWorldMoveBoundary:kWorldMoveUnsupported;
+        const byte arrivedGround=shifted.actors.terrain[93];
+        if (_sounds && arrivedGround!=_quietGround && (arrivedGround<229 || arrivedGround>=233)) _sounds->push_back(kSpeakerNotification);
         const StoryMapState *map=nextWindow.state();if (!map) return kWorldMoveUnsupported;
         for (uint offset=0;offset<256;offset+=4) {
             if (map->spawns[offset+2]&128) break;
@@ -124,7 +131,10 @@ public:
                     if (!candidate.notice(object[7]&127,authored)) return kWorldMoveUnsupported;
                     pending=true;
                 }
-            } else if (!((kind>=33 && kind<=41) || kind==254 || object[2]==119 || object[2]==123 || object[2]==124 || object[2]==127 || object[2]==128 || object[2]==238)) return kWorldMoveBoundary;
+            }
+            // M:F0F4..F114 branches on55 only. Every other object already
+            // passed traversal/turn admission and resumes the ordinary clock;
+            // a second type whitelist incorrectly rejects static decorations.
         }
         if (!pending && !completeClock(candidate,nextClock)) return kWorldMoveUnsupported;
         world.adoptState(candidate);window=nextWindow;scene=shifted;state=turn;clock=nextClock;light=nextLight;visibility=mask;
@@ -136,7 +146,7 @@ private:
         if (!text.importPages(frame.data(),frame.data(),8192) || !showFixedMessageStrip(catalog,id,text)) return false;
         for (uint y=184;y<192;++y) for (uint x=7;x<32;++x) if (!frame.putByte(x,y,text.page(0)[HgrFrame::rowOffset(y)+x])) return false;return true;
     }
-    byte _type;StoryMapPatches _story;TraversalRules _rules;WorldTransportMotion _transportRules;WorldWait _turn;TilePainter _painter;
+    byte _type,_quietGround;SoundEvents *_sounds;StoryMapPatches _story;TraversalRules _rules;WorldTransportMotion _transportRules;WorldWait _turn;TilePainter _painter;
 };
 } }
 #endif

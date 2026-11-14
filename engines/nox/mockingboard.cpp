@@ -48,6 +48,7 @@ void mock_set_ay_register(Mockingboard *m,unsigned chip,unsigned reg,byte value,
   if(chip>=2||reg>=16)return;
   ay_advance(&m->ay[chip],cycle);m->ay[chip].selected=byte(reg);ay_write(&m->ay[chip],value);
 }
+#ifndef NOX_NATIVE_ONLY
 void mock_advance(Mockingboard *m,uint64 cycle){
   if(cycle<m->cycle)return;
   uint64 clocks=cycle-m->cycle;m->cycle=cycle;
@@ -97,6 +98,7 @@ void mock_write(Mockingboard *m,unsigned offset,byte value,uint64 cycle){
     else if(control==6)ay_write(a,v->reg[1]);
   }
 }
+#endif // Compatibility VIA/timer/IRQ bus is absent from native-only builds.
 int mock_sample(Mockingboard *m,uint64 cycle){
   /* Logarithmic 16-level DAC approximation, six channels mixed to mono. */
   static const int amplitude[16]={0,28,40,57,81,114,161,228,322,455,644,910,1287,1820,2574,3640};

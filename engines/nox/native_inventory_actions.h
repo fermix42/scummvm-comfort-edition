@@ -9,10 +9,10 @@ public:
     static InventoryDropResult drop(HdvArchive &archive,NewGame &game,uint slot,bool confirmed) {
         ItemCatalog catalog;EquipmentOwnership ownership;
         if (!catalog.load(archive) || !ownership.load(archive)) return kDropUnsupported;
-        return dropRecords(catalog,ownership,game.book,game.inventory,game.world._fields,256,slot,confirmed);
+        return dropRecords(catalog,ownership,game.book,game.inventory,game.world._fields,256,slot,confirmed,&game.commerceCounter);
     }
     static InventoryDropResult dropRecords(const ItemCatalog &catalog,const EquipmentOwnership &ownership,const SpellBook &book,
-            Inventory &inventory,byte *fields,uint length,uint slot,bool confirmed) {
+            Inventory &inventory,byte *fields,uint length,uint slot,bool confirmed,const CommerceCounterContext *context=nullptr) {
         const InventoryItem *item=inventory.item(slot);ItemDefinition definition;
         if (!fields || length!=256 || !item || item->empty() || !catalog.definition(item->kind(),item->id(),definition)) return kDropUnsupported;
         if (definition.bytes[8]&128) return kDropProtected;
@@ -24,11 +24,12 @@ public:
             if (ready) --quantity;
         }
         if (!quantity) return kDropReadied;
-        // A24B's counter hook reads retained caller fields264/269, not this
-        // removal quantity. Its ordinary Drop caller lifetime is unresolved.
-        // Do not substitute a guessed counter update or commit a partial drop.
-        if (item->kind()==2 && (definition.bytes[8]&32)) return kDropUnsupported;
+        // A24B consumes the retained commerce selector/quantity, not the
+        // current removal count. Older saves without that owner stay explicit.
+        const bool tracked=item->kind()==2 && (definition.bytes[8]&32);
+        if (tracked && (!context || !context->kindKnown || (context->kind==2 && !context->quantityKnown))) return kDropUnsupported;
         Inventory next=inventory;if (!next.removeQuantity(slot,quantity)) return kDropUnsupported;
+        if (tracked && context->kind==2) fields[definition.bytes[7]]=byte(fields[definition.bytes[7]]-context->quantity);
         inventory=next;return kDropApplied;
     }
     // Item Use's read-only document family. The source loader reads a table

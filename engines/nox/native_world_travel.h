@@ -6,8 +6,8 @@
 namespace Nox { namespace Native {
 enum WorldTravelResult { kTravelNone,kTravelSelected,kTravelSpecialBattle,kTravelInvalid,kTravelParentFallback };
 struct WorldTravelPlan {
-    byte type,map,x,y,slot;bool explicitArrival;
-    WorldTravelPlan() : type(0),map(0),x(0),y(0),slot(255),explicitArrival(false) {}
+    byte type,map,x,y,slot;bool explicitArrival,clearBoatOwnership;
+    WorldTravelPlan() : type(0),map(0),x(0),y(0),slot(255),explicitArrival(false),clearBoatOwnership(false) {}
 };
 // Typed authored four-byte exit and five-byte arrival metadata. Original code
 // coordinates identify the analysis contract only; no instruction dispatch.
@@ -50,12 +50,19 @@ public:
         const bool night=hour<5 || hour>0x20 || (hour==5 && minute<0x30) || (hour==0x20 && minute>=0x30);
         mode=dark || night?3:1;return true;
     }
-    static WorldTravelResult leave(byte type,byte map,byte x,byte y,const byte *spawns,uint count,WorldTravelPlan &out) {
+    static WorldTravelResult leave(byte type,byte map,byte x,byte y,const byte *spawns,uint count,WorldTravelPlan &out,byte appearance=246) {
         if (!spawns || count!=256 || type<3) return kTravelInvalid;
         WorldTravelPlan next;next.type=type;next.map=map;next.x=x;next.y=y;
         for (uint at=0;at<256;at+=4) {
             if (spawns[at+3]&128) {
                 next.type=spawns[at+3]&127;next.map=spawns[at+2];next.x=spawns[at];next.y=spawns[at+1];next.slot=byte(at);
+                // F4CD-F4FA: ships leave Bayport through its sea departure,
+                // retiring the local ship-shop permission. Map41 has its own
+                // boat departure; walking retains the authored parent point.
+                if (appearance>=119 && appearance<125) {
+                    if (map>=46 && map<50) {next.x=appearance==119?115:117;next.y=145;next.clearBoatOwnership=true;}
+                    else if (map==41) {next.x=195;next.y=106;}
+                }
                 out=next;return kTravelSelected;
             }
             if (spawns[at+2]&128) {out=next;return kTravelParentFallback;}
@@ -77,6 +84,7 @@ public:
             if (!WorldTransportControl::detachForTravel(next._states[next._current].tables.data()+1024,256,controls,cargo)) return false;
         } else if (transport && transport->object!=255) return false;
         if (!next.travel(plan.type,plan.map,plan.x,plan.y)) return false;
+        if (plan.clearBoatOwnership) next._fields[66]=0;
         if (riding && !WorldTransportControl::restoreAfterTravel(next.x(),next.y(),next._states[next._current].tables.data()+1024,256,controls,cargo)) return false;
         world.adoptState(next);if (riding) *transport=controls;return true;
     }

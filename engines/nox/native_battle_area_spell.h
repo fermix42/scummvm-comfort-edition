@@ -2,6 +2,7 @@
 #ifndef NOX_NATIVE_BATTLE_AREA_SPELL_H
 #define NOX_NATIVE_BATTLE_AREA_SPELL_H
 #include "nox/native_battle_spell_damage.h"
+#include "nox/native_sound_events.h"
 namespace Nox { namespace Native {
 // The authored visible tactical field is eleven by eleven within the retained
 // seventeen-column record grid. Keep the source's clipped ring visitation order,
@@ -64,7 +65,8 @@ struct AreaSpellOutcome {
 // remain explicit callers rather than implicit CPU continuations.
 class BattleAreaSpell {
 public:
-    BattleAreaSpell() : _ready(false) {}
+    BattleAreaSpell() : _ready(false),_sounds(nullptr) {}
+    void setSoundEvents(SoundEvents *sounds) {_sounds=sounds;}
     bool load(HdvArchive &archive) { _ready=_impact.load(archive);return _ready; }
     bool resolve(const CastPreparation &prepared,byte casterCell,byte center,bool cancelled,byte category,bool protectedTargets,
             GameplayRandom &random,BattleRecords &records,AreaSpellOutcome &output) const {
@@ -76,16 +78,19 @@ public:
         caster.stats[4]-=prepared.manaCost;if (!next.store(caster)) return false;
         if (!SpellAreaTargets::collect(fireball,byte(prepared.spell-(fireball?1:26)),center,casterCell,next,rng,result.targets)) return false;
         caster.stats[12]=255;if (!next.store(caster)) return false;
+        SoundEvents effects;if (storm) effects.push_back(kSpeakerMagic);
         for (uint i=0;i<result.targets.size();++i) {
+            VortexVictim affected;if (!next.actor(result.targets[i],affected)) return false;
             SpellDamageIntent intent;intent.casterCell=casterCell;intent.targetCell=result.targets[i];intent.category=category;
             intent.basePower=prepared.basePower;intent.threshold=prepared.levelThreshold;intent.protectedTargets=protectedTargets;
             SpellDamageOutcome impact;if (!_impact.resolve(intent,rng,next,impact)) return false;
             result.killed+=impact.killed?1:0;result.impacts.push_back(impact);
+            if (affected.kind==3) effects.push_back(kSpeakerPartyHit);
         }
-        result.spentMana=true;records=next;random=rng;output=result;return true;
+        result.spentMana=true;records=next;random=rng;output=result;if (_sounds) for (uint i=0;i<effects.size();++i) _sounds->push_back(effects[i]);return true;
     }
 private:
-    bool _ready;BattleSpellDamage _impact;
+    bool _ready;SoundEvents *_sounds;BattleSpellDamage _impact;
 };
 } }
 #endif

@@ -196,7 +196,7 @@ Common::Error NoxEngine::loadGameState(int slot) {
 		Common::CEAchievements().resetPopupState();
 		_system->displayMessageOnOSD(Common::U32String("Continued in a new Casual Play Session because the original session is unavailable."));
 	}
-    if (_nativePlayer) _nativePlayer->commitLoad();
+    if (_nativePlayer) {_nativePlayer->commitLoad();_nativeStartupMenu=false;}
 	delete _runtime;_runtime=candidate;_runtimeSession=owner;_saveMode=entry.metadata.mode;setTotalPlayTime(entry.metadata.playtime);resetAudio();
 	return Common::kNoError;
 }

@@ -1,6 +1,7 @@
-param([switch]$NoxFocused, [switch]$UnitTests, [switch]$WarningAudit)
+param([switch]$NoxNativeOnly, [switch]$NoxFocused, [switch]$UnitTests, [switch]$WarningAudit, [switch]$GenerateOnly)
 
 $ErrorActionPreference = 'Stop'
+if ($NoxNativeOnly -and ($NoxFocused -or $UnitTests)) { throw 'Use -NoxNativeOnly with the normal consolidated solution.' }
 $buildDirectory = if ($UnitTests) { 'build-tests' } elseif ($NoxFocused) { 'build-nox-focused' } else { 'build-scummvm' }
 $buildLogName = if ($UnitTests) { 'msbuild-tests.log' } elseif ($NoxFocused) { 'msbuild-nox-focused.log' } else { 'msbuild-release.log' }
 
@@ -17,7 +18,7 @@ $substRepoRoot = "S:\$repoName"
 $substVcpkgInstalled = if (Test-Path $localVcpkgInstalled) {
     "$substRepoRoot\vcpkg_installed"
 } else {
-    'S:\scummvm-private-feature-usable-desktop-window-layout\vcpkg_installed'
+    'S:\vcpkg_installed'
 }
 
 $pathValue = @(
@@ -92,7 +93,7 @@ if (-not $projectNeedsRefresh) {
     }
 }
 
-if ($projectNeedsRefresh -or $UnitTests) {
+if ($projectNeedsRefresh -or $UnitTests -or $GenerateOnly) {
     if (-not (Test-Path 'build-create-project')) {
         New-Item -ItemType Directory -Path 'build-create-project' | Out-Null
     }
@@ -141,6 +142,8 @@ foreach ($propsFile in $propsFiles) {
 	if (Test-Path $propsFile) {
 		$propsContent = Get-Content -LiteralPath $propsFile -Raw
 		$originalPropsContent = $propsContent
+		# Migrate generated projects after retiring the original dependency checkout.
+		$propsContent = $propsContent.Replace('S:\scummvm-private-feature-usable-desktop-window-layout\vcpkg_installed', $substVcpkgInstalled)
 		$vcpkgIncludePath = "$substVcpkgInstalled\x64-windows\include"
 		$vcpkgLibraryPath = "$substVcpkgInstalled\x64-windows\lib"
 		$vcpkgLibraries = 'SDL2.lib;SDL2_net.lib;zlib.lib;mad.lib;fribidi.lib;ogg.lib;vorbis.lib;vorbisfile.lib;FLAC.lib;libpng16.lib;mpeg2.lib;theoradec.lib;theora.lib;freetype.lib;jpeg.lib;libfluidsynth-3.lib;libcurl.lib;brotlidec.lib;brotlicommon.lib;bz2.lib;iconv.lib;intl.lib;charset.lib;glib-2.0.lib;gobject-2.0.lib;gmodule-2.0.lib;gthread-2.0.lib;pcre2-8.lib;ffi.lib;OpenAL32.lib;gif.lib;%(AdditionalDependencies)'
@@ -166,7 +169,13 @@ foreach ($propsFile in $propsFiles) {
 	}
 }
 
-& 'C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\MSBuild\Current\Bin\amd64\MSBuild.exe' "$buildDirectory\$solutionName.sln" /m:1 /p:Configuration=Release /p:Platform=x64 /p:VcpkgEnabled=false /p:VcpkgEnableManifest=false /p:VcpkgManifestInstall=false /p:VcpkgRoot=S:\vcpkg\ /p:VcpkgTriplet=x64-windows /p:VcpkgInstalledDir="$substVcpkgInstalled" /p:PreferredToolArchitecture=x64 /v:normal "/flp:logfile=$repoRoot\$buildLogName;verbosity=detailed"
+if ($GenerateOnly) { exit 0 }
+
+$nativeBuildArgs = @()
+if ($NoxNativeOnly) {
+    $nativeBuildArgs = @('/p:NoxNativeOnly=true', "/p:ForceImportBeforeCppTargets=$repoRoot\devtools\nox\native-only.targets")
+}
+& 'C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\MSBuild\Current\Bin\amd64\MSBuild.exe' "$buildDirectory\$solutionName.sln" @nativeBuildArgs /m:1 /p:Configuration=Release /p:Platform=x64 /p:VcpkgEnabled=false /p:VcpkgEnableManifest=false /p:VcpkgManifestInstall=false /p:VcpkgRoot=S:\vcpkg\ /p:VcpkgTriplet=x64-windows /p:VcpkgInstalledDir="$substVcpkgInstalled" /p:PreferredToolArchitecture=x64 /v:normal "/flp:logfile=$repoRoot\$buildLogName;verbosity=detailed"
 $buildExitCode = $LASTEXITCODE
 
 if ($buildExitCode -eq 0) {

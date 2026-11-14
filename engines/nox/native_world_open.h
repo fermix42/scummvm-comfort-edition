@@ -42,6 +42,12 @@ public:
         if (_type==3 && (object[2]==91 || object[2]==92)) { raised.message=23;raised.sound=true;event=raised;return kWorldOpenRefused; }
         const byte state=object[3];
         if (state==16) { object[3]=41;raised.message=2;event=raised;return kWorldOpenChanged; }
+        if (state==18 || state==19) {
+            const GateResult result=world.open(x,y);
+            if (result==kGateAllowed) {raised.message=2;event=raised;return kWorldOpenChanged;}
+            if (result==kGateLocked) {raised.message=41;event=raised;return kWorldOpenRefused;}
+            return kWorldOpenUnsupported;
+        }
         if (state>=17 && state<32) { event=raised;return kWorldOpenLock; }
         if (state==48 || state==49) {
             if (slot<4) return kWorldOpenUnsupported;

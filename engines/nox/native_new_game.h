@@ -2,6 +2,7 @@
 #ifndef NOX_NATIVE_NEW_GAME_H
 #define NOX_NATIVE_NEW_GAME_H
 #include "nox/native_equipment_actions.h"
+#include "nox/enhancements.h"
 #include "nox/native_book.h"
 #include "nox/native_world.h"
 #include "nox/native_clock.h"
@@ -11,11 +12,19 @@
 namespace Nox { namespace Native {
 // Authored starting data and core data persistence. Menu, world/interaction
 // continuations, initial actor turn and first scene are separate owners.
+struct CommerceCounterContext {
+    byte kind,quantity;bool kindKnown,quantityKnown;
+    // New native games and pre-context native saves have no retained selector.
+    // Use an explicit non-tracked identity, not arbitrary startup memory bytes.
+    CommerceCounterContext() : kind(255),quantity(0),kindKnown(true),quantityKnown(true) {}
+    bool used() const {return kindKnown || quantityKnown;}
+};
 class NewGame {
     friend class PlayerSessionState;
     friend class TempleService;
     friend class InnService;
     friend class InnMembership;
+    friend class Recruitment;
 public:
     explicit NewGame(HdvArchive &archive) : world(archive), gold(0),food(0),appearance(0), _archive(archive), _ready(false) {}
     bool ready() const { return _ready; }
@@ -48,23 +57,27 @@ public:
     World world; Party party; Inventory inventory; SpellBook book; TurnClock clock; NpcScheduleState schedule;
     InnStorage inn;
     WorldNavigation navigation;
+    CommerceCounterContext commerceCounter;
+    Enhancements discovery;
     uint16 gold,food;byte appearance;
     bool save(Common::WriteStream &out) const {
         if (!_ready) return false;
-        out.writeUint32BE(MKTAG('N','G','S','T'));out.writeUint16LE(navigation.used()?4:3);
+        out.writeUint32BE(MKTAG('N','G','S','T'));out.writeUint16LE(commerceCounter.used()?5:navigation.used()?4:3);
         Common::MemoryWriteStreamDynamic w(DisposeAfterUse::YES),p(DisposeAfterUse::YES),b(DisposeAfterUse::YES),s(DisposeAfterUse::YES),i(DisposeAfterUse::YES);
         byte items[1536];if (!world.save(w) || !party.save(p) || !book.save(b) || !schedule.save(s) || !inn.save(i) || !inventory.exportRecords(items,1536)) return false;
         Common::MemoryWriteStreamDynamic *const parts[]={&w,&p,&b,&s,&i};
         for (uint part=0;part<5;++part) { out.writeUint32LE(parts[part]->size());out.write(parts[part]->getData(),parts[part]->size()); }
         out.write(items,1536);
+        if (commerceCounter.used() && !navigation.used()) out.writeUint32LE(0);
         if (navigation.used()) {Common::MemoryWriteStreamDynamic part(DisposeAfterUse::YES);if (!navigation.save(part)) return false;out.writeUint32LE(part.size());out.write(part.getData(),part.size());}
+        if (commerceCounter.used()) {out.writeByte(commerceCounter.kindKnown);out.writeByte(commerceCounter.quantityKnown);out.writeByte(commerceCounter.kind);out.writeByte(commerceCounter.quantity);}
         out.writeByte(clock.phase);out.writeByte(clock.hour);out.writeByte(clock.minute);
         out.writeByte(clock.lightTicks);out.writeByte(clock.lightActive);out.writeByte(clock.hourlyCounter);
         out.writeUint16LE(gold);out.writeUint16LE(food);out.writeByte(appearance);return !out.err();
     }
     bool load(Common::SeekableReadStream &in) {
         if (in.readUint32BE()!=MKTAG('N','G','S','T')) return false;
-        const uint16 version=in.readUint16LE();if (version<2 || version>4) return false;
+        const uint16 version=in.readUint16LE();if (version<2 || version>5) return false;
         NewGame next(_archive);
         for (uint i=0;i<(version>=3?5U:4U);++i) {
             const uint32 length=in.readUint32LE();if (!length || length>1048576 || length>uint32(in.size()-in.pos())) return false;
@@ -76,16 +89,23 @@ public:
         // Their absent owner initializes from the immutable original template.
         if (version==2 && !next.inn.initialize(_archive)) return false;
         byte items[1536];if (in.read(items,1536)!=1536 || !next.inventory.importRecords(items,1536)) return false;
-        if (version==4) {
-            const uint32 size=in.readUint32LE();if (size!=49 || int64(size)>in.size()-in.pos()) return false;
+        if (version>=4) {
+            const uint32 size=in.readUint32LE();if (version==5 && !size) {if (!next.navigation.initialize(_archive)) return false;}
+            else {if (size!=49 || int64(size)>in.size()-in.pos()) return false;
             byte bytes[49];if (in.read(bytes,49)!=49) return false;Common::MemoryReadStream part(bytes,49);
-            if (!next.navigation.load(part) || !next.navigation.used()) return false;
+            if (!next.navigation.load(part) || !next.navigation.used()) return false;}
         } else if (!next.navigation.initialize(_archive)) return false;
+        if (version==5) {const byte kindKnown=in.readByte(),quantityKnown=in.readByte();if (kindKnown>1 || quantityKnown>1) return false;next.commerceCounter.kindKnown=kindKnown!=0;next.commerceCounter.quantityKnown=quantityKnown!=0;next.commerceCounter.kind=in.readByte();next.commerceCounter.quantity=in.readByte();if (!next.commerceCounter.used()) return false;
+            // Early native context snapshots could record a selector without
+            // its prior quantity. Migrate absence to the explicit empty value.
+            if (!next.commerceCounter.kindKnown) {next.commerceCounter.kind=255;next.commerceCounter.kindKnown=true;}
+            if (!next.commerceCounter.quantityKnown) {next.commerceCounter.quantity=0;next.commerceCounter.quantityKnown=true;}
+        }
         next.clock.phase=in.readByte();next.clock.hour=in.readByte();next.clock.minute=in.readByte();
         next.clock.lightTicks=in.readByte();next.clock.lightActive=in.readByte();next.clock.hourlyCounter=in.readByte();ClockAdvance check;
         next.gold=in.readUint16LE();next.food=in.readUint16LE();next.appearance=in.readByte();
         if (!advanceTurnClock(next.clock,check) || in.err() || in.pos()!=in.size() || next.clock.hourlyCounter!=next.world.questFields()[20]) return false;
-        world.adoptState(next.world);party=next.party;inventory=next.inventory;book=next.book;clock=next.clock;schedule=next.schedule;inn=next.inn;navigation=next.navigation;gold=next.gold;food=next.food;appearance=next.appearance;_ready=true;return true;
+        world.adoptState(next.world);party=next.party;inventory=next.inventory;book=next.book;clock=next.clock;schedule=next.schedule;inn=next.inn;navigation=next.navigation;commerceCounter=next.commerceCounter;gold=next.gold;food=next.food;appearance=next.appearance;discovery.reset();_ready=true;return true;
     }
 private:
     friend class ExplorationSave;
@@ -94,7 +114,7 @@ private:
     void adoptState(const NewGame &source) {
         world.adoptState(source.world);party=source.party;inventory=source.inventory;book=source.book;
         clock=source.clock;schedule=source.schedule;_ready=source._ready;
-        inn=source.inn;navigation=source.navigation;
+        inn=source.inn;navigation=source.navigation;commerceCounter=source.commerceCounter;discovery=source.discovery;
         gold=source.gold;food=source.food;appearance=source.appearance;
     }
     HdvArchive &_archive;

@@ -36,7 +36,7 @@ public:
             for (uint sample = 0; sample < (line < 6 ? 17U : 11U); ++sample) {
                 const int column = firstColumn + (line < 6 ? int(sample) : 0);
                 const int row = firstRow + (line < 6 ? 0 : int(sample)); byte tile = 0;
-                if (window ? !window->terrainAt(byte(int(world.x()) + column - 8),byte(int(world.y()) + row - 5),tile) :
+                if (window ? !window->lightingSample(world,column,row,tile) :
                     !world.terrainAt(byte(int(world.x()) + column - 8),byte(int(world.y()) + row - 5),tile)) return false;
                 if (source(tile, true) && !next.revealSource(column, row)) return false;
             }

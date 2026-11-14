@@ -17,7 +17,8 @@ public:
     bool start(Common::String &error) {
         if (!active()) return true;
         Common::CEAchievementService &ce=Common::CEAchievements();
-        if (_engine._targetName!="nox-native-player-test" || !ce.getLinkToken().empty() || _engine._runtime || _engine._nativePlayer!=&_player || _phase<1 || _phase>8) return reject(error,"Native lifecycle probe requires its isolated offline target");
+        if (_engine._targetName!="nox-native-player-test" || !ce.getLinkToken().empty() || _engine._runtime || _engine._nativePlayer!=&_player || _phase<1 || _phase>10) return reject(error,"Native lifecycle probe requires its isolated offline target");
+        if (_phase>=9) return startTempleSave(error);
         if (_phase>=5) return startEnding(error);
         if (_phase==2 || _phase==4) {
             // Generic startup save_slot already invoked the actual Engine load.
@@ -126,6 +127,40 @@ public:
         if (saved || !capture(after) || !equal(after,_beforeQ)) return reject(error,"Actual Q chooser cancellation changed native gameplay");_qStable=true;return true;
     }
 private:
+    bool startTempleSave(Common::String &error) {
+        if (!_player.encounterState.presented || _player.encounterState.resultPhase!=5 || !_player.canSave())
+            return reject(error,"Temple save requires the actual pending revelation");
+        const bool cold=_phase==10;
+        if (cold) {
+            if (!sameExpected("nox-native-temple-pending-player.bin")) return reject(error,"Cold Temple player save changed pending state/audio");
+        } else {
+            Common::CEAchievementService &ce=Common::CEAchievements();
+            if (!ce.startPlaythroughForTarget(_engine._targetName,"nox-archaist","apple2-v119","Temple save test")) return reject(error,"Temple test session unavailable");
+            _engine._runtimeSession=ce.getCurrentPlaythroughForTarget(_engine._targetName);
+            ce.noteDisqualifyingAssistance("nox_native_controlled_checkpoint");
+            if (!capture(_expectedA) || !writeExpected("nox-native-temple-pending-player.bin",_expectedA)) return reject(error,"Temple pending capture failed");
+            if (_engine.saveMode()==kClassicSaveMode) _menu.chooser(true,0);
+            else _menu.grid(true,0,"Temple pending revelation","nox-native-temple-save-grid");
+            if (!_engine.saveGameDialog() || !_menu.chooserCaptured || !sameExpected("nox-native-temple-pending-player.bin"))
+                return reject(error,"Real Temple pending save chooser failed or changed gameplay");
+        }
+        int handle=-1;
+        if (_engine.saveMode()==kClassicSaveMode) {
+            // Classic has authored slot labels, not the Modern typed name.
+            _engine.getMetaEngine()->listSaves(_engine._targetName.c_str());
+            const Common::Array<Saves::Entry> entries=Saves::entries(*_engine.getSaveFileManager(),_engine._targetName);
+            for (uint i=0;i<entries.size();++i) if (entries[i].metadata.session==_engine._runtimeSession && entries[i].metadata.slot==1) handle=int(i);
+        } else handle=findHandle("Temple pending revelation");
+        if (handle<0) return reject(error,"Temple pending player save missing");
+        Common::OutSaveFile *out=_engine.getSaveFileManager()->openForSaving(cold?"nox-native-temple-player-cold.tsv":"nox-native-temple-player-warm.tsv",false);
+        if (!out) return reject(error,"Temple save report unavailable");
+        out->writeString(Common::String::format("PASS\tmode=%u\tpending_revelation_exact=1\tEngine_save_load=1\tactual_save_chooser=%u\tcold_load_handle=%d\n",uint(_engine.saveMode()),uint(!cold),handle));
+        out->finalize();const bool ok=!out->err();delete out;
+        if (!ok) return reject(error,"Temple save report write failed");
+        if (cold) _phase=0; // Continue real acknowledgement/results/travel input.
+        else _stage=4;
+        return true;
+    }
     bool endingReady() const {return _player.encounterState.presented && _player.encounterState.resultPhase==4 && _player.canSave() && !_engine._runtime;}
     bool startEnding(Common::String &error) {
         Common::CEAchievementService &ce=Common::CEAchievements();

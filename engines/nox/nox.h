@@ -19,6 +19,7 @@ public:
     virtual bool canSave() const = 0;
     virtual bool save(Common::WriteStream &out) const = 0;
     virtual bool stageLoad(Common::SeekableReadStream &in) = 0;
+    virtual bool stagedLegacy() const {return false;}
     virtual void commitLoad() = 0;
     virtual void discardLoad() = 0;
     virtual void resetPresentationClock() = 0;
@@ -33,6 +34,10 @@ public:
 	explicit NoxEngine(OSystem *system) : Engine(system) {}
 	~NoxEngine() override;
 	Common::Error run() override;
+#ifdef NOX_NATIVE_ONLY
+    Common::JSONValue *testCLIState() override;
+    Common::JSONValue *testCLICommand(Common::JSONValue &request) override;
+#endif
 	bool hasFeature(EngineFeature feature) const override { return feature == kSupportsReturnToLauncher || feature == kSupportsSavingDuringRuntime || feature == kSupportsLoadingDuringRuntime; }
 	bool canSaveGameStateCurrently(Common::U32String *msg = nullptr) override;
 	bool canLoadGameStateCurrently(Common::U32String *msg = nullptr) override;
@@ -44,6 +49,7 @@ public:
 	SaveMode saveMode() const { return _saveMode; }
 private:
 	SaveMode _saveMode=kModernSaveMode;
+    bool _nativeStartupMenu=false;
 	Common::String _runtimeSession;
 	HdvArchive _resources;
 	Runtime *_runtime = nullptr;
@@ -54,6 +60,13 @@ private:
     Audio::QueuingAudioStream *_nativeMusicAudio = nullptr;
     Audio::SoundHandle _nativeMusicSound;
     bool queueNativeMusic(const int16 *samples,uint count);
+#ifdef NOX_NATIVE_ONLY
+    bool playNativeRefusal();
+    bool playNativeCast();
+    bool playNativeSpeaker(byte cue);
+    Audio::QueuingAudioStream *_nativeEffectAudio = nullptr;
+    byte _nativeSoundMode=0;uint _nativeEffectsPlayed=0,_nativeEffectSamples=0,_nativeEffectToggles=0;
+#endif
     void pauseEngineIntern(bool pause) override;
 	bool validateResources(Common::String &error);
 	Common::Error runNativeStartup();

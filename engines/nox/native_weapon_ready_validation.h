@@ -4,11 +4,13 @@
 #include "nox/native_weapon_ready.h"
 namespace Nox {
 inline bool validateNativeWeaponReady(HdvArchive &archive, Common::SeekableReadStream &input, Common::String &report, Common::String &error) {
-    if (input.readUint32BE() != MKTAG('N','W','R','D') || input.readUint32LE() != 1 || input.readUint32LE() != 1111) return false;
+    const uint32 magic=input.readUint32BE();const byte kind=magic==MKTAG('N','S','H','D')?1:0;
+    if ((!kind && magic!=MKTAG('N','W','R','D')) || input.readUint32LE()!=1) return false;
+    const uint count=input.readUint32LE();if(count!=(kind?255U:1111U)) return false;
     Native::ItemCatalog catalog; Native::EquipmentOwnership ownership;
     if (!catalog.load(archive) || !ownership.load(archive)) return false;
     uint committed = 0;
-    for (uint i = 0; i < 1111; ++i) {
+    for (uint i = 0; i < count; ++i) {
         const byte id = input.readByte(), profile = input.readByte();
         byte party[768], equipment[96], records[1536], expected[2400], actual[1536];
         if (input.read(party,768) != 768 || input.read(equipment,96) != 96 || input.read(records,1536) != 1536) return false;
@@ -16,7 +18,7 @@ inline bool validateNativeWeaponReady(HdvArchive &archive, Common::SeekableReadS
         Native::Inventory inventory; CharacterRecord character; EquipmentRecord equipped;
         memcpy(character.bytes,party,128); memcpy(equipped.bytes,equipment,16);
         if (!inventory.importRecords(records,1536)) return false;
-        const Native::WeaponReadyResult outcome = Native::selectWorldWeapon(catalog,ownership,0,id,profile == 4,inventory,character,equipped);
+        const Native::WeaponReadyResult outcome = Native::selectWorldWeapon(catalog,ownership,0,id,profile == 4 || (kind && profile==16),inventory,character,equipped,kind);
         memcpy(party,character.bytes,128); memcpy(equipment,equipped.bytes,16);
         if (uint(outcome) != result || memcmp(party,expected,768) || memcmp(equipment,expected + 768,96) ||
             !inventory.exportRecords(actual,1536) || memcmp(actual,expected + 864,1536)) {
@@ -25,7 +27,7 @@ inline bool validateNativeWeaponReady(HdvArchive &archive, Common::SeekableReadS
         committed += outcome == Native::kWeaponReadied || outcome == Native::kWeaponUnreadied;
     }
     if (input.err() || input.pos() != input.size()) return false;
-    report += Common::String::format("native-weapon-ready\tcases=1111\tcommitted=%u\tfull_party_equipment_inventory=1\tdeferred_recalculation=1\tordinary_UI=0\tcpu_execution=0\n",committed); return true;
+    report += Common::String::format("native-weapon-ready\tcases=%u\tcommitted=%u\tfull_party_equipment_inventory=1\tdeferred_recalculation=1\tordinary_UI=0\tcpu_execution=0\n",count,committed); return true;
 }
 }
 #endif

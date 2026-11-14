@@ -10,10 +10,13 @@ public:
         if (!archive.read("NA/GAME",data) || data.size()!=13824 ||
             READ_LE_UINT16(data.data()+0x1c63+21*2)!=0xf806 || READ_LE_UINT16(data.data()+0x1c63+22*2)!=0xf810 ||
             !archive.readRange("NA/BS.ROUTINES.BK2",0x2806,20,hazards) || hazards.size()!=20 || hazards[9] || hazards[19]) return false;
-        _game=data;_hazardMessages=hazards;return true;
+        Common::Array<byte> keyed;
+        if (!archive.readRange("NA/SRTN.INVENTORY",0x9611,25,keyed) || keyed.size()!=25 || keyed[24]) return false;
+        _game=data;_hazardMessages=hazards;_keyedMessage=keyed;return true;
     }
     bool text(byte id, Common::Array<byte> &out) const {
-        if (_game.size() != 13824 || id >= 41) return false;
+        if (_game.size() != 13824 || id >= 42) return false;
+        if (id==41) {if (_keyedMessage.size()!=25) return false;out.resize(24);memcpy(out.data(),_keyedMessage.data(),24);return true;}
         // World damage IDs21/22 are immutable resident-resource strings:
         // Drowning!/Attacked!, Main F806/F810. This typed catalog binding
         // does not expose banked memory or execute a message pointer.
@@ -32,7 +35,7 @@ public:
         if (next.size()) memcpy(next.data(),_game.data() + start,next.size()); out = next; return true;
     }
 private:
-    Common::Array<byte> _game,_hazardMessages;
+    Common::Array<byte> _game,_hazardMessages,_keyedMessage;
 };
 inline bool showFixedMessageStrip(const FixedMessageCatalog &catalog, byte id, TextGlyphSurface &surface) {
     Common::Array<byte> text; if (!catalog.text(id,text)) return false;

@@ -70,7 +70,7 @@ public:
                 if (bank && (slot & 4)) continue;
                 WorldActor actor;
                 const ActorAdmission admitted = candidate.admitActor(bank, slot, true, actor);
-                if (admitted == kActorInvalid) return false;
+                if (admitted == kActorInvalid) {warning("Native scene admission failed: bank%u slot%u",bank,slot);return false;}
                 if (admitted != kActorPresent) continue;
                 const byte column = byte(byte(actor.x - candidate.x()) ^ 128), row = byte(byte(actor.y - candidate.y()) ^ 128);
                 if (column < 120 || column >= 137 || row < 123 || row >= 134) continue;

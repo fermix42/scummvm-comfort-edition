@@ -2,6 +2,7 @@
 #ifndef NOX_NATIVE_WORLD_ACTOR_TURN_H
 #define NOX_NATIVE_WORLD_ACTOR_TURN_H
 #include "nox/native_compact_world_action.h"
+#include "common/textconsole.h"
 #include "nox/native_npc_world_action.h"
 #include "nox/native_world_actor_phase.h"
 namespace Nox { namespace Native {
@@ -87,14 +88,14 @@ public:
                 } else if (!bank) {
                     next.compact.hidden=scene.actors.hiddenByTurn;next.compact.appearanceChanged=false;
                     const CompactWorldActionResult result=_compact.advance(candidate,slot,scene,next.compact,after,next.effects,direction,window,phase.outside,oldCell,sampledTerrain,visibility,next.presentation.partyObject);
-                    if (result==kCompactWorldUnsupported || result==kCompactWorldAbsent) return false;
+                    if (result==kCompactWorldUnsupported || result==kCompactWorldAbsent) {warning("Native compact action unsupported slot%u tile%u phase%u",slot,uint(actor.tile),uint(phase.route));return false;}
                     if (result==kCompactWorldBattle) { raised.battle=true;raised.bank=bank;raised.slot=byte(slot);raised.direction=next.compact.contactDirection;raised.cell=next.compact.contactCell;continue; }
                     scene.actors.hiddenByTurn=next.compact.hidden;
                 } else {
                     next.npc.spatial=next.compact.spatial;next.npc.freezeTimer=next.compact.freezeTimer;next.npc.enabled=next.compact.enabled;
                     next.npc.action.navigation.motion.hidden=scene.actors.hiddenByTurn;next.npc.action.pattern=next.compact.pattern;
                     bool message=false;NpcBattleContact contact;const NpcWorldActionResult result=_npc.advanceWithEffects(candidate,nextSchedule,nextStore,slot,scene,scroll,next.presentation.partyObject,next.npc,after,catalog,text,next.effects,direction,message,&contact,window,phase.outside,oldCell,sampledTerrain,visibility);
-                    if (result==kNpcWorldUnsupported || result==kNpcWorldAbsent) return false;
+                    if (result==kNpcWorldUnsupported || result==kNpcWorldAbsent) {warning("Native NPC turn unsupported slot%u tile%u capability%u phase%u",slot,uint(actor.tile),uint(actor.capability),uint(phase.route));return false;}
                     next.compact.spatial=next.npc.spatial;next.compact.freezeTimer=next.npc.freezeTimer;next.compact.pattern=next.npc.action.pattern;
                     if (result==kNpcWorldBattle) {
                         if (contact.direction>3 || contact.cell>=187) return false;

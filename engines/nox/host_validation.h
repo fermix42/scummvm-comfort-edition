@@ -5,7 +5,9 @@
 #include "common/config-manager.h"
 #include "common/system.h"
 #include "engines/engine.h"
+#ifndef NOX_NATIVE_ONLY
 #include "nox/runtime.h"
+#endif
 #include "gui/gui-manager.h"
 #include "gui/ThemeEval.h"
 #include "image/png.h"
@@ -50,6 +52,12 @@ public:
 		: _engine(engine), _runtime(runtime), _dispatcher(enabled ? events.getEventDispatcher() : nullptr) {
 		if (_dispatcher) _dispatcher->registerSource(this, false);
 	}
+#ifdef NOX_NATIVE_ONLY
+    // Native menu stability is checked by the lifecycle probe's owned state.
+    uint64 observedClocks() const { return 0; }
+#else
+    uint64 observedClocks() const { return _runtime ? _runtime->cpuClocks() : 0; }
+#endif
 	~MenuValidationSource() { if (_dispatcher) _dispatcher->unregisterSource(this); }
 	void arm() { _armed = true; }
 	void armQuit() { _armed = true; _quit = true; _opened = 0; }
@@ -179,7 +187,7 @@ public:
 			event.kbd = Common::KeyState(Common::KEYCODE_ESCAPE, 27); return true;
 		}
 		if (!_armed || !_engine.isPaused()) return false;
-		if (!_opened) { _opened = g_system->getMillis(); _cycles = _runtime?_runtime->cpuClocks():0; }
+		if (!_opened) { _opened = g_system->getMillis(); _cycles = observedClocks(); }
 		if (g_system->getMillis() - _opened < 100) return false;
 		if (_quit) {
 			// CEPlaythroughExitDialog uses fixed overlay geometry: origin
@@ -188,7 +196,7 @@ public:
 			_click=Common::Point(410,130);
 			_armed=false;_mouseUp=true;event.type=Common::EVENT_LBUTTONDOWN;event.mouse=_click;return true;
 		}
-		stable = _cycles == (_runtime?_runtime->cpuClocks():0);
+		stable = _cycles == observedClocks();
 		closed = true; _armed = false; _keyup = true;
 		event.type = Common::EVENT_KEYDOWN;
 		event.kbd = Common::KeyState(Common::KEYCODE_ESCAPE, 27); return true;

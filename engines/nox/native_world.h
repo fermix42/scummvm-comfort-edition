@@ -33,6 +33,11 @@ public:
 	byte x() const { return _x; }
 	byte y() const { return _y; }
     bool onFoot() const { return _onFoot; }
+    Common::String mapResource() const {
+        if (!ready()) return Common::String();
+        static const char *names[]={"SURF","UM","RUIN","TOWN","TOWN2","CSTL","KEEP"};
+        return Common::String("NA/DATA.MAP.")+names[_states[_current].family];
+    }
 	byte coordinateSector() const { return byte((_y & 240) | (_x >> 4)); }
 	byte field(byte index) const { return _fields[index]; }
 	const byte *questFields() const { return _fields; }
@@ -135,19 +140,49 @@ public:
 		return result;
 	}
 
+    bool raiseSearchAlarm(const SearchRules &rules,bool &raised) {
+        if (!ready() || rules.mapType()!=_type) return false;
+        raised=false;byte *npcs=_states[_current].tables.data()+1280;
+        for (uint slot=0;slot<256;slot+=8) if (rules.guard(npcs[slot+2])) {npcs[slot+6]=255;raised=true;}
+        return true;
+    }
     // One semantic Search attempt on a caller-resolved visible object. Keep
     // retries explicit so input/scheduling can run the required turn boundary.
+    SearchResult pickDoor(byte targetX,byte targetY,byte slot,byte selectedMember,const SearchRules &rules,SearchState &search,GameplayRandom &random,Party &party,bool &promoted) {
+        if (!ready() || rules.mapType()!=_type || slot>248 || (slot&3) || distance(_x,targetX)+distance(_y,targetY)!=1) return kSearchUnsupported;
+        byte *object=_states[_current].tables.data()+1024+slot;
+        if (object[0]!=targetX || object[1]!=targetY || object[3]!=17 || object[7]>10) return kSearchUnsupported;
+        if (!_fields[33]) {promoted=false;return kSearchNoTools;}
+        const CharacterRecord *member=party.member(selectedMember?selectedMember-1:6);
+        if (!member || selectedMember>party.memberCount()) return kSearchUnsupported;
+        LockContext context;context.difficulty=object[7];context.lockSkill=member->bytes[37];context.trapSkill=member->bytes[31];
+        context.map=mapId();context.selectedMember=selectedMember;context.partyCount=party.memberCount();context.forceOpen=false;context.cancelled=false;
+        Party candidate=party;GameplayRandom rng=random;LockState state={_fields[33],search.priorLockAttempts};Common::Array<LockEffect> effects;bool advanced=false;
+        const LockResult access=rules.locks().attempt(context,state,rng,effects);
+        if (access==kLockUnsupported || !applyLockPartyEffects(effects,candidate,advanced)) return kSearchUnsupported;
+        _fields[33]=state.picks;search.priorLockAttempts=state.priorAttempts;party=candidate;random=rng;promoted=advanced;
+        if (access!=kLockOpened) return kSearchRetry;
+        --object[2];object[3]=41;return kSearchAwarded;
+    }
+
     SearchResult searchQuestItem(byte targetX, byte targetY, int slot, byte selectedMember, bool cancelled,
             const SearchRules &rules, const ItemCatalog &catalog, SearchState &search,
-            GameplayRandom &random, Party &party, Inventory &inventory, bool &promoted) {
+            GameplayRandom &random, Party &party, Inventory &inventory, bool &promoted,uint16 *food=nullptr,uint16 *gold=nullptr,bool guardedAuthorized=false,SearchTreasure *treasure=nullptr) {
         if (!ready() || rules.mapType() != _type || slot < 0 || slot > 244 || (slot & 3) ||
                 distance(_x, targetX) + distance(_y, targetY) > 1) return kSearchUnsupported;
         byte *object = _states[_current].tables.data() + 1024 + slot;
         if (object[0] != targetX || object[1] != targetY || !object[2] || object[2] == 255) return kSearchUnsupported;
-        if (object[3] & 64) return kSearchUnsupported; // Disarm/confirmation owner still required.
+        if ((object[3]&64) && !guardedAuthorized) return kSearchUnsupported;
         if ((object[3] & 191) != 53) { promoted = false; return kSearchNothing; }
-        if ((object[7] & 192) != 64 || object[4] > 2) return kSearchUnsupported;
-        ItemDefinition definition; if (!catalog.definition(object[4], object[5], definition)) return kSearchUnsupported;
+        const bool currency=(object[7]&128)!=0,generated=(object[7]&192)==0;
+        if (currency) {if (!food || !gold) return kSearchUnsupported;}
+        else if (generated) {
+            if (!treasure || !object[4] || object[4]>16 || !(object[7]&63) || (object[7]&63)>10 ||
+                (object[5]&15)>9 || (object[5]>>4)>9) return kSearchUnsupported;
+        } else {
+            if ((object[7]&192)!=64 || object[4]>2) return kSearchUnsupported;
+            ItemDefinition definition;if (!catalog.definition(object[4],object[5],definition)) return kSearchUnsupported;
+        }
         byte nextObject[12], fields[256]; memcpy(nextObject, object, 12); memcpy(fields, _fields, 256);
         Party nextParty = party; Inventory nextInventory = inventory; GameplayRandom nextRandom = random; SearchState nextSearch = search;
         bool advanced = false;
@@ -168,6 +203,19 @@ public:
                 memcpy(_fields, fields, 256); party = nextParty; random = nextRandom; search = nextSearch; promoted = advanced; return kSearchRetry;
             }
             ++nextObject[2];
+        }
+        if (generated) {
+            treasure->count=nextObject[4];treasure->descriptor=nextObject[5];treasure->level=nextObject[7]&63;
+            nextObject[3]=0;memcpy(object,nextObject,12);memcpy(_fields,fields,256);
+            party=nextParty;random=nextRandom;search=nextSearch;promoted=advanced;return kSearchTreasure;
+        }
+        if (currency) {
+            uint16 amount;
+            if (!rules.currency(nextObject[5],nextObject[7]&63,nextParty.memberCount(),*food,*gold,nextRandom,amount)) return kSearchUnsupported;
+            nextObject[3]=0;
+            memcpy(object,nextObject,12);memcpy(_fields,fields,256);party=nextParty;random=nextRandom;search=nextSearch;promoted=advanced;
+            if (nextObject[7]&64) *food=uint16(*food+amount);else *gold=uint16(*gold+amount);
+            return kSearchAwarded;
         }
         const SearchRewardResult reward = searchQuestReward(nextObject, 12, fields, 256, catalog, nextInventory);
         if (reward == kSearchRewardUnsupported) return kSearchUnsupported;
@@ -239,6 +287,7 @@ public:
 
 private:
 	friend class ActorSpatialRules;
+    friend class Recruitment;
 	friend class NpcWorldAction;
 	friend class CompactWorldAction;
 	friend class WorldActorTurn;
@@ -268,7 +317,12 @@ private:
 		if (visibleObjectSlot != -1) {
 			if (visibleObjectSlot < 0 || visibleObjectSlot > 252 || (visibleObjectSlot & 3)) return kPositionUnsupported;
 			const byte *object = _states[_current].tables.data() + 1024 + visibleObjectSlot;
-			if (object[0] != nextX || object[1] != nextY || !object[2] || object[2] == 255) return kPositionUnsupported;
+			if (!object[2] || object[2] == 255) return kPositionUnsupported;
+            // The frigate's one record is projected into four lookup cells.
+            // All four admit walking onto the ship before the free B command.
+            const bool origin=object[0]==nextX && object[1]==nextY;
+            const bool frigate=object[2]==119 && byte(nextX-object[0])<2 && byte(nextY-object[1])<2;
+            if (!origin && !frigate) return kPositionUnsupported;
 			probe.objectPresent = true; probe.objectTile = object[2]; probe.objectState = object[3];
 		}
 		TraversalDecision result;

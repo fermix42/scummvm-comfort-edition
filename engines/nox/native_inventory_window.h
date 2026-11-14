@@ -5,13 +5,15 @@
 #include "nox/native_graphics.h"
 #include "nox/native_inventory_actions.h"
 #include "nox/native_text_window.h"
+#include "nox/native_sound_events.h"
 namespace Nox { namespace Native {
 enum InventoryWindowResult { kInventoryWindowHandled,kInventoryWindowClosed,kInventoryWindowUnsupported };
 // Free world inventory selection. Transactions remain in the existing typed
 // equipment/book owners; no field or derived-stat edits are performed by UI.
 class InventoryWindow {
 public:
-    InventoryWindow() : _phase(0),_member(0),_type(0),_map(0),_selected(0) {}
+    InventoryWindow() : _phase(0),_member(0),_type(0),_map(0),_selected(0),_sounds(nullptr) {}
+    void setSoundEvents(SoundEvents *sounds) {_sounds=sounds;}
     bool active() const {return _phase!=0;}
     byte phase() const {return _phase;}
     bool matches(const World &world) const {return !active() || (world.ready() && _type==world.mapType() && _map==world.mapId());}
@@ -69,6 +71,7 @@ public:
                         const NavigationResult result=game.navigation.bind(definition.bytes[6],NavigationPoint(game.world.mapType(),game.world.mapId(),game.world.x(),game.world.y()));
                         if (result==kNavigationUnsupported) return kInventoryWindowUnsupported;
                         _message=result==kNavigationSelected?"Enchantment cast!":"Not here!";
+                        if (_sounds && result!=kNavigationSelected) _sounds->push_back(kSpeakerRefusal);
                         return paint(archive,game,frame)?kInventoryWindowHandled:kInventoryWindowUnsupported;
                     } else return kInventoryWindowUnsupported;
                     Common::Array<byte> encoded;for (uint i=0;i<text.size();++i) encoded.push_back(byte(text[i])|128);
@@ -80,9 +83,9 @@ public:
             else if ((ascii=='R' || key==Common::KEYCODE_SPACE || key==Common::KEYCODE_RETURN) && !slots.empty()) {
                 const InventoryItem item=*game.inventory.item(slots[_selected]);ItemCatalog catalog;ItemDefinition definition;EquipmentOwnership ownership;
                 if (!catalog.load(archive) || !catalog.definition(item.kind(),item.id(),definition) || !ownership.load(archive)) return kInventoryWindowUnsupported;
-                const bool unready=key==Common::KEYCODE_SPACE;NewGame next(game);byte result=255;
-                if (item.kind()==0) result=EquipmentActions::selectWeapon(catalog,ownership,_member,item.id(),unready,next.party,next.inventory);
-                else if (item.kind()==1) result=EquipmentActions::selectArmor(catalog,ownership,_member,item.id(),unready,next.party,next.inventory);
+                const bool unready=key==Common::KEYCODE_SPACE;NewGame next(game);byte result=255,lastRemovedId=255;
+                if (item.kind()==0) result=EquipmentActions::selectWeapon(catalog,ownership,_member,item.id(),unready,next.party,next.inventory,&lastRemovedId);
+                else if (item.kind()==1) result=EquipmentActions::selectArmor(catalog,ownership,_member,item.id(),unready,next.party,next.inventory,&lastRemovedId);
                 else if ((definition.bytes[12]&31)==8) {
                     bool ready=false;for (uint i=0;i<10;++i) ready|=game.book.spell(i)==definition.bytes[6];
                     if (ready) {if (!bookAction(archive,game,item,0)) return kInventoryWindowUnsupported;}
@@ -90,8 +93,9 @@ public:
                     else {_phase=2;_message.clear();}
                     return paint(archive,game,frame)?kInventoryWindowHandled:kInventoryWindowUnsupported;
                 }
-                if (result==0 || result==7) {game.party=next.party;game.inventory=next.inventory;_message=result==0?"Readied.":"Unreadied.";}
-                else _message=result==2?"No spare copies.":result==3?"Too much weight.":result==4?"More dexterity needed.":result==5?"More intelligence needed.":"Cannot ready that item here.";
+                if (_sounds && ((result>=3 && result<=6) || result==9 || result==12)) _sounds->push_back(kSpeakerRefusal);
+                if (result==0 || result==7) {if (lastRemovedId!=255) {game.commerceCounter.kind=lastRemovedId;game.commerceCounter.kindKnown=true;}game.party=next.party;game.inventory=next.inventory;_message=result==0?"Readied.":"Unreadied.";}
+                else _message=result==2?"No spare copies.":result==3?"Too much weight.":result==4?"More dexterity needed.":result==5?"More intelligence needed.":result==12?"No free hand.":"Cannot ready that item here.";
             }
         }
         return paint(archive,game,frame)?kInventoryWindowHandled:kInventoryWindowUnsupported;
@@ -122,7 +126,7 @@ private:
     bool bookAction(HdvArchive &archive,NewGame &game,const InventoryItem &item,byte slot) {
         ItemCatalog catalog;if (!catalog.load(archive)) return false;NewGame next(game);
         const BookResult result=next.book.select(catalog,next.inventory,next.party,item.id(),slot,false,false);
-        if (result==kBookReadied || result==kBookUnreadied) {game.book=next.book;_message=result==kBookReadied?"Book readied.":"Book unreadied.";}
+        if (result==kBookReadied || result==kBookUnreadied) {if (result==kBookUnreadied) {game.commerceCounter.kind=item.id();game.commerceCounter.kindKnown=true;}game.book=next.book;_message=result==kBookReadied?"Book readied.":"Book unreadied.";}
         else _message=result==kBookIntelligenceRefusal?"More intelligence needed.":"Cannot ready that book.";
         return true;
     }
@@ -147,7 +151,7 @@ private:
         if (!line(font,next,1,19,_message) || !line(font,next,1,21,_phase==2?"Ready book in slot 1-9,0":_phase==3?"Drop spare copies? Y/N":"R/Return: ready  Space: unready") || !line(font,next,1,23,"U:use  D:drop  Escape:return")) return false;
         frame=next;return true;
     }
-    byte _phase,_member,_type,_map;uint16 _selected;Common::String _message;HgrFrame _underlay;TextWindow _reading;
+    byte _phase,_member,_type,_map;uint16 _selected;Common::String _message;HgrFrame _underlay;TextWindow _reading;SoundEvents *_sounds;
 };
 } }
 #endif

@@ -51,7 +51,7 @@ public:
         if (admission==kActorAbsent) { direction=4; message=false; return kNpcWorldAbsent; }
         if (admission!=kActorPresent || world._onFoot!=(partyObject==255)) return kNpcWorldUnsupported;
         const byte x=byte(actor.x-world.x()+128),y=byte(actor.y-world.y()+128);
-        if (outside ? (!window || actor.large || (actor.capability && actor.capability<128)) :
+        if (outside ? (!window || actor.large) :
             (x<120 || x>=137 || y<123 || y>=134)) return kNpcWorldUnsupported;
         const byte cell=outside?retainedCell:byte((y-123)*17+x-120);
         NpcWorldActionState next=state; NpcScheduleState nextSchedule=schedule; NpcRouteStore nextStore=store;

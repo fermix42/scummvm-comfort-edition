@@ -26,7 +26,8 @@ struct BattleRoundState {
 // tactical rules. Large/spell/ship-specific turn policies remain outstanding.
 class BattleRound {
 public:
-    BattleRound() : _projectileMode(false) {}
+    BattleRound() : _projectileMode(false),_sounds(nullptr) {}
+    void setSoundEvents(SoundEvents *sounds) {_sounds=sounds;_area.setSoundEvents(sounds);_directed.setSoundEvents(sounds);_summon.setSoundEvents(sounds);}
     void setProjectileMode(bool value) {_projectileMode=value;}
     static byte firstEligibleParty(const BattleRecords &records,byte count) {
         if (!count || count>6) return 255;
@@ -59,7 +60,8 @@ public:
         // Movement clears the prior engagement before the source collision
         // refusal. A refused attempt is free but does not roll that field back.
         battle.stats[next.activeParty*128+12]=255;
-        if (blocked[direction]) { records=battle;return true; }
+        if (_sounds) _sounds->push_back(kSpeakerNotification);
+        if (blocked[direction]) { if (_sounds) _sounds->push_back(kSpeakerImpact);records=battle;return true; }
         const int x=int(battle.compact[index])+dx[direction],y=int(battle.compact[index+1])+dy[direction];
         battle.compact[index]=byte(x);battle.compact[index+1]=byte(y);
         if (!BattleRoster::rebuild(battle,next.partyCount,next.enemyCount,next.allyCount)) return false;
@@ -108,6 +110,7 @@ public:
         byte backups[6];memcpy(backups,armorBackup,6);
         if (!_restoration.resolve(spell,cost,next.activeParty,target,cancelled,next.partyCount,next.category,terrain,length,
                 objects,objectSize,engagement,backups,6,battle,result)) return false;
+        if (!result.cancelled && result.effect==kRestorationOccupied && _sounds) _sounds->push_back(kSpeakerRefusal);
         if (!result.cancelled) { ++next.actions;if (!finish(next,rng,battle,terrain)) return false; }
         state=next;random=rng;records=battle;memcpy(armorBackup,backups,6);outcome=result;return true;
     }
@@ -168,6 +171,7 @@ private:
         NpcCastPreparation prepared;byte mana=caster.stats[4];
         if (!_casting.prepareNpc(caster.kind==2?1:2,s.enemySpell,caster.stats[15]&15,caster.stats[5],s.mapId,s.specialSpell,mana,prepared)) return false;
         caster.stats[4]=mana;if (!records.store(caster)) return false;const byte spell=prepared.cast.spell;
+        if (_sounds) _sounds->push_back(kSpeakerSelection);
         if (BattleDirectedSpell::supports(spell)) {
             DirectedSpellSelection selection;selection.cell=target;DirectedSpellOutcome outcome;
             return _directed.resolve(prepared.cast,cell,selection,s.category,s.protectedTargets,rng,records,outcome);
@@ -205,7 +209,7 @@ private:
                     if (choice.direction<4) {
                         b.extended[index]=byte(int(caster.actor[0])+dx[choice.direction]);b.extended[index+1]=byte(int(caster.actor[1])+dy[choice.direction]);
                         if (!BattleRoster::rebuild(b,s.partyCount,s.enemyCount,s.allyCount)) return false;
-                    }
+                    } else if (_sounds) _sounds->push_back(kSpeakerImpact);
                 }
                 ++s.actions;s.phase=phase(s,b);if (s.phase==kBattleDefeat) return true;
             }
@@ -214,7 +218,7 @@ private:
         for (uint i=0;i<s.partyCount;++i) if (aliveParty(b,i) && (b.compact[i*4+3]&63)<2) { s.activeParty=byte(i);return true; }
         s.activeParty=byte(s.partyCount-1);s.phase=kBattleAutomaticTurn;return true; // No eligible party input;retain the actual next automatic cycle.
     }
-    bool _projectileMode;BattlePhysical _physical;
+    bool _projectileMode;SoundEvents *_sounds;BattlePhysical _physical;
     BattleRestoration _restoration;
     BattleAreaSpell _area;
     BattleDirectedSpell _directed;

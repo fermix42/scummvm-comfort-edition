@@ -40,7 +40,7 @@ public:
             if (!painter.draw(nextFrame,0,terrain[cell],light.mode,animation,cell,16)) return false;
         for (uint i = 0; i < scene.draws.size(); ++i) {
             const ActorDraw &draw = scene.draws[i];
-            if (!painter.draw(nextFrame,draw.tile,scene.actors.terrain[draw.cell],light.mode,animation,draw.cell,draw.height)) return false;
+            if (!painter.draw(nextFrame,draw.tile,scene.actors.terrain[draw.cell],light.mode,animation,draw.cell,draw.height)) {warning("Native viewport actor draw failed: tile%u cell%u height%u",draw.tile,draw.cell,draw.height);return false;}
         }
         OcclusionContext context; context.direction = 4; context.presentation = true; context.ignoreBlockers = false;
         memcpy(context.terrain,scene.actors.terrain,187); memcpy(context.objects,scene.objects.lookup,187);

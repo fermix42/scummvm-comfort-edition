@@ -47,6 +47,7 @@ public:
         }
         return false;
     }
+    void stop() {_playing=false;_registers[8]=_registers[9]=_registers[10]=0;}
     bool playing() const {return _playing;}
     uint cursor() const {return _cursor;}
     byte wait() const {return _wait;}

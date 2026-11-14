@@ -16,11 +16,11 @@ public:
         party = next; return true;
     }
     static WeaponReadyResult selectWeapon(const ItemCatalog &catalog, const EquipmentOwnership &ownership,
-            byte member, byte itemId, bool unready, Party &party, Inventory &inventory) {
+            byte member, byte itemId, bool unready, Party &party, Inventory &inventory,byte *lastRemovedId=nullptr) {
         if (!party._ready || member >= party.memberCount()) return kWeaponUnsupported;
         Party nextParty = party; Inventory nextInventory = inventory;
         const WeaponReadyResult result = selectWorldWeapon(catalog,ownership,member,itemId,unready,nextInventory,
-            nextParty._members[member],nextParty._equipment[member]);
+            nextParty._members[member],nextParty._equipment[member],0,lastRemovedId);
         if (result != kWeaponReadied && result != kWeaponUnreadied) return result;
         for (uint i = 0; i < nextParty.memberCount(); ++i)
             if (!recalculateEquipment(catalog,nextParty._equipment[i],nextParty._members[i])) return kWeaponUnsupported;
@@ -29,11 +29,12 @@ public:
     // Commit through the actual Party/Inventory owners. A failed prerequisite
     // or unsupported recalculation changes neither owner.
     static ArmorReadyResult selectArmor(const ItemCatalog &catalog, const EquipmentOwnership &ownership,
-            byte member, byte itemId, bool unready, Party &party, Inventory &inventory) {
+            byte member, byte itemId, bool unready, Party &party, Inventory &inventory,byte *lastRemovedId=nullptr) {
         if (!party._ready || member >= party.memberCount()) return kArmorUnsupported;
         Party nextParty = party; Inventory nextInventory = inventory;
-        const ArmorReadyResult result = selectWorldArmor(catalog,ownership,member,itemId,unready,nextInventory,
-            nextParty._members[member],nextParty._equipment[member]);
+        ItemDefinition definition;if (!catalog.definition(1,itemId,definition)) return kArmorUnsupported;
+        const ArmorReadyResult result = (definition.bytes[12]&31)==1 ? ArmorReadyResult(selectWorldWeapon(catalog,ownership,member,itemId,unready,nextInventory,nextParty._members[member],nextParty._equipment[member],1,lastRemovedId)) :
+            selectWorldArmor(catalog,ownership,member,itemId,unready,nextInventory,nextParty._members[member],nextParty._equipment[member],lastRemovedId);
         if (result != kArmorReadied && result != kArmorUnreadied) return result;
         for (uint i = 0; i < nextParty.memberCount(); ++i)
             if (!recalculateEquipment(catalog,nextParty._equipment[i],nextParty._members[i])) return kArmorUnsupported;

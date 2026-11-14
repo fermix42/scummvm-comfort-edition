@@ -2,6 +2,7 @@
 #ifndef NOX_NATIVE_BATTLE_DIRECTED_SPELL_H
 #define NOX_NATIVE_BATTLE_DIRECTED_SPELL_H
 #include "nox/native_battle_spell_damage.h"
+#include "nox/native_sound_events.h"
 namespace Nox { namespace Native {
 struct DirectedSpellSelection {
     byte cell,direction;bool cancelled;
@@ -17,7 +18,8 @@ struct DirectedSpellOutcome {
 // Preserve cosmetic jitter draws because they share the gameplay RNG stream.
 class BattleDirectedSpell {
 public:
-    BattleDirectedSpell() : _ready(false) {}
+    BattleDirectedSpell() : _ready(false),_sounds(nullptr) {}
+    void setSoundEvents(SoundEvents *sounds) {_sounds=sounds;}
     bool load(HdvArchive &archive) { _ready=_impact.load(archive);return _ready; }
     static bool supports(byte spell) {
         return spell<=1 || (spell>=5 && spell<=13) || spell==15 || spell==21 || spell==23 || spell==24 || spell==25;
@@ -57,7 +59,9 @@ public:
         }
         caster.stats[4]-=prepared.manaCost;if (!next.store(caster)) return false;
         const bool blade=spell==15 || spell==21 || spell==23 || spell==24 || spell==25;
+        SoundEvents effects;if (((spell>=5 && spell<=10) || spell==13)) effects.push_back(kSpeakerMagic);
         for (uint i=0;i<result.targets.size();++i) {
+            VortexVictim affected;if (!next.actor(result.targets[i],affected)) return false;
             if (blade) {
                 byte point,quadrant;if (!rng.next(0,5,point) || !rng.next(1,255,quadrant)) return false;
                 result.jitter.push_back(point);result.jitter.push_back(quadrant);
@@ -66,8 +70,11 @@ public:
             intent.basePower=prepared.basePower;intent.threshold=prepared.levelThreshold;intent.protectedTargets=protectedTargets;intent.instant=spell==11 || spell==12;
             SpellDamageOutcome impact;if (!_impact.resolve(intent,rng,next,impact)) return false;
             result.killed+=impact.killed?1:0;result.impacts.push_back(impact);
+            if (affected.kind==3) effects.push_back(kSpeakerPartyHit);
         }
-        result.spentMana=true;records=next;random=rng;output=result;return true;
+        result.spentMana=true;records=next;random=rng;output=result;
+        if (_sounds) for (uint i=0;i<effects.size();++i) _sounds->push_back(effects[i]);
+        return true;
     }
 private:
     static bool append(const BattleRecords &battle,byte caster,byte cell,Common::Array<byte> &targets) {
@@ -121,7 +128,7 @@ private:
         }
         return true;
     }
-    bool _ready;BattleSpellDamage _impact;
+    bool _ready;SoundEvents *_sounds;BattleSpellDamage _impact;
 };
 } }
 #endif

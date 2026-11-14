@@ -34,7 +34,12 @@ public:
             if (!audio->save(sound) || sound.err()) return false;
             payload.writeUint32BE(MKTAG('A','U','D','I'));payload.writeUint32LE(sound.size());payload.write(sound.getData(),sound.size());
         }
-        if (payload.err() || payload.size()>2097152) return false;
+        if (!game.discovery.cells().empty() || !game.discovery.characters().empty()) {
+            Common::MemoryWriteStreamDynamic history(DisposeAfterUse::YES);
+            if (!game.discovery.write(history) || history.err()) return false;
+            payload.writeUint32BE(MKTAG('D','I','S','C'));payload.writeUint32LE(history.size());payload.write(history.getData(),history.size());
+        }
+        if (payload.err() || payload.size()>18*1024*1024) return false;
         byte digest[16];Common::MemoryReadStream check(payload.getData(),payload.size());if (!Common::computeStreamMD5(check,digest)) return false;
         out.writeUint32BE(MKTAG('N','P','X','S'));out.writeUint16LE(4);out.writeUint16LE(119);out.writeUint32LE(payload.size());out.write(digest,16);out.write(payload.getData(),payload.size());return !out.err();
     }
@@ -44,7 +49,7 @@ public:
         if (in.size()-in.pos()<28 || in.readUint32BE()!=MKTAG('N','P','X','S')) return false;
         const uint16 version=in.readUint16LE();if ((version!=3 && version!=4) || in.readUint16LE()!=119) return false;
         const uint32 length=in.readUint32LE();byte expected[16],digest[16];
-        if (!length || length>2097152 || in.read(expected,16)!=16 || int64(length)!=in.size()-in.pos()) return false;
+        if (!length || length>18*1024*1024 || in.read(expected,16)!=16 || int64(length)!=in.size()-in.pos()) return false;
         Common::Array<byte> payload;payload.resize(length);if (in.read(payload.data(),length)!=length || in.err()) return false;
         Common::MemoryReadStream check(payload.data(),length);if (!Common::computeStreamMD5(check,digest) || memcmp(expected,digest,16)) return false;
         NewGame next(archive);WorldStory nextWindow;WorldScene nextScene;WorldActorTurnState nextTurn;NpcRouteStore nextRoutes;
@@ -75,12 +80,18 @@ public:
                 if (part.err() || nextLight.mode>3 || nextLight.level>4 || !nextVisibility.importMask(cells,187)) return false;
             }
         }
-        MusicPlayback nextAudio;
-        if (source.pos()!=source.size()) {
-            if (!audio || version!=4 || source.size()-source.pos()<8 || source.readUint32BE()!=MKTAG('A','U','D','I')) return false;
-            const uint32 size=source.readUint32LE();if (!size || size>32768 || int64(size)!=source.size()-source.pos()) return false;
+        MusicPlayback nextAudio;bool hadAudio=false,hadDiscovery=false;
+        while (source.pos()!=source.size()) {
+            if (version!=4 || source.size()-source.pos()<8) return false;
+            const uint32 tag=source.readUint32BE(),size=source.readUint32LE();
+            if (!size || int64(size)>source.size()-source.pos() || size>Enhancements::kMaxBytes+16) return false;
             Common::Array<byte> bytes;bytes.resize(size);if (source.read(bytes.data(),size)!=size) return false;
-            Common::MemoryReadStream sound(bytes.data(),size);if (!nextAudio.load(sound,archive) || !nextAudio.ready()) return false;
+            Common::MemoryReadStream part(bytes.data(),size);
+            if (tag==MKTAG('A','U','D','I')) {
+                if (!audio || hadAudio || size>32768 || !nextAudio.load(part,archive) || !nextAudio.ready()) return false;hadAudio=true;
+            } else if (tag==MKTAG('D','I','S','C')) {
+                if (hadDiscovery || !next.discovery.read(part) || part.pos()!=part.size()) return false;hadDiscovery=true;
+            } else return false;
         }
         if (source.err() || source.pos()!=source.size() || !nextInput.matchesWorld(next.world) || nextInput.transportObject()!=nextTurn.presentation.partyObject || nextTurn.presentation.hidden!=nextScene.actors.hiddenByTurn || memcmp(nextFrame.data(),nextAnimation.pages[nextAnimation.target^1].data(),8192)) return false;
         if (version==4 && nextBattle.formed!=nextInput.encounter().battle) return false;

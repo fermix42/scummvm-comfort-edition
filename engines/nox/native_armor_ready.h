@@ -8,7 +8,7 @@ enum ArmorReadyResult { kArmorReadied = 0, kArmorCopiesRefused = 2, kArmorWeight
 // World armor transaction before deferred derived-stat recalculation. Caller
 // must complete recalculation before treating Ready as a normal player command.
 inline ArmorReadyResult selectWorldArmor(const ItemCatalog &catalog, const EquipmentOwnership &ownership,
-        byte member, byte itemId, bool unready, Inventory &inventory, CharacterRecord &character, EquipmentRecord &equipment) {
+        byte member, byte itemId, bool unready, Inventory &inventory, CharacterRecord &character, EquipmentRecord &equipment,byte *lastRemovedId=nullptr) {
     byte mask, clear; ItemDefinition selected;
     const int selectedSlot = inventory.find(1,itemId);
     if (selectedSlot < 0 || !ownership.masks(member,mask,clear) || !catalog.definition(1,itemId,selected)) return kArmorUnsupported;
@@ -44,6 +44,7 @@ inline ArmorReadyResult selectWorldArmor(const ItemCatalog &catalog, const Equip
     EquipmentRecord nextEquipment = equipment;
     nextEquipment.bytes[category * 2] = 1; nextEquipment.bytes[category * 2 + 1] = unready ? 0 : itemId;
     CharacterRecord nextCharacter = character; nextCharacter.bytes[70] = nextWeight;
+    if (lastRemovedId) *lastRemovedId=unready?itemId:owners.first>=0?inventory.item(owners.first)->id():255;
     inventory = nextInventory; character = nextCharacter; equipment = nextEquipment;
     return unready ? kArmorUnreadied : kArmorReadied;
 }

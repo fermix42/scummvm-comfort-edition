@@ -42,23 +42,25 @@ struct WorldAnimationDraw {
     byte cell,tile,phase;
     WorldAnimationDraw(byte c,byte t,byte p) : cell(c),tile(t),phase(p) {}
 };
-// Visible on-foot Keep idle raster. Authored pattern bits independently gate
-// four small-actor groups and the party group. Gameplay, clocks, RNG and actor
-// records are read-only. Other appearance/terrain/actor cases are boundaries.
+// Visible idle raster using the current map-family atlas. Pattern bits gate
+// four small-actor groups and the party group. Owned static boats119/123/124
+// retain their painted footprints, as sourceD2C1 skips pictures below128.
+// Gameplay, clocks, RNG and actor records remain read-only.
 class WorldAnimation {
 public:
-    WorldAnimation() : _ready(false) {}
-    bool load(HdvArchive &archive) {
+    WorldAnimation() : _ready(false),_type(255) {}
+    byte mapType() const {return _type;}
+    bool load(HdvArchive &archive,byte type=8) {
         Common::Array<byte> game,footer;MapAssetRange range;
-        if (!_atlas.load(archive,8) || !archive.read("NA/GAME",game) || !resolveMapAssets(game,8,range) ||
+        if (!_atlas.load(archive,type) || !archive.read("NA/GAME",game) || !resolveMapAssets(game,type,range) ||
             !archive.readRange(range.resource,range.offset+range.size,72,footer)) return false;
         for (uint i=0;i<5;++i) _patterns[i]=READ_LE_UINT16(game.data()+0x8a7+2*i);
-        memcpy(_footer,footer.data(),72);_ready=true;return true;
+        memcpy(_footer,footer.data(),72);_type=type;_ready=true;return true;
     }
     bool run(const World &world,const WorldScene &scene,const byte *visibility,uint count,const LightState &light,
             const WorldAnimationContext &context,WorldAnimationState &state,Common::Array<WorldAnimationDraw> &output,byte *enabledOut=nullptr) const {
-        if (!_ready || !world.ready() || world.mapType()!=8 || world.mapId()!=7 || !visibility || count!=187 || light.mode!=1 ||
-            context.appearance!=246 || context.partyObject!=255 || !state.valid() || context.left>context.right || context.right>17 || context.top>context.bottom || context.bottom>12) return false;
+        if (!_ready || !world.ready() || world.mapType()!=_type || !visibility || count!=187 || light.mode>3 ||
+            !partyContext(world,context) || !state.valid() || context.left>context.right || context.right>17 || context.top>context.bottom || context.bottom>12) return false;
         WorldAnimationState next=state;byte enabled[5];Common::Array<WorldAnimationDraw> draws;
         for (uint i=0;i<5;++i) enabled[i]=(_patterns[i]&(1U<<state.pattern))?byte(1U<<(state.pattern&7)):0;
         const byte *records=world.currentTables()->data();
@@ -69,9 +71,15 @@ public:
             byte tile=ground,actorState=0;bool small=false;
             if (actor!=255) {
                 if (actor>252 || (actor&3)) return false;
-                if (scene.actors.kinds[cell]!=0) return false;
-                const byte *record=records+768+actor;if (!record[2] || record[3]==255 || (record[3]&8)) return false;
-                tile=record[2];actorState=record[3];small=true;
+                const byte kind=scene.actors.kinds[cell];
+                if (kind!=0 && kind!=4) { warning("Native animation actor kind %u cell %u slot %u",kind,cell,actor);return false; }
+                if (kind==4 && (actor&7)) return false;
+                const byte *record=records+(kind==4?1280:768)+actor;
+                if (!record[2] || record[3]==255 || (record[3]&(kind==4?16:8))) return false;
+                // Original D677..D69D selects BF for extended/NPC actors;
+                // a dormant unscheduled NPC paints127, not its visible sprite.
+                tile=kind==4 && record[7]==255 && !record[6]?127:record[2];
+                actorState=record[3];small=true;
             } else if (cell==93) tile=context.appearance;
             else if (object!=255) {
                 if (object>252 || (object&3)) return false;
@@ -82,8 +90,21 @@ public:
             if (tile>=_footer[50] && tile<_footer[51] && actor==255 && cell!=93) continue;
             // Water/transport substitutions and large/NPC footprints need
             // their own qualification rather than a guessed ordinary raster.
-            if (((in(ground,36) || in(ground,38)) && actor!=255) ||
-                (cell==93 && (in(ground,40) || in(ground,42)))) return false;
+            // Original scene D301..D33E keeps an NPC's picture on these
+            // terrain ranges except role0; underworld ordinary actors use
+            // the authored picture threshold before selecting ground+1.
+            if ((in(ground,36) || in(ground,38)) && actor!=255) {
+                if (ground<128) continue;
+                const bool npc=scene.actors.kinds[cell]==4;
+                if ((npc && records[1280+actor+5]<1) ||
+                        (!npc && world.mapType()==2 && records[768+actor+2]<185)) tile=byte(ground+1);
+            }
+            // D371..D3BD keeps the dedicated boat pictures225..228 intact;
+            // other party pictures select the adjacent water terrain picture.
+            if (cell==93 && (in(ground,40) || in(ground,42)) && !(tile>=225 && tile<229)) {
+                if (ground<128) continue;
+                tile=byte(ground+1);
+            }
             byte phase=state.phase;
             if (cell==93 || (small && tile!=_footer[68])) {
                 const uint group=cell==93?4:((actorState>>6)&3);
@@ -91,7 +112,7 @@ public:
                 if (small && (actorState&32)) phase^=2;
             }
             byte picture=tile;if (tile==_footer[62] && ground==232) picture=_footer[63];
-            if (!_atlas.animated(picture) || !next.pages[next.target].drawCell(_atlas,picture,phase,cell,16)) return false;
+            if (!_atlas.animated(picture) || !next.pages[next.target].drawCell(_atlas,picture,phase,cell,16)) { warning("Native animation raster picture %u ground %u cell %u actor %u phase %u",picture,ground,cell,actor,phase);return false; }
             draws.push_back(WorldAnimationDraw(byte(cell),picture,phase));
         }
         for (uint i=0;i<5;++i) if (enabled[i]) next.groups[i]=byte((state.groups[i]+1)&3);
@@ -99,8 +120,15 @@ public:
         state=next;output=draws;if (enabledOut) memcpy(enabledOut,enabled,5);return true;
     }
 private:
+    static bool partyContext(const World &world,const WorldAnimationContext &context) {
+        if (world.onFoot()) return context.partyObject==255 && context.appearance>=246 && context.appearance<254;
+        if (context.partyObject==255 || (context.partyObject&3) ||
+                (context.appearance!=119 && context.appearance!=123 && context.appearance!=124)) return false;
+        const byte *object=world.currentTables()->data()+1024+context.partyObject;
+        return object[2]==context.appearance && object[0]==world.x() && object[1]==world.y();
+    }
     bool in(byte tile,uint index) const { return tile>=_footer[index] && tile<_footer[index+1]; }
-    bool _ready;uint16 _patterns[5];byte _footer[72];TileAtlas _atlas;
+    bool _ready;byte _type;uint16 _patterns[5];byte _footer[72];TileAtlas _atlas;
 };
 } }
 #endif

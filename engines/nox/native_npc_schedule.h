@@ -60,6 +60,10 @@ private:
 struct NpcSchedulePolicy { bool keepSpecialActors,keepSpecialBehavior; };
 enum NpcScheduleResult { kNpcScheduleApplied,kNpcScheduleSkipped,kNpcScheduleUnsupported };
 class NpcScheduler {
+    static bool castle11Padding(const World &world,uint offset,const byte *row) {
+        static const byte padding[]={0,1,0,0,0,0,0,0};
+        return world.mapType()==7 && world.mapId()==11 && offset>=256 && offset<=280 && !memcmp(row,padding,8);
+    }
 public:
     // Queue authored upcoming route segments. Records keep logical NPC slots,
     // start/end goals and coordinates; no bank addresses or CPU pointers.
@@ -113,6 +117,7 @@ public:
             if (offset && (row[0] & 128)) { terminated = true; break; }
             if ((row[0] & 128) && row[0] != 255) return kNpcScheduleUnsupported;
             if (row[1] & 7) {
+                if (castle11Padding(world,offset,row)) continue;
                 const byte padding[8] = {0,1,0,0,0,0,0,0};
                 if (world.mapType() != 7 || world.mapId() != 15 || offset < 224 || offset > 248 || memcmp(row,padding,8)) return kNpcScheduleUnsupported;
                 // Source padding overlaps the reserved marker's identity and
@@ -144,6 +149,12 @@ public:
             if (offset && (row[0] & 128)) { terminated = true; break; }
             if ((row[0] & 128) && row[0] != 255) return kNpcScheduleUnsupported;
             if (row[1] & 7) {
+                if (castle11Padding(world,offset,row)) {
+                    // The unaligned descriptor aliases prior combat scratch in
+                    // the original. Keep the owned reserved actor unchanged;
+                    // its zero goal pair is real authored data, not a CPU pointer.
+                    next._x[0]=next._y[0]=0;continue;
+                }
                 // Four authored castle15 padding rows overlap the reserved
                 // marker's selection descriptor. Preserve their observed data
                 // effect with a typed reference; do not reproduce RAM pointers.

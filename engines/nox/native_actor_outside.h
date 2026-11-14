@@ -32,8 +32,19 @@ public:
         if (!_ready || world.mapType()!=_type || !window.matchesWorld(world)) return false;
         ActorOutsideProbe input; input.actorTile=actorTile; input.unrestricted=unrestricted;
         const int dx[4]={0,0,1,-1},dy[4]={-1,1,0,0};
-        for (uint i=0;i<4;++i) if (!window.terrainAt(byte(int(x)+dx[i]),byte(int(y)+dy[i]),input.terrain[i])) return false;
-        return probe(input,output);
+        bool outsideMap[4]={};
+        for (uint i=0;i<4;++i) {
+            const int nx=int(x)+dx[i],ny=int(y)+dy[i];
+            // Local maps have an owned48x48 extent. Reserved schedule-marker
+            // records can lie outside it; never alias another memory region
+            // as their terrain or invent a passable destination.
+            outsideMap[i]=world.mapType()>=3 && (nx<0 || nx>=48 || ny<0 || ny>=48);
+            if (outsideMap[i]) input.terrain[i]=0;
+            else if (!window.terrainAt(byte(nx),byte(ny),input.terrain[i])) return false;
+        }
+        if (!probe(input,output)) return false;
+        for (uint i=0;i<4;++i) if (outsideMap[i]) output.blocked[i]=2;
+        return true;
     }
 private:
     bool in(byte value,uint offset) const { return value>=_footer[offset] && value<_footer[offset+1]; }

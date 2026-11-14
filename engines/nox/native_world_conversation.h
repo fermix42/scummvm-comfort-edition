@@ -2,6 +2,8 @@
 #ifndef NOX_NATIVE_WORLD_CONVERSATION_H
 #define NOX_NATIVE_WORLD_CONVERSATION_H
 #include "nox/native_new_game.h"
+#include "nox/native_recruitment.h"
+#include "nox/native_training.h"
 #include "nox/native_world_presentation.h"
 #include "nox/native_text_window.h"
 #include "nox/native_opening_backdrop.h"
@@ -12,6 +14,7 @@
 #include "nox/native_inn_membership.h"
 #include "nox/native_party_selection.h"
 #include "common/memstream.h"
+#include "nox/native_sound_events.h"
 namespace Nox { namespace Native {
 enum WorldConversationResult { kWorldConversationHandled,kWorldConversationFinished,kWorldConversationMessage,kWorldConversationUnsupported,kWorldConversationTravel };
 // Ordinary on-foot directional Talk, plain authored response/input/closing and
@@ -19,11 +22,13 @@ enum WorldConversationResult { kWorldConversationHandled,kWorldConversationFinis
 // All phases and data references are semantic; no original instructions run.
 class WorldConversation {
 public:
-    WorldConversation() : _stage(0),_type(255),_map(0),_slot(255),_closing(false),_endShown(false),_footerShown(false),_hasDialogue(false),_hasWindow(false),_refused(false),_memberMode(0),_waitingSlot(255),_pickupFee(0),_vendorRole(0),_merchantSale(false),_merchantIndex(0) {}
+    WorldConversation() : _stage(0),_type(255),_map(0),_slot(255),_closing(false),_endShown(false),_footerShown(false),_hasDialogue(false),_hasWindow(false),_refused(false),_memberMode(0),_waitingSlot(255),_pickupFee(0),_vendorRole(0),_merchantSale(false),_merchantIndex(0),_trainingMember(255),_sounds(nullptr) {}
+    void setSoundEvents(SoundEvents *sounds) {_sounds=sounds;}
     bool active() const { return _stage!=0; }
     byte stage() const { return _stage; }
     byte actorSlot() const {return _slot;}
     bool plainDialogue() const {return _hasDialogue;}
+    const Common::String &visibleReply() const {return _conversation.reply();}
     bool takeInnDestination(WorldTravelPlan &plan,HgrFrame &frame) {
         if (_inn.phase()!=4) return false;plan=_inn.destination();restore(frame);return true;
     }
@@ -47,11 +52,17 @@ public:
             Common::Array<byte> data,footer;MapAssetRange assets;
             if (!archive.read("NA/GAME",data) || !resolveMapAssets(data,_type,assets) ||
                     !archive.readRange(assets.resource,assets.offset+assets.size,72,footer)) return kWorldConversationUnsupported;
-            const byte slot=scene.actors.lookup[cell],kind=scene.actors.kinds[cell]&135;
-            if (slot==255) {
-                if (scene.actors.terrain[cell]>=footer[30] && scene.actors.terrain[cell]<footer[31]) return kWorldConversationUnsupported;
-                return refuseStrip(20,message);
+            // M:FEC6..FED9 and LWR1559: a counter permits the same
+            // direction's second cell, not an arbitrary nearby NPC search.
+            if (scene.actors.lookup[cell]==255 && scene.actors.terrain[cell]>=footer[30] && scene.actors.terrain[cell]<footer[31]) {
+                switch (key) {
+                case Common::KEYCODE_UP:cell=59;break;case Common::KEYCODE_DOWN:cell=127;break;
+                case Common::KEYCODE_RIGHT:cell=95;break;case Common::KEYCODE_LEFT:cell=91;break;
+                default:return kWorldConversationUnsupported;
+                }
             }
+            const byte slot=scene.actors.lookup[cell],kind=scene.actors.kinds[cell]&135;
+            if (slot==255) return refuseStrip(20,message);
             if (!kind) return refuseStrip(19,message);
             if (kind<4) return refuseStrip(20,message);
             if (kind!=4 || (slot&7)) return kWorldConversationUnsupported;
@@ -111,26 +122,41 @@ public:
             if (!_conversation.begin(archive,game.world.dialogueResource(),slot,game.world.questFields(),256,context) ||
                     _conversation.opening()!=kConversationReply) return kWorldConversationUnsupported;
             _hasDialogue=true;_closing=_conversation.terminalReply();
-            return show(archive,_conversation.reply(),frame)?kWorldConversationHandled:kWorldConversationUnsupported;
+            return showDialogue(archive,game,frame)?kWorldConversationHandled:kWorldConversationUnsupported;
         }
+        if (_stage>=27) return trainingInput(event,archive,game,frame);
         if (_stage>=22) return merchantInput(event,archive,game,frame);
         if (_stage>=19) return vendorInput(event,archive,game,frame,transport);
         if (_stage>=9) return innInput(event,archive,game,frame);
         if (_stage>=5) return serviceInput(event,archive,game,frame);
         if (_stage==2) {
-            if (!_window.waiting() || !_window.handle(event) || !_window.paint(frame) || !settle(archive,frame)) return kWorldConversationUnsupported;
+            if (!_window.waiting() || !_window.handle(event) || !_window.paint(frame) || !settle(archive,frame,&game.discovery) || (_stage==3 && _conversation.trainingPending() && !trainingText(archive,0x9790,27,frame))) return kWorldConversationUnsupported;
             return kWorldConversationHandled;
         }
         if (_stage==4) {
             if (_hasDialogue) {
                 NewGame next(game);Conversation conversation=_conversation;ItemCatalog catalog;
-                if (!catalog.load(archive) || conversation.finish(catalog,next.inventory,next.gold)!=kHandoffApplied ||
-                        !next.world.acceptConversation(conversation)) return kWorldConversationUnsupported;
+                if (!catalog.load(archive)) return kWorldConversationUnsupported;
+                const HandoffResult handoff=conversation.finish(catalog,next.inventory,next.gold);
+                if (handoff==kHandoffNeedsParty) {
+                    DialogueHandoff request;
+                    if (!describeDialogueHandoff(conversation.fields(),256,request) || !conversation.finishRecruitment() || !next.world.acceptConversation(conversation) ||
+                        Recruitment::apply(archive,next,_slot,request.companion)!=kRecruitApplied) return kWorldConversationUnsupported;
+                } else if (handoff!=kHandoffApplied || !next.world.acceptConversation(conversation)) return kWorldConversationUnsupported;
+                next.clock.hourlyCounter=next.world.questFields()[20];
                 game.adoptState(next);_conversation=conversation;
             }
             restore(frame);return kWorldConversationFinished;
         }
         if (_stage!=3) return kWorldConversationUnsupported;
+        if (_conversation.paymentPhase()) {
+            Common::String text;const byte answer=key==Common::KEYCODE_ESCAPE?27:byte(event.kbd.ascii);
+            const int result=_conversation.paymentInput(archive,answer,game.gold,text);
+            if(result<0) return kWorldConversationUnsupported;
+            if(result==2) {_query.clear();return input(archive,frame)?kWorldConversationHandled:kWorldConversationUnsupported;}
+            if(result==1) {_closing=_conversation.terminalReply();return show(archive,text,frame,&game.discovery)?kWorldConversationHandled:kWorldConversationUnsupported;}
+            return kWorldConversationHandled;
+        }
         if (key==Common::KEYCODE_BACKSPACE) { if (!_query.empty()) _query.deleteLastChar(); }
         else if (key==Common::KEYCODE_RETURN) {
             Common::Array<byte> raw;if (!archive.read("NA/SRTN.NPC.TALK",raw) || raw.size()!=32831) return kWorldConversationUnsupported;
@@ -140,13 +166,13 @@ public:
             for (uint i=0;i<3 && farewell;++i) farewell=(byte(submitted[i])&95)==(raw[0xf8c+i]&127);
             if (_conversation.submit(submitted)!=kConversationReply) return kWorldConversationUnsupported;
             _closing=farewell || _conversation.terminalReply();_endShown=_footerShown=false;_query.clear();
-            return show(archive,_conversation.reply(),frame)?kWorldConversationHandled:kWorldConversationUnsupported;
+            return showDialogue(archive,game,frame)?kWorldConversationHandled:kWorldConversationUnsupported;
         } else if (event.kbd.ascii>=32 && event.kbd.ascii<127 && _query.size()<28) _query+=char(event.kbd.ascii);
         return input(archive,frame)?kWorldConversationHandled:kWorldConversationUnsupported;
     }
     bool save(Common::WriteStream &out) const {
-        if (_stage>26 || _query.size()>28) return false;
-        out.writeUint32BE(MKTAG('N','C','U','I'));out.writeUint16LE(_stage>=22?6:_vendorRole?5:4);out.writeByte(_stage);
+        if (_stage>30 || _query.size()>28) return false;
+        out.writeUint32BE(MKTAG('N','C','U','I'));out.writeUint16LE(_stage>=27?7:_stage>=22?6:_vendorRole?5:4);out.writeByte(_stage);
         if (!active()) return !out.err();
         out.writeByte(_type);out.writeByte(_map);out.writeByte(_slot);
         out.writeByte(byte((_closing?1:0)|(_endShown?2:0)|(_footerShown?4:0)|(_hasDialogue?8:0)|(_hasWindow?16:0)|(_refused?32:0)));
@@ -158,14 +184,15 @@ public:
         out.writeByte(_inn.phase()!=0);if (_inn.phase() && !_inn.save(out)) return false;
         out.writeByte(_memberMode);out.writeByte(_waitingSlot);out.writeUint16LE(_pickupFee);
         out.writeByte(_selection.active());if (_selection.active() && !_selection.save(out)) return false;
-        if (_stage>=22) {out.writeByte(_merchantSale);out.writeUint16LE(_merchantIndex);}
+        if (_stage>=27) out.writeByte(_trainingMember);
+        else if (_stage>=22) {out.writeByte(_merchantSale);out.writeUint16LE(_merchantIndex);}
         else if (_vendorRole) out.writeByte(_vendorRole);
         return !out.err();
     }
     bool load(Common::SeekableReadStream &in,HdvArchive &archive) {
         if (in.readUint32BE()!=MKTAG('N','C','U','I')) return false;
-        const uint16 version=in.readUint16LE();if (version<1 || version>6) return false;
-        WorldConversation next;next._stage=in.readByte();if (next._stage>(version==1?4:version==2?8:version==3?14:version==4?18:version==5?21:26)) return false;
+        const uint16 version=in.readUint16LE();if (version<1 || version>7) return false;
+        WorldConversation next;next._stage=in.readByte();if (next._stage>(version==1?4:version==2?8:version==3?14:version==4?18:version==5?21:version==6?26:30)) return false;
         if (next.active()) {
             next._type=in.readByte();next._map=in.readByte();next._slot=in.readByte();const byte flags=in.readByte(),length=in.readByte();
             if (flags>63 || length>28 || (next._slot!=255 && (next._slot&7))) return false;
@@ -201,7 +228,16 @@ public:
                 if (selected) {byte bytes[10];if (in.read(bytes,10)!=10) return false;Common::MemoryReadStream part(bytes,10);if (!next._selection.load(part) || !next._selection.active()) return false;}
             }
         }
-        if (version==6 && next.active()) {
+        if (version==7 && next.active()) {
+            next._trainingMember=in.readByte();
+            if (next._stage<27 || !next._hasDialogue || next._temple.phase() || next._inn.phase() ||
+                (next._trainingMember!=255 && next._trainingMember>=6) || next._query.size()>2 ||
+                ((next._stage==27 || next._stage==30) && !next._hasWindow) || (next._stage==28 && next._hasWindow) ||
+                ((next._stage==28)!=next._selection.active()) ||
+                (next._stage!=30 && !next._conversation.trainingPending()) ||
+                (next._stage==29 && next._trainingMember==255)) return false;
+            for (uint i=0;i<next._query.size();++i) if (next._query[i]<'0' || next._query[i]>'9') return false;
+        } else if (version==6 && next.active()) {
             const byte sale=in.readByte();next._merchantSale=sale!=0;next._merchantIndex=in.readUint16LE();
             if (sale>1 || next._merchantIndex>255 || next._stage<22 || next._hasDialogue || next._temple.phase() || next._inn.phase() || next._query.size()>2 ||
                 ((next._stage==22 || next._stage==26)!=next._hasWindow)) return false;
@@ -215,6 +251,75 @@ public:
         if (in.err() || in.pos()!=in.size()) return false;*this=next;return true;
     }
 private:
+    bool showDialogue(HdvArchive &archive,NewGame &game,HgrFrame &frame) {
+        return show(archive,_conversation.reply(),frame,&game.discovery) &&
+            !(_stage==3 && _conversation.trainingPending() && !trainingText(archive,0x9790,27,frame));
+    }
+    static bool trainingBody(HdvArchive &archive,uint address,Common::String &text) {
+        Common::Array<byte> raw;return archive.read("NA/SRTN.NPC.TALK",raw) && plainDialogueBody(raw,0x1561+address-0x9600,text);
+    }
+    bool trainingText(HdvArchive &archive,uint address,byte stage,HgrFrame &frame) {
+        Common::String text;return trainingBody(archive,address,text) && merchantText(archive,text,stage,frame);
+    }
+    bool trainingOffer(HdvArchive &archive,const NewGame &game,HgrFrame &frame) {
+        TrainingQuote offer;Common::String first,middle,last;
+        if (!TrainingService::quote(archive,game,_conversation.fields()[22],_trainingMember,offer) ||
+            !trainingBody(archive,0x97a0,first) || !trainingBody(archive,0x97d7,middle) || !trainingBody(archive,0x97f6,last)) return false;
+        if (!merchantText(archive,first+Common::String::format("%u",offer.available)+middle+Common::String::format("%u",offer.price)+last,29,frame)) return false;
+        if (_window.waiting()) return true;
+        _hasWindow=false;return trainingQuantity(archive,frame);
+    }
+    bool trainingQuantity(HdvArchive &archive,HgrFrame &frame) const {
+        GlyphFont font;if (!font.load(archive,1) || !frame.clearTextSpan(21,22,14)) return false;
+        const Common::String text=Common::String("Count: ")+_query;
+        for (uint i=0;i<text.size();++i) if (!frame.drawGlyph(font,byte(text[i])|128,21+i,22,0)) return false;
+        return frame.drawGlyph(font,0xa0,21+text.size(),22,127);
+    }
+    WorldConversationResult trainingResult(HdvArchive &archive,uint address,HgrFrame &frame) {
+        if (!_conversation.completeTraining()) return kWorldConversationUnsupported;
+        _query.clear();return trainingText(archive,address,30,frame)?kWorldConversationHandled:kWorldConversationUnsupported;
+    }
+    WorldConversationResult trainingInput(const Common::Event &event,HdvArchive &archive,NewGame &game,HgrFrame &frame) {
+        const Common::KeyCode key=event.kbd.keycode;
+        if (_stage==27 || _stage==30) {
+            if (_window.waiting()) {
+                if (!_window.handle(event) || !_window.paint(frame)) return kWorldConversationUnsupported;
+                if (_window.waiting()) return kWorldConversationHandled;
+            }
+            _hasWindow=false;
+            if (_stage==30) {
+                _stage=3;return (_closing?settle(archive,frame,&game.discovery):input(archive,frame))?kWorldConversationHandled:kWorldConversationUnsupported;
+            }
+            if (!_selection.begin(game.party,false) || !_selection.paint(archive,game.party,frame)) return kWorldConversationUnsupported;
+            _stage=28;return kWorldConversationHandled;
+        }
+        if (_stage==28) {
+            const PartySelectionResult selected=_selection.handle(event,game.party);
+            if (selected==kPartySelectionInvalid) return kWorldConversationUnsupported;
+            if (selected==kPartySelectionPending) return _selection.paint(archive,game.party,frame)?kWorldConversationHandled:kWorldConversationUnsupported;
+            if (selected==kPartySelectionCancelled) return trainingResult(archive,0x98c1,frame);
+            _trainingMember=_selection.selected();TrainingQuote offer;
+            if (!TrainingService::quote(archive,game,_conversation.fields()[22],_trainingMember,offer)) return kWorldConversationUnsupported;
+            if (!offer.available) return trainingResult(archive,0x988b,frame);
+            _query.clear();_stage=29;return trainingOffer(archive,game,frame)?kWorldConversationHandled:kWorldConversationUnsupported;
+        }
+        if (_stage!=29) return kWorldConversationUnsupported;
+        if (_hasWindow) {
+            if (!_window.handle(event) || !_window.paint(frame)) return kWorldConversationUnsupported;
+            if (_window.waiting()) return kWorldConversationHandled;
+            _hasWindow=false;return trainingQuantity(archive,frame)?kWorldConversationHandled:kWorldConversationUnsupported;
+        }
+        if (key==Common::KEYCODE_ESCAPE) return trainingResult(archive,0x98c1,frame);
+        if (key==Common::KEYCODE_BACKSPACE) {if (!_query.empty()) _query.deleteLastChar();}
+        else if (event.kbd.ascii>='0' && event.kbd.ascii<='9' && _query.size()<2) _query+=char(event.kbd.ascii);
+        else if (key==Common::KEYCODE_RETURN) {
+            byte quantity=0;for (uint i=0;i<_query.size();++i) quantity=byte(quantity*10+_query[i]-'0');
+            const TrainingResult result=TrainingService::apply(archive,game,_conversation.fields()[22],_trainingMember,quantity);
+            if (result==kTrainingInvalid) {_query.clear();return trainingQuantity(archive,frame)?kWorldConversationHandled:kWorldConversationUnsupported;}
+            return trainingResult(archive,result==kTrainingApplied?0x9818:result==kTrainingPoor?0x985a:result==kTrainingNoPractice?0x988b:0x98c1,frame);
+        }
+        return trainingQuantity(archive,frame)?kWorldConversationHandled:kWorldConversationUnsupported;
+    }
     bool merchantText(HdvArchive &archive,const Common::String &text,byte stage,HgrFrame &frame) {
         Common::Array<byte> bytes;encoded(text,bytes);HgrFrame background=frame;
         if (!OpeningBackdrop::renderTempleFrame(background)) return false;
@@ -242,6 +347,8 @@ private:
             else if (key==Common::KEYCODE_LEFT) _merchantIndex=_merchantIndex>=6?_merchantIndex-6:0;
             else if (key==Common::KEYCODE_RETURN && !list.empty()) {
                 const MerchantSelection &entry=list[_merchantIndex];_query.clear();
+                game.commerceCounter.kind=entry.kind;game.commerceCounter.kindKnown=true;
+                if (_merchantSale) {game.commerceCounter.quantity=0;game.commerceCounter.quantityKnown=true;}
                 _stage=_merchantSale?25:24;
                 if (!_merchantSale && entry.kind==0 && entry.id<64) _query="1";
                 if (_merchantSale || _query.empty()) return MerchantScreen::paint(archive,game,offer,_merchantSale,_merchantIndex,_stage,_query,frame)?kWorldConversationHandled:kWorldConversationUnsupported;
@@ -263,12 +370,22 @@ private:
                 bool ready=false;for (uint i=0;i<10;++i) ready|=next.book.spell(i)==definition.bytes[6];
                 ok=MerchantTransactions::sell(merchants,items,offer,entry.slot,entry.available,entry.kind==2 && entry.id<64,ready,choice,
                     next.inventory,next.world._fields,256,next.gold,transaction);
+                if (ok && transaction.result!=kMerchantNoValue && choice) {
+                    const uint16 originalGold=game.gold;
+                    byte retained=choice==1?1:byte(MIN<uint16>((9999-originalGold)/transaction.unitPrice,entry.available));
+                    if (entry.kind==2 && entry.id<64 && ready && entry.available>1 && retained!=1 && retained) --retained;
+                    next.commerceCounter.quantity=retained;next.commerceCounter.quantityKnown=true;
+                }
             } else {
                 byte quantity=0;for (uint i=0;i<_query.size();++i) quantity=byte(quantity*10+_query[i]-'0');
                 if (key==Common::KEYCODE_ESCAPE && !immediate) quantity=0;
                 ok=MerchantTransactions::buy(merchants,items,offer,entry.kind,entry.id,quantity,next.inventory,next.world._fields,256,next.gold,transaction);
             }
             if (!ok) return kWorldConversationUnsupported;
+            if (!_merchantSale && (immediate || (key!=Common::KEYCODE_ESCAPE && !_query.empty() && _query!="0" && _query!="00"))) {
+                byte requested=0;for (uint i=0;i<_query.size();++i) requested=byte(requested*10+_query[i]-'0');
+                next.commerceCounter.quantity=requested;next.commerceCounter.quantityKnown=true;
+            }
             uint message=transaction.result==kMerchantApplied?(_merchantSale?0x9c4f:0x9b79):
                 transaction.result==kMerchantPoor?0x9b37:transaction.result==kMerchantFull?0x9bb0:
                 transaction.result==kMerchantOverflow?0x9b93:transaction.result==kMerchantCancelled?0x9bc2:
@@ -491,7 +608,9 @@ private:
         case kTempleResurrected:offset=0x8394+0x165;combat=true;break;
         default:break;
         }
-        return serviceText(archive,offset,combat,frame)?kWorldConversationHandled:kWorldConversationUnsupported;
+        if (!serviceText(archive,offset,combat,frame)) return kWorldConversationUnsupported;
+        if (_sounds && (_temple.result()==kTempleHealed || _temple.result()==kTempleResurrected)) _sounds->push_back(kSpeakerSelection);
+        return kWorldConversationHandled;
     }
     bool serviceText(HdvArchive &archive,uint offset,bool combat,HgrFrame &frame) {
         Common::String text;
@@ -519,15 +638,21 @@ private:
     static void encoded(const Common::String &text,Common::Array<byte> &bytes) {
         bytes.clear();for (uint i=0;i<text.size();++i) bytes.push_back(text[i]=='\n'?0x8d:byte(text[i])|128);
     }
-    bool show(HdvArchive &archive,const Common::String &text,HgrFrame &frame) {
+    bool show(HdvArchive &archive,const Common::String &text,HgrFrame &frame,Enhancements *events=nullptr) {
         HgrFrame background=frame;if (!OpeningBackdrop::renderConversationFrame(background)) return false;
         Common::Array<byte> bytes;encoded(text,bytes);TextWindow window;
         if (!window.begin(archive,bytes.data(),bytes.size(),25,13,1,12,11,&background) || !window.paint(background)) return false;
-        _window=window;_hasWindow=true;_stage=2;frame=background;return settle(archive,frame);
+        _window=window;_hasWindow=true;_stage=2;frame=background;return settle(archive,frame,events);
     }
-    bool settle(HdvArchive &archive,HgrFrame &frame) {
+    bool settle(HdvArchive &archive,HgrFrame &frame,Enhancements *events=nullptr) {
         if (_window.waiting()) {_stage=2;return true;}
         if (!_window.ended()) return false;
+        if (_hasDialogue && events && !_conversation.recordSpokenReply(*events)) return false;
+        if (_hasDialogue && _conversation.paymentPhase()) {
+            if(_conversation.paymentPresentationPending()) {Common::String text;if(!_conversation.paymentPresentation(archive,text)) return false;return show(archive,text,frame,events);}
+            _stage=3;return input(archive,frame);
+        }
+        if (_hasDialogue && _conversation.trainingPending()) {_stage=3;return true;}
         if (!_closing) {_stage=3;return input(archive,frame);}
         if (!_endShown) {
             _endShown=true;
@@ -539,6 +664,7 @@ private:
                 if (_window.waiting()) {_stage=2;return true;}
             }
         }
+        if (_hasDialogue && events && !_conversation.recordSpokenReply(*events)) return false;
         if (!_footerShown) {
             Common::Array<byte> raw,footer;if (!archive.read("NA/SRTN.NPC.TALK",raw) || raw.size()!=32831) return false;
             uint i=0xf9a;while (i<raw.size() && raw[i]) footer.push_back(raw[i++]);if (i==raw.size()) return false;
@@ -556,7 +682,7 @@ private:
     byte _stage,_type,_map,_slot;
     bool _closing,_endShown,_footerShown,_hasDialogue,_hasWindow,_refused;
     Common::String _query;Conversation _conversation;TextWindow _window;HgrFrame _underlay;TempleService _temple;InnService _inn;
-    byte _memberMode,_waitingSlot;uint16 _pickupFee;PartySelection _selection;byte _vendorRole;bool _merchantSale;uint16 _merchantIndex;
+    byte _memberMode,_waitingSlot;uint16 _pickupFee;PartySelection _selection;byte _vendorRole;bool _merchantSale;uint16 _merchantIndex;byte _trainingMember;SoundEvents *_sounds;
 };
 } }
 #endif

@@ -15,10 +15,10 @@ public:
             LightState &light, VisibilityMask &visibility, WorldScene &output) {
         World nextWorld(world); WorldStory nextWindow(window); PresentationState nextPresentation = presentation;
         LightState nextLight = light; VisibilityMask nextVisibility = visibility; WorldScene scene;
-        if (!nextWindow.apply(nextWorld,story) ||
-            !WorldPresentation::run(nextWorld,actors,visibility.cells(),187,nextPresentation,scene,&nextWindow) ||
-            !prepareSceneLighting(nextWorld,lighting,sector,appearance,extraLight,nextLight,nextVisibility,&nextWindow) ||
-            !nextWindow.captureRecords(nextWorld)) return false;
+        if (!nextWindow.apply(nextWorld,story)) {warning("Native scene story failed");return false;}
+        if (!WorldPresentation::run(nextWorld,actors,visibility.cells(),187,nextPresentation,scene,&nextWindow)) {warning("Native scene presentation failed");return false;}
+        if (!prepareSceneLighting(nextWorld,lighting,sector,appearance,extraLight,nextLight,nextVisibility,&nextWindow)) {warning("Native scene lighting failed");return false;}
+        if (!nextWindow.captureRecords(nextWorld)) {warning("Native scene records failed");return false;}
         world.adoptState(nextWorld); window = nextWindow; presentation = nextPresentation;
         light = nextLight; visibility = nextVisibility; output = scene; return true;
     }

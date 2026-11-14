@@ -92,6 +92,14 @@ public:
         if (!_ready || column >= 48 || row >= 48) return false;
         tile = _state.terrain[row * 48 + column]; return true;
     }
+    // D1EB..D20C samples through a linear 48-column loaded-map address.
+    // Keep signed column carry into adjacent rows; this is not world wrapping.
+    bool lightingSample(const World &world,int column,int row,byte &tile) const {
+        if (!matchesWorld(world)) return false;
+        const int offset=(int(byte(world.y()-_top))+row-5)*48+int(byte(world.x()-_left))+column-8;
+        if (offset<0 || offset>=2304) return false;
+        tile=_state.terrain[offset];return true;
+    }
     bool project(const World &world, Common::Array<byte> &output) const {
         if (!world.ready() || world.mapType() != _type || world.mapId() != _map) return false;
         Common::Array<byte> next; next.resize(187);
@@ -103,6 +111,15 @@ public:
         if (!_ready || !world.ready() || world.mapType() != _type || world.mapId() != _map) return false;
         const byte *tables = world.currentTables()->data();
         memcpy(_state.objects,tables + 1024,256); memcpy(_state.actors,tables + 1280,256); return true;
+    }
+    // Authored Keep65 proximity revelation. The unused spawn byte retains
+    // the one-shot flag; NPC0 supplies the source's final presentation sprite.
+    bool revealKeep(World &world,bool &changed) {
+        changed=false;if (!matchesWorld(world)) return false;
+        if (_map!=65 || world.x()<21 || world.x()>=28 || world.y()<17 || world.y()>=24 || !(_state.spawns[4]&128)) return true;
+        _state.spawns[4]>>=1;_state.actors[2]=166;
+        byte *tables=world._states[world._current].tables.data();tables[1540]=_state.spawns[4];tables[1282]=166;
+        changed=true;return true;
     }
     const StoryMapState *state() const { return _ready ? &_state : nullptr; }
     bool save(Common::WriteStream &output) const {

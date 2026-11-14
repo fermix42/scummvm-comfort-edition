@@ -10,6 +10,8 @@ namespace Native {
 class Party {
     friend class EquipmentActions;
     friend class InnMembership;
+    friend class Recruitment;
+    friend class TrainingService;
 public:
     Party() : _ready(false) {}
     bool ready() const { return _ready; }
