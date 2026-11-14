@@ -77,6 +77,9 @@ inline bool parseDialogueResponse(const Common::Array<byte> &text, uint start,
 	if (!findDialogueText(text, start, pattern.data(), pattern.size(), 252, mode < 2, header)) return false;
 	next.headerOffset = header;
 	if (dialogueByte(text, header) == 0xba) {
+        const byte separator=0xae;uint headerBody=0;
+        if (!findDialogueText(text,header,&separator,1,252,true,headerBody) || !headerBody) return false;
+        const uint headerEnd=headerBody-1;
 		uint value = 0;
 		if (findDialogueTag(text, header, 0xd3, 0xb1, 0xae, value) && !dialoguePair(text, value, next.exact)) return false;
 		uint changesStart = header;
@@ -89,12 +92,16 @@ inline bool parseDialogueResponse(const Common::Array<byte> &text, uint start,
 		// bit predicate when present; direct assignments restart at the header.
 		for (uint i = 0; i < 3; ++i) {
 			if (!findDialogueTag(text, changesStart, 0xd0, 0xb2, 0xae, value)) break;
+            // Two shipped JOB headers end with an unconfigured bare $P2.
+            // Never consume their body separator/text as a quest-field pair.
+            if (value>headerEnd || headerEnd-value<2) break;
 			if (!dialoguePair(text, value, next.bitChanges[i])) return false;
 			changesStart = value;
 		}
 		uint assignmentsStart = header;
 		for (uint i = 0; i < 2; ++i) {
 			if (!findDialogueTag(text, assignmentsStart, 0xd0, 0xb1, 0xae, value)) break;
+            if (value>headerEnd || headerEnd-value<2) break;
 			if (!dialoguePair(text, value, next.assignments[i])) return false;
 			assignmentsStart = value;
 		}

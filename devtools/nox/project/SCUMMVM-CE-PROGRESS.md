@@ -1,3 +1,57 @@
+# Dialogue486 implementation integrated; bounded coverage - November14
+
+Parser optional effect pairs bounded before body separator; two authored bare
+P2 JOB tags now retain reply without consuming field174/body as effects.
+Two direct JOB/NAME/Conversation codecs and six valid teacher headers pass.
+Actual Town1 actor128 opening Y/1 fee,gold10->9,JOB equality,modal codec,NAME,
+BYE andclose pass. Whole batch remains IN PROGRESS:final scratch expected90,
+actual255. Static cause:World.refreshObjectLookup replaces fields80..255 during
+travel before input; fixture declared sentinel before travel,so expectation is
+invalid. Town9 actualmodal untested; directpacket passed. No changed outcome
+injection. Three clean builds486/486b/486c and three native runs retained; two
+unsuccessful corrective runs exhaust budget. NO MORE486 native reruns now.
+Source/exe frozen dialogue-boundary486c receipt,not full acceptance claim.
+No audio/old training suite/campaign. Service census76maps/439packets,seven
+teachers/six packets uses supported price/skill owners; no initialrole5.
+Next genuine gaps found:WorldOpenInteraction aborts instead of shared source
+Search selector0 (raw inventory8A92+05FA); traversal scripted tile touch is
+sourceF210/F7A3 barrier protection/damage,not arbitrary script execution.
+Implement complete shared interaction owner with source contracts next.
+Canonical here,byte-identical recovery CE devtools/nox/project.
+
+# Dialogue486b boundary localized - IN PROGRESS
+
+486b build0/0 2m50.83; diagnostic run proves actual JOB input/reply equality
+succeeds. Failure is later codec/NAME/closing, not parser JOB or payment. Previous
+report label covered too much; now label each remaining operation. Second/final
+corrective486c diagnostic batch; if unsuccessful stop this native test loop,
+retain bounded parser/direct header evidence and continue independent work.
+
+# Dialogue486 focused failure - IN PROGRESS
+
+First native batch reached actual scheduled modal0 after source Y/1 payment,
+then failed JOB input/reply comparison. Direct two JOB and six teacher headers
+passed; no production parser failure established. Build486 passed0/0 in2m49.14.
+One diagnostic corrective486b run authorized by observed failure; add exact
+stage/reply failure evidence before deciding code/fixture correction. No old suite.
+
+# Active dialogue boundary486 - IN PROGRESS
+
+Readonly source census486:76 map definitions,439 hash-verified dialogue packets,
+3227 syntactic header candidates; seven initial role17 teachers/six unique packets
+all assign supported price/skill masks. No initial role5 or complete field21
+producer; dynamic/imported context remains qualified. No new service invented.
+Two reachable authored JOB optional P2 tags end at body separator (L001 actor128,
+L005 actor8). Native parser now bounds optional pairs to header and ignores only
+incomplete trailing pair, preserving reply/valid effects; explicit CE grammar
+repair, no accidental field174 scratch write. Existing invalid-effect guards stay.
+Contract ENGINE-DIALOGUE-BOUNDARY-CONTRACT. Focused batch:both direct JOB headers,
+six complete TRAI headers,actual scheduled Town1/9 NPC admission,opening Y/1 fee,
+JOB reply equality,modal codec,NAME/BYE/close. Setup gold10,field174 sentinel90,
+scheduler/current legal adjacent floor before tested input. No campaign,earned
+recruitment,normal cold/session or old training/audio suite. One build/batch next.
+Canonical files here; mirror CE devtools/nox/project byte-identically.
+
 # Combat preferences485 integrated - November14
 
 First build485 passed0 warnings/errors2m50.28s; first focused batch VERIFIED.

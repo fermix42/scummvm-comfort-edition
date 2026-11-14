@@ -1149,7 +1149,9 @@
       "original_evidence": [],
       "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
       "fallback_dependencies": [],
-      "blockers": []
+      "blockers": [],
+      "dialogue486_evidence": "SCUMMVM-CE-DIALOGUE-BOUNDARY486-VERIFICATION.json",
+      "dialogue486_scope": "Two trailing optional-tag repairs implemented;directheaders and firstmodal operations pass;wholebatch remains IN PROGRESS due setup scratch expectation,secondmodal untested."
     },
     {
       "id": "npc.06",
@@ -3943,7 +3945,7 @@
     },
     {
       "path": "engines/nox/native_dialogue_rules.h",
-      "sha256": "a16e964c0f05c3f415c80493502ff2418b83ad59b4d193810e6dadb1c9c6f222",
+      "sha256": "7222b94089768f9bed6b91e86da6155d82b9b0f1e27adffc5e1f9bda499bd94f",
       "includes": [
         "nox/native_dialogue.h",
         "nox/native_gates.h"
@@ -5130,7 +5132,7 @@
     },
     {
       "path": "engines/nox/native_startup_host.h",
-      "sha256": "af9ebc8e22e121ffeddf8570d9dc0c2dbd989e46f8f19d3be607ff6c9718dd97",
+      "sha256": "66ed9eda2a42ea941d727d036f6727c0c184a8123cd53fe819433ea447dba374",
       "includes": [
         "nox/native_weapon_ready_validation.h",
         "nox/native_legacy_snapshot.h",
@@ -7255,8 +7257,8 @@
     }
   },
   "last_milestone": {
-    "owner": "combat preferences485",
-    "evidence": "SCUMMVM-CE-COMBAT-PREFERENCES485-VERIFICATION.json"
+    "owner": "dialogue boundary486 implementation,qualified focused coverage",
+    "evidence": "SCUMMVM-CE-DIALOGUE-BOUNDARY486-VERIFICATION.json"
   },
   "overall": {
     "fully_implemented_top_level_domains": 1,
@@ -7270,7 +7272,7 @@
   },
   "current_subsystem": {
     "status": "IN PROGRESS",
-    "scope": "Authored service and script producer closure; preserve accepted control/audio owners."
+    "scope": "Shared Open/Search and traversal barrier interaction gaps;486 reruns deferred."
   },
   "count_definition": "native_implemented counts IMPLEMENTED; CE_REPLACEMENT is separately reported. VERIFIED applies only to row evidence scope; no overall completion percentage."
 }
