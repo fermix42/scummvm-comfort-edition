@@ -3223,6 +3223,28 @@
       "production_connection": "Typed WorldInput fullclock/notice andhostSpaceWait ->finishTurn ->ownedtravel;selectedportal outranksoriginhazards. Startuptransactionheap preservesvaluecopy/commit.",
       "fallback_dependencies": [],
       "blockers": []
+    },
+    {
+      "id": "world.13",
+      "subsystem": "world",
+      "behavior": "Nine orb destinations select their own aligned record, including bound X0",
+      "implementation": "CE_REPLACEMENT",
+      "verification": {
+        "status": "VERIFIED",
+        "scope": "63 policies,45 codecs,9 actual Use/Cast selections;full map travel/cold/session not claimed.",
+        "evidence": "SCUMMVM-CE-ORB-NAVIGATION492-VERIFICATION.json"
+      },
+      "native_owners": [
+        "engines/nox/native_world_navigation.h",
+        "engines/nox/native_inventory_window.h",
+        "engines/nox/native_world_cast.h"
+      ],
+      "original_evidence": [
+        "SCUMMVM-CE-ENGINE-ORB-NAVIGATION-CONTRACT.md"
+      ],
+      "production_connection": "InventoryWindow Use binds authored orb135..143 ->WorldNavigation ->WorldCast63 chooses same record ->existing WorldInput travel owner.",
+      "fallback_dependencies": [],
+      "blockers": []
     }
   ],
   "additional_unclassified_scope": [
@@ -5250,7 +5272,7 @@
     },
     {
       "path": "engines/nox/native_startup_host.h",
-      "sha256": "0292f4e6c796005856a7dadcde3665a039f2460b7ea1fca42fe6b8f2ffcfaeea",
+      "sha256": "b37a809dc80515f5d0254d4cf186d74b50c12ffd052d690b87f7f15fc65dd990",
       "includes": [
         "nox/native_weapon_ready_validation.h",
         "nox/native_legacy_snapshot.h",
@@ -7017,7 +7039,7 @@
     },
     {
       "path": "engines/nox/native_world_navigation.h",
-      "sha256": "7193394ac927ac4705dcd7a2122931bcc19538052b627d48195d37e656efa04a",
+      "sha256": "096fa0e21c0f8cdbe251f0dc20a93c077ada3cef9b870847eb8397006f61f021",
       "includes": [
         "nox/resources.h"
       ],
@@ -7283,14 +7305,14 @@
       "ce_replacements": 3
     },
     "world": {
-      "known_required": 12,
+      "known_required": 13,
       "native_implemented": 1,
-      "verified": 1,
+      "verified": 2,
       "partial": 11,
       "missing": 0,
       "unknown_required_rows": 0,
       "additional_unclassified_scope": 1,
-      "ce_replacements": 0
+      "ce_replacements": 1
     },
     "simulation": {
       "known_required": 8,
@@ -7394,8 +7416,8 @@
     }
   },
   "last_milestone": {
-    "owner": "portal491 andstartup stackfix",
-    "evidence": "SCUMMVM-CE-PORTAL491-VERIFICATION.json"
+    "owner": "orb492 aligned destination selection",
+    "evidence": "SCUMMVM-CE-ORB-NAVIGATION492-VERIFICATION.json"
   },
   "overall": {
     "fully_implemented_top_level_domains": 1,
@@ -7409,7 +7431,7 @@
   },
   "current_subsystem": {
     "status": "IN PROGRESS",
-    "scope": "Localedge outwardexit admission,then remainingnative source/lifecycleclosure."
+    "scope": "Remaining authored service/admission andscript producer closure,then shared lifecycle/graphics reconciliation."
   },
   "count_definition": "native_implemented counts IMPLEMENTED; CE_REPLACEMENT is separately reported. VERIFIED applies only to row evidence scope; no overall completion percentage."
 }

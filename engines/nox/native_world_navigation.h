@@ -40,12 +40,10 @@ public:
     }
     NavigationResult choose(byte orb,NavigationPoint &point) const {
         if (!_ready || orb>=9) return kNavigationUnsupported;
-        uint index=orb*4,remaining=4;
-        // The original scan retains its incremented index when X is zero.
-        // Preserve that defined read order; bound the original cross-array read.
-        while (remaining && !_orbs[index]) {++index;--remaining;}
-        if (!remaining) return kNavigationUnbound;
-        if (index+3>=36) return kNavigationUnsupported;
+        // CE destinations belong to the selected orb's four-byte record.
+        // A bound X=0 must not shift reads into another orb or past the array.
+        const uint index=orb*4;
+        if (!(_orbs[index] || _orbs[index+1] || _orbs[index+2] || _orbs[index+3])) return kNavigationUnbound;
         point=NavigationPoint(_orbs[index+3],_orbs[index+2],_orbs[index],_orbs[index+1]);return kNavigationSelected;
     }
     bool save(Common::WriteStream &out) const {

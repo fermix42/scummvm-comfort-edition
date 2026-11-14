@@ -1,0 +1,34 @@
+{
+  "status": "VERIFIED",
+  "scope": "Aligned nine-orb selection CE replacement; scoped owner/UI/codec verification, not full map travel or engine completion.",
+  "parent_commit": "b7610bbb602",
+  "executable_sha256": "bffaeae5af8135c331aa98d3a6bb1169f2912bde5fcd9b111103053f412c9ad5",
+  "contract": "SCUMMVM-CE-ENGINE-ORB-NAVIGATION-CONTRACT.md",
+  "build": "492b:0 warnings/0 errors,2m52.96s",
+  "failures": [
+    "492 first compile: unqualified Native helper name; 12.43s/one error, no run.",
+    "Early checker file-copy attempt met linker file lock; no executable launched. Isolated empty492 directory retained."
+  ],
+  "focused_validation": "orb\taligned_policies=63\tcodecs=45\tactual_use_cast=9\tfull_map_travel=0\tcampaign=0\taudio_suite=0\n",
+  "source_manifest": {
+    "path": "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-orb492b-focused\\verification.json",
+    "sha256": "215a4ea1193b29d6082c59fd8b4c36535c71a9e8561e41b3fadb1e169e6f62da"
+  },
+  "controlled_setup": "Nine separate NewGame contexts; Surface X0/Y32..40 world record, one actual authored orb135..143, spell63 shortcut0/requirement0. No HP/MP/stat outcomes injected; actual InventoryWindow Use then core codec, actual WorldCast key0/Return, modal codec then orb digit1..9. Party/inventory and clock unchanged. Direct records additionally cover nonzeroX/underworld/rebind/refusal/unbound and isolation.",
+  "limitations": [
+    "No full WorldInput map-travel, ordinary cold save/session, earned approach, campaign, audio or old navigation-suite claim.",
+    "Existing all-zero destination remains the unbound sentinel. No new bitmap/schema.",
+    "Historical original shifted-index expectations intentionally superseded for zero-X selection only. Compressed map outer-edge entry is a distinct existing WorldStory boundary; this batch does not qualify it."
+  ],
+  "commands": [
+    "powershell.exe -NoProfile -ExecutionPolicy Bypass -File ./run-build-release-cleanenv.ps1 -NoxNativeOnly",
+    "python conversion/check_orb492.py --label 492b"
+  ],
+  "artifacts": {
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-binary\\scummvm-native-orb492b.exe": "bffaeae5af8135c331aa98d3a6bb1169f2912bde5fcd9b111103053f412c9ad5",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-binary\\native-orb492b-source.zip": "df916fda296f3ce147cd70fe72a5aebc041777c283d94ad606c6e7bd487262cf",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-orb492b-focused\\verification.json": "215a4ea1193b29d6082c59fd8b4c36535c71a9e8561e41b3fadb1e169e6f62da",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-orb492-build.log": "045880906b7991958429f46eab6a45e27584f46065575d304aa6152151c7f050",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-orb492b-build.log": "d6eb0d9f30e95783e76f48f22ba9557429830cc9e73f37e0d0c2f7ba2647f0fb"
+  }
+}

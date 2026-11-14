@@ -1,3 +1,7 @@
+Orb492 bind/choose mismatch retired;9 actual authored Use/Cast selections pass. Fullmap/cold/session qualification separate. Remaining service/script producer audit continues.
+
+Orb492: local exit extension withdrawn (ordinary path not established). Schedule row0 is route identity, not service role. Native orb X0 selection is a real bind/choose mismatch; see ENGINE-ORB-NAVIGATION-CONTRACT.
+
 Portal491:ordinaryturn connections,map0/transportpolicy andorigin-effectpriority implemented. Realstartupstackoverflow fixed822792->388296bytes withoutchanging1MBreserve. Localedgeoutwardexitthresholdextension next492.
 
 Location489: B-LOCATION nativegap retired via explicit CE Town/Castle categories. Historical names/reachability remainUNKNOWN parity. Next genuine gaps:ordinary pressureplate/portal connections EA35/F117.

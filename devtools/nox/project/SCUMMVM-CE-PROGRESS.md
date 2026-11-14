@@ -1,3 +1,47 @@
+# Orb492 integrated - VERIFIED within scoped contract
+
+492b build0/0 2m52.96s; first executable batch passed63policies,45codecs,
+9actual InventoryWindow Use ->corecodec ->WorldCast digit/caster ->modalcodec
+->orb selection. Nine authored135..143 andsource0-cost spell63; declared X0
+contexts, no expected outcome injection or HP/MP mutations. Direct policy
+also covers ordinaryX/underworld/rebinding/refusal/unbound/record isolation.
+Native choose now returns the selected aligned record; accidental zero-scan
+cross-record reading is CE_REPLACEMENT. NNAV1 and all-zero sentinel unchanged.
+Source/exe frozen orb492b; receipt ORB-NAVIGATION492-VERIFICATION. No full map
+travel/normalcold/session/earned/campaign/audio/old navigation suite claim.
+First compile namespace error corrected; early checker copy met final-link
+lock and launched nothing. No extra native run. Existing outer compressed
+map-entry WorldStory boundary is separate and remains explicitly unqualified.
+Next: remaining authored service offer/admission andscript producer closure,
+then shared lifecycle/graphics scope reconciliation. Continue autonomously.
+
+# Orb492 compile correction - IN PROGRESS
+
+First build stopped at compile (12.43s,0warnings/1error): focused helper in
+Native namespace called unqualified by NoxEngine. Add Native:: qualification;
+no native run occurred. Corrective clean integration build492b required.
+
+# Orb navigation492 - IN PROGRESS
+
+Continue autonomously after user questions; latest owner clarification.
+491c and commit b7610bbb602 accepted; no old suite rerun. Proposed local edge
+exit extension withdrawn: authored geometry did not establish an ordinary
+clear-floor path to physical48. No exit behavior change is justified.
+NpcScheduler apply/activate write actor4,6,7, not service-role actor5. Raw
+schedule row0 census is route identity, not a role5 service producer. Existing
+initial-role486 census and dynamic/imported qualifications remain unchanged.
+Real source-supported gap: InventoryWindow can bind nine authored orbs at X0;
+WorldNavigation.choose scans into subsequent bytes and corrupts the destination
+or rejects the ninth orb. Contract ENGINE-ORB-NAVIGATION-CONTRACT defines CE
+aligned-record selection, existing all-zero unbound and unchanged NNAV1.
+Implement owner, one focused UI/codec batch and one clean integration build.
+No campaign/audio/old suite. Continue remaining source/lifecycle work afterward.
+
+Append-only488 setup correction: fixture wrote HP word2=100 and word4=100.
+Word4 is not maxHP: byte4 is mana and byte5 was cleared. The old HP/maxHP label
+is inaccurate; HP-based barrier assertions are unaffected. Frozen488 artifacts
+remain unchanged; no extra run or new workflow qualification is claimed.
+
 # Portal491 andstartup stack defect integrated - November14
 
 Final491c build0/0 2m53.75;focusedbatch VERIFIED:236policies/59actualrecords,

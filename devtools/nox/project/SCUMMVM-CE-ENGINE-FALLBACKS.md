@@ -1,3 +1,5 @@
+Orb492 CE_REPLACEMENT: select aligned chosen four-byte orb record,not original accidental incremented zero-scan index. Existing NNAV1/unbound sentinel/normal nonzero destinations unchanged;no CPU fallback.
+
 Portal491:uncompressedmap presentation-only outsidegrid samplesrepeatnearestauthorededge;physical/AIgeometrybounded. Originaloverflowart is explicitCEreplacement. Typedportal travel andevents;noCPUfallback. Startupheaptransactions preserve native semantics.
 
 Location489 explicitly replaces retained scratch naming with CE Town/Castle categories for exact three nameless records. No invented source names or CPU fallback. Historical names remainUNKNOWN parity.
