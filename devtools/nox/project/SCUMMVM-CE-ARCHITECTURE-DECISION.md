@@ -480,3 +480,14 @@ first canceled miscellaneous purchase: selecting kind2 must not make later Drop
 unsupported or subtract startup-code bytes. Early NGST5 partial contexts migrate
 missing selector to255 and missing quantity to0. Actual known values, including
 legacy imports, remain unchanged. This is defined native migration behavior.
+
+## Native retained-location migration - November 14, 2026
+
+NWLD2 persists the semantic UM97 arrival anchor so movement does not rename the
+location. NWLD1 never recorded that identity; loading an older native save uses
+the original resident default from GAME7508 instead of guessing a historical
+entrance. This is an explicit CE migration, not exact reconstruction of missing
+original scratch state. Legacy machine imports can recover matching authored
+names from their retained caption data without executing original instructions.
+Three nameless metadata records remain UNKNOWN, not fabricated native labels.
+INFORMATION475 verification records the qualified codec evidence and limits.

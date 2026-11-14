@@ -33,7 +33,11 @@ not a new test platform. Refreshing it must not overwrite later evidence edits.
    proves missing world N dispatch, no Party swap owner. This affects inventory
    ownership, battle formation/Quick roles, recruitment and saves. Reuse current
    selection, records and UI architecture. Contract: ENGINE-PARTY-ORDER-CONTRACT.
-2. **World command and information interface. NOT STARTED.** Resolve Tab roster,
+2. **World command and information interface. IN PROGRESS.** Known information
+   owner integrated475:23 known native behaviors,17 fresh focused verified,
+   three additional caption cases UNKNOWN. Receipt INFORMATION475-VERIFICATION.
+   Continue independent remaining command/party work; keep source evidence and
+   later integration qualifications explicit. Resolve Tab roster,
    Look, location, help, quests, icon, torch and W against original routines and
    existing semantics. N's owner above is a dependency, not a claim to complete
    this broad subsystem. Keep approved native inventory access. Separate genuine

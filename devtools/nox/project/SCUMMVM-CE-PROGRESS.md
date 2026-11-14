@@ -1,4 +1,65 @@
-# Source-driven milestone: native party ordering implemented — November14
+# Information475 source-driven milestone - known implementation integrated
+
+CE parent commit1445407f0abe2a18e069f055bf5a239bdb6839cf, branch
+codex/ce-2026.4.0-consolidated. G/L/?// now have native data, input and presentation
+owners.23 known behaviors implemented,17 focused verified;3 additional nameless
+caption cases remain UNKNOWN (TOWN map2,CSTL4/5). This is not full information,
+interface, engine or D3-D5/campaign completion. Receipt INFORMATION475-VERIFICATION
+lists six remaining focused/integration qualifications rather than promoting them.
+
+One clean native-only integration build:0warnings,0errors,2m46.72s. One focused
+batch passed first run:1792 generic descriptions,169 original quest-helper state
+cases,96 source Look cases including22 named document bodies, actual G/L/help/
+empty-quest input/cancel/frame and complete-core/RNG preservation. Actual native
+WorldCommand movement preserves UM97 entrance caption; NWLD2 roundtrip and NWLD1
+explicit authored-default migration pass. Native core roundtrip also passes.
+No campaign/gameplay discovery, audio suite or broad old regression suite ran.
+
+Source fixtures execute bounded original955E decoder,98E4 condition helper and
+Look selector8 offline; no expected result injection. Only preloaded resource
+loader return is trapped; named-document original branch stops before display.
+Actual source code is never executed in native production. Preserved source,
+binary, fixture/report/build hashes are in INFORMATION475 verification. No build
+or game is active. Audio473 files and accepted474b artifacts remain preserved.
+
+The matrix now includes explicit UNKNOWN caption rows and a newly identified
+world A Attack fallthrough (B-ATTACK, combat-owned), without switching to combat.
+Next independent work: contract/implement remaining party/command infrastructure
+Tab roster and inventory handoff, torch, chosen icon lifetime and W wait. Read
+actual existing owners/source before edits; one coherent batch, no reactive play.
+Canonical recovery docs are mirrored byte-identically under CE devtools/nox/project.
+
+# Active source-driven owner: world information475 - IN PROGRESS
++
++Current committed CE HEAD1445407f0abe2a18e069f055bf5a239bdb6839cf, branch
++codex/ce-2026.4.0-consolidated. Party-order474b is committed/frozen; accepted
++audio473 remains unchanged. INFORMATION-CONTRACT defines24 behaviors before
++production edits. Actual source inventory:1792 generic Look strings,51 quests,
++all special Look cases,22 named document IDs and authored help388bytes.
++
++In-flight code adds InformationCatalog/Input, G/L/?// dispatch, source information
++frame and NWLD2 retained arrival anchor. World migration accepts NWLD1; its missing
++UM97 historical name uses authored default Depths of Vacous: L1. Legacy machine
++import can recover the anchor by matching its retained caption to authored names.
++Three nameless directory captions remain UNKNOWN (TOWN2 meaning TOWN map2,
++CSTL maps4/5), explicitly outside completion claims. No invented display labels.
++
++Build475 is running via required cleanenv -NoxNativeOnly; log
++ce-native-information475-build.log, exec session43468. Poll this existing build;
++do not start another. After success run python conversion/check_information475.py
++once. Source fixtures prepared by prepare_information475.py:1792 descriptions,
++169 quest field cases,96 Look branches. These execute bounded original955E,
++98E4 and selector8 routines offline only; no game session/campaign discovery.
++The source fixture correction used actual map-family records before native
++validation; no failed native test or exploratory game run has occurred for475.
++
++Next: inspect build result, focused batch, correct direct defects if any within
++two corrective reruns; freeze scoped evidence/counts and commit coherent owner.
++Then continue command interface (Tab roster, torch, icon, W) from source contracts.
++Do not run audio suite, campaign traversal, earned acceptance or broad old suites.
++Current production changes are unbuilt/unverified until475 integration completes.
++
++# Source-driven milestone: native party ordering implemented — November14
 
 Current CE branch codex/ce-2026.4.0-consolidated. Audit/contract commit1d3b4095a9c;
 accepted audio473 source/build-selector baseline committed54714c3f6c2 without

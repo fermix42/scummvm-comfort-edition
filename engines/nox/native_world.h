@@ -20,7 +20,7 @@ class WorldPresentation;
 // Changed maps live here as records; no external session image is authoritative.
 class World {
 public:
-	explicit World(HdvArchive &archive) : _archive(archive), _current(-1), _type(0), _x(0), _y(0), _onFoot(true) {
+	explicit World(HdvArchive &archive) : _archive(archive), _current(-1), _type(0), _x(0), _y(0), _onFoot(true), _locationKnown(false), _locationX(0), _locationY(0) {
 		memset(_fields, 0, sizeof(_fields)); memset(_loaded, 0, sizeof(_loaded));
 	}
 	bool initialize(byte type, byte id, byte x, byte y, const byte *fields, uint length, bool onFoot = true) {
@@ -37,6 +37,12 @@ public:
         if (!ready()) return Common::String();
         static const char *names[]={"SURF","UM","RUIN","TOWN","TOWN2","CSTL","KEEP"};
         return Common::String("NA/DATA.MAP.")+names[_states[_current].family];
+    }
+    const MapDefinition *mapDefinition() const {
+        return ready()?_resources[_states[_current].family].find(mapId()):nullptr;
+    }
+    bool locationAnchor(byte &x,byte &y) const {
+        if (!ready() || !_locationKnown) return false;x=_locationX;y=_locationY;return true;
     }
 	byte coordinateSector() const { return byte((_y & 240) | (_x >> 4)); }
 	byte field(byte index) const { return _fields[index]; }
@@ -245,25 +251,27 @@ public:
 
 	bool save(Common::WriteStream &output) const {
 		if (!ready() || _states.size() > 76) return false;
-		output.writeUint32BE(MKTAG('N','W','L','D')); output.writeUint16LE(1);
+		output.writeUint32BE(MKTAG('N','W','L','D')); output.writeUint16LE(2);
 		output.writeByte(_type); output.writeByte(mapId()); output.writeByte(_x); output.writeByte(_y); output.writeByte(_onFoot ? 1 : 0);
 		output.write(_fields, sizeof(_fields)); output.writeUint16LE(_states.size());
 		for (uint i = 0; i < _states.size(); ++i) {
 			output.writeByte(_states[i].family); output.writeByte(_states[i].id);
 			output.write(_states[i].tables.data(), _states[i].tables.size());
 		}
+        output.writeByte(_locationKnown);output.writeByte(_locationX);output.writeByte(_locationY);
 		return !output.err();
 	}
 
 	bool load(Common::SeekableReadStream &input) {
 		World candidate(_archive);
-		if (input.size() - input.pos() < 269 || input.readUint32BE() != MKTAG('N','W','L','D') || input.readUint16LE() != 1) return false;
+		if (input.size() - input.pos() < 269 || input.readUint32BE() != MKTAG('N','W','L','D')) return false;
+        const uint version=input.readUint16LE();if (version<1 || version>2) return false;
 		candidate._type = input.readByte(); const byte id = input.readByte();
 		candidate._x = input.readByte(); candidate._y = input.readByte(); const byte foot = input.readByte();
 		if (foot > 1 || input.read(candidate._fields, sizeof(candidate._fields)) != sizeof(candidate._fields)) return false;
 		candidate._onFoot = foot != 0;
 		const uint count = input.readUint16LE();
-		if (!count || count > 76 || input.size() - input.pos() != int64(count) * 1794) return false;
+		if (!count || count > 76 || input.size() - input.pos() != int64(count) * 1794+(version==2?3:0)) return false;
 		const int activeFamily = familyFor(candidate._type); if (activeFamily < 0) return false;
 		for (uint i = 0; i < count; ++i) {
 			ChangedMap map; map.family = input.readByte(); map.id = input.readByte();
@@ -275,17 +283,45 @@ public:
 			candidate._states.push_back(map);
 			if (map.family == activeFamily && map.id == id) candidate._current = i;
 		}
+        if (version==2) {
+            const byte known=input.readByte();if (known>1) return false;
+            candidate._locationKnown=known!=0;candidate._locationX=input.readByte();candidate._locationY=input.readByte();
+        }
+        // Version1 did not retain entrance identity. It cannot reconstruct a
+        // historical UM97 name after movement; use the authored default there.
 		if (!candidate.ready() || input.err() || input.pos() != input.size()) return false;
 		const MapDefinition *definition = candidate._resources[activeFamily].find(id);
 		if (!definition || (!definition->compressed && (candidate._x >= 48 || candidate._y >= 48))) return false;
 		_states = candidate._states; _current = candidate._current; _type = candidate._type;
 		_x = candidate._x; _y = candidate._y; _onFoot = candidate._onFoot;
+        _locationKnown=candidate._locationKnown;_locationX=candidate._locationX;_locationY=candidate._locationY;
 		memcpy(_fields, candidate._fields, sizeof(_fields));
 		for (uint i = 0; i < 7; ++i) { _resources[i] = candidate._resources[i]; _loaded[i] = candidate._loaded[i]; }
 		return true;
 	}
 
 private:
+    friend class LegacySnapshotData;
+    // Data-only legacy migration recovers the original retained name by
+    // matching authored UM97 entrance records. No CPU state is resumed.
+    bool restoreLocationCaption(const byte *caption,uint size) {
+        if (!ready() || !caption || !size) return false;if (mapId()!=97) return true;
+        uint length=0;while (length<size && caption[length]) ++length;
+        if (length==size) return false;
+        const MapDefinition *map=mapDefinition();if (!map || map->metadata.size()<24) return false;
+        uint at=23;
+        while (at<map->metadata.size() && map->metadata[at]!=255) {
+            if (map->metadata.size()-at<3) return false;
+            const byte x=map->metadata[at++],y=map->metadata[at++];const uint start=at;
+            while (at<map->metadata.size() && map->metadata[at]) ++at;
+            if (at==map->metadata.size()) return false;
+            bool same=at-start==length;
+            for (uint i=0;same && i<length;++i) same=(map->metadata[start+i]&127)==(caption[i]&127);
+            if (same) {_locationKnown=true;_locationX=x;_locationY=y;return true;}
+            ++at;
+        }
+        _locationKnown=false;return true; // Original default name, not a guessed entrance.
+    }
 	friend class ActorSpatialRules;
     friend class Recruitment;
 	friend class NpcWorldAction;
@@ -336,6 +372,7 @@ private:
 	void adoptState(const World &source) {
 		_states = source._states; _current = source._current; _type = source._type;
 		_x = source._x; _y = source._y; _onFoot = source._onFoot;
+        _locationKnown=source._locationKnown;_locationX=source._locationX;_locationY=source._locationY;
 		memcpy(_fields, source._fields, sizeof(_fields));
 		for (uint i = 0; i < 7; ++i) { _resources[i] = source._resources[i]; _loaded[i] = source._loaded[i]; }
 	}
@@ -396,6 +433,9 @@ private:
 			if (!_resources[family].stateTables(id, map.tables)) return false;
 			index = _states.size(); _states.push_back(map);
 		}
+        // Original residentLocation retains the UM97 entrance name while
+        // staying in that map. Movement and same-map refresh do not rename it.
+        if (!(ready() && mapId()==97 && id==97)) {_locationKnown=true;_locationX=x;_locationY=y;}
 		_current = index; _type = type; _x = x; _y = y; return true;
 	}
 	int objectAt(byte x, byte y) const {
@@ -413,6 +453,7 @@ private:
 	int _current;
 	byte _type, _x, _y;
 	bool _onFoot;
+    bool _locationKnown;byte _locationX,_locationY;
 };
 
 } // namespace Native

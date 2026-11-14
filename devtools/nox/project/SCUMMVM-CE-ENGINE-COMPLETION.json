@@ -295,10 +295,11 @@
       "id": "interface.05",
       "subsystem": "interface",
       "behavior": "Location display",
-      "implementation": "MISSING",
+      "implementation": "PARTIAL",
       "verification": {
-        "status": "NOT STARTED",
-        "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement."
+        "status": "IN PROGRESS",
+        "scope": "G native dispatch plus UM97 arrival name retained after actual WorldCommand move, NWLD2 roundtrip and NWLD1 authored-default migration verified. Three nameless records UNKNOWN; full caption/cold legacy coverage not claimed.",
+        "evidence": "SCUMMVM-CE-INFORMATION475-VERIFICATION.json"
       },
       "native_owners": [
         "engines/nox/native_world_input.h",
@@ -306,7 +307,8 @@
         "engines/nox/native_text_glyph.h",
         "engines/nox/native_text_window.h",
         "engines/nox/native_inventory_window.h",
-        "engines/nox/native_world_status.h"
+        "engines/nox/native_world_status.h",
+        "engines/nox/native_information_catalog.h"
       ],
       "original_evidence": [
         "GAME command table723F; conversion/ce-m4-world-command161-research.log; Manual pp41-42"
@@ -314,17 +316,19 @@
       "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
       "fallback_dependencies": [],
       "blockers": [
-        "B-COMMAND"
+        "B-LOCATION"
       ]
     },
     {
       "id": "interface.06",
       "subsystem": "interface",
       "behavior": "Directional Look descriptions including special tiles",
-      "implementation": "MISSING",
+      "implementation": "IMPLEMENTED",
       "verification": {
-        "status": "NOT STARTED",
-        "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement."
+        "status": "VERIFIED",
+        "scope": "Focused source-derived catalogs/Look branches/help text and modal restoration. Active multi-page quest input, document UI/cold and live large-actor producer coverage are separately unverified; see receipt.",
+        "evidence": "SCUMMVM-CE-INFORMATION475-VERIFICATION.json",
+        "executable_sha256": "b5e8116cd24adee014ce59f5ea0a9e4201faa89b077cb4b61afacf9b245e6791"
       },
       "native_owners": [
         "engines/nox/native_world_input.h",
@@ -332,25 +336,28 @@
         "engines/nox/native_text_glyph.h",
         "engines/nox/native_text_window.h",
         "engines/nox/native_inventory_window.h",
-        "engines/nox/native_world_status.h"
+        "engines/nox/native_world_status.h",
+        "engines/nox/native_information_catalog.h",
+        "engines/nox/native_information_input.h"
       ],
       "original_evidence": [
-        "GAME command table723F; conversion/ce-m4-world-command161-research.log; Manual pp41-42"
+        "SCUMMVM-CE-ENGINE-INFORMATION-CONTRACT.md",
+        "ce-native-information475-original.json (local original subroutine proof)"
       ],
-      "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
+      "production_connection": "native_engine -> runNativeStartup -> WorldInput::handle free G/L/?// -> InformationInput -> InformationCatalog/TextWindow; modal exclusion through atWorldCommand/wholeFrameMenu/save guard.",
       "fallback_dependencies": [],
-      "blockers": [
-        "B-COMMAND"
-      ]
+      "blockers": []
     },
     {
       "id": "interface.07",
       "subsystem": "interface",
       "behavior": "Help display",
-      "implementation": "MISSING",
+      "implementation": "IMPLEMENTED",
       "verification": {
-        "status": "NOT STARTED",
-        "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement."
+        "status": "VERIFIED",
+        "scope": "Focused source-derived catalogs/Look branches/help text and modal restoration. Active multi-page quest input, document UI/cold and live large-actor producer coverage are separately unverified; see receipt.",
+        "evidence": "SCUMMVM-CE-INFORMATION475-VERIFICATION.json",
+        "executable_sha256": "b5e8116cd24adee014ce59f5ea0a9e4201faa89b077cb4b61afacf9b245e6791"
       },
       "native_owners": [
         "engines/nox/native_world_input.h",
@@ -358,25 +365,28 @@
         "engines/nox/native_text_glyph.h",
         "engines/nox/native_text_window.h",
         "engines/nox/native_inventory_window.h",
-        "engines/nox/native_world_status.h"
+        "engines/nox/native_world_status.h",
+        "engines/nox/native_information_catalog.h",
+        "engines/nox/native_information_input.h"
       ],
       "original_evidence": [
-        "GAME command table723F; conversion/ce-m4-world-command161-research.log; Manual pp41-42"
+        "SCUMMVM-CE-ENGINE-INFORMATION-CONTRACT.md",
+        "ce-native-information475-original.json (local original subroutine proof)"
       ],
-      "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
+      "production_connection": "native_engine -> runNativeStartup -> WorldInput::handle free G/L/?// -> InformationInput -> InformationCatalog/TextWindow; modal exclusion through atWorldCommand/wholeFrameMenu/save guard.",
       "fallback_dependencies": [],
-      "blockers": [
-        "B-COMMAND"
-      ]
+      "blockers": []
     },
     {
       "id": "interface.08",
       "subsystem": "interface",
       "behavior": "Quest log pagination",
-      "implementation": "MISSING",
+      "implementation": "IMPLEMENTED",
       "verification": {
-        "status": "NOT STARTED",
-        "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement."
+        "status": "IN PROGRESS",
+        "scope": "Focused source-derived catalogs/Look branches/help text and modal restoration. Active multi-page quest input, document UI/cold and live large-actor producer coverage are separately unverified; see receipt.",
+        "evidence": "SCUMMVM-CE-INFORMATION475-VERIFICATION.json",
+        "executable_sha256": "b5e8116cd24adee014ce59f5ea0a9e4201faa89b077cb4b61afacf9b245e6791"
       },
       "native_owners": [
         "engines/nox/native_world_input.h",
@@ -384,16 +394,17 @@
         "engines/nox/native_text_glyph.h",
         "engines/nox/native_text_window.h",
         "engines/nox/native_inventory_window.h",
-        "engines/nox/native_world_status.h"
+        "engines/nox/native_world_status.h",
+        "engines/nox/native_information_catalog.h",
+        "engines/nox/native_information_input.h"
       ],
       "original_evidence": [
-        "GAME command table723F; conversion/ce-m4-world-command161-research.log; Manual pp41-42"
+        "SCUMMVM-CE-ENGINE-INFORMATION-CONTRACT.md",
+        "ce-native-information475-original.json (local original subroutine proof)"
       ],
-      "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
+      "production_connection": "native_engine -> runNativeStartup -> WorldInput::handle free G/L/?// -> InformationInput -> InformationCatalog/TextWindow; modal exclusion through atWorldCommand/wholeFrameMenu/save guard.",
       "fallback_dependencies": [],
-      "blockers": [
-        "B-COMMAND"
-      ]
+      "blockers": []
     },
     {
       "id": "interface.09",
@@ -2774,6 +2785,120 @@
       "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
       "fallback_dependencies": [],
       "blockers": []
+    },
+    {
+      "id": "interface.17",
+      "subsystem": "interface",
+      "behavior": "TOWN map2 nameless directory caption reachability and original retained-name semantics",
+      "implementation": "UNKNOWN",
+      "verification": {
+        "status": "NOT STARTED",
+        "scope": "Source directory has only23 metadata bytes. No fabricated name and no original reachability proof."
+      },
+      "original_evidence": [
+        "ce-native-information-source.json (local)",
+        "resident_location.inc DB60-DC16 (local reference)"
+      ],
+      "native_owners": [
+        "engines/nox/native_information_catalog.h",
+        "engines/nox/native_world.h"
+      ],
+      "production_connection": "G uses explicit unsupported result for these unresolved records; not counted as completed native functionality.",
+      "fallback_dependencies": [],
+      "blockers": [
+        "B-LOCATION"
+      ]
+    },
+    {
+      "id": "interface.18",
+      "subsystem": "interface",
+      "behavior": "CSTL map4 nameless directory caption reachability and original retained-name semantics",
+      "implementation": "UNKNOWN",
+      "verification": {
+        "status": "NOT STARTED",
+        "scope": "Source directory has only23 metadata bytes. No fabricated name and no original reachability proof."
+      },
+      "original_evidence": [
+        "ce-native-information-source.json (local)",
+        "resident_location.inc DB60-DC16 (local reference)"
+      ],
+      "native_owners": [
+        "engines/nox/native_information_catalog.h",
+        "engines/nox/native_world.h"
+      ],
+      "production_connection": "G uses explicit unsupported result for these unresolved records; not counted as completed native functionality.",
+      "fallback_dependencies": [],
+      "blockers": [
+        "B-LOCATION"
+      ]
+    },
+    {
+      "id": "interface.19",
+      "subsystem": "interface",
+      "behavior": "CSTL map5 nameless directory caption reachability and original retained-name semantics",
+      "implementation": "UNKNOWN",
+      "verification": {
+        "status": "NOT STARTED",
+        "scope": "Source directory has only23 metadata bytes. No fabricated name and no original reachability proof."
+      },
+      "original_evidence": [
+        "ce-native-information-source.json (local)",
+        "resident_location.inc DB60-DC16 (local reference)"
+      ],
+      "native_owners": [
+        "engines/nox/native_information_catalog.h",
+        "engines/nox/native_world.h"
+      ],
+      "production_connection": "G uses explicit unsupported result for these unresolved records; not counted as completed native functionality.",
+      "fallback_dependencies": [],
+      "blockers": [
+        "B-LOCATION"
+      ]
+    },
+    {
+      "id": "combat.14",
+      "subsystem": "combat",
+      "behavior": "World A Attack command direction and encounter initiation",
+      "implementation": "MISSING",
+      "verification": {
+        "status": "NOT STARTED",
+        "scope": "Manual A Attack and GAME932A original entry; current WorldInput recognized-command fallthrough. Source contract must resolve complete semantics before implementation."
+      },
+      "original_evidence": [
+        "GAME723F command table,932A",
+        "Manual Quick Reference A Attack"
+      ],
+      "native_owners": [
+        "engines/nox/native_world_input.h",
+        "engines/nox/native_encounter_admission.h"
+      ],
+      "production_connection": "Current A world command falls through Ignored; battle attack owner exists but does not replace world initiation.",
+      "fallback_dependencies": [],
+      "blockers": [
+        "B-ATTACK"
+      ]
+    },
+    {
+      "id": "persistence.10",
+      "subsystem": "persistence",
+      "behavior": "Migrate NWLD1 missing retained UM97 location identity to the authored default; NWLD2 persists arrival anchor",
+      "implementation": "CE_REPLACEMENT",
+      "verification": {
+        "status": "VERIFIED",
+        "scope": "Actual native World codec migration/roundtrip only; full Engine cold and legacy-name import not claimed.",
+        "evidence": "SCUMMVM-CE-INFORMATION475-VERIFICATION.json"
+      },
+      "original_evidence": [
+        "residentLocation DB8D/DC0A retained caption and GAME7508 default",
+        "NWLD1 source did not persist the identity"
+      ],
+      "native_owners": [
+        "engines/nox/native_world.h",
+        "engines/nox/native_information_catalog.h"
+      ],
+      "production_connection": "NewGame/ExplorationSave/PlayerSession native staged World load; InformationCatalog.location uses authored default when anchor is absent.",
+      "fallback_dependencies": [],
+      "blockers": []
     }
   ],
   "additional_unclassified_scope": [
@@ -2847,7 +2972,7 @@
         "nox/native_random.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_actor_motion.h",
@@ -2856,7 +2981,7 @@
         "nox/native_actor_intent.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_actor_move_phase.h",
@@ -2865,7 +2990,7 @@
         "nox/native_world.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_actor_movement_effects.h",
@@ -2874,7 +2999,7 @@
         "nox/native_world_presentation.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_actor_outside.h",
@@ -2884,7 +3009,7 @@
         "nox/native_graphics.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_actor_paint.h",
@@ -2893,7 +3018,7 @@
         "nox/native_graphics.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_actor_pursuit.h",
@@ -2902,7 +3027,7 @@
         "nox/native_actor_motion.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_actor_spatial.h",
@@ -2922,7 +3047,7 @@
           "text": "ActorSpatialResult() : effectiveTerrain(0), contactDirection(255), contactCell(255), status(kSpatialUnsupported),boundedLookup(false) { memset(blocked,0,4); }"
         }
       ],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_actor_step.h",
@@ -2931,14 +3056,14 @@
         "nox/native_graphics.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_actors.h",
       "sha256": "8c0e8211fcabd90034d90fe1cbd4690107cd86da8cb46a4c6944f533b21765af",
       "includes": [],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_armor_ready.h",
@@ -2984,7 +3109,7 @@
           "text": "Inventory nextInventory; if (!nextInventory.importRecords(records,1536)) return kArmorUnsupported;"
         }
       ],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_audio.h",
@@ -2996,7 +3121,7 @@
         "nox/speaker_audio.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_battle_advancement.h",
@@ -3006,14 +3131,14 @@
         "nox/native_battle_advancement_state.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_battle_advancement_state.h",
       "sha256": "1f48a655078b8cd8668d2f3d493b052e06fedc933464fce14255b8fc464226ec",
       "includes": [],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_battle_aftermath.h",
@@ -3026,7 +3151,7 @@
         "nox/native_ending.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_battle_area_spell.h",
@@ -3036,7 +3161,7 @@
         "nox/native_sound_events.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_battle_attack.h",
@@ -3045,7 +3170,7 @@
         "nox/native_battle_targets.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_battle_cannon.h",
@@ -3055,7 +3180,7 @@
         "nox/native_battle_rewards.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_battle_cast.h",
@@ -3117,7 +3242,7 @@
           "text": "if (!rounds.directed(prepared,selection,terrain,length,next.round,rng,next.records,outcome)) return kBattleCastUnsupported;"
         }
       ],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_battle_cast_state.h",
@@ -3126,7 +3251,7 @@
         "nox/native_cast.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_battle_collisions.h",
@@ -3135,7 +3260,7 @@
         "nox/native_actor_step.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_battle_directed_spell.h",
@@ -3145,14 +3270,14 @@
         "nox/native_sound_events.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_battle_exit_state.h",
       "sha256": "942b80ac086bb5f63a7ba984e776c60aaea7c8d345c7ab50b4a43208256afb90",
       "includes": [],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_battle_loot.h",
@@ -3162,7 +3287,7 @@
         "nox/native_inventory.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_battle_madcow.h",
@@ -3173,7 +3298,7 @@
         "nox/native_battle_summon_outcome.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_battle_motion.h",
@@ -3182,7 +3307,7 @@
         "nox/native_encounter_state.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_battle_npc_decision.h",
@@ -3192,7 +3317,7 @@
         "nox/native_random.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_battle_physical.h",
@@ -3202,7 +3327,7 @@
         "nox/native_battle_rewards.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_battle_presentation.h",
@@ -3213,7 +3338,7 @@
         "nox/native_battle_reticle.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_battle_restoration.h",
@@ -3223,7 +3348,7 @@
         "nox/native_graphics.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_battle_reticle.h",
@@ -3232,7 +3357,7 @@
         "nox/native_graphics.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_battle_rewards.h",
@@ -3241,7 +3366,7 @@
         "nox/native_vortex_cast.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_battle_roster.h",
@@ -3250,7 +3375,7 @@
         "nox/native_vortex_cast.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_battle_round.h",
@@ -3269,7 +3394,7 @@
         "nox/native_battle_terminal.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_battle_spell_damage.h",
@@ -3280,7 +3405,7 @@
         "nox/native_spell_power.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_battle_summon.h",
@@ -3291,14 +3416,14 @@
         "nox/native_battle_madcow.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_battle_summon_outcome.h",
       "sha256": "baa3c65cfcbc07715825691d468343dda856192902edb6254dea762a3ee4e9f3",
       "includes": [],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_battle_targets.h",
@@ -3307,7 +3432,7 @@
         "nox/native_battle_roster.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_battle_terminal.h",
@@ -3316,14 +3441,14 @@
         "nox/native_vortex_cast.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_battle_world_return.h",
       "sha256": "a4798bf09e06a93bfcf15dfa84e4f8d515d0ad7341d521b63843735f01a697c3",
       "includes": [],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_battlefields.h",
@@ -3333,7 +3458,7 @@
         "nox/resources.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_book.h",
@@ -3360,7 +3485,7 @@
           "text": "if (chosenSlot >= 10) return kBookUnsupported;"
         }
       ],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_cast.h",
@@ -3382,7 +3507,7 @@
           "text": "if (spell >= 64) return kCastUnsupported;"
         }
       ],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_character_creation.h",
@@ -3392,21 +3517,21 @@
         "nox/native_graphics.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_clock.h",
       "sha256": "f270eec76b75e96bbac284a25e57ca9738135af908491f4c080f968d3112ac5e",
       "includes": [],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_combat_mode.h",
       "sha256": "4bdcb693849592c5d29e2b2b84c7cdd94870e0a186a5f334580c3d3a6858c4e9",
       "includes": [],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_compact_world_action.h",
@@ -3472,7 +3597,7 @@
           "text": "if (!ActorMovementEffects::apply(candidate,scene,input,effect,selected)) return kCompactWorldUnsupported;"
         }
       ],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_conversation.h",
@@ -3505,7 +3630,7 @@
           "text": "if (callbacksPending(next)) return kConversationUnsupported;"
         }
       ],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_dialogue.h",
@@ -3515,7 +3640,7 @@
         "nox/resources.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_dialogue_input.h",
@@ -3524,7 +3649,7 @@
         "nox/native_dialogue_rules.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_dialogue_rules.h",
@@ -3534,7 +3659,7 @@
         "nox/native_gates.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_encounter_admission.h",
@@ -3543,7 +3668,7 @@
         "nox/resources.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_encounter_catalog.h",
@@ -3552,7 +3677,7 @@
         "nox/resources.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_encounter_formation.h",
@@ -3563,7 +3688,7 @@
         "nox/native_vortex_cast.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_encounter_preparation.h",
@@ -3577,7 +3702,7 @@
         "nox/native_world_travel.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_encounter_state.h",
@@ -3596,7 +3721,7 @@
         "nox/native_combat_mode.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_ending.h",
@@ -3607,7 +3732,7 @@
         "nox/native_world.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_engine.cpp",
@@ -3626,7 +3751,7 @@
           "text": "return Common::Error(Common::kReadingFailed,\"Invalid or unsupported native Nox gameplay state\");"
         }
       ],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_equipment_actions.h",
@@ -3663,7 +3788,7 @@
           "text": "if (!recalculateEquipment(catalog,nextParty._equipment[i],nextParty._members[i])) return kArmorUnsupported;"
         }
       ],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_equipment_derived.h",
@@ -3672,7 +3797,7 @@
         "nox/native_inventory.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_equipment_ownership.h",
@@ -3681,7 +3806,7 @@
         "nox/native_inventory.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_exploration_save.h",
@@ -3696,7 +3821,7 @@
         "nox/native_audio.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_gates.h",
@@ -3732,7 +3857,7 @@
           "text": "return kGateUnsupported;"
         }
       ],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_graphics.h",
@@ -3741,7 +3866,57 @@
         "nox/resources.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
+    },
+    {
+      "path": "engines/nox/native_information_catalog.h",
+      "sha256": "7e10da62ce3bf70ba7edc0d6f4fa54c3e678df611d35c7248e742858cf013c5d",
+      "includes": [
+        "nox/native_world_presentation.h",
+        "nox/native_lz.h"
+      ],
+      "explicit_boundaries": [],
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
+    },
+    {
+      "path": "engines/nox/native_information_input.h",
+      "sha256": "dc6023f39e8e29d19d2e2029443b05e10d4a839a4ff40114e1f0c4700666c12b",
+      "includes": [
+        "nox/native_information_catalog.h",
+        "nox/native_text_window.h",
+        "nox/native_opening_backdrop.h"
+      ],
+      "explicit_boundaries": [
+        {
+          "line": 9,
+          "text": "enum InformationResult {kInformationPending,kInformationClosed,kInformationUnsupported};"
+        },
+        {
+          "line": 28,
+          "text": "if (!active() || !matchesWorld(world)) return kInformationUnsupported;"
+        },
+        {
+          "line": 38,
+          "text": "InformationText result;if (!_catalog.look(world,scene,appearance,direction,result)) return kInformationUnsupported;"
+        },
+        {
+          "line": 39,
+          "text": "if (result.window) return window(archive,result.text,frame)?kInformationPending:kInformationUnsupported;"
+        },
+        {
+          "line": 40,
+          "text": "HgrFrame image=_underlay;if (!strip(archive,result.text,image)) return kInformationUnsupported;"
+        },
+        {
+          "line": 43,
+          "text": "if (_window.waiting()) return _window.handle(event) && _window.paint(frame)?kInformationPending:kInformationUnsupported;"
+        },
+        {
+          "line": 44,
+          "text": "if (!_window.ended()) return kInformationUnsupported;"
+        }
+      ],
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_inn_membership.h",
@@ -3750,7 +3925,7 @@
         "nox/native_new_game.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_inn_service.h",
@@ -3760,7 +3935,7 @@
         "nox/native_world_travel.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_inn_storage.h",
@@ -3769,7 +3944,7 @@
         "nox/resources.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_inventory.h",
@@ -3779,7 +3954,7 @@
         "nox/resources.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_inventory_actions.h",
@@ -3813,7 +3988,7 @@
           "text": "Inventory next=inventory;if (!next.removeQuantity(slot,quantity)) return kDropUnsupported;"
         }
       ],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_inventory_window.h",
@@ -3895,11 +4070,11 @@
           "text": "return paint(archive,game,frame)?kInventoryWindowHandled:kInventoryWindowUnsupported;"
         }
       ],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_legacy_snapshot.h",
-      "sha256": "ad36e5e1f8fc45d2e1afa62546f64b16d5a1504c055bfb36d73d58f4b16f14ef",
+      "sha256": "1d9ef0706b23cb5555a010295db7c54df1a1cc486eadacdaf06f084f0717c720",
       "includes": [
         "nox/resources.h",
         "nox/enhancements.h",
@@ -3916,7 +4091,7 @@
           "text": "if (!active || !count || count>76) {reason=\"Legacy active map is unsupported\";return false;}"
         }
       ],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_lighting.h",
@@ -3927,7 +4102,7 @@
         "nox/native_visibility.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_lock.h",
@@ -3958,14 +4133,14 @@
           "text": "if (!candidate.next(1, 199, roll)) return kLockUnsupported;"
         }
       ],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_lz.h",
       "sha256": "dea03488b3f6073389d2028b2ecc2a3420e7df63d550ea559746b7f691fb11f2",
       "includes": [],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_maps.h",
@@ -3979,7 +4154,7 @@
           "text": "return fail(\"Unsupported native map resource header\");"
         }
       ],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_merchant.h",
@@ -3988,7 +4163,7 @@
         "nox/native_inventory.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_merchant_screen.h",
@@ -3999,7 +4174,7 @@
         "nox/native_new_game.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_message_strip.h",
@@ -4008,7 +4183,7 @@
         "nox/native_text_glyph.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_music.h",
@@ -4017,7 +4192,7 @@
         "nox/resources.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_new_game.h",
@@ -4033,7 +4208,7 @@
         "nox/native_world_navigation.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_npc_action_dispatch.h",
@@ -4043,7 +4218,7 @@
         "nox/native_actor_pursuit.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_npc_actor_actions.h",
@@ -4053,7 +4228,7 @@
         "nox/native_npc_schedule.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_npc_contact.h",
@@ -4063,7 +4238,7 @@
         "nox/native_actors.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_npc_navigation.h",
@@ -4078,7 +4253,7 @@
           "text": "if (result == kNpcPathUnsupported) return kNpcNavigationInvalid;"
         }
       ],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_npc_path.h",
@@ -4146,7 +4321,7 @@
           "text": "if (_frontier[0].node >= _nodes.size()) return kNpcPathUnsupported;"
         }
       ],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_npc_route_follow.h",
@@ -4156,7 +4331,7 @@
         "nox/native_actor_move_phase.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_npc_route_recovery.h",
@@ -4167,7 +4342,7 @@
         "nox/native_random.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_npc_route_store.h",
@@ -4176,7 +4351,7 @@
         "nox/native_npc_schedule.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_npc_schedule.h",
@@ -4270,7 +4445,7 @@
           "text": "(!world._archive.read(\"NA/BS.ROUTINES.BK2\",markerData) || markerData.size() < 0x1008)) return kNpcScheduleUnsupported;"
         }
       ],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_npc_world_action.h",
@@ -4339,14 +4514,14 @@
           "text": "if (result!=kNpcWorldUnsupported) effects=after;"
         }
       ],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_objects.h",
       "sha256": "663dcd2c9295734211e8ec75e42a4d41f6978ef8e2b88ae9b01759d38a2e94ea",
       "includes": [],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_occlusion.h",
@@ -4356,16 +4531,16 @@
         "nox/native_visibility.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_opening_backdrop.h",
-      "sha256": "1c636679bd9c7ce593336565578bead16d3662c77f68d4dd9cbe5d8bf9bbc7ac",
+      "sha256": "62a14d7fdbb660e89300e0954b50b51b445e189fc8e9f79cf1aea1acb5bcbab9",
       "includes": [
         "nox/native_tile_paint.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_party.h",
@@ -4375,7 +4550,42 @@
         "nox/resources.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
+    },
+    {
+      "path": "engines/nox/native_party_order.h",
+      "sha256": "24f9d3134df4c412f48ac87cf95589ae4f80c4b0dd6bf1428f43e8058cda953e",
+      "includes": [
+        "nox/native_party_selection.h",
+        "nox/native_equipment_ownership.h"
+      ],
+      "explicit_boundaries": [
+        {
+          "line": 17,
+          "text": "enum PartyOrderResult {kPartyOrderPending,kPartyOrderClosed,kPartyOrderUnsupported};"
+        },
+        {
+          "line": 32,
+          "text": "if (!active()) return kPartyOrderUnsupported;"
+        },
+        {
+          "line": 34,
+          "text": "if (result==kPartySelectionInvalid) return kPartyOrderUnsupported;"
+        },
+        {
+          "line": 39,
+          "text": "if (!_selection.begin(party,true)) return kPartyOrderUnsupported;"
+        },
+        {
+          "line": 42,
+          "text": "if (!ownership.load(archive) || !PartyOrder::exchange(ownership,_first,_selection.selected(),party,inventory)) return kPartyOrderUnsupported;"
+        },
+        {
+          "line": 46,
+          "text": "return paint(archive,party,frame)?kPartyOrderPending:kPartyOrderUnsupported;"
+        }
+      ],
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_party_selection.h",
@@ -4385,7 +4595,7 @@
         "nox/native_graphics.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_player_session.h",
@@ -4401,7 +4611,7 @@
         "nox/native_legacy_snapshot.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_quest_checkpoint.h",
@@ -4410,7 +4620,7 @@
         "nox/native_world.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_quick_battle.h",
@@ -4421,14 +4631,14 @@
         "nox/native_battle_terminal.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_random.h",
       "sha256": "7db95189ddb4236e1db4a049a967fa5c69b6b89fc1afc57b2571a3633f62c6e8",
       "includes": [],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_recruitment.h",
@@ -4446,7 +4656,7 @@
           "text": "else if(EquipmentActions::selectArmor(catalog,ownership,byte(count),id,false,party,inventory)==kArmorUnsupported) {warning(\"Native recruitment invalid line%d actor%u companion%u\",__LINE__,uint(actorSlot),uint(companion));return kRecruitInvalid;}"
         }
       ],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_search.h",
@@ -4479,7 +4689,7 @@
           "text": "return kSearchRewardUnsupported; // Original full-slot fatal path is not qualified here."
         }
       ],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_search_input.h",
@@ -4571,14 +4781,14 @@
           "text": "if(!window.begin(archive,reinterpret_cast<const byte *>(text.c_str()),text.size(),25,13,1,12,11,&frame) || !window.paint(frame)) return kSearchInputUnsupported;"
         }
       ],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_sound_events.h",
       "sha256": "d710a7cd60361f211d723c3e664c5058f91cf74070c358eb2a74b10cb3cdff9b",
       "includes": [],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_speaker.h",
@@ -4589,7 +4799,7 @@
         "nox/native_sound_events.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_spell_power.h",
@@ -4598,11 +4808,11 @@
         "nox/native_random.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_startup_host.h",
-      "sha256": "f171693f9ae5bd9a823bf9458e7e789de2b3403e111d64706b9d838dd4a175b5",
+      "sha256": "0eb591797ad9a88c87da8e4f1b2c3570b3858e04a67fa4a2f58e784d9dd33fce",
       "includes": [
         "nox/native_weapon_ready_validation.h",
         "nox/native_legacy_snapshot.h",
@@ -4646,84 +4856,86 @@
         "nox/native_battle_cast.h",
         "nox/native_combat_fixture.h",
         "nox/native_player_session.h",
+        "nox/native_party_order_validation.h",
+        "nox/native_information_validation.h",
         "nox/native_player_lifecycle_validation.h",
         "nox/native_ending.h"
       ],
       "explicit_boundaries": [
         {
-          "line": 458,
+          "line": 465,
           "text": "if (Native::NpcScheduler::apply(game.world,game.clock.hour,game.clock.minute,policy,game.schedule)==Native::kNpcScheduleUnsupported) return fail(\"Controlled map-entry schedule failed before input\");"
         },
         {
-          "line": 476,
+          "line": 483,
           "text": "if (!Native::EncounterPreparation::prepare(_resources,game,prepared,turns,worldInput.encounter(),preparedEncounter,worldInput.scriptedEncounter())) return fail(\"Native restored encounter preparation reached an unsupported admission\");"
         },
         {
-          "line": 642,
+          "line": 649,
           "text": "if (!quickRules.step(random,encounterState.records,encounterState.quick,encounterState.round.protectedTargets)) return fail(\"Native Quick scheduler/action reached an unsupported branch\");"
         },
         {
-          "line": 725,
+          "line": 732,
           "text": "if (!pacedReplay) { if (!advanceAnimation()) return fail(\"Native deterministic idle reached an unsupported animation boundary\");continue; }"
         },
         {
-          "line": 730,
+          "line": 737,
           "text": "if (!advanceAnimation()) return fail(\"Native live idle reached an unsupported animation boundary\");continue;"
         },
         {
-          "line": 799,
+          "line": 806,
           "text": "if (!aftermath.choose(take,all,game,encounterState,random) || !aftermath.paint(font,encounterState)) return fail(\"Native treasure decision reached an unsupported inventory/result branch\");"
         },
         {
-          "line": 807,
+          "line": 814,
           "text": "if (!aftermath.begin(worldInput.encounter(),game,encounterState,random,worldInput.scriptedEncounter(),preparedEncounter.contactSprite)) return fail(\"Native victory results reached an unsupported level/contact/loot branch\");"
         },
         {
-          "line": 877,
+          "line": 884,
           "text": "if (handled==Native::kBattleCastUnsupported) return fail(\"Native Cast reached an unsupported family/status/NPC continuation\");"
         },
         {
-          "line": 900,
+          "line": 907,
           "text": "!Native::BattleAttack::used(next.records,caster,next.attack.partyTargeting,next.attack,next.target)) return fail(\"Native tactical attack reached an unsupported weapon/turn policy\");"
         },
         {
-          "line": 907,
+          "line": 914,
           "text": "if (!battlePresentation.paint(preparedEncounter,next,next.phase,image)) return fail(\"Native tactical attack presentation reached an unsupported status\");"
         },
         {
-          "line": 949,
+          "line": 956,
           "text": "!battlePresentation.paint(preparedEncounter,next,next.phase,image)) return fail(\"Native tactical pass reached an unsupported turn/status policy\");"
         },
         {
-          "line": 989,
+          "line": 996,
           "text": "if (handled==Native::kWorldInputBoundary) return fail(\"Native world command reached an unsupported encounter/interaction boundary\");"
         },
         {
-          "line": 990,
+          "line": 997,
           "text": "if (handled==Native::kWorldInputUnsupported) return fail(\"Native world command could not complete its admitted phase\");"
         },
         {
-          "line": 992,
+          "line": 999,
           "text": "if (!Native::EncounterPreparation::prepare(_resources,game,prepared,turns,worldInput.encounter(),preparedEncounter,worldInput.scriptedEncounter())) return fail(\"Native encounter preparation reached an unsupported admission\");"
         },
         {
-          "line": 993,
+          "line": 1000,
           "text": "if (!encounterState.begin(_resources,game,preparedEncounter,random)) return fail(\"Native encounter formation reached an unsupported layout/group\");"
         },
         {
-          "line": 998,
+          "line": 1005,
           "text": "if (handled==Native::kWorldInputIgnored && event.kbd.keycode==Common::KEYCODE_SPACE) {"
         },
         {
-          "line": 1006,
+          "line": 1013,
           "text": "else if (result!=Native::kWorldWaitAdvanced) return fail(\"Native Wait reached an unsupported effect boundary\");"
         },
         {
-          "line": 1018,
+          "line": 1025,
           "text": "if (handled==Native::kWorldInputIgnored && event.kbd.keycode==Common::KEYCODE_SPACE && ConfMan.hasKey(\"nox_native_checkpoint_wait\") &&"
         }
       ],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_startup_menu.h",
@@ -4732,7 +4944,7 @@
         "nox/native_graphics.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_story_patches.h",
@@ -4741,7 +4953,7 @@
         "nox/resources.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_summon_pool.h",
@@ -4759,7 +4971,7 @@
           "text": "if (!_ready || !record || size != 32) return kSummonUnsupported;"
         }
       ],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_temple_service.h",
@@ -4769,7 +4981,7 @@
         "nox/native_battle_restoration.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_test_cli.h",
@@ -4789,7 +5001,7 @@
           "text": "return CETestCLI::unsupported();"
         }
       ],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_text_glyph.h",
@@ -4798,7 +5010,7 @@
         "nox/native_graphics.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_text_window.h",
@@ -4807,7 +5019,7 @@
         "nox/native_text_glyph.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_tile_paint.h",
@@ -4816,7 +5028,7 @@
         "nox/native_graphics.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_training.h",
@@ -4825,7 +5037,7 @@
         "nox/native_new_game.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_traversal.h",
@@ -4839,7 +5051,7 @@
           "text": "enum PositionMoveResult { kPositionMoved, kPositionBlocked, kPositionNeedsInteraction, kPositionOutsideMap, kPositionUnsupported };"
         }
       ],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_vendor_transactions.h",
@@ -4849,7 +5061,7 @@
         "nox/native_world_transport.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_visibility.h",
@@ -4858,7 +5070,7 @@
         "nox/resources.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_vortex_cast.h",
@@ -4874,7 +5086,7 @@
           "text": "VortexCastOutcome() : result(kCastUnsupported), targets(0), killed(0) {}"
         }
       ],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_vortex_checkpoint.h",
@@ -4883,7 +5095,7 @@
         "nox/native_vortex_cast.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_vortex_effect.h",
@@ -4893,7 +5105,7 @@
         "nox/resources.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_vortex_targets.h",
@@ -4907,7 +5119,7 @@
           "text": "// Battle ownership must resolve this unsupported context before release."
         }
       ],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_weapon_ready.h",
@@ -4961,11 +5173,11 @@
           "text": "Inventory nextInventory; if (!nextInventory.importRecords(records,1536)) return kWeaponUnsupported;"
         }
       ],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_world.h",
-      "sha256": "2e523fde90c414f84ad60614f3a42644ec2d80f771b354649cb781d8be68e250",
+      "sha256": "bba56258c6f13a8351d55bb74bc828705ab6db814f847313a3302fd0ff2ab702",
       "includes": [
         "nox/native_gates.h",
         "nox/native_maps.h",
@@ -4978,123 +5190,123 @@
       ],
       "explicit_boundaries": [
         {
-          "line": 100,
+          "line": 106,
           "text": "if (!ready() || !_onFoot || rules.mapType() != _type) return kPositionUnsupported;"
         },
         {
-          "line": 107,
+          "line": 113,
           "text": "default: return kPositionUnsupported;"
         },
         {
-          "line": 113,
+          "line": 119,
           "text": "if (!resource.tile(mapId(), nextX, nextY, probe.terrain)) return kPositionUnsupported;"
         },
         {
-          "line": 118,
+          "line": 124,
           "text": "if (!ready() || distance(_x, targetX) + distance(_y, targetY) != 1) return kGateUnsupported;"
         },
         {
-          "line": 120,
+          "line": 126,
           "text": "if (slot < 0) return kGateUnsupported;"
         },
         {
-          "line": 124,
+          "line": 130,
           "text": "GateResult result = kGateUnsupported;"
         },
         {
-          "line": 152,
+          "line": 158,
           "text": "if (!ready() || rules.mapType()!=_type || slot>248 || (slot&3) || distance(_x,targetX)+distance(_y,targetY)!=1) return kSearchUnsupported;"
         },
         {
-          "line": 154,
+          "line": 160,
           "text": "if (object[0]!=targetX || object[1]!=targetY || object[3]!=17 || object[7]>10) return kSearchUnsupported;"
         },
         {
-          "line": 157,
+          "line": 163,
           "text": "if (!member || selectedMember>party.memberCount()) return kSearchUnsupported;"
         },
         {
-          "line": 162,
+          "line": 168,
           "text": "if (access==kLockUnsupported || !applyLockPartyEffects(effects,candidate,advanced)) return kSearchUnsupported;"
         },
         {
-          "line": 172,
+          "line": 178,
           "text": "distance(_x, targetX) + distance(_y, targetY) > 1) return kSearchUnsupported;"
         },
         {
-          "line": 174,
+          "line": 180,
           "text": "if (object[0] != targetX || object[1] != targetY || !object[2] || object[2] == 255) return kSearchUnsupported;"
         },
         {
-          "line": 175,
+          "line": 181,
           "text": "if ((object[3]&64) && !guardedAuthorized) return kSearchUnsupported;"
         },
         {
-          "line": 178,
+          "line": 184,
           "text": "if (currency) {if (!food || !gold) return kSearchUnsupported;}"
         },
         {
-          "line": 181,
+          "line": 187,
           "text": "(object[5]&15)>9 || (object[5]>>4)>9) return kSearchUnsupported;"
         },
         {
-          "line": 183,
+          "line": 189,
           "text": "if ((object[7]&192)!=64 || object[4]>2) return kSearchUnsupported;"
         },
         {
-          "line": 184,
+          "line": 190,
           "text": "ItemDefinition definition;if (!catalog.definition(object[4],object[5],definition)) return kSearchUnsupported;"
         },
         {
-          "line": 193,
+          "line": 199,
           "text": "if (!member || selectedMember > nextParty.memberCount()) return kSearchUnsupported;"
         },
         {
-          "line": 198,
+          "line": 204,
           "text": "if (access == kLockUnsupported || !applyLockPartyEffects(effects, nextParty, advanced)) return kSearchUnsupported;"
         },
         {
-          "line": 214,
+          "line": 220,
           "text": "if (!rules.currency(nextObject[5],nextObject[7]&63,nextParty.memberCount(),*food,*gold,nextRandom,amount)) return kSearchUnsupported;"
         },
         {
-          "line": 221,
+          "line": 227,
           "text": "if (reward == kSearchRewardUnsupported) return kSearchUnsupported;"
         },
         {
-          "line": 227,
+          "line": 233,
           "text": "if (!ready()) return kGateUnsupported;"
         },
         {
-          "line": 228,
+          "line": 234,
           "text": "const int slot = objectAt(_x, _y); if (slot < 0) return kGateUnsupported;"
         },
         {
-          "line": 237,
+          "line": 243,
           "text": "if (!ready()) return kGateUnsupported;"
         },
         {
-          "line": 238,
+          "line": 244,
           "text": "const int slot = objectAt(_x, _y); if (slot < 0) return kGateUnsupported;"
         },
         {
-          "line": 318,
+          "line": 354,
           "text": "if (visibleObjectSlot < 0 || visibleObjectSlot > 252 || (visibleObjectSlot & 3)) return kPositionUnsupported;"
         },
         {
-          "line": 320,
+          "line": 356,
           "text": "if (!object[2] || object[2] == 255) return kPositionUnsupported;"
         },
         {
-          "line": 325,
+          "line": 361,
           "text": "if (!origin && !frigate) return kPositionUnsupported;"
         },
         {
-          "line": 329,
+          "line": 365,
           "text": "if (!rules.probe(probe, result)) return kPositionUnsupported;"
         }
       ],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_world_actor_phase.h",
@@ -5103,7 +5315,7 @@
         "nox/native_actors.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_world_actor_turn.h",
@@ -5127,7 +5339,7 @@
           "text": "if (result==kNpcWorldUnsupported || result==kNpcWorldAbsent) {warning(\"Native NPC turn unsupported slot%u tile%u capability%u phase%u\",slot,uint(actor.tile),uint(actor.capability),uint(phase.route));return false;}"
         }
       ],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_world_animation.h",
@@ -5137,7 +5349,7 @@
         "nox/native_lighting.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_world_camp.h",
@@ -5176,7 +5388,7 @@
           "text": "if (!game.party.applyBattleMembers(members,768,count)) return kCampUnsupported;"
         }
       ],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_world_cannon.h",
@@ -5206,7 +5418,7 @@
           "text": "if (four && (result.endpoint%17==16 || result.endpoint/17==10)) return kWorldCannonUnsupported;"
         }
       ],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_world_cast.h",
@@ -5284,7 +5496,7 @@
           "text": "return paint(archive,game,frame)?kWorldCastHandled:kWorldCastUnsupported;"
         }
       ],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_world_command.h",
@@ -5306,7 +5518,7 @@
           "text": "Common::Array<byte> projected; if (!window.project(world,projected)) return kPositionUnsupported;"
         }
       ],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_world_conversation.h",
@@ -5768,7 +5980,7 @@
           "text": "if (!serviceText(archive,offset,combat,frame)) return kWorldConversationUnsupported;"
         }
       ],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_world_hazards.h",
@@ -5780,17 +5992,19 @@
         "nox/native_message_strip.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_world_input.h",
-      "sha256": "25a74e029ac6f5f47d703169e79b0e5a848cca42c4d69177d3fbc691c7a36c6a",
+      "sha256": "7b70f7a3fb600cb64f43ea4a16aa4417b3ea4f5dd18539d99c393867dd06a4c8",
       "includes": [
         "nox/native_new_game.h",
         "nox/native_world_move.h",
         "nox/native_world_travel.h",
         "nox/native_world_conversation.h",
         "nox/native_inventory_window.h",
+        "nox/native_party_order.h",
+        "nox/native_information_input.h",
         "nox/native_world_cast.h",
         "nox/native_world_cannon.h",
         "nox/native_world_open.h",
@@ -5803,303 +6017,323 @@
       ],
       "explicit_boundaries": [
         {
-          "line": 21,
+          "line": 22,
           "text": "enum WorldInputResult { kWorldInputIgnored,kWorldInputHandled,kWorldInputBoundary,kWorldInputUnsupported,kWorldInputEncounter,kWorldInputTransition,kWorldInputDefeat };"
         },
         {
-          "line": 115,
+          "line": 116,
           "text": "if (animation>3) return kWorldInputUnsupported;"
         },
         {
-          "line": 116,
+          "line": 117,
           "text": "if (input.type!=Common::EVENT_KEYDOWN) return kWorldInputIgnored;"
         },
         {
-          "line": 123,
+          "line": 124,
           "text": "if (result==kPartyOrderUnsupported) return kWorldInputUnsupported;"
         },
         {
-          "line": 124,
+          "line": 125,
           "text": "if (result==kPartyOrderClosed && !text.importPages(frame.data(),frame.data(),8192)) return kWorldInputUnsupported;"
         },
         {
-          "line": 128,
-          "text": "return game.ready() && _partyOrder.begin(archive,game.party,frame)?kWorldInputHandled:kWorldInputUnsupported;"
+          "line": 130,
+          "text": "if (result==kInformationUnsupported) return kWorldInputUnsupported;"
         },
         {
-          "line": 134,
-          "text": "if (NpcScheduler::activateAtClock(candidate,game.clock.hour,game.clock.minute)==kNpcScheduleUnsupported ||"
+          "line": 131,
+          "text": "if (result==kInformationClosed && !text.importPages(frame.data(),frame.data(),8192)) return kWorldInputUnsupported;"
         },
         {
-          "line": 135,
-          "text": "NpcScheduler::prefetchAtClock(candidate,game.clock.hour,game.clock.minute,schedule)==kNpcScheduleUnsupported) return kWorldInputUnsupported;"
+          "line": 136,
+          "text": "if (!_information.begin(command,archive,game.world,frame)) return kWorldInputUnsupported;"
         },
         {
-          "line": 140,
-          "text": "if (result!=kNpcNavigationSearching) {warning(\"Native scheduled route result %u\",uint(result));return kWorldInputUnsupported;}"
+          "line": 137,
+          "text": "if (command==kInformationLook && !message(catalog,12,text,frame)) return kWorldInputUnsupported;"
+        },
+        {
+          "line": 138,
+          "text": "if (!_information.active() && !text.importPages(frame.data(),frame.data(),8192)) return kWorldInputUnsupported;"
         },
         {
           "line": 142,
+          "text": "return game.ready() && _partyOrder.begin(archive,game.party,frame)?kWorldInputHandled:kWorldInputUnsupported;"
+        },
+        {
+          "line": 148,
+          "text": "if (NpcScheduler::activateAtClock(candidate,game.clock.hour,game.clock.minute)==kNpcScheduleUnsupported ||"
+        },
+        {
+          "line": 149,
+          "text": "NpcScheduler::prefetchAtClock(candidate,game.clock.hour,game.clock.minute,schedule)==kNpcScheduleUnsupported) return kWorldInputUnsupported;"
+        },
+        {
+          "line": 154,
+          "text": "if (result!=kNpcNavigationSearching) {warning(\"Native scheduled route result %u\",uint(result));return kWorldInputUnsupported;}"
+        },
+        {
+          "line": 156,
           "text": "if (!complete || !window.captureRecords(candidate)) return kWorldInputUnsupported;"
         },
         {
-          "line": 147,
+          "line": 161,
           "text": "if (result==kWorldCastUnsupported) return kWorldInputBoundary;"
         },
         {
-          "line": 151,
+          "line": 165,
           "text": "if (!travel(archive,game,window,scene,turn,light,visibility,frame,plan,animation) || !text.importPages(frame.data(),frame.data(),8192)) return kWorldInputUnsupported;"
-        },
-        {
-          "line": 157,
-          "text": "animation,painted,turn.presentation,light,visibility,frame,&scene) || !text.importPages(frame.data(),frame.data(),8192)) return kWorldInputUnsupported;"
-        },
-        {
-          "line": 164,
-          "text": "if (result==kSearchInputUnsupported) return kWorldInputBoundary;"
-        },
-        {
-          "line": 167,
-          "text": "if (!window.captureRecords(game.world)) return kWorldInputUnsupported;"
         },
         {
           "line": 171,
           "text": "animation,painted,turn.presentation,light,visibility,frame,&scene) || !text.importPages(frame.data(),frame.data(),8192)) return kWorldInputUnsupported;"
         },
         {
-          "line": 179,
-          "text": "if (!_search.refresh(archive,frame)) return kWorldInputUnsupported;"
+          "line": 178,
+          "text": "if (result==kSearchInputUnsupported) return kWorldInputBoundary;"
+        },
+        {
+          "line": 181,
+          "text": "if (!window.captureRecords(game.world)) return kWorldInputUnsupported;"
         },
         {
           "line": 185,
+          "text": "animation,painted,turn.presentation,light,visibility,frame,&scene) || !text.importPages(frame.data(),frame.data(),8192)) return kWorldInputUnsupported;"
+        },
+        {
+          "line": 193,
+          "text": "if (!_search.refresh(archive,frame)) return kWorldInputUnsupported;"
+        },
+        {
+          "line": 199,
           "text": "if (result==kInventoryWindowUnsupported) return kWorldInputBoundary;"
         },
         {
-          "line": 186,
+          "line": 200,
           "text": "if (result==kInventoryWindowClosed && !text.importPages(frame.data(),frame.data(),8192)) return kWorldInputUnsupported;"
         },
         {
-          "line": 194,
+          "line": 208,
           "text": "if (result==kWorldConversationUnsupported) return kWorldInputBoundary;"
         },
         {
-          "line": 197,
+          "line": 211,
           "text": "if (!window.captureRecords(game.world)) return kWorldInputUnsupported;"
         },
         {
-          "line": 202,
+          "line": 216,
           "text": "!text.importPages(frame.data(),frame.data(),8192)) return kWorldInputUnsupported;"
         },
         {
-          "line": 205,
+          "line": 219,
           "text": "if (result==kWorldConversationMessage && !message(catalog,id,text,frame)) return kWorldInputUnsupported;"
         },
         {
-          "line": 215,
+          "line": 229,
           "text": "animation,painted,turn.presentation,light,visibility,frame,&scene)) return kWorldInputUnsupported;"
         },
         {
-          "line": 217,
+          "line": 231,
           "text": "if (!window.captureRecords(game.world) || !text.importPages(frame.data(),frame.data(),8192)) return kWorldInputUnsupported;"
         },
         {
-          "line": 219,
+          "line": 233,
           "text": "if (dialogueActor>240 || (dialogueActor&7)) return kWorldInputUnsupported;"
         },
         {
-          "line": 222,
+          "line": 236,
           "text": "if (x>=17 || y>=11 || !actor[2] || actor[3]==255) return kWorldInputUnsupported;"
         },
         {
-          "line": 233,
+          "line": 247,
           "text": "if (!frame.clearTextSpan(7,23,25) || !text.importPages(frame.data(),frame.data(),8192)) return kWorldInputUnsupported;"
         },
         {
-          "line": 243,
+          "line": 257,
           "text": "if (!travel(archive,game,window,scene,turn,light,visibility,frame,plan,animation,false,false)) return kWorldInputUnsupported;"
         },
         {
-          "line": 250,
+          "line": 264,
           "text": "if (_window.waiting()) return _window.handle(input) && _window.paint(frame)?kWorldInputHandled:kWorldInputUnsupported;"
         },
         {
-          "line": 251,
+          "line": 265,
           "text": "if (!_window.ended()) return kWorldInputUnsupported;"
         },
         {
-          "line": 253,
+          "line": 267,
           "text": "if (!frame.putByte(x,y,_underlay.data()[HgrFrame::rowOffset(y)+x])) return kWorldInputUnsupported;"
         },
         {
-          "line": 255,
+          "line": 269,
           "text": "if (!WorldMove::completeClock(game.world,game.clock)) return kWorldInputUnsupported;"
         },
         {
-          "line": 269,
+          "line": 283,
           "text": "for (uint y=184;y<192;++y) for (uint x=7;x<32;++x) if (!frame.putByte(x,y,0)) return kWorldInputUnsupported;"
         },
         {
-          "line": 270,
+          "line": 284,
           "text": "return text.importPages(frame.data(),frame.data(),8192)?kWorldInputHandled:kWorldInputUnsupported;"
         },
         {
-          "line": 279,
+          "line": 293,
           "text": "if (opened==kWorldOpenUnsupported) return kWorldInputUnsupported;"
         },
         {
-          "line": 283,
+          "line": 297,
           "text": "_openDirection=false;return _search.beginDoor(archive,game,event.object,frame)?kWorldInputHandled:kWorldInputUnsupported;"
         },
         {
-          "line": 288,
+          "line": 302,
           "text": "246,game.clock.lightActive,animation,painted,turn.presentation,light,visibility,frame,&scene)) return kWorldInputUnsupported;"
         },
         {
-          "line": 289,
+          "line": 303,
           "text": "if (event.message!=255 && !message(catalog,event.message,text,frame)) return kWorldInputUnsupported;"
         },
         {
-          "line": 295,
+          "line": 309,
           "text": "if (game.appearance!=119 && game.appearance!=123) return message(catalog,18,text,frame)?kWorldInputHandled:kWorldInputUnsupported;"
         },
         {
-          "line": 296,
+          "line": 310,
           "text": "_fireDirection=true;return message(catalog,12,text,frame)?kWorldInputHandled:kWorldInputUnsupported;"
         },
         {
-          "line": 302,
+          "line": 316,
           "text": "if (notice!=255 && !message(catalog,notice,text,frame)) return kWorldInputUnsupported;"
         },
         {
-          "line": 307,
+          "line": 321,
           "text": "if (camp==kCampUnsupported) return kWorldInputUnsupported;"
         },
         {
-          "line": 308,
+          "line": 322,
           "text": "if (camp==kCampCastleRefused) return message(catalog,18,text,frame)?kWorldInputHandled:kWorldInputUnsupported;"
         },
         {
-          "line": 311,
+          "line": 325,
           "text": "!WorldTravelRules::lightMode(game.world.mapType(),game.world.mapId(),game.clock.hour,game.clock.minute,data.data()+0x10b1,data.size()-0x10b1,light.mode)) return kWorldInputUnsupported;"
         },
         {
-          "line": 314,
+          "line": 328,
           "text": "animation,painted,turn.presentation,light,visibility,frame,&scene) || !window.captureRecords(game.world)) return kWorldInputUnsupported;"
         },
         {
-          "line": 315,
+          "line": 329,
           "text": "} else if (!WorldCamp::refusal(archive,camp,reply)) return kWorldInputUnsupported;"
         },
         {
-          "line": 317,
+          "line": 331,
           "text": "_underlay=frame;HgrFrame background=frame;if (!OpeningBackdrop::renderNoticeFrame(background)) return kWorldInputUnsupported;"
         },
         {
-          "line": 319,
+          "line": 333,
           "text": "TextWindow next;if (!next.begin(archive,body.data(),body.size(),25,13,1,12,11,&background) || !next.paint(frame)) return kWorldInputUnsupported;"
         },
         {
-          "line": 323,
+          "line": 337,
           "text": "if (!_casting.begin(archive,game,frame)) return kWorldInputUnsupported;"
         },
         {
-          "line": 327,
+          "line": 341,
           "text": "if (!_inventory.begin(archive,game,frame)) return kWorldInputUnsupported;"
         },
         {
-          "line": 331,
+          "line": 345,
           "text": "if (!_conversation.choose(game.world,frame) || !message(catalog,12,text,frame)) return kWorldInputUnsupported;"
         },
         {
-          "line": 334,
+          "line": 348,
           "text": "if (input.kbd.keycode==Common::KEYCODE_s) return _search.begin(archive,game,frame)?kWorldInputHandled:kWorldInputUnsupported;"
         },
         {
-          "line": 344,
+          "line": 358,
           "text": "_refusalSound=true;return message(catalog,16,text,frame)?kWorldInputHandled:kWorldInputUnsupported;"
         },
         {
-          "line": 346,
+          "line": 360,
           "text": "return kWorldInputIgnored;"
         },
         {
-          "line": 352,
+          "line": 366,
           "text": "if (_transport.pendingSteps && _transport.pendingDirection!=byte(direction)) return kWorldInputUnsupported;"
         },
         {
-          "line": 355,
+          "line": 369,
           "text": "if (direction==kWest) ++object[0];else if (direction==kNorth) ++object[1];else return kWorldInputUnsupported;"
         },
         {
-          "line": 357,
+          "line": 371,
           "text": "if (!_transport.alignment && !message(catalog,byte(5+uint(direction)),text,frame)) return kWorldInputUnsupported;"
         },
         {
-          "line": 361,
+          "line": 375,
           "text": "if (moved!=kWorldMoveUnsupported && moved!=kWorldMoveBoundary && moved!=kWorldMoveLeave) finishTransportStep(scene);"
         },
         {
-          "line": 363,
+          "line": 377,
           "text": "if (!message(catalog,37,text,frame)) return kWorldInputUnsupported;"
         },
         {
-          "line": 367,
+          "line": 381,
           "text": "WorldTravelPlan plan;const StoryMapState *state=window.state();if (!state) return kWorldInputUnsupported;"
         },
         {
-          "line": 377,
+          "line": 391,
           "text": "if (selected==kTravelSelected) return travel(archive,game,window,scene,turn,light,visibility,frame,plan,animation)?kWorldInputTransition:kWorldInputUnsupported;"
         },
         {
-          "line": 381,
+          "line": 395,
           "text": "if (moved==kWorldMoveUnsupported) return kWorldInputUnsupported;"
         },
         {
-          "line": 384,
+          "line": 398,
           "text": "if (!message(catalog,moved==kWorldMoveInterrupted?26:10,text,frame)) return kWorldInputUnsupported;"
         },
         {
-          "line": 393,
+          "line": 407,
           "text": "if (!OpeningBackdrop::renderNoticeFrame(background)) return kWorldInputUnsupported;"
         },
         {
-          "line": 395,
+          "line": 409,
           "text": "if (!next.begin(archive,notice.data(),notice.size(),25,13,1,12,11,&background) || !next.paint(frame)) return kWorldInputUnsupported;"
         },
         {
-          "line": 490,
+          "line": 504,
           "text": "if (!_fireDirection || uint(direction)>3) return kWorldInputUnsupported;"
         },
         {
-          "line": 495,
+          "line": 509,
           "text": "if (!archive.read(\"NA/GAME\",data) || !resolveMapAssets(data,candidate.mapType(),range) || !archive.readRange(range.resource,range.offset+range.size,72,footer)) return kWorldInputUnsupported;"
         },
         {
-          "line": 498,
+          "line": 512,
           "text": "footer.data(),records+768,records+1280,nextScene.actors.lookup,nextScene.actors.kinds,after,shot)!=kWorldCannonFired || !nextWindow.captureRecords(candidate)) return kWorldInputUnsupported;"
         },
         {
-          "line": 499,
+          "line": 513,
           "text": "for (uint y=184;y<192;++y) for (uint x=7;x<32;++x) if (!image.putByte(x,y,0)) return kWorldInputUnsupported;"
         },
         {
-          "line": 500,
+          "line": 514,
           "text": "if (!nextText.importPages(image.data(),image.data(),8192)) return kWorldInputUnsupported;"
         },
         {
-          "line": 531,
+          "line": 545,
           "text": "if (!archive.read(\"NA/GAME\",gameData) || !resolveMapAssets(gameData,candidate.mapType(),range) || !archive.readRange(range.resource,range.offset+range.size,72,footer)) return kWorldInputUnsupported;"
         },
         {
-          "line": 536,
+          "line": 550,
           "text": "if (!window.captureRecords(game.world)) return kWorldInputUnsupported;"
         },
         {
-          "line": 576,
+          "line": 590,
           "text": "if (NpcScheduler::apply(candidate,game.clock.hour,game.clock.minute,policy,schedule)==kNpcScheduleUnsupported) return reject(\"NPC schedule\");"
         }
       ],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_world_move.h",
@@ -6200,7 +6434,7 @@
           "text": "if (!pending && !completeClock(candidate,nextClock)) return kWorldMoveUnsupported;"
         }
       ],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_world_navigation.h",
@@ -6226,7 +6460,7 @@
           "text": "if (index+3>=36) return kNavigationUnsupported;"
         }
       ],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_world_open.h",
@@ -6264,7 +6498,7 @@
           "text": "if (slot<4) return kWorldOpenUnsupported;"
         }
       ],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_world_presentation.h",
@@ -6275,7 +6509,7 @@
         "nox/native_actor_paint.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_world_projectile.h",
@@ -6284,7 +6518,7 @@
         "nox/native_random.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_world_scene_phase.h",
@@ -6294,7 +6528,7 @@
         "nox/native_lighting.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_world_status.h",
@@ -6306,7 +6540,7 @@
         "nox/native_lighting.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_world_story.h",
@@ -6316,14 +6550,14 @@
         "nox/native_story_patches.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_world_transport.h",
       "sha256": "e792ffb69284a4906c72f0acfc354da72b9ac8d467f25dcf2f767c78f1c9d52b",
       "includes": [],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_world_transport_motion.h",
@@ -6334,7 +6568,7 @@
         "nox/native_random.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_world_travel.h",
@@ -6344,7 +6578,7 @@
         "nox/native_world_transport.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_world_viewport.h",
@@ -6355,7 +6589,7 @@
         "nox/native_tile_paint.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     },
     {
       "path": "engines/nox/native_world_wait.h",
@@ -6417,42 +6651,7 @@
           "text": "if (!nextWindow.captureRecords(candidate)) return kWorldWaitUnsupported;"
         }
       ],
-      "coverage": "UNKNOWN beyond individually recorded requirements; source-index presence is not implementation proof"
-    },
-    {
-      "path": "engines/nox/native_party_order.h",
-      "sha256": "24f9d3134df4c412f48ac87cf95589ae4f80c4b0dd6bf1428f43e8058cda953e",
-      "coverage": "Party-order contract12 implemented,10 focused verified,2 broader integration qualifications deferred.",
-      "includes": [
-        "nox/native_party_selection.h",
-        "nox/native_equipment_ownership.h"
-      ],
-      "explicit_boundaries": [
-        {
-          "line": 17,
-          "text": "enum PartyOrderResult {kPartyOrderPending,kPartyOrderClosed,kPartyOrderUnsupported};"
-        },
-        {
-          "line": 32,
-          "text": "if (!active()) return kPartyOrderUnsupported;"
-        },
-        {
-          "line": 34,
-          "text": "if (result==kPartySelectionInvalid) return kPartyOrderUnsupported;"
-        },
-        {
-          "line": 39,
-          "text": "if (!_selection.begin(party,true)) return kPartyOrderUnsupported;"
-        },
-        {
-          "line": 42,
-          "text": "if (!ownership.load(archive) || !PartyOrder::exchange(ownership,_first,_selection.selected(),party,inventory)) return kPartyOrderUnsupported;"
-        },
-        {
-          "line": 46,
-          "text": "return paint(archive,party,frame)?kPartyOrderPending:kPartyOrderUnsupported;"
-        }
-      ]
+      "coverage": "Only individually recorded requirement/evidence scopes are credited; presence in source index is not a completion claim."
     }
   ],
   "counts": {
@@ -6468,11 +6667,11 @@
     },
     "interface": {
       "known_required": 16,
-      "native_implemented": 1,
-      "verified": 1,
-      "partial": 7,
-      "missing": 8,
-      "unknown_required_rows": 0,
+      "native_implemented": 4,
+      "verified": 3,
+      "partial": 8,
+      "missing": 4,
+      "unknown_required_rows": 3,
       "additional_unclassified_scope": 1,
       "ce_replacements": 0
     },
@@ -6517,11 +6716,11 @@
       "ce_replacements": 0
     },
     "combat": {
-      "known_required": 12,
+      "known_required": 13,
       "native_implemented": 0,
       "verified": 0,
       "partial": 12,
-      "missing": 0,
+      "missing": 1,
       "unknown_required_rows": 1,
       "additional_unclassified_scope": 1,
       "ce_replacements": 0
@@ -6557,14 +6756,14 @@
       "ce_replacements": 0
     },
     "persistence": {
-      "known_required": 9,
+      "known_required": 10,
       "native_implemented": 0,
-      "verified": 0,
+      "verified": 1,
       "partial": 9,
       "missing": 0,
       "unknown_required_rows": 0,
       "additional_unclassified_scope": 1,
-      "ce_replacements": 0
+      "ce_replacements": 1
     },
     "execution": {
       "known_required": 6,
@@ -6588,19 +6787,20 @@
     }
   },
   "last_milestone": {
-    "owner": "party-order",
-    "contract_required": 12,
-    "native_implemented": 12,
-    "focused_verified": 10,
-    "deferred_integration_qualifications": 2,
+    "owner": "world-information",
+    "known_required": 23,
+    "native_implemented": 23,
+    "focused_verified": 17,
+    "additional_unknown_caption_behaviors": 3,
     "delta_requirement_rows": {
-      "implemented": 2,
+      "implemented": 3,
       "verified_scoped": 2,
-      "missing_retired": 2,
-      "newly_resolved_unknown_torch_to_missing": 1
+      "location_missing_to_partial": 1,
+      "new_explicit_caption_unknowns": 3,
+      "new_world_attack_missing": 1
     },
-    "evidence": "SCUMMVM-CE-PARTY-ORDER474-VERIFICATION.json",
-    "commit_parent": "54714c3f6c2"
+    "evidence": "SCUMMVM-CE-INFORMATION475-VERIFICATION.json",
+    "commit_parent": "1445407f0abe2a18e069f055bf5a239bdb6839cf"
   },
   "overall": {
     "fully_implemented_top_level_domains": 1,
@@ -6609,6 +6809,11 @@
     "fully_implemented_scoped_owners_added": 1,
     "observed_instruction_fallback_dependencies_in_selected_native_target": 0,
     "native_boundary_classifications_unresolved": true,
-    "note": "Audio is the accepted full domain. Party ordering is a scoped owner, not inventory/interface closure. No overall implementation percentage supported."
+    "note": "Audio is the accepted full domain. Party ordering is a scoped owner, not inventory/interface closure. No overall implementation percentage supported.",
+    "partially_implemented_scoped_owners_added": 1
+  },
+  "current_subsystem": {
+    "status": "IN PROGRESS",
+    "scope": "Remaining command/party interface contract next; information B-LOCATION source evidence and remaining focused qualifications retained, no campaign testing."
   }
 }

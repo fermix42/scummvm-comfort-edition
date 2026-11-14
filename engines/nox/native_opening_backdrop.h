@@ -37,6 +37,8 @@ public:
     static bool renderNoticeFrame(HgrFrame &frame) {
         return box(frame,24,40,4,112,213,170,129,160);
     }
+    // Inventory9 and quest log use source box4..36, pixels24..168.
+    static bool renderInformationFrame(HgrFrame &frame) {return box(frame,4,36,24,168,213,170,129,160);}
     static bool renderEndingFrame(HgrFrame &frame) {return box(frame,4,36,44,152,213,170,129,160);}
     bool paintCaption(HgrFrame &frame,uint row,uint left) const {
         if (!_ready || row>=24 || left>40 || _caption.size()>40-left) return false;

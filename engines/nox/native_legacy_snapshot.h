@@ -84,7 +84,7 @@ public:
         packet.writeByte(_main[0x267d]);packet.writeByte(_main[0x2af9]);packet.writeByte(_main[0x6cec]);packet.writeByte(_main[0x6ced]);packet.writeByte(_main[0x377f]==255);
         packet.write(_main.data()+0x400,256);packet.writeUint16LE(count);packet.write(records.getData(),records.size());
         Common::MemoryReadStream input(packet.getData(),packet.size());
-        if (!world.load(input)) {reason="Legacy map state failed native validation";return false;}
+        if (!world.load(input) || !world.restoreLocationCaption(_main.data()+0x7df,256)) {reason="Legacy map state failed native validation";return false;}
         reason.clear();return true;
     }
     // Build a complete core candidate with the existing persistence codecs.
