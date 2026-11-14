@@ -14,9 +14,8 @@ public:
         const MapResource &resource = world._resources[world._states[world._current].family];
         const MapDefinition *definition = resource.find(world.mapId()); if (!definition) return false;
         const uint column = world.x() / 16, row = world.y() / 16;
-        // Source-supported interior only; wrapped local/world cache edges need
-        // their own scrolling contract instead of invented padding.
-        if (definition->compressed && (!column || column >= 15 || !row || row >= 15)) return false;
+        // Compressed sector references wrap as bytes, as in ordinary scrolling.
+        // Outer centers load real neighboring sectors, not fabricated padding.
         WorldStory next;
         next._type = world.mapType(); next._map = world.mapId();
         next._center = definition->compressed ? byte(row * 16 + column) : 17;
@@ -24,7 +23,7 @@ public:
         next._top = definition->compressed ? byte((row - 1) * 16) : 0;
         for (uint slot = 0; slot < 9; ++slot) {
             Common::Array<byte> cells;
-            const uint sector = definition->compressed ? (row - 1 + slot / 3) * 16 + column - 1 + slot % 3 : slot;
+            const uint sector = definition->compressed ? byte((row - 1 + slot / 3) * 16 + column - 1 + slot % 3) : slot;
             if (!resource.sector(world.mapId(),sector,cells) || cells.size() != 256) return false;
             for (uint y = 0; y < 16; ++y)
                 memcpy(next._state.terrain + (slot / 3 * 16 + y) * 48 + slot % 3 * 16,cells.data() + y * 16,16);

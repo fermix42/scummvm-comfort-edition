@@ -3245,6 +3245,28 @@
       "production_connection": "InventoryWindow Use binds authored orb135..143 ->WorldNavigation ->WorldCast63 chooses same record ->existing WorldInput travel owner.",
       "fallback_dependencies": [],
       "blockers": []
+    },
+    {
+      "id": "world.14",
+      "subsystem": "world",
+      "behavior": "Compressed world entry loads authored neighbor sectors at outer byte-coordinate centers",
+      "implementation": "IMPLEMENTED",
+      "verification": {
+        "status": "VERIFIED",
+        "scope": "Eight compressed maps/64 edge samples andwindow codecs,actual Cast shared travel toX0/core/input codecs/subsequentG;not normalcold/session/campaign.",
+        "evidence": "SCUMMVM-CE-WINDOW-ENTRY493-VERIFICATION.json"
+      },
+      "native_owners": [
+        "engines/nox/native_world_story.h",
+        "engines/nox/native_world_input.h"
+      ],
+      "original_evidence": [
+        "SCUMMVM-CE-ENGINE-WINDOW-ENTRY-CONTRACT.md",
+        "BS.ROUTINES.BK2 neighbor table28D3..28DB"
+      ],
+      "production_connection": "Shared WorldInput.travel initializes destinationwindow ->WorldViewport/lighting/ownedrecord capture. Same byte-sector topology as ordinary scrolling.",
+      "fallback_dependencies": [],
+      "blockers": []
     }
   ],
   "additional_unclassified_scope": [
@@ -5272,7 +5294,7 @@
     },
     {
       "path": "engines/nox/native_startup_host.h",
-      "sha256": "b37a809dc80515f5d0254d4cf186d74b50c12ffd052d690b87f7f15fc65dd990",
+      "sha256": "3a4842d25efa46967d169eaf08fd1a241da15b509203f4bbbc673d7398e2d055",
       "includes": [
         "nox/native_weapon_ready_validation.h",
         "nox/native_legacy_snapshot.h",
@@ -7145,7 +7167,7 @@
     },
     {
       "path": "engines/nox/native_world_story.h",
-      "sha256": "4418c8f5648f5a0964f381fef6f24a5add99353e4b72c732931ef38eac969786",
+      "sha256": "635b03795263fcc902dbb71a41a78b281211d08ad543b70ce8e6fd49d89d459a",
       "includes": [
         "nox/native_world.h",
         "nox/native_story_patches.h"
@@ -7305,9 +7327,9 @@
       "ce_replacements": 3
     },
     "world": {
-      "known_required": 13,
-      "native_implemented": 1,
-      "verified": 2,
+      "known_required": 14,
+      "native_implemented": 2,
+      "verified": 3,
       "partial": 11,
       "missing": 0,
       "unknown_required_rows": 0,
@@ -7416,8 +7438,8 @@
     }
   },
   "last_milestone": {
-    "owner": "orb492 aligned destination selection",
-    "evidence": "SCUMMVM-CE-ORB-NAVIGATION492-VERIFICATION.json"
+    "owner": "compressed window entry493",
+    "evidence": "SCUMMVM-CE-WINDOW-ENTRY493-VERIFICATION.json"
   },
   "overall": {
     "fully_implemented_top_level_domains": 1,
@@ -7431,7 +7453,7 @@
   },
   "current_subsystem": {
     "status": "IN PROGRESS",
-    "scope": "Remaining authored service/admission andscript producer closure,then shared lifecycle/graphics reconciliation."
+    "scope": "Remaining service/spell/script producer closure494,then lifecycle/graphics reconciliation."
   },
   "count_definition": "native_implemented counts IMPLEMENTED; CE_REPLACEMENT is separately reported. VERIFIED applies only to row evidence scope; no overall completion percentage."
 }

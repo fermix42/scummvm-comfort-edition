@@ -1,4 +1,31 @@
-# Orb492 integrated - VERIFIED within scoped contract
+# Compressed window entry493 integrated - VERIFIED within contract
+
+First build0/0 2m53.30s; first focused batch passed all8 actualcompressedmaps
+at64 outer entry samples,64 window codecs versus immutableBS neighborsectors.
+Actual WorldInput C/0/Return/1 fromnewGameKeep7 traverses full shared travel
+toSurface0 X0,Y32, renders arrival, preserves party/clock,core/window/input
+codecs andsubsequentG pass. Declaredorb0binding/spell63shortcut beforefirstinput;
+nooutcomeinjection,earnedroute/campaign/normalEnginecold/session/audio claim.
+WorldStory initializes allcompressedcenters withbytewrappedreal neighboring
+sectors,matchingexistingscrolling. No localexit/collision/codec format change.
+Source/exe frozenwindow493;receipt WINDOW-ENTRY493-VERIFICATION. No reruns.
+Next service/spell/script producer census494:49/49offers matchinitialroles,
+all11storypatchrules fitexistingfourtypedowners. Remaining qualifications
+andbook45 duplicate-name producer domain remain explicit;sourceclosureonly.
+Continue shared lifecycle/graphics andremainingauthored sourceowners.
+
+# Compressed window entry493 - IN PROGRESS
++
++492 committed16620eaa011; focused owner accepted. Remaining travel source pass
++found World.travel supports all byte coordinates, but WorldStory.initialize
++artificially rejects outer compressed sector rows/columns0/15 and unsigned
++neighbor indices lack the byte wrap already used by ordinary scrolling.
++Contract ENGINE-WINDOW-ENTRY-CONTRACT: complete existing native cache entry
++with authored byte-sector neighbors, unchanged local collision/exits/codecs.
++One focused source-sector/frame/actualCast-travel batch and integration build;
++no old492/audio suite or campaign. Then remaining source/lifecycle closure.
++
++# Orb492 integrated - VERIFIED within scoped contract
 
 492b build0/0 2m52.96s; first executable batch passed63policies,45codecs,
 9actual InventoryWindow Use ->corecodec ->WorldCast digit/caster ->modalcodec

@@ -67,6 +67,7 @@
 #include "nox/native_pressure_plate_validation.h"
 #include "nox/native_portal_validation.h"
 #include "nox/native_orb_navigation_validation.h"
+#include "nox/native_window_entry_validation.h"
 #include "nox/native_player_lifecycle_validation.h"
 #include "nox/native_ending.h"
 namespace Nox {
@@ -98,6 +99,11 @@ inline Common::Error NoxEngine::runNativeStartup() {
         }
         return Common::Error(Common::kReadingFailed,reason);
     };
+    if (ConfMan.hasKey("nox_native_window_entry493") && ConfMan.getBool("nox_native_window_entry493")) {
+        Common::String report;if (!Native::validateNativeWindowEntry493(_resources,report)) return fail(report.empty()?"Window entry focused check failed":report.c_str());
+        Common::OutSaveFile *out=_system->getSavefileManager()->openForSaving("nox-native-window-entry.tsv",false);if (!out) return Common::kWritingFailed;
+        out->writeString(report);out->finalize();const bool ok=!out->err();delete out;return ok?Common::Error(Common::kNoError):Common::Error(Common::kWritingFailed);
+    }
     if (ConfMan.hasKey("nox_native_orb_navigation492") && ConfMan.getBool("nox_native_orb_navigation492")) {
         Common::String report;if (!Native::validateNativeOrb492(_resources,report)) return fail(report.empty()?"Orb navigation focused check failed":report.c_str());
         Common::OutSaveFile *out=_system->getSavefileManager()->openForSaving("nox-native-orb-navigation.tsv",false);if (!out) return Common::kWritingFailed;

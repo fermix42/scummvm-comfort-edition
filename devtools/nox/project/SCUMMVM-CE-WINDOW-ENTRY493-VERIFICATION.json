@@ -1,0 +1,31 @@
+{
+  "status": "VERIFIED",
+  "scope": "Compressed window outer entry implementation and focused source-sector/actual travel/codec integration only.",
+  "parent_commit": "16620eaa011",
+  "executable_sha256": "6a28a550dd3493ad902a180ec8f9f7e6d72aeddadb04803f3bc91c6f7b6e2502",
+  "contract": "SCUMMVM-CE-ENGINE-WINDOW-ENTRY-CONTRACT.md",
+  "build": "493:0 warnings/0 errors,2m53.30s",
+  "native_batches": 1,
+  "failures": [],
+  "focused_validation": "window_entry\tcompressed_maps=8\touter_entries=64\twindow_codecs=64\tactual_cast_travel=1\tcore_input_codecs=2\tsubsequent_G=1\tcampaign=0\taudio_suite=0\n",
+  "source_manifest": {
+    "path": "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-window493-focused\\verification.json",
+    "sha256": "a139d617312ff142dcca343d342493f52f0d8c7042035d9dccdfdbc37c73f6a4"
+  },
+  "controlled_setup": "Each of eight actual compressed maps at eight byte-edge coordinates (0/255 corners and cardinal samples). Independent immutable BS neighbor data versus each loaded sector. Actual NewGame Keep7 with declared orb0 bound to Surface0 X0,Y32 and spell63 shortcut0/requirement0 before first C/0/Return/1. No outcome injection; complete WorldInput shared map/cargo/navigation/light/schedule/frame path,core/window/input codecs and subsequent G.",
+  "limitations": [
+    "No earned orb acquisition/approach,full campaign,normal Engine cold/session or audio/old suite claim.",
+    "Local exact exit thresholds and physical geometry unchanged. Actual Keep7 origin initializes and renders in focused workflow; no broad local-map suite rerun.",
+    "Existing source byte-sector topology is retained; no independent geographic wrapping redesign."
+  ],
+  "commands": [
+    "powershell.exe -NoProfile -ExecutionPolicy Bypass -File ./run-build-release-cleanenv.ps1 -NoxNativeOnly",
+    "python conversion/check_window493.py"
+  ],
+  "artifacts": {
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-binary\\scummvm-native-window493.exe": "6a28a550dd3493ad902a180ec8f9f7e6d72aeddadb04803f3bc91c6f7b6e2502",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-binary\\native-window493-source.zip": "d9aaa8eb42237d377b9a5b99a151ae885445f0783f588e6fa40c1a49ff2d0850",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-window493-focused\\verification.json": "a139d617312ff142dcca343d342493f52f0d8c7042035d9dccdfdbc37c73f6a4",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-window493-build.log": "1546111d3b1823088d67958d4baca14a90e4b656cd447ac01e28ca2ec80a780e"
+  }
+}
