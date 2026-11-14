@@ -1,3 +1,16 @@
+# Shared native owner review496 - VERIFIED static scope
+
+FourinitialPARTIALplaceholders reconciledagainstsource:story.03all11typed
+maprules,story.06ordinaryKeeprevelationconnection,persistence.04stagedatomic
+load,execution.06selectednativeCPU/ROM/IRQretirement areIMPLEMENTEDforknown
+scope. Widerverificationstatusesunchanged;no newnativeacceptance/campaign.
+EvidenceOWNER-REVIEW496.md;allotherPARTIAL/UNKNOWNproducer/legacy/integration
+qualificationsretained. No build/old/audio suite. Party.damagecalleraudit
+confirmsSearch495missingterminalconnectionclosed;existinghazard/seaowners
+alreadyhandletheirs. CampNPCinitializationhypothesisdisprovedbypredicates.
+Continue remainingnativebehavior/producerconnections andseparateintegration
+planning,notrewritingworkingcontrollersorblanketverificationpromotion.
+
 # Search trap lifecycle495 integrated - VERIFIED within contract
 
 495d clean build0/0 elapsed00:03:01.92;firstcorrectivefocusedbatchpasses

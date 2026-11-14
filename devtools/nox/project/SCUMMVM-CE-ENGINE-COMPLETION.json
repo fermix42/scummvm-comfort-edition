@@ -2294,7 +2294,7 @@
       "id": "story.03",
       "subsystem": "story",
       "behavior": "Authored map and object patches",
-      "implementation": "PARTIAL",
+      "implementation": "IMPLEMENTED",
       "verification": {
         "status": "NOT STARTED",
         "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement."
@@ -2307,11 +2307,17 @@
         "engines/nox/native_ending.h"
       ],
       "original_evidence": [
-        "SCUMMVM-CE-SOURCE-PRODUCERS494.md (static scope only)"
+        "SCUMMVM-CE-SOURCE-PRODUCERS494.md (static scope only)",
+        "SCUMMVM-CE-OWNER-REVIEW496.md"
       ],
       "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
       "fallback_dependencies": [],
-      "blockers": []
+      "blockers": [],
+      "source_review": {
+        "status": "VERIFIED",
+        "evidence": "SCUMMVM-CE-OWNER-REVIEW496.md",
+        "scope": "Static complete known owner/production connection;wider runtime verification unchanged."
+      }
     },
     {
       "id": "story.04",
@@ -2359,7 +2365,7 @@
       "id": "story.06",
       "subsystem": "story",
       "behavior": "Keep revelation flag and scene update",
-      "implementation": "PARTIAL",
+      "implementation": "IMPLEMENTED",
       "verification": {
         "status": "NOT STARTED",
         "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement."
@@ -2371,10 +2377,17 @@
         "engines/nox/native_world_open.h",
         "engines/nox/native_ending.h"
       ],
-      "original_evidence": [],
+      "original_evidence": [
+        "SCUMMVM-CE-OWNER-REVIEW496.md"
+      ],
       "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
       "fallback_dependencies": [],
-      "blockers": []
+      "blockers": [],
+      "source_review": {
+        "status": "VERIFIED",
+        "evidence": "SCUMMVM-CE-OWNER-REVIEW496.md",
+        "scope": "Static complete known owner/production connection;wider runtime verification unchanged."
+      }
     },
     {
       "id": "story.07",
@@ -2483,7 +2496,7 @@
       "id": "persistence.04",
       "subsystem": "persistence",
       "behavior": "Staged atomic load before live-state commit",
-      "implementation": "PARTIAL",
+      "implementation": "IMPLEMENTED",
       "verification": {
         "status": "NOT STARTED",
         "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement."
@@ -2493,10 +2506,17 @@
         "engines/nox/native_player_session.h",
         "engines/nox/native_legacy_snapshot.h"
       ],
-      "original_evidence": [],
+      "original_evidence": [
+        "SCUMMVM-CE-OWNER-REVIEW496.md"
+      ],
       "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
       "fallback_dependencies": [],
-      "blockers": []
+      "blockers": [],
+      "source_review": {
+        "status": "VERIFIED",
+        "evidence": "SCUMMVM-CE-OWNER-REVIEW496.md",
+        "scope": "Static complete known owner/production connection;wider runtime verification unchanged."
+      }
     },
     {
       "id": "persistence.05",
@@ -2682,7 +2702,7 @@
       "id": "execution.06",
       "subsystem": "execution",
       "behavior": "CPU ABI ROM bootstrap and IRQ retirement",
-      "implementation": "PARTIAL",
+      "implementation": "IMPLEMENTED",
       "verification": {
         "status": "NOT STARTED",
         "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement."
@@ -2690,10 +2710,17 @@
       "native_owners": [
         "engines/nox/native_engine.cpp"
       ],
-      "original_evidence": [],
+      "original_evidence": [
+        "SCUMMVM-CE-OWNER-REVIEW496.md"
+      ],
       "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
       "fallback_dependencies": [],
-      "blockers": []
+      "blockers": [],
+      "source_review": {
+        "status": "VERIFIED",
+        "evidence": "SCUMMVM-CE-OWNER-REVIEW496.md",
+        "scope": "Static complete known owner/production connection;wider runtime verification unchanged."
+      }
     },
     {
       "id": "audio.01",
@@ -7431,9 +7458,9 @@
     },
     "story": {
       "known_required": 9,
-      "native_implemented": 2,
+      "native_implemented": 4,
       "verified": 2,
-      "partial": 7,
+      "partial": 5,
       "missing": 0,
       "unknown_required_rows": 1,
       "additional_unclassified_scope": 1,
@@ -7441,9 +7468,9 @@
     },
     "persistence": {
       "known_required": 10,
-      "native_implemented": 0,
+      "native_implemented": 1,
       "verified": 1,
-      "partial": 9,
+      "partial": 8,
       "missing": 0,
       "unknown_required_rows": 0,
       "additional_unclassified_scope": 1,
@@ -7451,9 +7478,9 @@
     },
     "execution": {
       "known_required": 6,
-      "native_implemented": 3,
+      "native_implemented": 4,
       "verified": 0,
-      "partial": 3,
+      "partial": 2,
       "missing": 0,
       "unknown_required_rows": 0,
       "additional_unclassified_scope": 1,
@@ -7486,7 +7513,7 @@
   },
   "current_subsystem": {
     "status": "IN PROGRESS",
-    "scope": "Remaining shared lifecycle/graphics and authored producer connection review;no campaign/old suite rerun."
+    "scope": "Remaining native behavior/producer connection classification,then separate integration planning. Do not rewrite implemented owners or rerun accepted suites."
   },
   "count_definition": "native_implemented counts IMPLEMENTED; CE_REPLACEMENT is separately reported. VERIFIED applies only to row evidence scope; no overall completion percentage."
 }
