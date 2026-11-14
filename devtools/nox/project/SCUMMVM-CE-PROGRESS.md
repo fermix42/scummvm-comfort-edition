@@ -1,3 +1,38 @@
+# World Attack480 integrated - November14
+
+Build480c passed0 warnings/errors2m49.92s. Focused batch VERIFIED:2988 original
+admissions,24 source9417 alarm transactions,2 actual encounter formations,
+2 prompt/cancel codec continuations,1 independent retained-parent return alarm.
+Source/executable frozen in WORLD-ATTACK480 receipt; accepted audio unchanged.
+Native world A is implemented, B-ATTACK missing implementation retired. Shared
+boarding/cannon alarm no-matching-NPC bug corrected against original9417.
+Actual linked won/fled return, normal cold/session and raster qualification
+remain separate; no campaign/old/audio suite. Prior failed fixture experiments
+retained below;480c final correction passed. No active build.
+Next tactical controls481 contract/source oracle:3024 original selection/round
+boundaries,189 retained admissions,85335 steps/services; no AI/campaign run.
+Implement source party lock/unlock through existing round owner and bounded
+codec. Retire fatal obsolete machine delay/math keys as explicit CE replacement.
+Canonical docs here; byte-identical recovery CE devtools/nox/project.
+
+# Active world Attack480 - IN PROGRESS
+
+Production admission/prompt/NWIN15/post-return alarm implemented; shared9417
+alarm corrected for no matching NPCs. Build480 passed0 warnings/errors2m54.97s.
+Source2988 admission/24 alarm fixtures generated. Initial native failure:
+reference incorrectly captured Y (map type), not retained cell6000; original
+fixture preserved as temporary-y-source. Same-executable480b passes both source
+sections, fails prompt/exclusivity generic marker. Static diagnosis: Town48
+has two11:00 upcoming routes at10:00; navigation frees completed prefetch slots,
+so ordinary A can legitimately repeat common preparation. Fixture's pre-A whole
+core/RNG equality was invalid; pending N/Esc now compare against post-A state,
+while A still requires unchanged clock. Added per-profile/per-stage markers.
+No production change for this correction. One corrective native rerun failed;
+480c is the final allowed corrective native attempt before static/deferred
+diagnosis. Build480c next, then one focused check. No campaign/audio/old suites.
+Modified engine WorldAttack/Input/StartupHost/Transport/Cannon + focused fixture.
+Canonical tracking here and byte-identical recovery at CE devtools/nox/project.
+
 # Dialogue callbacks479 integrated - November14
 
 11 known callback/body/ownership behaviors implemented,9 focused verified;

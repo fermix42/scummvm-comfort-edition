@@ -13,6 +13,7 @@
 #include "nox/native_daylight.h"
 #include "nox/native_world_cast.h"
 #include "nox/native_world_cannon.h"
+#include "nox/native_world_attack.h"
 #include "nox/native_world_open.h"
 #include "nox/native_world_camp.h"
 #include "nox/native_search_input.h"
@@ -26,7 +27,7 @@ enum WorldInputResult { kWorldInputIgnored,kWorldInputHandled,kWorldInputBoundar
 // No key stream carries positions, quest fields or expected outcomes.
 class WorldInput {
 public:
-    WorldInput() : _notice(false),_campNotice(false),_openDirection(false),_leave(false),_fireDirection(false),_fireProtected(false),_scriptedEncounter(false),_refusalSound(false),_waitHoursPending(false),_sounds(nullptr) {}
+    WorldInput() : _notice(false),_campNotice(false),_openDirection(false),_leave(false),_fireDirection(false),_fireProtected(false),_scriptedEncounter(false),_refusalSound(false),_attackDirection(false),_attackAlarm(false),_waitHoursPending(false),_sounds(nullptr) {}
     bool loadRules(HdvArchive &archive,byte type=8) {
         return _move.load(archive,type) && _open.load(archive,type) && _wait.load(archive,type) && _story.load(archive) &&
             _actors.load(archive,type) && _lighting.load(archive,type) && _occlusion.load(archive,type) && _painter.load(archive,type);
@@ -49,11 +50,11 @@ public:
         if (_sounds) _sounds->push_back(kSpeakerSelection);return true;
     }
     bool takeRefusalSound() {const bool sound=_refusalSound;_refusalSound=false;return sound;}
-    bool noticeActive() const { return _roster.active() || _waitHoursPending || _information.active() || _partyOrder.active() || _search.active() || _fireDirection || _notice || _conversation.active() || _inventory.active() || _casting.active(); }
+    bool noticeActive() const { return _roster.active() || _waitHoursPending || _information.active() || _partyOrder.active() || _search.active() || _fireDirection || _attackDirection || _notice || _conversation.active() || _inventory.active() || _casting.active(); }
     void inheritCombatHistory(const WorldInput &other) {_fireProtected=other._fireProtected;}
     bool wholeFrameMenu() const { return _roster.active() || _waitHoursPending || _information.active() || _partyOrder.active() || _search.active() || _casting.active() || _inventory.active() || _conversation.stage()>=22; }
     bool atWorldCommand() const {
-        return !_roster.active() && !_waitHoursPending && !_information.active() && !_partyOrder.active() && !_search.active() && !_notice && !_openDirection && !_leave && !_fireDirection && !_encounter.battle && !_conversation.active() &&
+        return !_roster.active() && !_waitHoursPending && !_information.active() && !_partyOrder.active() && !_search.active() && !_notice && !_openDirection && !_leave && !_fireDirection && !_attackDirection && !_encounter.battle && !_conversation.active() &&
             !_inventory.active() && !_casting.active() && !_transport.defeated && !_transport.pendingSteps && !_transport.alignment;
     }
     bool matchesWorld(const World &world) const { return _information.matchesWorld(world) && _search.matches(world) && _casting.matches(world) && _inventory.matches(world) && _conversation.matchesWorld(world) && world.onFoot()==(_transport.object==255); }
@@ -64,7 +65,7 @@ public:
             !_search.active() && !_fireDirection && !_notice && !_openDirection && !_leave && !_encounter.battle && !_conversation.active() && !_inventory.active() && !_casting.active();
     }
     void markDefeated() {_transport.used=_transport.defeated=true;_transport.pendingSteps=0;_transport.pendingDirection=255;_transport.alignment=false;}
-    byte automaticDirection() const {return !_fireDirection && !_encounter.battle && !_notice && !_openDirection && !_leave && !_conversation.active() && !_inventory.active() && !_casting.active() && !_transport.defeated && _transport.pendingSteps?_transport.pendingDirection:255;}
+    byte automaticDirection() const {return !_fireDirection && !_attackDirection && !_encounter.battle && !_notice && !_openDirection && !_leave && !_conversation.active() && !_inventory.active() && !_casting.active() && !_transport.defeated && _transport.pendingSteps?_transport.pendingDirection:255;}
     byte conversationStage() const { return _conversation.stage(); }
     const Common::String &visibleReply() const {return _conversation.visibleReply();}
     byte inventoryStage() const {return _inventory.phase();}
@@ -105,8 +106,18 @@ public:
             (event.slot&3) || (event.bank && (event.slot&7)) || event.direction>3 || event.cell>=187) return false;
         _encounter=event;return true;
     }
+    bool completeAttackReturn(HdvArchive &archive,NewGame &game) {
+        if (!_attackAlarm) return true;
+        if (!_encounter.battle || !game.ready()) return false;
+        Common::Array<byte> data,footer;MapAssetRange range;
+        if (!archive.read("NA/GAME",data) || !resolveMapAssets(data,game.world.mapType(),range) || !archive.readRange(range.resource,range.offset+range.size,72,footer)) return false;
+        World candidate(game.world);WorldTransportState controls=_transport;
+        if (!controls.used) controls.appearance=controls.baseAppearance=controls.statusAppearance=game.appearance;
+        WorldAttack::alarm(candidate._states[candidate._current].tables.data()+1280,footer.data(),controls);
+        game.world.adoptState(candidate);_transport=controls;_attackAlarm=false;return true;
+    }
     bool finishEncounter(bool fireProtected=false) {
-        if (!_encounter.battle || _notice || _openDirection) return false;
+        if (!_encounter.battle || _notice || _openDirection || _attackAlarm) return false;
         _encounter.battle=false;_scriptedEncounter=false;_fireProtected=fireProtected;return true;
     }
     static bool showMessage(const FixedMessageCatalog &catalog,byte id,TextGlyphSurface &surface,HgrFrame &frame) {
@@ -119,6 +130,21 @@ public:
         if (input.type!=Common::EVENT_KEYDOWN) return kWorldInputIgnored;
         if (_transport.defeated) return kWorldInputDefeat;
         if (_encounter.battle) return kWorldInputBoundary;
+        if (_attackDirection) {
+            if (input.kbd.keycode==Common::KEYCODE_ESCAPE) {
+                _attackDirection=false;return frame.clearTextSpan(7,23,25) && text.importPages(frame.data(),frame.data(),8192)?kWorldInputHandled:kWorldInputUnsupported;
+            }
+            byte direction;
+            switch (input.kbd.keycode) {case Common::KEYCODE_UP:direction=0;break;case Common::KEYCODE_DOWN:direction=1;break;case Common::KEYCODE_RIGHT:direction=2;break;case Common::KEYCODE_LEFT:direction=3;break;default:return kWorldInputHandled;}
+            const WorldAttackContext context={game.world.mapType(),game.world.mapId(),game.world.x(),game.world.y(),game.appearance,_transport.speed,_transport.object!=255 && (_transport.appearance==119 || _transport.appearance==123)};
+            WorldActorTurnEvent event;bool alarm=false;const WorldAttackResult result=WorldAttack::choose(context,direction,scene,game.world.currentTables()->data(),event,alarm);
+            if (result==kWorldAttackInvalid) return kWorldInputUnsupported;
+            _attackDirection=false;
+            if (result==kWorldAttackSelected) {_encounter=event;_attackAlarm=alarm;return kWorldInputEncounter;}
+            if (result==kWorldAttackNoTarget) _refusalSound=true;
+            return message(catalog,result==kWorldAttackNoTarget?24:18,text,frame)?kWorldInputHandled:kWorldInputUnsupported;
+        }
+
         // Roster selection is a free, exclusive command. Handle it before
         // the world input-loop schedule services; no time/AI/RNG advances.
         if (_partyOrder.active()) {
@@ -358,6 +384,7 @@ public:
             if (!_casting.begin(archive,game,frame)) return kWorldInputUnsupported;
             return kWorldInputHandled;
         }
+        if (input.kbd.keycode==Common::KEYCODE_a) {_attackDirection=true;return message(catalog,12,text,frame)?kWorldInputHandled:kWorldInputUnsupported;}
         if (input.kbd.keycode==Common::KEYCODE_t) {
             if (!_conversation.choose(game.world,frame) || !message(catalog,12,text,frame)) return kWorldInputUnsupported;
             return kWorldInputHandled;
@@ -429,6 +456,13 @@ public:
         return kWorldInputHandled;
     }
     bool save(Common::WriteStream &out) const {
+        if (_attackDirection || _attackAlarm) {
+            if ((_attackDirection && _attackAlarm) || (_attackDirection && _encounter.battle) || (_attackAlarm && !_encounter.battle)) return false;
+            Common::ScopedPtr<WorldInput> base(new WorldInput(*this));base->_attackDirection=base->_attackAlarm=false;
+            Common::MemoryWriteStreamDynamic body(DisposeAfterUse::YES);if (!base->save(body)) return false;
+            out.writeUint32BE(MKTAG('N','W','I','N'));out.writeUint16LE(15);out.writeByte(_attackDirection?1:2);out.writeUint32LE(body.size());out.write(body.getData(),body.size());return !out.err();
+        }
+
         if (_roster.active() || _waitHoursPending || _partyOrder.active() || _information.active()) return false; // Normal CE save eligibility excludes transient selectors.
         if (_campNotice) {
             if (!_notice) return false;
@@ -468,6 +502,15 @@ public:
     bool load(Common::SeekableReadStream &in,HdvArchive &archive,byte type=8) {
         if (in.readUint32BE()!=MKTAG('N','W','I','N')) return false;
         uint version=in.readUint16LE();
+        if (version==15) {
+            const byte phase=in.readByte();const uint32 size=in.readUint32LE();
+            if ((phase!=1 && phase!=2) || size<6 || size>1048576 || int64(size)!=in.size()-in.pos()) return false;
+            Common::Array<byte> bytes;bytes.resize(size);if (in.read(bytes.data(),size)!=size || READ_BE_UINT32(bytes.data())!=MKTAG('N','W','I','N') || READ_LE_UINT16(bytes.data()+4)>=15) return false;
+            Common::MemoryReadStream body(bytes.data(),size);Common::ScopedPtr<WorldInput> next(new WorldInput);
+            if (!next->load(body,archive,type) || (phase==1?!next->atWorldCommand():!next->_encounter.battle)) return false;
+            next->_attackDirection=phase==1;next->_attackAlarm=phase==2;*this=*next;return true;
+        }
+
         if (version==12) {
             const uint size=in.readUint32LE();if (size<6 || size>1048576 || size!=in.size()-in.pos()) return false;
             Common::Array<byte> bytes;bytes.resize(size);if (in.read(bytes.data(),size)!=size || READ_LE_UINT16(bytes.data()+4)>=10) return false;
@@ -677,7 +720,7 @@ private:
             if (!frame.putByte(x,y,surface.page(0)[HgrFrame::rowOffset(y)+x])) return false;
         return true;
     }
-    bool _notice,_campNotice,_openDirection,_leave,_fireDirection,_fireProtected,_scriptedEncounter,_refusalSound;TextWindow _window;HgrFrame _underlay;
+    bool _notice,_campNotice,_openDirection,_leave,_fireDirection,_fireProtected,_scriptedEncounter,_refusalSound,_attackDirection,_attackAlarm;TextWindow _window;HgrFrame _underlay;
     WorldActorTurnEvent _encounter;WorldConversation _conversation;WorldTransportState _transport;InventoryWindow _inventory;WorldCast _casting;PartyOrderInput _partyOrder;InformationInput _information;PartyRoster _roster;HourWait _hourWait;HgrFrame _waitHoursUnderlay;bool _waitHoursPending;
     SearchInput _search;WorldMove _move;WorldOpen _open;WorldWait _wait;StoryMapPatches _story;ActorPaintRules _actors;TerrainLighting _lighting;OcclusionRules _occlusion;TilePainter _painter;SoundEvents *_sounds;
 };

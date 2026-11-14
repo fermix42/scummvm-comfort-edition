@@ -51,6 +51,7 @@
 #include "nox/native_simulation_validation.h"
 #include "nox/native_dialogue_control_validation.h"
 #include "nox/native_callbacks_validation.h"
+#include "nox/native_world_attack_validation.h"
 #include "nox/native_player_lifecycle_validation.h"
 #include "nox/native_ending.h"
 namespace Nox {
@@ -82,6 +83,12 @@ inline Common::Error NoxEngine::runNativeStartup() {
         }
         return Common::Error(Common::kReadingFailed,reason);
     };
+    if (ConfMan.hasKey("nox_native_world_attack_fixture")) {
+        Common::File input;Common::String report;
+        if (!input.open(Common::FSNode(ConfMan.getPath("nox_native_world_attack_fixture"))) || !validateNativeWorldAttack480(_resources,input,report)) return fail(report.empty()?"World Attack focused check failed":report.c_str());
+        Common::OutSaveFile *out=_system->getSavefileManager()->openForSaving("nox-native-world-attack.tsv",false);if (!out) return Common::kWritingFailed;
+        out->writeString(report);out->finalize();const bool ok=!out->err();delete out;return ok?Common::Error(Common::kNoError):Common::Error(Common::kWritingFailed);
+    }
     if (ConfMan.hasKey("nox_native_callbacks_fixture")) {
         Common::File input;Common::String report;
         if (!input.open(Common::FSNode(ConfMan.getPath("nox_native_callbacks_fixture"))) || !validateNativeCallbacks479(_resources,input,report)) return fail(report.empty()?"Callback focused check failed":report.c_str());
@@ -569,7 +576,7 @@ inline Common::Error NoxEngine::runNativeStartup() {
                     battleReturnStep="result completion";
                     if (!aftermath.returnReady(encounterState)) return false;
                     battleReturnStep="parent contact retirement";
-                    if (!aftermath.retireWorldContact(worldInput.encounter(),game,encounterState,worldInput.scriptedEncounter())) return false;
+                    if (!aftermath.retireWorldContact(worldInput.encounter(),game,encounterState,worldInput.scriptedEncounter()) || !worldInput.completeAttackReturn(_resources,game)) return false;
                     const bool scriptedTravel=worldInput.scriptedEncounter();
                     const bool templeTravel=encounterState.exit.phase!=3 && Native::EndingPresentation::revelation(game.world.mapId(),game.world.field(56),game.world.field(59));
                     battleReturnStep="scripted entrance continuation";

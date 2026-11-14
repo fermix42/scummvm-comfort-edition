@@ -1,3 +1,7 @@
+World Attack480 uses native actual actor admission/existing battle handoff and
+post-return shared9417 alarm. No instruction/CPU fallback. NWIN15 is a bounded
+native pending-owner codec, not expanded normal CE mid-battle save eligibility.
+
 Callbacks479: native pending/resolved world effects replace TalkB2F9-B4D3
 instruction services; no interpreter fallback. NCON4/NCUI8 retain ownership.
 Current/persistent record writes reconcile in one canonical map owner; original

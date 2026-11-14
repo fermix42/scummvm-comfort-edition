@@ -55,6 +55,13 @@ struct TransportControlOutcome {
 // operations, then resume normal world input. This is not a movement dispatcher.
 class WorldTransportControl {
 public:
+    static bool raiseAlarm(byte *npcs,const byte *footer) {
+        bool raised=false;
+        for (uint slot=0;slot<256;slot+=8) {
+            const byte tile=npcs[slot+2];if ((tile>=footer[64] && tile<footer[65]) || tile==footer[66] || tile==123) {npcs[slot+6]=255;raised=true;}
+        }
+        return raised;
+    }
     static bool requestJump(WorldTransportState &state) {
         if (!state.valid() || (state.appearance!=127 && state.appearance!=238)) return false;
         state.used=true;state.jumpRequested=true;state.pace=2;return true;
@@ -114,11 +121,7 @@ private:
     }
     static bool supported(byte picture) {return picture==119 || picture==123 || picture==124 || picture==127 || picture==128 || picture==238;}
     static void alarm(TransportControlContext &c,WorldTransportState &state) {
-        state.alarm=true;
-        for (uint slot=0;slot<256;slot+=8) {
-            const byte picture=c.npcs[slot+2];
-            if ((picture>=c.footer[64] && picture<c.footer[65]) || picture==c.footer[66] || picture==123) c.npcs[slot+6]=255;
-        }
+        state.alarm|=raiseAlarm(c.npcs,c.footer);
     }
     static TransportControlResult boarding(TransportControlContext &c,WorldTransportState &state,TransportControlOutcome &out) {
         if (c.overlap==255) return kTransportRefused;

@@ -2872,24 +2872,26 @@
       "id": "combat.14",
       "subsystem": "combat",
       "behavior": "World A Attack command direction and encounter initiation",
-      "implementation": "MISSING",
+      "implementation": "IMPLEMENTED",
       "verification": {
-        "status": "NOT STARTED",
-        "scope": "Manual A Attack and GAME932A original entry; current WorldInput recognized-command fallthrough. Source contract must resolve complete semantics before implementation."
+        "status": "VERIFIED",
+        "scope": "2988 original admissions,24 shared9417 transactions,2 actual encounter formations,pending prompt/codecs/cancel and independent return alarm. Normal linked battle/cold/session remains qualified.",
+        "evidence": "SCUMMVM-CE-WORLD-ATTACK480-VERIFICATION.json"
       },
       "original_evidence": [
         "GAME723F command table,932A",
         "Manual Quick Reference A Attack"
       ],
       "native_owners": [
+        "engines/nox/native_world_attack.h",
         "engines/nox/native_world_input.h",
-        "engines/nox/native_encounter_admission.h"
+        "engines/nox/native_startup_host.h",
+        "engines/nox/native_world_transport.h",
+        "engines/nox/native_world_cannon.h"
       ],
-      "production_connection": "Current A world command falls through Ignored; battle attack owner exists but does not replace world initiation.",
+      "production_connection": "A exclusive direction uses actual actor lookup; existing encounter and return owners retain alarm until contact retirement then apply it once.",
       "fallback_dependencies": [],
-      "blockers": [
-        "B-ATTACK"
-      ]
+      "blockers": []
     },
     {
       "id": "persistence.10",
@@ -4952,7 +4954,7 @@
     },
     {
       "path": "engines/nox/native_startup_host.h",
-      "sha256": "4c35a0d0fce3e184fb4889d2786c3fd641e12219d1cc6522758b6d9ff3c22cec",
+      "sha256": "adab667c09bc0e5f904eb555d25f6885d4a0a4a69fa2eb35d7581c35ff866a50",
       "includes": [
         "nox/native_weapon_ready_validation.h",
         "nox/native_legacy_snapshot.h",
@@ -5536,7 +5538,7 @@
     },
     {
       "path": "engines/nox/native_world_cannon.h",
-      "sha256": "2a982e8f77eedf011d56ac821366907f01d8a96da4858f0cb617ded1a334309d",
+      "sha256": "caee0aad47add1d5646389e68e47ddbed04ea025eafbc54325350e732939757c",
       "includes": [
         "nox/native_world_projectile.h"
       ],
@@ -6140,7 +6142,7 @@
     },
     {
       "path": "engines/nox/native_world_input.h",
-      "sha256": "898131ebea265828430eb7a6474b3c710a0f6321b7a0265c8ed17c607f53e4ce",
+      "sha256": "9000a98ee171054ea2681a07c5bd28862b101e1d88f2e0f90eef294c8f62dff1",
       "includes": [
         "nox/native_new_game.h",
         "nox/native_world_move.h",
@@ -6760,7 +6762,7 @@
     },
     {
       "path": "engines/nox/native_world_transport.h",
-      "sha256": "e792ffb69284a4906c72f0acfc354da72b9ac8d467f25dcf2f767c78f1c9d52b",
+      "sha256": "92f9275116a7444ea9b91a283781ea97dee89aad9010674e950b5a541bdbd77b",
       "includes": [],
       "explicit_boundaries": [],
       "coverage": "Only individual requirement/evidence scopes are credited."
@@ -6923,10 +6925,10 @@
     },
     "combat": {
       "known_required": 13,
-      "native_implemented": 0,
-      "verified": 0,
+      "native_implemented": 1,
+      "verified": 1,
       "partial": 12,
-      "missing": 1,
+      "missing": 0,
       "unknown_required_rows": 1,
       "additional_unclassified_scope": 1,
       "ce_replacements": 0
@@ -6993,11 +6995,8 @@
     }
   },
   "last_milestone": {
-    "owner": "dialogue callbacks479",
-    "known_required": 11,
-    "native_implemented": 11,
-    "focused_verified": 9,
-    "evidence": "SCUMMVM-CE-CALLBACKS479-VERIFICATION.json"
+    "owner": "world Attack480",
+    "evidence": "SCUMMVM-CE-WORLD-ATTACK480-VERIFICATION.json"
   },
   "overall": {
     "fully_implemented_top_level_domains": 1,
@@ -7011,6 +7010,6 @@
   },
   "current_subsystem": {
     "status": "IN PROGRESS",
-    "scope": "World A Attack and complete associated encounter/return/continuation ownership."
+    "scope": "Complete tactical lock/unlock controls, then exceptional combat/script producer closure."
   }
 }

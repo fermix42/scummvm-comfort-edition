@@ -1,3 +1,9 @@
+World Attack480: B-ATTACK missing implementation retired. Native direction,
+admission, NWIN15 and post-return shared alarm implemented and focused verified.
+Linked normal battle/cold/session qualification remains explicit in480 receipt.
+Tactical party lock/unlock remains current481; obsolete F/= missing labels are
+stale, actual cannon/icon owners already exist. Quick067D remains B-QUICK.
+
 Controls476b update: known roster/torch/icon/W implementation is complete;
 focused receipt records29 verified behaviors and7 integration qualifications.
 B-COMMAND/B-TORCH missing implementation retired within this contract. World

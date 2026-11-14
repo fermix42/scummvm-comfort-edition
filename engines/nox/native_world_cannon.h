@@ -2,6 +2,7 @@
 #ifndef NOX_NATIVE_WORLD_CANNON_H
 #define NOX_NATIVE_WORLD_CANNON_H
 #include "nox/native_world_projectile.h"
+#include "nox/native_world_transport.h"
 namespace Nox { namespace Native {
 enum WorldCannonResult {kWorldCannonRefused,kWorldCannonCancelled,kWorldCannonFired,kWorldCannonUnsupported};
 // Whole player world-cannon transaction. Caller owns the actual direction
@@ -32,8 +33,7 @@ public:
             }
             // The alarm follows removal even when protection refused it.
             if (map>=46 && map<50) {
-                for (uint i=0;i<256;i+=8) if ((people[i+2]>=footer[64] && people[i+2]<footer[65]) || people[i+2]==footer[66] || people[i+2]==123) people[i+6]=255;
-                alarm=true;
+                alarm|=WorldTransportControl::raiseAlarm(people,footer);
             }
         }
         memcpy(compact,actors,256);memcpy(npcs,people,256);memcpy(lookup,indices,187);memcpy(kinds,types,187);
