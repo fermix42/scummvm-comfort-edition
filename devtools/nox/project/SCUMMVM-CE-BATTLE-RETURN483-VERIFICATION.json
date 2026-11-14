@@ -1,0 +1,42 @@
+{
+  "status": "IN PROGRESS",
+  "scope": "Exceptional queued treasure/native last NPC record implemented, focused verification VERIFIED; full port/campaign qualification remains incomplete.",
+  "parent_commit": "fdc3d8fe12a",
+  "executable_sha256": "4cb2e816e99b8e3d789b531c1c04a3ad6e132a65b77cc1c79915010fb29efa80",
+  "source_hash_manifest": {
+    "path": "conversion/ce-native-battle-return483-focused/verification.json",
+    "sha256": "064827f501c9fe6e11fba28aa72f8ae6843b1bae9a1cc251ef545c22f2472f86",
+    "scope": "Every engine source file hash captured before focused run; frozen source ZIP verified against each hash."
+  },
+  "build": {
+    "result": "0 warnings,0 errors,2m50.23s",
+    "native_batches": 1,
+    "failures": []
+  },
+  "focused_validation": {
+    "status": "VERIFIED",
+    "report": "battle-return\texact_source_cases=648\tcanonical_slot248_equivalents=144\tqueued_preflight_refusals=2\tauthored_aftermath_item_codec=1\tretirement_once=1\tearned_win=0\tcampaign=0\taudio_suite=0\n",
+    "original_steps_services": 104922
+  },
+  "primary_source": {
+    "url": "https://www.applelogic.org/files/AIIEREF.pdf",
+    "finding": "Apple IIe AUXMOVE preserves A/X/Y. Original R98D0 A2 therefore becomes queued marker2 when64 without128. Direct PDF fetch timed out; indexed primary document text available."
+  },
+  "ce_replacement": "Slot248 uses its actual eight-byte owned record instead of source9-byte page-end wrap/stale scratch.144 source240 equivalent-record cases explicitly do not claim original248 machine image equivalence.",
+  "controlled_setup": "Actual authored UM97 NPC8, real source flag192/field46/mask8/item2/81. Independent pre-operation post-victory checkpoint uses NewGame/group124 with declared dead enemy records before testing Aftermath. No earned/linked win or campaign claim.",
+  "remaining_qualifications": [
+    "Normal Engine cold/session and linked battle/return not run; typed actual Aftermath/loot/result codec/retirement are verified.",
+    "Original slot248 wrapped-copy scratch behavior intentionally replaced, not preserved.",
+    "Full original producer/dynamic reachability not established by parameterized format coverage."
+  ],
+  "artifacts": {
+    "conversion/ce-m4-binary/scummvm-native-battle-return483.exe": "4cb2e816e99b8e3d789b531c1c04a3ad6e132a65b77cc1c79915010fb29efa80",
+    "conversion/ce-m4-binary/native-battle-return483-source.zip": "921cfc14312367861fca06494d740afee9ee801ff7aee270fd0be07c7c5350a2",
+    "conversion/ce-native-battle-return483-focused/verification.json": "064827f501c9fe6e11fba28aa72f8ae6843b1bae9a1cc251ef545c22f2472f86",
+    "conversion/ce-native-battle-return483-original.bin": "124cad6988285df2c7231bdc78d302b20509f93e1a177c2b55ff3bc956a000f9",
+    "conversion/ce-native-battle-return483-original.json": "5709049b07b37d27c507aab21a137b81cee3c64e294fa3999fb50f22588a9147",
+    "conversion/ce-native-battle-return483-build.log": "405a3362e7d1e3fec0bc0470b87e28397b96793a2a02484026037f1fd78ca8ba"
+  },
+  "audio": "Accepted audio untouched; no audio/old suite/campaign.",
+  "next": "World D Dig, a source command currently swallowed. Keep unknown Quick/producer/legacy qualifications separate."
+}

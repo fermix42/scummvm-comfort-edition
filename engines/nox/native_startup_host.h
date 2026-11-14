@@ -56,6 +56,7 @@
 #include "nox/native_battle_inventory.h"
 #include "nox/native_tactical_controls_validation.h"
 #include "nox/native_battle_inventory_validation.h"
+#include "nox/native_battle_return_validation.h"
 #include "nox/native_player_lifecycle_validation.h"
 #include "nox/native_ending.h"
 namespace Nox {
@@ -87,6 +88,12 @@ inline Common::Error NoxEngine::runNativeStartup() {
         }
         return Common::Error(Common::kReadingFailed,reason);
     };
+    if (ConfMan.hasKey("nox_native_battle_return_fixture")) {
+        Common::File input;Common::String report;
+        if (!input.open(Common::FSNode(ConfMan.getPath("nox_native_battle_return_fixture"))) || !validateNativeBattleReturn483(_resources,input,report)) return fail(report.empty()?"Battle return focused check failed":report.c_str());
+        Common::OutSaveFile *out=_system->getSavefileManager()->openForSaving("nox-native-battle-return.tsv",false);if (!out) return Common::kWritingFailed;
+        out->writeString(report);out->finalize();const bool ok=!out->err();delete out;return ok?Common::Error(Common::kNoError):Common::Error(Common::kWritingFailed);
+    }
     if (ConfMan.hasKey("nox_native_battle_inventory_fixture")) {
         Common::File input;Common::String report;
         if (!input.open(Common::FSNode(ConfMan.getPath("nox_native_battle_inventory_fixture"))) || !validateNativeBattleInventory482(_resources,input,report)) return fail(report.empty()?"Battle inventory focused check failed":report.c_str());

@@ -3039,6 +3039,29 @@
       "production_connection": "Ordinary Tab adapts live members to existing inventory; actual game owners commit. Modal is exclusive, free close repaints actual battle. NIWN3/NBTS18 persist context.",
       "fallback_dependencies": [],
       "blockers": []
+    },
+    {
+      "id": "combat.17",
+      "subsystem": "combat",
+      "behavior": "Independent scripted treasure flag64 and complete typed NPC return record domain",
+      "implementation": "IMPLEMENTED",
+      "verification": {
+        "status": "VERIFIED",
+        "scope": "648 original effect/treasure/retire cases,144 explicit canonical248 equivalents,2 atomic preflight refusals,actual authored UM97 controlled Aftermath/loot/result codec/retire once. Normal linked/cold/session/campaign remains qualified.",
+        "evidence": "SCUMMVM-CE-BATTLE-RETURN483-VERIFICATION.json"
+      },
+      "native_owners": [
+        "engines/nox/native_battle_world_return.h",
+        "engines/nox/native_battle_aftermath.h",
+        "engines/nox/native_battle_loot.h"
+      ],
+      "original_evidence": [
+        "SCUMMVM-CE-ENGINE-BATTLE-RETURN-CONTRACT.md",
+        "R9844-9900;L1612/18B6;Apple AUXMOVE register contract"
+      ],
+      "production_connection": "Existing actual Aftermath uses proven independent64 marker2; typed248 parent record effects/retirement fit owner bounds. No second reward lifecycle.",
+      "fallback_dependencies": [],
+      "blockers": []
     }
   ],
   "additional_unclassified_scope": [
@@ -3614,7 +3637,7 @@
     },
     {
       "path": "engines/nox/native_battle_world_return.h",
-      "sha256": "a4798bf09e06a93bfcf15dfa84e4f8d515d0ad7341d521b63843735f01a697c3",
+      "sha256": "8b6ec7e2e8314704cbd6a21a2d807fb185e1f0530ca1c6b1de7d2c27f6ce5ef9",
       "includes": [],
       "explicit_boundaries": [],
       "coverage": "Only individual requirement/evidence scopes are credited."
@@ -5049,7 +5072,7 @@
     },
     {
       "path": "engines/nox/native_startup_host.h",
-      "sha256": "2d9fb594b110cdf1bfd50401d38c47478419d1d631783f425fb3fd8e3ecae9af",
+      "sha256": "f7794bb8726969cbdfb1d5ef927105c51c4435072ecf1d87d3e68cef0b42d70d",
       "includes": [
         "nox/native_weapon_ready_validation.h",
         "nox/native_legacy_snapshot.h",
@@ -5109,79 +5132,79 @@
       ],
       "explicit_boundaries": [
         {
-          "line": 516,
+          "line": 523,
           "text": "if (Native::NpcScheduler::apply(game.world,game.clock.hour,game.clock.minute,policy,game.schedule)==Native::kNpcScheduleUnsupported) return fail(\"Controlled map-entry schedule failed before input\");"
         },
         {
-          "line": 534,
+          "line": 541,
           "text": "if (!Native::EncounterPreparation::prepare(_resources,game,prepared,turns,worldInput.encounter(),preparedEncounter,worldInput.scriptedEncounter())) return fail(\"Native restored encounter preparation reached an unsupported admission\");"
         },
         {
-          "line": 700,
+          "line": 707,
           "text": "if (!quickRules.step(random,encounterState.records,encounterState.quick,encounterState.round.protectedTargets)) return fail(\"Native Quick scheduler/action reached an unsupported branch\");"
         },
         {
-          "line": 783,
+          "line": 790,
           "text": "if (!pacedReplay) { if (!advanceAnimation()) return fail(\"Native deterministic idle reached an unsupported animation boundary\");continue; }"
         },
         {
-          "line": 788,
+          "line": 795,
           "text": "if (!advanceAnimation()) return fail(\"Native live idle reached an unsupported animation boundary\");continue;"
         },
         {
-          "line": 857,
+          "line": 864,
           "text": "if (!aftermath.choose(take,all,game,encounterState,random) || !aftermath.paint(font,encounterState)) return fail(\"Native treasure decision reached an unsupported inventory/result branch\");"
         },
         {
-          "line": 865,
+          "line": 872,
           "text": "if (!aftermath.begin(worldInput.encounter(),game,encounterState,random,worldInput.scriptedEncounter(),preparedEncounter.contactSprite)) return fail(\"Native victory results reached an unsupported level/contact/loot branch\");"
         },
         {
-          "line": 905,
+          "line": 912,
           "text": "if (result==Native::kInventoryWindowUnsupported) return fail(\"Native battle inventory transaction failed\");"
         },
         {
-          "line": 945,
+          "line": 952,
           "text": "if (handled==Native::kBattleCastUnsupported) return fail(\"Native Cast reached an unsupported family/status/NPC continuation\");"
         },
         {
-          "line": 968,
+          "line": 975,
           "text": "!Native::BattleAttack::used(next.records,caster,next.attack.partyTargeting,next.attack,next.target)) return fail(\"Native tactical attack reached an unsupported weapon/turn policy\");"
         },
         {
-          "line": 975,
+          "line": 982,
           "text": "if (!battlePresentation.paint(preparedEncounter,next,next.phase,image)) return fail(\"Native tactical attack presentation reached an unsupported status\");"
         },
         {
-          "line": 1032,
+          "line": 1039,
           "text": "!battlePresentation.paint(preparedEncounter,next,next.phase,image)) return fail(\"Native tactical pass reached an unsupported turn/status policy\");"
         },
         {
-          "line": 1070,
+          "line": 1077,
           "text": "if (handled==Native::kWorldInputBoundary) return fail(\"Native world command reached an unsupported encounter/interaction boundary\");"
         },
         {
-          "line": 1071,
+          "line": 1078,
           "text": "if (handled==Native::kWorldInputUnsupported) return fail(\"Native world command could not complete its admitted phase\");"
         },
         {
-          "line": 1073,
+          "line": 1080,
           "text": "if (!Native::EncounterPreparation::prepare(_resources,game,prepared,turns,worldInput.encounter(),preparedEncounter,worldInput.scriptedEncounter())) return fail(\"Native encounter preparation reached an unsupported admission\");"
         },
         {
-          "line": 1074,
+          "line": 1081,
           "text": "if (!encounterState.begin(_resources,game,preparedEncounter,random)) return fail(\"Native encounter formation reached an unsupported layout/group\");"
         },
         {
-          "line": 1079,
+          "line": 1086,
           "text": "if (handled==Native::kWorldInputIgnored && event.kbd.keycode==Common::KEYCODE_SPACE) {"
         },
         {
-          "line": 1087,
+          "line": 1094,
           "text": "else if (result!=Native::kWorldWaitAdvanced) return fail(\"Native Wait reached an unsupported effect boundary\");"
         },
         {
-          "line": 1099,
+          "line": 1106,
           "text": "if (handled==Native::kWorldInputIgnored && event.kbd.keycode==Common::KEYCODE_SPACE && ConfMan.hasKey(\"nox_native_checkpoint_wait\") &&"
         }
       ],
@@ -7056,9 +7079,9 @@
       "ce_replacements": 0
     },
     "combat": {
-      "known_required": 15,
-      "native_implemented": 3,
-      "verified": 3,
+      "known_required": 16,
+      "native_implemented": 4,
+      "verified": 4,
       "partial": 12,
       "missing": 0,
       "unknown_required_rows": 1,
@@ -7127,8 +7150,8 @@
     }
   },
   "last_milestone": {
-    "owner": "battle inventory482",
-    "evidence": "SCUMMVM-CE-BATTLE-INVENTORY482-VERIFICATION.json"
+    "owner": "battle return483",
+    "evidence": "SCUMMVM-CE-BATTLE-RETURN483-VERIFICATION.json"
   },
   "overall": {
     "fully_implemented_top_level_domains": 1,
@@ -7142,6 +7165,6 @@
   },
   "current_subsystem": {
     "status": "IN PROGRESS",
-    "scope": "Exceptional battle return; Quick/script producer closure remains explicit."
+    "scope": "World D Dig, then remaining native command/settings/script producer closure."
   }
 }

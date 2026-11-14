@@ -1,3 +1,41 @@
+# Battle return483 integrated - November14
+
+First build483 passed0 warnings/errors2m50.23s; first focused batch VERIFIED.
+648 exact original flags/treasure/retire cases,144 explicit canonical248
+source-equivalent records,2 atomic preflight refusals,actual authored UM97 NPC8
+independent controlled post-victory Aftermath/item/flag/result codec/retire-once.
+AUXMOVE preserves A; bit64 without128 now queues proven marker2. Slot248 uses
+actual8-byte typed record, explicit CE replacement for9-byte wrap/stale scratch.
+Not an earned/linked battle,normal Engine cold/session or original248 image
+claim. Source/executable frozen BATTLE-RETURN483 receipt. No active build;
+accepted audio unchanged,no old/audio suite or campaign.
+Next source command table reveals world D Dig (723F table ->1CB1 inventory
+program2 ->9765) currently swallowed. Implement complete field52bit8 shovel
+prerequisite,direction/cancel,source messages28/18/27 and Ruin91/92 coffin state41,
+with native refresh/cache/pending codec. Source1D20/26 distinguish refresh return;
+no time/RNG/AI operation is added. !950A and3 share hidden/debug machinery, not
+configuration UI; preserve explicit non-player classification,not fake features.
+Quick preferences are presently hidden INI flags; normal player settings still
+need source/caller integration. Quick067D/source producer/legacy gaps remain.
+Canonical tracking here; byte-identical recovery CE devtools/nox/project.
+
+# Active battle return483 - IN PROGRESS
+
+Inventory482 committedfdc3d8fe12a. Primary Apple IIe AUXMOVE documentation
+confirms A/X/Y preserved; original R98D0 passes2, so bit64 without128 queues
+marker2. Native missing-case refusal replaced with proven marker. Full32-slot
+NPC ownership admits248; explicit CE replacement reads actual8-byte record
+instead of original9-byte page-end wrap/stale scratch. No CPU/ROM dependency.
+Contract ENGINE-BATTLE-RETURN precedes code. Original fixture generated792
+transactions:648 exact nonwrapped source cases,144 source240-equivalent declared
+canonical248 records,104922 bounded original steps/services. Queued kind/sink
+preflight remains atomic. One focused batch/build next; no483 native run yet.
+Native fixture includes actual authored UM97 NPC8 quest/item through independent
+controlled post-victory Aftermath checkpoint,loot/result codec and retirement.
+No earned/linked win,normal Engine cold/session or campaign/audio/old suite claim.
+Modified BattleWorldReturn,StartupHost and focused fixture. Canonical tracking
+here; byte-identical recovery CE devtools/nox/project. No active build yet.
+
 # Battle inventory482 integrated - November14
 
 Build482c passed0 warnings/errors2m56.31s; first native batch VERIFIED.
