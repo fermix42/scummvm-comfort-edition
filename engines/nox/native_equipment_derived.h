@@ -5,13 +5,14 @@
 namespace Nox { namespace Native {
 // Complete full-recalculation variant for one owned character record. Field
 // ordering and original quirks are preserved; no CPU or global scratch state.
-inline bool recalculateEquipment(const ItemCatalog &catalog, const EquipmentRecord &equipment, CharacterRecord &character) {
+inline bool recalculateEquipment(const ItemCatalog &catalog, const EquipmentRecord &equipment, CharacterRecord &character,bool weapons=true,bool armorChanged=true,bool recalculateWeight=true) {
     CharacterRecord next = character; byte *r = next.bytes;
-    r[70] = r[21] = r[22] = r[23] = r[9] = r[10] = r[65] = 0;
-    auto weight = [&](byte amount) { r[70] = byte(MIN<uint>(uint(r[70]) + amount,255)); };
+    if (recalculateWeight) r[70]=0;
+    if (weapons) r[21] = r[22] = r[23] = r[9] = r[10] = r[65] = 0;
+    auto weight = [&](byte amount) { if (!recalculateWeight) return; r[70] = byte(MIN<uint>(uint(r[70]) + amount,255)); };
     auto name = [&](uint hand, const ItemDefinition &item) { memcpy(r + (hand ? 109 : 90),item.bytes + 13,19); };
     auto fists = [&](uint hand) { const uint start = hand ? 109 : 90; memset(r + start,173,17); r[start + 17] = 0; };
-    for (uint hand = 0; hand < 2; ++hand) {
+    if (weapons) for (uint hand = 0; hand < 2; ++hand) {
         const byte kind = equipment.bytes[hand * 2], id = equipment.bytes[hand * 2 + 1];
         if (kind != 0) {
             if (!hand) r[21] = 16; else r[21] |= 1;
@@ -36,6 +37,7 @@ inline bool recalculateEquipment(const ItemCatalog &catalog, const EquipmentReco
             r[9] = 255;
         } else r[hand ? 10 : 9] = byte(damage);
     }
+    if (armorChanged) {
     r[7] = r[11] = 0;
     auto armor = [&](byte kind, byte id) -> bool {
         ItemDefinition item; if (!catalog.definition(kind,id,item)) return false;
@@ -51,6 +53,7 @@ inline bool recalculateEquipment(const ItemCatalog &catalog, const EquipmentReco
     }
     for (uint slot = 2; slot < 8; ++slot)
         if (!armor(equipment.bytes[slot * 2],equipment.bytes[slot * 2 + 1])) return false;
+    }
     // The original converts DEX to decimal, DIVIDES by3, adds decimal50,
     // caps95 and stores packed BCD. All256 input values are compared.
     const uint chance = MIN<uint>(50 + r[17] / 3,95);

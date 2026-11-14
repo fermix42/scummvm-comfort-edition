@@ -1,3 +1,54 @@
+# Battle inventory482 integrated - November14
+
+Build482c passed0 warnings/errors2m56.31s; first native batch VERIFIED.
+144 original guards,64 B554/B563 records,5 actual menus,2 weapon/shield
+transactions,3 refusal families,5 modal codecs,drop-confirmation cancel and
+subsequent Attack/Cast preparation. No clock/round/RNG advance. Live HP/status/
+temporary armor retain proper owners. Earlier compile and static fixture
+prerequisite corrections retained below. Known Tab missing owner retired.
+NIWN3/NBTS18 do not expand normal CE save policy. Source/executable frozen in
+BATTLE-INVENTORY482 receipt. No active build; no campaign/old/audio suite.
+Music/mixer/synthesis unchanged; refusal event ownership retained across begin
+and host supplies current sink after load. Next exceptional BattleWorldReturn:
+bank1 slot248 nine-byte source copy wrap,scripted treasure bit64 without bit128
+accumulator semantics. Analyze actual source/firmware before native change.
+Quick067D and authored script producer closure stay independent requirements.
+Canonical tracking here; byte-identical recovery CE devtools/nox/project.
+
+Build482b passed0 warnings/errors2m55.19s. Static fixture review before first
+native run found two missing test prerequisites: default INT8 has no eligible
+battle book; starting gear already occupies both hands. Fixture now declares
+pre-operation STR50/DEX20/INT20/MP20 and uses actual shield unready owner before
+shield readiness. No outcome mutation after menu begins. Added pending drop
+confirmation codec/cancel within the same batch. Production unchanged from482b.
+Rebuild482c is fixture-only, directly justified; do not run known-invalid482b
+fixture or old/audio/campaign suites. No482 native run yet.
+
+Build482 compile correction: NewGame assignment is deleted (archive reference);
+BattleInventory now uses existing private adoptState transaction with narrow
+friend ownership, matching WorldConversation/BattleAftermath. Fixture signed/
+unsigned loop warning corrected. No482 native run yet; rebuild482b justified.
+
+# Active battle inventory482 - IN PROGRESS
+
+Tactical controls481 committed479edaeafd9. Battle inventory contract precedes
+implementation. Native InventoryWindow gains explicit combat guards/live stats,
+NIWN3 modal context; EquipmentActions reuses original partial B563 dirty-domain
+recalculation, preserving transaction weight and unrelated temporary effects.
+BattleInventory adapts actual battle records and existing game gear/item owners;
+EncounterState NBTS18 retains modal, wraps NBTS17 locked state without schema
+rewrite. Startup opens Tab only at ordinary tactical command; pending target/
+cast/cannon Tab keeps priority. V cannot escape inventory. Normal CE save policy
+unchanged. Refusal event ownership preserved; no mixer/music/synthesis changes.
+Original fixture:144 AC7D guards,64 B554/B563 full/partial records,93451 source
+instructions/services. One focused batch queued:5 actual native menus and real
+weapon/shield readiness,armor/book/use refusals,live HP/temporary armor handoff,
+NIWN3/NBTS18 continuations,free close and subsequent Attack/Cast preparation.
+No campaign/audio/old suite. Build482 next; no prior482 native runs.
+Modified InventoryWindow/Actions,EquipmentActions/Derived,EncounterState,
+StartupHost,new BattleInventory and focused fixture. Canonical tracking here,
+byte-identical recovery CE devtools/nox/project.
+
 # Tactical controls481 integrated - November14
 
 Build481 passed0 warnings/errors2m48.78s; first focused batch VERIFIED.

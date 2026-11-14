@@ -6,20 +6,22 @@
 #include "nox/native_inventory_actions.h"
 #include "nox/native_text_window.h"
 #include "nox/native_sound_events.h"
+#include "common/ptr.h"
 namespace Nox { namespace Native {
 enum InventoryWindowResult { kInventoryWindowHandled,kInventoryWindowClosed,kInventoryWindowUnsupported };
 // Free world inventory selection. Transactions remain in the existing typed
 // equipment/book owners; no field or derived-stat edits are performed by UI.
 class InventoryWindow {
 public:
-    InventoryWindow() : _phase(0),_member(0),_type(0),_map(0),_selected(0),_sounds(nullptr) {}
+    InventoryWindow() : _phase(0),_member(0),_type(0),_map(0),_selected(0),_combat(false),_sounds(nullptr) {}
     void setSoundEvents(SoundEvents *sounds) {_sounds=sounds;}
     bool active() const {return _phase!=0;}
     byte phase() const {return _phase;}
+    bool inCombat() const {return _combat;}
     bool matches(const World &world) const {return !active() || (world.ready() && _type==world.mapType() && _map==world.mapId());}
-    bool begin(HdvArchive &archive,const NewGame &game,HgrFrame &frame) {
-        if (active() || !game.ready()) return false;
-        InventoryWindow next;next._phase=1;next._type=game.world.mapType();next._map=game.world.mapId();next._underlay=frame;
+    bool begin(HdvArchive &archive,const NewGame &game,HgrFrame &frame,bool inCombat=false,byte member=0) {
+        if (active() || !game.ready() || member>=game.party.memberCount()) return false;
+        InventoryWindow next;next._phase=1;next._combat=inCombat;next._member=member;next._sounds=_sounds;next._type=game.world.mapType();next._map=game.world.mapId();next._underlay=frame;
         if (!next.paint(archive,game,frame)) return false;*this=next;return true;
     }
     InventoryWindowResult handle(const Common::Event &event,HdvArchive &archive,NewGame &game,HgrFrame &frame) {
@@ -59,6 +61,10 @@ public:
             else if ((ascii=='U' || ascii=='D') && !slots.empty()) {
                 const InventoryItem &item=*game.inventory.item(slots[_selected]);ItemCatalog catalog;ItemDefinition definition;
                 if (!catalog.load(archive) || !catalog.definition(item.kind(),item.id(),definition)) return kInventoryWindowUnsupported;
+                if (_combat && ascii=='U') {
+                    _message="Not during combat.";if (_sounds) _sounds->push_back(kSpeakerRefusal);
+                    return paint(archive,game,frame)?kInventoryWindowHandled:kInventoryWindowUnsupported;
+                }
                 if (ascii=='D') {
                     if (definition.bytes[8]&128) _message="You must keep that item.";
                     else {_phase=3;_message.clear();}
@@ -83,9 +89,15 @@ public:
             else if ((ascii=='R' || key==Common::KEYCODE_SPACE || key==Common::KEYCODE_RETURN) && !slots.empty()) {
                 const InventoryItem item=*game.inventory.item(slots[_selected]);ItemCatalog catalog;ItemDefinition definition;EquipmentOwnership ownership;
                 if (!catalog.load(archive) || !catalog.definition(item.kind(),item.id(),definition) || !ownership.load(archive)) return kInventoryWindowUnsupported;
+                const byte refusal=InventoryActions::readyCombatRefusal(_combat,item.kind(),item.bytes[5],(definition.bytes[12]&31)==8);
+                if (refusal) {
+                    _message=refusal==6?"Cannot change armor during combat.":"Cannot change books during combat.";
+                    if (_sounds) _sounds->push_back(kSpeakerRefusal);
+                    return paint(archive,game,frame)?kInventoryWindowHandled:kInventoryWindowUnsupported;
+                }
                 const bool unready=key==Common::KEYCODE_SPACE;NewGame next(game);byte result=255,lastRemovedId=255;
-                if (item.kind()==0) result=EquipmentActions::selectWeapon(catalog,ownership,_member,item.id(),unready,next.party,next.inventory,&lastRemovedId);
-                else if (item.kind()==1) result=EquipmentActions::selectArmor(catalog,ownership,_member,item.id(),unready,next.party,next.inventory,&lastRemovedId);
+                if (item.kind()==0) result=EquipmentActions::selectWeapon(catalog,ownership,_member,item.id(),unready,next.party,next.inventory,&lastRemovedId,_combat);
+                else if (item.kind()==1) result=EquipmentActions::selectArmor(catalog,ownership,_member,item.id(),unready,next.party,next.inventory,&lastRemovedId,_combat);
                 else if ((definition.bytes[12]&31)==8) {
                     bool ready=false;for (uint i=0;i<10;++i) ready|=game.book.spell(i)==definition.bytes[6];
                     if (ready) {if (!bookAction(archive,game,item,0)) return kInventoryWindowUnsupported;}
@@ -101,15 +113,35 @@ public:
         return paint(archive,game,frame)?kInventoryWindowHandled:kInventoryWindowUnsupported;
     }
     bool save(Common::WriteStream &out) const {
+        if (_combat) {
+            if (_phase!=1 && _phase!=3) return false;
+            Common::ScopedPtr<InventoryWindow> base(new InventoryWindow(*this));base->_combat=false;
+            Common::MemoryWriteStreamDynamic body(DisposeAfterUse::YES);if (!base->save(body)) return false;
+            out.writeUint32BE(MKTAG('N','I','W','N'));out.writeUint16LE(3);out.writeUint32LE(body.size());out.write(body.getData(),body.size());return !out.err();
+        }
+
         if (!_phase || _phase>4 || _member>=6 || _selected>255 || _message.size()>80) return false;
         out.writeUint32BE(MKTAG('N','I','W','N'));out.writeUint16LE(_phase>=3?2:1);out.writeByte(_phase);out.writeByte(_member);
         out.writeByte(_type);out.writeByte(_map);out.writeUint16LE(_selected);out.writeByte(byte(_message.size()));out.write(_message.c_str(),_message.size());out.write(_underlay.data(),8192);
         if (_phase==4) {Common::MemoryWriteStreamDynamic part(DisposeAfterUse::YES);if (!_reading.save(part)) return false;out.writeUint32LE(part.size());out.write(part.getData(),part.size());}
         return !out.err();
     }
-    bool load(Common::SeekableReadStream &in,HdvArchive &archive) {
+    bool load(Common::SeekableReadStream &in,HdvArchive &archive) {return loadState(in,&archive);}
+    bool loadCombat(Common::SeekableReadStream &in) {
+        InventoryWindow next;if (!next.loadState(in,nullptr) || !next._combat) return false;*this=next;return true;
+    }
+private:
+    bool loadState(Common::SeekableReadStream &in,HdvArchive *archive) {
         if (in.readUint32BE()!=MKTAG('N','I','W','N')) return false;
-        const uint version=in.readUint16LE();if (version!=1 && version!=2) return false;
+        const uint version=in.readUint16LE();
+        if (version==3) {
+            const uint32 size=in.readUint32LE();if (size<6 || size>1048576 || int64(size)!=in.size()-in.pos()) return false;
+            Common::Array<byte> bytes;bytes.resize(size);if (in.read(bytes.data(),size)!=size || READ_BE_UINT32(bytes.data())!=MKTAG('N','I','W','N') || READ_LE_UINT16(bytes.data()+4)>=3) return false;
+            InventoryWindow next;Common::MemoryReadStream body(bytes.data(),size);
+            if (!next.loadState(body,archive) || (next._phase!=1 && next._phase!=3)) return false;
+            next._combat=true;*this=next;return true;
+        }
+        if (version!=1 && version!=2) return false;
         InventoryWindow next;next._phase=in.readByte();next._member=in.readByte();next._type=in.readByte();next._map=in.readByte();next._selected=in.readUint16LE();const byte length=in.readByte();
         if (!next._phase || next._phase>(version==1?2:4) || next._member>=6 || next._selected>255 || length>80 || in.size()-in.pos()<8192+length) return false;
         for (uint i=0;i<length;++i) {const byte c=in.readByte();if (c<32 || c>=127) return false;next._message+=char(c);}
@@ -117,7 +149,7 @@ public:
         if (next._phase==4) {
             const uint32 size=in.readUint32LE();if (!size || size>131072 || int64(size)!=in.size()-in.pos()) return false;
             Common::Array<byte> bytes;bytes.resize(size);if (in.read(bytes.data(),size)!=size) return false;Common::MemoryReadStream part(bytes.data(),size);
-            if (!next._reading.load(part,archive)) return false;
+            if (!archive || !next._reading.load(part,*archive)) return false;
         }
         if (in.err() || in.pos()!=in.size()) return false;*this=next;return true;
     }
@@ -125,7 +157,7 @@ private:
     static void collect(const Inventory &inventory,Common::Array<uint> &slots) {for (uint i=0;i<256;++i) if (!inventory.item(i)->empty()) slots.push_back(i);}
     bool bookAction(HdvArchive &archive,NewGame &game,const InventoryItem &item,byte slot) {
         ItemCatalog catalog;if (!catalog.load(archive)) return false;NewGame next(game);
-        const BookResult result=next.book.select(catalog,next.inventory,next.party,item.id(),slot,false,false);
+        const BookResult result=next.book.select(catalog,next.inventory,next.party,item.id(),slot,_combat,false);
         if (result==kBookReadied || result==kBookUnreadied) {if (result==kBookUnreadied) {game.commerceCounter.kind=item.id();game.commerceCounter.kindKnown=true;}game.book=next.book;_message=result==kBookReadied?"Book readied.":"Book unreadied.";}
         else _message=result==kBookIntelligenceRefusal?"More intelligence needed.":"Cannot ready that book.";
         return true;
@@ -140,6 +172,8 @@ private:
         collect(game.inventory,slots);HgrFrame next;const CharacterRecord *member=game.party.member(_member);Common::String name;
         for (uint i=75;i<91 && member->bytes[i];++i) name+=char(member->bytes[i]&127);
         if (!line(font,next,1,1,Common::String::format("Inventory - %u %s",_member+1,name.c_str())) || !line(font,next,1,3,"1-6: party member  Arrows: select")) return false;
+        if (!line(font,next,1,2,Common::String::format("HP %u/%u  MP %u/%u",READ_LE_UINT16(member->bytes+2),READ_LE_UINT16(member->bytes+72),member->bytes[4],member->bytes[18])) ||
+            !line(font,next,1,4,Common::String::format("STR %u  DEX %u  INT %u%s",member->bytes[16],member->bytes[17],member->bytes[18],_combat?"  Combat":""))) return false;
         const uint page=_selected/6*6;
         for (uint row=0;row<6 && page+row<slots.size();++row) {
             const InventoryItem &item=*game.inventory.item(slots[page+row]);ItemDefinition definition;byte ready;
@@ -151,7 +185,7 @@ private:
         if (!line(font,next,1,19,_message) || !line(font,next,1,21,_phase==2?"Ready book on key 0-9":_phase==3?"Drop spare copies? Y/N":"R/Return: ready  Space: unready") || !line(font,next,1,23,"U:use  D:drop  Escape:return")) return false;
         frame=next;return true;
     }
-    byte _phase,_member,_type,_map;uint16 _selected;Common::String _message;HgrFrame _underlay;TextWindow _reading;SoundEvents *_sounds;
+    byte _phase,_member,_type,_map;uint16 _selected;Common::String _message;HgrFrame _underlay;TextWindow _reading;bool _combat;SoundEvents *_sounds;
 };
 } }
 #endif

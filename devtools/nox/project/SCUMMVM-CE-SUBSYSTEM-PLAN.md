@@ -49,14 +49,14 @@ not a new test platform. Refreshing it must not overwrite later evidence edits.
    this broad subsystem. Keep approved native inventory access. Separate genuine
    obsolete disk/config controls from gameplay. Audit original selection aliases,
    pending input and presentation before production changes.
-3. **World simulation and actor/NPC closure. NOT STARTED.** Reconcile existing
+3. **World simulation and actor/NPC closure. IN PROGRESS.** Reconcile existing
    movement/navigation/scheduler owners and producer domains. Complete only
    demonstrated gaps; preserve Castle11 padding replacement and existing routes.
-4. **Item interactions, services and magic closure. NOT STARTED.** Existing
+4. **Item interactions, services and magic closure. IN PROGRESS.** Existing
    inventory/equipment/drop/lock/training/temple owners are substantial. Reuse
    qualified checkpoints and contracts; inspect all supported selectors before
    declaring complete. Party identity is prerequisite.
-5. **Combat exceptional state and full lifecycle closure. NOT STARTED.** Reuse
+5. **Combat exceptional state and full lifecycle closure. IN PROGRESS.** Reuse
    M4-COMBAT-CONTRACT; do not redo it. Resolve retained Quick context from writers
    and lifetime, not guessed difficulty. Integrate simulation/magic dependencies.
 6. **Script producers, quests and ending closure. NOT STARTED.** Enumerate authored
@@ -87,8 +87,8 @@ No audio suite rerun. Mirror canonical records to `devtools/nox/project/`.
 
 ## Recovery
 
-Current contract and exact next action are in ENGINE-PARTY-ORDER-CONTRACT and
-PROGRESS. Blockers are in ENGINE-BLOCKERS; execution dependencies in
+Current contract and exact next action are in PROGRESS and the completion
+matrix; each coherent subsystem has its own ENGINE contract. Blockers are in ENGINE-BLOCKERS; execution dependencies in
 ENGINE-FALLBACKS. Preserve source/executable identities and scoped evidence at
 each integration milestone. Newly discovered unrelated issues enter their owner's
 register; they do not displace the active contract.

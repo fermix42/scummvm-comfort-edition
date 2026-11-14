@@ -1,3 +1,8 @@
+Inventory482 uses typed combat context instead of original mapFF/stats/page ABI.
+Partial B563 semantics preserve transaction weight/unrelated combat domains;
+NIWN3/NBTS18 persist native modal ownership. No CPU fallback or expanded normal
+battle-save policy. Known lock481/world Attack480 gaps closed within receipts.
+
 World Attack480 uses native actual actor admission/existing battle handoff and
 post-return shared9417 alarm. No instruction/CPU fallback. NWIN15 is a bounded
 native pending-owner codec, not expanded normal CE mid-battle save eligibility.

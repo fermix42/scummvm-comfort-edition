@@ -110,6 +110,7 @@ public:
 private:
     friend class ExplorationSave;
     friend class BattleAftermath;
+    friend class BattleInventory;
     friend class WorldConversation;
     void adoptState(const NewGame &source) {
         world.adoptState(source.world);party=source.party;inventory=source.inventory;book=source.book;

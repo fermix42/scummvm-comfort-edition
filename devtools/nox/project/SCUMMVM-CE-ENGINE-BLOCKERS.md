@@ -1,3 +1,8 @@
+Tactical481 and inventory482 known missing controls retired. Native lock/unlock,
+ordinary Tab,combat readiness/Use guards and partial recalculation implemented/
+focused verified. Broader normal Engine/cold/session/raster remains qualified.
+Quick067D/legacy/nameless captions/full script producers remain explicit.
+
 World Attack480: B-ATTACK missing implementation retired. Native direction,
 admission, NWIN15 and post-return shared alarm implemented and focused verified.
 Linked normal battle/cold/session qualification remains explicit in480 receipt.

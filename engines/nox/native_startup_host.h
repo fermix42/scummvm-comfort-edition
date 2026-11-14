@@ -53,7 +53,9 @@
 #include "nox/native_callbacks_validation.h"
 #include "nox/native_world_attack_validation.h"
 #include "nox/native_battle_party_control.h"
+#include "nox/native_battle_inventory.h"
 #include "nox/native_tactical_controls_validation.h"
+#include "nox/native_battle_inventory_validation.h"
 #include "nox/native_player_lifecycle_validation.h"
 #include "nox/native_ending.h"
 namespace Nox {
@@ -85,6 +87,12 @@ inline Common::Error NoxEngine::runNativeStartup() {
         }
         return Common::Error(Common::kReadingFailed,reason);
     };
+    if (ConfMan.hasKey("nox_native_battle_inventory_fixture")) {
+        Common::File input;Common::String report;
+        if (!input.open(Common::FSNode(ConfMan.getPath("nox_native_battle_inventory_fixture"))) || !validateNativeBattleInventory482(_resources,input,report)) return fail(report.empty()?"Battle inventory focused check failed":report.c_str());
+        Common::OutSaveFile *out=_system->getSavefileManager()->openForSaving("nox-native-battle-inventory.tsv",false);if (!out) return Common::kWritingFailed;
+        out->writeString(report);out->finalize();const bool ok=!out->err();delete out;return ok?Common::Error(Common::kNoError):Common::Error(Common::kWritingFailed);
+    }
     if (ConfMan.hasKey("nox_native_tactical_controls_fixture")) {
         Common::File input;Common::String report;
         if (!input.open(Common::FSNode(ConfMan.getPath("nox_native_tactical_controls_fixture"))) || !validateNativeTacticalControls481(_resources,input,report)) return fail(report.empty()?"Tactical controls focused check failed":report.c_str());
@@ -788,7 +796,7 @@ inline Common::Error NoxEngine::runNativeStartup() {
             if (event.type!=Common::EVENT_KEYDOWN) continue;
             if (replay) inputTrace+=Common::String::format("%u\t%u\t%s\t%u\t%u\n",processedKeys,uint(creation.stage()),creation.name().c_str(),creation.gender(),creation.race());
 #ifdef NOX_NATIVE_ONLY
-            const bool soundAtBattleCommand=encounterState.presented && (encounterState.mode.selection==0 || encounterState.mode.selection==2) && !encounterState.quick.partyCount && !encounterState.command && !encounterState.resultPhase && !encounterState.exit.phase && encounterState.round.phase==Native::kBattlePartyTurn;
+            const bool soundAtBattleCommand=encounterState.presented && !encounterState.inventory.active() && (encounterState.mode.selection==0 || encounterState.mode.selection==2) && !encounterState.quick.partyCount && !encounterState.command && !encounterState.resultPhase && !encounterState.exit.phase && encounterState.round.phase==Native::kBattlePartyTurn;
             if (((!encounterState.formed && worldInput.atWorldCommand()) || soundAtBattleCommand) && event.kbd.keycode==Common::KEYCODE_v) {
                 _nativeSoundMode=byte((_nativeSoundMode+1)&3);ConfMan.setInt("nox_sound_mode",_nativeSoundMode);ConfMan.flushToDisk();
                 // Older supported saves may predate audio state. An explicit
@@ -891,6 +899,16 @@ inline Common::Error NoxEngine::runNativeStartup() {
                     }
                     Native::HgrFrame image;if (!battlePresentation.paint(preparedEncounter,next,next.phase,image)) return fail("Native flee confirmation/refusal presentation failed");
                     next.frame=image;encounterState=next;redraw=true;continue;
+                }
+                if (encounterState.inventory.active()) {
+                    const Native::InventoryWindowResult result=Native::BattleInventory::handle(event,_resources,game,encounterState,&soundEvents);
+                    if (result==Native::kInventoryWindowUnsupported) return fail("Native battle inventory transaction failed");
+                    if (result==Native::kInventoryWindowClosed && !battlePresentation.paint(preparedEncounter,encounterState,encounterState.phase,encounterState.frame)) return fail("Native battle inventory close presentation failed");
+                    redraw=true;continue;
+                }
+                if (!encounterState.command && key==Common::KEYCODE_TAB) {
+                    if (!Native::BattleInventory::begin(_resources,game,encounterState,&soundEvents)) return fail("Native battle inventory could not open");
+                    redraw=true;continue;
                 }
                 if (!encounterState.command && key==Common::KEYCODE_ESCAPE) {
                     encounterState.exit.phase=1;Native::HgrFrame image;
@@ -1022,7 +1040,6 @@ inline Common::Error NoxEngine::runNativeStartup() {
                     // Native immediate status/health presentation replaces original
                     // +/- text delay and * arithmetic prose. Retired machine keys
                     // use the ordinary invalid-key reply without a turn or crash.
-                    if (key==Common::KEYCODE_TAB) return fail("Native tactical inventory remains an unimplemented action boundary");
                     Native::HgrFrame image;const Common::String &notice=battlePresentation.invalidCommand();
                     if (!battlePresentation.paint(preparedEncounter,encounterState,encounterState.phase,image,&notice)) return fail("Native invalid command prompt failed");
                     encounterState.frame=image;redraw=true;continue;

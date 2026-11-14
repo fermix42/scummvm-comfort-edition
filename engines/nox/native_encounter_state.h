@@ -12,6 +12,7 @@
 #include "nox/native_battle_cannon.h"
 #include "nox/native_quick_battle.h"
 #include "nox/native_combat_mode.h"
+#include "nox/native_inventory_window.h"
 namespace Nox { namespace Native {
 // Owned construction/presentation phases. Tactical command/turn execution and
 // return are subsequent operations, not inferred from a placed or painted roster.
@@ -54,6 +55,13 @@ public:
         exit.control=EncounterAdmissionRules::initialNoFlee(round.category,prepared.contextFlags);BattleRound::initializeTurn(records,round);formed=true;return true;
     }
     bool save(Common::WriteStream &out) const {
+        if (inventory.active()) {
+            if (!inventory.inCombat() || !formed || !presented || command || resultPhase || exit.phase || quick.partyCount || round.phase!=kBattlePartyTurn) return false;
+            Common::ScopedPtr<EncounterState> base(new EncounterState(*this));base->inventory=InventoryWindow();
+            Common::MemoryWriteStreamDynamic body(DisposeAfterUse::YES);if (!base->save(body)) return false;
+            out.writeUint32BE(MKTAG('N','B','T','S'));out.writeUint16LE(18);out.writeUint32LE(body.size());out.write(body.getData(),body.size());return inventory.save(out);
+        }
+
         if (round.lockedParty) {
             if (!formed || quick.partyCount || round.lockedParty>round.partyCount || round.lockedParty>6) return false;
             Common::ScopedPtr<EncounterState> base(new EncounterState(*this));base->round.lockedParty=0;
@@ -94,6 +102,13 @@ public:
     bool load(Common::SeekableReadStream &in) {
         if (in.readUint32BE()!=MKTAG('N','B','T','S')) return false;
         uint16 version=in.readUint16LE();
+        if (version==18) {
+            const uint32 size=in.readUint32LE();if (size<6 || size>1048576 || int64(size)>=in.size()-in.pos()) return false;
+            Common::Array<byte> bytes;bytes.resize(size);if (in.read(bytes.data(),size)!=size || READ_BE_UINT32(bytes.data())!=MKTAG('N','B','T','S') || READ_LE_UINT16(bytes.data()+4)>=18) return false;
+            Common::ScopedPtr<EncounterState> next(new EncounterState);Common::MemoryReadStream body(bytes.data(),size);
+            if (!next->load(body) || !next->formed || !next->presented || next->command || next->resultPhase || next->exit.phase || next->quick.partyCount || next->round.phase!=kBattlePartyTurn || !next->inventory.loadCombat(in)) return false;
+            *this=*next;return true;
+        }
         if (version==17) {
             const byte locked=in.readByte();const uint32 size=in.readUint32LE();
             if (!locked || locked>6 || size<6 || size>1048576 || int64(size)!=in.size()-in.pos()) return false;
@@ -174,7 +189,7 @@ public:
         if (in.err() || in.pos()!=in.size()) return false;
         *this=next;return true;
     }
-    bool formed,presented,oriented;byte phase,command,target,resultPhase,armorBackup[6];BattleRoundState round;BattleLootState loot;BattleAdvancementState advancement;BattleAttackState attack;BattleCastState cast;BattleExitState exit;BattleCannonState cannon;QuickBattleState quick;CombatModeState mode;BattleRecords records;HgrFrame frame;
+    bool formed,presented,oriented;byte phase,command,target,resultPhase,armorBackup[6];BattleRoundState round;BattleLootState loot;BattleAdvancementState advancement;BattleAttackState attack;BattleCastState cast;BattleExitState exit;BattleCannonState cannon;QuickBattleState quick;CombatModeState mode;BattleRecords records;HgrFrame frame;InventoryWindow inventory;
 };
 } }
 #endif

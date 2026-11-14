@@ -6,6 +6,11 @@ namespace Nox { namespace Native {
 enum InventoryDropResult {kDropApplied,kDropCancelled,kDropProtected,kDropReadied,kDropUnsupported};
 class InventoryActions {
 public:
+    static byte readyCombatRefusal(bool inCombat,byte kind,byte flags,bool book) {
+        if (!inCombat) return 0;
+        if (kind==1 && flags!=1) return 6;
+        return book?9:0;
+    }
     static InventoryDropResult drop(HdvArchive &archive,NewGame &game,uint slot,bool confirmed) {
         ItemCatalog catalog;EquipmentOwnership ownership;
         if (!catalog.load(archive) || !ownership.load(archive)) return kDropUnsupported;
