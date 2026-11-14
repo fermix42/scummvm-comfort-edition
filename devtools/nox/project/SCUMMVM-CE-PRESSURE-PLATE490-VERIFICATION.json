@@ -1,0 +1,37 @@
+{
+  "status": "IN PROGRESS",
+  "scope": "Pressureplate ordinaryturn owner implemented;focused validation VERIFIED. Complete engine qualification unfinished.",
+  "parent_commit": "abb209da9f4",
+  "executable_sha256": "9edc1b842a9c5cc0308e3f5a53e8772275e5b037cbc491fbaa8aa1ebb3b41f80",
+  "source_hash_manifest": {
+    "path": "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-pressure-plate490-focused\\verification.json",
+    "sha256": "74bcedb43d55b5f219875bc4641b1d03d312ff26f61ad37297df6e3236134181"
+  },
+  "build": {
+    "result": "0 warnings,0 errors,2m57.78s",
+    "native_batches": 1,
+    "failures": []
+  },
+  "focused_validation": {
+    "status": "VERIFIED",
+    "report": "pressure-plate\tauthored_candidates=14\toccupied_center_refusals=14\tworld_codecs=28\tactual_Ruin64_move_wait=1\tactual_corecodec=1\tcampaign=0\taudio_suite=0\n"
+  },
+  "commands": [
+    "powershell.exe -NoProfile -ExecutionPolicy Bypass -File ./run-build-release-cleanenv.ps1 -NoxNativeOnly",
+    "python conversion/check_pressure_plate490.py"
+  ],
+  "controlled_setup": "14source-shaped actual resource plate records;declared direct scene center/actor occupancy. ActualRuin64plate0at11,12,field31clear,legal adjacent floor before input;normalmove andstationaryWait,thenactualcorecodec.",
+  "remaining_qualifications": [
+    "Candidate shape not all physical/campaign reachability.",
+    "No oldgate/world/audio suite,campaign,normalEnginecold/session or earnedpuzzle claim.",
+    "Portal491 remains missing ordinary productionowner."
+  ],
+  "artifacts": {
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-binary\\scummvm-native-pressure-plate490.exe": "9edc1b842a9c5cc0308e3f5a53e8772275e5b037cbc491fbaa8aa1ebb3b41f80",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-binary\\native-pressure-plate490-source.zip": "77ac334f176b88f7277f2678db7725dbc2af8df5373ac2cb48b23015a0484ed8",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-pressure-plate490-focused\\verification.json": "74bcedb43d55b5f219875bc4641b1d03d312ff26f61ad37297df6e3236134181",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-pressure-plate490-source.bin": "8b5a2c934acd657a7a59044cad888c9c61358621cdc851452dccdfe451440f31",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-pressure-plate490-build.log": "139e1b6bcd431c516d22c40946c5bc962bf4323d7c4be13938ebb5ffe8006289"
+  },
+  "next": "Portal491:sourceCombat.S86D1/0167,map0/transport andordinaryclock/notice/Space travel."
+}

@@ -1,3 +1,28 @@
+# Pressure plate490 integrated - November14
+
+First build0/0 2m57.78;firstbatch VERIFIED:14actualresourceplate candidates,
+14occupiedcenter refusals,repeat/28worldcodecs;actualRuin64plate0 normalmove+
+stationaryWait sets/retainsfield31bit1 andcorecodec. Source/exe frozen490receipt.
+WorldWait nowruns EA35phase aftercompleted nonbattleactorpaint beforehazards/
+clock. No oldgate/world/audio suite,campaign,cold/session or earnedpuzzle claim.
+Next491portal:sourceF117/F81Adescriptor filename6A03=SRTN.COMBAT.S,offset86D1,
+length0167,dest9C01(rawdisassemblyonly). Gatefield[object9]&mask11 first;destmap
+nonzero requiresonfoot,map0permits transport. Desttype4/map5/x7/y8. Success9D20,
+locked9D10 plainmessages. Existinghelperwronglyrejectsmap0/allmounted. Connect
+ordinaryclock/notice/hostSpace usingtypedtravel,cargo/navigation/light/schedule.
+
+# Active pressure plate490 - IN PROGRESS
+
+Location489 committedabb209da9f4. Connect sourceEA35 pressureplate phase after
+completed nonbattle actor/objectpaint,before hazards/clock inWorldWait;movement
+andstationaryowners shareit. ActualcenteractorFF/renderedobjectslot required,
+strictstate54,selectedWorld.activatePlate validates8-byteextent/coordinates.
+ExistingdefaultAPI preserved;earnedflag OR idempotent,normalfieldcodec durable.
+ContractPRESSURE-PLATE. One focusedbuild/batch14source-shaped actualresource
+platecandidates,occupiedcenter refusal/repeat/worldcodecs,actualRuin64plate0
+11,12 WorldMove+subsequentWait/corecodec. Controlledsetup,no outcomeinjection.
+No audio/oldgate suite/campaign/cold/session. PortalF117 remainsnextowner491.
+
 # Location presentation489 integrated - November14
 
 First build0/0 2m52.97;first batch VERIFIED:3exact CEcategory labels,actualG

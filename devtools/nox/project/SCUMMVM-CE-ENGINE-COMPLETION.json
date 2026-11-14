@@ -3155,6 +3155,29 @@
       "production_connection": "WorldMove resolves admitted barrier touch;protected source immediateallow resumes position/actors,unprotected reuses blocked/defeat owner;mounted near/far walking reports typed touch.",
       "fallback_dependencies": [],
       "blockers": []
+    },
+    {
+      "id": "story.09",
+      "subsystem": "story",
+      "behavior": "Pressureplate EA35 phase connected to ordinary movement andstationary turns",
+      "implementation": "IMPLEMENTED",
+      "verification": {
+        "status": "VERIFIED",
+        "scope": "14candidate records/occupiedrefusal/repeat/28worldcodecs,actualRuin64move/Wait/corecodec;notallphysicalreachability.",
+        "evidence": "SCUMMVM-CE-PRESSURE-PLATE490-VERIFICATION.json"
+      },
+      "native_owners": [
+        "engines/nox/native_world_pressure_plate.h",
+        "engines/nox/native_world_wait.h",
+        "engines/nox/native_world.h"
+      ],
+      "original_evidence": [
+        "SCUMMVM-CE-ENGINE-PRESSURE-PLATE-CONTRACT.md",
+        "EA35..EA61"
+      ],
+      "production_connection": "WorldWait completednonbattle actor/objectphase ->WorldPressurePlate.apply actualcenterlookup ->activatePlate(resolvedslot) beforehazards/clock.",
+      "fallback_dependencies": [],
+      "blockers": []
     }
   ],
   "additional_unclassified_scope": [
@@ -5182,7 +5205,7 @@
     },
     {
       "path": "engines/nox/native_startup_host.h",
-      "sha256": "18d53b5c47e37e568fdf470a1e837679285b324bffe8f5bbd55ed9c3ae922552",
+      "sha256": "4f72e7d323c737e1584538ca67c4f3d3d17685a64c0181d6126733b2cd959eaf",
       "includes": [
         "nox/native_weapon_ready_validation.h",
         "nox/native_legacy_snapshot.h",
@@ -5564,7 +5587,7 @@
     },
     {
       "path": "engines/nox/native_world.h",
-      "sha256": "b53f66791b53cf3a76580b3a98b6da6fcd103f448d2fc939c79e077b22596a5d",
+      "sha256": "6a090cb6bf6e8e6aac08651eafa8a6ffd2d6648f15e985e10f4d3843162b1d29",
       "includes": [
         "nox/native_gates.h",
         "nox/native_maps.h",
@@ -7104,7 +7127,7 @@
     },
     {
       "path": "engines/nox/native_world_wait.h",
-      "sha256": "c5fb83490517df4ac3802d0132affd00b179b89b460d59929c709769718252df",
+      "sha256": "e299744976731f177d63d85ee22286d1bf28ca53ae74901934a9698205667222",
       "includes": [
         "nox/native_world_actor_turn.h",
         "nox/native_world_viewport.h",
@@ -7172,6 +7195,15 @@
       ],
       "explicit_boundaries": [],
       "coverage": "Only individual requirement/evidence scopes are credited."
+    },
+    {
+      "path": "engines/nox/native_world_pressure_plate.h",
+      "sha256": "f3a155e716cab338b79e24c6c950b0f188eff44451d638bdbe5d38a5646a88e0",
+      "includes": [
+        "nox/native_world_presentation.h"
+      ],
+      "explicit_boundaries": [],
+      "coverage": "SourceEA35 phase;receipt490scope."
     }
   ],
   "counts": {
@@ -7266,9 +7298,9 @@
       "ce_replacements": 0
     },
     "story": {
-      "known_required": 7,
-      "native_implemented": 0,
-      "verified": 0,
+      "known_required": 8,
+      "native_implemented": 1,
+      "verified": 1,
       "partial": 7,
       "missing": 0,
       "unknown_required_rows": 1,
@@ -7307,8 +7339,8 @@
     }
   },
   "last_milestone": {
-    "owner": "location presentation489",
-    "evidence": "SCUMMVM-CE-LOCATION-PRESENTATION489-VERIFICATION.json"
+    "owner": "pressure plate490",
+    "evidence": "SCUMMVM-CE-PRESSURE-PLATE490-VERIFICATION.json"
   },
   "overall": {
     "fully_implemented_top_level_domains": 1,
@@ -7322,7 +7354,7 @@
   },
   "current_subsystem": {
     "status": "IN PROGRESS",
-    "scope": "Pressureplate/portal ordinary-turn connections fromsourceEA35/F117."
+    "scope": "Portal491 ordinaryturn connection andmap0/transport support."
   },
   "count_definition": "native_implemented counts IMPLEMENTED; CE_REPLACEMENT is separately reported. VERIFIED applies only to row evidence scope; no overall completion percentage."
 }

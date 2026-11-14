@@ -6,6 +6,7 @@
 #include "nox/native_clock.h"
 #include "nox/native_world_hazards.h"
 #include "nox/native_world_projectile.h"
+#include "nox/native_world_pressure_plate.h"
 namespace Nox { namespace Native {
 enum WorldWaitResult { kWorldWaitAdvanced,kWorldWaitBattle,kWorldWaitPendingEffect,kWorldWaitUnsupported,kWorldWaitDefeat };
 // Stationary on-foot Keep wait transaction through lighting, ordered actors,
@@ -38,6 +39,7 @@ public:
             !_turn.run(candidate,scene,nextVisibility.cells(),187,next,nextSchedule,nextStore,after,catalog,text,nextScene,raised,direction,&nextWindow)) return kWorldWaitUnsupported;
         if (!raised.battle) {
             if (next.effects.active) return kWorldWaitPendingEffect;
+            if (!WorldPressurePlate::apply(candidate,nextScene)) return kWorldWaitUnsupported;
             bool projectileHit=false;
             if (next.effects.queued) {
                 if (!party) return kWorldWaitPendingEffect;

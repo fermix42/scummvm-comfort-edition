@@ -238,10 +238,13 @@ public:
         return reward == kSearchRewardAwarded ? kSearchAwarded : reward == kSearchRewardCapacity ? kSearchCapacity : kSearchRepeated;
     }
 
-	GateResult activatePlate() {
+	GateResult activatePlate(byte selectedSlot=255) {
 		if (!ready()) return kGateUnsupported;
-		const int slot = objectAt(_x, _y); if (slot < 0) return kGateUnsupported;
+        const int slot=selectedSlot==255?objectAt(_x,_y):selectedSlot;
+        if (slot<0) return kGateUnsupported;
+        if (slot>248 || (slot&3)) return kGateInvalid;
 		const byte *object = _states[_current].tables.data() + 1024 + slot;
+        if (object[0]!=_x || object[1]!=_y) return kGateInvalid;
 		byte next = 0;
 		const GateResult result = pressurePlate(object, 256 - slot, QuestFields(_fields, sizeof(_fields)), next);
 		if (result == kGateAllowed) _fields[object[4]] = next;
