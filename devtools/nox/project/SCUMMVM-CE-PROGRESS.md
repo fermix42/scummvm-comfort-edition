@@ -1,3 +1,30 @@
+# Open/Search487 integrated - November14
+
+First build0 warnings/errors2m53.03;first focused batch VERIFIED:actual authored
+Ruin31chest28,O/S admission,cancel,modalcodec and real same lock attempt yield
+identical gamecore/RNG/modal. No successful outcome injection/requirement.
+WorldOpenInteraction now shares existing SearchInput and unchanged result/cache/
+turn continuation; no duplicate treasure or recursive input setup. Source/exe
+frozen OPEN-SEARCH487 receipt. No audio/old Search suite/campaign/cold/session.
+Next:barrier touchF210/F7A3,source field57mask2 protection,kind0 damage and
+blocked movement; protected passage for on-foot/mounted walking paths. Source
+normal blocked pathF156 displays10 thenreturnsECE6,so reuse existing native
+blocked continuation after synchronous touch. Contract before code next.
+Dialogue486 remains qualified per receipt; no more486 native reruns.
+
+# Active Open/Search487 - IN PROGRESS
+
+Dialogue optional-header implementation committed61e4fd5dc30 with explicit
+incomplete wholebatch qualification; no further486 rerun. WorldOpen special
+container branch abort replaced by existing SearchInput0 semantic handler.
+Original Open96A1 ->residentFE86 ->A0,selectedcell|128; existing S94D8 enters
+same source8A92/05FA Search owner. Extract unchanged activeSearch continuation
+into private WorldInput.handleSearch; no recursive input-loop/clock/RNG replay.
+Contract ENGINE-OPEN-SEARCH-CONTRACT. One build/focused batch:real Ruin31chest28
+at33,14,ten picks pre-input; O/S admission,cancel,codec and actual same lock
+attempt compare core/RNG/modal. Do not require/inject successful lock roll.
+No old Search/audio suite/campaign. Barrier F210/F7A3 separate next owner.
+
 # Dialogue486 implementation integrated; bounded coverage - November14
 
 Parser optional effect pairs bounded before body separator; two authored bare

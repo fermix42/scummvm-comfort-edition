@@ -241,28 +241,7 @@ public:
             }
             return kWorldInputHandled;
         }
-        if (_search.active()) {
-            const SearchInputResult result=_search.handle(input,archive,game,scene,random,frame,_transport.alarm);
-            if (_transport.alarm) _transport.used=true;
-            if (result==kSearchInputUnsupported) return kWorldInputBoundary;
-            // Search can mutate object/guard records before its result is closed.
-            // Keep the owned viewport cache coherent at that save boundary.
-            if (!window.captureRecords(game.world)) return kWorldInputUnsupported;
-            if (result==kSearchInputClosed || result==kSearchInputAttempted) {
-                byte painted[187]={};
-                if (!window.captureRecords(game.world) || !WorldViewport::refreshAtWorld(game.world,window,_story,_actors,_lighting,_occlusion,_painter,game.appearance,game.clock.lightActive,
-                        animation,painted,turn.presentation,light,visibility,frame,&scene) || !text.importPages(frame.data(),frame.data(),8192)) return kWorldInputUnsupported;
-                if (result==kSearchInputAttempted) {
-                    WorldActorTurnEvent raised;
-                    const WorldWaitResult advanced=_wait.run(game.world,window,scene,turn,game.clock,light,visibility,game.schedule,routes,random,catalog,text,frame,game.appearance,animation,raised,true,4,nullptr,&game.party);
-                    if (advanced==kWorldWaitBattle) {_search.cancel();_encounter=raised;return kWorldInputEncounter;}
-                    if (advanced==kWorldWaitDefeat) {_search.cancel();markDefeated();return kWorldInputDefeat;}
-                    if (advanced!=kWorldWaitAdvanced) return kWorldInputBoundary;
-                }
-                if (!_search.refresh(archive,frame)) return kWorldInputUnsupported;
-            }
-            return kWorldInputHandled;
-        }
+        if (_search.active()) return handleSearch(input,archive,game,window,scene,turn,light,visibility,routes,random,catalog,text,frame,animation);
         if (_inventory.active()) {
             const InventoryWindowResult result=_inventory.handle(input,archive,game,frame);
             if (result==kInventoryWindowUnsupported) return kWorldInputBoundary;
@@ -362,7 +341,13 @@ public:
             if (!arrow) return kWorldInputHandled;
             WorldOpenEvent event;const WorldOpenResult opened=_open.run(game.world,scene,direction,event);
             if (opened==kWorldOpenUnsupported) return kWorldInputUnsupported;
-            if (opened==kWorldOpenInteraction) return kWorldInputBoundary;
+            if (opened==kWorldOpenInteraction) {
+                _openDirection=false;
+                if (!_search.begin(archive,game,frame)) return kWorldInputUnsupported;
+                // Original Open passes the already selected cell to Search0.
+                // Consume this same arrow once without repeating world input setup.
+                return handleSearch(input,archive,game,window,scene,turn,light,visibility,routes,random,catalog,text,frame,animation);
+            }
             if (opened==kWorldOpenLock) {
                 if (event.object>248 || game.world.currentTables()->data()[1024+event.object+3]!=17) return kWorldInputBoundary;
                 _openDirection=false;return _search.beginDoor(archive,game,event.object,frame)?kWorldInputHandled:kWorldInputUnsupported;
@@ -599,6 +584,30 @@ public:
         *this=next;return true;
     }
 private:
+    WorldInputResult handleSearch(const Common::Event &input,HdvArchive &archive,NewGame &game,WorldStory &window,WorldScene &scene,
+            WorldActorTurnState &turn,LightState &light,VisibilityMask &visibility,NpcRouteStore &routes,GameplayRandom &random,
+            const FixedMessageCatalog &catalog,TextGlyphSurface &text,HgrFrame &frame,byte animation) {
+            const SearchInputResult result=_search.handle(input,archive,game,scene,random,frame,_transport.alarm);
+            if (_transport.alarm) _transport.used=true;
+            if (result==kSearchInputUnsupported) return kWorldInputBoundary;
+            // Search can mutate object/guard records before its result is closed.
+            // Keep the owned viewport cache coherent at that save boundary.
+            if (!window.captureRecords(game.world)) return kWorldInputUnsupported;
+            if (result==kSearchInputClosed || result==kSearchInputAttempted) {
+                byte painted[187]={};
+                if (!window.captureRecords(game.world) || !WorldViewport::refreshAtWorld(game.world,window,_story,_actors,_lighting,_occlusion,_painter,game.appearance,game.clock.lightActive,
+                        animation,painted,turn.presentation,light,visibility,frame,&scene) || !text.importPages(frame.data(),frame.data(),8192)) return kWorldInputUnsupported;
+                if (result==kSearchInputAttempted) {
+                    WorldActorTurnEvent raised;
+                    const WorldWaitResult advanced=_wait.run(game.world,window,scene,turn,game.clock,light,visibility,game.schedule,routes,random,catalog,text,frame,game.appearance,animation,raised,true,4,nullptr,&game.party);
+                    if (advanced==kWorldWaitBattle) {_search.cancel();_encounter=raised;return kWorldInputEncounter;}
+                    if (advanced==kWorldWaitDefeat) {_search.cancel();markDefeated();return kWorldInputDefeat;}
+                    if (advanced!=kWorldWaitAdvanced) return kWorldInputBoundary;
+                }
+                if (!_search.refresh(archive,frame)) return kWorldInputUnsupported;
+            }
+            return kWorldInputHandled;
+    }
     static bool prepareClockInput(HdvArchive &archive,World &world,WorldStory &window,const TurnClock &clock,NpcScheduleState &schedule,NpcRouteStore &store,GameplayRandom &random) {
         if (world.mapType()<4 || world.mapId()==69) return true;
         if (NpcScheduler::activateAtClock(world,clock.hour,clock.minute)==kNpcScheduleUnsupported ||

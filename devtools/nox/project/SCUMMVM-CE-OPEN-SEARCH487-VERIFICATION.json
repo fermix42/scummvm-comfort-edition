@@ -1,0 +1,37 @@
+{
+  "status": "IN PROGRESS",
+  "scope": "Shared Open/Search container admission implemented;focused validation VERIFIED. Complete engine/campaign qualification unfinished.",
+  "parent_commit": "61e4fd5dc30",
+  "executable_sha256": "ac8ccac8c194b3829b204838d557c26168ed0df1f5e5489a5211c5702a966b65",
+  "source_hash_manifest": {
+    "path": "conversion/ce-native-open-search487-focused/verification.json",
+    "sha256": "f01123ea3818f6a0c939a77bdad56ed6d70a301a5bdabffa9d80cf7fab61c642"
+  },
+  "build": {
+    "result": "0 warnings,0 errors,2m53.03s",
+    "native_batches": 1,
+    "failures": [],
+    "commands": [
+      "powershell.exe -NoProfile -ExecutionPolicy Bypass -File ./run-build-release-cleanenv.ps1 -NoxNativeOnly",
+      "python conversion/check_open_search487.py"
+    ]
+  },
+  "focused_validation": {
+    "status": "VERIFIED",
+    "report": "open-search\tactual_authored_chest=1\tO_S_lock_attempt_equivalent=1\tadmission_cancel=2\tmodal_codecs=2\tcore_RNG_modal_equal=1\tcampaign=0\taudio_suite=0\n"
+  },
+  "controlled_setup": "Actual authored Ruin31 chest28 at33,14,tile8/state53,kind1/id100/field27mask1;adjacent legal source floor and10 picks before input. Same native RNG entropy119 for O and S,actual same lock attempt,not an injected award.",
+  "remaining_qualifications": [
+    "No old Search/audio suite,campaign,normal Engine cold/session or complete all219 raw candidate producer proof.",
+    "Traversal barrier touch remains independent missing owner; not credited by this change.",
+    "Existing Search reward/lock semantics reused; no normal CE save eligibility expansion."
+  ],
+  "artifacts": {
+    "conversion/ce-m4-binary/scummvm-native-open-search487.exe": "ac8ccac8c194b3829b204838d557c26168ed0df1f5e5489a5211c5702a966b65",
+    "conversion/ce-m4-binary/native-open-search487-source.zip": "556f05c18f6c6abc17e8590d42d61eb3cfe048be4fb93176129056ea91be7bed",
+    "conversion/ce-native-open-search487-focused/verification.json": "f01123ea3818f6a0c939a77bdad56ed6d70a301a5bdabffa9d80cf7fab61c642",
+    "conversion/ce-native-open-search487-source.bin": "f711981523f7873ad9d3aa17f4b3c2160875943cd59f5a9cfff3c81ece7b898e",
+    "conversion/ce-native-open-search487-build.log": "f8c56810866a1f8b38c09b0098510e77c945d339c5b07c038d9893b0b098058e"
+  },
+  "next": "Barrier touch F210/F7A3 protection/damage and on-foot/mounted motion integration."
+}

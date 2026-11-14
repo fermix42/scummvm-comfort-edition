@@ -3105,6 +3105,29 @@
       "production_connection": "Normal popup stores per-game preference; old private flags migrate,replay overrides retained. Actual host uses typed mode admission and permits Tactical mode2 automatic rounds.",
       "fallback_dependencies": [],
       "blockers": []
+    },
+    {
+      "id": "interface.22",
+      "subsystem": "interface",
+      "behavior": "Open special-container admission reuses complete native Search continuation",
+      "implementation": "IMPLEMENTED",
+      "verification": {
+        "status": "VERIFIED",
+        "scope": "Actual authored chest O/S equivalent admission,cancel,modalcodec and real lock attempt;equal core/RNG/modal,no old Search suite or normal cold/session.",
+        "evidence": "SCUMMVM-CE-OPEN-SEARCH487-VERIFICATION.json"
+      },
+      "native_owners": [
+        "engines/nox/native_world_open.h",
+        "engines/nox/native_world_input.h",
+        "engines/nox/native_search_input.h"
+      ],
+      "original_evidence": [
+        "SCUMMVM-CE-ENGINE-OPEN-SEARCH-CONTRACT.md",
+        "Open96A1,residentFE86,Search inventory0 raw8A92/05FA"
+      ],
+      "production_connection": "WorldInput Open interaction feeds the same selected direction once into existing Search owner/private shared result continuation.",
+      "fallback_dependencies": [],
+      "blockers": []
     }
   ],
   "additional_unclassified_scope": [
@@ -5132,7 +5155,7 @@
     },
     {
       "path": "engines/nox/native_startup_host.h",
-      "sha256": "66ed9eda2a42ea941d727d036f6727c0c184a8123cd53fe819433ea447dba374",
+      "sha256": "df057b754ce1f3c39755d5c66e1c7ed4dd39596ecdb541cd57c6e21aa1291787",
       "includes": [
         "nox/native_weapon_ready_validation.h",
         "nox/native_legacy_snapshot.h",
@@ -6353,7 +6376,7 @@
     },
     {
       "path": "engines/nox/native_world_input.h",
-      "sha256": "f94f3b92db3e155ae33017afd3ac32c26a92ca3cc8d8c3dcb17f7cabb307cb60",
+      "sha256": "4bbdcaa3ac8aa4da5abdaf735cc81bf302ab43e353828aa149991449a99c779e",
       "includes": [
         "nox/native_new_game.h",
         "nox/native_world_move.h",
@@ -7136,9 +7159,9 @@
       "ce_replacements": 0
     },
     "interface": {
-      "known_required": 18,
-      "native_implemented": 10,
-      "verified": 9,
+      "known_required": 19,
+      "native_implemented": 11,
+      "verified": 10,
       "partial": 8,
       "missing": 0,
       "unknown_required_rows": 3,
@@ -7257,8 +7280,8 @@
     }
   },
   "last_milestone": {
-    "owner": "dialogue boundary486 implementation,qualified focused coverage",
-    "evidence": "SCUMMVM-CE-DIALOGUE-BOUNDARY486-VERIFICATION.json"
+    "owner": "shared Open/Search487",
+    "evidence": "SCUMMVM-CE-OPEN-SEARCH487-VERIFICATION.json"
   },
   "overall": {
     "fully_implemented_top_level_domains": 1,
@@ -7272,7 +7295,7 @@
   },
   "current_subsystem": {
     "status": "IN PROGRESS",
-    "scope": "Shared Open/Search and traversal barrier interaction gaps;486 reruns deferred."
+    "scope": "Barrier touch and protected traversal;source-derived interaction gaps."
   },
   "count_definition": "native_implemented counts IMPLEMENTED; CE_REPLACEMENT is separately reported. VERIFIED applies only to row evidence scope; no overall completion percentage."
 }
