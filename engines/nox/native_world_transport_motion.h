@@ -10,13 +10,13 @@ struct TransportMoveCell {
     TransportMoveCell() : terrain(0),objectTile(0),objectState(0),actor(false),object(false) {}
 };
 struct TransportMotionContext {
-    byte picture,speed,currentTerrain,phase,movementFlag;bool ignoreCollision,jumpRequested,jumpBusy,seaProtection;
+    byte picture,speed,currentTerrain,phase,movementFlag;bool ignoreCollision,jumpRequested,jumpBusy,seaProtection,barrierProtection;
     TransportMoveCell near,far,leading[2];
-    TransportMotionContext() : picture(246),speed(0),currentTerrain(0),phase(16),movementFlag(0),ignoreCollision(false),jumpRequested(false),jumpBusy(false),seaProtection(false) {}
+    TransportMotionContext() : picture(246),speed(0),currentTerrain(0),phase(16),movementFlag(0),ignoreCollision(false),jumpRequested(false),jumpBusy(false),seaProtection(false),barrierProtection(false) {}
 };
 struct TransportMotionOutcome {
-    bool blocked,interrupted,requiresInteraction,checkedFar,seaEvent,seaImpact;byte message;uint16 damage;
-    TransportMotionOutcome() : blocked(false),interrupted(false),requiresInteraction(false),checkedFar(false),seaEvent(false),seaImpact(false),message(255),damage(0) {}
+    bool blocked,interrupted,requiresInteraction,checkedFar,seaEvent,seaImpact,barrierTouched;byte message;uint16 damage;
+    TransportMotionOutcome() : blocked(false),interrupted(false),requiresInteraction(false),checkedFar(false),seaEvent(false),seaImpact(false),barrierTouched(false),message(255),damage(0) {}
 };
 // Source player transport collision/sea-exposure transaction. A caller must
 // commit its returned party effect and world/actor/clock continuation together;
@@ -54,13 +54,13 @@ public:
             if (!out.blocked) out.blocked=water(c.leading[0],128,c.seaProtection,next,out);
             break;
         case 128:
-            if (!walk(c.near,c.movementFlag,out.blocked,out.requiresInteraction)) return false;
+            if (!walk(c.near,c.movementFlag,c.barrierProtection,out.blocked,out.requiresInteraction,out.barrierTouched)) return false;
             if (!out.blocked && !out.requiresInteraction) out.blocked=(c.near.terrain>=229 && c.near.terrain<233) || c.near.terrain==_footer[67];
             break;
         case 127:case 238: {
             const TransportMoveCell *cell=&c.near;
             for (uint attempt=0;attempt<2;++attempt) {
-                bool blocked=false,pending=false;if (!walk(*cell,c.movementFlag,blocked,pending)) return false;
+                bool blocked=false,pending=false;if (!walk(*cell,c.movementFlag,c.barrierProtection,blocked,pending,out.barrierTouched)) return false;
                 if (pending) {out.requiresInteraction=true;break;}
                 if (!blocked && cell->object) {out.blocked=in(cell->objectTile,52);break;}
                 const bool waterTile=cell->terrain>=229 && cell->terrain<233;
@@ -79,11 +79,11 @@ public:
     }
 private:
     bool in(byte value,uint at) const {return value>=_footer[at] && value<_footer[at+1];}
-    bool walk(const TransportMoveCell &cell,byte flag,bool &blocked,bool &pending) const {
+    bool walk(const TransportMoveCell &cell,byte flag,bool barrierProtection,bool &blocked,bool &pending,bool &touched) const {
         TraversalProbe probe;probe.terrain=cell.terrain;probe.actorPresent=cell.actor;probe.objectPresent=cell.object;
         probe.objectTile=cell.objectTile;probe.objectState=cell.objectState;probe.movementFlag=flag;
         TraversalDecision result;if (!_walking.probe(probe,result)) return false;
-        blocked=result.blocked;pending=result.requiresInteraction;return true;
+        blocked=result.blocked;pending=result.requiresInteraction;if (pending) {touched=true;pending=!barrierProtection;}return true;
     }
     bool water(const TransportMoveCell &cell,byte mode,bool protection,WorldTransportState &state,TransportMotionOutcome &out) const {
         if (cell.object || cell.actor) return true;

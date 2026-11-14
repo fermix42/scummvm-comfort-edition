@@ -3128,6 +3128,29 @@
       "production_connection": "WorldInput Open interaction feeds the same selected direction once into existing Search owner/private shared result continuation.",
       "fallback_dependencies": [],
       "blockers": []
+    },
+    {
+      "id": "world.12",
+      "subsystem": "world",
+      "behavior": "Source energy barrier touch resolves damage/protection before walking or mounted collision",
+      "implementation": "IMPLEMENTED",
+      "verification": {
+        "status": "VERIFIED",
+        "scope": "48 party effects/death,48 mounted near probes,actual Keep73 blocked/protected full actor turn and2core codecs;fullmounted/cold/session qualified.",
+        "evidence": "SCUMMVM-CE-BARRIER488-VERIFICATION.json"
+      },
+      "native_owners": [
+        "engines/nox/native_world_hazards.h",
+        "engines/nox/native_world_move.h",
+        "engines/nox/native_world_transport_motion.h"
+      ],
+      "original_evidence": [
+        "SCUMMVM-CE-ENGINE-BARRIER-CONTRACT.md",
+        "BSF210/F7A3,source6155 damage0,field57mask2,F156blocked"
+      ],
+      "production_connection": "WorldMove resolves admitted barrier touch;protected source immediateallow resumes position/actors,unprotected reuses blocked/defeat owner;mounted near/far walking reports typed touch.",
+      "fallback_dependencies": [],
+      "blockers": []
     }
   ],
   "additional_unclassified_scope": [
@@ -5155,7 +5178,7 @@
     },
     {
       "path": "engines/nox/native_startup_host.h",
-      "sha256": "df057b754ce1f3c39755d5c66e1c7ed4dd39596ecdb541cd57c6e21aa1291787",
+      "sha256": "659227afc4bedd46897d5acba44b7196b6b21294b5b707855fb0dfe1d24640e0",
       "includes": [
         "nox/native_weapon_ready_validation.h",
         "nox/native_legacy_snapshot.h",
@@ -6364,7 +6387,7 @@
     },
     {
       "path": "engines/nox/native_world_hazards.h",
-      "sha256": "58fb436cc4d5cb4ee0178cdec445085a0f9f05deade441492aee10c244bb52fb",
+      "sha256": "0772d8c871364afca728b8a736ed1278f54a85b39ffb0d541327871d9f58cbb2",
       "includes": [
         "nox/native_world_presentation.h",
         "nox/native_party.h",
@@ -6821,7 +6844,7 @@
     },
     {
       "path": "engines/nox/native_world_move.h",
-      "sha256": "200ac7a89f8db34cb0f0cb358ec11ef31777522024e8c6ca3bd0524ccc50ed3e",
+      "sha256": "f54e8e3999355d62c543feda318ecbcbf21a4be8c14b7df752a7e00fb664d94e",
       "includes": [
         "nox/native_world_command.h",
         "nox/native_world_wait.h",
@@ -7045,7 +7068,7 @@
     },
     {
       "path": "engines/nox/native_world_transport_motion.h",
-      "sha256": "4edf906b88e77ddd75685abc6dfc036234ddd5c7a4cb258df35a3baf6feeb8a7",
+      "sha256": "46ece1784d152c1c3316dd366ae9cc59702c4852eaf83a4ccb3c13e5d3bcb5b9",
       "includes": [
         "nox/native_world_transport.h",
         "nox/native_traversal.h",
@@ -7169,9 +7192,9 @@
       "ce_replacements": 0
     },
     "world": {
-      "known_required": 11,
-      "native_implemented": 0,
-      "verified": 0,
+      "known_required": 12,
+      "native_implemented": 1,
+      "verified": 1,
       "partial": 11,
       "missing": 0,
       "unknown_required_rows": 0,
@@ -7280,8 +7303,8 @@
     }
   },
   "last_milestone": {
-    "owner": "shared Open/Search487",
-    "evidence": "SCUMMVM-CE-OPEN-SEARCH487-VERIFICATION.json"
+    "owner": "barrier488",
+    "evidence": "SCUMMVM-CE-BARRIER488-VERIFICATION.json"
   },
   "overall": {
     "fully_implemented_top_level_domains": 1,
@@ -7295,7 +7318,7 @@
   },
   "current_subsystem": {
     "status": "IN PROGRESS",
-    "scope": "Barrier touch and protected traversal;source-derived interaction gaps."
+    "scope": "Location/help presentation;continue remaining script andgraphics/lifecycle closure."
   },
   "count_definition": "native_implemented counts IMPLEMENTED; CE_REPLACEMENT is separately reported. VERIFIED applies only to row evidence scope; no overall completion percentage."
 }

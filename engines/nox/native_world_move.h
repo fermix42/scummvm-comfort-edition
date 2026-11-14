@@ -17,7 +17,7 @@ public:
     bool load(HdvArchive &archive,byte type=8) {
         Common::Array<byte> game,quiet;MapAssetRange assets;
         if (!archive.read("NA/GAME",game) || !resolveMapAssets(game,type,assets) || !archive.readRange(assets.resource,assets.offset+assets.size+67,1,quiet) || quiet.size()!=1) return false;
-        _quietGround=quiet[0];if (!_story.load(archive) || !_rules.load(archive,type) || !_transportRules.load(archive,type) || !_turn.load(archive,type) || !_painter.load(archive,type)) return false;_type=type;return true; }
+        _quietGround=quiet[0];if (!_story.load(archive) || !_rules.load(archive,type) || !_transportRules.load(archive,type) || !_barrierRules.load(archive,type) || !_turn.load(archive,type) || !_painter.load(archive,type)) return false;_type=type;return true; }
     static bool completeClock(World &world,TurnClock &clock) {
         ClockAdvance advance;if (!advanceTurnClock(clock,advance)) return false;
         clock=advance.after;world._fields[20]=clock.hourlyCounter;return true;
@@ -45,7 +45,7 @@ public:
             byte *object=candidate._states[candidate._current].tables.data()+1024+controls.object;
             if (object[2]!=controls.appearance) return kWorldMoveUnsupported;
             TransportMotionContext context;context.picture=controls.appearance;context.speed=controls.speed;context.currentTerrain=scene.actors.terrain[93];
-            context.jumpRequested=controls.jumpRequested;context.jumpBusy=controls.moveCount!=0;context.seaProtection=(world.field(57)&4)!=0;
+            context.barrierProtection=(world.field(57)&2)!=0;context.jumpRequested=controls.jumpRequested;context.jumpBusy=controls.moveCount!=0;context.seaProtection=(world.field(57)&4)!=0;
             const uint near[]={76,110,94,92},far[]={59,127,95,91},lead[]={76,77,127,128,95,112,92,109};
             const auto cell=[&](uint at,TransportMoveCell &value) {
                 value.terrain=scene.actors.terrain[at];value.actor=scene.actors.lookup[at]!=255;
@@ -55,7 +55,11 @@ public:
             cell(near[direction],context.near);cell(far[direction],context.far);cell(lead[direction*2],context.leading[0]);cell(lead[direction*2+1],context.leading[1]);
             TransportMotionOutcome motion;
             if (!forcedAlignment && !_transportRules.probe(context,controls,after,motion)) return kWorldMoveUnsupported;
-            if (motion.requiresInteraction) return kWorldMoveBoundary;
+            if (motion.barrierTouched) {
+                bool dead=false;if (!_barrierRules.barrier(candidate,nextParty,catalog,nextText,nextFrame,dead,_sounds)) return kWorldMoveUnsupported;
+                if (dead) {controls.used=controls.defeated=true;controls.pendingSteps=0;controls.pendingDirection=255;transferControls();random=after;text=nextText;frame=nextFrame;return kWorldMoveDefeat;}
+                if (motion.requiresInteraction) {if (_sounds) _sounds->push_back(kSpeakerImpact);transferControls();random=after;text=nextText;frame=nextFrame;return kWorldMoveBlocked;}
+            } else if (motion.requiresInteraction) return kWorldMoveBoundary;
             if (motion.message!=255 && !showTransportEffect(catalog,motion.message,nextText,nextFrame)) return kWorldMoveUnsupported;
             if (motion.interrupted || motion.blocked) {
                 if (motion.blocked && _sounds) _sounds->push_back(kSpeakerImpact);
@@ -72,6 +76,14 @@ public:
             if (!map || (!map->compressed && (x>=48 || y>=48))) return kWorldMoveLeave;
             candidate._x=x;candidate._y=y;object[0]=byte(object[0]+dx);object[1]=byte(object[1]+dy);position=kPositionMoved;
         } else position=WorldCommand::move(input,candidate,nextWindow,scene,_rules,decision);
+        if (!riding && position==kPositionNeedsInteraction) {
+            bool dead=false;if (!party || !_barrierRules.barrier(candidate,nextParty,catalog,nextText,nextFrame,dead,_sounds)) return kWorldMoveUnsupported;
+            if (dead) {controls.used=controls.defeated=true;controls.pendingSteps=0;controls.pendingDirection=255;transferControls();text=nextText;frame=nextFrame;return kWorldMoveDefeat;}
+            if (!(world.field(57)&2)) {if (_sounds) _sounds->push_back(kSpeakerImpact);transferControls();text=nextText;frame=nextFrame;return kWorldMoveBlocked;}
+            // Source F22E branches straight to allowed after protected touch;
+            // do not repeat the probe or apply later collision ranges.
+            candidate._x=byte(world.x()+dx);candidate._y=byte(world.y()+dy);position=kPositionMoved;
+        }
         if (position==kPositionBlocked) {if (_sounds) _sounds->push_back(kSpeakerImpact);return kWorldMoveBlocked;}
         if (position!=kPositionMoved) return position==kPositionNeedsInteraction?kWorldMoveBoundary:kWorldMoveUnsupported;
         bool needsExit=false;if (!nextWindow.advanceWindow(candidate,direction,_story,needsExit)) return kWorldMoveUnsupported;
@@ -146,7 +158,7 @@ private:
         if (!text.importPages(frame.data(),frame.data(),8192) || !showFixedMessageStrip(catalog,id,text)) return false;
         for (uint y=184;y<192;++y) for (uint x=7;x<32;++x) if (!frame.putByte(x,y,text.page(0)[HgrFrame::rowOffset(y)+x])) return false;return true;
     }
-    byte _type,_quietGround;SoundEvents *_sounds;StoryMapPatches _story;TraversalRules _rules;WorldTransportMotion _transportRules;WorldWait _turn;TilePainter _painter;
+    byte _type,_quietGround;SoundEvents *_sounds;StoryMapPatches _story;TraversalRules _rules;WorldTransportMotion _transportRules;WorldHazards _barrierRules;WorldWait _turn;TilePainter _painter;
 };
 } }
 #endif

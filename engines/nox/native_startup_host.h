@@ -62,6 +62,7 @@
 #include "nox/native_combat_preferences_validation.h"
 #include "nox/native_dialogue_boundary_validation.h"
 #include "nox/native_open_search_validation.h"
+#include "nox/native_barrier_validation.h"
 #include "nox/native_player_lifecycle_validation.h"
 #include "nox/native_ending.h"
 namespace Nox {
@@ -93,6 +94,12 @@ inline Common::Error NoxEngine::runNativeStartup() {
         }
         return Common::Error(Common::kReadingFailed,reason);
     };
+    if (ConfMan.hasKey("nox_native_barrier_fixture")) {
+        Common::File input;Common::String report;
+        if (!input.open(Common::FSNode(ConfMan.getPath("nox_native_barrier_fixture"))) || !validateNativeBarrier488(_resources,input,report)) return fail(report.empty()?"Barrier focused check failed":report.c_str());
+        Common::OutSaveFile *out=_system->getSavefileManager()->openForSaving("nox-native-barrier.tsv",false);if (!out) return Common::kWritingFailed;
+        out->writeString(report);out->finalize();const bool ok=!out->err();delete out;return ok?Common::Error(Common::kNoError):Common::Error(Common::kWritingFailed);
+    }
     if (ConfMan.hasKey("nox_native_open_search_fixture")) {
         Common::File input;Common::String report;
         if (!input.open(Common::FSNode(ConfMan.getPath("nox_native_open_search_fixture"))) || !validateNativeOpenSearch487(_resources,input,report)) return fail(report.empty()?"Open/Search focused check failed":report.c_str());

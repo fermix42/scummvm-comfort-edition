@@ -17,6 +17,18 @@ public:
             !archive.readRange(range.resource,range.offset+range.size,72,footer) || footer.size()!=72) return false;
         memcpy(_damage,game.data()+0x155,8);memcpy(_footer,footer.data(),72);_type=type;_ready=true;return true;
     }
+    // Shared pre-position F210/F7A3 energy barrier touch. Collision/turn
+    // continuation stays with the caller; no actor or clock pass occurs here.
+    bool barrier(const World &world,Party &party,const FixedMessageCatalog &catalog,TextGlyphSurface &text,HgrFrame &frame,
+            bool &defeated,SoundEvents *sounds=nullptr) const {
+        if (!_ready || !world.ready() || world.mapType()!=_type || !party.ready()) return false;
+        Party next=party;TextGlyphSurface surface=text;HgrFrame image=frame;const bool protectedParty=(world.field(57)&2)!=0;
+        if (!show(catalog,protectedParty?32:33,surface,image)) return false;
+        if (!protectedParty) for (uint i=0;i<next.memberCount();++i) if (!next.damage(i,_damage[0])) return false;
+        bool dead=true;for (uint i=0;i<next.memberCount();++i) if (next.member(i)->bytes[0]!=255) dead=false;
+        party=next;text=surface;frame=image;defeated=dead;
+        if (sounds && !protectedParty) sounds->push_back(kSpeakerMagic);return true;
+    }
     bool apply(const World &world,const WorldScene &scene,Party &party,const FixedMessageCatalog &catalog,
             TextGlyphSurface &text,HgrFrame &frame,bool &defeated,bool projectileHit=false,SoundEvents *sounds=nullptr) const {
         if (!_ready || !world.ready() || world.mapType()!=_type || !party.ready()) return false;

@@ -1,3 +1,48 @@
+# Barrier488 integrated - November14
+
+Build488b0 warnings/errors2m56.80;first nativebatch VERIFIED:48 source mask/
+damage/death effects,48 mounted near probes,two actual Keep73barrier12,26
+moves andcore roundtrips. Unprotected blockdamages71 frompredeclaredHP100;
+protectedpassesandcompletesnormalactor/clock WorldMoveAdvanced0. Source/exe
+frozen BARRIER488receipt. Actual fullmounted/cold/session remainsqualified.
+Initialfixturecompile shadow/unsigned warning corrected;no nativefailedrun.
+Noaudio/old hazard suite/campaign. Existing hazard/speaker eventowners reused.
+Known fatal Opencontainer andwalkingbarrier branches nowsemanticnativeowners.
+Next namelessmap G fallback(CETown/Castlecategorylabels,not inventedauthored
+names) andaccurateCEhelp. Historicalretainedscratch parity remainsunknown,
+will notholdnativecommand hostage. Contract LOCATION-PRESENTATION beforecode.
+Dialogue486 remainsqualified;do notreruncompleted/acceptedold suites.
+
+# Barrier488 compilation correction - IN PROGRESS
+
+488 stoppedatcompile14.16s:fixture inner message catalog shadowed outer local
+(C4456),plus unsigned size warningC4389. Rename outer effectMessages/useunsigned
+expected eventcount. Same488b includespredeclaredHP100 prerequisite correction.
+Production compiled,no native batch yet. Corrected integrationbuild next.
+
+# Barrier488 static fixture prerequisite correction - IN PROGRESS
+
+Build488 active. Before any native batch,source6155 kind0damage71 vsnew-game
+HP50 showed proposed actual nonfatalblocked fixture would insteaddie. Correct
+fixture setup explicitly toHP/maxHP100 pre-operation via public party record
+import;low directcases reduce100->1 pre-touch. Cover genuine blocked andfatal
+cases,neverinjectoutcomes. Productionunchanged. Once488buildends,one corrected
+fixture488b integrationbuild is technically required;do not run known-bad488.
+No native rerun/budget consumed,noaudio/old suite.
+
+# Active barrier488 - IN PROGRESS
+
+Open/Search487 committed47d51f09819,first batch passed. Implemented typed source
+F210/F7A3 barrier touch in existing WorldHazards:field57mask2 protection shows32,
+otherwise kind0damage/message33 and block. On-foot WorldMove resolves before
+position;mounted walking near/far probe receives actual protection and reports
+touch. Existing blocked actor/clock path retained;death uses existing defeat.
+Protected source immediate-allow bypasses later ranges,thenordinary movement/
+actor/cache/clock continues. No newpersistedphase/interpreter/audio machinery.
+Contract ENGINE-BARRIER-CONTRACT. One build/focused48 party effects,48 mounted
+probes,actual authored Keep73barrier12,26 blocked/protected moves/core codecs.
+Controlled source setup only;no campaign/audio/old hazard suite/normal cold.
+
 # Open/Search487 integrated - November14
 
 First build0 warnings/errors2m53.03;first focused batch VERIFIED:actual authored

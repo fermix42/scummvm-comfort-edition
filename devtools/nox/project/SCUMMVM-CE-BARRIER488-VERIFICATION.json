@@ -1,0 +1,41 @@
+{
+  "status": "IN PROGRESS",
+  "scope": "Native pre-position barrier interaction implemented;focused validation VERIFIED. Complete engine/campaign qualification unfinished.",
+  "parent_commit": "47d51f09819",
+  "executable_sha256": "4a5021cf7b5bcb85095d9f7e7db66f772ee925d191409fd48e961a94165f4374",
+  "source_hash_manifest": {
+    "path": "conversion/ce-native-barrier488b-focused/verification.json",
+    "sha256": "6da89c69b9a3cb3022dff2ddfed680a3a4ab16c1442d8332a5cb868d09e73f6e"
+  },
+  "build": {
+    "result": "488b:0 warnings,0 errors,2m56.80s",
+    "native_batches": 1,
+    "failures": [
+      "488 fixture compile14.16s:shadowed message catalog C4456 and unsigned eventcount warningC4389. Corrected before native run.",
+      "Static prerequisite review before first native batch:kind0 damage71 exceedsnew-gameHP50. ControlledHP/maxHP100 declared before operations;lowcases reduce100->1. No injected outcome."
+    ],
+    "commands": [
+      "powershell.exe -NoProfile -ExecutionPolicy Bypass -File ./run-build-release-cleanenv.ps1 -NoxNativeOnly",
+      "python conversion/check_barrier488.py --label 488b"
+    ]
+  },
+  "focused_validation": {
+    "status": "VERIFIED",
+    "report": "barrier\tsource_effect_cases=48\tmounted_barrier_probes=48\tactual_Keep73_moves=2\tprotected_actor_result=0\tcore_roundtrips=2\tcampaign=0\taudio_suite=0\n",
+    "protected_actor_result": "0=kWorldMoveAdvanced;actual full native actor/clock continuation completed."
+  },
+  "controlled_setup": "Source fields57 masks0/1/2/3/128/255,types2/4/7/8;actual NewGame party pre-operation HP/maxHP100 through public record import,lowcases reduce100->1. Mounted source-format walking contexts;actual Keep73barrier12,26 adjacent legal floor,unprotected/protected states before motion. Not earned traversal/campaign.",
+  "remaining_qualifications": [
+    "Mounted near probes supported and production call connected;actual full mounted map/actor/cold workflow remains separate.",
+    "No audio/old hazards suite,campaign,normal Engine cold/session acceptance.",
+    "NewGame/core roundtrips are direct codec evidence;normal CE save policy unchanged."
+  ],
+  "artifacts": {
+    "conversion/ce-m4-binary/scummvm-native-barrier488b.exe": "4a5021cf7b5bcb85095d9f7e7db66f772ee925d191409fd48e961a94165f4374",
+    "conversion/ce-m4-binary/native-barrier488b-source.zip": "df38dbc34060289202720339eae98bfd4288bb1a57b5aa617119c80f163fd660",
+    "conversion/ce-native-barrier488b-focused/verification.json": "6da89c69b9a3cb3022dff2ddfed680a3a4ab16c1442d8332a5cb868d09e73f6e",
+    "conversion/ce-native-barrier488-source.bin": "180a34a5503a65d74eee097837daea50ba8a14f383ad05a0b30bd3533302aaea",
+    "conversion/ce-native-barrier488b-build.log": "a03d535da4c51f268e5482338ee51fb70958112fa8d7ebbb6126a1a4896ae13f"
+  },
+  "next": "Nameless-map G presentation CE fallback and accurate CE Help;broader script/lifecycle/graphics source closure continues."
+}
