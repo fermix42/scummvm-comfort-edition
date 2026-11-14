@@ -342,6 +342,7 @@ private:
 	friend class WorldStory;
     friend class WorldTravel;
     friend class WorldInput;
+    friend class WorldDig;
     friend class WorldConversation;
     friend class InventoryActions;
 	friend class WorldScenePhase;

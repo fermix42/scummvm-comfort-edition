@@ -1,0 +1,39 @@
+{
+  "status": "IN PROGRESS",
+  "scope": "Complete known world D Dig owner implemented; focused verification VERIFIED. Full interface/port/campaign qualification incomplete.",
+  "parent_commit": "9db4aefab6d",
+  "executable_sha256": "2ad9ec17ac2e87d1c0e78eacd90aa9564c878b8aae5ec79cb942f40bdc856b10",
+  "source_hash_manifest": {
+    "path": "conversion/ce-native-dig484b-focused/verification.json",
+    "sha256": "b51c13e3ad22a244644c8d18b810acbd747d61a77f114ab111cda0ee54520174",
+    "scope": "Every source file verified against frozen ZIP."
+  },
+  "build": {
+    "484": "0 warnings/errors2m45.86s; initial native source/prompt checks passed,fixture expected transient41 after refresh.",
+    "484b": "0 warnings/errors2m47.37s; fixture-only expectation corrected to existing visible/unoccupied object settle40; first corrective run passed.",
+    "unsuccessful_corrective_native_reruns": 0
+  },
+  "focused_validation": {
+    "status": "VERIFIED",
+    "report": "dig\tsource_cases=824\tmissing_shovel=1\tauthored_coffin_input_cache=1\tprompt_cancel_codec=1\talias_refusals=2\tcampaign=0\taudio_suite=0\n",
+    "original_steps_services": 11054
+  },
+  "controlled_setup": "Actual Ruin31 coffin8,pre-operation field52bit8 shovel predicate (not earned item),bounded adjacent floor setup before tested D; no post-start outcome injection.",
+  "ce_replacement": "No-object Ruin91/92 refuses18 instead of writing into NPC data through source X255 alias.",
+  "remaining_qualifications": [
+    "Normal Engine cold/session and earned shovel acquisition/campaign not run; typed core/cache and pending NWIN16 verified.",
+    "Normal CE save policy unchanged; pending codec proof does not enable normal modal saving.",
+    "World D writes41; actual existing refresh settles visible/unoccupied object to40. No source raster/timing or universal state41-after-frame claim."
+  ],
+  "artifacts": {
+    "conversion/ce-m4-binary/scummvm-native-dig484.exe": "2ad9ec17ac2e87d1c0e78eacd90aa9564c878b8aae5ec79cb942f40bdc856b10",
+    "conversion/ce-m4-binary/native-dig484-source.zip": "14405643b958e07adb2fd260bf3fb4358e422c424643518e8def24ae03e69112",
+    "conversion/ce-native-dig484b-focused/verification.json": "b51c13e3ad22a244644c8d18b810acbd747d61a77f114ab111cda0ee54520174",
+    "conversion/ce-native-dig484-original.bin": "6c7852cdf942f79742d52251db924c57215b7f81ab7e06e79960aaefa198aff7",
+    "conversion/ce-native-dig484-original.json": "af1acc1ca8d001a3ceeac0716ce4757bd09ec4bc433019bce8fc00eafaac9df2",
+    "conversion/ce-native-dig484-build.log": "98560be982f14799eaec968e0f1b1343875aa55470a1dcbe7bdcea57f1e15c14",
+    "conversion/ce-native-dig484b-build.log": "3cc3e2d8545decdc6409fd133996bc14a69b564a6d289f4cfd64b4c1b82033f4"
+  },
+  "audio": "Accepted audio untouched,existing refusal cue owner reused. No old/audio suite or campaign.",
+  "next": "Expose Tactical/Quick/Ask normal game options; deliberate source-level-based Quick preference policy instead of graphics scratch."
+}

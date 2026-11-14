@@ -3062,6 +3062,29 @@
       "production_connection": "Existing actual Aftermath uses proven independent64 marker2; typed248 parent record effects/retirement fit owner bounds. No second reward lifecycle.",
       "fallback_dependencies": [],
       "blockers": []
+    },
+    {
+      "id": "interface.20",
+      "subsystem": "interface",
+      "behavior": "World D Dig shovel direction refusal and authored coffin opening",
+      "implementation": "IMPLEMENTED",
+      "verification": {
+        "status": "VERIFIED",
+        "scope": "824 original cases,actual Ruin31 D/coffin/core/cache,next G,missing shovel and exclusive prompt/NWIN16/cancel. Normal Engine/cold/session/earned acquisition qualified.",
+        "evidence": "SCUMMVM-CE-DIG484-VERIFICATION.json"
+      },
+      "native_owners": [
+        "engines/nox/native_world_dig.h",
+        "engines/nox/native_world_input.h",
+        "engines/nox/native_world.h"
+      ],
+      "original_evidence": [
+        "SCUMMVM-CE-ENGINE-DIG-CONTRACT.md",
+        "GAME726C,L1CB1,inventory program2:9765-97C0"
+      ],
+      "production_connection": "Actual D owns exclusive directions; source shovel/tile guards stage real coffin write and viewport/cache refresh. NWIN16 retains pending owner.",
+      "fallback_dependencies": [],
+      "blockers": []
     }
   ],
   "additional_unclassified_scope": [
@@ -5072,7 +5095,7 @@
     },
     {
       "path": "engines/nox/native_startup_host.h",
-      "sha256": "f7794bb8726969cbdfb1d5ef927105c51c4435072ecf1d87d3e68cef0b42d70d",
+      "sha256": "b8ebac979fd2e6e667d0ce1364bdbd31f17a47f46277569ada488c336a433bd0",
       "includes": [
         "nox/native_weapon_ready_validation.h",
         "nox/native_legacy_snapshot.h",
@@ -5127,84 +5150,86 @@
         "nox/native_battle_inventory.h",
         "nox/native_tactical_controls_validation.h",
         "nox/native_battle_inventory_validation.h",
+        "nox/native_battle_return_validation.h",
+        "nox/native_dig_validation.h",
         "nox/native_player_lifecycle_validation.h",
         "nox/native_ending.h"
       ],
       "explicit_boundaries": [
         {
-          "line": 523,
+          "line": 530,
           "text": "if (Native::NpcScheduler::apply(game.world,game.clock.hour,game.clock.minute,policy,game.schedule)==Native::kNpcScheduleUnsupported) return fail(\"Controlled map-entry schedule failed before input\");"
         },
         {
-          "line": 541,
+          "line": 548,
           "text": "if (!Native::EncounterPreparation::prepare(_resources,game,prepared,turns,worldInput.encounter(),preparedEncounter,worldInput.scriptedEncounter())) return fail(\"Native restored encounter preparation reached an unsupported admission\");"
         },
         {
-          "line": 707,
+          "line": 714,
           "text": "if (!quickRules.step(random,encounterState.records,encounterState.quick,encounterState.round.protectedTargets)) return fail(\"Native Quick scheduler/action reached an unsupported branch\");"
         },
         {
-          "line": 790,
+          "line": 797,
           "text": "if (!pacedReplay) { if (!advanceAnimation()) return fail(\"Native deterministic idle reached an unsupported animation boundary\");continue; }"
         },
         {
-          "line": 795,
+          "line": 802,
           "text": "if (!advanceAnimation()) return fail(\"Native live idle reached an unsupported animation boundary\");continue;"
         },
         {
-          "line": 864,
+          "line": 871,
           "text": "if (!aftermath.choose(take,all,game,encounterState,random) || !aftermath.paint(font,encounterState)) return fail(\"Native treasure decision reached an unsupported inventory/result branch\");"
         },
         {
-          "line": 872,
+          "line": 879,
           "text": "if (!aftermath.begin(worldInput.encounter(),game,encounterState,random,worldInput.scriptedEncounter(),preparedEncounter.contactSprite)) return fail(\"Native victory results reached an unsupported level/contact/loot branch\");"
         },
         {
-          "line": 912,
+          "line": 919,
           "text": "if (result==Native::kInventoryWindowUnsupported) return fail(\"Native battle inventory transaction failed\");"
         },
         {
-          "line": 952,
+          "line": 959,
           "text": "if (handled==Native::kBattleCastUnsupported) return fail(\"Native Cast reached an unsupported family/status/NPC continuation\");"
         },
         {
-          "line": 975,
+          "line": 982,
           "text": "!Native::BattleAttack::used(next.records,caster,next.attack.partyTargeting,next.attack,next.target)) return fail(\"Native tactical attack reached an unsupported weapon/turn policy\");"
         },
         {
-          "line": 982,
+          "line": 989,
           "text": "if (!battlePresentation.paint(preparedEncounter,next,next.phase,image)) return fail(\"Native tactical attack presentation reached an unsupported status\");"
         },
         {
-          "line": 1039,
+          "line": 1046,
           "text": "!battlePresentation.paint(preparedEncounter,next,next.phase,image)) return fail(\"Native tactical pass reached an unsupported turn/status policy\");"
         },
         {
-          "line": 1077,
+          "line": 1084,
           "text": "if (handled==Native::kWorldInputBoundary) return fail(\"Native world command reached an unsupported encounter/interaction boundary\");"
         },
         {
-          "line": 1078,
+          "line": 1085,
           "text": "if (handled==Native::kWorldInputUnsupported) return fail(\"Native world command could not complete its admitted phase\");"
         },
         {
-          "line": 1080,
+          "line": 1087,
           "text": "if (!Native::EncounterPreparation::prepare(_resources,game,prepared,turns,worldInput.encounter(),preparedEncounter,worldInput.scriptedEncounter())) return fail(\"Native encounter preparation reached an unsupported admission\");"
         },
         {
-          "line": 1081,
+          "line": 1088,
           "text": "if (!encounterState.begin(_resources,game,preparedEncounter,random)) return fail(\"Native encounter formation reached an unsupported layout/group\");"
         },
         {
-          "line": 1086,
+          "line": 1093,
           "text": "if (handled==Native::kWorldInputIgnored && event.kbd.keycode==Common::KEYCODE_SPACE) {"
         },
         {
-          "line": 1094,
+          "line": 1101,
           "text": "else if (result!=Native::kWorldWaitAdvanced) return fail(\"Native Wait reached an unsupported effect boundary\");"
         },
         {
-          "line": 1106,
+          "line": 1113,
           "text": "if (handled==Native::kWorldInputIgnored && event.kbd.keycode==Common::KEYCODE_SPACE && ConfMan.hasKey(\"nox_native_checkpoint_wait\") &&"
         }
       ],
@@ -5450,7 +5475,7 @@
     },
     {
       "path": "engines/nox/native_world.h",
-      "sha256": "68b9559aa913c5127d62ee27a8d601552f081416289500666cd459746f2ab85f",
+      "sha256": "b53f66791b53cf3a76580b3a98b6da6fcd103f448d2fc939c79e077b22596a5d",
       "includes": [
         "nox/native_gates.h",
         "nox/native_maps.h",
@@ -5563,19 +5588,19 @@
           "text": "const int slot = objectAt(_x, _y); if (slot < 0) return kGateUnsupported;"
         },
         {
-          "line": 363,
+          "line": 364,
           "text": "if (visibleObjectSlot < 0 || visibleObjectSlot > 252 || (visibleObjectSlot & 3)) return kPositionUnsupported;"
         },
         {
-          "line": 365,
+          "line": 366,
           "text": "if (!object[2] || object[2] == 255) return kPositionUnsupported;"
         },
         {
-          "line": 370,
+          "line": 371,
           "text": "if (!origin && !frigate) return kPositionUnsupported;"
         },
         {
-          "line": 374,
+          "line": 375,
           "text": "if (!rules.probe(probe, result)) return kPositionUnsupported;"
         }
       ],
@@ -6267,6 +6292,15 @@
       "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
+      "path": "engines/nox/native_world_dig.h",
+      "sha256": "5384c7b36bc6a9fffe37968d8f898ef01f9681912c9f995aa213afa5e3675a2c",
+      "includes": [
+        "nox/native_world.h"
+      ],
+      "explicit_boundaries": [],
+      "coverage": "Only individual requirement/evidence scopes are credited."
+    },
+    {
       "path": "engines/nox/native_world_hazards.h",
       "sha256": "58fb436cc4d5cb4ee0178cdec445085a0f9f05deade441492aee10c244bb52fb",
       "includes": [
@@ -6280,7 +6314,7 @@
     },
     {
       "path": "engines/nox/native_world_input.h",
-      "sha256": "9000a98ee171054ea2681a07c5bd28862b101e1d88f2e0f90eef294c8f62dff1",
+      "sha256": "f94f3b92db3e155ae33017afd3ac32c26a92ca3cc8d8c3dcb17f7cabb307cb60",
       "includes": [
         "nox/native_new_game.h",
         "nox/native_world_move.h",
@@ -6294,6 +6328,7 @@
         "nox/native_world_cast.h",
         "nox/native_world_cannon.h",
         "nox/native_world_attack.h",
+        "nox/native_world_dig.h",
         "nox/native_world_open.h",
         "nox/native_world_camp.h",
         "nox/native_search_input.h",
@@ -6304,395 +6339,419 @@
       ],
       "explicit_boundaries": [
         {
-          "line": 25,
+          "line": 26,
           "text": "enum WorldInputResult { kWorldInputIgnored,kWorldInputHandled,kWorldInputBoundary,kWorldInputUnsupported,kWorldInputEncounter,kWorldInputTransition,kWorldInputDefeat };"
         },
         {
-          "line": 129,
+          "line": 130,
           "text": "if (animation>3) return kWorldInputUnsupported;"
         },
         {
-          "line": 130,
+          "line": 131,
           "text": "if (input.type!=Common::EVENT_KEYDOWN) return kWorldInputIgnored;"
         },
         {
-          "line": 135,
-          "text": "_attackDirection=false;return frame.clearTextSpan(7,23,25) && text.importPages(frame.data(),frame.data(),8192)?kWorldInputHandled:kWorldInputUnsupported;"
-        },
-        {
-          "line": 141,
-          "text": "if (result==kWorldAttackInvalid) return kWorldInputUnsupported;"
-        },
-        {
-          "line": 145,
-          "text": "return message(catalog,result==kWorldAttackNoTarget?24:18,text,frame)?kWorldInputHandled:kWorldInputUnsupported;"
-        },
-        {
-          "line": 152,
-          "text": "if (result==kPartyOrderUnsupported) return kWorldInputUnsupported;"
-        },
-        {
-          "line": 153,
-          "text": "if (result==kPartyOrderClosed && !text.importPages(frame.data(),frame.data(),8192)) return kWorldInputUnsupported;"
-        },
-        {
-          "line": 158,
-          "text": "if (result==kInformationUnsupported) return kWorldInputUnsupported;"
-        },
-        {
-          "line": 159,
-          "text": "if (result==kInformationClosed && !text.importPages(frame.data(),frame.data(),8192)) return kWorldInputUnsupported;"
-        },
-        {
-          "line": 164,
-          "text": "if (!_information.begin(command,archive,game.world,frame)) return kWorldInputUnsupported;"
-        },
-        {
-          "line": 165,
-          "text": "if (command==kInformationLook && !message(catalog,12,text,frame)) return kWorldInputUnsupported;"
-        },
-        {
-          "line": 166,
-          "text": "if (!_information.active() && !text.importPages(frame.data(),frame.data(),8192)) return kWorldInputUnsupported;"
-        },
-        {
-          "line": 170,
-          "text": "return game.ready() && _partyOrder.begin(archive,game.party,frame)?kWorldInputHandled:kWorldInputUnsupported;"
-        },
-        {
-          "line": 173,
-          "text": "if (!_roster.close(frame)) return kWorldInputUnsupported;"
-        },
-        {
-          "line": 174,
-          "text": "if (inventory) return _inventory.begin(archive,game,frame)?kWorldInputHandled:kWorldInputUnsupported;"
-        },
-        {
-          "line": 175,
-          "text": "return text.importPages(frame.data(),frame.data(),8192)?kWorldInputHandled:kWorldInputUnsupported;"
-        },
-        {
-          "line": 180,
-          "text": "return text.importPages(frame.data(),frame.data(),8192)?kWorldInputHandled:kWorldInputUnsupported;"
-        },
-        {
-          "line": 184,
-          "text": "if (input.kbd.keycode==Common::KEYCODE_TAB) return _roster.begin(archive,game.party,frame)?kWorldInputHandled:kWorldInputUnsupported;"
-        },
-        {
-          "line": 188,
-          "text": "if (!_hourWait.load(archive)) return kWorldInputUnsupported;"
-        },
-        {
-          "line": 190,
-          "text": "return message(_hourWait.danger(),text,frame)?kWorldInputHandled:kWorldInputUnsupported;"
-        },
-        {
-          "line": 192,
-          "text": "return message(_hourWait.prompt(),text,frame)?kWorldInputHandled:kWorldInputUnsupported;"
-        },
-        {
-          "line": 201,
-          "text": "!prepareClockInput(archive,candidate,nextWindow,game.clock,schedule,store,after)) return kWorldInputUnsupported;"
-        },
-        {
-          "line": 206,
-          "text": "if (result==kWorldCastUnsupported) return kWorldInputBoundary;"
-        },
-        {
-          "line": 210,
-          "text": "if (!travel(archive,game,window,scene,turn,light,visibility,frame,plan,animation) || !text.importPages(frame.data(),frame.data(),8192)) return kWorldInputUnsupported;"
-        },
-        {
-          "line": 216,
-          "text": "animation,painted,turn.presentation,light,visibility,frame,&scene) || !text.importPages(frame.data(),frame.data(),8192)) return kWorldInputUnsupported;"
-        },
-        {
-          "line": 223,
-          "text": "if (result==kSearchInputUnsupported) return kWorldInputBoundary;"
-        },
-        {
-          "line": 226,
-          "text": "if (!window.captureRecords(game.world)) return kWorldInputUnsupported;"
-        },
-        {
-          "line": 230,
-          "text": "animation,painted,turn.presentation,light,visibility,frame,&scene) || !text.importPages(frame.data(),frame.data(),8192)) return kWorldInputUnsupported;"
-        },
-        {
-          "line": 238,
-          "text": "if (!_search.refresh(archive,frame)) return kWorldInputUnsupported;"
-        },
-        {
-          "line": 244,
-          "text": "if (result==kInventoryWindowUnsupported) return kWorldInputBoundary;"
-        },
-        {
-          "line": 245,
-          "text": "if (result==kInventoryWindowClosed && !text.importPages(frame.data(),frame.data(),8192)) return kWorldInputUnsupported;"
-        },
-        {
-          "line": 253,
-          "text": "if (result==kWorldConversationUnsupported) return kWorldInputBoundary;"
-        },
-        {
-          "line": 256,
-          "text": "if (!window.captureRecords(game.world)) return kWorldInputUnsupported;"
-        },
-        {
-          "line": 261,
-          "text": "!text.importPages(frame.data(),frame.data(),8192)) return kWorldInputUnsupported;"
-        },
-        {
-          "line": 264,
-          "text": "if (result==kWorldConversationMessage && !message(catalog,id,text,frame)) return kWorldInputUnsupported;"
-        },
-        {
-          "line": 265,
-          "text": "if (!window.captureRecords(game.world)) return kWorldInputUnsupported;"
-        },
-        {
-          "line": 276,
-          "text": "animation,painted,turn.presentation,light,visibility,frame,&scene)) return kWorldInputUnsupported;"
-        },
-        {
-          "line": 278,
-          "text": "if (!window.captureRecords(game.world) || !text.importPages(frame.data(),frame.data(),8192)) return kWorldInputUnsupported;"
-        },
-        {
-          "line": 280,
-          "text": "if (dialogueActor>240 || (dialogueActor&7)) return kWorldInputUnsupported;"
-        },
-        {
-          "line": 283,
-          "text": "if (x>=17 || y>=11 || !actor[2] || actor[3]==255) return kWorldInputUnsupported;"
-        },
-        {
-          "line": 294,
+          "line": 136,
           "text": "if (!frame.clearTextSpan(7,23,25) || !text.importPages(frame.data(),frame.data(),8192)) return kWorldInputUnsupported;"
         },
         {
-          "line": 304,
-          "text": "if (!travel(archive,game,window,scene,turn,light,visibility,frame,plan,animation,false,false)) return kWorldInputUnsupported;"
+          "line": 143,
+          "text": "if (slot!=255 && (slot&3)) return kWorldInputUnsupported;"
         },
         {
-          "line": 311,
-          "text": "if (_window.waiting()) return _window.handle(input) && _window.paint(frame)?kWorldInputHandled:kWorldInputUnsupported;"
+          "line": 147,
+          "text": "if (!message(catalog,reply,text,frame)) return kWorldInputUnsupported;"
         },
         {
-          "line": 312,
-          "text": "if (!_window.ended()) return kWorldInputUnsupported;"
-        },
-        {
-          "line": 314,
-          "text": "if (!frame.putByte(x,y,_underlay.data()[HgrFrame::rowOffset(y)+x])) return kWorldInputUnsupported;"
-        },
-        {
-          "line": 316,
-          "text": "if (!WorldMove::completeClock(game.world,game.clock)) return kWorldInputUnsupported;"
-        },
-        {
-          "line": 330,
-          "text": "for (uint y=184;y<192;++y) for (uint x=7;x<32;++x) if (!frame.putByte(x,y,0)) return kWorldInputUnsupported;"
-        },
-        {
-          "line": 331,
-          "text": "return text.importPages(frame.data(),frame.data(),8192)?kWorldInputHandled:kWorldInputUnsupported;"
-        },
-        {
-          "line": 340,
-          "text": "if (opened==kWorldOpenUnsupported) return kWorldInputUnsupported;"
-        },
-        {
-          "line": 344,
-          "text": "_openDirection=false;return _search.beginDoor(archive,game,event.object,frame)?kWorldInputHandled:kWorldInputUnsupported;"
-        },
-        {
-          "line": 349,
-          "text": "game.appearance,game.clock.lightActive,animation,painted,turn.presentation,light,visibility,frame,&scene)) return kWorldInputUnsupported;"
-        },
-        {
-          "line": 350,
-          "text": "if (event.message!=255 && !message(catalog,event.message,text,frame)) return kWorldInputUnsupported;"
-        },
-        {
-          "line": 356,
-          "text": "if (game.appearance!=119 && game.appearance!=123) return message(catalog,18,text,frame)?kWorldInputHandled:kWorldInputUnsupported;"
-        },
-        {
-          "line": 357,
-          "text": "_fireDirection=true;return message(catalog,12,text,frame)?kWorldInputHandled:kWorldInputUnsupported;"
-        },
-        {
-          "line": 363,
-          "text": "if (notice!=255 && !message(catalog,notice,text,frame)) return kWorldInputUnsupported;"
-        },
-        {
-          "line": 368,
-          "text": "if (camp==kCampUnsupported) return kWorldInputUnsupported;"
-        },
-        {
-          "line": 369,
-          "text": "if (camp==kCampCastleRefused) return message(catalog,18,text,frame)?kWorldInputHandled:kWorldInputUnsupported;"
-        },
-        {
-          "line": 372,
-          "text": "!WorldTravelRules::lightMode(game.world.mapType(),game.world.mapId(),game.clock.hour,game.clock.minute,data.data()+0x10b1,data.size()-0x10b1,light.mode)) return kWorldInputUnsupported;"
-        },
-        {
-          "line": 375,
-          "text": "animation,painted,turn.presentation,light,visibility,frame,&scene) || !window.captureRecords(game.world)) return kWorldInputUnsupported;"
-        },
-        {
-          "line": 376,
-          "text": "} else if (!WorldCamp::refusal(archive,camp,reply)) return kWorldInputUnsupported;"
-        },
-        {
-          "line": 378,
-          "text": "_underlay=frame;HgrFrame background=frame;if (!OpeningBackdrop::renderNoticeFrame(background)) return kWorldInputUnsupported;"
-        },
-        {
-          "line": 380,
-          "text": "TextWindow next;if (!next.begin(archive,body.data(),body.size(),25,13,1,12,11,&background) || !next.paint(frame)) return kWorldInputUnsupported;"
-        },
-        {
-          "line": 384,
-          "text": "if (!_casting.begin(archive,game,frame)) return kWorldInputUnsupported;"
-        },
-        {
-          "line": 387,
-          "text": "if (input.kbd.keycode==Common::KEYCODE_a) {_attackDirection=true;return message(catalog,12,text,frame)?kWorldInputHandled:kWorldInputUnsupported;}"
-        },
-        {
-          "line": 389,
-          "text": "if (!_conversation.choose(game.world,frame) || !message(catalog,12,text,frame)) return kWorldInputUnsupported;"
-        },
-        {
-          "line": 392,
-          "text": "if (input.kbd.keycode==Common::KEYCODE_s) return _search.begin(archive,game,frame)?kWorldInputHandled:kWorldInputUnsupported;"
-        },
-        {
-          "line": 402,
-          "text": "_refusalSound=true;return message(catalog,16,text,frame)?kWorldInputHandled:kWorldInputUnsupported;"
-        },
-        {
-          "line": 404,
-          "text": "return kWorldInputIgnored;"
-        },
-        {
-          "line": 410,
-          "text": "if (_transport.pendingSteps && _transport.pendingDirection!=byte(direction)) return kWorldInputUnsupported;"
-        },
-        {
-          "line": 413,
-          "text": "if (direction==kWest) ++object[0];else if (direction==kNorth) ++object[1];else return kWorldInputUnsupported;"
-        },
-        {
-          "line": 415,
-          "text": "if (!_transport.alignment && !message(catalog,byte(5+uint(direction)),text,frame)) return kWorldInputUnsupported;"
-        },
-        {
-          "line": 419,
-          "text": "if (moved!=kWorldMoveUnsupported && moved!=kWorldMoveBoundary && moved!=kWorldMoveLeave) finishTransportStep(scene);"
-        },
-        {
-          "line": 421,
-          "text": "if (!message(catalog,37,text,frame)) return kWorldInputUnsupported;"
-        },
-        {
-          "line": 425,
-          "text": "WorldTravelPlan plan;const StoryMapState *state=window.state();if (!state) return kWorldInputUnsupported;"
-        },
-        {
-          "line": 435,
-          "text": "if (selected==kTravelSelected) return travel(archive,game,window,scene,turn,light,visibility,frame,plan,animation)?kWorldInputTransition:kWorldInputUnsupported;"
-        },
-        {
-          "line": 439,
-          "text": "if (moved==kWorldMoveUnsupported) return kWorldInputUnsupported;"
-        },
-        {
-          "line": 442,
-          "text": "if (!message(catalog,moved==kWorldMoveInterrupted?26:10,text,frame)) return kWorldInputUnsupported;"
-        },
-        {
-          "line": 451,
-          "text": "if (!OpeningBackdrop::renderNoticeFrame(background)) return kWorldInputUnsupported;"
-        },
-        {
-          "line": 453,
-          "text": "if (!next.begin(archive,notice.data(),notice.size(),25,13,1,12,11,&background) || !next.paint(frame)) return kWorldInputUnsupported;"
-        },
-        {
-          "line": 563,
-          "text": "if (NpcScheduler::activateAtClock(world,clock.hour,clock.minute)==kNpcScheduleUnsupported ||"
-        },
-        {
-          "line": 564,
-          "text": "NpcScheduler::prefetchAtClock(world,clock.hour,clock.minute,schedule)==kNpcScheduleUnsupported) return false;"
-        },
-        {
-          "line": 584,
-          "text": "if (result==kTorchEmpty) return message(catalog,17,text,frame)?kWorldInputHandled:kWorldInputUnsupported;"
-        },
-        {
-          "line": 589,
-          "text": "_refusalSound=true;return message(catalog,18,text,frame)?kWorldInputHandled:kWorldInputUnsupported;"
-        },
-        {
-          "line": 592,
-          "text": "if (_hourWait.apply(hours,nextClock,candidate._fields[20],after,reply)!=kHourWaitApplied) return kWorldInputUnsupported;"
-        },
-        {
-          "line": 594,
-          "text": "if (!archive.read(\"NA/GAME\",data) || data.size()!=13824 || !WorldTravelRules::lightMode(candidate.mapType(),candidate.mapId(),nextClock.hour,nextClock.minute,data.data()+0x10b1,data.size()-0x10b1,nextLight.mode)) return kWorldInputUnsupported;"
-        },
-        {
-          "line": 596,
-          "text": "if (action==kControlWait && !prepareClockInput(archive,candidate,nextWindow,nextClock,schedule,store,after)) return kWorldInputUnsupported;"
-        },
-        {
-          "line": 600,
+          "line": 154,
           "text": "!surface.importPages(image.data(),image.data(),8192)) return kWorldInputUnsupported;"
         },
         {
-          "line": 601,
-          "text": "if (notice!=255 && !message(catalog,notice,surface,image)) return kWorldInputUnsupported;"
+          "line": 159,
+          "text": "_attackDirection=false;return frame.clearTextSpan(7,23,25) && text.importPages(frame.data(),frame.data(),8192)?kWorldInputHandled:kWorldInputUnsupported;"
         },
         {
-          "line": 602,
-          "text": "if (!reply.empty() && !message(reply,surface,image)) return kWorldInputUnsupported;"
+          "line": 165,
+          "text": "if (result==kWorldAttackInvalid) return kWorldInputUnsupported;"
         },
         {
-          "line": 619,
-          "text": "if (!_fireDirection || uint(direction)>3) return kWorldInputUnsupported;"
+          "line": 169,
+          "text": "return message(catalog,result==kWorldAttackNoTarget?24:18,text,frame)?kWorldInputHandled:kWorldInputUnsupported;"
         },
         {
-          "line": 624,
-          "text": "if (!archive.read(\"NA/GAME\",data) || !resolveMapAssets(data,candidate.mapType(),range) || !archive.readRange(range.resource,range.offset+range.size,72,footer)) return kWorldInputUnsupported;"
+          "line": 176,
+          "text": "if (result==kPartyOrderUnsupported) return kWorldInputUnsupported;"
         },
         {
-          "line": 627,
-          "text": "footer.data(),records+768,records+1280,nextScene.actors.lookup,nextScene.actors.kinds,after,shot)!=kWorldCannonFired || !nextWindow.captureRecords(candidate)) return kWorldInputUnsupported;"
+          "line": 177,
+          "text": "if (result==kPartyOrderClosed && !text.importPages(frame.data(),frame.data(),8192)) return kWorldInputUnsupported;"
         },
         {
-          "line": 628,
-          "text": "for (uint y=184;y<192;++y) for (uint x=7;x<32;++x) if (!image.putByte(x,y,0)) return kWorldInputUnsupported;"
+          "line": 182,
+          "text": "if (result==kInformationUnsupported) return kWorldInputUnsupported;"
         },
         {
-          "line": 629,
-          "text": "if (!nextText.importPages(image.data(),image.data(),8192)) return kWorldInputUnsupported;"
+          "line": 183,
+          "text": "if (result==kInformationClosed && !text.importPages(frame.data(),frame.data(),8192)) return kWorldInputUnsupported;"
         },
         {
-          "line": 660,
-          "text": "if (!archive.read(\"NA/GAME\",gameData) || !resolveMapAssets(gameData,candidate.mapType(),range) || !archive.readRange(range.resource,range.offset+range.size,72,footer)) return kWorldInputUnsupported;"
+          "line": 188,
+          "text": "if (!_information.begin(command,archive,game.world,frame)) return kWorldInputUnsupported;"
         },
         {
-          "line": 665,
+          "line": 189,
+          "text": "if (command==kInformationLook && !message(catalog,12,text,frame)) return kWorldInputUnsupported;"
+        },
+        {
+          "line": 190,
+          "text": "if (!_information.active() && !text.importPages(frame.data(),frame.data(),8192)) return kWorldInputUnsupported;"
+        },
+        {
+          "line": 194,
+          "text": "return game.ready() && _partyOrder.begin(archive,game.party,frame)?kWorldInputHandled:kWorldInputUnsupported;"
+        },
+        {
+          "line": 197,
+          "text": "if (!_roster.close(frame)) return kWorldInputUnsupported;"
+        },
+        {
+          "line": 198,
+          "text": "if (inventory) return _inventory.begin(archive,game,frame)?kWorldInputHandled:kWorldInputUnsupported;"
+        },
+        {
+          "line": 199,
+          "text": "return text.importPages(frame.data(),frame.data(),8192)?kWorldInputHandled:kWorldInputUnsupported;"
+        },
+        {
+          "line": 204,
+          "text": "return text.importPages(frame.data(),frame.data(),8192)?kWorldInputHandled:kWorldInputUnsupported;"
+        },
+        {
+          "line": 208,
+          "text": "if (input.kbd.keycode==Common::KEYCODE_TAB) return _roster.begin(archive,game.party,frame)?kWorldInputHandled:kWorldInputUnsupported;"
+        },
+        {
+          "line": 212,
+          "text": "if (!_hourWait.load(archive)) return kWorldInputUnsupported;"
+        },
+        {
+          "line": 214,
+          "text": "return message(_hourWait.danger(),text,frame)?kWorldInputHandled:kWorldInputUnsupported;"
+        },
+        {
+          "line": 216,
+          "text": "return message(_hourWait.prompt(),text,frame)?kWorldInputHandled:kWorldInputUnsupported;"
+        },
+        {
+          "line": 225,
+          "text": "!prepareClockInput(archive,candidate,nextWindow,game.clock,schedule,store,after)) return kWorldInputUnsupported;"
+        },
+        {
+          "line": 230,
+          "text": "if (result==kWorldCastUnsupported) return kWorldInputBoundary;"
+        },
+        {
+          "line": 234,
+          "text": "if (!travel(archive,game,window,scene,turn,light,visibility,frame,plan,animation) || !text.importPages(frame.data(),frame.data(),8192)) return kWorldInputUnsupported;"
+        },
+        {
+          "line": 240,
+          "text": "animation,painted,turn.presentation,light,visibility,frame,&scene) || !text.importPages(frame.data(),frame.data(),8192)) return kWorldInputUnsupported;"
+        },
+        {
+          "line": 247,
+          "text": "if (result==kSearchInputUnsupported) return kWorldInputBoundary;"
+        },
+        {
+          "line": 250,
           "text": "if (!window.captureRecords(game.world)) return kWorldInputUnsupported;"
         },
         {
-          "line": 705,
+          "line": 254,
+          "text": "animation,painted,turn.presentation,light,visibility,frame,&scene) || !text.importPages(frame.data(),frame.data(),8192)) return kWorldInputUnsupported;"
+        },
+        {
+          "line": 262,
+          "text": "if (!_search.refresh(archive,frame)) return kWorldInputUnsupported;"
+        },
+        {
+          "line": 268,
+          "text": "if (result==kInventoryWindowUnsupported) return kWorldInputBoundary;"
+        },
+        {
+          "line": 269,
+          "text": "if (result==kInventoryWindowClosed && !text.importPages(frame.data(),frame.data(),8192)) return kWorldInputUnsupported;"
+        },
+        {
+          "line": 277,
+          "text": "if (result==kWorldConversationUnsupported) return kWorldInputBoundary;"
+        },
+        {
+          "line": 280,
+          "text": "if (!window.captureRecords(game.world)) return kWorldInputUnsupported;"
+        },
+        {
+          "line": 285,
+          "text": "!text.importPages(frame.data(),frame.data(),8192)) return kWorldInputUnsupported;"
+        },
+        {
+          "line": 288,
+          "text": "if (result==kWorldConversationMessage && !message(catalog,id,text,frame)) return kWorldInputUnsupported;"
+        },
+        {
+          "line": 289,
+          "text": "if (!window.captureRecords(game.world)) return kWorldInputUnsupported;"
+        },
+        {
+          "line": 300,
+          "text": "animation,painted,turn.presentation,light,visibility,frame,&scene)) return kWorldInputUnsupported;"
+        },
+        {
+          "line": 302,
+          "text": "if (!window.captureRecords(game.world) || !text.importPages(frame.data(),frame.data(),8192)) return kWorldInputUnsupported;"
+        },
+        {
+          "line": 304,
+          "text": "if (dialogueActor>240 || (dialogueActor&7)) return kWorldInputUnsupported;"
+        },
+        {
+          "line": 307,
+          "text": "if (x>=17 || y>=11 || !actor[2] || actor[3]==255) return kWorldInputUnsupported;"
+        },
+        {
+          "line": 318,
+          "text": "if (!frame.clearTextSpan(7,23,25) || !text.importPages(frame.data(),frame.data(),8192)) return kWorldInputUnsupported;"
+        },
+        {
+          "line": 328,
+          "text": "if (!travel(archive,game,window,scene,turn,light,visibility,frame,plan,animation,false,false)) return kWorldInputUnsupported;"
+        },
+        {
+          "line": 335,
+          "text": "if (_window.waiting()) return _window.handle(input) && _window.paint(frame)?kWorldInputHandled:kWorldInputUnsupported;"
+        },
+        {
+          "line": 336,
+          "text": "if (!_window.ended()) return kWorldInputUnsupported;"
+        },
+        {
+          "line": 338,
+          "text": "if (!frame.putByte(x,y,_underlay.data()[HgrFrame::rowOffset(y)+x])) return kWorldInputUnsupported;"
+        },
+        {
+          "line": 340,
+          "text": "if (!WorldMove::completeClock(game.world,game.clock)) return kWorldInputUnsupported;"
+        },
+        {
+          "line": 354,
+          "text": "for (uint y=184;y<192;++y) for (uint x=7;x<32;++x) if (!frame.putByte(x,y,0)) return kWorldInputUnsupported;"
+        },
+        {
+          "line": 355,
+          "text": "return text.importPages(frame.data(),frame.data(),8192)?kWorldInputHandled:kWorldInputUnsupported;"
+        },
+        {
+          "line": 364,
+          "text": "if (opened==kWorldOpenUnsupported) return kWorldInputUnsupported;"
+        },
+        {
+          "line": 368,
+          "text": "_openDirection=false;return _search.beginDoor(archive,game,event.object,frame)?kWorldInputHandled:kWorldInputUnsupported;"
+        },
+        {
+          "line": 373,
+          "text": "game.appearance,game.clock.lightActive,animation,painted,turn.presentation,light,visibility,frame,&scene)) return kWorldInputUnsupported;"
+        },
+        {
+          "line": 374,
+          "text": "if (event.message!=255 && !message(catalog,event.message,text,frame)) return kWorldInputUnsupported;"
+        },
+        {
+          "line": 380,
+          "text": "if (game.appearance!=119 && game.appearance!=123) return message(catalog,18,text,frame)?kWorldInputHandled:kWorldInputUnsupported;"
+        },
+        {
+          "line": 381,
+          "text": "_fireDirection=true;return message(catalog,12,text,frame)?kWorldInputHandled:kWorldInputUnsupported;"
+        },
+        {
+          "line": 387,
+          "text": "if (notice!=255 && !message(catalog,notice,text,frame)) return kWorldInputUnsupported;"
+        },
+        {
+          "line": 392,
+          "text": "if (camp==kCampUnsupported) return kWorldInputUnsupported;"
+        },
+        {
+          "line": 393,
+          "text": "if (camp==kCampCastleRefused) return message(catalog,18,text,frame)?kWorldInputHandled:kWorldInputUnsupported;"
+        },
+        {
+          "line": 396,
+          "text": "!WorldTravelRules::lightMode(game.world.mapType(),game.world.mapId(),game.clock.hour,game.clock.minute,data.data()+0x10b1,data.size()-0x10b1,light.mode)) return kWorldInputUnsupported;"
+        },
+        {
+          "line": 399,
+          "text": "animation,painted,turn.presentation,light,visibility,frame,&scene) || !window.captureRecords(game.world)) return kWorldInputUnsupported;"
+        },
+        {
+          "line": 400,
+          "text": "} else if (!WorldCamp::refusal(archive,camp,reply)) return kWorldInputUnsupported;"
+        },
+        {
+          "line": 402,
+          "text": "_underlay=frame;HgrFrame background=frame;if (!OpeningBackdrop::renderNoticeFrame(background)) return kWorldInputUnsupported;"
+        },
+        {
+          "line": 404,
+          "text": "TextWindow next;if (!next.begin(archive,body.data(),body.size(),25,13,1,12,11,&background) || !next.paint(frame)) return kWorldInputUnsupported;"
+        },
+        {
+          "line": 408,
+          "text": "if (!_casting.begin(archive,game,frame)) return kWorldInputUnsupported;"
+        },
+        {
+          "line": 412,
+          "text": "if (!WorldDig::available(game.world.field(52))) {_refusalSound=true;return message(catalog,28,text,frame)?kWorldInputHandled:kWorldInputUnsupported;}"
+        },
+        {
+          "line": 413,
+          "text": "if (!message(catalog,12,text,frame)) return kWorldInputUnsupported;_digDirection=true;return kWorldInputHandled;"
+        },
+        {
+          "line": 415,
+          "text": "if (input.kbd.keycode==Common::KEYCODE_a) {_attackDirection=true;return message(catalog,12,text,frame)?kWorldInputHandled:kWorldInputUnsupported;}"
+        },
+        {
+          "line": 417,
+          "text": "if (!_conversation.choose(game.world,frame) || !message(catalog,12,text,frame)) return kWorldInputUnsupported;"
+        },
+        {
+          "line": 420,
+          "text": "if (input.kbd.keycode==Common::KEYCODE_s) return _search.begin(archive,game,frame)?kWorldInputHandled:kWorldInputUnsupported;"
+        },
+        {
+          "line": 430,
+          "text": "_refusalSound=true;return message(catalog,16,text,frame)?kWorldInputHandled:kWorldInputUnsupported;"
+        },
+        {
+          "line": 432,
+          "text": "return kWorldInputIgnored;"
+        },
+        {
+          "line": 438,
+          "text": "if (_transport.pendingSteps && _transport.pendingDirection!=byte(direction)) return kWorldInputUnsupported;"
+        },
+        {
+          "line": 441,
+          "text": "if (direction==kWest) ++object[0];else if (direction==kNorth) ++object[1];else return kWorldInputUnsupported;"
+        },
+        {
+          "line": 443,
+          "text": "if (!_transport.alignment && !message(catalog,byte(5+uint(direction)),text,frame)) return kWorldInputUnsupported;"
+        },
+        {
+          "line": 447,
+          "text": "if (moved!=kWorldMoveUnsupported && moved!=kWorldMoveBoundary && moved!=kWorldMoveLeave) finishTransportStep(scene);"
+        },
+        {
+          "line": 449,
+          "text": "if (!message(catalog,37,text,frame)) return kWorldInputUnsupported;"
+        },
+        {
+          "line": 453,
+          "text": "WorldTravelPlan plan;const StoryMapState *state=window.state();if (!state) return kWorldInputUnsupported;"
+        },
+        {
+          "line": 463,
+          "text": "if (selected==kTravelSelected) return travel(archive,game,window,scene,turn,light,visibility,frame,plan,animation)?kWorldInputTransition:kWorldInputUnsupported;"
+        },
+        {
+          "line": 467,
+          "text": "if (moved==kWorldMoveUnsupported) return kWorldInputUnsupported;"
+        },
+        {
+          "line": 470,
+          "text": "if (!message(catalog,moved==kWorldMoveInterrupted?26:10,text,frame)) return kWorldInputUnsupported;"
+        },
+        {
+          "line": 479,
+          "text": "if (!OpeningBackdrop::renderNoticeFrame(background)) return kWorldInputUnsupported;"
+        },
+        {
+          "line": 481,
+          "text": "if (!next.begin(archive,notice.data(),notice.size(),25,13,1,12,11,&background) || !next.paint(frame)) return kWorldInputUnsupported;"
+        },
+        {
+          "line": 604,
+          "text": "if (NpcScheduler::activateAtClock(world,clock.hour,clock.minute)==kNpcScheduleUnsupported ||"
+        },
+        {
+          "line": 605,
+          "text": "NpcScheduler::prefetchAtClock(world,clock.hour,clock.minute,schedule)==kNpcScheduleUnsupported) return false;"
+        },
+        {
+          "line": 625,
+          "text": "if (result==kTorchEmpty) return message(catalog,17,text,frame)?kWorldInputHandled:kWorldInputUnsupported;"
+        },
+        {
+          "line": 630,
+          "text": "_refusalSound=true;return message(catalog,18,text,frame)?kWorldInputHandled:kWorldInputUnsupported;"
+        },
+        {
+          "line": 633,
+          "text": "if (_hourWait.apply(hours,nextClock,candidate._fields[20],after,reply)!=kHourWaitApplied) return kWorldInputUnsupported;"
+        },
+        {
+          "line": 635,
+          "text": "if (!archive.read(\"NA/GAME\",data) || data.size()!=13824 || !WorldTravelRules::lightMode(candidate.mapType(),candidate.mapId(),nextClock.hour,nextClock.minute,data.data()+0x10b1,data.size()-0x10b1,nextLight.mode)) return kWorldInputUnsupported;"
+        },
+        {
+          "line": 637,
+          "text": "if (action==kControlWait && !prepareClockInput(archive,candidate,nextWindow,nextClock,schedule,store,after)) return kWorldInputUnsupported;"
+        },
+        {
+          "line": 641,
+          "text": "!surface.importPages(image.data(),image.data(),8192)) return kWorldInputUnsupported;"
+        },
+        {
+          "line": 642,
+          "text": "if (notice!=255 && !message(catalog,notice,surface,image)) return kWorldInputUnsupported;"
+        },
+        {
+          "line": 643,
+          "text": "if (!reply.empty() && !message(reply,surface,image)) return kWorldInputUnsupported;"
+        },
+        {
+          "line": 660,
+          "text": "if (!_fireDirection || uint(direction)>3) return kWorldInputUnsupported;"
+        },
+        {
+          "line": 665,
+          "text": "if (!archive.read(\"NA/GAME\",data) || !resolveMapAssets(data,candidate.mapType(),range) || !archive.readRange(range.resource,range.offset+range.size,72,footer)) return kWorldInputUnsupported;"
+        },
+        {
+          "line": 668,
+          "text": "footer.data(),records+768,records+1280,nextScene.actors.lookup,nextScene.actors.kinds,after,shot)!=kWorldCannonFired || !nextWindow.captureRecords(candidate)) return kWorldInputUnsupported;"
+        },
+        {
+          "line": 669,
+          "text": "for (uint y=184;y<192;++y) for (uint x=7;x<32;++x) if (!image.putByte(x,y,0)) return kWorldInputUnsupported;"
+        },
+        {
+          "line": 670,
+          "text": "if (!nextText.importPages(image.data(),image.data(),8192)) return kWorldInputUnsupported;"
+        },
+        {
+          "line": 701,
+          "text": "if (!archive.read(\"NA/GAME\",gameData) || !resolveMapAssets(gameData,candidate.mapType(),range) || !archive.readRange(range.resource,range.offset+range.size,72,footer)) return kWorldInputUnsupported;"
+        },
+        {
+          "line": 706,
+          "text": "if (!window.captureRecords(game.world)) return kWorldInputUnsupported;"
+        },
+        {
+          "line": 746,
           "text": "if (NpcScheduler::apply(candidate,game.clock.hour,game.clock.minute,policy,schedule)==kNpcScheduleUnsupported) return reject(\"NPC schedule\");"
         }
       ],
@@ -7029,9 +7088,9 @@
       "ce_replacements": 0
     },
     "interface": {
-      "known_required": 16,
-      "native_implemented": 8,
-      "verified": 7,
+      "known_required": 17,
+      "native_implemented": 9,
+      "verified": 8,
       "partial": 8,
       "missing": 0,
       "unknown_required_rows": 3,
@@ -7150,8 +7209,8 @@
     }
   },
   "last_milestone": {
-    "owner": "battle return483",
-    "evidence": "SCUMMVM-CE-BATTLE-RETURN483-VERIFICATION.json"
+    "owner": "Dig484",
+    "evidence": "SCUMMVM-CE-DIG484-VERIFICATION.json"
   },
   "overall": {
     "fully_implemented_top_level_domains": 1,
@@ -7165,6 +7224,6 @@
   },
   "current_subsystem": {
     "status": "IN PROGRESS",
-    "scope": "World D Dig, then remaining native command/settings/script producer closure."
+    "scope": "Player combat preference options and deterministic source advice; remaining scripts/graphics/lifecycle closure."
   }
 }

@@ -1,3 +1,49 @@
+# World Dig484 integrated - November14
+
+Build484b passed0 warnings/errors2m47.37s.824 original rules,actual Ruin31 coffin
+D/input/core/cache,next G,missing shovel,exclusive pending NWIN16/cancel pass.
+Initial fixture wrongly expected opening41 after existing refresh already
+settled it40; fixture-only correction passed first corrective run. Production
+unchanged since484. Source/executable frozen DIG484 receipt. No active build.
+No earned acquisition,campaign/normal Engine cold/session or old/audio suite.
+Normal save eligibility unchanged. Accepted audio473 untouched.
+Next combat preferences485 contract prepared before changes: expose one normal
+Tactical/Quick/Ask popup,retain classic-save setting,migrate existing private
+flags. Forced Quick uses existing source9F1B level-based advice deliberately
+instead of unrelated067D graphics scratch; mark CE_REPLACEMENT,not historical
+forced-mode scratch parity. No guessed constant difficulty. Existing mode/Quick
+codec/metadata restore reused. Fix source-selected Tactical automatic eligibility
+(mode2 currently excluded by host's !mode.selection guard). Canonical485 headers
+are prepared only,not yet copied into production. Preserve current484 identity
+before copying/changing next subsystem. Canonical docs here; byte-identical
+recovery CE devtools/nox/project.
+
+Build484 passed0 warnings/errors2m45.86s. First native batch passed824 source
+cases and prompt/NWIN16/cancel,then failed generic actual coffin marker. Static
+source-owner diagnosis: Dig writes41, existing applyObjectRecord settles visible
+unoccupied41 to40 during the requested viewport refresh. Fixture wrongly
+expected the pre-refresh41 afterward. Production unchanged; corrected fixture
+requires actual unoccupied/visible context,settled40/core/cache persistence and
+adds precise result/stage diagnostics. One corrective build484b/run justified;
+no unsuccessful corrective native rerun yet. No old/object/audio/campaign suite.
+
+# Active world Dig484 - IN PROGRESS
+
+Return483 committed9db4aefab6d. Source command D genuinely missing (known key
+fallthrough). Full source shovel flag52bit8,direction/cancel,type/tile refusals,
+actual coffin state41 and staged viewport/cache/text owner implemented. NWIN16
+retains pending input; normal CE save policy unchanged. Invalid no-object
+Ruin91/92 source alias explicitly replaced with safe18 refusal,not NPC overwrite.
+Contract ENGINE-DIG precedes code.824 original source transactions generated,
+11054 steps/services. One focused batch queued:source rules,actual Ruin31 coffin8
+via ordinary D/arrow,missing-shovel refusal,exclusive prompt/NWIN16/cancel,
+core/cache persistence and subsequent G; no earned shovel/campaign/traversal.
+Controlled pre-operation shovel field and four adjacent read-only setup probes
+are declared. No after-operation outcome injection. Audio473 unchanged; no old/
+audio suite. Build484 next; no484 native run yet. Modified World/Input/StartupHost,
+new WorldDig/focused fixture. Canonical tracking here; byte-identical recovery
+CE devtools/nox/project. Continue remaining native command/settings/script work.
+
 # Battle return483 integrated - November14
 
 First build483 passed0 warnings/errors2m50.23s; first focused batch VERIFIED.
