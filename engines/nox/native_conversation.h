@@ -4,6 +4,7 @@
 
 #include "nox/native_dialogue_rules.h"
 #include "nox/native_dialogue_input.h"
+#include "nox/native_dialogue_control.h"
 #include "nox/native_inventory.h"
 #include "nox/enhancements.h"
 #include "engines/achievements.h"
@@ -59,9 +60,9 @@ public:
 		_paymentPhase=0;_paymentPresentation=false;_paymentQuery.clear();
 		_active = true; _terminal = false; _recognized = false; _completed = false; _reply.clear(); return true;
 	}
-	ConversationResult opening() { return respond(Common::String(), true); }
-	ConversationResult submit(const Common::String &query) { return respond(query, false); }
-	ConversationResult closing() { return respond("%END",false,true); }
+	ConversationResult opening(GameplayRandom *random=nullptr) { return respond(Common::String(), true,false,random); }
+	ConversationResult submit(const Common::String &query,GameplayRandom *random=nullptr) { return respond(query, false,false,random); }
+	ConversationResult closing(GameplayRandom *random=nullptr) { return respond("%END",false,true,random); }
 	const Common::String &reply() const { return _reply; }
 	const byte *fields() const { return _fields; }
 	bool terminalReply() const { return _terminal; }
@@ -169,7 +170,7 @@ public:
         return false;
     }
     // 0 ignores input,1 presents an authored result,2 resumes keyword input.
-    int paymentInput(HdvArchive &archive,byte key,uint16 &gold,Common::String &text) {
+    int paymentInput(HdvArchive &archive,byte key,uint16 &gold,Common::String &text,GameplayRandom *random=nullptr) {
         if (!_active || !_paymentPhase) return -1;
         key&=127;if(key>='a' && key<='z') key-=32;
         if (_paymentPhase==4) {_paymentPhase=0;_paymentQuery.clear();return 2;}
@@ -192,7 +193,7 @@ public:
         if(!spendGold(gold,READ_LE_UINT16(_fields+18))) return paymentResult(archive,0x98b6,text);
         _fields[17]|=4;_fields[18]=_fields[19]=0;_paymentPhase=0;
         const Common::String query=_paymentQuery;_paymentQuery.clear();
-        const ConversationResult result=respond(query,query.empty());_fields[17]&=~4;
+        const ConversationResult result=respond(query,query.empty(),false,random);_fields[17]&=~4;
         if(result!=kConversationReply || _paymentPhase) return -1;
         text=_reply;return 1;
     }
@@ -211,7 +212,7 @@ private:
 			((fields[21] & 3) && !(fields[21]&1) && (fields[18] || fields[19]) && !(fields[22] && fields[22]<64)) ||
 			(fields[42] & 128) || (fields[46] & 178) || (_context.map == 68 && (fields[58] & 32));
 	}
-	ConversationResult respond(const Common::String &query, bool opening,bool ending=false) {
+	ConversationResult respond(const Common::String &query, bool opening,bool ending=false,GameplayRandom *random=nullptr) {
 		if (!_active || (_terminal && !ending)) return kConversationInvalid;
 		if (!opening && query.empty()) return kConversationUnsupported;
 		Common::String normalized;
@@ -220,22 +221,24 @@ private:
 		bool recognized = selectDialogueResponse(_packet.text, 0, normalized, 0, QuestFields(_fields, sizeof(_fields)), _context.voice, _context.adultMode, _context.hour, _context.minute, response, opening);
 		if (!recognized && ending) { _reply.clear();_terminal=true;_recognized=false;return kConversationNoReply; }
 		if (!recognized && (opening || !selectDialogueResponse(_packet.text, 0, "DFL", 0, QuestFields(_fields, sizeof(_fields)), _context.voice, _context.adultMode, _context.hour, _context.minute, response))) return kConversationNoReply;
-		// Positive probability controls retain their separate source owner.
+		// Resolve source control once, using the explicitly supplied session RNG.
 		Common::String reply;
-		if ((response.control != 255 && response.control != 0) || !plainDialogueBody(_packet.text, response.bodyOffset, reply,
+		if (!plainDialogueBody(_packet.text, response.bodyOffset, reply,
                 response.substituteInput?&query:nullptr,response.inputPrefixLength)) return kConversationUnsupported;
 		byte next[256]; memcpy(next, _fields, sizeof(next));
 		const DialogueCommitResult result = commitDialogueFields(response, next, sizeof(next), _context.voice, _context.adultMode, _context.hour, _context.minute);
 		if (result == kDialogueInvalidEffects) return kConversationUnsupported;
 		if (result != kDialogueApplied) return kConversationInvalid;
 		if (callbacksPending(next)) return kConversationUnsupported;
-		memcpy(_fields, next, sizeof(_fields));
+        GameplayRandom after;if (random) after=*random;bool terminal=false;
+        if (!DialogueControl::resolve(response.control,random?&after:nullptr,terminal)) return kConversationUnsupported;
+		memcpy(_fields, next, sizeof(_fields));if (random) *random=after;
         if ((_fields[21]&1) && READ_LE_UINT16(_fields+18)) {
             _paymentPhase=(_fields[17]&8)?(opening?1:2):3;
             _paymentPresentation=_paymentPhase!=1;_paymentQuery=opening?Common::String():query;
         }
 		// Journal recognition denotes a submitted keyword, not an opening.
-		_reply = reply; _terminal = ending || response.control == 0; _recognized = recognized && !opening && !ending;
+		_reply = reply; _terminal = ending || terminal; _recognized = recognized && !opening && !ending;
         _journalPending=true;_journalOpening=opening;_journalInput=opening?Common::String():query;
         _journalSelected=_recognized?normalized:Common::String("DFL");return kConversationReply;
 	}

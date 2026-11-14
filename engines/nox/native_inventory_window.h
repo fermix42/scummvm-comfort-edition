@@ -46,7 +46,7 @@ public:
                 }
             } else if (_phase==2) {
                 if (event.kbd.ascii>='0' && event.kbd.ascii<='9' && !slots.empty()) {
-                    const byte bookSlot=event.kbd.ascii=='0'?9:byte(event.kbd.ascii-'1');
+                    const byte bookSlot=byte(event.kbd.ascii-'0');
                     if (!bookAction(archive,game,*game.inventory.item(slots[_selected]),bookSlot)) return kInventoryWindowUnsupported;
                     _phase=1;
                 }
@@ -148,7 +148,7 @@ private:
             if (!line(font,next,1,6+row*2,Common::String::format("%c %s",page+row==_selected?'>':' ',title.c_str())) ||
                 !line(font,next,29,6+row*2,Common::String::format("%u/%u",item.quantity(),ready))) return false;
         }
-        if (!line(font,next,1,19,_message) || !line(font,next,1,21,_phase==2?"Ready book in slot 1-9,0":_phase==3?"Drop spare copies? Y/N":"R/Return: ready  Space: unready") || !line(font,next,1,23,"U:use  D:drop  Escape:return")) return false;
+        if (!line(font,next,1,19,_message) || !line(font,next,1,21,_phase==2?"Ready book on key 0-9":_phase==3?"Drop spare copies? Y/N":"R/Return: ready  Space: unready") || !line(font,next,1,23,"U:use  D:drop  Escape:return")) return false;
         frame=next;return true;
     }
     byte _phase,_member,_type,_map;uint16 _selected;Common::String _message;HgrFrame _underlay;TextWindow _reading;SoundEvents *_sounds;

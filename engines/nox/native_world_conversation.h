@@ -38,7 +38,7 @@ public:
         WorldConversation next;next._type=world.mapType();next._map=world.mapId();next._underlay=frame;next._stage=1;*this=next;return true;
     }
     WorldConversationResult handle(const Common::Event &event,HdvArchive &archive,NewGame &game,const WorldScene &scene,
-            HgrFrame &frame,byte &message,WorldTransportState *transport=nullptr) {
+            HgrFrame &frame,byte &message,WorldTransportState *transport=nullptr,GameplayRandom *random=nullptr) {
         if (!active() || !matchesWorld(game.world) || event.type!=Common::EVENT_KEYDOWN) return kWorldConversationUnsupported;
         const Common::KeyCode key=event.kbd.keycode;
         if (_stage==1) {
@@ -120,17 +120,17 @@ public:
                 return show(archive,text,frame)?kWorldConversationHandled:kWorldConversationUnsupported;
             }
             if (!_conversation.begin(archive,game.world.dialogueResource(),slot,game.world.questFields(),256,context) ||
-                    _conversation.opening()!=kConversationReply) return kWorldConversationUnsupported;
+                    _conversation.opening(random)!=kConversationReply) return kWorldConversationUnsupported;
             _hasDialogue=true;_closing=_conversation.terminalReply();
-            return showDialogue(archive,game,frame)?kWorldConversationHandled:kWorldConversationUnsupported;
+            return showDialogue(archive,game,frame,random)?kWorldConversationHandled:kWorldConversationUnsupported;
         }
-        if (_stage>=27) return trainingInput(event,archive,game,frame);
+        if (_stage>=27) return trainingInput(event,archive,game,frame,random);
         if (_stage>=22) return merchantInput(event,archive,game,frame);
         if (_stage>=19) return vendorInput(event,archive,game,frame,transport);
         if (_stage>=9) return innInput(event,archive,game,frame);
         if (_stage>=5) return serviceInput(event,archive,game,frame);
         if (_stage==2) {
-            if (!_window.waiting() || !_window.handle(event) || !_window.paint(frame) || !settle(archive,frame,&game.discovery) || (_stage==3 && _conversation.trainingPending() && !trainingText(archive,0x9790,27,frame))) return kWorldConversationUnsupported;
+            if (!_window.waiting() || !_window.handle(event) || !_window.paint(frame) || !settle(archive,frame,&game.discovery,random) || (_stage==3 && _conversation.trainingPending() && !trainingText(archive,0x9790,27,frame))) return kWorldConversationUnsupported;
             return kWorldConversationHandled;
         }
         if (_stage==4) {
@@ -151,10 +151,10 @@ public:
         if (_stage!=3) return kWorldConversationUnsupported;
         if (_conversation.paymentPhase()) {
             Common::String text;const byte answer=key==Common::KEYCODE_ESCAPE?27:byte(event.kbd.ascii);
-            const int result=_conversation.paymentInput(archive,answer,game.gold,text);
+            const int result=_conversation.paymentInput(archive,answer,game.gold,text,random);
             if(result<0) return kWorldConversationUnsupported;
             if(result==2) {_query.clear();return input(archive,frame)?kWorldConversationHandled:kWorldConversationUnsupported;}
-            if(result==1) {_closing=_conversation.terminalReply();return show(archive,text,frame,&game.discovery)?kWorldConversationHandled:kWorldConversationUnsupported;}
+            if(result==1) {_closing=_conversation.terminalReply();return show(archive,text,frame,&game.discovery,random)?kWorldConversationHandled:kWorldConversationUnsupported;}
             return kWorldConversationHandled;
         }
         if (key==Common::KEYCODE_BACKSPACE) { if (!_query.empty()) _query.deleteLastChar(); }
@@ -164,9 +164,9 @@ public:
             if (submitted.empty()) for (uint i=0;i<3;++i) submitted+=char(raw[0xf8c+i]&127);
             bool farewell=submitted.size()>=3;
             for (uint i=0;i<3 && farewell;++i) farewell=(byte(submitted[i])&95)==(raw[0xf8c+i]&127);
-            if (_conversation.submit(submitted)!=kConversationReply) return kWorldConversationUnsupported;
+            if (_conversation.submit(submitted,random)!=kConversationReply) return kWorldConversationUnsupported;
             _closing=farewell || _conversation.terminalReply();_endShown=_footerShown=false;_query.clear();
-            return showDialogue(archive,game,frame)?kWorldConversationHandled:kWorldConversationUnsupported;
+            return showDialogue(archive,game,frame,random)?kWorldConversationHandled:kWorldConversationUnsupported;
         } else if (event.kbd.ascii>=32 && event.kbd.ascii<127 && _query.size()<28) _query+=char(event.kbd.ascii);
         return input(archive,frame)?kWorldConversationHandled:kWorldConversationUnsupported;
     }
@@ -251,8 +251,8 @@ public:
         if (in.err() || in.pos()!=in.size()) return false;*this=next;return true;
     }
 private:
-    bool showDialogue(HdvArchive &archive,NewGame &game,HgrFrame &frame) {
-        return show(archive,_conversation.reply(),frame,&game.discovery) &&
+    bool showDialogue(HdvArchive &archive,NewGame &game,HgrFrame &frame,GameplayRandom *random=nullptr) {
+        return show(archive,_conversation.reply(),frame,&game.discovery,random) &&
             !(_stage==3 && _conversation.trainingPending() && !trainingText(archive,0x9790,27,frame));
     }
     static bool trainingBody(HdvArchive &archive,uint address,Common::String &text) {
@@ -279,7 +279,7 @@ private:
         if (!_conversation.completeTraining()) return kWorldConversationUnsupported;
         _query.clear();return trainingText(archive,address,30,frame)?kWorldConversationHandled:kWorldConversationUnsupported;
     }
-    WorldConversationResult trainingInput(const Common::Event &event,HdvArchive &archive,NewGame &game,HgrFrame &frame) {
+    WorldConversationResult trainingInput(const Common::Event &event,HdvArchive &archive,NewGame &game,HgrFrame &frame,GameplayRandom *random=nullptr) {
         const Common::KeyCode key=event.kbd.keycode;
         if (_stage==27 || _stage==30) {
             if (_window.waiting()) {
@@ -288,7 +288,7 @@ private:
             }
             _hasWindow=false;
             if (_stage==30) {
-                _stage=3;return (_closing?settle(archive,frame,&game.discovery):input(archive,frame))?kWorldConversationHandled:kWorldConversationUnsupported;
+                _stage=3;return (_closing?settle(archive,frame,&game.discovery,random):input(archive,frame))?kWorldConversationHandled:kWorldConversationUnsupported;
             }
             if (!_selection.begin(game.party,false) || !_selection.paint(archive,game.party,frame)) return kWorldConversationUnsupported;
             _stage=28;return kWorldConversationHandled;
@@ -638,18 +638,18 @@ private:
     static void encoded(const Common::String &text,Common::Array<byte> &bytes) {
         bytes.clear();for (uint i=0;i<text.size();++i) bytes.push_back(text[i]=='\n'?0x8d:byte(text[i])|128);
     }
-    bool show(HdvArchive &archive,const Common::String &text,HgrFrame &frame,Enhancements *events=nullptr) {
+    bool show(HdvArchive &archive,const Common::String &text,HgrFrame &frame,Enhancements *events=nullptr,GameplayRandom *random=nullptr) {
         HgrFrame background=frame;if (!OpeningBackdrop::renderConversationFrame(background)) return false;
         Common::Array<byte> bytes;encoded(text,bytes);TextWindow window;
         if (!window.begin(archive,bytes.data(),bytes.size(),25,13,1,12,11,&background) || !window.paint(background)) return false;
-        _window=window;_hasWindow=true;_stage=2;frame=background;return settle(archive,frame,events);
+        _window=window;_hasWindow=true;_stage=2;frame=background;return settle(archive,frame,events,random);
     }
-    bool settle(HdvArchive &archive,HgrFrame &frame,Enhancements *events=nullptr) {
+    bool settle(HdvArchive &archive,HgrFrame &frame,Enhancements *events=nullptr,GameplayRandom *random=nullptr) {
         if (_window.waiting()) {_stage=2;return true;}
         if (!_window.ended()) return false;
         if (_hasDialogue && events && !_conversation.recordSpokenReply(*events)) return false;
         if (_hasDialogue && _conversation.paymentPhase()) {
-            if(_conversation.paymentPresentationPending()) {Common::String text;if(!_conversation.paymentPresentation(archive,text)) return false;return show(archive,text,frame,events);}
+            if(_conversation.paymentPresentationPending()) {Common::String text;if(!_conversation.paymentPresentation(archive,text)) return false;return show(archive,text,frame,events,random);}
             _stage=3;return input(archive,frame);
         }
         if (_hasDialogue && _conversation.trainingPending()) {_stage=3;return true;}
@@ -657,7 +657,7 @@ private:
         if (!_endShown) {
             _endShown=true;
             if (_hasDialogue) {
-                const ConversationResult result=_conversation.closing();
+                const ConversationResult result=_conversation.closing(random);
                 if (result!=kConversationReply && result!=kConversationNoReply) return false;
                 Common::Array<byte> bytes;encoded(_conversation.reply(),bytes);
                 if (!_window.append(bytes.data(),bytes.size()) || !_window.paint(frame)) return false;

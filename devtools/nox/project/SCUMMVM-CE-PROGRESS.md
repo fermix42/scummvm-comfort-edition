@@ -1,3 +1,48 @@
+# Dialogue478 integrated - November14
+
+Complete response-control byte semantics and direct0..9 book shortcuts implemented.
+12 known scoped behaviors implemented,10 focused verified;2 broader normal UI/
+cold/tactical integration qualifications retained. Receipt DIALOGUE478-VERIFICATION.
+One native build0 warnings/errors,2m57.14s. First source fixture had unset original
+RNG bounds0/0; corrected pre-operation context from source11BA-11C1 (1/255).
+Same executable passed corrective batch:768 source/RNG cases,6 actual authored
+dwarf opening/JOB replies and codec roundtrips,10 real inventory shortcut/core/
+CastRules handoffs. No production changes or rebuild for that correction.
+No active build; no campaign/exploration/audio/old suite. Source/exe frozen.
+Next: callbacks/structured bodies using439 hash-verified packets. Local479 census
+finds4 positive controls,75 structured-body candidates and request producers for
+fields12,42,58; other callback fields can have external producers. Do not infer
+map IDs from TLK filenames; reconcile map metadata20..22. OriginalB2F9-B4D3
+remains the effects contract. Continue implementation without milestone stop.
+
+# Active dialogue/control478 - IN PROGRESS
+
+Simulation477c committed79efa4fa0d5; frozen executable/source and receipt retained.
+Current native changes: DialogueControl complete byte semantics (negative no RNG,
+zero terminal, positive strict draw<T using existing1..255 RNG), staged field/RNG
+commit; explicit session RNG threaded through WorldConversation opening/submit/
+closing/payment/training presentation and automatic Temple conversation. Existing
+Conversation codec persists resolved terminal state without new fields/draws.
+Book-ready digits corrected to direct0..9, matching original and both Cast paths.
+Contracts ENGINE-DIALOGUE-CONTROL and ENGINE-ITEMS-MAGIC precede edits.
+Source proof prepare_dialogue478.py:768 original control/RNG cases,10683 steps;
+4 plain positive authored packet candidates (actual L01A actor24 used in native
+fixture; source-only L001 placeholder packet is not used for acceptance).
+Build478 running required cleanenv -NoxNativeOnly session2393, log
+ce-native-dialogue478-build.log. Poll existing build, then run
+python conversion/check_dialogue478.py --label 478 once. Combined native fixture:
+768 source cases,6 actual dwarf opening/JOB resolutions+codec/RNG preservation,
+10 actual inventory-ready numeric shortcuts and downstream CastRules/core codec.
+No native478 batch yet. No audio/campaign/old suite. New engine files:
+native_dialogue_control.h,native_dialogue_control_validation.h,
+native_item_shortcuts_validation.h. Modified conversation/world_conversation/
+world_input/startup_host/inventory_window. Do not use obsolete implement_items478.py:
+its separate test hook was never run; combined478 owns the changes.
+Next: frozen receipt/matrix and coherent commit after bounded batch, then complete
+source-backed callback/structured text and other subsystem gaps without milestone
+pause. Callback source B2F9-B4D3 and authored producer census remain unimplemented;
+never claim all NPC/service/story or whole-engine completion from this batch.
+
 # Simulation477c integrated - November14
 
 Ordinary dawn/dusk producer connected to native WorldInput;8 known behaviors

@@ -49,6 +49,7 @@
 #include "nox/native_information_validation.h"
 #include "nox/native_player_controls_validation.h"
 #include "nox/native_simulation_validation.h"
+#include "nox/native_dialogue_control_validation.h"
 #include "nox/native_player_lifecycle_validation.h"
 #include "nox/native_ending.h"
 namespace Nox {
@@ -80,6 +81,12 @@ inline Common::Error NoxEngine::runNativeStartup() {
         }
         return Common::Error(Common::kReadingFailed,reason);
     };
+    if (ConfMan.hasKey("nox_native_dialogue_control_fixture")) {
+        Common::File input;Common::String report;
+        if (!input.open(Common::FSNode(ConfMan.getPath("nox_native_dialogue_control_fixture"))) || !validateNativeDialogueControl478(_resources,input,report)) return fail(report.empty()?"Dialogue control focused check failed":report.c_str());
+        Common::OutSaveFile *out=_system->getSavefileManager()->openForSaving("nox-native-dialogue-control.tsv",false);if (!out) return Common::kWritingFailed;
+        out->writeString(report);out->finalize();const bool ok=!out->err();delete out;return ok?Common::Error(Common::kNoError):Common::Error(Common::kWritingFailed);
+    }
     if (ConfMan.hasKey("nox_native_simulation_fixture")) {
         Common::File input;Common::String report;
         if (!input.open(Common::FSNode(ConfMan.getPath("nox_native_simulation_fixture"))) || !validateNativeSimulation477(_resources,input,report)) return fail(report.empty()?"Simulation focused check failed":report.c_str());
@@ -578,7 +585,7 @@ inline Common::Error NoxEngine::runNativeStartup() {
 #ifdef NOX_NATIVE_ONLY
                     if (templeTravel) soundEvents.push_back(Native::kSpeakerSelection);
 #endif
-                    return !templeTravel || worldInput.beginTempleConversation(_resources,game,prepared,frame);
+                    return !templeTravel || worldInput.beginTempleConversation(_resources,game,prepared,frame,&random);
     };
     const int automaticRoundLimit=ConfMan.hasKey("nox_native_automatic_round_checkpoint")?ConfMan.getInt("nox_native_automatic_round_checkpoint"):0;
     if (automaticRoundLimit<0 || automaticRoundLimit>128) return fail("Native controlled automatic-round checkpoint limit invalid");

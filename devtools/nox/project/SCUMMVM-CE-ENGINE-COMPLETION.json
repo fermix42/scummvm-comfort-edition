@@ -1356,7 +1356,12 @@
       "implementation": "PARTIAL",
       "verification": {
         "status": "NOT STARTED",
-        "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement."
+        "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement.",
+        "shortcut_correction478": {
+          "status": "VERIFIED",
+          "scope": "Actual InventoryWindow key0..9 -> same persisted global book slot -> CastRules; other inventory/book qualification remains unchanged.",
+          "evidence": "SCUMMVM-CE-DIALOGUE478-VERIFICATION.json"
+        }
       },
       "native_owners": [
         "engines/nox/native_inventory.h",
@@ -2930,6 +2935,30 @@
       "production_connection": "WorldInput ordinary command boundary -> Daylight -> existing staged NPC input service and LightState renderer/serializer.",
       "fallback_dependencies": [],
       "blockers": []
+    },
+    {
+      "id": "npc.10",
+      "subsystem": "npc",
+      "behavior": "Complete dialogue response-control byte domain and session RNG ownership",
+      "implementation": "IMPLEMENTED",
+      "verification": {
+        "status": "VERIFIED",
+        "scope": "768 original control/RNG cases,6 actual authored opening/JOB resolutions and resolved conversation/RNG codec roundtrips. Full normal UI/payment cold integration remains qualified.",
+        "evidence": "SCUMMVM-CE-DIALOGUE478-VERIFICATION.json"
+      },
+      "original_evidence": [
+        "SCUMMVM-CE-ENGINE-DIALOGUE-CONTROL-CONTRACT.md",
+        "Talk B253-B262; lower RNG11BA-11C1"
+      ],
+      "native_owners": [
+        "engines/nox/native_dialogue_control.h",
+        "engines/nox/native_conversation.h",
+        "engines/nox/native_world_conversation.h",
+        "engines/nox/native_world_input.h"
+      ],
+      "production_connection": "Explicit session RNG flows through ordinary/Temple opening, keyword, end chain, training presentation and payment replay; resolved terminal flag persists without extra draw.",
+      "fallback_dependencies": [],
+      "blockers": []
     }
   ],
   "additional_unclassified_scope": [
@@ -3003,7 +3032,7 @@
         "nox/native_random.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_actor_motion.h",
@@ -3012,7 +3041,7 @@
         "nox/native_actor_intent.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_actor_move_phase.h",
@@ -3021,7 +3050,7 @@
         "nox/native_world.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_actor_movement_effects.h",
@@ -3030,7 +3059,7 @@
         "nox/native_world_presentation.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_actor_outside.h",
@@ -3040,7 +3069,7 @@
         "nox/native_graphics.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_actor_paint.h",
@@ -3049,7 +3078,7 @@
         "nox/native_graphics.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_actor_pursuit.h",
@@ -3058,7 +3087,7 @@
         "nox/native_actor_motion.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_actor_spatial.h",
@@ -3078,7 +3107,7 @@
           "text": "ActorSpatialResult() : effectiveTerrain(0), contactDirection(255), contactCell(255), status(kSpatialUnsupported),boundedLookup(false) { memset(blocked,0,4); }"
         }
       ],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_actor_step.h",
@@ -3087,14 +3116,14 @@
         "nox/native_graphics.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_actors.h",
       "sha256": "8c0e8211fcabd90034d90fe1cbd4690107cd86da8cb46a4c6944f533b21765af",
       "includes": [],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_armor_ready.h",
@@ -3140,7 +3169,7 @@
           "text": "Inventory nextInventory; if (!nextInventory.importRecords(records,1536)) return kArmorUnsupported;"
         }
       ],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_audio.h",
@@ -3152,7 +3181,7 @@
         "nox/speaker_audio.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_battle_advancement.h",
@@ -3162,14 +3191,14 @@
         "nox/native_battle_advancement_state.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_battle_advancement_state.h",
       "sha256": "1f48a655078b8cd8668d2f3d493b052e06fedc933464fce14255b8fc464226ec",
       "includes": [],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_battle_aftermath.h",
@@ -3182,7 +3211,7 @@
         "nox/native_ending.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_battle_area_spell.h",
@@ -3192,7 +3221,7 @@
         "nox/native_sound_events.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_battle_attack.h",
@@ -3201,7 +3230,7 @@
         "nox/native_battle_targets.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_battle_cannon.h",
@@ -3211,7 +3240,7 @@
         "nox/native_battle_rewards.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_battle_cast.h",
@@ -3273,7 +3302,7 @@
           "text": "if (!rounds.directed(prepared,selection,terrain,length,next.round,rng,next.records,outcome)) return kBattleCastUnsupported;"
         }
       ],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_battle_cast_state.h",
@@ -3282,7 +3311,7 @@
         "nox/native_cast.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_battle_collisions.h",
@@ -3291,7 +3320,7 @@
         "nox/native_actor_step.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_battle_directed_spell.h",
@@ -3301,14 +3330,14 @@
         "nox/native_sound_events.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_battle_exit_state.h",
       "sha256": "942b80ac086bb5f63a7ba984e776c60aaea7c8d345c7ab50b4a43208256afb90",
       "includes": [],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_battle_loot.h",
@@ -3318,7 +3347,7 @@
         "nox/native_inventory.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_battle_madcow.h",
@@ -3329,7 +3358,7 @@
         "nox/native_battle_summon_outcome.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_battle_motion.h",
@@ -3338,7 +3367,7 @@
         "nox/native_encounter_state.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_battle_npc_decision.h",
@@ -3348,7 +3377,7 @@
         "nox/native_random.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_battle_physical.h",
@@ -3358,7 +3387,7 @@
         "nox/native_battle_rewards.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_battle_presentation.h",
@@ -3369,7 +3398,7 @@
         "nox/native_battle_reticle.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_battle_restoration.h",
@@ -3379,7 +3408,7 @@
         "nox/native_graphics.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_battle_reticle.h",
@@ -3388,7 +3417,7 @@
         "nox/native_graphics.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_battle_rewards.h",
@@ -3397,7 +3426,7 @@
         "nox/native_vortex_cast.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_battle_roster.h",
@@ -3406,7 +3435,7 @@
         "nox/native_vortex_cast.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_battle_round.h",
@@ -3425,7 +3454,7 @@
         "nox/native_battle_terminal.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_battle_spell_damage.h",
@@ -3436,7 +3465,7 @@
         "nox/native_spell_power.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_battle_summon.h",
@@ -3447,14 +3476,14 @@
         "nox/native_battle_madcow.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_battle_summon_outcome.h",
       "sha256": "baa3c65cfcbc07715825691d468343dda856192902edb6254dea762a3ee4e9f3",
       "includes": [],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_battle_targets.h",
@@ -3463,7 +3492,7 @@
         "nox/native_battle_roster.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_battle_terminal.h",
@@ -3472,14 +3501,14 @@
         "nox/native_vortex_cast.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_battle_world_return.h",
       "sha256": "a4798bf09e06a93bfcf15dfa84e4f8d515d0ad7341d521b63843735f01a697c3",
       "includes": [],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_battlefields.h",
@@ -3489,7 +3518,7 @@
         "nox/resources.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_book.h",
@@ -3516,7 +3545,7 @@
           "text": "if (chosenSlot >= 10) return kBookUnsupported;"
         }
       ],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_cast.h",
@@ -3538,7 +3567,7 @@
           "text": "if (spell >= 64) return kCastUnsupported;"
         }
       ],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_character_creation.h",
@@ -3548,21 +3577,21 @@
         "nox/native_graphics.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_clock.h",
       "sha256": "f270eec76b75e96bbac284a25e57ca9738135af908491f4c080f968d3112ac5e",
       "includes": [],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_combat_mode.h",
       "sha256": "4bdcb693849592c5d29e2b2b84c7cdd94870e0a186a5f334580c3d3a6858c4e9",
       "includes": [],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_compact_world_action.h",
@@ -3628,40 +3657,55 @@
           "text": "if (!ActorMovementEffects::apply(candidate,scene,input,effect,selected)) return kCompactWorldUnsupported;"
         }
       ],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_conversation.h",
-      "sha256": "8d7109d01e2eb90fb7d9db68de28377132ae59539192703c788da63838c59581",
+      "sha256": "e7d4f8dc549728b449702993060cc1941ec4f505a2af2b67d88ca2543e5d5417",
       "includes": [
         "nox/native_dialogue_rules.h",
         "nox/native_dialogue_input.h",
+        "nox/native_dialogue_control.h",
         "nox/native_inventory.h",
         "nox/enhancements.h"
       ],
       "explicit_boundaries": [
         {
-          "line": 15,
+          "line": 16,
           "text": "enum ConversationResult { kConversationReply, kConversationNoReply, kConversationUnsupported, kConversationInvalid };"
         },
         {
-          "line": 216,
+          "line": 217,
           "text": "if (!opening && query.empty()) return kConversationUnsupported;"
         },
         {
-          "line": 226,
+          "line": 227,
           "text": "response.substituteInput?&query:nullptr,response.inputPrefixLength)) return kConversationUnsupported;"
         },
         {
-          "line": 229,
+          "line": 230,
           "text": "if (result == kDialogueInvalidEffects) return kConversationUnsupported;"
         },
         {
-          "line": 231,
+          "line": 232,
           "text": "if (callbacksPending(next)) return kConversationUnsupported;"
+        },
+        {
+          "line": 234,
+          "text": "if (!DialogueControl::resolve(response.control,random?&after:nullptr,terminal)) return kConversationUnsupported;"
         }
       ],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
+    },
+    {
+      "path": "engines/nox/native_daylight.h",
+      "sha256": "437ae3b48e596efa0e67b02d337381edb2b7b6df12aee8fb5c04049c2ee47e41",
+      "includes": [
+        "nox/native_clock.h",
+        "nox/native_visibility.h"
+      ],
+      "explicit_boundaries": [],
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_dialogue.h",
@@ -3671,7 +3715,16 @@
         "nox/resources.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
+    },
+    {
+      "path": "engines/nox/native_dialogue_control.h",
+      "sha256": "0cc112b37e4763b236b1f197d4373f6b3e5016345b9af7058111a796d40d79aa",
+      "includes": [
+        "nox/native_random.h"
+      ],
+      "explicit_boundaries": [],
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_dialogue_input.h",
@@ -3680,7 +3733,7 @@
         "nox/native_dialogue_rules.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_dialogue_rules.h",
@@ -3690,7 +3743,7 @@
         "nox/native_gates.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_encounter_admission.h",
@@ -3699,7 +3752,7 @@
         "nox/resources.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_encounter_catalog.h",
@@ -3708,7 +3761,7 @@
         "nox/resources.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_encounter_formation.h",
@@ -3719,7 +3772,7 @@
         "nox/native_vortex_cast.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_encounter_preparation.h",
@@ -3733,7 +3786,7 @@
         "nox/native_world_travel.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_encounter_state.h",
@@ -3752,7 +3805,7 @@
         "nox/native_combat_mode.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_ending.h",
@@ -3763,7 +3816,7 @@
         "nox/native_world.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_engine.cpp",
@@ -3782,7 +3835,7 @@
           "text": "return Common::Error(Common::kReadingFailed,\"Invalid or unsupported native Nox gameplay state\");"
         }
       ],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_equipment_actions.h",
@@ -3819,7 +3872,7 @@
           "text": "if (!recalculateEquipment(catalog,nextParty._equipment[i],nextParty._members[i])) return kArmorUnsupported;"
         }
       ],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_equipment_derived.h",
@@ -3828,7 +3881,7 @@
         "nox/native_inventory.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_equipment_ownership.h",
@@ -3837,7 +3890,7 @@
         "nox/native_inventory.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_exploration_save.h",
@@ -3852,7 +3905,7 @@
         "nox/native_audio.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_gates.h",
@@ -3888,7 +3941,7 @@
           "text": "return kGateUnsupported;"
         }
       ],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_graphics.h",
@@ -3897,7 +3950,7 @@
         "nox/resources.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_information_catalog.h",
@@ -3907,7 +3960,7 @@
         "nox/native_lz.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_information_input.h",
@@ -3947,7 +4000,7 @@
           "text": "if (!_window.ended()) return kInformationUnsupported;"
         }
       ],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_inn_membership.h",
@@ -3956,7 +4009,7 @@
         "nox/native_new_game.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_inn_service.h",
@@ -3966,7 +4019,7 @@
         "nox/native_world_travel.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_inn_storage.h",
@@ -3975,7 +4028,7 @@
         "nox/resources.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_inventory.h",
@@ -3985,7 +4038,7 @@
         "nox/resources.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_inventory_actions.h",
@@ -4019,11 +4072,11 @@
           "text": "Inventory next=inventory;if (!next.removeQuantity(slot,quantity)) return kDropUnsupported;"
         }
       ],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_inventory_window.h",
-      "sha256": "660fd833b49f742e2fa82c703698b1122b2749671dc8fcf1e5e9939353917fc9",
+      "sha256": "de1d26d9e01e44a4135e3ea8d0fa63d347f1f04ca8cce3da5170f38461d96998",
       "includes": [
         "nox/native_new_game.h",
         "nox/native_graphics.h",
@@ -4101,7 +4154,7 @@
           "text": "return paint(archive,game,frame)?kInventoryWindowHandled:kInventoryWindowUnsupported;"
         }
       ],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_legacy_snapshot.h",
@@ -4122,7 +4175,7 @@
           "text": "if (!active || !count || count>76) {reason=\"Legacy active map is unsupported\";return false;}"
         }
       ],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_lighting.h",
@@ -4133,7 +4186,7 @@
         "nox/native_visibility.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_lock.h",
@@ -4164,14 +4217,14 @@
           "text": "if (!candidate.next(1, 199, roll)) return kLockUnsupported;"
         }
       ],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_lz.h",
       "sha256": "dea03488b3f6073389d2028b2ecc2a3420e7df63d550ea559746b7f691fb11f2",
       "includes": [],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_maps.h",
@@ -4185,7 +4238,7 @@
           "text": "return fail(\"Unsupported native map resource header\");"
         }
       ],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_merchant.h",
@@ -4194,7 +4247,7 @@
         "nox/native_inventory.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_merchant_screen.h",
@@ -4205,7 +4258,7 @@
         "nox/native_new_game.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_message_strip.h",
@@ -4214,7 +4267,7 @@
         "nox/native_text_glyph.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_music.h",
@@ -4223,7 +4276,7 @@
         "nox/resources.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_new_game.h",
@@ -4239,7 +4292,7 @@
         "nox/native_world_navigation.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_npc_action_dispatch.h",
@@ -4249,7 +4302,7 @@
         "nox/native_actor_pursuit.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_npc_actor_actions.h",
@@ -4259,7 +4312,7 @@
         "nox/native_npc_schedule.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_npc_contact.h",
@@ -4269,7 +4322,7 @@
         "nox/native_actors.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_npc_navigation.h",
@@ -4284,7 +4337,7 @@
           "text": "if (result == kNpcPathUnsupported) return kNpcNavigationInvalid;"
         }
       ],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_npc_path.h",
@@ -4352,7 +4405,7 @@
           "text": "if (_frontier[0].node >= _nodes.size()) return kNpcPathUnsupported;"
         }
       ],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_npc_route_follow.h",
@@ -4362,7 +4415,7 @@
         "nox/native_actor_move_phase.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_npc_route_recovery.h",
@@ -4373,7 +4426,7 @@
         "nox/native_random.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_npc_route_store.h",
@@ -4382,7 +4435,7 @@
         "nox/native_npc_schedule.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_npc_schedule.h",
@@ -4476,7 +4529,7 @@
           "text": "(!world._archive.read(\"NA/BS.ROUTINES.BK2\",markerData) || markerData.size() < 0x1008)) return kNpcScheduleUnsupported;"
         }
       ],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_npc_world_action.h",
@@ -4545,14 +4598,14 @@
           "text": "if (result!=kNpcWorldUnsupported) effects=after;"
         }
       ],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_objects.h",
       "sha256": "663dcd2c9295734211e8ec75e42a4d41f6978ef8e2b88ae9b01759d38a2e94ea",
       "includes": [],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_occlusion.h",
@@ -4562,7 +4615,7 @@
         "nox/native_visibility.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_opening_backdrop.h",
@@ -4571,7 +4624,7 @@
         "nox/native_tile_paint.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_party.h",
@@ -4581,7 +4634,7 @@
         "nox/resources.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_party_order.h",
@@ -4616,7 +4669,7 @@
           "text": "return paint(archive,party,frame)?kPartyOrderPending:kPartyOrderUnsupported;"
         }
       ],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_party_selection.h",
@@ -4626,7 +4679,7 @@
         "nox/native_graphics.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_player_controls.h",
@@ -4641,7 +4694,7 @@
         "nox/native_opening_backdrop.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_player_session.h",
@@ -4657,7 +4710,7 @@
         "nox/native_legacy_snapshot.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_quest_checkpoint.h",
@@ -4666,7 +4719,7 @@
         "nox/native_world.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_quick_battle.h",
@@ -4677,14 +4730,14 @@
         "nox/native_battle_terminal.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_random.h",
       "sha256": "7db95189ddb4236e1db4a049a967fa5c69b6b89fc1afc57b2571a3633f62c6e8",
       "includes": [],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_recruitment.h",
@@ -4702,7 +4755,7 @@
           "text": "else if(EquipmentActions::selectArmor(catalog,ownership,byte(count),id,false,party,inventory)==kArmorUnsupported) {warning(\"Native recruitment invalid line%d actor%u companion%u\",__LINE__,uint(actorSlot),uint(companion));return kRecruitInvalid;}"
         }
       ],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_search.h",
@@ -4735,7 +4788,7 @@
           "text": "return kSearchRewardUnsupported; // Original full-slot fatal path is not qualified here."
         }
       ],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_search_input.h",
@@ -4827,14 +4880,14 @@
           "text": "if(!window.begin(archive,reinterpret_cast<const byte *>(text.c_str()),text.size(),25,13,1,12,11,&frame) || !window.paint(frame)) return kSearchInputUnsupported;"
         }
       ],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_sound_events.h",
       "sha256": "d710a7cd60361f211d723c3e664c5058f91cf74070c358eb2a74b10cb3cdff9b",
       "includes": [],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_speaker.h",
@@ -4845,7 +4898,7 @@
         "nox/native_sound_events.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_spell_power.h",
@@ -4854,11 +4907,11 @@
         "nox/native_random.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_startup_host.h",
-      "sha256": "302c9881cc3d7fc7d086a508eb41d69f1bb77706da425ab64c07e447279a9426",
+      "sha256": "8bf7bd642c6cc5350ed17f677966646cb6a35973801c120cda71422b455caae2",
       "includes": [
         "nox/native_weapon_ready_validation.h",
         "nox/native_legacy_snapshot.h",
@@ -4905,84 +4958,86 @@
         "nox/native_party_order_validation.h",
         "nox/native_information_validation.h",
         "nox/native_player_controls_validation.h",
+        "nox/native_simulation_validation.h",
+        "nox/native_dialogue_control_validation.h",
         "nox/native_player_lifecycle_validation.h",
         "nox/native_ending.h"
       ],
       "explicit_boundaries": [
         {
-          "line": 472,
+          "line": 486,
           "text": "if (Native::NpcScheduler::apply(game.world,game.clock.hour,game.clock.minute,policy,game.schedule)==Native::kNpcScheduleUnsupported) return fail(\"Controlled map-entry schedule failed before input\");"
         },
         {
-          "line": 490,
+          "line": 504,
           "text": "if (!Native::EncounterPreparation::prepare(_resources,game,prepared,turns,worldInput.encounter(),preparedEncounter,worldInput.scriptedEncounter())) return fail(\"Native restored encounter preparation reached an unsupported admission\");"
         },
         {
-          "line": 656,
+          "line": 670,
           "text": "if (!quickRules.step(random,encounterState.records,encounterState.quick,encounterState.round.protectedTargets)) return fail(\"Native Quick scheduler/action reached an unsupported branch\");"
         },
         {
-          "line": 739,
+          "line": 753,
           "text": "if (!pacedReplay) { if (!advanceAnimation()) return fail(\"Native deterministic idle reached an unsupported animation boundary\");continue; }"
         },
         {
-          "line": 744,
+          "line": 758,
           "text": "if (!advanceAnimation()) return fail(\"Native live idle reached an unsupported animation boundary\");continue;"
         },
         {
-          "line": 813,
+          "line": 827,
           "text": "if (!aftermath.choose(take,all,game,encounterState,random) || !aftermath.paint(font,encounterState)) return fail(\"Native treasure decision reached an unsupported inventory/result branch\");"
         },
         {
-          "line": 821,
+          "line": 835,
           "text": "if (!aftermath.begin(worldInput.encounter(),game,encounterState,random,worldInput.scriptedEncounter(),preparedEncounter.contactSprite)) return fail(\"Native victory results reached an unsupported level/contact/loot branch\");"
         },
         {
-          "line": 891,
+          "line": 905,
           "text": "if (handled==Native::kBattleCastUnsupported) return fail(\"Native Cast reached an unsupported family/status/NPC continuation\");"
         },
         {
-          "line": 914,
+          "line": 928,
           "text": "!Native::BattleAttack::used(next.records,caster,next.attack.partyTargeting,next.attack,next.target)) return fail(\"Native tactical attack reached an unsupported weapon/turn policy\");"
         },
         {
-          "line": 921,
+          "line": 935,
           "text": "if (!battlePresentation.paint(preparedEncounter,next,next.phase,image)) return fail(\"Native tactical attack presentation reached an unsupported status\");"
         },
         {
-          "line": 968,
+          "line": 982,
           "text": "!battlePresentation.paint(preparedEncounter,next,next.phase,image)) return fail(\"Native tactical pass reached an unsupported turn/status policy\");"
         },
         {
-          "line": 1008,
+          "line": 1022,
           "text": "if (handled==Native::kWorldInputBoundary) return fail(\"Native world command reached an unsupported encounter/interaction boundary\");"
         },
         {
-          "line": 1009,
+          "line": 1023,
           "text": "if (handled==Native::kWorldInputUnsupported) return fail(\"Native world command could not complete its admitted phase\");"
         },
         {
-          "line": 1011,
+          "line": 1025,
           "text": "if (!Native::EncounterPreparation::prepare(_resources,game,prepared,turns,worldInput.encounter(),preparedEncounter,worldInput.scriptedEncounter())) return fail(\"Native encounter preparation reached an unsupported admission\");"
         },
         {
-          "line": 1012,
+          "line": 1026,
           "text": "if (!encounterState.begin(_resources,game,preparedEncounter,random)) return fail(\"Native encounter formation reached an unsupported layout/group\");"
         },
         {
-          "line": 1017,
+          "line": 1031,
           "text": "if (handled==Native::kWorldInputIgnored && event.kbd.keycode==Common::KEYCODE_SPACE) {"
         },
         {
-          "line": 1025,
+          "line": 1039,
           "text": "else if (result!=Native::kWorldWaitAdvanced) return fail(\"Native Wait reached an unsupported effect boundary\");"
         },
         {
-          "line": 1037,
+          "line": 1051,
           "text": "if (handled==Native::kWorldInputIgnored && event.kbd.keycode==Common::KEYCODE_SPACE && ConfMan.hasKey(\"nox_native_checkpoint_wait\") &&"
         }
       ],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_startup_menu.h",
@@ -4991,7 +5046,7 @@
         "nox/native_graphics.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_story_patches.h",
@@ -5000,7 +5055,7 @@
         "nox/resources.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_summon_pool.h",
@@ -5018,7 +5073,7 @@
           "text": "if (!_ready || !record || size != 32) return kSummonUnsupported;"
         }
       ],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_temple_service.h",
@@ -5028,7 +5083,7 @@
         "nox/native_battle_restoration.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_test_cli.h",
@@ -5048,7 +5103,7 @@
           "text": "return CETestCLI::unsupported();"
         }
       ],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_text_glyph.h",
@@ -5057,7 +5112,7 @@
         "nox/native_graphics.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_text_window.h",
@@ -5066,7 +5121,7 @@
         "nox/native_text_glyph.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_tile_paint.h",
@@ -5075,7 +5130,7 @@
         "nox/native_graphics.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_training.h",
@@ -5084,7 +5139,7 @@
         "nox/native_new_game.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_traversal.h",
@@ -5098,7 +5153,7 @@
           "text": "enum PositionMoveResult { kPositionMoved, kPositionBlocked, kPositionNeedsInteraction, kPositionOutsideMap, kPositionUnsupported };"
         }
       ],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_vendor_transactions.h",
@@ -5108,7 +5163,7 @@
         "nox/native_world_transport.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_visibility.h",
@@ -5117,7 +5172,7 @@
         "nox/resources.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_vortex_cast.h",
@@ -5133,7 +5188,7 @@
           "text": "VortexCastOutcome() : result(kCastUnsupported), targets(0), killed(0) {}"
         }
       ],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_vortex_checkpoint.h",
@@ -5142,7 +5197,7 @@
         "nox/native_vortex_cast.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_vortex_effect.h",
@@ -5152,7 +5207,7 @@
         "nox/resources.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_vortex_targets.h",
@@ -5166,7 +5221,7 @@
           "text": "// Battle ownership must resolve this unsupported context before release."
         }
       ],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_weapon_ready.h",
@@ -5220,7 +5275,7 @@
           "text": "Inventory nextInventory; if (!nextInventory.importRecords(records,1536)) return kWeaponUnsupported;"
         }
       ],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_world.h",
@@ -5353,7 +5408,7 @@
           "text": "if (!rules.probe(probe, result)) return kPositionUnsupported;"
         }
       ],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_world_actor_phase.h",
@@ -5362,7 +5417,7 @@
         "nox/native_actors.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_world_actor_turn.h",
@@ -5386,7 +5441,7 @@
           "text": "if (result==kNpcWorldUnsupported || result==kNpcWorldAbsent) {warning(\"Native NPC turn unsupported slot%u tile%u capability%u phase%u\",slot,uint(actor.tile),uint(actor.capability),uint(phase.route));return false;}"
         }
       ],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_world_animation.h",
@@ -5396,7 +5451,7 @@
         "nox/native_lighting.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_world_camp.h",
@@ -5435,7 +5490,7 @@
           "text": "if (!game.party.applyBattleMembers(members,768,count)) return kCampUnsupported;"
         }
       ],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_world_cannon.h",
@@ -5465,7 +5520,7 @@
           "text": "if (four && (result.endpoint%17==16 || result.endpoint/17==10)) return kWorldCannonUnsupported;"
         }
       ],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_world_cast.h",
@@ -5543,7 +5598,7 @@
           "text": "return paint(archive,game,frame)?kWorldCastHandled:kWorldCastUnsupported;"
         }
       ],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_world_command.h",
@@ -5565,11 +5620,11 @@
           "text": "Common::Array<byte> projected; if (!window.project(world,projected)) return kPositionUnsupported;"
         }
       ],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_world_conversation.h",
-      "sha256": "4f7a8bbffd3c151a25afc8893c6564ed13777f4a3dd5ea65abb6d321b57b1fdf",
+      "sha256": "90d1ff9d55eb4db71e5fe0956ccd4a92a672a62737db93d9456bc03824859e63",
       "includes": [
         "nox/native_new_game.h",
         "nox/native_recruitment.h",
@@ -5660,15 +5715,15 @@
         },
         {
           "line": 123,
-          "text": "_conversation.opening()!=kConversationReply) return kWorldConversationUnsupported;"
+          "text": "_conversation.opening(random)!=kConversationReply) return kWorldConversationUnsupported;"
         },
         {
           "line": 125,
-          "text": "return showDialogue(archive,game,frame)?kWorldConversationHandled:kWorldConversationUnsupported;"
+          "text": "return showDialogue(archive,game,frame,random)?kWorldConversationHandled:kWorldConversationUnsupported;"
         },
         {
           "line": 133,
-          "text": "if (!_window.waiting() || !_window.handle(event) || !_window.paint(frame) || !settle(archive,frame,&game.discovery) || (_stage==3 && _conversation.trainingPending() && !trainingText(archive,0x9790,27,frame))) return kWorldConversationUnsupported;"
+          "text": "if (!_window.waiting() || !_window.handle(event) || !_window.paint(frame) || !settle(archive,frame,&game.discovery,random) || (_stage==3 && _conversation.trainingPending() && !trainingText(archive,0x9790,27,frame))) return kWorldConversationUnsupported;"
         },
         {
           "line": 139,
@@ -5696,7 +5751,7 @@
         },
         {
           "line": 157,
-          "text": "if(result==1) {_closing=_conversation.terminalReply();return show(archive,text,frame,&game.discovery)?kWorldConversationHandled:kWorldConversationUnsupported;}"
+          "text": "if(result==1) {_closing=_conversation.terminalReply();return show(archive,text,frame,&game.discovery,random)?kWorldConversationHandled:kWorldConversationUnsupported;}"
         },
         {
           "line": 162,
@@ -5704,11 +5759,11 @@
         },
         {
           "line": 167,
-          "text": "if (_conversation.submit(submitted)!=kConversationReply) return kWorldConversationUnsupported;"
+          "text": "if (_conversation.submit(submitted,random)!=kConversationReply) return kWorldConversationUnsupported;"
         },
         {
           "line": 169,
-          "text": "return showDialogue(archive,game,frame)?kWorldConversationHandled:kWorldConversationUnsupported;"
+          "text": "return showDialogue(archive,game,frame,random)?kWorldConversationHandled:kWorldConversationUnsupported;"
         },
         {
           "line": 171,
@@ -5728,7 +5783,7 @@
         },
         {
           "line": 291,
-          "text": "_stage=3;return (_closing?settle(archive,frame,&game.discovery):input(archive,frame))?kWorldConversationHandled:kWorldConversationUnsupported;"
+          "text": "_stage=3;return (_closing?settle(archive,frame,&game.discovery,random):input(archive,frame))?kWorldConversationHandled:kWorldConversationUnsupported;"
         },
         {
           "line": 293,
@@ -6027,7 +6082,7 @@
           "text": "if (!serviceText(archive,offset,combat,frame)) return kWorldConversationUnsupported;"
         }
       ],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_world_hazards.h",
@@ -6039,11 +6094,11 @@
         "nox/native_message_strip.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_world_input.h",
-      "sha256": "0e345ba2bbe2f435e5b1a10cd606f6587e9b41cade6c07563c9c0d36f1905673",
+      "sha256": "934f2eb823e1f6868fb585399e416833a492bed965189edc75dce5e88da74f70",
       "includes": [
         "nox/native_new_game.h",
         "nox/native_world_move.h",
@@ -6053,6 +6108,7 @@
         "nox/native_party_order.h",
         "nox/native_information_input.h",
         "nox/native_player_controls.h",
+        "nox/native_daylight.h",
         "nox/native_world_cast.h",
         "nox/native_world_cannon.h",
         "nox/native_world_open.h",
@@ -6437,7 +6493,7 @@
           "text": "if (NpcScheduler::apply(candidate,game.clock.hour,game.clock.minute,policy,schedule)==kNpcScheduleUnsupported) return reject(\"NPC schedule\");"
         }
       ],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_world_move.h",
@@ -6538,7 +6594,7 @@
           "text": "if (!pending && !completeClock(candidate,nextClock)) return kWorldMoveUnsupported;"
         }
       ],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_world_navigation.h",
@@ -6564,7 +6620,7 @@
           "text": "if (index+3>=36) return kNavigationUnsupported;"
         }
       ],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_world_open.h",
@@ -6602,7 +6658,7 @@
           "text": "if (slot<4) return kWorldOpenUnsupported;"
         }
       ],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_world_presentation.h",
@@ -6613,7 +6669,7 @@
         "nox/native_actor_paint.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_world_projectile.h",
@@ -6622,7 +6678,7 @@
         "nox/native_random.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_world_scene_phase.h",
@@ -6632,7 +6688,7 @@
         "nox/native_lighting.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_world_status.h",
@@ -6644,7 +6700,7 @@
         "nox/native_lighting.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_world_story.h",
@@ -6654,14 +6710,14 @@
         "nox/native_story_patches.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_world_transport.h",
       "sha256": "e792ffb69284a4906c72f0acfc354da72b9ac8d467f25dcf2f767c78f1c9d52b",
       "includes": [],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_world_transport_motion.h",
@@ -6672,7 +6728,7 @@
         "nox/native_random.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_world_travel.h",
@@ -6682,7 +6738,7 @@
         "nox/native_world_transport.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_world_viewport.h",
@@ -6693,7 +6749,7 @@
         "nox/native_tile_paint.h"
       ],
       "explicit_boundaries": [],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     },
     {
       "path": "engines/nox/native_world_wait.h",
@@ -6755,17 +6811,7 @@
           "text": "if (!nextWindow.captureRecords(candidate)) return kWorldWaitUnsupported;"
         }
       ],
-      "coverage": "Only individually recorded requirement/evidence scopes are credited; source presence is not completion."
-    },
-    {
-      "path": "engines/nox/native_daylight.h",
-      "sha256": "437ae3b48e596efa0e67b02d337381edb2b7b6df12aee8fb5c04049c2ee47e41",
-      "includes": [
-        "nox/native_clock.h",
-        "nox/native_visibility.h"
-      ],
-      "explicit_boundaries": [],
-      "coverage": "Only the qualified daylight requirement is credited."
+      "coverage": "Only individual requirement/evidence scopes are credited."
     }
   ],
   "counts": {
@@ -6810,9 +6856,9 @@
       "ce_replacements": 0
     },
     "npc": {
-      "known_required": 9,
-      "native_implemented": 0,
-      "verified": 0,
+      "known_required": 10,
+      "native_implemented": 1,
+      "verified": 1,
       "partial": 8,
       "missing": 0,
       "unknown_required_rows": 0,
@@ -6901,11 +6947,11 @@
     }
   },
   "last_milestone": {
-    "owner": "daylight simulation477c",
-    "known_required": 8,
-    "native_implemented": 8,
-    "focused_verified": 7,
-    "evidence": "SCUMMVM-CE-SIMULATION477-VERIFICATION.json"
+    "owner": "dialogue control/book478",
+    "known_required": 12,
+    "native_implemented": 12,
+    "focused_verified": 10,
+    "evidence": "SCUMMVM-CE-DIALOGUE478-VERIFICATION.json"
   },
   "overall": {
     "fully_implemented_top_level_domains": 1,
@@ -6919,6 +6965,6 @@
   },
   "current_subsystem": {
     "status": "IN PROGRESS",
-    "scope": "NPC conversation probability and callback producer closure; book/Cast shortcut integration."
+    "scope": "NPC response callbacks and structured text; authored source producer closure before implementation."
   }
 }
