@@ -99,10 +99,9 @@ inline GateResult portal(const byte *object, uint length, QuestFields fields,
 	// Match source precedence: absent authorization refuses before vehicle rules.
 	if (!(fields.data[object[9]] & object[11]))
 		return kGateLocked;
-	// Map-zero portals need a surface-return owner; do not guess its coordinates.
-	if (!object[5])
-		return kGateUnsupported;
-	if (!onFoot)
+	// Source9CA0/9CFB restricts mounted travel only for a nonzero map.
+    // Map-zero return portals carry their own authored coordinates.
+	if (object[5] && !onFoot)
 		return kGateNeedsFootTravel;
 	PortalDestination next = { object[4], object[5], object[7], object[8] };
 	after = next;

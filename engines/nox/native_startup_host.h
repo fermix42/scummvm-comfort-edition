@@ -65,6 +65,7 @@
 #include "nox/native_barrier_validation.h"
 #include "nox/native_location_presentation_validation.h"
 #include "nox/native_pressure_plate_validation.h"
+#include "nox/native_portal_validation.h"
 #include "nox/native_player_lifecycle_validation.h"
 #include "nox/native_ending.h"
 namespace Nox {
@@ -96,6 +97,12 @@ inline Common::Error NoxEngine::runNativeStartup() {
         }
         return Common::Error(Common::kReadingFailed,reason);
     };
+    if (ConfMan.hasKey("nox_native_portal_fixture")) {
+        Common::File input;Common::String report;
+        if (!input.open(Common::FSNode(ConfMan.getPath("nox_native_portal_fixture"))) || !validateNativePortal491(_resources,input,report)) return fail(report.empty()?"Portal focused check failed":report.c_str());
+        Common::OutSaveFile *out=_system->getSavefileManager()->openForSaving("nox-native-portal.tsv",false);if (!out) return Common::kWritingFailed;
+        out->writeString(report);out->finalize();const bool ok=!out->err();delete out;return ok?Common::Error(Common::kNoError):Common::Error(Common::kWritingFailed);
+    }
     if (ConfMan.hasKey("nox_native_pressure_plate_fixture")) {
         Common::File input;Common::String report;
         if (!input.open(Common::FSNode(ConfMan.getPath("nox_native_pressure_plate_fixture"))) || !validateNativePressurePlate490(_resources,input,report)) return fail(report.empty()?"Pressure plate focused check failed":report.c_str());
@@ -511,13 +518,13 @@ inline Common::Error NoxEngine::runNativeStartup() {
             if (!encounterState.oriented) {
                 // Older private presented checkpoints predate ordered facing
                 // ownership. Upgrade that operation without another clock tick.
-                Native::EncounterState next=encounterState;Native::HgrFrame image;
+                Common::ScopedPtr<Native::EncounterState> nextOwner0(new Native::EncounterState(encounterState));Native::EncounterState &next=*nextOwner0;Native::HgrFrame image;
                 if (!next.orientInitial(turns.presentation.facing) || !battlePresentation.paint(preparedEncounter,next,next.phase,image)) return false;
                 next.frame=image;encounterState=next;
             }
             return true;
         }
-        Native::EncounterState next=encounterState;Native::HgrFrame image;
+        Common::ScopedPtr<Native::EncounterState> nextOwner1(new Native::EncounterState(encounterState));Native::EncounterState &next=*nextOwner1;Native::HgrFrame image;
         if (!next.orientInitial(turns.presentation.facing) || !battlePresentation.paint(preparedEncounter,next,next.phase,image) || !Native::WorldMove::completeClock(game.world,game.clock)) return false;
         next.frame=image;next.presented=true;encounterState=next;return true;
     };
@@ -867,7 +874,7 @@ inline Common::Error NoxEngine::runNativeStartup() {
                     const byte answer=event.kbd.ascii?byte(event.kbd.ascii):byte(key);
                     const Native::CombatModeChoice choice=Native::CombatModeRules::choose(255,true,answer);
                     if (!choice.accepted) continue;
-                    Native::EncounterState next=encounterState;
+                    Common::ScopedPtr<Native::EncounterState> nextOwner2(new Native::EncounterState(encounterState));Native::EncounterState &next=*nextOwner2;
                     if (!Native::CombatModeAdmission::select(_resources,preparedEncounter,choice.mode!=0,next)) return fail("Native selected combat mode preparation failed");
                     Native::HgrFrame image;if (!battlePresentation.paint(preparedEncounter,next,next.phase,image)) return fail("Native selected combat mode could not present");
                     next.frame=image;encounterState=next;redraw=true;continue;
@@ -917,7 +924,7 @@ inline Common::Error NoxEngine::runNativeStartup() {
                 // events;ordinary keys cannot award rewards or resume the world.
                 if (encounterState.round.phase==Native::kBattleDefeat || encounterState.round.phase==Native::kBattleAutomaticTurn) continue;
                 if (encounterState.exit.phase) {
-                    Native::EncounterState next=encounterState;
+                    Common::ScopedPtr<Native::EncounterState> nextOwner3(new Native::EncounterState(encounterState));Native::EncounterState &next=*nextOwner3;
                     if (next.exit.phase==2) next.exit.phase=0;
                     else {
                         byte control=next.exit.control;bool prompt=false,refusal=false;
@@ -951,7 +958,7 @@ inline Common::Error NoxEngine::runNativeStartup() {
                     encounterState.frame=image;redraw=true;continue;
                 }
                 if (encounterState.command==3) {
-                    Native::EncounterState next=encounterState;Native::GameplayRandom after=random;Native::HgrFrame image;
+                    Common::ScopedPtr<Native::EncounterState> nextOwner4(new Native::EncounterState(encounterState));Native::EncounterState &next=*nextOwner4;Native::GameplayRandom after=random;Native::HgrFrame image;
                     const uint member=next.round.activeParty,index=member*4;
                     const byte caster=byte(next.records.compact[index+1]*17+next.records.compact[index]);
                     if (key==Common::KEYCODE_ESCAPE || key==Common::KEYCODE_TAB) {
@@ -974,7 +981,7 @@ inline Common::Error NoxEngine::runNativeStartup() {
                     next.frame=image;encounterState=next;random=after;redraw=true;continue;
                 }
                 if (encounterState.command==2) {
-                    Native::EncounterState next=encounterState;Native::GameplayRandom after=random;Native::HgrFrame image;Common::String notice;
+                    Common::ScopedPtr<Native::EncounterState> nextOwner5(new Native::EncounterState(encounterState));Native::EncounterState &next=*nextOwner5;Native::GameplayRandom after=random;Native::HgrFrame image;Common::String notice;
                     const bool selectingSpell=next.cast.phase==Native::kBattleCastSlot;
                     const Native::BattleCastInput handled=battleCast.handle(event,game.book,preparedEncounter.terrain.data(),preparedEncounter.terrain.size(),battleRound,after,next,notice);
                     if (handled==Native::kBattleCastUnsupported) return fail("Native Cast reached an unsupported family/status/NPC continuation");
@@ -988,7 +995,7 @@ inline Common::Error NoxEngine::runNativeStartup() {
                     next.frame=image;encounterState=next;random=after;redraw=true;continue;
                 }
                 if (encounterState.command==1) {
-                    Native::EncounterState next=encounterState;Native::GameplayRandom after=random;Native::PhysicalOutcome action;Native::HgrFrame image;
+                    Common::ScopedPtr<Native::EncounterState> nextOwner6(new Native::EncounterState(encounterState));Native::EncounterState &next=*nextOwner6;Native::GameplayRandom after=random;Native::PhysicalOutcome action;Native::HgrFrame image;
                     const uint index=next.round.activeParty*4;const byte caster=byte(next.records.compact[index+1]*17+next.records.compact[index]);
                     if (key==Common::KEYCODE_ESCAPE) Native::BattleAttack::cancel(next.attack);
                     else if (key==Common::KEYCODE_TAB) {
@@ -1012,7 +1019,7 @@ inline Common::Error NoxEngine::runNativeStartup() {
                 }
                 byte lockedParty;
                 if (Native::BattlePartyControl::requested(event.kbd,lockedParty)) {
-                    Native::EncounterState next=encounterState;Native::GameplayRandom after=random;Native::HgrFrame image;bool accepted=false;
+                    Common::ScopedPtr<Native::EncounterState> nextOwner7(new Native::EncounterState(encounterState));Native::EncounterState &next=*nextOwner7;Native::GameplayRandom after=random;Native::HgrFrame image;bool accepted=false;
                     if (!battleRound.lockParty(lockedParty,preparedEncounter.terrain.data(),preparedEncounter.terrain.size(),next.round,after,next.records,accepted)) return fail("Native party lock scheduling failed");
 #ifdef NOX_NATIVE_ONLY
                     if (!accepted && !playNativeRefusal()) return fail("Native party lock refusal sound failed");
@@ -1021,7 +1028,7 @@ inline Common::Error NoxEngine::runNativeStartup() {
                     next.frame=image;encounterState=next;random=after;redraw=true;continue;
                 }
                 if (key==Common::KEYCODE_f) {
-                    Native::EncounterState next=encounterState;Native::GameplayRandom after=random;Native::HgrFrame image;Native::CannonStep step;
+                    Common::ScopedPtr<Native::EncounterState> nextOwner8(new Native::EncounterState(encounterState));Native::EncounterState &next=*nextOwner8;Native::GameplayRandom after=random;Native::HgrFrame image;Native::CannonStep step;
                     const uint member=next.round.activeParty,index=member*4;
                     const byte caster=byte(next.records.compact[index+1]*17+next.records.compact[index]);
                     if (!battleCannon.begin(caster,next.cannon,step)) return fail("Native cannon station cycle failed");
@@ -1034,18 +1041,18 @@ inline Common::Error NoxEngine::runNativeStartup() {
                     next.frame=image;encounterState=next;random=after;redraw=true;continue;
                 }
                 if (Native::PlayerIcon::requested(event.kbd)) {
-                    Native::EncounterState next=encounterState;Native::HgrFrame image;
+                    Common::ScopedPtr<Native::EncounterState> nextOwner9(new Native::EncounterState(encounterState));Native::EncounterState &next=*nextOwner9;Native::HgrFrame image;
                     if (!Native::PlayerIcon::battle(next.records,next.round.partyCount,next.round.activeParty) || !battlePresentation.paint(preparedEncounter,next,next.phase,image)) return fail("Native party icon change failed");
                     next.frame=image;encounterState=next;redraw=true;continue;
                 }
                 if (key==Common::KEYCODE_p) { encounterState.attack.partyTargeting=!encounterState.attack.partyTargeting;continue; }
                 if (key==Common::KEYCODE_c) {
-                    Native::EncounterState next=encounterState;Native::HgrFrame image;
+                    Common::ScopedPtr<Native::EncounterState> nextOwner10(new Native::EncounterState(encounterState));Native::EncounterState &next=*nextOwner10;Native::HgrFrame image;
                     if (!Native::BattleCast::begin(next) || !battlePresentation.paint(preparedEncounter,next,next.phase,image)) return fail("Native Cast could not open its slot prompt");
                     next.frame=image;encounterState=next;redraw=true;continue;
                 }
                 if (key==Common::KEYCODE_a) {
-                    Native::EncounterState next=encounterState;const uint index=next.round.activeParty*4;
+                    Common::ScopedPtr<Native::EncounterState> nextOwner11(new Native::EncounterState(encounterState));Native::EncounterState &next=*nextOwner11;const uint index=next.round.activeParty*4;
                     const byte caster=byte(next.records.compact[index+1]*17+next.records.compact[index]);
                     if (!Native::BattleAttack::begin(next.records,caster,next.attack.partyTargeting,next.attack,next.target)) return fail("Native Attack could not prepare both hands and targets");
                     if (next.attack.phase==1) {
@@ -1062,7 +1069,7 @@ inline Common::Error NoxEngine::runNativeStartup() {
                     encounterState=next;continue;
                 }
                 if (key==Common::KEYCODE_SPACE) {
-                    Native::EncounterState next=encounterState;Native::GameplayRandom after=random;Native::HgrFrame image;
+                    Common::ScopedPtr<Native::EncounterState> nextOwner12(new Native::EncounterState(encounterState));Native::EncounterState &next=*nextOwner12;Native::GameplayRandom after=random;Native::HgrFrame image;
                     if (!battleRound.pass(preparedEncounter.terrain.data(),preparedEncounter.terrain.size(),next.round,after,next.records) ||
                         !battlePresentation.paint(preparedEncounter,next,next.phase,image)) return fail("Native tactical pass reached an unsupported turn/status policy");
                     next.frame=image;encounterState=next;random=after;redraw=true;continue;
@@ -1080,7 +1087,7 @@ inline Common::Error NoxEngine::runNativeStartup() {
                     encounterState.frame=image;redraw=true;continue;
                 }
                 }
-                Native::EncounterState next=encounterState;Native::GameplayRandom after=random;Native::HgrFrame image;bool moved=false;
+                Common::ScopedPtr<Native::EncounterState> nextOwner13(new Native::EncounterState(encounterState));Native::EncounterState &next=*nextOwner13;Native::GameplayRandom after=random;Native::HgrFrame image;bool moved=false;
                 if (!battleRound.move(direction,preparedEncounter.terrain.data(),preparedEncounter.terrain.size(),next.round,after,next.records,moved) ||
                     !battlePresentation.paint(preparedEncounter,next,next.phase,image)) return fail("Native tactical movement reached an unimplemented contact/terrain/edge branch");
                 next.frame=image;encounterState=next;random=after;redraw=true;
@@ -1094,14 +1101,14 @@ inline Common::Error NoxEngine::runNativeStartup() {
 #ifdef NOX_NATIVE_ONLY
             if (worldInput.takeRefusalSound() && !playNativeRefusal()) return fail("Native refusal sound failed");
 #endif
-            if (handled==Native::kWorldInputTransition) {
+            const auto adoptWorldTransition=[&]() -> bool {
                 const byte type=game.world.mapType();
-                if (player.music.ready() && (priorMusicType!=type || priorMusicMap!=game.world.mapId())) {if (!player.music.ambient(_resources,random,type,game.world.mapId())) return fail("Native ambient music selection failed");resetAudio();player.lastAudioTick=0;}
+                if (player.music.ready() && (priorMusicType!=type || priorMusicMap!=game.world.mapId())) {if (!player.music.ambient(_resources,random,type,game.world.mapId())) return false;resetAudio();player.lastAudioTick=0;}
                 if (!wait.load(_resources,type) || !status.load(_resources,type) || !battlePresentation.load(_resources,type) ||
-                        !actors.load(_resources,type) || !lighting.load(_resources,type) || !occlusion.load(_resources,type) || !painter.load(_resources,type))
-                    return fail("Native map transition resource owners unavailable");
-                handled=Native::kWorldInputHandled;
-            }
+                        !actors.load(_resources,type) || !lighting.load(_resources,type) || !occlusion.load(_resources,type) || !painter.load(_resources,type)) return false;
+                handled=Native::kWorldInputHandled;return true;
+            };
+            if (handled==Native::kWorldInputTransition && !adoptWorldTransition()) return fail("Native map transition completion failed");
             if (handled==Native::kWorldInputBoundary) return fail("Native world command reached an unsupported encounter/interaction boundary");
             if (handled==Native::kWorldInputUnsupported) return fail("Native world command could not complete its admitted phase");
             if (handled==Native::kWorldInputEncounter) {
@@ -1121,6 +1128,11 @@ inline Common::Error NoxEngine::runNativeStartup() {
                 } else if (result==Native::kWorldWaitDefeat) {worldInput.markDefeated();handled=Native::kWorldInputDefeat;}
                 else if (result!=Native::kWorldWaitAdvanced) return fail("Native Wait reached an unsupported effect boundary");
                 if (handled!=Native::kWorldInputDefeat && !Native::WorldInput::showMessage(messages,4,text,frame)) return fail("Native Wait message presentation failed");
+                if (result==Native::kWorldWaitAdvanced) {
+                    const Native::WorldInputResult portal=worldInput.finishTurn(_resources,game,window,prepared,turns,light,visibility,messages,text,frame,animationState.phase);
+                    if (portal==Native::kWorldInputUnsupported) return fail("Native Wait portal continuation failed");
+                    if (portal==Native::kWorldInputTransition && !adoptWorldTransition()) return fail("Native Wait portal destination setup failed");
+                }
                 ++waitCommands;redraw=true;
                 waitTrace+=Common::String::format("%u\t%u\t%u\t%u\t%u\t%u\t%u\n",waitCommands,uint(game.clock.phase),uint(game.clock.hour),uint(game.clock.minute),uint(game.clock.lightTicks),uint(game.clock.lightActive),uint(game.clock.hourlyCounter));
             }

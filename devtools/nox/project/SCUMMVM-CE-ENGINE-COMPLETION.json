@@ -3178,6 +3178,51 @@
       "production_connection": "WorldWait completednonbattle actor/objectphase ->WorldPressurePlate.apply actualcenterlookup ->activatePlate(resolvedslot) beforehazards/clock.",
       "fallback_dependencies": [],
       "blockers": []
+    },
+    {
+      "id": "story.10",
+      "subsystem": "story",
+      "behavior": "Portal after completed world turns,authorization,transport,map0return andorigin-effect priority",
+      "implementation": "IMPLEMENTED",
+      "verification": {
+        "status": "VERIFIED",
+        "scope": "Portal491focusedbatch andcompiledstack reduction;normalcold/session/campaign/fullmounted qualifications retained inreceipt.",
+        "evidence": "SCUMMVM-CE-PORTAL491-VERIFICATION.json"
+      },
+      "native_owners": [
+        "engines/nox/native_world_portal.h",
+        "engines/nox/native_gates.h",
+        "engines/nox/native_world_input.h",
+        "engines/nox/native_world_wait.h",
+        "engines/nox/native_world_actor_turn.h",
+        "engines/nox/native_startup_host.h"
+      ],
+      "original_evidence": [
+        "SCUMMVM-CE-ENGINE-PORTAL-CONTRACT.md"
+      ],
+      "production_connection": "Typed WorldInput fullclock/notice andhostSpaceWait ->finishTurn ->ownedtravel;selectedportal outranksoriginhazards. Startuptransactionheap preservesvaluecopy/commit.",
+      "fallback_dependencies": [],
+      "blockers": []
+    },
+    {
+      "id": "lifecycle.07",
+      "subsystem": "lifecycle",
+      "behavior": "Startup/tactical transaction copies avoid one-megabyte thread stack exhaustion",
+      "implementation": "IMPLEMENTED",
+      "verification": {
+        "status": "VERIFIED",
+        "scope": "Portal491focusedbatch andcompiledstack reduction;normalcold/session/campaign/fullmounted qualifications retained inreceipt.",
+        "evidence": "SCUMMVM-CE-PORTAL491-VERIFICATION.json"
+      },
+      "native_owners": [
+        "engines/nox/native_startup_host.h"
+      ],
+      "original_evidence": [
+        "SCUMMVM-CE-ENGINE-PORTAL-CONTRACT.md"
+      ],
+      "production_connection": "Typed WorldInput fullclock/notice andhostSpaceWait ->finishTurn ->ownedtravel;selectedportal outranksoriginhazards. Startuptransactionheap preservesvaluecopy/commit.",
+      "fallback_dependencies": [],
+      "blockers": []
     }
   ],
   "additional_unclassified_scope": [
@@ -4195,7 +4240,7 @@
     },
     {
       "path": "engines/nox/native_gates.h",
-      "sha256": "3c19eeaa79877c589db5f2de13ceb826ce42437e4cae6032b80d46c2859f2b85",
+      "sha256": "fc8f0ed3ff23b5dcda4cd29e622061e95d16800d9faf97a43675eaf167e1a08d",
       "includes": [],
       "explicit_boundaries": [
         {
@@ -5205,7 +5250,7 @@
     },
     {
       "path": "engines/nox/native_startup_host.h",
-      "sha256": "4f72e7d323c737e1584538ca67c4f3d3d17685a64c0181d6126733b2cd959eaf",
+      "sha256": "0292f4e6c796005856a7dadcde3665a039f2460b7ea1fca42fe6b8f2ffcfaeea",
       "includes": [
         "nox/native_weapon_ready_validation.h",
         "nox/native_legacy_snapshot.h",
@@ -5729,7 +5774,7 @@
     },
     {
       "path": "engines/nox/native_world_actor_turn.h",
-      "sha256": "de92fc2607b1bbf8e2155fc742380e6456c2f9e990082bd9316603178b34f5b8",
+      "sha256": "5be7af4802e34ba4101b3055e8dafbc81abca384432fdbda9454b03d570a6809",
       "includes": [
         "nox/native_compact_world_action.h",
         "nox/native_npc_world_action.h",
@@ -6426,7 +6471,7 @@
     },
     {
       "path": "engines/nox/native_world_input.h",
-      "sha256": "4bbdcaa3ac8aa4da5abdaf735cc81bf302ab43e353828aa149991449a99c779e",
+      "sha256": "5ec9f7c5ca6c82f5766553c39f5e7b5d67195b9d2a57a7abbc6686d8632fdc40",
       "includes": [
         "nox/native_new_game.h",
         "nox/native_world_move.h",
@@ -7078,7 +7123,7 @@
     },
     {
       "path": "engines/nox/native_world_story.h",
-      "sha256": "3cad2f20f47cf65debea4b868b7ccc29094e484d1d593732f84b25e57d692337",
+      "sha256": "4418c8f5648f5a0964f381fef6f24a5add99353e4b72c732931ef38eac969786",
       "includes": [
         "nox/native_world.h",
         "nox/native_story_patches.h"
@@ -7127,7 +7172,7 @@
     },
     {
       "path": "engines/nox/native_world_wait.h",
-      "sha256": "e299744976731f177d63d85ee22286d1bf28ca53ae74901934a9698205667222",
+      "sha256": "c035755d84f6461710e3618d03cd9596b5d6e84e9f49687d6f7ee99458cc06f8",
       "includes": [
         "nox/native_world_actor_turn.h",
         "nox/native_world_viewport.h",
@@ -7204,13 +7249,23 @@
       ],
       "explicit_boundaries": [],
       "coverage": "SourceEA35 phase;receipt490scope."
+    },
+    {
+      "path": "engines/nox/native_world_portal.h",
+      "sha256": "5e81ab6b7d98d7bf5d9892990222e9250bf909ca161c557d6629b00503e9b1cb",
+      "includes": [
+        "nox/native_world_travel.h",
+        "nox/native_world_presentation.h"
+      ],
+      "explicit_boundaries": [],
+      "coverage": "SourceF117/Combat.S86D1 portalpolicy/messages;receipt491scope."
     }
   ],
   "counts": {
     "lifecycle": {
-      "known_required": 6,
-      "native_implemented": 2,
-      "verified": 0,
+      "known_required": 7,
+      "native_implemented": 3,
+      "verified": 1,
       "partial": 4,
       "missing": 0,
       "unknown_required_rows": 0,
@@ -7298,9 +7353,9 @@
       "ce_replacements": 0
     },
     "story": {
-      "known_required": 8,
-      "native_implemented": 1,
-      "verified": 1,
+      "known_required": 9,
+      "native_implemented": 2,
+      "verified": 2,
       "partial": 7,
       "missing": 0,
       "unknown_required_rows": 1,
@@ -7339,8 +7394,8 @@
     }
   },
   "last_milestone": {
-    "owner": "pressure plate490",
-    "evidence": "SCUMMVM-CE-PRESSURE-PLATE490-VERIFICATION.json"
+    "owner": "portal491 andstartup stackfix",
+    "evidence": "SCUMMVM-CE-PORTAL491-VERIFICATION.json"
   },
   "overall": {
     "fully_implemented_top_level_domains": 1,
@@ -7354,7 +7409,7 @@
   },
   "current_subsystem": {
     "status": "IN PROGRESS",
-    "scope": "Portal491 ordinaryturn connection andmap0/transport support."
+    "scope": "Localedge outwardexit admission,then remainingnative source/lifecycleclosure."
   },
   "count_definition": "native_implemented counts IMPLEMENTED; CE_REPLACEMENT is separately reported. VERIFIED applies only to row evidence scope; no overall completion percentage."
 }

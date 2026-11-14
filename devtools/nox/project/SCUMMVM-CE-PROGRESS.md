@@ -1,3 +1,107 @@
+# Portal491 andstartup stack defect integrated - November14
+
+Final491c build0/0 2m53.75;focusedbatch VERIFIED:236policies/59actualrecords,
+2map0producers,4uniqueedgeframes,3actualarrows,3chimes,3core/modalcodecs,
+freeGno-repeat,Castle57stationaryreturn,UM104waterreturnbeforelethaloriginhazard.
+Initialfixture schedule omission corrected;491b exposedreal rootstackoverflow.
+14 EncounterState transactioncopies nowheap-owned,samecopy/commit semantics.
+PE/PDB rootstack822792->388296,lambda88888->16440;1MBreserveunchanged. NoRAM
+shortage/globalstack/OS/compiler/audio changes. Ownprocessfault__chkstk+55;
+staticdiagnosis,noextra failedgameplayruns. Finalcorrectivebatchpassed.
+Portal priority/clock/notice/Space/transportpolicy typednative;selectedportal
+skipsoriginprojectile/environment effect beforeclock. Success/refusalreuse
+acceptedSpeaker events;nomusic/synthesisownerchange. Source/exe frozen491c.
+CElocaledgepresentation repeatnearestauthorededge;physical/AIbounds unchanged.
+Controlledactualsetup includesmapScheduler,torch120,briefsourcefreezeTimer3.
+Not earned/unassistedroute,campaign,audio/oldsuite ornormalcold/session.
+Nextsourcegap:localportalarrivalsbeyondoriginalexactexit thresholds (x40/y39)
+canwalkoutwardwithoutleaveprompt thenhitphysical48bound. Contract492:extend
+outwardthresholdcomparisononlyforauthorededge/legacypositions;normalinterior
+thresholdsandphysicalcollision retained. No speculative sourcefeaturequeue.
+
+# Portal491c corrective build active - IN PROGRESS
+
+Second/finalcorrectivebuild inprogress34473. 14 EncounterState valuecopy
+transactions ineventbranches/lambdas movedtoscopeheap;sourcecopy/commit stays
+identical. No globalstack/buildflag/audioengine changes. ReadcorrectedPE/PDB
+stack using inspect_portal491b_symbols.py --label491c andinspect_portal491b_stack.py
+--label491c afterbuild (read-only,no gameplay). Thenexactone finalfocusedrun:
+python conversion/check_portal491.py --label491c. Ifunsuccessfulstop491native
+loopperbudget,recordpartialcoverage/blockerandcontinueindependentwork.
+Do not rerun486,oldaudio/gate/campaign suites. Noactivegoals/agents/automation.
+CurrentGitHEAD9192202cfb6;491enginechangesuncommitted. Canonical/CErecovery
+progress/portalcontractcopies currentaftermirror. Needfreeze/receipt/matrix/commit
+491afterresult,thenremainingnativeproducer/lifecycleclosure.
+Independentstaticcensus:upcominguniqueNPCroutes overauthoredlocalmaps/1440
+clockminutes max8(Town38/28),below10 queuecapacity;no new queue-errorUI indicated
+fornativebornbase schedules. Worldspell61/62 emptybookplaceholders,notmissing
+normalcastereffects;unauthoredUse candidates abovevalidtable overlapprogramdata.
+Legacyeffects.active comesold37F9 collision-bypass/debugflag,notan ordinarynative
+producer;broader importqualification retained. Do notinventfeaturesfrommarkers.
+
+# Portal491b stack overflow diagnosed - IN PROGRESS
+
+491b build0/0 2m53.57;onecorrectiverun ends0xC00000FD(no nativefailure receipt)
+aftercheckpoint scheduleprerequisite fixed. WindowsApplication1000/1001 ownprocess
+faultoffset063F3937;localPDB resolves__chkstk+55. No furthergame runfordiagnosis.
+Read-only PE x64unwind allocations:EXE stackreserve1048576;runNativeStartup822792,
+portalfixture46424,handleCommand33432,WorldWait36008,ActorTurn22840,NpcWorldAction
+21704,Dispatcher21672,RouteRecovery21672. Theirnestedchain already1026544before
+outerengine/OS frames:source-backedstackexhaustion,not speculativehardware.
+Localce-native-portal491b-symbols-local.json/stack-local.json retainproof. WER
+ownprocessdump alreadyremovedbyWindows;noOSsettingschanged/noextraexecution.
+Movealltransactional EncounterState copiesin startup/tactical event branches
+ontoScopedPtr heap;keepvaluecopy/commit/cleanup semantics. Playerstatealready
+heap-owned. No globalstackincrease/compilerflags/gameplay/audiochange. Root
+stackwillbe re-readfromcorrectedbinaryafterbuild. Second/finalcorrective491c
+focusedrun allowed;stopthisloopifunsuccessfulandcontinueindependentwork.
+
+# Portal491 first focused failure - IN PROGRESS
+
+Build4910/0 2m51.13. Firstbatch passes236gatepolicies,4edgeframes;actualCastle54
+arrowstopsatprepareClockInput warningNative scheduledroute result3=NoRoute,
+beforeportalclock/gate. FixtureloadednewWorldbutkeptNewGameKeep7schedule selected
+state;missingNpcScheduler.apply actualmapentry/coldprerequisite. Correct declared
+setup viaactualsourceScheduler.apply before checkpointviewport;no outcome reset
+orportalpermissionmutation afterinput. Addexactreturnedresult/pos/phase/HP and
+codec/Wait labels. Firstcorrective491b build/batch next. IfNoRoutepersistsafter
+correctsetup,investigateschedulerownerstatically ratherthan weakenportalcriteria.
+No audio/old suite/campaign. Two corrective reruns max;noneusedyet.
+
+# Portal491 implementation ready - IN PROGRESS
+
+Typed WorldPortal gate/selectedslot/messages joins existingtravel/cargo/nav/light/
+schedule. Correctedmap0/mountedguard;ActorTurn resetsportalindexsourceD025.
+WorldInput wrapsfullclockphase/hour/minutecompletedtransactions;noticeclosure
+resolvesbeforecarriedkey;automatictransportsubsteps allowed atturnboundary,
+no freeG/torch/idleactivation. HostSpaceWait calls samefinishTurn/sharedtransition
+refresh. SourceF117 priority:WorldWait selectedportal skips/clearsoriginqueued
+projectile andterrain effects beforeclock/travel;locked/refusedkeepshazards.
+CEpresentation-onlylocaledgeclamping inWorldStory.project/lightingSample;
+physicalterrain/AI/collision untouched. Success9142/refusal910E reuse accepted
+SoundEvents cues;no synthesis/musicownerchanges oroldaudio suite.
+Focused491:59rawstrict56records/236gatepolicies,two map0;4uniqueedgeframescover
+5producers;actualCastle54missing/allowedarrow,Castle57stationaryreturn,UM104
+waterportalreturnSurface0beforeotherwiselethal71damage,core/modalcodecs/freeG,
+3successchimes. Controlledtorch120/sourcefleestylefreeze3beforefirstinput;
+not earned/unassistedtraversal. Fullmountedcargo/normalcold/session separate.
+Oneintegrationbuild/nativebatch next. No campaign/oldgate/audio suite.
+
+# Active portal491 source contract - IN PROGRESS
+
+Pressureplate490 committed9192202cfb6;first build/batch passed. Portal contract
+ENGINE-PORTAL-CONTRACT defined beforecode. SourceCombat.S86D1/0167,A1 gate then
+nonzero-map footrestriction,map0 authoredcoords/transport permitted. 59 strict56
+candidates,two map0. Existinghelpers have no ordinarycaller/wrongmap0guard.
+Plan:typedplan/messages,WorldInput command/fullclock/notice wrapper,sharedhost
+SpaceWait finishTurn,existingtravel/resource/music owners,onefocusedbatch.
+Authored Castle54->57arrives38,44 andcurrentlocalviewport/lighting failsoutside
+48x48. Explicit CEpresentation-onlynearestedge terrain extension foruncompressed
+maps;rawterrain/physicalcollision/AIbounds unchanged. No machineoverflowart.
+Sourceportalfilelocal ce-native-portal491-source.txt is correctCombat.S raw
+359bytes;initial wrongInventory probe was discarded,not evidence.
+Noactivebuild. Continue491implementation,do notstopatmilestone.
+
 # Pressure plate490 integrated - November14
 
 First build0/0 2m57.78;firstbatch VERIFIED:14actualresourceplate candidates,

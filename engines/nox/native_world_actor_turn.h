@@ -47,7 +47,7 @@ public:
         if (!world.ready() || world.mapType()!=_type || world._onFoot!=(state.presentation.partyObject==255) || !visibility || count!=187 || state.presentation.facing>3 || scroll>4) return false;
         World candidate(world);WorldActorTurnState next=state;NpcScheduleState nextSchedule=schedule;NpcRouteStore nextStore=store;
         GameplayRandom after=random;TextGlyphSurface text=surface;WorldScene scene=prior;WorldActorTurnEvent raised;
-        scene.draws.clear();scene.actors.draws.clear();scene.objects.draws.clear();scene.actors.hiddenByTurn=state.presentation.hidden;candidate.syncObjectFields(scene.objects.lookup);
+        scene.draws.clear();scene.actors.draws.clear();scene.objects.draws.clear();scene.objects.portal=255;scene.actors.hiddenByTurn=state.presentation.hidden;candidate.syncObjectFields(scene.objects.lookup);
         for (uint slot=0;slot<=252 && !raised.battle;slot+=4) {
             const byte *object=candidate.currentTables()->data()+1024+slot;
             const byte ox=byte(object[0]-candidate.x()+128),oy=byte(object[1]-candidate.y()+128);

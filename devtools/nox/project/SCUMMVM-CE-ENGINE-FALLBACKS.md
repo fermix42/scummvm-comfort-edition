@@ -1,3 +1,5 @@
+Portal491:uncompressedmap presentation-only outsidegrid samplesrepeatnearestauthorededge;physical/AIgeometrybounded. Originaloverflowart is explicitCEreplacement. Typedportal travel andevents;noCPUfallback. Startupheaptransactions preserve native semantics.
+
 Location489 explicitly replaces retained scratch naming with CE Town/Castle categories for exact three nameless records. No invented source names or CPU fallback. Historical names remainUNKNOWN parity.
 
 Preferences485 deliberately replaces forced067D graphics-scratch dependence

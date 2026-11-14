@@ -96,15 +96,25 @@ public:
     // Keep signed column carry into adjacent rows; this is not world wrapping.
     bool lightingSample(const World &world,int column,int row,byte &tile) const {
         if (!matchesWorld(world)) return false;
-        const int offset=(int(byte(world.y()-_top))+row-5)*48+int(byte(world.x()-_left))+column-8;
-        if (offset<0 || offset>=2304) return false;
+        const int x=int(byte(world.x()-_left))+column-8,y=int(byte(world.y()-_top))+row-5;
+        const MapDefinition *map=world.mapDefinition();if (!map) return false;
+        if (!map->compressed && (x<0 || x>=48 || y<0 || y>=48)) {
+            // CE presentation extends the actual local edge,not adjacent machine
+            // scratch. Physical terrain/AI/collision remain bounded separately.
+            tile=_state.terrain[(y<0?0:y>47?47:y)*48+(x<0?0:x>47?47:x)];return true;
+        }
+        const int offset=y*48+x;if (offset<0 || offset>=2304) return false;
         tile=_state.terrain[offset];return true;
     }
     bool project(const World &world, Common::Array<byte> &output) const {
         if (!world.ready() || world.mapType() != _type || world.mapId() != _map) return false;
         Common::Array<byte> next; next.resize(187);
-        for (uint row = 0; row < 11; ++row) for (uint column = 0; column < 17; ++column)
-            if (!terrainAt(byte(int(world.x()) + int(column) - 8),byte(int(world.y()) + int(row) - 5),next[row * 17 + column])) return false;
+        const MapDefinition *map=world.mapDefinition();if (!map) return false;
+        for (uint row=0;row<11;++row) for (uint column=0;column<17;++column) {
+            int x=int(world.x())+int(column)-8,y=int(world.y())+int(row)-5;
+            if (!map->compressed) {x=x<0?0:x>47?47:x;y=y<0?0:y>47?47:y;}
+            if (!terrainAt(byte(x),byte(y),next[row*17+column])) return false;
+        }
         output = next; return true;
     }
     bool captureRecords(const World &world) {

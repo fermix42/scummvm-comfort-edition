@@ -16,6 +16,7 @@
 #include "nox/native_world_attack.h"
 #include "nox/native_world_dig.h"
 #include "nox/native_world_open.h"
+#include "nox/native_world_portal.h"
 #include "nox/native_world_camp.h"
 #include "nox/native_search_input.h"
 #include "nox/native_npc_navigation.h"
@@ -54,9 +55,10 @@ public:
     bool noticeActive() const { return _roster.active() || _waitHoursPending || _information.active() || _partyOrder.active() || _search.active() || _fireDirection || _attackDirection || _digDirection || _notice || _conversation.active() || _inventory.active() || _casting.active(); }
     void inheritCombatHistory(const WorldInput &other) {_fireProtected=other._fireProtected;}
     bool wholeFrameMenu() const { return _roster.active() || _waitHoursPending || _information.active() || _partyOrder.active() || _search.active() || _casting.active() || _inventory.active() || _conversation.stage()>=22; }
-    bool atWorldCommand() const {
+    bool atWorldCommand() const {return atTurnBoundary() && !_transport.pendingSteps && !_transport.alignment;}
+    bool atTurnBoundary() const {
         return !_roster.active() && !_waitHoursPending && !_information.active() && !_partyOrder.active() && !_search.active() && !_notice && !_openDirection && !_leave && !_fireDirection && !_attackDirection && !_digDirection && !_encounter.battle && !_conversation.active() &&
-            !_inventory.active() && !_casting.active() && !_transport.defeated && !_transport.pendingSteps && !_transport.alignment;
+            !_inventory.active() && !_casting.active() && !_transport.defeated;
     }
     bool matchesWorld(const World &world) const { return _information.matchesWorld(world) && _search.matches(world) && _casting.matches(world) && _inventory.matches(world) && _conversation.matchesWorld(world) && world.onFoot()==(_transport.object==255); }
     bool worldDefeated() const {return _transport.defeated;}
@@ -127,6 +129,33 @@ public:
     WorldInputResult handle(const Common::Event &input,HdvArchive &archive,NewGame &game,WorldStory &window,WorldScene &scene,
             WorldActorTurnState &turn,LightState &light,VisibilityMask &visibility,NpcRouteStore &routes,GameplayRandom &random,
             const FixedMessageCatalog &catalog,TextGlyphSurface &text,HgrFrame &frame,byte animation=0) {
+        TurnClock checked=game.clock;
+        const WorldInputResult result=handleCommand(input,archive,game,window,scene,turn,light,visibility,routes,random,catalog,text,frame,animation,checked);
+        if ((result==kWorldInputHandled || result==kWorldInputIgnored) && atTurnBoundary() &&
+                (checked.phase!=game.clock.phase || checked.hour!=game.clock.hour || checked.minute!=game.clock.minute)) {
+            const WorldInputResult portalResult=finishTurn(archive,game,window,scene,turn,light,visibility,catalog,text,frame,animation);
+            if (portalResult!=kWorldInputHandled) return portalResult;
+        }
+        return result;
+    }
+    WorldInputResult finishTurn(HdvArchive &archive,NewGame &game,WorldStory &window,WorldScene &scene,WorldActorTurnState &turn,
+            LightState &light,VisibilityMask &visibility,const FixedMessageCatalog &catalog,TextGlyphSurface &text,HgrFrame &frame,byte animation=0) {
+        if (!atTurnBoundary()) return kWorldInputHandled;
+        WorldTravelPlan plan;const WorldPortalResult result=WorldPortal::prepare(game.world,scene,plan);
+        if (result==kWorldPortalNone) return kWorldInputHandled;
+        if (result==kWorldPortalInvalid) return kWorldInputUnsupported;
+        if (result==kWorldPortalNeedsFoot) {if (_sounds) _sounds->push_back(kSpeakerRefusal);return message(catalog,23,text,frame)?kWorldInputHandled:kWorldInputUnsupported;}
+        Common::String body;if (!WorldPortal::text(archive,result==kWorldPortalSelected,body) || !message(body,text,frame)) return kWorldInputUnsupported;
+        if (result==kWorldPortalLocked) return kWorldInputHandled;
+        if (!travel(archive,game,window,scene,turn,light,visibility,frame,plan,animation)) return kWorldInputUnsupported;
+        _transport.pendingSteps=0;_transport.pendingDirection=255;_transport.alignment=false;
+        if (_sounds) _sounds->push_back(kSpeakerSelection); // Source portal9CC6 ->GAME9142.
+        return text.importPages(frame.data(),frame.data(),8192)?kWorldInputTransition:kWorldInputUnsupported;
+    }
+private:
+    WorldInputResult handleCommand(const Common::Event &input,HdvArchive &archive,NewGame &game,WorldStory &window,WorldScene &scene,
+            WorldActorTurnState &turn,LightState &light,VisibilityMask &visibility,NpcRouteStore &routes,GameplayRandom &random,
+            const FixedMessageCatalog &catalog,TextGlyphSurface &text,HgrFrame &frame,byte animation,TurnClock &checkedClock) {
         if (animation>3) return kWorldInputUnsupported;
         if (input.type!=Common::EVENT_KEYDOWN) return kWorldInputIgnored;
         if (_transport.defeated) return kWorldInputDefeat;
@@ -317,7 +346,9 @@ public:
                 if (!frame.putByte(x,y,_underlay.data()[HgrFrame::rowOffset(y)+x])) return kWorldInputUnsupported;
             if (_campNotice) {_campNotice=false;_notice=false;return kWorldInputHandled;}
             if (!WorldMove::completeClock(game.world,game.clock)) return kWorldInputUnsupported;
-            _notice=false;
+            _notice=false;checkedClock=game.clock;
+            const WorldInputResult portalResult=finishTurn(archive,game,window,scene,turn,light,visibility,catalog,text,frame,animation);
+            if (portalResult!=kWorldInputHandled) return portalResult;
             // The original notice does not acknowledge this key. Continue
             // handling this same event as an ordinary command.
         }
@@ -468,6 +499,7 @@ public:
         }
         return kWorldInputHandled;
     }
+public:
     bool save(Common::WriteStream &out) const {
         if (_digDirection) {
             Common::ScopedPtr<WorldInput> base(new WorldInput(*this));base->_digDirection=false;

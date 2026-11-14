@@ -1,0 +1,59 @@
+{
+  "status": "IN PROGRESS",
+  "scope": "Portal ordinary-turn owner,local edge presentation andstartup stack defect implemented;focused validation VERIFIED. Complete engine qualification unfinished.",
+  "parent_commit": "9192202cfb6",
+  "executable_sha256": "039a2d5b956257c566b7454bf60932fa8a6cb33cf3904ef936af8fe3270a4488",
+  "source_hash_manifest": {
+    "path": "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-portal491c-focused\\verification.json",
+    "sha256": "0648c68202be7a9f0cb8062510ef377820faefbf3c494af8d9c02e88b1bbd7be"
+  },
+  "build": {
+    "result": "491c:0 warnings,0 errors,2m53.75s",
+    "native_batches": 3,
+    "failures": [
+      "491:fixture omitted actual map NPC schedule initialization;NoRoute before portal.",
+      "491b:schedule fixed,then0xC00000FD. Ownprocess WER fault __chkstk+55;localPE/PDB prove startupstack822792vs1048576reserve anddeepNPC callchain exhaustion.",
+      "491c:moved14 transaction EncounterState copies to scopedheap;fullbatch passes."
+    ]
+  },
+  "focused_validation": {
+    "status": "VERIFIED",
+    "report": "portal\tsource_policies=236\tmap0_producers=2\tunique_edge_frames=4\tactual_arrows=3\tportal_chimes=3\tcore_modal_codecs=3\tfree_G_no_repeat=3\tstationary_edge_return=1\twater_origin_damage_skipped=1\tcampaign=0\taudio_suite=0\n"
+  },
+  "stack_fix": {
+    "status": "VERIFIED",
+    "PE_stack_reserve_unchanged": 1048576,
+    "startup_bytes_before": 822792,
+    "startup_bytes_after": 388296,
+    "presentation_lambda_before": 88888,
+    "presentation_lambda_after": 16440,
+    "method": "Read-only local PE x64 unwind/PDB;no extra game runs orOSsetting changes. 14 heap-owned valuecopy/commit transactions preserve semantics."
+  },
+  "commands": [
+    "powershell.exe -NoProfile -ExecutionPolicy Bypass -File ./run-build-release-cleanenv.ps1 -NoxNativeOnly",
+    "python conversion/check_portal491.py",
+    "python conversion/check_portal491.py --label 491b",
+    "python conversion/inspect_portal491b_symbols.py --label 491c",
+    "python conversion/inspect_portal491b_stack.py --label 491c",
+    "python conversion/check_portal491.py --label 491c"
+  ],
+  "controlled_setup": "59 actual source record gate policies;fourunique localedge destinations/fiveproducers. Actual Castle54 refusal/travel,Castle57 stationaryreturn,UM104waterportalSurface0beforehazards. Actualmap schedule applied,torch120/sourceflee-style freezeTimer3 before firstinput;retainedthereafter. Not earned/unassisted approach. Directcore/modal codecs,not normalEnginecold/session.",
+  "ce_replacements": [
+    "Uncompressed presentation-only samples beyond local0..47 repeatnearestauthorededge. Rawterrain/physicalcollision/AIbounds unchanged. Historicaloverflowart intentionallynotreproduced."
+  ],
+  "remaining_qualifications": [
+    "Fullmountedmap0cargo/actor/cold/session notfreshlyqualified;typedpolicy andexistingWorldTravel cargoowner reused.",
+    "No oldgate/portal/audio suite,campaign,earnedroute or normalEnginecold/session claim.",
+    "Immediate postbattle portal remains owned by actual next completed world continuation;never whileencounter/result stillowns world."
+  ],
+  "artifacts": {
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-binary\\scummvm-native-portal491c.exe": "039a2d5b956257c566b7454bf60932fa8a6cb33cf3904ef936af8fe3270a4488",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-binary\\native-portal491c-source.zip": "923b4bd8564d891514702ccc261ad51f09fe28d40cf1322a41c09aea1f79579d",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-portal491c-focused\\verification.json": "0648c68202be7a9f0cb8062510ef377820faefbf3c494af8d9c02e88b1bbd7be",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-portal491-source.bin": "065d5160eefce3fb64f71a149e93a956ec225327708943617cfd689b1c8f668b",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-portal491c-build.log": "861984159a47b13421e930f3a041a7c472174b26456ac9f71608646a89da4444",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-portal491b-stack-local.json": "1db0043a4853f3ca5411a579d923c5b3de856f6bbb91f7dc36df0226f3503623",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-portal491c-stack-local.json": "8f238d31a3eec59e069423923bc9c09c0cdd42a831427b83ff5632dcc360d990"
+  },
+  "next": "Finish source-derived local edge exit admission;continue remaining native subsystem/source producer closure."
+}

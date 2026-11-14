@@ -7,6 +7,7 @@
 #include "nox/native_world_hazards.h"
 #include "nox/native_world_projectile.h"
 #include "nox/native_world_pressure_plate.h"
+#include "nox/native_world_portal.h"
 namespace Nox { namespace Native {
 enum WorldWaitResult { kWorldWaitAdvanced,kWorldWaitBattle,kWorldWaitPendingEffect,kWorldWaitUnsupported,kWorldWaitDefeat };
 // Stationary on-foot Keep wait transaction through lighting, ordered actors,
@@ -40,8 +41,13 @@ public:
         if (!raised.battle) {
             if (next.effects.active) return kWorldWaitPendingEffect;
             if (!WorldPressurePlate::apply(candidate,nextScene)) return kWorldWaitUnsupported;
+            WorldTravelPlan portalPlan;const WorldPortalResult portalResult=WorldPortal::prepare(candidate,nextScene,portalPlan);
+            if (portalResult==kWorldPortalInvalid) return kWorldWaitUnsupported;
+            const bool portalSelected=portalResult==kWorldPortalSelected;
+            // F117 travels before F777/F6D4;discard origin post-turn effects.
+            if (portalSelected) next.effects.queued=0;
             bool projectileHit=false;
-            if (next.effects.queued) {
+            if (!portalSelected && next.effects.queued) {
                 if (!party) return kWorldWaitPendingEffect;
                 WorldProjectileOutcome projectile;
                 if (!next.effects.originKnown || !WorldProjectile::hostile(next.effects.originX,next.effects.originY,next.effects.code,next.effects.projectileMode,after,projectile)) return kWorldWaitUnsupported;
@@ -49,8 +55,8 @@ public:
                 projectileHit=projectile.hit;next.effects.queued=0;next.effects.projectileMode=true;
             }
             const byte slot=nextScene.actors.lookup[93];
-            if (!party && slot!=255 && nextScene.actors.kinds[93]==0 && (*candidate.currentTables())[768+slot+2]==225) return kWorldWaitPendingEffect;
-            if (party && !_hazardRules.apply(candidate,nextScene,nextParty,catalog,text,nextFrame,defeated,projectileHit,&effects)) return kWorldWaitUnsupported;
+            if (!portalSelected && !party && slot!=255 && nextScene.actors.kinds[93]==0 && (*candidate.currentTables())[768+slot+2]==225) return kWorldWaitPendingEffect;
+            if (!portalSelected && party && !_hazardRules.apply(candidate,nextScene,nextParty,catalog,text,nextFrame,defeated,projectileHit,&effects)) return kWorldWaitUnsupported;
             if (completeClock && !defeated) {
                 ClockAdvance advance;if (!advanceTurnClock(clock,advance)) return kWorldWaitUnsupported;nextClock=advance.after;
                 candidate._fields[20]=nextClock.hourlyCounter;
