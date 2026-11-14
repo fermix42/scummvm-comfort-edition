@@ -55,6 +55,19 @@ public:
 		return true;
 	}
 	const InventoryItem *item(uint slot) const { return slot < 256 ? &_items[slot] : nullptr; }
+    // Original reorder visits all256 slots, including opaque empty records.
+    bool exchangeOwners(byte first, byte second) {
+        if (!first || !second || (first&(first-1)) || (second&(second-1))) return false;
+        if (first==second) return true;
+        for (uint i=0;i<256;++i) for (uint field=3;field<=4;++field) {
+            byte &value=_items[i].bytes[field];
+            const byte before=value;
+            value=byte(before&~(first|second));
+            if (before&first) value|=second;
+            if (before&second) value|=first;
+        }
+        return true;
+    }
 	int find(byte kind, byte id) const {
 		if (kind > 2) return -1;
 		for (uint i = 0; i < 256; ++i)

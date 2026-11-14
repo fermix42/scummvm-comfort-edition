@@ -7,6 +7,7 @@
 #include "nox/native_world_travel.h"
 #include "nox/native_world_conversation.h"
 #include "nox/native_inventory_window.h"
+#include "nox/native_party_order.h"
 #include "nox/native_world_cast.h"
 #include "nox/native_world_cannon.h"
 #include "nox/native_world_open.h"
@@ -45,11 +46,11 @@ public:
         if (_sounds) _sounds->push_back(kSpeakerSelection);return true;
     }
     bool takeRefusalSound() {const bool sound=_refusalSound;_refusalSound=false;return sound;}
-    bool noticeActive() const { return _search.active() || _fireDirection || _notice || _conversation.active() || _inventory.active() || _casting.active(); }
+    bool noticeActive() const { return _partyOrder.active() || _search.active() || _fireDirection || _notice || _conversation.active() || _inventory.active() || _casting.active(); }
     void inheritCombatHistory(const WorldInput &other) {_fireProtected=other._fireProtected;}
-    bool wholeFrameMenu() const { return _search.active() || _casting.active() || _inventory.active() || _conversation.stage()>=22; }
+    bool wholeFrameMenu() const { return _partyOrder.active() || _search.active() || _casting.active() || _inventory.active() || _conversation.stage()>=22; }
     bool atWorldCommand() const {
-        return !_search.active() && !_notice && !_openDirection && !_leave && !_fireDirection && !_encounter.battle && !_conversation.active() &&
+        return !_partyOrder.active() && !_search.active() && !_notice && !_openDirection && !_leave && !_fireDirection && !_encounter.battle && !_conversation.active() &&
             !_inventory.active() && !_casting.active() && !_transport.defeated && !_transport.pendingSteps && !_transport.alignment;
     }
     bool matchesWorld(const World &world) const { return _search.matches(world) && _casting.matches(world) && _inventory.matches(world) && _conversation.matchesWorld(world) && world.onFoot()==(_transport.object==255); }
@@ -115,6 +116,16 @@ public:
         if (input.type!=Common::EVENT_KEYDOWN) return kWorldInputIgnored;
         if (_transport.defeated) return kWorldInputDefeat;
         if (_encounter.battle) return kWorldInputBoundary;
+        // Roster selection is a free, exclusive command. Handle it before
+        // the world input-loop schedule services; no time/AI/RNG advances.
+        if (_partyOrder.active()) {
+            const PartyOrderResult result=_partyOrder.handle(input,archive,game.party,game.inventory,frame);
+            if (result==kPartyOrderUnsupported) return kWorldInputUnsupported;
+            if (result==kPartyOrderClosed && !text.importPages(frame.data(),frame.data(),8192)) return kWorldInputUnsupported;
+            return kWorldInputHandled;
+        }
+        if (atWorldCommand() && input.kbd.keycode==Common::KEYCODE_n)
+            return game.ready() && _partyOrder.begin(archive,game.party,frame)?kWorldInputHandled:kWorldInputUnsupported;
         if (atWorldCommand() && game.world.mapType()>=4 && game.world.mapId()!=69) {
             // Original input-loop services: activate the authored clock row,
             // prefetch upcoming routes, then complete their semantic searches.
@@ -387,6 +398,7 @@ public:
         return kWorldInputHandled;
     }
     bool save(Common::WriteStream &out) const {
+        if (_partyOrder.active()) return false; // Normal CE save eligibility excludes this transient selector.
         if (_campNotice) {
             if (!_notice) return false;
             Common::ScopedPtr<WorldInput> baseOwner(new WorldInput(*this));baseOwner->_campNotice=false;
@@ -580,7 +592,7 @@ private:
         return true;
     }
     bool _notice,_campNotice,_openDirection,_leave,_fireDirection,_fireProtected,_scriptedEncounter,_refusalSound;TextWindow _window;HgrFrame _underlay;
-    WorldActorTurnEvent _encounter;WorldConversation _conversation;WorldTransportState _transport;InventoryWindow _inventory;WorldCast _casting;
+    WorldActorTurnEvent _encounter;WorldConversation _conversation;WorldTransportState _transport;InventoryWindow _inventory;WorldCast _casting;PartyOrderInput _partyOrder;
     SearchInput _search;WorldMove _move;WorldOpen _open;WorldWait _wait;StoryMapPatches _story;ActorPaintRules _actors;TerrainLighting _lighting;OcclusionRules _occlusion;TilePainter _painter;SoundEvents *_sounds;
 };
 } }

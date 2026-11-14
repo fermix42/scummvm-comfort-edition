@@ -1,3 +1,732 @@
+# Source-driven milestone: native party ordering implemented â€” November14
+
+Current CE branch codex/ce-2026.4.0-consolidated. Audit/contract commit1d3b4095a9c;
+accepted audio473 source/build-selector baseline committed54714c3f6c2 without
+replacing current files. New party-order delta is6 isolated source files.
+The117-row/13-domain matrix is an initial conservative source inventory, not an
+exhaustive original-producer proof. Audio remains accepted;12 domains retain
+unclassified original scope. No engine percentage or D3-D5 completion claim.
+
+Party order:12/12 scoped behaviors natively implemented,10 focused verified,
+2 broader integration qualifications deferred;0 missing/unknown within that
+defined owner,0 interpreter fallback. Both interface and inventory requirements
+advance from missing to implemented/scoped verified. N now performs two native
+selections and an atomic full-character/equipment/inventory-mask permutation.
+Preserves the world frame; saving/other commands are blocked while selecting;
+no time/RNG/actor advancement. Actual original equipment/inventory tail96DA-9791
+compares91 pairs over1..6 members; character expectation is static source-derived.
+Original banked1970 is not falsely claimed as a flat-memory execution oracle.
+
+Build474 passed0warnings/0errors. Focused91 record cases passed, but its UI fixture
+lacked required text initialization. Corrected fixture only;474b passed0warnings/
+0errors and the single corrective focused batch passed, including both cancels,
+dead-arrow selection, party persistence, frame and world/clock/RNG preservation.
+Extra build is justified solely by that direct fixture failure. No audio suite,
+campaign traversal or gameplay discovery ran. Receipt/source/executable/evidence:
+SCUMMVM-CE-PARTY-ORDER474-VERIFICATION.json. Frozen artifacts remain local.
+
+Source resolved another unknown: BS.FE37 is Ignite Torch (field32,120 light ticks),
+not invisibility; native I inventory currently displaces it. Register B-TORCH now
+has original semantics, and the next command-interface contract owns restoration.
+Next: finish source-derived world command/information contract, implement its
+missing owners as a coherent batch, then one focused validation/build milestone.
+No reactive campaign work. Canonical and CE devtools/nox/project recovery copies
+must remain byte-identical. Do not rerun the inventory generator over this matrix;
+it is the initial collector, not an evidence-preserving updater.
+
+# Current methodology - November 14, 2026
+
+The source-driven subsystem directive supersedes dated reactive/campaign queues and the prior audio stop. Current execution plan: SCUMMVM-CE-SUBSYSTEM-PLAN.md. Matrix: SCUMMVM-CE-ENGINE-COMPLETION.json. No gameplay discovery or campaign acceptance is authorized now. Audio473 remains accepted; D3-D5 remain unfinished.
+
+# Audio subsystem - VERIFIED; user stop boundary reached
+
+Audio473 is complete for supported native base-v119 workflows. SCUMMVM-CE-AUDIO-COMPLETION-VERIFICATION.json binds the final source/executable, requirements,16 normalCE runtime reports, music-core reuse proof and preserved artifacts. Final SHA160c5f0b2d858156ee5e840fca7548c375b7e6e9ff205ba5b5a92fd0055cd3e8; clean native build0warnings/0errors. All9 authored effect patterns exercised through normal callers;four modes,cold music preferences/nonzeroPCM/simultaneous music-SFX,world/tactical/cast/NPC/temple/projectile/summon/reveal/refusal paths verified. Original72 whole-track/volume and256loader proofs reused with explicit unchanged-method checks; not claimed as fresh473 oracle runs.
+
+471 compile failure and472 load-time reveal/chime defect were corrected within the combined batch.473 reconnects transient sound owners after CE load/session replacement; actual Keep revelation/cold no-repeat now passes. Temple test-driver living-default error was corrected without an engine rebuild. Automated/headless output and controlled/recoveredCasual setups are disclosed; no subjective physical-speaker listening or earned full-campaign claim. Unused legacy overlay configuration/editor/disk-save rejection beeps were not reintroduced into their CE/native replacement flows.
+
+Final executable/source archive are retained locally in ce-m4-binary; no game/build is active. Main earned127 remains unchanged/closed. At the user's explicit November14 instruction, present the audio completion report and stop. Do not proceed into graphics,input,campaign,release or further implementation until instructed. D3-D5 and whole-port completion remain unverified; the standing goal is to be paused at this user boundary. Canonical records mirrored byte-identically to CE devtools/nox/project.
+
+# D3 sound/music implementation batch - IN PROGRESS
+
+The user rejected repeated incremental builds. DELIVERY-PLAN now requires all remaining sound/music integration before the next combined build and focused runtime acceptance. The already-started470 completed with0warnings/errors and was accepted/frozen as SHAfa3e49494bb550f40b900e9b1663147bcba4e40506093c75989d2433115d5395. Its PTY6590 is terminal; no game or build is active. No new build/test run was started after that completion.
+
+Current source has moved beyond470: native_world_move connects collision impact and authored ground-dependent movement notification; native_battle_round connects tactical movement notification/occupied resurrection refusal and forwards summon events; native_battle_madcow/native_battle_summon commit ordered displacement/failure sounds; native_startup_host plays shared Cast refusals and initializes authored music when V enables it on old silent saves. These edits are IN PROGRESS and unbuilt/unverified. The original music sequencer/synth and existing cue resource selection were retained; no speculative music-end rewrite.
+
+SCUMMVM-CE-AUDIO-INTEGRATION-WORK.json records the finite remaining implementation/reconciliation and combined acceptance. Next resolve conditional map65 reveal event/cue and remaining reachable command/selection refusals, complete music lifecycle review, then one combined build. Do not resume per-cue builds. Main earned127 is unchanged/closed; graphics/music/input must be reconciled before sustained campaign. D3-D5 remain active. Canonical tracking and work/receipt are mirrored byte-identically in CE devtools/nox/project.
+
+# D3 world projectile sound470 - IN PROGRESS
+
+Afteraccepted469/runtimechecks,WorldWait nowqueuesauthoredProjectile foractualqueuedhostileshot andActorHitonlyactualhit beforehazardapplication. WorldInput::fireWorldCannon insertsplayerProjectilebeforeitsfollowingNPCturnsounds,aftercommittednormalF/directiontransaction. Originalworld-shot366/375oraclesalreadyidentifyAuxE86B/F68Dservices;608Bqueuedhostileflagdistinguishedfrom3FFBdisplacementmode. No genericallhitsound. Newchangesnotyetaccepted/tested.470cleanbuildIN PROGRESS; obtainactualcurrenthandlefromthecurrenttoolresult. Logce-m4-sound470-build.log. No gameactive/main127unchangedclosed. Pollactualcurrenthandle,accept/freeze/copyportableaftercompletion,thenactualnormalworldFandhostileshot soundcheck. Fullaudio/D3-D5unfinished.
+
+# D3 connected sound469 - IN PROGRESS
+
+469 cleanbuildPASS0warnings/0errors acceptedSHA3d9bbf0b1eba7ec2e1ff2b058d831e44f387555f13322eb20bf8daf42b0ce5bf. Equipment/orbrefusal cues,actualJrefusal andpostTempletravelchime connected. check_jump469_source.py PASS7 realcommandtableJ->FE5B/gates. NormalCE check_sound469_player.py PASS foot/ownedfrigateJ143toggles ormuted4modes/freeunchangedworld; check_equipment469_player.py PASS actualI/Rweightrefusal143or0/4modes/Escworld (declaredstrength1beforeinput,recoveredCasual); check_revelation469_player.py PASS preservedpendingTempleack->travel58/ArchusautomaticTalk3283togglechime. Main127unchanged/closed. SOUND469checkpoint/frozenreceiptbindscope. Source-reviewerror:FE5BwasmisidentifiedasTalk;removedspeculativeTalk/mountchangesandunrelatedFE54promptbeforegameplaytests.468completedbutsuperseded/unaccepted;469correctedrebuild. Talkunchanged. Remainingworldprojectile/movement/reveal/exceptionalcallers andruntimeparty/hazard/revival proof;fullaudio/D3unfinished. NextworldplayerF/queuedhostilesoundusingexistingsourceoracles,thenreconcilegraphics/music/inputbeforeearnedcampaign. Canonicalrecords mirroredtoCEdevtools/nox/project.
+
+# D3 connected sound467 - IN PROGRESS
+
+467 clean native build PASS 0warnings/0errors, acceptedSHAf1880c22c854f20c8ec9f4df9f61ccf7609f4447a2c0b6e8bd03150cb5b3fcbc. Shared transient per-engine sinks connect successful temple healing/revival, actual cannon firing and unprotected actor225 world hazard via Wait/movement. check_sound467_player.py PASS normalCE cannonF/Return25toggles and templeTalkSouth/offer/1payment3283toggles,all4modes;pendingcannon/templeoffersilent. Uses preserved historicalcannon/privatecopyearned105temple state with recoveredCasual sidecar;mainunchanged. check_hazard467_source.py PASS8 originalF7A3 cue/protection gates beforedamage,notruntimehazardproof. SOUND467checkpoint/frozenreceipt bind scope. No build/runtime failures thisbatch. No game/buildactive. RemainingpostTempletravel/reveal/refusal/exceptionalcaller closure and runtimeparty-victim/hazard/revival evidence; fullaudio/D3unfinished. Do notconfuseoriginal608Bqueuedprojectileflagwith3FFBmissmode oraddgenericallhitcues. Continue same sound subsystem,then graphics/music/input reconciliation,thenearnedcampaign. Main127closed/intact. Canonicalprogress/checkpoint/receipt mirroredbyteidenticallytoCEdevtools/nox/project. GoalD3-D5active.
+
+# D3 connected sound466 - IN PROGRESS
+
+466 clean native build PASS 0warnings/0errors, acceptedSHAdba9cbb6ba5ed8e7cb3938b447189ef163748e7e99ac62eeea856ef7aafe24d2. Added exact authored projectile/actor-hit/party-hit sequence generators; check_sequences466_source.py PASS12 original timing/duration/mode schedules. Directed32-path source trace confirms magic5..10/13 accepted-only and party-impact callers. Area/directed owners now commit ordered magic-before-party-impact events for shared party/NPC casts. Actual normalCE check_sound466_player.py PASS Storm27/blast5/shock13 accepted180toggles,selection3283,cancel/noaction/noextraeffect,all4modes. Controlled book/INT setup before tested input; tainted CE sidecar,not earned campaign. Party-victim playback still unverified; remaining world/service/custom/exceptional callers unfinished. SOUND466checkpoint/frozenreceipt bind source and scope. Driver first fixture rejected strict storage, preserved; moved to existing portableexe/ownedroot. Missing driver os binding corrected, successful fixture reused, no engine rebuild. No source gameplay failure. No active game/build. Main127 unchanged/closed. Continue sound caller batch, then graphics/music/input reconciliation, then earned campaign. Goal D3-D5 active. Canonical progress/checkpoint/receipt mirrored byte-identically to CE devtools/nox/project.
+
+# D3 connected sound batch465 - IN PROGRESS
+
+User infrastructure-first correction retained: finish sound generators and required callers as one batch, then reconcile graphics/music/input before sustained campaign. Build465 completed 0 warnings/errors, accepted SHAfb0354883ec1f9943da4b45e1fc26413bd73ddfa0644286aa71d3f7f4914a26a; frozen SOUND465-BUILD-RECEIPT. Initial receipt attempt could not inspect compiler processes in sandbox; elevated same command succeeded, no rebuild. Original check_sound465_source.py PASS16 exact pulse/duration/mode schedules for impact/long-low/notification/alternating. check_directed_sound465_source.py traces32 original accepted/canceled directed casts: spells5..10/13 magic once accepted, none canceled; other sampled directed families no magic at retained boundary (not blanket silence claim). Shared BattleDirectedSpell now queues source-confirmed magic after committed casts; BattleRound forwards same engine-owned event sink to area/directed owners, covering party/NPC. These latest directed edits are not in accepted465 and need next batched build/runtime verification. No game/build active. Original custom sequence arrays inspected, all period/duration bytes nonzero. Existing Storm source12-case evidence and queued playback still require CE integration check. Remaining physical/custom/death/world/service cues and graphics/music/input reconciliation unfinished; do not claim D3/audio complete. Main earned127 unchanged/closed. Next continue authored caller batch, then one connected native build and targeted actual playback acceptance. No push/deploy/original HDV changes.
+
+# Infrastructure-first correction; departure464 VERIFIED scoped
+
+Userclarifiedgraphics/music/sound/inputmustexistfullybefore sustainedcampaign. DELIVERYPLANpriorityupdated;goalD3-D5unchanged. Finishconnectedinfrastructure,startingremainingSFXgenerators/callers;noautomaticshiftbacktocampaignaftereachcue. Main127ownedfrigateharborbaselinepreserved;main128recordsoldgenericfootexitstrandedship120,147,notnextcampaignsave. No gameactive.
+
+464cleanbuildPASS acceptedSHAffe85edcaf0be2997f3e2e4012822482e110d225a64e8e55c5934ff16b1c3a1c. OriginalF4C4..F4FAandactuallowerhelpers108boat/footexplicitparentcasesverifyBayportfrigate115,145/otherboats117,145/localpermission66cleared;map41boats195,106;walkingunchanged. Actualunmodifiedearned127Northharborexit/promptcold/Y/sourceplacement/permission0/cold,initialNorthcorrectwaterrefusal,WestNorth114,144/cold/HPunchanged PASS. DriverfirstNorthexpectationcorrectedforfarleading116,144nonroughwater,noenginechange. DEPARTURE464checkpoint/frozenreceiptbindscope. No furtherearnedjourneythisbatch.
+
+Nextsoundbatch: callerinventoryce-m4-sound-callers-local.json identifiesremainingauthoredstandardtones,alternating/repeated/parameterizedpatternsandcombat/world/service/menu/refusalcallers. Existingrefusal/chime/Vonlyarecomplete. OriginalStorm27/28/29acceptedonealternatingcue/cancelzero sourceproof12cases;Fireball2/3/4cueabsentinthisadaptedcallboundary,doNOTinventcueorassumepresentationstubscoverit. Extendsemanticgenerators/orderedCEeffectqueue andtypedgameplayevents,thencloseallrequiredcallers. Graphics/music/inputgapreconciliationafterconnectedSFXbatch;earnedcampaign/nativeRC/fullhealthfinalendingstillrequired.
+
+# D5 earned frigate463 - VERIFIED scoped; ocean campaign IN PROGRESS
+
+463 clean native build PASS acceptedSHA4ac17b02cb6aac65ebe24c5c874f686c9a24d895d3c91985fa7fee79d40bb2a8. World::commitPositionProbe admitscomputed119frigate2x2lookupfootprint;otherobjectoriginchecksretained. Actualunmodifiedearned125West11,20/noHPchange/cold/Balign10,19/cold,firstNorthcorrectlyblockedNPC11,18,actualWest9,19/North9,18/cold PASS. InitialdriverNorthassertwaswrongaboutdocktraffic;correctedwithoutenginechange/rebuild/repeatingfinishedinvocations. FRIGATE463checkpoint/frozenreceiptbindscope.
+
+Mainnormal125reload463,Left/B/ordinary126frigateboarded. Fullnormal126coldadapterEXACT/cleanCEsession/notCasual/noCheats. ActualWest9,19/North9,18ordinary127frigatefirstsailing,thenownchildclosed. FourmembersactualmaxHP50/50/56/56,MP8all,food33,gold55,field66=255,appearance119,onFootfalse. Naturalpriorbook353sale/550purchase retained. Nooutcome/position/key/gold/HPinjections. Earlierdeaths/reloadsandwalkthrough-guidedroutedisclosed;notblind/deathfreecontinuousrun.
+
+No game/buildactive;PTY84026available,lastc.closed. Currentmain1275/46/9,18ownedfrigate. Next actualnorthharborexit/SurfaceoceansailingtowardNourtheld;source-supportednavigationcanavoidtraffic,donotattackNPCboatsjusttopassthem. Shopclock462integrationqualifiedseparately,notrerununder463becausechangedonlyfrigatepositionguard. OtherD3SFX/integration,D4Quick/exceptional,D5earnedfullhealthfinalbattle/ending/nativeRCauditrequired. Goalactive.
+
+# D3 schedules462 VERIFIED scoped; earned frigate124; boarding463 IN PROGRESS
+
+462 cleanbuildPASS acceptedSHA21db3ddb8a6d60c6990cefd8d3a001b9600d1aa885374efd76d78719d02dac02. Actualunmodifiedearned114 walk/Open/200Wait across11AM nowactivates/prefetches/routesNPCs,Janellarrives32,21workinggoal87/capability0. ActualTalkSouth/Sellbook353/coldbusiness/offer/result/nextWait allPASS. SCHEDULE462checkpoint/frozenreceiptbindscope.461offscreenNPC96cap3failurecorrectedbyremovingextraoffscreenroutecapabilityguard;existingoutsidephase/terrain/actionownersretained. Noall-map/fullNPCscheduleclaim.
+
+Earnedmain116normalmap47exit/reenterupdatespreviouslymissedclockshopstate,117. RealJanellTalkSouth/Return/S/13Down/Return/Y sellsbook20for353:252->605,bookgone/normal119. NormalstreetNPCblocksreplanned,notenginefailures. Normal46Raymondcounter18,20TalkNorth/3 purchases550frigate,605->55,field66=255,ack/ordinary124. All4actualmaxHP50/50/56/56,MP8/food33. Earned125shore12,20 beforeboarding. ActualLefttowardSEfrigatefootprint11,20fatalNativeworldcommandcouldnotcompleteadmittedphase;Bnotreached. CtrlCinterruptPythonwait thenabortedonlyownchild;main125intact.
+
+RootcauseWorld::commitPositionProbe requiredobjectorigin exactly althoughObjectScene projects119frigateinto4lookupcells.463allows119boundedbyte-dx/dy<2footprint,retainsorigincheckotherobjects.463cleanenvbuildlivePTY58859/logce-m4-frigate463-build.log;pollsamehandle,dontrestart. No game. Afterbuildaccept/copyportable,check_frigate463.py --artifacts ce-m4-camp432-portable/frigate463:unchangedearned125West/HPunchanged/cold/Balignorigin/cold/North/cold. Thennormal125replay/ordinaryboard-save/coldclean/actualsailing,continueSurfaceoceantoNourtheld. Preserve462actualmerchantintegrationevidence. D3otherSFX/integration,D4Quick/exceptional,D5fullnativeRC/earnedendingunfinished.
+
+# D3 clock-driven NPC schedules461/462 - IN PROGRESS
+
+Earned460 normalactualinn48actor208viaTalkacrosscounter17,18: Y/R/Y pays10gold262->252,sleeps6AMandrestoresall4toactualmaxHP50/50/56/56,MP8. Ordinary110room48/17,24.298realSpaceWait ->9AM,food33/HPunchanged,ordinary111. Normaltravel46/112->47/113,Janelloffdutylocation25,8ordinary114at9:46. ActualoriginalscheduleNPC104opens11AMgoal87at32,21;147realWait ->11:00/115,then18actualwalk/Open->32,20 at11:09/116. Janellstayed25,8/cap25: realnativeintegrationdefect,notjustmerchantclosed. No actualsale/shipyet. Main116normal588? executable458,party4/gold252/book20/ownership0,closed.
+
+Actualproductionnevercalls existingNpcScheduler::activateAtClock/prefetchAtClock orNpcNavigation routegeneration (only validationdid). WorldInputnowconnectsidleworldinput activation/prefetch/boundedsemanticsearchcompletion,records/routes/RNGcommitbeforeordinaryaction;noNPCteleport/extraelapsedturns/newopcodeexecutor.461 cleanbuildPASS acceptedSHA18860bb4815f68d6491b6e8ed1fe821d41b5151349aa605bd0255ba5f1623fac. Privateunmodifiedearned114 real18walk/Open+200SpacefailedNativeWait boundary;engineexactownerNPCslot96tile136capability3outside. NpcWorldActionhadextraguardrejectingallactiveoffscreenroutecapabilities despiteWorldActorPhaseadmittingtheseordinarysingleNPCrawcachephases. Removedcapabilityguard;keepswindow/large/admissionbounds andexistingtypedroute/terrainowners.
+
+462 cleanenvbuildIN PROGRESS,PTY11894/logce-m4-schedule462-build.log;pollsamehandle,donotrestart. No game. Afterbuildaccept/copyportable,runcheck_schedule461.py --artifacts ce-m4-camp432-portable/schedule462 (oldfailure461retained). Driverunmodified1149:46movesawayfrombedroomdoor,waitsthroughbusinessopening,requiresactualNPC32,21/workinggoal/clearbusyflag,cold,normalTalkSouth/Sellbook353,cold/nextWait. Noexpectedoutcomesinjected. Thencontinueearnedmainline (legitimate114reloadbeforemissedclockeventoractualreentryof116),normalsale/550frigate/board. Sourceroute/scheduleoldpoliciesqualifiedindependently;newproductionintegrationnotyetverified. OtherD3/D4/D5/fullcampaign/nativeRCrequired.
+
+# D5 earned party/funding459 - VERIFIED scoped; ship remains IN PROGRESS
+
+On458 main86 normalCutter46actor88 NAME/JOIN/ack adds thirdmember56HP8MP,ordinary88. Normaltravel48,Bladeactor80 NAME/JOIN/ack adds fourth56HP8MP,ordinary92. Normaltravel49/Vulonactor16 NAME/HELP/ack awards250gold,12->262,ordinary96. Allactions normal;mainAARON/Bridgit37HP8MP preserved. Walkthrough-guidedroute (GameFAQs ASchultz ToBayport) plus actualsource;notblind/unassistedroute-discovery. No keys/gold/HP/locations/boatownership injected.
+
+Janell47actor104 merchantrecord44xxbuysnonstockitems50percent;book20base706predicts353. ActualsaleNOTyetdone:arrival19:09shopclosed. CampingHtwicecorrectlyrefusedintown/nohourchange. Misidentified49actor64role7astheinn;actuallytemple,declinedwithoutpayment. Actualinnrole2is48actor208(15,18lastknown). Main10549/37,36 templedeclined,ordinarycoldadapterEXACT/cleanCEsession/notCasual/noCheats/fourparty/gold262/bookretained. ActualnextLeft36,36/ordinary106queued,ownchildclosequeued. EARNED459checkpoint/transcriptswarmcoldnextbindscope. No enginepatch/buildthisbatch.
+
+Routecorrectionsretained:missingpathattemptdidnotexecute(nofile);scheduledNPCpositionwasfalsepermanentwall;friendlyexclusiontoobroadallowedguards,restoredguardblocking. MovingNPCs/normaldoorsclosing interruptedroutes;actualsourceclosed14,17doorwasnormallyreopened. Cyllan49dialogueNAME/BYE incidental,ackbeforecontinuation. Slot89/94/97/100descriptionscorrectedtoactualpositions/closedshop;no falsemorning/shipclaim.
+
+Next prioritizeactualmorning/sale/550frigate,thenNourtheldearnedroute. Options:48inn208normalservice/fullrest or49Surfaceexit22,38/campoutside/return. Do not repeatTemple-as-inn or townCamp. Boatprices55/260/550;ownershipstill0. Main10649/36,36,4members37/37/56/56HP8MP,gold262. D3otherSFX/playerintegration,D4Quick/exceptional,D5earnedending/fullhealthfinalbattle/nativeRCauditremain required. Goalactive.
+
+# D3 authored Cast sound458 - VERIFIED scoped
+
+458 clean native build PASS acceptedSHA26778d93f8c6fa84dacc05a537df2eeb336d6d447f6ad526c84d0c3393bac6f4. SpeakerEffect::cast reads9authoredperiod/durationpairsfromGAME3154,rendersnativeoscillatorsequence/noinstructionexecutor. OriginalGAME9142all3283pulse times/totalduration881792/fourmodegates EXACT. OriginalacceptedCast9DC3..9DC9callersignature verified. Host playschimeonlyacceptedslotboundary,existingrefusalonrejectedslot;no repeatontarget/partyconfirmation. Existingmixermodegates apply.
+
+NormalCE isolateddeclaredhistoricalbattle:realC/1acceptedall4modes,3283toggleswhenenabled/0whenmuted,Escape noaction/noextraSFX,C/0empty-slotrefusal143toggleswhenenabled/0whenmuted PASS. Effects-onlyconfig coldrestart/originalbattle reload,realC/1/Returncommitsnextaction,no repeatedchime PASS. No gameplayoutcomesinjectedafterinput;normalmidbattle savingunsupported/notclaimed. CAST-SOUND458checkpoint/frozenreceiptbindscope. No failedruntimeexperiments.
+
+Main earned86Bayport38,31 remainsclosed/intact. No game/buildactive. RemainingaudioSFX includesoriginalproceduralattack/spell/notificationpatterns andtheircallers;onlyrefusalandCastselectionchime complete. ContinueconcreteSFXbatch orindependentQuick/exceptional/earnedshiproute;D3-D5 remainIN PROGRESS,earnedending/fullhealthfinalbattle/nativeRCauditrequired.
+
+# D3 combat sound457 - VERIFIED scoped
+
+457 clean native build PASS acceptedSHA ae0555d18570737f248773af17458ba9b3bebe6990196b7899439f963c1d8f3f. V nowcyclesexistingfourmodes atidle tacticalpartycommand(mode0defaultor2selected);notQuick/targeting/flee/results. ExistingCE mixer/configpath retained;feedbackpaintsonownedbattleframe. OriginalV increment/wrap all4PASS. ActualnormalCE controlledhistoricalbattle V1/2/3/0/1/2,correctmusicvolume gates,allinspectedgameplayfields/actioncount unchanged,coldconfigeffects-only plusunchangedbattle reloadexactadapter,permanentCasualcontrol,restoreboth/realPassactionadvance PASS. Ordinarymidbattle savingunsupported/notadded/notclaimed. SOUND457checkpoint/frozenreceiptbindscope.456completedbutsource-reviewfoundmode0excludedbeforegameplay;457correctedwithoutfailedruntimeexperiment.
+
+Main earned86Bayport38,31 closed/preserved. No game/buildactive. Remainingaudio gap concrete: SpeakerEffect onlyhasqualifiedrefusalpattern;otherauthoredspeakerpatterns/gameplaytriggers need semanticowner/integration. Continue that batch,orindependentQuick/exceptional/earnedshipacquisition;do notrepeat completedworld/combatV. D3-D5 remainIN PROGRESS;earnedending/full-healthfinalbattle/nativeRCauditrequired.
+
+# D5 earned Bayport book85 - IN PROGRESS
+
+Main82 loaded455 unchanged. Actual15steps ->map46/38,16 ordinary83,then52normalsteps/4ordinarydoors ->38,32 ordinary84. ActualSearchEast acquired authoredspecialkind2/id20 Summon Ffred (definitionclass8 book,notcurrency);recordslot13 [66,20,1,0,0,40],object228state0. Returnresultclose/ordinary85. Cold85adapterEXACT,cleanCEsession/notCasual/noCheats. Both37HP8MP,gold12 unchanged,cells734,journal56. SubsequentactualUp38,31/ordinary86 thenownchildclosequeued. No key/gold/ownership/location/healthoutcomesedited;earnednewgame lineage retainedwithprior deaths/reloads disclosed. Initialcontrollerlaunchmistypedcheckpointdescriptionfailedbeforeload,closedownchild/reopenedcorrect82;no gameplayeffect.
+
+Book is actual find,notproven ship-acquisition solution. Remainingrealroute toNourtheldstillneedsboat/acquisitionstrategy;guardedcratesraiseauthoredalarm,andwarehouse47keyabsent. NewnormalOpen17/19alreadyverifiedcontrolled;earnednormalpickable-doorusecanbeexercisedwhereuseful. Main86nextstatejson/ordinarysave/transcript preservecontinuation. No buildactive;revalidate gameclosed beforebuild. RemainingD3audio/settings/normalintegration,D4Quick/exceptional,D5campaign/native release required. Goalactive.
+
+# D3 normal locked/compound Open455 - VERIFIED scoped
+
+455 native clean build PASS accepted SHA1be80174470fe3f81746610ff1d27540aa0eea4f71965e5b1089b37c54005010. Normal Open17 now hands to existing lock/prompt/retry owner;World::pickDoor commits tools/practice/damage/RNG and openedpicture/state only actualsuccess. SearchInput door mode uses NWIN14,old10/11/13 readable. Open19 now uses existingcompound predicate. Original1280cases acrossall5authoredcompounddoors PASS;Open/Search damage tables byteidentical. Actual authored46door0 O/N,Escape,pendingcold,pick/resultcold/ack/walkthrough PASS. Town2 compoundmissing/ownedflags refusal/open/cold/walkthrough PASS. NormalCE pickableOpen save/coldexactadapter/sameCasualsession/Wait/save PASS. SharedgeneratedSearch regression pendingchoices/cold/worldnext PASS on455.
+
+Driverfailuresretained: initialcompoundtype4invalidbeforeinput;actualTOWNtype6corrected. Initialassertstate41ignoredpresentationmarker40;corrected toestablishedopened33..41range. No enginechangesfor these. DOOR455checkpoint/frozenreceiptbindscope. Main earned82 unchanged;no activegame/build. Next use earnedroute towardactualshipacquisition,includingnewnormaldoors/treasurewhere legitimatelyreachable;no key/gold grants. OtherD3audio/settings/playerintegration,D4Quick/exceptional,D5earnedending/release remainIN PROGRESS.
+
+# D3 generated Search454 - VERIFIED scoped
+
+454 clean native build PASS, accepted SHA ed97d00900e23876f4acad9f059b0f616e0d09a31585f5c891db1e07fd531013. Authored map47 crate72 actual S/N/1 reaches generated item; N leaves inventory unchanged; A grants generated rewards; pending/result/privatecold/worldWait PASS. Ordinary CE declared controlled pre-input warehouse snapshot, actual S/N/1/A/close, normal save/coldexactadapter/same permanentCasualsession/nextWait/save PASS. No outcome injections after input. Main earned82 remains untouched47/22,14,37HP8MPboth,gold12,no key/boat. Controlled warehouse access is not earned access.
+
+Reused BattleLoot generation through typed group level/descriptor rather than fabricated enemies. SearchInput owns pending choices and NWIN13/loot state persistence; old wrappers remain readable. Original caller-domain proof79 authored containers PASS.453 failed on plain CR rejected by TextWindow;454 uses0x8d. SEARCH454 checkpoint/frozenreceipt bind source and evidence. Prior453 invalidstanding20,8 setup failure retained;valid22,9 setup precedes input.
+
+No active game/build. Python PTY84026 last known closed;revalidate before reuse. Next continue earned ship-acquisition route and required normal Open17/19 handoffs;do not give warehouse key/gold to main. D3audio/settings/player integration,D4Quick/exceptional contexts,D5 earned ending/native release remain unfinished. Goal active across checkpoints.
+
+# D3 keyed Open452 - VERIFIED scoped
+
+452cleanbuildPASS accepted429e2976900524d538c2c737162290babd09aba84ade4953f08e37751569c77b. WorldOpenstate18nowusesexistingWorld::open/keyDoor;allowedgetsnormalopenedpicture/stateandmessage2,missingkeygetsauthoredNoKeyorPickmessage41. MessagecatalogbindsINVENTORY9611length25(24chars+null).451incorrect24boundfailurepreserved;452repairsit. Originalpredicate256fieldvaluesPASS. Privateunmodifiedearned80missingkeyOpen/NorthCOREunchanged/cold/nextWait PASS. Separatekeyfield26bit2setupBEFOREOpen,picture62->61/openstate,coldexact,actualwalk22,12/coldexact PASS. No keyinjectionintheearnedlineage.
+
+Mainnormal80reload452/O/Northrefusalworks,ordinary81save;normal81coldadapterEXACT/cleanCEsession. NextnormalDown22,14/save82thenownchildclosequeuedinPTY84026;no build. KEYED452checkpoint/frozenreceiptbindscope. RemainingOpen17lockpick/19compoundhandoffsnotclaimed. Maingold12/ownership0,keyfield26=0,37HP8MPboth preserved. Sourceboatprices55/260/550;boatnotacquired.
+
+NextclosegeneratedSearchtreasure usingexistingpureLootowner;World::searchQuestItemcurrentlyrejectsobject[7]highbits0 beforelock,onlyquest/currencyfamiliescomplete. OriginalSearch96ECconsumesmarkerafteraccess;97CF..97F7 suppliescountobject4,descriptorobject5,levelretained606 togeneral9C0E lootloop. NativeBattleLoot alreadyownsgeneration/decisions/capacity/currency;factoritsper-rollpolicyforuniformSearchgroupwithoutfakebattle/CPUstate,retainpendingdecision/coldandpartialinventorycapacityeffects. Firstsourcequalify606lifetimeandcountdomains;useactualauthoredreachablecontainers/preoperationcontrolledcheckpoints asneeded,keepoutcomesoutofsetup. Warehouse47haskeyedaccesssoisnotearnedavailabletreasureyet. OtherBayport46guardedcratesrequireordinarytheftsemantics,notassumedfree. Open19sourcepredicateandQuickremainunresolved;audio/playercommands/campaign/releasestillrequired. Goalactive.
+
+# D3 keyed door451/452 - IN PROGRESS; earned warehouse80
+
+MainnormalshipvendorRaymond112approached9stepsfrom76;actualTalkNorthphase20offersskiff55/caravel260/frigate550. Gold12/ownershipfield66=0;normalEsc/Returndeclineand78save. Safe28steps->Bayportquarter47/10,16 save79,15safeordinarysteps->22,13 facingwarehousekeyeddoor22,12/state18/slot32,save80. Both37HP8MP/cells677/journal56. Cratesin47northernwarehousearenotfreelyaccessible:keyeddoorusesfield26mask2,mainfield26=0. No ownership/gold/keyoutcomesedited. Mainchildclosed;PTY84026alive,no game.
+
+World::open alreadyimplementskeyDoor18predicate, butWorldOpen normalinputreturnedunsupportedLock. Connectedstate18toexistingWorld::open withChanged/openmessage2 orRefused/originalNoKeyorPickmessage41;17/19remainexplicit. FixedMessageCatalog bindsimmutableINVENTORYoffset9611. OriginalOpen9636..963F256fieldvaluespredicatePASS.451compiledcleanly/acceptedbuildSHA94468815ced9043acab551bc1c2745db026e0247b3f8ecab5116fdc48bc1e2b0,butfirstprivateinvocationfailedNativeworldmessageresourcesunavailablebecauseIbound24bytesratherthan24textchars+terminator25. Correctedread25/terminator24/out24.452cleanenvbuildCURRENTsession42005/logce-m4-keyed-message452-build.log IN PROGRESS;do notrestart. Modifiednative_world_open.h/native_message_strip.h. No gameplaypasscredited451.
+
+Nextpoll452/acceptandruncheck_keyed451.py --artifacts ce-m4-camp432-portable/keyed452 usingcurrentexe/receipt:unmodifiedearned80missingkeyrefusal/COREunchanged/cold/Wait;separatepreoperationkey26bit2setupnormalOpen/picture61/cold/walkthrough/cold. Thennormalmain80Openrefusal/save/cold/nextaction. Do notusecontrolledkeyforearnedcampaign. Resolveearnings/acquisitionroutewithoutgrantingresources.
+
+AdditionalrequirednormalSearchgapidentifiedfromsource:unguardedwarehousecrates47slots64..96aregeneratedtreasurefamily(object[7]highbits0),whichWorld::searchQuestItemcurrentlyrejects beforelock. ExistingBattleLoot puregeneration/resultsownercanbeextracted/reusedwithactualSearch97CF..97F7count/descriptor/levelinputs;notyetimplemented/attempted. Warehousedooraccessstillrequiresrealkey. No speculativequeueorbogusgold. D3audio/othercommands,D4Quick/exceptionalcontexts,D5campaign/releasegoalactive.
+
+# D4 static arrival450 - VERIFIED scoped; earned Stella75
+
+Actualfailedmoveisobjectslot88at25,22 picture82/state57. OriginalM:F0EC..F114conditionallyhandles55only,otherwiseordinaryC00clock;nativeWorldMovehadextratypewhitelistreturningBoundaryafteralreadysuccessfultraversal/turn. Removedthatguard,retainingearlieradmissionand55predicate. Original257postarrivalbranchcasesPASS.450cleanbuildPASS acceptedSHA2a5eeebdc3700b766a3f4b1b013a26e34f8037ac7346052aaa1e85ccde050f0f;retainedunmodifiedearned72 Up->25,22/privatecoldEXACT/nextUp25,21 PASS. STATIC450checkpoint/frozenreceiptbindscope;notallworldmovement.
+
+Mainnormal72reload,actualcrossingandnextUp25,21,save73. Left24,21blockednormalterrain100 (notenginefailure),TalkLeftnobodyrefusal/Returnnormal. ActualNPC96movedto24,20;Up25,20/TalkLeftreachesStella,save74beforeTalk. NAME/JOB/ADVICE/AFFORD/CARAVEL/FRIGATE/BYE,75ordinarysave Earned:Stellaoceannavigationadvice. Confirmscaravelcanfirstnorthernseacrossingsbutroughsealimited,frigateneededroughroutes. Fullnormal75coldadapterEXACT/cleanCEsession. Both37HP8MP,gold12,journal56,cells628. CurrentPTY84026/gameLIVE450normalDown/76savecontinuationqueued;no build. Mainlineunassisted,deaths/reloadsfrompriorretained.
+
+Nextsource-supportedboatacquisition/oceancrossingtoNourtheld. Dock46 frigate10,19/caravel13,17/skiff14,17;boatownershipfield66currently0. Unownedboarding46..49raisessourcealarm;do notsilentlygrantownershiporignorecrew/guardeffects. RaymondvendorNPC112role3canpresentauthoredboatprices;Stella96adviceordinaryproven. Bayportmap52isThievesGuild,notQueenpalace:inspectedresource011,donotrouteonincorrectpalacehypothesis. RemainingD3audio/settings/playercommands,D4Quick/exceptionalcallers,D5earnedcampaign/releaseunfinished. Goalactive.
+
+# D5 earned ocean harbor449 - IN PROGRESS
+
+Actual52safeSurfacewalksteps entersTOWN2map49/24,38,ordinary68;20normalstreetsteps ->48/38,33 save69;41normalsteps ->46/22,37 docks save70. Both37HP8MP unchanged,journal48,cells608. Normal70coldadapterEXACTandcleanCEsession/notCasual/noCheats. Harbor449checkpointbindstranscripts. InitialnextLeftblocked(still22,37),saved71;do notclaimthatkeyasmovement. LaterStellaapproachactuallymoves18steps,so subsequentmovementcompatibilityexistsbutwholeapproachfailed.
+
+ActualUpfrom46/25,23toward25,22 stoppedwithNativeworldcommandreachedunsupportedencounter/interactionboundary. LastCLIinspect25,23can_saveTrue,noencounter;nextkeydownUp/advancehungonfatal. InterruptedPythonwait,abortedonlyownchild;PTY84026alive,nogame/nobuild. Exactlogce-m4-earned-native/engine.logandlastCLItranscriptretained. Mainordinary71at22,37intact. Sourceplannerfirsttarget23,22unreachable;replannedadjacent24,21successbeforeexecution (no stale routeexecuted). SourceWorldInputboundarymaycomeWorldMove/WorldWait;needsactualphasequalification,no speculativepatch.
+
+Nextreload71,replayonlysuccessfulStella-routeprefixto25,23andordinarysave72beforefailedUp;theninstrumentnarrowowner/replayexactcase. HarborrouteisrealprogresspastMaldacsmalllake;ships119/123/124present46. Stella96at23,21givesnaval-advice;normalapproachnotcomplete. Boatownershipusesfield66(nottrackedDropcounter32). NearbyNPC123crew/guardsareauthored;do notassumefreeboat/ignorecrimeeffects. CurrentgoalD3-D5active;trainingnormalCEscope449verified,remainingaudio/settings/playercommands,Quick/exceptionalcontexts,earnedNourtheldcampaign/releaseunfinished.
+
+# D3 normal CE training persistence449 - VERIFIED scoped; D5 harbor route IN PROGRESS
+
+On448 actual normalTalk/TRAIN2/BYE fromdeclaredcontrolledpre-input trainerstate,ordinaryCEsave,coldadapterEXACT/samepermanentCasualsession,actualWait/nextordinarysave PASS. FullNPARpartybytesintheordinaryCEsave equalpreoperationpartywithonlyskill0+2/practice0-2;gold90. TRAINING449checkpoint detailswrapping/assistanceandallsetupfailures. Sourcepipelineunchanged;no enginepatch/build. Controlledpre-input envelope reusesvalidmetadataandtaintedhash-boundcommit sidecar;isolationrootce-m4-training449d-player. Notearnedtrainingorordinarypendingmenusaving.
+
+Boundednewroutehypothesis: actualoceanharborTOWN2map46parentSurface120,147,ships119/123/124 at10,19/13,17/14,17. Read-only safefootplanner finds52steps fromMaldac166,153 toharbor,ce-m4-earned449-harbor-route.json;plannerexit0beforemovement. This differsfromfailedsmallMaldaclake hypothesis. Mainordinary66loaded448,normalLeft9,22/Leftboundary/ExitYes reachesSurface166,153,save67 Earned:Maldacharbor departure. Both37HP8MP,mainlineunchangedhealth. PTY84026 LIVE448 executing boundedwalk_rest52route/map0,stopsatbattle/transition/refusal;no build. Nextinspectmovementresult,finishrealencounterifany/ordinarysave,thenharborsearoute towardNourtheld. Do notreplayoldlakecrossing. RemainingD3audio/settings/playercommands,D4Quick/exceptionalcontexts,D5release/earnedendingrequired;goalactive.
+
+# D3 authored skill training448 - VERIFIED scoped
+
+TrainingService now connected to normal Talk/TRAIN. Conversation admits only qualifiedserviceAccess2/nonzero18/19/supportedskillrequest;othercallbacksremain guarded. WorldConversation showsauthoredwho/memberselection/offer/numericquantity/result,resumesconversationafterclearingfee once. ExistingPartySelection andtextwindowsreused;NCUI7 storesphases27..30,member/query/selection/window,readsold1..6. Typedownerchargeslow16bitfeeproductbeforewholepartyrecordcommit,raisesselectedskillwith255saturation,consumespracticepoints. Modifiednative_training.h/native_party.h/native_conversation.h/native_world_conversation.h.
+
+447 compiledcleanly (SHA0396afc0adc5df7ebea7b933a8ee5b38103e17af609c5ed37c825b5b197722b8),thenpaginationcorrectedbeforegameplayacceptance;448 cleanbuildPASS acceptedSHAbda6ca639fae39be8e09ea13cd376d11dde0d1940ea41437717da9d2b3965b40. ActualauthoredSlyvenia map1/TOWN/actor0 Talk/TRAIN triggersskill0. SetupbeforeTalk declaresvalidpractice4/gold100;selectionEscape,offerpaging/privatecoldEXACT,too-many9repromptunchangedcore,train2full128byterecordEXACT/gold90,resultcoldEXACT,ack/BYE/worldWait/coldEXACT PASS. Separate noPractice0 andpoorGold0 branchesunchangedCORE/resultcoldEXACT PASS. Nooutcomesinjectedafterinput. Source9transactioncasespreserved446. InspectedactualsavedFRAM offer/resultmonochromerenders:legibleauthorwording/paging/countprompt;notoriginalpanelpixelparity. PILunavailable,sorenderedunchangedHGRbitsviaPNGstdlib,localonly.
+
+TRAINING448checkpoint/frozenreceiptbindscope. NotearnedtrainingacquisitionorordinaryCEpending-menusaving;normalCEpost-training save/sessionacceptanceremainsintegrationboundarywork. No game/build;PTY84026available;earnedordinary66Maldac10,22unchanged. Next prioritize normalCEpost-training persistence (reuseexistingnormalnativeenvelope/sessiontools,no genericplatform),thenremainingD3audio/settings/playercommandsorD4specialcontexts/earnednavigation. Quicklifetime/Nourtheldroute/finalrelease/earnedendingremainrequired. Goalactive.
+
+# D3 skill training446 - IN PROGRESS
+
+Found actual service: dialogue_effectsB369..B37B field21bit2 plusnonzero18/19 callsAE1C,loadsNPC.TALK overlay1561 to9600. Requestfield22 highestsetbit selects skill; six skill triplets atCharacter25+3skill,availablepoints43+skill. Fee table is overlay98F8+2level; source96F2/FBE multiplies fee*quantity low16bits,BB3E charges before skill/pointcommit. Skill saturates255;practicepoints decrease. This is skill training,notautomaticlevelpromotion. Originaltraining text/resources remainlocal.
+
+Addednative_training.h TrainingService::quote/apply withtypedquote/result,level1..10/sixskills/dead/available/quantitychecks,sourcefee/product/payment/recordcommit. Partyfriendadded. NotyetcompiledorwiredtoUI;no nativeacceptanceclaim. check_training446_source.py executesoriginal96F2..977E plusactualFBE/BB3E,full128byte records/gold9cases all6skills/poor/saturation/16bitwrap PASS. Servicesadaptedonlytext/finalrecordtransport. DriverinitiallyomittedBB3Eresidentcodeandselectedmember33FF;loadedexactNPC.TALKoffsetEB9->BB3Eandsetmember1beforeoperation,thenPASS. No expectedoutputsrewritten.
+
+Next connectTrainingService throughConversation/WorldConversation. ExistingcallbacksPending rejectsserviceAccess2 monetaryrequest; permitonlyqualifiedtrainingrequest,retainotherunsupportedcallbacks. Startserviceafterauthoredreply,selectlivingmember viaexistingPartySelection,offeravailablepoints/unitfee,enterquantity/cancel/poor/noPractice/results,clearrequestfeeoncompletion,resumeconversation. ExtendexistingNCUIcodecforpendingtrainingratherthannewplatform. VerifyactualauthoredNPCcaller/selection,numericadmissionandnormalTalkwholeworkflow/cold/nextaction. Existing source quote's admission stillneedssourcequalification. Currentexecutable445unchanged,sourcehasunbuilttrainingheader/Partyfriend;no game/build,PTY84026available. Mainordinary66Maldac10,22retained;goalactive,remainingQuick/route/audio/release/campaign.
+
+# D4 tracked-counter Drop445 - VERIFIED scoped
+
+445cleanbuildPASS accepted50fde8c7159e24bc5cecaf82e51248cdcf33458650d2bc66aba103f5a50f9844. Firstcanceledmiscpurchaseproducesknownselector2/emptyquantity0;normaltrackedDropcompleteswithoutcounterchange,worldWait/coldEXACT. NormalnewgameinitialtrackedDropNo/Yes,ordinaryCEsave/coldadapterEXACT/actualRight25 PASS. Prior444ordinarypartialNGST5packetmigratesmissingquantity->known0/coldEXACT. Architecturedecisionexplicitlydefinesnativeempty/missing-contextmigrationratherthanreconstructingunrecordedstartupbytes. Legacyactualbytesremainexact;knowncontextsunchanged. DROP445checkpoint/frozenreceiptbindcurrentandpriorowner-qualifiedscope;priorchecksarenotclaimedrerunon445. NamedtrackedDropdependencyclosed,notallinventory/commerceorD4.
+
+No game/build;PTY84026available;mainordinary66Maldac10,22preserved. NextD3normalconversationtraining: no nativeTrainingownerexists;originalconversion/native/quest_training.inc andguards define recovered service. Conversation::callbacksPending currentlyrejects field12bit32 andotherdynamiccallbacks. Reuse typedParty/transaction/selection/presentationowners;traceactualtrainingcaller/handoffandcompleteoperation. No newgenericplatform orrepeatDropmatrix. Quicklifetime,Nourtheldearnednavigation,otherD3/D4/D5remainrequired. Goalactive.
+
+# D4 initial Drop444 passed; empty quantity445 IN PROGRESS
+
+444cleanbuildPASS acceptedcd51a537346027235b1674b82697460e765d41d926cfdcded5cc2cda7b963062. Normalnewgamewithoutsetup:startingitem68 I/D/No/D/Yes,questfieldsunchanged,ordinaryCEsave/coldadapterEXACT,actualRight25 PASS. UnmodifiedoldNGST4saveI/D/pendingcold/Y,itemremoval/allfieldsunchanged,worldWait/cold PASS. Source-positionedmerchantwith0gold:actualbuy3refuses,noitem/goldchange,retains2/3,resultcold/ack/exit,trackedDropcounterminus3/worldWait/cold PASS. DROP444checkpoint/frozenreceiptbindproof.
+
+Architecturedecisionnowdefinesno-prior-selector255 fornewnativegamesandoldnativeformatswithoutcontext;legacyexactbytesretained. Current444initialquantitywasunknown,whichwouldmakefirstcanceledmiscpurchase->Dropunsupported.445fixdefinesemptyquantity0knownandmigratesearlypartialNGST5missingkind->255/missingquantity->0. Knownvaluesunchanged. native_new_game.h modified;445cleanenvbuildsession50895,logce-m4-drop-empty445-build.log (do not restart). No game;PTY84026available. Nextpollactual445buildhandle,accept,checkfirstcanceledmiscpurchaseandpartialcontextmigration->Drop/cold;thencloseDropbatchandmoveindependentD3/D4/D5. Fullgoalactive;mainordinary66Maldac10,22unchanged. Architecture/progress/checkpoints mirroredCEproject.
+
+# D4 equipment-to-Drop443 - IN PROGRESS
+
+Build443 passed cleanly; accepted executable SHA140f912959735a2141da4510217a8499de067a769108100a9e90268711e17a4d. Existing armor/weapon transaction owners now return the last removed item ID in their original removal order. EquipmentActions propagates it; normal inventory commits the retained selector only for successful operations. Book Unready likewise retains its item ID. Quantity stays unchanged. Modified native_armor_ready.h, native_weapon_ready.h, native_equipment_actions.h and native_inventory_window.h.
+
+Original complete equipment operations:36 bounded cases confirm B291 writer order and unchanged quantity. Actual source-positioned merchant state (442) then normal armor1/2 Unready, book0 Ready/Unready and weapon1 Unready each produce expected retained selector, exact private cold continuation, tracked-item68 Drop with correct counter/removal, world Wait and exact final cold packet. Four connected native workflows pass; no new context injection. DROP443 checkpoint/frozen receipt bind evidence. No full equipment or Drop-domain completion claim.
+
+Next resolve initial/no-prior-operation semantics: current newgame and older-native saves without context still reject tracked Drop. Starting inventory contains tracked items, so this is a real normal-player gap. Exact legacy import is already qualified; both historical intro legacy examples retain selectorF2/quantityA8 (non2, so no counter change), not commerce selection. Establish explicit native no-prior-selector initialization and older-native migration without inventing historical quantity; document any intentional semantic migration. Then qualify relevant merchant refusal retention and close named Drop dependency. Quick remains unresolved; remaining D3/D4/D5 and earned campaign required. Current443 no game/build; PythonPTY84026 available, earned ordinary66 Maldac10,22 unchanged. Goal active.
+
+# D4 merchant-produced Drop and legacy442 - IN PROGRESS
+
+442 cleanbuildPASS acceptede8a09318319b12ca815ec76a9c0a0d2146f95dfab8c5ddcc3cbd6880bc23ab8b. LegacySnapshotData importsactualmain0264/0269 withknownflags;NewGamecodec acceptsallbytekindvaluesbecauseoriginalA24Bonlycompareswith2. Actualmerchant source-positionedcontrolledgold setup beforeTalk,normalbookpurchase2producescontext[1,1,2,2],stockexit/privatecoldexact,I/D/pendingcold/Yitem68removed/counterminus2,worldWait/coldexact PASS. No retainedcontextinjected inthischain. Actuallegacyv1/v2payloadsnormalEngineimport/nativeCEsave/cold/Inventory/nextmovement/coldPASS;nativeNGST5contextassertedexact[1,1,main0264,main0269]. check_merchant442_drop.py/check_legacy442_player.py. DROP442checkpoint/frozenreceiptbindproof;notallDropcallersverified.
+
+Additionalwriterfound: equipment_controllerB291 storesX (removeditemID)into0264. EquipmentEligibilityAFD1usesselected261forunready;B19D/B1B5usepriorowner275/27Bforreplacements,intheirsourceorder. ExistingnativeReady/Unreadydoesnotupdatecontextyet: thisremainsrequired,includingbookunready,notwaived. NextcarrylastremovedIDfromselectWorldArmor/selectWorldWeapon throughEquipmentActions toNewGamecontext,sourcequalifybothremovalorderandrefusalpaths;retainquantity. Current442nogame/nobuild,PTY84026alive,earnedordinary66Maldac10,22preserved. No repeatfulllegacy/Dropmatriceswithoutrelateddrift. Newgame/oldernativeabsentcontextandQuickremainexplicit. Goalactive.
+
+# D4 tracked Drop441 native contexts - IN PROGRESS
+
+ImplementedCommerceCounterContext inNewGame, explicitkind/quantity-knownflags, copy/adopt/save/load. NGST5onlywhenused;older2..4stillreadandabsentcontextstaysunknown. Source-supported merchantselectionsets kind;saleselectioninitializesquantity0;buypositiveinput/immediateweaponupdatesquantity;saleselectionretainsquantityincludingrefusalboundaries. InventoryActions consumesknowncontextfortrackedDrop,otherwiseatomicunsupported;doesnotguessremovedquantity. Native441 cleanbuildPASS0warnings/errors2m47.57 SHA480e3565454822ae63b4bd57994983cfdd802f7efb44aea1be4a756e64c7a41f.440compiledbutlinkLNK1104becauseown438gamewasstillopen;closedownchildthen441rebuild. No game/buildcurrently;PTY84026alive.
+
+check_drop441.py/drop441c:fivecontrolledsourcecontexts(0,0),(2,0),(2,1),(2,3),(2,255)allPASSactualI/D,pendingcoldpacketEXACT,Y,all5copiesremoved,counter35->{35,35,34,32,36},Escape/worldWait/finalcoldEXACT. Preoperationitems68quantity5/counter35/contextdeclared;notearnedacquisition ornormalmerchantcontextproduction. Driverfailuresretained:missinghashlib;inventedNPXS3ratherthansource4headercausedcheckpointreject;duplicate68grantmadeallitemabsenceassertwrong. Simplifiedtocopysourceheaderandreuseexisting68record;noengine/outcomechangesforpasses. SharedprivatechunkshelpernowreadsNGST5.
+
+Modifiednative_new_game.h/native_inventory_actions.h/native_world_conversation.h. DROP441checkpoint/frozenreceipt bindscopedproof. RemainingbeforeD4Dropcompletion:actualmerchantselection/quantityproductionandcoldlinkedDrop;sourcequalifyrefusalsandother0264/0269writers;legacyimportcontextcurrentlyabsentandmustimportactualbytes;newgameinitialcontext/oldernativeunknowncoverageexplicit. Nexttheseconnectedboundaries,thenQuick/otherremainingD3-D5. Mainordinary66Maldac10,22retained. Goalactive.
+
+# D4 retained caller investigation439 - IN PROGRESS
+
+Quick source9D1C/9D6B forced preference1 skips9F1B advice; no qualified replacement forshared067D. Existing pixel-row writer ambiguity remains; no guessed engine change. New trackedDrop source evidence: commerce B082/B093 selects inventory kind into0264;B198 and othercommerce quantity paths write0269. A204 callsA24Bremove usingthose retained values rather than removedquantity. check_drop439_context.py executesoriginalA198/A1F1/A24B withfivepreoperation retainedcontexts;all5PASS exact counter35->{35,35,34,32,36} for5copiesremovedandretainedkind/quantity(0,0),(2,0),(2,1),(2,3),(2,255). ce-m4-drop439-context.json scopescontrolledsourceonly. This explainswhy guessingremovedquantityfails;no nativeDrop acceptancecredited.
+
+Next implement explicitlyowned commerce selection/quantity context, update it atsource-supported merchant selection/quantity boundaries, persist/coldrecoverit, and consumeit inInventoryActions trackedDrop. Firsttrace remainingwrites to0264/0269 andnormalinventorycaller retention,includingimports,so valid oldsave semantics areexplicit. Currentengine still438,PTY84026/gameLIVE Maldac10,22/save66,no build. Goalactive;earnedNourtheldrouteandQuicklifetimeunresolved,independentD3/D4workcontinues. No repeatedpriorcombatmatrix.
+
+# D3 nighttime town return438 - VERIFIED scoped
+
+OriginalD1EB..D20C useslinear48-wide map pointers;36source pointers at9/22,24/24,38/22 match signed-column-carry formula. Native WorldStory::lightingSample now preserves that within2304bytes; TerrainLighting outer samples use it, normalterrainAt bounds unchanged.438cleanbuildPASS acceptedSHAd4cc8c4c9458bb4e50cd1b242df0b8d67ffd022de69fe63428306d6e4e12ee0c. Retained actualboat/Camp/Xstate Up->Maldac9,22,privatecoldpacketEXACT,nextEast10,22 PASS. Actualmain ordinary64load,Down/X/Up=>Maldac9,22/65;normalcold adapterEXACT,nextEast10,22/66. Both37HP8MP,clean earned state retained. LIGHT438checkpoint/frozenreceipt bind evidence; boat-return defect closed, not all transports/lighting orD3 verified.
+
+CurrentPTY84026/gameLIVE438Maldac6/35/10,22 ordinary66;no build. NextD4Quick retained-context source qualification, then remainingD3/D4 andearnedcampaign. Nourtheldroute remains explicit dependency; do not repeat failed lake/foot hypotheses. Diagnostics436/437 retained; source modification native_world_story.h/native_lighting.h, diagnosticheaders recorded prior. Goalactive.
+
+# D3 return-to-Maldac436/437 diagnosis - IN PROGRESS
+
+436 completed cleanly, accepted SHA1d8171c01152876a3d34e47aa537ed5ada07a46d6e695a8759f458db619557ad. Replayed only retained normal-X-disembark snapshot via check_return436.py: actual Up fails viewport, map/cargo succeeds.437 adds scene-phase/admission/actor-raster warnings only; clean build accepted SHAd0c741648f59db389f1c12581719795ab456c5d04760173b4938c5bfb0a07957. Same one-operation replay identifies scene lighting failure, not presentation. Logs ce-m4-camp432-portable/return436 and return437/return-town/engine.log. Both failed operations retained; no pass credited. Main earned64 unchanged. No active build/game; PTY84026 remains available.
+
+Next: source-qualify TerrainLighting outer-sample addressing at local entrance9,22 at night. Original sample offsets decode outer columns-3,-2,-1; current byte-coordinate terrainAt asks negative worldX (wrap255) and rejects. A linear48-wide loaded-map address would carry into previous row rather than reject; this is a hypothesis to establish from original source, not yet a gameplay fix. Do not fabricate edge padding or skip light samples. Modified diagnostics native_world_input.h, native_world_scene_phase.h, native_world_viewport.h, native_world_presentation.h; no semantic changes436/437. After connected return closes, prioritize D4Quick retained context. Full goal active; previous user-facing goal-restatement turn was no progress, this turn yields executable-backed failure localization.
+
+# D3 owned skiff435 and connected return436 — IN PROGRESS
+
+Build435 passed cleanly; accepted SHA a5a4eed7325c3b9abda7bce1d51d56340f440faca8fad873cfab3deabe2ba44d. The live idle owner now validates owned static boats119/123/124 rather than requiring an on-foot icon. Source sceneD2C1 skips pictures below128, so existing boat footprints remain painted while scenery animates. Only124 has current live acceptance; frigate/caravel/mount domains remain explicit. Read-only CLI now exposes appearance/on_foot/transport_object.
+
+Earned ordinary dock approach and B at31,21 passed200idleframes, normal61save, exact cold adapter and nextUp31,20/save62. Normal sailing toMaldac's actualX40 boundary and ExitYes transferred the same skiff toSurface166,153/object192/save64,37HP8MPboth/food33/clean. BOAT435 checkpoint/frozen receipt bind evidence. Separate64clone passed aboardH, pendingcold equality, consuming acknowledgement, actualDown166,154 and ordinaryX. The nextUp intoMaldac failed; do not claim the connected return complete. Build436 adds failure-phase warnings in WorldInput::travel only and is running in session57109, log ce-m4-boat-return436-build.log. No game; PythonPTY84026 remains alive.
+
+Bounded route analysis found no walking or boat link in the current point/terrain model fromMaldac toNourtheld. The borrowed skiff is in a small lake component; source rough-water damage is35HP, so no lethal crossing was attempted. This does not prove the original game has no route. Reconcile actual coastal ship/underworld/other authored connections later; stop repeating these same planner hypotheses. Main earned save64 stays intact. Next close observed return-to-town failure on436, then prioritize namedD4Quick context while retaining the Nourtheld route dependency. FullD3/D4/D5 goal remains active.
+
+# D3 input substitution434 - VERIFIED scoped; earned Thosha58
+
+ActualDozecJOINfailedbecauseunknownwordDFLuses$K,notrecruitment.434nativeConversationreplacesoneparserselectedbodymarkerwithfulloriginalinput,literalnotreparsed;plainservicecallsunchanged,positiveprobabilitycontrolsremainunsupported. OriginalB2A8instructions5boundedcasesPASS(case/full28chars/literalmarker). CleanbuildPASS SHA3feb26d86d4fd401270da72cdd5522d8ee4e59ae566c53bad4429beb297ee265;frozenSUBSTITUTION434receipt. ActualnormalTalk/NAME/CULT/JOIN/28Xunknown/BYEbothreplystringsEXACT,55save/coldadapterEXACT/cleanassistance,Down56. PrivateNPXS substitutedreplycoldEXACT/normalBYEclose/nextmovementPASS existingdriver. SUBSTITUTION434checkpointbindsevidence;notallstructuredtext/training/D3.
+
+EarnedDozecpointsThosha. Firstlocalrouteomitteddeepwater anddrownedparty;failedreplanthenstaleJSONexecutionrepeatedbadroute anddrownedagain. Bothordinaryreload56,noHP/positionedits. Correctedhazards andnormalstate16doorpicture52admission=>15actualmoves/twoOpensto28,23/57. ActualThoshaNAME/JOB/CULT/PIRATES/RUN/BOAT/BYE,secondTalkLEADER/BYE;58save Earned:Thoshapiratelead. CaptainRaque identified;Nourtheldguardcaptainknowshideout. 37HP8MPboth,mainlineunassistedwithnormaldeaths/reloadsdisclosed,notdeathfreecontinuousrun. Do notreuseoldrouteJSONafterfailedplanning.
+
+CurrentPTY84026/gameLIVE434Maldac6/35/28,23,ordinary58,nobuild. NextnormalMaldacexit/Nourtheldguardcaptain;remainingD3audio/import/services/playercommands,D4Quick/Drop/exceptionalcontexts,D5earnedcampaign/release. Goalactive,currenttrackingmirroredCEdevtools/nox/project.
+
+# D3 Camp433 - VERIFIED scoped; earned Maldac53 continued
+
+433one-lineCampnoticeframe=backgroundcorrection removesactualstaleHUDedgepixels. CleanbuildPASS,acceptedSHA4cf5a8f0dcbdce48ac8aa2245fbd1bcd1488e0476d0e0797ce971110c76b274a,frozenCAMP433receipt. Actualordinaryslot49separatebranch HresultScreenshot73visuallyclean,closedwithout savingnewmainrecovery. CorrectedidentitypendingprivateNPXScoldexact/arrowackCOREunchanged/nextoperationPASS ce-m4-camp432-portable/check433/verification.json. Source8recoverycasesandactual432earnedrefusal/recovery/noextrafood/normalcoldremainboundto432;WorldCampheaderunchanged433,onlyresultbackgroundassignmentchanged. CAMP433checkpointdisclosesscope/remainingboat-water-specialtownacceptance andnativepanelpresentationinstead ofanimatedvignette.
+
+MainMaldac52ordinaryloadon433,actualEast9,22->10,22/slot53 Earned:Maldaccontinued,37HP8MPboth/food33/clean. No build;PTY84026/gameLIVE433. NextactualMaldacdialogue resourceL00D NPC8at17,21 nearby;followcultlead,thenremainingD3/D4/D5. PriorYvviarsave andearnedroadvictories preserved. Goalactive;currenttrackingmirroredCEdevtools/nox/project.
+
+# D3 Camp432 gameplay andD5 Maldac earned - IN PROGRESS
+
+NativeH/Camp implemented fromoriginal overlay5 SRTN.INVENTORY97C0..9D4F. Source8bounded fullrecord/food/clockcasesPASS(dead,scarceHP/MPfood,odd/widemax,nofood,full),no expectedoutcomeinjection. Native432buildPASS0warnings/errors2m41.65 SHA f24e1388072884e63d1c6d761c075b21b845bf853710abd3004c850eef6a623d;frozenCAMP432receipt. Actualearnednearbyenemyrefusalunchangedparty/food/hour/minute/gold. Aftersecondrealbanditvictory,H30/23->37/37,cost21food,21:06->05:06;Rightackconsumeskeywithoutmovement/time. SecondH nofoodcost->13:06. Normal50save/coldadapterEXACT/cleanassistance,51normalUpblockedbyrealextendedNPC40;sourceplannerincludesNPCs and86ordinaryhazardawaresteps reachesMaldac6/35/9,22,slot52. PendingprivateNPXS resultcoldEXACT,arrowackCOREunchanged,nextoperationPASS existingdriver/completeportablecopy. Campusesauthoredtext/existingnativepanel ratherthanoriginalanimatedvignette. CAMP432checkpointscoped,notallHbranches orrelease.
+
+Actualroad3full24HPbandits victory/loot48,then distinct2full24HPbandits victory/loot49;partyended30/23beforecamp. Flee12legnaivedriverrepeatedsamecontactwithoutprogress;stopped,notrepeated. Actualpriorcontactslot8dead255,distinctslot12aliveexplainsnextfight;noenginebugclaim. Sourcewait/door/guard detours legitimate,originalsavesretained. CurrentmainlineMaldac52clean,notdeathfreecontinuousplay.
+
+Visual432resultScreenshot72retainsHUDedgepixels:433narrowframe=backgroundfix inCampnotice,buildsession23260/logce-m4-camp-frame433-build.log IN PROGRESS. No game;PythonPTY84026alive. Do notrestartactivebuild. Nextacceptcompleted433,recheckactualHresultvisual/privatecold,thenresumeordinaryMaldac52cultlead. Modifiednative_world_camp.h/native_world_input.h/native_test_cli.h. RemainingD3/D4/D5goalactive.
+
+# D5 earned Yvviar431 - VERIFIED scoped; D3/D4/D5 IN PROGRESS
+
+Actualupperfloor34sourceplannedsteps/twoordinaryOpens reachesCastle15 15,21;oneWaitresolvedNPCcorridorblocking. NormalTalkEastNPC176:NAME/JOB/CULT/STOP/BYE,recognizesstartingWritandgivesculttemple/Maldaclead. Journal25->31. Ordinarysave43 Earned:Yvviarculttemplelead,freshprocessadapterEXACT/cleanassistance,nextLeft14,21save44 Earned:Yvviarleadcontinued. Both50HP8MP,gold12. CASTLE431checkpointauditsactualwarm/cold/nextearnedsave/transcripts. No fullcastle/endingclaim.431gameplayequals430plusread-onlyCLI. GenericOpponentactualdefeatandordinaryreload37retained;normalfloorrouteavoidscontact. Notdeathfree/unbrokencontinuousrun. Earlierattackattemptsnotenginebugproof.
+
+CurrentPTY84026/gameLIVE431Castle15 14,21,ordinaryslot44,no build. Nextreuseexistingcampaignmatrix/sourceportals fornormalCastle15->11->surfaceexit andMaldac/culttemple progression;continueD3/D4missingoperations. No repeatcompletedcastleentry. Currenttracking/checkpointmirroredCEdevtools/nox/project. Goalactive.
+
+# D5 earned castle upper floor431 - IN PROGRESS
+
+431 read-onlyCLI addsactual tacticalpartyHP/MP/coords/status/handtypes/ranges,target/actions/fleecontrol;no gameplayrulechange. CleanbuildPASS,acceptedSHA b62b4e31cc997071ff95b76319e093b8dcd1515ccf5279186c654ce2c8a67a92;frozenINSPECT431receipt. Replayedcastle37 ordinaryroute;source134castlecontacthasnoexactdescriptor,authoredfallbackOpponent template130(50HP/40armor/sprite246),indoorcategoryforbidsflee. Actualnormalmelee430 onceHP50->30;431 replayactualpartydefeated(0HPboth),nooutcomeinjection/no victoryclaim. Ordinaryload37. Correctedfloorrouteavoidsroaming134adjacency,17actualmovesreaches35,11save38. TalkRightNPC128actualbusyarcherycontestrefusal,acksave39;notYvviar. ExistingM3campaignalreadyplacesYvviarCastle15NPC176;reuseit. Sevenactualmoves+twoordinaryOpenreachCastle15 via33,8->33,37save40. NativeCastle11earnedtravelclosed;normalupperfloorrouteinprogress. FirstcorridormoveblockedbyroamingNPC;oneWait+Up33,34save41. CurrentPTY84026/clientLIVEon431,normalremainingupperfloorroute running;no build. Transcriptce-m4-earned431-castle.jsonl. NextactualYvviar17616,21Talk/CULT/STOP,ordinarysave/cold/nextoperation. FullD3/D4/D5remainrequired;defeats/reloadsdisclosed.
+
+# D4 castle animation430 build and actual continuation - IN PROGRESS
+
+430cleanbuild completedPASS;acceptedSHA bc713f7f1e6f3e8401de65e7bd7d11509e71098aefb8af1d40f9ce636df24d65,frozenCASTLE430receipt. Actualslot37reload andnormalroutepassed26,14failedboundary,continuedto29,13whereordinarysingle50HPsprite246encounterbegan. No enginewarning;notanunsupportedstop. Screenshot65. NormalbattleinprogressPTY84026/clientLIVE,transcript ce-m4-earned430-castle.jsonl. SixUp/twoLeft thenA/Return: enemyHP50 unchanged,activeBridgit. ThreeLeft blocked bypartyposition;Up/A/Return/Left/A/Return stillunchanged. Repeatedattemptsdidnotadvance;stopblindattackloops. Escape/Y didnotreturnworld;Returnacknowledged. Latest screenshot67,actualbattleLIVE. Inspectbattleexit/controlandhumanoidadmission beforemoreinput;no victory/flee claim. No buildrunning. Nextinspectactualbattle,finishnormalencounter/save,continuetoNPC36,11;keepmain earnedordinarysave37 untilnextworldsave. Fullcastle/D3/D4/D5remainIN PROGRESS. Counter429 separatebranchPASSalreadyrecorded. Goalactive.
+
+# D3 counter Talk429 verified scoped; D4 castle animation430 IN PROGRESS
+
+429 native-only cleanbuild PASS0warnings/errors2m42.53;acceptedc7c2fc93211ddc0fc21edbd803d9dd2b662526d2e6e4a5492a942af4a3f7743c. WorldConversation implements original M:FEC6..FED9/LWR1559 secondcell onlywhen adjacent emptycounter. Actual separate ordinary slot27 reload,initialTalkLeft at36,12refuses becauseIrene currently34,11;ack/Up36,11/TalkLeft reachesIrene throughbar. OpeningNo/ack/NAME actualIrene/BYE/ack/Down36,12world PASS. Transcript ce-m4-counter429-pub.jsonl. No payment duplicate credited toearned main;mainlinecastle37 retained. FrozenCOUNTER429receipt. Existingcodecunchanged,noallcounter-directionclaim.
+
+Actualcastle428 slot35ordinaryWaits reached19:20slot37 at24,11,party50HP8MP. Central24,9specialactors werewrongstorytarget;waitingnot requiredforactualgenericNPC36,11. Normal17stepfloorroutefailedafter26,14 atliveanimation.429 scopeddiagnostic identifies terrain194/cell50/NPC104. Originalscene_animation D301..D33E andscene_actor_frame D677..D69D prove NPCrole5keepsnormalpicture,notunsupported.430 replacesguardwithrole0/underworld-specific ground+1 rule. Modifiednative_world_animation.h;counterowner native_world_conversation.h.430cleanenvbuild session22637/log ce-m4-castle-animation430-build.log IN PROGRESS;do not restart ontimeout. Failedown429childaborted;PythonPTY84026alive,no game. Nextpollsamebuild,acceptcompletedidentity,reloadcastle37/retryroute/TalkactualNPC,save/cold/nextoperation;thenremainingD3/D4/D5. Goalactive.
+
+# D4 Castle11 native entry428 - IN PROGRESS; earned arrival verified
+
+428 clean native-only build accepted (18d401b6033ec997e5ed37e74c1ec211f358ca5076f60853b8cb23bf3cf77093). Exact Castle11 padding rows256..280 no longer select unaligned prior-battle scratch; valid aligned later guard0 row320 places authored guard22,12.427 missed fourth row280 and failed;428 controlled day/midnight entry, two normal Waits, exact private cold and next movement PASS. Native semantic decision intentionally excludes accidental scratch alias behavior, not claimed original undefined-memory parity. Modified native_npc_schedule.h. Frozen CASTLE428 receipt/checkpoint and ce-m4-castle427-portable/check-428/verification.json bind scoped evidence.
+
+Earned normal departure Everton70,205 slot31; first short route crossed sea, both members drowned, ordinary reload31 (no HP edits). Corrected source hazard-aware route triggered real four12HP rats at82,197: ordinary two-member melee victory, offered loot, return and slot32. Normal travel reaches Castle11 24,38 slot33;30 ordinary floor moves reach24,10 slot34. Both50HP8MP. TalkNorth currently says nobody to talk to at12:25PM; timed story actor still to reach. No earned ending/castle completion claim. Current transcript ce-m4-earned428-travel.jsonl; actual fresh-process adapter equality PASS, nextDown24,11 slot35; transcript ce-m4-earned428-castle-cold.jsonl. Next actual castle story interaction, remaining D3/D4 branches and D5 earned progression. Goal active.
+
+# D3 earned Arminel/Irene pub426 - VERIFIED scoped; D3 IN PROGRESS
+
+Actual earned party walked31source-planned/engine-verifiedsteps toArminel36,11,normalNAME/JOB/ADVICE/BATTLE/TRAIN/JOIN/NIGHT/BYE,journal19/slot26. ActualCaptainLog rereadpointsIrene/cultists. Ordinarybar-sideTalk at36,12 targets emptycounter35,12 andstopsbeforeNPCcallback: explicitmissingcounterTalk,not pub implementationfailure. Slot27saved. Ordinary8stepfloorroutearoundbar reaches34,10,slot28;Down34,11/TalkDown reachesIrene directly. No relocation/outcome injection.
+
+426 typedpub callback:actualopeningNo leavesgold5;BUY/1costs1;CULTpaidpromptNo leaves4;CULT/Yescosts1 andactualauthoredreply pointsNoxYvviarinSuurtheldCastle;BUY/2poorfunds leaves3;BYEcommitsdrinkcounter1/clockowner. Normal slot29"Earned: Irene cultist lead",exactcoldadapter/cleanassistance/party;nextUp34,10/slot30"Earned: Irene lead continued". Journal23,cells101,two50HP8MPmembers. ce-m4-earned426-pub-verification.json auditsgold3/counter-clock1/coldstate. Screenshots50..56 actualprompts/poorresult;rawlocal.
+
+NewConversationpaymentownerhandlesdrinkopening/menu,mug/round/freequestpermission,poor/refusal,paidinfoqueryreselectionandauthoredmessages. NCON3 storespendingphase/presentation/query;older1/2readable,ordinarynonpendingwrites2. EmptyBUYreplydoesnotcreatefictionaljournaltext. Privatecopiedearnedslot28 branch passesexactfreshNPXS cold atdrinkmenu,mugresult,paidinfo request,gold5->4once. DoesnotclaimnormalCEpendingmenusaving. Originalsource7transactioncaseswithpresentationservicesonlyqualifiesfee/counter/flags;paidprefixstopsatrealreselection. Nativepositive5goldroundUI,allotherpaidNPC/training/structuredtopicsremainopen.
+
+425compilefailedC4456localquerylengthshadow;426renamedvariable,cleanbuildPASS0warnings/errors. Currentexe235dde8c1dc37daf47667316762f8b052769ffb599c58bcc632b1b16f774b6d4;PUB426checkpoint/frozenreceiptbindevidence. Modifiednative_conversation.h/native_world_conversation.h. check_pub426_source.py/check_pub426_cold.py andactualCLItranscripts;no genericplatform. ExistingColdprofile/read-onlyroutehelpersonlyreadordinarysavesandresources;allmovementbykeys.
+
+CurrentPythonPTY84026/gameLIVEatEverton34,10,slot30,mainclean,gold3. No buildrunning. NextprioritizeD4Castle11Suurtheldentry onactualstoryroute (existingCASTLE11-SCHEDULE-INVESTIGATION identifiespriorcombatdecoderpaddingdependency);do notpreserveaccidentalopcode-memorysemantics. CounterTalkremainsexplicitreachablegap,notwaivedbyfloorroute. OtherD3/D4/D5requirementsremain. Canonicalprogress/lifecycle/earned/checkpoint/receiptmirroredCE devtools/nox/project. Goalactive.
+
+# D3 earned Bridgit/shield424 - VERIFIED scoped; D3 IN PROGRESS
+
+Actual earned slot20 TalkLeft/JOIN/confirmation now recruits Bridgit with authored NPC.JOIN3 record/equipment. Two50HP8MPmembers,realgear quantities+1,recruitflag34bit2,NPC16state255 andabsentfromscene lookup. Ordinary Inventory member2WoodenShield Space unready/R Ready visuallyverified;complete CORE exactlyrestored. Normal slot21joined/22ready/23continued,actualUp20,27,cold adapterexact/cleanassistance,actualnextUp20,26/slot24 "Earned: Bridgit cold continued". audit_earned424.py PASS rawrecord/gear/quantity/eligibility/NPC/lookup/cold checks. Main profile lineageearned,no outcome injection.
+
+423 adds kind1category1 shield Ready tosharedhandtransaction andEquipmentActions.selectArmor (normalInventory+Recruitment),freehand refusal12 andUI message. Source AF7F matrix255cases/all15shields,fullparty/equipment/inventory bytecomparisonPASS;existing1111weaponcasesPASS. Original shield refusesoccupiedtwohands ratherthanreplacing,allowsone/twoshields,retains sourceunready/copy/weight/DEX/INT semantics. Source/reference/check commands prepare_shield423_source.py and check_hand423.py;private data local. No CPU code linked.
+
+423 actualJOIN thenhitidleboundary:removedNPCstillinscene lookup.424 adds explicitpostRecruitment worldredrawonlywhenplainTalk changespartycount;ordinaryTalk/D2rasterpathunchanged.424buildPASS0warnings/errors. Currentexe3692f92f4632ca383cdfd8b9e87c50a420c5544b5883a74cb13b024920a112bf,frozenRECRUIT424receipt/checkpoint. Handtestsbound423exeeac6e3e7c309703919109b7d4099b97da0a737e851b1c57f6f16197d02618b78;424onlyWorldInputredrawchanged,handheadersunchanged/hashrecorded. Actualearnedworkflowuses424. Modifiednative_weapon_ready.h/native_equipment_actions.h/native_inventory_window.h/native_weapon_ready_validation.h/native_startup_host.h/native_world_input.h plus421Recruitmentowners. Noallrecruitment/fullparty/Cutterconfirmation/innbattle/releaseclaim.
+
+Current PythonPTY84026 and gameclient LIVE on424atEverton20,26,slot24,two cleanmembers. No buildrunning. Nextearnedstoryprogression/remainingD3Search/audio,D4contexts;fullpartyrefusal/structuredCutter/all11companion/gearcapacitycoverage remains integrationwork. Canonicalprogress/earned/work/checkpoint/receipt mirroredCE devtools/nox/project. StandingD3-D5goalactive.
+
+# D3 earned recruitment421/422 - IN PROGRESS
+
+Actual ordinary earned420 walked Everton24,34->24,26->20,26->20,28,TalkLeft reaches Bridgit. NAME andJOIN real replies;exit handoff unsupported. Unsaved initial conversation/walk lost atfailure;retained slot19 at24,34.421 repeated same normal14moves,ordinary slot20 "Earned: before Bridgit" at20,28,HP50/MP8,gold5,clean assistance,journal7. Actual Talk/NAME/JOIN/finish exposesnewowner failure;no recruited party outcome credited.
+
+Implemented Recruitment native owner:correct GAME6C65 family mapping,NPC.JOIN data-only character/equipment,party slot/default equipment,grant/Ready/recalculate,role34..65 eligibility bit andNPC removal;Conversation/WorldConversation consume typed kHandoffNeedsParty. New native_recruitment.h,friend ownership inParty/NewGame/World,finishRecruitment method.421 buildPASS0warnings/errorsbutactualJOINfailed;422 diagnosticPASSbuild identifiesline42 kind1 shield goes toarmor Ready(category2..7only). Bridgit authoredgear includeskind1id5 category1. ExistingweaponReady explicitlydefersselectingshields;missingreal normalReady capability,not a dialogue orsourcepartytemplate defect.
+
+Current422exe889859ebef37c5d2e84d84fe0284dc126838f7033f06fe1ea9e9100a1ef161aa,receipt RECRUIT422;logs ce-m4-recruit421/422-build.log,earned420/421/422.jsonl,ce-m4-earned422-failure.log. Source existing recruitment1 analysis reused;localpy65 is conversion/local-python (set PYTHONPATH/importpath),not globallyinstalled. Private Bridgit packet decodedonlylocally confirmsJOIN P1 field16=0. No full recruitment acceptance. Own failedchildaborted afterobserved engineboundary toreleasebinary;PythonPTY84026 remainsalive,no game/build.
+
+Next implementshieldReadyusingexistingownedhandoff/ownership/sourceAF7F semantics,connectInventory andRecruitment;retryearnedslot20,normal save/cold andnextoperation. CheckNPCremoval/repaint,fullpartyrefusal andstructuredCutterconfirmationatappropriateintegrationboundary. Do notdropBridgitshield ormarknewownercomplete. Canonicalprogress/work/earnedreceipt mirrored CE devtools/nox/project. StandingD3-D5goalactive.
+
+# D3 guarded Search420 - VERIFIED scoped; D3 IN PROGRESS
+
+Controlled Castle15 theft workflow now closes and continues: actual S/South/N unchanged;Y real alarm;member1 real lock/gold;pending/result cold equality;result close actually moves at least one valid guard;closed cold exact;next ordinary Wait succeeds. check_guarded419.py --artifacts ce-m4-guard418-portable/check-420 PASS. Native4200warnings/errors;frozen GUARDED420 receipt/checkpoint bind source/exe/report. Private NPXS controlled workflow,not earned theft/travel/ordinary pending CE save or all NPC/battle acceptance.
+
+418 diagnostic pinpoints old411 failure: slot0cap255 offscreen outside-terrain lookup,fixtureNPCs remained0,0.419 opt-in controlled map-entry schedule correctly places real guards but exposes source Castle15 reserved schedule marker at248,38.420 ActorOutsideRules::fromWindow blocks directions beyond local48x48 map bounds,retains reserved record and lets actual valid guards pursue. This is owned-world boundary semantics;no accidental original memory alias is emulated,no guard deleted/no expected movement injected. Removed verbose418 NPC instrumentation;kept useful unsupported actor context warning. Modified native_actor_outside.h/native_world_actor_turn.h/native_startup_host.h. Setup scheduler runs only opt-in replay before tested input;ordinary map-entry already schedules.
+
+Commands cleanenv -NoxNativeOnly > ce-m4-guard-reaction418-build.log / ce-m4-guard-schedule419-build.log / ce-m4-guard-bounds420-build.log;accept-build current420;NOX_TEST_EXE portable +NOX_BUILD_RECEIPT current python check_guarded419.py. Diagnostic418 and failed419 artifacts retained;no identical retry/no source behavior bypass. Current exe7d946b441671afce5661a9fe7fd9571fcc8ff6e7fd4b48c965b6dba5fa20e98b. Main earned slot18 Everton24,34 unchanged;no live game/build. Next resume earned progression,remaining general Search/item/secret doors/audio and D4 contexts. D3-D5 goal active;canonical progress/checkpoints/receipt mirrored CE devtools/nox/project.
+
+# D3 ordinary legacy loading417 - VERIFIED scoped; D3 IN PROGRESS
+
+Native PlayerSessionState now admits Runtime v1/v2 world-boundary payloads through staged legacy conversion,without Runtime/CPU restore. Restores core,route pages,RNG,transport,actor freeze/effects,light/source lookups;renders on a temporary copy so load does not advance gameplay. Normal Engine load forces a new permanently Casual recovered session even when legacy owner is known. Native saves then use ordinary NPLS/NPXS. Authored current-map audio deliberately restarts using a copy of RNG;gameplay RNG is unchanged. Modified nox.h/native_player_session.h/native_world_input.h/native_engine.cpp;416/417 implementation scripts local.
+
+417 clean build PASS0warnings/errors2m41.80; frozen LEGACY417 receipt SHA32c3ea9359c8a9435e1ea020c0d9cd5405d63941a7cb5bfd099a5e5de4e6d65a. check_legacy416_player.py and audit_legacy416_player.py PASS actual M1/v1 Modern +M2/v2 Classic normal load/native save/cold,Inventory open/close,actual reciprocal source-earned tile step,next save/cold. Exact initial CORE141761bytes,route3584bytes,RNG all match source;v2 historical discovery subset retained plus actual observed cells. Permanent Casual/unknown history survives native cold load (adds normal tainted_save_loaded reason);modes0/1 and recovered owner persist. Source saves unchanged;only copied target metadata/filename retargeted for existing CLI isolation. ce-m4-legacy417-player-b verification/transcripts/states bind proof.
+
+416 initial workflow passed but strict core audit found two load-induced scene-preparation changes: actor facing/door phase.417 renders on a copy and retains source scene lookups/controls/core,strict equality nowPASS. Initial driver created nonempty CLI root before initialization and was rejected;fixed driver initialization,no engine change. Initial417 Classic step opened normal tutorial notice,so save_not_allowed;driver now acknowledges notice with ordinary Return then saves. All failed artifacts retained,not claimed accepted.
+
+Scope excludes all-map/mounted/active-effect import coverage and battle/menu snapshots;non-world-boundary legacy snapshots reject. Later-map/mounted/active-effect acceptance remains integration work,not silently waived. Main earned slot18 Everton24,34 unchanged;no live game/build. Next D3 Search/guard reaction/audio and earned continuation;D4/D5 still outstanding. Canonical progress/lifecycle/checkpoint/receipt mirrored to CE devtools/nox/project. Goal active.
+
+# D3 legacy core415 - IN PROGRESS
+
+415 adds LegacySnapshotData::importCore through native NGST4 and existing owners. Actual M1/v1 and M2/v2 byte-for-byte comparisons PASS all76maps/liveoverlay,party/equipment,inventory,book,NPC selected schedule/goals/requests,recent contacts,inn,navigation,clock,currency/appearance. No schedule replay/no expected outcomes inserted. History copies existing Enhancements. Modified native_legacy_snapshot.h/native_startup_host.h. Core415 scoped checkpoint/frozen receipt bind evidence;normal player loading remains IN PROGRESS.
+
+Commands: cleanenv -NoxNativeOnly > ce-m4-legacy-core415-build.log (exit0,0warnings/errors2m42.35); m3_platform.py accept-build --log ce-m4-legacy-core415-build.log; python conversion/check_legacy415_core.py PASS both actual saves. Source localcopy conversion/native_legacy_snapshot412.h;hook driver implement_legacy415_hook.py. No additional format/test platform. Current executable81949e40f51c5f0d8b9e59519e3061fb4a70773f6d3f8da215716b109ee21680.
+
+Next stage complete PlayerSessionState: routes AUX5C00:6A00,RNG source fields,transport/persistent actor effects,derived scene/light/animation. Connect ordinary legacy payload admission and new permanently Casual unknown-history owner only after candidate validates. Explicit import audio restart policy may rebuild current authored cue without consuming gameplay RNG. Required actual load/play/save/cold in both modes remains. Main earned slot18 Everton24,34 unchanged;no build/game running. Standing D3-D5 goal active. Canonical progress/checkpoint/receipt mirrored to CE devtools/nox/project.
+
+# D3 legacy world414 - IN PROGRESS
+
+414 converts all mutable map records and overlays current live BA00:C000 records through the ordinary NWLD native owner. Actual accepted M1/v1 and M2/v2 snapshots pass byte-for-byte map/position/quest-field comparisons; scoped LEGACY414 checkpoint and frozen receipt retain identity. No compatibility execution. 413 overstrict whole-resource comparison rejected Surface initialization flag and unused padding;414 compares authored directory/terrain/sector-directory/notice extents and preserves every mutable map table. Full gameplay import remains IN PROGRESS,not claimed by world-component verification.
+
+Commands: cleanenv -NoxNativeOnly > ce-m4-legacy-world413-build.log / ce-m4-legacy-world414-build.log; m3_platform.py accept-build --log ce-m4-legacy-world414-build.log; python conversion/check_legacy413_world.py PASS. Modified native_legacy_snapshot.h/native_startup_host.h; local converter copy and focused driver. Correct existing source-backed state mapping recovered: equipment mutable SRTN.INVENTORY[0:96],inventory[A00:1000],book MAIN7043:7057,food7057/gold7059. Actual M1 AUX5300 inventory differs from disk;do not use stale staging. Next complete candidate core/NPC/transport/audio and ordinary legacy load/permanent Casual owner migration. Main earned slot18 Everton24,34 remains unchanged;no build/game running. D3-D5 goal active.
+
+# D3 legacy data412 - IN PROGRESS, November14
+
+Data-only LegacySnapshotData reads existing CE runtime snapshot versions1/2,extracts main/aux and mutable image,validates schema/image identity,and reads version2 enhancement history. Machine registers/counters/bank/audio blobs are consumed as format data;no Runtime/CPU/IRQ/bootstrap restore path. Native-only diagnostic verifies actual accepted M1 NSM1/v1 and M2 NSM2/v2 artifacts against expected fields. LEGACY412 checkpoint/frozen receipt and ce-m4-legacy412-portable/verification.json bind proof. Build0warnings/errors2m41.74. Modified native_legacy_snapshot.h,new isolated read-only decoder hook in native_startup_host.h.
+
+Gameplay import is NOT implemented by this decoder. Next convert original party/equipment/inventory/spells/fields,map states,NPC schedule/routes,clock,inn/navigation/transport into staged native owners,then route normal legacy load with permanent unknown-history/Casual semantics. Preserve all required data;no partial import that drops world history. Existing source SaveRecords/LocationResources establish saved field/record layout and mutable map-image ownership.
+
+Main earned latestslot18 Everton24,34,HP50/gold5. Game process closed before build;Python PTY68767 remains,not a running game. No build running. Guarded Search result-close/NPC world-turn boundary remains required,along with remaining Search/audio/D4 contexts. Standing D3-D5 goal active.
+
+# D3 guarded Search411 - IN PROGRESS, November14
+
+Guarded Search adds normal Y/N and original GAME9417 guard-selector hostility effects;alarm uses existing persistent transport/control metadata. NWIN11 stores authorization and pending continuation,reads prior10 and existingbase formats. Required cache-coherence fix captures Search object/NPC mutations before result closure.411 heap-owns large recursive WorldInput save/load temporaries after410 stack overflow. Native build0warnings/errors2m42.90;GUARDED411 frozen receipt.
+
+Controlled authored Castle15 chest96 actual S/South/N orY verifies refusal,guard record6FF,unopened pendingmember choice,exactcold;actualmember1 opens chest/gold award and exact result-screen cold. Full result close reaches unsupported world-turn/guard-reaction boundary:NOT complete,not waived. Guarded411 checkpoint lists setup,all harness/implementation failures and required next diagnosis. Main earned profile unchanged by controlled cases.
+
+Modified native_search.h,native_world.h,native_search_input.h,native_world_input.h. Main ordinary Everton slot17 resumes411 and nextNorth/save18 at24,34. No build running. Next independent D3 legacy importer;guard reaction and other Search/audio/D4 contexts remain required. Active D3-D5 goal continues.
+
+# D3 currency/lock workflow408 - IN PROGRESS
+
+Native Search now supports authored food/gold reward flag128 with shared original scale values,variation RNG order,food doubling and source caps. Existing quest API remains compatible via optional currency references. Real isolated ordinary save branch walked to ship chest36 at10,9:cancel unchanged,first pick5->4/trapHP50->38,second attempt opens/gold5->14,repeat unchanged,ordinary save/cold exact,nextDown10,11. Currency408 checkpoint/frozen receipt bind source and gameplay evidence. Currency arithmetic16 original cases include food/gold/capacity;physical food UI still untested.
+
+Approach exposed party water animation boundary. Original D3A0..D3BD selects ground182->picture183;407 incorrect character+1 assumption rejected before gameplay acceptance.408 corrects ground+1,actual200frame idle approach/continuation passes. Large/other transport animation remains open.406/407/408 build logs retained;408 exit0,0warnings/errors2m42.13. Modified native_search.h,native_world.h,native_search_input.h,native_world_animation.h.
+
+Branch is separate from main earned campaign. Main Everton slot16 restored,North24,35,ordinary slot17 saved with HP50/gold5 unchanged. CLI68767 live,no build running. Next guarded Search Y/N +source guard alarm,random item loot/secret doors,remaining D3 legacy/audio and D4 gaps. Full Search/D3/D4/D5 remain IN PROGRESS or NOT STARTED per queue;no full port acceptance claim.
+
+# D3 world sound405 - IN PROGRESS
+
+405 connects world V modes0both/1off/2effects/3music and persisted target nox_sound_mode to CE mixer. Ordinary Open refusal event now plays original GAME910E two-tone shape through pure speaker resampler and semantic closed pulse arithmetic. Native target now5 objects,adding speaker_audio.cpp synthesis only;no CPU/ABI/bootstrap/IRQ path. Original143 pulse timestamps and duration294756 verified,all4 source modes. Native4mode workflow gates actual mixer music volume and143toggle/14310sample effects,cold mode2/volume0 +exact game state,nextNorth/save16. SOURCE405/CHECKPOINT and frozen SOUND405 receipt bind evidence. Build0warnings/errors2m42.23.
+
+Modified native_speaker.h,new sound control/helper in native_engine.cpp/nox.h/native_startup_host.h,native_world_input.h pending refusal,native_test_cli.h read-only counters,native-only.targets/module.mk. CE music clock continues while channel muted. Not all SFX or combat V acceptance;those remain explicit. Original source test bound100000 was insufficient for130617 source steps;200000 bound completed with unchanged pulse/end criteria.
+
+Current earned CLI68767 live,slot16 at24,36 Everton,both sound restored,clean assistance. No build running. Continue broader sound/Search/legacy imports,D4 gaps and earned campaign under active D3-D5 goal.
+
+# D3 authored ambient404 - IN PROGRESS
+
+404 connects authored loader pools/special descriptors to fresh world,map-identity changes and ordinary combat return;Temple revelation cue preserved. MusicSequencer stop zeros volume voices;surface0/1 directories have no ambient extent so service stops them while retaining initialized save state. No opcode/CPU/IRQ execution introduced. Source loader9927..10121 and GAME8ACF descriptor policy inspected. Full original surface-caller/loop/special-map audio acceptance remains outstanding;do not claim complete audio. Modified native_audio.h,native_music.h,native_startup_host.h. Native build0warnings/errors;AMBIENT404 frozen receipt.
+
+check_ambient404.py passes actual new game and isolated prior-earned full12HP Rat branch ordinary melee/return,authored Keep pool and nonzero PCM. Separate from current earned campaign. ce-m4-ambient404-check.json. Earned Everton departure/reentry stops surface voices and plays authored Town pool,nonzero PCM. Ordinary slot13 cold state exact,next North/slot14 preserves song and advances samples;clean assistance. Evidence ce-m4-ambient404-{surface,town,cold}.json and earned before/after/transcripts. An initial slot13 description on surface was corrected by the next actual-town generation,not a game-state patch.
+
+Current earned slot14 at24,37 Everton,CLI68767 live;no build running. Next D3 SFX/settings plus remaining loop/policy/legacy import/Search branches and D4 gaps. Standing goal remains active.
+
+# D3 current-map animation403 - IN PROGRESS
+
+403 removes Keep7 atlas/map identity assumption: animation.load takes current family,host reloads at changed world type,cold session load binds saved family;visibility already owns light-mode mask,so modes0..3 accepted without guessing illumination. On-foot small actor constraints remain explicit. Search repeated quest reward now schedules source turn. Modified native_world_animation.h,native_player_session.h,native_startup_host.h,native_search_input.h. Build0warnings/errors2m41.40;MAP403 frozen receipt.
+
+Earned actual ship exit ->surface62,208,normal slot8,1000frame idle,exact cold state/discovery/journal/clean assistance. Actual walking ->Everton6/map9,gate entered24,33,slot10 exact cold and next North. Further town walking/selected Talk closing ->slot11 at25,28,observed52,journal7. No outcome injection. Transcripts ce-m4-earned-segment403/ce-m4-earned-cold403/ce-m4-earned-town-cold403.jsonl. Source-copy recovery mirrored. Current live client68767,slot11 latest;no build running.
+
+Next: D3 ambient/music return/SFX/settings and required broader Search operations/lock acceptance. Large actor and water/transport idle animation stay open;403 is not full animation or port acceptance. Standing D3-D5 goal remains active.
+
+# D3 ordinary Search/log402 - IN PROGRESS
+
+Native Search input now connects direction,member selection,existing quest/lock/reward owner,result/retry UI,and optional NWIN10 pending-state wrapper. Existing older packets remain readable. Terminal successful attempts use normal world turn/refresh. Modified native_world_input.h,new native_search_input.h,native_startup_host.h.402 heap-owns native session after401 startup stack overflow0xC00000FD;initial401 link failed because owned game held exe open,closed then rebuilt.402 clean build0warnings/errors2m45.01;frozen SEARCH402 receipt.
+
+Earned actual S+North refusal,door walking/Open,Search22,10 grants Captain log150 exactly once;normal slot5 cold matches gameplay/discovery/journal and clean assistance. Actual Inventory Use displays log;slot6 saved. Continued earned stairs,slot7 saved35,25. Actual exit reached surface0/0 at62,208,then idle rejected hardcoded Keep7 animation;surface save NOT committed. Current client PTY68767 idle;resume slot7 after map animation fix. No full Search/lock/trap/loot acceptance claimed. Next fix animation resource/map ownership,then continue required normal Search branches and campaign. See earned progress JSON/transcripts/screenshots16/18/26.
+
+# D3 earned NPC workflow400 - IN PROGRESS
+
+399 isolated unexpected idle to unsupported NPC animation.400 implements original small NPC BF record/sprite and shared phase group. Clean native build0warnings/errors2m52.19; frozen SCUMMVM-CE-M4-NPC400-BUILD-RECEIPT.json. Actual earned upstairs save survives3000frames idle,then tutorial/TalkLeft/SHIPWRECKED/LOG/BYE. Slot4 saved and cold restored exact gameplay/discovery/journal (cells9,sequence6),clean assistance. See earned progress JSON and ce-m4-earned400-before/after.json. Independent original raster oracle attempts did not pass (visibility/page-context setup),so not claimed as qualification.
+
+Next concrete gap: ordinary Search key is absent although World::searchQuestItem exists. Connect full supported player search workflow so earned Captain log retrieval can continue. Remaining general animation map/large/transport cases stay open. Live earned client PTY68767 at11,8,slot4; no build running. Standing D3-D5 goal continues.
+
+# D3 discovery398 / earned campaign - IN PROGRESS
+
+Build398 native-only exit0,0warnings/errors,2m47.66. SHA256 c2976e4d9c3dc8b63e27746f8c512d3c0e2cb9bea39e6af02bab32c14b1a237d. Optional DISC stores reused M2 discovery/journal owner. Temple dialogue/cold two-process regression passes exact restore, sequence3/one character. Earned physical-input lineage defeated full12HP tutorial Rat and saved slot2, hero50HP8MP,cells4. Fresh process ordinary load confirmed those values (ce-m4-earned-cold398b.jsonl). Next stairs travel reached13,8 before unexpected idle. Investigate exit; prior close timed out, own child may remain. Current new client in PTY68767 loaded slot2. See earned progress JSON. D3-D5 remain active; no campaign completion claim.
+
+# D3 startup/Continue396 — VERIFIED scoped; standing goal IN PROGRESS
+
+Native normal launch now offers New Game/Continue/Q and starts authored splash
+music. Actual menu New Game/story/movement and ordinary save/cold/next movement
+pass; actual Continue chooser restores an exact committed session world/audio.
+Classic Continue separately restores the retained normal pending Temple save
+exactly. Six final CE processes. Initial paced startup PCM is nonzero. Evidence:
+SCUMMVM-CE-M4-STARTUP396-CHECKPOINT.json, frozen396 build receipt and two reports.
+
+Command: clean-environment script -NoxNativeOnly;396 exit0/0warnings/0errors2m47.01.
+Executable77b11a9b8cb0b344707004a2cee447ce0a53ab30637915d5a318549a0f99fccf.
+Smoke: NOX_NATIVE_SMOKE_ROOT=ce-m4-startup396b-portable,NOX_NATIVE_MENU_SMOKE=true;
+python conversion/smoke_native_only.py exit0 (five processes). Classic one-process
+Continue uses retained394 normal save and existing chooser, exact NPXS comparison.
+395 UI consumed replay key-up;396 completion bookkeeping handles that test-only
+boundary. An initial audit assumed current session A, but chooser correctly loaded
+B; external driver now compares against actual committed payload/audio. No game
+outcome was patched. Original report format retained; menu diagnostics separate.
+
+Modified native_startup_host.h and new native_startup_menu.h; local smoke driver
+extended. Authored MUSIC.SPLASH starts only at fresh menu; saved audio replaces it
+on Continue, including valid silent saves. No CPU execution or security changes.
+Next: native discovery/event persistence and minimal existing Test CLI hooks for
+owned inspection/ordinary saves/frames so the required earned campaign can begin
+without compiled input-driver loops. No new test platform. D3 remains IN PROGRESS;
+continue D3-D5 under standing overnight goal, no milestone stop.
+
+# Standing overnight completion goal — IN PROGRESS, November 13, 2026
+
+User authorized continuous autonomous D3-D5 work; completing a milestone is not
+a stop or approval point. D1 and D2 are VERIFIED baselines. Start D3 normal-player
+integration, reconcile stale work records with actual source, continue D4 gaps
+and D5 native release/earned campaign as dependencies permit. The approximately
+6:30AM Mountain check-in is a status checkpoint, not an automatic stop. Do not
+invent busywork if genuinely complete; no publication/push/account/security
+changes. Current queue SCUMMVM-CE-DELIVERY-PLAN.md; active Codex goal has full scope.
+Initial source review confirms older lifecycle/audio records contain stale pending
+claims; use current host/owners and qualified later evidence before selecting
+new code. No additional build or gameplay claim is made by this goal setup.
+
+# Connected native Temple workflow goal — VERIFIED, November 13, 2026
+
+SCUMMVM-CE-TEMPLE-WORKFLOW-VERIFICATION.json records the completed bounded user
+goal. Both Modern and Classic on build394 pass actual Talk -> full10 battle
+admission -> declared controlled pre-attack endpoint -> actual attack/revelation/
+journal/travel/automatic Archus -> subsequent ordinary Wait.22 actual CE processes.
+Pending normal player saves use the real chooser; fresh-process restoration and
+continuation exactly match uninterrupted output in both modes. Independent NXSV/
+NSM2 inspection verifies checksums,actual saved modes0/1 and exact pending NPLS
+payload. Both final hashes60350640b041c486e234c1293dc735a982b39f2e54feeb1bf6a4dcfb537159b7.
+Controlled nine-dead/HighCultistHP1/adjacent hero setup precedes attack. No earned
+full fight or campaign claim. No outcomes injected after operations begin.
+
+Necessary engine changes: native_player_session.h permits pending resultPhase5
+at normal saving; native_startup_host.h permits Q there and initializes the existing
+input driver after normal save_slot restoration; native_player_lifecycle_validation.h
+extends the existing probe for this boundary. No format version change or new
+platform. Local existing Temple/shared drivers extended for modes/normal-save
+split/subsequent action. Frozen driver copies and394 build receipt retain evidence
+without tying acceptance to mutable current files. Original HDVs/M3/391 preserved.
+
+Build: powershell.exe -NoProfile -ExecutionPolicy Bypass -File
+D:\Codex Projects\scummvm-private\scummvm-ce-2026.4.0-consolidated\run-build-release-cleanenv.ps1 -NoxNativeOnly
+Exit0,0warnings/0errors,00:02:48.49; ce-m4-temple394-build.log.
+Executable SHA2569443b132f4c03392cc3ebf9a1c82aad676aaa63794e1c4ebf948c139b9661bf7.
+Frozen receipt SCUMMVM-CE-TEMPLE394-BUILD-RECEIPT.json; portable copy at
+conversion/ce-m4-temple394-portable/scummvm.exe. Native-only build retained.
+
+Commands: NOX_TEST_EXE=<portable exe>,NOX_BUILD_RECEIPT=<current build receipt>,
+NOX_TEST_CLASSIC=true/false; python conversion/run_temple_campaign386_m4.py
+--artifacts ce-m4-temple394-portable/classic (then modern). Both exit0,11invocations
+per mode. Logs ce-m4-temple394-classic.log and ce-m4-temple394-modern.log. Reports
+under each mode/verification.json and the single goal verification above.
+
+Resolved failures retained:392 blocked before launch until USER turned Smart App
+Control Off (observed state0);392 Modern empty-grid probe clicked nonexistent
+second tile;393 actual Classic save succeeded but custom-name lookup was invalid
+for fixed labels.394 uses source-supported actual owner/slot lookup. No identical
+failed experiment repeated, no unrelated game behavior changed. No broad regression
+suite, earned campaign or release acceptance credited.
+
+D2 VERIFIED. Whole M4 remains IN PROGRESS; D3-D5 remain. Stop at this goal's explicit
+boundary. Canonical planning/progress/verification copies are mirrored byte-identically
+under CE devtools/nox/project; private artifacts stay local. No push/publication.
+
+# Connected Temple goal/build392 — IN PROGRESS, November 13, 2026
+
+Scope: actual Talk/full admission -> declared pre-attack setup -> revelation/
+journal/travel/Archus/subsequent gameplay; pending-revelation normal save/cold split
+must equal uninterrupted result in Modern and Classic. No earned fight/campaign.
+
+Necessary source gap found: existing NBTS16 pending state serialized, but normal
+canSave and Q gate refused it. Enabled resultPhase5 in native_player_session.h and
+native_startup_host.h. Existing input driver initialization now follows normal
+save_slot loading. Extended existing NativePlayerLifecycleProbe phases9/10 for
+real pending save chooser and exact cold state before actual continuation.
+No new test platform or unrelated gameplay work. Local drivers:
+run_temple_campaign386_m4.py and run_ordinary_cast_m4.py extended for mode and
+normal-player split comparison/subsequent Wait; finish_temple_save.py is a one-time
+edit script. Prior391 receipt frozen as SCUMMVM-CE-NATIVE-ONLY391-BUILD-RECEIPT.json
+before advancing current receipt, preserving D1's accepted evidence references.
+
+Build command: powershell.exe -NoProfile -ExecutionPolicy Bypass -File
+D:\Codex Projects\scummvm-private\scummvm-ce-2026.4.0-consolidated\run-build-release-cleanenv.ps1 -NoxNativeOnly
+Exit0,0warnings/0errors,00:02:52.36. Log ce-m4-temple392-build.log.
+Executable SHA2565aafde358c485eeb33fb0b87b4eef1af14d2290b99bde301fc0f23f7e02cdf8a.
+Build receipt binds all current engine files. Portable isolated copy created.
+
+Modern command: NOX_TEST_EXE=<ce-m4-temple392-portable/scummvm.exe>,
+NOX_BUILD_RECEIPT=<SCUMMVM-CE-M4-BUILD-RECEIPT.json>,NOX_TEST_CLASSIC=false;
+python conversion/run_temple_campaign386_m4.py --artifacts ce-m4-temple392-portable/modern.
+Exit1 before first gameplay process: WinError4551, Application Control blocked
+scummvm.exe. Exact log ce-m4-temple392-modern.log. Code Integrity3033/3077 at
+21:22:02 records policy{0283ac0f-fff1-49ae-ada1-8a933130cad6}; registry state1
+confirms Smart App Control remains enforced. No policy changed or bypass attempted.
+User asked through pending input for turning it Off or using trusted signing.
+
+Current gameplay verification BLOCKED on that external decision; whole goal
+remains active IN PROGRESS. No392 gameplay coverage credited and no unchanged
+retry. Next after decision: run both modes with existing driver; preserve first
+unlaunched attempt and choose new artifacts. Only targeted workflow validation.
+Current work record: SCUMMVM-CE-M4-TEMPLE-CAMPAIGN-WORK.json. Canonical recovery
+copies updated under CE devtools/nox/project; proprietary fixtures remain local.
+
+# D1 native-only development build goal — VERIFIED, November 13, 2026
+
+User-defined goal finish line is complete. SCUMMVM-CE-NATIVE-ONLY-VERIFICATION.json
+binds the exact final source/executable, build inputs, link audit and smoke results.
+M4 overall remains IN PROGRESS; full M4.2 release and M4.3 earned campaign are NOT
+verified by this bounded development goal. Stop here; no unrelated campaign work.
+
+Command: powershell.exe -NoProfile -ExecutionPolicy Bypass -File
+D:\Codex Projects\scummvm-private\scummvm-ce-2026.4.0-consolidated\run-build-release-cleanenv.ps1 -NoxNativeOnly
+Final391 exit0,0warnings/0errors,00:02:45.44; ce-m4-native-only391-build.log.
+SHA256 ae8eb93ac85645875a2244397176884ca5bf77024567292ba5353a8b5ccaa74d.
+Library archive has exactly metaengine.obj/native_engine.obj/mockingboard.obj;
+public symbols and actual link map exclude Nox Runtime implementations, opcode/
+generated execution, bootstrap, CPU speaker and VIA timer/IRQ/bus functions.
+The retained AY synthesis has direct register/sample functions only. The reused
+menu probe has a type-only forward-declared null Runtime pointer, no CPU call or
+ABI escape. Normal build without the switch retains the reference host.
+
+python conversion/smoke_native_only.py: exit0, four actual CE processes verify
+fresh native creation/story -> movement25,38 -> linked ordinary Engine save/UI ->
+exact cold player load -> next actual Left movement24,38. Native opt-in is false.
+The exact input-earned snapshot is passed to the existing lifecycle save probe;
+its music/Casual test-session setup is declared before operations. No machine
+checkpoint/outcome injection, campaign or broad supported-branch acceptance.
+Report: ce-m4-native-only391-portable/verification.json. Portable executable copy
+is byte-identical and all managed test writes stay beneath that installation.
+
+Corrections:389 object-output metadata couldn't accept absolute source paths;
+fixed ObjectFileName in native targets.390 first three smoke stages passed but
+post-load movement exposed missing host message-catalog load;391 initializes it
+before any entry path. These are resolved failures, not extra accepted coverage.
+No repeated unchanged experiment. Existing388/390 artifacts remain local.
+
+CE modified/new files for this goal: engines/nox/native_engine.cpp,
+host_validation.h,mockingboard.cpp,module.mk,native_startup_host.h;
+run-build-release-cleanenv.ps1; devtools/nox/native-only.targets,NATIVE-ONLY.md.
+Local helpers: bring_native_build.py (one-time edit script),smoke_native_only.py;
+current build receipt, final verification and planning/progress records updated.
+No original HDV, standalone conversion baseline or accepted M3 evidence changed.
+No push/publication/security-policy change. D1 VERIFIED; D2-D5 remain independent
+unfinished port work. Canonical files mirrored byte-identically into CE
+ devtools/nox/project; private gameplay artifacts stay local.
+
+# Build restored and Temple continuation accepted — November 13, 2026
+
+M4 IN PROGRESS. Windows Code Integrity events3033/3077 identify enforced policy
+{0283AC0F-FFF1-49AE-ADA1-8A933130CAD6}; registry VerifiedAndReputablePolicyState=1
+and unsigned create_project.exe confirm the Smart App Control diagnosis.
+CiTool policy listing returned access denied; no policy was changed. No signing
+certificate was available. Exact events: ce-m4-create-project-code-integrity.json.
+
+Resolved build dependency by using the EXISTING current consolidated solution
+through the required normal clean-environment script, without -NoxFocused.
+The existing nox.vcxproj includes native_world_input.h and required engine files;
+no project regeneration was needed. Smart App Control remains enabled; blocked
+helper was neither executed nor substituted. Command:
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File
+D:\Codex Projects\scummvm-private\scummvm-ce-2026.4.0-consolidated\run-build-release-cleanenv.ps1
+Exit0, zero warnings/errors,00:02:57.41. Log ce-m4-delivery-temple388-full-build.log.
+Executable SHA2564205bdbbb3c459d2a56f36bbe20e4e639d6a8960379217fc2a42aa528e845f51.
+SCUMMVM-CE-M4-BUILD-RECEIPT.json binds all307 source files and completed build.
+
+python conversion/run_temple_return387_m4.py --artifacts
+ce-m4-temple388-portable/cases, with NOX_TEST_EXE pointing to the byte-identical
+portable copy and NOX_BUILD_RECEIPT to the completed full-build receipt: exit0.
+Two CE processes pass actual final attack/revelation/Journal156/travel/automatic
+Archus translation and byte-identical cold restoration. Destination7/58/20/13,
+required flags, journal quantity1 and hour9 asserted. Report:
+ce-m4-temple388-portable/cases/verification.json. Source386b controlled pre-attack
+ancestry is retained; no earned full combat or current-build Talk/admission claim.
+D2 remains IN PROGRESS for whole-batch pending-revelation split/mode acceptance;
+this return defect is resolved. No broad historical suite was repeated.
+
+Local runner changes: m3_platform.py defaults to consolidated checkout (optional
+NOX_CE_ROOT override); shared runner accepts explicit exe/receipt environment
+paths. Fixed false hash-change alarm caused by comparing access time after reads:
+content stability uses size/mtime/inode. Four existing integrity tests PASS.
+Initial sandbox process-list check required read escalation; subsequent false
+access-time alarm was diagnosed and fixed, not bypassed. Portable copy keeps
+all managed test files under its executable root as required by CE storage.
+Original assets and accepted reference evidence remain unchanged.
+
+Next: D1 native-only host/link dependency cut; use the working normal build and
+existing generated project while the helper signing restriction remains. Any
+future regeneration needs a policy-compliant generator/environment, not a silent
+security exception. No remaining block prevents ordinary incremental engine work.
+Updated canonical plan/progress and explicit recovery mirrors at
+CE devtools/nox/project; no proprietary artifacts are mirrored. No push/deployment.
+
+# Delivery implementation started — November 13, 2026
+
+User clarification: prioritize finishing ASAP; irrelevant scaffolding need not be
+preserved. Delivery-plan clarification records this without changing native-only,
+earned campaign, supported player/save requirements or accepted evidence.
+
+D2 IN PROGRESS: engines/nox/native_world_input.h now refreshes the Temple scene
+AFTER the existing travel/schedule transaction and BEFORE automatic Archus Talk.
+Ordinary travel order is unchanged. This implements the recorded source-supported
+proposal; no successful compilation or gameplay acceptance is claimed.
+
+Build command: powershell.exe -NoProfile -ExecutionPolicy Bypass -File
+D:\Codex Projects\scummvm-private\scummvm-ce-2026.4.0-consolidated\run-build-release-cleanenv.ps1 -NoxFocused.
+Exit1. Log: conversion/ce-m4-delivery-temple388-build.log. Generator compilation
+succeeds; Windows Application Control blocks execution of create_project.exe at
+script line119 before engine compilation. Initial direct invocation through the
+PowerShell7 host failed with StandardOutputEncoding; corrected documented Windows
+PowerShell invocation exposes the actual Application Control blocker. Do not
+repeat either unchanged attempt or claim a new executable. No policy bypass.
+
+D1 remains NOT STARTED. Build execution is BLOCKED pending the environment allowing
+its required project generator. Existing test runner also hardcodes the retired
+checkout in m3_platform.py; update that one path before reusing it, rather than
+rebuilding the test platform. No extra driver was created. Next: resolve build
+permission/environment, then focused Temple continuation/cold and native-only
+link cut. Preserve the source fix without promoting its result.
+
+# Delivery review and revised execution plan â€” November 13, 2026
+
+Status: IN PROGRESS (M4). User requested source review and plan revision; that
+review/planning is complete. No engine implementation, build or gameplay rerun.
+The October18 pause is superseded for this requested review; the prior pause
+entry below is historical. Existing autonomous M4 authorization is retained.
+
+Current queue: SCUMMVM-CE-DELIVERY-PLAN.md, D1 native-only development build first,
+then D2 Temple continuation, D3 normal-player integration, D4 supported gaps,
+D5 frozen native-only/earned campaign acceptance. No acceptance criterion waived.
+
+Actual checkout: D:\Codex Projects\scummvm-private\scummvm-ce-2026.4.0-consolidated.
+HEAD d35a5e955daf19251c23e31e9d588cd4860e7f7c. Initial Git status: existing edits to
+AGENTS.md, devtools/nox/project/AGENTS.md and both clean-environment build scripts;
+no engine edits. Nox root remains unversioned. Current consolidated executable
+SHA256 b35fca1622f0ba5370105efd33f14c31460420472fe625d61e762d243a386d8b.
+It differs from focused387 and accepted384. Source comparison against387 finds
+114 newline-only changes and two other changes (summon pool and its validation).
+No old executable's acceptance is credited to this binary. Accepted384 and M3
+history remain preserved. Complete source differences are recorded in
+SCUMMVM-CE-DELIVERY-REVIEW-20261113.json.
+
+Source review confirms default launch still constructs compatibility Runtime;
+module.mk includes compatibility/validation objects; native gameplay/session/save/
+audio owners already exist. Temple scene is rendered before scheduling, then
+Archus admission reads stale scene actors. Proposed scoped refresh remains
+unimplemented. General travel ordering should be preserved. Ghidra installation
+and6502 module found; use only for bounded unresolved caller questions.
+
+Commands/results: Get-Content/rg inspected canonical decisions/plans/audits and
+engine host/input/travel/session/runtime/build sources; git status --short and
+log -1 succeeded via approved read escalation (initial sandbox denied Git access).
+Get-FileHash and Python/hashlib compared all307 receipt source entries with
+explicit newline normalization. No build/test was required for document edits.
+Initial attempts to read player_session.h/native_startup.h and local sync_project.py
+found no such files; actual native_player_session.h/native_startup_host.h and CE
+sync script were inspected instead. No failed gameplay experiment was repeated.
+
+Modified canonical files: delivery plan/review JSON, implementation plan, M4 plan,
+M4 progress JSON and this progress file. Canonical recovery destination:
+CE devtools/nox/project; mirror receipt follows this update. Architecture/AGENTS
+copies are included byte-identically. No proprietary data copied, no push/reset.
+Next action is D1's native-only target/dependency cut, with D2 as first campaign
+behavior batch. No external information is needed for these actions.
+
 # User-requested pause - October 18, 2026
 
 Execution is paused until the user says resume. M4 remains IN PROGRESS.

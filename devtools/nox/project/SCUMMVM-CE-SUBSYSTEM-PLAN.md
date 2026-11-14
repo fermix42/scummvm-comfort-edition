@@ -26,7 +26,10 @@ not a new test platform. Refreshing it must not overwrite later evidence edits.
 
 ## Dependency order
 
-1. **Party slot identity and reorder transaction/input. IN PROGRESS.** Source
+1. **Party slot identity and reorder transaction/input. IN PROGRESS.** Implementation
+   completed474b:12 scoped behaviors implemented,10 focused verified;2 broader
+   integration qualifications deferred. Continue item2 without gameplay testing.
+   Evidence: SCUMMVM-CE-PARTY-ORDER474-VERIFICATION.json. Source
    proves missing world N dispatch, no Party swap owner. This affects inventory
    ownership, battle formation/Quick roles, recruitment and saves. Reuse current
    selection, records and UI architecture. Contract: ENGINE-PARTY-ORDER-CONTRACT.

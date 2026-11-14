@@ -38,7 +38,7 @@ and no speculative instruction-address conversion queues.
 ## Workspaces
 
 - Nox source and canonical tracking: `D:\Codex Projects\Nox Archaist`.
-- CE production checkout: `D:\Codex Projects\scummvm-private\scummvm-private-feature-usable-desktop-window-layout-git`.
+- CE production checkout: `D:\Codex Projects\scummvm-private\scummvm-ce-2026.4.0-consolidated` (workspace default since the owner's November 12, 2026 cleanup).
 - Read CE's AGENTS.md before editing/building there; use its clean-environment build script.
 - The Nox source directory initially has no Git repository. Do not claim it is a
   clean/versioned tree. Mirror the three canonical migration documents and this
@@ -99,3 +99,7 @@ CPU IRQ delivery. Do not rename compatibility code as a semantic replacement.
 Controlled M3 checkpoints remain regression evidence, not an earned native-only
 campaign. M4.3 earned campaign and supported branch/save/audio/session acceptance
 remain required. Publication, push and deployment remain unauthorized.
+
+## Source-driven completion authorization - November 14, 2026
+
+The owner authorized remaining native subsystem implementation, including graphics/input, using source-derived contracts and a durable completion matrix. Read conversion/SCUMMVM-CE-SUBSYSTEM-PLAN.md and ENGINE-COMPLETION/ENGINE-BLOCKERS/ENGINE-FALLBACKS records. This supersedes reactive gameplay-driven discovery and the former audio stop. Do not run campaign traversal/acceptance or exploratory gameplay. Preserve accepted audio473; no suite rerun without demonstrated regression. One focused batch and one integration build per coherent subsystem; extra runs require a direct technical reason. Commit coherent changes, continue authorized subsystems, no publication/push/release.

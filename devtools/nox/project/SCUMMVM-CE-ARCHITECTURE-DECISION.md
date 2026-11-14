@@ -449,3 +449,34 @@ The slices overlap and are not additive commitments. Re-estimate M1 after the co
 ### Website API implementation
 
 - [Playthrough routes](<D:/Codex Projects/CE Achievements/routes/api.php:1>), [session creation and validation](<D:/Codex Projects/CE Achievements/app/Http/Controllers/Api/V1/PlaythroughController.php:18>). This local contract is the basis for zero-achievement integration; production registration was not verified.
+
+
+## Castle11 native schedule decision - November14,2026
+
+Exact malformed padding descriptors at schedule offsets256,264,272,280 in Castle11 are ignored as selectors; their zero goal0 coordinate pair is retained. Subsequent valid aligned schedules, including guard0 at offset320, remain authoritative. The native engine does not reproduce accidental unaligned pointer aliasing into prior-combat scratch. This explicitly replaces machine-memory coupling rather than claiming bit parity. Controlled midnight/cold and actual earned entry evidence are recorded in CASTLE428 checkpoint; full campaign acceptance remains required.
+
+
+## Native retained inventory-counter initialization — November 14, 2026
+
+Native games initialize the retained inventory-counter selector to an explicit
+no-prior-selection identity (255). It is not miscellaneous kind2, so an initial
+tracked-item Drop removes the item without changing a quest counter. The original
+accepted introductory machine saves contain selectorF2/quantityA8, which also has
+no counter effect; their arbitrary startup bytes are not native gameplay state.
+Machine-save imports preserve their actual bytes as qualified in442.
+
+NGST2–4 native saves did not record this selector or quantity. Their migration
+initializes no prior selection, rather than inventing a historical transaction or
+refusing a normal Drop. This deliberately defines migration behavior; it cannot
+reconstruct unrecorded historical scratch values and is not claimed as exact
+scratch-memory parity. Existing quest counters/items are preserved on load. Later
+merchant/equipment operations establish the retained inputs through typed owners,
+and NGST5 persists them. This removes an implementation blocker, not any required
+campaign/save acceptance criterion. Source-supported protection/readied-copy and
+transaction rules remain unchanged.
+
+The empty retained quantity is explicitly zero and known. This also handles a
+first canceled miscellaneous purchase: selecting kind2 must not make later Drop
+unsupported or subtract startup-code bytes. Early NGST5 partial contexts migrate
+missing selector to255 and missing quantity to0. Actual known values, including
+legacy imports, remain unchanged. This is defined native migration behavior.

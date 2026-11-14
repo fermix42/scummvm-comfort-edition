@@ -1,3 +1,32 @@
+# Current methodology - November 14, 2026
+
+The source-driven subsystem directive supersedes dated reactive/campaign queues and the prior audio stop. Current execution plan: SCUMMVM-CE-SUBSYSTEM-PLAN.md. Matrix: SCUMMVM-CE-ENGINE-COMPLETION.json. No gameplay discovery or campaign acceptance is authorized now. Audio473 remains accepted; D3-D5 remain unfinished.
+
+# Connected Temple goal VERIFIED — November 13, 2026
+
+D2 is VERIFIED in SCUMMVM-CE-TEMPLE-WORKFLOW-VERIFICATION.json on native build394:
+full connected workflow and exact pending normal-save cold continuation in both
+modes, including subsequent gameplay. Stop at the user goal boundary. D3-D5 and
+whole-port release/campaign acceptance remain unfinished.
+
+# Native-only development goal VERIFIED — November 13, 2026
+
+D1 is VERIFIED in SCUMMVM-CE-NATIVE-ONLY-VERIFICATION.json: native-only build,
+startup/movement, ordinary CE saving, exact cold load and next movement.
+This completes the bounded user goal, not full M4.2 release or M4.3 campaign.
+The current delivery queue below retains the remaining independent port work.
+
+# Current delivery order â€” November 13, 2026
+
+The user requested an actual-engine review and a shorter path to completion.
+[SCUMMVM-CE-DELIVERY-PLAN.md](SCUMMVM-CE-DELIVERY-PLAN.md) now controls execution
+order, investigation limits and validation cadence. It supersedes historical
+ordering below while retaining all architecture/M4.2/M4.3 acceptance criteria.
+Bring native-only compilation forward; finish Temple; close normal-player
+integration and reachable supported gaps; finish earned native campaign/release
+acceptance. No engine rewrite, broad test-platform project or publication.
+This session completed source review and planning only, not implementation.
+
 # Scripted Shadow travel checkpoint384 - October 18, 2026
 
 M4 remains IN PROGRESS. SHADOW384-CHECKPOINT preserves build384, source and

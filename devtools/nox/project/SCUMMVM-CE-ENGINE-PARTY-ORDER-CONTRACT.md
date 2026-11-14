@@ -20,6 +20,11 @@ positions and Quick roles. Existing native selection GAME8600–8728 contract
 supports living default, arrows/space, shifted numeric aliases, Enter/Escape.
 Confirm exact original numeric-slot and dead-selection mode before final closure.
 
+Resolved before implementation: original9672 sets30F8=1. GAME866E/8677 forwards
+that mode into arrow selectors;8680 forces zero for shifted-number selection.
+Thus arrows include dead members and shifted aliases require living ones,
+exactly the existing PartySelection owner. Source masks are04,08,10,20,40,80.
+
 ## Required behavior inventory (12)
 
 1. N begins first selection only at the world command boundary.
@@ -61,3 +66,20 @@ build when complete. No game launch/traversal/campaign/audio acceptance.
 Resolve selector original mode and actual production callers before claiming all
 12 verified. The contract may be clarified by original evidence, never weakened
 silently. B-ORDER owns this work; B-COMMAND remains independently open.
+
+## Implementation milestone474b
+
+All12 behaviors implemented;10 focused verified. The broader normal Engine cold
+consumer and all cross-owner integration qualifications for10/12 remain explicitly
+deferred to the later integration phase. No normal-session/campaign claim follows
+from in-memory record round trips. PARTY-ORDER474-VERIFICATION binds source,
+executable, both build logs, original-tail fixture and actual native focused report.
+Six source files form the new delta. No remaining missing/unknown behavior within
+this scoped owner, no instruction fallback. Full interface/inventory still open.
+
+Commands: `python conversion/prepare_party_order474.py` generates local immutable
+source-derived fixtures; do not overwrite existing accepted artifacts on recovery.
+`python conversion/check_party_order474.py --corrected` is the recorded focused
+command and requires its owned output directory not to exist. Do not rerun it
+without source drift/relevant defect. Build used cleanenv `-NoxNativeOnly` twice:
+one integration build and one direct fixture-initialization correction; no loop.

@@ -54,6 +54,13 @@ public:
     }
     const CharacterRecord *member(uint index) const { return _ready && index < 6 ? &_members[index] : nullptr; }
     const EquipmentRecord *equipment(uint index) const { return _ready && index < 6 ? &_equipment[index] : nullptr; }
+    // SRTN.INVENTORY selector7: identity includes every opaque record byte.
+    bool exchangeMembers(byte first, byte second) {
+        if (!_ready || first>=memberCount() || second>=memberCount()) return false;
+        const CharacterRecord member=_members[first];_members[first]=_members[second];_members[second]=member;
+        const EquipmentRecord equipment=_equipment[first];_equipment[first]=_equipment[second];_equipment[second]=equipment;
+        return true;
+    }
     bool damage(uint index, uint16 amount) {
         if (!_ready || index >= memberCount()) return false;
         _members[index].damage(amount); return true;
