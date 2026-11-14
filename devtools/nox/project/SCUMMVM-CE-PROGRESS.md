@@ -1,3 +1,28 @@
+# Location presentation489 integrated - November14
+
+First build0/0 2m52.97;first batch VERIFIED:3exact CEcategory labels,actualG
+renderwithunchangedcore/RNG and3corecodecs;5CEhelpbindingchecks. Town2/Castle4/5
+showTown/Castle explicitly as CEfallback,never inventedauthorednames. Historical
+retainedcaption/reachability remainsUNKNOWN parity;B-LOCATIONnativegap retired.
+Source/exe frozen LOCATION-PRESENTATION489 receipt. Audio/input unchanged;
+no old475suite/campaign/cold/session. Accepted475artifacts immutable.
+Next:World.activatePlate/enterPortal have no productioncaller. SourceEA35 after
+actor/objectpaint beforeclock setsplatefield ifcenteractorlookupFF andstate54.
+F117 tests renderedportalindex347B andloads9C01 program afterclock. Trace portal
+programandtravel/battle-returnordering;contract490beforecode. No campaign.
+
+# Active location presentation489 - IN PROGRESS
+
+Barrier488 committed0ce08fffc63. Exactthree metadata23-byte Town2/Castle4/5
+nowshow explicit CE categoryTown/Castle fallback instead offatalG. No invented
+authored place name;historicalretainedscratch naming remainsUNKNOWN parity,
+notmissingnativebehavior. Othermalformedmetadata guardsandUM97anchor unchanged.
+Help retains originalguideandappendsaccurate Tab/TabSpace/combatTab/N/V tips.
+Audio/input behaviorunchanged. Current475validationexpectation updated toCE
+policy;accepted475artifactsimmutable,old suite notrerun. ContractLOCATION-
+PRESENTATION. One focusedbuild/batch3actualG renders/coreRNGunchanged/core
+codecsandhelpbindingchecks. No campaign/audio/normalcold/session.
+
 # Barrier488 integrated - November14
 
 Build488b0 warnings/errors2m56.80;first nativebatch VERIFIED:48 source mask/

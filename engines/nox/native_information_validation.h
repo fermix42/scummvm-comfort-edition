@@ -53,7 +53,7 @@ inline bool validateNativeInformation475(HdvArchive &archive,Common::SeekableRea
     if (!migrated.load(oldInput) || !catalog.location(migrated,actual) || actual!="Depths of Vacous: L1") return false;
     // The three nameless directory entries remain explicit source-evidence gaps.
     const byte types[]={6,7,7},maps[]={2,4,5};
-    for (uint i=0;i<3;++i) {World unnamed(archive);if (!unnamed.initialize(types[i],maps[i],24,24,fields,256) || catalog.location(unnamed,actual)) return false;}
+    for (uint i=0;i<3;++i) {World unnamed(archive);if (!unnamed.initialize(types[i],maps[i],24,24,fields,256) || !catalog.location(unnamed,actual) || actual!=(i?"Castle":"Town")) return false;}
     report="native information modal input";
     NewGame game(archive);if (!game.create("INFO",0,0)) return false;
     Common::MemoryWriteStreamDynamic before(DisposeAfterUse::YES);if (!game.save(before)) return false;
@@ -82,7 +82,7 @@ inline bool validateNativeInformation475(HdvArchive &archive,Common::SeekableRea
     if (!game.save(after) || !rng.save(rngAfter) || before.size()!=after.size() || memcmp(before.getData(),after.getData(),before.size()) || rngBefore.size()!=rngAfter.size() || memcmp(rngBefore.getData(),rngAfter.getData(),rngBefore.size())) return false;
     NewGame roundTrip(archive);Common::MemoryReadStream core(after.getData(),after.size());if (!roundTrip.load(core)) return false;
     Common::MemoryWriteStreamDynamic again(DisposeAfterUse::YES);if (!roundTrip.save(again) || again.size()!=after.size() || memcmp(again.getData(),after.getData(),after.size())) return false;
-    report=Common::String::format("information\tgeneric_descriptions=1792\tquest_conditions=169\tLook_cases=96\tnamed_documents=22\tlocation_retained_after_move=1\tNWLD2_roundtrip=1\tNWLD1_migration=1\tunknown_captions=3\tmodal_restore=1\tpage_keys=%u\tcomplete_core_RNG_unchanged=1\tcore_roundtrip=1\tcampaign=0\taudio_suite=0\n",pages);return true;
+    report=Common::String::format("information\tgeneric_descriptions=1792\tquest_conditions=169\tLook_cases=96\tnamed_documents=22\tlocation_retained_after_move=1\tNWLD2_roundtrip=1\tNWLD1_migration=1\tCE_category_captions=3\tmodal_restore=1\tpage_keys=%u\tcomplete_core_RNG_unchanged=1\tcore_roundtrip=1\tcampaign=0\taudio_suite=0\n",pages);return true;
 }
 }
 #endif

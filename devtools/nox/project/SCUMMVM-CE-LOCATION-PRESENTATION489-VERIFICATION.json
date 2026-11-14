@@ -1,0 +1,39 @@
+{
+  "status": "IN PROGRESS",
+  "scope": "Native nameless-map G and CE help implemented;focused validation VERIFIED. Complete engine qualification unfinished.",
+  "parent_commit": "0ce08fffc63",
+  "executable_sha256": "4af745a755c49afde190300e143eb5d5495613d044eecbca9f8b383f3a4347fc",
+  "source_hash_manifest": {
+    "path": "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-location-presentation489-focused\\verification.json",
+    "sha256": "600bf819a68a0a505430608f3d9dad37267dc8c6f1d95e6c9ef42554de252497"
+  },
+  "build": {
+    "result": "0 warnings,0 errors,2m52.97s",
+    "native_batches": 1,
+    "failures": []
+  },
+  "focused_validation": {
+    "status": "VERIFIED",
+    "report": "location-presentation\tCE_category_labels=3\tactual_G_render_core_RNG_unchanged=3\tcore_roundtrips=3\tCE_help_bindings=5\toriginal_caption_parity=unknown\tcampaign=0\taudio_suite=0\n"
+  },
+  "ce_replacement": "Exact nameless Town type6/map2 ->Town;Castle type7/maps4/5 ->Castle. Generic CE labels,not authored names or retained machine scratch.",
+  "historical_parity": {
+    "classification": "UNKNOWN",
+    "scope": "Original retained names/reachability. Native behavior intentionally replaced,not a native G blocker."
+  },
+  "commands": [
+    "powershell.exe -NoProfile -ExecutionPolicy Bypass -File ./run-build-release-cleanenv.ps1 -NoxNativeOnly",
+    "python conversion/check_location_presentation489.py"
+  ],
+  "remaining_qualifications": [
+    "No normal Engine cold/session,campaign,audio/old information suite or fresh full Help paging GUI acceptance.",
+    "Existing475 current validation expectations updated for CE policy;frozen475 artifacts unchanged."
+  ],
+  "artifacts": {
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-binary\\scummvm-native-location-presentation489.exe": "4af745a755c49afde190300e143eb5d5495613d044eecbca9f8b383f3a4347fc",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-binary\\native-location-presentation489-source.zip": "b112e9af1e484f94a71b55fdb3a444ef5e7a0d732d398e235ee3fe9d7bec2138",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-location-presentation489-focused\\verification.json": "600bf819a68a0a505430608f3d9dad37267dc8c6f1d95e6c9ef42554de252497",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-location-presentation489-build.log": "3e0d193a7eb669cc4a9c0c8b1584b54848064352596771ee2dc5eebc29c18850"
+  },
+  "next": "Connect ordinary world pressure plates/portals from sourceEA35/F117;helpers exist but no production caller."
+}

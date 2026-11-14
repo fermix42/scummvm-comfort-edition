@@ -45,10 +45,20 @@ public:
         }
         next._ready=true;*this=next;return true;
     }
-    bool help(Common::String &out) const {if (!_ready) return false;out=_help;return true;}
+    bool help(Common::String &out) const {
+        if (!_ready) return false;out=_help;
+        out+="\r\rComfort Edition\rTab: party roster.\rTab/Space again: inventory.\rIn combat, Tab: inventory.\rN: reorder party.\rV: cycle sound mode.";return true;
+    }
     bool location(const World &world,Common::String &out) const {
         if (!_ready || !world.ready()) return false;
         const MapDefinition *map=world.mapDefinition();if (!map) return false;
+        // Three valid directory records have no authored location string.
+        // Explicit CE category labels replace an unrelated retained scratch name.
+        if (map->metadata.size()==23) {
+            if (world.mapType()==6 && world.mapId()==2) {out="Town";return true;}
+            if (world.mapType()==7 && (world.mapId()==4 || world.mapId()==5)) {out="Castle";return true;}
+            return false;
+        }
         if (world.mapId()!=97) return plain(map->metadata,23,map->metadata.size(),out);
         byte x,y;
         if (world.locationAnchor(x,y)) {

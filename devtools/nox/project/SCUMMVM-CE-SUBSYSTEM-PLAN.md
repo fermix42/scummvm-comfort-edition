@@ -1,3 +1,5 @@
+Location489 closes native nameless-map G via CE categories;historical names remainUNKNOWN parity. Open/Search487 andbarrier488 integrated. Source pass found missing ordinary pressureplate/portal connections,next490 contract/implementation,no campaign.
+
 Controls476b update: known roster/torch/icon/W implementation is complete;
 focused receipt records29 verified behaviors and7 integration qualifications.
 B-COMMAND/B-TORCH missing implementation retired within this contract. World
@@ -59,9 +61,9 @@ not a new test platform. Refreshing it must not overwrite later evidence edits.
 5. **Combat exceptional state and full lifecycle closure. IN PROGRESS.** Reuse
    M4-COMBAT-CONTRACT; do not redo it. Resolve retained Quick context from writers
    and lifetime, not guessed difficulty. Integrate simulation/magic dependencies.
-6. **Script producers, quests and ending closure. NOT STARTED.** Enumerate authored
+6. **Script producers, quests and ending closure. IN PROGRESS.** Enumerate authored
    conditions/data and native effects. No campaign driver or traversal discovery.
-7. **Shared serialization/lifecycle/graphics integration closure. NOT STARTED.**
+7. **Shared serialization/lifecycle/graphics integration closure. IN PROGRESS.**
    Inspect cross-owner persistence at each prior step; this milestone reconciles
    all states and supported legacy migrations, presentation and fallback ledger.
 8. **Separate integration/campaign plan. NOT STARTED.** Prepare only after missing

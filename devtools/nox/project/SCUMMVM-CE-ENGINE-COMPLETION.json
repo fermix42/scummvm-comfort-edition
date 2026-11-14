@@ -377,7 +377,8 @@
       ],
       "production_connection": "native_engine -> runNativeStartup -> WorldInput::handle free G/L/?// -> InformationInput -> InformationCatalog/TextWindow; modal exclusion through atWorldCommand/wholeFrameMenu/save guard.",
       "fallback_dependencies": [],
-      "blockers": []
+      "blockers": [],
+      "CE_help_evidence": "SCUMMVM-CE-LOCATION-PRESENTATION489-VERIFICATION.json:5 accurate binding checks;no fresh full Help paging GUI acceptance."
     },
     {
       "id": "interface.08",
@@ -2798,70 +2799,73 @@
       "id": "interface.17",
       "subsystem": "interface",
       "behavior": "TOWN map2 nameless directory caption reachability and original retained-name semantics",
-      "implementation": "UNKNOWN",
+      "implementation": "CE_REPLACEMENT",
       "verification": {
-        "status": "NOT STARTED",
-        "scope": "Source directory has only23 metadata bytes. No fabricated name and no original reachability proof."
+        "status": "VERIFIED",
+        "scope": "Exact CEcategory/G render/core/RNG/corecodec;historical original names/reachability remainUNKNOWN parity.",
+        "evidence": "SCUMMVM-CE-LOCATION-PRESENTATION489-VERIFICATION.json"
       },
       "original_evidence": [
         "ce-native-information-source.json (local)",
-        "resident_location.inc DB60-DC16 (local reference)"
+        "resident_location.inc DB60-DC16 (local reference)",
+        "SCUMMVM-CE-ENGINE-LOCATION-PRESENTATION-CONTRACT.md"
       ],
       "native_owners": [
         "engines/nox/native_information_catalog.h",
         "engines/nox/native_world.h"
       ],
-      "production_connection": "G uses explicit unsupported result for these unresolved records; not counted as completed native functionality.",
+      "production_connection": "Explicit CE Town/Castle category for exact metadata-only record.",
       "fallback_dependencies": [],
-      "blockers": [
-        "B-LOCATION"
-      ]
+      "blockers": [],
+      "historical_parity": "UNKNOWN:original retainedcaption/reachability,intentionally replaced."
     },
     {
       "id": "interface.18",
       "subsystem": "interface",
       "behavior": "CSTL map4 nameless directory caption reachability and original retained-name semantics",
-      "implementation": "UNKNOWN",
+      "implementation": "CE_REPLACEMENT",
       "verification": {
-        "status": "NOT STARTED",
-        "scope": "Source directory has only23 metadata bytes. No fabricated name and no original reachability proof."
+        "status": "VERIFIED",
+        "scope": "Exact CEcategory/G render/core/RNG/corecodec;historical original names/reachability remainUNKNOWN parity.",
+        "evidence": "SCUMMVM-CE-LOCATION-PRESENTATION489-VERIFICATION.json"
       },
       "original_evidence": [
         "ce-native-information-source.json (local)",
-        "resident_location.inc DB60-DC16 (local reference)"
+        "resident_location.inc DB60-DC16 (local reference)",
+        "SCUMMVM-CE-ENGINE-LOCATION-PRESENTATION-CONTRACT.md"
       ],
       "native_owners": [
         "engines/nox/native_information_catalog.h",
         "engines/nox/native_world.h"
       ],
-      "production_connection": "G uses explicit unsupported result for these unresolved records; not counted as completed native functionality.",
+      "production_connection": "Explicit CE Town/Castle category for exact metadata-only record.",
       "fallback_dependencies": [],
-      "blockers": [
-        "B-LOCATION"
-      ]
+      "blockers": [],
+      "historical_parity": "UNKNOWN:original retainedcaption/reachability,intentionally replaced."
     },
     {
       "id": "interface.19",
       "subsystem": "interface",
       "behavior": "CSTL map5 nameless directory caption reachability and original retained-name semantics",
-      "implementation": "UNKNOWN",
+      "implementation": "CE_REPLACEMENT",
       "verification": {
-        "status": "NOT STARTED",
-        "scope": "Source directory has only23 metadata bytes. No fabricated name and no original reachability proof."
+        "status": "VERIFIED",
+        "scope": "Exact CEcategory/G render/core/RNG/corecodec;historical original names/reachability remainUNKNOWN parity.",
+        "evidence": "SCUMMVM-CE-LOCATION-PRESENTATION489-VERIFICATION.json"
       },
       "original_evidence": [
         "ce-native-information-source.json (local)",
-        "resident_location.inc DB60-DC16 (local reference)"
+        "resident_location.inc DB60-DC16 (local reference)",
+        "SCUMMVM-CE-ENGINE-LOCATION-PRESENTATION-CONTRACT.md"
       ],
       "native_owners": [
         "engines/nox/native_information_catalog.h",
         "engines/nox/native_world.h"
       ],
-      "production_connection": "G uses explicit unsupported result for these unresolved records; not counted as completed native functionality.",
+      "production_connection": "Explicit CE Town/Castle category for exact metadata-only record.",
       "fallback_dependencies": [],
-      "blockers": [
-        "B-LOCATION"
-      ]
+      "blockers": [],
+      "historical_parity": "UNKNOWN:original retainedcaption/reachability,intentionally replaced."
     },
     {
       "id": "combat.14",
@@ -4213,7 +4217,7 @@
     },
     {
       "path": "engines/nox/native_information_catalog.h",
-      "sha256": "7e10da62ce3bf70ba7edc0d6f4fa54c3e678df611d35c7248e742858cf013c5d",
+      "sha256": "77da5ddd1f12060018a2b98ce9a83f7e9cbff3d93b741623086b9d4a034986a5",
       "includes": [
         "nox/native_world_presentation.h",
         "nox/native_lz.h"
@@ -5178,7 +5182,7 @@
     },
     {
       "path": "engines/nox/native_startup_host.h",
-      "sha256": "659227afc4bedd46897d5acba44b7196b6b21294b5b707855fb0dfe1d24640e0",
+      "sha256": "18d53b5c47e37e568fdf470a1e837679285b324bffe8f5bbd55ed9c3ae922552",
       "includes": [
         "nox/native_weapon_ready_validation.h",
         "nox/native_legacy_snapshot.h",
@@ -7182,14 +7186,14 @@
       "ce_replacements": 0
     },
     "interface": {
-      "known_required": 19,
+      "known_required": 22,
       "native_implemented": 11,
-      "verified": 10,
+      "verified": 13,
       "partial": 8,
       "missing": 0,
-      "unknown_required_rows": 3,
+      "unknown_required_rows": 0,
       "additional_unclassified_scope": 1,
-      "ce_replacements": 0
+      "ce_replacements": 3
     },
     "world": {
       "known_required": 12,
@@ -7303,8 +7307,8 @@
     }
   },
   "last_milestone": {
-    "owner": "barrier488",
-    "evidence": "SCUMMVM-CE-BARRIER488-VERIFICATION.json"
+    "owner": "location presentation489",
+    "evidence": "SCUMMVM-CE-LOCATION-PRESENTATION489-VERIFICATION.json"
   },
   "overall": {
     "fully_implemented_top_level_domains": 1,
@@ -7318,7 +7322,7 @@
   },
   "current_subsystem": {
     "status": "IN PROGRESS",
-    "scope": "Location/help presentation;continue remaining script andgraphics/lifecycle closure."
+    "scope": "Pressureplate/portal ordinary-turn connections fromsourceEA35/F117."
   },
   "count_definition": "native_implemented counts IMPLEMENTED; CE_REPLACEMENT is separately reported. VERIFIED applies only to row evidence scope; no overall completion percentage."
 }

@@ -1,3 +1,5 @@
+Location489: B-LOCATION nativegap retired via explicit CE Town/Castle categories. Historical names/reachability remainUNKNOWN parity. Next genuine gaps:ordinary pressureplate/portal connections EA35/F117.
+
 Preferences485: B-QUICK native-context implementation retired via explicit
 CE_REPLACEMENT using source9F1B level advice. Original forced067D historical
 scratch lifetime remains UNKNOWN parity,not an implementation or testing claim.
