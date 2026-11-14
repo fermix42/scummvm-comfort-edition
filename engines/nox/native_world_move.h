@@ -25,7 +25,7 @@ public:
     WorldMoveResult run(const Common::Event &input,World &world,WorldStory &window,WorldScene &scene,WorldActorTurnState &state,
             TurnClock &clock,LightState &light,VisibilityMask &visibility,NpcScheduleState &schedule,NpcRouteStore &routes,
             GameplayRandom &random,const FixedMessageCatalog &catalog,TextGlyphSurface &text,HgrFrame &frame,Common::Array<byte> &notice,WorldActorTurnEvent &encounter,byte animation=0,
-            WorldTransportState *transport=nullptr,Party *party=nullptr,bool forcedAlignment=false) const {
+            WorldTransportState *transport=nullptr,Party *party=nullptr,bool forcedAlignment=false,byte partyAppearance=246) const {
         if (!world.ready() || world.mapType()!=_type || animation>3 || state.effects.active || state.effects.queued) return kWorldMoveUnsupported;
         int dx=0,dy=0;byte direction;
         switch (input.kbd.keycode) {
@@ -95,7 +95,7 @@ public:
         // pixels are already black. Retain shifted logical visibility for
         // actors while giving the raster pass its actual painted history.
         WorldActorTurnEvent raised;byte painted[187]={};
-        const WorldWaitResult result=_turn.run(candidate,nextWindow,shifted,turn,nextClock,nextLight,mask,nextSchedule,nextRoutes,after,catalog,nextText,nextFrame,riding?controls.appearance:246,animation,raised,false,direction,painted,party?&nextParty:nullptr);
+        const WorldWaitResult result=_turn.run(candidate,nextWindow,shifted,turn,nextClock,nextLight,mask,nextSchedule,nextRoutes,after,catalog,nextText,nextFrame,riding?controls.appearance:partyAppearance,animation,raised,false,direction,painted,party?&nextParty:nullptr);
         if (result==kWorldWaitDefeat) {
             controls.used=controls.defeated=true;controls.pendingSteps=0;controls.pendingDirection=255;
             world.adoptState(candidate);window=nextWindow;scene=shifted;state=turn;clock=nextClock;light=nextLight;visibility=mask;

@@ -24,13 +24,13 @@ public:
     bool paint(const NewGame &game,const WorldScene &scene,const LightState &light,bool notice,HgrFrame &frame) const {
         if (!_ready || !game.ready() || game.world.mapType()!=_type) return false;
         const byte appearance=game.appearance;
-        if (appearance!=246 && appearance!=119 && appearance!=123 && appearance!=124 && appearance!=127 && appearance!=128 && appearance!=238) return false;
+        if (!(appearance>=246 && appearance<254) && appearance!=119 && appearance!=123 && appearance!=124 && appearance!=127 && appearance!=128 && appearance!=238) return false;
         HgrFrame next=frame;const byte ground=scene.actors.terrain[93];
         if (scene.actors.lookup[93]==255) {
             if (appearance==119) {
                 const uint offsets[]={0,1,17,18};
                 for (uint i=0;i<4;++i) if (!_painter.draw(next,byte(appearance+i),scene.actors.terrain[93+offsets[i]],light.mode,0,93+offsets[i],16)) return false;
-            } else if (appearance!=246) {
+            } else if (!(appearance>=246 && appearance<254)) {
                 if (!_painter.draw(next,appearance,ground,light.mode,0,93,16)) return false;
             } else if (ground>=_footer[28] && ground<_footer[29]) {
                 if (!_painter.draw(next,0,ground,light.mode,0,93,16)) return false;

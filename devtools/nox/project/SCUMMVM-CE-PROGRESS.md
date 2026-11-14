@@ -1,4 +1,71 @@
-# Information475 source-driven milestone - known implementation integrated
+# Controls476b integrated - November14
+
+All36 known command-control behaviors are implemented;29 focused verified and7
+broader integration qualifications remain explicit. Native roster/Tab inventory
+handoff, original I torch, world/tactical icons and W hour waiting are connected.
+Receipt: SCUMMVM-CE-CONTROLS476-VERIFICATION.json. No full interface/engine claim.
+Build476 passed, then source review found Equals/Plus aliasing. Corrective476b
+link was reboot-interrupted; recovery rebuilt with0 warnings/errors and passed
+one focused batch. Preserved476b executable/source/report hashes are in receipt.
+Accepted audio473 untouched; no audio suite, campaign or exploratory gameplay.
+Next owner: world/simulation/NPC static source closure. Reuse existing owners,
+prove producer coverage and implement demonstrated gaps before one focused batch.
+No milestone approval stop. B-LOCATION, combat B-ATTACK/B-QUICK remain explicit.
+
+# Reboot recovery476b - VERIFIED, November14
+
+The reboot interrupted the controls476b linker; the partial build executable
+was replaced by a clean-environment native-only rebuild:0 errors,0 warnings.
+Source changes, Git connectivity, recovery mirrors and preserved audio473,
+party474b and information475 artifacts passed integrity checks. No source
+repair was needed. One superseded476 binary copy was restored from the exact
+hash-correct validation executable; damaged bytes preserved separately.
+The documented four-file Equals/Plus correction survived.
+One focused controls476b batch passed after rebuilding; exact executable,
+source archive and report hashes are in SCUMMVM-CE-REBOOT-RECOVERY476B.json.
+No campaign traversal/exploration or audio/old subsystem suite rerun.
+No build remains active. Historical RUNNING entries below are superseded.
+Next: finalize controls476 scoped receipt/matrix and commit, then continue
+source-driven world/simulation/NPC closure under the existing authorization.
+
+# Active source-driven owner: remaining command controls476 - IN PROGRESS
++
++Committed CE HEAD0f751892ffd (information475), branch
++codex/ce-2026.4.0-consolidated. ENGINE-COMMAND-CONTROLS-CONTRACT defines36 known
++behaviors before edits: roster/Tab inventory handoff, original I torch, all world
++and tactical hero icons, W hour waiting. All production code is now implemented
++but unbuilt/unverified pending the one combined integration milestone.
++
++Build476 is RUNNING through required cleanenv -NoxNativeOnly; exec session25996,
++log ce-native-controls476-build.log. Poll the existing build, do not start another.
++After success run python conversion/check_player_controls476.py once. It creates
++an isolated owned portable root and refuses to overwrite it. Source fixture
++prepared with prepare_player_controls476.py:2304 torch,256 byte-icon,469 bar,
++3600 danger and36 complete hour/RNG cases;4790222 bounded original instructions.
++No native focused batch, game exploration, campaign or audio suite ran for476 yet.
++
++Source analysis found the alarm path probes terrain before actor-kind validation;
++the native context retains that check at explicit probe0 instead of a loader Y
++register. All3600 declared original Y0 cases now match the source contract.
++W also uses explicit first-hour flavor phase rather than an Apple II page return.
++Both CE choices and their limits are in the contract. Do not invent food/healing/
++NPC hourly effects: original FC34/FB6A only convert/paint the clock. Existing final
++input-loop schedule service is reused after W, staged at its resulting clock.
++
++Current new/modified engine files: native_player_controls.h,
++native_player_controls_validation.h, native_world_input.h, native_world_move.h,
++native_world_status.h and native_startup_host.h. Native WorldStatus accepts all8
++heroes; normal movement/Open propagate the chosen picture; transport base state
++already preserves it. Existing inventory enhancements remain via Tab/Tab or Space;
++I is restored to the original torch function. Tactical icon uses record byte24,
++not the enemy sprite field16. No new icon save schema is needed.
++
++Next: inspect build, focused batch, diagnose direct failures only (two corrective
++rerun limit), freeze receipt/matrix and commit; then move to the dependency plan's
++world/simulation/NPC source closure. Keep B-LOCATION and B-ATTACK recorded without
++incidental repairs. Audio473, party474b, information475 and earned127 stay frozen.
++
++# Information475 source-driven milestone - known implementation integrated
 
 CE parent commit1445407f0abe2a18e069f055bf5a239bdb6839cf, branch
 codex/ce-2026.4.0-consolidated. G/L/?// now have native data, input and presentation

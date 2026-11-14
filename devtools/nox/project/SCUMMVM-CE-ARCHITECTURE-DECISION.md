@@ -491,3 +491,10 @@ original scratch state. Legacy machine imports can recover matching authored
 names from their retained caption data without executing original instructions.
 Three nameless metadata records remain UNKNOWN, not fabricated native labels.
 INFORMATION475 verification records the qualified codec evidence and limits.
+
+## Native hour-wait context - November14
+
+W uses an explicit first-hour flavor phase and initial alarm terrain probe0,
+rather than original display-page/loader-register ABI. These CE choices and
+source-proof contexts are recorded in the command-controls contract/receipt.
+No synthetic movement turns or invented hourly gameplay effects are introduced.

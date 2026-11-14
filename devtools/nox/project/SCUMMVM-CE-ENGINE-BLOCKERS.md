@@ -1,3 +1,9 @@
+Controls476b update: known roster/torch/icon/W implementation is complete;
+focused receipt records29 verified behaviors and7 integration qualifications.
+B-COMMAND/B-TORCH missing implementation retired within this contract. World
+Attack/tactical aliases remain combat-owned; B-LOCATION stays UNKNOWN.
+Next: world/simulation/NPC source closure, no gameplay discovery.
+
 # Native engine blocker register
 
 Status: IN PROGRESS. Source audit November14; no gameplay discovery.
