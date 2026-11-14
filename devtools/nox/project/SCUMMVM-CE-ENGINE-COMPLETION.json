@@ -1915,7 +1915,9 @@
         "engines/nox/native_battle_summon.h",
         "engines/nox/native_vortex_cast.h"
       ],
-      "original_evidence": [],
+      "original_evidence": [
+        "SCUMMVM-CE-SOURCE-PRODUCERS494.md (static scope only)"
+      ],
       "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
       "fallback_dependencies": [],
       "blockers": []
@@ -2105,7 +2107,9 @@
         "engines/nox/native_inn_membership.h",
         "engines/nox/native_temple_service.h"
       ],
-      "original_evidence": [],
+      "original_evidence": [
+        "SCUMMVM-CE-SOURCE-PRODUCERS494.md (static scope only)"
+      ],
       "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
       "fallback_dependencies": [],
       "blockers": []
@@ -2237,7 +2241,9 @@
         "engines/nox/native_inn_membership.h",
         "engines/nox/native_temple_service.h"
       ],
-      "original_evidence": [],
+      "original_evidence": [
+        "SCUMMVM-CE-SOURCE-PRODUCERS494.md (static scope only)"
+      ],
       "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
       "fallback_dependencies": [],
       "blockers": []
@@ -2300,7 +2306,9 @@
         "engines/nox/native_world_open.h",
         "engines/nox/native_ending.h"
       ],
-      "original_evidence": [],
+      "original_evidence": [
+        "SCUMMVM-CE-SOURCE-PRODUCERS494.md (static scope only)"
+      ],
       "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
       "fallback_dependencies": [],
       "blockers": []
@@ -2405,7 +2413,9 @@
         "engines/nox/native_world_open.h",
         "engines/nox/native_ending.h"
       ],
-      "original_evidence": [],
+      "original_evidence": [
+        "SCUMMVM-CE-SOURCE-PRODUCERS494.md (static scope only)"
+      ],
       "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
       "fallback_dependencies": [],
       "blockers": [
@@ -7453,7 +7463,7 @@
   },
   "current_subsystem": {
     "status": "IN PROGRESS",
-    "scope": "Remaining service/spell/script producer closure494,then lifecycle/graphics reconciliation."
+    "scope": "Shared lifecycle/graphics/native-owner connection review; accepted493 andstatic494 retained, no campaign or old suite rerun."
   },
   "count_definition": "native_implemented counts IMPLEMENTED; CE_REPLACEMENT is separately reported. VERIFIED applies only to row evidence scope; no overall completion percentage."
 }
