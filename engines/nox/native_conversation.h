@@ -5,6 +5,9 @@
 #include "nox/native_dialogue_rules.h"
 #include "nox/native_dialogue_input.h"
 #include "nox/native_dialogue_control.h"
+#include "nox/native_conversation_callbacks.h"
+#include "common/ptr.h"
+#include "common/memstream.h"
 #include "nox/native_inventory.h"
 #include "nox/enhancements.h"
 #include "engines/achievements.h"
@@ -33,7 +36,7 @@ inline bool plainDialogueBody(const Common::Array<byte> &text, uint start, Commo
             next+=*input;inserted=true;++i;
         }
 		else if (value == 13) next += '\n';
-		else if (value == 10 || (value >= 32 && value < 127 && value != '$')) next += char(value);
+		else if (value == 10 || (value >= 32 && value < 127)) next += char(value);
 		else return false;
 	}
 	return false;
@@ -44,8 +47,9 @@ inline bool plainDialogueBody(const Common::Array<byte> &text, uint start, Commo
 // Context.serviceAccess is the source-supported admission result supplied by
 // the caller, not invented here from a guessed NPC picture or map geometry.
 class Conversation {
+    friend class World;
 public:
-	Conversation() : _active(false), _terminal(false), _recognized(false), _completed(false), _journalPending(false), _journalOpening(false),_paymentPhase(0),_paymentPresentation(false) { memset(_fields, 0, sizeof(_fields)); }
+	Conversation() : _active(false), _terminal(false), _recognized(false), _completed(false), _journalPending(false), _journalOpening(false),_paymentPhase(0),_paymentPresentation(false),_worldPending(false) { memset(_fields, 0, sizeof(_fields)); }
 	bool begin(HdvArchive &archive, const Common::String &resource, byte actor,
 			const byte *fields, uint size, const ConversationContext &context) {
 		if (_active || !fields || size != sizeof(_fields) || context.voice > 2 || context.serviceAccess > 3) return false;
@@ -65,6 +69,7 @@ public:
 	ConversationResult closing(GameplayRandom *random=nullptr) { return respond("%END",false,true,random); }
 	const Common::String &reply() const { return _reply; }
 	const byte *fields() const { return _fields; }
+    bool worldCallbacksPending() const {return _worldPending;}
 	bool terminalReply() const { return _terminal; }
 	bool recognizedReply() const { return _recognized; }
 	bool completed() const { return _completed; }
@@ -89,6 +94,11 @@ public:
 	// reopens the immutable packet and lexicon without repeating admission,
 	// field effects, an opening response or an already completed exit award.
 	bool save(Common::WriteStream &out) const {
+        if (_worldPending) {
+            Common::ScopedPtr<Conversation> base(new Conversation(*this));base->_worldPending=false;
+            Common::MemoryWriteStreamDynamic body(DisposeAfterUse::YES);if (!base->save(body)) return false;
+            out.writeUint32BE(MKTAG('N','C','O','N'));out.writeUint16LE(4);out.writeUint32LE(body.size());out.write(body.getData(),body.size());return !out.err();
+        }
 		const byte flags=byte((_active?1:0)|(_terminal?2:0)|(_recognized?4:0)|(_completed?8:0)|(_journalPending?16:0)|(_journalOpening?32:0));
 		if ((_active && _completed) || _resource.size()>31 || _reply.size()>8192) return false;
 		out.writeUint32BE(MKTAG('N','C','O','N'));out.writeUint16LE(_paymentPhase?3:2);out.writeByte(flags);
@@ -106,7 +116,13 @@ public:
 	}
 	bool load(Common::SeekableReadStream &in,HdvArchive &archive) {
 		if (in.readUint32BE()!=MKTAG('N','C','O','N')) return false;
-        const uint version=in.readUint16LE();if (version!=1 && version!=2 && version!=3) return false;
+        const uint version=in.readUint16LE();if (version==4) {
+            const uint32 size=in.readUint32LE();if (!size || size>131072 || int64(size)!=in.size()-in.pos()) return false;
+            Common::Array<byte> bytes;bytes.resize(size);if (in.read(bytes.data(),size)!=size || size<6 || READ_BE_UINT32(bytes.data())!=MKTAG('N','C','O','N') || READ_LE_UINT16(bytes.data()+4)>3) return false;
+            Common::MemoryReadStream body(bytes.data(),size);Conversation next;if (!next.load(body,archive) || !next._active || !ConversationCallbacks::requested(next._context.map,next._fields)) return false;
+            next._worldPending=true;*this=next;return true;
+        }
+        if (version!=1 && version!=2 && version!=3) return false;
 		const byte flags=in.readByte();if (flags>(version==1?15:63) || ((flags&1) && (flags&8))) return false;
 		Conversation next;
 		if (in.pos()==in.size()) { if (flags || in.err()) return false;*this=next;return true; }
@@ -205,15 +221,12 @@ private:
         _fields[18]=_fields[19]=0;_paymentPhase=4;_paymentPresentation=false;
         return tavernText(archive,address,text)?1:-1;
     }
-	bool callbacksPending(const byte *fields) const {
-		// Field17 bit5 is a typed NPC battle request consumed by WorldInput
-		// after the displayed reply and ordinary exit handoff have completed.
-		return (fields[12] & 32) ||
-			((fields[21] & 3) && !(fields[21]&1) && (fields[18] || fields[19]) && !(fields[22] && fields[22]<64)) ||
-			(fields[42] & 128) || (fields[46] & 178) || (_context.map == 68 && (fields[58] & 32));
-	}
+    bool unsupportedCallbacks(const byte *fields) const {
+        return (fields[21]&3) && !(fields[21]&1) && (fields[18] || fields[19]) && !(fields[22] && fields[22]<64);
+    }
+    bool callbacksPending(const byte *fields) const {return _worldPending || unsupportedCallbacks(fields);}
 	ConversationResult respond(const Common::String &query, bool opening,bool ending=false,GameplayRandom *random=nullptr) {
-		if (!_active || (_terminal && !ending)) return kConversationInvalid;
+		if (!_active || _worldPending || (_terminal && !ending)) return kConversationInvalid;
 		if (!opening && query.empty()) return kConversationUnsupported;
 		Common::String normalized;
 		if (!opening && !_lexicon.normalize(query, normalized)) return kConversationInvalid;
@@ -229,10 +242,10 @@ private:
 		const DialogueCommitResult result = commitDialogueFields(response, next, sizeof(next), _context.voice, _context.adultMode, _context.hour, _context.minute);
 		if (result == kDialogueInvalidEffects) return kConversationUnsupported;
 		if (result != kDialogueApplied) return kConversationInvalid;
-		if (callbacksPending(next)) return kConversationUnsupported;
+		if (unsupportedCallbacks(next)) return kConversationUnsupported;
         GameplayRandom after;if (random) after=*random;bool terminal=false;
         if (!DialogueControl::resolve(response.control,random?&after:nullptr,terminal)) return kConversationUnsupported;
-		memcpy(_fields, next, sizeof(_fields));if (random) *random=after;
+		memcpy(_fields, next, sizeof(_fields));if (random) *random=after;_worldPending=ConversationCallbacks::requested(_context.map,_fields);
         if ((_fields[21]&1) && READ_LE_UINT16(_fields+18)) {
             _paymentPhase=(_fields[17]&8)?(opening?1:2):3;
             _paymentPresentation=_paymentPhase!=1;_paymentQuery=opening?Common::String():query;
@@ -242,7 +255,7 @@ private:
         _journalPending=true;_journalOpening=opening;_journalInput=opening?Common::String():query;
         _journalSelected=_recognized?normalized:Common::String("DFL");return kConversationReply;
 	}
-    byte _paymentPhase;bool _paymentPresentation;Common::String _paymentQuery;
+    byte _paymentPhase;bool _paymentPresentation,_worldPending;Common::String _paymentQuery;
 	DialoguePacket _packet;
 	Common::String _resource;
 	DialogueLexicon _lexicon;

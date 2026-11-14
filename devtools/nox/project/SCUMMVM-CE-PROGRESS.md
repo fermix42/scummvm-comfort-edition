@@ -1,3 +1,53 @@
+# Dialogue callbacks479 integrated - November14
+
+11 known callback/body/ownership behaviors implemented,9 focused verified;
+2 broader normal Engine/raster qualifications retained. Receipt CALLBACKS479.
+512 source field/record transactions,9 authored pending/resolved owners and
+codecs,actual scheduled Town74/KAYLA modal plus NCUI8 reload and exit refresh-once
+pass. Canonical main/aux reconciliation and native interface refresh are explicit
+CE replacements; no raw machine-image or pixel/portrait equivalence claim.
+Build479 fixture-private-API compile error corrected via public WorldTravel;
+479b passed0 warnings/errors,2m51.51s; first native batch passed. No active build.
+Source/executable/evidence frozen; no campaign/exploration/audio/old suite run.
+Next: world A Attack complete input/admission/pending save/return alarm through
+existing encounter owners, then remaining explicit combat/menu/script gaps.
+Unsupported commerce callback producer closure remains separate, not discarded.
+
+# Active dialogue callbacks479 - IN PROGRESS
+
+Dialogue478 committed97fa864972d. Callback contract ENGINE-DIALOGUE-CALLBACKS
+precedes implementation. Typed ConversationCallbacks applies field12 refresh,
+map68 authored12-byte replacement,42/46 object-state effects with explicit
+canonical main/aux union. Conversation owns pending effects (NCON4 wrapper);
+World applies atomically before reply/payment/end continuation. WorldConversation
+retains exit redraw through NCUI8 wrapper; WorldInput captures changed records
+and refreshes on close without a world turn. Literal dollar text now renders;
+existing selected $K substitution remains. Audio473 unchanged.
+Local census479 corrected rawAE header terminator (raw field46 is not a dot):
+439 hash-verified packets,4 positive controls,71 body-dollar candidates (45 $K
+already handled, others literal unconfigured source text),9 callback producers.
+Map metadata: TLK018 Keep67/68/69,01A Town74,061 UM97,063 UM99,068 UM104.
+The immutable simulation477 census used4 for TOWN2; actual map type is5 (4 is
+UM alias). Aggregate counts/clock results unchanged; do not reuse that type map.
+Source fixture prepare_callbacks479.py:512 original field/current/persistent
+record cases,63360 bounded instructions/services; declared native union only,
+no claim of raw main/aux/page/raster equivalence.
+Initial build479 failed only because fixture called private World::travel.
+Corrected fixture uses public WorldTravel::commit. Build479b running session47148,
+log ce-native-callbacks479b-build.log. Poll existing build, then run
+python conversion/check_callbacks479.py --label 479b once. No native479 run yet.
+Native fixture covers512 source transactions,9 actual authored pending/resolved
+Conversation/World owners and codecs, literal dollar body, actual Town74
+scheduled magic-mouth conversation/KAYLA plus NCUI8 reload and one exit refresh.
+No campaign/gameplay discovery or old/audio suite. Next freeze evidence/matrix
+and commit, then remaining explicit world Attack/combat owners from existing
+combat contract. A Attack source932A-9416 investigation already identifies normal
+direction vs frigate eight-cell scan, protectedTown48 at16/18,35, speed/water
+refusal, tile225/type2-205/type6-209 refusal and source post-battle alarm9417.
+Do not implement a partial encounter without pending/alarm cold persistence.
+Current engine delta: conversation_callbacks.h,callbacks_validation.h,
+conversation.h,world.h,world_conversation.h,world_input.h,startup_host.h.
+
 # Dialogue478 integrated - November14
 
 Complete response-control byte semantics and direct0..9 book shortcuts implemented.

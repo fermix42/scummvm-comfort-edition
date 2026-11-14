@@ -1,3 +1,9 @@
+Callbacks479: native pending/resolved world effects replace TalkB2F9-B4D3
+instruction services; no interpreter fallback. NCON4/NCUI8 retain ownership.
+Current/persistent record writes reconcile in one canonical map owner; original
+display-mode refresh uses native interface. See callback contract for exact CE
+choices. Unsupported commerce callback remains explicit and uncredited.
+
 Controls476b update: known roster/torch/icon/W implementation is complete;
 focused receipt records29 verified behaviors and7 integration qualifications.
 B-COMMAND/B-TORCH missing implementation retired within this contract. World

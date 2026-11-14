@@ -22,8 +22,9 @@ enum WorldConversationResult { kWorldConversationHandled,kWorldConversationFinis
 // All phases and data references are semantic; no original instructions run.
 class WorldConversation {
 public:
-    WorldConversation() : _stage(0),_type(255),_map(0),_slot(255),_closing(false),_endShown(false),_footerShown(false),_hasDialogue(false),_hasWindow(false),_refused(false),_memberMode(0),_waitingSlot(255),_pickupFee(0),_vendorRole(0),_merchantSale(false),_merchantIndex(0),_trainingMember(255),_sounds(nullptr) {}
+    WorldConversation() : _stage(0),_type(255),_map(0),_slot(255),_closing(false),_endShown(false),_footerShown(false),_hasDialogue(false),_hasWindow(false),_refused(false),_memberMode(0),_waitingSlot(255),_pickupFee(0),_vendorRole(0),_merchantSale(false),_merchantIndex(0),_trainingMember(255),_worldRefresh(false),_sounds(nullptr) {}
     void setSoundEvents(SoundEvents *sounds) {_sounds=sounds;}
+    bool takeWorldRefresh() {const bool result=_worldRefresh;_worldRefresh=false;return result;}
     bool active() const { return _stage!=0; }
     byte stage() const { return _stage; }
     byte actorSlot() const {return _slot;}
@@ -130,7 +131,7 @@ public:
         if (_stage>=9) return innInput(event,archive,game,frame);
         if (_stage>=5) return serviceInput(event,archive,game,frame);
         if (_stage==2) {
-            if (!_window.waiting() || !_window.handle(event) || !_window.paint(frame) || !settle(archive,frame,&game.discovery,random) || (_stage==3 && _conversation.trainingPending() && !trainingText(archive,0x9790,27,frame))) return kWorldConversationUnsupported;
+            if (!_window.waiting() || !_window.handle(event) || !_window.paint(frame) || !settle(archive,frame,&game.discovery,random,&game) || (_stage==3 && _conversation.trainingPending() && !trainingText(archive,0x9790,27,frame))) return kWorldConversationUnsupported;
             return kWorldConversationHandled;
         }
         if (_stage==4) {
@@ -154,7 +155,7 @@ public:
             const int result=_conversation.paymentInput(archive,answer,game.gold,text,random);
             if(result<0) return kWorldConversationUnsupported;
             if(result==2) {_query.clear();return input(archive,frame)?kWorldConversationHandled:kWorldConversationUnsupported;}
-            if(result==1) {_closing=_conversation.terminalReply();return show(archive,text,frame,&game.discovery,random)?kWorldConversationHandled:kWorldConversationUnsupported;}
+            if(result==1) {_closing=_conversation.terminalReply();return show(archive,text,frame,&game.discovery,random,&game)?kWorldConversationHandled:kWorldConversationUnsupported;}
             return kWorldConversationHandled;
         }
         if (key==Common::KEYCODE_BACKSPACE) { if (!_query.empty()) _query.deleteLastChar(); }
@@ -171,6 +172,11 @@ public:
         return input(archive,frame)?kWorldConversationHandled:kWorldConversationUnsupported;
     }
     bool save(Common::WriteStream &out) const {
+        if (_worldRefresh) {
+            Common::ScopedPtr<WorldConversation> base(new WorldConversation(*this));base->_worldRefresh=false;
+            Common::MemoryWriteStreamDynamic body(DisposeAfterUse::YES);if (!base->save(body)) return false;
+            out.writeUint32BE(MKTAG('N','C','U','I'));out.writeUint16LE(8);out.writeUint32LE(body.size());out.write(body.getData(),body.size());return !out.err();
+        }
         if (_stage>30 || _query.size()>28) return false;
         out.writeUint32BE(MKTAG('N','C','U','I'));out.writeUint16LE(_stage>=27?7:_stage>=22?6:_vendorRole?5:4);out.writeByte(_stage);
         if (!active()) return !out.err();
@@ -191,7 +197,14 @@ public:
     }
     bool load(Common::SeekableReadStream &in,HdvArchive &archive) {
         if (in.readUint32BE()!=MKTAG('N','C','U','I')) return false;
-        const uint16 version=in.readUint16LE();if (version<1 || version>7) return false;
+        const uint16 version=in.readUint16LE();
+        if (version==8) {
+            const uint32 size=in.readUint32LE();if (!size || size>262144 || int64(size)!=in.size()-in.pos()) return false;
+            Common::Array<byte> bytes;bytes.resize(size);if (in.read(bytes.data(),size)!=size || size<6 || READ_BE_UINT32(bytes.data())!=MKTAG('N','C','U','I') || READ_LE_UINT16(bytes.data()+4)>7) return false;
+            Common::MemoryReadStream body(bytes.data(),size);Common::ScopedPtr<WorldConversation> next(new WorldConversation);
+            if (!next->load(body,archive) || !next->active()) return false;next->_worldRefresh=true;*this=*next;return true;
+        }
+        if (version<1 || version>7) return false;
         WorldConversation next;next._stage=in.readByte();if (next._stage>(version==1?4:version==2?8:version==3?14:version==4?18:version==5?21:version==6?26:30)) return false;
         if (next.active()) {
             next._type=in.readByte();next._map=in.readByte();next._slot=in.readByte();const byte flags=in.readByte(),length=in.readByte();
@@ -252,7 +265,8 @@ public:
     }
 private:
     bool showDialogue(HdvArchive &archive,NewGame &game,HgrFrame &frame,GameplayRandom *random=nullptr) {
-        return show(archive,_conversation.reply(),frame,&game.discovery,random) &&
+        bool refresh=false;if (!game.world.applyConversationCallbacks(_conversation,refresh)) return false;_worldRefresh|=refresh;
+        return show(archive,_conversation.reply(),frame,&game.discovery,random,&game) &&
             !(_stage==3 && _conversation.trainingPending() && !trainingText(archive,0x9790,27,frame));
     }
     static bool trainingBody(HdvArchive &archive,uint address,Common::String &text) {
@@ -288,7 +302,7 @@ private:
             }
             _hasWindow=false;
             if (_stage==30) {
-                _stage=3;return (_closing?settle(archive,frame,&game.discovery,random):input(archive,frame))?kWorldConversationHandled:kWorldConversationUnsupported;
+                _stage=3;return (_closing?settle(archive,frame,&game.discovery,random,&game):input(archive,frame))?kWorldConversationHandled:kWorldConversationUnsupported;
             }
             if (!_selection.begin(game.party,false) || !_selection.paint(archive,game.party,frame)) return kWorldConversationUnsupported;
             _stage=28;return kWorldConversationHandled;
@@ -634,22 +648,23 @@ private:
         return true;
     }
     WorldConversationResult refuseStrip(byte id,byte &message) { _stage=4;_refused=true;message=id;return kWorldConversationMessage; }
-    void restore(HgrFrame &frame) {frame=_underlay;frame.clearTextSpan(7,23,25);*this=WorldConversation();}
+    void restore(HgrFrame &frame) {const bool refresh=_worldRefresh;frame=_underlay;frame.clearTextSpan(7,23,25);*this=WorldConversation();_worldRefresh=refresh;}
     static void encoded(const Common::String &text,Common::Array<byte> &bytes) {
         bytes.clear();for (uint i=0;i<text.size();++i) bytes.push_back(text[i]=='\n'?0x8d:byte(text[i])|128);
     }
-    bool show(HdvArchive &archive,const Common::String &text,HgrFrame &frame,Enhancements *events=nullptr,GameplayRandom *random=nullptr) {
+    bool show(HdvArchive &archive,const Common::String &text,HgrFrame &frame,Enhancements *events=nullptr,GameplayRandom *random=nullptr,NewGame *game=nullptr) {
         HgrFrame background=frame;if (!OpeningBackdrop::renderConversationFrame(background)) return false;
         Common::Array<byte> bytes;encoded(text,bytes);TextWindow window;
         if (!window.begin(archive,bytes.data(),bytes.size(),25,13,1,12,11,&background) || !window.paint(background)) return false;
-        _window=window;_hasWindow=true;_stage=2;frame=background;return settle(archive,frame,events,random);
+        _window=window;_hasWindow=true;_stage=2;frame=background;return settle(archive,frame,events,random,game);
     }
-    bool settle(HdvArchive &archive,HgrFrame &frame,Enhancements *events=nullptr,GameplayRandom *random=nullptr) {
+    bool settle(HdvArchive &archive,HgrFrame &frame,Enhancements *events=nullptr,GameplayRandom *random=nullptr,NewGame *game=nullptr) {
+        if (_hasDialogue && _conversation.worldCallbacksPending()) {bool refresh=false;if (!game || !game->world.applyConversationCallbacks(_conversation,refresh)) return false;_worldRefresh|=refresh;}
         if (_window.waiting()) {_stage=2;return true;}
         if (!_window.ended()) return false;
         if (_hasDialogue && events && !_conversation.recordSpokenReply(*events)) return false;
         if (_hasDialogue && _conversation.paymentPhase()) {
-            if(_conversation.paymentPresentationPending()) {Common::String text;if(!_conversation.paymentPresentation(archive,text)) return false;return show(archive,text,frame,events,random);}
+            if(_conversation.paymentPresentationPending()) {Common::String text;if(!_conversation.paymentPresentation(archive,text)) return false;return show(archive,text,frame,events,random,game);}
             _stage=3;return input(archive,frame);
         }
         if (_hasDialogue && _conversation.trainingPending()) {_stage=3;return true;}
@@ -658,6 +673,7 @@ private:
             _endShown=true;
             if (_hasDialogue) {
                 const ConversationResult result=_conversation.closing(random);
+                if (_conversation.worldCallbacksPending()) {bool refresh=false;if (!game || !game->world.applyConversationCallbacks(_conversation,refresh)) return false;_worldRefresh|=refresh;}
                 if (result!=kConversationReply && result!=kConversationNoReply) return false;
                 Common::Array<byte> bytes;encoded(_conversation.reply(),bytes);
                 if (!_window.append(bytes.data(),bytes.size()) || !_window.paint(frame)) return false;
@@ -682,7 +698,7 @@ private:
     byte _stage,_type,_map,_slot;
     bool _closing,_endShown,_footerShown,_hasDialogue,_hasWindow,_refused;
     Common::String _query;Conversation _conversation;TextWindow _window;HgrFrame _underlay;TempleService _temple;InnService _inn;
-    byte _memberMode,_waitingSlot;uint16 _pickupFee;PartySelection _selection;byte _vendorRole;bool _merchantSale;uint16 _merchantIndex;byte _trainingMember;SoundEvents *_sounds;
+    byte _memberMode,_waitingSlot;uint16 _pickupFee;PartySelection _selection;byte _vendorRole;bool _merchantSale;uint16 _merchantIndex;byte _trainingMember;bool _worldRefresh;SoundEvents *_sounds;
 };
 } }
 #endif

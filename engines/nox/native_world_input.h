@@ -236,11 +236,13 @@ public:
                 return kWorldInputTransition;
             }
             if (result==kWorldConversationMessage && !message(catalog,id,text,frame)) return kWorldInputUnsupported;
+            if (!window.captureRecords(game.world)) return kWorldInputUnsupported;
             if (result==kWorldConversationFinished) {
                 // Plain Talk returns its saved exploration raster. Source
                 // callbacks own explicit world redraws;do not replay actor
                 // admission/facing or apply cache-load patches merely to close.
-                if (plainDialogue && game.party.memberCount()!=priorPartyCount) {
+                const bool callbackRefresh=_conversation.takeWorldRefresh();
+                if (plainDialogue && (game.party.memberCount()!=priorPartyCount || callbackRefresh)) {
                     // Recruitment removes the source NPC and returns through
                     // an explicit world redraw. Ordinary Talk keeps its raster.
                     byte painted[187]={};

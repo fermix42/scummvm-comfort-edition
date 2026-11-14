@@ -64,6 +64,15 @@ public:
 		}
 		return name;
 	}
+    bool applyConversationCallbacks(Conversation &conversation,bool &redraw) {
+        redraw=false;
+        if (!ready() || !conversation._active || conversation._context.map!=mapId() || conversation._context.mapType!=mapType()) return false;
+        if (!conversation._worldPending) return true;
+        World candidate(*this);Conversation next=conversation;Common::Array<byte> authored;
+        if (mapId()==68 && (next._fields[58]&32) && (!_archive.readRange("NA/SRTN.NPC.TALK",0xfc6,12,authored) || authored.size()!=12)) return false;
+        if (!ConversationCallbacks::apply(mapId(),next._fields,candidate._states[candidate._current].tables.data()+1024,authored.empty()?nullptr:authored.data(),redraw)) return false;
+        next._worldPending=false;adoptState(candidate);conversation=next;return true;
+    }
 	bool acceptConversation(const Conversation &conversation) {
 		if (!ready() || !conversation.completed() || conversation.context().map != mapId() || conversation.context().mapType != mapType()) return false;
 		memcpy(_fields, conversation.fields(), sizeof(_fields)); return true;

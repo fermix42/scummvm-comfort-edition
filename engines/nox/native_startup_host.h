@@ -50,6 +50,7 @@
 #include "nox/native_player_controls_validation.h"
 #include "nox/native_simulation_validation.h"
 #include "nox/native_dialogue_control_validation.h"
+#include "nox/native_callbacks_validation.h"
 #include "nox/native_player_lifecycle_validation.h"
 #include "nox/native_ending.h"
 namespace Nox {
@@ -81,6 +82,12 @@ inline Common::Error NoxEngine::runNativeStartup() {
         }
         return Common::Error(Common::kReadingFailed,reason);
     };
+    if (ConfMan.hasKey("nox_native_callbacks_fixture")) {
+        Common::File input;Common::String report;
+        if (!input.open(Common::FSNode(ConfMan.getPath("nox_native_callbacks_fixture"))) || !validateNativeCallbacks479(_resources,input,report)) return fail(report.empty()?"Callback focused check failed":report.c_str());
+        Common::OutSaveFile *out=_system->getSavefileManager()->openForSaving("nox-native-callbacks.tsv",false);if (!out) return Common::kWritingFailed;
+        out->writeString(report);out->finalize();const bool ok=!out->err();delete out;return ok?Common::Error(Common::kNoError):Common::Error(Common::kWritingFailed);
+    }
     if (ConfMan.hasKey("nox_native_dialogue_control_fixture")) {
         Common::File input;Common::String report;
         if (!input.open(Common::FSNode(ConfMan.getPath("nox_native_dialogue_control_fixture"))) || !validateNativeDialogueControl478(_resources,input,report)) return fail(report.empty()?"Dialogue control focused check failed":report.c_str());
