@@ -1,3 +1,47 @@
+# Simulation477c integrated - November14
+
+Ordinary dawn/dusk producer connected to native WorldInput;8 known behaviors
+implemented,7 focused verified, normal Engine cold-process qualification retained.
+Focused4224 original cases,128 map-policy cases,2 actual input and renderer
+continuations plus complete light codec roundtrip pass. Receipt SIMULATION477.
+One unsuccessful fixture process was stack overflow; heap ownership corrected it.
+Both fixture corrections and all3 build logs are retained; production logic did
+not change during corrections. All builds passed0 warnings/errors. No active build.
+76-map/1377-actor/1582-row immutable census supports static coverage, not full
+dynamic producer/campaign completion. Audio473 untouched; no old suite rerun.
+Next: native dialogue probability/control and named callback families from source,
+plus source-confirmed book-ready/Cast key mismatch. Continue without milestone stop.
+
+# Simulation477b integration running
+
+Build477 completed0 warnings/errors. Static fixture correction now copied to
+CE: synchronize animation pages before ExplorationSave; production unchanged.
+Build477b session6267, log ce-native-simulation477b-build.log. Poll it, then run
+python conversion/check_simulation477.py --label 477b once. Native suite not run.
+Next item478 source contract records a real global book shortcut mismatch:
+InventoryWindow maps1->slot0,0->slot9; original ready and both native Cast paths
+use0..9 directly. Prototype native_item_shortcuts_validation478.h is LOCAL only,
+not wired or built. Do not edit CE items before freezing477b source identity.
+
+# Active simulation477 - IN PROGRESS
+
+Controls committed f4320130b25. World/simulation/NPC source audit found the
+missing ordinary dawn/dusk producer F9AA-FA07; native Daylight and WorldInput
+connection implemented. Contract ENGINE-SIMULATION-CONTRACT. Static census:
+76 maps,1377 live authored actors,52 local schedule maps/1582 rows; no malformed
+clock rows or missing schedule terminators. Existing Castle11/15 padding owners
+retained. Dynamic/script/import domains remain distinct and unclassified.
+Original daylight fixture:4224 cases/42048 instructions, no gameplay traversal.
+Build477 running cleanenv -NoxNativeOnly, session41833, log
+ce-native-simulation477-build.log. No focused native run yet. Static fixture
+review found ExplorationSave requires synchronized animation pages; prototype
+native_simulation_validation477.h now includes that setup, but compiled CE
+validation still lacks it. After current build completes, copy corrected header
+and rebuild once with direct fixture reason, then run check_simulation477.py
+--label 477b once. Do not treat this known fixture omission as production failure.
+Next freeze scoped simulation receipt, update matrix and commit; continue item/
+service/magic static producer audit. Audio473 retained; no audio or old suite.
+
 # Controls476b integrated - November14
 
 All36 known command-control behaviors are implemented;29 focused verified and7

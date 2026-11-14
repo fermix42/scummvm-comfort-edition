@@ -10,6 +10,7 @@
 #include "nox/native_party_order.h"
 #include "nox/native_information_input.h"
 #include "nox/native_player_controls.h"
+#include "nox/native_daylight.h"
 #include "nox/native_world_cast.h"
 #include "nox/native_world_cannon.h"
 #include "nox/native_world_open.h"
@@ -165,10 +166,14 @@ public:
                 return message(_hourWait.prompt(),text,frame)?kWorldInputHandled:kWorldInputUnsupported;
             }
         }
-        if (atWorldCommand() && game.world.mapType()>=4 && game.world.mapId()!=69) {
+        if (atWorldCommand()) {
             World candidate(game.world);WorldStory nextWindow=window;NpcScheduleState schedule=game.schedule;NpcRouteStore store=routes;GameplayRandom after=random;
-            if (!prepareClockInput(archive,candidate,nextWindow,game.clock,schedule,store,after)) return kWorldInputUnsupported;
-            game.world.adoptState(candidate);window=nextWindow;game.schedule=schedule;routes=store;random=after;
+            LightState nextLight=light;Common::Array<byte> data;bool dark=false;
+            if (!archive.read("NA/GAME",data) || data.size()!=13824 ||
+                    !Daylight::permanent(candidate.mapId(),data.data()+0x10b1,data.size()-0x10b1,dark) ||
+                    !Daylight::advance(candidate.mapType(),dark,_transport.speed,game.clock,nextLight) ||
+                    !prepareClockInput(archive,candidate,nextWindow,game.clock,schedule,store,after)) return kWorldInputUnsupported;
+            game.world.adoptState(candidate);window=nextWindow;game.schedule=schedule;routes=store;random=after;light=nextLight;
         }
         if (_casting.active()) {
             const WorldCastResult result=_casting.handle(input,archive,game,_transport.object!=255,frame);

@@ -48,6 +48,7 @@
 #include "nox/native_party_order_validation.h"
 #include "nox/native_information_validation.h"
 #include "nox/native_player_controls_validation.h"
+#include "nox/native_simulation_validation.h"
 #include "nox/native_player_lifecycle_validation.h"
 #include "nox/native_ending.h"
 namespace Nox {
@@ -79,6 +80,12 @@ inline Common::Error NoxEngine::runNativeStartup() {
         }
         return Common::Error(Common::kReadingFailed,reason);
     };
+    if (ConfMan.hasKey("nox_native_simulation_fixture")) {
+        Common::File input;Common::String report;
+        if (!input.open(Common::FSNode(ConfMan.getPath("nox_native_simulation_fixture"))) || !validateNativeSimulation477(_resources,input,report)) return fail(report.empty()?"Simulation focused check failed":report.c_str());
+        Common::OutSaveFile *out=_system->getSavefileManager()->openForSaving("nox-native-simulation.tsv",false);if (!out) return Common::kWritingFailed;
+        out->writeString(report);out->finalize();const bool ok=!out->err();delete out;return ok?Common::Error(Common::kNoError):Common::Error(Common::kWritingFailed);
+    }
     if (ConfMan.hasKey("nox_native_controls_fixture")) {
         Common::File input;Common::String report;
         if (!input.open(Common::FSNode(ConfMan.getPath("nox_native_controls_fixture"))) || !validateNativeControls476(_resources,input,report)) return fail(report.empty()?"Controls focused check failed":report.c_str());
