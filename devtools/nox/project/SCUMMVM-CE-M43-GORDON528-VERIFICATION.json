@@ -1,0 +1,29 @@
+{
+  "status": "VERIFIED",
+  "scope": "Selected earned Sally/shrubbery/Gordon hideout gate;3/60 selected nodes nowverified,fullcampaign incomplete",
+  "executable_sha256": "bc41a7d987509306add2702efb598eea2244663329627b10c4341e92e69944aa",
+  "source_binding": "SCUMMVM-CE-NPC529-VERIFICATION.json",
+  "source_anchors": [
+    "NA/DATA.TLK.L015 actors32/96",
+    "NA/DATA.MAP.CSTL map57 schedule96/door30,35 type17difficulty1"
+  ],
+  "normal_prerequisites": "Actual new lineage, Sally95/48bit32, legitimately recruited Cutter/member4/5 startingpicks,realOpenSouth/member4/doorpass,realovernightwaiting/mapentry",
+  "actual_result": "Gordon first full disclosure commits48:32->96;freshrepeat aftercold rendersguardthreat;no additional award. Gold206food34. NativepartyHP30/17/42/39 MP0 retained.",
+  "evidence": {
+    "ce-native-acceptance528\\earned-modern\\checkpoints\\44-Sally-shrubbery-legitimately-earned\\checkpoint.json": "f7ba5c12ecf2756bb3f08200dcf74a5c211b27afa4fb75608d555d7ee8b776f4",
+    "ce-native-acceptance528\\earned-modern\\checkpoints\\45-Gordon-hideout-legitimately-earned-and-repeat\\checkpoint.json": "d3a214f87daf1d5bce39efd61a218869eb092a8a680fbdfa1a2d505cac9ec8d8",
+    "ce-native-acceptance528\\earned-modern\\cold011.json": "a6ec7fd9156e6642253958e76bfedd7fb323de2373b438a5d558bc654d3af316",
+    "ce-native-acceptance528\\earned-modern\\cold012.json": "cb8ad61ae5a43fa3082c82a09d6a23b267010d999fcd33342a211984b1963c6c",
+    "ce-native-acceptance528\\earned-modern\\screenshots\\scummvm-cli-game-00011.png": "3bb5b808b59c41b1dbb47f21923eba61c2fa79a8b01d3d2d779f14a85cb5d86c",
+    "ce-native-acceptance528\\earned-modern\\forks\\library-hazard-restore\\receipt.json": "7f048e2791c0b65838012d623c22979628c475db35e1d93851814e6e16a9f260"
+  },
+  "cost": {
+    "builds": 2,
+    "process_launches": 12,
+    "new_engine_corrections_after529": 0
+  },
+  "limitations": [
+    "Failed water branch and restore retained;not uninterrupted no-restore playthrough",
+    "Thomas alternative,remaining story nodes/branches/ending remain unverified"
+  ]
+}

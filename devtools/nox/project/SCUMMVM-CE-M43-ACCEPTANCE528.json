@@ -120,7 +120,7 @@
     },
     {
       "id": "gordon-shrubbery",
-      "status": "IN PROGRESS",
+      "status": "VERIFIED",
       "prerequisites": [
         "legitimate-new-game"
       ],
@@ -151,9 +151,11 @@
       ],
       "earned_lineage": null,
       "earned_evidence": [
-        "44 Sally NAME/SHRUBBERY/FOOLERY/YES;actual95qty1/48bit32/cold011/firsticon"
+        "44 actual Sally95qty1/48bit32/cold011/first icon",
+        "Cutter first-attempt cell lock pick (5picks retained),normal doorway crossing",
+        "45 actual awake Gordon opening/hideout48bit64,repeat source predicate and rendered screenshot00011,cold012/firsticon/fresh repeat"
       ],
-      "remaining": "Actual Gordon opening/hideout48bit64,repeat/retained state."
+      "qualifications": "Selected Sally->Gordon path. No Thomas alternative or complete NPC subsystem claim; normal overnight Wait/map transitions recorded."
     },
     {
       "id": "brown-key",
@@ -2555,10 +2557,10 @@
   "mode_strategy": "One primary Modern earned lineage; targeted Classic legal earned fork/restore/transitions; no duplicate complete campaign required by existing criteria.",
   "failure_policy": "Freeze failing path,source general diagnosis,focused correction+regression,at most2corrective reruns; resume valid nearest earned save,no prefix replay or outcome injection.",
   "builds": 2,
-  "process_launches": 11,
+  "process_launches": 12,
   "planned_node_count": 60,
   "mandatory_node_count_note": "All selected M3 nodes explicitly represented alongside dependency76 graph; includes supporting/advice/alternative nodes. Necessity is retained per source,not inferred from node count.",
-  "last_earned_checkpoint": "44 Sally shrubbery legitimately earned; same clean primaryowner; cold011 verified",
+  "last_earned_checkpoint": "45 Gordon hideout legitimately earned and repeat; source529 unchanged,cleanowner,cold012; nextCaptainRayfunding/Nourtheldinn",
   "baseline_candidate_sha256": "81feb2c7ff17594a6ea9754dc60602a755b2f37ea7c53b437f65a18e7c35000f",
   "candidate_change": "NPC529 verified general viewport-exit correction; SCUMMVM-CE-NPC529-VERIFICATION.json",
   "earned_failures_retained": [

@@ -1,13 +1,14 @@
 {
   "status": "IN PROGRESS",
-  "scope": "Earned primary New origin; opening/Bridgit/Kat/Cutter,actual battles,Axea,bought skiff/northern crossing,Castle54/58/57 stairs,Sally shrubbery. Failed water branch preserved;primaryrestorednormal Engine98 as43. Campaign/end incomplete.",
+  "scope": "Earned New ancestry through Gordon hideout/repeat/cold012 and Captain Ray500gold/repeat, normal14gold inn full restoration. Campaign and ending incomplete.",
   "executable_sha256": "bc41a7d987509306add2702efb598eea2244663329627b10c4341e92e69944aa",
-  "source_binding": "SCUMMVM-CE-READINESS528.json",
+  "source_binding": "SCUMMVM-CE-NPC529-VERIFICATION.json",
   "builds": 2,
-  "process_launches": 11,
+  "process_launches": 12,
   "verified_selected_nodes": [
     "opening-exit",
-    "axea-page"
+    "axea-page",
+    "gordon-shrubbery"
   ],
   "qualifications": [
     "opening-log requires post-acquisition recognition/repeat",
@@ -21,8 +22,8 @@
   ],
   "checkpoints": [
     {
-      "slot": 0,
       "label": "new game",
+      "slot": 0,
       "parent": null,
       "saved_files": {
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot000.g0": "641140b00487869f6dbbbb8fce4a5d5e81e9478c7651eb5c5efba8922b2341c5",
@@ -31,8 +32,8 @@
       "process": 1
     },
     {
-      "slot": 1,
       "label": "Keep first door",
+      "slot": 1,
       "parent": "2db119c0ef295ea7550f4040d6e3a3351dc38a15032420ef786441d5528a3fb6",
       "saved_files": {
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot000.g0": "641140b00487869f6dbbbb8fce4a5d5e81e9478c7651eb5c5efba8922b2341c5",
@@ -43,8 +44,8 @@
       "process": 2
     },
     {
-      "slot": 2,
       "label": "tutorial rat victory",
+      "slot": 2,
       "parent": "ea802a176bf50bb34b540daff4e6a9ea7f02af127c7151604b0cd4cff698bfdb",
       "saved_files": {
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot000.g0": "641140b00487869f6dbbbb8fce4a5d5e81e9478c7651eb5c5efba8922b2341c5",
@@ -57,8 +58,8 @@
       "process": 4
     },
     {
-      "slot": 3,
       "label": "ship upper stairs",
+      "slot": 3,
       "parent": "87e70d05095f3e2e1ba17b5d29ed8846db2dcf475affaaf7e2a0945d495a5874",
       "saved_files": {
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot000.g0": "641140b00487869f6dbbbb8fce4a5d5e81e9478c7651eb5c5efba8922b2341c5",
@@ -73,8 +74,8 @@
       "process": 4
     },
     {
-      "slot": 4,
       "label": "pirate log directions",
+      "slot": 4,
       "parent": "e05e34fcce5e3133c0ff91782125eec868cd969e25c140d3d745f620aa4f5ae4",
       "saved_files": {
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot000.g0": "641140b00487869f6dbbbb8fce4a5d5e81e9478c7651eb5c5efba8922b2341c5",
@@ -91,8 +92,8 @@
       "process": 4
     },
     {
-      "slot": 5,
       "label": "Captains log acquired",
+      "slot": 5,
       "parent": "00448a30e22d9332c15b46012742970ae43647402493ec195c501da5dde982a2",
       "saved_files": {
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot000.g0": "641140b00487869f6dbbbb8fce4a5d5e81e9478c7651eb5c5efba8922b2341c5",
@@ -111,8 +112,8 @@
       "process": 4
     },
     {
-      "slot": 6,
       "label": "shipwreck exit",
+      "slot": 6,
       "parent": "aea66abaae596bc14d6aa84c2cc676432f9888e8b9780b8ba285af1569fd3f5f",
       "saved_files": {
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot000.g0": "641140b00487869f6dbbbb8fce4a5d5e81e9478c7651eb5c5efba8922b2341c5",
@@ -133,8 +134,8 @@
       "process": 4
     },
     {
-      "slot": 7,
       "label": "authored shipwreck exit",
+      "slot": 7,
       "parent": "0ea7ab930e71482c2a01a3001166d8eb14945c5e344ab670710ef00af42f1295",
       "saved_files": {
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot000.g0": "641140b00487869f6dbbbb8fce4a5d5e81e9478c7651eb5c5efba8922b2341c5",
@@ -157,8 +158,8 @@
       "process": 4
     },
     {
-      "slot": 8,
       "label": "Everton arrival",
+      "slot": 8,
       "parent": "f5c5b7d92ff2ac5e927173d3f8ac4922b880fa3498a1742016bcd3ee54fb51bb",
       "saved_files": {
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot000.g0": "641140b00487869f6dbbbb8fce4a5d5e81e9478c7651eb5c5efba8922b2341c5",
@@ -183,8 +184,8 @@
       "process": 5
     },
     {
-      "slot": 9,
       "label": "Everton before recruitment",
+      "slot": 9,
       "parent": "26e6efb030d03e68f0ab1009dc25d530f4efc5ad91fa59b88635174139433c08",
       "saved_files": {
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot000.g0": "641140b00487869f6dbbbb8fce4a5d5e81e9478c7651eb5c5efba8922b2341c5",
@@ -211,8 +212,8 @@
       "process": 5
     },
     {
-      "slot": 10,
       "label": "Everton moving recruit approach",
+      "slot": 10,
       "parent": "1631f0b5a0f963855f19023ffbc7de38f48a2077fce7d0c5e92460254f53f925",
       "saved_files": {
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot000.g0": "641140b00487869f6dbbbb8fce4a5d5e81e9478c7651eb5c5efba8922b2341c5",
@@ -241,8 +242,8 @@
       "process": 5
     },
     {
-      "slot": 11,
       "label": "Bridgit legitimately recruited",
+      "slot": 11,
       "parent": "22d4737cdbccff171e59db58354b41ff4749447b80879807a1a9a73e5b964599",
       "saved_files": {
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot000.g0": "641140b00487869f6dbbbb8fce4a5d5e81e9478c7651eb5c5efba8922b2341c5",
@@ -273,8 +274,8 @@
       "process": 5
     },
     {
-      "slot": 12,
       "label": "Everton departed with Bridgit",
+      "slot": 12,
       "parent": "5389cc90c3ea9346c321bb0f8083ef8a181e19f6b7f03fb5dea7bc645a518540",
       "saved_files": {
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot000.g0": "641140b00487869f6dbbbb8fce4a5d5e81e9478c7651eb5c5efba8922b2341c5",
@@ -307,8 +308,8 @@
       "process": 5
     },
     {
-      "slot": 13,
       "label": "first earned surface battle",
+      "slot": 13,
       "parent": "6649d09e47e8b2d95e33039384038103bd51609b84f7ebbb7b1443bfc7d6e31e",
       "saved_files": {
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot000.g0": "641140b00487869f6dbbbb8fce4a5d5e81e9478c7651eb5c5efba8922b2341c5",
@@ -343,8 +344,8 @@
       "process": 5
     },
     {
-      "slot": 14,
       "label": "earned stronger encounter escaped",
+      "slot": 14,
       "parent": "fe659e7596d1dbbb750fc2036e75c4de9c5d65abfd312f58ba71c81ebba2cdfd",
       "saved_files": {
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot000.g0": "641140b00487869f6dbbbb8fce4a5d5e81e9478c7651eb5c5efba8922b2341c5",
@@ -381,8 +382,8 @@
       "process": 5
     },
     {
-      "slot": 15,
       "label": "Suurtheld Castle11 arrival",
+      "slot": 15,
       "parent": "3c8a5d40ac200ccafb677e8748d7e55b98096199f068c88f4b97a8c2d0502625",
       "saved_files": {
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot000.g0": "641140b00487869f6dbbbb8fce4a5d5e81e9478c7651eb5c5efba8922b2341c5",
@@ -421,8 +422,8 @@
       "process": 5
     },
     {
-      "slot": 16,
       "label": "Castle11 visit completed",
+      "slot": 16,
       "parent": "c479a420c80f910530ae73f019978719f538c2fc61bd89af243063bbf8011553",
       "saved_files": {
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot000.g0": "641140b00487869f6dbbbb8fce4a5d5e81e9478c7651eb5c5efba8922b2341c5",
@@ -463,8 +464,8 @@
       "process": 5
     },
     {
-      "slot": 17,
       "label": "Maldac road earned escape",
+      "slot": 17,
       "parent": "12e62982bd7f770d68997cf5aaf7f2e039e318d35a8d3b6464164516403acd5a",
       "saved_files": {
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot000.g0": "641140b00487869f6dbbbb8fce4a5d5e81e9478c7651eb5c5efba8922b2341c5",
@@ -507,8 +508,8 @@
       "process": 5
     },
     {
-      "slot": 18,
       "label": "earned road encounter resolved",
+      "slot": 18,
       "parent": "8b9e1ef8e904ee209a1f718975423e30d11cf9292dded6d2746f5c8c9546e47f",
       "saved_files": {
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot000.g0": "641140b00487869f6dbbbb8fce4a5d5e81e9478c7651eb5c5efba8922b2341c5",
@@ -553,8 +554,8 @@
       "process": 5
     },
     {
-      "slot": 19,
       "label": "earned Lesser Heal first cast",
+      "slot": 19,
       "parent": "aa4a2bf54e0dec72acddfe61c6d4e465ea4761f2b642b77199493979b4474f85",
       "saved_files": {
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot000.g0": "641140b00487869f6dbbbb8fce4a5d5e81e9478c7651eb5c5efba8922b2341c5",
@@ -601,8 +602,8 @@
       "process": 5
     },
     {
-      "slot": 20,
       "label": "Lesser Heal readied",
+      "slot": 20,
       "parent": "5de2be8b03bf2420236024532d1fad763b358a957b4f29d23876477683e56b3e",
       "saved_files": {
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot000.g0": "641140b00487869f6dbbbb8fce4a5d5e81e9478c7651eb5c5efba8922b2341c5",
@@ -651,8 +652,8 @@
       "process": 5
     },
     {
-      "slot": 21,
       "label": "Lesser Heal earned result",
+      "slot": 21,
       "parent": "379a12b86dda373292349f9026e8ae7d805cbde12cf5b07033df0fd7b93f95ca",
       "saved_files": {
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot000.g0": "641140b00487869f6dbbbb8fce4a5d5e81e9478c7651eb5c5efba8922b2341c5",
@@ -703,8 +704,8 @@
       "process": 5
     },
     {
-      "slot": 22,
       "label": "both earned members healed",
+      "slot": 22,
       "parent": "a99098f79ae367ce0cd710b10686e4c9a8a2d2ce8efad595f8284b4691a4bac8",
       "saved_files": {
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot000.g0": "641140b00487869f6dbbbb8fce4a5d5e81e9478c7651eb5c5efba8922b2341c5",
@@ -757,8 +758,8 @@
       "process": 5
     },
     {
-      "slot": 23,
       "label": "earned road pursuers defeated",
+      "slot": 23,
       "parent": "09c48e9326ac93c743d67f4ae7ac39891dfd03c02984b160486dd9f3217fac93",
       "saved_files": {
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot000.g0": "641140b00487869f6dbbbb8fce4a5d5e81e9478c7651eb5c5efba8922b2341c5",
@@ -813,8 +814,8 @@
       "process": 5
     },
     {
-      "slot": 24,
       "label": "Maldac earned arrival",
+      "slot": 24,
       "parent": "429da4ffbce68cc4058b943238c06ae8a5b065b162188e8e833d263bc84b8702",
       "saved_files": {
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot000.g0": "641140b00487869f6dbbbb8fce4a5d5e81e9478c7651eb5c5efba8922b2341c5",
@@ -871,8 +872,8 @@
       "process": 5
     },
     {
-      "slot": 25,
       "label": "Maldac dock approach",
+      "slot": 25,
       "parent": "67cc380ede0f2f60ca7c771335b7f822900fd67594a0aadbc30df1b0f8a2745c",
       "saved_files": {
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot000.g0": "641140b00487869f6dbbbb8fce4a5d5e81e9478c7651eb5c5efba8922b2341c5",
@@ -931,8 +932,8 @@
       "process": 5
     },
     {
-      "slot": 26,
       "label": "authored skiff legitimately boarded",
+      "slot": 26,
       "parent": "2ac1a3cdb82e313385b261adb1b9138bf2d7a8b32f0f28dfd1093924e7b06365",
       "saved_files": {
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot000.g0": "641140b00487869f6dbbbb8fce4a5d5e81e9478c7651eb5c5efba8922b2341c5",
@@ -993,8 +994,8 @@
       "process": 5
     },
     {
-      "slot": 27,
       "label": "earned skiff on surface",
+      "slot": 27,
       "parent": "ffbd769abf150ecd3b1ec7e2774aa13992bea8292c67d39feeb9ea422eebb628",
       "saved_files": {
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot027.g0": "8bd0076a746dfb26b19498ee449fd7a2dd3fd2b3ff1140eceaca60affa72d780",
@@ -1003,8 +1004,8 @@
       "process": 6
     },
     {
-      "slot": 28,
       "label": "Axea island landing",
+      "slot": 28,
       "parent": "ffbd769abf150ecd3b1ec7e2774aa13992bea8292c67d39feeb9ea422eebb628",
       "saved_files": {
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot028.g0": "10d5ef7869709c3a9f9c3e404de29d06616cab838633ed55c3b0e86f4d8cd340",
@@ -1013,8 +1014,8 @@
       "process": 6
     },
     {
-      "slot": 29,
       "label": "Axea source approach",
+      "slot": 29,
       "parent": "271402ab73128cb067ddf20c01b8feca2f6e432f8c242124f8d1bf0b914822ad",
       "saved_files": {
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot029.g0": "fa5c9a9b91f640562696482c624aa97f0c40f9972e15ed1787076b0d5544cb37",
@@ -1023,8 +1024,8 @@
       "process": 6
     },
     {
-      "slot": 30,
       "label": "Axea first parchment earned",
+      "slot": 30,
       "parent": "f4920dd02083c40d1afd2671cad2175fd41fc12fcc2cb8db86d90b943d41e59e",
       "saved_files": {
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot030.g0": "fbee6338f3e6ccafbb313da1d9a6ed2d8392f9233d4b1073b2662222147414cb",
@@ -1033,8 +1034,8 @@
       "process": 6
     },
     {
-      "slot": 31,
       "label": "Axea repeat declined",
+      "slot": 31,
       "parent": "ba6ec48dfd7e0766f996c26b51e5a5dd55604b9597b46a521a1cbb2a5207c0e5",
       "saved_files": {
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot031.g0": "69b247063aa13faa91e21f29733920de4efb3d56b8cafa224ae62ed1042839b5",
@@ -1043,8 +1044,8 @@
       "process": 6
     },
     {
-      "slot": 32,
       "label": "Axea earned cold continued",
+      "slot": 32,
       "parent": "a602a1d83a45898d25007acf5966f51940e524032fce5ea297b59434eee16190",
       "saved_files": {
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot032.g0": "f5f2f4d4b3d134ab30cf937c71ec6c8ca84cd4fcc8c30ea6f6f874a3583a1de9",
@@ -1053,8 +1054,8 @@
       "process": 7
     },
     {
-      "slot": 33,
       "label": "Axea page mainland return",
+      "slot": 33,
       "parent": "3f5e40848db9f5a72e2391c2d85b62bc5dd00d8274c682f0d8458b7e901c8e58",
       "saved_files": {
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot033.g0": "df005f53c943dd4971f898f83e9c0d523d729f850b13bf6f865a32532c5b8ed2",
@@ -1063,8 +1064,8 @@
       "process": 7
     },
     {
-      "slot": 34,
       "label": "Kat legitimately recruited",
+      "slot": 34,
       "parent": "90250758a17d3a00f1245b9c151325e512b643aca262ecd52fd61b4544d5a56b",
       "saved_files": {
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot034.g0": "b09eda06b48c929ef10c61f6c151c293e27a67aead9711ed86792431f3cff2dc",
@@ -1073,8 +1074,8 @@
       "process": 7
     },
     {
-      "slot": 35,
       "label": "Bayport earned arrival",
+      "slot": 35,
       "parent": "eecaa94815624b1e4030224e44ab1593988b9a5212a98e0b0a71a3864b4eddc7",
       "saved_files": {
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot035.g0": "a4accf71601317447c4fa4eb1a74c23fcf174e166d6b9bf3d7fb4f14ee0dfad5",
@@ -1083,8 +1084,8 @@
       "process": 7
     },
     {
-      "slot": 36,
       "label": "Vulon earned aid and repeat",
+      "slot": 36,
       "parent": "1a4a32030990d19a040c485cba89288ff065886cf1311fd46381c88dde326bc4",
       "saved_files": {
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot036.g0": "8ede1c22777968e2e1c31558fade55f6d4479c89edefd79ab16fcb2c8eb1e1ec",
@@ -1093,8 +1094,8 @@
       "process": 7
     },
     {
-      "slot": 37,
       "label": "Bayport NPC edge continuation",
+      "slot": 37,
       "parent": "d2fc5738147a18a3f4281982f115aa337f1ff77fd12475ced0de59d160f5ba49",
       "saved_files": {
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot037.g0": "6ee57ffdb7dea64d58a54f726bf17d3d9a61e94ea57e8b59c6b3a993ae16d1b4",
@@ -1103,8 +1104,8 @@
       "process": 9
     },
     {
-      "slot": 38,
       "label": "Cutter legitimately recruited",
+      "slot": 38,
       "parent": "553301028ddbc498ea42881122e69f1409d5c8d2cd77f8ef64b49213f74026be",
       "saved_files": {
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot038.g0": "2f8ed7ebb7f4b0e9315e4d7895fc470ee62d8d671253c149183739d69da8d865",
@@ -1113,8 +1114,8 @@
       "process": 10
     },
     {
-      "slot": 39,
       "label": "Bayport boat legitimately purchased",
+      "slot": 39,
       "parent": "6b5b1e05457d74ff34d3014f545ab9f0479e3a7082e88e16992cb5ffb6c954c6",
       "saved_files": {
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot039.g0": "696a9caa95e187eb5fbfc28f71fec507b0c7eb73a0195c2504cb72fe3b504712",
@@ -1123,8 +1124,8 @@
       "process": 10
     },
     {
-      "slot": 40,
       "label": "Purchased skiff earned sea departure",
+      "slot": 40,
       "parent": "b173149c5895b4af95b6e0dc4e7f959c7236c564429d011b6bc59eb5650fdb67",
       "saved_files": {
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot040.g0": "88a0ac909372d6ce51ee2a013cb953a018744ce80978f2f7e61825d62ef44741",
@@ -1133,8 +1134,8 @@
       "process": 10
     },
     {
-      "slot": 41,
       "label": "Earned northern shore landing and rest",
+      "slot": 41,
       "parent": "d33ac955873298133d3432fea2eb658590b80b421af1c04e42a26367414457d6",
       "saved_files": {
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot041.g0": "230a2f1c197619cf3ce33f807ef1ea26fe2267920abc0a6c01f2f181d5572f74",
@@ -1143,8 +1144,8 @@
       "process": 10
     },
     {
-      "slot": 42,
       "label": "Nourtheld earned arrival after northern battle",
+      "slot": 42,
       "parent": "f3c7b414aab61c6ad9273dc8ac52da127a770b0e5ee8905c734deb253edf36ef",
       "saved_files": {
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot042.g0": "821fa48860aff022a0e8be2425e496283e5443cdd703a59619efb665e7e82176",
@@ -1153,8 +1154,8 @@
       "process": 10
     },
     {
-      "slot": 43,
       "label": "Library earned entrance restored after hazard defeat",
+      "slot": 43,
       "parent": "34bf4f6056d5db98fd42dee91711d5cfdc88e27cfd20abe9e0be6ca512b9eff8",
       "saved_files": {
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot043.g0": "43122dc1ebdd643b8b4c36f80da030a30c8da08ce14fc07b46c81e012e29552f",
@@ -1163,14 +1164,34 @@
       "process": 10
     },
     {
-      "slot": 44,
       "label": "Sally shrubbery legitimately earned",
+      "slot": 44,
       "parent": "abc8b05cb41152251fc81f7677c11a10e4030ca652472de7d7dd7456fa85b0ca",
       "saved_files": {
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot044.g0": "387a6f7b32bfebf4c793dbc3a0cd5f83e8e269422614170ff2795bd61b7fbf4d",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot044.g0.ce-achievements.json": "aaf709b18ba723d4601486fce9595b7d0471e264f2c87974fff5334f33f21858"
       },
       "process": 10
+    },
+    {
+      "label": "Gordon hideout legitimately earned and repeat",
+      "slot": 45,
+      "parent": "f7ba5c12ecf2756bb3f08200dcf74a5c211b27afa4fb75608d555d7ee8b776f4",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot045.g0": "bf7d0a894ecedf87550cb06a14d605c68770253c35846f768605b127ec6245c9",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot045.g0.ce-achievements.json": "b2a65b5ea603e2fa4ef6a798f8f7d54c53233dd48d8af26669deb759a86ec3df"
+      },
+      "process": 11
+    },
+    {
+      "label": "Captain Ray earned funding and repeat",
+      "slot": 46,
+      "parent": "d3a214f87daf1d5bce39efd61a218869eb092a8a680fbdfa1a2d505cac9ec8d8",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot046.g0": "d6d9f473e96396045d8081aca01415224d9c274c3666c647b747ae26d6e4c37d",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot046.g0.ce-achievements.json": "4f78750c8b101abfbabb8b9c050dd1558508858ab946b41d655582c63342f8b3"
+      },
+      "process": 12
     }
   ],
   "correction": "SCUMMVM-CE-NPC529-VERIFICATION.json",
