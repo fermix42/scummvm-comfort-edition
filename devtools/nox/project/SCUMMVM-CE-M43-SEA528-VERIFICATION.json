@@ -1,0 +1,34 @@
+{
+  "status": "VERIFIED",
+  "scope": "Actual8x98HP sea152 cannon victory; normal12STR Hero/12INT Bridgit firstlevel allocations; later10full98/137HP pirate boarding victory all6alive/gold136->184. Not full advancement/ship/combat/campaign acceptance.",
+  "executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4",
+  "source_binding": "SCUMMVM-CE-CANNON530-VERIFICATION.json",
+  "checkpoints": [
+    61,
+    62,
+    63
+  ],
+  "lineage": "60->61 actual sea victory/levels; normal61 restores retained short approach forks, no successful sea battle/allocation replay;62 Cove36 removal;63 ten-pirate victory.",
+  "outcomes": {
+    "hero_level": 2,
+    "hero_STR": 20,
+    "hero_maxHP": 58,
+    "bridgit_level": 2,
+    "bridgit_INT": 20,
+    "bridgit_maxHP": 55,
+    "gold": 184,
+    "food": 376,
+    "all_six_alive": true
+  },
+  "tactics": "Normal two opening heals to Nox/Alluvion, actual cannon selection of their adjacent flank attackers, then ordinary F/reload/target and healing. No actor/damage/RNG/XP setup.",
+  "builds": 4,
+  "process_launches": 16,
+  "evidence": {
+    "ce-native-acceptance528\\earned-modern\\earned-sea152-frigate-full.json": "f06e9dc92748c8dc094b9f21d098811cb4eb7a5e78ccbf242fe1e3719a83e7c5",
+    "ce-native-acceptance528\\earned-modern\\earned-first-level-allocations.json": "dde8eec430870501523c312f5f45864f765809348dc79e1fef47b54d9a8f251f",
+    "ce-native-acceptance528\\earned-modern\\earned-western-pirate-full.json": "cc56fe617bf55c74fce57831dedc39df5107a724f09ce7aaa97885daa5947404",
+    "ce-native-acceptance528\\earned-modern\\earned-western-pirate-first-round.json": "5d9bdcb498c545919cf67bc2dbc6a5eac0521ec435614134d3cec76e5f702f76",
+    "ce-native-acceptance528\\earned-modern\\earned-western-pirate-victory.json": "fb08c64865fd4881e395170d62d4d391af70b06f1c4ab70cfc916cd69c53fd39"
+  },
+  "remaining": "Bayport Guild access/key/rescue/full70HP Guildmaster; Raque full battle; remaining campaign/ending. No new Engine change or suite."
+}

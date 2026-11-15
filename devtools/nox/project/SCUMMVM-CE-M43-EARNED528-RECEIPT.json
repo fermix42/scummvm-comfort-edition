@@ -1,6 +1,6 @@
 {
   "status": "IN PROGRESS",
-  "scope": "Earned island branch58/59 and normal mainline restore57->60; four additional world-cannon kills VERIFIED at scoped record level. Raque full battle actually lost; no key132 or12bit1. Not campaign/ending acceptance.",
+  "scope": "Actual8x98HP sea152 cannon victory; normal12STR Hero/12INT Bridgit firstlevel allocations; later10full98/137HP pirate boarding victory all6alive/gold136->184. Not full advancement/ship/combat/campaign acceptance.",
   "executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4",
   "source_binding": "SCUMMVM-CE-CANNON530-VERIFICATION.json",
   "builds": 4,
@@ -26,7 +26,8 @@
     "Guild access/password prerequisites remain actual required operations, not assumed cleared",
     "No claim that current party has defeated Guildmaster or earned its XP",
     "Two post-landing land victories/camping in coastal-ship fork were excluded and repeated from nearest actual saved boundary; no duplicated XP in mainline",
-    "Current primary60 excludes island58/59 progression; retained evidence remains alternate earned branch"
+    "Current primary60 excludes island58/59 progression; retained evidence remains alternate earned branch",
+    "Historical M3 search/execution ordering Rusty72->Skull78 was not a mechanical dependency. Immutable Skull78 pickup53/misc2 atTown2map50(16,15) checks only its own field26/mask2/repeat/capacity; native_search.h reward lines70..83. Rusty72 and its Ruin19 field25/mask2 door remain separate required acceptance, reordered after the independent Bayport chain. Actual Guild password/door/stair access, Skull pickup and prison gate remain required; no bypass or injected state."
   ],
   "checkpoints": [
     {
@@ -1340,16 +1341,46 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot060.g0.ce-achievements.json": "2c567e27fd268440439cba28ee62438f1b174b7bd298dee89c17acc91163e3a6"
       },
       "process": 16
+    },
+    {
+      "label": "Eight sea enemies cannon victory and earned level allocations",
+      "slot": 61,
+      "parent": "da8598f6d4a7908cb78ed57402e59723e1cddf2c0583e1d4272bedc4fa85b14a",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot061.g0": "f3f936781b36a84e4402bb9cc4bde64d5edca2efa6055712d49d6ed468bdaf14",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot061.g0.ce-achievements.json": "1e16e0280f4da0aba3214842074e8d1e6c1b61a2a82cf9ca9b60119cd8dd257f"
+      },
+      "process": 16
+    },
+    {
+      "label": "Earned sea victory retained and Cove ship cleared",
+      "slot": 62,
+      "parent": "fd724072091346d1ed6018361f57ff0b592d593fa8e827fe05fdb5edc52a6384",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot062.g0": "07340c5a57d689106237b73b48ce51c5754dbc27a0d0fc524f05c0d6bc2de8c3",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot062.g0.ce-achievements.json": "ec6586ceb36ffc6ff38c227413196c2fe4c8fc6036d941b687917119be7fea89"
+      },
+      "process": 16
+    },
+    {
+      "label": "Ten pirate cannon victory all six survived",
+      "slot": 63,
+      "parent": "39a40da7ede936fba5f5e6226c1d8928aff9237086272ab1eeb88e2bae3b2161",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot063.g0": "ccd6fbad26a5e3ea1c188f7ffbb26aeb8ca0e2ab07b4d22976d1ee54752a95de",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot063.g0.ce-achievements.json": "8530fe06609c6ef45247ee1ee4b80a4e4036e420e8ffbd399c25f76af57d3a33"
+      },
+      "process": 16
     }
   ],
   "correction": "SCUMMVM-CE-NPC529-VERIFICATION.json",
   "last_checkpoint": 44,
   "cold_evidence": "earned-modern/cold011.json",
   "next_action": [
-    "Earned frigate return",
-    "Required RustyKey72:VeylanKeep20->19 Search29/10; real guard/door criteria",
-    "Required SkullKey78/Guild access and Bayport child rescue",
-    "Required Guildmaster:source descriptor119 sprite207/group60 singlemonster62 HP70 XP8400; verify actual full admission and normal battle before claiming reward",
-    "Apply actual earned level allocations; necessary normal equipment/books; return to Raque full battle"
+    "Earned return to Bayport",
+    "Actual normal Guild access/SkullKey78/prison child rescue; relevant refusal/repeat gates",
+    "Margrave KEY request without Orders77 before Guildmaster",
+    "Actual full single70HP Guildmaster battle/source XP reward and normal allocations",
+    "Required Rusty72/Veylan guard/door remains pending parallel task; needed equipment/books; return Raque"
   ]
 }

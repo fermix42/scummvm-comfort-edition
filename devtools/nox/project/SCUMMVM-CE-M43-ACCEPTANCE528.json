@@ -1052,7 +1052,7 @@
       "id": "skull-key",
       "status": "NOT STARTED",
       "prerequisites": [
-        "rusty-key"
+        "legitimate-new-game"
       ],
       "source_contract": "Actual keys72/78 and gates; rescue43502; Watcher/Guild/orders77/43208 -> Margrave84/43210; actual timed elders43508/42A01 -> Scroll85/phylactery40C04 -> original Lich/Water Jewel. Separate controlled battle endpoints remain unearned.",
       "source_anchors": [
@@ -1078,13 +1078,13 @@
         "scoped audio/presentation",
         "actual earned verification criteria"
       ],
-      "earned_lineage": null
+      "earned_lineage": null,
+      "ordering_reconciliation": "Historical M3 search/execution ordering Rusty72->Skull78 was not a mechanical dependency. Immutable Skull78 pickup53/misc2 atTown2map50(16,15) checks only its own field26/mask2/repeat/capacity; native_search.h reward lines70..83. Rusty72 and its Ruin19 field25/mask2 door remain separate required acceptance, reordered after the independent Bayport chain. Actual Guild password/door/stair access, Skull pickup and prison gate remain required; no bypass or injected state."
     },
     {
       "id": "guild-children-rescue",
       "status": "NOT STARTED",
       "prerequisites": [
-        "rusty-key",
         "skull-key"
       ],
       "source_contract": "Actual keys72/78 and gates; rescue43502; Watcher/Guild/orders77/43208 -> Margrave84/43210; actual timed elders43508/42A01 -> Scroll85/phylactery40C04 -> original Lich/Water Jewel. Separate controlled battle endpoints remain unearned.",
@@ -1111,13 +1111,13 @@
         "scoped audio/presentation",
         "actual earned verification criteria"
       ],
-      "earned_lineage": null
+      "earned_lineage": null,
+      "ordering_reconciliation": "Historical M3 search/execution ordering Rusty72->Skull78 was not a mechanical dependency. Immutable Skull78 pickup53/misc2 atTown2map50(16,15) checks only its own field26/mask2/repeat/capacity; native_search.h reward lines70..83. Rusty72 and its Ruin19 field25/mask2 door remain separate required acceptance, reordered after the independent Bayport chain. Actual Guild password/door/stair access, Skull pickup and prison gate remain required; no bypass or injected state."
     },
     {
       "id": "thieves-guild-boss",
       "status": "NOT STARTED",
       "prerequisites": [
-        "rusty-key",
         "skull-key",
         "guild-children-rescue"
       ],
@@ -1144,13 +1144,13 @@
         "scoped audio/presentation",
         "actual earned verification criteria"
       ],
-      "earned_lineage": null
+      "earned_lineage": null,
+      "ordering_reconciliation": "Historical M3 search/execution ordering Rusty72->Skull78 was not a mechanical dependency. Immutable Skull78 pickup53/misc2 atTown2map50(16,15) checks only its own field26/mask2/repeat/capacity; native_search.h reward lines70..83. Rusty72 and its Ruin19 field25/mask2 door remain separate required acceptance, reordered after the independent Bayport chain. Actual Guild password/door/stair access, Skull pickup and prison gate remain required; no bypass or injected state."
     },
     {
       "id": "margrave-key",
       "status": "NOT STARTED",
       "prerequisites": [
-        "rusty-key",
         "skull-key",
         "guild-children-rescue",
         "thieves-guild-boss"
@@ -1178,7 +1178,8 @@
         "scoped audio/presentation",
         "actual earned verification criteria"
       ],
-      "earned_lineage": null
+      "earned_lineage": null,
+      "ordering_reconciliation": "Historical M3 search/execution ordering Rusty72->Skull78 was not a mechanical dependency. Immutable Skull78 pickup53/misc2 atTown2map50(16,15) checks only its own field26/mask2/repeat/capacity; native_search.h reward lines70..83. Rusty72 and its Ruin19 field25/mask2 door remain separate required acceptance, reordered after the independent Bayport chain. Actual Guild password/door/stair access, Skull pickup and prison gate remain required; no bypass or injected state."
     },
     {
       "id": "ghrodwir-elders",
@@ -2569,7 +2570,7 @@
   "process_launches": 13,
   "planned_node_count": 60,
   "mandatory_node_count_note": "All selected M3 nodes explicitly represented alongside dependency76 graph; includes supporting/advice/alternative nodes. Necessity is retained per source,not inferred from node count.",
-  "last_earned_checkpoint": "60 actual57 frigate restore,explicit parent57; alternate58/59 earned Town41/Raque clue/full5 defeat retained; source Guild preparation next",
+  "last_earned_checkpoint": "63 actual10pirate/all6alive after61 earned8sea victory/normal level allocations; normal53 source530 unchanged, sea return route in progress",
   "baseline_candidate_sha256": "81feb2c7ff17594a6ea9754dc60602a755b2f37ea7c53b437f65a18e7c35000f",
   "candidate_change": "NPC529 verified general viewport-exit correction; SCUMMVM-CE-NPC529-VERIFICATION.json",
   "earned_failures_retained": [
@@ -2580,17 +2581,18 @@
     "status": "IN PROGRESS",
     "reason": "Party levels1/2; Raque armor94/power57 can kill59HPfront member in one ordinary hit; first earned attack did not win. No repeated attempt without preparation.",
     "order": [
-      "Earned frigate return",
-      "Required RustyKey72:VeylanKeep20->19 Search29/10; real guard/door criteria",
-      "Required SkullKey78/Guild access and Bayport child rescue",
-      "Required Guildmaster:source descriptor119 sprite207/group60 singlemonster62 HP70 XP8400; verify actual full admission and normal battle before claiming reward",
-      "Apply actual earned level allocations; necessary normal equipment/books; return to Raque full battle"
+      "Earned return to Bayport",
+      "Actual normal Guild access/SkullKey78/prison child rescue; relevant refusal/repeat gates",
+      "Margrave KEY request without Orders77 before Guildmaster",
+      "Actual full single70HP Guildmaster battle/source XP reward and normal allocations",
+      "Required Rusty72/Veylan guard/door remains pending parallel task; needed equipment/books; return Raque"
     ],
     "qualifications": [
       "Guild access/password prerequisites remain actual required operations, not assumed cleared",
       "No claim that current party has defeated Guildmaster or earned its XP",
       "Two post-landing land victories/camping in coastal-ship fork were excluded and repeated from nearest actual saved boundary; no duplicated XP in mainline",
       "Current primary60 excludes island58/59 progression; retained evidence remains alternate earned branch"
-    ]
+    ],
+    "ordering_reconciliation": "Historical M3 search/execution ordering Rusty72->Skull78 was not a mechanical dependency. Immutable Skull78 pickup53/misc2 atTown2map50(16,15) checks only its own field26/mask2/repeat/capacity; native_search.h reward lines70..83. Rusty72 and its Ruin19 field25/mask2 door remain separate required acceptance, reordered after the independent Bayport chain. Actual Guild password/door/stair access, Skull pickup and prison gate remain required; no bypass or injected state."
   }
 }
