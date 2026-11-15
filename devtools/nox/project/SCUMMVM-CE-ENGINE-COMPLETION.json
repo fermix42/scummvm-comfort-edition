@@ -636,7 +636,7 @@
       "id": "world.01",
       "subsystem": "world",
       "behavior": "Map family decode and retained map records",
-      "implementation": "PARTIAL",
+      "implementation": "IMPLEMENTED",
       "verification": {
         "status": "NOT STARTED",
         "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement."
@@ -652,8 +652,10 @@
         "engines/nox/native_lighting.h",
         "engines/nox/native_world_hazards.h"
       ],
-      "original_evidence": [],
-      "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
+      "original_evidence": [
+        "SCUMMVM-CE-DATA-OWNERSHIP509.md:known immutable definitions/record ownership and production/core codec chain;runtime remains unchanged."
+      ],
+      "production_connection": "Source data ->typed catalog/map resource ->canonical Inventory/World ->NewGame staged core save/load;known data model implemented. See DATA-OWNERSHIP509;broader operations/ordinarycold/session remain separate.",
       "fallback_dependencies": [],
       "blockers": []
     },
@@ -1289,7 +1291,7 @@
       "id": "inventory.01",
       "subsystem": "inventory",
       "behavior": "Item definitions and six-byte record preservation",
-      "implementation": "PARTIAL",
+      "implementation": "IMPLEMENTED",
       "verification": {
         "status": "NOT STARTED",
         "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement."
@@ -1305,8 +1307,10 @@
         "engines/nox/native_lock.h",
         "engines/nox/native_book.h"
       ],
-      "original_evidence": [],
-      "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
+      "original_evidence": [
+        "SCUMMVM-CE-DATA-OWNERSHIP509.md:known immutable definitions/record ownership and production/core codec chain;runtime remains unchanged."
+      ],
+      "production_connection": "Source data ->typed catalog/map resource ->canonical Inventory/World ->NewGame staged core save/load;known data model implemented. See DATA-OWNERSHIP509;broader operations/ordinarycold/session remain separate.",
       "fallback_dependencies": [],
       "blockers": []
     },
@@ -7629,9 +7633,9 @@
     },
     "world": {
       "known_required": 14,
-      "native_implemented": 2,
+      "native_implemented": 3,
       "verified": 3,
-      "partial": 11,
+      "partial": 10,
       "missing": 0,
       "unknown_required_rows": 0,
       "additional_unclassified_scope": 1,
@@ -7659,9 +7663,9 @@
     },
     "inventory": {
       "known_required": 12,
-      "native_implemented": 1,
+      "native_implemented": 2,
       "verified": 1,
-      "partial": 11,
+      "partial": 10,
       "missing": 0,
       "unknown_required_rows": 0,
       "additional_unclassified_scope": 1,
@@ -7754,7 +7758,7 @@
   },
   "current_subsystem": {
     "status": "IN PROGRESS",
-    "scope": "Remaining foundational data ownership and cross-owner source reconciliation;no old suites/campaign."
+    "scope": "Remaining typed simulation/NPC/item/combat owner closure;no newbuild withoutsource/codechange,no old suites/campaign."
   },
   "count_definition": "native_implemented counts IMPLEMENTED; CE_REPLACEMENT is separately reported. VERIFIED applies only to row evidence scope; no overall completion percentage."
 }

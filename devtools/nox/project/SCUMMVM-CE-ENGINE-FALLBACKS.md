@@ -1,4 +1,15 @@
-Orb492 CE_REPLACEMENT: select aligned chosen four-byte orb record,not original accidental incremented zero-scan index. Existing NNAV1/unbound sentinel/normal nonzero destinations unchanged;no CPU fallback.
+# Current semantic source additions505/506 and data review509
++
++CWSPEAK's waveform segment is read as typed immutable period data by505;
++its instruction prefix is never executed. Keep69 andTalkB2F9 callers emit
++bounded native cues through existing SFX stream. NWAT4 owns the six-step
++cursor;ordinary dialogue only reads it. No new execution/CPU/ABI fallback.
++Inventory/catalog/map/changedrecord data owners reviewed509;resource-format
++offsets remain legitimate data dependencies,not executable program addresses.
++Historical fallback rows below retain their dates/scopes;closed named gaps
++are superseded by the later contracts/receipts at the top of this ledger.
++
++Orb492 CE_REPLACEMENT: select aligned chosen four-byte orb record,not original accidental incremented zero-scan index. Existing NNAV1/unbound sentinel/normal nonzero destinations unchanged;no CPU fallback.
 
 Portal491:uncompressedmap presentation-only outsidegrid samplesrepeatnearestauthorededge;physical/AIgeometrybounded. Originaloverflowart is explicitCEreplacement. Typedportal travel andevents;noCPUfallback. Startupheaptransactions preserve native semantics.
 

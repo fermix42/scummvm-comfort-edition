@@ -6,13 +6,14 @@ coverage reconciliation remain IN PROGRESS. Do not start these runs now.
 
 ## Current implementation identity
 
-Latest compiled source: dialogue/editor498b, parentd3ceb3f0e65. Subsequent
-499..502 changes are source review/recovery documents only. Read-only archive
-comparison found all356 engine files byte-identical to the498b frozen source.
+Latest compiled source: dialogue speech506b, production commit08440a0529b.
+Subsequent507..509 are static classification/implementation-coverage documents.
+All362 current engine files match506b's focused source hashes byte-for-byte.
 Executable SHA256:
-34e1fe1256b19d93c9acad1e644113c80429facea599e68a1c3ff6c854146375.
-This is498b's identity, not a claim of whole-engine acceptance on that binary.
-No rebuild is required solely because tracking documents changed.
+c322a8188b35fccead5d2dd99302bb75e229937f02b8d66c8d08dce6eb2d72eb.
+This is506b's identity, not whole-engine acceptance. Original audio473 and
+intermediate504/505 artifacts remain preserved. No rebuild is needed solely
+for tracking/source review documents.
 
 ## Finish the implementation phase
 
