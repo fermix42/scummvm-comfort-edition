@@ -1029,10 +1029,10 @@
       "id": "simulation.06",
       "subsystem": "simulation",
       "behavior": "Random encounter admission",
-      "implementation": "PARTIAL",
+      "implementation": "IMPLEMENTED",
       "verification": {
-        "status": "NOT STARTED",
-        "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement."
+        "status": "IN PROGRESS",
+        "scope": "517c passes85 original generator/state/RNG cases,86turncodecs,12pixel frames/6movement/3gates;remaininghazard/lifecycle/travelchecksBLOCKEDbyendedfixtureloop,notfullowneracceptance."
       },
       "native_owners": [
         "engines/nox/native_clock.h",
@@ -1040,12 +1040,17 @@
         "engines/nox/native_world_actor_turn.h",
         "engines/nox/native_world_actor_phase.h",
         "engines/nox/native_random.h",
-        "engines/nox/native_world_animation.h"
+        "engines/nox/native_world_animation.h",
+        "engines/nox/native_world_population.h"
       ],
-      "original_evidence": [],
-      "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
+      "original_evidence": [
+        "SCUMMVM-CE-WORLD-POPULATION517-CHECKPOINT.json"
+      ],
+      "production_connection": "WorldPopulation data-only native producer;shared input/idle consume,wait/move/travel arm;large storm AI/idle/damage consumers andNWAT6/nativelegacy scalar state. Explicit currentleadercatalogtier CE replacement.",
       "fallback_dependencies": [],
-      "blockers": []
+      "blockers": [
+        "B-WEATHER-VALIDATION"
+      ]
     },
     {
       "id": "simulation.07",
@@ -4256,7 +4261,7 @@
     },
     {
       "path": "engines/nox/native_compact_world_action.h",
-      "sha256": "7f579fd1b6509cf18ec29872b5b4f94d5d74364f2ee425666e33b636d51d008e",
+      "sha256": "1c40542956665cadee20d1279c08612360e693e1586d18d9fd5c9e7cffbbd4f4",
       "includes": [
         "nox/native_actor_spatial.h",
         "nox/native_actor_pursuit.h",
@@ -4918,7 +4923,7 @@
     },
     {
       "path": "engines/nox/native_maps.h",
-      "sha256": "61a3f94c6d663e4d76e0913c612b11ca1188eafa7a300f9fb97a7e34f328f0f3",
+      "sha256": "f0b78522436f2eb4bc2df38ebce895b930b47a59c7c0ea46e3fac3e10eadfe88",
       "includes": [
         "nox/native_lz.h"
       ],
@@ -5388,7 +5393,7 @@
     },
     {
       "path": "engines/nox/native_player_session.h",
-      "sha256": "4189b925faba5f6a36ee2018f78b3b60693d3f6bbcee7ea899182e9bc05616eb",
+      "sha256": "c336a3ea05001a37c40e79ecefd34eedb3861e59b94b491629e037b3c9f6b60f",
       "includes": [
         "nox/nox.h",
         "nox/native_character_creation.h",
@@ -5601,7 +5606,7 @@
     },
     {
       "path": "engines/nox/native_startup_host.h",
-      "sha256": "32292be1ed57d99afb0e325676ef93a2178f93eed14bd4eabafe30b8693d272f",
+      "sha256": "96168ccfee1896bb8670fd8635e92b12d994f82c7b5e6dcb4d49ca55fd0e08bc",
       "includes": [
         "nox/native_weapon_ready_validation.h",
         "nox/native_legacy_snapshot.h",
@@ -5983,7 +5988,7 @@
     },
     {
       "path": "engines/nox/native_world.h",
-      "sha256": "6a090cb6bf6e8e6aac08651eafa8a6ffd2d6648f15e985e10f4d3843162b1d29",
+      "sha256": "8d2ad9b64498bf04d0bc47d1824a011ec254150ddc7bde9f7b2f73b231cb6274",
       "includes": [
         "nox/native_gates.h",
         "nox/native_maps.h",
@@ -6125,7 +6130,7 @@
     },
     {
       "path": "engines/nox/native_world_actor_turn.h",
-      "sha256": "3deac0439455b7794547df6211e642153fdfca69aefdfb008984d49f68fc4d7c",
+      "sha256": "c0bf5f7f092c5809c5e1963525d1f70bbadbc72c7436a5cf256734b439d41396",
       "includes": [
         "nox/native_compact_world_action.h",
         "nox/native_npc_world_action.h",
@@ -6149,7 +6154,7 @@
     },
     {
       "path": "engines/nox/native_world_animation.h",
-      "sha256": "780f62485fdcc9f1f771bdf2804ba7f9a98ab4d8bf97b314e7d63af4f9da3f55",
+      "sha256": "2cd201c3700e43663fa2f342b1f2cf35156cc334ab65b8744a5c689a291a9c3d",
       "includes": [
         "nox/native_world_presentation.h",
         "nox/native_lighting.h"
@@ -6810,7 +6815,7 @@
     },
     {
       "path": "engines/nox/native_world_hazards.h",
-      "sha256": "0772d8c871364afca728b8a736ed1278f54a85b39ffb0d541327871d9f58cbb2",
+      "sha256": "f362481d3933f744d365c31f3061c4dba4527f7418798bffbcc5851968a69dd1",
       "includes": [
         "nox/native_world_presentation.h",
         "nox/native_party.h",
@@ -6822,7 +6827,7 @@
     },
     {
       "path": "engines/nox/native_world_input.h",
-      "sha256": "9f5713caea2e47cbf3bd436703966f8c5d343c3ee54c3369d61c7bae9e8bf2ca",
+      "sha256": "fd6a5f235fd080d12d3f1c6774992e9ba3481123bf0ec029312cd5f7bd0ebb8e",
       "includes": [
         "nox/native_new_game.h",
         "nox/native_world_move.h",
@@ -7267,7 +7272,7 @@
     },
     {
       "path": "engines/nox/native_world_move.h",
-      "sha256": "472333c7b49583c7b830e9e9a2085df3f2ea0104f744b9b7268b4dc6b58b210f",
+      "sha256": "9630372959348d2c19e18d322fda8dcddff329264a408dc2b99c1bb499326c71",
       "includes": [
         "nox/native_world_command.h",
         "nox/native_world_wait.h",
@@ -7474,7 +7479,7 @@
     },
     {
       "path": "engines/nox/native_world_story.h",
-      "sha256": "635b03795263fcc902dbb71a41a78b281211d08ad543b70ce8e6fd49d89d459a",
+      "sha256": "257835f3542c0a6539d305f4c9b6ab5965e551150248703eb0693266f1fa75fe",
       "includes": [
         "nox/native_world.h",
         "nox/native_story_patches.h"
@@ -7523,7 +7528,7 @@
     },
     {
       "path": "engines/nox/native_world_wait.h",
-      "sha256": "519e47a8a5131602914bc9516e04a1cf7d20b8d9c9fd280217256df93e9af1c4",
+      "sha256": "b519da6acfdcf4ecf9c10103f69fcbe04c0d7a546eb1f2a68227aad28be94107",
       "includes": [
         "nox/native_world_actor_turn.h",
         "nox/native_world_viewport.h",
@@ -7725,6 +7730,26 @@
       ],
       "explicit_boundaries": [],
       "coverage": "Onlyindividualrequirement/evidencescopescredited."
+    },
+    {
+      "path": "engines/nox/native_world_population.h",
+      "sha256": "380529f6b6cac2f19d60000156d0f3b35e02cb3e711a90612cd4c090e5fe7e5d",
+      "includes": [
+        "nox/native_world_story.h",
+        "nox/native_random.h"
+      ],
+      "explicit_boundaries": [],
+      "coverage": "Only individual requirement/evidence scopes credited."
+    },
+    {
+      "path": "engines/nox/native_world_population_validation.h",
+      "sha256": "f2195d9b942a133c40efaf87650d6e5d0bceb33fbca9d15f16eb581719a463d9",
+      "includes": [
+        "nox/native_world_tail_validation.h",
+        "nox/native_world_animation.h"
+      ],
+      "explicit_boundaries": [],
+      "coverage": "Only individual requirement/evidence scopes credited."
     }
   ],
   "counts": {
@@ -7860,8 +7885,8 @@
     }
   },
   "last_milestone": {
-    "owner": "Dialogue admission clock515b",
-    "evidence": "SCUMMVM-CE-DIALOGUE-CLOCK515-VERIFICATION.json"
+    "owner": "Weather/population517c implementation checkpoint,notfullyVERIFIED",
+    "evidence": "SCUMMVM-CE-WORLD-POPULATION517-CHECKPOINT.json"
   },
   "overall": {
     "fully_implemented_top_level_domains": 1,
@@ -7875,7 +7900,7 @@
   },
   "current_subsystem": {
     "status": "IN PROGRESS",
-    "scope": "RemainingNPC/simulation/sourceowner closure;no campaign/old suites."
+    "scope": "Continue independent NPC/magic/source connection closure;weather implementation complete but remainingfocusedvalidationBLOCKED after endedfixtureloop. No517rerun/campaign/old suites."
   },
   "count_definition": "native_implemented counts IMPLEMENTED; CE_REPLACEMENT is separately reported. VERIFIED applies only to row evidence scope; no overall completion percentage."
 }

@@ -1,3 +1,21 @@
+# Weather/population517 implementation checkpoint
+
+B-WORLD-POPULATION missing native implementation retired by complete517batch.
+B-WEATHER-VALIDATION:85generator/86codecs/12pixel-frame/6movement/3gate
+prefixpassed;nativecheck stoppedBEFOREhazardcallbecauseHP200>newheromax50.
+Two corrective failures end517loop. LegalHP50damage/death/protection fixture
+correctedstatically;currentvalidation-onlydeltaUNBUILT. Remaininghazard/lifecycle/
+travelchecksnotverified. Noanother517build/rerun. Continueindependentwork.
+Exactidentities/source/artifacts:WORLD-POPULATION517-CHECKPOINT.json.
+
+# Missing world population producer517
+
+B-WORLD-POPULATION: original post-command type<4 random world-record producer
+has no native equivalent. Include catalog data/geometry/RNG, scheduling, generated
+large225 storm hazard action/damage and durable state in one coherent batch.
+Battle descriptor selection already exists and does not close this producer.
+No new build until the complete source contract and implementation are ready.
+
 # Dialogue clock515
 
 Knownnew-gameencounterclockcallers resolvedthrough515:manual/Talkfree,scriptedarrivalpaid,newactorcontactscompletedworldtail. Historicalpendingpolicy/broadercold-session-campaignremainqualified.

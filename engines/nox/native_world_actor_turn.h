@@ -5,12 +5,21 @@
 #include "common/textconsole.h"
 #include "nox/native_npc_world_action.h"
 #include "nox/native_world_actor_phase.h"
+#include "nox/native_world_population.h"
 namespace Nox { namespace Native {
 struct WorldActorTurnState {
     CompactWorldActionState compact;NpcWorldActionState npc;ActorMovementEffectState effects;PresentationState presentation;
+    WorldPopulationState population;
     byte praevocCursor=5;bool praevocUsed=false;byte terrainRecovery=16;
     bool save(Common::WriteStream &out) const {
-        if (praevocCursor>5 || terrainRecovery>16) return false;
+        if (praevocCursor>5 || terrainRecovery>16 || !population.valid()) return false;
+        if (population.extended()) {
+            WorldActorTurnState base=*this;base.population=WorldPopulationState();
+            Common::MemoryWriteStreamDynamic body(DisposeAfterUse::YES);if (!base.save(body)) return false;
+            out.writeUint32BE(MKTAG('N','W','A','T'));out.writeUint16LE(6);out.writeUint16LE(uint16(body.size()));
+            out.write(body.getData(),body.size());out.writeByte(population.pending);out.writeByte(population.action);
+            out.writeByte(population.cursor);out.writeByte(population.stormAttempts);out.writeByte(population.monsterChoice);return !out.err();
+        }
         const bool recovery=terrainRecovery!=16;
         out.writeUint32BE(MKTAG('N','W','A','T'));out.writeUint16LE(recovery?5:praevocUsed?4:effects.extended()?3:2);
         if (praevocUsed || recovery) out.writeByte(effects.extended()?12:9);
@@ -24,7 +33,17 @@ struct WorldActorTurnState {
     bool load(Common::SeekableReadStream &in) {
         const int64 size=in.size()-in.pos();
         if (in.readUint32BE()!=MKTAG('N','W','A','T')) return false;
-        const uint16 version=in.readUint16LE();if (version<1 || version>5) return false;
+        const uint16 version=in.readUint16LE();
+        if (version==6) {
+            const uint length=in.readUint16LE();if (length<117 || length>126 || size!=int64(length+13)) return false;
+            byte data[126];if (in.read(data,length)!=length || READ_LE_UINT16(data+4)>=6) return false;
+            Common::MemoryReadStream body(data,length);WorldActorTurnState next;if (!next.load(body) || body.pos()!=body.size()) return false;
+            const byte pending=in.readByte();next.population.pending=pending!=0;next.population.action=in.readByte();
+            next.population.cursor=in.readByte();next.population.stormAttempts=in.readByte();next.population.monsterChoice=in.readByte();
+            if (pending>1 || !next.population.valid() || !next.population.extended() || in.err() || in.pos()!=in.size()) return false;
+            *this=next;return true;
+        }
+        if (version<1 || version>5) return false;
         const uint effectSize=version>=4?in.readByte():version==3?12:9;
         if (effectSize!=9 && effectSize!=12) return false;
         if (version==5 ? (size!=113+effectSize && size!=114+effectSize) :
@@ -95,13 +114,13 @@ public:
                     // shared NPC caller; retain its actual record side effect.
                     candidate._states[candidate._current].tables[770+slot]=0;continue;
                 }
-                byte direction=4;
+                byte direction=4;bool stormMoved=false;
                 if (phase.oldOutside && !phase.outside) {
                     // A newly entering actor paints without AI, freeze-counter
                     // retirement or RNG. It acts on the following world turn.
                 } else if (!bank) {
                     next.compact.hidden=scene.actors.hiddenByTurn;next.compact.appearanceChanged=false;
-                    const CompactWorldActionResult result=_compact.advance(candidate,slot,scene,next.compact,after,next.effects,direction,window,phase.outside,oldCell,sampledTerrain,visibility,next.presentation.partyObject);
+                    const CompactWorldActionResult result=_compact.advance(candidate,slot,scene,next.compact,after,next.effects,direction,window,phase.outside,oldCell,sampledTerrain,visibility,next.presentation.partyObject,&stormMoved);
                     if (result==kCompactWorldUnsupported || result==kCompactWorldAbsent) {warning("Native compact action unsupported slot%u tile%u phase%u",slot,uint(actor.tile),uint(phase.route));return false;}
                     if (result==kCompactWorldBattle) { raised.battle=true;raised.bank=bank;raised.slot=byte(slot);raised.direction=next.compact.contactDirection;raised.cell=next.compact.contactCell;continue; }
                     scene.actors.hiddenByTurn=next.compact.hidden;
@@ -119,9 +138,11 @@ public:
                 }
                 if (candidate.admitActor(bank,slot,false,actor)!=kActorPresent) return false;
                 x=byte(actor.x-candidate.x()+128);y=byte(actor.y-candidate.y()+128);
-                next.presentation.retainedCell=WorldActorPhaseRules::movedCell(oldCell,x,y,direction);
-                if (!WorldActorPhaseRules::visible(x,y)) continue;
-                if (direction<4 && !phase.outside) {
+                next.presentation.retainedCell=stormMoved?
+                    (y>=123 && x<137?byte(oldCell-16):oldCell):WorldActorPhaseRules::movedCell(oldCell,x,y,direction);
+                // The storm clears its old footprint even when it leaves the viewport.
+                if (!stormMoved && !WorldActorPhaseRules::visible(x,y)) continue;
+                if ((direction<4 || stormMoved) && !phase.outside) {
                     for (uint part=0;part<(actor.large?4U:1U);++part) {
                         const uint at=oldCell+(part&1)+(part/2)*17;
                         if (at>=187 || (actor.large && (part&1) && phase.column==136)) continue;
@@ -133,6 +154,7 @@ public:
                         scene.actors.lookup[at]=scene.actors.kinds[at]=255;
                     }
                 }
+                if (!WorldActorPhaseRules::visible(x,y)) continue;
                 ActorPaintContext context;context.slot=byte(slot);context.kind=actor.kind;
                 context.cell=byte((y-123)*17+x-120);context.column=x;context.tile=actor.tile;context.capability=actor.capability;context.flags=actor.flags;
                 context.large=actor.large;context.hiddenByTurn=scene.actors.hiddenByTurn;memcpy(context.visibility,visibility,187);

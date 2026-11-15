@@ -1,3 +1,12 @@
+# Population/weather517 native owner
+
+Data-only catalog extents/terrain offsets/exclusion tables andtypedpopulation
+scalars,NWAT6boundedwrapper/legacydataimport.NoCPUABI/opcode/IRQdependency.
+ExplicitCEreplacements:currentleadercatalogtier(no stale loadedcache parity),
+all-visible replacement andno-category scans boundedinstead ofsourcehangs.
+Remainingfocusedvalidation qualification is B-WEATHER-VALIDATION,not hidden
+executionfallback. Candidate517c/currentvalidation-onlyunbuiltdelta recorded.
+
 # Dialogue clock515
 
 515reusesnativeclockPending=false/NWIN17forTalk.No CPUABI/addresscontinuation/newsaveformat.NewtestpreservesactualUM97NPC8source-recordbeforeinput,notaprogramorrequest injection.

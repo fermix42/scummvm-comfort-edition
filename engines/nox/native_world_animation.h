@@ -78,14 +78,21 @@ public:
             if (actor!=255) {
                 if (actor>252 || (actor&3)) return false;
                 const byte kind=scene.actors.kinds[cell];
-                if (kind!=0 && kind!=4) { warning("Native animation actor kind %u cell %u slot %u",kind,cell,actor);return false; }
-                if (kind==4 && (actor&7)) return false;
-                const byte *record=records+(kind==4?1280:768)+actor;
-                if (!record[2] || record[3]==255 || (record[3]&(kind==4?16:8))) return false;
-                // Original D677..D69D selects BF for extended/NPC actors;
-                // a dormant unscheduled NPC paints127, not its visible sprite.
-                tile=kind==4 && record[7]==255 && !record[6]?127:record[2];
-                actorState=record[3];small=true;
+                const byte bank=kind&7,quadrant=kind&120;
+                if ((bank!=0 && bank!=4) || (kind&128) || (bank==4 && (actor&7))) return false;
+                const byte *record=records+(bank==4?1280:768)+actor;
+                if (!record[2] || record[3]==255) return false;
+                const bool large=(record[3]&(bank==4?16:8))!=0;
+                if (large) {
+                    const uint part=quadrant==64?0:quadrant==32?1:quadrant==16?2:quadrant==8?3:4;
+                    if (part==4 || record[2]>252) return false;
+                    tile=byte(record[2]+part);
+                } else {
+                    if (quadrant) return false;
+                    // Unscheduled NPCs retain the source dormant picture.
+                    tile=bank==4 && record[7]==255 && !record[6]?127:record[2];small=true;
+                }
+                actorState=record[3];
             } else if (cell==93) tile=context.appearance;
             else if (object!=255) {
                 if (object>252 || (object&3)) return false;
@@ -101,7 +108,7 @@ public:
             // the authored picture threshold before selecting ground+1.
             if ((in(ground,36) || in(ground,38)) && actor!=255) {
                 if (ground<128) continue;
-                const bool npc=scene.actors.kinds[cell]==4;
+                const bool npc=(scene.actors.kinds[cell]&7)==4;
                 if ((npc && records[1280+actor+5]<1) ||
                         (!npc && world.mapType()==2 && records[768+actor+2]<185)) tile=byte(ground+1);
             }

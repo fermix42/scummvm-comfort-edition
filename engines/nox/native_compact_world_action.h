@@ -43,7 +43,8 @@ public:
     }
     CompactWorldActionResult advance(World &world,uint slot,const WorldScene &scene,CompactWorldActionState &state,
             GameplayRandom &random,ActorMovementEffectState &effects,byte &direction,const WorldStory *window=nullptr,
-            bool outside=false,byte retainedCell=0,byte retainedTerrain=0,const byte *visibility=nullptr,byte partyObject=255) const {
+            bool outside=false,byte retainedCell=0,byte retainedTerrain=0,const byte *visibility=nullptr,byte partyObject=255,bool *stormMoved=nullptr) const {
+        if (stormMoved) *stormMoved=false;
         if (!_ready || !world.ready() || world.mapType()!=_type || slot>252 || (slot&3) || world._onFoot!=(partyObject==255)) return kCompactWorldUnsupported;
         World candidate(world);WorldActor actor;const ActorAdmission admission=candidate.admitActor(0,slot,false,actor);
         if (admission==kActorAbsent) { direction=4;return kCompactWorldAbsent; }
@@ -62,7 +63,14 @@ public:
         if (!wait && !next.enabled) wait=true;
         byte selected=4;CompactWorldActionResult result=wait?kCompactWorldForcedWait:kCompactWorldAdvanced;
         if (!wait) {
-            if (actor.tile==225) return kCompactWorldUnsupported;
+            if (actor.tile==225) {
+                byte *record=candidate._states[candidate._current].tables.data()+768+slot;
+                record[0]=byte(actor.x+1);record[1]=byte(actor.y-1);
+                next.relativeX=byte(x+1);next.relativeY=byte(y-1);
+                if (next.relativeY>=123 && next.relativeX<137) next.cell=byte(next.cell-16);
+                world.adoptState(candidate);state=next;random=after;effects=effect;direction=4;
+                if (stormMoved) *stormMoved=true;return kCompactWorldAdvanced;
+            }
             ActorSpatialContext context;context.column=x;context.row=y;context.tile=actor.tile;context.kind=0;context.capability=0;
             context.partyObject=partyObject;context.previousTerrain=terrain;context.actorState=actor.state;context.actorFlags=0;context.actorSlot=byte(slot);
             context.large=actor.large;context.restrictedTerrain=(actor.state&32)!=0;context.unrestricted=false;context.partyContact=true;

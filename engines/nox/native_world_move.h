@@ -159,7 +159,7 @@ public:
         }
         if (!pending && !deferCompletion) {
             if (!completeClock(candidate,nextClock)) return kWorldMoveUnsupported;
-            raised.clockPending=false;
+            raised.clockPending=false;turn.population.arm(direction);
         }
         world.adoptState(candidate);window=nextWindow;scene=shifted;state=turn;clock=nextClock;light=nextLight;visibility=mask;
         schedule=nextSchedule;routes=nextRoutes;random=after;text=nextText;frame=nextFrame;notice=authored;encounter=raised;

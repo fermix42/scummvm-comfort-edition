@@ -1,3 +1,183 @@
+# Population517c implementation checkpoint;focused loop ended - IN PROGRESS
+
+Finalcorrectivebuild517c0warnings/0errors2m49.11s. Nativepasses85wholeoriginal
+population cases/47spawns/exactrecord-state-RNG,86turncodecs(olddefaultincluded),
+12originalpixel-exactstormframes/36cells,6ordereddiagonal/edgeactorpasses,
+3freeze/disabled/outside gates. Stopsbeforefirsthazardoperation:fixtureHP200
+exceedsnewheromaxHP50. Static DATA.SAVE.GAMEN record confirmsHP50/max50;
+WorldCheckpointFixture.conditions rejectsline55 beforedamageis invoked.
+Thisisfixturepreconditionfailure,notobservedWorldHazardsproductionfailure.
+Two unsuccessful corrective reruns end517loop. NO another517rerun/build.
+CorrectunexecutedfixturetoactualHP50:unprotectedstorm71kills;protected50
+survives. Correctedvalidation-onlysourceisUNBUILT;candidate517cexe/sourcezip
+retainsactuallyexecutedversion. Remainingdamage/protection/defeat,lifecycle,
+all-visible/traveltestsBLOCKEDbyendedfixtureloop;productionfullyimplemented,
+notpromotedtowholeownerVERIFIED. Completecurrentcoherentcommit,continue
+independentremainingNPC/magic/sourceconnections. Carryremainingchecksintoa
+laterneededsubsystemintegrationonlywithdirecttechnicalreason;notanotherloop.
+Audio473/accepted515sourceandallpreviousartifactsremainpreserved.
+
+# Population517b first corrective result - IN PROGRESS
+
+Correctivebuild517b succeeds0warnings/0errors2m50.45s.First corrective native
+batch stops case76:all state/RNG/spawn flagsmatch,butrecordhaspaintsubstitute140
+instead ofauthored139. Source97DBreads7BF=footer62,notfooter63;the latter is
+onlyActorPaint's water232 picture substitution. Correct native storedtile to62.
+First76 generator casespassed;remainingconsumer/lifecycle checksnotreached.
+One unsuccessfulcorrective native rerun;second/finalcorrectiverun517c follows.
+No old suites/campaign. Initial source/precondition corrections retained.
+
+Cataloglevelpolicy is an EXPLICIT CE REPLACEMENT:use currentfirstmemberlevel,
+not the original stale loadedcatalogtier after a roster reorder. Original N
+returns via1D65->150C(cache overlay restore)->1D75(clearcommandcache)->7128;
+map-entryDF7E's tierpatch is separatelyproved,but equivalentreloadafterevery
+partychange is NOTproved. Currentlevel derivation removes this transient cache;
+no claim of exactstaletier/legacy9E06cache parity. Typednativeparty persistence
+makes subsequentnative behavior durable. Do not presentthisasoriginalparity.
+
+Beforefirstcorrectivebuild:staticfixtureauditcorrectsSurfaceID0(117isterrain,
+notmapID)andsetsdamage-survivalprerequisiteHP200(originaldamagekind0=71).
+AddseparateHP50defeatcaseandassertall-visibleboundedreplacementactuallyused
+threeRNGdraws(last2,advancedseed). Thesechangesprecedeunreachedoperations;
+no nativeoutcomesinjected,oldfailedfirstbatchretained.
+
+# Population517 first integration/focused result - IN PROGRESS
+
+Official native-only isolated build517 succeeds0warnings/0errors2m46.92s.
+First focused batch stops at generator case74:state/RNG/spawn flag match,but
+record mismatch. Original full-generator oracle identifies tile172 on ordinary
+terrain117 after storm cap16. Two branch inversions found in native model:
+97B4 takes water to normal selection,so lowchoice172 requires NON-water;
+97D0 sends roll<64 to footer63/state112,otherwise148/state113. Correct both
+before first corrective build. These are actual code defects,not fixture
+changes. First74 earlier generator cases passed. No native corrective rerun yet.
+Old audio/suites/campaign untouched;remaining whole-owner checks not yet reached.
+
+# Population/weather517 complete source batch implemented - IN PROGRESS
+
+No integration build or native batch yet. Production native_world_population.h
+now owns catalog data/geometry/selection/RNG/allocation;NWAT6 wraps historical
+turn codecs. Ordinary input and host idle share pending-attempt settlement;
+wait/movement/travel arm it,modal/battle delay it,travel clears origin projectile.
+Large storm diagonal action/footprint retirement,idle quadrants anddamage consumers
+implemented in same batch. Audio473 unchanged. Source parent28374e5a40a.
+Original complete generator research:85 terminating declared contexts,47spawn,
+0/1/3/4 RNG calls;12 synthetic no-category contexts excluded after source loop
+cycle detected. Original source code and RNG execute,not outcome stubs.
+517b reference initializes retained last/attempt RNG fields explicitly BEFORE
+operation;initial517 draft retained. Prior source scan found only one direct
+367A writer(INC in SRTN.INVENTORY);this is not proof about indirect bulk reset.
+Source allocation exits at first free slot;duplicate checking only reaches that
+slot,not all later slots. Corrected before native batch. Native bounds full-visible
+replacement and no-category scan;explicit CE replacements,not source parity.
+Next:finish focused generator/consumer/scheduling/native-codec batch,inspect whole
+diff,then one integration build. No campaign/old suites/publication.
+
+# Population517 visual identity corrected - IN PROGRESS
+
+Ownerquestionansweredandworkcontinues. OriginalSurfaceatlas225..228 viewed:
+cloud,rain,lightningbolt;this is the STORM weather hazard,notfire. Prior517
+fire/flame labels wereinference,notestablishedidentity. Contract/blocker and
+newproofmetadata corrected;historicalartifactfilenames retained. Local visual:
+world-population517-sprite225.png. No production517 edits/build. Continuewhole
+population/weather consumer/persistence batch;do not compile small fragments.
+
+# Population517 original proofs before implementation
+
+No production517 edits/build. Six original active225 diagonal/edge cases confirm
+(+1,-1),retainedcell-16 onlywhenvisible;four whole sourceidleframes confirm
+225/226/227/228 quadrants andglobalphases0..3 withrecords/clock unchanged.
+Catalogloader sixcase CPUproof corrected a branch-reading inference BEFOREcode:
+firstmemberlevel<4 preservesraw151/151/151;levels4..5 select152/152/152;
+levels>=6 select149/149/150. Earlier517progress reversedthetwosubstitutions.
+Initialsourceassertionfailure retainedasdiagnostic,notnativebuild/testfailure.
+Exact localproofs:population517-flame-action,large-idle,catalog-levels JSON.
+Continuewholepopulationsubsystem batch;do not compile a fragment.
+
+# Population517 source scope expanded before code/build
+
+No production517 edit or build. Immutable catalog census:21type<4maps,
+20nonempty catalogs/3280bytes;all have2frequencybytes,4land+4water defaults,
+5-byte sector rows andFF terminator. EveryRuin has9day+9night sectors;night
+starts55. Program located SRTN.INVENTORY0x1004B,length0x2E5,loaded9600.
+
+Correction before code: generated large225 flames are NOT stationary.
+ActorWorldD719 direction5 reachesE304:worldX+1,worldY-1 diagonal movement,
+with footprint clearing/clipping. State41 haslargebit8. Existing compactAI
+rejects225, idleWorldAnimation rejectslargekind footprint bits, andWorldHazards
+kind==0 excludeslargecompactfootprints. All relevant generated-actor movement,
+idle raster anddamage consumers belong in the SAME population batch.
+Source callbacks/data-only references can be reused for private original proofs;
+do not run oldanimation/audio suites or add a general executor.
+
+Other full-model findings: attempts arm aftercommand/mapentry,notidleframes;
+mapmetadata10..14encounterextent;field64bit4surface frequencyhalf-minus1;
+exclusionpairsGAME6E0A(72bytes);candidate/window andworld-offset tablesGAME
+6DCB(32)/6DEB(32),directionstarts6E5B(4). Cursor100..252 global;fire-attempt
+counter starts0/caps16 andincrementsBEFOREduplicate refusal;lastmonsterchoice
+6E5F isretained when firstselectionroll<21 forces nondirectional placement.
+Original retries repeat immutablecandidates;native maybound distinct scans.
+Surface catalogwaterdefaults6/7/8 patch at resource load from FIRSTmemberlevel:
+4..5 =>149/149/150,>=6 =>152/152/152. Lower1970(A1) selects firstmember,
+not average/advice. 6042 isnightflag;6CF5 iscoordinate sector inthisproducer.
+Do not mistake combat-override dialogue location context for coordinate sector;
+existing EncounterAdmission.location usesmapmetadata context correctly.
+
+Source transfer detail for same owner:WorldInput.travel copies turn state,
+so queuedorigin projectile must be explicitlycleared on mapload (sourceDEA5).
+514 verifiedcontact discard butdidnotexercisequeuedprojectile+portal. Include
+this pending-event/maptransition connection in whole517batch,notaseparatebuild.
+NativepollWorldEvents runs atquiescent loop BEFOREmusic ticks;extend it for
+onepending population attempt,pluscommonhandle preparation fordirect input.
+Keep actor/battle/modal ownership;arm once onworldturn/entry,consumeoncebefore
+ordinaryinput,delaythroughcombat. NewGamebeginsKeep69,type8;Surfaceentrytravel
+isfirstnormalpopulationarm. Travelpreservesglobalturnstate via nextTurn=turn.
+
+Remaining new-source proof: complete diagonal flame action/draw effects;large
+idle sprite/phase selection andedge footprints;RNG andcatalogallocation source
+outcomes;settled caller/legacy/save lifetimes. Finishcompletecontract before
+production;onewhole-ownerfocusedbatch/integrationbuild whenready.
+
+# Broad simulation population owner517 - IN PROGRESS before code
+
+User check-in acknowledged too many small builds/fixture corrections. No build
+is running; do not build another caller fragment. Current accepted source is
+28374e5a40a / frozen515b. Review the complete missing world-population owner,
+its scheduling, generated large fire hazards and durable native state together.
+
+Confirmed source: SRTN.INVENTORY offset0x1004B has original9600..98E4 producer;
+GAME71D9 calls it for type<4. Source3778 arms after movement/wait/map entry,
+clears at98DF; source3AFF means current map has encounter data. Map metadata
+10..12/13..14 selects the data extent,loaded9E00. NativeMapResource currently
+has no encounter-data accessor,WorldInput skips type<4 scheduler, and no native
+population equivalent exists. Do not confuse fixed battle descriptor/admission
+owners with this world-record producer. simulation.06 remains PARTIAL with a
+new concrete missing production connection,not broad verified.
+
+Complete source-driven batch must include probability/day-night/quest modifiers,
+sector exclusions, loaded48x48 candidate geometry, land/water regional catalogs,
+Surface special monsters/large225flames, duplicate/free/invisible replacement
+slot policy, pending-attempt scheduling through battle/map transitions and
+save/legacy import. Generated225,state41 is a large stationary hazard; existing
+CompactWorldAction rejects it, and WorldHazards rawkind==0 misses its footprint.
+Resolve those consumers in this SAME batch before one integration build.
+
+Source rules reviewed in inventory_encounters.inc (reference only,notrelease),
+resident_location DF7E loader,commandActions9214/92A1,actorWorldD70B andMain
+F728. Originalprogram and data remain local. Native implementation must be
+semantic,not originalPC/instruction execution. Cursor60AB starts100; original
+reference fire counter367A=0. Source program's retry loops may be reduced to
+bounded distinct candidates with identical outcomes/RNG; fully-visible replacement
+must terminate safely rather than reproduce an original infinite loop.
+
+Remaining source details before final contract/code: prove stationary largeflame
+completion; map resource catalog shapes and first-member-level water substitutions;
+RNG request ordering; exact arm/consume/map-return lifetimes. No campaign/old
+suite or exploratory gameplay. One whole-owner focused batch/build after ready.
+Independent516 source census:54 scheduling maps,all known padding shapes,zero
+unexpected rows,max8 distinct fresh upcoming NPC routes;queue lifetime source
+review shows navigation retires pending recent entries. No extra NPC build.
+
 # Dialogue encounter clock515b - VERIFIED within source-driven contract
 
 515b0warnings/0errors2m48.04s,wrapperexit0.Firstcorrectivebatchpasses4actual

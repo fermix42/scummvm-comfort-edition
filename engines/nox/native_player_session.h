@@ -95,6 +95,11 @@ private:
         if (!worldInput.restoreWorldControls(game.world,transport)) return false;
         if (main[0x6113]<=5) {turns.praevocCursor=main[0x6113];turns.praevocUsed=true;}
         if (main[0x6103]<=16) turns.terrainRecovery=main[0x6103];
+        turns.population.pending=main[0x3778]!=0;
+        turns.population.action=main[0x60f3]==139?0:main[0x60f3]==138?1:main[0x60f3]==149?2:main[0x60f3]==136?3:main[0x60f3]?4:5;
+        turns.population.stormAttempts=main[0x367a];
+        if (main[0x60ab]>=100 && !(main[0x60ab]&3)) turns.population.cursor=main[0x60ab];
+        if (main[0x6e5f]<4) turns.population.monsterChoice=main[0x6e5f];
         turns.presentation.facing=main[0x257e];turns.presentation.partyObject=transport.object;turns.presentation.hidden=main[0x247d]!=0;
         if(turns.presentation.facing>3) return false;
         turns.compact.freezeTimer=turns.npc.freezeTimer=main[0x68b1];turns.compact.enabled=turns.npc.enabled=main[0x38fc];

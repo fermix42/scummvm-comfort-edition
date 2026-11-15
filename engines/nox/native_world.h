@@ -78,6 +78,9 @@ public:
 		memcpy(_fields, conversation.fields(), sizeof(_fields)); return true;
 	}
 	const Common::Array<byte> *currentTables() const { return ready() ? &_states[_current].tables : nullptr; }
+    bool populationCatalog(Common::Array<byte> &output) const {
+        return ready() && _resources[_states[_current].family].populationCatalog(mapId(),output);
+    }
     bool notice(byte index,Common::Array<byte> &output) const {
         return ready() && _resources[_states[_current].family].notice(mapId(),index,output);
     }
@@ -339,6 +342,7 @@ private:
 	friend class NpcWorldAction;
 	friend class CompactWorldAction;
 	friend class WorldActorTurn;
+    friend class WorldPopulation;
 	friend class WorldWait;
 	friend class ActorMovementEffects;
 	friend class WorldPresentation;

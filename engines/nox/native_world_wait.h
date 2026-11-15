@@ -67,6 +67,7 @@ public:
             }
         }
         if (!nextWindow.captureRecords(candidate)) return kWorldWaitUnsupported;
+        if (completeClock) next.population.arm();
         world.adoptState(candidate);window=nextWindow;scene=nextScene;state=next;clock=nextClock;light=nextLight;visibility=nextVisibility;
         schedule=nextSchedule;store=nextStore;random=after;surface=text;frame=nextFrame;event=raised;if (party) *party=nextParty;if (_sounds) for (uint i=0;i<effects.size();++i) _sounds->push_back(effects[i]);return defeated?kWorldWaitDefeat:raised.battle?kWorldWaitBattle:kWorldWaitAdvanced;
     }
@@ -86,7 +87,7 @@ public:
             projectileHit=projectile.hit;next.effects.queued=0;next.effects.projectileMode=true;
         }
         const byte slot=scene.actors.lookup[93];
-        if (!party && slot!=255 && scene.actors.kinds[93]==0 && (*world.currentTables())[768+slot+2]==225) return false;
+        if (!party && slot!=255 && (scene.actors.kinds[93]&7)==0 && (*world.currentTables())[768+slot+2]==225) return false;
         if (party && !_hazardRules.apply(world,scene,*party,catalog,text,frame,defeated,projectileHit,&sounds)) return false;
         state=next;random=after;
         SoundEvents *target=captured?captured:_sounds;if (target) for (uint i=0;i<sounds.size();++i) target->push_back(sounds[i]);return true;

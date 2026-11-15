@@ -51,7 +51,7 @@ public:
             if (!dead && !_type && ground>=205 && ground<211 && !effect(4,21,4)) return false;
         }
         const byte actor=scene.actors.lookup[93];
-        if (!dead && actor!=255 && scene.actors.kinds[93]==0 && (*world.currentTables())[768+actor+2]==225 && !effect(0,33,2)) return false;
+        if (!dead && actor!=255 && (scene.actors.kinds[93]&7)==0 && (*world.currentTables())[768+actor+2]==225 && !effect(0,33,2)) return false;
         if (!dead && (in(ground,46) || in(ground,48)) && !effect(1,34,1)) return false;
         party=next;text=surface;frame=image;defeated=dead;
         if (sounds) for (uint i=0;i<effects.size();++i) sounds->push_back(effects[i]);return true;

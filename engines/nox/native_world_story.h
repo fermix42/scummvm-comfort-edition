@@ -78,6 +78,11 @@ public:
     bool matchesWorld(const World &world) const {
         return _ready && world.ready() && world.mapType()==_type && world.mapId()==_map;
     }
+    bool localCoordinates(const World &world,byte &x,byte &y) const {
+        if (!matchesWorld(world)) return false;
+        const byte column=byte(world.x()-_left),row=byte(world.y()-_top);
+        if (column>=48 || row>=48) return false;x=column;y=row;return true;
+    }
     bool actorBounds(const World &world,byte *bounds) const {
         if (!bounds || !matchesWorld(world)) return false;
         // Source lower1B5B derives these byte-relative admission bounds from

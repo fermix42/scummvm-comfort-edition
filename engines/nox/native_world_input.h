@@ -33,16 +33,34 @@ public:
     WorldInput() : _notice(false),_campNotice(false),_openDirection(false),_leave(false),_fireDirection(false),_fireProtected(false),_scriptedEncounter(false),_refusalSound(false),_attackDirection(false),_attackAlarm(false),_digDirection(false),_noticeTail(false),_noticeDirection(255),_waitHoursPending(false),_sounds(nullptr) {}
     bool loadRules(HdvArchive &archive,byte type=8) {
         return _move.load(archive,type) && _open.load(archive,type) && _wait.load(archive,type) && _story.load(archive) &&
-            _actors.load(archive,type) && _lighting.load(archive,type) && _occlusion.load(archive,type) && _painter.load(archive,type) && _nightActors.load(archive);
+            _actors.load(archive,type) && _lighting.load(archive,type) && _occlusion.load(archive,type) && _painter.load(archive,type) && _nightActors.load(archive) && _population.load(archive,type);
     }
     bool restoreWorldControls(const World &world,const WorldTransportState &state) {
         if (!atWorldCommand() || !state.valid() || !world.ready() || world.onFoot()!=(state.object==255)) return false;
         _transport=state;return true;
     }
     void setSoundEvents(SoundEvents *sounds,bool effectsEnabled=true) {_sounds=sounds;_conversation.setSoundEvents(sounds,effectsEnabled);_inventory.setSoundEvents(sounds);_casting.setSoundEvents(sounds);_move.setSoundEvents(sounds);_move.setEffectsEnabled(effectsEnabled);_wait.setSoundEvents(sounds);}
+    bool settlePopulation(HdvArchive &archive,NewGame &game,const WorldStory &window,const WorldScene &scene,
+            const LightState &light,WorldActorTurnState &turn,GameplayRandom &random) {
+        if (!atWorldCommand() || !turn.population.pending || game.world.mapType()>=4) return true;
+        // F9AA settles the clock boundary before choosing the population's
+        // day/night frequency. Do not advance a raster/light transition here.
+        Common::Array<byte> data;bool dark=false;LightState populationLight=light;
+        const CharacterRecord *leader=game.party.member(0);
+        if (!leader || !archive.read("NA/GAME",data) || data.size()!=13824 ||
+                !Daylight::permanent(game.world.mapId(),data.data()+0x10b1,data.size()-0x10b1,dark) ||
+                !Daylight::advance(game.world.mapType(),dark,_transport.speed,game.clock,populationLight)) return false;
+        const bool night=game.clock.hour<5 || game.clock.hour>0x20 ||
+            (game.clock.hour==5 && game.clock.minute<0x30) || (game.clock.hour==0x20 && game.clock.minute>=0x30);
+        bool spawned=false;
+        return _population.run(game.world,window,scene.actors.lookup,187,populationLight.mode,night,leader->bytes[1],turn.population,random,spawned);
+    }
     bool pollWorldEvents(NewGame &game,WorldStory &window,const FixedMessageCatalog &catalog,TextGlyphSurface &text,HgrFrame &frame,
-            const WorldScene &scene,const LightState &light,byte animation,bool &changed) {
-        changed=false;if (!atWorldCommand() || !game.ready() || game.world.mapId()!=65) return true;
+            const WorldScene &scene,const LightState &light,byte animation,bool &changed,HdvArchive *archive=nullptr,
+            WorldActorTurnState *turn=nullptr,GameplayRandom *random=nullptr) {
+        changed=false;
+        if (archive && turn && random && !settlePopulation(*archive,game,window,scene,light,*turn,*random)) return false;
+        if (!atWorldCommand() || !game.ready() || game.world.mapId()!=65) return true;
         World candidate(game.world);WorldStory next=window;bool reveal=false;
         if (!next.revealKeep(candidate,reveal)) return false;if (!reveal) return true;
         const int column=24-int(candidate.x())+8,row=20-int(candidate.y())+5;
@@ -137,6 +155,11 @@ public:
     WorldInputResult handle(const Common::Event &input,HdvArchive &archive,NewGame &game,WorldStory &window,WorldScene &scene,
             WorldActorTurnState &turn,LightState &light,VisibilityMask &visibility,NpcRouteStore &routes,GameplayRandom &random,
             const FixedMessageCatalog &catalog,TextGlyphSurface &text,HgrFrame &frame,byte animation=0) {
+        if (input.type==Common::EVENT_KEYDOWN && atWorldCommand()) {
+            if (!settlePopulation(archive,game,window,scene,light,turn,random)) return kWorldInputUnsupported;
+            turn.population.action=input.kbd.keycode==Common::KEYCODE_UP?0:input.kbd.keycode==Common::KEYCODE_DOWN?1:
+                input.kbd.keycode==Common::KEYCODE_RIGHT?2:input.kbd.keycode==Common::KEYCODE_LEFT?3:4;
+        }
         TurnClock checked=game.clock;
         const WorldInputResult result=handleCommand(input,archive,game,window,scene,turn,light,visibility,routes,random,catalog,text,frame,animation,checked);
         if ((result==kWorldInputHandled || result==kWorldInputIgnored) && atTurnBoundary() &&
@@ -518,6 +541,7 @@ private:
         const WorldInputResult portalResult=finishTurn(archive,game,window,scene,turn,light,visibility,catalog,text,frame,animation);
         if (portalResult!=kWorldInputHandled) return portalResult;
         if (!WorldMove::completeClock(game.world,game.clock)) return kWorldInputUnsupported;
+        turn.population.arm(direction);
         WorldTravelPlan plan;const StoryMapState *state=window.state();if (!state) return kWorldInputUnsupported;
         const WorldTravelResult selected=WorldTravelRules::enter(game.world.mapType(),game.world.mapId(),game.world.x(),game.world.y(),game.world.field(59),state->spawns,256,plan);
         if (selected==kTravelInvalid) return kWorldInputBoundary;
@@ -848,6 +872,8 @@ private:
         if (recordOrigin && !navigation.enter(NavigationPoint(game.world.mapType(),game.world.mapId(),game.world.x(),game.world.y()),plan.type)) return reject("navigation");
         if (!WorldTravel::commit(candidate,plan,&nextTransport)) return reject("owned map/cargo");
         nextTurn.presentation.partyObject=nextTransport.object;
+        nextTurn.effects.queued=0; // source map-load abandons the origin projectile
+        nextTurn.population.arm();
         if (!nextWindow.initialize(candidate,candidate.currentTables()->data()+1536,256)) return reject("window");
         if (!loadRules(archive,plan.type)) return reject("rules");
         // M:FB0C selects permanent dark maps, otherwise the source day/night
@@ -894,7 +920,7 @@ private:
     }
     bool _notice,_campNotice,_openDirection,_leave,_fireDirection,_fireProtected,_scriptedEncounter,_refusalSound,_attackDirection,_attackAlarm,_digDirection,_noticeTail;byte _noticeDirection;WorldActorTurnEvent _noticeEncounter;TextWindow _window;HgrFrame _underlay;
     WorldActorTurnEvent _encounter;WorldConversation _conversation;WorldTransportState _transport;InventoryWindow _inventory;WorldCast _casting;PartyOrderInput _partyOrder;InformationInput _information;PartyRoster _roster;HourWait _hourWait;HgrFrame _waitHoursUnderlay;bool _waitHoursPending;
-    SearchInput _search;WorldMove _move;WorldOpen _open;WorldWait _wait;NightActors _nightActors;StoryMapPatches _story;ActorPaintRules _actors;TerrainLighting _lighting;OcclusionRules _occlusion;TilePainter _painter;SoundEvents *_sounds;
+    SearchInput _search;WorldMove _move;WorldOpen _open;WorldWait _wait;NightActors _nightActors;WorldPopulation _population;StoryMapPatches _story;ActorPaintRules _actors;TerrainLighting _lighting;OcclusionRules _occlusion;TilePainter _painter;SoundEvents *_sounds;
 };
 } }
 #endif

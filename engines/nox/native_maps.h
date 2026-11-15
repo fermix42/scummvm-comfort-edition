@@ -111,6 +111,16 @@ public:
 		memcpy(bytes.data(), _data.data() + map->following, bytes.size());
 		output = bytes; return true;
 	}
+    bool populationCatalog(byte id,Common::Array<byte> &output) const {
+        const MapDefinition *map=find(id);if (!map || map->metadata.size()<15) return false;
+        const uint32 start=read24(map->metadata.data()+10);const uint length=READ_LE_UINT16(map->metadata.data()+13);
+        Common::Array<byte> next;
+        if (start) {
+            if (start>_data.size() || length>_data.size()-start) return false;
+            next.resize(length);if (length) memcpy(next.data(),_data.data()+start,length);
+        }
+        output=next;return true;
+    }
     // Authored notice strings use relocated pointers in the original map data
     // format. Resolve them as resource offsets; no loaded-memory ABI is needed.
     bool notice(byte id,byte index,Common::Array<byte> &output) const {
