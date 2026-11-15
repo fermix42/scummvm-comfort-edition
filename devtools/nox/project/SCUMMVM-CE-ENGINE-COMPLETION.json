@@ -1318,7 +1318,7 @@
       "id": "inventory.02",
       "subsystem": "inventory",
       "behavior": "Stack grant removal quantity and capacity",
-      "implementation": "PARTIAL",
+      "implementation": "IMPLEMENTED",
       "verification": {
         "status": "NOT STARTED",
         "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement."
@@ -1334,8 +1334,10 @@
         "engines/nox/native_lock.h",
         "engines/nox/native_book.h"
       ],
-      "original_evidence": [],
-      "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
+      "original_evidence": [
+        "SCUMMVM-CE-INVENTORY-IMPLEMENTATION510.md:static known operation model/production ownership closure;existing verification and unknown dynamic producer/legacy scopes retained."
+      ],
+      "production_connection": "Shared Inventory/Party/SpellBook/EquipmentActions/SearchInput/World/BattleLoot owners through ordinary InventoryWindow/WorldInput and tactical482;known model reviewed510,broader workflow verification unchanged.",
       "fallback_dependencies": [],
       "blockers": []
     },
@@ -1343,7 +1345,7 @@
       "id": "inventory.03",
       "subsystem": "inventory",
       "behavior": "Weapon ready unready and hand ownership",
-      "implementation": "PARTIAL",
+      "implementation": "IMPLEMENTED",
       "verification": {
         "status": "NOT STARTED",
         "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement."
@@ -1359,8 +1361,10 @@
         "engines/nox/native_lock.h",
         "engines/nox/native_book.h"
       ],
-      "original_evidence": [],
-      "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
+      "original_evidence": [
+        "SCUMMVM-CE-INVENTORY-IMPLEMENTATION510.md:static known operation model/production ownership closure;existing verification and unknown dynamic producer/legacy scopes retained."
+      ],
+      "production_connection": "Shared Inventory/Party/SpellBook/EquipmentActions/SearchInput/World/BattleLoot owners through ordinary InventoryWindow/WorldInput and tactical482;known model reviewed510,broader workflow verification unchanged.",
       "fallback_dependencies": [],
       "blockers": []
     },
@@ -1368,7 +1372,7 @@
       "id": "inventory.04",
       "subsystem": "inventory",
       "behavior": "Armor ready unready and derived stats",
-      "implementation": "PARTIAL",
+      "implementation": "IMPLEMENTED",
       "verification": {
         "status": "NOT STARTED",
         "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement."
@@ -1384,8 +1388,10 @@
         "engines/nox/native_lock.h",
         "engines/nox/native_book.h"
       ],
-      "original_evidence": [],
-      "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
+      "original_evidence": [
+        "SCUMMVM-CE-INVENTORY-IMPLEMENTATION510.md:static known operation model/production ownership closure;existing verification and unknown dynamic producer/legacy scopes retained."
+      ],
+      "production_connection": "Shared Inventory/Party/SpellBook/EquipmentActions/SearchInput/World/BattleLoot owners through ordinary InventoryWindow/WorldInput and tactical482;known model reviewed510,broader workflow verification unchanged.",
       "fallback_dependencies": [],
       "blockers": []
     },
@@ -1393,7 +1399,7 @@
       "id": "inventory.05",
       "subsystem": "inventory",
       "behavior": "Book ready unready and spell slots",
-      "implementation": "PARTIAL",
+      "implementation": "IMPLEMENTED",
       "verification": {
         "status": "NOT STARTED",
         "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement.",
@@ -1414,8 +1420,10 @@
         "engines/nox/native_lock.h",
         "engines/nox/native_book.h"
       ],
-      "original_evidence": [],
-      "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
+      "original_evidence": [
+        "SCUMMVM-CE-INVENTORY-IMPLEMENTATION510.md:static known operation model/production ownership closure;existing verification and unknown dynamic producer/legacy scopes retained."
+      ],
+      "production_connection": "Shared Inventory/Party/SpellBook/EquipmentActions/SearchInput/World/BattleLoot owners through ordinary InventoryWindow/WorldInput and tactical482;known model reviewed510,broader workflow verification unchanged.",
       "fallback_dependencies": [],
       "blockers": []
     },
@@ -1423,7 +1431,7 @@
       "id": "inventory.06",
       "subsystem": "inventory",
       "behavior": "Usable documents coordinates and navigation items",
-      "implementation": "PARTIAL",
+      "implementation": "IMPLEMENTED",
       "verification": {
         "status": "NOT STARTED",
         "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement."
@@ -1439,8 +1447,10 @@
         "engines/nox/native_lock.h",
         "engines/nox/native_book.h"
       ],
-      "original_evidence": [],
-      "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
+      "original_evidence": [
+        "SCUMMVM-CE-INVENTORY-IMPLEMENTATION510.md:static known operation model/production ownership closure;existing verification and unknown dynamic producer/legacy scopes retained."
+      ],
+      "production_connection": "Shared Inventory/Party/SpellBook/EquipmentActions/SearchInput/World/BattleLoot owners through ordinary InventoryWindow/WorldInput and tactical482;known model reviewed510,broader workflow verification unchanged.",
       "fallback_dependencies": [],
       "blockers": []
     },
@@ -1448,7 +1458,7 @@
       "id": "inventory.07",
       "subsystem": "inventory",
       "behavior": "Drop protection readied refusal and retained counters",
-      "implementation": "PARTIAL",
+      "implementation": "IMPLEMENTED",
       "verification": {
         "status": "NOT STARTED",
         "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement."
@@ -1464,8 +1474,10 @@
         "engines/nox/native_lock.h",
         "engines/nox/native_book.h"
       ],
-      "original_evidence": [],
-      "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
+      "original_evidence": [
+        "SCUMMVM-CE-INVENTORY-IMPLEMENTATION510.md:static known operation model/production ownership closure;existing verification and unknown dynamic producer/legacy scopes retained."
+      ],
+      "production_connection": "Shared Inventory/Party/SpellBook/EquipmentActions/SearchInput/World/BattleLoot owners through ordinary InventoryWindow/WorldInput and tactical482;known model reviewed510,broader workflow verification unchanged.",
       "fallback_dependencies": [],
       "blockers": []
     },
@@ -1504,7 +1516,7 @@
       "id": "inventory.09",
       "subsystem": "inventory",
       "behavior": "Directional search objects treasure and secret doors",
-      "implementation": "PARTIAL",
+      "implementation": "IMPLEMENTED",
       "verification": {
         "status": "NOT STARTED",
         "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement."
@@ -1520,8 +1532,10 @@
         "engines/nox/native_lock.h",
         "engines/nox/native_book.h"
       ],
-      "original_evidence": [],
-      "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
+      "original_evidence": [
+        "SCUMMVM-CE-INVENTORY-IMPLEMENTATION510.md:static known operation model/production ownership closure;existing verification and unknown dynamic producer/legacy scopes retained."
+      ],
+      "production_connection": "Shared Inventory/Party/SpellBook/EquipmentActions/SearchInput/World/BattleLoot owners through ordinary InventoryWindow/WorldInput and tactical482;known model reviewed510,broader workflow verification unchanged.",
       "fallback_dependencies": [],
       "blockers": []
     },
@@ -1529,7 +1543,7 @@
       "id": "inventory.10",
       "subsystem": "inventory",
       "behavior": "Stealing warning confirmation and consequences",
-      "implementation": "PARTIAL",
+      "implementation": "IMPLEMENTED",
       "verification": {
         "status": "NOT STARTED",
         "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement."
@@ -1545,8 +1559,10 @@
         "engines/nox/native_lock.h",
         "engines/nox/native_book.h"
       ],
-      "original_evidence": [],
-      "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
+      "original_evidence": [
+        "SCUMMVM-CE-INVENTORY-IMPLEMENTATION510.md:static known operation model/production ownership closure;existing verification and unknown dynamic producer/legacy scopes retained."
+      ],
+      "production_connection": "Shared Inventory/Party/SpellBook/EquipmentActions/SearchInput/World/BattleLoot owners through ordinary InventoryWindow/WorldInput and tactical482;known model reviewed510,broader workflow verification unchanged.",
       "fallback_dependencies": [],
       "blockers": []
     },
@@ -1554,7 +1570,7 @@
       "id": "inventory.11",
       "subsystem": "inventory",
       "behavior": "Lock skill tool outcome and door commit",
-      "implementation": "PARTIAL",
+      "implementation": "IMPLEMENTED",
       "verification": {
         "status": "NOT STARTED",
         "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement."
@@ -1570,8 +1586,10 @@
         "engines/nox/native_lock.h",
         "engines/nox/native_book.h"
       ],
-      "original_evidence": [],
-      "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
+      "original_evidence": [
+        "SCUMMVM-CE-INVENTORY-IMPLEMENTATION510.md:static known operation model/production ownership closure;existing verification and unknown dynamic producer/legacy scopes retained."
+      ],
+      "production_connection": "Shared Inventory/Party/SpellBook/EquipmentActions/SearchInput/World/BattleLoot owners through ordinary InventoryWindow/WorldInput and tactical482;known model reviewed510,broader workflow verification unchanged.",
       "fallback_dependencies": [],
       "blockers": []
     },
@@ -1579,7 +1597,7 @@
       "id": "inventory.12",
       "subsystem": "inventory",
       "behavior": "Generated and scripted treasure handoffs",
-      "implementation": "PARTIAL",
+      "implementation": "IMPLEMENTED",
       "verification": {
         "status": "NOT STARTED",
         "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement."
@@ -1595,8 +1613,10 @@
         "engines/nox/native_lock.h",
         "engines/nox/native_book.h"
       ],
-      "original_evidence": [],
-      "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
+      "original_evidence": [
+        "SCUMMVM-CE-INVENTORY-IMPLEMENTATION510.md:static known operation model/production ownership closure;existing verification and unknown dynamic producer/legacy scopes retained."
+      ],
+      "production_connection": "Shared Inventory/Party/SpellBook/EquipmentActions/SearchInput/World/BattleLoot owners through ordinary InventoryWindow/WorldInput and tactical482;known model reviewed510,broader workflow verification unchanged.",
       "fallback_dependencies": [],
       "blockers": []
     },
@@ -7663,9 +7683,9 @@
     },
     "inventory": {
       "known_required": 12,
-      "native_implemented": 2,
+      "native_implemented": 12,
       "verified": 1,
-      "partial": 10,
+      "partial": 0,
       "missing": 0,
       "unknown_required_rows": 0,
       "additional_unclassified_scope": 1,
@@ -7758,7 +7778,7 @@
   },
   "current_subsystem": {
     "status": "IN PROGRESS",
-    "scope": "Remaining typed simulation/NPC/item/combat owner closure;no newbuild withoutsource/codechange,no old suites/campaign."
+    "scope": "Known world/navigation/transport/environment production-owner closure next;inventory known implementation classified,joined runtime and arbitrary dynamic producers remain separate."
   },
   "count_definition": "native_implemented counts IMPLEMENTED; CE_REPLACEMENT is separately reported. VERIFIED applies only to row evidence scope; no overall completion percentage."
 }
