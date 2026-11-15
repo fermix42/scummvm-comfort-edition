@@ -1,3 +1,14 @@
+# Finite integration plan prepared - execution NOT STARTED
+
+SCUMMVM-CE-INTEGRATION-PLAN.md defines source-phase exit,5boundedjoinedbatches
+and separate campaign authorization. Source implementation remains IN PROGRESS;
+continue sharedlifecycle/presentation andconcreteoriginalcodecontextclosure.
+Read-only archivecheck:all356enginefiles match frozen498b;exe SHA256 remains
+34e1fe1256b19d93c9acad1e644113c80429facea599e68a1c3ff6c854146375.
+No rebuild for documentationchanges,no suite/audio/campaign execution.
+Do not revisit classified494..502 domains or treat oldpendingnotes asnewgaps.
+No fullengine/earned/cold integration completionclaim.
+
 # Contact producers502 - VERIFIED static scope
 
 76maps/17fixedpredicates(exact retainedM3census match)/15role126effectrecords/

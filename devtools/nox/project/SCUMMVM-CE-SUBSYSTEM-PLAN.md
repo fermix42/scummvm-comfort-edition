@@ -1,3 +1,15 @@
+# Current continuation after source closures494..502
+
+Remaining source-driven work:shared lifecycle/presentation production connections
+and concrete remaining original code producers. Known producer domains are
+classified in494..502;do not repeat those inventories or old acceptance suites.
+All356currentenginefiles match frozen498b source byte-for-byte;documentation
+changes do not require a rebuild. Lastfocused498b remains scoped,not fullport.
+Step8's separate integration plan is prepared in SCUMMVM-CE-INTEGRATION-PLAN.md
+(status NOT STARTED for execution). This does not end authorized independent
+implementation work or authorize campaign acceptance. Keep matrix PARTIAL/
+UNKNOWN and normalcold/earned criteria explicit. No milestone stop.
+
 Location489 closes native nameless-map G via CE categories;historical names remainUNKNOWN parity. Open/Search487 andbarrier488 integrated. Source pass found missing ordinary pressureplate/portal connections,next490 contract/implementation,no campaign.
 
 Controls476b update: known roster/torch/icon/W implementation is complete;
