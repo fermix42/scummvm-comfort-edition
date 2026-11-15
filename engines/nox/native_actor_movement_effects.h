@@ -33,15 +33,19 @@ public:
         cell=input.cell;
         if (input.direction==4 || input.outside) return true;
         const uint column=input.cell%17,row=input.cell/17;
+        // Scheduled routes may leave the visible viewport (spatial sentinel2).
+        // The destination has no owned viewport object cell. Retain the real
+        // actor position commit and origin-based ranged effects without reading
+        // the original adjacent scratch storage as an object lookup.
         if ((input.direction==0 && !row) || (input.direction==1 && row==10) ||
-            (input.direction==2 && column==16) || (input.direction==3 && !column)) return false;
+            (input.direction==2 && column==16) || (input.direction==3 && !column)) { cell=255;return true; }
         cell+=input.direction==0?-17:input.direction==1?17:input.direction==2?1:-1; return true;
     }
     static bool plan(const ActorMovementEffectContext &input,bool objectPresent,byte objectState,
             const ActorMovementEffectState &before,ActorMovementEffectPlan &output) {
         int cell; if (!destination(input,cell)) return false;
         ActorMovementEffectPlan result; result.originalDirection=result.direction=input.direction; result.objectState=objectState; result.objectChanged=false; result.effects=before;
-        if (!input.outside && input.direction<4 && objectPresent && objectState==16) { result.objectState=35; result.objectChanged=true; }
+        if (!input.outside && cell<187 && input.direction<4 && objectPresent && objectState==16) { result.objectState=35; result.objectChanged=true; }
         const bool ranged=input.tile==154 || (input.tile==123 && (input.capability&128));
         if ((input.mapType==0 || input.mapType==5) && ranged && !before.active && !input.outside) {
             const uint column=input.cell%17,row=input.cell/17; byte effect=0;
@@ -58,7 +62,7 @@ public:
             ActorMovementEffectState &state,byte &direction) {
         if (!world.ready() || world.mapType()!=input.mapType) return false;
         int cell; if (!destination(input,cell)) return false;
-        const byte slot=!input.outside && input.direction<4?scene.objects.lookup[cell]:255;
+        const byte slot=!input.outside && cell<187 && input.direction<4?scene.objects.lookup[cell]:255;
         if (slot!=255 && (slot>252 || (slot&3))) return false;
         const byte original=slot==255?0:(*world.currentTables())[1024+slot+3]; ActorMovementEffectPlan result;
         if (!plan(input,slot!=255,original,state,result)) return false;

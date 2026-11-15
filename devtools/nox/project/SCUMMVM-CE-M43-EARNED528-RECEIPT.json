@@ -1,10 +1,10 @@
 {
   "status": "IN PROGRESS",
-  "scope": "Earned opening, Bridgit, first combat/defeat/flee/restore, Maldac skiff, Axea first page/repeat/cold/return, Kat recruitment. Campaign and ending remain incomplete.",
-  "executable_sha256": "81feb2c7ff17594a6ea9754dc60602a755b2f37ea7c53b437f65a18e7c35000f",
+  "scope": "Earned opening, Bridgit, first combat/defeat/flee/restore, Maldac skiff, Axea first page/repeat/cold/return, Kat recruitment. Campaign and ending remain incomplete. Vulon250gold/repeat, scheduled NPC viewport-exit fix, save37/cold/next input verified.",
+  "executable_sha256": "bc41a7d987509306add2702efb598eea2244663329627b10c4341e92e69944aa",
   "source_binding": "SCUMMVM-CE-READINESS528.json",
-  "builds": 0,
-  "process_launches": 7,
+  "builds": 2,
+  "process_launches": 10,
   "verified_selected_nodes": [
     "opening-exit",
     "axea-page"
@@ -1068,6 +1068,37 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot034.g0.ce-achievements.json": "69d2c8c1a5d4db7a80dd985c932af394ef1dc6bb0c8779ff368d972f96083ee1"
       },
       "process": 7
+    },
+    {
+      "slot": 35,
+      "label": "Bayport earned arrival",
+      "parent": "eecaa94815624b1e4030224e44ab1593988b9a5212a98e0b0a71a3864b4eddc7",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot035.g0": "a4accf71601317447c4fa4eb1a74c23fcf174e166d6b9bf3d7fb4f14ee0dfad5",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot035.g0.ce-achievements.json": "e5a2ccb97cd1b24e38830c2f5fb3312c240e7ec9b14600e6e5f82a2e0670edd2"
+      },
+      "process": 7
+    },
+    {
+      "slot": 36,
+      "label": "Vulon earned aid and repeat",
+      "parent": "1a4a32030990d19a040c485cba89288ff065886cf1311fd46381c88dde326bc4",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot036.g0": "8ede1c22777968e2e1c31558fade55f6d4479c89edefd79ab16fcb2c8eb1e1ec",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot036.g0.ce-achievements.json": "f3a9bd01600b323dd851bc04fcc8836fc0b05a380739b7fe8785fb9017dcc96d"
+      },
+      "process": 7
+    },
+    {
+      "slot": 37,
+      "label": "Bayport NPC edge continuation",
+      "parent": "d2fc5738147a18a3f4281982f115aa337f1ff77fd12475ced0de59d160f5ba49",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot037.g0": "6ee57ffdb7dea64d58a54f726bf17d3d9a61e94ea57e8b59c6b3a993ae16d1b4",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot037.g0.ce-achievements.json": "735f47d9d701ae1503c4a4fe3565639d6f15843f11bd1da01203ff9fe94446c2"
+      },
+      "process": 9
     }
-  ]
+  ],
+  "correction": "SCUMMVM-CE-NPC529-VERIFICATION.json"
 }

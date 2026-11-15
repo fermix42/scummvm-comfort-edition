@@ -98,7 +98,7 @@ public:
                     }
                 }
                 const NpcActionResult moved=NpcActionDispatcher::advance(nextWorld,nextSchedule,nextStore,slot,spatial.blocked,input,next.action,after,catalog,nextSurface,selected,emitted,movement);
-                if (moved!=kNpcActionAdvanced && moved!=kNpcActionWaitingForRoute) return kNpcWorldUnsupported;
+                if (moved!=kNpcActionAdvanced && moved!=kNpcActionWaitingForRoute) { warning("Native NPC dispatch failed slot%u pos%u,%u capability%u result%u",slot,uint(actor.x),uint(actor.y),uint(actor.capability),uint(moved));return kNpcWorldUnsupported; }
                 result=kNpcWorldAdvanced;
             }
         }
@@ -119,7 +119,9 @@ public:
                 const byte x=byte(actor[0]-candidate.x()+128),y=byte(actor[1]-candidate.y()+128);
                 if (!_outside && (x<120 || x>=137 || y<123 || y>=134)) return false;
                 ActorMovementEffectContext input={candidate.mapType(),actor[2],actor[6],_outside?_cell:byte((y-123)*17+x-120),selected,_outside};
-                return ActorMovementEffects::apply(candidate,_scene,input,_effects,selected);
+                const bool applied=ActorMovementEffects::apply(candidate,_scene,input,_effects,selected);
+                if (!applied) warning("Native NPC movement effect rejected slot%u pos%u,%u relative%u,%u cell%u direction%u outside%u",actorSlot,uint(actor[0]),uint(actor[1]),uint(x),uint(y),uint(input.cell),uint(selected),uint(_outside));
+                return applied;
             }
         private:
             const WorldScene &_scene; ActorMovementEffectState &_effects;bool _outside;byte _cell;

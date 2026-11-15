@@ -1,0 +1,55 @@
+{
+  "status": "VERIFIED",
+  "subsystem": "scheduled NPC containing movement",
+  "failure": "Native NPC turn unsupported slot232 tile132 capability1 phase1; native world command cannot complete; CLI advance2256 timed out, engine returned idle",
+  "candidate_sha256": "bc41a7d987509306add2702efb598eea2244663329627b10c4341e92e69944aa",
+  "last_earned_checkpoint": {
+    "path": "conversion\\ce-native-acceptance528\\earned-modern\\checkpoints\\36-Vulon-earned-aid-and-repeat\\checkpoint.json",
+    "sha256": "d2fc5738147a18a3f4281982f115aa337f1ff77fd12475ced0de59d160f5ba49"
+  },
+  "evidence": {
+    "conversion\\ce-native-acceptance528\\earned-modern\\process007.jsonl": "3fb7b8288957914727e93295b70f980151f24b2291688078d8ab7dd3d0f25a6f",
+    "conversion\\ce-native-acceptance528\\earned-modern\\process007-failure-stderr.log": "d6f893fd20d17b02ddde21a398d1f8f31f063cbddd834fc6b2b6a689c73a860b"
+  },
+  "last_observed_world": [
+    5,
+    49,
+    18,
+    25
+  ],
+  "corrective_reruns": 1,
+  "diagnostic_build": "npc529-diagnostic",
+  "source_manifest": "conversion\\ce-native-acceptance528\\npc529\\diagnostic-source.json",
+  "campaign_state_injected": false,
+  "next_action": "Identify exact unsupported subphase, source-driven general correction, focused regression, resume earned36",
+  "cause": "Scheduled NPC slot232 at13,21 is visible at relative123,123 (cell3) and selects North. Spatial sentinel2 permits route departure; movement-effects destination rejects the top edge, causing dispatchInvalid and whole world abort.",
+  "diagnostic_evidence": "diagnostic-reproduction-stderr.log",
+  "correction": "Movement-effects destination returns out-of-viewport sentinel255 for all four crossings; skip nonowned destination object lookup; retain real route/position commit and visible-origin ranged effects. No actor/location special cases.",
+  "compatibility": "Save formats unchanged. Resume actual earned36 with identical original input prefix; preserve527b evidence.",
+  "execution": {
+    "builds": 2,
+    "process_launches": 10,
+    "diagnostic_reproduction": 1,
+    "corrective_reruns": 1
+  },
+  "scope": "Exact demonstrated northern scheduled-NPC viewport-exit failure corrected. No claim of exhaustive NPC/original scratch-alias equivalence.",
+  "result": "Identical earned36 load and failed Down/Open doorway prefix completes map49 route, enters48 at38,33; normal save37/cold010 matches world/party/items/quest/gold/food/sound/session; first icon command works.",
+  "evidence_after": {
+    "conversion\\ce-native-acceptance528\\earned-modern\\process008.jsonl": "4189b7038d39974341608b7cb54fbba866ef86f3d8d08659fd7dfb8407cdf3be",
+    "conversion\\ce-native-acceptance528\\earned-modern\\process009.jsonl": "9fc5d41ca586679e0c288c2f33dab616a308fc7f9c3dbb5650acbf40e81dba97",
+    "conversion\\ce-native-acceptance528\\earned-modern\\cold010.json": "65b538f48c27f864f2cb7e5373d59520f8d83b113faccf3d917c4a0d28c8c744",
+    "conversion\\ce-native-acceptance528\\earned-modern\\checkpoints\\37-Bayport-NPC-edge-continuation\\checkpoint.json": "553301028ddbc498ea42881122e69f1409d5c8d2cd77f8ef64b49213f74026be",
+    "conversion\\ce-native-acceptance528\\npc529\\diagnostic-reproduction-stderr.log": "e0f2c874334a39ac6a7cab9834f762105137fc57e0948b3d9061a641a79ca45c"
+  },
+  "limitations": [
+    "All-four-direction policy generalized from common boundary predicates; exact earned regression demonstrates North.",
+    "No exhaustive alias-storage behavior claimed.",
+    "Earned campaign/end and supported branch obligations remain IN PROGRESS."
+  ],
+  "baseline_candidate_sha256": "81feb2c7ff17594a6ea9754dc60602a755b2f37ea7c53b437f65a18e7c35000f",
+  "corrected_source": {
+    "conversion\\ce-native-acceptance528\\npc529\\corrected-source.json": "aeb1ea52e6bf6789a71ba373497c5094b8f8ddeb69612f5142b415098db473ee",
+    "conversion\\ce-native-acceptance528\\npc529\\corrected-source.zip": "f278189a79d6f7b00a0aa7efe7d8eed76738eb181d9eb01bcf3d307289431133",
+    "conversion\\ce-native-acceptance528\\npc529\\corrected-build-receipt.json": "46493936060eacbfbe22562213ff07b6fd55e0be56b3cb3a64d7ea0a91cc3935"
+  }
+}

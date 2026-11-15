@@ -1,3 +1,11 @@
+# NPC529 corrected; earned campaign continues - IN PROGRESS
+
+Source-derived general scheduled NPC viewport-exit correction VERIFIED for demonstrated Bayport North edge. Original sequence reproduced in diagnostic529; corrected529 passes same earned36/input, normal save37/cold010 and next icon with unchanged clean session. Source changes only movement-effects owner and precise NPC diagnostics; saved formats and audio473 unchanged. Builds2,CLI launches10,corrective reruns1. Exact receipt NPC529-VERIFICATION; source/exe hashes in private npc529 manifests. Two source nodes verified out of60, ending unverified. Continue actual48 inn/docks/Cutter/boat route without milestone stop. Canonical recovery mirrors under CE devtools/nox/project.
+
+# Acceptance528 NPC continuation failure - IN PROGRESS
+
+Earned Bayport Vulon HELP awarded250gold (16->266), repeat no award; ordinary save36 preserved. Normal southwest-quarter route stops at admitted NPC slot232 tile132 capability1 phase1; native command fatal then advance timeout2256. Exact process007 stderr and transcript retained under ce-native-acceptance528/earned-modern. Last observable world49 18,25. Stop this path; source-driven NPC diagnostics529 underway, no outcome bypass. Source baseline527b/saves remain valid; no corrective rerun yet.
+
 # Acceptance528 earned Kat checkpoint - IN PROGRESS
 
 Actual normal JOIN recruited Kat after Axea page, repeat refusal, cold continuity and mainland return. Three earned members, no setup mutation or engine correction. Two selected source nodes VERIFIED out of60; opening-log still IN PROGRESS. Builds0, CLI launches7. Compact M43-EARNED528-RECEIPT binds lineage and save hashes; full private evidence remains local. Read-only route planner now selects newest normal save generation rather than directory enumeration. Continue Bayport funding/boat and remaining earned campaign; ending not verified.

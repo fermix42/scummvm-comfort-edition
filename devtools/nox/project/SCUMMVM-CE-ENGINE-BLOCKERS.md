@@ -1,3 +1,11 @@
+# NPC529 viewport-exit correction - VERIFIED within demonstrated failure
+
+B-NPC-VIEWPORT-EXIT retired by general bounded destination policy; same earned36 and original blocked-step/Open inputs reach48/38,33. Save37/cold010/same clean owner/first subsequent icon pass. One corrective rerun; two justified builds including diagnosis,10CLI launches total528. Verification receipt SCUMMVM-CE-NPC529-VERIFICATION.json. All-direction policy is general; earned scenario proves North only. No broad subsystem promotion/original scratch-alias equivalence. Continue earned Bayport route; no accepted suite rerun.
+
+# Earned acceptance528 NPC viewport exit - IN PROGRESS
+
+B-NPC-VIEWPORT-EXIT: exact earned Bayport sequence aborts native actor232 when scheduled route exits north from cell3. Source spatial sentinel2 permits departure; ActorMovementEffects rejects viewport-boundary destination. Diagnostic529 confirms cell/direction. General bounded destination sentinel correction built separately; focused same earned36/input plus cold continuation required before retiring this blocker. No route bypass, actor-specific exception, save mutation or interpreter used. Private exact evidence: ce-native-acceptance528/npc529/failure.json.
+
 # Controlled integration527 disposition
 
 No new production implementation defect remains demonstrated in scoped I1/I2/I3/non-ending I4. Fixture/driver/assertion failures retained and source-reconciled; full48-invariant result and118-launch costs in INTEGRATION527-COMPLETION. Broader story.08 original producer/writer coverage UNKNOWN. Earned M4.3 campaign/ending/supported acceptance remains required and excluded from this directive, not waived. Ruin31 adjacent fixture cells rejected; actual O/S joined evidence uses source-supported warehouse instead, no Ruin31 accessibility claim.
