@@ -1140,7 +1140,13 @@
       "implementation": "PARTIAL",
       "verification": {
         "status": "IN PROGRESS",
-        "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement."
+        "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement.",
+        "additional_evidence": [
+          {
+            "receipt": "SCUMMVM-CE-NPC529-VERIFICATION.json",
+            "scope": "Exact earned scheduled NPC North viewport exit/general bounded movement destination correction;save/cold/next-input. Does not close full requirement."
+          }
+        ]
       },
       "native_owners": [
         "engines/nox/native_npc_schedule.h",
@@ -1166,7 +1172,13 @@
       "implementation": "PARTIAL",
       "verification": {
         "status": "IN PROGRESS",
-        "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement."
+        "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement.",
+        "additional_evidence": [
+          {
+            "receipt": "SCUMMVM-CE-NPC529-VERIFICATION.json",
+            "scope": "Exact earned scheduled NPC North viewport exit/general bounded movement destination correction;save/cold/next-input. Does not close full requirement."
+          }
+        ]
       },
       "native_owners": [
         "engines/nox/native_npc_schedule.h",
