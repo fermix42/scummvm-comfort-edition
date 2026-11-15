@@ -3434,6 +3434,28 @@
       "production_connection": "WorldInput activeTalk ->WorldConversation ordinary keywordTab/editor ->typedConversation voice ->existingDialogueRules andsourcebodies;NCON/NCUI/NWIN retain voice/query without schema change.",
       "fallback_dependencies": [],
       "blockers": []
+    },
+    {
+      "id": "simulation.09",
+      "subsystem": "simulation",
+      "behavior": "Map46 night actor install/removal at shared entry and daylight/hour-wait category changes;retain current records and quest predicates",
+      "implementation": "IMPLEMENTED",
+      "verification": {
+        "status": "VERIFIED",
+        "scope": "8byte policies,3actualentries,10source checkpointcases,2visiblelookupedges,30core/window/inputcodecs andsubsequent commands;notnormalEnginecold/session/earned.",
+        "evidence": "SCUMMVM-CE-NIGHT-ACTORS504-VERIFICATION.json"
+      },
+      "native_owners": [
+        "engines/nox/native_night_actors.h",
+        "engines/nox/native_world_input.h"
+      ],
+      "original_evidence": [
+        "SCUMMVM-CE-ENGINE-NIGHT-ACTORS-CONTRACT.md",
+        "ResidentFAF0/DE9C/FAD4;BS2992"
+      ],
+      "production_connection": "SharedWorldInput.travel installsbeforeviewport;ordinaryDaylight categorychange refreshes scene;W categorychange uses same producer before shared refresh. World/core retain currentcompactrecords;no codec schema change.",
+      "fallback_dependencies": [],
+      "blockers": []
     }
   ],
   "additional_unclassified_scope": [
@@ -5461,7 +5483,7 @@
     },
     {
       "path": "engines/nox/native_startup_host.h",
-      "sha256": "4336de1477a12890d9bf1dc52e5a15f3b63483281379d3fb7471e0fd9f4901ef",
+      "sha256": "7c82aa5f4910e719cd790de2a5e5235be537dd13889ac2581ea1715a5245b2e2",
       "includes": [
         "nox/native_weapon_ready_validation.h",
         "nox/native_legacy_snapshot.h",
@@ -6682,7 +6704,7 @@
     },
     {
       "path": "engines/nox/native_world_input.h",
-      "sha256": "8a1f13faee353d1bac498089b12cf6755ba4fd041270aebd72ea6143e4cd6b5f",
+      "sha256": "edc50086906bf9a2a4c1c765c912c4f533401a9d193060c7438a398d51a4b082",
       "includes": [
         "nox/native_new_game.h",
         "nox/native_world_move.h",
@@ -7504,9 +7526,9 @@
       "ce_replacements": 1
     },
     "simulation": {
-      "known_required": 8,
-      "native_implemented": 1,
-      "verified": 1,
+      "known_required": 9,
+      "native_implemented": 2,
+      "verified": 2,
       "partial": 7,
       "missing": 0,
       "unknown_required_rows": 0,
@@ -7605,8 +7627,8 @@
     }
   },
   "last_milestone": {
-    "owner": "Dialogue voice/keyword editor498",
-    "evidence": "SCUMMVM-CE-DIALOGUE-VOICE498-VERIFICATION.json"
+    "owner": "Map46 night actors504",
+    "evidence": "SCUMMVM-CE-NIGHT-ACTORS504-VERIFICATION.json"
   },
   "overall": {
     "fully_implemented_top_level_domains": 1,
@@ -7620,7 +7642,7 @@
   },
   "current_subsystem": {
     "status": "IN PROGRESS",
-    "scope": "Remaining native service/lifecycle/script/interface producer connections;then separateintegration planning,no campaign/old suite."
+    "scope": "Remaining originalcodecontexts:map69 state55/CWSPEAK producer contract;preserve accepted audio473 synthesis/mixer andavoid old suites/campaign."
   },
   "count_definition": "native_implemented counts IMPLEMENTED; CE_REPLACEMENT is separately reported. VERIFIED applies only to row evidence scope; no overall completion percentage."
 }

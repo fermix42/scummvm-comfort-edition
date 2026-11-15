@@ -1,3 +1,53 @@
+# Night actor504 integrated - VERIFIED within focused contract
+
+504d build0warnings/0errors2m57.05s;firstcorrective nativebatchpasses8byte
+policies,3actualauthored47->46entries,10day/night/W/retained/predicatecases,
+2visiblelookupedges,30core/window/inputcodecs,10subsequentcommands.
+Existingownedrecords persist;no installoneverycommand/load. SourceFAF0/DE9C/
+FAD4 andBS2992 loadedastypeddata. No schema/audiochange orcampaign/old suite.
+Failed504b setup(localorbrefusedbeforeinput)preserved.504c notrun afterstatic
+floorcheckcaughtwall9,17;504d selectslegaladjacencybeforeinput. Initial504
+compileprivatevalidationaccess fixed;productionunchangedafter504b. All exact
+commands/results/artifacts inNIGHT-ACTORS504-VERIFICATION;frozen504d exe/source.
+NormalEnginecold/session/earned andDaylightfreecontrolordering remainqualified.
+Continue remainingoriginalcodecontexts:map69state55 FC58 invokes CWSPEAK
+speech/alternating flag andsixstep cursor;classify complete source behavior
+before code. Do not touch accepted473 mixer/music/speaker models or rerun suite.
+
+# Night504 entry source-floor correction before rerun - IN PROGRESS
+
+Immutable local-sector read showsTown47initial9,17tile71wall;9,15/8,16/10,16
+are source102floor. Do notrun known-invalid504c checkpoint. Validationselects
+legalemptyadjacentfloor beforefirstinput andusesmatchingarrow intoauthored9,16.
+504c compiledsource remains retained;504d validation-only buildrequiredbefore
+firstcorrective nativebatch. No productionchange ornew gameexecution.
+
+# Night actor504b setup rejected - IN PROGRESS
+
+504b build0warnings/0errors2m52.71s. Firstnativebatch passes8bytepolicies but
+stopsbeforefirstgameinput:validation triedorb.bind(localtype5),correctlyrefused.
+Do notbroadenorbpolicy. Correctactualentrysetup toauthoredTown2 47north9,16 ->
+46arrival38,16;declareinitialsourceadjacent9,17 beforeinput. No production
+change indicated. Firstcorrective nativebatch504c followsvalidation-only rebuild.
+Failure/isolatedroot preserved. No campaign/audio/old suite.
+
+# Night actor504 compilation correction - IN PROGRESS
+
+Coherent entry/dawn/dusk/W implementation complete;focused10scenario batchwired.
+504 cleanenv build13.29s,0warnings/1error:validation calledprivateNewGame.adoptState.
+Use publiccore load ontheexistingowner forcodeccontinuation;productionunchanged.
+No nativeexecution occurred.504b integrationbuild next,thenonefocusedbatch.
+
+# Night actor504 producer - IN PROGRESS
+
+Concrete remaining codecontext:residentFAF0/DE9C/FAD4 installs3fixednightactors
+onmap46 fromBS2992(24bytes),clearsbyday. Initialtablezero;nativeownerabsent.
+ContractENGINE-NIGHT-ACTORS beforecode. Implementone typedproducer atactual
+entry andday/nightedges(Wincluded),not everycommand/load;existingquest39
+predicates/persistence suppress earneddeaths. Onecoherentbuild/focusedbatch.
+No old/audio/campaign. Adjacentmap97 three-byte restore is coveredfornative
+changedmaps bycanonical recordpersistence;don'toverwrite withstalefields.
+
 # Shared lifecycle source503 - VERIFIED static known scope
 
 StartupNew/Continue/Quit,opening->firstworld,loadedsavemode andtransientlifetime

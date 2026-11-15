@@ -68,6 +68,7 @@
 #include "nox/native_portal_validation.h"
 #include "nox/native_orb_navigation_validation.h"
 #include "nox/native_window_entry_validation.h"
+#include "nox/native_night_actors_validation.h"
 #include "nox/native_search_defeat_validation.h"
 #include "nox/native_dialogue_voice_validation.h"
 #include "nox/native_player_lifecycle_validation.h"
@@ -110,6 +111,11 @@ inline Common::Error NoxEngine::runNativeStartup() {
     if (ConfMan.hasKey("nox_native_search_defeat495") && ConfMan.getBool("nox_native_search_defeat495")) {
         Common::String report;if (!Native::validateNativeSearchDefeat495(_resources,report)) return fail(report.empty()?"Search defeat focused check failed":report.c_str());
         Common::OutSaveFile *out=_system->getSavefileManager()->openForSaving("nox-native-search-defeat.tsv",false);if (!out) return Common::kWritingFailed;
+        out->writeString(report);out->finalize();const bool ok=!out->err();delete out;return ok?Common::Error(Common::kNoError):Common::Error(Common::kWritingFailed);
+    }
+    if (ConfMan.hasKey("nox_native_night_actors504") && ConfMan.getBool("nox_native_night_actors504")) {
+        Common::String report;if (!Native::validateNativeNightActors504(_resources,report)) return fail(report.empty()?"Night actor focused check failed":report.c_str());
+        Common::OutSaveFile *out=_system->getSavefileManager()->openForSaving("nox-native-night-actors.tsv",false);if (!out) return Common::kWritingFailed;
         out->writeString(report);out->finalize();const bool ok=!out->err();delete out;return ok?Common::Error(Common::kNoError):Common::Error(Common::kWritingFailed);
     }
     if (ConfMan.hasKey("nox_native_window_entry493") && ConfMan.getBool("nox_native_window_entry493")) {

@@ -1,0 +1,39 @@
+{
+  "status": "VERIFIED",
+  "scope": "Source-supported map46 night compact-actor producer,actual entry/daylight/W connections and focused current-record/codecs. Not whole NPC/simulation/engine acceptance.",
+  "parent_commit": "4f36ba08553",
+  "executable_sha256": "044668d62d9eed6050c86f8b27aa4ea2805a0237845784900620d7348a062846",
+  "contract": "SCUMMVM-CE-ENGINE-NIGHT-ACTORS-CONTRACT.md",
+  "build": {
+    "first504": "0warnings/1error13.29s:validation private adoptState access;corrected to public load before native execution",
+    "first504b": "0warnings/0errors2m52.71s",
+    "not_run504c": "0warnings/0errors2m53.18s",
+    "accepted504d": "0warnings/0errors2m57.05s"
+  },
+  "extra_reasons": [
+    "Initial validation requested unsupported local-map orb binding;correct refusal before first input. Use actual authored47 north9,16 ->46 arrival38,16 instead.",
+    "Read-only sector preflight identified first suggested origin9,17 as wall71;504c not run.504d selects legal/empty adjacent source floor before input. Production unchanged after504b."
+  ],
+  "native_batches": 2,
+  "unsuccessful_corrective_native_batches": 0,
+  "failures": [
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-night-actors504b-focused\\native-validation-rejected.json"
+  ],
+  "focused_validation": "night_actors\tbyte_policies=8\tactual_entries=3\tdawn_dusk_W_and_retained_cases=10\tvisible_lookup_edges=2\tcore_window_input_codecs=30\tno_load_reinstall=1\tsubsequent_commands=10\tcampaign=0\taudio_suite=0\n",
+  "source": "ResidentFAF0..FB0B copies BS2992 authored24bytes onmap46 atnight orzerosbyday;entryDE9C/daylightFAD4. Three fixedpredicatesfield39/masks1,2,4 retained.",
+  "declared_setup": "Authored47->46 entry adjacency and independentmap46 pre-edge checkpoints;source clocks/light/bookkeeping before first tested key. Night-retained case declares one moved actor before input;not an earned movement/death. No expected outcome injection afterward.",
+  "remaining_qualifications": [
+    "Ordinary Engine cold/session,earned arrival/encounter/victory and complete original input-loop integration remain separate.",
+    "Existing Daylight free-control ordering and broader context qualifications are not promoted by this focused map producer.",
+    "No source audio owner/mixer/music change,no old suite or campaign."
+  ],
+  "artifacts": {
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-binary\\scummvm-native-night-actors504d.exe": "044668d62d9eed6050c86f8b27aa4ea2805a0237845784900620d7348a062846",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-binary\\native-night-actors504d-source.zip": "ee569c4f935b88c52d63a1e395a2898580accaf553d0a554d942cc9533e8981b",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-night-actors504d-focused\\verification.json": "6c23b8ee3c631f77b49b09832d0e3e2962db850814eccaec94a4d6871a14c73b",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-night-actors504-build.log": "5d3fec80ae23eaced69a2fb42274cebb70acfd92aef2a6863b6bc7556308dea2",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-night-actors504b-build.log": "7a0da4476c9bc123bf59f36fa433f25f6dcf833f7b0c7d899db8c5a915cd2cf9",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-night-actors504c-build.log": "8f6f95f54f031f6a595f26a71ae7c162ecb093005ac434d241cc9d6aec76bce2",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-night-actors504d-build.log": "73369b01b72419873e4e2cfcf07318c7ed1529fab6b0cfb71ec5d96011e226e6"
+  }
+}

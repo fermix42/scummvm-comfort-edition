@@ -11,6 +11,7 @@
 #include "nox/native_information_input.h"
 #include "nox/native_player_controls.h"
 #include "nox/native_daylight.h"
+#include "nox/native_night_actors.h"
 #include "nox/native_world_cast.h"
 #include "nox/native_world_cannon.h"
 #include "nox/native_world_attack.h"
@@ -32,7 +33,7 @@ public:
     WorldInput() : _notice(false),_campNotice(false),_openDirection(false),_leave(false),_fireDirection(false),_fireProtected(false),_scriptedEncounter(false),_refusalSound(false),_attackDirection(false),_attackAlarm(false),_digDirection(false),_waitHoursPending(false),_sounds(nullptr) {}
     bool loadRules(HdvArchive &archive,byte type=8) {
         return _move.load(archive,type) && _open.load(archive,type) && _wait.load(archive,type) && _story.load(archive) &&
-            _actors.load(archive,type) && _lighting.load(archive,type) && _occlusion.load(archive,type) && _painter.load(archive,type);
+            _actors.load(archive,type) && _lighting.load(archive,type) && _occlusion.load(archive,type) && _painter.load(archive,type) && _nightActors.load(archive);
     }
     bool restoreWorldControls(const World &world,const WorldTransportState &state) {
         if (!atWorldCommand() || !state.valid() || !world.ready() || world.onFoot()!=(state.object==255)) return false;
@@ -252,6 +253,8 @@ private:
                     !Daylight::permanent(candidate.mapId(),data.data()+0x10b1,data.size()-0x10b1,dark) ||
                     !Daylight::advance(candidate.mapType(),dark,_transport.speed,game.clock,nextLight) ||
                     !prepareClockInput(archive,candidate,nextWindow,game.clock,schedule,store,after)) return kWorldInputUnsupported;
+            if ((light.mode>=2)!=(nextLight.mode>=2) && candidate.mapId()==46 &&
+                    !refreshNightActors(candidate,nextWindow,scene,turn.presentation,nextLight,visibility,text,frame,game.appearance,game.clock.lightActive,animation)) return kWorldInputUnsupported;
             game.world.adoptState(candidate);window=nextWindow;game.schedule=schedule;routes=store;random=after;light=nextLight;
         }
         if (_casting.active()) {
@@ -680,6 +683,9 @@ private:
             if (!archive.read("NA/GAME",data) || data.size()!=13824 || !WorldTravelRules::lightMode(candidate.mapType(),candidate.mapId(),nextClock.hour,nextClock.minute,data.data()+0x10b1,data.size()-0x10b1,nextLight.mode)) return kWorldInputUnsupported;
         }
         if (action==kControlWait && !prepareClockInput(archive,candidate,nextWindow,nextClock,schedule,store,after)) return kWorldInputUnsupported;
+        if (action==kControlWait && (light.mode>=2)!=(nextLight.mode>=2)) {
+            bool changed=false;if (!_nightActors.apply(candidate.mapId(),nextLight.mode,candidate._states[candidate._current].tables.data(),1792,changed)) return kWorldInputUnsupported;
+        }
         byte painted[187]={};
         if (!WorldViewport::refreshAtWorld(candidate,nextWindow,_story,_actors,_lighting,_occlusion,_painter,
                 appearance,nextClock.lightActive,animation,painted,nextPresentation,nextLight,nextVisibility,image,&nextScene) ||
@@ -782,6 +788,8 @@ private:
         Common::Array<byte> data;if (!archive.read("NA/GAME",data)) return reject("source data");
         if (innRest) nextLight.mode=1;
         else if (!WorldTravelRules::lightMode(plan.type,plan.map,game.clock.hour,game.clock.minute,data.data()+0x10b1,data.size()-0x10b1,nextLight.mode)) return reject("light mode");
+        bool nightChanged=false;
+        if (!_nightActors.apply(candidate.mapId(),nextLight.mode,candidate._states[candidate._current].tables.data(),1792,nightChanged)) return reject("night actors");
         byte painted[187]={};
         if (!WorldViewport::refreshAtWorld(candidate,nextWindow,_story,_actors,_lighting,_occlusion,_painter,game.appearance,game.clock.lightActive,
                 animation,painted,nextTurn.presentation,nextLight,nextVisibility,nextFrame,&nextScene)) return reject("viewport");
@@ -800,6 +808,17 @@ private:
         game.clock=nextClock;game.navigation=navigation;_transport=nextTransport;
         return true;
     }
+    bool refreshNightActors(World &world,WorldStory &window,WorldScene &scene,PresentationState &presentation,LightState &light,
+            VisibilityMask &visibility,TextGlyphSurface &text,HgrFrame &frame,byte appearance,byte extraLight,byte animation) {
+        bool changed=false;if (!_nightActors.apply(world.mapId(),light.mode,world._states[world._current].tables.data(),1792,changed)) return false;
+        if (!changed) return true;
+        WorldScene nextScene;PresentationState nextPresentation=presentation;LightState nextLight=light;VisibilityMask mask=visibility;
+        HgrFrame image=frame;TextGlyphSurface surface=text;byte painted[187]={};
+        if (!WorldViewport::refreshAtWorld(world,window,_story,_actors,_lighting,_occlusion,_painter,appearance,extraLight,
+                animation,painted,nextPresentation,nextLight,mask,image,&nextScene) || !window.captureRecords(world) ||
+                !surface.importPages(image.data(),image.data(),8192)) return false;
+        scene=nextScene;presentation=nextPresentation;light=nextLight;visibility=mask;text=surface;frame=image;return true;
+    }
     static bool message(const FixedMessageCatalog &catalog,byte id,TextGlyphSurface &surface,HgrFrame &frame) {
         if (!surface.importPages(frame.data(),frame.data(),8192) || !showFixedMessageStrip(catalog,id,surface)) return false;
         for (uint y=184;y<192;++y) for (uint x=7;x<32;++x)
@@ -808,7 +827,7 @@ private:
     }
     bool _notice,_campNotice,_openDirection,_leave,_fireDirection,_fireProtected,_scriptedEncounter,_refusalSound,_attackDirection,_attackAlarm,_digDirection;TextWindow _window;HgrFrame _underlay;
     WorldActorTurnEvent _encounter;WorldConversation _conversation;WorldTransportState _transport;InventoryWindow _inventory;WorldCast _casting;PartyOrderInput _partyOrder;InformationInput _information;PartyRoster _roster;HourWait _hourWait;HgrFrame _waitHoursUnderlay;bool _waitHoursPending;
-    SearchInput _search;WorldMove _move;WorldOpen _open;WorldWait _wait;StoryMapPatches _story;ActorPaintRules _actors;TerrainLighting _lighting;OcclusionRules _occlusion;TilePainter _painter;SoundEvents *_sounds;
+    SearchInput _search;WorldMove _move;WorldOpen _open;WorldWait _wait;NightActors _nightActors;StoryMapPatches _story;ActorPaintRules _actors;TerrainLighting _lighting;OcclusionRules _occlusion;TilePainter _painter;SoundEvents *_sounds;
 };
 } }
 #endif
