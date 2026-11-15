@@ -10,7 +10,7 @@ namespace Nox {
 // actual Q/character-creation/story input, never patches an operation's result.
 class NativePlayerLifecycleProbe {
 public:
-    NativePlayerLifecycleProbe(NoxEngine &engine,Native::PlayerSessionState &player,int phase) : _engine(engine),_player(player),_phase(phase),_stage(0),_nameIndex(0),_generated(0),_qStable(false),
+    NativePlayerLifecycleProbe(NoxEngine &engine,Native::PlayerSessionState &player,int phase) : _engine(engine),_player(player),_phase(phase),_stage(0),_nameIndex(0),_generated(0),_qStable(false),_integration(phase<=2 && ConfMan.hasKey("nox_native_player_integration") && ConfMan.getBool("nox_native_player_integration")),_integrationQSave(0),
         _menu(engine,engine._runtime,*engine._eventMan,phase!=0),_initialMode(engine.saveMode()) {}
     bool active() const {return _phase!=0;}
     bool finished() const {return _stage==4;}
@@ -43,6 +43,9 @@ public:
         if (!_player.canSave() || !ce.startPlaythroughForTarget(_engine._targetName,"nox-archaist","apple2-v119","Native lifecycle A")) return reject(error,"Native lifecycle session A could not start");
         _ownerA=ce.getCurrentPlaythroughForTarget(_engine._targetName);_engine._runtimeSession=_ownerA;
         ce.noteDisqualifyingAssistance("nox_native_controlled_checkpoint");
+        // Integration retains the actual player/music state without repeating
+        // the accepted PCM/mixer/checkpoint audio tests.
+        if (!_integration) {
         // Declared controlled cue before the tested world/save operations.
         // Actual source cue placement remains a separate integration criterion.
         int16 audio[4800];
@@ -58,6 +61,7 @@ public:
         if (!_player.music.save(beforeAudio) || !restored->music.save(afterAudio) || beforeAudio.size()!=afterAudio.size() || memcmp(beforeAudio.getData(),afterAudio.getData(),beforeAudio.size())) return reject(error,"Native checkpoint lost audio state");
         Native::MusicPlayback expected=_player.music;int16 expectedPcm[4800],actualPcm[4800];
         if (!expected.render(expectedPcm,4800) || !restored->music.render(actualPcm,4800) || memcmp(expectedPcm,actualPcm,sizeof(expectedPcm))) return reject(error,"Native checkpoint audio continuation differed");
+        }
         if (!_engine.canSaveGameStateCurrently() || _engine.saveGameState(1,"Native lifecycle A").getCode()!=Common::kNoError ||
             _engine.saveGameState(1,"Forbidden automatic",true).getCode()==Common::kNoError) return reject(error,"Native initial Engine save or autosave policy failed");
         if (_initialMode==kClassicSaveMode && (_engine.saveGameState(0,"Forbidden classic0").getCode()==Common::kNoError || _engine.saveGameState(999,"Forbidden classic999").getCode()==Common::kNoError)) return reject(error,"Native Classic slot policy bypassed");
@@ -74,17 +78,25 @@ public:
             event.type=Common::EVENT_KEYDOWN;event.kbd=Common::KeyState(Common::KEYCODE_q,'Q');generated=true;_stage=2;++_generated;return true;
         }
         if (_stage==2) {
+            if (!_integrationQSave) {
             if (!_qStable || !_menu.cancelCaptured || !capture(_expectedA) || !writeExpected("nox-native-player-expected-A.bin",_expectedA)) return reject(error,"Native Q cancellation or capture failed");
             _menu.arm();_engine.openMainMenuDialog();
             if (!_menu.closed || !_menu.stable || !sameExpected("nox-native-player-expected-A.bin")) return reject(error,"Native actual global menu changed gameplay/audio state");
+            if (!_integration) {
             ConfMan.setInt("music_volume",93);ConfMan.setInt("sfx_volume",141);ConfMan.setBool("mute",true);_engine.syncSoundSettings();
             if (!_engine._mixer->isSoundTypeMuted(Audio::Mixer::kMusicSoundType)) return reject(error,"Native CE music mute setting not applied");
             ConfMan.setBool("mute",false);_engine.syncSoundSettings();
             if (_engine._mixer->getVolumeForSoundType(Audio::Mixer::kMusicSoundType)!=93 || _engine._mixer->getVolumeForSoundType(Audio::Mixer::kSFXSoundType)!=141 ||
                 _engine._mixer->isSoundTypeMuted(Audio::Mixer::kMusicSoundType) || !sameExpected("nox-native-player-expected-A.bin")) return reject(error,"Native independent volume settings changed player state or were not applied");
+            }
             if (_engine.saveMode()==kClassicSaveMode) _menu.chooser(true,0);
             else _menu.grid(true,1,"Native lifecycle A","nox-native-player-save-grid");
-            if (!_engine.saveGameDialog() || !_menu.chooserCaptured) return reject(error,"Native actual Engine save chooser failed");
+                if (_integration) {
+                    _integrationQSave=1;
+                    event.type=Common::EVENT_KEYDOWN;event.kbd=Common::KeyState(Common::KEYCODE_q,'Q');generated=true;++_generated;return true;
+                }
+            }
+            if ((_integration?(_integrationQSave!=2):!_engine.saveGameDialog()) || !_menu.chooserCaptured) return reject(error,"Native actual Engine save chooser failed");
             Saves::Entry a;Common::Array<byte> payload;
             if (!Saves::best(*_engine.getSaveFileManager(),Saves::slotPrefix(_engine._targetName,_ownerA,1),_engine._targetName,a,payload) || a.sequence!=2) return reject(error,"Native generations did not advance exactly twice");
             _savedA=payload;_generationA=a.generation;_sequenceA=a.sequence;
@@ -124,6 +136,11 @@ public:
     bool beforeQ(Common::String &error) {return !active() || _stage!=2 || capture(_beforeQ) || reject(error,"Native pre-Q capture failed");}
     bool afterQ(bool saved,Common::String &error) {
         if (!active() || _stage!=2) return true;Common::Array<byte> after;
+        if (_integration && _integrationQSave==1) {
+            if (!saved || !capture(after) || !equal(after,_beforeQ)) return reject(error,"Actual Q save changed native player state");
+            _expectedA=after;if (!writeExpected("nox-native-player-expected-A.bin",_expectedA)) return reject(error,"Actual Q saved-state expectation could not persist");
+            _integrationQSave=2;return true;
+        }
         if (saved || !capture(after) || !equal(after,_beforeQ)) return reject(error,"Actual Q chooser cancellation changed native gameplay");_qStable=true;return true;
     }
 private:
@@ -228,11 +245,11 @@ private:
         bool assisted=false,clean=false;
         for (const auto &record:records) {if (record.clientPlaythroughId==_engine._runtimeSession) assisted=record.casual;else clean=!record.casual;}
         if (!assisted || !clean) return false;
-        const Common::String value=Common::String::format("PASS\tphase=%s\towned_native_snapshot_exact=1\tEngine_save_load=1\tsessions=2\tQ_cancel=%u\tactual_save_load_choosers=%u\tcold_load_handle_A=%d\tmode=%u\tcompatibility_runtime_present=%u\tlink_token_absent=1\tcontrolled_A=1\tfresh_B_creation_and_story=%u\tassistance_isolated=1\tnative_audio_acceptance=0\n",phase,uint(_qStable),uint(_phase==1),coldHandle,uint(_engine.saveMode()),uint(_engine._runtime!=nullptr),uint(_phase==1));
+        const Common::String value=Common::String::format("PASS\tphase=%s\towned_native_snapshot_exact=1\tEngine_save_load=1\tsessions=2\tQ_cancel=%u\tactual_save_load_choosers=%u\tcold_load_handle_A=%d\tmode=%u\tcompatibility_runtime_present=%u\tlink_token_absent=1\tcontrolled_A=1\tfresh_B_creation_and_story=%u\tassistance_isolated=1\tnative_audio_acceptance=0\tintegration_only=%u\tliteral_Q_save=%u\n",phase,uint(_qStable),uint(_phase==1),coldHandle,uint(_engine.saveMode()),uint(_engine._runtime!=nullptr),uint(_phase==1),uint(_integration),uint(_integrationQSave==2));
         const Common::String name=Common::String::format("nox-native-player-%s.tsv",phase);
         Common::OutSaveFile *out=_engine.getSaveFileManager()->openForSaving(name,false);if (!out) return false;out->writeString(value);out->finalize();const bool ok=!out->err();delete out;return ok;
     }
-    NoxEngine &_engine;Native::PlayerSessionState &_player;int _phase;uint _stage,_nameIndex,_generated;bool _qStable;
+    NoxEngine &_engine;Native::PlayerSessionState &_player;int _phase;uint _stage,_nameIndex,_generated;bool _qStable,_integration;byte _integrationQSave;
     MenuValidationSource _menu;SaveMode _initialMode;Common::String _ownerA,_ownerB;Common::Array<byte> _beforeWait,_beforeQ,_expectedA,_savedA;uint _generationA=0;uint32 _sequenceA=0;
 };
 }

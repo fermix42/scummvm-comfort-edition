@@ -80,7 +80,7 @@
       "behavior": "Supported resource identity and immutable data loading",
       "implementation": "IMPLEMENTED",
       "verification": {
-        "status": "NOT STARTED",
+        "status": "IN PROGRESS",
         "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement."
       },
       "native_owners": [
@@ -89,7 +89,9 @@
         "engines/nox/native_character_creation.h",
         "engines/nox/native_player_session.h"
       ],
-      "original_evidence": [],
+      "original_evidence": [
+        "SCUMMVM-CE-INTEGRATION527-I1-VERIFICATION.json:bounded real Engine New/controls/Q/Continue/modes/session/generations/full-player cold/first-input scope; broader requirement not automatically VERIFIED."
+      ],
       "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
       "fallback_dependencies": [],
       "blockers": []
@@ -100,7 +102,7 @@
       "behavior": "Startup new/continue/quit routing",
       "implementation": "IMPLEMENTED",
       "verification": {
-        "status": "NOT STARTED",
+        "status": "IN PROGRESS",
         "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement."
       },
       "native_owners": [
@@ -109,7 +111,9 @@
         "engines/nox/native_character_creation.h",
         "engines/nox/native_player_session.h"
       ],
-      "original_evidence": [],
+      "original_evidence": [
+        "SCUMMVM-CE-INTEGRATION527-I1-VERIFICATION.json:bounded real Engine New/controls/Q/Continue/modes/session/generations/full-player cold/first-input scope; broader requirement not automatically VERIFIED."
+      ],
       "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
       "fallback_dependencies": [],
       "blockers": [],
@@ -125,7 +129,7 @@
       "behavior": "Name gender race creation and initial records",
       "implementation": "IMPLEMENTED",
       "verification": {
-        "status": "NOT STARTED",
+        "status": "IN PROGRESS",
         "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement."
       },
       "native_owners": [
@@ -134,7 +138,9 @@
         "engines/nox/native_character_creation.h",
         "engines/nox/native_player_session.h"
       ],
-      "original_evidence": [],
+      "original_evidence": [
+        "SCUMMVM-CE-INTEGRATION527-I1-VERIFICATION.json:bounded real Engine New/controls/Q/Continue/modes/session/generations/full-player cold/first-input scope; broader requirement not automatically VERIFIED."
+      ],
       "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
       "fallback_dependencies": [],
       "blockers": []
@@ -145,7 +151,7 @@
       "behavior": "Opening story and first native world state",
       "implementation": "IMPLEMENTED",
       "verification": {
-        "status": "NOT STARTED",
+        "status": "IN PROGRESS",
         "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement."
       },
       "native_owners": [
@@ -154,7 +160,9 @@
         "engines/nox/native_character_creation.h",
         "engines/nox/native_player_session.h"
       ],
-      "original_evidence": [],
+      "original_evidence": [
+        "SCUMMVM-CE-INTEGRATION527-I1-VERIFICATION.json:bounded real Engine New/controls/Q/Continue/modes/session/generations/full-player cold/first-input scope; broader requirement not automatically VERIFIED."
+      ],
       "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
       "fallback_dependencies": [],
       "blockers": [],
@@ -180,7 +188,8 @@
         "engines/nox/native_player_session.h"
       ],
       "original_evidence": [
-        "SCUMMVM-CE-PERSISTENCE520-VERIFICATION.json:currentNWAT6normalEngine/warm/cold/mode/session/generation/nextinputscopeonly;broaderrequirementnotautomaticallyVERIFIED."
+        "SCUMMVM-CE-PERSISTENCE520-VERIFICATION.json:currentNWAT6normalEngine/warm/cold/mode/session/generation/nextinputscopeonly;broaderrequirementnotautomaticallyVERIFIED.",
+        "SCUMMVM-CE-INTEGRATION527-I1-VERIFICATION.json:bounded real Engine New/controls/Q/Continue/modes/session/generations/full-player cold/first-input scope; broader requirement not automatically VERIFIED."
       ],
       "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
       "fallback_dependencies": [],
@@ -197,7 +206,7 @@
       "behavior": "Native shutdown and transient ownership",
       "implementation": "IMPLEMENTED",
       "verification": {
-        "status": "NOT STARTED",
+        "status": "IN PROGRESS",
         "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement."
       },
       "native_owners": [
@@ -206,7 +215,9 @@
         "engines/nox/native_character_creation.h",
         "engines/nox/native_player_session.h"
       ],
-      "original_evidence": [],
+      "original_evidence": [
+        "SCUMMVM-CE-INTEGRATION527-I1-VERIFICATION.json:bounded real Engine New/controls/Q/Continue/modes/session/generations/full-player cold/first-input scope; broader requirement not automatically VERIFIED."
+      ],
       "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
       "fallback_dependencies": [],
       "blockers": [],
@@ -222,7 +233,7 @@
       "behavior": "World command dispatch and aliases",
       "implementation": "IMPLEMENTED",
       "verification": {
-        "status": "NOT STARTED",
+        "status": "IN PROGRESS",
         "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement."
       },
       "native_owners": [
@@ -234,7 +245,8 @@
         "engines/nox/native_world_status.h"
       ],
       "original_evidence": [
-        "SCUMMVM-CE-COMMAND-DOMAIN524.md:static ordinary dispatch closure only; modal/raster/cold/campaign verification unchanged."
+        "SCUMMVM-CE-COMMAND-DOMAIN524.md:static ordinary dispatch closure only; modal/raster/cold/campaign verification unchanged.",
+        "SCUMMVM-CE-INTEGRATION527-I1-VERIFICATION.json:bounded real Engine New/controls/Q/Continue/modes/session/generations/full-player cold/first-input scope; broader requirement not automatically VERIFIED."
       ],
       "production_connection": "All28 ordinary entries of the original30-entry table have native production dispatch owners. Legacy hidden cheat !/3 deliberately excluded; normal A remains. See COMMAND-DOMAIN524 for explicit timing and debug-domain replacements.",
       "fallback_dependencies": [],
@@ -246,7 +258,7 @@
       "behavior": "Pending command cancellation and modal exclusion",
       "implementation": "PARTIAL",
       "verification": {
-        "status": "NOT STARTED",
+        "status": "IN PROGRESS",
         "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement."
       },
       "native_owners": [
@@ -258,7 +270,8 @@
         "engines/nox/native_world_status.h"
       ],
       "original_evidence": [
-        "SCUMMVM-CE-SEARCH-RETRY523-VERIFICATION.json:shared retry decision and component continuation only; full requirement not promoted."
+        "SCUMMVM-CE-SEARCH-RETRY523-VERIFICATION.json:shared retry decision and component continuation only; full requirement not promoted.",
+        "SCUMMVM-CE-INTEGRATION527-I1-VERIFICATION.json:bounded real Engine New/controls/Q/Continue/modes/session/generations/full-player cold/first-input scope; broader requirement not automatically VERIFIED."
       ],
       "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
       "fallback_dependencies": [],
@@ -2605,7 +2618,8 @@
         "engines/nox/native_legacy_snapshot.h"
       ],
       "original_evidence": [
-        "SCUMMVM-CE-PERSISTENCE520-VERIFICATION.json:currentNWAT6normalEngine/warm/cold/mode/session/generation/nextinputscopeonly;broaderrequirementnotautomaticallyVERIFIED."
+        "SCUMMVM-CE-PERSISTENCE520-VERIFICATION.json:currentNWAT6normalEngine/warm/cold/mode/session/generation/nextinputscopeonly;broaderrequirementnotautomaticallyVERIFIED.",
+        "SCUMMVM-CE-INTEGRATION527-I1-VERIFICATION.json:bounded real Engine New/controls/Q/Continue/modes/session/generations/full-player cold/first-input scope; broader requirement not automatically VERIFIED."
       ],
       "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
       "fallback_dependencies": [],
@@ -2658,7 +2672,7 @@
       "behavior": "Staged atomic load before live-state commit",
       "implementation": "IMPLEMENTED",
       "verification": {
-        "status": "NOT STARTED",
+        "status": "IN PROGRESS",
         "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement."
       },
       "native_owners": [
@@ -2667,7 +2681,8 @@
         "engines/nox/native_legacy_snapshot.h"
       ],
       "original_evidence": [
-        "SCUMMVM-CE-OWNER-REVIEW496.md"
+        "SCUMMVM-CE-OWNER-REVIEW496.md",
+        "SCUMMVM-CE-INTEGRATION527-I1-VERIFICATION.json:bounded real Engine New/controls/Q/Continue/modes/session/generations/full-player cold/first-input scope; broader requirement not automatically VERIFIED."
       ],
       "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
       "fallback_dependencies": [],
@@ -2693,7 +2708,8 @@
         "engines/nox/native_legacy_snapshot.h"
       ],
       "original_evidence": [
-        "SCUMMVM-CE-PERSISTENCE520-VERIFICATION.json:currentNWAT6normalEngine/warm/cold/mode/session/generation/nextinputscopeonly;broaderrequirementnotautomaticallyVERIFIED."
+        "SCUMMVM-CE-PERSISTENCE520-VERIFICATION.json:currentNWAT6normalEngine/warm/cold/mode/session/generation/nextinputscopeonly;broaderrequirementnotautomaticallyVERIFIED.",
+        "SCUMMVM-CE-INTEGRATION527-I1-VERIFICATION.json:bounded real Engine New/controls/Q/Continue/modes/session/generations/full-player cold/first-input scope; broader requirement not automatically VERIFIED."
       ],
       "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
       "fallback_dependencies": [],
@@ -2714,7 +2730,8 @@
         "engines/nox/native_legacy_snapshot.h"
       ],
       "original_evidence": [
-        "SCUMMVM-CE-PERSISTENCE520-VERIFICATION.json:currentNWAT6normalEngine/warm/cold/mode/session/generation/nextinputscopeonly;broaderrequirementnotautomaticallyVERIFIED."
+        "SCUMMVM-CE-PERSISTENCE520-VERIFICATION.json:currentNWAT6normalEngine/warm/cold/mode/session/generation/nextinputscopeonly;broaderrequirementnotautomaticallyVERIFIED.",
+        "SCUMMVM-CE-INTEGRATION527-I1-VERIFICATION.json:bounded real Engine New/controls/Q/Continue/modes/session/generations/full-player cold/first-input scope; broader requirement not automatically VERIFIED."
       ],
       "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
       "fallback_dependencies": [],
@@ -2735,7 +2752,8 @@
         "engines/nox/native_legacy_snapshot.h"
       ],
       "original_evidence": [
-        "SCUMMVM-CE-PERSISTENCE520-VERIFICATION.json:currentNWAT6normalEngine/warm/cold/mode/session/generation/nextinputscopeonly;broaderrequirementnotautomaticallyVERIFIED."
+        "SCUMMVM-CE-PERSISTENCE520-VERIFICATION.json:currentNWAT6normalEngine/warm/cold/mode/session/generation/nextinputscopeonly;broaderrequirementnotautomaticallyVERIFIED.",
+        "SCUMMVM-CE-INTEGRATION527-I1-VERIFICATION.json:bounded real Engine New/controls/Q/Continue/modes/session/generations/full-player cold/first-input scope; broader requirement not automatically VERIFIED."
       ],
       "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
       "fallback_dependencies": [],
@@ -2775,7 +2793,8 @@
         "engines/nox/native_legacy_snapshot.h"
       ],
       "original_evidence": [
-        "SCUMMVM-CE-PERSISTENCE520-VERIFICATION.json:currentNWAT6normalEngine/warm/cold/mode/session/generation/nextinputscopeonly;broaderrequirementnotautomaticallyVERIFIED."
+        "SCUMMVM-CE-PERSISTENCE520-VERIFICATION.json:currentNWAT6normalEngine/warm/cold/mode/session/generation/nextinputscopeonly;broaderrequirementnotautomaticallyVERIFIED.",
+        "SCUMMVM-CE-INTEGRATION527-I1-VERIFICATION.json:bounded real Engine New/controls/Q/Continue/modes/session/generations/full-player cold/first-input scope; broader requirement not automatically VERIFIED."
       ],
       "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
       "fallback_dependencies": [],
@@ -7939,8 +7958,8 @@
     }
   },
   "last_milestone": {
-    "owner": "Native Shadow approach and bounded hardcoded story review525",
-    "evidence": "SCUMMVM-CE-WORLD-STORY525-VERIFICATION.json"
+    "owner": "Controlled Engine I1 integration527",
+    "evidence": "SCUMMVM-CE-INTEGRATION527-I1-VERIFICATION.json"
   },
   "overall": {
     "fully_implemented_top_level_domains": 1,
@@ -7954,7 +7973,7 @@
   },
   "current_subsystem": {
     "status": "IN PROGRESS",
-    "scope": "Remaining source-driven original producer and cross-owner classification. Preserve story.08 UNKNOWN and normal integration/campaign qualifications; no accepted-suite reruns."
+    "scope": "I2 controlled party/inventory/services/dialogue integration; I3 and non-ending I4 follow. I5/ending remain excluded."
   },
   "count_definition": "native_implemented counts IMPLEMENTED; CE_REPLACEMENT is separately reported. VERIFIED applies only to row evidence scope; no overall completion percentage.",
   "source_batch_report": "SCUMMVM-CE-SOURCE-BATCH-COMPLETION526.md"

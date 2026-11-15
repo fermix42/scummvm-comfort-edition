@@ -1,3 +1,17 @@
+# I1 execution checkpoint527
+
+I1 VERIFIED within16-invariant contract; receipt INTEGRATION527-I1-VERIFICATION.
+I2 IN PROGRESS next; I3 and non-ending I4 permitted. I4 ending/I5 deferred by
+current directive. No global engine/earned acceptance implied.
+
+# Post526 authorization - November15
+
+Status: IN PROGRESS for controlled non-campaign integration. Owner directive
+INTEGRATION527-DIRECTIVE supersedes the prepare-only statement below. Contract
+INTEGRATION527-CONTRACT classifies I1-I5; ending/earned traversal remain excluded.
+Use real Engine paths, bounded scripts and declared prerequisites; continue
+permitted batches without routine permission. Historical526/baseline525 preserved.
+
 # Native integration plan after source implementation
 
 Status: NOT STARTED. Planning is authorized; this document does not authorize

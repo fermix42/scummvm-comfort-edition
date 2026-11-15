@@ -1,3 +1,32 @@
+# Controlled Engine I1 integration527 - VERIFIED, continue I2
+
+I1:16required/16verified/0failing/0unknown within defined contract, both modes.
+Real New/story/controls/Qcancel/literalQsave/SaveLoad/Continue, exact fullNPLS
+cold, generations/twoowners/assistance and first subsequent input. Scope and
+split525CLI/527bprobe identities in INTEGRATION527-I1-VERIFICATION. All production
+sources unchanged; only existing opt-in lifecycle instrumentation modified to
+skip accepted audio tests and commit viaactualQ. No engine defect/newfallback.
+Cost2builds(2m47.52s/2m52.06s),21processlaunches:19completed,1preEngine portable
+layout rejection,1Continue-driver timeout. ModernC-only native run succeeded;
+external wrong-A reference corrected against pre-existing source-selectedB,
+no native rerun/outcome mutation. Classic predeclaredB passes. Failures retained.
+Implementation classifications unchanged; bounded verification evidence added,
+no blanket PARTIAL/UNKNOWN promotion. Audio473 unchanged/no suite rerun.
+Next I2: declared existing source checkpoints, real party reorder/item ownership,
+inn leave/pickup/dialogue/service inputs, normal legal-boundary saves/cold/next
+operation. Continue autonomous permitted work; no earned traversal or ending.
+
+# Post526 controlled native Engine integration527 - IN PROGRESS
+
+Owner November15 directive authorizes non-campaign I1-I5; prepare-only superseded.
+I1/I2/I3 permitted; I4 gates/state permitted, ending excluded; I5 earned excluded.
+Baseline525 SHA/source377 match; engine source unchanged at7bbca7a6e4d. Existing
+Nox native CLI supports actual input/state/save/load and frame boundaries.
+I1 starts with real New/controls using isolated copied525 executable; no build
+or historical suite rerun. Baseline matrix77IMPLEMENTED/58PARTIAL/7CE_REPLACEMENT/
+1UNKNOWN; verification41VERIFIED/86NOTSTARTED/16INPROGRESS. Before snapshots in
+ce-native-integration527; contract lists16 I1 invariants. No AGENTS modification.
+
 # Source-driven batch completion526 - scoped report, port IN PROGRESS
 
 SOURCE-BATCH-COMPLETION526 records complete517weather/population plus518NPC,

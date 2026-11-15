@@ -1,3 +1,9 @@
+# Post526 controlled integration authorization - November15
+
+Owner INTEGRATION527-DIRECTIVE supersedes prepare-only for non-campaign I1-I5.
+I1 scoped16-invariant contract VERIFIED; continue I2/I3/non-ending I4. Earned
+campaign/ending/publication remain excluded. No AGENTS change or M4 waiver.
+
 # Current methodology - November 14, 2026
 
 The source-driven subsystem directive supersedes dated reactive/campaign queues and the prior audio stop. Current execution plan: SCUMMVM-CE-SUBSYSTEM-PLAN.md. Matrix: SCUMMVM-CE-ENGINE-COMPLETION.json. No gameplay discovery or campaign acceptance is authorized now. Audio473 remains accepted; D3-D5 remain unfinished.

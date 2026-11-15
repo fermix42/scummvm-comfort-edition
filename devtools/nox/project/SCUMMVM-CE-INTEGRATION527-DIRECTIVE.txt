@@ -1,0 +1,266 @@
+CODEX — NOX ARCHAIST M4
+
+Execute Controlled Native Engine Integration (Post-526)
+
+Objective
+
+The source-driven subsystem completion526 milestone is accepted within its documented scope.
+
+We are transitioning from subsystem implementation into controlled native engine integration.
+
+This is not authorization to resume exploratory gameplay, campaign traversal, or reactive playtest-driven development.
+
+The objective is to verify that independently implemented native systems work together through their actual ScummVM Engine production paths, identify genuine integration deficiencies, and complete missing native functionality where demonstrated.
+
+1. Accepted baseline
+
+Preserve the completed audio473 milestone and source-driven batches 517–525 as documented in completion526.
+
+Latest candidate: world-story525
+
+SHA-256:
+f9e8a81c5c29ecd699dcc86a52f04b0753bea724d6a5304d653a2e6066acb716
+
+Do not repeat completed censuses, audio testing, accepted implementation verification, or historical source investigations without a specific demonstrated regression.
+
+Preserve all original HDVs, source references, historical executable evidence, approved CE enhancements, and existing save/session behavior.
+
+Do not reinterpret static coverage findings as runtime verification.
+
+2. Integration authorization and boundaries
+
+This directive supersedes the previous prepare-only stopping boundary for non-campaign integration.
+
+You are now authorized to execute the non-campaign portions of the prepared SCUMMVM-CE-INTEGRATION-PLAN.md I1–I5.
+
+The following restrictions remain in force:
+
+No exploratory gameplay.
+
+No earned campaign traversal or ending acceptance.
+
+No repeated play-until-failure loops.
+
+No broad gameplay sessions to discover the next blocker.
+
+No publication or release.
+
+No weakening or silently redefining M4 acceptance requirements.
+
+No modifying AGENTS to circumvent existing campaign-testing restrictions.
+
+Review the actual I1–I5 plan before execution. Do not assume its contents from its title.
+
+Classify every planned batch as permitted deterministic integration, campaign-dependent, or unresolved.
+
+Execute permitted work in dependency order. Defer any batch or portion requiring prohibited gameplay traversal and document why.
+
+Do not stop after planning if permitted executable integration work exists.
+
+3. Integration verification requirements
+
+Use the actual production ScummVM Engine paths, not component-level codec checks alone.
+
+Within the scope of I1–I5, verify relevant cross-subsystem behavior involving:
+
+Player input and normal command dispatch.
+
+World state and actor processing.
+
+Items, inventory, equipment, and services.
+
+Combat transitions and subsequent world restoration.
+
+Graphics and presentation state.
+
+Modern and Classic configurations.
+
+Normal Engine save/load.
+
+Cold process reconstruction.
+
+Save generations and session isolation.
+
+RNG ownership and continuity.
+
+Persistent flags and one-shot event state.
+
+The first subsequent input following restoration.
+
+Prioritize the already identified gap between verified component codecs and wider joined Engine workflows.
+
+Use deterministic, bounded, scripted integration scenarios with defined starting states, actions, expected results, and termination conditions.
+
+Normal production pathways must be exercised where integration evidence requires them. However, do not turn these scenarios into exploratory gameplay or extended campaign progression.
+
+Preserve exact state semantics. Compare meaningful state transitions rather than accepting superficial visual or narrative similarity.
+
+4. Handle remaining UNKNOWN behavior correctly
+
+The story.08 qualification remains unresolved beyond the previously reviewed authored data and hardcoded selector contexts.
+
+Perform a bounded, source-driven producer/writer analysis where it is required by the integration plan.
+
+Investigate indirect original writers and consumers only to the extent supported by actual source and data evidence.
+
+Do not invent behavior, fabricate missing owners, or claim global closure based solely on the known direct-location producer census.
+
+If complete closure cannot be demonstrated, retain UNKNOWN and identify the precise missing evidence.
+
+Preserve the existing explicit policies for historical captions, Quick scratch, Search scheduling, prototype/debug behavior, and legacy imports.
+
+Do not reopen those areas indiscriminately.
+
+5. Fix genuine integration defects without reverting to reactive development
+
+An integration failure authorizes investigation of the specific invariant that failed.
+
+It does not authorize an open-ended campaign-debugging expedition.
+
+For each failure:
+
+Identify the exact violated invariant.
+
+Trace it to the responsible native implementation.
+
+Determine whether it is a new integration defect, a pre-existing documented qualification, or a missing subsystem behavior.
+
+Correct the responsible implementation when evidence supports doing so.
+
+Perform focused regression verification.
+
+Update the completion matrix and blocker register.
+
+Unrelated issues must be recorded against their owning subsystem and deferred unless they prevent the current integration batch.
+
+Do not create a new collection of narrowly targeted gameplay workarounds.
+
+Prefer correcting general state ownership, lifecycle, dispatch, and subsystem interface behavior where applicable.
+
+6. Strict build and testing discipline
+
+Continue the bounded validation methodology.
+
+Prefer existing fixtures and validation infrastructure.
+
+Run only checks needed to establish the current integration contract.
+
+Perform one coherent build per meaningful integration milestone by default.
+
+Repeat a failed check after a justified correction, not speculatively.
+
+After two unsuccessful corrective reruns of the same check, record the unresolved issue and switch to source analysis or independent work.
+
+Correct directly introduced compilation defects or restore the known-good build.
+
+Do not rerun entire historical verification suites without a documented regression reason.
+
+Do not build a new general-purpose test framework merely to avoid finishing integration.
+
+Keep the executable, source archive, receipts, and verification evidence bound to the same actual source revision.
+
+7. Measurable reporting
+
+After each completed I1–I5 batch, report:
+
+Metric
+
+Required information
+
+Integration batch
+
+Actual batch identifier and defined scope
+
+Required invariants
+
+Total enumerated
+
+Verified
+
+Number with successful evidence
+
+Failed
+
+Number still failing
+
+Unknown
+
+Number not established
+
+Native implementation
+
+Changes made, or explicit no-code conclusion
+
+Fallback dependencies
+
+Newly removed, unchanged, or newly identified
+
+Build/test cost
+
+Actual builds, focused executions, and reasons for reruns
+
+Remaining work
+
+Specific outstanding dependencies
+
+Update the existing subsystem completion matrix using demonstrated evidence.
+
+Show the before/after delta for native implementation coverage, verification coverage, missing behaviors, unknown behaviors, and fallback dependencies.
+
+Do not use arbitrary engine-completion percentages.
+
+Do not promote all PARTIAL or UNKNOWN rows because their known implementations passed one integration scenario.
+
+8. Execution and continuation
+
+Canonical project tracking:
+
+D:\Codex Projects\Nox Archaist\conversion
+
+Production mirror:
+
+devtools/nox/project
+
+Read the actual integration plan, AGENTS, current completion matrix, and completion526 evidence first.
+
+Confirm baseline integrity and the existing repository state.
+
+Then:
+
+Identify permitted I1–I5 work.
+
+Execute the first dependency-ready integration batch.
+
+Resolve demonstrated integration defects within the defined scope.
+
+Record validation evidence and update progress.
+
+Continue through the remaining permitted I1–I5 batches.
+
+Preserve a clean, resumable project checkpoint.
+
+Do not pause between routine permitted batches for authorization.
+
+If a planned step requires prohibited campaign traversal, skip that step, identify its dependency, and continue independent work.
+
+9. Stop boundary
+
+When all permitted non-campaign I1–I5 work is completed or explicitly blocked:
+
+Produce a consolidated integration completion report.
+
+Identify remaining engine implementation gaps.
+
+Identify unresolved original-source behavior and fallback dependencies.
+
+Separate remaining implementation work from campaign acceptance work.
+
+Recommend the next bounded development phase.
+
+Stop before earned campaign traversal or M4.3 ending acceptance.
+
+Do not claim full port completion merely because integration batches pass.
+
+Success means the existing native subsystems have demonstrated correct cross-system operation through defined production pathways, with any remaining deficiencies accurately classified—not that Codex has reached a particular location in the game.
+
+Begin execution now.
