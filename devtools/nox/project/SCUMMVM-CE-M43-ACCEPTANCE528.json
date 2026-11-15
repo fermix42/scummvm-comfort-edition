@@ -2566,11 +2566,11 @@
   ],
   "mode_strategy": "One primary Modern earned lineage; targeted Classic legal earned fork/restore/transitions; no duplicate complete campaign required by existing criteria.",
   "failure_policy": "Freeze failing path,source general diagnosis,focused correction+regression,at most2corrective reruns; resume valid nearest earned save,no prefix replay or outcome injection.",
-  "builds": 2,
-  "process_launches": 13,
+  "builds": 4,
+  "process_launches": 17,
   "planned_node_count": 60,
   "mandatory_node_count_note": "All selected M3 nodes explicitly represented alongside dependency76 graph; includes supporting/advice/alternative nodes. Necessity is retained per source,not inferred from node count.",
-  "last_earned_checkpoint": "63 actual10pirate/all6alive after61 earned8sea victory/normal level allocations; normal53 source530 unchanged, sea return route in progress",
+  "last_earned_checkpoint": "68 Watcher permission4; actual door passage/map52 stairs earned in process16; normal recovery17 resumes68 with full party.",
   "baseline_candidate_sha256": "81feb2c7ff17594a6ea9754dc60602a755b2f37ea7c53b437f65a18e7c35000f",
   "candidate_change": "NPC529 verified general viewport-exit correction; SCUMMVM-CE-NPC529-VERIFICATION.json",
   "earned_failures_retained": [
@@ -2581,17 +2581,18 @@
     "status": "IN PROGRESS",
     "reason": "Party levels1/2; Raque armor94/power57 can kill59HPfront member in one ordinary hit; first earned attack did not win. No repeated attempt without preparation.",
     "order": [
-      "Earned return to Bayport",
-      "Actual normal Guild access/SkullKey78/prison child rescue; relevant refusal/repeat gates",
-      "Margrave KEY request without Orders77 before Guildmaster",
-      "Actual full single70HP Guildmaster battle/source XP reward and normal allocations",
-      "Required Rusty72/Veylan guard/door remains pending parallel task; needed equipment/books; return Raque"
+      "Earned Watcher/door access retained at68; Guild52 Rogue combat requires equipment/levels before retry.",
+      "Complete independent required Margrave pre-award request and Rusty72/Veylan source route as accessible.",
+      "Use source-supported equipment/spell/level preparation before Guild52 full Rogues, Skull78/rescue and70HP Guildmaster.",
+      "Continue earned Raque and remaining campaign; no bypass or generated outcomes."
     ],
     "qualifications": [
       "Guild access/password prerequisites remain actual required operations, not assumed cleared",
       "No claim that current party has defeated Guildmaster or earned its XP",
       "Two post-landing land victories/camping in coastal-ship fork were excluded and repeated from nearest actual saved boundary; no duplicated XP in mainline",
-      "Current primary60 excludes island58/59 progression; retained evidence remains alternate earned branch"
+      "Current primary60 excludes island58/59 progression; retained evidence remains alternate earned branch",
+      "Map48/50/52 authored objects contain no Rusty72/field25 key door; map48 door17,33 requires field28/4 and actual password succeeded. Physical Guild52 route has Rogue encounters: first actual six full137HP level4/armor76; no victory/XP/Orders77 claimed. Single70HP Guildmaster does not establish easy access.",
+      "Process16 driver interrupt also closed Engine while stopping the underprepared Rogue attempt. Process17 normal cold recovery of earned68 validated party/inventory/flags/gold/food. No engine code change or failed Engine boundary demonstrated."
     ],
     "ordering_reconciliation": "Historical M3 search/execution ordering Rusty72->Skull78 was not a mechanical dependency. Immutable Skull78 pickup53/misc2 atTown2map50(16,15) checks only its own field26/mask2/repeat/capacity; native_search.h reward lines70..83. Rusty72 and its Ruin19 field25/mask2 door remain separate required acceptance, reordered after the independent Bayport chain. Actual Guild password/door/stair access, Skull pickup and prison gate remain required; no bypass or injected state."
   }

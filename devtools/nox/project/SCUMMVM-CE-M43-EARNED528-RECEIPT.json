@@ -1371,6 +1371,56 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot063.g0.ce-achievements.json": "8530fe06609c6ef45247ee1ee4b80a4e4036e420e8ffbd399c25f76af57d3a33"
       },
       "process": 16
+    },
+    {
+      "label": "Three sea enemies victory Kat and Alluvion dead",
+      "slot": 64,
+      "parent": "adf39c05e925eea7c8257e962394da6d72e66ebc67ec03b7005b244d0e07b81f",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot064.g0": "78c5d8aa20cfad4a5b674e904f6979f2f4d6bab1251f40a9c12e97dfb740f098",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot064.g0.ce-achievements.json": "70c41a3771ad14429040af59deb230c5435dd6113393e3783ddcb5dd01fac925"
+      },
+      "process": 16
+    },
+    {
+      "label": "Bayport sea return with earned Kat Alluvion deaths",
+      "slot": 65,
+      "parent": "0f1ab44a3cc3f50c8bd74c31e9e6343f932442a6ec0f99b5989331ec69b8ecf9",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot065.g0": "2b1e1609f0567c7a6eda463edb7d03118759969358945c7fcae9cc2bca127817",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot065.g0.ce-achievements.json": "0fa51fe7b161d3d3133be518aab195961d1d227db3d4c195bc7712f2cfc0357a"
+      },
+      "process": 16
+    },
+    {
+      "label": "Earned Kat Cutter Alluvion paid resurrection",
+      "slot": 66,
+      "parent": "cd31d7b48330abefa7555f2a834ebc8985e57f444c6e1413a73ef6434cd1d198",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot066.g0": "42113b77069700955b3792d42bd668c18c1535f914429076ac5a93336bcaeb7f",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot066.g0.ce-achievements.json": "3d8901eb9de7479252c0f0f5115e92050ccca9eb9717d2efb9e5f193de2d56c4"
+      },
+      "process": 16
+    },
+    {
+      "label": "Six member paid recovery and full Bayport rest",
+      "slot": 67,
+      "parent": "e030261478260962f7a82e96f08f4a4a5b1478cd329afb1b5ea1807e761fcfba",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot067.g0": "69595ef659f901905560a8a598cbd66534754c44be1479fc0a05578a69b24f2b",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot067.g0.ce-achievements.json": "5bafe435b5350910c51d71287d90c597cec0927a7b689918417f59682eb96d9b"
+      },
+      "process": 16
+    },
+    {
+      "label": "Watcher night password earned after day refusal and wrong password",
+      "slot": 68,
+      "parent": "e89b285bc452d4d42dc55b5f036b7b51f4e58752ef996cb076bce281471c797c",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot068.g0": "4ce0a080a45eb4606bb9467f40a60e6a8e71c1a905467607d06a1da8e900ecfd",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot068.g0.ce-achievements.json": "80cac668e13db88af9a953802834d4d783877264988e1803d0da03fb795dfa25"
+      },
+      "process": 16
     }
   ],
   "correction": "SCUMMVM-CE-NPC529-VERIFICATION.json",
