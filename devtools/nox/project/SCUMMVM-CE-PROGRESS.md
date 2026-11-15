@@ -1,3 +1,14 @@
+# Original normal command domain524 - VERIFIED static scope
+
+All28normalcommands in the original30entrytable have native production owners.
+The other2 are hidden ! cheatunlock and restricted3 Attackalias, deliberately
+excluded; normalA remains. COMMAND-DOMAIN524 records everycommandowner and
+explicit unknown-key/Search timing replacements. No missing options owner was
+found; no code/build/native execution. interface.01 known normal implementation
+closed; runtime verification unchanged. Full graphics/modals/cold/campaign and
+additionaloriginalscriptproducer scope remain qualified. Continue independent
+source-driven work; do not resume completed suites or campaign traversal.
+
 # Search/lock retry523 - VERIFIED within shared decision contract
 
 Common container/door phase3 now retries only Y/Return; N/Escape/Space/arrows

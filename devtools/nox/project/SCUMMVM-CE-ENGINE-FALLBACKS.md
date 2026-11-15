@@ -1,3 +1,13 @@
+# Source command and Search scheduling replacements523/524
+
+Common Search/door retry is source Y/Return vsother-keyclose; no new runtime
+executor or codec. Existing native per-attempt world-clock policy is retained
+rather than original deferred613B/613C return topology. Native unknown-key
+refusal is free; original advances8968. Legacy ! cheat unlock/restricted3 alias
+remain excluded; all28 normal commands have production owners, including A.
+These are explicit CE policies, not original timing/debug-mode parity.
+COMMAND-DOMAIN524 and SEARCH-LIFECYCLE523 retain exact scope.
+
 # NPC world recovery518
 
 advanceForWorld uses existingnativecooperativepathresult;NoRoute/Capacity
