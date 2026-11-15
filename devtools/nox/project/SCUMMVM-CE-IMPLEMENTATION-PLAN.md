@@ -1,3 +1,7 @@
+# Acceptance528 owner authorization and readiness gate
+
+Owner attached ACCEPTANCE528-DIRECTIVE explicitly supersedes527 non-campaign stop and earlier prepare-only/campaign exclusions,after focused readiness. READINESS528 gate VERIFIED to proceed:0demonstratedmissingowners,135verification/widerbranch rows,7approvedreplacements,1UNKNOWN story.08. No broad completeness promotion/build/test. Actual377 frozen527b sources match; sourceEngine clean at a5bd733af03. M43-ACCEPTANCE528 is finite source-derived earned graph/branch contract; freshnormalNew lineage only, no syntheticprogress. Continue autonomously; two-corrective-rerun limit, no publication/distribution.
+
 # Integration527 completion boundary
 
 Permitted controlled I1/I2/I3/non-ending I4 scoped contracts complete; INTEGRATION527-COMPLETION and bound receipts. No blanket M4 completion. Stop before earned campaign/ending under current directive. story.08 UNKNOWN and M4.3 supported acceptance remain required.

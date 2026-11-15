@@ -1,3 +1,7 @@
+# Acceptance528 owner authorization and readiness gate
+
+Owner attached ACCEPTANCE528-DIRECTIVE explicitly supersedes527 non-campaign stop and earlier prepare-only/campaign exclusions,after focused readiness. READINESS528 gate VERIFIED to proceed:0demonstratedmissingowners,135verification/widerbranch rows,7approvedreplacements,1UNKNOWN story.08. No broad completeness promotion/build/test. Actual377 frozen527b sources match; sourceEngine clean at a5bd733af03. M43-ACCEPTANCE528 is finite source-derived earned graph/branch contract; freshnormalNew lineage only, no syntheticprogress. Continue autonomously; two-corrective-rerun limit, no publication/distribution.
+
 # Integration527 permitted scope concluded - VERIFIED
 
 I1 16/16,I2 12/12,I3 12/12,non-ending representative I4 8/8:48 scoped invariants. Two instrumentation builds only; I2-I4 no builds or gameplay-code fixes. Total118 process launches include controlled setup, cold processes and retained failures; exact costs in completion report and per-batch receipts. Full377 source identity/unchanged HDV/audio473 rechecked. Matrix implementation77/58/7/1 unchanged; verification41 VERIFIED/51 IN PROGRESS/51 NOT STARTED, no blanket promotion. story.08 UNKNOWN. Stop before earned campaign/ending per directive. Full port not VERIFIED. Canonical conversion and CE devtools/nox/project mirrors retained.

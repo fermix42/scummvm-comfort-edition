@@ -1,0 +1,287 @@
+# CODEX — NOX ARCHAIST M4
+## Final Native Readiness Gate and Controlled M4.3 Campaign Acceptance
+
+### Mission
+
+Controlled native Engine integration527 is accepted within its documented scope.
+
+All 48 permitted integration invariants passed. Production gameplay and accepted audio473 implementation remained unchanged. No new missing production behavior was demonstrated.
+
+We are moving toward the remaining M4.3 requirements: earned native-only new-game-to-ending progression, required supported campaign branches, ending presentation and acknowledgement, and the associated save/audio/session acceptance.
+
+**This directive authorizes controlled earned campaign acceptance after the readiness gate below. It does not authorize exploratory gameplay or a return to reactive test/fix/rebuild development.**
+
+The objective is to finish and verify the port, not to enter another indefinite debugging cycle.
+
+## 1. Preserve the accepted baseline
+
+Latest verified integration candidate:
+
+`scummvm-native-integration527b.exe`
+
+SHA-256:
+
+`81feb2c7ff17594a6ea9754dc60602a755b2f37ea7c53b437f65a18e7c35000f`
+
+Preserve completion526, integration527, audio473, original HDVs, original-source references, accepted historical evidence, and current CE enhancements.
+
+Do not rerun the accepted audio suite or repeat I1–I4 simply to regenerate evidence.
+
+Use the canonical project records in:
+
+`D:\Codex Projects\Nox Archaist\conversion`
+
+The production project mirror remains:
+
+`devtools/nox/project`
+
+Read the actual M4.3 requirements, AGENTS, completion matrix, integration plan, and current implementation records before proceeding.
+
+This directive is explicit owner authorization to advance beyond the earlier non-campaign stopping boundary, but only within the restrictions established here. Record the authorization in project tracking and reconcile any outdated prepare-only instructions. Preserve all unrelated safeguards.
+
+## 2. Perform a focused implementation-readiness gate
+
+The existing engine matrix contains:
+
+- 77 IMPLEMENTED rows.
+- 58 PARTIAL rows.
+- 7 CE_REPLACEMENT rows.
+- 1 UNKNOWN row.
+
+Verification classifications include 41 VERIFIED, 51 IN PROGRESS, and 51 NOT STARTED.
+
+These statuses must not be conflated.
+
+Before starting the earned campaign, review the existing matrix and evidence to distinguish:
+
+**A. Demonstrably missing native implementation**
+
+A required original behavior lacks an adequate production native owner or contains a known incomplete implementation.
+
+**B. Implemented but incompletely verified**
+
+Native implementation exists, but full behavior or branch coverage has not yet been demonstrated.
+
+**C. Approved replacement or intentional exclusion**
+
+The original behavior has an approved CE-native replacement or is outside supported scope.
+
+**D. Unresolved original evidence**
+
+The original behavior cannot yet be fully established, including the existing `story.08` qualification.
+
+Do not conduct another broad investigation of already verified subsystem work.
+
+Reuse existing source analysis and retained evidence.
+
+If a concrete required native implementation gap is demonstrated, complete it as a source-driven subsystem task before beginning campaign acceptance.
+
+If no concrete missing implementation remains and outstanding rows primarily represent unverified behavior, proceed to controlled acceptance. Do not require speculative implementation or impossible proof of every unknown original code path.
+
+Record unresolved risks without declaring them complete.
+
+### Readiness deliverable
+
+Produce a compact reconciliation that identifies:
+
+- Confirmed missing native production behaviors.
+- Remaining verification-only obligations.
+- Unresolved source-evidence questions.
+- Remaining reachable original-execution dependencies, if any.
+- Requirements that must be demonstrated during M4.3.
+
+Do not mistake incomplete verification coverage for missing implementation, or the absence of a demonstrated bug for proof of total engine completeness.
+
+## 3. Establish an earned campaign acceptance contract
+
+Before gameplay execution, derive a finite acceptance plan from the actual M4.3 requirements, original game data, documented progression dependencies, and existing project evidence.
+
+Identify the mandatory milestones needed to progress from a legitimately created new character to the ending.
+
+Include all required supported campaign branches and ending behaviors.
+
+For every milestone, record:
+
+- Required initial conditions.
+- Legitimate prerequisites.
+- Normal player commands and transitions.
+- Required state changes.
+- Expected persistent quest/world state.
+- Required audio and presentation behavior.
+- Relevant save/load or cold-session obligations.
+- Evidence necessary to verify completion.
+
+Plan the route using original-source analysis instead of discovering progression by wandering around the game.
+
+For mutually exclusive supported branches, use legitimate forks from earned saves when valid. Maintain the save ancestry and branch lineage.
+
+Do not fabricate progression by injecting flags, teleporting characters, modifying inventory, granting items, or loading synthetic states.
+
+Controlled fixtures remain useful for isolated regression testing but cannot substitute for earned campaign evidence.
+
+## 4. Execute controlled earned progression
+
+Once the readiness gate is satisfied, begin a new game through the actual production ScummVM Engine.
+
+Use native-only execution and the normal supported game interface.
+
+The primary campaign evidence must originate from legitimate new-game progression.
+
+Normal Engine saving and continuing from legitimate earned saves is allowed.
+
+For each planned milestone:
+
+1. Execute the required actions.
+2. Verify expected progression and persistent state.
+3. Record the actual result.
+4. Preserve legitimate save checkpoints at meaningful boundaries.
+5. Continue to the next planned milestone.
+
+Do not stop after every movement or ordinary game command to run a new development cycle.
+
+Do not use game progression itself to discover unrelated engine implementation tasks.
+
+Test the required Modern/Classic, save, audio, and session combinations according to the actual M4.3 acceptance criteria. Reuse compatible existing integration evidence where permitted rather than multiplying full campaign runs unnecessarily.
+
+Do not assume both presentation modes require entirely independent campaign playthroughs unless the requirements establish that obligation.
+
+Preserve source identity, executable identity, save ancestry, and relevant progression state throughout acceptance.
+
+## 5. No reactive debugging loops
+
+The original development pattern remains prohibited:
+
+Play until a blocker → fix → rebuild → replay → find another blocker → repeat.
+
+If an earned campaign milestone fails:
+
+1. Stop that specific acceptance path.
+2. Preserve the failing state and evidence.
+3. Classify the failure by its responsible native subsystem or integration boundary.
+4. Investigate its general cause using source evidence.
+5. Implement a general correction, not a one-off workaround for that campaign location.
+6. Perform a focused deterministic regression check.
+7. Resume from the nearest legitimate earned save whose state remains valid after the correction.
+
+Do not replay the entire campaign merely because one subsystem defect was corrected.
+
+If the correction invalidates the existing save lineage, document why and replay only the necessary legitimate progression. Do not conceal invalidated evidence.
+
+Limit repeated attempts at the same failing check to two corrective reruns by default.
+
+If a failure remains unresolved after that budget, record its exact blocker and evidence. Continue independent, permitted acceptance work when possible rather than looping indefinitely.
+
+Do not introduce special-case event bypasses, fake success flags, or temporary interpreter execution to advance the campaign.
+
+A blocking failure must not be counted as accepted progression.
+
+## 6. Keep implementation and verification progress separate
+
+Continue maintaining the existing engine matrix.
+
+An earned scenario can provide verification evidence for already implemented functionality.
+
+It does not automatically establish that every branch of the corresponding subsystem is implemented.
+
+Do not promote broad PARTIAL rows to IMPLEMENTED or VERIFIED solely because the campaign advances successfully.
+
+Likewise, a failed acceptance scenario must be traced to its actual cause before declaring that an entire subsystem is incomplete.
+
+Track separately:
+
+- Native implementation completeness.
+- Original behavior coverage.
+- Remaining interpreter/fallback dependencies.
+- Earned campaign progression.
+- Required supported-branch coverage.
+- Save/load/session verification.
+- Audio and presentation acceptance.
+- Ending presentation and acknowledgement.
+
+These are distinct dimensions of completion.
+
+## 7. Preserve strict build and execution discipline
+
+Use existing validation infrastructure wherever possible.
+
+Do not create a new framework or large collection of gameplay drivers unless a specific acceptance requirement cannot otherwise be verified.
+
+Build only when source changes or a justified integration requirement makes a build necessary.
+
+Avoid replaying successful prefixes.
+
+Avoid rerunning broad historical verification suites.
+
+Record every material build and acceptance execution, including correction attempts and their purposes.
+
+Continue reporting process-launch costs so unnecessary execution growth remains visible.
+
+No arbitrary deadline or test-count target may justify skipping required acceptance evidence.
+
+## 8. M4.3 completion criteria
+
+Do not claim full M4.3 acceptance until the actual requirements demonstrate all of the following within their supported scope:
+
+- Legitimate new-game-to-ending progression using native Engine behavior.
+- Completion of required supported campaign branches.
+- Correct ending state transitions.
+- Required ending presentation and user acknowledgement.
+- Required save/load and cold-session continuity.
+- Required audio behavior and settings persistence.
+- Supported presentation/configuration behavior.
+- No unresolved blocking native implementation defects.
+- No prohibited original-instruction execution or fabricated progression used to satisfy native-only acceptance.
+- Complete evidence connecting source, executable, saves, execution, and outcomes.
+
+If any requirement remains unverified, retain the corresponding IN PROGRESS, UNKNOWN, or BLOCKED status and identify the missing evidence.
+
+Do not infer acceptance from reaching the final screen alone.
+
+## 9. Progress reporting
+
+At each meaningful earned milestone, provide a concise progress record:
+
+| Field | Required evidence |
+|---|---|
+| Milestone | Source-derived progression objective |
+| Status | Verified, blocked, or not started |
+| Earned lineage | New-game origin and valid save ancestry |
+| Requirements | Required/verified/remaining counts |
+| Engine defects | Demonstrated deficiencies, not speculation |
+| Corrections | Native changes and focused verification |
+| Execution cost | Builds and process launches |
+| Next step | Next planned milestone or blocking dependency |
+
+The report should make progress through the finite acceptance plan obvious.
+
+Preserve detailed evidence locally. Do not flood the owner with every successful input command.
+
+## 10. Final stopping boundary
+
+Complete the readiness reconciliation first.
+
+Then execute the controlled M4.3 acceptance plan if no demonstrated missing implementation prevents proceeding.
+
+Continue through required legitimate campaign milestones without requesting permission for every routine step.
+
+When acceptance is complete, or a genuine unresolved blocker prevents further progress, provide:
+
+1. An implementation-readiness reconciliation.
+2. A complete earned campaign and supported-branch acceptance ledger.
+3. Ending verification evidence or an explicit explanation of what remains unverified.
+4. Final implementation and verification matrix changes.
+5. Remaining native dependencies, defects, and original-source uncertainties.
+6. Exact source, executable, save, and report identities.
+7. A clear judgment of whether M4.3 has met its documented requirements.
+
+Stop before publication, release tagging, or distribution.
+
+Do not declare the engine finished unless the recorded evidence supports that conclusion.
+
+### Final instruction
+
+**We are no longer trying to discover what breaks next. We are verifying whether the systematically implemented native engine can satisfy the complete authored game contract.**
+
+Keep the execution finite, evidence-driven, and focused on completing M4.3—not on restarting the old debugging cycle.
+
+Begin with the implementation-readiness reconciliation, then proceed according to the established gate.

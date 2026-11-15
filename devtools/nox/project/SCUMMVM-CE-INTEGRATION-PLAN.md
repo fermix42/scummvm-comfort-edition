@@ -1,3 +1,7 @@
+# Acceptance528 superseding authorization
+
+Owner ACCEPTANCE528-DIRECTIVE authorizes earned I5/full non-exploratory M4.3 and ending after focused READINESS528 gate. Gate VERIFIED to proceed. M43-ACCEPTANCE528 controls finite earned graph/branches. Historical527 stopping boundaries below remain as prior scope,not current restrictions. No publication/release.
+
 # Integration527 permitted scope concluded
 
 I1 VERIFIED16/16,I2 VERIFIED12/12,I3 VERIFIED12/12; permitted representative non-ending I4 VERIFIED8/8. Full I4 ending and I5 earned campaign remain NOT STARTED under this directive. story.08 UNKNOWN retained. Stop at owner boundary. See INTEGRATION527-COMPLETION for exact scope,costs,failures and remaining port acceptance.
