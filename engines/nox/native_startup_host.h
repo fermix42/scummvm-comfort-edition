@@ -75,6 +75,7 @@
 #include "nox/native_move_completion_validation.h"
 #include "nox/native_encounter_clock_validation.h"
 #include "nox/native_world_tail_validation.h"
+#include "nox/native_dialogue_clock_validation.h"
 #include "nox/native_search_defeat_validation.h"
 #include "nox/native_dialogue_voice_validation.h"
 #include "nox/native_player_lifecycle_validation.h"
@@ -117,6 +118,11 @@ inline Common::Error NoxEngine::runNativeStartup() {
     if (ConfMan.hasKey("nox_native_search_defeat495") && ConfMan.getBool("nox_native_search_defeat495")) {
         Common::String report;if (!Native::validateNativeSearchDefeat495(_resources,report)) return fail(report.empty()?"Search defeat focused check failed":report.c_str());
         Common::OutSaveFile *out=_system->getSavefileManager()->openForSaving("nox-native-search-defeat.tsv",false);if (!out) return Common::kWritingFailed;
+        out->writeString(report);out->finalize();const bool ok=!out->err();delete out;return ok?Common::Error(Common::kNoError):Common::Error(Common::kWritingFailed);
+    }
+    if (ConfMan.hasKey("nox_native_dialogue_clock515") && ConfMan.getBool("nox_native_dialogue_clock515")) {
+        Common::String report;if (!Native::validateNativeDialogueClock515(_resources,report)) return fail(report.empty()?"Dialogue clock focused check failed":report.c_str());
+        Common::OutSaveFile *out=_system->getSavefileManager()->openForSaving("nox-native-dialogue-clock.tsv",false);if (!out) return Common::kWritingFailed;
         out->writeString(report);out->finalize();const bool ok=!out->err();delete out;return ok?Common::Error(Common::kNoError):Common::Error(Common::kWritingFailed);
     }
     if (ConfMan.hasKey("nox_native_world_tail514") && ConfMan.getBool("nox_native_world_tail514")) {

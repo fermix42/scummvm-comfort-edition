@@ -3,7 +3,7 @@
 #define NOX_NATIVE_WORLD_TAIL_VALIDATION_H
 #include "nox/native_encounter_clock_validation.h"
 namespace Nox { namespace Native {
-inline bool tailSetup514(NightActorValidation504 &v,byte type,byte map,byte x,byte y,byte ax,byte ay,byte actorSlot=64,byte noticeSlot=255,bool permission=false,bool water=false) {
+inline bool tailSetup514(NightActorValidation504 &v,byte type,byte map,byte x,byte y,byte ax,byte ay,byte actorSlot=64,byte noticeSlot=255,bool permission=false,bool water=false,byte preserveNpc=255) {
     if (!v.game.create("TAIL",0,0)) return false;
     v.game.clock.phase=1;v.game.clock.hour=0x12;v.game.clock.minute=0x34;v.game.clock.lightTicks=120;v.game.clock.lightActive=1;
     byte fields[256];memcpy(fields,v.game.world.questFields(),256);fields[31]=0;fields[60]=byte((fields[60]&~4)|(permission?4:0));fields[10]=byte((fields[10]&~1)|(permission?1:0));fields[57]=0;
@@ -13,7 +13,10 @@ inline bool tailSetup514(NightActorValidation504 &v,byte type,byte map,byte x,by
     // Controlled source-compatible pre-input record checkpoint. Retire all
     // incidental compact/NPC actors;place one legal compact record at its
     // declared slot. Original objects/terrain/entrances remain byte-identical.
+    byte npcRecord[8]={};
+    if (preserveNpc!=255) {if ((preserveNpc&7) || preserveNpc>248 || !tables[1282+preserveNpc] || tables[1283+preserveNpc]==255) return false;memcpy(npcRecord,tables+1280+preserveNpc,8);}
     memset(tables+768,0,256);memset(tables+1280,0,256);
+    if (preserveNpc!=255) memcpy(tables+1280+preserveNpc,npcRecord,8);
     if (actorSlot!=255) {tables[768+actorSlot]=ax;tables[769+actorSlot]=ay;tables[770+actorSlot]=164;tables[771+actorSlot]=1;}
     if (noticeSlot!=255) {const byte *object=tables+1024+noticeSlot;if (object[3]!=55) return false;data[11+object[4]]=object[7]&128?object[5]:0;}
     Common::MemoryReadStream bytes(data.data(),data.size());if (!v.game.world.load(bytes)) return false;

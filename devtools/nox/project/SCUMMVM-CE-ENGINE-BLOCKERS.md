@@ -1,3 +1,7 @@
+# Dialogue clock515
+
+Knownnew-gameencounterclockcallers resolvedthrough515:manual/Talkfree,scriptedarrivalpaid,newactorcontactscompletedworldtail. Historicalpendingpolicy/broadercold-session-campaignremainqualified.
+
 # Shared world completion514
 
 B-WORLD-TAIL resolved for new typed turn owner514:plate/notice/portal/clock/entry/hazard/contact completion andnotice persistence focusedverified. Broader cold/session/campaign andhistoricalsavepolicy migration unpromoted.491waterlabel correctedbyimmutablepointproof;no oldsuite rerun.

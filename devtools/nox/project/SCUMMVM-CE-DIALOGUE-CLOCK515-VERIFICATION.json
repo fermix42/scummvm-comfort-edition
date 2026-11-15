@@ -1,0 +1,38 @@
+{
+  "status": "VERIFIED",
+  "scope": "Four actual normal Talk openings at authored physical UM97 NPC8 andclosure-generated fight,phase/minute boundaries,eight component codec sets andshared host clock no-op;no injected request,battle execution,campaign,ordinaryEnginecold/session orold suites",
+  "parent_commit": "e3e520b359f",
+  "contract": "SCUMMVM-CE-ENGINE-DIALOGUE-CLOCK-CONTRACT.md",
+  "executable_sha256": "4758324f3c411c104f2de1e6f77f63cae87540c632678cf0764709370203f533",
+  "source_file_count": 368,
+  "focused_validation": "dialogue_clock\tactual_authored_opening_fight_cases=4\tcomponent_codec_sets=8\tflag17_not_injected=1\thost_clock_policy_noop=4\tbattle_execution=0\tcampaign=0\told_audio_animation_suite=0\n",
+  "build": {
+    "command": "Official run-build-release-cleanenv.ps1 -NoxNativeOnly with ForceImportAfterCppTargets=conversion/dialogue515b-build-output.targets",
+    "result": "515b:0warnings/0errors2m48.04s,wrapperexit0",
+    "output": "build-scummvm/Releasex64/scummvm-dialogue515b.exe"
+  },
+  "native_batches": 2,
+  "unsuccessful_corrective_native_batches": 0,
+  "failures": [
+    "515build0warnings/0errors2m48.12s;firstnativebatchstoppedbeforeinput atdefaultunreadyNpcScheduleState probe. Sourceapplyrequiresready. SeparatedatareviewfindsnoNPC128scheduleatmap48,so unusedzero-coordinate recorddoesnotproveauthorednormalplacement. Productionunchanged;515bactualUM97NPC8fixture firstcorrectivepasses.",
+    "InitialdiagnosticTalkprefixwasprintedat9600;actualprogramloadAE00confirmedMainFF80callsAE2A. Correctedbeforeproduction/sourceproof."
+  ],
+  "source_research": "2 original TalkB4F7..B519 requestproducer/outerMainFF83/GAME71BEdispatch cases retainclockscalars;nonclockreturn/UI/cache services observed/skipped,stopsbefore1609or71C9. Existing500censusreused:26field17bit5headers,nofullcensusrerun. NewphysicalsourcefixtureL061NPC8rawrecord/adjacentfloorshashqualifiedlocally.",
+  "setup": "ActualUM97NPC8 originalrecord at142,169 ispreservedbyte-for-byte. Incidentalcompact/NPCrecords retiredbeforefirstinput;bounded4adjacentsetupcandidatesuseoriginalterrain. Sourceopeningnormalvoice/control0setsrequestthroughactualT/direction/Gclosure. Fourdeclaredphase0/1minute34/59cases;nofield17/request/outcome injection. Eightcomponent core/window/input/turncodecs,actualhosthelper no-op.",
+  "production": "PlainTalkgeneratedadmissionclockPending=false,usingexistingNWIN17andpresented-stateowner. Together513manual/scripted and514newactorcompletion,knownnew-gameencountercallershaveexplicitpaid/freepolicy. Historicalpendingnativeformatsretainpreviouspolicy. No otherproductionownerchanged;514fixturehelpergainsoptionalpreserve-originalNPCargument.",
+  "qualifications": [
+    "Controlledcheckpoint,notearnedapproach/campaign.",
+    "No tacticalexecution/normalEnginecold/session/oldaudio-animation-dialogue suites.",
+    "26authoredheadersaredataencodingcoverage,not26reachableNPCgameplaycases;map48NPC128unusedplacement isexplicitlynotclaimed.",
+    "Originalsourceprobeobserved/skippednonclockservices;notfulloriginalTalkUIorcombat."
+  ],
+  "artifacts": {
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-binary\\scummvm-native-dialogue-clock515b.exe": "4758324f3c411c104f2de1e6f77f63cae87540c632678cf0764709370203f533",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-binary\\native-dialogue-clock515b-source.zip": "f6d8b3bd6baff9c4d5e0ddd419c0957a21630fe2d80015c809b0bf9bd7b59c48",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-dialogue-clock515b-focused\\verification.json": "1d68e130ad4f25afb4282fcacdeb8441cd046ea45ef9ad129eaf8020a3ab990a",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-dialogue-clock515-build.log": "5d9a0082e327bbba85ec5f0db27807b25614da58ad62ad68f6b9e7ff513631d6",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-dialogue-clock515b-build.log": "2a4d4470e0d87bd8abb7122ef03d589c318c11b04593f3bd6c80393fef6d4c58",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-dialogue-clock515-source.json": "b53b60de9b885f8b4dfc1ff77b1523c979598c894fa273de67d243e7a817309c",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-dialogue-clock515-fixture-correction.json": "4a53855d9ead080874eaa69c368881ccf05c0df7ec0aea791764a2ef72380c73"
+  }
+}

@@ -323,7 +323,7 @@ private:
                     const byte *actor=game.world.currentTables()->data()+1280+dialogueActor;
                     const byte x=byte(actor[0]-game.world.x()+8),y=byte(actor[1]-game.world.y()+5);
                     if (x>=17 || y>=11 || !actor[2] || actor[3]==255) return kWorldInputUnsupported;
-                    _encounter=WorldActorTurnEvent();_encounter.battle=true;_encounter.bank=1;_encounter.slot=dialogueActor;_encounter.cell=byte(y*17+x);
+                    _encounter=WorldActorTurnEvent();_encounter.battle=true;_encounter.clockPending=false;_encounter.bank=1;_encounter.slot=dialogueActor;_encounter.cell=byte(y*17+x);
                     _encounter.direction=turn.presentation.facing;return kWorldInputEncounter;
                 }
             }

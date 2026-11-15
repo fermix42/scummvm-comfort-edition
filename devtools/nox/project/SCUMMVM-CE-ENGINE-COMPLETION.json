@@ -918,7 +918,7 @@
       "implementation": "PARTIAL",
       "verification": {
         "status": "IN PROGRESS",
-        "scope": "514 focused shared actor/plate/notice/portal/clock/entry/hazard/contact andcomponent-codec evidence;full requirement not verified."
+        "scope": "515 focused dialogue-generated encounter clock ownership evidence;full requirement notverified."
       },
       "native_owners": [
         "engines/nox/native_clock.h",
@@ -930,7 +930,8 @@
       ],
       "original_evidence": [
         "SCUMMVM-CE-ENCOUNTER-CLOCK513-VERIFICATION.json:focused admission clock ownership only;full requirement remains PARTIAL.",
-        "SCUMMVM-CE-WORLD-TAIL514-VERIFICATION.json:shared new-turn completion scope;broader requirement remains PARTIAL."
+        "SCUMMVM-CE-WORLD-TAIL514-VERIFICATION.json:shared new-turn completion scope;broader requirement remains PARTIAL.",
+        "SCUMMVM-CE-DIALOGUE-CLOCK515-VERIFICATION.json:knowncallerclockpolicies through515,4actualTalkrequestcases/8componentcodecs;broaderrequirementPARTIAL."
       ],
       "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
       "fallback_dependencies": [],
@@ -1198,8 +1199,8 @@
       "behavior": "Dialogue response pagination and callbacks",
       "implementation": "PARTIAL",
       "verification": {
-        "status": "NOT STARTED",
-        "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement."
+        "status": "IN PROGRESS",
+        "scope": "515 focused dialogue-generated encounter clock ownership evidence;full requirement notverified."
       },
       "native_owners": [
         "engines/nox/native_npc_schedule.h",
@@ -1212,7 +1213,8 @@
         "engines/nox/native_recruitment.h"
       ],
       "original_evidence": [
-        "SCUMMVM-CE-DIALOGUE-PRESENTATION501.md:complete authored body grammar static scope;not whole rendering/runtime acceptance"
+        "SCUMMVM-CE-DIALOGUE-PRESENTATION501.md:complete authored body grammar static scope;not whole rendering/runtime acceptance",
+        "SCUMMVM-CE-DIALOGUE-CLOCK515-VERIFICATION.json:knowncallerclockpolicies through515,4actualTalkrequestcases/8componentcodecs;broaderrequirementPARTIAL."
       ],
       "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
       "fallback_dependencies": [],
@@ -1632,7 +1634,7 @@
       "implementation": "PARTIAL",
       "verification": {
         "status": "IN PROGRESS",
-        "scope": "514 focused shared actor/plate/notice/portal/clock/entry/hazard/contact andcomponent-codec evidence;full requirement not verified."
+        "scope": "515 focused dialogue-generated encounter clock ownership evidence;full requirement notverified."
       },
       "native_owners": [
         "engines/nox/native_encounter_admission.h",
@@ -1648,7 +1650,8 @@
       ],
       "original_evidence": [
         "SCUMMVM-CE-ENCOUNTER-CLOCK513-VERIFICATION.json:focused admission clock ownership only;full requirement remains PARTIAL.",
-        "SCUMMVM-CE-WORLD-TAIL514-VERIFICATION.json:shared new-turn completion scope;broader requirement remains PARTIAL."
+        "SCUMMVM-CE-WORLD-TAIL514-VERIFICATION.json:shared new-turn completion scope;broader requirement remains PARTIAL.",
+        "SCUMMVM-CE-DIALOGUE-CLOCK515-VERIFICATION.json:knowncallerclockpolicies through515,4actualTalkrequestcases/8componentcodecs;broaderrequirementPARTIAL."
       ],
       "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
       "fallback_dependencies": [],
@@ -5598,7 +5601,7 @@
     },
     {
       "path": "engines/nox/native_startup_host.h",
-      "sha256": "e52dc9f62b21d68cae526cc4648088151cd71d823bc834f8478d33ef61c590de",
+      "sha256": "32292be1ed57d99afb0e325676ef93a2178f93eed14bd4eabafe30b8693d272f",
       "includes": [
         "nox/native_weapon_ready_validation.h",
         "nox/native_legacy_snapshot.h",
@@ -6819,7 +6822,7 @@
     },
     {
       "path": "engines/nox/native_world_input.h",
-      "sha256": "ebff2b16a866c973356ac6982c17022187f045eb65f3415756800f84a7b46c22",
+      "sha256": "9f5713caea2e47cbf3bd436703966f8c5d343c3ee54c3369d61c7bae9e8bf2ca",
       "includes": [
         "nox/native_new_game.h",
         "nox/native_world_move.h",
@@ -7707,12 +7710,21 @@
     },
     {
       "path": "engines/nox/native_world_tail_validation.h",
-      "sha256": "5264f3ae977c0508695d8f3bceabcc06845d032eccdae4081bea78a111d8c598",
+      "sha256": "8976e8952d783e601cbd2763e3489fa585d60cf9fcc6954663e3276d23c7a3a7",
       "includes": [
         "nox/native_encounter_clock_validation.h"
       ],
       "explicit_boundaries": [],
       "coverage": "Only individual requirement/evidence scopes are credited."
+    },
+    {
+      "path": "engines/nox/native_dialogue_clock_validation.h",
+      "sha256": "60fb3b3e0efadc1956405708e29825510b54bc7f948a6ef877b7536394358408",
+      "includes": [
+        "nox/native_world_tail_validation.h"
+      ],
+      "explicit_boundaries": [],
+      "coverage": "Onlyindividualrequirement/evidencescopescredited."
     }
   ],
   "counts": {
@@ -7848,8 +7860,8 @@
     }
   },
   "last_milestone": {
-    "owner": "Shared world completion514c",
-    "evidence": "SCUMMVM-CE-WORLD-TAIL514-VERIFICATION.json"
+    "owner": "Dialogue admission clock515b",
+    "evidence": "SCUMMVM-CE-DIALOGUE-CLOCK515-VERIFICATION.json"
   },
   "overall": {
     "fully_implemented_top_level_domains": 1,
@@ -7863,7 +7875,7 @@
   },
   "current_subsystem": {
     "status": "IN PROGRESS",
-    "scope": "Remaining authored caller/source-owner closure;dialogue-generated encounter clock source remains qualified;no campaign/old suites."
+    "scope": "RemainingNPC/simulation/sourceowner closure;no campaign/old suites."
   },
   "count_definition": "native_implemented counts IMPLEMENTED; CE_REPLACEMENT is separately reported. VERIFIED applies only to row evidence scope; no overall completion percentage."
 }

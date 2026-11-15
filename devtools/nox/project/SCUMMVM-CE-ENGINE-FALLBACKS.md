@@ -1,3 +1,7 @@
+# Dialogue clock515
+
+515reusesnativeclockPending=false/NWIN17forTalk.No CPUABI/addresscontinuation/newsaveformat.NewtestpreservesactualUM97NPC8source-recordbeforeinput,notaprogramorrequest injection.
+
 # Shared world completion514
 
 514 typednotice tail/originaldirection/deferredcontact,NWIN18 boundedwrapper andnative completion effects. No instructionexecutor,CPUaddresscontinuation or actor replay. Oldnotice/pendingformats preservehistoricalpolicy.

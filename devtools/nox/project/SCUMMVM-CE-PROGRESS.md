@@ -1,3 +1,43 @@
+# Dialogue encounter clock515b - VERIFIED within source-driven contract
+
+515b0warnings/0errors2m48.04s,wrapperexit0.Firstcorrectivebatchpasses4actual
+UM97NPC8normalTalkopening/closure-generatedfightcases,8componentcodecsets,
+4hostclockno-ops.No field17/eventinjection.No unsuccessfulcorrectivererun.
+Initial515unready-schedulefixturefailure andunusedmap48NPC128 sourcefinding
+retained;productionunchangedbyfixturecorrection. OriginalTalkrequest/return
+proof2cases;newknownencountercallerclockpoliciesnowexplicit through513..515.
+No tacticalexecution,campaign,ordinaryEnginecold/session oroldsuites.
+Exact source/exe/archive/setup/commands:DIALOGUE-CLOCK515-VERIFICATION.json.
+Canonicalrecordsandbyte-identicalCEdevtools/nox/project mirrors retained.
+ContinueindependentremainingNPC/simulation/sourceownerclosure;no milestone stop.
+
+# Dialogue clock515 initial fixture correction - IN PROGRESS
+
+Official515build0warnings/0errors2m48.12s. Firstnativebatchstoppedbeforeinput
+atNpcScheduleprobe:defaultNpcScheduleStateunready;applyrequiresready.
+Read-onlyresource reviewalsofindsnoNPC128scheduleatmap48;cannotclaimactual
+placementfromunusedzero-coordinaterecord. No productionchange. SourceUM97
+physicalNPC8=[142,169,167,12,0,126,0,1],L061unconditionalnormalopeningP2
+field17bit5/control0. Actualadjacent142,168/170floor117;sourcepointprooflocal.
+515bfixturepreservesexactNPC8record anddeclaresretiredincidentalactorsbefore
+firstTinput,notrequest/outcomeinjection. Additionalbuildjustifiedbyobserved
+fixturefailure;firstcorrectivenativebatchnext,0unsuccessfulcorrectivereruns.
+No old suites/campaign. 514validationhelperextendedonlyoptionalpreserveNpc
+fixtureparameter;accepted514artifactsunchanged. Next515bbuild/focusedbatch.
+
+# Final encounter caller clock515 - IN PROGRESS before production/build
+
+514c committede3e520b359f. RemainingTalkcalleroriginalsourceprovedfree:
+TalkB4F7..B516sets31F8=4/actualNPCslot;MainFF83/FF93returns7128 then71BE
+invokes1609withoutFBE6.2originalrequest/returncases retainclockscalars;nonclock
+cache/UIservices observed/skipped,no combat. InitialdiagnosticusedwrongTalk
+prefixbase9600;correctAE00confirmedMainFF80callsAE2A,beforeproductionchanges.
+Existing500mutationdata has26fight-requestheaders;L011actor128openingnormal
+voice/control0 isauthoredmap48NPC128,notsharedinn52emptyrecord. Contract
+ENGINE-DIALOGUE-CLOCK beforeedit;onepolicyline+focused4actualT/openingclosure
+cases/eightcomponentcodecs prepared. No field17/event injection. Next apply
+one-shot implement/wire515,oneisolatedbuild/firstbatch;no old suites/campaign.
+
 # Shared world completion514c - VERIFIED within source-driven contract
 
 514c officialbuild0warnings/0errors2m47.39s,exit0. Firstcorrectivebatchpasses:
