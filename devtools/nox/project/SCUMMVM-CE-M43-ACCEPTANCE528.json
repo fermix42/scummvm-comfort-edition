@@ -3,7 +3,7 @@
   "scope": "Finite controlled earned native M4.3 acceptance,source-derived graph; no exploratory gameplay.",
   "readiness": "SCUMMVM-CE-READINESS528.json",
   "origin": "Fresh normal New,default Male/Human character; engine entropy, no random_seed override/fixture/import/cheat.",
-  "candidate_sha256": "bc41a7d987509306add2702efb598eea2244663329627b10c4341e92e69944aa",
+  "candidate_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4",
   "nodes": [
     {
       "id": "opening-exit",
@@ -2569,11 +2569,28 @@
   "process_launches": 13,
   "planned_node_count": 60,
   "mandatory_node_count_note": "All selected M3 nodes explicitly represented alongside dependency76 graph; includes supporting/advice/alternative nodes. Necessity is retained per source,not inferred from node count.",
-  "last_earned_checkpoint": "54 paidCutter/BridgitTemple49resurrection/fullHPhealing;actualcold013/nextNorthstep/all1792Map0bytespersist;nextowned119reboard/Raque",
+  "last_earned_checkpoint": "60 actual57 frigate restore,explicit parent57; alternate58/59 earned Town41/Raque clue/full5 defeat retained; source Guild preparation next",
   "baseline_candidate_sha256": "81feb2c7ff17594a6ea9754dc60602a755b2f37ea7c53b437f65a18e7c35000f",
   "candidate_change": "NPC529 verified general viewport-exit correction; SCUMMVM-CE-NPC529-VERIFICATION.json",
   "earned_failures_retained": [
     "library north-wing source planner omitted water229..231;actual party loss retained;normal Engine route98 checkpoint restored as43,not native defect. Source-safe route currently unavailable with protections0/MP0;defer.",
     "Fourmember return-road/boat contacts with hostile ships retained;actual tactical defeat,normal Engine47 restore. Native defect not demonstrated. Sixparty48 prepares missing companions instead of repeating fourparty route."
-  ]
+  ],
+  "preparation_after_raque_attempt": {
+    "status": "IN PROGRESS",
+    "reason": "Party levels1/2; Raque armor94/power57 can kill59HPfront member in one ordinary hit; first earned attack did not win. No repeated attempt without preparation.",
+    "order": [
+      "Earned frigate return",
+      "Required RustyKey72:VeylanKeep20->19 Search29/10; real guard/door criteria",
+      "Required SkullKey78/Guild access and Bayport child rescue",
+      "Required Guildmaster:source descriptor119 sprite207/group60 singlemonster62 HP70 XP8400; verify actual full admission and normal battle before claiming reward",
+      "Apply actual earned level allocations; necessary normal equipment/books; return to Raque full battle"
+    ],
+    "qualifications": [
+      "Guild access/password prerequisites remain actual required operations, not assumed cleared",
+      "No claim that current party has defeated Guildmaster or earned its XP",
+      "Two post-landing land victories/camping in coastal-ship fork were excluded and repeated from nearest actual saved boundary; no duplicated XP in mainline",
+      "Current primary60 excludes island58/59 progression; retained evidence remains alternate earned branch"
+    ]
+  }
 }

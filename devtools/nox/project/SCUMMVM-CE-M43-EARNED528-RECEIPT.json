@@ -1,6 +1,6 @@
 {
   "status": "IN PROGRESS",
-  "scope": "Earned New through56, source-edge cannon correction/cold016; six alive. Raque and ending remain incomplete.",
+  "scope": "Earned island branch58/59 and normal mainline restore57->60; four additional world-cannon kills VERIFIED at scoped record level. Raque full battle actually lost; no key132 or12bit1. Not campaign/ending acceptance.",
   "executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4",
   "source_binding": "SCUMMVM-CE-CANNON530-VERIFICATION.json",
   "builds": 4,
@@ -22,7 +22,11 @@
     "Source clock/schedule hour bytes are BCD; raw17=11AM,raw23=5PM. No clock injection.",
     "Dismount X immediately clearsboatcontrol atcurrentcell;actualXon230watercaused35damageall and2x50HPbattle,won. Reboard/sailonto232beforeX correctsnormalcommandplanning,notEnginecode.",
     "ActualtwoNormalWorldcountershotmissesledtoboarding;realcannonstationswon6fullHPpirates,Cutter+Briggitdead,notclaimedallalive. No restoredoutcomeafter48.",
-    "After checkpoint55,nine-enemy sea boarding tactical defeat preserved; ordinary route98 Surface171,107 restored. Next normal West/F/West exposed native stationary-turn boundary, cannon530 investigation IN PROGRESS. No earned outcome injected."
+    "After checkpoint55,nine-enemy sea boarding tactical defeat preserved; ordinary route98 Surface171,107 restored. Next normal West/F/West exposed native stationary-turn boundary, cannon530 investigation IN PROGRESS. No earned outcome injected.",
+    "Guild access/password prerequisites remain actual required operations, not assumed cleared",
+    "No claim that current party has defeated Guildmaster or earned its XP",
+    "Two post-landing land victories/camping in coastal-ship fork were excluded and repeated from nearest actual saved boundary; no duplicated XP in mainline",
+    "Current primary60 excludes island58/59 progression; retained evidence remains alternate earned branch"
   ],
   "checkpoints": [
     {
@@ -1296,10 +1300,56 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot056.g0.ce-achievements.json": "ce2b1640938275a89561362cbd3b5cfa9bdb50e4692027eef6fa3325915b4a3d"
       },
       "process": 15
+    },
+    {
+      "label": "Four pirate ships cleared and north island approach",
+      "slot": 57,
+      "parent": "9ee1765abc93a1632d22a9ede4eefc8c8854345929dffa3eff87679139fb0876",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot057.g0": "f86428dfadcffe5a1570b95ba6cc5debe87b431af95cc453a371e17babfd6314",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot057.g0.ce-achievements.json": "b43d6190d7cb39072ce8df167265b32fba04b210247cb49567ce372cbe5321ce"
+      },
+      "process": 16
+    },
+    {
+      "label": "Freebooters Cove earned island arrival",
+      "slot": 58,
+      "parent": "5686861f0361475072b00fb319950c2e08ffcf235ed7e9a630dcd074d6833e20",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot058.g0": "ff87a5bc5bdd0e235cfc4b6feaa0137b434112ea60b6a341f3651bacd71a8630",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot058.g0.ce-achievements.json": "e2cc5ea3623d6f76707eb45e3956c0b99dea741af3326572f14748c303d96fd7"
+      },
+      "process": 16
+    },
+    {
+      "label": "Raque clue repeat before full battle",
+      "slot": 59,
+      "parent": "dbacaf35c27113cf1288e873116b87b82a73f9da9e7a5c35a8776a6295e00415",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot059.g0": "066d6d9083f67bdc13c36ff6f4ef3d2773dafd9f7b67c079372bc950c083e213",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot059.g0.ce-achievements.json": "2a4e115ac15b7d7c9848949e719b7189408f45627d1b9911da753a838ba8b017"
+      },
+      "process": 16
+    },
+    {
+      "label": "Primary restored frigate for required Guild preparation",
+      "slot": 60,
+      "parent": "5686861f0361475072b00fb319950c2e08ffcf235ed7e9a630dcd074d6833e20",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot060.g0": "22605f4d86c982bdff2996ad9d5efdcec6f511741ae9ef491838edffeef1ffd4",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot060.g0.ce-achievements.json": "2c567e27fd268440439cba28ee62438f1b174b7bd298dee89c17acc91163e3a6"
+      },
+      "process": 16
     }
   ],
   "correction": "SCUMMVM-CE-NPC529-VERIFICATION.json",
   "last_checkpoint": 44,
   "cold_evidence": "earned-modern/cold011.json",
-  "next_action": "Continue earned island/Raque route; preserve north-sea nine-pirate tactical defeat as failed branch. Ending/full acceptance incomplete."
+  "next_action": [
+    "Earned frigate return",
+    "Required RustyKey72:VeylanKeep20->19 Search29/10; real guard/door criteria",
+    "Required SkullKey78/Guild access and Bayport child rescue",
+    "Required Guildmaster:source descriptor119 sprite207/group60 singlemonster62 HP70 XP8400; verify actual full admission and normal battle before claiming reward",
+    "Apply actual earned level allocations; necessary normal equipment/books; return to Raque full battle"
+  ]
 }

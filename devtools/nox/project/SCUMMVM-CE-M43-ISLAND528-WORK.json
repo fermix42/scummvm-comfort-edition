@@ -1,0 +1,43 @@
+{
+  "status": "IN PROGRESS",
+  "scope": "Earned island branch58/59 and normal mainline restore57->60; four additional world-cannon kills VERIFIED at scoped record level. Raque full battle actually lost; no key132 or12bit1. Not campaign/ending acceptance.",
+  "verified": [
+    "Actual world-cannon removals40/44/48/52,one actual17HP hostile hit,all6survive",
+    "Normal119->124 northern one35rough tile crossing,232beforeX,source inland entry Town41",
+    "Raque OUT clue and repeat leave key/flag absent; save59",
+    "Full actual5 enemy admission191/137/137/98/98 retained; actual defeat disclosed"
+  ],
+  "lineage": "Primary55->56->57; island58->59 is retained earned alternate, failed Raque branch. New60 explicitly parents actual57. No fabricated stats/items/positions/flags/RNG.",
+  "preparation": {
+    "status": "IN PROGRESS",
+    "reason": "Party levels1/2; Raque armor94/power57 can kill59HPfront member in one ordinary hit; first earned attack did not win. No repeated attempt without preparation.",
+    "order": [
+      "Earned frigate return",
+      "Required RustyKey72:VeylanKeep20->19 Search29/10; real guard/door criteria",
+      "Required SkullKey78/Guild access and Bayport child rescue",
+      "Required Guildmaster:source descriptor119 sprite207/group60 singlemonster62 HP70 XP8400; verify actual full admission and normal battle before claiming reward",
+      "Apply actual earned level allocations; necessary normal equipment/books; return to Raque full battle"
+    ],
+    "qualifications": [
+      "Guild access/password prerequisites remain actual required operations, not assumed cleared",
+      "No claim that current party has defeated Guildmaster or earned its XP",
+      "Two post-landing land victories/camping in coastal-ship fork were excluded and repeated from nearest actual saved boundary; no duplicated XP in mainline",
+      "Current primary60 excludes island58/59 progression; retained evidence remains alternate earned branch"
+    ]
+  },
+  "executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4",
+  "source_binding": "SCUMMVM-CE-CANNON530-VERIFICATION.json",
+  "builds": 4,
+  "process_launches": 16,
+  "selected_verified": 3,
+  "selected_total": 60,
+  "ending": "NOT STARTED",
+  "evidence": {
+    "ce-native-acceptance528\\earned-modern\\earned-four-pirate-removals.json": "5b27090b5c3446fc16a81cca2a602b3b819cede3429faba97387c3c87346ab1a",
+    "ce-native-acceptance528\\earned-modern\\earned-raque-clue.json": "15ef87cd90f61c6a02721f719983ed00ae87ac986eac04839938612777455208",
+    "ce-native-acceptance528\\earned-modern\\forks\\raque-full-first-defeat\\full-admission.json": "326b05225dcf3962cd1066ee6be7f0a7817a0a852b5eca262efc550aee9b069d",
+    "ce-native-acceptance528\\earned-modern\\forks\\raque-full-first-defeat\\defeat.json": "b8b65da62c285acce60909290527c2151e80e18ebf6e4d352c8601a5fd2e29d8",
+    "ce-native-acceptance528\\earned-modern\\forks\\raque-full-first-defeat\\lineage.json": "3dd70dda63fd151971232f409692ba7dede7af16991304ac77a98e50dafc5224",
+    "ce-native-acceptance528\\earned-modern\\forks\\cove-ship-land-approach\\encounter-refusal.json": "4a3c84e8af3f03d37110038b6947e83ccca40324606f0aaff954ecf1d5c2854e"
+  }
+}
