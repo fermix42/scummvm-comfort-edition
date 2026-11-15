@@ -1,10 +1,10 @@
 {
   "status": "IN PROGRESS",
-  "scope": "Earned opening, Bridgit, first combat/defeat/flee/restore, Maldac skiff, Axea first page/repeat/cold/return, Kat recruitment. Campaign and ending remain incomplete. Vulon250gold/repeat, scheduled NPC viewport-exit fix, save37/cold/next input verified.",
+  "scope": "Earned primary New origin; opening/Bridgit/Kat/Cutter,actual battles,Axea,bought skiff/northern crossing,Castle54/58/57 stairs,Sally shrubbery. Failed water branch preserved;primaryrestorednormal Engine98 as43. Campaign/end incomplete.",
   "executable_sha256": "bc41a7d987509306add2702efb598eea2244663329627b10c4341e92e69944aa",
   "source_binding": "SCUMMVM-CE-READINESS528.json",
   "builds": 2,
-  "process_launches": 10,
+  "process_launches": 11,
   "verified_selected_nodes": [
     "opening-exit",
     "axea-page"
@@ -14,7 +14,10 @@
     "slot6 shipwreck exit is a premature label, not exit",
     "slot19 first cast is a premature label; actual casts slots21-22",
     "slot27 is alternate earned surface skiff fork; primary resumes26",
-    "read-only route-planner generation selection corrected to latest mtime; no save content or engine state edited"
+    "read-only route-planner generation selection corrected to latest mtime; no save content or engine state edited",
+    "Library north-wing planner omitted water damage; actual earned defeat retained; exact normal library98 save restored, copied fork receipt, no injected HP or engine fix.",
+    "Source-local foot planner now avoids unprotected water/thermal/barrier cells; normal state16 doors supported by native Open rather than historical tile whitelist.",
+    "Thin battle helper now routes around occupied allies with ordinary keys; earlier bounded loops retained."
   ],
   "checkpoints": [
     {
@@ -1098,7 +1101,79 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot037.g0.ce-achievements.json": "735f47d9d701ae1503c4a4fe3565639d6f15843f11bd1da01203ff9fe94446c2"
       },
       "process": 9
+    },
+    {
+      "slot": 38,
+      "label": "Cutter legitimately recruited",
+      "parent": "553301028ddbc498ea42881122e69f1409d5c8d2cd77f8ef64b49213f74026be",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot038.g0": "2f8ed7ebb7f4b0e9315e4d7895fc470ee62d8d671253c149183739d69da8d865",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot038.g0.ce-achievements.json": "0e0309e57c0f5105470b990bf1c31c93cf6cebe8ae5e1286aef18065b47d1637"
+      },
+      "process": 10
+    },
+    {
+      "slot": 39,
+      "label": "Bayport boat legitimately purchased",
+      "parent": "6b5b1e05457d74ff34d3014f545ab9f0479e3a7082e88e16992cb5ffb6c954c6",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot039.g0": "696a9caa95e187eb5fbfc28f71fec507b0c7eb73a0195c2504cb72fe3b504712",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot039.g0.ce-achievements.json": "7364df62c1c16c16ba385532ce33714922f51b4701f942032f89ad415e6ba3df"
+      },
+      "process": 10
+    },
+    {
+      "slot": 40,
+      "label": "Purchased skiff earned sea departure",
+      "parent": "b173149c5895b4af95b6e0dc4e7f959c7236c564429d011b6bc59eb5650fdb67",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot040.g0": "88a0ac909372d6ce51ee2a013cb953a018744ce80978f2f7e61825d62ef44741",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot040.g0.ce-achievements.json": "70784690bc1bf769e0be49509e9a41aadb8436ee0865dc61a2923b5be0d1c795"
+      },
+      "process": 10
+    },
+    {
+      "slot": 41,
+      "label": "Earned northern shore landing and rest",
+      "parent": "d33ac955873298133d3432fea2eb658590b80b421af1c04e42a26367414457d6",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot041.g0": "230a2f1c197619cf3ce33f807ef1ea26fe2267920abc0a6c01f2f181d5572f74",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot041.g0.ce-achievements.json": "12a785b4ae321bc1a11a7e7a8c3b49ab8a086ffb8cff7040298751865e05c92c"
+      },
+      "process": 10
+    },
+    {
+      "slot": 42,
+      "label": "Nourtheld earned arrival after northern battle",
+      "parent": "f3c7b414aab61c6ad9273dc8ac52da127a770b0e5ee8905c734deb253edf36ef",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot042.g0": "821fa48860aff022a0e8be2425e496283e5443cdd703a59619efb665e7e82176",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot042.g0.ce-achievements.json": "23b7d8e078773a7f3fba34755450f3e7d1a5cb86b5b101a2db6b8bf566ac07a9"
+      },
+      "process": 10
+    },
+    {
+      "slot": 43,
+      "label": "Library earned entrance restored after hazard defeat",
+      "parent": "34bf4f6056d5db98fd42dee91711d5cfdc88e27cfd20abe9e0be6ca512b9eff8",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot043.g0": "43122dc1ebdd643b8b4c36f80da030a30c8da08ce14fc07b46c81e012e29552f",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot043.g0.ce-achievements.json": "7d32477ba691bdb7201ad235c14332596c5471b09af073484fec6db698ff686c"
+      },
+      "process": 10
+    },
+    {
+      "slot": 44,
+      "label": "Sally shrubbery legitimately earned",
+      "parent": "abc8b05cb41152251fc81f7677c11a10e4030ca652472de7d7dd7456fa85b0ca",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot044.g0": "387a6f7b32bfebf4c793dbc3a0cd5f83e8e269422614170ff2795bd61b7fbf4d",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot044.g0.ce-achievements.json": "aaf709b18ba723d4601486fce9595b7d0471e264f2c87974fff5334f33f21858"
+      },
+      "process": 10
     }
   ],
-  "correction": "SCUMMVM-CE-NPC529-VERIFICATION.json"
+  "correction": "SCUMMVM-CE-NPC529-VERIFICATION.json",
+  "last_checkpoint": 44,
+  "cold_evidence": "earned-modern/cold011.json"
 }

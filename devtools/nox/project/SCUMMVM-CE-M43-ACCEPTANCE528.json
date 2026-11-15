@@ -3,7 +3,7 @@
   "scope": "Finite controlled earned native M4.3 acceptance,source-derived graph; no exploratory gameplay.",
   "readiness": "SCUMMVM-CE-READINESS528.json",
   "origin": "Fresh normal New,default Male/Human character; engine entropy, no random_seed override/fixture/import/cheat.",
-  "candidate_sha256": "81feb2c7ff17594a6ea9754dc60602a755b2f37ea7c53b437f65a18e7c35000f",
+  "candidate_sha256": "bc41a7d987509306add2702efb598eea2244663329627b10c4341e92e69944aa",
   "nodes": [
     {
       "id": "opening-exit",
@@ -47,7 +47,7 @@
     },
     {
       "id": "royal-access",
-      "status": "NOT STARTED",
+      "status": "IN PROGRESS",
       "prerequisites": [
         "opening-exit"
       ],
@@ -75,11 +75,16 @@
         "scoped audio/presentation",
         "actual earned verification criteria"
       ],
-      "earned_lineage": null
+      "earned_lineage": null,
+      "earned_evidence": [
+        "42 actual surface->54 entry22,38; real courtyard encounter victory",
+        "real54->58->57 stairs; normal saved library entrance, later44 Sally cold"
+      ],
+      "remaining": "Styx NAME/repeat through source-accessible wing; do not count controlled adjacency as earned."
     },
     {
       "id": "opening-brig-door",
-      "status": "NOT STARTED",
+      "status": "IN PROGRESS",
       "prerequisites": [
         "opening-exit",
         "royal-access"
@@ -107,11 +112,15 @@
         "scoped audio/presentation",
         "actual earned verification criteria"
       ],
-      "earned_lineage": null
+      "earned_lineage": null,
+      "earned_evidence": [
+        "Actual normal startingdoor OpenUp/transition,early cold and full12HP Rat tactical victory"
+      ],
+      "remaining": "Closed-door movement refusal from legitimate early fork remains untested."
     },
     {
       "id": "gordon-shrubbery",
-      "status": "NOT STARTED",
+      "status": "IN PROGRESS",
       "prerequisites": [
         "legitimate-new-game"
       ],
@@ -140,7 +149,11 @@
         "scoped audio/presentation",
         "actual earned verification criteria"
       ],
-      "earned_lineage": null
+      "earned_lineage": null,
+      "earned_evidence": [
+        "44 Sally NAME/SHRUBBERY/FOOLERY/YES;actual95qty1/48bit32/cold011/firsticon"
+      ],
+      "remaining": "Actual Gordon opening/hideout48bit64,repeat/retained state."
     },
     {
       "id": "brown-key",
@@ -2488,9 +2501,11 @@
         "authored skiff legitimately boarded",
         "cold006 restored actual boat",
         "earned skiff on surface (completed alternate fork)",
-        "actual X disembark on local Axea shore"
+        "actual X disembark on local Axea shore",
+        "39 Bayport55gold normalpurchase;260gold option poor with256gold unchanged",
+        "40 purchased skiff realboard/localmovement/sea departure117,145"
       ],
-      "remaining": "Ocean transport/cannon,horse and remaining supported contexts remain unverified. Source planner found no Maldac-skiff to Nourtheld walking link; this is a route limitation,not a demonstrated engine defect."
+      "remaining": "Ocean arrival/disembark,cannon,horse and remaining supported contexts remain unverified."
     },
     {
       "id": "inventory-drop",
@@ -2514,8 +2529,12 @@
     },
     {
       "id": "save-session",
-      "status": "NOT STARTED",
-      "obligation": "Early,middle,late,prefinal,allowedpostending cold; abnormal exit after successful save; both save interfaces/modes and ownerisolation reusing527 where identical."
+      "status": "IN PROGRESS",
+      "obligation": "Early,middle,late,prefinal,allowedpostending cold; abnormal exit after successful save; both save interfaces/modes and ownerisolation reusing527 where identical.",
+      "earned_evidence": [
+        "Early openingcold,actualMaldacboatcold,Axeaawardcold,NPC529save37/cold010/nextinput,same clean owner"
+      ],
+      "remaining": "Middle/late/prefinal/allowedpostending,abnormalexit-after-save,remainingmode/owner combinations per contract."
     },
     {
       "id": "audio-settings",
@@ -2535,9 +2554,14 @@
   ],
   "mode_strategy": "One primary Modern earned lineage; targeted Classic legal earned fork/restore/transitions; no duplicate complete campaign required by existing criteria.",
   "failure_policy": "Freeze failing path,source general diagnosis,focused correction+regression,at most2corrective reruns; resume valid nearest earned save,no prefix replay or outcome injection.",
-  "builds": 0,
-  "process_launches": 7,
+  "builds": 2,
+  "process_launches": 11,
   "planned_node_count": 60,
   "mandatory_node_count_note": "All selected M3 nodes explicitly represented alongside dependency76 graph; includes supporting/advice/alternative nodes. Necessity is retained per source,not inferred from node count.",
-  "last_earned_checkpoint": "Axea earned cold continued"
+  "last_earned_checkpoint": "44 Sally shrubbery legitimately earned; same clean primaryowner; cold011 verified",
+  "baseline_candidate_sha256": "81feb2c7ff17594a6ea9754dc60602a755b2f37ea7c53b437f65a18e7c35000f",
+  "candidate_change": "NPC529 verified general viewport-exit correction; SCUMMVM-CE-NPC529-VERIFICATION.json",
+  "earned_failures_retained": [
+    "library north-wing source planner omitted water229..231;actual party loss retained;normal Engine route98 checkpoint restored as43,not native defect. Source-safe route currently unavailable with protections0/MP0;defer."
+  ]
 }
