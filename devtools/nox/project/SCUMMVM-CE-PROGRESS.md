@@ -1,3 +1,14 @@
+# Initial object domain507 - VERIFIED for static owner classification
++
++506 committed08440a0529b;acceptedexeSHA c322a8188b35fccead5d2dd99302bb75e229937f02b8d66c8d08dce6eb2d72eb.
++python conversion/census_object_states507.py:76maps/1336nonzeroobjectslots/
++16initialstates/allhaveknownnativeowners. Surface0AAtemplate replacedonlyin
++census byactualoriginalnewgameseed usedbyWorld.initializeNewGameSurface.
++No resourceschanged,no newruntime/build,no broadstatuspromotion. Fullstatic
++scope/qualifications inOBJECT-STATE-OWNERS507;proprietarydetail stayslocal.
++Next independent source domain:dialogueheaderselectors/predicate/control
++capacity,complementing500mutations/501bodies. No old486/498/505/506suite rerun.
++
 # Dialogue speech506 - VERIFIED within focused contract
 
 506b focused batch passes4actualauthoredAchtung exchanges,4soundmodes,

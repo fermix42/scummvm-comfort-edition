@@ -2417,7 +2417,9 @@
         "engines/nox/native_world_open.h",
         "engines/nox/native_ending.h"
       ],
-      "original_evidence": [],
+      "original_evidence": [
+        "SCUMMVM-CE-OBJECT-STATE-OWNERS507.md:16initialstatekinds/76maps classified;dynamic producers and runtime remain separate."
+      ],
       "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
       "fallback_dependencies": [],
       "blockers": []
@@ -7750,7 +7752,7 @@
   },
   "current_subsystem": {
     "status": "IN PROGRESS",
-    "scope": "Remaining original code context/source closure;preserve accepted473/505/506 owners andno oldsuite/campaign."
+    "scope": "Dialogue header selector/predicate/control producer domain508;reuse immutable500/501 decoded packet inventory,no old suites/campaign."
   },
   "count_definition": "native_implemented counts IMPLEMENTED; CE_REPLACEMENT is separately reported. VERIFIED applies only to row evidence scope; no overall completion percentage."
 }
