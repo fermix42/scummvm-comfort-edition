@@ -25,10 +25,14 @@ public:
         ClockAdvance advance;if (!advanceTurnClock(clock,advance)) return false;
         clock=advance.after;world._fields[20]=clock.hourlyCounter;return true;
     }
+    bool completeEffects(const World &world,const WorldScene &scene,WorldActorTurnState &state,GameplayRandom &random,
+            const FixedMessageCatalog &catalog,TextGlyphSurface &text,HgrFrame &frame,Party &party,bool &defeated) const {
+        return _turn.completeEffects(world,scene,state,random,catalog,text,frame,&party,defeated);
+    }
     WorldMoveResult run(const Common::Event &input,World &world,WorldStory &window,WorldScene &scene,WorldActorTurnState &state,
             TurnClock &clock,LightState &light,VisibilityMask &visibility,NpcScheduleState &schedule,NpcRouteStore &routes,
             GameplayRandom &random,const FixedMessageCatalog &catalog,TextGlyphSurface &text,HgrFrame &frame,Common::Array<byte> &notice,WorldActorTurnEvent &encounter,byte animation=0,
-            WorldTransportState *transport=nullptr,Party *party=nullptr,bool forcedAlignment=false,byte partyAppearance=246) const {
+            WorldTransportState *transport=nullptr,Party *party=nullptr,bool forcedAlignment=false,byte partyAppearance=246,bool deferCompletion=false) const {
         if (!world.ready() || world.mapType()!=_type || animation>3 || state.effects.active || state.effects.queued) return kWorldMoveUnsupported;
         int dx=0,dy=0;byte direction;
         switch (input.kbd.keycode) {
@@ -116,7 +120,7 @@ public:
         // pixels are already black. Retain shifted logical visibility for
         // actors while giving the raster pass its actual painted history.
         WorldActorTurnEvent raised;byte painted[187]={};
-        const WorldWaitResult result=_turn.run(candidate,nextWindow,shifted,turn,nextClock,nextLight,mask,nextSchedule,nextRoutes,after,catalog,nextText,nextFrame,riding?controls.appearance:partyAppearance,animation,raised,false,direction,painted,party?&nextParty:nullptr);
+        const WorldWaitResult result=_turn.run(candidate,nextWindow,shifted,turn,nextClock,nextLight,mask,nextSchedule,nextRoutes,after,catalog,nextText,nextFrame,riding?controls.appearance:partyAppearance,animation,raised,false,direction,painted,party?&nextParty:nullptr,!deferCompletion);
         if ((result==kWorldWaitAdvanced || result==kWorldWaitBattle) &&
                 !PartyMoveCompletion::apply(shifted.actors.terrain[93],_quietGround,turn.terrainRecovery,frame,nextFrame)) return kWorldMoveUnsupported;
         if (result==kWorldWaitDefeat) {
@@ -124,24 +128,14 @@ public:
             world.adoptState(candidate);window=nextWindow;scene=shifted;state=turn;clock=nextClock;light=nextLight;visibility=mask;
             schedule=nextSchedule;routes=nextRoutes;random=after;text=nextText;frame=nextFrame;transferControls();return kWorldMoveDefeat;
         }
-        if (result==kWorldWaitBattle) {
-            // Preserve the actual partially completed ordered turn. Clock,
-            // remaining actors and arrival effects belong to its continuation.
-            world.adoptState(candidate);window=nextWindow;scene=shifted;state=turn;clock=nextClock;light=nextLight;visibility=mask;
-            schedule=nextSchedule;routes=nextRoutes;random=after;text=nextText;frame=nextFrame;encounter=raised;
-            transferControls();return kWorldMoveEncounter;
-        }
-        if (result!=kWorldWaitAdvanced) return result==kWorldWaitPendingEffect?kWorldMoveBoundary:kWorldMoveUnsupported;
+        if (result!=kWorldWaitAdvanced && result!=kWorldWaitBattle) return result==kWorldWaitPendingEffect?kWorldMoveBoundary:kWorldMoveUnsupported;
         const byte arrivedGround=shifted.actors.terrain[93];
         if (_sounds && arrivedGround!=_quietGround && (arrivedGround<229 || arrivedGround>=233)) _sounds->push_back(kSpeakerNotification);
         const StoryMapState *map=nextWindow.state();if (!map) return kWorldMoveUnsupported;
+        bool arrival=false;
         for (uint offset=0;offset<256;offset+=4) {
             if (map->spawns[offset+2]&128) break;
-            if (map->spawns[offset]==candidate.x() && map->spawns[offset+1]==candidate.y()) {
-                if (!completeClock(candidate,nextClock)) return kWorldMoveUnsupported;
-                world.adoptState(candidate);window=nextWindow;scene=shifted;state=turn;clock=nextClock;light=nextLight;visibility=mask;
-                schedule=nextSchedule;routes=nextRoutes;random=after;text=nextText;frame=nextFrame;transferControls();return kWorldMoveArrival;
-            }
+            if (map->spawns[offset]==candidate.x() && map->spawns[offset+1]==candidate.y()) {arrival=true;break;}
         }
         Common::Array<byte> authored;SoundEvents spoken;bool pending=false;const byte slot=shifted.objects.lookup[93];
         if (slot!=255) {
@@ -163,10 +157,13 @@ public:
             // passed traversal/turn admission and resumes the ordinary clock;
             // a second type whitelist incorrectly rejects static decorations.
         }
-        if (!pending && !completeClock(candidate,nextClock)) return kWorldMoveUnsupported;
+        if (!pending && !deferCompletion) {
+            if (!completeClock(candidate,nextClock)) return kWorldMoveUnsupported;
+            raised.clockPending=false;
+        }
         world.adoptState(candidate);window=nextWindow;scene=shifted;state=turn;clock=nextClock;light=nextLight;visibility=mask;
-        schedule=nextSchedule;routes=nextRoutes;random=after;text=nextText;frame=nextFrame;notice=authored;
-        transferControls();if (_sounds) for (uint i=0;i<spoken.size();++i) _sounds->push_back(spoken[i]);return pending?kWorldMoveNotice:kWorldMoveAdvanced;
+        schedule=nextSchedule;routes=nextRoutes;random=after;text=nextText;frame=nextFrame;notice=authored;encounter=raised;
+        transferControls();if (_sounds) for (uint i=0;i<spoken.size();++i) _sounds->push_back(spoken[i]);return pending?kWorldMoveNotice:arrival?kWorldMoveArrival:raised.battle?kWorldMoveEncounter:kWorldMoveAdvanced;
     }
 private:
     static bool showTransportEffect(const FixedMessageCatalog &catalog,byte id,TextGlyphSurface &text,HgrFrame &frame) {

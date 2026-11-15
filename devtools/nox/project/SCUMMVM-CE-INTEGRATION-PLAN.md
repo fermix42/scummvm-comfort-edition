@@ -6,12 +6,12 @@ coverage reconciliation remain IN PROGRESS. Do not start these runs now.
 
 ## Current implementation identity
 
-Latest compiled source: encounter clock513,parent0884b098d53 plus frozen513 delta.
-One build/first focused batch passed;ENCOUNTER-CLOCK513-VERIFICATION binds
-identity and scope. Executable SHA256:
-fb028e6c1d04df78160c079c82eff69276ef45fecf8d2d0b41b4cf3a46982d3c.
-Earlier512/511/audio473 artifacts remain preserved;shared world-tail ordering
-remains in progress. No actual Shadow/campaign/ordinarycold acceptance added.
+Latest compiled source: shared world completion514c,parent9b960c3cda7 plus
+frozen514delta. WORLD-TAIL514-VERIFICATION binds build/failures/firstcorrective
+pass andexact scope. Executable SHA256:
+6406e489bbeddba80f9c5033cb2f91dbe50bfd3bd12c42c258d17b4ad5b9091b.
+Previous513/512/511/audio473 artifacts preserved;ordinary Enginecold/session
+andcampaign acceptance unperformed. Historical491waterlabel explicitlyqualified.
 
 ## Finish the implementation phase
 

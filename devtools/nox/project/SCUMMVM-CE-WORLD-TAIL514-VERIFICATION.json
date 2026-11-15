@@ -1,0 +1,43 @@
+{
+  "status": "VERIFIED",
+  "scope": "Shared pre-battle completion through actual movement/stationary contacts,pressureplates,deferred notice/contact,portal/entrance contact discard,water defeat and native component codecs;pre-input source-compatible controlled records,no battle execution/campaign/ordinaryEnginecold/session/old suites",
+  "parent_commit": "9b960c3cda7",
+  "contract": "SCUMMVM-CE-ENGINE-WORLD-TAIL-CONTRACT.md",
+  "executable_sha256": "6406e489bbeddba80f9c5033cb2f91dbe50bfd3bd12c42c258d17b4ad5b9091b",
+  "source_file_count": 367,
+  "focused_validation": "world_tail\tactual_paid_contacts=5\tactual_contact_plates=2\tactual_notice_deferred_contact=1\tactual_portal_contact_policies=2\tactual_entrance_contact_discard=1\tactual_water_contact_defeat=1\tcomponent_codec_sets=9\tlegacy_notice_default=1\tbattle_execution=0\tcampaign=0\told_audio_animation_suite=0\n",
+  "build": {
+    "command": "Official run-build-release-cleanenv.ps1 -NoxNativeOnly with ForceImportAfterCppTargets=conversion/tail514c-build-output.targets",
+    "result": "514c:0 warnings,0 errors;2m47.39s;wrapperexit0",
+    "output": "build-scummvm/Releasex64/scummvm-tail514c.exe"
+  },
+  "native_batches": 2,
+  "unsuccessful_corrective_native_batches": 0,
+  "failures": [
+    "514:compiler C4456 movement direction local hides existingDirection;0warnings/1error12.74s,no native run. Renamed movementDirection.",
+    "514b:0warnings/0errors2m40.40s;first batch passed preceding cases then final supposedwater fixture UM104103,19 returnedcontact1,ground118,HP50unchanged. Immutable map decoder confirmsfloor118. Productionunchanged;newfixture actualUM98218,95 tile231,pre-input HP10,source damage17.514c firstcorrectivebatch passed."
+  ],
+  "source_research": "6 original returning post-actor caller-tail cases executeFBE6,observe/skipothercalledservices;4 selectedportal hookdiagnostics are explicitlyNOTrealreturning travel.2 actualF6A8 termination cases clearpending31F8/unwindto7128 withoutclock. 513 scalarproofunchanged.",
+  "setup": "Independent controlled pre-input checkpoints clear incidental compact/NPC record tiles and place one compacttile164/state1 atslot64,or164forUM98;source objects/terrain/entrances remain unchanged. Keep69normalcontacts;Ruin64 actualplate11,12;Town1actualnotice24,37 slot52 with sourcepredicate declaredclear;Castle54portal36,11 field60mask4;Town47entry9,16->46;UM98actualwater218,95 andHP10 beforeoperation. Native G closes notice;no battle outcome injected. Counter/health/actor mutations are prerequisites,not earnedplay.",
+  "production": "SharedactorcontactstopsAIloop but completesplate/raster.Native stationary contact clocks beforeprojectile/hazards anddispatch;defeatwins.OrdinaryWorldInputmovement defers tail through source notice/portal/clock/entrance/effects/contact order.Successfulportal abandonsclock/contact;entrance afterclock abandonscontact/origineffects.NWIN18persistsnewnotice direction/deferredcontact;oldnoticeformats retainhistoricalclosure.513clockPendingfalse marksnewcompletedcontacts.No new return reset,actorreplay orCPUaddresscontinuation.",
+  "qualifications": [
+    "Controlled source-compatible records,not actual authored actor placement/earnedroute/campaign.",
+    "Nine component core/window/input/turn codec sets andlegacy notice default,not ordinaryEnginecold/session.",
+    "No battle execution,old audio/animation suite or normal scriptedShadow endingrun.",
+    "Prior491 water-origin-damage-skipped wording is not supported by that UM104point:immutableground118,notwater.Frozen491receipt retained;514 provesactualUM98watercontactdefeat separately,not an actual waterportal transfer.",
+    "Stationary portal activation remains accepted CE behavior;source stationaryED2CdoesnotinvokeF117.",
+    "Legacy pending/native notice saves preserve historicalcompletion policy;514 sourceordering applies to newlyownedmovement notices/contacts.",
+    "Historical513queuedcontact assertions apply to its frozenexe;514 intentionallymoves that tick to sourceworldcompletion beforeadmission.",
+    "Direct WorldMove regression API retains immediateeffects compatibility unlessdeferCompletion requested;ordinaryWorldInputusesdeferred owner."
+  ],
+  "artifacts": {
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-binary\\scummvm-native-world-tail514c.exe": "6406e489bbeddba80f9c5033cb2f91dbe50bfd3bd12c42c258d17b4ad5b9091b",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-binary\\native-world-tail514c-source.zip": "6c0d61110da5889d440ffea2592fe6f0b8fa93097dd79cb80bec98e3fce5dbcc",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-world-tail514c-focused\\verification.json": "9ac51ed53994fc6f22096d653cbc25e01bbbcf5cc93ad793e0fb1b0b8c1700ab",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-world-tail514-build.log": "894973fa318f9b5c6b2ba0d3b8002892b6e831168180efbe67d9d531000ba779",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-world-tail514b-build.log": "cddffa8a6b671d2fef66456bca1c4683144d273ade5df3c61dace1e98c34447b",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-world-tail514c-build.log": "e0b94d96271c75cfb2e40e03e1e85f84f93d9c216706af4138f47031572b2f0c",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-world-tail514-source.json": "6ec88da07e5010986b63ed43eba77a95f1f21a41b1f3084c4e1bab3bc77ba752",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-world-tail514-hazard-fixture.json": "208d8f35f0c30618c8d5b7eb4a99aaf8a50bdf964fe6c44d1f5d8271fcd951b2"
+  }
+}

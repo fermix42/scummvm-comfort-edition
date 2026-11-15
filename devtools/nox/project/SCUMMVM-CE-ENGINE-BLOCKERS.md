@@ -1,3 +1,7 @@
+# Shared world completion514
+
+B-WORLD-TAIL resolved for new typed turn owner514:plate/notice/portal/clock/entry/hazard/contact completion andnotice persistence focusedverified. Broader cold/session/campaign andhistoricalsavepolicy migration unpromoted.491waterlabel correctedbyimmutablepointproof;no oldsuite rerun.
+
 # Encounter clock513
 
 513 resolves unconditional presentation tick for new manual/scripted admissions. Shared pre-battle world-tail effects/order and dialogue caller clock remain separate,unpromoted.

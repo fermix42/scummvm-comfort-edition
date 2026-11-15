@@ -82,3 +82,5 @@ Observed491b stackoverflow:recordedfault__chkstk+55,compiledstartupstack822792
 vs1MBPEreserve;deepordinary NPC chainexceedsreserve. Move transactional
 EncounterState copies toscopedheap without alteringcopy/commit semantics.
 Validatecompiledrootstackreduction andsamefocusedportalbatch;nooldbattlesuite.
+
+Current correction514:source successfulportal9CF8/F650/F6A8 abandonsmovement callers beforeF134,clearsqueuedcontact andskipsclock.491 afterclock wording wasincorrect. Its UM104103,19 supposedwaterfixture isimmutablefloor118,so that oldbatch doesnotprovelethalwaterdamage suppression. Preservehistorical491receipt;current514 focusedportal/contact policies andactualUM98waterdefeat are separate scopes.

@@ -1,3 +1,7 @@
+# Shared world completion514
+
+514 typednotice tail/originaldirection/deferredcontact,NWIN18 boundedwrapper andnative completion effects. No instructionexecutor,CPUaddresscontinuation or actor replay. Oldnotice/pendingformats preservehistoricalpolicy.
+
 # Encounter clock513
 
 513 pending-clock admission is a native boolean,NWIN17 nondefault wrapper. No instruction interpreter/address continuation or CPU ABI. Legacy pending admissions preserve previous policy.

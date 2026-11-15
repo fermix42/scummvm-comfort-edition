@@ -1,3 +1,85 @@
+# Shared world completion514c - VERIFIED within source-driven contract
+
+514c officialbuild0warnings/0errors2m47.39s,exit0. Firstcorrectivebatchpasses:
+5actualpaidcontacts,2contactplates,notice/deferredcontactclosure,2portalcontact
+permission/discardpolicies,normalentranceclock/discard,actualwatercontactdefeat,
+9componentcodecsets/legacy notice default. No unsuccessfulcorrectivererun.
+Initial514compileC4456 and514bfloor118 fixturefailure retainedinreceipt/logs.
+OriginalUM98tile231/pre-inputHP10 replacesincorrectUM104floorwaterlabel;
+prior491water-suppressionclaimqualified,oldreceiptuntouched. No campaign,
+battleexecution,old suite orordinaryEnginecold/session claim.514 supersedes
+513's pendingcontact tick timing for newturns,retains oldnative-save policies.
+Exact source/exe/archive/setup/commands:WORLD-TAIL514-VERIFICATION.json.
+Canonical records here andbyte-identicalCEdevtools/nox/project recovery copies.
+Next remaining authored caller/source-owner closure;continue withoutmilestonestop.
+
+# Shared tail514b first native batch: fixture correction - IN PROGRESS
+
+514b official build0warnings/0errors2m40.40s,wrapperexit0. Firstnativebatch
+passed4paidcontact/2plate cases,actualdeferrednotice/closure,portalrefusal/
+contact-discard,entranceclock/discard and9componentcodec sets beforefinal
+hazard assertion. Finalprofile returnedBattle/contact1,terrain118,HP50->50:
+UM104(103,19) isfloor118,notwater. Immutable originaldecoder confirms118;
+prior491 'water-origin damage skipped' wording overstates that fixture's scope.
+Keep491 receipt unchanged;currentqualificationmustdiscloseit.
+OriginalUM98(218,95) isactualwater231,originaldamage17. Correct514hazard
+fixture tothatpoint anddeclareHP10 BEFOREoperation;assertterrain231 first.
+No productionchange. Additional514cbuild justifiedbydirectfixturemismatch.
+0unsuccessfulcorrectivenativereruns sofar;firstcorrectivebatchnext. No old
+suite/campaign. Sourcepointproof:ce-native-world-tail514-hazard-fixture.json.
+
+# Shared tail514b linking - IN PROGRESS
+
+C4456 correction applied only to new movementDirection local. Official514b
+native-only build compiled the complete owner/focused batch andis linking.
+Source6 actual returning caller-tail profiles plus4 stubbedportal diagnostics
+are separated from2 actualoriginalF6A8 transfer-termination profiles. Do not
+mistake stubbedselectedportal rows forrealreturning travel. NewNWIN18 notice
+continuation andper-caller paid-clock policy remain unverified untilfirstbatch.
+No sources maychange whilelinking. Exact current buildlog514b andoutputtargets
+retained;source/binary freeze onlyafterpass. No old suites orcampaign.
+
+# Shared tail514 compile correction - IN PROGRESS
+
+First official514 build stopped beforelink/native execution:C4456 local
+'direction' hides handleCommand's existing Direction variable atinputline488.
+0warnings/1error12.74s;log ce-native-world-tail514-build.log. Rename only the
+new movement local to movementDirection;no semantic change. Direct compiler
+failure justifies additional514bbuild. No native batch attempted/no failed
+corrective native run. Keep all prior artifacts. Next514bbuild,firstfocusedbatch.
+
+# World completion514 staged - IN PROGRESS before build
+
+Phase1/phase2 one-shot scripts executed. WorldWait actor/plate/raster separated
+from completion effects;new stationary contacts finish clock/effects before
+battle anddefeat outrankscontact. OrdinaryWorldInput requests deferredmovement:
+notice thenportal thenclock thenentrance thenprojectile/hazards thencontact.
+Successfulportal discardscontact/no tick;entrance afterclock discardscontact.
+NWIN18 persistsnewnotice-tail/originalmovementdirection/deferredcontact;old
+notice formats keep historicalclock-only closure. No actor replay. Current513
+artifacts preserved. Shared focusedbatch prepared beforebuild foractual contacts,
+plates,noticeclosure,portalpermission/transfer,entrance,waterdefeat andcodecs.
+One integration buildnext;no native514resultyet. Old513receipt remains frozen;
+its originalqueued-contact timing assertions are superseded by source514 and
+mustnotbe advertised as currentacceptance. No old suites/campaign/coldsession.
+
+# Shared world-turn completion514 - IN PROGRESS before production edits
+
+513 committed9b960c3cda7;first build/batch passes,artifacts frozen.
+Source514 adds10 original post-actor caller-order cases and2 actual F6A8
+termination cases. Important source correction:successful portal9CF8/F650
+clears31F8 andunwinds to7128,so originalmovementclockF134 is skipped;491's
+'afterclock' wording waswrong. Stubbedportal diagnostic rows are explicitly
+not realportal continuation. Failed first514 script hadSyntaxError before
+execution;fixedspacing,sourcebatch passes,no native run/build.
+Contract ENGINE-WORLD-TAIL written before production edits. Implement one
+coherent shared actor-completion/notice/portal/clock/entry/hazard owner with
+typed deferred notice/contact persistence,thenone integration build/batch.
+Do not replayremaining actors or reopen old suites. Source-compatible input
+checkpoints only,no combat outcome/campaign/ordinaryEnginecold claim.
+Current compiled accepted513 source/exe unchanged. Next inspect actual shared
+callers andstagecomplete514;do not stop at513 milestone.
+
 # Encounter clock513 - VERIFIED within focused admission scope
 
 Official isolated native-only build0warnings/0errors2m41.45s,wrapperexit0.
