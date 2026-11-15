@@ -1,6 +1,6 @@
 # Complete native world population and generated hazards517
 
-Status: IN PROGRESS. Contract before production changes. Parent28374e5a40a.
+Status: VERIFIED within declared source-driven contract. Contract before production changes. Parent28374e5a40a.
 
 This is one subsystem batch. Do not compile a catalog-only producer and then
 repair its consumers in later builds. Implement and prepare its full focused
@@ -79,3 +79,8 @@ Implementation complete in517batch;verification remainsIN PROGRESS.
 WORLD-POPULATION517-CHECKPOINT binds370files/candidate517c andverifiedprefix.
 RemainingchecksBLOCKEDafterendedfixtureloop;correctedvalidation-onlydelta
 unbuilt.Noanother517rerun;continueindependentauthorizedsubsystemwork.
+
+VERIFIED within declared source-driven contract through NPC-RECOVERY518 evidence.
+WORLD-POPULATION517-VERIFICATION binds the split executable/source scopes and
+explicitCEreplacements. Previouslyunreachedchecks pass518b;passed517prefix
+wasNOTrepeated. OlderINPROGRESS/BLOCKED entriesabovearehistorical.

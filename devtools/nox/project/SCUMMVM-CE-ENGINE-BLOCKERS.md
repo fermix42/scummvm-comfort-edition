@@ -1,3 +1,11 @@
+# Weather517 and NPC recovery518 closure
+
+B-WEATHER-VALIDATION retired by first518b batch:allpreviouslyunreachedchecks
+passwithoutrepeating517prefix. B-WORLD-POPULATION implementation complete.
+NPCordinaryNoRoute/Capacityfatalcontinuationreplacedwithtypeddefer/wait/other
+queueprogress. Sourceinvalidcontextremainsinvalid. BothscopedcontractsVERIFIED;
+fullNPC/normalcold/session/campaignstayqualified. Exactreceipts518/517.
+
 # Weather/population517 implementation checkpoint
 
 B-WORLD-POPULATION missing native implementation retired by complete517batch.

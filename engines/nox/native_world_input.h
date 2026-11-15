@@ -744,9 +744,9 @@ private:
                 NpcScheduler::prefetchAtClock(world,clock.hour,clock.minute,schedule)==kNpcScheduleUnsupported) return false;
         Common::ScopedPtr<NpcNavigation> navigation(new NpcNavigation);bool complete=false;
         for (uint tick=0;tick<4096;++tick) {
-            const NpcNavigationResult result=navigation->advance(archive,world,window,schedule,store,random);
+            const NpcNavigationResult result=navigation->advanceForWorld(archive,world,window,schedule,store,random);
             if (result==kNpcNavigationIdle || (result==kNpcNavigationStored && !navigation->active())) {complete=true;break;}
-            if (result!=kNpcNavigationSearching) {warning("Native scheduled route result %u",uint(result));return false;}
+            if (result!=kNpcNavigationSearching && result!=kNpcNavigationDeferred) {warning("Native scheduled route result %u",uint(result));return false;}
         }
         return complete && window.captureRecords(world);
     }

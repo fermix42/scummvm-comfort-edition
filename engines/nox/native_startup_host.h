@@ -77,6 +77,8 @@
 #include "nox/native_world_tail_validation.h"
 #include "nox/native_dialogue_clock_validation.h"
 #include "nox/native_world_population_validation.h"
+#include "nox/native_npc_recovery_validation.h"
+#include "nox/native_weather_remaining_validation.h"
 #include "nox/native_search_defeat_validation.h"
 #include "nox/native_dialogue_voice_validation.h"
 #include "nox/native_player_lifecycle_validation.h"
@@ -119,6 +121,15 @@ inline Common::Error NoxEngine::runNativeStartup() {
     if (ConfMan.hasKey("nox_native_search_defeat495") && ConfMan.getBool("nox_native_search_defeat495")) {
         Common::String report;if (!Native::validateNativeSearchDefeat495(_resources,report)) return fail(report.empty()?"Search defeat focused check failed":report.c_str());
         Common::OutSaveFile *out=_system->getSavefileManager()->openForSaving("nox-native-search-defeat.tsv",false);if (!out) return Common::kWritingFailed;
+        out->writeString(report);out->finalize();const bool ok=!out->err();delete out;return ok?Common::Error(Common::kNoError):Common::Error(Common::kWritingFailed);
+    }
+    if (ConfMan.hasKey("nox_native_npc_recovery518_fixture")) {
+        Common::File fixture;Common::String report,weather;
+        if (!fixture.open(Common::FSNode(ConfMan.getPath("nox_native_npc_recovery518_fixture"))) ||
+                !Native::validateNativeNpcRecovery518(_resources,fixture,report)) return fail(report.empty()?"NPC recovery focused check failed":report.c_str());
+        if (!Native::validateNativeWeatherRemaining518(_resources,weather)) return fail(weather.empty()?"Remaining weather check failed":weather.c_str());
+        report+=weather;
+        Common::OutSaveFile *out=_system->getSavefileManager()->openForSaving("nox-native-npc-recovery.tsv",false);if (!out) return Common::kWritingFailed;
         out->writeString(report);out->finalize();const bool ok=!out->err();delete out;return ok?Common::Error(Common::kNoError):Common::Error(Common::kWritingFailed);
     }
     if (ConfMan.hasKey("nox_native_world_population517_fixture")) {

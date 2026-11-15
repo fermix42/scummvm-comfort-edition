@@ -1,3 +1,41 @@
+# Complete weather/population517 and NPC recovery518b - VERIFIED within contracts
+
+NPC518b firstnativebatchpasses:2observedCastle3no-routegeometries/1capacity,
+3deferredjobs/3waitingactors/2otheractormoves,243cooperativestatecodecsets,
+actualordinaryworldinput. PreviouslyUNREACHEDweatherchecksALLPASS:8quadrant
+stormdamage/protection,defeat,arm/poll/delay,all-visiblebound,actualmovement
+arm,sharedtravelprojectilecleanup/globalstate. NOpassed517prefixrerun.
+Build518b0warnings/0errors2m41.28s;initialprivate-accesscompilefailure12.63s
+correctedonlyinadapter. Firstnativebatchpass;no518corrective nativererun.
+Exactsource/exe/commands/setup/qualifications:NPC-RECOVERY518-VERIFICATION;
+combinedweathercompletion:WORLD-POPULATION517-VERIFICATION. Elevenweather
+productionheadersmatch517c;worldinputdiffonlynewNPCfailurecontinuation.
+372sourcefilesfrozen,nativestateschemaunchangedforNPC;audio473sevenfiles
+byte-identical. CurrentexeSHA256:
+594636340597e78eeb62120bef64e7b7420d4b882a5c48512ef58c84d20031ea.
+Originalstaletiercache/fullvisible/nocategoryhangsareexplicitCEreplacements,
+not claimedparity. No normalEnginecold/session/earnedcampaign/oldsuites.
+Continueindependentremainingitem/service/magicandsharedsourceconnections;
+no milestone stop/rebuild. Canonicalconversionandbyte-identicalCEproject
+recoverycopiesretained. Preserveaccepted515/473andall517failureartifacts.
+
+NPC518initialbuildcompilefailure12.63s:validationadaptercalledprivateWorld.
+adoptState. ReplacewithpublicWorld.save/load(alreadyusedbyotherfixtures).
+ProductionNPCrecoveryunchanged. No native518batchhasrun.Nooldweatherprefix.
+518bcorrectivecompileusesisolatedoutput;no rerunbudgetconsumedbycompileerror.
+
+# NPC ordinary navigation recovery518 - IN PROGRESS
+
+Weather/population coherentimplementationcommitted0ee5cb93765. Continueactual
+NPCgap:prepareClockInputrejectsNoRoute/Capacity although actorowneralready
+supportsWaitingForRoute. Selectedonly2observedCastle3no-routegeometries plus
+1reachableCastle3 route fromaccepted94data;no old1495suite rerun.
+ContractENGINE-NPC-RECOVERY beforecode:retireonlyfailedjob,continueotherjobs,
+keepNPCwaiting,retainworld/RNG/pages/nativeformats. Onefocusedbatch/onebuild.
+IncludeonlypreviouslyUNREACHED weatherchecks withlegalHP50asdirectshared-world
+regressionreason;neverrepeat517passedprefix/restartitsendedloop.
+CanonicalandCEprojectmirrorstrackbothcheckpoints;no campaign/publication.
+
 # Population517c implementation checkpoint;focused loop ended - IN PROGRESS
 
 Finalcorrectivebuild517c0warnings/0errors2m49.11s. Nativepasses85wholeoriginal

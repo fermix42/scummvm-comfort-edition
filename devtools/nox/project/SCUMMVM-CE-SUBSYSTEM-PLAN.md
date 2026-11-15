@@ -1,3 +1,12 @@
+# Current continuation after complete weather/NPC recovery518b
+
+Weather/population517sourcecontractandordinaryNPCfailurecontinuation518are
+VERIFIEDwithsplit/scopedevidence. No further517/518buildoroldsuitererun.
+Continueexistingremainingitem/service/magicandsharedsourceconnections;reuse
+494..510producer inventoriesandearlierqualifiedruntimeowners. Implementonly
+concretesourcegap,notduplicateworkinghandlersoroldacceptance. Audio473stays
+accepted. No campaign traversal/acceptance or milestone stop.
+
 # Current continuation after source closures494..502
 
 Remaining source-driven work:shared lifecycle/presentation production connections

@@ -1,3 +1,11 @@
+# NPC world recovery518
+
+advanceForWorld uses existingnativecooperativepathresult;NoRoute/Capacity
+retiresonlyfailedjobandusesexistingWaitingForRoute. NoCPUexecutor/cache/
+addresscontinuation,newsaveformat,permanentNPCdisableorRNGrollback.
+Originalfatal/errorpresentationisexplicitCEwait/retryreplacement. Invalid
+stillfails. Weatherremainingvalidationqualificationclosedby518bfirstbatch.
+
 # Population/weather517 native owner
 
 Data-only catalog extents/terrain offsets/exclusion tables andtypedpopulation

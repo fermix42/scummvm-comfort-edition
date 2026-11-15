@@ -1,0 +1,24 @@
+{
+  "status": "VERIFIED",
+  "scope": "Native weather/population implementation and declared source-driven focused contract;not fullport/campaign/normalEnginecold/session acceptance.",
+  "implementation_commit": "0ee5cb93765",
+  "prefix_checkpoint": "SCUMMVM-CE-WORLD-POPULATION517-CHECKPOINT.json",
+  "completion_evidence": "SCUMMVM-CE-NPC-RECOVERY518-VERIFICATION.json",
+  "current_executable_sha256": "594636340597e78eeb62120bef64e7b7420d4b882a5c48512ef58c84d20031ea",
+  "current_source_archive": "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-binary\\native-npc-recovery518b-source.zip",
+  "evidence_split": "517c source/executable:85originalgenerator exactrecord/state/RNG,86turncodecs,12originalpixel frames/36cells,6orderedstormmoves,3gates.518bsource/executable:previouslyunreacheddamage/protection/defeat,lifecycle,allvisiblebound,actualmovementarm,sharedtravelcleanup.11weatherproductionheaders unchanged;worldinputdiffonlyunrelatedNPCcontinuation.",
+  "ce_replacements": [
+    "Currentleader catalogtier instead of staleoriginalloadedtier afterN reorder.",
+    "Bounded no-spawn instead of fullvisible replacement hang.",
+    "Bounded no-category selection instead of syntheticoriginalhang;staticnativebound,not12nativefaulttests."
+  ],
+  "qualifications": [
+    "Nativecomponentcodecroundtrips;notnormalEnginecold/fullplayerpendingcontinuation.",
+    "Controlleduniformterrain/referenceallocations andpartystarts precedeoperations;notearnedcampaign/weatherencounters.",
+    "Initial517branchinversions,517bfooterindexerror,517cHPpreconditionfailure andendedloop preserved.518newNPCbatchdoesnotrerunpassed517prefix."
+  ],
+  "artifacts": {
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\SCUMMVM-CE-WORLD-POPULATION517-CHECKPOINT.json": "f6bae667d364f51e7a9a0463ac294530384f76631be09bc1ea9513191d8a7c8c",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\SCUMMVM-CE-NPC-RECOVERY518-VERIFICATION.json": "2d2acce5a3307d8d744dcd239f261a0d6a452df1212350108c0993e4cb6faf8b"
+  }
+}

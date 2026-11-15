@@ -5,7 +5,7 @@
 #include "nox/native_npc_route_store.h"
 #include "common/memstream.h"
 namespace Nox { namespace Native {
-enum NpcNavigationResult { kNpcNavigationIdle, kNpcNavigationSearching, kNpcNavigationStored, kNpcNavigationNoRoute, kNpcNavigationCapacity, kNpcNavigationInvalid };
+enum NpcNavigationResult { kNpcNavigationIdle, kNpcNavigationSearching, kNpcNavigationStored, kNpcNavigationNoRoute, kNpcNavigationCapacity, kNpcNavigationInvalid, kNpcNavigationDeferred };
 // Background path owner: pending authored queue -> cooperative search -> route
 // allocation. The actual caller owns clock/prefetch, error UI and actor turns.
 class NpcNavigation {
@@ -48,6 +48,17 @@ public:
             schedule._recent[_slot * 6 + 5] = 255; _active = false; _slot = 255; stored = true;
         }
         return stored ? kNpcNavigationStored : kNpcNavigationSearching;
+    }
+    // Ordinary-world policy: a failed path leaves that NPC waiting and
+    // frees this queue entry so other scheduled actors can continue. The
+    // diagnostic advance() API retains its precise failure result.
+    NpcNavigationResult advanceForWorld(HdvArchive &archive,const World &world,const WorldStory &window,
+            NpcScheduleState &schedule,NpcRouteStore &routes,GameplayRandom &random) {
+        const NpcNavigationResult result=advance(archive,world,window,schedule,routes,random);
+        if (result!=kNpcNavigationNoRoute && result!=kNpcNavigationCapacity) return result;
+        if (!_active || _slot>=10 || schedule._recent[_slot*6+5]!=0) return kNpcNavigationInvalid;
+        schedule._recent[_slot*6+5]=255;schedule._pathBusy=0;
+        _active=false;_slot=255;_search=NpcPathSearch();return kNpcNavigationDeferred;
     }
     bool save(Common::WriteStream &out) const {
         out.writeUint32BE(MKTAG('N','N','A','V')); out.writeUint16LE(1); out.writeByte(_active); out.writeByte(_slot); out.writeByte(_type); out.writeByte(_map);

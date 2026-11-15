@@ -1031,8 +1031,8 @@
       "behavior": "Random encounter admission",
       "implementation": "IMPLEMENTED",
       "verification": {
-        "status": "IN PROGRESS",
-        "scope": "517c passes85 original generator/state/RNG cases,86turncodecs,12pixel frames/6movement/3gates;remaininghazard/lifecycle/travelchecksBLOCKEDbyendedfixtureloop,notfullowneracceptance."
+        "status": "VERIFIED",
+        "scope": "Declarednativeweather/populationcontract:split517c/518bsourceboundproof;explicitCEreplacements. Not fullport/normalEnginecold/session/campaign."
       },
       "native_owners": [
         "engines/nox/native_clock.h",
@@ -1044,13 +1044,12 @@
         "engines/nox/native_world_population.h"
       ],
       "original_evidence": [
-        "SCUMMVM-CE-WORLD-POPULATION517-CHECKPOINT.json"
+        "SCUMMVM-CE-WORLD-POPULATION517-CHECKPOINT.json",
+        "SCUMMVM-CE-WORLD-POPULATION517-VERIFICATION.json"
       ],
       "production_connection": "WorldPopulation data-only native producer;shared input/idle consume,wait/move/travel arm;large storm AI/idle/damage consumers andNWAT6/nativelegacy scalar state. Explicit currentleadercatalogtier CE replacement.",
       "fallback_dependencies": [],
-      "blockers": [
-        "B-WEATHER-VALIDATION"
-      ]
+      "blockers": []
     },
     {
       "id": "simulation.07",
@@ -1080,7 +1079,7 @@
       "behavior": "Schedule activation and prefetch",
       "implementation": "PARTIAL",
       "verification": {
-        "status": "NOT STARTED",
+        "status": "IN PROGRESS",
         "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement."
       },
       "native_owners": [
@@ -1093,7 +1092,9 @@
         "engines/nox/native_dialogue_rules.h",
         "engines/nox/native_recruitment.h"
       ],
-      "original_evidence": [],
+      "original_evidence": [
+        "SCUMMVM-CE-NPC-RECOVERY518-VERIFICATION.json:ordinaryNoRoute/Capacitycontinuation,waiting/queueprogress/actualinput;broaderrownotautomaticallyVERIFIED."
+      ],
       "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
       "fallback_dependencies": [],
       "blockers": []
@@ -1104,7 +1105,7 @@
       "behavior": "Path search route follow and route recovery",
       "implementation": "PARTIAL",
       "verification": {
-        "status": "NOT STARTED",
+        "status": "IN PROGRESS",
         "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement."
       },
       "native_owners": [
@@ -1117,7 +1118,9 @@
         "engines/nox/native_dialogue_rules.h",
         "engines/nox/native_recruitment.h"
       ],
-      "original_evidence": [],
+      "original_evidence": [
+        "SCUMMVM-CE-NPC-RECOVERY518-VERIFICATION.json:ordinaryNoRoute/Capacitycontinuation,waiting/queueprogress/actualinput;broaderrownotautomaticallyVERIFIED."
+      ],
       "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
       "fallback_dependencies": [],
       "blockers": []
@@ -1128,7 +1131,7 @@
       "behavior": "NPC actions movement and contact",
       "implementation": "PARTIAL",
       "verification": {
-        "status": "NOT STARTED",
+        "status": "IN PROGRESS",
         "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement."
       },
       "native_owners": [
@@ -1141,7 +1144,9 @@
         "engines/nox/native_dialogue_rules.h",
         "engines/nox/native_recruitment.h"
       ],
-      "original_evidence": [],
+      "original_evidence": [
+        "SCUMMVM-CE-NPC-RECOVERY518-VERIFICATION.json:ordinaryNoRoute/Capacitycontinuation,waiting/queueprogress/actualinput;broaderrownotautomaticallyVERIFIED."
+      ],
       "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
       "fallback_dependencies": [],
       "blockers": []
@@ -5021,7 +5026,7 @@
     },
     {
       "path": "engines/nox/native_npc_navigation.h",
-      "sha256": "965787c3b7c29a865d5a4716a62c6e5b9c73189c073290ef293dfdd99dc8e2bb",
+      "sha256": "39c289a22a726e30bce9b62df5abe09aa2e55e345f6bc2d5acf0b7ec360e3a8f",
       "includes": [
         "nox/native_npc_path.h",
         "nox/native_npc_route_store.h"
@@ -5606,7 +5611,7 @@
     },
     {
       "path": "engines/nox/native_startup_host.h",
-      "sha256": "96168ccfee1896bb8670fd8635e92b12d994f82c7b5e6dcb4d49ca55fd0e08bc",
+      "sha256": "97c7bdec0fdf556ec98a2ca461aae23ab2390e583d71740f4c9c8ab94c4946dc",
       "includes": [
         "nox/native_weapon_ready_validation.h",
         "nox/native_legacy_snapshot.h",
@@ -6827,7 +6832,7 @@
     },
     {
       "path": "engines/nox/native_world_input.h",
-      "sha256": "fd6a5f235fd080d12d3f1c6774992e9ba3481123bf0ec029312cd5f7bd0ebb8e",
+      "sha256": "fbeef299c79e4284e2c5f13b509f87ea97f484a1b78d1246193b5d85c00ac5a2",
       "includes": [
         "nox/native_new_game.h",
         "nox/native_world_move.h",
@@ -7750,6 +7755,24 @@
       ],
       "explicit_boundaries": [],
       "coverage": "Only individual requirement/evidence scopes credited."
+    },
+    {
+      "path": "engines/nox/native_npc_recovery_validation.h",
+      "sha256": "822e1100a7b21cd8ae1f236907476fbbbfdd94caab8c8d2b3f9c027427069564",
+      "includes": [
+        "nox/native_world_population_validation.h"
+      ],
+      "explicit_boundaries": [],
+      "coverage": "Onlyindividualrequirement/evidencescopescredited."
+    },
+    {
+      "path": "engines/nox/native_weather_remaining_validation.h",
+      "sha256": "ab27da64d4eb8e1634cb0fb476b15bb11587840e3d12ed608bf2522c9bfc0420",
+      "includes": [
+        "nox/native_world_population_validation.h"
+      ],
+      "explicit_boundaries": [],
+      "coverage": "Onlyindividualrequirement/evidencescopescredited."
     }
   ],
   "counts": {
@@ -7885,8 +7908,8 @@
     }
   },
   "last_milestone": {
-    "owner": "Weather/population517c implementation checkpoint,notfullyVERIFIED",
-    "evidence": "SCUMMVM-CE-WORLD-POPULATION517-CHECKPOINT.json"
+    "owner": "Completeweatherpopulation517/NPCrecovery518bwithincontracts",
+    "evidence": "SCUMMVM-CE-NPC-RECOVERY518-VERIFICATION.json"
   },
   "overall": {
     "fully_implemented_top_level_domains": 1,
@@ -7900,7 +7923,7 @@
   },
   "current_subsystem": {
     "status": "IN PROGRESS",
-    "scope": "Continue independent NPC/magic/source connection closure;weather implementation complete but remainingfocusedvalidationBLOCKED after endedfixtureloop. No517rerun/campaign/old suites."
+    "scope": "Remainingitem/service/magicandsharedsourceconnectionclosure;no old inventories/suites/campaign ormilestonestop."
   },
   "count_definition": "native_implemented counts IMPLEMENTED; CE_REPLACEMENT is separately reported. VERIFIED applies only to row evidence scope; no overall completion percentage."
 }
