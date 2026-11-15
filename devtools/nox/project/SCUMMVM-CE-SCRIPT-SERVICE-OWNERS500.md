@@ -45,3 +45,30 @@ needed. No service rewrite or rebuild is justified by this review.
 
 Next: shared presentation/lifecycle/remaining script code producer audit, then
 prepare the separate bounded integration plan. Do not run campaign acceptance.
+
+## Initial contact producer closure502
+
+Read-only command `python conversion/census_scripted_contacts502.py`, exit0.
+All76 initial map records contain17 fixed actor predicates, exactly matching
+retained M3 predicate census37, and15 active role126 contact-effect records.
+Nine role126 records request an award; every kind/ID fits the native inventory
+encoding. All17 fixed predicates occupy slots below244, matching the source
+BattleWorldReturn predicate boundary. No new initial effect encoding is missing.
+Zero-coordinate templates are retained in this count, not dismissed as padding.
+Detailed records/resource hashes stay local in
+ce-native-scripted-contacts502-local.json.
+
+Actors performs predicate/recruit retirement at presentation admission.
+BattleWorldReturn.effects commits fixed/role126 flags and authored award
+metadata before advancement/loot; BattleAftermath and BattleLoot consume that
+metadata. Parent retirement remains delayed to the established world return.
+Generic data owners cover repeated side-branch records too; the old M3 selected
+mandatory-route exclusions do not license dropping their implementation.
+494's11 typed map rules and479's world callbacks remain separate domains.
+
+This closes the initial contact producer encoding question. It does not prove
+all dynamic/scripted activation, all original indirect code writers, ordinary
+cold integration or an earned campaign. No production change/build/runtime or
+old combat/audio suite was needed. Continue remaining lifecycle/presentation
+and original code-context classification; do not add speculative side-quest
+work merely because an old M3 proof selected a different route.

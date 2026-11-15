@@ -1869,7 +1869,9 @@
         "engines/nox/native_battle_world_return.h",
         "engines/nox/native_quick_battle.h"
       ],
-      "original_evidence": [],
+      "original_evidence": [
+        "SCUMMVM-CE-SCRIPT-SERVICE-OWNERS500.md contact502:17fixed/15role126/9awards static source encoding scope only"
+      ],
       "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
       "fallback_dependencies": [],
       "blockers": []
@@ -1895,7 +1897,9 @@
         "engines/nox/native_battle_world_return.h",
         "engines/nox/native_quick_battle.h"
       ],
-      "original_evidence": [],
+      "original_evidence": [
+        "SCUMMVM-CE-SCRIPT-SERVICE-OWNERS500.md contact502:17fixed/15role126/9awards static source encoding scope only"
+      ],
       "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
       "fallback_dependencies": [],
       "blockers": []
@@ -2334,7 +2338,9 @@
         "engines/nox/native_world_open.h",
         "engines/nox/native_ending.h"
       ],
-      "original_evidence": [],
+      "original_evidence": [
+        "SCUMMVM-CE-SCRIPT-SERVICE-OWNERS500.md contact502:17fixed/15role126/9awards static source encoding scope only"
+      ],
       "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
       "fallback_dependencies": [],
       "blockers": []
@@ -2478,7 +2484,8 @@
       "original_evidence": [
         "SCUMMVM-CE-SOURCE-PRODUCERS494.md (static scope only)",
         "SCUMMVM-CE-SCRIPT-SERVICE-OWNERS500.md: authored dialogue domain classified;wider code scope retained UNKNOWN",
-        "SCUMMVM-CE-DIALOGUE-PRESENTATION501.md:complete authored body grammar static scope;not whole rendering/runtime acceptance"
+        "SCUMMVM-CE-DIALOGUE-PRESENTATION501.md:complete authored body grammar static scope;not whole rendering/runtime acceptance",
+        "SCUMMVM-CE-SCRIPT-SERVICE-OWNERS500.md contact502:17fixed/15role126/9awards static source encoding scope only"
       ],
       "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
       "fallback_dependencies": [],
