@@ -1,0 +1,39 @@
+{
+  "status": "VERIFIED",
+  "scope": "Demonstrated earned normal world-cannon stationary-turn failure: source-overwritten hostile origin crossing viewport; exact earned rerun, original result/RNG comparison, ordinary save56/cold016/nextEast pass. Not full artillery, campaign, Raque, ending or M4.3 verification.",
+  "cause": "Hostile origin overwritten to15,7 with queued East: original ray projects x19 through GAME6880,endpoint138; native rejected x17 before completing turn.",
+  "correction": "WorldWait loads immutable original projection rows; hostile ray uses source byte-step/projection without framebuffer access. Player target lookup remains bounded. No opcode executor or state grant.",
+  "modified_files": [
+    "engines/nox/native_world_projectile.h",
+    "engines/nox/native_world_wait.h"
+  ],
+  "executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4",
+  "source_manifest_sha256": "21dca4a3b344c917e9a9d3440df6886d7c9efe2d3321d904a8ba19b0f9ae372f",
+  "earned_lineage": {
+    "parent": 55,
+    "normal_route_save": [
+      171,
+      107
+    ],
+    "checkpoint": 56,
+    "cold": 16
+  },
+  "corrective_reruns": 1,
+  "builds": 4,
+  "process_launches": 16,
+  "evidence": {
+    "ce-native-acceptance528\\cannon530\\failure.json": "857371a8e819f809b6f3f21a40b3598e7a3f48cda092d488329038b0fa9770a6",
+    "ce-native-acceptance528\\cannon530\\original-failure-stderr.log": "14701ab0704bfed30feb5c488d84e70e4bbef63be0e4144cde7837b9510c86b6",
+    "ce-native-acceptance528\\cannon530\\diagnostic-failure-stderr.log": "d36992e75ffe1cb5ea58f548627c4c2dc38a70a54ef163065954d0d814d75375",
+    "ce-native-acceptance528\\cannon530\\diagnostic-build-receipt.json": "f94c89f1d707159b648eb81c3f6ba084a37fdce91e695ee4b0031a860307a474",
+    "ce-native-acceptance528\\cannon530\\corrected-build-receipt.json": "a46d16d2eeb9ee9d9824bbcfe74ac391e34078aecdbb7ddef5b14204f370e7a2",
+    "ce-native-acceptance528\\cannon530\\corrected-source.json": "21dca4a3b344c917e9a9d3440df6886d7c9efe2d3321d904a8ba19b0f9ae372f",
+    "ce-native-acceptance528\\cannon530\\corrected-source.zip": "83810d279c4b4c61d9b90c51bacfb183d11e1edf7e94c6512ae135b60b5ab55f",
+    "ce-native-acceptance528\\cannon530\\earned-rerun1.json": "23da6d627db9d40a2085ab87334bb17533a597b1cfa92b816d25e46ec7446ce1",
+    "ce-native-acceptance528\\cannon530\\original-comparison.json": "fcd179adf6034ca4917e767f387052e070d172bfdee71c894978d398fdec9d51",
+    "ce-native-acceptance528\\cannon530\\next-command.json": "cc7c7edb2e846715d55d1b45092118acb23cf5a8559047c4ff3653d639f8988d",
+    "ce-native-acceptance528\\earned-modern\\cold016.json": "7df361df2780b7f129c77c85e91fecd49ffd34ea8759e3b3a711f43111a69cfb"
+  },
+  "audio473": "unchanged; no suite rerun",
+  "next_action": "Continue earned island/Raque route; preserve north-sea nine-pirate tactical defeat as failed branch. Ending/full acceptance incomplete."
+}

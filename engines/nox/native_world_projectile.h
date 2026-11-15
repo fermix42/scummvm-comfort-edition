@@ -2,6 +2,7 @@
 #ifndef NOX_NATIVE_WORLD_PROJECTILE_H
 #define NOX_NATIVE_WORLD_PROJECTILE_H
 #include "nox/native_random.h"
+#include "common/textconsole.h"
 namespace Nox { namespace Native {
 struct WorldProjectileOutcome {
     bool hit;byte endpoint,impact;
@@ -11,8 +12,8 @@ struct WorldProjectileOutcome {
 // consumes the result; it must not generate another impact or random draw.
 class WorldProjectile {
 public:
-    static bool hostile(byte x,byte y,byte direction,bool retainedMode,GameplayRandom &random,WorldProjectileOutcome &output) {
-        return trace(x,y,direction,retainedMode && (direction==138 || direction==139),4,128,nullptr,random,output);
+    static bool hostile(byte x,byte y,byte direction,bool retainedMode,GameplayRandom &random,WorldProjectileOutcome &output,const byte *sourceRows=nullptr) {
+        return trace(x,y,direction,retainedMode && (direction==138 || direction==139),4,128,nullptr,random,output,sourceRows);
     }
     static bool player(byte appearance,byte direction,bool retainedMode,const byte *lookup,const byte *compact,GameplayRandom &random,WorldProjectileOutcome &output) {
         if ((appearance!=119 && appearance!=123) || !lookup || !compact) return false;
@@ -25,15 +26,24 @@ public:
         return trace(8,frigate?6:5,direction,vertical && (frigate || retainedMode),range,frigate?192:128,eligible,random,output);
     }
 private:
-    static bool trace(byte x,byte y,byte direction,bool mode,byte range,byte threshold,const byte *eligible,GameplayRandom &random,WorldProjectileOutcome &output) {
+    static bool trace(byte x,byte y,byte direction,bool mode,byte range,byte threshold,const byte *eligible,GameplayRandom &random,WorldProjectileOutcome &output,const byte *sourceRows=nullptr) {
         if (x>=17 || y>=11 || (direction!=136 && direction!=138 && direction!=139 && direction!=149)) return false;
         int column=x,row=y;byte orientation=direction==149?0:direction==136?128:direction==138?64:192;
-        GameplayRandom next=random;WorldProjectileOutcome result;
+        GameplayRandom next=random;WorldProjectileOutcome result;bool sourceEdge=false;
         for (uint remaining=range;remaining;--remaining) {
             const int step=(orientation&128)?-1:1;
             if (orientation&64) row+=step;else column+=step;
-            if (column<0 || column>=17 || row<0 || row>=11) return false;
-            result.endpoint=byte(row*17+column);
+            if (column<0 || column>=17 || row<0 || row>=11) {
+                if (!sourceRows || eligible) return false;
+                sourceEdge=true;
+            }
+            // L:1F0C/1F19 falls through to INC when DEC becomes negative.
+            // L:1F2D ->GAME9086 projects byte coordinates through GAME6880,
+            // including its authored rows beyond the eleven visible rows.
+            // A later ranged actor may replace the queued shot's origin.
+            // Resolve the original logical ray without indexing frame memory.
+            if (sourceRows) {if (column<0) column=0;if (row<0) row=0;}
+            result.endpoint=sourceRows?byte(sourceRows[byte(row)]+byte(column)):byte(row*17+column);
             if (eligible?eligible[result.endpoint]!=0:result.endpoint==93) {
                 byte roll;if (!next.next(1,255,roll)) return false;
                 if (roll<threshold) {result.hit=true;break;}
@@ -52,6 +62,9 @@ private:
                 result.impact=byte(result.endpoint+(jitter>=128?-1:1));
             } else result.impact=byte(result.endpoint+(column==10?-1:1));
         }
+        if (sourceEdge) warning("Native source-edge projectile origin%u,%u dir%u mode%u seed%u tail%u last%u attempts%u ->hit%u endpoint%u impact%u seed%u tail%u last%u attempts%u",
+            uint(x),uint(y),uint(direction),uint(mode),uint(random.seed()),uint(random.tail()),uint(random.last()),uint(random.generationAttempts()),
+            uint(result.hit),uint(result.endpoint),uint(result.impact),uint(next.seed()),uint(next.tail()),uint(next.last()),uint(next.generationAttempts()));
         random=next;output=result;return true;
     }
 };

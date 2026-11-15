@@ -21,7 +21,8 @@ public:
         Common::Array<byte> game,footer;MapAssetRange range;
         if (!_turn.load(archive,type) || !_hazardRules.load(archive,type) || !_lighting.load(archive,type) || !_occlusion.load(archive,type) || !_painter.load(archive,type) ||
             !archive.read("NA/GAME",game) || !resolveMapAssets(game,type,range) || !archive.readRange(range.resource,range.offset+range.size,72,footer)) return false;
-        memcpy(_hazards,footer.data()+46,4);_type=type;_ready=true;return true;
+        if (game.size()<0x980) return false;
+        memcpy(_projectileRows,game.data()+0x880,256);memcpy(_hazards,footer.data()+46,4);_type=type;_ready=true;return true;
     }
     WorldWaitResult run(World &world,WorldStory &window,WorldScene &scene,WorldActorTurnState &state,
             TurnClock &clock,LightState &light,VisibilityMask &visibility,NpcScheduleState &schedule,NpcRouteStore &store,
@@ -82,7 +83,7 @@ public:
         if (next.effects.queued) {
             if (!party) return false;
             WorldProjectileOutcome projectile;
-            if (!next.effects.originKnown || !WorldProjectile::hostile(next.effects.originX,next.effects.originY,next.effects.code,next.effects.projectileMode,after,projectile)) return false;
+            if (!next.effects.originKnown || !WorldProjectile::hostile(next.effects.originX,next.effects.originY,next.effects.code,next.effects.projectileMode,after,projectile,_projectileRows)) return false;
             sounds.push_back(kSpeakerProjectile);if (projectile.hit) sounds.push_back(kSpeakerActorHit);
             projectileHit=projectile.hit;next.effects.queued=0;next.effects.projectileMode=true;
         }
@@ -93,7 +94,7 @@ public:
         SoundEvents *target=captured?captured:_sounds;if (target) for (uint i=0;i<sounds.size();++i) target->push_back(sounds[i]);return true;
     }
 private:
-    bool _ready;byte _type,_hazards[4];SoundEvents *_sounds;WorldActorTurn _turn;WorldHazards _hazardRules;TerrainLighting _lighting;OcclusionRules _occlusion;TilePainter _painter;
+    bool _ready;byte _type,_hazards[4],_projectileRows[256];SoundEvents *_sounds;WorldActorTurn _turn;WorldHazards _hazardRules;TerrainLighting _lighting;OcclusionRules _occlusion;TilePainter _painter;
 };
 } }
 #endif
