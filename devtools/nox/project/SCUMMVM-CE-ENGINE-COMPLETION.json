@@ -1916,7 +1916,8 @@
         "engines/nox/native_vortex_cast.h"
       ],
       "original_evidence": [
-        "SCUMMVM-CE-SOURCE-PRODUCERS494.md (static scope only)"
+        "SCUMMVM-CE-SOURCE-PRODUCERS494.md (static scope only)",
+        "SCUMMVM-CE-MAGIC-DISPATCH499.md (static dispatch/NPC family scope only)"
       ],
       "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
       "fallback_dependencies": [],
@@ -1941,7 +1942,9 @@
         "engines/nox/native_battle_summon.h",
         "engines/nox/native_vortex_cast.h"
       ],
-      "original_evidence": [],
+      "original_evidence": [
+        "SCUMMVM-CE-MAGIC-DISPATCH499.md (static dispatch/NPC family scope only)"
+      ],
       "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
       "fallback_dependencies": [],
       "blockers": []
@@ -1965,7 +1968,9 @@
         "engines/nox/native_battle_summon.h",
         "engines/nox/native_vortex_cast.h"
       ],
-      "original_evidence": [],
+      "original_evidence": [
+        "SCUMMVM-CE-MAGIC-DISPATCH499.md (static dispatch/NPC family scope only)"
+      ],
       "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
       "fallback_dependencies": [],
       "blockers": []
@@ -1989,7 +1994,9 @@
         "engines/nox/native_battle_summon.h",
         "engines/nox/native_vortex_cast.h"
       ],
-      "original_evidence": [],
+      "original_evidence": [
+        "SCUMMVM-CE-MAGIC-DISPATCH499.md (static dispatch/NPC family scope only)"
+      ],
       "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
       "fallback_dependencies": [],
       "blockers": []
@@ -2013,7 +2020,9 @@
         "engines/nox/native_battle_summon.h",
         "engines/nox/native_vortex_cast.h"
       ],
-      "original_evidence": [],
+      "original_evidence": [
+        "SCUMMVM-CE-MAGIC-DISPATCH499.md (static dispatch/NPC family scope only)"
+      ],
       "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
       "fallback_dependencies": [],
       "blockers": []
@@ -2037,7 +2046,9 @@
         "engines/nox/native_battle_summon.h",
         "engines/nox/native_vortex_cast.h"
       ],
-      "original_evidence": [],
+      "original_evidence": [
+        "SCUMMVM-CE-MAGIC-DISPATCH499.md (static dispatch/NPC family scope only)"
+      ],
       "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
       "fallback_dependencies": [],
       "blockers": []
@@ -2061,7 +2072,9 @@
         "engines/nox/native_battle_summon.h",
         "engines/nox/native_vortex_cast.h"
       ],
-      "original_evidence": [],
+      "original_evidence": [
+        "SCUMMVM-CE-MAGIC-DISPATCH499.md (static dispatch/NPC family scope only)"
+      ],
       "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
       "fallback_dependencies": [],
       "blockers": []
@@ -2085,7 +2098,9 @@
         "engines/nox/native_battle_summon.h",
         "engines/nox/native_vortex_cast.h"
       ],
-      "original_evidence": [],
+      "original_evidence": [
+        "SCUMMVM-CE-MAGIC-DISPATCH499.md (static dispatch/NPC family scope only)"
+      ],
       "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
       "fallback_dependencies": [],
       "blockers": []

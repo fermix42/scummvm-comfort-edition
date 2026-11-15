@@ -1,3 +1,15 @@
+# Magic dispatch499 - VERIFIED static scope
+
+Read-only census:39 functional named books all covered by native families;
+book45 duplicate Mage Armor has original NULL handler,not missing effect.
+141 enemy descriptors/14 overrides plus16 ally nibbles all fit native NPC
+spell families. No new build/runtime/campaign/audio or broad status-effect
+claim. Exact command:python conversion/census_magic_dispatch499.py;exit0.
+Local per-book/resource hashes:ce-native-magic-dispatch499-local.json.
+Shareable conclusion:SCUMMVM-CE-MAGIC-DISPATCH499.md. Existing broad magic
+implementation/runtime classifications retained;continue service/membership/
+temple/modal and lifecycle/script connections,no milestone stop.
+
 # Dialogue voice/editor498 integrated - VERIFIED within focused contract
 
 498b build0/0 2m50.89s;firstfocusedrunpassesactual3replymodes,5Tabcycleswith
