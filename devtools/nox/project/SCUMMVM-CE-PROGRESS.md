@@ -1,3 +1,16 @@
+# Shared lifecycle source503 - VERIFIED static known scope
+
+StartupNew/Continue/Quit,opening->firstworld,loadedsavemode andtransientlifetime
+connections reviewed inactualNativehost/PlayerSession/Engine/MetaEngine.
+Knownimplementationclasses reconciled,broader runtime statuses unchanged.
+Architecture211..218definesClassic/Modern savepolicies,not two missing raster
+engines;interface.16labelclarified withpreviouslabel retained. Existingnative
+HGR/RGB raster/preview remains;historicalpixel/displayflag qualifications separate.
+No dangling loadcallback sink found:ordinaryloop rebinds afterCEframe/load.
+No audiochange/rerun,newbuild,gameplay orcampaign. Source still498b matching.
+See LIFECYCLE-SOURCE-REVIEW503. Continueconcreteoriginalcodecontexts andsource
+phase reconciliation;INTEGRATION-PLAN remains NOT STARTED for execution.
+
 # Finite integration plan prepared - execution NOT STARTED
 
 SCUMMVM-CE-INTEGRATION-PLAN.md defines source-phase exit,5boundedjoinedbatches

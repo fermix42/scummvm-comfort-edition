@@ -97,7 +97,7 @@
       "id": "lifecycle.02",
       "subsystem": "lifecycle",
       "behavior": "Startup new/continue/quit routing",
-      "implementation": "PARTIAL",
+      "implementation": "IMPLEMENTED",
       "verification": {
         "status": "NOT STARTED",
         "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement."
@@ -111,7 +111,12 @@
       "original_evidence": [],
       "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
       "fallback_dependencies": [],
-      "blockers": []
+      "blockers": [],
+      "source_review": {
+        "status": "VERIFIED",
+        "evidence": "SCUMMVM-CE-LIFECYCLE-SOURCE-REVIEW503.md",
+        "scope": "Complete known native transaction/connection;runtime verification unchanged."
+      }
     },
     {
       "id": "lifecycle.03",
@@ -137,7 +142,7 @@
       "id": "lifecycle.04",
       "subsystem": "lifecycle",
       "behavior": "Opening story and first native world state",
-      "implementation": "PARTIAL",
+      "implementation": "IMPLEMENTED",
       "verification": {
         "status": "NOT STARTED",
         "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement."
@@ -151,13 +156,18 @@
       "original_evidence": [],
       "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
       "fallback_dependencies": [],
-      "blockers": []
+      "blockers": [],
+      "source_review": {
+        "status": "VERIFIED",
+        "evidence": "SCUMMVM-CE-LIFECYCLE-SOURCE-REVIEW503.md",
+        "scope": "Complete known native transaction/connection;runtime verification unchanged."
+      }
     },
     {
       "id": "lifecycle.05",
       "subsystem": "lifecycle",
       "behavior": "Classic and Modern saved mode restoration",
-      "implementation": "PARTIAL",
+      "implementation": "IMPLEMENTED",
       "verification": {
         "status": "NOT STARTED",
         "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement."
@@ -171,13 +181,18 @@
       "original_evidence": [],
       "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
       "fallback_dependencies": [],
-      "blockers": []
+      "blockers": [],
+      "source_review": {
+        "status": "VERIFIED",
+        "evidence": "SCUMMVM-CE-LIFECYCLE-SOURCE-REVIEW503.md",
+        "scope": "Complete known native transaction/connection;runtime verification unchanged."
+      }
     },
     {
       "id": "lifecycle.06",
       "subsystem": "lifecycle",
       "behavior": "Native shutdown and transient ownership",
-      "implementation": "PARTIAL",
+      "implementation": "IMPLEMENTED",
       "verification": {
         "status": "NOT STARTED",
         "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement."
@@ -191,7 +206,12 @@
       "original_evidence": [],
       "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
       "fallback_dependencies": [],
-      "blockers": []
+      "blockers": [],
+      "source_review": {
+        "status": "VERIFIED",
+        "evidence": "SCUMMVM-CE-LIFECYCLE-SOURCE-REVIEW503.md",
+        "scope": "Complete known native transaction/connection;runtime verification unchanged."
+      }
     },
     {
       "id": "interface.01",
@@ -586,8 +606,8 @@
     {
       "id": "interface.16",
       "subsystem": "interface",
-      "behavior": "Classic and Modern presentation options",
-      "implementation": "PARTIAL",
+      "behavior": "Classic and Modern CE chooser presentation and shared native game raster",
+      "implementation": "IMPLEMENTED",
       "verification": {
         "status": "NOT STARTED",
         "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement."
@@ -603,7 +623,13 @@
       "original_evidence": [],
       "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
       "fallback_dependencies": [],
-      "blockers": []
+      "blockers": [],
+      "previous_behavior_label": "Classic and Modern presentation options",
+      "source_review": {
+        "status": "VERIFIED",
+        "evidence": "SCUMMVM-CE-LIFECYCLE-SOURCE-REVIEW503.md",
+        "scope": "Complete known native transaction/connection;runtime verification unchanged."
+      }
     },
     {
       "id": "world.01",
@@ -7449,9 +7475,9 @@
   "counts": {
     "lifecycle": {
       "known_required": 8,
-      "native_implemented": 4,
+      "native_implemented": 8,
       "verified": 2,
-      "partial": 4,
+      "partial": 0,
       "missing": 0,
       "unknown_required_rows": 0,
       "additional_unclassified_scope": 1,
@@ -7459,9 +7485,9 @@
     },
     "interface": {
       "known_required": 22,
-      "native_implemented": 11,
+      "native_implemented": 12,
       "verified": 13,
-      "partial": 8,
+      "partial": 7,
       "missing": 0,
       "unknown_required_rows": 0,
       "additional_unclassified_scope": 1,
