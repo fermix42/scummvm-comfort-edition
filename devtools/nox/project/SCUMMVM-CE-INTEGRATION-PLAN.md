@@ -6,12 +6,16 @@ coverage reconciliation remain IN PROGRESS. Do not start these runs now.
 
 ## Current implementation identity
 
-Latest compiled source: dialogue clock515b,parente3e520b359f plus frozen515delta.
-DIALOGUE-CLOCK515-VERIFICATION bindssource/build/initialfailure/firstcorrectivepass.
-Executable SHA256:
-4758324f3c411c104f2de1e6f77f63cae87540c632678cf0764709370203f533.
-514/513/audio473 artifacts preserved;ordinaryEnginecold/session/campaign
-acceptance unperformed. RemainingNPC/simulation/sourceclosure inprogress.
+Latestcompiledsource:NPCrecovery518b,parent0ee5cb93765/frozen372files;
+implementationcommit249037bdfc0. NPC-RECOVERY518-VERIFICATION and
+WORLD-POPULATION517-VERIFICATION bindsource/executables/splitfocusedproof.
+ExecutableSHA256:
+594636340597e78eeb62120bef64e7b7420d4b882a5c48512ef58c84d20031ea.
+SharedNWAT6normalEnginepersistence520subsystemregressionalsopassesbothmodes,
+8boundedprocesseswithno build. This isnotwholeI1-I5execution orcampaignacceptance.
+Knownmagic519modelalreadyimplemented;no duplicatehandlers/buildjustified.
+Audio473andallhistoricalfailures/evidencepreserved. Residualnormalintegration,
+legacydomainandearnedcampaignqualificationsstayexplicit.
 
 ## Finish the implementation phase
 

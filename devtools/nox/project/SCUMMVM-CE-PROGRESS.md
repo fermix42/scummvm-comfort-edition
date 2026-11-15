@@ -1,3 +1,69 @@
+# Production New Game bootstrap522 - VERIFIED within scoped contract
+
+Normal New Game now obtains fresh engine entropy; explicit replay keeps119.
+Original gameplay RNG algorithm/draw order and loaded RNG ownership unchanged.
+522b build:0 warnings/errors,2m40.95s. Two native processes:2 engine entropy,
+2 replay,1 loaded-owner checks and actual input-earned RAND/TURN equality pass.
+Initial external comparison selected520's later overwritten endpoint. Retained
+results match the predetermined hash-bound initial520 reference; no native rerun.
+BOOTSTRAP522-VERIFICATION records executable/source374 and qualifications.
+Weather517 and NPC518 remain accepted; known magic519 closure is static;
+normal Engine persistence520 passed both modes on518b, not requalified on522.
+Continue concrete remaining source connections and authored script coverage.
+Do not rerun completed suites or start campaign traversal/acceptance.
+
+Bootstrap522initialcompile12.45sfailedC2660:testadapterConfigMan.removeKey
+requiresdomainargument. Correcttoactive-domainremoval;productionfactoryand
+originalRNGunchanged.No native522batchhasrun.522bbuildisolatedoutput.
+
+# Production New Game bootstrap522 - IN PROGRESS
+
+Concretefinalstartupreviewgap:normalbeginWorld stillusesfixedreplayentropy119.
+ENGINE-BOOTSTRAP522 contractbeforecode:CommonRandomfresh16bitonlyfornormal
+New,replay119,persistedload/recoveryRNGneverreseeded. KeeporiginalLCG/expansion/
+rejection/draworder. Reviewotherbootdefaults;77..79fallbackmatchesoriginalMenu,
+notarandomquest. Onehelper/connection/build;focusedengine-seed/factory/replay/
+loaded-ownerchecks plusoneactualdeterministicNew/inputcomparison to520RAND/
+TURN. No oldRNG/audio/world suites,8process520rerun,campaignornewtestplatform.
+
+# Shared native persistence520 - VERIFIED within current schema contract
+
+Firstboundedbatchpasses8processesacrossModern0/Classic1:input-earnedNWAT6
+population[1,4,100,0,0],actualnormalEngineQcancel/SaveLoadchoosers,durable
+generations/2assistedofflineowners,isolation,exactfullNPLScoldload andnext
+ordinaryLeftto24/38. No enginechange/build. All372filesstillmatch518b;original
+HDVhashc42a95c7...unchanged. PERSISTENCE520-VERIFICATION bindseveryartifact.
+Probeexplicitdiagnosticcue/offlineassistanceprecedesoperations;reportstates
+native_audio_acceptance=0/link_token_absent=1.Noaudio473suitererun,liveAPI,
+recovery/Temple/ending/campaignphaseorfullI1-I5acceptanceexecuted.
+Magic519knownmodelclosureisstaticonly;runtimeverificationnotpromoted.
+Continuefinalconcretesourceconnection/classificationreview;noordinarymilestone
+stop,nohypotheticalabsenceproof/repeatedresourcecensus/sourceunrelatedbuild.
+
+# Shared native save-schema lifecycle520 - IN PROGRESS
+
+Weather/NPCcommit249037bdfc0 remainsaccepted. Knownmagicmodel519 closesall8
+implementationrowsstaticallywithoutbuild/suiterun. Nextconcretesharedowner:
+NWAT6hasnotyetpassednormalEngineNPLS/generation/mode/sessioncoldpath.
+ENGINE-PERSISTENCE520 definesonefocusedbatchbothmodesusingexistingnative
+lifecycleprobe,no enginecode/build/newplatform. Onlysource-supportedinitial
+inputs/normalSave/cold/nextmovement;nocampaign/exploratorygameplay/I1-I5suite.
+ProbeofflineassistedA/Bsessions/diagnosticcueareexplicitsetupbeforeoperations;
+notaudio473rerun/liveAPI. RequireactualNWAT6ininput-earnedstartingTURN.
+
+# Known magic implementation closure519 - VERIFIED static scope
+
+Weather/NPCrecoverycommitted249037bdfc0. Current15magic/controller headers
+matchfrozen518b source byte-for-byte. Completeknown39player/141NPCdescriptor
+spellfamilymodelalreadyexists:caster/cost/cancel,restoration,light/coordinates/
+orbtravel,directed/area/resistance/protection,summons,MadCow,NoxVortex and
+sharedround/travel/serializationconsumers. No missingnamedhandlerfound.
+MAGIC-IMPLEMENTATION519 closes8knownimplementationrows;runtimeverification
+notpromoted. No codechange/build/oldmagic-audioinventory suitesorcampaign.
+Reuse510inventory/497-500services;don'trewritethem. Continueconcreteremaining
+originalscript/terminal/sharedsourceconnections andclassifyrealgaps.
+CanonicalconversionandCEprojectmirrorsmaintained;no milestone stop.
+
 # Complete weather/population517 and NPC recovery518b - VERIFIED within contracts
 
 NPC518b firstnativebatchpasses:2observedCastle3no-routegeometries/1capacity,

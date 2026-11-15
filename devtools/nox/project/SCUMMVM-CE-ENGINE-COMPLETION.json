@@ -170,7 +170,7 @@
       "behavior": "Classic and Modern saved mode restoration",
       "implementation": "IMPLEMENTED",
       "verification": {
-        "status": "NOT STARTED",
+        "status": "IN PROGRESS",
         "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement."
       },
       "native_owners": [
@@ -179,7 +179,9 @@
         "engines/nox/native_character_creation.h",
         "engines/nox/native_player_session.h"
       ],
-      "original_evidence": [],
+      "original_evidence": [
+        "SCUMMVM-CE-PERSISTENCE520-VERIFICATION.json:currentNWAT6normalEngine/warm/cold/mode/session/generation/nextinputscopeonly;broaderrequirementnotautomaticallyVERIFIED."
+      ],
       "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
       "fallback_dependencies": [],
       "blockers": [],
@@ -976,7 +978,9 @@
         "engines/nox/native_random.h",
         "engines/nox/native_world_animation.h"
       ],
-      "original_evidence": [],
+      "original_evidence": [
+        "SCUMMVM-CE-BOOTSTRAP522-VERIFICATION.json: fresh engine entropy, deterministic replay and loaded-owner invariant; no whole RNG suite rerun."
+      ],
       "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
       "fallback_dependencies": [],
       "blockers": []
@@ -1982,7 +1986,7 @@
       "id": "magic.01",
       "subsystem": "magic",
       "behavior": "Caster slot eligibility costs and cancellation",
-      "implementation": "PARTIAL",
+      "implementation": "IMPLEMENTED",
       "verification": {
         "status": "NOT STARTED",
         "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement."
@@ -1999,9 +2003,10 @@
       ],
       "original_evidence": [
         "SCUMMVM-CE-SOURCE-PRODUCERS494.md (static scope only)",
-        "SCUMMVM-CE-MAGIC-DISPATCH499.md (static dispatch/NPC family scope only)"
+        "SCUMMVM-CE-MAGIC-DISPATCH499.md (static dispatch/NPC family scope only)",
+        "SCUMMVM-CE-MAGIC-IMPLEMENTATION519.md:static known model/productionconnection closure only;broaderverification unchanged."
       ],
-      "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
+      "production_connection": "519knownsourcefamiliescomplete:worldC/native travel,tacticalC/BattleRound andNPCcasts share currentsemantic effect/record owners;no newnativegapdemonstrated.",
       "fallback_dependencies": [],
       "blockers": []
     },
@@ -2009,7 +2014,7 @@
       "id": "magic.02",
       "subsystem": "magic",
       "behavior": "World restoration and resurrection",
-      "implementation": "PARTIAL",
+      "implementation": "IMPLEMENTED",
       "verification": {
         "status": "NOT STARTED",
         "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement."
@@ -2025,9 +2030,10 @@
         "engines/nox/native_vortex_cast.h"
       ],
       "original_evidence": [
-        "SCUMMVM-CE-MAGIC-DISPATCH499.md (static dispatch/NPC family scope only)"
+        "SCUMMVM-CE-MAGIC-DISPATCH499.md (static dispatch/NPC family scope only)",
+        "SCUMMVM-CE-MAGIC-IMPLEMENTATION519.md:static known model/productionconnection closure only;broaderverification unchanged."
       ],
-      "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
+      "production_connection": "519knownsourcefamiliescomplete:worldC/native travel,tacticalC/BattleRound andNPCcasts share currentsemantic effect/record owners;no newnativegapdemonstrated.",
       "fallback_dependencies": [],
       "blockers": []
     },
@@ -2035,7 +2041,7 @@
       "id": "magic.03",
       "subsystem": "magic",
       "behavior": "World navigation light and coordinate spells",
-      "implementation": "PARTIAL",
+      "implementation": "IMPLEMENTED",
       "verification": {
         "status": "NOT STARTED",
         "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement."
@@ -2051,9 +2057,10 @@
         "engines/nox/native_vortex_cast.h"
       ],
       "original_evidence": [
-        "SCUMMVM-CE-MAGIC-DISPATCH499.md (static dispatch/NPC family scope only)"
+        "SCUMMVM-CE-MAGIC-DISPATCH499.md (static dispatch/NPC family scope only)",
+        "SCUMMVM-CE-MAGIC-IMPLEMENTATION519.md:static known model/productionconnection closure only;broaderverification unchanged."
       ],
-      "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
+      "production_connection": "519knownsourcefamiliescomplete:worldC/native travel,tacticalC/BattleRound andNPCcasts share currentsemantic effect/record owners;no newnativegapdemonstrated.",
       "fallback_dependencies": [],
       "blockers": []
     },
@@ -2061,7 +2068,7 @@
       "id": "magic.04",
       "subsystem": "magic",
       "behavior": "Directed damage targeting and resistance",
-      "implementation": "PARTIAL",
+      "implementation": "IMPLEMENTED",
       "verification": {
         "status": "NOT STARTED",
         "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement."
@@ -2077,9 +2084,10 @@
         "engines/nox/native_vortex_cast.h"
       ],
       "original_evidence": [
-        "SCUMMVM-CE-MAGIC-DISPATCH499.md (static dispatch/NPC family scope only)"
+        "SCUMMVM-CE-MAGIC-DISPATCH499.md (static dispatch/NPC family scope only)",
+        "SCUMMVM-CE-MAGIC-IMPLEMENTATION519.md:static known model/productionconnection closure only;broaderverification unchanged."
       ],
-      "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
+      "production_connection": "519knownsourcefamiliescomplete:worldC/native travel,tacticalC/BattleRound andNPCcasts share currentsemantic effect/record owners;no newnativegapdemonstrated.",
       "fallback_dependencies": [],
       "blockers": []
     },
@@ -2087,7 +2095,7 @@
       "id": "magic.05",
       "subsystem": "magic",
       "behavior": "Area damage geometry and friendly interaction",
-      "implementation": "PARTIAL",
+      "implementation": "IMPLEMENTED",
       "verification": {
         "status": "NOT STARTED",
         "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement."
@@ -2103,9 +2111,10 @@
         "engines/nox/native_vortex_cast.h"
       ],
       "original_evidence": [
-        "SCUMMVM-CE-MAGIC-DISPATCH499.md (static dispatch/NPC family scope only)"
+        "SCUMMVM-CE-MAGIC-DISPATCH499.md (static dispatch/NPC family scope only)",
+        "SCUMMVM-CE-MAGIC-IMPLEMENTATION519.md:static known model/productionconnection closure only;broaderverification unchanged."
       ],
-      "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
+      "production_connection": "519knownsourcefamiliescomplete:worldC/native travel,tacticalC/BattleRound andNPCcasts share currentsemantic effect/record owners;no newnativegapdemonstrated.",
       "fallback_dependencies": [],
       "blockers": []
     },
@@ -2113,7 +2122,7 @@
       "id": "magic.06",
       "subsystem": "magic",
       "behavior": "Status effects and immunity rules",
-      "implementation": "PARTIAL",
+      "implementation": "IMPLEMENTED",
       "verification": {
         "status": "NOT STARTED",
         "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement."
@@ -2129,9 +2138,10 @@
         "engines/nox/native_vortex_cast.h"
       ],
       "original_evidence": [
-        "SCUMMVM-CE-MAGIC-DISPATCH499.md (static dispatch/NPC family scope only)"
+        "SCUMMVM-CE-MAGIC-DISPATCH499.md (static dispatch/NPC family scope only)",
+        "SCUMMVM-CE-MAGIC-IMPLEMENTATION519.md:static known model/productionconnection closure only;broaderverification unchanged."
       ],
-      "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
+      "production_connection": "519knownsourcefamiliescomplete:worldC/native travel,tacticalC/BattleRound andNPCcasts share currentsemantic effect/record owners;no newnativegapdemonstrated.",
       "fallback_dependencies": [],
       "blockers": []
     },
@@ -2139,7 +2149,7 @@
       "id": "magic.07",
       "subsystem": "magic",
       "behavior": "Summon creation placement duration and outcome",
-      "implementation": "PARTIAL",
+      "implementation": "IMPLEMENTED",
       "verification": {
         "status": "NOT STARTED",
         "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement."
@@ -2155,9 +2165,10 @@
         "engines/nox/native_vortex_cast.h"
       ],
       "original_evidence": [
-        "SCUMMVM-CE-MAGIC-DISPATCH499.md (static dispatch/NPC family scope only)"
+        "SCUMMVM-CE-MAGIC-DISPATCH499.md (static dispatch/NPC family scope only)",
+        "SCUMMVM-CE-MAGIC-IMPLEMENTATION519.md:static known model/productionconnection closure only;broaderverification unchanged."
       ],
-      "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
+      "production_connection": "519knownsourcefamiliescomplete:worldC/native travel,tacticalC/BattleRound andNPCcasts share currentsemantic effect/record owners;no newnativegapdemonstrated.",
       "fallback_dependencies": [],
       "blockers": []
     },
@@ -2165,7 +2176,7 @@
       "id": "magic.08",
       "subsystem": "magic",
       "behavior": "Vortex destinations prerequisites and world transition",
-      "implementation": "PARTIAL",
+      "implementation": "IMPLEMENTED",
       "verification": {
         "status": "NOT STARTED",
         "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement."
@@ -2181,9 +2192,10 @@
         "engines/nox/native_vortex_cast.h"
       ],
       "original_evidence": [
-        "SCUMMVM-CE-MAGIC-DISPATCH499.md (static dispatch/NPC family scope only)"
+        "SCUMMVM-CE-MAGIC-DISPATCH499.md (static dispatch/NPC family scope only)",
+        "SCUMMVM-CE-MAGIC-IMPLEMENTATION519.md:static known model/productionconnection closure only;broaderverification unchanged."
       ],
-      "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
+      "production_connection": "519knownsourcefamiliescomplete:worldC/native travel,tacticalC/BattleRound andNPCcasts share currentsemantic effect/record owners;no newnativegapdemonstrated.",
       "fallback_dependencies": [],
       "blockers": []
     },
@@ -2575,7 +2587,7 @@
       "behavior": "Semantic party inventory world and RNG serialization",
       "implementation": "PARTIAL",
       "verification": {
-        "status": "NOT STARTED",
+        "status": "IN PROGRESS",
         "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement."
       },
       "native_owners": [
@@ -2583,7 +2595,9 @@
         "engines/nox/native_player_session.h",
         "engines/nox/native_legacy_snapshot.h"
       ],
-      "original_evidence": [],
+      "original_evidence": [
+        "SCUMMVM-CE-PERSISTENCE520-VERIFICATION.json:currentNWAT6normalEngine/warm/cold/mode/session/generation/nextinputscopeonly;broaderrequirementnotautomaticallyVERIFIED."
+      ],
       "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
       "fallback_dependencies": [],
       "blockers": []
@@ -2661,7 +2675,7 @@
       "behavior": "Durable snapshot generation recovery and metadata",
       "implementation": "PARTIAL",
       "verification": {
-        "status": "NOT STARTED",
+        "status": "IN PROGRESS",
         "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement."
       },
       "native_owners": [
@@ -2669,7 +2683,9 @@
         "engines/nox/native_player_session.h",
         "engines/nox/native_legacy_snapshot.h"
       ],
-      "original_evidence": [],
+      "original_evidence": [
+        "SCUMMVM-CE-PERSISTENCE520-VERIFICATION.json:currentNWAT6normalEngine/warm/cold/mode/session/generation/nextinputscopeonly;broaderrequirementnotautomaticallyVERIFIED."
+      ],
       "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
       "fallback_dependencies": [],
       "blockers": []
@@ -2680,7 +2696,7 @@
       "behavior": "CE session identity save ownership and cold restore",
       "implementation": "PARTIAL",
       "verification": {
-        "status": "NOT STARTED",
+        "status": "IN PROGRESS",
         "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement."
       },
       "native_owners": [
@@ -2688,7 +2704,9 @@
         "engines/nox/native_player_session.h",
         "engines/nox/native_legacy_snapshot.h"
       ],
-      "original_evidence": [],
+      "original_evidence": [
+        "SCUMMVM-CE-PERSISTENCE520-VERIFICATION.json:currentNWAT6normalEngine/warm/cold/mode/session/generation/nextinputscopeonly;broaderrequirementnotautomaticallyVERIFIED."
+      ],
       "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
       "fallback_dependencies": [],
       "blockers": []
@@ -2699,7 +2717,7 @@
       "behavior": "Permanent assistance semantics and recovery",
       "implementation": "PARTIAL",
       "verification": {
-        "status": "NOT STARTED",
+        "status": "IN PROGRESS",
         "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement."
       },
       "native_owners": [
@@ -2707,7 +2725,9 @@
         "engines/nox/native_player_session.h",
         "engines/nox/native_legacy_snapshot.h"
       ],
-      "original_evidence": [],
+      "original_evidence": [
+        "SCUMMVM-CE-PERSISTENCE520-VERIFICATION.json:currentNWAT6normalEngine/warm/cold/mode/session/generation/nextinputscopeonly;broaderrequirementnotautomaticallyVERIFIED."
+      ],
       "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
       "fallback_dependencies": [],
       "blockers": []
@@ -2737,7 +2757,7 @@
       "behavior": "Portable paths settings and zero-achievement identity",
       "implementation": "PARTIAL",
       "verification": {
-        "status": "NOT STARTED",
+        "status": "IN PROGRESS",
         "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement."
       },
       "native_owners": [
@@ -2745,7 +2765,9 @@
         "engines/nox/native_player_session.h",
         "engines/nox/native_legacy_snapshot.h"
       ],
-      "original_evidence": [],
+      "original_evidence": [
+        "SCUMMVM-CE-PERSISTENCE520-VERIFICATION.json:currentNWAT6normalEngine/warm/cold/mode/session/generation/nextinputscopeonly;broaderrequirementnotautomaticallyVERIFIED."
+      ],
       "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
       "fallback_dependencies": [],
       "blockers": []
@@ -7908,8 +7930,8 @@
     }
   },
   "last_milestone": {
-    "owner": "Completeweatherpopulation517/NPCrecovery518bwithincontracts",
-    "evidence": "SCUMMVM-CE-NPC-RECOVERY518-VERIFICATION.json"
+    "owner": "Production New Game RNG bootstrap522",
+    "evidence": "SCUMMVM-CE-BOOTSTRAP522-VERIFICATION.json"
   },
   "overall": {
     "fully_implemented_top_level_domains": 1,
@@ -7923,7 +7945,7 @@
   },
   "current_subsystem": {
     "status": "IN PROGRESS",
-    "scope": "Remainingitem/service/magicandsharedsourceconnectionclosure;no old inventories/suites/campaign ormilestonestop."
+    "scope": "Remaining source connections and authored script coverage; preserve explicit unknowns and runtime qualifications. No campaign traversal."
   },
   "count_definition": "native_implemented counts IMPLEMENTED; CE_REPLACEMENT is separately reported. VERIFIED applies only to row evidence scope; no overall completion percentage."
 }

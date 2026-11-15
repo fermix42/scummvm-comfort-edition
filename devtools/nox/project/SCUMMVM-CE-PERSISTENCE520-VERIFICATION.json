@@ -1,0 +1,89 @@
+{
+  "status": "VERIFIED",
+  "scope": "Shared NWAT6 population-state schema through actual normalEngine persistence inbothsave modes,notwholeport/campaign orwholeI1-I5integration.",
+  "parent_commit": "249037bdfc0",
+  "executable_sha256": "594636340597e78eeb62120bef64e7b7420d4b882a5c48512ef58c84d20031ea",
+  "source_archive": "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-binary\\native-npc-recovery518b-source.zip",
+  "source_evidence": "SCUMMVM-CE-NPC-RECOVERY518-VERIFICATION.json",
+  "current_source_files_unchanged": 372,
+  "build": "None;reuse accepted518b because only existing normalEngine save/lifecycle drivers execute.",
+  "command": "python conversion/check_persistence520.py",
+  "first_batch": true,
+  "failed_runs": 0,
+  "processes": 8,
+  "modes": {
+    "modern": {
+      "starting_population": [
+        1,
+        4,
+        100,
+        0,
+        0
+      ],
+      "input_earned_lineage_sha256": "4518c5cc6ec6f504e514a6810cb7aafa5a70530a9e95eadccc1fe8f49da6a908",
+      "warm": "PASS\tphase=warm\towned_native_snapshot_exact=1\tEngine_save_load=1\tsessions=2\tQ_cancel=1\tactual_save_load_choosers=1\tcold_load_handle_A=1\tmode=0\tcompatibility_runtime_present=0\tlink_token_absent=1\tcontrolled_A=1\tfresh_B_creation_and_story=1\tassistance_isolated=1\tnative_audio_acceptance=0\n",
+      "cold": "PASS\tphase=cold\towned_native_snapshot_exact=1\tEngine_save_load=1\tsessions=2\tQ_cancel=0\tactual_save_load_choosers=0\tcold_load_handle_A=-1\tmode=0\tcompatibility_runtime_present=0\tlink_token_absent=1\tcontrolled_A=1\tfresh_B_creation_and_story=0\tassistance_isolated=1\tnative_audio_acceptance=0\n",
+      "following_input": "native-startup\tstatus=VERIFIED\tkeys=1\tname=NATIVE\tgender=0\trace=0\tmap=8/7\tposition=24/38\tcompatibility_runtime=0\topening_story_text=1\topening_backdrop=1\topening_story=1\tinitial_actor_turn=0\tordinary_commands=1\twait_commands=0\twait_entropy_setup=119\tmap_light_setup=1\texploration_restored=0\tstory_performed=1\tnotice_pending=0\topen_direction_pending=0\tcomplete_native_gameplay=0\n"
+    },
+    "classic": {
+      "starting_population": [
+        1,
+        4,
+        100,
+        0,
+        0
+      ],
+      "input_earned_lineage_sha256": "4518c5cc6ec6f504e514a6810cb7aafa5a70530a9e95eadccc1fe8f49da6a908",
+      "warm": "PASS\tphase=warm\towned_native_snapshot_exact=1\tEngine_save_load=1\tsessions=2\tQ_cancel=1\tactual_save_load_choosers=1\tcold_load_handle_A=0\tmode=1\tcompatibility_runtime_present=0\tlink_token_absent=1\tcontrolled_A=1\tfresh_B_creation_and_story=1\tassistance_isolated=1\tnative_audio_acceptance=0\n",
+      "cold": "PASS\tphase=cold\towned_native_snapshot_exact=1\tEngine_save_load=1\tsessions=2\tQ_cancel=0\tactual_save_load_choosers=0\tcold_load_handle_A=-1\tmode=1\tcompatibility_runtime_present=0\tlink_token_absent=1\tcontrolled_A=1\tfresh_B_creation_and_story=0\tassistance_isolated=1\tnative_audio_acceptance=0\n",
+      "following_input": "native-startup\tstatus=VERIFIED\tkeys=1\tname=NATIVE\tgender=0\trace=0\tmap=8/7\tposition=24/38\tcompatibility_runtime=0\topening_story_text=1\topening_backdrop=1\topening_story=1\tinitial_actor_turn=0\tordinary_commands=1\twait_commands=0\twait_entropy_setup=119\tmap_light_setup=1\texploration_restored=0\tstory_performed=1\tnotice_pending=0\topen_direction_pending=0\tcomplete_native_gameplay=0\n"
+    }
+  },
+  "qualifications": [
+    "Input-only initialNew/story/movement/Open/cancel;no campaign/traversal driver or expectedoutcomeinjection.",
+    "Existingprobe declares offlineassistedA/Bsessions andone diagnosticcue beforetestedoperations;linktokenabsent checked. native_audio_acceptance=0;audio473not rerun/requalified.",
+    "NormalSavechoosers/generations/sessionisolation andexactfullNPLS cold paths verifyNWAT6pendingstate;otherpopulationfieldvalueshaveprior85component/referenceproof,notallnewfullplayercoldsetups.",
+    "Nofullcurrentservice/battle/ending/earnedcampaignacceptance.",
+    "OriginalHDV SHAunchanged;noacceptedprofiles/savesreused,push/publication/accountchanges."
+  ],
+  "artifacts": {
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\check_persistence520.py": "8d430620d28ebda684c4f3576e86b176399b4fa43c5ae584dc8acef1e2b7a5bb",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-persistence520\\verification.json": "1cf0b1a74e963f9416907afee67cb9300b637f026879c39226f50c7f85f5598c",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-persistence520\\modern\\verification.json": "a1f76d44fce22cfd39092a62e29caccd5a9c5bae4ea54ba10031db6f54906505",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-persistence520\\modern\\saves\\nox-ce-7792d9e102f55efb147b0fe35caad81f-c0f2282449f443f6cd176f26e6830eca-slot001.g0": "39783eebe410cce684f7ef74f09ecb905c2ef869f52765f4b6d89d92c26c2af5",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-persistence520\\modern\\saves\\nox-ce-7792d9e102f55efb147b0fe35caad81f-fc2651efef3162a91d9c55b99ebd3d12-slot001.g0": "49ced9640c9977588bc616243effb22589d99cc95969692643d862c0456c14a0",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-persistence520\\modern\\saves\\nox-ce-7792d9e102f55efb147b0fe35caad81f-fc2651efef3162a91d9c55b99ebd3d12-slot001.g1": "36113003d0daae54f4b1b9587b65f1b8f541ecd6592c11538925ace3e3abcf65",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-persistence520\\modern\\saves\\nox-native-battle-completion.tsv": "23bdbf0350934369146f057112fb7178a2f1450c64d464f11af96e897ba6c8d7",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-persistence520\\modern\\saves\\nox-native-battle-movement.tsv": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-persistence520\\modern\\saves\\nox-native-exploration-final.bin": "7241debc2785a2b461dc4b9696b2d776baacfad76696dad518cdeeaad20136c7",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-persistence520\\modern\\saves\\nox-native-player-cold.tsv": "aaec923e07d808f7784557b32185078b2e95e225d8022227990fff5124cc68c7",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-persistence520\\modern\\saves\\nox-native-player-expected-A.bin": "7429dcdb9e7f0dfa6c4c396725b5c436a667e201b7cc75e04740c94e253b69d8",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-persistence520\\modern\\saves\\nox-native-player-warm.tsv": "d878ed1c9ffba033cc64edc5c26d1f26f4b322a5d4daef0e5f735cb80ba27c05",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-persistence520\\modern\\saves\\nox-native-startup-animation-report.tsv": "187e3c01de670cd9b6127ab37763478bb496534e56504961686e3dc2936dbbe3",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-persistence520\\modern\\saves\\nox-native-startup-animation-timing.tsv": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-persistence520\\modern\\saves\\nox-native-startup-animation.tsv": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-persistence520\\modern\\saves\\nox-native-startup-commands.tsv": "f1050dc941e95866b8132fe1ad8cb78fa8ecc360a1b0a4eda6efce9935dbdd0a",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-persistence520\\modern\\saves\\nox-native-startup-input.tsv": "4733dba91690ec8007e8b50a5d9830dc99655f8fc637a0200d387e15f6174159",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-persistence520\\modern\\saves\\nox-native-startup-menu.tsv": "fa1e437fb94aab0793e0b8c36ce7ab8a8337c2698dac60e224b413f938d372f2",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-persistence520\\modern\\saves\\nox-native-startup-story.tsv": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-persistence520\\modern\\saves\\nox-native-startup-wait.tsv": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-persistence520\\classic\\verification.json": "c082d311ec05d6779fe6845c2db41a8b428d49ef0a37e3ce551f646192403e77",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-persistence520\\classic\\saves\\nox-ce-7792d9e102f55efb147b0fe35caad81f-66c8cb42a48baa9269a003ff410f736a-slot001.g0": "08a0d57d85927652bc2419fd9d5f4af6d1430aa963c7fc3cb8a42a5522afe9fb",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-persistence520\\classic\\saves\\nox-ce-7792d9e102f55efb147b0fe35caad81f-66c8cb42a48baa9269a003ff410f736a-slot001.g1": "dc287a6e5319ceb2b9052b7e4b60ce1c350812b5f65b98fb4eb03ef77465de3d",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-persistence520\\classic\\saves\\nox-ce-7792d9e102f55efb147b0fe35caad81f-a714b1ab4722d8a3605836af8564ee5c-slot001.g0": "2aa2502593b3bf69ab761b84bdcbea0ffbce49706dd1c8ccc6643dacf2f5149b",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-persistence520\\classic\\saves\\nox-native-battle-completion.tsv": "23bdbf0350934369146f057112fb7178a2f1450c64d464f11af96e897ba6c8d7",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-persistence520\\classic\\saves\\nox-native-battle-movement.tsv": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-persistence520\\classic\\saves\\nox-native-exploration-final.bin": "7241debc2785a2b461dc4b9696b2d776baacfad76696dad518cdeeaad20136c7",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-persistence520\\classic\\saves\\nox-native-player-cold.tsv": "d2212a3667aa8d1308355b3dc804b155c3530c6bca1f86b2b7e05f73c21c4302",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-persistence520\\classic\\saves\\nox-native-player-expected-A.bin": "7429dcdb9e7f0dfa6c4c396725b5c436a667e201b7cc75e04740c94e253b69d8",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-persistence520\\classic\\saves\\nox-native-player-warm.tsv": "2cfddfadb856abdc5ca1155e3c9a1a1db8910951c538eee7ba36da41b6a336ac",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-persistence520\\classic\\saves\\nox-native-startup-animation-report.tsv": "187e3c01de670cd9b6127ab37763478bb496534e56504961686e3dc2936dbbe3",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-persistence520\\classic\\saves\\nox-native-startup-animation-timing.tsv": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-persistence520\\classic\\saves\\nox-native-startup-animation.tsv": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-persistence520\\classic\\saves\\nox-native-startup-commands.tsv": "f1050dc941e95866b8132fe1ad8cb78fa8ecc360a1b0a4eda6efce9935dbdd0a",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-persistence520\\classic\\saves\\nox-native-startup-input.tsv": "4733dba91690ec8007e8b50a5d9830dc99655f8fc637a0200d387e15f6174159",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-persistence520\\classic\\saves\\nox-native-startup-menu.tsv": "fa1e437fb94aab0793e0b8c36ce7ab8a8337c2698dac60e224b413f938d372f2",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-persistence520\\classic\\saves\\nox-native-startup-story.tsv": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-persistence520\\classic\\saves\\nox-native-startup-wait.tsv": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

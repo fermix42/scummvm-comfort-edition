@@ -78,6 +78,7 @@
 #include "nox/native_dialogue_clock_validation.h"
 #include "nox/native_world_population_validation.h"
 #include "nox/native_npc_recovery_validation.h"
+#include "nox/native_startup_random_validation.h"
 #include "nox/native_weather_remaining_validation.h"
 #include "nox/native_search_defeat_validation.h"
 #include "nox/native_dialogue_voice_validation.h"
@@ -121,6 +122,11 @@ inline Common::Error NoxEngine::runNativeStartup() {
     if (ConfMan.hasKey("nox_native_search_defeat495") && ConfMan.getBool("nox_native_search_defeat495")) {
         Common::String report;if (!Native::validateNativeSearchDefeat495(_resources,report)) return fail(report.empty()?"Search defeat focused check failed":report.c_str());
         Common::OutSaveFile *out=_system->getSavefileManager()->openForSaving("nox-native-search-defeat.tsv",false);if (!out) return Common::kWritingFailed;
+        out->writeString(report);out->finalize();const bool ok=!out->err();delete out;return ok?Common::Error(Common::kNoError):Common::Error(Common::kWritingFailed);
+    }
+    if (ConfMan.hasKey("nox_native_startup_random522") && ConfMan.getBool("nox_native_startup_random522")) {
+        Common::String report;if (!Native::validateNativeStartupRandom522(report)) return fail(report.empty()?"Startup RNG focused check failed":report.c_str());
+        Common::OutSaveFile *out=_system->getSavefileManager()->openForSaving("nox-native-startup-random.tsv",false);if (!out) return Common::kWritingFailed;
         out->writeString(report);out->finalize();const bool ok=!out->err();delete out;return ok?Common::Error(Common::kNoError):Common::Error(Common::kWritingFailed);
     }
     if (ConfMan.hasKey("nox_native_npc_recovery518_fixture")) {
@@ -1300,7 +1306,7 @@ inline Common::Error NoxEngine::runNativeStartup() {
             if (!status.initializeFrame(frame) || !window.initialize(game.world,game.world.currentTables()->data()+1536,256) ||
                 !story.load(_resources) || !actors.load(_resources,8) || !lighting.load(_resources,8) || !occlusion.load(_resources,8) ||
                 !painter.load(_resources,8) || !visibility.loadRules(_resources) || !wait.load(_resources) || !routes.importPages(emptyRoutes,3584) ||
-                !random.initializeEntropy(119) || !messages.load(_resources) || !text.initialize(_resources,1) || !worldInput.loadRules(_resources) ||
+                !Native::StartupRandom::initialize(random,replay) || !messages.load(_resources) || !text.initialize(_resources,1) || !worldInput.loadRules(_resources) ||
                 !Native::WorldViewport::refreshAtWorld(game.world,window,story,actors,lighting,occlusion,painter,246,0,0,previous,presentation,light,visibility,frame,&prepared)) return fail("Native startup first scene failed");
             turns.presentation=presentation;
             if (!status.paint(game,prepared,light,false,frame)) return fail("Native initial party/status presentation failed");
