@@ -1,3 +1,18 @@
+# Current source closure505/506
+
+B-PRAEVOC Keep trigger implementation retired within505d focused contract.
+DialogueB2F9/FCC3 is a separate missing caller: field12bit32 requests one
+currentcursor base command, then clearsbit; no cursor/phase advance. Native
+callback currently only clearsbit. Continue ENGINE-DIALOGUE-SPEECH-CONTRACT.
+No historical473manifest change, fullaudio/Engine acceptance or campaign claim.
+
+# Current source discovery505
+
+B-PRAEVOC:Keep69 state55/CWSPEAK speech/flag/cursor producer MISSING;contract
+SCUMMVM-CE-ENGINE-PRAEVOC-SPEECH-CONTRACT.md. Additive newsource scope,not a
+retest/rewriteofaccepted473 generators/music/mixer. Complete source model and
+normal movement connection before one focused batch. Night actor504 gapclosed.
+
 497: no missing authored commerce offer. Extra roles are gated or bundled Test data; type4 UM76/77 scheduling corrected in source census. Prototype shops/Test dialogue do not block normal base-game completion. Legacy/debug qualifications retained; see SERVICE-ADMISSION497.
 
 Orb492 bind/choose mismatch retired;9 actual authored Use/Cast selections pass. Fullmap/cold/session qualification separate. Remaining service/script producer audit continues.

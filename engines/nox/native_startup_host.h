@@ -69,6 +69,7 @@
 #include "nox/native_orb_navigation_validation.h"
 #include "nox/native_window_entry_validation.h"
 #include "nox/native_night_actors_validation.h"
+#include "nox/native_praevoc_validation.h"
 #include "nox/native_search_defeat_validation.h"
 #include "nox/native_dialogue_voice_validation.h"
 #include "nox/native_player_lifecycle_validation.h"
@@ -111,6 +112,18 @@ inline Common::Error NoxEngine::runNativeStartup() {
     if (ConfMan.hasKey("nox_native_search_defeat495") && ConfMan.getBool("nox_native_search_defeat495")) {
         Common::String report;if (!Native::validateNativeSearchDefeat495(_resources,report)) return fail(report.empty()?"Search defeat focused check failed":report.c_str());
         Common::OutSaveFile *out=_system->getSavefileManager()->openForSaving("nox-native-search-defeat.tsv",false);if (!out) return Common::kWritingFailed;
+        out->writeString(report);out->finalize();const bool ok=!out->err();delete out;return ok?Common::Error(Common::kNoError):Common::Error(Common::kWritingFailed);
+    }
+    if (ConfMan.hasKey("nox_native_praevoc505_fixture")) {
+        Common::File fixture;Common::String report;Common::Array<byte> commands;
+        if (!fixture.open(Common::FSNode(ConfMan.getPath("nox_native_praevoc505_fixture"))) ||
+                !Native::validateNativePraevoc505(_resources,fixture,report,commands)) return fail(report.empty()?"Praevoc focused check failed":report.c_str());
+        const uint64 before=_nativeEffectsPlayed,samplesBefore=_nativeEffectSamples;
+        if (_nativeSoundMode!=0) return fail("Praevoc isolated mixer check requires both-sound mode");
+        for (uint i=0;i<commands.size();++i) if (!playNativeSpeaker(commands[i])) return fail("Praevoc native SFX queue failed");
+        if (_nativeEffectsPlayed-before!=9 || _nativeEffectSamples<=samplesBefore) return fail("Praevoc native SFX queue counters failed");
+        report+="praevoc_effect_queue\trequests=9\tchannel=SFX\told_audio_suite=0\n";
+        Common::OutSaveFile *out=_system->getSavefileManager()->openForSaving("nox-native-praevoc.tsv",false);if (!out) return Common::kWritingFailed;
         out->writeString(report);out->finalize();const bool ok=!out->err();delete out;return ok?Common::Error(Common::kNoError):Common::Error(Common::kWritingFailed);
     }
     if (ConfMan.hasKey("nox_native_night_actors504") && ConfMan.getBool("nox_native_night_actors504")) {
@@ -737,7 +750,7 @@ inline Common::Error NoxEngine::runNativeStartup() {
         if (!synchronizePlaySession()) return fail("Native player session could not be initialized");
 #ifdef NOX_NATIVE_ONLY
         // CE load/session replacement can reconstruct these owners in frame().
-        worldInput.setSoundEvents(&soundEvents);wait.setSoundEvents(&soundEvents);
+        worldInput.setSoundEvents(&soundEvents,_nativeSoundMode==0 || _nativeSoundMode==2);wait.setSoundEvents(&soundEvents);
 #endif
         if (sceneReady && !startupMenu && !encounterState.formed && worldInput.atWorldCommand()) {
             bool changed=false;

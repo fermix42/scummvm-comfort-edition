@@ -1,0 +1,38 @@
+{
+  "status": "VERIFIED",
+  "scope": "Nine source waveform/rate schedules and PCM,actual Keep69 admitted trigger movement in four effect modes,flag/cursor/gate/clock/RNG andmidpoint codecs,old turn formats andnative SFX queue. Declared source checkpoints,no outcome injection/physical listening/normal Engine cold-session/campaign/audio473 suite.",
+  "parent_commit": "a4a252d0b8b",
+  "contract": "SCUMMVM-CE-ENGINE-PRAEVOC-SPEECH-CONTRACT.md",
+  "executable_sha256": "0f9b313bcc3321c3435318afcda4037a70af387181c32e6db80b78fe708d7e37",
+  "focused_validation": "praevoc_speech\twaveforms=9\texact_source_edges=8352\tpcm_samples=282866\tactual_trigger_moves=24\tmuted_moves=12\tgate_suppression=1\tcursor_wrap_modes=4\tmidpoint_core_window_input_turn_codecs=4\told_turn_formats=3\tnew_turn_forms=2\tno_extra_RNG_vs_gated_control=1\tcampaign=0\taudio473_suite=0\npraevoc_effect_queue\trequests=9\tchannel=SFX\told_audio_suite=0\n",
+  "source_model": "Nine authored commands match every original CWSPEAK pulse and duration. Native reads data only at file76..70A, never its instruction prefix.",
+  "build": {
+    "505": "compile0warnings/linkLNK1104 user-owned running normal exe;no native run",
+    "505b": "separate link0errors/1MSB8012warning2m47.91s;wrapper locked identical DLL copy fails",
+    "505c": "0warnings/0errors2m47.32s;wrapper succeeds",
+    "505d": "0warnings/0errors2m51.26s;wrapper succeeds"
+  },
+  "native_batches": 3,
+  "unsuccessful_corrective_native_batches": 1,
+  "failures": [
+    "505b combined mode0 step0 assertion: exact failed predicate unknown; harness wrongly excluded ordinary notification and assumed unchanged RNG.",
+    "505c midpoint codec mode0: reused504 helper hardcodes town type5; Keep69 requires8. Dedicated public codecs replace helper; no extra test commands."
+  ],
+  "corrective_scope": "Production unchanged after505b. Paired source-gated movement checks preserve ordinary cues/RNG; dedicated Keep codecs. Failed roots retained.",
+  "build_adjustment": "Separate temporary MSBuild output preserves Explorer-opened accepted504d executable. Official cleanenv script skips only byte-identical runtime DLL copies; changed DLLs still copied normally.",
+  "qualifications": [
+    "Controlled source checkpoints, not earned/campaign.",
+    "Core/window/input/turn component codecs, not ordinary Engine cold/session.",
+    "No physical listening or audio473 suite rerun; accepted seven synthesis/music core files unchanged.",
+    "Second original caller TalkB2F9/FCC3 remains next independent gap506; not covered by this Keep trigger receipt."
+  ],
+  "artifacts": {
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-binary\\scummvm-native-praevoc505d.exe": "0f9b313bcc3321c3435318afcda4037a70af387181c32e6db80b78fe708d7e37",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-binary\\native-praevoc505d-source.zip": "bb26d1eae8f061c036175f5860057bac086c0622ba23346e0793692280fc8b82",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-praevoc505d-focused\\verification.json": "2bf3fca84a3d3be6c6b797c543d37fa2e41f54d672611ffd1c05ac8a8194c75c",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-praevoc505-source.bin": "3a3ea164a37537cd840dff84df2682ffbc0b78263ea66d2008454d5dcc28b6bd",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-praevoc505b-source-research.json": "76672529d185b953bdbe075592898b37d687f5874ddfe5c0d1abcab9585a3167",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-praevoc505c-build.log": "7028428111159a0e86131b247680d0c6113f65477e8a5c2411f90a214390e936",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-praevoc505d-build.log": "75f7a8e4e1523f4835a5303b0d60a4ceb65b5510613fe570bcee40a41cba71ba"
+  }
+}

@@ -5,6 +5,7 @@
 #include "nox/native_world_wait.h"
 #include "nox/native_world_transport_motion.h"
 #include "nox/native_party.h"
+#include "nox/native_praevoc.h"
 namespace Nox { namespace Native {
 enum WorldMoveResult { kWorldMoveAdvanced,kWorldMoveNotice,kWorldMoveBlocked,kWorldMoveBoundary,kWorldMoveUnsupported,kWorldMoveEncounter,kWorldMoveArrival,kWorldMoveLeave,kWorldMoveInterrupted,kWorldMoveDefeat };
 // Interior on-foot Keep movement: retain shifted occupancy, run the actual
@@ -12,12 +13,13 @@ enum WorldMoveResult { kWorldMoveAdvanced,kWorldMoveNotice,kWorldMoveBlocked,kWo
 // Encounters, special terrain and other arrival effects are explicit boundaries.
 class WorldMove {
 public:
-    WorldMove() : _type(255),_quietGround(255),_sounds(nullptr) {}
+    WorldMove() : _type(255),_quietGround(255),_sounds(nullptr),_effectsEnabled(true) {}
     void setSoundEvents(SoundEvents *sounds) {_sounds=sounds;_turn.setSoundEvents(sounds);}
+    void setEffectsEnabled(bool enabled) {_effectsEnabled=enabled;}
     bool load(HdvArchive &archive,byte type=8) {
         Common::Array<byte> game,quiet;MapAssetRange assets;
         if (!archive.read("NA/GAME",game) || !resolveMapAssets(game,type,assets) || !archive.readRange(assets.resource,assets.offset+assets.size+67,1,quiet) || quiet.size()!=1) return false;
-        _quietGround=quiet[0];if (!_story.load(archive) || !_rules.load(archive,type) || !_transportRules.load(archive,type) || !_barrierRules.load(archive,type) || !_turn.load(archive,type) || !_painter.load(archive,type)) return false;_type=type;return true; }
+        _quietGround=quiet[0];if (!_praevoc.load(archive) || !_story.load(archive) || !_rules.load(archive,type) || !_transportRules.load(archive,type) || !_barrierRules.load(archive,type) || !_turn.load(archive,type) || !_painter.load(archive,type)) return false;_type=type;return true; }
     static bool completeClock(World &world,TurnClock &clock) {
         ClockAdvance advance;if (!advanceTurnClock(clock,advance)) return false;
         clock=advance.after;world._fields[20]=clock.hourlyCounter;return true;
@@ -132,7 +134,7 @@ public:
                 schedule=nextSchedule;routes=nextRoutes;random=after;text=nextText;frame=nextFrame;transferControls();return kWorldMoveArrival;
             }
         }
-        Common::Array<byte> authored;bool pending=false;const byte slot=shifted.objects.lookup[93];
+        Common::Array<byte> authored;SoundEvents spoken;bool pending=false;const byte slot=shifted.objects.lookup[93];
         if (slot!=255) {
             if (slot>252 || (slot&3)) return kWorldMoveUnsupported;
             const byte *object=candidate.currentTables()->data()+1024+slot;const byte kind=object[3];
@@ -140,8 +142,12 @@ public:
                 if (slot>248) return kWorldMoveUnsupported;
                 const byte value=byte(candidate.field(object[4])^((object[7]&128)?255:0));
                 if (!(value&object[5])) {
-                    if (!candidate.notice(object[7]&127,authored)) return kWorldMoveUnsupported;
-                    pending=true;
+                    if (candidate.mapId()==69) {
+                        if (!_praevoc.trigger(candidate._fields[12],turn.praevocCursor,turn.praevocUsed,_effectsEnabled,spoken)) return kWorldMoveUnsupported;
+                    } else {
+                        if (!candidate.notice(object[7]&127,authored)) return kWorldMoveUnsupported;
+                        pending=true;
+                    }
                 }
             }
             // M:F0F4..F114 branches on55 only. Every other object already
@@ -151,14 +157,14 @@ public:
         if (!pending && !completeClock(candidate,nextClock)) return kWorldMoveUnsupported;
         world.adoptState(candidate);window=nextWindow;scene=shifted;state=turn;clock=nextClock;light=nextLight;visibility=mask;
         schedule=nextSchedule;routes=nextRoutes;random=after;text=nextText;frame=nextFrame;notice=authored;
-        transferControls();return pending?kWorldMoveNotice:kWorldMoveAdvanced;
+        transferControls();if (_sounds) for (uint i=0;i<spoken.size();++i) _sounds->push_back(spoken[i]);return pending?kWorldMoveNotice:kWorldMoveAdvanced;
     }
 private:
     static bool showTransportEffect(const FixedMessageCatalog &catalog,byte id,TextGlyphSurface &text,HgrFrame &frame) {
         if (!text.importPages(frame.data(),frame.data(),8192) || !showFixedMessageStrip(catalog,id,text)) return false;
         for (uint y=184;y<192;++y) for (uint x=7;x<32;++x) if (!frame.putByte(x,y,text.page(0)[HgrFrame::rowOffset(y)+x])) return false;return true;
     }
-    byte _type,_quietGround;SoundEvents *_sounds;StoryMapPatches _story;TraversalRules _rules;WorldTransportMotion _transportRules;WorldHazards _barrierRules;WorldWait _turn;TilePainter _painter;
+    byte _type,_quietGround;SoundEvents *_sounds;bool _effectsEnabled;PraevocSpeechRules _praevoc;StoryMapPatches _story;TraversalRules _rules;WorldTransportMotion _transportRules;WorldHazards _barrierRules;WorldWait _turn;TilePainter _painter;
 };
 } }
 #endif

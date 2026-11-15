@@ -183,7 +183,14 @@ if ($buildExitCode -eq 0) {
 	$outputPath = "$buildDirectory\Releasex64"
 
 	if (Test-Path $vcpkgBinPath) {
-		Get-ChildItem -Path "$vcpkgBinPath\*.dll" | Copy-Item -Destination $outputPath -Force
+        Get-ChildItem -Path "$vcpkgBinPath\*.dll" | ForEach-Object {
+            $runtimeDestination = Join-Path $outputPath $_.Name
+            # Keep identical DLLs in place when a local application is using them.
+            if ((Test-Path -LiteralPath $runtimeDestination) -and
+                ((Get-FileHash -LiteralPath $_.FullName -Algorithm SHA256).Hash -eq
+                 (Get-FileHash -LiteralPath $runtimeDestination -Algorithm SHA256).Hash)) { return }
+            Copy-Item -LiteralPath $_.FullName -Destination $runtimeDestination -Force
+        }
 	}
 }
 

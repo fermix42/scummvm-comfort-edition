@@ -39,7 +39,7 @@ public:
         if (!atWorldCommand() || !state.valid() || !world.ready() || world.onFoot()!=(state.object==255)) return false;
         _transport=state;return true;
     }
-    void setSoundEvents(SoundEvents *sounds) {_sounds=sounds;_conversation.setSoundEvents(sounds);_inventory.setSoundEvents(sounds);_casting.setSoundEvents(sounds);_move.setSoundEvents(sounds);_wait.setSoundEvents(sounds);}
+    void setSoundEvents(SoundEvents *sounds,bool effectsEnabled=true) {_sounds=sounds;_conversation.setSoundEvents(sounds);_inventory.setSoundEvents(sounds);_casting.setSoundEvents(sounds);_move.setSoundEvents(sounds);_move.setEffectsEnabled(effectsEnabled);_wait.setSoundEvents(sounds);}
     bool pollWorldEvents(NewGame &game,WorldStory &window,const FixedMessageCatalog &catalog,TextGlyphSurface &text,HgrFrame &frame,
             const WorldScene &scene,const LightState &light,byte animation,bool &changed) {
         changed=false;if (!atWorldCommand() || !game.ready() || game.world.mapId()!=65) return true;

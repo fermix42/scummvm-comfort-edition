@@ -1,3 +1,86 @@
+# Praevoc speech505 - VERIFIED within focused contract
+
+505d official native-only build0warnings/0errors2m51.26s;focused batch passes
+9waveforms/8352exactsourceedges/282866PCM samples,24actualtrigger moves in
+4soundmodes,12mutedmoves,gatesuppression,cursorwrap,4midpoint core/window/input/
+turncodecs,3oldturnformats/2newforms,and9actualEngineSFX queue requests.
+Commands:officialcleanenvscript -NoxNativeOnly withtemporary uniqueoutput;
+python conversion/check_praevoc505.py --label 505d. Frozenexe/source andhashes
+inPRAEVOC505-VERIFICATION. No campaign/normalEnginecold/session/listening claim.
+505b/505c failures preserved;one failed corrective nativebatch. Dedicated
+Keep-type8codec fixes504helper'stown-type5 assumption;production unchanged.
+Paired gatedsourcecontrol preserves ordinarycues/RNG;noexpectedoutcomeinjection.
+UserExplorer-opened504d remainsuntouched. Unique505candidate andskipidentical
+DLLcopies let officialbuild finish. Accepted473seven corefilesunchanged.
+Continue506:TalkB2F9 field12bit32 ->FCC3 singlecurrentbasecommand;clearsbit,
+doesnotadvancecursor/togglephase. Nativecallback lacksrequest. Contract prepared.
+
+# Praevoc505c focused correction - IN PROGRESS
+
+505c official build:0warnings/0errors2m47.32s;wrapper succeeds with
+byte-identical runtime DLL copies skipped and isolated candidate output.
+python conversion/check_praevoc505.py --label 505c fails at midpoint codecs
+mode0, after three actual trigger moves and nine exact source waveform checks.
+Static cause: reused504 helper loads WorldInput with hardcoded town type5;
+Keep69 requires type8.505d uses dedicated core/window/input public codecs with
+actual type8, no extra O/Escape/G test commands; production unchanged.
+First unsuccessful corrective native batch=1;one final corrective batch allowed.
+505d build IN PROGRESS. Both failed roots preserved. No campaign/oldaudio suite.
+Next independent source gap:TalkB2F9 invokes FCC3 when field12bit32 is set,
+then clears it. Native callback clears bit but lacks speech request. L018actor24
+sets this bit (500 census field12,value69). Contract before next code.
+
+# Praevoc505b first focused batch - IN PROGRESS
+
+Separateoutput link succeeds2m47.91s,0errors/1MSB8012outputpathwarning;wrapper
+thenfailscopyingunchangedbrotlicommon.dll lockedbyExplorer-openeduserapp.
+All51existingruntimeDLLshash-match accepted504d,soisolatedstagingisvalid.
+Nativebatch passes9waveforms/exactsourcepulse/duration/PCM andold/newturn
+codecs,thenstopscombinedactualmode0step0 assertion. No full505acceptanceclaim.
+Initialharnessalsoincorrectlyexcludednormalmovementnotification(Keepquiet0,
+arrivedground108). Preserveexistingcues;comparebasecues andRNG againsta paired
+source-gatedmovement control andrecordrichresult/position/clock/flag diagnostics.
+Production unchanged. FixcustomTargetPathwarningandskipbyte-identicalDLLcopies
+in cleanenvscript instead of closinguserwindow.505c firstcorrectivebatch next;
+no oldaudio/campaign. Failedisolatedroot retained,notrelabelledverified.
+
+# Praevoc505 link output locked by running app - IN PROGRESS
+
+505compile0warnings;linkfailsLNK1104(Releasex64/scummvm.exe)after14.92s.
+Read-onlyprocessproof:PID29820 openedfromExplorerat18:00:34,canonicalbuildexe
+504d;not an owned test child. Do notterminateuserwindow. No native505run.
+505b usesofficialcleanenvscript withtemporaryForceImportAfterCppTargets local
+praevoc505-build-output.targets,mainTargetName/OutputFile/PDB unique,ordinary
+engine/object/buildselector unchanged. Keepsuserexe/data/session untouched.
+IfwrapperDLLcopyislocked,retainexactlink/packagingoutcomes separately.
+Firstfocusedbatch followsactual completedlink;no oldaudio/campaign suite.
+
+# Praevoc505 coherent implementation/build - IN PROGRESS
+
+Native data-onlyCWS waveform renderer/period schedule,typedmap69trigger and
+existingSFXchannel dispatch connected. Persistedcursor usesNWAT4 onlywhenused;
+old1..3default5,unusedsaves stayoriginalformat. Source validlegacycursor read
+withoutCPUresumption. Newmodebinding preserves mutedcursor/flag semantics;
+nineacceptedSpeakerEffect/music/mixer cores unchanged. Source9variant isolated
+reader comparisons allpulsetimes/durationsmatch505b afterFEcadencecorrection;
+originalinitialmismatchretained. Localfixture66941bytes hashesagainstoriginal
+pulse receipts beforeuse. No oldaudio suite orcampaign.
+Fullfocusedbatch includesactualsource69floor15,42->15,43,6triggercycles/four
+modes,gate/clock/RNG/persistence/oldformats andactualEngineSFXqueue9requests.
+505cleanenvnativeonlybuildrunning;thenonefocusedbatch. No native505run yet.
+
+# Praevoc speech/script505 - IN PROGRESS
+
+New concrete source produceroutside473manifest:Keep69 state55 at15,43,
+field50/mask1 ->residentFC58/FCC3 ->NA/CWSPEAK;alternatingfield12bit16 and
+sixstepcursor5..0. Nativegenericnotice0 misses thisnormalworldbranch.
+ContractENGINE-PRAEVOC-SPEECH beforeproductionchanges. Nativewaveformdata
+owner/SFXqueue/scriptcursor planned;accepted473ninepatterns/music/mixer source
+proofs stayintact,nosuite rerun. Historical473manifest notrewritten;newaudio.06
+MISSING/NOT STARTED is explicitcurrentcoveragegap. Confirmloaderalignmentand
+reader timing beforecode;no genericbeep/CPU fallback/campaign. Night504committed
+a4a252d0b8b;sourceindex addsbothnewheaders withoutregenerating oldindex.
+
 # Night actor504 integrated - VERIFIED within focused contract
 
 504d build0warnings/0errors2m57.05s;firstcorrective nativebatchpasses8byte

@@ -19,6 +19,7 @@
 #include "engines/metaengine.h"
 #include "gui/saveload-dialog.h"
 #include "nox/native_speaker.h"
+#include "nox/native_cwspeech.h"
 #include "nox/native_startup_host.h"
 namespace Nox {
 NoxEngine::~NoxEngine() {
@@ -49,7 +50,9 @@ bool NoxEngine::playNativeCast() {return playNativeSpeaker(Native::kSpeakerSelec
 bool NoxEngine::playNativeSpeaker(byte cue) {
     if (_nativeSoundMode==1 || _nativeSoundMode==3) return true;
     Common::Array<int16> samples;uint toggles;
-    if (cue>Native::kSpeakerPartyHit || !Native::SpeakerEffect::render(_resources,Native::SpeakerCue(cue),samples,toggles)) return false;
+    if (cue&Native::kCwSpeechFirst) {
+        if (!Native::CwSpeechEffect::render(_resources,byte(cue&127),samples,toggles)) return false;
+    } else if (cue>Native::kSpeakerPartyHit || !Native::SpeakerEffect::render(_resources,Native::SpeakerCue(cue),samples,toggles)) return false;
     byte *buffer=static_cast<byte *>(malloc(samples.size()*2));if (!buffer) return false;
     for (uint i=0;i<samples.size();++i) WRITE_LE_UINT16(buffer+i*2,uint16(samples[i]));
     if (!_mixer->isSoundHandleActive(_sound)) {
