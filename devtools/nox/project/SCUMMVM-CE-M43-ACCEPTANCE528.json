@@ -124,9 +124,11 @@
       "prerequisites": [
         "legitimate-new-game"
       ],
-      "source_contract": "Shrubbery95 -> Gordon/Raque132 -> actual Pirate entrance/control/Brown74 -> actual key door/selfportal/VHA wall -> original Monk/Cultist admissions and distinct controlled final-blow operations -> Letter75 -> Archus/Styx. Cult73 records explicit cache/travel/ordinary-death/one-cell boundaries. Order authorization is advice; actual Scales146/Bruce/Archus membership043C04/key94 demonstrated separately.",
+      "source_contract": "Selected Sally95/shrubbery48bit32 -> Gordon full hideout opening commits48bit64 -> repeat guardthreat/noadditionalaward,coldcontinuity. Raque132 and subsequent cultchain remain separate required nodes/chain obligations.",
       "source_anchors": [
-        "NA/DATA.TLK.L01D actor0 ordered ADVI branches, original v119"
+        "NA/DATA.TLK.L015 actor32 Sally",
+        "NA/DATA.TLK.L015 actor96 Gordon",
+        "NA/DATA.MAP.CSTL map57 authored cell/door"
       ],
       "original_gate_evidence": [
         "SCUMMVM-CE-M3-SHRUBBERY17-CHECKPOINT.json",
@@ -149,13 +151,14 @@
         "scoped audio/presentation",
         "actual earned verification criteria"
       ],
-      "earned_lineage": null,
+      "earned_lineage": "SCUMMVM-CE-M43-EARNED528.json checkpoints44->45;SCUMMVM-CE-M43-GORDON528-VERIFICATION.json",
       "earned_evidence": [
         "44 actual Sally95qty1/48bit32/cold011/first icon",
         "Cutter first-attempt cell lock pick (5picks retained),normal doorway crossing",
         "45 actual awake Gordon opening/hideout48bit64,repeat source predicate and rendered screenshot00011,cold012/firsticon/fresh repeat"
       ],
-      "qualifications": "Selected Sally->Gordon path. No Thomas alternative or complete NPC subsystem claim; normal overnight Wait/map transitions recorded."
+      "qualifications": "Selected Sally->Gordon path. No Thomas alternative or complete NPC subsystem claim; normal overnight Wait/map transitions recorded.",
+      "related_chain_contract": "Shrubbery95 -> Gordon/Raque132 -> actual Pirate entrance/control/Brown74 -> actual key door/selfportal/VHA wall -> original Monk/Cultist admissions and distinct controlled final-blow operations -> Letter75 -> Archus/Styx. Cult73 records explicit cache/travel/ordinary-death/one-cell boundaries. Order authorization is advice; actual Scales146/Bruce/Archus membership043C04/key94 demonstrated separately."
     },
     {
       "id": "brown-key",
@@ -2505,7 +2508,10 @@
         "earned skiff on surface (completed alternate fork)",
         "actual X disembark on local Axea shore",
         "39 Bayport55gold normalpurchase;260gold option poor with256gold unchanged",
-        "40 purchased skiff realboard/localmovement/sea departure117,145"
+        "40 purchased skiff realboard/localmovement/sea departure117,145",
+        "49 sixmember normal return/B of earned skiff",
+        "50 actual3roughwater crossing/healing/camp/Bayportreturn with2actualbattles",
+        "51 actual550goldfrigatepurchase/ownership255;boarding/cannon/horse stillpending"
       ],
       "remaining": "Ocean arrival/disembark,cannon,horse and remaining supported contexts remain unverified."
     },
@@ -2560,7 +2566,7 @@
   "process_launches": 12,
   "planned_node_count": 60,
   "mandatory_node_count_note": "All selected M3 nodes explicitly represented alongside dependency76 graph; includes supporting/advice/alternative nodes. Necessity is retained per source,not inferred from node count.",
-  "last_earned_checkpoint": "48 NoxXujamar and Alluvion legitimately recruited;actual normal N party order puts Kat/Cutter front;next sixparty boat/island route",
+  "last_earned_checkpoint": "51 Frigate legitimately purchased550gold/ownership255;earnedprimary6members,new49skiff/50Bayportreturn;nextfullrest,board119/cannon,sourceislandroute",
   "baseline_candidate_sha256": "81feb2c7ff17594a6ea9754dc60602a755b2f37ea7c53b437f65a18e7c35000f",
   "candidate_change": "NPC529 verified general viewport-exit correction; SCUMMVM-CE-NPC529-VERIFICATION.json",
   "earned_failures_retained": [

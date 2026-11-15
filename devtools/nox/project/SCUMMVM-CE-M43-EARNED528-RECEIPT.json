@@ -1,6 +1,6 @@
 {
   "status": "IN PROGRESS",
-  "scope": "Earned primaryNew through48,sixmemberswithNoxXujamar/Alluvion,fullrest334food674gold;normalformationfollowing48. Abandonedfourpartyshipbranchesqualified;campaign/endincomplete.",
+  "scope": "EarnedprimaryNew through51:6members,skiffreturn3roughwater/fullnormalhealing/camp,sea2x50HP/road3x50HPwins,Bayportarrival,frigate550goldpurchase. Fourmemberfailureforksretained;ending/campaignincomplete.",
   "executable_sha256": "bc41a7d987509306add2702efb598eea2244663329627b10c4341e92e69944aa",
   "source_binding": "SCUMMVM-CE-NPC529-VERIFICATION.json",
   "builds": 2,
@@ -19,7 +19,8 @@
     "Library north-wing planner omitted water damage; actual earned defeat retained; exact normal library98 save restored, copied fork receipt, no injected HP or engine fix.",
     "Source-local foot planner now avoids unprotected water/thermal/barrier cells; normal state16 doors supported by native Open rather than historical tile whitelist.",
     "Thin battle helper now routes around occupied allies with ordinary keys; earlier bounded loops retained.",
-    "Source clock/schedule hour bytes are BCD; raw17=11AM,raw23=5PM. No clock injection."
+    "Source clock/schedule hour bytes are BCD; raw17=11AM,raw23=5PM. No clock injection.",
+    "Dismount X immediately clearsboatcontrol atcurrentcell;actualXon230watercaused35damageall and2x50HPbattle,won. Reboard/sailonto232beforeX correctsnormalcommandplanning,notEnginecode."
   ],
   "checkpoints": [
     {
@@ -1211,6 +1212,36 @@
       "saved_files": {
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot048.g0": "b764adbec503b934ff54933a0fef84122bcb9afa134b9b0e1b770486d8809ded",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot048.g0.ce-achievements.json": "248e43e4f00002170f3922b5bd55606b07607d8faa8dc73bd10b6822f35989ab"
+      },
+      "process": 12
+    },
+    {
+      "label": "Six-member party returned to earned skiff",
+      "slot": 49,
+      "parent": "54f62bb13ed331c1362404250a4381116c89b5a54a456e48c15db661e3ad4ff7",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot049.g0": "f400682d1e6f26d9b3332626b66d5052963ac6917b13ac61b144e9923b9f4f68",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot049.g0.ce-achievements.json": "2edfdf7a64695dd5bd37740540ec43360ecde3b9f481f9463be6f3177bdf159e"
+      },
+      "process": 12
+    },
+    {
+      "label": "Six-member Bayport return after sea crossing",
+      "slot": 50,
+      "parent": "7b464ce91b0357912221524715cd226ff808a1bd106ba2cc9f78bdd0b05c9c82",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot050.g0": "88535b46c553bdc9230f2346d6a570d8b18cdf436310044a4edd7adf2582e377",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot050.g0.ce-achievements.json": "8f2c05703bc280e9b4efe07725cbc8785b6560e642d52313ad693b40cce7d596"
+      },
+      "process": 12
+    },
+    {
+      "label": "Frigate legitimately purchased with Captain Ray funding",
+      "slot": 51,
+      "parent": "828a9de720babf695936abdb2f3fba9b3d3d4e1867ee379161a433cf421b1ce5",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot051.g0": "a6fedcc06918d6b6d942c530b3a1777090290e6d250e3fa3462d3d4223dd52ef",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot051.g0.ce-achievements.json": "802c278dda70e47677acc6191af0a1950b9014522e906da80b3a4cea8762cdfd"
       },
       "process": 12
     }
