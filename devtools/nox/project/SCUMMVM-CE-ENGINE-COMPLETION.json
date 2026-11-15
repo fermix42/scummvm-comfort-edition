@@ -1385,7 +1385,7 @@
       "behavior": "Weapon ready unready and hand ownership",
       "implementation": "IMPLEMENTED",
       "verification": {
-        "status": "NOT STARTED",
+        "status": "IN PROGRESS",
         "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement."
       },
       "native_owners": [
@@ -1400,7 +1400,8 @@
         "engines/nox/native_book.h"
       ],
       "original_evidence": [
-        "SCUMMVM-CE-INVENTORY-IMPLEMENTATION510.md:static known operation model/production ownership closure;existing verification and unknown dynamic producer/legacy scopes retained."
+        "SCUMMVM-CE-INVENTORY-IMPLEMENTATION510.md:static known operation model/production ownership closure;existing verification and unknown dynamic producer/legacy scopes retained.",
+        "SCUMMVM-CE-INTEGRATION527-I2-VERIFICATION.json:12 scoped joined invariants, both modes, real Engine cold/next command; broader row not automatically VERIFIED."
       ],
       "production_connection": "Shared Inventory/Party/SpellBook/EquipmentActions/SearchInput/World/BattleLoot owners through ordinary InventoryWindow/WorldInput and tactical482;known model reviewed510,broader workflow verification unchanged.",
       "fallback_dependencies": [],
@@ -1544,7 +1545,8 @@
       ],
       "original_evidence": [
         "GAME949C/94AC -> item selector7; SRTN.INVENTORY item-command-7.asm 9600-9791",
-        "Manual pp41-42 New Character Order"
+        "Manual pp41-42 New Character Order",
+        "SCUMMVM-CE-INTEGRATION527-I2-VERIFICATION.json:12 scoped joined invariants, both modes, real Engine cold/next command; broader row not automatically VERIFIED."
       ],
       "production_connection": "native_engine -> runNativeStartup -> WorldInput::handle N exclusive modal -> PartyOrderInput -> PartyOrder::exchange -> Party/Inventory; save gating via PlayerSessionState::canSave/WorldInput::atWorldCommand.",
       "fallback_dependencies": [],
@@ -2274,7 +2276,7 @@
       "behavior": "Training eligibility quantity price and stat commit",
       "implementation": "IMPLEMENTED",
       "verification": {
-        "status": "NOT STARTED",
+        "status": "IN PROGRESS",
         "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement."
       },
       "native_owners": [
@@ -2286,7 +2288,8 @@
         "engines/nox/native_temple_service.h"
       ],
       "original_evidence": [
-        "SCUMMVM-CE-SERVICE-ADMISSION497.md"
+        "SCUMMVM-CE-SERVICE-ADMISSION497.md",
+        "SCUMMVM-CE-INTEGRATION527-I2-VERIFICATION.json:12 scoped joined invariants, both modes, real Engine cold/next command; broader row not automatically VERIFIED."
       ],
       "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
       "fallback_dependencies": [],
@@ -2303,7 +2306,7 @@
       "behavior": "Inn rest price recovery and time passage",
       "implementation": "IMPLEMENTED",
       "verification": {
-        "status": "NOT STARTED",
+        "status": "IN PROGRESS",
         "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement."
       },
       "native_owners": [
@@ -2315,7 +2318,8 @@
         "engines/nox/native_temple_service.h"
       ],
       "original_evidence": [
-        "SCUMMVM-CE-SERVICE-ADMISSION497.md"
+        "SCUMMVM-CE-SERVICE-ADMISSION497.md",
+        "SCUMMVM-CE-INTEGRATION527-I2-VERIFICATION.json:12 scoped joined invariants, both modes, real Engine cold/next command; broader row not automatically VERIFIED."
       ],
       "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
       "fallback_dependencies": [],
@@ -2332,7 +2336,7 @@
       "behavior": "Inn member store retrieve and equipment ownership",
       "implementation": "IMPLEMENTED",
       "verification": {
-        "status": "NOT STARTED",
+        "status": "IN PROGRESS",
         "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement."
       },
       "native_owners": [
@@ -2343,7 +2347,9 @@
         "engines/nox/native_inn_membership.h",
         "engines/nox/native_temple_service.h"
       ],
-      "original_evidence": [],
+      "original_evidence": [
+        "SCUMMVM-CE-INTEGRATION527-I2-VERIFICATION.json:12 scoped joined invariants, both modes, real Engine cold/next command; broader row not automatically VERIFIED."
+      ],
       "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
       "fallback_dependencies": [],
       "blockers": [],
@@ -7973,7 +7979,7 @@
   },
   "current_subsystem": {
     "status": "IN PROGRESS",
-    "scope": "I2 controlled party/inventory/services/dialogue integration; I3 and non-ending I4 follow. I5/ending remain excluded."
+    "scope": "I3 controlled world/simulation/combat return; I2 twelve-invariant contract VERIFIED; non-ending I4 follows."
   },
   "count_definition": "native_implemented counts IMPLEMENTED; CE_REPLACEMENT is separately reported. VERIFIED applies only to row evidence scope; no overall completion percentage.",
   "source_batch_report": "SCUMMVM-CE-SOURCE-BATCH-COMPLETION526.md"

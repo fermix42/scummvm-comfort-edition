@@ -1,0 +1,77 @@
+{
+  "status": "VERIFIED",
+  "required": 12,
+  "verified": 12,
+  "failed_engine_invariants": 0,
+  "unknown_or_not_started": 0,
+  "remaining": [],
+  "builds": 0,
+  "native_code_changes": 0,
+  "fallback_changes": 0,
+  "evidence": {
+    "modern": {
+      "status": "VERIFIED",
+      "scope": "I2 linked normal Engine party/order/items/inn and cold scope, first10 invariants. Retained prefix source fee corrected; only remaining Ready/cold executed now. No campaign/audio acceptance.",
+      "mode": "modern",
+      "verified_invariants": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "prefix_reruns": 0,
+      "builds": 0,
+      "executable_sha256": "81feb2c7ff17594a6ea9754dc60602a755b2f37ea7c53b437f65a18e7c35000f"
+    },
+    "classic": {
+      "status": "VERIFIED",
+      "scope": "I2 linked party/order/ownership/inventory/inn leave/pickup/fee/subsequent Ready and three Engine cold reconstructions; dialogue/training portions separate.",
+      "mode": "classic",
+      "source_sha256": "41fe9a4c1efe74037a10f611467a5217592e570e79341e01f7315ff340bb3662",
+      "executable_sha256": "81feb2c7ff17594a6ea9754dc60602a755b2f37ea7c53b437f65a18e7c35000f",
+      "first10_invariants": "VERIFIED",
+      "builds": 0,
+      "setup": "Declared legacy typed checkpoint wrapped with current I1 presentation audio/metadata before load; tainted/recovered permanent assistance retained. No campaign or audio acceptance."
+    }
+  },
+  "qualification": "Driver setup/key/reference failures preserved in private roots. Modern fee expectation corrected from immutable offer before remaining Ready/cold; successful prefix not repeated.",
+  "additional_evidence": [
+    "I2-dialogue-modern",
+    "I2-dialogue-classic",
+    "I2-paid-training-modern",
+    "I2-paid-training-classic",
+    "I2-callback-modern",
+    "I2-callback-classic"
+  ],
+  "qualifications": [
+    "Controlled setup/permanent Casual only; not earned.",
+    "Insufficient-gold training refusal retained; declared successgold2000,authored unitprice363,quantity2 ->gold1274/practice0/skill+2.",
+    "Callback external family decoder failures retained; source familyFor6=3 established, actual object effects preserved and cold checked without repeating operations.",
+    "Historical malformed JOB and prototype qualifications unchanged."
+  ],
+  "coverage_before": {
+    "IN PROGRESS": 24,
+    "VERIFIED": 41,
+    "NOT STARTED": 78
+  },
+  "coverage_after": {
+    "IN PROGRESS": 28,
+    "VERIFIED": 41,
+    "NOT STARTED": 74
+  },
+  "affected_rows": [
+    "inventory.03",
+    "inventory.08",
+    "services.03",
+    "services.04",
+    "services.05"
+  ],
+  "implementation_delta": 0,
+  "fallback_delta": 0
+}

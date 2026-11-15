@@ -1,3 +1,11 @@
+# Integration527 I2 - VERIFIED; continue I3
+
+I2 twelve required/twelve verified/zero engine failures/zero unknown within contract. Both modes: linked party/asymmetric item ownership/inn/service; real keyword editor and normal/yell/whisper; authored nonprototype training (363*2 payment/skill+2/practice0), authored Town74 KAYL callback objects3/71=36 and requestclear. Every group normal Engine legal save/cold/next icon. Controlled setup/permanent Casual; not earned. Driver setup/key/fee/family failures preserved, successful prefixes reassessed without repeated gameplay. No build/production change/new fallback. Receipt INTEGRATION527-I2-VERIFICATION; exact coverage counts there. Continue permitted I3 and non-ending I4.
+
+# Integration527 I2 checkpoint - IN PROGRESS
+
+I2 required12 / verified10 / engine failures0 / remaining2 (dialogue and training). Both Modern and Classic linked Unready, reorder with asymmetric ownership, inn leave/pickup at authored fee50, normal cold restoration and subsequent Ready passed. No build, engine change or fallback change. Private evidence ce-native-integration527/I2-inn-unready-modern and I2-inn-final-classic; receipt SCUMMVM-CE-INTEGRATION527-I2-VERIFICATION.json. Continue dialogue/training, then permitted I3/non-ending I4; no campaign.
+
 # Controlled Engine I1 integration527 - VERIFIED, continue I2
 
 I1:16required/16verified/0failing/0unknown within defined contract, both modes.

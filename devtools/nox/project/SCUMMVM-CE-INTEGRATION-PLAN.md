@@ -1,3 +1,7 @@
+# Integration527 I2 checkpoint
+
+I1 VERIFIED16/16; I2 VERIFIED12/12 scoped contracts. I3 IN PROGRESS; non-ending I4 follows. Ending/I5 excluded.
+
 # I1 execution checkpoint527
 
 I1 VERIFIED within16-invariant contract; receipt INTEGRATION527-I1-VERIFICATION.
