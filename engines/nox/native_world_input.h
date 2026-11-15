@@ -39,7 +39,7 @@ public:
         if (!atWorldCommand() || !state.valid() || !world.ready() || world.onFoot()!=(state.object==255)) return false;
         _transport=state;return true;
     }
-    void setSoundEvents(SoundEvents *sounds,bool effectsEnabled=true) {_sounds=sounds;_conversation.setSoundEvents(sounds);_inventory.setSoundEvents(sounds);_casting.setSoundEvents(sounds);_move.setSoundEvents(sounds);_move.setEffectsEnabled(effectsEnabled);_wait.setSoundEvents(sounds);}
+    void setSoundEvents(SoundEvents *sounds,bool effectsEnabled=true) {_sounds=sounds;_conversation.setSoundEvents(sounds,effectsEnabled);_inventory.setSoundEvents(sounds);_casting.setSoundEvents(sounds);_move.setSoundEvents(sounds);_move.setEffectsEnabled(effectsEnabled);_wait.setSoundEvents(sounds);}
     bool pollWorldEvents(NewGame &game,WorldStory &window,const FixedMessageCatalog &catalog,TextGlyphSurface &text,HgrFrame &frame,
             const WorldScene &scene,const LightState &light,byte animation,bool &changed) {
         changed=false;if (!atWorldCommand() || !game.ready() || game.world.mapId()!=65) return true;
@@ -88,13 +88,13 @@ public:
         return WorldViewport::refreshAtWorld(game.world,window,_story,_actors,_lighting,_occlusion,_painter,game.appearance,
                 game.clock.lightActive,animation,painted,turn.presentation,light,visibility,frame,&scene);
     }
-    bool beginTempleConversation(HdvArchive &archive,NewGame &game,const WorldScene &scene,HgrFrame &frame,GameplayRandom *random=nullptr) {
+    bool beginTempleConversation(HdvArchive &archive,NewGame &game,const WorldScene &scene,HgrFrame &frame,GameplayRandom *random=nullptr,byte speechCursor=5) {
         // G:7149 explicitly selects NPC8 after R's teleport. The authored
         // scheduled NPC is immediately north of20,13; do not guess another.
         if (game.world.mapType()!=7 || game.world.mapId()!=58 || game.world.x()!=20 || game.world.y()!=13 ||
             !atWorldCommand() || scene.actors.lookup[76]!=8 || (scene.actors.kinds[76]&135)!=4 || !_conversation.choose(game.world,frame)) return false;
         Common::Event north;north.type=Common::EVENT_KEYDOWN;north.kbd=Common::KeyState(Common::KEYCODE_UP,0);byte message=255;
-        return _conversation.handle(north,archive,game,scene,frame,message,&_transport,random)==kWorldConversationHandled;
+        return _conversation.handle(north,archive,game,scene,frame,message,&_transport,random,speechCursor)==kWorldConversationHandled;
     }
     bool continueScriptedEncounter(HdvArchive &archive,NewGame &game,WorldStory &window,WorldScene &scene,WorldActorTurnState &turn,
             LightState &light,VisibilityMask &visibility,HgrFrame &frame,byte animation) {
@@ -284,7 +284,7 @@ private:
             const uint priorPartyCount=game.party.memberCount();
             const byte priorObject=_transport.object;
             const byte dialogueActor=_conversation.actorSlot();const bool plainDialogue=_conversation.plainDialogue();
-            byte id=255;const WorldConversationResult result=_conversation.handle(input,archive,game,scene,frame,id,&_transport,&random);
+            byte id=255;const WorldConversationResult result=_conversation.handle(input,archive,game,scene,frame,id,&_transport,&random,turn.praevocCursor);
             if (result==kWorldConversationUnsupported) return kWorldInputBoundary;
             if (_transport.object!=priorObject) {
                 turn.presentation.partyObject=_transport.object;

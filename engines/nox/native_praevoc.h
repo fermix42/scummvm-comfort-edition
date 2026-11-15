@@ -12,6 +12,10 @@ public:
         for (uint i=0;i<6;++i) if (_rates[i]!=0x30 && _rates[i]!=0x50 && _rates[i]!=0x70) return false;
         return true;
     }
+    bool baseCue(byte cursor,SoundEvents &events) const {
+        if (_rates.size()!=6 || cursor>5) return false;
+        events.push_back(SpeakerCue(kCwSpeechFirst|_rates[cursor]));return true;
+    }
     bool trigger(byte &phase,byte &cursor,bool &used,bool effectsEnabled,SoundEvents &events) const {
         if (_rates.size()!=6 || cursor>5) return false;
         if (effectsEnabled) {

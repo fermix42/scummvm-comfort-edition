@@ -15,6 +15,7 @@
 #include "nox/native_party_selection.h"
 #include "common/memstream.h"
 #include "nox/native_sound_events.h"
+#include "nox/native_praevoc.h"
 namespace Nox { namespace Native {
 enum WorldConversationResult { kWorldConversationHandled,kWorldConversationFinished,kWorldConversationMessage,kWorldConversationUnsupported,kWorldConversationTravel };
 // Ordinary on-foot directional Talk, plain authored response/input/closing and
@@ -22,8 +23,8 @@ enum WorldConversationResult { kWorldConversationHandled,kWorldConversationFinis
 // All phases and data references are semantic; no original instructions run.
 class WorldConversation {
 public:
-    WorldConversation() : _stage(0),_type(255),_map(0),_slot(255),_closing(false),_endShown(false),_footerShown(false),_hasDialogue(false),_hasWindow(false),_refused(false),_memberMode(0),_waitingSlot(255),_pickupFee(0),_vendorRole(0),_merchantSale(false),_merchantIndex(0),_trainingMember(255),_worldRefresh(false),_sounds(nullptr) {}
-    void setSoundEvents(SoundEvents *sounds) {_sounds=sounds;}
+    WorldConversation() : _stage(0),_type(255),_map(0),_slot(255),_closing(false),_endShown(false),_footerShown(false),_hasDialogue(false),_hasWindow(false),_refused(false),_memberMode(0),_waitingSlot(255),_pickupFee(0),_vendorRole(0),_merchantSale(false),_merchantIndex(0),_trainingMember(255),_worldRefresh(false),_sounds(nullptr),_effectsEnabled(true),_speechCursor(5) {}
+    void setSoundEvents(SoundEvents *sounds,bool effectsEnabled=true) {_sounds=sounds;_effectsEnabled=effectsEnabled;}
     bool takeWorldRefresh() {const bool result=_worldRefresh;_worldRefresh=false;return result;}
     bool active() const { return _stage!=0; }
     byte stage() const { return _stage; }
@@ -36,11 +37,12 @@ public:
     bool matchesWorld(const World &world) const { return !active() || (world.ready() && world.mapType()==_type && world.mapId()==_map); }
     bool choose(const World &world,const HgrFrame &frame) {
         if (active() || !world.ready() || !world.onFoot()) return false;
-        WorldConversation next;next._type=world.mapType();next._map=world.mapId();next._underlay=frame;next._stage=1;*this=next;return true;
+        WorldConversation next;next._sounds=_sounds;next._effectsEnabled=_effectsEnabled;next._type=world.mapType();next._map=world.mapId();next._underlay=frame;next._stage=1;*this=next;return true;
     }
     WorldConversationResult handle(const Common::Event &event,HdvArchive &archive,NewGame &game,const WorldScene &scene,
-            HgrFrame &frame,byte &message,WorldTransportState *transport=nullptr,GameplayRandom *random=nullptr) {
-        if (!active() || !matchesWorld(game.world) || event.type!=Common::EVENT_KEYDOWN) return kWorldConversationUnsupported;
+            HgrFrame &frame,byte &message,WorldTransportState *transport=nullptr,GameplayRandom *random=nullptr,byte speechCursor=5) {
+        _speechCursor=speechCursor;
+        if (speechCursor>5 || !active() || !matchesWorld(game.world) || event.type!=Common::EVENT_KEYDOWN) return kWorldConversationUnsupported;
         const Common::KeyCode key=event.kbd.keycode;
         if (_stage==1) {
             if (key==Common::KEYCODE_ESCAPE) { restore(frame);return kWorldConversationFinished; }
@@ -270,8 +272,18 @@ public:
         if (in.err() || in.pos()!=in.size()) return false;*this=next;return true;
     }
 private:
+    bool applyCallbacks(HdvArchive &archive,NewGame &game) {
+        SoundEvents speech;
+        if (_conversation.worldCallbacksPending() && (_conversation.fields()[12]&32) && _sounds && _effectsEnabled) {
+            PraevocSpeechRules rules;if (!rules.load(archive) || !rules.baseCue(_speechCursor,speech)) return false;
+        }
+        bool refresh=false;if (!game.world.applyConversationCallbacks(_conversation,refresh)) return false;
+        _worldRefresh|=refresh;
+        if (_sounds) for (uint i=0;i<speech.size();++i) _sounds->push_back(speech[i]);
+        return true;
+    }
     bool showDialogue(HdvArchive &archive,NewGame &game,HgrFrame &frame,GameplayRandom *random=nullptr) {
-        bool refresh=false;if (!game.world.applyConversationCallbacks(_conversation,refresh)) return false;_worldRefresh|=refresh;
+        if (!applyCallbacks(archive,game)) return false;
         return show(archive,_conversation.reply(),frame,&game.discovery,random,&game) &&
             !(_stage==3 && _conversation.trainingPending() && !trainingText(archive,0x9790,27,frame));
     }
@@ -665,7 +677,7 @@ private:
         _window=window;_hasWindow=true;_stage=2;frame=background;return settle(archive,frame,events,random,game);
     }
     bool settle(HdvArchive &archive,HgrFrame &frame,Enhancements *events=nullptr,GameplayRandom *random=nullptr,NewGame *game=nullptr) {
-        if (_hasDialogue && _conversation.worldCallbacksPending()) {bool refresh=false;if (!game || !game->world.applyConversationCallbacks(_conversation,refresh)) return false;_worldRefresh|=refresh;}
+        if (_hasDialogue && _conversation.worldCallbacksPending()) {if (!game || !applyCallbacks(archive,*game)) return false;}
         if (_window.waiting()) {_stage=2;return true;}
         if (!_window.ended()) return false;
         if (_hasDialogue && events && !_conversation.recordSpokenReply(*events)) return false;
@@ -679,7 +691,7 @@ private:
             _endShown=true;
             if (_hasDialogue) {
                 const ConversationResult result=_conversation.closing(random);
-                if (_conversation.worldCallbacksPending()) {bool refresh=false;if (!game || !game->world.applyConversationCallbacks(_conversation,refresh)) return false;_worldRefresh|=refresh;}
+                if (_conversation.worldCallbacksPending()) {if (!game || !applyCallbacks(archive,*game)) return false;}
                 if (result!=kConversationReply && result!=kConversationNoReply) return false;
                 Common::Array<byte> bytes;encoded(_conversation.reply(),bytes);
                 if (!_window.append(bytes.data(),bytes.size()) || !_window.paint(frame)) return false;
@@ -709,7 +721,7 @@ private:
     byte _stage,_type,_map,_slot;
     bool _closing,_endShown,_footerShown,_hasDialogue,_hasWindow,_refused;
     Common::String _query;Conversation _conversation;TextWindow _window;HgrFrame _underlay;TempleService _temple;InnService _inn;
-    byte _memberMode,_waitingSlot;uint16 _pickupFee;PartySelection _selection;byte _vendorRole;bool _merchantSale;uint16 _merchantIndex;byte _trainingMember;bool _worldRefresh;SoundEvents *_sounds;
+    byte _memberMode,_waitingSlot;uint16 _pickupFee;PartySelection _selection;byte _vendorRole;bool _merchantSale;uint16 _merchantIndex;byte _trainingMember;bool _worldRefresh;SoundEvents *_sounds;bool _effectsEnabled;byte _speechCursor;
 };
 } }
 #endif

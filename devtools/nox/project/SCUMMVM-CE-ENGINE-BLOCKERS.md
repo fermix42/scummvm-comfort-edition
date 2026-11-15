@@ -1,3 +1,10 @@
+# Dialogue speech506 closure
+
+Missing TalkB2F9/FCC3 caller retired within506b focused contract:actual authored
+Keep69 NPC24 opening,all4soundmodes/nondefaultcursors,modal/turncodecs andno
+replay/advance/phase/clock/RNGchanges. No ordinaryEnginecold/campaign claim.
+Remaining arbitraryoriginalscriptcontexts stayUNKNOWN;continue sourceclosure.
+
 # Current source closure505/506
 
 B-PRAEVOC Keep trigger implementation retired within505d focused contract.

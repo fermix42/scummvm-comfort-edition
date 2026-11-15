@@ -70,6 +70,7 @@
 #include "nox/native_window_entry_validation.h"
 #include "nox/native_night_actors_validation.h"
 #include "nox/native_praevoc_validation.h"
+#include "nox/native_dialogue_speech_validation.h"
 #include "nox/native_search_defeat_validation.h"
 #include "nox/native_dialogue_voice_validation.h"
 #include "nox/native_player_lifecycle_validation.h"
@@ -112,6 +113,11 @@ inline Common::Error NoxEngine::runNativeStartup() {
     if (ConfMan.hasKey("nox_native_search_defeat495") && ConfMan.getBool("nox_native_search_defeat495")) {
         Common::String report;if (!Native::validateNativeSearchDefeat495(_resources,report)) return fail(report.empty()?"Search defeat focused check failed":report.c_str());
         Common::OutSaveFile *out=_system->getSavefileManager()->openForSaving("nox-native-search-defeat.tsv",false);if (!out) return Common::kWritingFailed;
+        out->writeString(report);out->finalize();const bool ok=!out->err();delete out;return ok?Common::Error(Common::kNoError):Common::Error(Common::kWritingFailed);
+    }
+    if (ConfMan.hasKey("nox_native_dialogue_speech506") && ConfMan.getBool("nox_native_dialogue_speech506")) {
+        Common::String report;if (!Native::validateNativeDialogueSpeech506(_resources,report)) return fail(report.empty()?"Dialogue speech focused check failed":report.c_str());
+        Common::OutSaveFile *out=_system->getSavefileManager()->openForSaving("nox-native-dialogue-speech.tsv",false);if (!out) return Common::kWritingFailed;
         out->writeString(report);out->finalize();const bool ok=!out->err();delete out;return ok?Common::Error(Common::kNoError):Common::Error(Common::kWritingFailed);
     }
     if (ConfMan.hasKey("nox_native_praevoc505_fixture")) {
@@ -715,7 +721,7 @@ inline Common::Error NoxEngine::runNativeStartup() {
 #ifdef NOX_NATIVE_ONLY
                     if (templeTravel) soundEvents.push_back(Native::kSpeakerSelection);
 #endif
-                    return !templeTravel || worldInput.beginTempleConversation(_resources,game,prepared,frame,&random);
+                    return !templeTravel || worldInput.beginTempleConversation(_resources,game,prepared,frame,&random,turns.praevocCursor);
     };
     const int automaticRoundLimit=ConfMan.hasKey("nox_native_automatic_round_checkpoint")?ConfMan.getInt("nox_native_automatic_round_checkpoint"):0;
     if (automaticRoundLimit<0 || automaticRoundLimit>128) return fail("Native controlled automatic-round checkpoint limit invalid");

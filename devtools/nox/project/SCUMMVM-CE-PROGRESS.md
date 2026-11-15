@@ -1,3 +1,43 @@
+# Dialogue speech506 - VERIFIED within focused contract
+
+506b focused batch passes4actualauthoredAchtung exchanges,4soundmodes,
+4nondefaultcursors,2speechrequests/2muted,4modal/turncodeccontinuations,
+no replayonresume,callbackconsumed,nocursor/phase/clock/RNGchanges and4Gcommands.
+SourceB2F9/FCC3 andL018actor24;ordinaryT/directioninKeep69. No campaign/earned/
+listening/normalEnginecold-session/oldaudio suite.505waveforms/Enginequeue notrerun.
+One initialbatch andfirstcorrectivepasses. Failed506root retained;terminal
+reply accessor testfixed tocheckrenderedglyphs;productionunchangedafter506.
+Exactbuildcommands/results andfrozenexe/sourcehashes inDIALOGUE-SPEECH506 receipt.
+Continue source-driven remainingcontextclosure,not milestone stop. Apparent
+projectilephase parent255 is tactical-only;noinitialtile225 worldrecords in76
+authoredmaps. Specialmap76/77 lighting alreadyTerrainLighting nativeowner.
+These staticobservations do not promote wholeworld/simulation orstory.08UNKNOWN.
+
+# Dialogue506 first batch - IN PROGRESS
++
++506 build0warnings/0errors2m46.63s;python check_dialogue_speech506.py --label506
++stops combinedactualopeningmode0 assertion. Exactfailedpredicateunknown.
++Staticproof:harness expectsvisibleReply Achtung!,butterminalopening$T calls
++closing%END immediately;Conversation.reply alreadyemptywhileframekeepstext.
++506b comparesfontglyphAchtung! atauthoredtextwindow25,1 onatemporaryframecopy,
++nevermutatesactualframe;richopeningresult/stage/cue/flag/cursordiagnostics.
++Productionunchanged. Firstcorrective batch next;failed506rootretained.
++No campaign/oldaudio suite. One coherentcorrectionbuild fordemonstratedtestdefect.
++
+# Dialogue speech506 coherent owner - IN PROGRESS
+
+505 committed8586967397a;sourceindex scope correctionb3a7c382c21.
+AllthreeWorldConversationpendingcallbacksites useone typed speech/consume
+helper;currentcursor value suppliedfromauthoritativeturn byordinaryWorldInput
+andautomaticTemplecaller. Mutedpolicy reusestransientsink binding;choose
+preservessink/policy. No newcodec:cursor alreadyNWAT4,speech istransient.
+Source L018actor24 terminalopening is Achtung!,setfield12bit32. Metadata
+L018 shared67/68/69,butonly69hasactualNPC24 at20,41. Four legaladjacent
+fixturecandidates beforefirstinput;actualTalkT/direction,4soundmodes,nondefault
+cursors1..4,modal/turncodecs,no-replayclose andsubsequentG. No oldsuite/campaign.
+Next one coherent integrationbuild andfocusedbatch506. CanonicalrecordsandCE
+recoverycopies remainin their documentedlocations;mirrorafterbatch.
+
 # Praevoc speech505 - VERIFIED within focused contract
 
 505d official native-only build0warnings/0errors2m51.26s;focused batch passes

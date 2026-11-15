@@ -3482,6 +3482,29 @@
       "production_connection": "Typed Keep69 WorldMove trigger, persisted NWAT4 cursor, native data-only waveform renderer and existing Engine SFX queue; focused505d verified.",
       "fallback_dependencies": [],
       "blockers": []
+    },
+    {
+      "id": "audio.07",
+      "subsystem": "audio",
+      "behavior": "Authored dialogue field12bit32 speech callback using current persisted cursor without advance",
+      "implementation": "IMPLEMENTED",
+      "verification": {
+        "status": "VERIFIED",
+        "scope": "Actual authored Keep69 NPC24 Achtung opening through WorldInput,4sound modes/nondefault cursors,consumed modal and turn codecs,no replay,subsequent info. Source checkpoint;not ordinary Engine cold/session,campaign,listening or old audio suite.",
+        "evidence": "SCUMMVM-CE-DIALOGUE-SPEECH506-VERIFICATION.json"
+      },
+      "native_owners": [
+        "engines/nox/native_world_conversation.h",
+        "engines/nox/native_world_input.h",
+        "engines/nox/native_praevoc.h"
+      ],
+      "original_evidence": [
+        "SCUMMVM-CE-ENGINE-DIALOGUE-SPEECH-CONTRACT.md",
+        "TalkB2F9/FCC3;L018actor24 opening"
+      ],
+      "production_connection": "Allthreependingcallbacksites sharetypedcue/consume;ordinaryandautomaticTemplecaller supplycurrentturncursor;existingSFXsink/mutepolicy.",
+      "fallback_dependencies": [],
+      "blockers": []
     }
   ],
   "additional_unclassified_scope": [
@@ -5509,7 +5532,7 @@
     },
     {
       "path": "engines/nox/native_startup_host.h",
-      "sha256": "d8c394bb3696e11b0843563d0b7ffef9c83affad09472149985b4100a239a7ab",
+      "sha256": "ace20e82812ed5e20b84f6fbb221fb7be9c9722b4955c4e7b701ee1c1988bcfe",
       "includes": [
         "nox/native_weapon_ready_validation.h",
         "nox/native_legacy_snapshot.h",
@@ -6247,7 +6270,7 @@
     },
     {
       "path": "engines/nox/native_world_conversation.h",
-      "sha256": "76cb497bfcaf154ff5a41f534dd31bc7ba6c9591a7a116c7eb683372c7713f62",
+      "sha256": "796529e92d73ee97e8325024c0385302295dea4cf59bd950e26d3ec901ef2de2",
       "includes": [
         "nox/native_new_game.h",
         "nox/native_recruitment.h",
@@ -6730,7 +6753,7 @@
     },
     {
       "path": "engines/nox/native_world_input.h",
-      "sha256": "ed57c49a5ef44fd4b258e83d7e289a290bc9ca8beb6ebc3058b2e43289d5483a",
+      "sha256": "34e5970953fd80ea73b3477d27b062155caed7b34731eb4ca3cc5f9243ece849",
       "includes": [
         "nox/native_new_game.h",
         "nox/native_world_move.h",
@@ -7551,7 +7574,7 @@
     },
     {
       "path": "engines/nox/native_praevoc.h",
-      "sha256": "a9ffe3e724d67ef0c5ae1b9bde8a7748f1bde3e1410f11713bac566c0c6907b3",
+      "sha256": "0ce81329af13f788bfa30515b339b1a6305f97c434992a8e8e7d644c07888ce9",
       "includes": [
         "nox/resources.h",
         "nox/native_sound_events.h"
@@ -7565,6 +7588,15 @@
       "includes": [
         "nox/native_night_actors_validation.h",
         "nox/native_cwspeech.h"
+      ],
+      "explicit_boundaries": [],
+      "coverage": "Only individual requirement/evidence scopes are credited."
+    },
+    {
+      "path": "engines/nox/native_dialogue_speech_validation.h",
+      "sha256": "df1d251f276a05000a6a61f750fae2850703a8067fb445a85184e30563f0d62a",
+      "includes": [
+        "nox/native_praevoc_validation.h"
       ],
       "explicit_boundaries": [],
       "coverage": "Only individual requirement/evidence scopes are credited."
@@ -7692,9 +7724,9 @@
       "ce_replacements": 0
     },
     "audio": {
-      "known_required": 6,
-      "native_implemented": 6,
-      "verified": 6,
+      "known_required": 7,
+      "native_implemented": 7,
+      "verified": 7,
       "partial": 0,
       "missing": 0,
       "unknown_required_rows": 0,
@@ -7703,8 +7735,8 @@
     }
   },
   "last_milestone": {
-    "owner": "Praevoc Keep speech505",
-    "evidence": "SCUMMVM-CE-PRAEVOC505-VERIFICATION.json"
+    "owner": "Dialogue speech506",
+    "evidence": "SCUMMVM-CE-DIALOGUE-SPEECH506-VERIFICATION.json"
   },
   "overall": {
     "fully_implemented_top_level_domains": 1,
@@ -7718,7 +7750,7 @@
   },
   "current_subsystem": {
     "status": "IN PROGRESS",
-    "scope": "Dialogue source speech callback506; reuse505 waveform and existing transient queue, preserve473 cores."
+    "scope": "Remaining original code context/source closure;preserve accepted473/505/506 owners andno oldsuite/campaign."
   },
   "count_definition": "native_implemented counts IMPLEMENTED; CE_REPLACEMENT is separately reported. VERIFIED applies only to row evidence scope; no overall completion percentage."
 }

@@ -1,0 +1,30 @@
+{
+  "status": "VERIFIED",
+  "scope": "Actual authored Keep69 NPC24 Achtung opening through WorldInput,4sound modes/nondefault cursors,consumed modal and turn codecs,no replay,subsequent info. Source checkpoint;not ordinary Engine cold/session,campaign,listening or old audio suite.",
+  "parent_commit": "b3a7c382c21",
+  "executable_sha256": "c322a8188b35fccead5d2dd99302bb75e229937f02b8d66c8d08dce6eb2d72eb",
+  "contract": "SCUMMVM-CE-ENGINE-DIALOGUE-SPEECH-CONTRACT.md",
+  "focused_validation": "dialogue_speech\tauthored_Achtung_replies=4\tsound_modes=4\tnondefault_cursors=4\trequests=2\tmuted=2\tmodal_turn_codec_continuations=4\tno_replay_on_resume=1\tcallback_consumed=1\tno_cursor_phase_clock_RNG_change=1\tsubsequent_commands=4\tcampaign=0\told_audio_suite=0\n",
+  "builds": {
+    "506": "0 Warning(s)\n    0 Error(s)\n\nTime Elapsed 00:02:46.63",
+    "506b": "0 Warning(s)\n    0 Error(s)\n\nTime Elapsed 00:02:49.43"
+  },
+  "native_batches": 2,
+  "unsuccessful_corrective_native_batches": 0,
+  "failure": "506 combined openingmode0 assertion exactpredicateunknown. Definite harness defect: terminal source $T immediately processes %END and clears reply accessor, while rendered Achtung remains.506b checks rendered eight glyphs on temporary copy and rich diagnostics. Production unchanged.",
+  "production": "AllthreeWorldConversationpendingcallbacksites sharetypedcue/consume. Currentcursor suppliedfromWorldInputturn andautomaticTemplecaller;muted policy/sinkrebound. No new persistent schema, cursor advance, phase toggle or oldaudioowner rewrite.",
+  "source": "L018actor24 terminalopening setsfield12bit32 (encoded69). Map69physicalNPC24 at20,41;TalkB2F9 callsFCC3 then clearsflag;FCC3 currentbasecommand withnoadvance. Other sharedmaps67/68 zeroactor24 not injected.",
+  "declared_setup": "Choose source-supported legal adjacent floor before firstinput. Four independent sound modes and NWAT4 cursor1..4 checkpoints; actual T/direction; no post-start outcome mutation.",
+  "qualifications": [
+    "Component modal/turn codec continuation,not ordinary Engine cold/session.",
+    "No campaign/earned/listening/oldaudio suite.505 exact waveform and Engine queue evidence retained; no rerun.",
+    "Broader script producer coverage remains UNKNOWN; this closes one concrete original caller."
+  ],
+  "artifacts": {
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-binary\\scummvm-native-dialogue-speech506b.exe": "c322a8188b35fccead5d2dd99302bb75e229937f02b8d66c8d08dce6eb2d72eb",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-binary\\native-dialogue-speech506b-source.zip": "2ea33398e2f9adb56d840bd9679a3f6bca1527987312a150731808564c46e39e",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-dialogue-speech506b-focused\\verification.json": "39e8f579c95bbdb1c868a344a997c0c1009f5d502840f68d8cadaf0e97230686",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-dialogue-speech506-build.log": "786e12d3b76d93f8b0b88b63c492527a0b103ee2a6b2a9a9b84d394d48e4a6ea",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-dialogue-speech506b-build.log": "9b2bc84c9de8ed6089b79837a5522cd7ee4a6fe03d75791868514ebc01467cfa"
+  }
+}

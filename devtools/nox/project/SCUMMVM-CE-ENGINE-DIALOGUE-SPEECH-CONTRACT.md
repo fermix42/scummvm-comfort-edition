@@ -1,6 +1,6 @@
 # Dialogue source speech callback506
 
-Status: IN PROGRESS. Contract before production changes.
+Status: VERIFIED within focused callback contract. Contract before production changes.
 
 Original Talk B2F9..B30B checks field12 bit32, calls resident FCC3, then
 clears that bit. FCC3 emits the current six-step base command, without
@@ -29,3 +29,5 @@ existing field/object mutations and codec continuation. No campaign traversal,
 physical listening or normal Engine cold/session claim. One coherent build;
 only direct compile/failure reasons allow extra runs; two failed corrective
 native batches end the loop. Preserve all505 evidence and accepted473 cores.
+
+Accepted506b: SCUMMVM-CE-DIALOGUE-SPEECH506-VERIFICATION.json. No schema extension; each handle receives authoritative turn cursor, current transient mode/sink.
