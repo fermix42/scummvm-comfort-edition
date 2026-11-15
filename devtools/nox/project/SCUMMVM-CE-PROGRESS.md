@@ -1,3 +1,15 @@
+# Dialogue body grammar501 - VERIFIED static scope
+
+439 packets/3227 bodies:45Ksubstitutions allmatchheaderselector,26otherdollar
+strings areliteral NPC labels,zerootherbodycontrolfamilies beyondCR/newline.
+Command:python conversion/census_dialogue_bodies501.py,exit0. Completepacket
+bodydomain fits existing DialogueRules/plainDialogueBody/TextWindow owners;
+no new structured body renderer indicated. Correct479 raw-dollar candidate
+interpretation withoutoverwritinghistorical evidence. See DIALOGUE-PRESENTATION501
+and localce-native-dialogue-bodies501-local.json. Separate raster/portrait
+producer qualifications retained;no build/runtime/audio/old suite/campaign.
+Continue sharedlifecycle/presentation andremaining source producers.
+
 # Script/service owners500 - VERIFIED static scope
 
 439 immutable packets/3227 headers/552 complete mutations fit native parser
