@@ -8,22 +8,27 @@
 namespace Nox { namespace Native {
 struct WorldActorTurnState {
     CompactWorldActionState compact;NpcWorldActionState npc;ActorMovementEffectState effects;PresentationState presentation;
-    byte praevocCursor=5;bool praevocUsed=false;
+    byte praevocCursor=5;bool praevocUsed=false;byte terrainRecovery=16;
     bool save(Common::WriteStream &out) const {
-        if (praevocCursor>5) return false;
-        out.writeUint32BE(MKTAG('N','W','A','T'));out.writeUint16LE(praevocUsed?4:effects.extended()?3:2);
-        if (praevocUsed) out.writeByte(effects.extended()?12:9);
+        if (praevocCursor>5 || terrainRecovery>16) return false;
+        const bool recovery=terrainRecovery!=16;
+        out.writeUint32BE(MKTAG('N','W','A','T'));out.writeUint16LE(recovery?5:praevocUsed?4:effects.extended()?3:2);
+        if (praevocUsed || recovery) out.writeByte(effects.extended()?12:9);
         if (!compact.save(out) || !npc.save(out) || !effects.save(out)) return false;
         out.writeByte(presentation.facing);out.writeByte(presentation.partyObject);out.writeByte(presentation.hidden);
         out.writeByte(presentation.retainedCell);out.writeByte(presentation.retainedCellKnown);
-        if (praevocUsed) out.writeByte(praevocCursor);return !out.err();
+        if (recovery) out.writeByte(praevocUsed);
+        if (praevocUsed) out.writeByte(praevocCursor);
+        if (recovery) out.writeByte(terrainRecovery);return !out.err();
     }
     bool load(Common::SeekableReadStream &in) {
         const int64 size=in.size()-in.pos();
         if (in.readUint32BE()!=MKTAG('N','W','A','T')) return false;
-        const uint16 version=in.readUint16LE();if (version<1 || version>4) return false;
-        const uint effectSize=version==4?in.readByte():version==3?12:9;
-        if ((effectSize!=9 && effectSize!=12) || size!=(version==4?112+effectSize:version==1?117:version==2?119:122)) return false;
+        const uint16 version=in.readUint16LE();if (version<1 || version>5) return false;
+        const uint effectSize=version>=4?in.readByte():version==3?12:9;
+        if (effectSize!=9 && effectSize!=12) return false;
+        if (version==5 ? (size!=113+effectSize && size!=114+effectSize) :
+                size!=(version==4?112+effectSize:version==1?117:version==2?119:122)) return false;
         byte a[37],b[62],c[12];if (in.read(a,37)!=37 || in.read(b,62)!=62 || in.read(c,effectSize)!=effectSize) return false;
         Common::MemoryReadStream ai(a,37),bi(b,62),ci(c,effectSize);WorldActorTurnState next;
         if (!next.compact.load(ai) || !next.npc.load(bi) || !next.effects.load(ci)) return false;
@@ -33,7 +38,9 @@ struct WorldActorTurnState {
             next.presentation.retainedCell=in.readByte();const byte known=in.readByte();if (known>1 || in.err()) return false;
             next.presentation.retainedCellKnown=known!=0;
         }
-        if (version==4) {next.praevocUsed=true;next.praevocCursor=in.readByte();if (next.praevocCursor>5 || in.err()) return false;}
+        if (version==5) {const byte used=in.readByte();if (used>1) return false;next.praevocUsed=used!=0;}
+        if (version==4 || next.praevocUsed) {next.praevocUsed=true;next.praevocCursor=in.readByte();if (next.praevocCursor>5 || in.err()) return false;}
+        if (version==5) {next.terrainRecovery=in.readByte();if (next.terrainRecovery>16 || in.err() || in.pos()!=in.size()) return false;}
         next.presentation.hidden=hidden!=0;*this=next;return true;
     }
 };

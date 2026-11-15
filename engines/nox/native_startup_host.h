@@ -71,6 +71,7 @@
 #include "nox/native_night_actors_validation.h"
 #include "nox/native_praevoc_validation.h"
 #include "nox/native_dialogue_speech_validation.h"
+#include "nox/native_terrain_animation_validation.h"
 #include "nox/native_search_defeat_validation.h"
 #include "nox/native_dialogue_voice_validation.h"
 #include "nox/native_player_lifecycle_validation.h"
@@ -113,6 +114,12 @@ inline Common::Error NoxEngine::runNativeStartup() {
     if (ConfMan.hasKey("nox_native_search_defeat495") && ConfMan.getBool("nox_native_search_defeat495")) {
         Common::String report;if (!Native::validateNativeSearchDefeat495(_resources,report)) return fail(report.empty()?"Search defeat focused check failed":report.c_str());
         Common::OutSaveFile *out=_system->getSavefileManager()->openForSaving("nox-native-search-defeat.tsv",false);if (!out) return Common::kWritingFailed;
+        out->writeString(report);out->finalize();const bool ok=!out->err();delete out;return ok?Common::Error(Common::kNoError):Common::Error(Common::kWritingFailed);
+    }
+    if (ConfMan.hasKey("nox_native_terrain511_fixture")) {
+        Common::File fixture;Common::String report;
+        if (!fixture.open(Common::FSNode(ConfMan.getPath("nox_native_terrain511_fixture"))) || !Native::validateNativeTerrainAnimation511(_resources,fixture,report)) return fail(report.empty()?"Terrain animation focused check failed":report.c_str());
+        Common::OutSaveFile *out=_system->getSavefileManager()->openForSaving("nox-native-terrain-animation.tsv",false);if (!out) return Common::kWritingFailed;
         out->writeString(report);out->finalize();const bool ok=!out->err();delete out;return ok?Common::Error(Common::kNoError):Common::Error(Common::kWritingFailed);
     }
     if (ConfMan.hasKey("nox_native_dialogue_speech506") && ConfMan.getBool("nox_native_dialogue_speech506")) {
@@ -684,9 +691,9 @@ inline Common::Error NoxEngine::runNativeStartup() {
         if (!sceneReady || !animationReady) return false;
         if (animation.mapType()!=game.world.mapType() && !animation.load(_resources,game.world.mapType())) return false;
         if (worldInput.encounter().battle) return false;
-        Native::WorldAnimationContext context;context.appearance=game.appearance;context.partyObject=turns.presentation.partyObject;context.notice=worldInput.noticeActive();
+        Native::WorldAnimationContext context;context.appearance=game.appearance;context.partyObject=turns.presentation.partyObject;context.notice=worldInput.noticeActive();context.speed=worldInput.transportSpeed();
         Common::Array<Native::WorldAnimationDraw> draws;
-        if (!animation.run(game.world,prepared,visibility.cells(),187,light,context,animationState,draws)) return false;
+        if (!animation.run(game.world,prepared,visibility.cells(),187,light,context,animationState,draws,nullptr,&turns.terrainRecovery)) return false;
         const uint32 now=_system->getMillis();
         animationTiming+=Common::String::format("%u\t%u\n",idleFrames+1,uint32(now-lastAnimationTick));
         frame=animationState.pages[animationState.target^1];redraw=true;++idleFrames;lastAnimationTick=now;
@@ -1186,7 +1193,8 @@ inline Common::Error NoxEngine::runNativeStartup() {
                 ++waitCommands;redraw=true;
                 waitTrace+=Common::String::format("%u\t%u\t%u\t%u\t%u\t%u\t%u\n",waitCommands,uint(game.clock.phase),uint(game.clock.hour),uint(game.clock.minute),uint(game.clock.lightTicks),uint(game.clock.lightActive),uint(game.clock.hourlyCounter));
             }
-            if (!worldInput.wholeFrameMenu() && !status.paint(game,prepared,light,worldInput.noticeActive(),frame)) return fail("Native party/status presentation failed");
+            if (!worldInput.wholeFrameMenu() && !status.paint(game,prepared,light,worldInput.noticeActive(),frame,
+                    !animation.preserveRecoveryRaster(game.world,prepared,game.appearance,worldInput.transportSpeed(),turns.terrainRecovery))) return fail("Native party/status presentation failed");
             if (worldInput.worldDefeated() && !battlePresentation.paintWorldDefeat(frame)) return fail("Native world defeat presentation failed");
             // Ordinary commands produced this complete native frame. Both
             // retained images adopt its repaint; cadence fields stay owned.

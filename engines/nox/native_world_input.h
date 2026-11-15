@@ -64,6 +64,7 @@ public:
     bool matchesWorld(const World &world) const { return _information.matchesWorld(world) && _search.matches(world) && _casting.matches(world) && _inventory.matches(world) && _conversation.matchesWorld(world) && world.onFoot()==(_transport.object==255); }
     bool worldDefeated() const {return _transport.defeated;}
     byte transportObject() const {return _transport.object;}
+    byte transportSpeed() const {return _transport.speed;}
     bool canRepositionMountedFixture() const {
         return _transport.used && _transport.object!=255 && !_transport.pendingSteps && !_transport.alignment && !_transport.defeated &&
             !_search.active() && !_fireDirection && !_notice && !_openDirection && !_leave && !_encounter.battle && !_conversation.active() && !_inventory.active() && !_casting.active();

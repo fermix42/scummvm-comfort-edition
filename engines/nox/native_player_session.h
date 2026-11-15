@@ -94,6 +94,7 @@ private:
         transport.speed=main[0x367e];transport.pace=main[0x37f8];transport.special=main[0x37fa];transport.allocator=main[0x60c3];transport.waterExposure=main[0x612c];transport.alarm=main[0x257f]!=0;transport.jumpRequested=main[0x29f9]!=0;
         if (!worldInput.restoreWorldControls(game.world,transport)) return false;
         if (main[0x6113]<=5) {turns.praevocCursor=main[0x6113];turns.praevocUsed=true;}
+        if (main[0x6103]<=16) turns.terrainRecovery=main[0x6103];
         turns.presentation.facing=main[0x257e];turns.presentation.partyObject=transport.object;turns.presentation.hidden=main[0x247d]!=0;
         if(turns.presentation.facing>3) return false;
         turns.compact.freezeTimer=turns.npc.freezeTimer=main[0x68b1];turns.compact.enabled=turns.npc.enabled=main[0x38fc];

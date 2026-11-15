@@ -6,14 +6,14 @@ coverage reconciliation remain IN PROGRESS. Do not start these runs now.
 
 ## Current implementation identity
 
-Latest compiled source: dialogue speech506b, production commit08440a0529b.
-Subsequent507..509 are static classification/implementation-coverage documents.
-All362 current engine files match506b's focused source hashes byte-for-byte.
+Latest compiled source: terrain animation/recovery511, baseca702710f1b plus
+the frozen511 coherent delta. One build/first focused batch passed; the exact
+source/executable identities are in TERRAIN-ANIMATION511-VERIFICATION.
 Executable SHA256:
-c322a8188b35fccead5d2dd99302bb75e229937f02b8d66c8d08dce6eb2d72eb.
-This is506b's identity, not whole-engine acceptance. Original audio473 and
-intermediate504/505 artifacts remain preserved. No rebuild is needed solely
-for tracking/source review documents.
+5cf228769c84d457f7ac3213628d227f529484ca4aa40c68119edea9ae5c1394.
+This is511's scoped identity, not whole-engine acceptance. Original audio473
+and intermediate504/505/506 artifacts remain preserved. All seven473 synthesis/
+music source files remain byte-identical. Tracking changes alone need no build.
 
 ## Finish the implementation phase
 

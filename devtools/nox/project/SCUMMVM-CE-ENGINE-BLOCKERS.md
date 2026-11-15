@@ -1,3 +1,20 @@
+# Terrain animation511 scoped closure
+
+B-TERRAIN-ANIMATION missingordinaryowner retired:all6supportedforms,source
+counter/raster/gate,sharedwalking/transport andnativecodecs verified511.
+Integration qualification B-TERRAIN-RETURN:existing pendingbattlepartial-turn
+completion/sourceF0E1 boundary after tactical/flee branches is not covered by
+511. Reconcile source/typedparentreturn before broad combat/world promotion;
+do not rerun campaign/old suites or invent a new reset on all returns.
+
+# Current source gap511
++
++B-TERRAIN-ANIMATION: supported mount forms127/128/238 rejected by ordinary idle
++animation;constant16 recovery phase andmissing on-foot current-terrain gate.
++SourceF0E1/F2DF/SceneD379/D6A3 contract ENGINE-TERRAIN-ANIMATION. Exact slide
++pixels/reset coverage require bounded private source reference before code.
++Do not promote wholeworld/simulation/graphics while these remain unresolved.
++
 # Dialogue speech506 closure
 
 Missing TalkB2F9/FCC3 caller retired within506b focused contract:actual authored

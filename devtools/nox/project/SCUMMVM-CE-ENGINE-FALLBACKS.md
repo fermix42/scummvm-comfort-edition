@@ -1,3 +1,12 @@
+# Terrain recovery511
+
+Source6103 becomes typed terrainRecovery0..16 inWorldActorTurnState/NWAT5,
+not a CPU-address fallback. Nativeone-pixel party slide andsharedterrain gate
+replace source D6A3/F2DF semantics. Oldnativeformats default16;validlegacy
+counter import remains data-only and narrowly qualified. No opcode/ROM/IRQ
+dependency added. Pendingbattleparent completion is an integration qualification,
+not masked by an interpreter and not promoted by511's ordinary-input evidence.
+
 # Current semantic source additions505/506 and data review509
 +
 +CWSPEAK's waveform segment is read as typed immutable period data by505;

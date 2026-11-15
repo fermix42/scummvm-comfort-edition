@@ -46,7 +46,7 @@ public:
             if (!transport || !party || !party->ready() || !controls.valid() || !controls.used || controls.object==255 || controls.object!=state.presentation.partyObject) return kWorldMoveUnsupported;
             byte *object=candidate._states[candidate._current].tables.data()+1024+controls.object;
             if (object[2]!=controls.appearance) return kWorldMoveUnsupported;
-            TransportMotionContext context;context.picture=controls.appearance;context.speed=controls.speed;context.currentTerrain=scene.actors.terrain[93];
+            TransportMotionContext context;context.picture=controls.appearance;context.speed=controls.speed;context.currentTerrain=scene.actors.terrain[93];context.phase=state.terrainRecovery;
             context.barrierProtection=(world.field(57)&2)!=0;context.jumpRequested=controls.jumpRequested;context.jumpBusy=controls.moveCount!=0;context.seaProtection=(world.field(57)&4)!=0;
             const uint near[]={76,110,94,92},far[]={59,127,95,91},lead[]={76,77,127,128,95,112,92,109};
             const auto cell=[&](uint at,TransportMoveCell &value) {
@@ -77,16 +77,22 @@ public:
             const MapDefinition *map=candidate._resources[candidate._states[candidate._current].family].find(candidate.mapId());
             if (!map || (!map->compressed && (x>=48 || y>=48))) return kWorldMoveLeave;
             candidate._x=x;candidate._y=y;object[0]=byte(object[0]+dx);object[1]=byte(object[1]+dy);position=kPositionMoved;
-        } else position=WorldCommand::move(input,candidate,nextWindow,scene,_rules,decision);
+        } else {
+            TransportMotionContext context;context.picture=partyAppearance;context.currentTerrain=scene.actors.terrain[93];context.phase=state.terrainRecovery;
+            TransportMotionOutcome motion;if (!_transportRules.currentTerrain(context,after,motion)) return kWorldMoveUnsupported;
+            if (motion.message!=255 && !showTransportEffect(catalog,motion.message,nextText,nextFrame)) return kWorldMoveUnsupported;
+            if (motion.interrupted) {random=after;text=nextText;frame=nextFrame;return kWorldMoveInterrupted;}
+            position=WorldCommand::move(input,candidate,nextWindow,scene,_rules,decision);
+        }
         if (!riding && position==kPositionNeedsInteraction) {
             bool dead=false;if (!party || !_barrierRules.barrier(candidate,nextParty,catalog,nextText,nextFrame,dead,_sounds)) return kWorldMoveUnsupported;
-            if (dead) {controls.used=controls.defeated=true;controls.pendingSteps=0;controls.pendingDirection=255;transferControls();text=nextText;frame=nextFrame;return kWorldMoveDefeat;}
-            if (!(world.field(57)&2)) {if (_sounds) _sounds->push_back(kSpeakerImpact);transferControls();text=nextText;frame=nextFrame;return kWorldMoveBlocked;}
+            if (dead) {controls.used=controls.defeated=true;controls.pendingSteps=0;controls.pendingDirection=255;transferControls();random=after;text=nextText;frame=nextFrame;return kWorldMoveDefeat;}
+            if (!(world.field(57)&2)) {if (_sounds) _sounds->push_back(kSpeakerImpact);transferControls();random=after;text=nextText;frame=nextFrame;return kWorldMoveBlocked;}
             // Source F22E branches straight to allowed after protected touch;
             // do not repeat the probe or apply later collision ranges.
             candidate._x=byte(world.x()+dx);candidate._y=byte(world.y()+dy);position=kPositionMoved;
         }
-        if (position==kPositionBlocked) {if (_sounds) _sounds->push_back(kSpeakerImpact);return kWorldMoveBlocked;}
+        if (position==kPositionBlocked) {random=after;text=nextText;frame=nextFrame;if (_sounds) _sounds->push_back(kSpeakerImpact);return kWorldMoveBlocked;}
         if (position!=kPositionMoved) return position==kPositionNeedsInteraction?kWorldMoveBoundary:kWorldMoveUnsupported;
         bool needsExit=false;if (!nextWindow.advanceWindow(candidate,direction,_story,needsExit)) return kWorldMoveUnsupported;
         if (needsExit) return kWorldMoveLeave;
@@ -123,6 +129,7 @@ public:
             transferControls();return kWorldMoveEncounter;
         }
         if (result!=kWorldWaitAdvanced) return result==kWorldWaitPendingEffect?kWorldMoveBoundary:kWorldMoveUnsupported;
+        turn.terrainRecovery=16; // Source F0E1, after the completed movement body; stationary waits do not reset it.
         const byte arrivedGround=shifted.actors.terrain[93];
         if (_sounds && arrivedGround!=_quietGround && (arrivedGround<229 || arrivedGround>=233)) _sounds->push_back(kSpeakerNotification);
         const StoryMapState *map=nextWindow.state();if (!map) return kWorldMoveUnsupported;

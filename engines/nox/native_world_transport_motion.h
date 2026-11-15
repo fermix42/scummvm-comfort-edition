@@ -30,19 +30,26 @@ public:
             !archive.readRange(range.resource,range.offset+range.size,72,footer) || footer.size()!=72 || game.size()<0x158) return false;
         memcpy(_footer,footer.data(),72);_seaDamage[0]=game[0x156];_seaDamage[1]=game[0x157];_type=type;_ready=true;return true;
     }
+    bool currentTerrain(const TransportMotionContext &c,GameplayRandom &random,TransportMotionOutcome &out) const {
+        if (!_ready || c.phase>16) return false;
+        if (c.speed>=4) return true;
+        if (in(c.currentTerrain,34) || in(c.currentTerrain,14)) {
+            if (c.currentTerrain!=_footer[67]) out.message=11;
+            else if (c.picture!=128) {
+                bool stop=c.phase>14;
+                if (c.phase<13) {byte roll;if (!random.next(1,255,roll)) return false;stop=roll>=64;}
+                if (stop) {out.interrupted=true;out.message=26;}
+            }
+        }
+        return true;
+    }
     bool probe(const TransportMotionContext &c,WorldTransportState &state,GameplayRandom &random,TransportMotionOutcome &outcome) const {
         if (!_ready || !state.valid() || state.object==255) return false;
         WorldTransportState next=state;GameplayRandom rng=random;TransportMotionOutcome out;
         if (c.ignoreCollision) {outcome=out;return true;}
         if (c.speed>=4) {out.blocked=!_type && c.near.terrain==17;outcome=out;return true;}
-        if (in(c.currentTerrain,34) || in(c.currentTerrain,14)) {
-            if (c.currentTerrain!=_footer[67]) out.message=11;
-            else if (c.picture!=128) {
-                bool stop=c.phase>14;
-                if (c.phase<13) {byte roll;if (!rng.next(1,255,roll)) return false;stop=roll>=64;}
-                if (stop) {out.interrupted=true;out.message=26;random=rng;outcome=out;return true;}
-            }
-        }
+        if (!currentTerrain(c,rng,out)) return false;
+        if (out.interrupted) {random=rng;outcome=out;return true;}
         switch (c.picture) {
         case 124:
             out.blocked=water(c.near,1,c.seaProtection,next,out) && !(c.near.object && c.near.objectTile==119);break;

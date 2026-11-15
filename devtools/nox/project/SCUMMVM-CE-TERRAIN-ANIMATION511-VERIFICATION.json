@@ -1,0 +1,45 @@
+{
+  "status": "VERIFIED",
+  "scope": "Source16frames/32whole images/recovery counter,all6 actual controlled B-idle-X forms,old/new turn codecs,source gate cases,actual Surface75 on-foot recovery and subsequent free command. Controlled source-compatible records;not earned/normal Engine cold-session/full battle return/campaign/old animation or audio suite.",
+  "parent_commit": "ca702710f1b",
+  "contract": "SCUMMVM-CE-ENGINE-TERRAIN-ANIMATION-CONTRACT.md",
+  "executable_sha256": "5cf228769c84d457f7ac3213628d227f529484ca4aa40c68119edea9ae5c1394",
+  "source_file_count": 363,
+  "focused_validation": "terrain_animation\texact_source_frames=16\texact_whole_images=32\tturn_codec_forms=81\told_formats=4\tsource_gate_cases=56\tactual_B_idle_X_forms=6\tmounted_idle_frames=192\tcontext_refusals=6\tidle_core_clock_RNG_unchanged=1\tactual_walking_recovery16_to14_and_reset=1\tfree_raster_preserved=1\tcampaign=0\told_animation_audio_suite=0\n",
+  "build": {
+    "command": "Official run-build-release-cleanenv.ps1 -NoxNativeOnly with ForceImportAfterCppTargets=canonical conversion/terrain511-build-output.targets",
+    "result": "0warnings/0errors2m40.82s;wrapperexit0",
+    "output": "build-scummvm/Releasex64/scummvm-terrain511.exe",
+    "reason": "Coherent complete new animation/recovery owner;normal user-opened504d exe remains untouched"
+  },
+  "native_batches": 1,
+  "unsuccessful_corrective_native_batches": 0,
+  "source_research": {
+    "original_frames": 16,
+    "normalized_images": 32,
+    "visible_bytes": 245760,
+    "model": "One pixel-row downward shift of existing party cell on each current physical page,zero top,remaining16..4 then hold;no atlas request.",
+    "corrected_diagnostic": "Initial511 sampledrows80..95;511b and whole-image fixture corrected88..103. Original operations unchanged.",
+    "fixture_generation_failure": "Firstprepare helper import lackedCEdevtools/nox searchpath;correctedmodulepath. No native run/build involved."
+  },
+  "codec_report_clarification": "Reported turn_codec_forms=81 is the harness accounting counter (one initial combined checkpoint +68 turn combinations +2 per6 mounted checkpoints),not81distinct formats. Actual calls:75turnroundtrips,7animationroundtrips,6core/window/inputroundtrips;old versions1..4 covered,64nondefault v5 turn combinations.",
+  "setup": "Isolated source renderer scene declaredbefore16operations. Six source-compatible pre-input transport records atKeep69floor15,42,not claimed authored mount placements. Surface checkpoint selectedfrom32 immutable terrain75boundarycandidates beforefirstinput;actualwalking16interrupt,2idleframes->14,freeG preservesraster,actualmove resets16. No post-operation expected outcomes installed.",
+  "production": "All6forms enter existing nativeanimation. Shared onfoot/transport sourcecurrentground gate reads typedturncounter;WorldMovecompletedbody resets16,stationarywait/freeinput do not. Idlecounter/phase/images stage atomically;canonicalworld/clock/RNG unchanged. Host suppliesownedspeed/counter andpreservesnondefaultparty raster throughstatus. NWAT5 holdsnondefaultcounter;default16 writesexisting2/3/4 shapes;legacyvalid6103import static.",
+  "qualifications": [
+    "Controlled source/record checkpoints,not earned placement/campaign.",
+    "Component turn/animation/core/window/input codecs,not ordinary Engine cold/session.",
+    "Existing pending battle partial-turn/world-return ordering remains separate;this batch does not prove the sourceF0E1 completion boundary after tactical/flee branches.",
+    "Valid legacy6103 import inspected statically,not an expanded machine-snapshot acceptance domain.",
+    "Seven accepted audio473 synthesis/music files byte-identical;no old animation/audio suite or source music rewrite."
+  ],
+  "artifacts": {
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-binary\\scummvm-native-terrain-animation511.exe": "5cf228769c84d457f7ac3213628d227f529484ca4aa40c68119edea9ae5c1394",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-binary\\native-terrain-animation511-source.zip": "2cbb80cc3ce2c25cb9109b04f35d85b6ab744b039bc5ace73e7b4c9a0c302065",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-terrain-animation511-focused\\verification.json": "897b5703bcd0759274b41bb18a9caf186493b909c8fef1eb213f8a61c8538af1",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-terrain-animation511-build.log": "29bbffc3905ee1a52b9e0112290b1a8ef4278a1fde05cc48b98f4ad303f58344",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-terrain-animation511-source.bin": "5f709d79773daae78d3c33cdfdde8b55a926ac919385afda6ea3b9994167e591",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-terrain-animation511-source-proof.json": "80dfd2b356ab719fa40370ab838b8e7822b4fbf61dd48f571892b1b0cba9e1d8",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-terrain-animation511-source.json": "b3df380e70da3893d4a750585bb607f06952bf3f9877a39c3d659ed81f6646d4",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-terrain-animation511b-source.json": "73c1e58c57cb9b620f8bf0097261756d35f4e92f993d286a3e17387d639d446e"
+  }
+}

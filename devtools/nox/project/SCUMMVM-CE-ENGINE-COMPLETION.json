@@ -3533,6 +3533,31 @@
       "production_connection": "Allthreependingcallbacksites sharetypedcue/consume;ordinaryandautomaticTemplecaller supplycurrentturncursor;existingSFXsink/mutepolicy.",
       "fallback_dependencies": [],
       "blockers": []
+    },
+    {
+      "id": "simulation.10",
+      "subsystem": "simulation",
+      "behavior": "Source terrain recovery counter links current-terrain movement gate and native party sinking animation for supported forms",
+      "implementation": "IMPLEMENTED",
+      "verification": {
+        "status": "VERIFIED",
+        "scope": "Source16frames/32whole images/recovery counter,all6 actual controlled B-idle-X forms,old/new turn codecs,source gate cases,actual Surface75 on-foot recovery and subsequent free command. Controlled source-compatible records;not earned/normal Engine cold-session/full battle return/campaign/old animation or audio suite.",
+        "evidence": "SCUMMVM-CE-TERRAIN-ANIMATION511-VERIFICATION.json"
+      },
+      "native_owners": [
+        "engines/nox/native_world_animation.h",
+        "engines/nox/native_world_actor_turn.h",
+        "engines/nox/native_world_transport_motion.h",
+        "engines/nox/native_world_move.h",
+        "engines/nox/native_world_status.h"
+      ],
+      "original_evidence": [
+        "SCUMMVM-CE-ENGINE-TERRAIN-ANIMATION-CONTRACT.md",
+        "F0E1/F2DF..F304/SceneD379/D6A3;private511sourceproof"
+      ],
+      "production_connection": "OrdinaryWorldMoveonfoot/transport gate uses owned NWAT5 recoverycounter;completedmovement resets16. Ordinaryhost animation suppliescounter/speed andsourceparty-slide dataflow;free statusrepaint retainsraster.511firstfocusedbatchpassed;pendingbattle/cold qualifiers retained.",
+      "fallback_dependencies": [],
+      "blockers": []
     }
   ],
   "additional_unclassified_scope": [
@@ -5347,7 +5372,7 @@
     },
     {
       "path": "engines/nox/native_player_session.h",
-      "sha256": "60ed71111032d776ccdf5aaa409b9954683c1633d14fb2ad553cf1b909d51d9d",
+      "sha256": "4189b925faba5f6a36ee2018f78b3b60693d3f6bbcee7ea899182e9bc05616eb",
       "includes": [
         "nox/nox.h",
         "nox/native_character_creation.h",
@@ -5560,7 +5585,7 @@
     },
     {
       "path": "engines/nox/native_startup_host.h",
-      "sha256": "ace20e82812ed5e20b84f6fbb221fb7be9c9722b4955c4e7b701ee1c1988bcfe",
+      "sha256": "2757b6a22a31f9f693b47b4040b0b92f02f967f4fa6cfb5d81ddf0f30d418ab0",
       "includes": [
         "nox/native_weapon_ready_validation.h",
         "nox/native_legacy_snapshot.h",
@@ -6084,7 +6109,7 @@
     },
     {
       "path": "engines/nox/native_world_actor_turn.h",
-      "sha256": "b73064fe2ab395290d5e23572cea26305f67bae463ca74e47db3319dc4d21d7c",
+      "sha256": "441aa8ff3fda32c8ff3d5f697a1cae245bfcabd58c97198d83e9f7048f90c61c",
       "includes": [
         "nox/native_compact_world_action.h",
         "nox/native_npc_world_action.h",
@@ -6108,7 +6133,7 @@
     },
     {
       "path": "engines/nox/native_world_animation.h",
-      "sha256": "11f5fbdc0e7a2402dd28de3aee74b4393034791e20d8fb324387b965d54db6f5",
+      "sha256": "780f62485fdcc9f1f771bdf2804ba7f9a98ab4d8bf97b314e7d63af4f9da3f55",
       "includes": [
         "nox/native_world_presentation.h",
         "nox/native_lighting.h"
@@ -6781,7 +6806,7 @@
     },
     {
       "path": "engines/nox/native_world_input.h",
-      "sha256": "34e5970953fd80ea73b3477d27b062155caed7b34731eb4ca3cc5f9243ece849",
+      "sha256": "ca0d95a77b9aa010dc07e2f8b611df0736aef363f5d527ef33953fb9bf2cc94e",
       "includes": [
         "nox/native_new_game.h",
         "nox/native_world_move.h",
@@ -7226,7 +7251,7 @@
     },
     {
       "path": "engines/nox/native_world_move.h",
-      "sha256": "1d9dbc6ed3fc1fb99750ec6716b271eb1ab8789ca562d9ce519e641f6e46988d",
+      "sha256": "8f10f83b8d7497d6b9cc94f8782ce41f26b22c58e800a1c34b7b22e5e5036a3b",
       "includes": [
         "nox/native_world_command.h",
         "nox/native_world_wait.h",
@@ -7421,7 +7446,7 @@
     },
     {
       "path": "engines/nox/native_world_status.h",
-      "sha256": "b416997ddd737ce2fc703ccc325ba909ffd8a8cf619462d1c4f7343d6ebc9b0e",
+      "sha256": "528ef15604eed146f136a80cb52fd3c701e3bdbccbf6c215dcf1a5ad9753e727",
       "includes": [
         "nox/native_new_game.h",
         "nox/native_opening_backdrop.h",
@@ -7450,7 +7475,7 @@
     },
     {
       "path": "engines/nox/native_world_transport_motion.h",
-      "sha256": "46ece1784d152c1c3316dd366ae9cc59702c4852eaf83a4ccb3c13e5d3bcb5b9",
+      "sha256": "2ee1f9138477511021d69cffa4924bc0d17599197aaa59b9bfd875e3c9fd5dde",
       "includes": [
         "nox/native_world_transport.h",
         "nox/native_traversal.h",
@@ -7628,6 +7653,16 @@
       ],
       "explicit_boundaries": [],
       "coverage": "Only individual requirement/evidence scopes are credited."
+    },
+    {
+      "path": "engines/nox/native_terrain_animation_validation.h",
+      "sha256": "2a5708c800ec30d8a50cceb10d5b1f55754ddf8b1d6a83145472adb25fab2c38",
+      "includes": [
+        "nox/native_praevoc_validation.h",
+        "nox/native_world_animation.h"
+      ],
+      "explicit_boundaries": [],
+      "coverage": "Only individual requirement/evidence scopes are credited."
     }
   ],
   "counts": {
@@ -7662,9 +7697,9 @@
       "ce_replacements": 1
     },
     "simulation": {
-      "known_required": 9,
-      "native_implemented": 2,
-      "verified": 2,
+      "known_required": 10,
+      "native_implemented": 3,
+      "verified": 3,
       "partial": 7,
       "missing": 0,
       "unknown_required_rows": 0,
@@ -7763,8 +7798,8 @@
     }
   },
   "last_milestone": {
-    "owner": "Dialogue speech506",
-    "evidence": "SCUMMVM-CE-DIALOGUE-SPEECH506-VERIFICATION.json"
+    "owner": "Terrain animation/recovery511",
+    "evidence": "SCUMMVM-CE-TERRAIN-ANIMATION511-VERIFICATION.json"
   },
   "overall": {
     "fully_implemented_top_level_domains": 1,
@@ -7778,7 +7813,7 @@
   },
   "current_subsystem": {
     "status": "IN PROGRESS",
-    "scope": "Known world/navigation/transport/environment production-owner closure next;inventory known implementation classified,joined runtime and arbitrary dynamic producers remain separate."
+    "scope": "Remaining typed combat/NPC/shared source closure;pending battle parent return andF0E1 boundary source reconciliation,no campaign/old suites."
   },
   "count_definition": "native_implemented counts IMPLEMENTED; CE_REPLACEMENT is separately reported. VERIFIED applies only to row evidence scope; no overall completion percentage."
 }

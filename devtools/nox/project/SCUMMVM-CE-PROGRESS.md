@@ -1,3 +1,58 @@
+# Terrain animation511 - VERIFIED within focused contract
+
+Oneofficialnative-only build0warnings/0errors2m40.82s;firstnativebatchpasses.
+16sourceframes/32complete normalizedimages/245760visiblebytes match;6actual
+controlledB/idle/Xforms,192mountedidleframes,6contextrefusals,56sourcegatecases,
+actualSurface75walking16interrupt->2idleframes14->move/reset16,freeG rasterhold.
+Idlecanonicalcore/clock/RNG unchanged. Turn/animation/core/window/input codecs
+pass;reportcounter81 clarifiedinreceipt,not81formats. Old1..4 and64nondefault5
+turncombinations covered. Sourcepixel/instructionbuffers neverenterCEGit.
+Commands:officialcleanenv -NoxNativeOnly withterrain511 customoutput;
+python conversion/check_terrain_animation511.py --label511. Frozenexe/source
+hashes andexactqualification inTERRAIN-ANIMATION511-VERIFICATION.
+Sevenaccepted473synthesis/musicfilesbyteidentical;no oldanimation/audio suite,
+campaign,earnedplace ornormalEnginecold/session claim. Existingpendingbattle
+partial-turnreturn boundary remainsseparate andunpromoted. Continuecombat/NPC/
+sharedsourceclosure,particularlytypedparentreturn semantics;no milestonepause.
+
+# Terrain animation511 production staged - IN PROGRESS
+
+implement_terrain_animation511.py executedonce (notidempotent). No build yet.
+NWAT5 owns terrainRecovery0..16 onlywhen nondefault;old1..4 retain bytes/default16.
+Sharedsourcecurrent-terrain gate nowwiredforwalking andreal transportphase;
+successfulcompletedmovementresets16,stationarywaitdoesnot(SourceECE6returnsED5A).
+WorldAnimationadmitsall6forms,uses sourcepartycell down1pixel/currenttargetpage
+andcounter16..4,retains source<128staticpictures;hostpassesownedcounter/speed.
+WorldStatusoptional drawParty preventsfreetext/statusrepaint erasingrecovery.
+Legacyimportcapturesvalid6103. Pendingbattlepartialmovement boundary retains
+itspriorcounteruntilnormalmovementbodycompletes;broaderreturn integration
+notpromoted. Privateproof511b/prepare511 exact16frames/32whole normalizedimages
+matchdown1pixelmodel,counter16..4,no partyatlasrequests.
+Initial511 extractionwrongrows80..95 corrected88..103;oldresearchpreserved.
+Firstfixtureprepareimportfailed(test_resourcesmodulepath);fixedlocalhelper
+path,reranboundedsourcegeneration,no nativeprocess. Sourcefixture278787bytes,
+32actualSurface75boundarycandidates begins192,170 north->62. No gameplaydriver.
+Next:addonefocused511 nativebatch forsourceimage/counter,6B/idle/X forms,
+walkingSurface75recovery/gate/turncodecs/oldformats andsubsequentinput;
+thenoneofficialintegrationbuild. Do notrerunoldanimation/audio/campaign suites.
+Currentcompiledaccepted506b remainsfrozen;511source isuncompiledworkingdelta.
+Initialinline stage-record command hadPythonSyntaxError beforeanywrites;
+this correctedfile records theactual state,not a build/nativefailure.
+
+# World animation/recovery511 - IN PROGRESS before code
++
++Parentca702710f1b;actualsource remainsaccepted506b. Worldreview finds concrete
++missing owners,not stalePARTIAL labels:WorldAnimation rejects127/128/238 though
++WorldTransportControl/WorldInput admitall6forms;ordinaryidlehostfails onrejection.
++Also TransportMotionContext.phase remainsdefault16;sourceF2DFtests6103 recovery
++counter onSurfacefooter67 terrain75,ordinaryonfootgatecurrentlybypassed.
++SourceF0E1 resets16;SceneD379/D6A3 decrementswhile>=5 andslidesraster.
++Exactpixels/reset call coverage stillUNKNOWN;do notguess. ENGINE-TERRAIN-ANIMATION
++contract defines coherent511 beforechanges. No newcode/build/nativebatchyet.
++Reuseprivateworld_animation_source200 helper forboundednewsourcecase only;
++accepted205/206suite notrerun. Thencompleteowner/onebuild/onefocusedbatch.
++No campaign/audioacceptance/publication. Preserve506b frozenartifacts.
++
 # Inventory510 known implementation model - VERIFIED for static review
 +
 +Reusedactualsemantic equipment/book/grant/drop/search/lock/treasureowners and
