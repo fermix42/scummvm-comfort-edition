@@ -73,6 +73,7 @@
 #include "nox/native_dialogue_speech_validation.h"
 #include "nox/native_terrain_animation_validation.h"
 #include "nox/native_move_completion_validation.h"
+#include "nox/native_encounter_clock_validation.h"
 #include "nox/native_search_defeat_validation.h"
 #include "nox/native_dialogue_voice_validation.h"
 #include "nox/native_player_lifecycle_validation.h"
@@ -115,6 +116,12 @@ inline Common::Error NoxEngine::runNativeStartup() {
     if (ConfMan.hasKey("nox_native_search_defeat495") && ConfMan.getBool("nox_native_search_defeat495")) {
         Common::String report;if (!Native::validateNativeSearchDefeat495(_resources,report)) return fail(report.empty()?"Search defeat focused check failed":report.c_str());
         Common::OutSaveFile *out=_system->getSavefileManager()->openForSaving("nox-native-search-defeat.tsv",false);if (!out) return Common::kWritingFailed;
+        out->writeString(report);out->finalize();const bool ok=!out->err();delete out;return ok?Common::Error(Common::kNoError):Common::Error(Common::kWritingFailed);
+    }
+    if (ConfMan.hasKey("nox_native_encounter_clock513_fixture")) {
+        Common::File fixture;Common::String report;
+        if (!fixture.open(Common::FSNode(ConfMan.getPath("nox_native_encounter_clock513_fixture"))) || !Native::validateNativeEncounterClock513(_resources,fixture,report)) return fail(report.empty()?"Encounter clock focused check failed":report.c_str());
+        Common::OutSaveFile *out=_system->getSavefileManager()->openForSaving("nox-native-encounter-clock.tsv",false);if (!out) return Common::kWritingFailed;
         out->writeString(report);out->finalize();const bool ok=!out->err();delete out;return ok?Common::Error(Common::kNoError):Common::Error(Common::kWritingFailed);
     }
     if (ConfMan.hasKey("nox_native_move_completion512_fixture")) {
@@ -589,7 +596,7 @@ inline Common::Error NoxEngine::runNativeStartup() {
             return true;
         }
         Common::ScopedPtr<Native::EncounterState> nextOwner1(new Native::EncounterState(encounterState));Native::EncounterState &next=*nextOwner1;Native::HgrFrame image;
-        if (!next.orientInitial(turns.presentation.facing) || !battlePresentation.paint(preparedEncounter,next,next.phase,image) || !Native::WorldMove::completeClock(game.world,game.clock)) return false;
+        if (!next.orientInitial(turns.presentation.facing) || !battlePresentation.paint(preparedEncounter,next,next.phase,image) || !worldInput.completeEncounterClock(game.world,game.clock)) return false;
         next.frame=image;next.presented=true;encounterState=next;return true;
     };
     const int idleBudget=replay && ConfMan.hasKey("nox_native_idle_frames")?ConfMan.getInt("nox_native_idle_frames"):0;

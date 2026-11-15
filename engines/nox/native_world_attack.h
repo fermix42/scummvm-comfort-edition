@@ -24,7 +24,7 @@ public:
         const byte *actor=tables+(kind==4?1280:768)+slot;const byte tile=actor[2];
         if (!tile || actor[3]==255) return kWorldAttackInvalid;
         if (tile==225 || (context.type==2 && tile==205) || (context.type==6 && tile==209)) return kWorldAttackNoTarget;
-        WorldActorTurnEvent selected;selected.battle=true;selected.bank=kind==4?1:0;selected.slot=slot;selected.direction=direction;selected.cell=cell;
+        WorldActorTurnEvent selected;selected.battle=true;selected.clockPending=false;selected.bank=kind==4?1:0;selected.slot=slot;selected.direction=direction;selected.cell=cell;
         event=selected;alarm=context.map && context.map!=101 && raw>=2;return kWorldAttackSelected;
     }
     static void alarm(byte *npcs,const byte *footer,WorldTransportState &controls) {

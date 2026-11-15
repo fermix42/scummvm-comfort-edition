@@ -1,3 +1,7 @@
+# Encounter clock513
+
+513 resolves unconditional presentation tick for new manual/scripted admissions. Shared pre-battle world-tail effects/order and dialogue caller clock remain separate,unpromoted.
+
 # Move completion512
 
 B-TERRAIN-COMPLETION and recovery-specific B-TERRAIN-RETURN resolved512. Quiet arrival and queued-contact completion verified before battle;no invented return reset. Shared hazard/notice/clock ordering remains separately unpromoted.

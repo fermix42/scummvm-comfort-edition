@@ -915,8 +915,8 @@
       "behavior": "Turn and hourly clock transitions",
       "implementation": "PARTIAL",
       "verification": {
-        "status": "NOT STARTED",
-        "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement."
+        "status": "IN PROGRESS",
+        "scope": "513 scoped original scalar/admission/input-codec evidence retained;whole requirement not verified."
       },
       "native_owners": [
         "engines/nox/native_clock.h",
@@ -926,7 +926,9 @@
         "engines/nox/native_random.h",
         "engines/nox/native_world_animation.h"
       ],
-      "original_evidence": [],
+      "original_evidence": [
+        "SCUMMVM-CE-ENCOUNTER-CLOCK513-VERIFICATION.json:focused admission clock ownership only;full requirement remains PARTIAL."
+      ],
       "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
       "fallback_dependencies": [],
       "blockers": []
@@ -1626,8 +1628,8 @@
       "behavior": "Encounter selection prerequisites and protection",
       "implementation": "PARTIAL",
       "verification": {
-        "status": "NOT STARTED",
-        "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement."
+        "status": "IN PROGRESS",
+        "scope": "513 scoped original scalar/admission/input-codec evidence retained;whole requirement not verified."
       },
       "native_owners": [
         "engines/nox/native_encounter_admission.h",
@@ -1641,7 +1643,9 @@
         "engines/nox/native_battle_world_return.h",
         "engines/nox/native_quick_battle.h"
       ],
-      "original_evidence": [],
+      "original_evidence": [
+        "SCUMMVM-CE-ENCOUNTER-CLOCK513-VERIFICATION.json:focused admission clock ownership only;full requirement remains PARTIAL."
+      ],
       "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
       "fallback_dependencies": [],
       "blockers": []
@@ -2592,15 +2596,17 @@
       "behavior": "Tactical action result and world-return serialization",
       "implementation": "PARTIAL",
       "verification": {
-        "status": "NOT STARTED",
-        "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement."
+        "status": "IN PROGRESS",
+        "scope": "513 scoped original scalar/admission/input-codec evidence retained;whole requirement not verified."
       },
       "native_owners": [
         "engines/nox/native_exploration_save.h",
         "engines/nox/native_player_session.h",
         "engines/nox/native_legacy_snapshot.h"
       ],
-      "original_evidence": [],
+      "original_evidence": [
+        "SCUMMVM-CE-ENCOUNTER-CLOCK513-VERIFICATION.json:focused admission clock ownership only;full requirement remains PARTIAL."
+      ],
       "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
       "fallback_dependencies": [],
       "blockers": []
@@ -5587,7 +5593,7 @@
     },
     {
       "path": "engines/nox/native_startup_host.h",
-      "sha256": "a975e0e711b2433e7a521688a72a56c64329e9918a2ec2ff350fd8df7e712e8c",
+      "sha256": "2ceb75768f760145d9075dcbbaf317d2494738214022508718918266d5b8ba40",
       "includes": [
         "nox/native_weapon_ready_validation.h",
         "nox/native_legacy_snapshot.h",
@@ -6111,7 +6117,7 @@
     },
     {
       "path": "engines/nox/native_world_actor_turn.h",
-      "sha256": "441aa8ff3fda32c8ff3d5f697a1cae245bfcabd58c97198d83e9f7048f90c61c",
+      "sha256": "3deac0439455b7794547df6211e642153fdfca69aefdfb008984d49f68fc4d7c",
       "includes": [
         "nox/native_compact_world_action.h",
         "nox/native_npc_world_action.h",
@@ -6145,7 +6151,7 @@
     },
     {
       "path": "engines/nox/native_world_attack.h",
-      "sha256": "5c146044a814c25210cf5535a66d1c1493153796482fdd5c352025bcd2b602fc",
+      "sha256": "f1fe706bfbf897baa84613dca4966a7da90429aed611b76593a314d5d149a5b8",
       "includes": [
         "nox/native_world_actor_turn.h",
         "nox/native_world_transport.h"
@@ -6808,7 +6814,7 @@
     },
     {
       "path": "engines/nox/native_world_input.h",
-      "sha256": "ca0d95a77b9aa010dc07e2f8b611df0736aef363f5d527ef33953fb9bf2cc94e",
+      "sha256": "b7a1a749d77150f5132d9b56cc0961ac684dcc8fee76ac6621f3abab8b8ab4a8",
       "includes": [
         "nox/native_new_game.h",
         "nox/native_world_move.h",
@@ -7684,6 +7690,15 @@
       ],
       "explicit_boundaries": [],
       "coverage": "Only individual requirement/evidence scopes are credited."
+    },
+    {
+      "path": "engines/nox/native_encounter_clock_validation.h",
+      "sha256": "fa7584e906bd087d51186cb770769040a6031692513db6fbbeb486a4cbfd9381",
+      "includes": [
+        "nox/native_move_completion_validation.h"
+      ],
+      "explicit_boundaries": [],
+      "coverage": "Only individual requirement/evidence scopes are credited."
     }
   ],
   "counts": {
@@ -7819,8 +7834,8 @@
     }
   },
   "last_milestone": {
-    "owner": "Move completion512 correction",
-    "evidence": "SCUMMVM-CE-MOVE-COMPLETION512-VERIFICATION.json"
+    "owner": "Encounter admission clock513",
+    "evidence": "SCUMMVM-CE-ENCOUNTER-CLOCK513-VERIFICATION.json"
   },
   "overall": {
     "fully_implemented_top_level_domains": 1,
@@ -7834,7 +7849,7 @@
   },
   "current_subsystem": {
     "status": "IN PROGRESS",
-    "scope": "Shared world-turn tail and encounter clock ownership source review;no campaign/old suites."
+    "scope": "Shared pre-battle turn-tail pressureplate,hazard/notice/portal continuation source review;no campaign/old suites."
   },
   "count_definition": "native_implemented counts IMPLEMENTED; CE_REPLACEMENT is separately reported. VERIFIED applies only to row evidence scope; no overall completion percentage."
 }

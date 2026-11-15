@@ -45,8 +45,8 @@ struct WorldActorTurnState {
     }
 };
 struct WorldActorTurnEvent {
-    bool battle;byte bank,slot,direction,cell;
-    WorldActorTurnEvent() : battle(false),bank(255),slot(255),direction(255),cell(255) {}
+    bool battle,clockPending;byte bank,slot,direction,cell;
+    WorldActorTurnEvent() : battle(false),clockPending(true),bank(255),slot(255),direction(255),cell(255) {}
 };
 // Ordered wait-turn actor phase. It retains prior occupancy and updates it
 // in source order as actors move. World input, time and light are

@@ -1,3 +1,7 @@
+# Encounter clock513
+
+513 pending-clock admission is a native boolean,NWIN17 nondefault wrapper. No instruction interpreter/address continuation or CPU ABI. Legacy pending admissions preserve previous policy.
+
 # Move completion512
 
 512 uses typed arrived/quiet terrain,recovery and native HGR party-cell copy. No CPU ABI/opcode fallback or new save schema. Shared world tail remains separately qualified.

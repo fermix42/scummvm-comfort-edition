@@ -6,12 +6,12 @@ coverage reconciliation remain IN PROGRESS. Do not start these runs now.
 
 ## Current implementation identity
 
-Latest compiled source: move completion512, parent e56f5351cb3 plus frozen512 delta.
-One isolated build and first focused batch passed;exact identities in
-MOVE-COMPLETION512-VERIFICATION.json. Executable SHA256:
-26809ace80a0347dc70d0b509747b79fcf596c4fec50875c27f099884c4d1cd5.
-Scoped correction only;511/506/505/504/audio473 artifacts remain preserved.
-Shared world-tail/encounter clock review remains in progress. No campaign run.
+Latest compiled source: encounter clock513,parent0884b098d53 plus frozen513 delta.
+One build/first focused batch passed;ENCOUNTER-CLOCK513-VERIFICATION binds
+identity and scope. Executable SHA256:
+fb028e6c1d04df78160c079c82eff69276ef45fecf8d2d0b41b4cf3a46982d3c.
+Earlier512/511/audio473 artifacts remain preserved;shared world-tail ordering
+remains in progress. No actual Shadow/campaign/ordinarycold acceptance added.
 
 ## Finish the implementation phase
 

@@ -77,6 +77,12 @@ public:
     bool selectingOpen() const { return _openDirection; }
     const WorldActorTurnEvent &encounter() const { return _encounter; }
     bool scriptedEncounter() const {return _scriptedEncounter;}
+    // Actor-contact callers retain one pending world tick. Direct manual
+    // attacks have no world turn; scripted arrivals have already paid theirs.
+    bool completeEncounterClock(World &world,TurnClock &clock) const {
+        return _encounter.battle && (!_encounter.clockPending || WorldMove::completeClock(world,clock));
+    }
+
     bool continueTempleVictory(HdvArchive &archive,NewGame &game,WorldStory &window,WorldScene &scene,WorldActorTurnState &turn,
             LightState &light,VisibilityMask &visibility,HgrFrame &frame,byte animation) {
         if (!_encounter.battle || !EndingPresentation::revelation(game.world.mapId(),game.world.field(56),game.world.field(59))) return false;
@@ -476,7 +482,7 @@ private:
             if (selected==kTravelSpecialBattle) {
                 //M:F560 invokes an authored Shadow encounter directly. No
                 //world actor is manufactured or retired for this caller.
-                _encounter=WorldActorTurnEvent();_encounter.battle=true;_encounter.bank=0;_encounter.slot=0;_encounter.cell=93;
+                _encounter=WorldActorTurnEvent();_encounter.battle=true;_encounter.clockPending=false;_encounter.bank=0;_encounter.slot=0;_encounter.cell=93;
                 _encounter.direction=input.kbd.keycode==Common::KEYCODE_DOWN?1:input.kbd.keycode==Common::KEYCODE_RIGHT?2:input.kbd.keycode==Common::KEYCODE_LEFT?3:0;
                 _scriptedEncounter=true;return kWorldInputEncounter;
             }
@@ -505,6 +511,12 @@ private:
     }
 public:
     bool save(Common::WriteStream &out) const {
+        if (_encounter.battle && !_encounter.clockPending) {
+            Common::ScopedPtr<WorldInput> base(new WorldInput(*this));base->_encounter.clockPending=true;
+            Common::MemoryWriteStreamDynamic body(DisposeAfterUse::YES);if (!base->save(body)) return false;
+            out.writeUint32BE(MKTAG('N','W','I','N'));out.writeUint16LE(17);out.writeUint32LE(body.size());out.write(body.getData(),body.size());return !out.err();
+        }
+
         if (_digDirection) {
             Common::ScopedPtr<WorldInput> base(new WorldInput(*this));base->_digDirection=false;
             Common::MemoryWriteStreamDynamic body(DisposeAfterUse::YES);if (!base->atWorldCommand() || !base->save(body)) return false;
@@ -557,6 +569,14 @@ public:
     bool load(Common::SeekableReadStream &in,HdvArchive &archive,byte type=8) {
         if (in.readUint32BE()!=MKTAG('N','W','I','N')) return false;
         uint version=in.readUint16LE();
+        if (version==17) {
+            const uint32 size=in.readUint32LE();if (size<6 || size>1048576 || int64(size)!=in.size()-in.pos()) return false;
+            Common::Array<byte> bytes;bytes.resize(size);if (in.read(bytes.data(),size)!=size || READ_BE_UINT32(bytes.data())!=MKTAG('N','W','I','N') || READ_LE_UINT16(bytes.data()+4)>=17) return false;
+            Common::MemoryReadStream body(bytes.data(),size);Common::ScopedPtr<WorldInput> next(new WorldInput);
+            if (!next->load(body,archive,type) || !next->_encounter.battle) return false;
+            next->_encounter.clockPending=false;*this=*next;return true;
+        }
+
         if (version==16) {
             const uint32 size=in.readUint32LE();if (size<6 || size>1048576 || int64(size)!=in.size()-in.pos()) return false;
             Common::Array<byte> bytes;bytes.resize(size);if (in.read(bytes.data(),size)!=size || READ_BE_UINT32(bytes.data())!=MKTAG('N','W','I','N') || READ_LE_UINT16(bytes.data()+4)>=16) return false;

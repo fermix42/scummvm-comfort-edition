@@ -1,3 +1,32 @@
+# Encounter clock513 - VERIFIED within focused admission scope
+
+Official isolated native-only build0warnings/0errors2m41.45s,wrapperexit0.
+First focused batch passes36original scalar cases,12actual queued move/wait/
+manual contacts,13input codecs,5historicalpending defaults,typed completed
+policy andinvalidnonencounter wrapper refusal. No unsuccessful corrective run.
+Manual A has no new presentation tick;scripted Arrival already paid its tick.
+Source scripted connection static,not actualShadow gameplay. Shared world-tail
+hazard/notice/portal ordering remains independently IN PROGRESS. No campaign,
+battle execution,ordinaryEnginecold/session orold audio/animation suite.
+Exact hashes/setup/commands: ENCOUNTER-CLOCK513-VERIFICATION. Canonical records
+here and byte-identical CE devtools/nox/project mirrors. Next source-driven
+shared pre-battle turn-tail completion;no milestone stop or broad promotion.
+
+# Encounter clock513 - IN PROGRESS before build
+
+Parent0884b098d53. Source contract ENGINE-ENCOUNTER-CLOCK written before edits.
+Manual Attack/direct159F has no world-turn body;scripted Shadow sourceF134
+already clocks beforeF137/F560. Native presentation's unconditional tick is
+replaced by explicit pending-clock policy. Actor queued contacts retain their
+existing pending tick;dialogue remains historical pending until sourced.
+NWIN17 wraps only nondefault pending encounters;old encodings unchanged.
+36 originalFBE6 scalar cases generated before native operation;FC34/FB6A
+post-write presentation services observed/skipped,not synthesized. Focused
+batch prepared for12 actual contact inputs/13 input codecs/legacy defaults.
+No build or native513 result yet. Shared hazard/notice/portal tail separately
+unpromoted;no battle execution,campaign or old suites. Next one isolated build
+then focused513;no milestone stop. Scripts implement/wire are one-shot.
+
 # Move completion512 - VERIFIED within focused correction
 
 Official isolated native-only build: 0 warnings, 0 errors, 2m40.91s, exit0.

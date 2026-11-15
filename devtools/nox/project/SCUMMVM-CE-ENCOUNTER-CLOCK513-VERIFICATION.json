@@ -1,0 +1,34 @@
+{
+  "status": "VERIFIED",
+  "scope": "36 original FBE6 scalar outcomes;12 actual manual,queued walking and stationary contact clock cases;13 input codecs,5 legacy defaults,one typed completed policy and invalid nonencounter wrapper. No actual scripted Shadow,battle execution,campaign,ordinary Engine cold/session or old suites",
+  "parent_commit": "0884b098d53",
+  "contract": "SCUMMVM-CE-ENGINE-ENCOUNTER-CLOCK-CONTRACT.md",
+  "executable_sha256": "fb028e6c1d04df78160c079c82eff69276ef45fecf8d2d0b41b4cf3a46982d3c",
+  "source_file_count": 366,
+  "focused_validation": "encounter_clock\toriginal_scalar_cases=36\tactual_contact_clock_cases=12\tinput_codecs=13\tlegacy_pending_defaults=5\talready_completed_policy=1\tinvalid_nonencounter_wrapper=1\tbattle_execution=0\tcampaign=0\told_audio_animation_suite=0\n",
+  "build": {
+    "command": "Official run-build-release-cleanenv.ps1 -NoxNativeOnly with ForceImportAfterCppTargets=conversion/clock513-build-output.targets",
+    "result": "0 warnings,0 errors;2m41.45s;wrapper exit0",
+    "output": "build-scummvm/Releasex64/scummvm-clock513.exe"
+  },
+  "native_batches": 1,
+  "unsuccessful_corrective_native_batches": 0,
+  "source_research": "OriginalFBE6:36 scalar cases including phase,ordinary/minute/hour rollover,light ticks0/1/128,counter0/2;FC34/FB6A formatting/presentation services observed/skipped after scalar writes. SourceF134 precedesF137/F560 scripted admission;manualGAME93D1 calls159F directly.",
+  "setup": "12 independent Keep69 checkpoints before input:party17,42;compact tile164/state1 at17,44 forqueued move or17,43 forstationary/manual;four predeclared clock boundaries. Actual DOWN,stationary WorldWait,actual A/DOWN. Same clock helper usedby ordinaryhost presentation invoked once after input codec. One additional typed completed policy fixture is not an actual Shadow entry.",
+  "production": "WorldActorTurnEvent.clockPending defaults true;manual WorldAttack and scripted arrival explicitly false.Host consults policy at existing presentation tick;presented-state idempotence remains existing. NWIN17 wraps nondefault pending encounter,old byte encodings/defaults retained. Dialogue remains historical pending until sourced.",
+  "qualifications": [
+    "No battle execution,actual scripted Shadow entry,earned/campaign,ordinary Engine cold/session or old suites.",
+    "Historical saved pending admissions default to their previous pending-tick behavior;new policy is explicit for new manual/scripted producers.",
+    "Shared world hazard/notice/portal ordering before queued battle remains separately IN PROGRESS.",
+    "Exact original scalar comparison,not source clock pixel rendering parity.",
+    "Initial private research resource lookup NA/TALK was invalid;no original/native execution occurred in that diagnostic."
+  ],
+  "artifacts": {
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-binary\\scummvm-native-encounter-clock513.exe": "fb028e6c1d04df78160c079c82eff69276ef45fecf8d2d0b41b4cf3a46982d3c",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-binary\\native-encounter-clock513-source.zip": "9800314e19c9cab1e499d147d7c1ed7529f9857b1714f9753cde1238ca7f67af",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-encounter-clock513-focused\\verification.json": "f4e74ec0908bffdb0de699ec56d81fd4b36d3d6c05da55992ed8c77a1a23baa7",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-encounter-clock513-build.log": "42d78a5f843d31cea7dd23e6cfefb90cf8d360ef705202c189d5d0eff9e44fae",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-encounter-clock513-source.bin": "0c7d15437ae8cd7d6799938b4bdb3e0573fc03764b5403a49ac2417d5cd17be7",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-encounter-clock513-source.json": "b777683e74c0481c3fc70f6ec3b978a330ba4b3c54647caa06567ac2522f2955"
+  }
+}
