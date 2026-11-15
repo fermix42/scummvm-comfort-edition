@@ -2560,10 +2560,11 @@
   "process_launches": 12,
   "planned_node_count": 60,
   "mandatory_node_count_note": "All selected M3 nodes explicitly represented alongside dependency76 graph; includes supporting/advice/alternative nodes. Necessity is retained per source,not inferred from node count.",
-  "last_earned_checkpoint": "45 Gordon hideout legitimately earned and repeat; source529 unchanged,cleanowner,cold012; nextCaptainRayfunding/Nourtheldinn",
+  "last_earned_checkpoint": "48 NoxXujamar and Alluvion legitimately recruited;actual normal N party order puts Kat/Cutter front;next sixparty boat/island route",
   "baseline_candidate_sha256": "81feb2c7ff17594a6ea9754dc60602a755b2f37ea7c53b437f65a18e7c35000f",
   "candidate_change": "NPC529 verified general viewport-exit correction; SCUMMVM-CE-NPC529-VERIFICATION.json",
   "earned_failures_retained": [
-    "library north-wing source planner omitted water229..231;actual party loss retained;normal Engine route98 checkpoint restored as43,not native defect. Source-safe route currently unavailable with protections0/MP0;defer."
+    "library north-wing source planner omitted water229..231;actual party loss retained;normal Engine route98 checkpoint restored as43,not native defect. Source-safe route currently unavailable with protections0/MP0;defer.",
+    "Fourmember return-road/boat contacts with hostile ships retained;actual tactical defeat,normal Engine47 restore. Native defect not demonstrated. Sixparty48 prepares missing companions instead of repeating fourparty route."
   ]
 }

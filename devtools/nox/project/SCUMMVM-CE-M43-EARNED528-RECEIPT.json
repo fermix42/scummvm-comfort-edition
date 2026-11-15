@@ -1,6 +1,6 @@
 {
   "status": "IN PROGRESS",
-  "scope": "Earned New ancestry through Gordon hideout/repeat/cold012 and Captain Ray500gold/repeat, normal14gold inn full restoration. Campaign and ending incomplete.",
+  "scope": "Earned primaryNew through48,sixmemberswithNoxXujamar/Alluvion,fullrest334food674gold;normalformationfollowing48. Abandonedfourpartyshipbranchesqualified;campaign/endincomplete.",
   "executable_sha256": "bc41a7d987509306add2702efb598eea2244663329627b10c4341e92e69944aa",
   "source_binding": "SCUMMVM-CE-NPC529-VERIFICATION.json",
   "builds": 2,
@@ -18,7 +18,8 @@
     "read-only route-planner generation selection corrected to latest mtime; no save content or engine state edited",
     "Library north-wing planner omitted water damage; actual earned defeat retained; exact normal library98 save restored, copied fork receipt, no injected HP or engine fix.",
     "Source-local foot planner now avoids unprotected water/thermal/barrier cells; normal state16 doors supported by native Open rather than historical tile whitelist.",
-    "Thin battle helper now routes around occupied allies with ordinary keys; earlier bounded loops retained."
+    "Thin battle helper now routes around occupied allies with ordinary keys; earlier bounded loops retained.",
+    "Source clock/schedule hour bytes are BCD; raw17=11AM,raw23=5PM. No clock injection."
   ],
   "checkpoints": [
     {
@@ -1190,6 +1191,26 @@
       "saved_files": {
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot046.g0": "d6d9f473e96396045d8081aca01415224d9c274c3666c647b747ae26d6e4c37d",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot046.g0.ce-achievements.json": "4f78750c8b101abfbabb8b9c050dd1558508858ab946b41d655582c63342f8b3"
+      },
+      "process": 12
+    },
+    {
+      "label": "Nourtheld funding full rest and food prepared",
+      "slot": 47,
+      "parent": "20420b75d34e7245d8c73de7927dd3eafbe98103979b6ca0b1fe5768f8688322",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot047.g0": "8a94c405c8c376b9a0760f39e9b9e7bd88cd26d0c522284bdb84da5d530d17ed",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot047.g0.ce-achievements.json": "2250ad67e454e2376af1d58f1a21f9b94c986e71ed0a84000bdc75c475897583"
+      },
+      "process": 12
+    },
+    {
+      "label": "Nourtheld Xujamar and Alluvion legitimately recruited",
+      "slot": 48,
+      "parent": "b3fa2519ad97eb9feee6a479acdd99ac36dead8936ac4f5a8bafce995e96c95a",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot048.g0": "b764adbec503b934ff54933a0fef84122bcb9afa134b9b0e1b770486d8809ded",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot048.g0.ce-achievements.json": "248e43e4f00002170f3922b5bd55606b07607d8faa8dc73bd10b6822f35989ab"
       },
       "process": 12
     }

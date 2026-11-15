@@ -1,3 +1,7 @@
+# Acceptance528 six-member preparation earned - IN PROGRESS
+
+ActualsourceL015NPC48NoxXujamar/56Alluvion JOIN on58,afterordinary47restore,addsfullparty6;save48bindsNewancestry,HP50/50/59/56/55/56 MP8/8/8/8/20/8,gold674food334. NormalN exchanges putKat/Cutterfirst,Hero/BridgitthenNox/Alluvion;actual98formation save. Fourmemberboatreturn branches failedhostile154shipcombat;actualtacticaldefeatretained,notenginefailure/notacceptedvictory. Northernroad single98HPenemy victory remains alternatebranchonly after47restore;currentprimary48 excludesit. No morefourmemberpiratereruns. Source combat supportsaxisrange incldiagonal;thinhelperupdatedrealArcher6range anddeclaredsupportmembers;noEnginechange/build. Source clocks/schedules areBCD bytes:decodebeforehourreasoning. Continue sixmember sourceplannedship/islandroute;M4.3endingunverified,3selectednodesVERIFIED,builds2/launches12. CanonicalNoxconversion/recoverymirrorCEdevtools/nox/project.
+
 # Acceptance528 earned funding/rest - IN PROGRESS
 
 Normal Nourtheld58 inn88 Y/R/Y paid14gold(206->192),fullpartyHP50/50/59/56 MP8each,room59->58 real stairs. CaptainRay80 NAME/RAQUE/APPREHENDED/GIVE awarded500gold(192->692);freshGIVE repeat noextra. Actual checkpoint46 follows45. Three selectednodes VERIFIED;ending/fullcampaign incomplete. Native529sourceunchanged,builds2/launches12. Continue normalfood54/160 then sourceplanned sea/Raque progression. Canonical tracking in Nox conversion; byte-identical recovery mirror CE devtools/nox/project.
