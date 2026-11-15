@@ -1,3 +1,7 @@
+# Integration527 completion boundary
+
+Permitted controlled I1/I2/I3/non-ending I4 scoped contracts complete; INTEGRATION527-COMPLETION and bound receipts. No blanket M4 completion. Stop before earned campaign/ending under current directive. story.08 UNKNOWN and M4.3 supported acceptance remain required.
+
 # Post526 controlled integration authorization - November15
 
 Owner INTEGRATION527-DIRECTIVE supersedes prepare-only for non-campaign I1-I5.

@@ -1,3 +1,7 @@
+# Controlled integration527 fallback reconciliation
+
+Fallback dependencies unchanged. No gameplay implementation/executor/CPU ABI/disk bootstrap/IRQ path introduced. Only opt-in lifecycle probe changes skip audio tests and emit actualQ; all production gameplay/audio sources unchanged from525. Controlled assisted checkpoints are integration evidence, not an earned campaign replacement. Existing policies below remain.
+
 # Native Shadow approach525
 
 WorldStoryEvents/World.discoverShadowApproach replace the source quest-flag

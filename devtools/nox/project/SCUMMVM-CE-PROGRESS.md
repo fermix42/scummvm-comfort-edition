@@ -1,3 +1,11 @@
+# Integration527 permitted scope concluded - VERIFIED
+
+I1 16/16,I2 12/12,I3 12/12,non-ending representative I4 8/8:48 scoped invariants. Two instrumentation builds only; I2-I4 no builds or gameplay-code fixes. Total118 process launches include controlled setup, cold processes and retained failures; exact costs in completion report and per-batch receipts. Full377 source identity/unchanged HDV/audio473 rechecked. Matrix implementation77/58/7/1 unchanged; verification41 VERIFIED/51 IN PROGRESS/51 NOT STARTED, no blanket promotion. story.08 UNKNOWN. Stop before earned campaign/ending per directive. Full port not VERIFIED. Canonical conversion and CE devtools/nox/project mirrors retained.
+
+# Integration527 I3 - VERIFIED; continue permitted I4
+
+Twelve required/twelve verified/zero failures/unknown within scoped world/combat-return contract, both configurations. Actual dusk lighting; shared O/S; barrier protected/unprotected; plate; portal refusal/travel; orb Use/Cast compressed-window entry; tactical/Quick actual return; normal Engine save/cold/RNG/nextinput. No engine change/build/fallback. Scoped receipt INTEGRATION527-I3-VERIFICATION preserves setup and external-reference failures, source reassessments, and exact evidence. Continue non-ending I4 approach flags/prerequisites/repeat/cold. Earned/ending remains excluded; story.08 UNKNOWN.
+
 # Integration527 I2 - VERIFIED; continue I3
 
 I2 twelve required/twelve verified/zero engine failures/zero unknown within contract. Both modes: linked party/asymmetric item ownership/inn/service; real keyword editor and normal/yell/whisper; authored nonprototype training (363*2 payment/skill+2/practice0), authored Town74 KAYL callback objects3/71=36 and requestclear. Every group normal Engine legal save/cold/next icon. Controlled setup/permanent Casual; not earned. Driver setup/key/fee/family failures preserved, successful prefixes reassessed without repeated gameplay. No build/production change/new fallback. Receipt INTEGRATION527-I2-VERIFICATION; exact coverage counts there. Continue permitted I3 and non-ending I4.

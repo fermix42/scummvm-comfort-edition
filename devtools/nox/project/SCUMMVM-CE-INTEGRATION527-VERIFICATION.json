@@ -1,0 +1,160 @@
+{
+  "status": "VERIFIED",
+  "scope": "48 enumerated permitted integration invariants only. Full I4/I5/campaign/port not VERIFIED.",
+  "required": 48,
+  "verified": 48,
+  "failed": 0,
+  "unknown_within_contract": 0,
+  "story08": "UNKNOWN",
+  "builds": 2,
+  "process_launches": 118,
+  "batches": {
+    "I1": {
+      "receipt": "SCUMMVM-CE-INTEGRATION527-I1-VERIFICATION.json",
+      "sha256": "ac2bd6ee41310db1e73c99581f89250cc56f5dcfcb413fc54669b6a6a6332a42",
+      "required": 16,
+      "verified": 16,
+      "cost": {
+        "builds": 2,
+        "build_elapsed": [
+          "00:02:47.52",
+          "00:02:52.06"
+        ],
+        "process_launches": 21,
+        "completed_engine_processes": 19,
+        "rejected_before_engine": 1,
+        "timed_out_driver_processes": 1,
+        "reasons": [
+          "First existing probe needed integration opt-out to avoid repeating accepted audio tests.",
+          "Second coherent driver build needed literal Q-save commitment; old probe invoked SaveDialog directly.",
+          "Initial profile placed outside executable portable root; corrected layout without rebuild.",
+          "Continue first prequeued following key into modal. C-only succeeded; external Modern assertion expected A although source default selected newer B. Retained result matches pre-existing B hash/state without another native rerun. Classic expected B before operation."
+        ]
+      }
+    },
+    "I2": {
+      "receipt": "SCUMMVM-CE-INTEGRATION527-I2-VERIFICATION.json",
+      "sha256": "2695f349a4d3d52bb0faa3e05d50fd99c045045369cff75556c9f0017d15406b",
+      "required": 12,
+      "verified": 12,
+      "cost": {
+        "builds": 0,
+        "cli_process_launches": 24,
+        "production_replay_process_launches": 4,
+        "total_process_launches": 28
+      }
+    },
+    "I3": {
+      "receipt": "SCUMMVM-CE-INTEGRATION527-I3-VERIFICATION.json",
+      "sha256": "fc6a14f4aeeada15464123641f532749b2a9489833dc11c56d498840e3c850c1",
+      "required": 12,
+      "verified": 12,
+      "cost": {
+        "builds": 0,
+        "cli_process_launches": 44,
+        "production_replay_process_launches": 15,
+        "total_process_launches": 59
+      }
+    },
+    "I4": {
+      "receipt": "SCUMMVM-CE-INTEGRATION527-I4-VERIFICATION.json",
+      "sha256": "937e9acc2d28ed3134eb30d37291908dcc6321b7ad68b8b23e88a06d79c22951",
+      "required": 8,
+      "verified": 8,
+      "cost": {
+        "builds": 0,
+        "cli_process_launches": 8,
+        "production_replay_process_launches": 2,
+        "total_process_launches": 10
+      }
+    }
+  },
+  "candidate": {
+    "path": "ce-m4-binary/scummvm-native-integration527b.exe",
+    "sha256": "81feb2c7ff17594a6ea9754dc60602a755b2f37ea7c53b437f65a18e7c35000f",
+    "source_archive": "ce-m4-binary/native-integration527b-source.zip",
+    "source_archive_sha256": "b98d3e1554c1a3bf75c05d2d80859250adbb568396c1d2b9017853c6f857b7a2",
+    "engine_source_commit": "31e532c5e96",
+    "source_manifest": "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-integration527\\final-source-reconciliation.json",
+    "source_manifest_sha256": "b071d907f566d224bfe5db9872022fc3d37ffe3b483e38ce561b6b82b69a9612"
+  },
+  "artifacts_manifest": {
+    "path": "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-integration527\\integration-artifacts-manifest.json",
+    "sha256": "13a1626fa8996ebbdb916bf28b30d73ab26f0ab5baee3e0b13d82430a952b846",
+    "artifact_count": 1391
+  },
+  "local_driver_sha256": {
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\complete_Q_commit527.py": "e3506e1edd987a782718cc032f59210bd7e4c272f7a1d9cc536c0f57493cfecf",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\finish_I1_Continue527b.py": "6edcdca2c3fc69b5eaaa5e3309f3730373826928363f05cba5e7f5881cc0c55e",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\finish_I2_inn_modern527.py": "8842ec8ea3495d5fe4e7bd7d892ccf586f2362af03751a07b31625a6cc8a6934",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\freeze_integration527b.py": "a01a8e092c1ca72f3c6b5db8baea0e7612dc9a07ff58b7f8b6dc4c8cb2c5a4f8",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\integrate_I1_527.py": "ab44dd4fde3007555139cdeb9fda70adb1224c44bbc7980068b805b01187e494",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\integrate_I1_continue527b-initial.py": "fdb55f2613729dcb00696fe61971c94a1269b11b56dc6b99246d9b9087e99435",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\integrate_I1_continue527b.py": "78021fe7d71c7c7a2e60785de6b58a5bc36275c08e20d6c14c604b8a955f575e",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\integrate_I1_lifecycle527.py": "1d52dc942d5b77b24617b0cf3b240ab415b5362b1ac4d98a9d89e73c3b55fc39",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\integrate_I1_Q527b.py": "e3c98970ccbf4c5e0427772d168bedd2f165752498de95d4f0c298bd7cee8355",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\integrate_I2_callback527.py": "9d431e3d469d6bb1f885c2ee4fc5e30cb994569d95855b58e57abd5166549dc7",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\integrate_I2_callback_classic527.py": "88bc928e3f7b9d345a684f90197c4c47966aeebf3dcba129366a966b294641d8",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\integrate_I2_dialogue527.py": "a2d1b2561ff2d2b2c131f204f8ea41df39de52ee269269ac1a1c072c4fa0307d",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\integrate_I2_inn527.py": "27991b6332733dc3a8167557138e4724f7c3cccfbf763928779fa1fe67770c57",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\integrate_I2_paid527.py": "a53b6b78b8519de40ea603977149e78e25b7b003b7e384055bebbfae3450c346",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\integrate_I3_battle_cold527.py": "e0fedbd84e2bff4e89be6d8ebbd634dade340319cc7464bf61da0c2efe40766b",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\integrate_I3_combat527.py": "ee2c4695185bdb699341643b885eceb3ab2d09c354fdc75c749382b3364e1f3b",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\integrate_I3_continuation527.py": "927ddce633e031458ef6c66255cf46fde4d5c7c5425ce69b4689d38122e57626",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\integrate_I3_dusk_classic527.py": "9ea8faaec2e1e18d5143220e558d86c967f4a331466588a4dd46bcd272d14478",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\integrate_I3_world527.py": "22e738f7672068a781881d643cf2ae0a43339c9ee2c6573eb35b4e202566e385",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\integrate_I4_story527.py": "985e649d331e57a3340dd9831430b3187f5c7ab5997ec66c64abce7bda2b0667",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\integrate_I4_story_remaining527.py": "38fcd58b266ea4c63b50892d25e20ebeedfe79c690ede84cb286f995c9142fef",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\prepare_I2_callback527.py": "97c9d82c4cb513db401ac492cf5c3142418bf5beb886441a03140180b95a3ea0",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\prepare_I2_dialogue527.py": "6115e6e8767d905310d8f6261ba864a8e17a4dbd08bfb8894254fb21d8c0b0f8",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\prepare_I2_paid527.py": "ddd900aaf5ebf0c0f155daebab1f0150f5955df6c5e1cbc9d6c0d2d590c77c52",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\prepare_I3_dusk527.py": "45cbccc0bd12b1a737a293bcd18cf10c93816a10729e05c57e06b849282e92a6",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\prepare_I3_gates527.py": "270040d7a63cd9c894ee98b1e28b3c6b5f56c908f291991ae152b52d865fa0ba",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\prepare_I3_remaining527.py": "fdd679c10345feaec9458dc54dee7b0965297063fec9b47e1c7a5c785385d142",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\prepare_I3_world527.py": "cbd9a59fca1dcb57167f221843509ddc77601b3011cc5f9c82c274b1aa436ff1",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\prepare_I3_world_legal527.py": "0acc5de9ceecff2ae6edf893baf8c521ec4aa0d313d1156481eb7948f306d8cc",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\prepare_I4_story527.py": "ecdb3dd296229a390c462f0a4285ffc06d4cadc81e816c2e9c64e4873c0fefeb",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\prepare_integration_probe527.py": "318acf50530568229df6ccef003802284ebe888e52b0d64daba88df5209582ce",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\record_integration527_completion.py": "6979a0e48485f7329ea5325307f631cca791d121df622c745ac810d6bc904246",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\record_integration_I1_527.py": "f897c61f896db169df60eb9487d39009b6b60c4c1021c2834489d657ecbef091"
+  },
+  "native_implementation_changes": 0,
+  "existing_instrumentation_headers_changed": 1,
+  "fallback_changes": 0,
+  "coverage_before": {
+    "implementation": {
+      "IMPLEMENTED": 77,
+      "PARTIAL": 58,
+      "CE_REPLACEMENT": 7,
+      "UNKNOWN": 1
+    },
+    "verification": {
+      "NOT STARTED": 86,
+      "IN PROGRESS": 16,
+      "VERIFIED": 41
+    },
+    "unknown_behaviors": 1,
+    "fallback_references": []
+  },
+  "coverage_after": {
+    "implementation": {
+      "IMPLEMENTED": 77,
+      "PARTIAL": 58,
+      "CE_REPLACEMENT": 7,
+      "UNKNOWN": 1
+    },
+    "verification": {
+      "IN PROGRESS": 51,
+      "VERIFIED": 41,
+      "NOT STARTED": 51
+    },
+    "unknown_behaviors": 1,
+    "fallback_references": []
+  },
+  "remaining": [
+    "Earned M4.3 campaign/required supported branches/ending/save/audio/session acceptance excluded,not waived.",
+    "story.08 original producer/writer coverage UNKNOWN beyond reviewed contexts.",
+    "All broader matrix PARTIAL/IN PROGRESS/NOT STARTED qualifications retained."
+  ],
+  "report_sha256": "bc5775fa3cf20589d3a48e24ba2c089e6f05ec8264370a447bd43582e069bfbe"
+}

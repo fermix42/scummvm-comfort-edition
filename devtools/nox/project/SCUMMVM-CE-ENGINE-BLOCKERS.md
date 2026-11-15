@@ -1,3 +1,7 @@
+# Controlled integration527 disposition
+
+No new production implementation defect remains demonstrated in scoped I1/I2/I3/non-ending I4. Fixture/driver/assertion failures retained and source-reconciled; full48-invariant result and118-launch costs in INTEGRATION527-COMPLETION. Broader story.08 original producer/writer coverage UNKNOWN. Earned M4.3 campaign/ending/supported acceptance remains required and excluded from this directive, not waived. Ruin31 adjacent fixture cells rejected; actual O/S joined evidence uses source-supported warehouse instead, no Ruin31 accessibility claim.
+
 # Shadow approach525 closure
 
 B-SHADOW-APPROACH missing implementation retired: normal event/input producer,

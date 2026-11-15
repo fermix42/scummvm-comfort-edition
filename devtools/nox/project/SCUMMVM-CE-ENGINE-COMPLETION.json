@@ -657,7 +657,7 @@
       "behavior": "Map family decode and retained map records",
       "implementation": "IMPLEMENTED",
       "verification": {
-        "status": "NOT STARTED",
+        "status": "IN PROGRESS",
         "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement."
       },
       "native_owners": [
@@ -672,7 +672,8 @@
         "engines/nox/native_world_hazards.h"
       ],
       "original_evidence": [
-        "SCUMMVM-CE-DATA-OWNERSHIP509.md:known immutable definitions/record ownership and production/core codec chain;runtime remains unchanged."
+        "SCUMMVM-CE-DATA-OWNERSHIP509.md:known immutable definitions/record ownership and production/core codec chain;runtime remains unchanged.",
+        "SCUMMVM-CE-INTEGRATION527-I3-VERIFICATION.json:bounded Engine joined integration/cold/nextinput only; broad row remains qualified; story.08 UNKNOWN unchanged."
       ],
       "production_connection": "Source data ->typed catalog/map resource ->canonical Inventory/World ->NewGame staged core save/load;known data model implemented. See DATA-OWNERSHIP509;broader operations/ordinarycold/session remain separate.",
       "fallback_dependencies": [],
@@ -684,7 +685,7 @@
       "behavior": "Local movement collision and coordinate bounds",
       "implementation": "PARTIAL",
       "verification": {
-        "status": "NOT STARTED",
+        "status": "IN PROGRESS",
         "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement."
       },
       "native_owners": [
@@ -698,7 +699,9 @@
         "engines/nox/native_lighting.h",
         "engines/nox/native_world_hazards.h"
       ],
-      "original_evidence": [],
+      "original_evidence": [
+        "SCUMMVM-CE-INTEGRATION527-I3-VERIFICATION.json:bounded Engine joined integration/cold/nextinput only; broad row remains qualified; story.08 UNKNOWN unchanged."
+      ],
       "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
       "fallback_dependencies": [],
       "blockers": []
@@ -709,7 +712,7 @@
       "behavior": "Scrolling and large map geometry",
       "implementation": "PARTIAL",
       "verification": {
-        "status": "NOT STARTED",
+        "status": "IN PROGRESS",
         "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement."
       },
       "native_owners": [
@@ -723,7 +726,9 @@
         "engines/nox/native_lighting.h",
         "engines/nox/native_world_hazards.h"
       ],
-      "original_evidence": [],
+      "original_evidence": [
+        "SCUMMVM-CE-INTEGRATION527-I3-VERIFICATION.json:bounded Engine joined integration/cold/nextinput only; broad row remains qualified; story.08 UNKNOWN unchanged."
+      ],
       "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
       "fallback_dependencies": [],
       "blockers": []
@@ -734,7 +739,7 @@
       "behavior": "Map entry departure and gates",
       "implementation": "PARTIAL",
       "verification": {
-        "status": "NOT STARTED",
+        "status": "IN PROGRESS",
         "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement."
       },
       "native_owners": [
@@ -748,7 +753,9 @@
         "engines/nox/native_lighting.h",
         "engines/nox/native_world_hazards.h"
       ],
-      "original_evidence": [],
+      "original_evidence": [
+        "SCUMMVM-CE-INTEGRATION527-I3-VERIFICATION.json:bounded Engine joined integration/cold/nextinput only; broad row remains qualified; story.08 UNKNOWN unchanged."
+      ],
       "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
       "fallback_dependencies": [],
       "blockers": []
@@ -886,7 +893,7 @@
       "behavior": "Visibility occlusion and personal light",
       "implementation": "PARTIAL",
       "verification": {
-        "status": "NOT STARTED",
+        "status": "IN PROGRESS",
         "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement."
       },
       "native_owners": [
@@ -900,7 +907,9 @@
         "engines/nox/native_lighting.h",
         "engines/nox/native_world_hazards.h"
       ],
-      "original_evidence": [],
+      "original_evidence": [
+        "SCUMMVM-CE-INTEGRATION527-I3-VERIFICATION.json:bounded Engine joined integration/cold/nextinput only; broad row remains qualified; story.08 UNKNOWN unchanged."
+      ],
       "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
       "fallback_dependencies": [],
       "blockers": []
@@ -950,7 +959,8 @@
       "original_evidence": [
         "SCUMMVM-CE-ENCOUNTER-CLOCK513-VERIFICATION.json:focused admission clock ownership only;full requirement remains PARTIAL.",
         "SCUMMVM-CE-WORLD-TAIL514-VERIFICATION.json:shared new-turn completion scope;broader requirement remains PARTIAL.",
-        "SCUMMVM-CE-DIALOGUE-CLOCK515-VERIFICATION.json:knowncallerclockpolicies through515,4actualTalkrequestcases/8componentcodecs;broaderrequirementPARTIAL."
+        "SCUMMVM-CE-DIALOGUE-CLOCK515-VERIFICATION.json:knowncallerclockpolicies through515,4actualTalkrequestcases/8componentcodecs;broaderrequirementPARTIAL.",
+        "SCUMMVM-CE-INTEGRATION527-I3-VERIFICATION.json:bounded Engine joined integration/cold/nextinput only; broad row remains qualified; story.08 UNKNOWN unchanged."
       ],
       "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
       "fallback_dependencies": [],
@@ -984,7 +994,7 @@
       "behavior": "Deterministic random consumption",
       "implementation": "PARTIAL",
       "verification": {
-        "status": "NOT STARTED",
+        "status": "IN PROGRESS",
         "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement."
       },
       "native_owners": [
@@ -996,7 +1006,8 @@
         "engines/nox/native_world_animation.h"
       ],
       "original_evidence": [
-        "SCUMMVM-CE-BOOTSTRAP522-VERIFICATION.json: fresh engine entropy, deterministic replay and loaded-owner invariant; no whole RNG suite rerun."
+        "SCUMMVM-CE-BOOTSTRAP522-VERIFICATION.json: fresh engine entropy, deterministic replay and loaded-owner invariant; no whole RNG suite rerun.",
+        "SCUMMVM-CE-INTEGRATION527-I3-VERIFICATION.json:bounded Engine joined integration/cold/nextinput only; broad row remains qualified; story.08 UNKNOWN unchanged."
       ],
       "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
       "fallback_dependencies": [],
@@ -1008,7 +1019,7 @@
       "behavior": "Ordered actor turn and movement effects",
       "implementation": "PARTIAL",
       "verification": {
-        "status": "NOT STARTED",
+        "status": "IN PROGRESS",
         "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement."
       },
       "native_owners": [
@@ -1019,7 +1030,9 @@
         "engines/nox/native_random.h",
         "engines/nox/native_world_animation.h"
       ],
-      "original_evidence": [],
+      "original_evidence": [
+        "SCUMMVM-CE-INTEGRATION527-I3-VERIFICATION.json:bounded Engine joined integration/cold/nextinput only; broad row remains qualified; story.08 UNKNOWN unchanged."
+      ],
       "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
       "fallback_dependencies": [],
       "blockers": []
@@ -1178,31 +1191,7 @@
       "behavior": "Dialogue direction targeting and counter reach",
       "implementation": "PARTIAL",
       "verification": {
-        "status": "NOT STARTED",
-        "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement."
-      },
-      "native_owners": [
-        "engines/nox/native_npc_schedule.h",
-        "engines/nox/native_npc_navigation.h",
-        "engines/nox/native_npc_route_store.h",
-        "engines/nox/native_npc_action_dispatch.h",
-        "engines/nox/native_conversation.h",
-        "engines/nox/native_dialogue.h",
-        "engines/nox/native_dialogue_rules.h",
-        "engines/nox/native_recruitment.h"
-      ],
-      "original_evidence": [],
-      "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
-      "fallback_dependencies": [],
-      "blockers": []
-    },
-    {
-      "id": "npc.05",
-      "subsystem": "npc",
-      "behavior": "Keyword matching and dialogue rules",
-      "implementation": "IMPLEMENTED",
-      "verification": {
-        "status": "NOT STARTED",
+        "status": "IN PROGRESS",
         "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement."
       },
       "native_owners": [
@@ -1216,7 +1205,34 @@
         "engines/nox/native_recruitment.h"
       ],
       "original_evidence": [
-        "SCUMMVM-CE-DIALOGUE-HEADER-OWNERS508.md:439packets/3227headers/allknownselectors/predicatecapacities/controlvalues fit native owners;500/501/486 qualifications retained."
+        "SCUMMVM-CE-INTEGRATION527-I2-VERIFICATION.json:bounded Engine joined integration/cold/nextinput only; broad row remains qualified; story.08 UNKNOWN unchanged."
+      ],
+      "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
+      "fallback_dependencies": [],
+      "blockers": []
+    },
+    {
+      "id": "npc.05",
+      "subsystem": "npc",
+      "behavior": "Keyword matching and dialogue rules",
+      "implementation": "IMPLEMENTED",
+      "verification": {
+        "status": "IN PROGRESS",
+        "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement."
+      },
+      "native_owners": [
+        "engines/nox/native_npc_schedule.h",
+        "engines/nox/native_npc_navigation.h",
+        "engines/nox/native_npc_route_store.h",
+        "engines/nox/native_npc_action_dispatch.h",
+        "engines/nox/native_conversation.h",
+        "engines/nox/native_dialogue.h",
+        "engines/nox/native_dialogue_rules.h",
+        "engines/nox/native_recruitment.h"
+      ],
+      "original_evidence": [
+        "SCUMMVM-CE-DIALOGUE-HEADER-OWNERS508.md:439packets/3227headers/allknownselectors/predicatecapacities/controlvalues fit native owners;500/501/486 qualifications retained.",
+        "SCUMMVM-CE-INTEGRATION527-I2-VERIFICATION.json:bounded Engine joined integration/cold/nextinput only; broad row remains qualified; story.08 UNKNOWN unchanged."
       ],
       "production_connection": "WorldInput/WorldConversation ->Conversation lexical normalization,source ordered header selection,conditions,staged field effects and conditional session RNG/control. Known authored grammar covered statically508;ordinaryEnginecold/session/wholeNPC verification unchanged.",
       "fallback_dependencies": [],
@@ -1245,7 +1261,8 @@
       ],
       "original_evidence": [
         "SCUMMVM-CE-DIALOGUE-PRESENTATION501.md:complete authored body grammar static scope;not whole rendering/runtime acceptance",
-        "SCUMMVM-CE-DIALOGUE-CLOCK515-VERIFICATION.json:knowncallerclockpolicies through515,4actualTalkrequestcases/8componentcodecs;broaderrequirementPARTIAL."
+        "SCUMMVM-CE-DIALOGUE-CLOCK515-VERIFICATION.json:knowncallerclockpolicies through515,4actualTalkrequestcases/8componentcodecs;broaderrequirementPARTIAL.",
+        "SCUMMVM-CE-INTEGRATION527-I2-VERIFICATION.json:bounded Engine joined integration/cold/nextinput only; broad row remains qualified; story.08 UNKNOWN unchanged."
       ],
       "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
       "fallback_dependencies": [],
@@ -1401,7 +1418,7 @@
       ],
       "original_evidence": [
         "SCUMMVM-CE-INVENTORY-IMPLEMENTATION510.md:static known operation model/production ownership closure;existing verification and unknown dynamic producer/legacy scopes retained.",
-        "SCUMMVM-CE-INTEGRATION527-I2-VERIFICATION.json:12 scoped joined invariants, both modes, real Engine cold/next command; broader row not automatically VERIFIED."
+        "SCUMMVM-CE-INTEGRATION527-I2-VERIFICATION.json:bounded Engine joined integration/cold/nextinput only; broad row remains qualified; story.08 UNKNOWN unchanged."
       ],
       "production_connection": "Shared Inventory/Party/SpellBook/EquipmentActions/SearchInput/World/BattleLoot owners through ordinary InventoryWindow/WorldInput and tactical482;known model reviewed510,broader workflow verification unchanged.",
       "fallback_dependencies": [],
@@ -1546,7 +1563,7 @@
       "original_evidence": [
         "GAME949C/94AC -> item selector7; SRTN.INVENTORY item-command-7.asm 9600-9791",
         "Manual pp41-42 New Character Order",
-        "SCUMMVM-CE-INTEGRATION527-I2-VERIFICATION.json:12 scoped joined invariants, both modes, real Engine cold/next command; broader row not automatically VERIFIED."
+        "SCUMMVM-CE-INTEGRATION527-I2-VERIFICATION.json:bounded Engine joined integration/cold/nextinput only; broad row remains qualified; story.08 UNKNOWN unchanged."
       ],
       "production_connection": "native_engine -> runNativeStartup -> WorldInput::handle N exclusive modal -> PartyOrderInput -> PartyOrder::exchange -> Party/Inventory; save gating via PlayerSessionState::canSave/WorldInput::atWorldCommand.",
       "fallback_dependencies": [],
@@ -1558,7 +1575,7 @@
       "behavior": "Directional search objects treasure and secret doors",
       "implementation": "IMPLEMENTED",
       "verification": {
-        "status": "NOT STARTED",
+        "status": "IN PROGRESS",
         "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement."
       },
       "native_owners": [
@@ -1573,7 +1590,8 @@
         "engines/nox/native_book.h"
       ],
       "original_evidence": [
-        "SCUMMVM-CE-INVENTORY-IMPLEMENTATION510.md:static known operation model/production ownership closure;existing verification and unknown dynamic producer/legacy scopes retained."
+        "SCUMMVM-CE-INVENTORY-IMPLEMENTATION510.md:static known operation model/production ownership closure;existing verification and unknown dynamic producer/legacy scopes retained.",
+        "SCUMMVM-CE-INTEGRATION527-I3-VERIFICATION.json:bounded Engine joined integration/cold/nextinput only; broad row remains qualified; story.08 UNKNOWN unchanged."
       ],
       "production_connection": "Shared Inventory/Party/SpellBook/EquipmentActions/SearchInput/World/BattleLoot owners through ordinary InventoryWindow/WorldInput and tactical482;known model reviewed510,broader workflow verification unchanged.",
       "fallback_dependencies": [],
@@ -1612,7 +1630,7 @@
       "behavior": "Lock skill tool outcome and door commit",
       "implementation": "IMPLEMENTED",
       "verification": {
-        "status": "NOT STARTED",
+        "status": "IN PROGRESS",
         "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement."
       },
       "native_owners": [
@@ -1627,7 +1645,8 @@
         "engines/nox/native_book.h"
       ],
       "original_evidence": [
-        "SCUMMVM-CE-INVENTORY-IMPLEMENTATION510.md:static known operation model/production ownership closure;existing verification and unknown dynamic producer/legacy scopes retained."
+        "SCUMMVM-CE-INVENTORY-IMPLEMENTATION510.md:static known operation model/production ownership closure;existing verification and unknown dynamic producer/legacy scopes retained.",
+        "SCUMMVM-CE-INTEGRATION527-I3-VERIFICATION.json:bounded Engine joined integration/cold/nextinput only; broad row remains qualified; story.08 UNKNOWN unchanged."
       ],
       "production_connection": "Shared Inventory/Party/SpellBook/EquipmentActions/SearchInput/World/BattleLoot owners through ordinary InventoryWindow/WorldInput and tactical482;known model reviewed510,broader workflow verification unchanged.",
       "fallback_dependencies": [],
@@ -1639,7 +1658,7 @@
       "behavior": "Generated and scripted treasure handoffs",
       "implementation": "IMPLEMENTED",
       "verification": {
-        "status": "NOT STARTED",
+        "status": "IN PROGRESS",
         "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement."
       },
       "native_owners": [
@@ -1654,7 +1673,8 @@
         "engines/nox/native_book.h"
       ],
       "original_evidence": [
-        "SCUMMVM-CE-INVENTORY-IMPLEMENTATION510.md:static known operation model/production ownership closure;existing verification and unknown dynamic producer/legacy scopes retained."
+        "SCUMMVM-CE-INVENTORY-IMPLEMENTATION510.md:static known operation model/production ownership closure;existing verification and unknown dynamic producer/legacy scopes retained.",
+        "SCUMMVM-CE-INTEGRATION527-I3-VERIFICATION.json:bounded Engine joined integration/cold/nextinput only; broad row remains qualified; story.08 UNKNOWN unchanged."
       ],
       "production_connection": "Shared Inventory/Party/SpellBook/EquipmentActions/SearchInput/World/BattleLoot owners through ordinary InventoryWindow/WorldInput and tactical482;known model reviewed510,broader workflow verification unchanged.",
       "fallback_dependencies": [],
@@ -1684,7 +1704,8 @@
       "original_evidence": [
         "SCUMMVM-CE-ENCOUNTER-CLOCK513-VERIFICATION.json:focused admission clock ownership only;full requirement remains PARTIAL.",
         "SCUMMVM-CE-WORLD-TAIL514-VERIFICATION.json:shared new-turn completion scope;broader requirement remains PARTIAL.",
-        "SCUMMVM-CE-DIALOGUE-CLOCK515-VERIFICATION.json:knowncallerclockpolicies through515,4actualTalkrequestcases/8componentcodecs;broaderrequirementPARTIAL."
+        "SCUMMVM-CE-DIALOGUE-CLOCK515-VERIFICATION.json:knowncallerclockpolicies through515,4actualTalkrequestcases/8componentcodecs;broaderrequirementPARTIAL.",
+        "SCUMMVM-CE-INTEGRATION527-I3-VERIFICATION.json:bounded Engine joined integration/cold/nextinput only; broad row remains qualified; story.08 UNKNOWN unchanged."
       ],
       "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
       "fallback_dependencies": [],
@@ -1696,7 +1717,7 @@
       "behavior": "Formation tactical records terrain and geometry",
       "implementation": "PARTIAL",
       "verification": {
-        "status": "NOT STARTED",
+        "status": "IN PROGRESS",
         "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement."
       },
       "native_owners": [
@@ -1711,7 +1732,9 @@
         "engines/nox/native_battle_world_return.h",
         "engines/nox/native_quick_battle.h"
       ],
-      "original_evidence": [],
+      "original_evidence": [
+        "SCUMMVM-CE-INTEGRATION527-I3-VERIFICATION.json:bounded Engine joined integration/cold/nextinput only; broad row remains qualified; story.08 UNKNOWN unchanged."
+      ],
       "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
       "fallback_dependencies": [],
       "blockers": []
@@ -1722,7 +1745,7 @@
       "behavior": "Action lifecycle initiative pass and retire",
       "implementation": "PARTIAL",
       "verification": {
-        "status": "NOT STARTED",
+        "status": "IN PROGRESS",
         "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement."
       },
       "native_owners": [
@@ -1737,7 +1760,9 @@
         "engines/nox/native_battle_world_return.h",
         "engines/nox/native_quick_battle.h"
       ],
-      "original_evidence": [],
+      "original_evidence": [
+        "SCUMMVM-CE-INTEGRATION527-I3-VERIFICATION.json:bounded Engine joined integration/cold/nextinput only; broad row remains qualified; story.08 UNKNOWN unchanged."
+      ],
       "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
       "fallback_dependencies": [],
       "blockers": []
@@ -1748,7 +1773,7 @@
       "behavior": "Physical targeting range line of sight and damage",
       "implementation": "PARTIAL",
       "verification": {
-        "status": "NOT STARTED",
+        "status": "IN PROGRESS",
         "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement."
       },
       "native_owners": [
@@ -1763,7 +1788,9 @@
         "engines/nox/native_battle_world_return.h",
         "engines/nox/native_quick_battle.h"
       ],
-      "original_evidence": [],
+      "original_evidence": [
+        "SCUMMVM-CE-INTEGRATION527-I3-VERIFICATION.json:bounded Engine joined integration/cold/nextinput only; broad row remains qualified; story.08 UNKNOWN unchanged."
+      ],
       "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
       "fallback_dependencies": [],
       "blockers": []
@@ -1800,7 +1827,7 @@
       "behavior": "NPC decisions movement attacks and spells",
       "implementation": "PARTIAL",
       "verification": {
-        "status": "NOT STARTED",
+        "status": "IN PROGRESS",
         "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement."
       },
       "native_owners": [
@@ -1815,7 +1842,9 @@
         "engines/nox/native_battle_world_return.h",
         "engines/nox/native_quick_battle.h"
       ],
-      "original_evidence": [],
+      "original_evidence": [
+        "SCUMMVM-CE-INTEGRATION527-I3-VERIFICATION.json:bounded Engine joined integration/cold/nextinput only; broad row remains qualified; story.08 UNKNOWN unchanged."
+      ],
       "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
       "fallback_dependencies": [],
       "blockers": []
@@ -1878,7 +1907,7 @@
       "behavior": "Quick battle role assignment and resolution",
       "implementation": "PARTIAL",
       "verification": {
-        "status": "NOT STARTED",
+        "status": "IN PROGRESS",
         "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement."
       },
       "native_owners": [
@@ -1893,7 +1922,9 @@
         "engines/nox/native_battle_world_return.h",
         "engines/nox/native_quick_battle.h"
       ],
-      "original_evidence": [],
+      "original_evidence": [
+        "SCUMMVM-CE-INTEGRATION527-I3-VERIFICATION.json:bounded Engine joined integration/cold/nextinput only; broad row remains qualified; story.08 UNKNOWN unchanged."
+      ],
       "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
       "fallback_dependencies": [],
       "blockers": []
@@ -1951,7 +1982,7 @@
       "behavior": "Victory defeat escape loot experience and advancement",
       "implementation": "PARTIAL",
       "verification": {
-        "status": "NOT STARTED",
+        "status": "IN PROGRESS",
         "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement."
       },
       "native_owners": [
@@ -1967,7 +1998,8 @@
         "engines/nox/native_quick_battle.h"
       ],
       "original_evidence": [
-        "SCUMMVM-CE-SCRIPT-SERVICE-OWNERS500.md contact502:17fixed/15role126/9awards static source encoding scope only"
+        "SCUMMVM-CE-SCRIPT-SERVICE-OWNERS500.md contact502:17fixed/15role126/9awards static source encoding scope only",
+        "SCUMMVM-CE-INTEGRATION527-I3-VERIFICATION.json:bounded Engine joined integration/cold/nextinput only; broad row remains qualified; story.08 UNKNOWN unchanged."
       ],
       "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
       "fallback_dependencies": [],
@@ -1979,7 +2011,7 @@
       "behavior": "Battle world return and subsequent state compatibility",
       "implementation": "PARTIAL",
       "verification": {
-        "status": "NOT STARTED",
+        "status": "IN PROGRESS",
         "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement."
       },
       "native_owners": [
@@ -1995,7 +2027,8 @@
         "engines/nox/native_quick_battle.h"
       ],
       "original_evidence": [
-        "SCUMMVM-CE-SCRIPT-SERVICE-OWNERS500.md contact502:17fixed/15role126/9awards static source encoding scope only"
+        "SCUMMVM-CE-SCRIPT-SERVICE-OWNERS500.md contact502:17fixed/15role126/9awards static source encoding scope only",
+        "SCUMMVM-CE-INTEGRATION527-I3-VERIFICATION.json:bounded Engine joined integration/cold/nextinput only; broad row remains qualified; story.08 UNKNOWN unchanged."
       ],
       "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
       "fallback_dependencies": [],
@@ -2289,7 +2322,7 @@
       ],
       "original_evidence": [
         "SCUMMVM-CE-SERVICE-ADMISSION497.md",
-        "SCUMMVM-CE-INTEGRATION527-I2-VERIFICATION.json:12 scoped joined invariants, both modes, real Engine cold/next command; broader row not automatically VERIFIED."
+        "SCUMMVM-CE-INTEGRATION527-I2-VERIFICATION.json:bounded Engine joined integration/cold/nextinput only; broad row remains qualified; story.08 UNKNOWN unchanged."
       ],
       "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
       "fallback_dependencies": [],
@@ -2306,7 +2339,7 @@
       "behavior": "Inn rest price recovery and time passage",
       "implementation": "IMPLEMENTED",
       "verification": {
-        "status": "IN PROGRESS",
+        "status": "NOT STARTED",
         "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement."
       },
       "native_owners": [
@@ -2318,8 +2351,7 @@
         "engines/nox/native_temple_service.h"
       ],
       "original_evidence": [
-        "SCUMMVM-CE-SERVICE-ADMISSION497.md",
-        "SCUMMVM-CE-INTEGRATION527-I2-VERIFICATION.json:12 scoped joined invariants, both modes, real Engine cold/next command; broader row not automatically VERIFIED."
+        "SCUMMVM-CE-SERVICE-ADMISSION497.md"
       ],
       "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
       "fallback_dependencies": [],
@@ -2348,7 +2380,7 @@
         "engines/nox/native_temple_service.h"
       ],
       "original_evidence": [
-        "SCUMMVM-CE-INTEGRATION527-I2-VERIFICATION.json:12 scoped joined invariants, both modes, real Engine cold/next command; broader row not automatically VERIFIED."
+        "SCUMMVM-CE-INTEGRATION527-I2-VERIFICATION.json:bounded Engine joined integration/cold/nextinput only; broad row remains qualified; story.08 UNKNOWN unchanged."
       ],
       "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
       "fallback_dependencies": [],
@@ -2392,7 +2424,7 @@
       "behavior": "Service modal cancellation and cold continuation",
       "implementation": "PARTIAL",
       "verification": {
-        "status": "NOT STARTED",
+        "status": "IN PROGRESS",
         "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement."
       },
       "native_owners": [
@@ -2404,7 +2436,8 @@
         "engines/nox/native_temple_service.h"
       ],
       "original_evidence": [
-        "SCUMMVM-CE-SOURCE-PRODUCERS494.md (static scope only)"
+        "SCUMMVM-CE-SOURCE-PRODUCERS494.md (static scope only)",
+        "SCUMMVM-CE-INTEGRATION527-I2-VERIFICATION.json:bounded Engine joined integration/cold/nextinput only; broad row remains qualified; story.08 UNKNOWN unchanged."
       ],
       "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
       "fallback_dependencies": [],
@@ -2416,7 +2449,7 @@
       "behavior": "Gate prerequisites refusals and transitions",
       "implementation": "PARTIAL",
       "verification": {
-        "status": "NOT STARTED",
+        "status": "IN PROGRESS",
         "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement."
       },
       "native_owners": [
@@ -2427,7 +2460,8 @@
         "engines/nox/native_ending.h"
       ],
       "original_evidence": [
-        "SCUMMVM-CE-WORLD-STORY525-VERIFICATION.json and HARDCODED-STORY525-REVIEW:approach producer/core/admission only;wider producer/campaign scope unchanged."
+        "SCUMMVM-CE-WORLD-STORY525-VERIFICATION.json and HARDCODED-STORY525-REVIEW:approach producer/core/admission only;wider producer/campaign scope unchanged.",
+        "SCUMMVM-CE-INTEGRATION527-I4-VERIFICATION.json:bounded Engine joined integration/cold/nextinput only; broad row remains qualified; story.08 UNKNOWN unchanged."
       ],
       "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
       "fallback_dependencies": [],
@@ -2439,7 +2473,7 @@
       "behavior": "Quest flag effects and scripted treasure",
       "implementation": "PARTIAL",
       "verification": {
-        "status": "NOT STARTED",
+        "status": "IN PROGRESS",
         "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement."
       },
       "native_owners": [
@@ -2451,7 +2485,8 @@
       ],
       "original_evidence": [
         "SCUMMVM-CE-SCRIPT-SERVICE-OWNERS500.md contact502:17fixed/15role126/9awards static source encoding scope only",
-        "SCUMMVM-CE-WORLD-STORY525-VERIFICATION.json and HARDCODED-STORY525-REVIEW:approach producer/core/admission only;wider producer/campaign scope unchanged."
+        "SCUMMVM-CE-WORLD-STORY525-VERIFICATION.json and HARDCODED-STORY525-REVIEW:approach producer/core/admission only;wider producer/campaign scope unchanged.",
+        "SCUMMVM-CE-INTEGRATION527-I4-VERIFICATION.json:bounded Engine joined integration/cold/nextinput only; broad row remains qualified; story.08 UNKNOWN unchanged."
       ],
       "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
       "fallback_dependencies": [],
@@ -2463,7 +2498,7 @@
       "behavior": "Authored map and object patches",
       "implementation": "IMPLEMENTED",
       "verification": {
-        "status": "NOT STARTED",
+        "status": "IN PROGRESS",
         "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement."
       },
       "native_owners": [
@@ -2475,7 +2510,8 @@
       ],
       "original_evidence": [
         "SCUMMVM-CE-SOURCE-PRODUCERS494.md (static scope only)",
-        "SCUMMVM-CE-OWNER-REVIEW496.md"
+        "SCUMMVM-CE-OWNER-REVIEW496.md",
+        "SCUMMVM-CE-INTEGRATION527-I4-VERIFICATION.json:bounded Engine joined integration/cold/nextinput only; broad row remains qualified; story.08 UNKNOWN unchanged."
       ],
       "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
       "fallback_dependencies": [],
@@ -2586,7 +2622,7 @@
       "behavior": "All authored script producers and special contexts",
       "implementation": "UNKNOWN",
       "verification": {
-        "status": "NOT STARTED",
+        "status": "IN PROGRESS",
         "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement."
       },
       "native_owners": [
@@ -2601,7 +2637,8 @@
         "SCUMMVM-CE-SCRIPT-SERVICE-OWNERS500.md: authored dialogue domain classified;wider code scope retained UNKNOWN",
         "SCUMMVM-CE-DIALOGUE-PRESENTATION501.md:complete authored body grammar static scope;not whole rendering/runtime acceptance",
         "SCUMMVM-CE-SCRIPT-SERVICE-OWNERS500.md contact502:17fixed/15role126/9awards static source encoding scope only",
-        "SCUMMVM-CE-WORLD-STORY525-VERIFICATION.json and HARDCODED-STORY525-REVIEW:approach producer/core/admission only;wider producer/campaign scope unchanged."
+        "SCUMMVM-CE-WORLD-STORY525-VERIFICATION.json and HARDCODED-STORY525-REVIEW:approach producer/core/admission only;wider producer/campaign scope unchanged.",
+        "SCUMMVM-CE-INTEGRATION527-I4-VERIFICATION.json:bounded Engine joined integration/cold/nextinput only; broad row remains qualified; story.08 UNKNOWN unchanged."
       ],
       "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
       "fallback_dependencies": [],
@@ -3156,7 +3193,8 @@
       },
       "original_evidence": [
         "SCUMMVM-CE-ENGINE-SIMULATION-CONTRACT.md",
-        "GAME71C9 and residentF9AA-FA07"
+        "GAME71C9 and residentF9AA-FA07",
+        "SCUMMVM-CE-INTEGRATION527-I3-VERIFICATION.json:bounded Engine joined integration/cold/nextinput only; broad row remains qualified; story.08 UNKNOWN unchanged."
       ],
       "native_owners": [
         "engines/nox/native_daylight.h",
@@ -3203,7 +3241,8 @@
       },
       "original_evidence": [
         "SCUMMVM-CE-ENGINE-DIALOGUE-CALLBACKS-CONTRACT.md",
-        "TalkB2F9-B4D3;439 hash-verified packet census (local)"
+        "TalkB2F9-B4D3;439 hash-verified packet census (local)",
+        "SCUMMVM-CE-INTEGRATION527-I2-VERIFICATION.json:bounded Engine joined integration/cold/nextinput only; broad row remains qualified; story.08 UNKNOWN unchanged."
       ],
       "native_owners": [
         "engines/nox/native_conversation_callbacks.h",
@@ -3380,7 +3419,8 @@
       ],
       "original_evidence": [
         "SCUMMVM-CE-ENGINE-BARRIER-CONTRACT.md",
-        "BSF210/F7A3,source6155 damage0,field57mask2,F156blocked"
+        "BSF210/F7A3,source6155 damage0,field57mask2,F156blocked",
+        "SCUMMVM-CE-INTEGRATION527-I3-VERIFICATION.json:bounded Engine joined integration/cold/nextinput only; broad row remains qualified; story.08 UNKNOWN unchanged."
       ],
       "production_connection": "WorldMove resolves admitted barrier touch;protected source immediateallow resumes position/actors,unprotected reuses blocked/defeat owner;mounted near/far walking reports typed touch.",
       "fallback_dependencies": [],
@@ -3403,7 +3443,9 @@
       ],
       "original_evidence": [
         "SCUMMVM-CE-ENGINE-PRESSURE-PLATE-CONTRACT.md",
-        "EA35..EA61"
+        "EA35..EA61",
+        "SCUMMVM-CE-INTEGRATION527-I3-VERIFICATION.json:bounded Engine joined integration/cold/nextinput only; broad row remains qualified; story.08 UNKNOWN unchanged.",
+        "SCUMMVM-CE-INTEGRATION527-I4-VERIFICATION.json:bounded Engine joined integration/cold/nextinput only; broad row remains qualified; story.08 UNKNOWN unchanged."
       ],
       "production_connection": "WorldWait completednonbattle actor/objectphase ->WorldPressurePlate.apply actualcenterlookup ->activatePlate(resolvedslot) beforehazards/clock.",
       "fallback_dependencies": [],
@@ -3428,7 +3470,9 @@
         "engines/nox/native_startup_host.h"
       ],
       "original_evidence": [
-        "SCUMMVM-CE-ENGINE-PORTAL-CONTRACT.md"
+        "SCUMMVM-CE-ENGINE-PORTAL-CONTRACT.md",
+        "SCUMMVM-CE-INTEGRATION527-I3-VERIFICATION.json:bounded Engine joined integration/cold/nextinput only; broad row remains qualified; story.08 UNKNOWN unchanged.",
+        "SCUMMVM-CE-INTEGRATION527-I4-VERIFICATION.json:bounded Engine joined integration/cold/nextinput only; broad row remains qualified; story.08 UNKNOWN unchanged."
       ],
       "production_connection": "Typed WorldInput fullclock/notice andhostSpaceWait ->finishTurn ->ownedtravel;selectedportal outranksoriginhazards. Startuptransactionheap preservesvaluecopy/commit.",
       "fallback_dependencies": [],
@@ -3470,7 +3514,8 @@
         "engines/nox/native_world_cast.h"
       ],
       "original_evidence": [
-        "SCUMMVM-CE-ENGINE-ORB-NAVIGATION-CONTRACT.md"
+        "SCUMMVM-CE-ENGINE-ORB-NAVIGATION-CONTRACT.md",
+        "SCUMMVM-CE-INTEGRATION527-I3-VERIFICATION.json:bounded Engine joined integration/cold/nextinput only; broad row remains qualified; story.08 UNKNOWN unchanged."
       ],
       "production_connection": "InventoryWindow Use binds authored orb135..143 ->WorldNavigation ->WorldCast63 chooses same record ->existing WorldInput travel owner.",
       "fallback_dependencies": [],
@@ -3492,7 +3537,8 @@
       ],
       "original_evidence": [
         "SCUMMVM-CE-ENGINE-WINDOW-ENTRY-CONTRACT.md",
-        "BS.ROUTINES.BK2 neighbor table28D3..28DB"
+        "BS.ROUTINES.BK2 neighbor table28D3..28DB",
+        "SCUMMVM-CE-INTEGRATION527-I3-VERIFICATION.json:bounded Engine joined integration/cold/nextinput only; broad row remains qualified; story.08 UNKNOWN unchanged."
       ],
       "production_connection": "Shared WorldInput.travel initializes destinationwindow ->WorldViewport/lighting/ownedrecord capture. Same byte-sector topology as ordinary scrolling.",
       "fallback_dependencies": [],
@@ -3538,7 +3584,8 @@
       ],
       "original_evidence": [
         "SCUMMVM-CE-ENGINE-DIALOGUE-VOICE-CONTRACT.md",
-        "TalkB9D9..BA79/BAEA andAE2A"
+        "TalkB9D9..BA79/BAEA andAE2A",
+        "SCUMMVM-CE-INTEGRATION527-I2-VERIFICATION.json:bounded Engine joined integration/cold/nextinput only; broad row remains qualified; story.08 UNKNOWN unchanged."
       ],
       "production_connection": "WorldInput activeTalk ->WorldConversation ordinary keywordTab/editor ->typedConversation voice ->existingDialogueRules andsourcebodies;NCON/NCUI/NWIN retain voice/query without schema change.",
       "fallback_dependencies": [],
@@ -7964,8 +8011,8 @@
     }
   },
   "last_milestone": {
-    "owner": "Controlled Engine I1 integration527",
-    "evidence": "SCUMMVM-CE-INTEGRATION527-I1-VERIFICATION.json"
+    "owner": "Controlled Engine527 permitted I1/I2/I3/non-ending I4 complete within scoped contracts",
+    "evidence": "SCUMMVM-CE-INTEGRATION527-COMPLETION.md"
   },
   "overall": {
     "fully_implemented_top_level_domains": 1,
@@ -7979,7 +8026,7 @@
   },
   "current_subsystem": {
     "status": "IN PROGRESS",
-    "scope": "I3 controlled world/simulation/combat return; I2 twelve-invariant contract VERIFIED; non-ending I4 follows."
+    "scope": "Scoped permitted integration concluded. Stop before earnedcampaign/ending; story.08 UNKNOWN and broader qualifications retained. No port-complete claim."
   },
   "count_definition": "native_implemented counts IMPLEMENTED; CE_REPLACEMENT is separately reported. VERIFIED applies only to row evidence scope; no overall completion percentage.",
   "source_batch_report": "SCUMMVM-CE-SOURCE-BATCH-COMPLETION526.md"

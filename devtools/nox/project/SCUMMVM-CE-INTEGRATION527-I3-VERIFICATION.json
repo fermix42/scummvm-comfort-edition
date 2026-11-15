@@ -1,0 +1,111 @@
+{
+  "status": "VERIFIED",
+  "required": 12,
+  "verified": 12,
+  "failed": 0,
+  "unknown": 0,
+  "builds": 0,
+  "native_implementation_changes": 0,
+  "fallback_changes": 0,
+  "executable_sha256": "81feb2c7ff17594a6ea9754dc60602a755b2f37ea7c53b437f65a18e7c35000f",
+  "source_binding": "INTEGRATION527-I1-VERIFICATION full377 source hashes, rechecked at consolidated report",
+  "artifacts": {
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-integration527\\I3-daylight-modern\\verification.json": "9d5a57b4eb84fb04798e8440422679932752d2d7fea42691bac9561756d207d6",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-integration527\\I3-daylight-classic\\verification.json": "89cc7bcf34f5c7dac9ae7c3051179ab74fb79266c3e65237e7a8835ceafc195f",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-integration527\\I3-barrier-modern\\verification.json": "c17f1fceffe9c74c6639930a0e721f36fb70f007a31b55a82095fcbb798655f7",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-integration527\\I3-barrier-classic\\verification.json": "c17f1fceffe9c74c6639930a0e721f36fb70f007a31b55a82095fcbb798655f7",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-integration527\\I3-protected-modern\\verification.json": "0a1bc94cee44533f95a4aa952913cdfd493118e208edb4abc01cf0b2ed324932",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-integration527\\I3-protected-classic\\verification.json": "fe28ce065ab5105fa0af043a7527164ff6c9010be651a8085865f2293dd5995d",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-integration527\\I3-plate-legal-modern\\verification.json": "ec4f10802589c24d7fb081c65e197871ed1bc09b9b19069c804598804450b573",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-integration527\\I3-plate-legal-classic\\verification.json": "2e6baf26f8742cfe4c38d78f8aa44d5cf4fb6699b3e9d1efd08b9e116f201eaf",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-integration527\\I3-portal-refusal-modern\\verification.json": "0a9b50c207678a1378142dea2b5409f4950fe122800120b52c92ee24ee6b6ec0",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-integration527\\I3-portal-refusal-classic\\verification.json": "3afd3684d6b8b6c1abc7238d25fc02f0f0625b0257c07e6114e2cd8682e83230",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-integration527\\I3-portal-modern\\verification.json": "378360b4adc3502779b6ee5bb4a5a251b3442fdf70511d80535d2e04202217cb",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-integration527\\I3-portal-classic\\verification.json": "8cf1d6a3a3dac0c58b437ad7ac88b9cb4b5e074f9c8e0fff3b7f905ded215b24",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-integration527\\I3-orb-modern\\verification.json": "c3e5ba605804355bf8b1df823bf7f22223971bad99b9b9d684d7d23b217ba2b2",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-integration527\\I3-orb-classic\\verification.json": "f898c68a855ee3677723d48c661c897a4e9b026a59a1bc39852893871a1d330b",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-integration527\\I3-open-search-modern\\verification.json": "012b04dcd3f407e411f3e2f7c81ec480ba0c3df0cac6ad73eb5657bed5f849ca",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-integration527\\I3-open-search-classic\\verification.json": "7e686291e0b08256d76a9411f975942c68df9f4a9f8e125731aa6e603af16899",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-integration527\\I3-continuation-dusk-modern\\verification.json": "49f419f39edc2fddd2594650c26ee067b4ac5e742cd9d2cd7487e9b3ca53cfa7",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-integration527\\I3-continuation-dusk-classic\\verification.json": "99ba4cde57fd1083e2927889d43a0352ef0ade4c28cadac9df71c7f3c300661f",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-integration527\\I3-continuation-tactical-modern\\verification.json": "59270242e1a7de37d95583712401724d698aa130f4cd60308cf7c966193dfdf2",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-integration527\\I3-continuation-tactical-classic\\verification.json": "39fd47ea5a455a145dd42ce36fa092100bbf7de8540dcc1967216e119915ba96",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-integration527\\I3-continuation-quick-modern\\verification.json": "8eacb55391c57390c39d3b61e4025826d16662c98783a907bbcdef911efa7550",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-integration527\\I3-continuation-quick-classic\\verification.json": "d65cbe3ed676615bcc4576ab03056861e801b20859a3a77608a3c67eac1fa2b8"
+  },
+  "qualifications": [
+    "Controlled assisted cases only; no campaign/ending/audio suite.",
+    "Rejected Ruin31 adjacent fixture cells retained; actual shared O cancel/S attempt/reward uses preserved source-supported warehouse fixture instead. No claim Ruin31 actual Engine accessibility.",
+    "Blocked barrier raw movement component consumes no clock; actual Engine stationary tail advances phase1,HP29,RNGunchanged. Retained native result reassessed without prefix rerun.",
+    "Dusk light mode2/level4 plus transitionTicks1 includes ordinary visibility advance; retained Modern result reassessed then independently cold-restored.",
+    "Tactical/Quick use existing bounded production-host ordinary-key driver, complete actual settlement/world/nextinput; resulting state separately loaded/saved/restored via normal Engine in both modes.",
+    "No global PARTIAL/UNKNOWN promotion; story.08 retained."
+  ],
+  "coverage_before": {
+    "implementation": {
+      "IMPLEMENTED": 77,
+      "PARTIAL": 58,
+      "CE_REPLACEMENT": 7,
+      "UNKNOWN": 1
+    },
+    "verification": {
+      "IN PROGRESS": 30,
+      "VERIFIED": 41,
+      "NOT STARTED": 72
+    },
+    "unknown_behaviors": 1,
+    "fallback_references": []
+  },
+  "coverage_after": {
+    "implementation": {
+      "IMPLEMENTED": 77,
+      "PARTIAL": 58,
+      "CE_REPLACEMENT": 7,
+      "UNKNOWN": 1
+    },
+    "verification": {
+      "IN PROGRESS": 47,
+      "VERIFIED": 41,
+      "NOT STARTED": 55
+    },
+    "unknown_behaviors": 1,
+    "fallback_references": []
+  },
+  "affected_rows": [
+    "world.01",
+    "world.02",
+    "world.03",
+    "world.04",
+    "world.10",
+    "world.12",
+    "world.13",
+    "world.14",
+    "simulation.01",
+    "simulation.03",
+    "simulation.04",
+    "simulation.08",
+    "combat.01",
+    "combat.02",
+    "combat.03",
+    "combat.04",
+    "combat.06",
+    "combat.09",
+    "combat.12",
+    "combat.13",
+    "inventory.09",
+    "inventory.11",
+    "inventory.12",
+    "story.09",
+    "story.10"
+  ],
+  "cost": {
+    "builds": 0,
+    "cli_process_launches": 44,
+    "production_replay_process_launches": 15,
+    "total_process_launches": 59
+  },
+  "process_manifest": {
+    "path": "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-integration527\\I3-process-manifest.json",
+    "sha256": "bb30b0c765e65719a036bc53541bd502f420b617963b6a08a2d0f9b5d06c646e"
+  }
+}

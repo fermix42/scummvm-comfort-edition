@@ -1,0 +1,3 @@
+# I3 controlled world/simulation/combat return
+
+Status: VERIFIED within twelve scoped invariants. Twelve invariants:01 daylight change;02 actual shared O/S admission,refusal/cancel and attempt;03 barrier damage/refusal and protected move;04 plate state and subsequent stationary action;05 portal prerequisite refusal and permitted travel;06 orb Use binding;07 actual orb Cast into compressed window and next command;08 tactical lifecycle through real world return;09 Quick lifecycle through real world return;10 legal Engine save/cold restoration;11 gameplay RNG and canonical state continuity;12 both configurations. Existing checkpoint/source owners; declared setup before input, no injected outcomes or campaign. No old component suite reruns.

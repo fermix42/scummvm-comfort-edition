@@ -1,3 +1,7 @@
+# Integration527 permitted scope concluded
+
+I1 VERIFIED16/16,I2 VERIFIED12/12,I3 VERIFIED12/12; permitted representative non-ending I4 VERIFIED8/8. Full I4 ending and I5 earned campaign remain NOT STARTED under this directive. story.08 UNKNOWN retained. Stop at owner boundary. See INTEGRATION527-COMPLETION for exact scope,costs,failures and remaining port acceptance.
+
 # Integration527 I2 checkpoint
 
 I1 VERIFIED16/16; I2 VERIFIED12/12 scoped contracts. I3 IN PROGRESS; non-ending I4 follows. Ending/I5 excluded.

@@ -56,22 +56,60 @@
     "Historical malformed JOB and prototype qualifications unchanged."
   ],
   "coverage_before": {
-    "IN PROGRESS": 24,
-    "VERIFIED": 41,
-    "NOT STARTED": 78
+    "implementation": {
+      "IMPLEMENTED": 77,
+      "PARTIAL": 58,
+      "CE_REPLACEMENT": 7,
+      "UNKNOWN": 1
+    },
+    "verification": {
+      "IN PROGRESS": 24,
+      "VERIFIED": 41,
+      "NOT STARTED": 78
+    },
+    "unknown_behaviors": 1,
+    "fallback_references": []
   },
   "coverage_after": {
-    "IN PROGRESS": 28,
-    "VERIFIED": 41,
-    "NOT STARTED": 74
+    "implementation": {
+      "IMPLEMENTED": 77,
+      "PARTIAL": 58,
+      "CE_REPLACEMENT": 7,
+      "UNKNOWN": 1
+    },
+    "verification": {
+      "IN PROGRESS": 30,
+      "VERIFIED": 41,
+      "NOT STARTED": 72
+    },
+    "unknown_behaviors": 1,
+    "fallback_references": []
   },
   "affected_rows": [
     "inventory.03",
     "inventory.08",
     "services.03",
-    "services.04",
-    "services.05"
+    "services.05",
+    "services.07",
+    "npc.04",
+    "npc.05",
+    "npc.06",
+    "npc.11",
+    "npc.12"
   ],
   "implementation_delta": 0,
-  "fallback_delta": 0
+  "fallback_delta": 0,
+  "cost": {
+    "builds": 0,
+    "cli_process_launches": 24,
+    "production_replay_process_launches": 4,
+    "total_process_launches": 28
+  },
+  "process_manifest": {
+    "path": "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-integration527\\I2-process-manifest.json",
+    "sha256": "646822eccd05b02356d07ea561f9846fb43b95a94c9039b5d9b24a941201c776"
+  },
+  "native_implementation_changes": 0,
+  "executable_sha256": "81feb2c7ff17594a6ea9754dc60602a755b2f37ea7c53b437f65a18e7c35000f",
+  "source_binding": "INTEGRATION527-I1-VERIFICATION full377 source hashes, rechecked at consolidated report"
 }
