@@ -1,3 +1,7 @@
+# Move completion512
+
+512 uses typed arrived/quiet terrain,recovery and native HGR party-cell copy. No CPU ABI/opcode fallback or new save schema. Shared world tail remains separately qualified.
+
 # Terrain recovery511
 
 Source6103 becomes typed terrainRecovery0..16 inWorldActorTurnState/NWAT5,

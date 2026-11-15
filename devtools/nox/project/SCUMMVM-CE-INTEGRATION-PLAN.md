@@ -6,14 +6,12 @@ coverage reconciliation remain IN PROGRESS. Do not start these runs now.
 
 ## Current implementation identity
 
-Latest compiled source: terrain animation/recovery511, baseca702710f1b plus
-the frozen511 coherent delta. One build/first focused batch passed; the exact
-source/executable identities are in TERRAIN-ANIMATION511-VERIFICATION.
-Executable SHA256:
-5cf228769c84d457f7ac3213628d227f529484ca4aa40c68119edea9ae5c1394.
-This is511's scoped identity, not whole-engine acceptance. Original audio473
-and intermediate504/505/506 artifacts remain preserved. All seven473 synthesis/
-music source files remain byte-identical. Tracking changes alone need no build.
+Latest compiled source: move completion512, parent e56f5351cb3 plus frozen512 delta.
+One isolated build and first focused batch passed;exact identities in
+MOVE-COMPLETION512-VERIFICATION.json. Executable SHA256:
+26809ace80a0347dc70d0b509747b79fcf596c4fec50875c27f099884c4d1cd5.
+Scoped correction only;511/506/505/504/audio473 artifacts remain preserved.
+Shared world-tail/encounter clock review remains in progress. No campaign run.
 
 ## Finish the implementation phase
 

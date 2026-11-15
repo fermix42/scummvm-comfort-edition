@@ -6,6 +6,7 @@
 #include "nox/native_world_transport_motion.h"
 #include "nox/native_party.h"
 #include "nox/native_praevoc.h"
+#include "nox/native_party_move_completion.h"
 namespace Nox { namespace Native {
 enum WorldMoveResult { kWorldMoveAdvanced,kWorldMoveNotice,kWorldMoveBlocked,kWorldMoveBoundary,kWorldMoveUnsupported,kWorldMoveEncounter,kWorldMoveArrival,kWorldMoveLeave,kWorldMoveInterrupted,kWorldMoveDefeat };
 // Interior on-foot Keep movement: retain shifted occupancy, run the actual
@@ -116,6 +117,8 @@ public:
         // actors while giving the raster pass its actual painted history.
         WorldActorTurnEvent raised;byte painted[187]={};
         const WorldWaitResult result=_turn.run(candidate,nextWindow,shifted,turn,nextClock,nextLight,mask,nextSchedule,nextRoutes,after,catalog,nextText,nextFrame,riding?controls.appearance:partyAppearance,animation,raised,false,direction,painted,party?&nextParty:nullptr);
+        if ((result==kWorldWaitAdvanced || result==kWorldWaitBattle) &&
+                !PartyMoveCompletion::apply(shifted.actors.terrain[93],_quietGround,turn.terrainRecovery,frame,nextFrame)) return kWorldMoveUnsupported;
         if (result==kWorldWaitDefeat) {
             controls.used=controls.defeated=true;controls.pendingSteps=0;controls.pendingDirection=255;
             world.adoptState(candidate);window=nextWindow;scene=shifted;state=turn;clock=nextClock;light=nextLight;visibility=mask;
@@ -129,7 +132,6 @@ public:
             transferControls();return kWorldMoveEncounter;
         }
         if (result!=kWorldWaitAdvanced) return result==kWorldWaitPendingEffect?kWorldMoveBoundary:kWorldMoveUnsupported;
-        turn.terrainRecovery=16; // Source F0E1, after the completed movement body; stationary waits do not reset it.
         const byte arrivedGround=shifted.actors.terrain[93];
         if (_sounds && arrivedGround!=_quietGround && (arrivedGround<229 || arrivedGround>=233)) _sounds->push_back(kSpeakerNotification);
         const StoryMapState *map=nextWindow.state();if (!map) return kWorldMoveUnsupported;

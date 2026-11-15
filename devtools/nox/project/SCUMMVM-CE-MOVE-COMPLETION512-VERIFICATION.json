@@ -1,0 +1,35 @@
+{
+  "status": "VERIFIED",
+  "scope": "16original post-position branch cases;actual within75 retained counter/raster,leaving75 reset,and queued movement versus stationary/manual contact counter ownership;component codecs. Source-compatible pre-input checkpoints,no battle execution/earned/campaign/ordinaryEnginecold/session/oldanimation-audio suite.",
+  "parent_commit": "e56f5351cb3",
+  "contract": "SCUMMVM-CE-ENGINE-MOVE-COMPLETION-CONTRACT.md",
+  "executable_sha256": "26809ace80a0347dc70d0b509747b79fcf596c4fec50875c27f099884c4d1cd5",
+  "source_file_count": 365,
+  "focused_validation": "move_completion\texact_source_branch_cases=16\tactual_within75_counter_raster_hold=1\tactual_leave75_reset=1\tqueued_movement_stationary_manual_contact_cases=3\tturn_codecs=4\tbattle_execution=0\tcampaign=0\told_animation_audio_suite=0\n",
+  "build": {
+    "command": "Official run-build-release-cleanenv.ps1 -NoxNativeOnly with ForceImportAfterCppTargets=conversion/completion512-build-output.targets",
+    "result": "0 warnings,0 errors;2m40.91s;wrapper exit0",
+    "output": "build-scummvm/Releasex64/scummvm-completion512.exe"
+  },
+  "native_batches": 1,
+  "unsuccessful_corrective_native_batches": 0,
+  "budget_reason": "Additional511-owner build/check justified by missing original F05B quiet-arrival branch and queued-contact completion call site.511 accepted receipt retained unchanged.",
+  "source_research": "16 original F053 post-position cases: terrain62/75,remaining4/12/14/16,pending31F8 0/1. Optional9135 footstep observed/skipped; original subsequent reset/preserve tested.",
+  "setup": "Immutable Surface75 candidate selected before inputs;two actual idle frames yield14 and cropped raster;actual within75 move holds both,actual exit resets16.Independent Keep69 pre-input compact actor checkpoints compare actual DOWN queued contact, stationary WorldWait and manual A/DOWN. No battle outcomes or post-operation setup injected.",
+  "production": "PartyMoveCompletion applies quiet retain/prior party-cell raster versus nonquiet reset16 to both WorldMove advanced and queued-contact branches. No recovery reset on stationary/manual input or battle return;no schema change.",
+  "qualifications": [
+    "Controlled checkpoints,not earned placement/campaign.",
+    "Component codecs,not ordinary Engine cold/session.",
+    "No battle execution;shared hazard/notice/clock ordering remains separately qualified.",
+    "No claim of full original movement-scroll pixel parity.",
+    "No old animation/audio suite rerun;511 exact images and473 synthesis receipts remain historical."
+  ],
+  "artifacts": {
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-binary\\scummvm-native-move-completion512.exe": "26809ace80a0347dc70d0b509747b79fcf596c4fec50875c27f099884c4d1cd5",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-m4-binary\\native-move-completion512-source.zip": "45abbfbcdf66ff3309426aa33daa9edd2bdd86779579d3a3a2981e2eb01f6697",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-move-completion512-focused\\verification.json": "2767edff313a540d435d5f467c07f33b7df64b057ed8e23979500470a08751e7",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-move-completion512-build.log": "8f27401c2c36caa4a0717ed9c5638423ccea23fedb9d927e91d19bdba4de9c3a",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-move-completion512-source.bin": "6847585f1282046d98b60af820cf4c2e11f3795ab6ed717e9e6e7871e2211c8c",
+    "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-move-completion512-source.json": "1893689a84aeab2554d777e6d4bf35a19c4ee7055429ec1c841cb0538f024fe1"
+  }
+}

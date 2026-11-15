@@ -1,3 +1,7 @@
+# Move completion512
+
+B-TERRAIN-COMPLETION and recovery-specific B-TERRAIN-RETURN resolved512. Quiet arrival and queued-contact completion verified before battle;no invented return reset. Shared hazard/notice/clock ordering remains separately unpromoted.
+
 # Terrain animation511 scoped closure
 
 B-TERRAIN-ANIMATION missingordinaryowner retired:all6supportedforms,source

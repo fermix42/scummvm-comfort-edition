@@ -1,3 +1,36 @@
+# Move completion512 - VERIFIED within focused correction
+
+Official isolated native-only build: 0 warnings, 0 errors, 2m40.91s, exit0.
+First focused batch passed:16 original branch cases, actual within75 held
+counter/raster, actual exit reset16, queued movement versus stationary/manual
+contact cases3, turn codecs4. No battle execution, campaign, old suites or
+ordinary Engine cold/session claim.511 receipt unchanged;512 corrects its
+missing F05B quiet-arrival branch and queued-contact completion call site.
+Exact source/executable/archive hashes: MOVE-COMPLETION512-VERIFICATION.json.
+Commands: official cleanenv -NoxNativeOnly with completion512 output targets;
+python conversion/check_move_completion512.py --label 512. Zero unsuccessful
+corrective batches. Source and all focused acceptance passed before recording.
+Recovery-specific B-TERRAIN-COMPLETION/B-TERRAIN-RETURN resolved before battle
+entry;no new counter reset on tactical/flee return. Shared world tail/encounter
+clock ownership is separate next source review;no campaign or old suite rerun.
+Canonical records here and byte-identical CE devtools/nox/project mirrors.
+
+# Recovery move-completion512 source correction - IN PROGRESS
++
++511 commit e56f5351cb3,onebuild/firstbatchpassed itslistedcases;frozenexe
++5cf228769c84d457f7ac3213628d227f529484ca4aa40c68119edea9ae5c1394.
++SourceF053/F05B skipsreset16/freshpartyimage whenARRIVEDground==footer67.
++511unconditionalreset istoo broad;within75 wasnotinitsfocusedbatch. Preserve
++receipt/results,correctcurrentowner. Original16post-positioncases(terrain62/75,
++remaining4/12/14/16,pendingflag0/1)provequietretain/rasterflag,nonquietreset16.
++ActorWorldE632/E63D returns on31F8;GAME71BE enterscombatlater,soF053completion
++alsoappliestoqueuedmovement BEFOREbattle,not a newall-returnreset. Stationary
++ECE6/manualA sourcecontexts remainseparate. ContractENGINE-MOVE-COMPLETION
++beforechanges. No native512build/run yet. Additional511-ownerbuild justified
++bydirectmissingbranch/callsite;do notrerun511full/oldanimation/audio/campaign.
++Next sharedhelper+bothWorldMoveresults;focusedwithin75raster/counter and
++queuedmovement-vs-stationary/manualcontact cases. No outcomesinjected.
++
 # Terrain animation511 - VERIFIED within focused contract
 
 Oneofficialnative-only build0warnings/0errors2m40.82s;firstnativebatchpasses.

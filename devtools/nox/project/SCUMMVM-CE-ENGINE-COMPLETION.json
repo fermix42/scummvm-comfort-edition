@@ -3541,8 +3541,9 @@
       "implementation": "IMPLEMENTED",
       "verification": {
         "status": "VERIFIED",
-        "scope": "Source16frames/32whole images/recovery counter,all6 actual controlled B-idle-X forms,old/new turn codecs,source gate cases,actual Surface75 on-foot recovery and subsequent free command. Controlled source-compatible records;not earned/normal Engine cold-session/full battle return/campaign/old animation or audio suite.",
-        "evidence": "SCUMMVM-CE-TERRAIN-ANIMATION511-VERIFICATION.json"
+        "scope": "16original post-position branch cases;actual within75 retained counter/raster,leaving75 reset,and queued movement versus stationary/manual contact counter ownership;component codecs. Source-compatible pre-input checkpoints,no battle execution/earned/campaign/ordinaryEnginecold/session/oldanimation-audio suite.",
+        "evidence": "SCUMMVM-CE-MOVE-COMPLETION512-VERIFICATION.json",
+        "prior_focused_evidence": "SCUMMVM-CE-TERRAIN-ANIMATION511-VERIFICATION.json"
       },
       "native_owners": [
         "engines/nox/native_world_animation.h",
@@ -3553,9 +3554,10 @@
       ],
       "original_evidence": [
         "SCUMMVM-CE-ENGINE-TERRAIN-ANIMATION-CONTRACT.md",
-        "F0E1/F2DF..F304/SceneD379/D6A3;private511sourceproof"
+        "F0E1/F2DF..F304/SceneD379/D6A3;private511sourceproof",
+        "SCUMMVM-CE-ENGINE-MOVE-COMPLETION-CONTRACT.md"
       ],
-      "production_connection": "OrdinaryWorldMoveonfoot/transport gate uses owned NWAT5 recoverycounter;completedmovement resets16. Ordinaryhost animation suppliescounter/speed andsourceparty-slide dataflow;free statusrepaint retainsraster.511firstfocusedbatchpassed;pendingbattle/cold qualifiers retained.",
+      "production_connection": "Source quiet-arrival retains recovery/prior party-cell raster,nonquiet resets16 on advanced and queued-contact WorldMove. Stationary/manual contact do not reset; broader shared tail remains separate.",
       "fallback_dependencies": [],
       "blockers": []
     }
@@ -5585,7 +5587,7 @@
     },
     {
       "path": "engines/nox/native_startup_host.h",
-      "sha256": "2757b6a22a31f9f693b47b4040b0b92f02f967f4fa6cfb5d81ddf0f30d418ab0",
+      "sha256": "a975e0e711b2433e7a521688a72a56c64329e9918a2ec2ff350fd8df7e712e8c",
       "includes": [
         "nox/native_weapon_ready_validation.h",
         "nox/native_legacy_snapshot.h",
@@ -7251,7 +7253,7 @@
     },
     {
       "path": "engines/nox/native_world_move.h",
-      "sha256": "8f10f83b8d7497d6b9cc94f8782ce41f26b22c58e800a1c34b7b22e5e5036a3b",
+      "sha256": "db80e6bf7b31a26cee6134371d57f749d5cf6c8c036cca7e5c6e157a289bc45d",
       "includes": [
         "nox/native_world_command.h",
         "nox/native_world_wait.h",
@@ -7663,6 +7665,25 @@
       ],
       "explicit_boundaries": [],
       "coverage": "Only individual requirement/evidence scopes are credited."
+    },
+    {
+      "path": "engines/nox/native_party_move_completion.h",
+      "sha256": "7f3ed4d72bb425b43d6cb771c41d25ca04ed31fb3e515ea550275c18ea26f188",
+      "includes": [
+        "nox/native_graphics.h"
+      ],
+      "explicit_boundaries": [],
+      "coverage": "Only individual requirement/evidence scopes are credited."
+    },
+    {
+      "path": "engines/nox/native_move_completion_validation.h",
+      "sha256": "562efe3f67d08fc1e0f796739db08d7ea95d08f30fd7c97fe5cea740c5279881",
+      "includes": [
+        "nox/native_terrain_animation_validation.h",
+        "nox/native_party_move_completion.h"
+      ],
+      "explicit_boundaries": [],
+      "coverage": "Only individual requirement/evidence scopes are credited."
     }
   ],
   "counts": {
@@ -7798,8 +7819,8 @@
     }
   },
   "last_milestone": {
-    "owner": "Terrain animation/recovery511",
-    "evidence": "SCUMMVM-CE-TERRAIN-ANIMATION511-VERIFICATION.json"
+    "owner": "Move completion512 correction",
+    "evidence": "SCUMMVM-CE-MOVE-COMPLETION512-VERIFICATION.json"
   },
   "overall": {
     "fully_implemented_top_level_domains": 1,
@@ -7813,7 +7834,7 @@
   },
   "current_subsystem": {
     "status": "IN PROGRESS",
-    "scope": "Remaining typed combat/NPC/shared source closure;pending battle parent return andF0E1 boundary source reconciliation,no campaign/old suites."
+    "scope": "Shared world-turn tail and encounter clock ownership source review;no campaign/old suites."
   },
   "count_definition": "native_implemented counts IMPLEMENTED; CE_REPLACEMENT is separately reported. VERIFIED applies only to row evidence scope; no overall completion percentage."
 }
