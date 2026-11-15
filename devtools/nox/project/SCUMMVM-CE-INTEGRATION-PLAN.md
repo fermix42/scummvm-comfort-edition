@@ -6,16 +6,13 @@ coverage reconciliation remain IN PROGRESS. Do not start these runs now.
 
 ## Current implementation identity
 
-Latestcompiledsource:NPCrecovery518b,parent0ee5cb93765/frozen372files;
-implementationcommit249037bdfc0. NPC-RECOVERY518-VERIFICATION and
-WORLD-POPULATION517-VERIFICATION bindsource/executables/splitfocusedproof.
-ExecutableSHA256:
-594636340597e78eeb62120bef64e7b7420d4b882a5c48512ef58c84d20031ea.
-SharedNWAT6normalEnginepersistence520subsystemregressionalsopassesbothmodes,
-8boundedprocesseswithno build. This isnotwholeI1-I5execution orcampaignacceptance.
-Knownmagic519modelalreadyimplemented;no duplicatehandlers/buildjustified.
-Audio473andallhistoricalfailures/evidencepreserved. Residualnormalintegration,
-legacydomainandearnedcampaignqualificationsstayexplicit.
+Latest compiled source: Search retry523, parent2ec8f803eb4, frozen375 files.
+SEARCH-RETRY523-VERIFICATION binds the executable and focused original/native
+retry evidence. Executable SHA256: e70dc4259efd68374c14d260db9332db8a6d15c51c6853421e51c2511d03dcfe.
+Bootstrap522 production entropy/replay/loaded-owner proof and weather517/NPC518
+remain preserved. Normal Engine persistence520 passed both modes on518b;
+it is not a fresh523 cold run. Magic519 is static known-implementation closure.
+No whole I1-I5 or earned campaign acceptance, no audio473 suite rerun.
 
 ## Finish the implementation phase
 

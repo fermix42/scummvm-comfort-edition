@@ -255,7 +255,9 @@
         "engines/nox/native_inventory_window.h",
         "engines/nox/native_world_status.h"
       ],
-      "original_evidence": [],
+      "original_evidence": [
+        "SCUMMVM-CE-SEARCH-RETRY523-VERIFICATION.json:shared retry decision and component continuation only; full requirement not promoted."
+      ],
       "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
       "fallback_dependencies": [],
       "blockers": []
@@ -2477,7 +2479,8 @@
         "engines/nox/native_ending.h"
       ],
       "original_evidence": [
-        "SCUMMVM-CE-OBJECT-STATE-OWNERS507.md:16initialstatekinds/76maps classified;dynamic producers and runtime remain separate."
+        "SCUMMVM-CE-OBJECT-STATE-OWNERS507.md:16initialstatekinds/76maps classified;dynamic producers and runtime remain separate.",
+        "SCUMMVM-CE-SEARCH-RETRY523-VERIFICATION.json:shared retry decision and component continuation only; full requirement not promoted."
       ],
       "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
       "fallback_dependencies": [],
@@ -7930,8 +7933,8 @@
     }
   },
   "last_milestone": {
-    "owner": "Production New Game RNG bootstrap522",
-    "evidence": "SCUMMVM-CE-BOOTSTRAP522-VERIFICATION.json"
+    "owner": "Shared Search/door retry523",
+    "evidence": "SCUMMVM-CE-SEARCH-RETRY523-VERIFICATION.json"
   },
   "overall": {
     "fully_implemented_top_level_domains": 1,

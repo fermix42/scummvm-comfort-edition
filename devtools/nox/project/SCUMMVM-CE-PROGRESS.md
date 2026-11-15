@@ -1,3 +1,29 @@
+# Search/lock retry523 - VERIFIED within shared decision contract
+
+Common container/door phase3 now retries only Y/Return; N/Escape/Space/arrows
+close after one existing native completed-attempt handoff. No new codec/counter.
+12 actual original retry branches pass. First native batch: actual nonfatal
+attempt,6 result answers/restores,2 retry-cancel codecs,core/RNG unchanged.
+Build0 warnings/0 errors,2m41.63s; no failed native run. Original deferred613B/
+613C return scheduling is explicitly distinct from retained native per-attempt
+policy. No ordinary clock/Engine cold/door admission/campaign/audio acceptance
+rerun. SEARCH-RETRY523-VERIFICATION binds375 files and frozen executable.
+Continue source-driven remaining producer/production connection review; accepted
+weather517/NPC518/persistence520/bootstrap522 remain scoped, no milestone stop.
+
+# Search/lock lifecycle523 - IN PROGRESS
+
+Shared SearchInput retry acknowledgement now accepts only Y/Return; other keys
+close and retain one native attempt retirement. Complete source contract in
+ENGINE-SEARCH-LIFECYCLE523 distinguishes original deferred613B/613C scheduling
+from retained native per-attempt policy. No new codec/counter/CPU owner.
+12 original Open/Search retry branches pass; no lock/clock outcome claim.
+Implementation script implement_search_lifecycle523.py; frozen375 engine files
+in ce-native-search-retry523-build-source.json and source zip. Clean-environment
+native-only build uses unique scummvm-search-retry523 output; active user app
+untouched. Next: finish build and run check_search_retry523.py once, record and
+commit; continue concrete remaining subsystem/source connections.
+
 # Production New Game bootstrap522 - VERIFIED within scoped contract
 
 Normal New Game now obtains fresh engine entropy; explicit replay keeps119.

@@ -44,7 +44,11 @@ public:
             if (_window.waiting()) return _window.handle(event) && _window.paint(frame)?kSearchInputHandled:kSearchInputUnsupported;
             if (!_window.ended()) return kSearchInputUnsupported;
             frame=_underlay;
-            if (_retry) {_phase=2;_spent=false;return kSearchInputAttempted;}
+            // Open97DB/Search9B5E retry only on Y or Return. Other answers
+            // close after retiring this completed attempt exactly once.
+            if (_retry && (event.kbd.keycode==Common::KEYCODE_y || event.kbd.keycode==Common::KEYCODE_RETURN)) {
+                _phase=2;_spent=false;return kSearchInputAttempted;
+            }
             _phase=0;return _spent?kSearchInputAttempted:kSearchInputClosed;
         }
         if (event.kbd.keycode==Common::KEYCODE_ESCAPE) {_phase=0;frame=_underlay;return kSearchInputClosed;}
