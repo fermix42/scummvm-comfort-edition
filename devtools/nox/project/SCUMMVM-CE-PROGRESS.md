@@ -1,3 +1,16 @@
+# Source-driven batch completion526 - scoped report, port IN PROGRESS
+
+SOURCE-BATCH-COMPLETION526 records complete517weather/population plus518NPC,
+519knownmagic,520normalpersistence,522bootstrap,523retry,524normalcommands and
+525approachproducer work. Latest implementation1176db1f4c8/world-story525,
+377 frozenfiles,exeSHAf9e8a81c5c29ecd699dcc86a52f04b0753bea724d6a5304d653a2e6066acb716,
+build0warnings/errors2m41.48s; first focusedbatch passes. No further demonstrated
+missing owner in reviewed normal command/directlocation scope. Broaderstory.08
+UNKNOWN and PARTIAL normalintegration/cold/campaign requirements remain intact.
+Next prepared phase is INTEGRATION-PLAN I1-I5, stillNOTSTARTED; current plan
+excludes its execution/campaign acceptance. No background build/test remains.
+Do not claim wholeportcomplete or replace this boundary with incidental tests.
+
 # Hardcoded world story525 - VERIFIED within approach producer contract
 
 Missing sourceFA16..FA45 producer implemented:after56bit64,surface0/currentA9,

@@ -7956,5 +7956,6 @@
     "status": "IN PROGRESS",
     "scope": "Remaining source-driven original producer and cross-owner classification. Preserve story.08 UNKNOWN and normal integration/campaign qualifications; no accepted-suite reruns."
   },
-  "count_definition": "native_implemented counts IMPLEMENTED; CE_REPLACEMENT is separately reported. VERIFIED applies only to row evidence scope; no overall completion percentage."
+  "count_definition": "native_implemented counts IMPLEMENTED; CE_REPLACEMENT is separately reported. VERIFIED applies only to row evidence scope; no overall completion percentage.",
+  "source_batch_report": "SCUMMVM-CE-SOURCE-BATCH-COMPLETION526.md"
 }
