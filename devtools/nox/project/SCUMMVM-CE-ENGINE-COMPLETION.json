@@ -2219,7 +2219,7 @@
       "id": "services.05",
       "subsystem": "services",
       "behavior": "Inn member store retrieve and equipment ownership",
-      "implementation": "PARTIAL",
+      "implementation": "IMPLEMENTED",
       "verification": {
         "status": "NOT STARTED",
         "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement."
@@ -2235,13 +2235,18 @@
       "original_evidence": [],
       "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
       "fallback_dependencies": [],
-      "blockers": []
+      "blockers": [],
+      "source_review": {
+        "status": "VERIFIED",
+        "scope": "Known source transaction and production connection only;runtime status unchanged.",
+        "evidence": "SCUMMVM-CE-SCRIPT-SERVICE-OWNERS500.md"
+      }
     },
     {
       "id": "services.06",
       "subsystem": "services",
       "behavior": "Temple heal resurrect donation eligibility and payment",
-      "implementation": "PARTIAL",
+      "implementation": "IMPLEMENTED",
       "verification": {
         "status": "NOT STARTED",
         "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement."
@@ -2257,7 +2262,12 @@
       "original_evidence": [],
       "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
       "fallback_dependencies": [],
-      "blockers": []
+      "blockers": [],
+      "source_review": {
+        "status": "VERIFIED",
+        "scope": "Known source transaction and production connection only;runtime status unchanged.",
+        "evidence": "SCUMMVM-CE-SCRIPT-SERVICE-OWNERS500.md"
+      }
     },
     {
       "id": "services.07",
@@ -2462,7 +2472,8 @@
         "engines/nox/native_ending.h"
       ],
       "original_evidence": [
-        "SCUMMVM-CE-SOURCE-PRODUCERS494.md (static scope only)"
+        "SCUMMVM-CE-SOURCE-PRODUCERS494.md (static scope only)",
+        "SCUMMVM-CE-SCRIPT-SERVICE-OWNERS500.md: authored dialogue domain classified;wider code scope retained UNKNOWN"
       ],
       "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
       "fallback_dependencies": [],
@@ -7506,9 +7517,9 @@
     },
     "services": {
       "known_required": 7,
-      "native_implemented": 3,
+      "native_implemented": 5,
       "verified": 0,
-      "partial": 4,
+      "partial": 2,
       "missing": 0,
       "unknown_required_rows": 0,
       "additional_unclassified_scope": 1,

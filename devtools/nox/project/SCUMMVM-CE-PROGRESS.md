@@ -1,3 +1,17 @@
+# Script/service owners500 - VERIFIED static scope
+
+439 immutable packets/3227 headers/552 complete mutations fit native parser
+capacities exactly(2 assignments/3 bit changes);two malformed JOB tails stay
+486-qualified. No serviceAccess21writes;one133derivedlookupwrite inL001.
+Command:python conversion/census_dialogue_effects500.py,exit0. See local
+ce-native-dialogue-effects500-local.json and shared SCRIPT-SERVICE-OWNERS500.
+Existing acknowledged award/recruit/payment/training/callback/battle/clock
+consumer connections reviewed. Wider original code producers story.08 stays
+UNKNOWN;no campaign or broad verification inferred. Inn membership andtemple
+known implementations reconciled;existing scoped receipts/cold qualifications
+unchanged. No build/runtime/old suite/audio. Continue shared presentation/
+lifecycle andremaining script producer audit,then separateintegration plan.
+
 # Magic dispatch499 - VERIFIED static scope
 
 Read-only census:39 functional named books all covered by native families;
