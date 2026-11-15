@@ -1,3 +1,11 @@
+# Native Shadow approach525
+
+WorldStoryEvents/World.discoverShadowApproach replace the source quest-flag
+producer. Existing canonical fields persist the result. Original8E0D/FE95 private
+machine/disk checkpoint is excluded; normal CE save/session ownership remains.
+No CPU ABI/executor/disk bootstrap or HDV write is introduced. This is a native
+semantic replacement, not a renamed instruction callback or campaign shortcut.
+
 # Source command and Search scheduling replacements523/524
 
 Common Search/door retry is source Y/Return vsother-keyclose; no new runtime

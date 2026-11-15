@@ -6,13 +6,14 @@ coverage reconciliation remain IN PROGRESS. Do not start these runs now.
 
 ## Current implementation identity
 
-Latest compiled source: Search retry523, parent2ec8f803eb4, frozen375 files.
-SEARCH-RETRY523-VERIFICATION binds the executable and focused original/native
-retry evidence. Executable SHA256: e70dc4259efd68374c14d260db9332db8a6d15c51c6853421e51c2511d03dcfe.
-Bootstrap522 production entropy/replay/loaded-owner proof and weather517/NPC518
-remain preserved. Normal Engine persistence520 passed both modes on518b;
-it is not a fresh523 cold run. Magic519 is static known-implementation closure.
-No whole I1-I5 or earned campaign acceptance, no audio473 suite rerun.
+Latest compiled source: world story525, parent2616ca2f1aa, frozen377 files.
+WORLD-STORY525-VERIFICATION binds executable and focused source/native proof.
+Executable SHA256: f9e8a81c5c29ecd699dcc86a52f04b0753bea724d6a5304d653a2e6066acb716.
+Earlier weather517/NPC518/bootstrap522/retry523 receipts retain their scopes.
+Normal Engine persistence520 passed both modes on518b; not a fresh525 cold run.
+Magic519 and ordinary dispatch524 are static known-implementation closures.
+Hardcoded direct-selector review525 retains wider story.08 UNKNOWN. No whole
+I1-I5/earned campaign acceptance or audio473 suite rerun.
 
 ## Finish the implementation phase
 

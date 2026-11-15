@@ -1,3 +1,37 @@
+# Hardcoded world story525 - VERIFIED within approach producer contract
+
+Missing sourceFA16..FA45 producer implemented:after56bit64,surface0/currentA9,
+set59bit1 once. Normal poll and direct input run it before population. Only one
+core flag byte changes; full RNG unchanged. Both hooks/repeat/core restores and
+subsequent typed special encounter admission pass first native batch.8 original
+predicate/write branches pass. Build0 warnings/errors,2m41.48s. No new codec.
+Original8E0D/FE95 private disk checkpoint deliberately excluded; normal CE save/
+session remains authority. No actual Shadow battle/ending/campaign or Engine
+cold/audio acceptance rerun. WORLD-STORY525-VERIFICATION binds377 sources/exe.
+HARDCODED-STORY525-REVIEW classifies other inspected direct map contexts; it
+does not close all original indirect producers. story.08 remains UNKNOWN.
+Continue remaining source-driven work; do not replay accepted suites or traverse
+the campaign to rediscover gaps. No push/publication/release.
+
+World story525 implementation complete; frozen377 enginefiles/sourcezip and
+unique world-story525 clean build running.8 original prerequisite/write branches
+pass (private checkpoint observed/skipped). Production World flag owner plus
+normal poll/input hooks beforepopulation; existing serialization, no newcodec.
+Native focused command: python conversion/check_world_story525.py after build.
+Do not mutate frozen source or run campaign/old suites.
+
+# Hardcoded world story525 - IN PROGRESS, concrete missing producer
+
+ResidentFA16..FA45 sets59bit1 on surface0/currentsectorA9 after56bit64, once.
+Native special encounter150,168 reads59bit1 but ordinary producer is absent.
+ENGINE-WORLD-STORY525 defines complete source-driven batch before code/build.
+Original8E0D/FE95 is private disk checkpoint, not SFX/bossoutcome; do not recreate
+legacy machine/disk save. Retain semantic flag and normal CE save/session path.
+Use actual coordinateSector, not retained viewport center. Review other direct
+hardcoded map contexts before building; no repeated494..502 census/campaign.
+Next: finish finite producer review, implement normal event/input connection,
+then one integration build/focused source/native/persistence/admission batch.
+
 # Original normal command domain524 - VERIFIED static scope
 
 All28normalcommands in the original30entrytable have native production owners.

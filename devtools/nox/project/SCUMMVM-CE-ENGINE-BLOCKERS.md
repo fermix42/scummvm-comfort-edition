@@ -1,3 +1,18 @@
+# Shadow approach525 closure
+
+B-SHADOW-APPROACH missing implementation retired: normal event/input producer,
+source conditions, once-only flag, existing core restore and typed admission
+verified525 first batch. Legacy private disk checkpoint excluded intentionally.
+Broader B-SCRIPT original-producer coverage and normal campaign integration
+remain qualified; no whole-port completion or old-suite rerun implied.
+
+# Current hardcoded story producer525
+
+B-SHADOW-APPROACH: native special battle admission reads59bit1, but source
+FA16..FA45 automatic surfaceA9/prerequisite56bit64 producer is missing. Complete
+ENGINE-WORLD-STORY525 whole batch; obsolete private checkpoint is excluded,
+not a reason to add original disk/CPU services. No campaign/boss test needed.
+
 # Weather517 and NPC recovery518 closure
 
 B-WEATHER-VALIDATION retired by first518b batch:allpreviouslyunreachedchecks

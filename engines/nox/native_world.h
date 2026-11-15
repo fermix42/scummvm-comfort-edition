@@ -4,6 +4,7 @@
 
 #include "nox/native_gates.h"
 #include "nox/native_maps.h"
+#include "nox/native_world_story_events.h"
 #include "nox/resources.h"
 #include "nox/native_conversation.h"
 #include "nox/native_traversal.h"
@@ -47,6 +48,14 @@ public:
 	byte coordinateSector() const { return byte((_y & 240) | (_x >> 4)); }
 	byte field(byte index) const { return _fields[index]; }
 	const byte *questFields() const { return _fields; }
+    // The approach flag remains gameplay state; the original private disk
+    // checkpoint is replaced by the existing normal CE save/session owner.
+    bool discoverShadowApproach(bool &changed) {
+        changed=false;if (!ready()) return false;
+        changed=WorldStoryEvents::shadowApproach(_type,mapId(),coordinateSector(),_fields[56],_fields[59]);
+        if (changed) _fields[59]|=1;
+        return true;
+    }
     bool locationContext(byte &output) const {
         if (!ready()) return false;
         const MapDefinition *definition=_resources[_states[_current].family].find(mapId());

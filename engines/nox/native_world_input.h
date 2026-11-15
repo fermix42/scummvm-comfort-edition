@@ -59,6 +59,7 @@ public:
             const WorldScene &scene,const LightState &light,byte animation,bool &changed,HdvArchive *archive=nullptr,
             WorldActorTurnState *turn=nullptr,GameplayRandom *random=nullptr) {
         changed=false;
+        if (atWorldCommand() && game.ready() && !game.world.discoverShadowApproach(changed)) return false;
         if (archive && turn && random && !settlePopulation(*archive,game,window,scene,light,*turn,*random)) return false;
         if (!atWorldCommand() || !game.ready() || game.world.mapId()!=65) return true;
         World candidate(game.world);WorldStory next=window;bool reveal=false;
@@ -156,6 +157,8 @@ public:
             WorldActorTurnState &turn,LightState &light,VisibilityMask &visibility,NpcRouteStore &routes,GameplayRandom &random,
             const FixedMessageCatalog &catalog,TextGlyphSurface &text,HgrFrame &frame,byte animation=0) {
         if (input.type==Common::EVENT_KEYDOWN && atWorldCommand()) {
+            bool discovered=false;
+            if (!game.world.discoverShadowApproach(discovered)) return kWorldInputUnsupported;
             if (!settlePopulation(archive,game,window,scene,light,turn,random)) return kWorldInputUnsupported;
             turn.population.action=input.kbd.keycode==Common::KEYCODE_UP?0:input.kbd.keycode==Common::KEYCODE_DOWN?1:
                 input.kbd.keycode==Common::KEYCODE_RIGHT?2:input.kbd.keycode==Common::KEYCODE_LEFT?3:4;

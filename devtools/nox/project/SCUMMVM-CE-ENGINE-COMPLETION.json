@@ -2407,7 +2407,9 @@
         "engines/nox/native_world_open.h",
         "engines/nox/native_ending.h"
       ],
-      "original_evidence": [],
+      "original_evidence": [
+        "SCUMMVM-CE-WORLD-STORY525-VERIFICATION.json and HARDCODED-STORY525-REVIEW:approach producer/core/admission only;wider producer/campaign scope unchanged."
+      ],
       "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
       "fallback_dependencies": [],
       "blockers": []
@@ -2429,7 +2431,8 @@
         "engines/nox/native_ending.h"
       ],
       "original_evidence": [
-        "SCUMMVM-CE-SCRIPT-SERVICE-OWNERS500.md contact502:17fixed/15role126/9awards static source encoding scope only"
+        "SCUMMVM-CE-SCRIPT-SERVICE-OWNERS500.md contact502:17fixed/15role126/9awards static source encoding scope only",
+        "SCUMMVM-CE-WORLD-STORY525-VERIFICATION.json and HARDCODED-STORY525-REVIEW:approach producer/core/admission only;wider producer/campaign scope unchanged."
       ],
       "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
       "fallback_dependencies": [],
@@ -2578,7 +2581,8 @@
         "SCUMMVM-CE-SOURCE-PRODUCERS494.md (static scope only)",
         "SCUMMVM-CE-SCRIPT-SERVICE-OWNERS500.md: authored dialogue domain classified;wider code scope retained UNKNOWN",
         "SCUMMVM-CE-DIALOGUE-PRESENTATION501.md:complete authored body grammar static scope;not whole rendering/runtime acceptance",
-        "SCUMMVM-CE-SCRIPT-SERVICE-OWNERS500.md contact502:17fixed/15role126/9awards static source encoding scope only"
+        "SCUMMVM-CE-SCRIPT-SERVICE-OWNERS500.md contact502:17fixed/15role126/9awards static source encoding scope only",
+        "SCUMMVM-CE-WORLD-STORY525-VERIFICATION.json and HARDCODED-STORY525-REVIEW:approach producer/core/admission only;wider producer/campaign scope unchanged."
       ],
       "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
       "fallback_dependencies": [],
@@ -7935,8 +7939,8 @@
     }
   },
   "last_milestone": {
-    "owner": "Finite ordinary command domain524;static review,no build",
-    "evidence": "SCUMMVM-CE-COMMAND-DOMAIN524.md"
+    "owner": "Native Shadow approach and bounded hardcoded story review525",
+    "evidence": "SCUMMVM-CE-WORLD-STORY525-VERIFICATION.json"
   },
   "overall": {
     "fully_implemented_top_level_domains": 1,
@@ -7950,7 +7954,7 @@
   },
   "current_subsystem": {
     "status": "IN PROGRESS",
-    "scope": "Remaining source connections and authored script coverage; preserve explicit unknowns and runtime qualifications. No campaign traversal."
+    "scope": "Remaining source-driven original producer and cross-owner classification. Preserve story.08 UNKNOWN and normal integration/campaign qualifications; no accepted-suite reruns."
   },
   "count_definition": "native_implemented counts IMPLEMENTED; CE_REPLACEMENT is separately reported. VERIFIED applies only to row evidence scope; no overall completion percentage."
 }
