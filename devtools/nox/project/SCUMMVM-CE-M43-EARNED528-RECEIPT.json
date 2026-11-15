@@ -1,10 +1,10 @@
 {
   "status": "IN PROGRESS",
-  "scope": "EarnedprimaryNew through51:6members,skiffreturn3roughwater/fullnormalhealing/camp,sea2x50HP/road3x50HPwins,Bayportarrival,frigate550goldpurchase. Fourmemberfailureforksretained;ending/campaignincomplete.",
+  "scope": "EarnedprimaryNewthrough54:realpirateboardingvictory/twopartydeaths,paidTemple8+8resurrection/6healing,cold013/nextmove,wholeMap0tablespersist. SixalivefullHP,gold136food320;ending/fullcampaignincomplete.",
   "executable_sha256": "bc41a7d987509306add2702efb598eea2244663329627b10c4341e92e69944aa",
   "source_binding": "SCUMMVM-CE-NPC529-VERIFICATION.json",
   "builds": 2,
-  "process_launches": 12,
+  "process_launches": 13,
   "verified_selected_nodes": [
     "opening-exit",
     "axea-page",
@@ -20,7 +20,8 @@
     "Source-local foot planner now avoids unprotected water/thermal/barrier cells; normal state16 doors supported by native Open rather than historical tile whitelist.",
     "Thin battle helper now routes around occupied allies with ordinary keys; earlier bounded loops retained.",
     "Source clock/schedule hour bytes are BCD; raw17=11AM,raw23=5PM. No clock injection.",
-    "Dismount X immediately clearsboatcontrol atcurrentcell;actualXon230watercaused35damageall and2x50HPbattle,won. Reboard/sailonto232beforeX correctsnormalcommandplanning,notEnginecode."
+    "Dismount X immediately clearsboatcontrol atcurrentcell;actualXon230watercaused35damageall and2x50HPbattle,won. Reboard/sailonto232beforeX correctsnormalcommandplanning,notEnginecode.",
+    "ActualtwoNormalWorldcountershotmissesledtoboarding;realcannonstationswon6fullHPpirates,Cutter+Briggitdead,notclaimedallalive. No restoredoutcomeafter48."
   ],
   "checkpoints": [
     {
@@ -1242,6 +1243,36 @@
       "saved_files": {
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot051.g0": "a6fedcc06918d6b6d942c530b3a1777090290e6d250e3fa3462d3d4223dd52ef",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot051.g0.ce-achievements.json": "802c278dda70e47677acc6191af0a1950b9014522e906da80b3a4cea8762cdfd"
+      },
+      "process": 12
+    },
+    {
+      "label": "Earned frigate boarding cannon and sea departure",
+      "slot": 52,
+      "parent": "c755afcf879b5961b4a9bad4ff66a80d4b601f857ecb893f00f07523cb131b24",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot052.g0": "2d556d36d71c93a99a3cdb32fd3d0a708f4ce0f733c93e39f11f9307e89e20c3",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot052.g0.ce-achievements.json": "106c6e3d86ec70490e50575049433540baea752af66738add5039b6d30d18cc2"
+      },
+      "process": 12
+    },
+    {
+      "label": "Pirate boarding victory with Cutter and Bridgit dead",
+      "slot": 53,
+      "parent": "099aa972ae4a9c82eeb1449b049e9674fe0509b66e8b9141246cc165cd14633d",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot053.g0": "66d91328b119aeaa1b8d75e8b90bc8c3df0268b6ab515e902177a15daa2853f5",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot053.g0.ce-achievements.json": "9ce69e1aebd16d2e8d47c51c045afe6b4d5a6d328957039bef469c02074be641"
+      },
+      "process": 12
+    },
+    {
+      "label": "Earned Cutter Bridgit resurrection and party healing",
+      "slot": 54,
+      "parent": "44215b7b0b4be0e40488ed20912866b28a8ed8ff2212b0214af42b943036e60a",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot054.g0": "031005f944ae30820b8ed183d7cca4e61f2d8309c21f97ea8193cf72745b707d",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot054.g0.ce-achievements.json": "08704c96c5d9ed77726ce7686553a5866d6b3d38ad1791bdadd6d3cd270aa13d"
       },
       "process": 12
     }

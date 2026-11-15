@@ -1,0 +1,27 @@
+{
+  "status": "VERIFIED",
+  "scope": "Earned partial-party death after full pirate boarding victory -> paid original Temple resurrection/healing -> actual save54/cold013/next movement;not campaign completion or full restoration-branch coverage",
+  "executable_sha256": "bc41a7d987509306add2702efb598eea2244663329627b10c4341e92e69944aa",
+  "source_binding": "SCUMMVM-CE-NPC529-VERIFICATION.json",
+  "source_anchors": [
+    "NA/SRTN.NPC.TALK Temple49/64,level1price8 each resurrection/6groupheal",
+    "Native TempleService / BattleRestoration / PartySelection(true)"
+  ],
+  "result": "Cutter0->56HP/8MP,Bridgit0->50HP/8MP;all6HP59/56/50/50/55/56;gold158->150->142->136;no injected state;clean same owner;world pirate32flag255 preserved",
+  "evidence": {
+    "ce-native-acceptance528\\earned-modern\\checkpoints\\53-Pirate-boarding-victory-with-Cutter-and-Bridgit-dead\\checkpoint.json": "44215b7b0b4be0e40488ed20912866b28a8ed8ff2212b0214af42b943036e60a",
+    "ce-native-acceptance528\\earned-modern\\checkpoints\\54-Earned-Cutter-Bridgit-resurrection-and-party-healing\\checkpoint.json": "0d548b3459f864809fa6488299d2b5a0e375c45f723beac44e8a44b914c6a679",
+    "ce-native-acceptance528\\earned-modern\\earned-temple-recovery.json": "0b8ba8847985a386cff40851d2b9fc7b75e5de9800c1c863c5418524af68abaf",
+    "ce-native-acceptance528\\earned-modern\\cold013.json": "a381f74fa88e058a95c0237b611a73e0619c2975f4c2747db675c64d11756358",
+    "ce-native-acceptance528\\earned-modern\\earned-recovery-world-cold.json": "4f055630e2a3743988763c4f9863d0f74e28236cbb63e03cc36ce49b7894a28f"
+  },
+  "cost": {
+    "native_builds": 2,
+    "engine_cli_launches": 13
+  },
+  "limitations": [
+    "Ending/fullcampaign and remaining supported branches unverified",
+    "World cannon countershots missed;actual ship battle cannon victory is distinct evidence",
+    "Normal partial deaths and prior restored failed branches disclosed"
+  ]
+}

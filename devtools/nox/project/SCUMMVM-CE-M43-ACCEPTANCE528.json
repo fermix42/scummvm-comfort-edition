@@ -2494,7 +2494,8 @@
       "obligation": "Legitimate fork before a supported ordinary encounter; death/flee/restore and grace compatibility without invented victory.",
       "earned_evidence": [
         "ce-native-acceptance528/earned-modern/earned-defeat-sprite148.json",
-        "M43 earned: first earned surface battle -> lawful reload -> actual Escape/Y flee -> M43 earned: earned stronger encounter escaped"
+        "M43 earned: first earned surface battle -> lawful reload -> actual Escape/Y flee -> M43 earned: earned stronger encounter escaped",
+        "53actualpiratevictorypartialdeaths ->54normal8+8goldTemple resurrection/6goldhealing/cold013/fullmap0persistence;RECOVERY528-VERIFICATION scoped"
       ],
       "qualification": "Actual defeat terminal then normal Engine load; no victory/reward claimed. Flee cost gold19->9 and returned livingparty50/50. Cold branch restoration still separate."
     },
@@ -2511,7 +2512,9 @@
         "40 purchased skiff realboard/localmovement/sea departure117,145",
         "49 sixmember normal return/B of earned skiff",
         "50 actual3roughwater crossing/healing/camp/Bayportreturn with2actualbattles",
-        "51 actual550goldfrigatepurchase/ownership255;boarding/cannon/horse stillpending"
+        "51 actual550goldfrigatepurchase/ownership255;boarding/cannon/horse stillpending",
+        "52 real119boarding/alignment/FWestmisswithactualSFXcue+1/sea115145",
+        "53 sourceauthoredshipcannonstations/reloadcyclekill6full98/137HPpirates;normal2worldshotmissesretained;twoactualpartydeaths"
       ],
       "remaining": "Ocean arrival/disembark,cannon,horse and remaining supported contexts remain unverified."
     },
@@ -2563,10 +2566,10 @@
   "mode_strategy": "One primary Modern earned lineage; targeted Classic legal earned fork/restore/transitions; no duplicate complete campaign required by existing criteria.",
   "failure_policy": "Freeze failing path,source general diagnosis,focused correction+regression,at most2corrective reruns; resume valid nearest earned save,no prefix replay or outcome injection.",
   "builds": 2,
-  "process_launches": 12,
+  "process_launches": 13,
   "planned_node_count": 60,
   "mandatory_node_count_note": "All selected M3 nodes explicitly represented alongside dependency76 graph; includes supporting/advice/alternative nodes. Necessity is retained per source,not inferred from node count.",
-  "last_earned_checkpoint": "51 Frigate legitimately purchased550gold/ownership255;earnedprimary6members,new49skiff/50Bayportreturn;nextfullrest,board119/cannon,sourceislandroute",
+  "last_earned_checkpoint": "54 paidCutter/BridgitTemple49resurrection/fullHPhealing;actualcold013/nextNorthstep/all1792Map0bytespersist;nextowned119reboard/Raque",
   "baseline_candidate_sha256": "81feb2c7ff17594a6ea9754dc60602a755b2f37ea7c53b437f65a18e7c35000f",
   "candidate_change": "NPC529 verified general viewport-exit correction; SCUMMVM-CE-NPC529-VERIFICATION.json",
   "earned_failures_retained": [
