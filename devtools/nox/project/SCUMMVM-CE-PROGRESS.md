@@ -1,3 +1,19 @@
+# Acceptance528 earned Kat checkpoint - IN PROGRESS
+
+Actual normal JOIN recruited Kat after Axea page, repeat refusal, cold continuity and mainland return. Three earned members, no setup mutation or engine correction. Two selected source nodes VERIFIED out of60; opening-log still IN PROGRESS. Builds0, CLI launches7. Compact M43-EARNED528-RECEIPT binds lineage and save hashes; full private evidence remains local. Read-only route planner now selects newest normal save generation rather than directory enumeration. Continue Bayport funding/boat and remaining earned campaign; ending not verified.
+
+# Acceptance528 Axea earned gate - VERIFIED within node; campaign continues
+
+Actual fresh-lineageMaldac borrowedskiff/localisland travel,legitAxeaVORTEX:first97page/62bit2,repeatonlyone,normalEnginecold/samecleanowner/firsticon passed. Nodeaxea-pageVERIFIED; opening-exitVERIFIED; opening-logINPROGRESS until postacquisitionrecognition branch.2/60selectedsource nodes verified; allsourcebroaderqualifications retained. Completed boatSurface fork27 preserved; primary legally resumes earned26 beforelocalisland (forkreceipt) ratherthanfakeboat/teleport. Returning localboat thenrecruitKat and mainlandroute towardBayport/ocean transport. No enginechanges/builds,7CLIprocesses. UpdateM43-EARNED528/sourcecontract for exact saves/parents; sourcepaths/correcteddriver assumptions retainedlocal.
+
+# Acceptance528 current earned checkpoint - IN PROGRESS
+
+Source graph now explicitly retains all60 selectedM3 nodes (including supporting/advice/alternatives),2earnedverified (openinglog/exit);10branchgroups. Actual Castle11 arrival/walk/departure, two ordinary surface victories, defeat/normalrestore/flee/detour retained. Bothparty legitimately healed50/50 using owned startingLesserHealbook50 readyshortcut0 and2mana/cast. Last save both earned members healed at119/203,gold10,food54,MP4/8. Sourceplanned107stepMaldacroute active. No productioncode/buildchanges,no fixture/import/seedoverride. FiveCLIprocesses,privateinput/saves/parenthash ledgerM43-EARNED528. Early false save labels/targeting/pathassertions qualified in ce-native-acceptance528/EXECUTION-NOTES. Continue no milestone stop.
+
+# Acceptance528 earned opening and first branches - IN PROGRESS
+
+Readiness gate permits campaign; actual fresh M4NATIVE/defaultMaleHuman/New with no seed override/import/fixture. Full12HP tutorial rat victory,actual150CaptainLog,authored shipwreck exit62/208,coldclean sameowner,Everton,real BridgitJOIN/gear and earned4enemy victory. Stronger50HP sprite148 encounter defeated both defaultKnife party; exactdefeat retained,not enginebug/progress. Nearest legitimate94/197 Engine save restored,actual Escape/Y flee cost19->9 and living50/50worldreturn. Continue sourceplanned Castle11/Maldac/transport route,not wandering or rebuilding. Process5 active (two wrapper/layout startup overheads retained),builds0. Ordinary checkpoint ancestry in M43-EARNED528; opening-exit1/45 verified. Premature save description shipwreck exit remains explicitly qualified; actual exit separately asserted andsaved.
+
 # Acceptance528 owner authorization and readiness gate
 
 Owner attached ACCEPTANCE528-DIRECTIVE explicitly supersedes527 non-campaign stop and earlier prepare-only/campaign exclusions,after focused readiness. READINESS528 gate VERIFIED to proceed:0demonstratedmissingowners,135verification/widerbranch rows,7approvedreplacements,1UNKNOWN story.08. No broad completeness promotion/build/test. Actual377 frozen527b sources match; sourceEngine clean at a5bd733af03. M43-ACCEPTANCE528 is finite source-derived earned graph/branch contract; freshnormalNew lineage only, no syntheticprogress. Continue autonomously; two-corrective-rerun limit, no publication/distribution.

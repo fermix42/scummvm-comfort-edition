@@ -4,11 +4,10 @@
   "readiness": "SCUMMVM-CE-READINESS528.json",
   "origin": "Fresh normal New,default Male/Human character; engine entropy, no random_seed override/fixture/import/cheat.",
   "candidate_sha256": "81feb2c7ff17594a6ea9754dc60602a755b2f37ea7c53b437f65a18e7c35000f",
-  "mandatory_node_count": 45,
   "nodes": [
     {
       "id": "opening-exit",
-      "status": "NOT STARTED",
+      "status": "VERIFIED",
       "prerequisites": [
         "legitimate-new-game"
       ],
@@ -34,7 +33,17 @@
         "scoped audio/presentation",
         "actual earned verification criteria"
       ],
-      "earned_lineage": null
+      "earned_lineage": {
+        "origin": {
+          "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot000.g0": "641140b00487869f6dbbbb8fce4a5d5e81e9478c7651eb5c5efba8922b2341c5",
+          "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot000.g0.ce-achievements.json": "677de54e41991de7ff9f340b951df31fe670f89edac543b33afeb5249f87cfd7"
+        },
+        "checkpoint": "authored shipwreck exit",
+        "slot": 7,
+        "session": "07d604011bf4aef5:cli-game:run:2026-11-15T09:57:06Z:1596",
+        "transcript": "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-acceptance528\\earned-modern\\process004.jsonl"
+      },
+      "actual_result": "Fresh default character,full12HP Rat victory,actual150log,normaldoors/walk and authored exit to Surface0/62/208. Normal Engine saves and early cold/abnormal-wrapper recovery clean. No injected progression."
     },
     {
       "id": "royal-access",
@@ -541,7 +550,7 @@
     },
     {
       "id": "axea-page",
-      "status": "NOT STARTED",
+      "status": "VERIFIED",
       "prerequisites": [
         "castle-control-wall",
         "moat-key-door",
@@ -573,7 +582,17 @@
         "scoped audio/presentation",
         "actual earned verification criteria"
       ],
-      "earned_lineage": null
+      "earned_lineage": {
+        "origin": "Fresh M4NATIVE normal New",
+        "parent": "authored skiff legitimately boarded,ordinary earned slot26",
+        "checkpoints": [
+          "Axea first parchment earned",
+          "Axea repeat declined",
+          "Axea earned cold continued"
+        ],
+        "proof": "SCUMMVM-CE-M43-EARNED528.json and actual CLI processes006/007"
+      },
+      "actual_result": "Actual source Axea VORTEX item97quantity1/field62bit2; actual repeat saysonlyone; normal Engine save/cold samecleanowner/flags/items/firsticon. No prerequisite/pages/position/stat injection."
     },
     {
       "id": "eight-page-check",
@@ -1594,6 +1613,523 @@
         "actual earned verification criteria"
       ],
       "earned_lineage": null
+    },
+    {
+      "id": "opening-log",
+      "status": "IN PROGRESS",
+      "prerequisites": [],
+      "source_contract": "Supporting opening lore/recognition; exit operation is separate.",
+      "source_anchors": [
+        "NATIVE-QUEST-PROGRESSION.md",
+        "NA/DATA.TLK.L004 record 0",
+        "SRTN.INVENTORY search; item150; 0441 bits10/20"
+      ],
+      "original_gate_evidence": [
+        "ce-m3-final-linked\\20261015-222552\\verification.json",
+        "ce-m3-final-linked-classic\\20261015-222558\\verification.json"
+      ],
+      "initial_conditions": "Valid earned parent at preceding milestone; alive legitimately acquired party,items,gold,practice,skills only. No fixture/save-edit/teleport/grant.",
+      "normal_commands": "Authored-map walk/enter/leave; Talk and source keywords; Open/Search/Ready/Use/Cast; actual tactical/Quick combat and legitimate rest/service, as required by node contract.",
+      "required_state": "Node-specific actual item/quest/world/party effect and relevant refusal from retained source contract. Exact expectations declared in segment before input.",
+      "persistent_state": "Save actual quest flags,inventory/party,canonical changed maps,RNG,discovery and same CE owner at legal boundaries.",
+      "audio_presentation": "Enabled normal cue selection/SFX and relevant native text/map/battle/reward view; selected frames,actual audio-state observation without rerunning473.",
+      "save_obligations": "Preserve ordinary Engine earned checkpoint and parent hashes at milestone; designated early/middle/late/pre-final/allowedpost-ending cold split and first next command.",
+      "evidence_required": [
+        "real input transcript",
+        "candidate/source identity",
+        "before/after meaningful state",
+        "ordinary save hashes and parent lineage",
+        "scoped audio/presentation",
+        "actual earned verification criteria"
+      ],
+      "earned_lineage": {
+        "checkpoint": "Captains log acquired",
+        "input_transcript": "ce-native-acceptance528/earned-modern/process004.jsonl"
+      },
+      "source_qualifications": [
+        "Exactly one controlled setup before acquisition; subsequent return and recognition use actual retained gameplay state",
+        "No earned continuous or full new-game-to-ending claim"
+      ],
+      "actual_result": "Actual Search yields item150,book/quest instructions frompirateLOG; ordinary saved state. No injected prerequisite.",
+      "remaining": "Actual acquired Log and pirate directions proven; post-acquisition Bristle Beard recognition/repeat branch remains to demonstrate on legitimate acquired-log fork."
+    },
+    {
+      "id": "styx-page",
+      "status": "NOT STARTED",
+      "prerequisites": [
+        "high-cultist"
+      ],
+      "source_contract": "Supporting Styx knowledge, not a parchment source or binding prerequisite.",
+      "source_anchors": [
+        "SCUMMVM-CE-ARCHITECTURE-DECISION.md section D"
+      ],
+      "original_gate_evidence": [
+        "SCUMMVM-CE-M3-REAL-PAGES-VORTEX-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-ORDER-CHECKPOINT.json"
+      ],
+      "initial_conditions": "Valid earned parent at preceding milestone; alive legitimately acquired party,items,gold,practice,skills only. No fixture/save-edit/teleport/grant.",
+      "normal_commands": "Authored-map walk/enter/leave; Talk and source keywords; Open/Search/Ready/Use/Cast; actual tactical/Quick combat and legitimate rest/service, as required by node contract.",
+      "required_state": "Node-specific actual item/quest/world/party effect and relevant refusal from retained source contract. Exact expectations declared in segment before input.",
+      "persistent_state": "Save actual quest flags,inventory/party,canonical changed maps,RNG,discovery and same CE owner at legal boundaries.",
+      "audio_presentation": "Enabled normal cue selection/SFX and relevant native text/map/battle/reward view; selected frames,actual audio-state observation without rerunning473.",
+      "save_obligations": "Preserve ordinary Engine earned checkpoint and parent hashes at milestone; designated early/middle/late/pre-final/allowedpost-ending cold split and first next command.",
+      "evidence_required": [
+        "real input transcript",
+        "candidate/source identity",
+        "before/after meaningful state",
+        "ordinary save hashes and parent lineage",
+        "scoped audio/presentation",
+        "actual earned verification criteria"
+      ],
+      "earned_lineage": null,
+      "source_qualifications": [
+        "Styx PAGES is an unconditional location clue, not an NPC inventory award or a mechanical prerequisite. Actual PAGES/repeat/no duplicate pages/cold tested after actual collection, not claimed to cause earlier acquisitions. Source library object identity and all3 actual pickups covered separately."
+      ]
+    },
+    {
+      "id": "vazarath-gemstone",
+      "status": "NOT STARTED",
+      "prerequisites": [
+        "fire-jewel-guardian"
+      ],
+      "source_contract": "Alias of fire-jewel-guardian, not an extra page source or extra boss.",
+      "source_anchors": [
+        "NA/DATA.TLK.L065 record0: gemstone and encounter on departure",
+        "UM101 BD0 offset49450 actor0 reward151, field63/mask1 ->43F01 Hairnet113; BF0 offset49962 sprite234/full2600HP",
+        "Actual A/Up entry alternative, original battle and Vortex victory; no JOB dialogue success claim"
+      ],
+      "original_gate_evidence": [
+        "SCUMMVM-CE-M3-LINKED27-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-GUARDIAN-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-JEWEL-CHAIN-CHECKPOINT.json"
+      ],
+      "initial_conditions": "Valid earned parent at preceding milestone; alive legitimately acquired party,items,gold,practice,skills only. No fixture/save-edit/teleport/grant.",
+      "normal_commands": "Authored-map walk/enter/leave; Talk and source keywords; Open/Search/Ready/Use/Cast; actual tactical/Quick combat and legitimate rest/service, as required by node contract.",
+      "required_state": "Node-specific actual item/quest/world/party effect and relevant refusal from retained source contract. Exact expectations declared in segment before input.",
+      "persistent_state": "Save actual quest flags,inventory/party,canonical changed maps,RNG,discovery and same CE owner at legal boundaries.",
+      "audio_presentation": "Enabled normal cue selection/SFX and relevant native text/map/battle/reward view; selected frames,actual audio-state observation without rerunning473.",
+      "save_obligations": "Preserve ordinary Engine earned checkpoint and parent hashes at milestone; designated early/middle/late/pre-final/allowedpost-ending cold split and first next command.",
+      "evidence_required": [
+        "real input transcript",
+        "candidate/source identity",
+        "before/after meaningful state",
+        "ordinary save hashes and parent lineage",
+        "scoped audio/presentation",
+        "actual earned verification criteria"
+      ],
+      "earned_lineage": null,
+      "source_qualifications": [
+        "Actual all8pages/bind/cast -> real DevilKey/Essence/FoolKey/Hairnet -> full2600HP Vazarath Vortex victory/cold both modes. Previous missing-Hairnet negative and subsequent Jewel chain apply to this same actor. Controlled mage/routes retained. Optional JOB probe failed/excluded; not required to attack this enemy."
+      ]
+    },
+    {
+      "id": "page-bit-4",
+      "status": "NOT STARTED",
+      "prerequisites": [],
+      "source_contract": "Verified node on the selected main-story route; relationship and alternatives are explicit in CAMPAIGN-DEPENDENCIES76.",
+      "source_anchors": [
+        "NA/DATA.MAP.CSTL offset42975",
+        "native/progression_search.inc BE08/BE0B field commit"
+      ],
+      "original_gate_evidence": [
+        "SCUMMVM-CE-M3-REAL-PAGES-VORTEX-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-PAGE57-PROVENANCE.json",
+        "SCUMMVM-CE-M3-CASTLE73-CHECKPOINT.json"
+      ],
+      "initial_conditions": "Valid earned parent at preceding milestone; alive legitimately acquired party,items,gold,practice,skills only. No fixture/save-edit/teleport/grant.",
+      "normal_commands": "Authored-map walk/enter/leave; Talk and source keywords; Open/Search/Ready/Use/Cast; actual tactical/Quick combat and legitimate rest/service, as required by node contract.",
+      "required_state": "Node-specific actual item/quest/world/party effect and relevant refusal from retained source contract. Exact expectations declared in segment before input.",
+      "persistent_state": "Save actual quest flags,inventory/party,canonical changed maps,RNG,discovery and same CE owner at legal boundaries.",
+      "audio_presentation": "Enabled normal cue selection/SFX and relevant native text/map/battle/reward view; selected frames,actual audio-state observation without rerunning473.",
+      "save_obligations": "Preserve ordinary Engine earned checkpoint and parent hashes at milestone; designated early/middle/late/pre-final/allowedpost-ending cold split and first next command.",
+      "evidence_required": [
+        "real input transcript",
+        "candidate/source identity",
+        "before/after meaningful state",
+        "ordinary save hashes and parent lineage",
+        "scoped audio/presentation",
+        "actual earned verification criteria"
+      ],
+      "earned_lineage": null,
+      "source_qualifications": [
+        "All seven source Search awards now retained into actual Axea eighth-page/research/binding/Ready/refusal/full-health Rat Vortex/cold, both modes. No page inventory/count/flag initialization.",
+        "CONTROLLED source-valid authored routes/adjacency/noon, initial25lockpicks and original PRNG0x12345678 before each firstSearch; source floor and original DEC421 ledger checked. Original level10 caster stats remain controlled before Ready. Not earned continuous exploration/leveling or full campaign."
+      ]
+    },
+    {
+      "id": "page-bit-8",
+      "status": "NOT STARTED",
+      "prerequisites": [],
+      "source_contract": "Verified node on the selected main-story route; relationship and alternatives are explicit in CAMPAIGN-DEPENDENCIES76.",
+      "source_anchors": [
+        "NA/DATA.MAP.CSTL offset42987",
+        "native/progression_search.inc BE08/BE0B field commit"
+      ],
+      "original_gate_evidence": [
+        "SCUMMVM-CE-M3-REAL-PAGES-VORTEX-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-PAGE57-PROVENANCE.json",
+        "SCUMMVM-CE-M3-CASTLE73-CHECKPOINT.json"
+      ],
+      "initial_conditions": "Valid earned parent at preceding milestone; alive legitimately acquired party,items,gold,practice,skills only. No fixture/save-edit/teleport/grant.",
+      "normal_commands": "Authored-map walk/enter/leave; Talk and source keywords; Open/Search/Ready/Use/Cast; actual tactical/Quick combat and legitimate rest/service, as required by node contract.",
+      "required_state": "Node-specific actual item/quest/world/party effect and relevant refusal from retained source contract. Exact expectations declared in segment before input.",
+      "persistent_state": "Save actual quest flags,inventory/party,canonical changed maps,RNG,discovery and same CE owner at legal boundaries.",
+      "audio_presentation": "Enabled normal cue selection/SFX and relevant native text/map/battle/reward view; selected frames,actual audio-state observation without rerunning473.",
+      "save_obligations": "Preserve ordinary Engine earned checkpoint and parent hashes at milestone; designated early/middle/late/pre-final/allowedpost-ending cold split and first next command.",
+      "evidence_required": [
+        "real input transcript",
+        "candidate/source identity",
+        "before/after meaningful state",
+        "ordinary save hashes and parent lineage",
+        "scoped audio/presentation",
+        "actual earned verification criteria"
+      ],
+      "earned_lineage": null,
+      "source_qualifications": [
+        "All seven source Search awards now retained into actual Axea eighth-page/research/binding/Ready/refusal/full-health Rat Vortex/cold, both modes. No page inventory/count/flag initialization.",
+        "CONTROLLED source-valid authored routes/adjacency/noon, initial25lockpicks and original PRNG0x12345678 before each firstSearch; source floor and original DEC421 ledger checked. Original level10 caster stats remain controlled before Ready. Not earned continuous exploration/leveling or full campaign."
+      ]
+    },
+    {
+      "id": "page-bit-16",
+      "status": "NOT STARTED",
+      "prerequisites": [],
+      "source_contract": "Verified node on the selected main-story route; relationship and alternatives are explicit in CAMPAIGN-DEPENDENCIES76.",
+      "source_anchors": [
+        "NA/DATA.MAP.CSTL offset42999",
+        "native/progression_search.inc BE08/BE0B field commit"
+      ],
+      "original_gate_evidence": [
+        "SCUMMVM-CE-M3-REAL-PAGES-VORTEX-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-PAGE57-PROVENANCE.json",
+        "SCUMMVM-CE-M3-CASTLE73-CHECKPOINT.json"
+      ],
+      "initial_conditions": "Valid earned parent at preceding milestone; alive legitimately acquired party,items,gold,practice,skills only. No fixture/save-edit/teleport/grant.",
+      "normal_commands": "Authored-map walk/enter/leave; Talk and source keywords; Open/Search/Ready/Use/Cast; actual tactical/Quick combat and legitimate rest/service, as required by node contract.",
+      "required_state": "Node-specific actual item/quest/world/party effect and relevant refusal from retained source contract. Exact expectations declared in segment before input.",
+      "persistent_state": "Save actual quest flags,inventory/party,canonical changed maps,RNG,discovery and same CE owner at legal boundaries.",
+      "audio_presentation": "Enabled normal cue selection/SFX and relevant native text/map/battle/reward view; selected frames,actual audio-state observation without rerunning473.",
+      "save_obligations": "Preserve ordinary Engine earned checkpoint and parent hashes at milestone; designated early/middle/late/pre-final/allowedpost-ending cold split and first next command.",
+      "evidence_required": [
+        "real input transcript",
+        "candidate/source identity",
+        "before/after meaningful state",
+        "ordinary save hashes and parent lineage",
+        "scoped audio/presentation",
+        "actual earned verification criteria"
+      ],
+      "earned_lineage": null,
+      "source_qualifications": [
+        "All seven source Search awards now retained into actual Axea eighth-page/research/binding/Ready/refusal/full-health Rat Vortex/cold, both modes. No page inventory/count/flag initialization.",
+        "CONTROLLED source-valid authored routes/adjacency/noon, initial25lockpicks and original PRNG0x12345678 before each firstSearch; source floor and original DEC421 ledger checked. Original level10 caster stats remain controlled before Ready. Not earned continuous exploration/leveling or full campaign."
+      ]
+    },
+    {
+      "id": "page-bit-32",
+      "status": "NOT STARTED",
+      "prerequisites": [],
+      "source_contract": "Verified node on the selected main-story route; relationship and alternatives are explicit in CAMPAIGN-DEPENDENCIES76.",
+      "source_anchors": [
+        "NA/DATA.MAP.CSTL offset43011",
+        "native/progression_search.inc BE08/BE0B field commit"
+      ],
+      "original_gate_evidence": [
+        "SCUMMVM-CE-M3-REAL-PAGES-VORTEX-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-PAGE57-PROVENANCE.json",
+        "SCUMMVM-CE-M3-CASTLE73-CHECKPOINT.json"
+      ],
+      "initial_conditions": "Valid earned parent at preceding milestone; alive legitimately acquired party,items,gold,practice,skills only. No fixture/save-edit/teleport/grant.",
+      "normal_commands": "Authored-map walk/enter/leave; Talk and source keywords; Open/Search/Ready/Use/Cast; actual tactical/Quick combat and legitimate rest/service, as required by node contract.",
+      "required_state": "Node-specific actual item/quest/world/party effect and relevant refusal from retained source contract. Exact expectations declared in segment before input.",
+      "persistent_state": "Save actual quest flags,inventory/party,canonical changed maps,RNG,discovery and same CE owner at legal boundaries.",
+      "audio_presentation": "Enabled normal cue selection/SFX and relevant native text/map/battle/reward view; selected frames,actual audio-state observation without rerunning473.",
+      "save_obligations": "Preserve ordinary Engine earned checkpoint and parent hashes at milestone; designated early/middle/late/pre-final/allowedpost-ending cold split and first next command.",
+      "evidence_required": [
+        "real input transcript",
+        "candidate/source identity",
+        "before/after meaningful state",
+        "ordinary save hashes and parent lineage",
+        "scoped audio/presentation",
+        "actual earned verification criteria"
+      ],
+      "earned_lineage": null,
+      "source_qualifications": [
+        "All seven source Search awards now retained into actual Axea eighth-page/research/binding/Ready/refusal/full-health Rat Vortex/cold, both modes. No page inventory/count/flag initialization.",
+        "CONTROLLED source-valid authored routes/adjacency/noon, initial25lockpicks and original PRNG0x12345678 before each firstSearch; source floor and original DEC421 ledger checked. Original level10 caster stats remain controlled before Ready. Not earned continuous exploration/leveling or full campaign."
+      ]
+    },
+    {
+      "id": "page-bit-64",
+      "status": "NOT STARTED",
+      "prerequisites": [],
+      "source_contract": "Verified node on the selected main-story route; relationship and alternatives are explicit in CAMPAIGN-DEPENDENCIES76.",
+      "source_anchors": [
+        "NA/DATA.MAP.CSTL offset58888",
+        "native/progression_search.inc BE08/BE0B field commit"
+      ],
+      "original_gate_evidence": [
+        "SCUMMVM-CE-M3-REAL-PAGES-VORTEX-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-PAGE57-PROVENANCE.json",
+        "SCUMMVM-CE-M3-CASTLE73-CHECKPOINT.json"
+      ],
+      "initial_conditions": "Valid earned parent at preceding milestone; alive legitimately acquired party,items,gold,practice,skills only. No fixture/save-edit/teleport/grant.",
+      "normal_commands": "Authored-map walk/enter/leave; Talk and source keywords; Open/Search/Ready/Use/Cast; actual tactical/Quick combat and legitimate rest/service, as required by node contract.",
+      "required_state": "Node-specific actual item/quest/world/party effect and relevant refusal from retained source contract. Exact expectations declared in segment before input.",
+      "persistent_state": "Save actual quest flags,inventory/party,canonical changed maps,RNG,discovery and same CE owner at legal boundaries.",
+      "audio_presentation": "Enabled normal cue selection/SFX and relevant native text/map/battle/reward view; selected frames,actual audio-state observation without rerunning473.",
+      "save_obligations": "Preserve ordinary Engine earned checkpoint and parent hashes at milestone; designated early/middle/late/pre-final/allowedpost-ending cold split and first next command.",
+      "evidence_required": [
+        "real input transcript",
+        "candidate/source identity",
+        "before/after meaningful state",
+        "ordinary save hashes and parent lineage",
+        "scoped audio/presentation",
+        "actual earned verification criteria"
+      ],
+      "earned_lineage": null,
+      "source_qualifications": [
+        "All seven source Search awards now retained into actual Axea eighth-page/research/binding/Ready/refusal/full-health Rat Vortex/cold, both modes. No page inventory/count/flag initialization.",
+        "CONTROLLED source-valid authored routes/adjacency/noon, initial25lockpicks and original PRNG0x12345678 before each firstSearch; source floor and original DEC421 ledger checked. Original level10 caster stats remain controlled before Ready. Not earned continuous exploration/leveling or full campaign."
+      ]
+    },
+    {
+      "id": "page-bit-128",
+      "status": "NOT STARTED",
+      "prerequisites": [],
+      "source_contract": "Verified node on the selected main-story route; relationship and alternatives are explicit in CAMPAIGN-DEPENDENCIES76.",
+      "source_anchors": [
+        "NA/DATA.MAP.CSTL offset58900",
+        "native/progression_search.inc BE08/BE0B field commit"
+      ],
+      "original_gate_evidence": [
+        "SCUMMVM-CE-M3-REAL-PAGES-VORTEX-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-PAGE57-PROVENANCE.json",
+        "SCUMMVM-CE-M3-CASTLE73-CHECKPOINT.json"
+      ],
+      "initial_conditions": "Valid earned parent at preceding milestone; alive legitimately acquired party,items,gold,practice,skills only. No fixture/save-edit/teleport/grant.",
+      "normal_commands": "Authored-map walk/enter/leave; Talk and source keywords; Open/Search/Ready/Use/Cast; actual tactical/Quick combat and legitimate rest/service, as required by node contract.",
+      "required_state": "Node-specific actual item/quest/world/party effect and relevant refusal from retained source contract. Exact expectations declared in segment before input.",
+      "persistent_state": "Save actual quest flags,inventory/party,canonical changed maps,RNG,discovery and same CE owner at legal boundaries.",
+      "audio_presentation": "Enabled normal cue selection/SFX and relevant native text/map/battle/reward view; selected frames,actual audio-state observation without rerunning473.",
+      "save_obligations": "Preserve ordinary Engine earned checkpoint and parent hashes at milestone; designated early/middle/late/pre-final/allowedpost-ending cold split and first next command.",
+      "evidence_required": [
+        "real input transcript",
+        "candidate/source identity",
+        "before/after meaningful state",
+        "ordinary save hashes and parent lineage",
+        "scoped audio/presentation",
+        "actual earned verification criteria"
+      ],
+      "earned_lineage": null,
+      "source_qualifications": [
+        "All seven source Search awards now retained into actual Axea eighth-page/research/binding/Ready/refusal/full-health Rat Vortex/cold, both modes. No page inventory/count/flag initialization.",
+        "CONTROLLED source-valid authored routes/adjacency/noon, initial25lockpicks and original PRNG0x12345678 before each firstSearch; source floor and original DEC421 ledger checked. Original level10 caster stats remain controlled before Ready. Not earned continuous exploration/leveling or full campaign."
+      ]
+    },
+    {
+      "id": "page-bit-1",
+      "status": "NOT STARTED",
+      "prerequisites": [],
+      "source_contract": "Verified node on the selected main-story route; relationship and alternatives are explicit in CAMPAIGN-DEPENDENCIES76.",
+      "source_anchors": [
+        "NA/DATA.MAP.CSTL offset58912",
+        "native/progression_search.inc BE08/BE0B field commit"
+      ],
+      "original_gate_evidence": [
+        "SCUMMVM-CE-M3-REAL-PAGES-VORTEX-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-PAGE57-PROVENANCE.json",
+        "SCUMMVM-CE-M3-CASTLE73-CHECKPOINT.json"
+      ],
+      "initial_conditions": "Valid earned parent at preceding milestone; alive legitimately acquired party,items,gold,practice,skills only. No fixture/save-edit/teleport/grant.",
+      "normal_commands": "Authored-map walk/enter/leave; Talk and source keywords; Open/Search/Ready/Use/Cast; actual tactical/Quick combat and legitimate rest/service, as required by node contract.",
+      "required_state": "Node-specific actual item/quest/world/party effect and relevant refusal from retained source contract. Exact expectations declared in segment before input.",
+      "persistent_state": "Save actual quest flags,inventory/party,canonical changed maps,RNG,discovery and same CE owner at legal boundaries.",
+      "audio_presentation": "Enabled normal cue selection/SFX and relevant native text/map/battle/reward view; selected frames,actual audio-state observation without rerunning473.",
+      "save_obligations": "Preserve ordinary Engine earned checkpoint and parent hashes at milestone; designated early/middle/late/pre-final/allowedpost-ending cold split and first next command.",
+      "evidence_required": [
+        "real input transcript",
+        "candidate/source identity",
+        "before/after meaningful state",
+        "ordinary save hashes and parent lineage",
+        "scoped audio/presentation",
+        "actual earned verification criteria"
+      ],
+      "earned_lineage": null,
+      "source_qualifications": [
+        "All seven source Search awards now retained into actual Axea eighth-page/research/binding/Ready/refusal/full-health Rat Vortex/cold, both modes. No page inventory/count/flag initialization.",
+        "CONTROLLED source-valid authored routes/adjacency/noon, initial25lockpicks and original PRNG0x12345678 before each firstSearch; source floor and original DEC421 ledger checked. Original level10 caster stats remain controlled before Ready. Not earned continuous exploration/leveling or full campaign."
+      ]
+    },
+    {
+      "id": "dark-plane-return-praevoc",
+      "status": "NOT STARTED",
+      "prerequisites": [
+        "040A bit01; already1 in independently decoded pre-ending readiness/cast saves"
+      ],
+      "source_contract": "Optional pre-ending return route, not post-ending acceptance.",
+      "source_anchors": [
+        "Map8 object81,168: B7 38 08 44 00 17 14 0A 00 01",
+        "Original SRTN.COMBAT.S86D1 loaded at9C01; gate9C84, destination9CC9"
+      ],
+      "original_gate_evidence": [
+        "SCUMMVM-CE-M3-TRANSPORT-CHECKPOINT.json"
+      ],
+      "initial_conditions": "Valid earned parent at preceding milestone; alive legitimately acquired party,items,gold,practice,skills only. No fixture/save-edit/teleport/grant.",
+      "normal_commands": "Authored-map walk/enter/leave; Talk and source keywords; Open/Search/Ready/Use/Cast; actual tactical/Quick combat and legitimate rest/service, as required by node contract.",
+      "required_state": "Node-specific actual item/quest/world/party effect and relevant refusal from retained source contract. Exact expectations declared in segment before input.",
+      "persistent_state": "Save actual quest flags,inventory/party,canonical changed maps,RNG,discovery and same CE owner at legal boundaries.",
+      "audio_presentation": "Enabled normal cue selection/SFX and relevant native text/map/battle/reward view; selected frames,actual audio-state observation without rerunning473.",
+      "save_obligations": "Preserve ordinary Engine earned checkpoint and parent hashes at milestone; designated early/middle/late/pre-final/allowedpost-ending cold split and first next command.",
+      "evidence_required": [
+        "real input transcript",
+        "candidate/source identity",
+        "before/after meaningful state",
+        "ordinary save hashes and parent lineage",
+        "scoped audio/presentation",
+        "actual earned verification criteria"
+      ],
+      "earned_lineage": null,
+      "source_qualifications": [
+        "Inherited earlier controlled seven pages, mage and authored travel. Actual portal entry/return linked; full continuous campaign not demonstrated."
+      ]
+    },
+    {
+      "id": "yvviar-cult-investigation",
+      "status": "NOT STARTED",
+      "prerequisites": [
+        "opening-exit"
+      ],
+      "source_contract": "Authored advice/letter branch; STOP advice is not a hard PirateKey/Letter prerequisite.",
+      "source_anchors": [
+        "L006 actor176 CULT unconditional; STOP writes43740/43801 unless43802. ASCII field7 is0x37, NOT0x27; old wrong-address assertion failed/excluded.",
+        "Opening43804 and absent43808 directs Archus; no flag/item writer. Actual acquired letter versus early absent-letter journal comparison, full cold fields.",
+        "Actual guarded source routes: surface->11->15; retained letter99->98->97->78->54->surface->11->15, then15->11->surface->54->58 Archus->57 Styx."
+      ],
+      "original_gate_evidence": [
+        "SCUMMVM-CE-M3-STORY-ALL30-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-STRICT-ALL40-CHECKPOINT.json"
+      ],
+      "initial_conditions": "Valid earned parent at preceding milestone; alive legitimately acquired party,items,gold,practice,skills only. No fixture/save-edit/teleport/grant.",
+      "normal_commands": "Authored-map walk/enter/leave; Talk and source keywords; Open/Search/Ready/Use/Cast; actual tactical/Quick combat and legitimate rest/service, as required by node contract.",
+      "required_state": "Node-specific actual item/quest/world/party effect and relevant refusal from retained source contract. Exact expectations declared in segment before input.",
+      "persistent_state": "Save actual quest flags,inventory/party,canonical changed maps,RNG,discovery and same CE owner at legal boundaries.",
+      "audio_presentation": "Enabled normal cue selection/SFX and relevant native text/map/battle/reward view; selected frames,actual audio-state observation without rerunning473.",
+      "save_obligations": "Preserve ordinary Engine earned checkpoint and parent hashes at milestone; designated early/middle/late/pre-final/allowedpost-ending cold split and first next command.",
+      "evidence_required": [
+        "real input transcript",
+        "candidate/source identity",
+        "before/after meaningful state",
+        "ordinary save hashes and parent lineage",
+        "scoped audio/presentation",
+        "actual earned verification criteria"
+      ],
+      "earned_lineage": null,
+      "source_qualifications": [
+        "Early originalLog/HP50/noLetter -> actual CULT/STOP43740/43801/cold; no serious-letter opening, independent journal confirms. Retained actual PirateKey/cave/letter -> original Yvviar letter opening -> actual Archus/Styx4381C/cold both modes.",
+        "Source advice flag43740 guides British ADVI; no hard PirateKey/letter prerequisite invented. All route/noon/adjacency controls explicit. Opt-in exact word observer verified Yvviar, not universally all NPCs; optional strict Archus probe failed, existing default controller succeeds.",
+        "Earlier failed direct routes, STOP timing and wrong427 flag expectation preserved/excluded."
+      ]
+    },
+    {
+      "id": "cult-four-pressure-plates",
+      "status": "NOT STARTED",
+      "prerequisites": [],
+      "source_contract": "Verified deep-Cult access branch; do not infer that every Letter approach requires it.",
+      "source_anchors": [
+        "UM99 authored BE offsets52/60/68/76: [34,200,138,54,31,239,0,16], [57,216,138,54,31,223,0,32], [44,232,138,54,31,191,0,64], [120,213,138,54,31,127,0,128].",
+        "Original EA35 current-cell type54 OR041F mask; repeat idempotent. Door BE84 [118,236,66,19,31,4,0,4], progressionOpen964F tests consecutive bits4..7. Authored exit118,238->UM100 destination118,238."
+      ],
+      "original_gate_evidence": [
+        "SCUMMVM-CE-M3-SWITCH35-CHECKPOINT.json"
+      ],
+      "initial_conditions": "Valid earned parent at preceding milestone; alive legitimately acquired party,items,gold,practice,skills only. No fixture/save-edit/teleport/grant.",
+      "normal_commands": "Authored-map walk/enter/leave; Talk and source keywords; Open/Search/Ready/Use/Cast; actual tactical/Quick combat and legitimate rest/service, as required by node contract.",
+      "required_state": "Node-specific actual item/quest/world/party effect and relevant refusal from retained source contract. Exact expectations declared in segment before input.",
+      "persistent_state": "Save actual quest flags,inventory/party,canonical changed maps,RNG,discovery and same CE owner at legal boundaries.",
+      "audio_presentation": "Enabled normal cue selection/SFX and relevant native text/map/battle/reward view; selected frames,actual audio-state observation without rerunning473.",
+      "save_obligations": "Preserve ordinary Engine earned checkpoint and parent hashes at milestone; designated early/middle/late/pre-final/allowedpost-ending cold split and first next command.",
+      "evidence_required": [
+        "real input transcript",
+        "candidate/source identity",
+        "before/after meaningful state",
+        "ordinary save hashes and parent lineage",
+        "scoped audio/presentation",
+        "actual earned verification criteria"
+      ],
+      "earned_lineage": null,
+      "source_qualifications": [
+        "Original fixture boundaries remain binding. Current source/necessity/segment classification is in CAMPAIGN-DEPENDENCIES76; historical limitations retain the earlier investigation state.",
+        "No earned continuous/full new-game-to-ending run. Controlled positions, stats, recovery and battle endpoints are unearned."
+      ]
+    },
+    {
+      "id": "nystul-archmage-staff",
+      "status": "NOT STARTED",
+      "prerequisites": [
+        "nystul-maze-access"
+      ],
+      "source_contract": "Optional MAZE reward; binding/Ready do not require Staff83.",
+      "source_anchors": [
+        "L068 actor16 MAZE S2 field0F/index2 requires040F04 clear; P2B sets040F04 and P1 item83/type128 transfers ArchmageStaff.",
+        "Original weapon83 source definition Archmage Staff; distinct from controlled DrakeStaff71 ending fixture."
+      ],
+      "original_gate_evidence": [
+        "SCUMMVM-CE-M3-NYSTUL38-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-NYSTUL-VORTEX39-CHECKPOINT.json"
+      ],
+      "initial_conditions": "Valid earned parent at preceding milestone; alive legitimately acquired party,items,gold,practice,skills only. No fixture/save-edit/teleport/grant.",
+      "normal_commands": "Authored-map walk/enter/leave; Talk and source keywords; Open/Search/Ready/Use/Cast; actual tactical/Quick combat and legitimate rest/service, as required by node contract.",
+      "required_state": "Node-specific actual item/quest/world/party effect and relevant refusal from retained source contract. Exact expectations declared in segment before input.",
+      "persistent_state": "Save actual quest flags,inventory/party,canonical changed maps,RNG,discovery and same CE owner at legal boundaries.",
+      "audio_presentation": "Enabled normal cue selection/SFX and relevant native text/map/battle/reward view; selected frames,actual audio-state observation without rerunning473.",
+      "save_obligations": "Preserve ordinary Engine earned checkpoint and parent hashes at milestone; designated early/middle/late/pre-final/allowedpost-ending cold split and first next command.",
+      "evidence_required": [
+        "real input transcript",
+        "candidate/source identity",
+        "before/after meaningful state",
+        "ordinary save hashes and parent lineage",
+        "scoped audio/presentation",
+        "actual earned verification criteria"
+      ],
+      "earned_lineage": null,
+      "source_qualifications": [
+        "Actual83quantity1/040F04, repeated MAZE no duplicate/repeat dialogue/cold both modes. Subsequent compatibility here means retained binding and repeat interaction, not weapon Ready/combat; that remains untested. No earned repeated maze completion claimed from flavor text.",
+        "39 retains actual all8page/research/Nystul physical word/wall/room/binding/Staff83 prefix through original lowINT refusal, controlled reachableMage BEFORE actualReady, world refusal and full12HP ShipRat actualVortex/cold both modes. Actual weapon83 retained UNREADIED owner0; no weapon83 combat claim."
+      ]
+    },
+    {
+      "id": "father-mouth-door",
+      "status": "NOT STARTED",
+      "prerequisites": [],
+      "source_contract": "Optional Father tribute/access branch, independently verified.",
+      "source_anchors": [
+        "UM97 BF16 mouth134,71, L061 actor16 DAD/FATH P2.E sets042E20.",
+        "BE90 [133,72,65,18,46,32,0,0]; original dialogueEffects B473 tests042E20, B47C writesBE93/aux5793=24hex thenB4B4 consumes042E20. Picture65 unchanged."
+      ],
+      "original_gate_evidence": [
+        "SCUMMVM-CE-M3-FATHER38-INVESTIGATION.json",
+        "SCUMMVM-CE-M3-FATHER39-INVESTIGATION.json",
+        "SCUMMVM-CE-M3-STRICT-ALL40-CHECKPOINT.json"
+      ],
+      "initial_conditions": "Valid earned parent at preceding milestone; alive legitimately acquired party,items,gold,practice,skills only. No fixture/save-edit/teleport/grant.",
+      "normal_commands": "Authored-map walk/enter/leave; Talk and source keywords; Open/Search/Ready/Use/Cast; actual tactical/Quick combat and legitimate rest/service, as required by node contract.",
+      "required_state": "Node-specific actual item/quest/world/party effect and relevant refusal from retained source contract. Exact expectations declared in segment before input.",
+      "persistent_state": "Save actual quest flags,inventory/party,canonical changed maps,RNG,discovery and same CE owner at legal boundaries.",
+      "audio_presentation": "Enabled normal cue selection/SFX and relevant native text/map/battle/reward view; selected frames,actual audio-state observation without rerunning473.",
+      "save_obligations": "Preserve ordinary Engine earned checkpoint and parent hashes at milestone; designated early/middle/late/pre-final/allowedpost-ending cold split and first next command.",
+      "evidence_required": [
+        "real input transcript",
+        "candidate/source identity",
+        "before/after meaningful state",
+        "ordinary save hashes and parent lineage",
+        "scoped audio/presentation",
+        "actual earned verification criteria"
+      ],
+      "earned_lineage": null,
+      "source_qualifications": [
+        "Original fixture boundaries remain binding. Current source/necessity/segment classification is in CAMPAIGN-DEPENDENCIES76; historical limitations retain the earlier investigation state.",
+        "No earned continuous/full new-game-to-ending run. Controlled positions, stats, recovery and battle endpoints are unearned."
+      ]
     }
   ],
   "advice_branches": [
@@ -1936,13 +2472,25 @@
     },
     {
       "id": "defeat-escape",
-      "status": "NOT STARTED",
-      "obligation": "Legitimate fork before a supported ordinary encounter; death/flee/restore and grace compatibility without invented victory."
+      "status": "IN PROGRESS",
+      "obligation": "Legitimate fork before a supported ordinary encounter; death/flee/restore and grace compatibility without invented victory.",
+      "earned_evidence": [
+        "ce-native-acceptance528/earned-modern/earned-defeat-sprite148.json",
+        "M43 earned: first earned surface battle -> lawful reload -> actual Escape/Y flee -> M43 earned: earned stronger encounter escaped"
+      ],
+      "qualification": "Actual defeat terminal then normal Engine load; no victory/reward claimed. Flee cost gold19->9 and returned livingparty50/50. Cold branch restoration still separate."
     },
     {
       "id": "transport-cannon",
-      "status": "NOT STARTED",
-      "obligation": "Earn boat/ship/horse and actual board/move/dismount/cannon where supported; no fixture for acceptance."
+      "status": "IN PROGRESS",
+      "obligation": "Earn boat/ship/horse and actual board/move/dismount/cannon where supported; no fixture for acceptance.",
+      "earned_evidence": [
+        "authored skiff legitimately boarded",
+        "cold006 restored actual boat",
+        "earned skiff on surface (completed alternate fork)",
+        "actual X disembark on local Axea shore"
+      ],
+      "remaining": "Ocean transport/cannon,horse and remaining supported contexts remain unverified. Source planner found no Maldac-skiff to Nourtheld walking link; this is a route limitation,not a demonstrated engine defect."
     },
     {
       "id": "inventory-drop",
@@ -1951,8 +2499,13 @@
     },
     {
       "id": "castle11-services",
-      "status": "NOT STARTED",
-      "obligation": "Earned Castle11 entry/schedule policy and actual training/inn/temple/service use as needed."
+      "status": "IN PROGRESS",
+      "obligation": "Earned Castle11 entry/schedule policy and actual training/inn/temple/service use as needed.",
+      "earned_evidence": [
+        "Suurtheld Castle11 arrival",
+        "Castle11 visit completed"
+      ],
+      "qualification": "Actual earned entry/ordinary movement/departure with original schedule/record ownership; scoped branch,not whole temple/training/inn coverage."
     },
     {
       "id": "story-alternatives",
@@ -1983,5 +2536,8 @@
   "mode_strategy": "One primary Modern earned lineage; targeted Classic legal earned fork/restore/transitions; no duplicate complete campaign required by existing criteria.",
   "failure_policy": "Freeze failing path,source general diagnosis,focused correction+regression,at most2corrective reruns; resume valid nearest earned save,no prefix replay or outcome injection.",
   "builds": 0,
-  "process_launches": 0
+  "process_launches": 7,
+  "planned_node_count": 60,
+  "mandatory_node_count_note": "All selected M3 nodes explicitly represented alongside dependency76 graph; includes supporting/advice/alternative nodes. Necessity is retained per source,not inferred from node count.",
+  "last_earned_checkpoint": "Axea earned cold continued"
 }
