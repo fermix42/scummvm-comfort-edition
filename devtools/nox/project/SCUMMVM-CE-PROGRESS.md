@@ -1,3 +1,15 @@
+# Dialogue header508 - VERIFIED for static source classification
++
++439packets/3227headers;13knownselector/tagfamilies,no unknown family,
++maxS1=1/S2=2/P1=2/P2=3 fitnativecapacities.33validorderedBCDtimewindows,
++204terminal0/4probability127controls;firstTmatchhandlesduplicates.
++Two malformedJOBP2tails match486;no rerun/erasureofoldfailurequalification.
++npc.05 knownimplementation IMPLEMENTED;runtimeverification unchanged.
++Original/nativeowners andscope inDIALOGUE-HEADER-OWNERS508. Read priorM4tag
++research;didnotrerun it. Localnewheadercapacityinventory isstaticonly.
++Continue remainingfoundationaldataownership/cross-owner source reconciliation;
++source-driven implementation remainsauthorized,no milestonepause/campaign.
++
 # Initial object domain507 - VERIFIED for static owner classification
 +
 +506 committed08440a0529b;acceptedexeSHA c322a8188b35fccead5d2dd99302bb75e229937f02b8d66c8d08dce6eb2d72eb.

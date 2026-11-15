@@ -1161,7 +1161,7 @@
       "id": "npc.05",
       "subsystem": "npc",
       "behavior": "Keyword matching and dialogue rules",
-      "implementation": "PARTIAL",
+      "implementation": "IMPLEMENTED",
       "verification": {
         "status": "NOT STARTED",
         "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement."
@@ -1176,8 +1176,10 @@
         "engines/nox/native_dialogue_rules.h",
         "engines/nox/native_recruitment.h"
       ],
-      "original_evidence": [],
-      "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
+      "original_evidence": [
+        "SCUMMVM-CE-DIALOGUE-HEADER-OWNERS508.md:439packets/3227headers/allknownselectors/predicatecapacities/controlvalues fit native owners;500/501/486 qualifications retained."
+      ],
+      "production_connection": "WorldInput/WorldConversation ->Conversation lexical normalization,source ordered header selection,conditions,staged field effects and conditional session RNG/control. Known authored grammar covered statically508;ordinaryEnginecold/session/wholeNPC verification unchanged.",
       "fallback_dependencies": [],
       "blockers": [],
       "dialogue486_evidence": "SCUMMVM-CE-DIALOGUE-BOUNDARY486-VERIFICATION.json",
@@ -7647,9 +7649,9 @@
     },
     "npc": {
       "known_required": 12,
-      "native_implemented": 3,
+      "native_implemented": 4,
       "verified": 3,
-      "partial": 8,
+      "partial": 7,
       "missing": 0,
       "unknown_required_rows": 0,
       "additional_unclassified_scope": 1,
@@ -7752,7 +7754,7 @@
   },
   "current_subsystem": {
     "status": "IN PROGRESS",
-    "scope": "Dialogue header selector/predicate/control producer domain508;reuse immutable500/501 decoded packet inventory,no old suites/campaign."
+    "scope": "Remaining foundational data ownership and cross-owner source reconciliation;no old suites/campaign."
   },
   "count_definition": "native_implemented counts IMPLEMENTED; CE_REPLACEMENT is separately reported. VERIFIED applies only to row evidence scope; no overall completion percentage."
 }
