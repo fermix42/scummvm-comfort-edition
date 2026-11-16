@@ -1777,6 +1777,46 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot103.g0.ce-achievements.json": "451b4a3966ebbe380794734e14c768f96951f9690215dd8c5ce290add9a92aed"
       },
       "process": 19
+    },
+    {
+      "label": "ffred-nightstand-book-earned531",
+      "slot": 104,
+      "parent": "4b787a9e52061f5ce2429259982829a7d40dc5c3a2eb95ca8163cff216e1fd6b",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot104.g0": "99f780ce58b96e5b6f021e88e56089bc9ee50c863d2ede5d2ac0f62c9d4faf3b",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot104.g0.ce-achievements.json": "5393ea56c5027f060971ba7a3604fd8a8c9f06ba6d66f8b9655c10114c89716e"
+      },
+      "process": 19
+    },
+    {
+      "label": "ffred-sale-funded-recovery531",
+      "slot": 105,
+      "parent": "484b313bfad9478bae559bcbc14cadd9e418e61d0797a13192af062a093fe5a0",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot105.g0": "afaf9251bb0e24e6d234456e99dab525d4376460737dc4396996ff4207852e79",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot105.g0.ce-achievements.json": "081576c09db6bdc5e12fb9408df8fe5a970efafacecd9a98d72cdf5a43592b9d"
+      },
+      "process": 19
+    },
+    {
+      "label": "essential-equipment-restored531",
+      "slot": 106,
+      "parent": "bae0ea1c09aeed01169c628ad1d5492849b13c6f040f8a2d4820242a76f8c26d",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot106.g0": "acb9067c969dfe5091ca9b82a0b6400896dad78d85325757e7ccc6d04f247dbb",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot106.g0.ce-achievements.json": "054245860ac9f0d7e633336ee42c5a5fb95fe6f2ab8d5935b7eab99fede8363b"
+      },
+      "process": 19
+    },
+    {
+      "label": "six-alive-full-recovery531",
+      "slot": 107,
+      "parent": "1dbcaa25539fa2f89d283f6bcf602cadb250a27afca6e3a98f21ded8babc21c8",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot107.g0": "2aacfd58b1406f24d845eea68dbd9a28a3b7306738fc6e87afa9a3ffe00f7a63",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot107.g0.ce-achievements.json": "65f05bcdf578d931485feb440f9118fce85591a08bdb3f1c355312cc1ba7b22b"
+      },
+      "process": 19
     }
   ],
   "correction": "SCUMMVM-CE-NPC529-VERIFICATION.json",

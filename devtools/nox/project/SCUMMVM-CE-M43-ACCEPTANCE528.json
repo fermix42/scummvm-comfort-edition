@@ -2566,13 +2566,13 @@
   ],
   "mode_strategy": "One primary Modern earned lineage; targeted Classic legal earned fork/restore/transitions; no duplicate complete campaign required by existing criteria.",
   "failure_policy": "Freeze failing path,source general diagnosis,focused correction+regression,at most2corrective reruns; resume valid nearest earned save,no prefix replay or outcome injection.",
-  "builds": 4,
-  "process_launches": 17,
+  "builds": 5,
+  "process_launches": 19,
   "planned_node_count": 60,
   "mandatory_node_count_note": "All selected M3 nodes explicitly represented alongside dependency76 graph; includes supporting/advice/alternative nodes. Necessity is retained per source,not inferred from node count.",
-  "last_earned_checkpoint": "81 alignednormalworldF-South clearsactualpirate180 afterunfoughtboardingfork/normal80restore. Gold70,food442,twohealthy3levelsurvivors,fourdead. FinalBayportapproach continuing.",
+  "last_earned_checkpoint": "107 six-alive-full-recovery531, all6fullHPMP, gold273food450; sourceb9faa45cc63/exe230a074...",
   "baseline_candidate_sha256": "81feb2c7ff17594a6ea9754dc60602a755b2f37ea7c53b437f65a18e7c35000f",
-  "candidate_change": "NPC529 generalviewport-exit andcannon530 generalresource-row continuation corrections; scopedverification receipts preserved. No implementationchanges duringpost530 earnedcampaign.",
+  "candidate_change": "NPC529,cannon530 and original packed melee reach531 general corrections; focused source/oracle/cold receipts retain identity. No additional source change after531.",
   "earned_failures_retained": [
     "library north-wing source planner omitted water229..231;actual party loss retained;normal Engine route98 checkpoint restored as43,not native defect. Source-safe route currently unavailable with protections0/MP0;defer.",
     "Fourmember return-road/boat contacts with hostile ships retained;actual tactical defeat,normal Engine47 restore. Native defect not demonstrated. Sixparty48 prepares missing companions instead of repeating fourparty route.",
@@ -2609,5 +2609,6 @@
     "dependency_qualification": "Accumulated predecessor lists include historical M3 execution order; they must not be treated as universal original access gates without node-specific source evidence. Axea-page is already earned while listed castle/page predecessors are unearned. Existing source gate contracts remain authority; reconcile ordering explicitly before dependent execution.",
     "next": "Town46 source nightstand SummonFfred book20 resource -> normal sale ifsourceallows -> restore party/equipment -> early authored quest/advancement chain; Guild later with proper tools.",
     "no_shortcuts": "No injected items/XP/flags/positions/RNG, no original instruction runtime, no replay of96victory to hide casualties."
-  }
+  },
+  "focused_cli_launches": 2
 }

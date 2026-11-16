@@ -1,6 +1,6 @@
 # B-MELEE-PACKED-RANGE retired within scoped531 evidence - VERIFIED
 
-General helper now preservespackedrangeformeleyandrangedhands;12originalAttackcasesmatchallrecords/RNG/credit/pendingroundtrip. Separate5thnative-onlybuild0warnings/errors,sourceb9faa45cc63. Actual102cold019sameparty/inventory/fields/resources/sound/session;103newsourcebinding. COMBAT531-VERIFICATION scopesclosure. Naturalearnedrange2inputcoveragepending;nooptionalbattle/prefixreplaytoforceit,combat.04stillPARTIAL/INPROGRESS. Bothfocuseddriverqualificationsretained. Continueearnedcampaignusingcorrected531.
+The shared helper now preserves packed range for melee and ranged hands. All 12 original Attack cases match complete records, RNG, credit and pending-action roundtrips. Separate5thnative-onlybuild0warnings/errors,sourceb9faa45cc63. Actual102cold019sameparty/inventory/fields/resources/sound/session;103newsourcebinding. COMBAT531-VERIFICATION scopesclosure. Naturalearnedrange2inputcoveragepending;nooptionalbattle/prefixreplaytoforceit,combat.04stillPARTIAL/INPROGRESS. Bothfocuseddriverqualificationsretained. Continueearnedcampaignusingcorrected531.
 
 # B-MELEE-PACKED-RANGE - IN PROGRESS
 

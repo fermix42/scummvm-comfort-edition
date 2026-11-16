@@ -2,10 +2,6 @@
   "status": "IN PROGRESS",
   "scope": "Earned Watcher/door/stairs, Margrave pre-award request/repeat and naval preparation; guarded Guild and ending remain unearned.",
   "checkpoints": [
-    64,
-    65,
-    66,
-    67,
     68,
     69,
     70,
@@ -41,7 +37,11 @@
     100,
     101,
     102,
-    103
+    103,
+    104,
+    105,
+    106,
+    107
   ],
   "builds": 5,
   "process_launches": 19,
@@ -52,7 +52,7 @@
     "ce-native-acceptance528\\earned-modern\\wrapper-recovery.json": "6a10ca459214ec33acf71751b4b744779e36ae3f60601175a309d39027f26de9",
     "ce-native-acceptance528/earned-modern/earned-partial-recovery530.json": "e6febeb06a275d3e3abec6f25f961a8adf0a93ed9f984627e050a839dfae55c1"
   },
-  "next_action": "Continue source-planned Guild on corrected531; actual natural range2 attack evidence pending. No new naval income loop.",
+  "next_action": "Normal Bayport exit, source-planned early spell/preparation and Orc Shaman/Knaerwood/LordBritish progression; retain guardedGuild96/97 for later.",
   "squid_fork": "ce-native-acceptance528/earned-modern/forks/squid-seven-first-defeat",
   "failures": [
     "Seven full191HP range15 Squids defeat; normal74restored, no unchanged retry.",
@@ -70,5 +70,6 @@
   "recovery_after_guard": "Normal three-gold spareKnife1+2Lockpicks sale, paidNox17 resurrection98 restores32MP. Avoid naval income loop: unready/sellSummon14book18 plus deadKatLeatherGloves2/Boots2 ->22gold99; buyTorch1/4Lockpicks4, then paidBridgit17 resurrection100. Fouralive:Hero67/12MP,Bridgit55/20MP,Nox62/32MP,Allu64/0MP;Kat/Cutterdead,gold0,food450. Summon shortcut1 unready, Fireball shortcut2 retained.",
   "focused_cli_launches": 2,
   "second_caster": "101 actualsingle83HPNoviceCultist victory, all4living survive; Bridgit3INT32/HP62MP32,23gold. 102normal10goldInn fullHPMP67/62/62/64,MP20/32/32/20,gold13food450. Kat/Cutterremain dead. Source group62 is6Assassins144HP level5, not weakThieves.",
-  "native_correction": "COMBAT531-WORK:originalDB54 packed melee range2 vsnativeforced1; sharedcorrection12oraclepass,sourceb9faa45cc63/exe230a074...,cold019normal102samecleanstate,103earnednewsourcebinding. Fivebuilds/19gameCLI+2focusedCLI; no acceptedbattle replay."
+  "native_correction": "COMBAT531-WORK:originalDB54 packed melee range2 vsnativeforced1; sharedcorrection12oraclepass,sourceb9faa45cc63/exe230a074...,cold019normal102samecleanstate,103earnednewsourcebinding. Fivebuilds/19gameCLI+2focusedCLI; no acceptedbattle replay.",
+  "early_resources": "104 SearchRight earned book20;105 normal Gem104 sale353:13->366gold.106 gloves4+boots4+Buckler13, gold345; actual normal inventory returns Axe12 toKat, gloves/bootsKat, BucklerHero.107 Temple paid36each (source level3 table, earlier26 quote was wrong), Kat71/8MP+Cutter63/20MP restored; all6fullHPMP, gold273food450. No build/launch."
 }
