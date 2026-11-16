@@ -49,7 +49,8 @@ public:
         if (fold(roll) < threshold(context.trapSkill, context.difficulty))
             next.push_back(LockEffect(LockEffect::kPractice, context.selectedMember, 32));
         else {
-            if (!candidate.next(1, 199, roll)) return kLockUnsupported;
+            // Original Open damage division leaves RNG upper255; Search restores199.
+            if (!candidate.next(1, _door ? 255 : 199, roll)) return kLockUnsupported;
             if (roll < 25) for (byte member = 1; member <= context.partyCount; ++member)
                 next.push_back(LockEffect(LockEffect::kDamage, member, _damage[_door ? context.difficulty & 127 : context.difficulty]));
             else next.push_back(LockEffect(LockEffect::kDamage, context.selectedMember, _damage[_door ? context.difficulty & 127 : context.difficulty]));

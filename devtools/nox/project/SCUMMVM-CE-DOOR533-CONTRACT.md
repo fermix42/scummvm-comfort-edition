@@ -17,6 +17,11 @@ General correction: retain Search/container0..10 rules. Give Open its own
 source-derived damage data and allow every raw byte whose wrapped table index
 lies within the original Open resource (low7bits<=31). Keep exact RNG, picks,
 attempt count, practice and damage. No original execution in production.
+Focused comparison exposed a second Open/Search distinction: Open978B calls
+the RNG after division leaves its bounds1..255; Search restores1..199. Preserve
+that Open-specific trap-spread range as well. First533 comparison failed case2
+on this actual difference; retain its executable/evidence. One justified second
+build533b and corrective comparison are required; no campaign replay occurred.
 Other authored raw values53 and254 reach bytes beyond that loaded resource;
 their original inherited-memory behavior remains unresolved, not verified or
 silently replaced. No current earned success is claimed for those doors.
