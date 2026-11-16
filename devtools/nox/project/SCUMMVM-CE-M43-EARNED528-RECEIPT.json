@@ -2478,12 +2478,23 @@
       },
       "process": 23,
       "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
+    },
+    {
+      "label": "suurt-local-gear-and-food-complete532",
+      "slot": 158,
+      "parent": "e0ed43ec440e33ab173fe212de9ee0d766813d840d05417141b493a22bd800ff",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot158.g0": "3a47aa3b644797ab00c856015df48b77bc8e11f3722931d8d0457b8f8814c566",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot158.g0.ce-achievements.json": "cefe5737cbf5cec9572e726faa9e1a034f335c3758af710a9157c4aba041670d"
+      },
+      "process": 23,
+      "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
     }
   ],
   "correction": "SCUMMVM-CE-NPC529-VERIFICATION.json",
   "last_checkpoint": 44,
   "cold_evidence": "earned-modern/cold011.json",
-  "next_action": "Complete one local armor/weapon/food preparation batch; continue earlier source-supported required campaign, no more premature Guild guard attempts.",
+  "next_action": "Continue earlier required Nourtheld54/Styx NAME/Archus TEST; normal earned transport and actual access, all60criteria remain. No Guild guards until genuine preparation.",
   "current_source_commit": "e073e27e3e3",
   "current_executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed",
   "latest_earned": "142 firstnormalworldstep after actual141cold021, fullparty/questinventory/resources/session retained;horseparked persistence",
@@ -2505,7 +2516,7 @@
     },
     "SCUMMVM-CE-M43-RUSTY532-VERIFICATION.json": "a8b7cbde178b27d20ecdf9f8e02c4629c939fb0ecefc436ab627ea8098488b2d",
     "SCUMMVM-CE-M43-RUSTY-RECOVERY532-VERIFICATION.json": "17b77f3d267c40eb082b4eeb4dc6c79a6e418858fbe84cf714d688bfebe4fa70",
-    "SCUMMVM-CE-M43-SUURTHELD532-VERIFICATION.json": "5570e778d5c83255edb9d93cc621d766739ad71b32ad8af3d51b24824ff002c0"
+    "SCUMMVM-CE-M43-SUURTHELD532-VERIFICATION.json": "04b6de86d57357ac7d1b413b5c4b4f836db61699b94ea9e092f3ba1593eeb472"
   },
-  "private_ledger_sha256": "d9684d578c04642b48fa90f02ffc5124312bdc43ec3a78a86fa1baa2fe73e542"
+  "private_ledger_sha256": "7299d100fd0c37886dc055466ba4cf29f8870ed343e13f0d922f2aaa3a3efa6a"
 }

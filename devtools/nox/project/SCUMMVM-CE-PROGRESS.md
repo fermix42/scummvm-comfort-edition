@@ -1,3 +1,7 @@
+# Acceptance528 coherent Suurtheld preparation158 complete - campaign IN PROGRESS
+
+NormalPlateGauntlets81/ChainGauntlets18/Rapier17 buys/Ready, foodfour2goldunits clipped724->900.158all6aliveHP71/63/67/62/62/64,MP8/20/20/28/24/15,268gold900food. Actualgear/catalog derivesarmor38/51/58/33/35/58,weights24/32,8/8,20/20,7/8,8/8,14/14. LocalTemple/necklaces/500proof retained; source532/audio473unchanged,6builds/23gameCLI+2focused=25materialCLI. Fourof60nodesVERIFIED/endingunverified. DepartnormalSurface/NourtheldStyx/Order earlierrequirements; no furtherprematureGuild. Canonicalconversion/CEdevtools/nox/project recoverymirror.
+
 # Acceptance528 Suurtheld155/156/157 earned funding and local recovery - IN PROGRESS
 
 154Br36revival/normalroadwins retained. ActualCastle16dayaudience L006/184 EDUARD/ACCEPT155 gives500gold40->540,field51 32->34; no priorEduardinvestigation completion claimed. SourcecorrectlocalCastle15/216Templethree36resurrections156 ->432/all6alive. FiveMageNecklace+2@8/normalReady157 ->392gold724food,HP71/63/67/62/62/64,MP8/20/20/28/24/15. Savedgear1/18 onmembers1..5 confirmed;wt0/INT14/armor8. Nightinactive-floor/refreshrouting qualifications retained.6builds/23gameCLI+2focused=25materialCLI/source532unchanged,4of60selectednodesVERIFIED/endingunverified. Finishone localgearbatch then earlier required campaign; no further prematureGuildguardattempt. Canonicalconversion/CEdevtools/nox/project recoverymirror.
