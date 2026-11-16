@@ -2434,12 +2434,56 @@
       },
       "process": 23,
       "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
+    },
+    {
+      "label": "guild153-paid-Bridgit-recovery532",
+      "slot": 154,
+      "parent": "b072aaad167a2b20cdf9614ac30590a3fa3eef338e847831ac0d538a271a1d66",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot154.g0": "3ccb9e59fa3e0643dfc50c4dde3c1e5f768d60571361fb38a5a774cb54578bc8",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot154.g0.ce-achievements.json": "c7ce28a8c06fc3c706e8c6bbc4fad515d7bd0d83eb4739a3718f5416c9798b0c"
+      },
+      "process": 23,
+      "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
+    },
+    {
+      "label": "hraakvar-normal-source-dialogue-reward532",
+      "slot": 155,
+      "parent": "1c8b6f72e21e0f161677ac7ed584295b52785edff30bd47cf669a4167fc132bc",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot155.g0": "63a807637a126275944c17ab5b56e8f38b3f630eb0a2cc70202906adec8faa38",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot155.g0.ce-achievements.json": "04796cd3da47b109d9d66ca935cfa33752a4a4a866b9d6703bb3bf972e7b91f8"
+      },
+      "process": 23,
+      "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
+    },
+    {
+      "label": "suurt-local-Temple-full-party-recovery532",
+      "slot": 156,
+      "parent": "02a748073de75e4df59d39425545cbad29d9847887267cc6c2b3af034268830f",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot156.g0": "c653578a1ffeeefb4033a40c460bdbce607ad86e6bb4f84695d75389fc487d8f",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot156.g0.ce-achievements.json": "8b983cd6f36d2f8bf639179c7f11ea2c0c0edc98104b52bff6848a318463dc5b"
+      },
+      "process": 23,
+      "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
+    },
+    {
+      "label": "suurt-five-necklaces-equipped532",
+      "slot": 157,
+      "parent": "e8c138de4b728923f7c7c8d3900bb3d38a458c8a9db73b15bcf290421aef611c",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot157.g0": "5189615761df168b63e9cc7e8be192c406d259029f5f7f3b56a4a0865af49313",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot157.g0.ce-achievements.json": "50d24a3f090b2d6ef70b20924a0bd5be16644897fe2cf65f9f39f9d139462c05"
+      },
+      "process": 23,
+      "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
     }
   ],
   "correction": "SCUMMVM-CE-NPC529-VERIFICATION.json",
   "last_checkpoint": 44,
   "cold_evidence": "earned-modern/cold011.json",
-  "next_action": "NormalBridgit36resurrection from43gold, then sourceearlierSuurtheldHraakvar dialogue/funding. OriginalL006/184 EDUA text explains framedEduard/Jorgen/Vantra; ACCE checksabsencefield51/2, awards500andsets2. Currentfield51=32. No priorEduardinvestigationcompletion or freegift claimed; normaldialogue predicates/outcome and any qualification must remain explicit. No injected quest/gold.",
+  "next_action": "Complete one local armor/weapon/food preparation batch; continue earlier source-supported required campaign, no more premature Guild guard attempts.",
   "current_source_commit": "e073e27e3e3",
   "current_executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed",
   "latest_earned": "142 firstnormalworldstep after actual141cold021, fullparty/questinventory/resources/session retained;horseparked persistence",
@@ -2460,7 +2504,8 @@
       "ce-native-acceptance528/earned-modern/earned-veylan-full-inn-rest532.json": "f84c4b8611479a1cc1623e71428309e71bf3c1e65ce5b77cea9f7c3a1d067cd6"
     },
     "SCUMMVM-CE-M43-RUSTY532-VERIFICATION.json": "a8b7cbde178b27d20ecdf9f8e02c4629c939fb0ecefc436ab627ea8098488b2d",
-    "SCUMMVM-CE-M43-RUSTY-RECOVERY532-VERIFICATION.json": "17b77f3d267c40eb082b4eeb4dc6c79a6e418858fbe84cf714d688bfebe4fa70"
+    "SCUMMVM-CE-M43-RUSTY-RECOVERY532-VERIFICATION.json": "17b77f3d267c40eb082b4eeb4dc6c79a6e418858fbe84cf714d688bfebe4fa70",
+    "SCUMMVM-CE-M43-SUURTHELD532-VERIFICATION.json": "5570e778d5c83255edb9d93cc621d766739ad71b32ad8af3d51b24824ff002c0"
   },
-  "private_ledger_sha256": "cad1f1b9c3aff835e4e14c034fc8938c04046374bb9098c8f41ae025a8e8cd86"
+  "private_ledger_sha256": "d9684d578c04642b48fa90f02ffc5124312bdc43ec3a78a86fa1baa2fe73e542"
 }

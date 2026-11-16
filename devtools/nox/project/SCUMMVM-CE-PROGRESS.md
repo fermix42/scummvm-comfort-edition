@@ -1,3 +1,7 @@
+# Acceptance528 Suurtheld155/156/157 earned funding and local recovery - IN PROGRESS
+
+154Br36revival/normalroadwins retained. ActualCastle16dayaudience L006/184 EDUARD/ACCEPT155 gives500gold40->540,field51 32->34; no priorEduardinvestigation completion claimed. SourcecorrectlocalCastle15/216Templethree36resurrections156 ->432/all6alive. FiveMageNecklace+2@8/normalReady157 ->392gold724food,HP71/63/67/62/62/64,MP8/20/20/28/24/15. Savedgear1/18 onmembers1..5 confirmed;wt0/INT14/armor8. Nightinactive-floor/refreshrouting qualifications retained.6builds/23gameCLI+2focused=25materialCLI/source532unchanged,4of60selectednodesVERIFIED/endingunverified. Finishone localgearbatch then earlier required campaign; no further prematureGuildguardattempt. Canonicalconversion/CEdevtools/nox/project recoverymirror.
+
 # Acceptance528 Guild153 casualties and route correction - IN PROGRESS
 
 NormalAsk/Q singlefull137HPRogue won152/all6fullHP. Nextthree137HPRogueQuickdefeat preservedfork; normal152restore retainsfirstvictory. ChangedTacticalchoice wins153 butKat/Cutter/Hero/Bridgitdead;43gold757food. ActualH nowallowed,Nox24/Allu15MP,food724,4deadretained. Normalwithdraw52->48->49 succeeded. RevisitGuildwaswrongroutechoice atcurrentstrength; no furtherguardsuntilpreparationchanges. NormalBridgit36resurrection/earlierSuurtheldsourcefunding next, allremaining60criteria retained. No Enginegap/build/newprocess;6builds/23gameCLI+2focused=25materialCLI,4of60nodesVERIFIED/endingunverified. Canonicalconversion/CEdevtools/nox/project recoverymirror.

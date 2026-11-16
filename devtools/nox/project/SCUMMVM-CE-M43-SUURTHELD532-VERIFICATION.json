@@ -1,0 +1,21 @@
+{
+  "status": "VERIFIED",
+  "scope": "Earned normal154 Br revival -> original road wins/normal healing ->155 source-guided Hraakvar EDUARD/ACCEPT award ->156 localTemple three paid resurrections ->157 five eligible necklaces bought/equipped. Resource preparation, not selected campaign-node or whole-engine completion.",
+  "source_commit": "e073e27e3e3",
+  "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed",
+  "source_contract": "L006 actor184 ACCE only unclaimed field51bit2; normal EDUARD narration precedes500 addition. No earlier Eduard/Jorgen/Vantra investigation completion claimed. Castle16 audience9-12/13-19 at23,11; Castle11 only19-20 dinner32,15, disabled arrival24,9 is not court.",
+  "result": "154 paidBr36 from43->7, road3x50 winBr62->11 then normal2heals/4MP->62; three24HP road win+20, reachesCastle11 with40gold. 155 normal500 ->540, field51 32->34. LocalCastle15/216 Temple07-13/14-20,23,11; three36 ->432/all6alive. Merchant15/168 stockindex6 armor18 MageNecklace+2 INT14/wt0/armor8, normalfive@8 ->392; savedgear lastpair1/18 for members1..5 confirmed. KatINT8 not equipped/refusal not tested.",
+  "routing_qualification": "Two Nobody refusals at inactive lower-floorarrival retained. NormalW9/W5 and11->15->11 refresh, actual schedules then corrected16dayaudience. SubsequentW2/15->16->15 shoprefresh and observedNPCmovement/blockdetour retained. No Engine change or failure claimed. No optional500repeat/cold suite.",
+  "evidence": {
+    "ce-native-acceptance528\\earned-modern\\hraakvar-source-reward532.json": "b6485869ffb63d79c2969b854ae7d387d035c25b89ee3a87d6bf788f524b9e8b",
+    "ce-native-acceptance528\\earned-modern\\suurt-local-three-resurrections532.json": "ac48ac73582a1114f03cd3ba6fca1c48509d6b65c56590fde9c3da443950e505",
+    "ce-native-acceptance528\\earned-modern\\suurt-five-necklaces-earned532.json": "7627e8d0d0ec37886fa51e022acae3a006a140d6b3418c9bd42f5414816b0dd4"
+  },
+  "cost": {
+    "builds": 6,
+    "game_cli": 23,
+    "focused_cli": 2,
+    "material_cli": 25
+  },
+  "next_action": "Complete one local armor/weapon/food preparation batch; continue earlier source-supported required campaign, no more premature Guild guard attempts."
+}
