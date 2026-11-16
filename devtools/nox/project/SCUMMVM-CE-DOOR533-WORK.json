@@ -1,0 +1,22 @@
+{
+  "status": "IN PROGRESS",
+  "blocker": "B-OPEN-RAW-DIFFICULTY",
+  "accepted_source": "e073e27e3e3",
+  "corrected_source": "7b467318947",
+  "failure": "Actual earned78/21,12 OpenLeft targets20,12; Cutter2 triggers unsupported interaction on raw difficulty17. Last observed pending modal/state, stderr and actual normal998 copied privately before stopping stalled Engine. No failed result counted as progression.",
+  "private_failure": "ce-native-acceptance528/earned-modern/forks/castle-door-lock-boundary533",
+  "contract": "SCUMMVM-CE-DOOR533-CONTRACT.md",
+  "correction": "Open-specific original loaded32-word table and raw byte threshold/index wrapping; Search0..10 unchanged; existing lock validator bounded v2 subset and opt-in native startup adapter.",
+  "original_cases": 36,
+  "original_oracle_sha256": "d106b08edc2085f0a68aa46c399f4917a21d503ed04bcd8df8ecfce7d1fc1ee6",
+  "source_uncertainty": "Authored TOWN1 slot40 difficulty254 and TOWN2/52 slot128 difficulty53 read outside original Open loaded resource. Inherited-memory trap data unresolved; no complete raw-door coverage claimed.",
+  "cost": {
+    "builds_started": 7,
+    "builds_completed": 6,
+    "game_cli": 27,
+    "focused_cli": 2,
+    "material_cli": 29,
+    "corrective_reruns": 0
+  },
+  "next_action": "Finish single isolated native-only build; run36 original/native attempts; normal load actual998, verify unchanged earned state and resume normal control route. No full suite/audio rerun."
+}

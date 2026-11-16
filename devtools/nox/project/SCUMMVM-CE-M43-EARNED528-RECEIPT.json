@@ -3200,7 +3200,7 @@
   "correction": "SCUMMVM-CE-NPC529-VERIFICATION.json",
   "last_checkpoint": 222,
   "cold_evidence": "ce-native-acceptance528/earned-modern/cold027.json",
-  "next_action": "Continue Castle78 paired wall/control, Arcane absent-key refusal/acquisition/passage, remaining pages and subsequent finite earned campaign; no milestone stop.",
+  "next_action": "Finish isolated533 native build and36-case focused lock comparison; resume nearest actual998, preserving earned Moat222 and seven-enemy victory. No campaign-prefix/audio-suite replay.",
   "current_source_commit": "e073e27e3e3",
   "current_executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed",
   "latest_earned": "Earned absent Moat refusal218; normal SearchRight/Cutter2 key116 pickup and repeat220. Normal OpenUp at54/38,15 opens38,14; actual steps38,14 then38,13, key retained and field24mask4 set,221. Actual cold027 preserves party/inventory/allquestfields/resources/sound/session/noassistance. First normal Down crosses38,14, next Down38,15,222. Source/exe unchanged. Actual return crossed one known231 cell17damage each; all six alive HP66/54/60/53/53/56,MP20/32/32/44/44/32,538gold272food. No Engine change/build/suite rerun.",
@@ -3236,5 +3236,7 @@
     "latest_earned": "142 firstnormalworldstep after actual141cold021, fullparty/questinventory/resources/session retained;horseparked persistence",
     "cold_evidence": "earned-modern/cold011.json",
     "local_full_ledger_sha256": "1055a6d0a99b86b6a95c1c6003f723d18a341512566d14e8ffd802157f188872"
-  }
+  },
+  "builds_started": 7,
+  "current_blocker": "SCUMMVM-CE-DOOR533-WORK.json"
 }

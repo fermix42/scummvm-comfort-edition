@@ -1640,10 +1640,10 @@
       "id": "inventory.11",
       "subsystem": "inventory",
       "behavior": "Lock skill tool outcome and door commit",
-      "implementation": "IMPLEMENTED",
+      "implementation": "PARTIAL",
       "verification": {
         "status": "IN PROGRESS",
-        "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement."
+        "scope": "Observed raw17 door unsupported on532. General source correction533 awaiting native build/focused/earned continuation; raw53/254 original inherited-memory table reads unresolved. Old scoped evidence retained."
       },
       "native_owners": [
         "engines/nox/native_inventory.h",
@@ -1658,11 +1658,14 @@
       ],
       "original_evidence": [
         "SCUMMVM-CE-INVENTORY-IMPLEMENTATION510.md:static known operation model/production ownership closure;existing verification and unknown dynamic producer/legacy scopes retained.",
-        "SCUMMVM-CE-INTEGRATION527-I3-VERIFICATION.json:bounded Engine joined integration/cold/nextinput only; broad row remains qualified; story.08 UNKNOWN unchanged."
+        "SCUMMVM-CE-INTEGRATION527-I3-VERIFICATION.json:bounded Engine joined integration/cold/nextinput only; broad row remains qualified; story.08 UNKNOWN unchanged.",
+        "SCUMMVM-CE-DOOR533-CONTRACT.md"
       ],
       "production_connection": "Shared Inventory/Party/SpellBook/EquipmentActions/SearchInput/World/BattleLoot owners through ordinary InventoryWindow/WorldInput and tactical482;known model reviewed510,broader workflow verification unchanged.",
       "fallback_dependencies": [],
-      "blockers": []
+      "blockers": [
+        "B-OPEN-RAW-DIFFICULTY"
+      ]
     },
     {
       "id": "inventory.12",
@@ -7944,9 +7947,9 @@
     },
     "inventory": {
       "known_required": 12,
-      "native_implemented": 12,
+      "native_implemented": 11,
       "verified": 1,
-      "partial": 0,
+      "partial": 1,
       "missing": 0,
       "unknown_required_rows": 0,
       "additional_unclassified_scope": 1,
@@ -8049,5 +8052,6 @@
     "source": "e073e27e3e3",
     "evidence": "SCUMMVM-CE-MOUNTED-TALK532-VERIFICATION.json",
     "scope": "Mounted generic Talk admission and original service picture127/238 restrictions; original12branches and actualearnedcold/mountedHELP/horse refusal/onfootopening/reboard; no broadrowpromotion"
-  }
+  },
+  "counts_note_door533": "inventory.11 downgraded IMPLEMENTED to PARTIAL after actual raw17 failure; aggregate counts reconciled."
 }
