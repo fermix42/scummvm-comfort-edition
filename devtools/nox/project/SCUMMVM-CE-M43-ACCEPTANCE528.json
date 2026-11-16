@@ -1466,7 +1466,7 @@
     },
     {
       "id": "lord-british-ankh",
-      "status": "NOT STARTED",
+      "status": "IN PROGRESS",
       "prerequisites": [
         "ring-vacous",
         "dark-key",
@@ -1499,7 +1499,11 @@
         "scoped audio/presentation",
         "actual earned verification criteria"
       ],
-      "earned_lineage": null
+      "earned_lineage": "New ->129 ->130 early TRAVEL/ANKH through normal mounted dialogue",
+      "source_qualifications": [
+        "Earlyordering explicitlyreconciled:immutableL01D actor0 TRAVEL unconditional; ANKH checks onlyfield58bit16absent then sets58bits16/8 andgrants157. Historical lateRing/Jewels/Shadow predecessorlist is not mechanical itemawardgate. Earlylegitimateacquisitionallowed; allselectedlatequests andLordBritishpostShadowopening/ADVI/portal requirementsretained. No flagsinjected/cleared andno advicecoverageclaim fromunrequestedresponses."
+      ],
+      "earned_progress": "Actual item157qty1 andfield58=24 earned; normalrepeatrefusesduplicate. Earlyopening/TRAVEL/reward/repeat saved. LatepostShadowopening andselectedcold/plane acceptance remain required."
     },
     {
       "id": "plane-transport",

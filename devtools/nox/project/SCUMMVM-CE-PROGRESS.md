@@ -1,3 +1,7 @@
+# Acceptance528 early British Ankh130 - IN PROGRESS
+
+SourceL01D TRAVELunconditional/ANKHonly58bit16absence explicitlyreconcileshistorical latepredecessorordering; allselectedlatequests/Shadowopening remainrequired. NormalmountedKeep65visit earns157qty1/58=24,130hash ecf5dbe1780db6dfd011de2bf03b882b250a6fb2cebc5e5ee40031d2b00f0a5a3. RepeatANKHnormallyrefusesduplicate;gold241food900/all6fullHPMP. Native532/audio473unchanged,6builds/20gameCLI+2focusedCLI,3/60selectednodesVERIFIED/endingunverified. SourceVeylanRusty route next; canonicalconversion/CEdevtools/nox/project recoverymirror.
+
 # Mounted Talk532 focused correction VERIFIED - campaign IN PROGRESS
 
 Original12sourcebranches and actualearnednormal998cold020/mountedErdanHELP/role16servicerefusal/onfootopening/reboard pass. Sixbuilds,20gameCLI+2focusedCLI;onecorrectivererun. Singleheadercorrection e073e27e3e3,exe345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed;0warnings/errors2m52.45.128gold241food900/all6fullHPMP,129mountedreadydepartKnaerwood. Preserved531/audio473/failedT/preinput998/noearnedprefixreplay. ContinueBritish/Veylan source route;3/60selectednodesVERIFIED/endingunverified. Canonicalconversion/CEdevtools/nox/project recoverymirror.

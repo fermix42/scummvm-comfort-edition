@@ -2037,6 +2037,16 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot129.g0.ce-achievements.json": "6837d2291df925337f15483fb902fa92672e123fdf12d2c1123fa0d5385b449a"
       },
       "process": 20
+    },
+    {
+      "label": "lord-british-early-ankh-earned532",
+      "slot": 130,
+      "parent": "da313f07b1f8edf848b8f272fa4f0a134184a222f1929b115e9389448d4bc238",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot130.g0": "af6ee8441871bcc3a97e1889505fb01ce817d6514256335d417c0dc79810fd2f",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot130.g0.ce-achievements.json": "7cf8dd298486a528eb8548f731d51ff26471a7b5d516397430643f834b87afe4"
+      },
+      "process": 20
     }
   ],
   "correction": "SCUMMVM-CE-NPC529-VERIFICATION.json",
@@ -2051,5 +2061,5 @@
   ],
   "current_source_commit": "e073e27e3e3",
   "current_executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed",
-  "latest_earned": "129 mountedTalk/servicegate and normalonfoot/reboard,128ErdanHELP100gold;all6fullHPMP,gold241food900"
+  "latest_earned": "130 earlyLordBritish item157qty1/field58=24,normalrepeatrefusal;lateopening/cold/planeacceptance pending"
 }

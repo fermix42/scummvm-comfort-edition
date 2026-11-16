@@ -63,7 +63,8 @@
     126,
     127,
     128,
-    129
+    129,
+    130
   ],
   "builds": 5,
   "process_launches": 19,
@@ -109,5 +110,6 @@
   "inn120": "Actual10gold Inn48/208 normalT/Yes/R/Yes to17,24, all6HP71/63/67/62/62/64,MP8/20/20/32/32/20,gold299food900,hour06.120hash2ac3b29c841d1fb45083bbd4f42768aea30f6c317f4372e34875b8338db450096. No sourcechange/build/launch after531; normaldeparture next. Correction:117actual450gold includes82treasure, notpre-chest368.",
   "horse122_123": "121fullpartyCastle11arrival/footappearance250/object255,299gold900food;122normalvendor11/80 role6 paid154,145gold/onfootfalse/appearance127. NormalRight14,24->15,24 mounted, Xdismount/Breboard/Xpark allsuccessful;123onfoot withownedhorse15,24 retained,HP/MP/foodunchanged. Hash122f0d89bd97f0fe17746ead242c96d6323798f3274dda8295281d16b1156dc9289,12308b9189de1080479aa9219bedc205b24906eca6b70a317aa92e61e71333eb0e8c. Native531unchanged/no build/launch. BayportSW9,39actualcloseddoor wasopenednormally beforeSurface departure; earlier24,39wall/closed9,39 refusal preserve no Engine defect.",
   "yvviar124_125": "First early opening refusal preserved; normal W3 and floor reentry activate daytime schedule. Fresh NPC15,20/player15,21 TalkUp reaches prompt; CULT/STOP changes canonical fields55/56 32/0->96/1. No letter owned.125 normal MagicMissile0 and Illuminate57 purchases8each,gold145->129,all6fullHPMP. No engine source/build/launch.",
-  "mounted532": "126mountedSurface,normal2x70HProadwin,actualKnaerwoodroute998. MountedT fatal beforedirection preserved; generaloneheadercorrection,12originalbranchcases,onecleanbuild,actual998cold020sameparty/inventory/allfields/resources/sound/session.127sourcebinding,128normalmountedErdanHELP141->241gold/field49=2.129role16Grumpybarrefusal/originalNOHORSINGAROUNDHERE,unchangedresources/quest; normalX/onfootopening/NO/BYE/B retained. Actor88bartendernotrangeTrainer; no trainingperformed.6builds/20gameCLI+2focusedCLI,532 sourcee073e27e3e3/exe345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed."
+  "mounted532": "126mountedSurface,normal2x70HProadwin,actualKnaerwoodroute998. MountedT fatal beforedirection preserved; generaloneheadercorrection,12originalbranchcases,onecleanbuild,actual998cold020sameparty/inventory/allfields/resources/sound/session.127sourcebinding,128normalmountedErdanHELP141->241gold/field49=2.129role16Grumpybarrefusal/originalNOHORSINGAROUNDHERE,unchangedresources/quest; normalX/onfootopening/NO/BYE/B retained. Actor88bartendernotrangeTrainer; no trainingperformed.6builds/20gameCLI+2focusedCLI,532 sourcee073e27e3e3/exe345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed.",
+  "british130": "Normalmountedroute Surface148,185->Keep8/65, actualBritish24,20. SourceunconditionalTRAVEL/ANKH earlyordering reconciledwithoutwaivinglatequests. Normaldialoguegivesitem157qty1/field58=24,130 hash ecf5dbe1780db6dfd011de2bf03b882b250a6fb2cebc5e5ee40031d2b00f0a5a3. NormalrepeatANKHrefusesduplicate, resourcesunchanged/gold241food900/all6fullHPMP. LateShadowopening anddesignatedcold/planecriteriaremain. Source532unchanged/nobuildlaunch."
 }
