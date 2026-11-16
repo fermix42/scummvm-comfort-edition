@@ -2963,22 +2963,44 @@
       },
       "process": 26,
       "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
+    },
+    {
+      "label": "earned Frigate Bayport approach202",
+      "slot": 202,
+      "parent": "136cd0c1d22966583ea548fb3efb7a4cb538b358a917797145c7c37620d5de5a",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot202.g0": "b9c8788207ac3a55d97de37be1a5beb62258969be0e0fe2e2aa6160d958c553b",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot202.g0.ce-achievements.json": "5d4acc8478e0b003d25ec2bb9028c2d6d05317a5d47382f46e6171806dadfc91"
+      },
+      "process": 26,
+      "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
+    },
+    {
+      "label": "earned Kat Bayport resurrection203",
+      "slot": 203,
+      "parent": "c23ab6d7de692c6faa873736dfc36c5aeed5af4212256c5a7291f9ffcac8b32e",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot203.g0": "61144ed933f50324f4f5e829e6495072292e2c4a05ddb372b8855ed4767ce2c2",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot203.g0.ce-achievements.json": "bf0eb8030d6979b541da4358057d87e592bfc295b1643c06015065001ee3a79e"
+      },
+      "process": 26,
+      "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
     }
   ],
   "correction": "SCUMMVM-CE-NPC529-VERIFICATION.json",
-  "last_checkpoint": 201,
+  "last_checkpoint": 203,
   "cold_evidence": "ce-native-acceptance528/earned-modern/cold024.json",
-  "next_action": "Source52step frigate route113145 then normal skiff/shore/Bayport Temple/Inn/Guild",
+  "next_action": "Normal Inn48 full recovery, owned caster Staffs, then source-derived Guild branch",
   "current_source_commit": "e073e27e3e3",
   "current_executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed",
-  "latest_earned": "195 eight-pirate victory retained Kat death; 196 normal camp/five heals, five healthy.197 nine-pirate victory344gold.198 owned skiff stored frigate.199 actual Space-unready/three wooden shields.200 seven-pirate naval victory five alive410gold479food. Misaligned world shots/blocked moves left five critically wounded; branch preserved before normal200 reload. Legal Left/Up to127117 aligned cannon against126118 ship; actual FLeft then H restored mana24/24/33/33/24, food350.201 earned save retains Kat dead, fiveHP71/68/62/70/73. No Engine changes/builds.",
+  "latest_earned": "201..202 actual52step Frigate return113145; four98HPsea enemies won noHP/MPcost,food350->386. Frigate115145, normalstoredskiffX, threeRight to118145/232, Xfoot/sixstepBayportentry49. No additional damage. Priest schedule source11AM..23PM (not earlier9AM assumption); normalW/reentrycounter37,37, ordinary paidKat resurrection76gold334,203. Allsixalive HP83/71/68/62/70/73 MP20/24/24/33/33/24 food386. Sourceapproach includes boundedNPCblockedroute/replan and ordinaryLeaveYes prompt. No Engine defect/build claimed.",
   "historical_receipt_baseline": {
     "executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4",
     "source_binding": "SCUMMVM-CE-CANNON530-VERIFICATION.json",
     "qualification": "Initialreceiptbaseline only; percheckpoint/current identities control later progression."
   },
   "source_commit": "e073e27e3e3",
-  "local_full_ledger_sha256": "397ddfd89a6246d1689c4fc37fd3341390a6f4af83f918f55f28cc3e5896380d",
+  "local_full_ledger_sha256": "32865fcb58a94f399e126193c063a7aeb6012bb22ef0fbc0723041e050c950ba",
   "latest_scoped_evidence": {
     "status": "VERIFIED",
     "scope": "Actual141cold021/142normalnextstep retain quest/inventory/party/resources/sound/session and parkedhorse; not Rustydoorpositivecrossing or fullcampaign acceptance",
@@ -2995,9 +3017,9 @@
     "SCUMMVM-CE-M43-ARCHUS532-WORK.json": "d67b22e38777e6b33dfa950ae8b3b3143179edeb314f84932c0fbf67b1be4e0a",
     "SCUMMVM-CE-M43-ROYAL532-VERIFICATION.json": "c0912514074864c657a8cfe93e14ade54f08093f7e455ac31386ae3658dfa4c7",
     "SCUMMVM-CE-M43-NOURTHELD-RECOVERY532-VERIFICATION.json": "a7d86544f25de761a7441526d69221e04aef5efaf6c633342bff5d28d34cd426",
-    "SCUMMVM-CE-M43-SCALES532-WORK.json": "4758af0bbf54fc2fa3e40bcbcefa203a82c88045bd653a899b8fdec49c24be93"
+    "SCUMMVM-CE-M43-SCALES532-WORK.json": "b28bff221280e003c67536fc5f84c8cbf0cdea9c2b515503d418d2042bc69754"
   },
-  "private_ledger_sha256": "397ddfd89a6246d1689c4fc37fd3341390a6f4af83f918f55f28cc3e5896380d",
+  "private_ledger_sha256": "32865fcb58a94f399e126193c063a7aeb6012bb22ef0fbc0723041e050c950ba",
   "superseded_current_aliases_royal532": {
     "last_checkpoint": 44,
     "latest_earned": "142 firstnormalworldstep after actual141cold021, fullparty/questinventory/resources/session retained;horseparked persistence",

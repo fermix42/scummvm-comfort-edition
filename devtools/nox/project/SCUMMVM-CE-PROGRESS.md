@@ -1,3 +1,7 @@
+# Acceptance528 earned Bayport return/resurrection203 - IN PROGRESS
+
+201..202 actual52step Frigate return113145; four98HPsea enemies won noHP/MPcost,food350->386. Frigate115145, normalstoredskiffX, threeRight to118145/232, Xfoot/sixstepBayportentry49. No additional damage. Priest schedule source11AM..23PM (not earlier9AM assumption); normalW/reentrycounter37,37, ordinary paidKat resurrection76gold334,203. Allsixalive HP83/71/68/62/70/73 MP20/24/24/33/33/24 food386. Sourceapproach includes boundedNPCblockedroute/replan and ordinaryLeaveYes prompt. No Engine defect/build claimed. Five/60nodesVERIFIED;endingunverified.6builds/26gameCLI+2focused=28. ContinueInn48/Staffs/Guild. Canonicalconversion / CEdevtools/nox/project mirror.
+
 # Acceptance528 earned boat recovery/camp201 - IN PROGRESS
 
 195 eight-pirate victory retained Kat death; 196 normal camp/five heals, five healthy.197 nine-pirate victory344gold.198 owned skiff stored frigate.199 actual Space-unready/three wooden shields.200 seven-pirate naval victory five alive410gold479food. Misaligned world shots/blocked moves left five critically wounded; branch preserved before normal200 reload. Legal Left/Up to127117 aligned cannon against126118 ship; actual FLeft then H restored mana24/24/33/33/24, food350.201 earned save retains Kat dead, fiveHP71/68/62/70/73. No Engine changes/builds. Five/60 nodes VERIFIED; ending unverified. Six builds/26gameCLI+2focused=28. Continue source route Bayport/Guild; no current-strength Drake retry. Canonical conversion / CE devtools/nox/project mirrors.
