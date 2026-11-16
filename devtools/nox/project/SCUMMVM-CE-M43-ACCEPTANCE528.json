@@ -456,7 +456,7 @@
     },
     {
       "id": "moat-key-door",
-      "status": "NOT STARTED",
+      "status": "IN PROGRESS",
       "prerequisites": [
         "castle-control-wall"
       ],
@@ -481,7 +481,13 @@
         "scoped audio/presentation",
         "actual earned verification criteria"
       ],
-      "earned_lineage": null
+      "earned_lineage": "NormalNew0 ancestry through actual218; all retained defeats/reloads disclosed in receipt",
+      "earned_absence_refusal": {
+        "checkpoint": 218,
+        "report": "SCUMMVM-CE-M43-CASTLE532-WORK.json",
+        "private_proof_sha256": "14b2dcac69a90370fa3a538021d9786907aa9f72db583c6e0baad997d72e0285",
+        "qualification": "Acquisition/positive door/cold not yet earned."
+      }
     },
     {
       "id": "arcane-key-door",

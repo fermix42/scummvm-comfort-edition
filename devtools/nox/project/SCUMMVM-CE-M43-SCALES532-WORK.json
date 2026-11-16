@@ -63,7 +63,7 @@
     "focused_cli": 2,
     "material_cli": 28
   },
-  "next_action": "Complete Frigate17961 approach, sourceSkiff/footCastle17762 entry, actual Castle78control/Moat116/Arcane115/pages contracts; no currentstrength Guild/Drake retry",
+  "next_action": "Normal paidInn58 fullrest, then sourceMoatkey116/Search/repeat/actualdoorpassage/cold; continuecontrols/Arcane/pages without stopping.",
   "first_drake_attempt": {
     "status": "IN PROGRESS",
     "result": "Normalsourcepath98->99->100->101withoutdamage. At101/51,28actual10full191HPDrakes118level5 admitted; normalTactical/ownedspellcasts endedactualdefeat. NoScalesaward/falsevictory. Completefailedbranchretained.",
@@ -165,5 +165,10 @@
     "status": "IN PROGRESS",
     "scope": "Earned recovery/aboard rest and source transit planning only; castle objectives remain unearned",
     "actual": "212 retained first50/five98/sixpirate road wins; shore13696Camprefused, Right13796dry normalH restores84MP,food388->304, all6fullHP. Post212 one50/sixpirate temporary wins thenninepirates14583:noFlee128refusal/nocharge, actual low-mana physicaldefeat preservedfork. Normal212restore213 excludesbothlater temporarywins andtheirXP/gold/food. Label213 fullmana isonly75pctCampthreshold:18/24/24/33/33/24, notfullInnMP. Filteredgang/ship clearance4/3 dryroadplansNoRoute. Two87returncontact wonnoHP/MPcost; ownedSkiff129110->126112sixpirateinterception wonall6fullHP,Gold410->454,90MPspent. LastDown126113/B storesSkiff/Frigate119, fourshieldsnormallyreadied214. Waterfoesnone; actualHaboard215 advances8h andrestores90MP,Food304->214,all6HP83/71/77/70/70/73 MP18/24/24/33/33/24. Read-onlyoriginalocean2x2 query finds reachableFrigate17961 threecellsfromNourtheld17762; live-clearance4 plan141steps avoidsforcedlongshorefootroute. Sailingunderway. No Enginechange/build/suite; noGuild/Scales/castlekey/pagesawardclaimed."
+  },
+  "castle_branch218": {
+    "status": "IN PROGRESS",
+    "report": "SCUMMVM-CE-M43-CASTLE532-WORK.json",
+    "scope": "Actual Moat missing-key refusal; no Scales/Guild completion."
   }
 }

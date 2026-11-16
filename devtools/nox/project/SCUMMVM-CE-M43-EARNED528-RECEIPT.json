@@ -3117,22 +3117,55 @@
       },
       "process": 26,
       "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
+    },
+    {
+      "label": "earned direct sea Nourtheld approach216",
+      "slot": 216,
+      "parent": "713e2823f21f5953bea593ee2de0308e25e8dda96c2ffc2406590c6e7e732468",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot216.g0": "e20f1cdeaf82daac8e8932d487685c0b2b1f763aa96ba76a5feae0bbf130ce1d",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot216.g0.ce-achievements.json": "cbb8c2b4994625d78301a8c511377f0ecc6aefaf1ad2b080a103cd3d7ce7a6af"
+      },
+      "process": 26,
+      "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
+    },
+    {
+      "label": "earned full party Nourtheld direct castle arrival217",
+      "slot": 217,
+      "parent": "0dc1cdddb0d38996181f9e45a3f28e2b6f58eb81e59ecf281f1fa8e09a911ecb",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot217.g0": "12967646a2d4252389c62aee8581bf6a3335aaea8a7d88a6adc24b8ba051b5d4",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot217.g0.ce-achievements.json": "c06a9ef97408443145db09a5305ba6006b8f41bdfa7aa56d5954065d322c2538"
+      },
+      "process": 26,
+      "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
+    },
+    {
+      "label": "earned actual Moat key absence refusal218",
+      "slot": 218,
+      "parent": "23cd164efbce166ede88e35b9d743eb254f25af950865229bcc496beff16604d",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot218.g0": "c7b6c199ecf854cf78ee7990666d825deb98a43661dba8d8f3c7c61ad897479c",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot218.g0.ce-achievements.json": "85af5c52ee26033a7517a4360579fcb45d8775c60932d5da75706a08afcb79d6"
+      },
+      "process": 26,
+      "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
     }
   ],
   "correction": "SCUMMVM-CE-NPC529-VERIFICATION.json",
-  "last_checkpoint": 215,
+  "last_checkpoint": 218,
   "cold_evidence": "ce-native-acceptance528/earned-modern/cold024.json",
-  "next_action": "Complete Frigate17961 approach, sourceSkiff/footCastle17762 entry, actual Castle78control/Moat116/Arcane115/pages contracts; no currentstrength Guild/Drake retry",
+  "next_action": "Normal paidInn58 fullrest, then sourceMoatkey116/Search/repeat/actualdoorpassage/cold; continuecontrols/Arcane/pages without stopping.",
   "current_source_commit": "e073e27e3e3",
   "current_executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed",
-  "latest_earned": "212 retained first50/five98/sixpirate road wins; shore13696Camprefused, Right13796dry normalH restores84MP,food388->304, all6fullHP. Post212 one50/sixpirate temporary wins thenninepirates14583:noFlee128refusal/nocharge, actual low-mana physicaldefeat preservedfork. Normal212restore213 excludesbothlater temporarywins andtheirXP/gold/food. Label213 fullmana isonly75pctCampthreshold:18/24/24/33/33/24, notfullInnMP. Filteredgang/ship clearance4/3 dryroadplansNoRoute. Two87returncontact wonnoHP/MPcost; ownedSkiff129110->126112sixpirateinterception wonall6fullHP,Gold410->454,90MPspent. LastDown126113/B storesSkiff/Frigate119, fourshieldsnormallyreadied214. Waterfoesnone; actualHaboard215 advances8h andrestores90MP,Food304->214,all6HP83/71/77/70/70/73 MP18/24/24/33/33/24. Read-onlyoriginalocean2x2 query finds reachableFrigate17961 threecellsfromNourtheld17762; live-clearance4 plan141steps avoidsforcedlongshorefootroute. Sailingunderway. No Enginechange/build/suite; noGuild/Scales/castlekey/pagesawardclaimed.",
+  "latest_earned": "216 directFrigate17961:141steps, seven98HPsprite152 Sharks (earlierpiratewordingcorrected) andseven98/137Pirates wonbycannonsall6fullHP/noMPcost;Gold527Food272. X/twoSkiffsteps17963/X/threefootsteps entersCastle54/22,38; shared17approachdamage retained/unclassified. SixnormalKatLesserHeals12MP restorefullHP217. SourceMoatrefusalroute requiresordinarylocks plusone231cell38,35/17damage; initiallyconservativeroutesNoRoute, no Enginegap. Actualsingle50HPOpponent130 at54/26,38 wonnoHP/MPcost; actualfour98HPcreatures78/38,25 wonall6alive/fiveFireball+1casts75MP/oneKatheal2MP,Gold552. Normalstair78->54, Cutterfirsttryopens37,19lock(noHPcost), ordinary36,17door, reaches54/38,15. SourceMoatdoor[38,14,59,18,24,4], no116/field24bit4=0. ActualOpenUp shows No key or pick that fits; afterack party/inventory/allquestfields/gold/food/position unchanged.218 bindsnormalSave/source/EXE/privateproof/screenshot. Moatpositive/key/cold andothercastlecasesremainunearned; no castle camping(Type>=4except50/52). SourceInn58keeperworks10-19/20-23; normalW3 thenInnroute forfullrecoverybeforekeycollection.",
   "historical_receipt_baseline": {
     "executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4",
     "source_binding": "SCUMMVM-CE-CANNON530-VERIFICATION.json",
     "qualification": "Initialreceiptbaseline only; percheckpoint/current identities control later progression."
   },
   "source_commit": "e073e27e3e3",
-  "local_full_ledger_sha256": "a48955030bca16bd8820b98bcd99dfda47b71a7870727670b8e2ca9fcf6728fb",
+  "local_full_ledger_sha256": "2dbc07c094b8b82c3253827d75f6e94d3299e8366fd108941e52e9991964e7cb",
   "latest_scoped_evidence": {
     "status": "VERIFIED",
     "scope": "Actual141cold021/142normalnextstep retain quest/inventory/party/resources/sound/session and parkedhorse; not Rustydoorpositivecrossing or fullcampaign acceptance",
@@ -3149,9 +3182,10 @@
     "SCUMMVM-CE-M43-ARCHUS532-WORK.json": "d67b22e38777e6b33dfa950ae8b3b3143179edeb314f84932c0fbf67b1be4e0a",
     "SCUMMVM-CE-M43-ROYAL532-VERIFICATION.json": "c0912514074864c657a8cfe93e14ade54f08093f7e455ac31386ae3658dfa4c7",
     "SCUMMVM-CE-M43-NOURTHELD-RECOVERY532-VERIFICATION.json": "a7d86544f25de761a7441526d69221e04aef5efaf6c633342bff5d28d34cd426",
-    "SCUMMVM-CE-M43-SCALES532-WORK.json": "2eee90238e87b3a0f3d6110689c7f7c658577d66e3503a653833029d826bf79b"
+    "SCUMMVM-CE-M43-SCALES532-WORK.json": "0ae8239c7e75489373b0604738e1e79d35ccd3a81e348f47832e978cd82b9645",
+    "SCUMMVM-CE-M43-CASTLE532-WORK.json": "90137cfe1e6b006921889230fe02bfcc3e04b066c7ac9d22d32d6190f4ebed17"
   },
-  "private_ledger_sha256": "a48955030bca16bd8820b98bcd99dfda47b71a7870727670b8e2ca9fcf6728fb",
+  "private_ledger_sha256": "2dbc07c094b8b82c3253827d75f6e94d3299e8366fd108941e52e9991964e7cb",
   "superseded_current_aliases_royal532": {
     "last_checkpoint": 44,
     "latest_earned": "142 firstnormalworldstep after actual141cold021, fullparty/questinventory/resources/session retained;horseparked persistence",
