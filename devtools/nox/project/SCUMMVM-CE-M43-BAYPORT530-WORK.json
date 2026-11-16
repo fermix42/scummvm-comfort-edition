@@ -43,7 +43,15 @@
     106,
     107,
     108,
-    109
+    109,
+    110,
+    111,
+    112,
+    113,
+    114,
+    115,
+    116,
+    117
   ],
   "builds": 5,
   "process_launches": 19,
@@ -54,7 +62,7 @@
     "ce-native-acceptance528\\earned-modern\\wrapper-recovery.json": "6a10ca459214ec33acf71751b4b744779e36ae3f60601175a309d39027f26de9",
     "ce-native-acceptance528/earned-modern/earned-partial-recovery530.json": "e6febeb06a275d3e3abec6f25f961a8adf0a93ed9f984627e050a839dfae55c1"
   },
-  "next_action": "Continue openedwall route/sourceOgre guards/Shaman, actualrest asneeded; no boss/endingclaim.",
+  "next_action": "NormalreadyownedMagicStaffNox/KnifeHero; earnedcaveexit109,178 -> sourceearlyequipment/quests. No new build/launch. All60selectedcriteria remain,3VERIFIED,endingunverified.",
   "squid_fork": "ce-native-acceptance528/earned-modern/forks/squid-seven-first-defeat",
   "failures": [
     "Seven full191HP range15 Squids defeat; normal74restored, no unchanged retry.",
@@ -76,5 +84,6 @@
   "early_resources": "104 SearchRight earned book20;105 normal Gem104 sale353:13->366gold.106 gloves4+boots4+Buckler13, gold345; actual normal inventory returns Axe12 toKat, gloves/bootsKat, BucklerHero.107 Temple paid36each (source level3 table, earlier26 quote was wrong), Kat71/8MP+Cutter63/20MP restored; all6fullHPMP, gold273food450. No build/launch.",
   "early_spells": "108 normalCastle15merchant168 buyplainFireball2 for17, readyglobalshortcut3/INT14;gold256. Actual13,22TalkLeft overcounter,merchantwanders11,21..22;firstTalkatstale11,21 returnedNobody,nomutation/defect. Road2x24HPHooligans actualwin, normalCutterhealKat61->71,cost2MP;109gold262,all6live. NaturalearnedKatdistance2Attack24->0proof retained. Secondroadcontactat116,184 actual3x24Hooligans, battleongoing.",
   "early_route_correction": "134,176 is a different UM97 entrance ending at130,191->104. Source-only route review identified intended Orc entrance109,178 and first reachablelever131,170 approached131,171. No earned cave combat/lever claimed. Offline projected source starts were planner memory only,never Engine/save writes. Return toSurface and correct entrance next. Natural second3x24Hooligan win raisedgold262->281,noHPMPchange; nolevelpending. Route pending-index replay after firstbattle was invalid because encounter preceded movement; freshactualsave replanning corrects it,no Engine defect. Actual111 label firstlever is premature:131,170 is paired wallstate50,notcontrol. OUprefused; retainedsource tablesunchanged. Truecontrol122,160 picture116state49 follows wallrecord. Source World.open/toggleControl uses precedingwall; sourcecontract corrected before proceeding, no gate/questaward claimed.",
-  "orc_progress": "Actual109,178 entry, normalCutter lockpicking opens128,177 gate,2picksremain. IigniteslastTorch.111label premature wallOrefusal unchanged qualified. ActualO Eastfrom121,160 togglescontrol122,160 116/49->115/48 andwall131,170 state50->254. Normalroute meets actual3full70HP144OrcGuards at120,160; CutterC3 andHeroC3 spend10MPeach,all3killed; all6fullHP,gold288->304. Actualadmission andcasts retained; no source/build/process change."
+  "orc_progress": "Actual109,178 entry, normalCutter lockpicking opens128,177 gate,2picksremain. IigniteslastTorch.111label premature wallOrefusal unchanged qualified. ActualO Eastfrom121,160 togglescontrol122,160 116/49->115/48 andwall131,170 state50->254. Normalroute meets actual3full70HP144OrcGuards at120,160; CutterC3 andHeroC3 spend10MPeach,all3killed; all6fullHP,gold288->304. Actualadmission andcasts retained; no source/build/process change. 112normalcamp restoresCutter15/Hero15MP,food424. Next2full70HPOrcGuards at123,172 killedoneCutterC3,allHPunchanged,gold311. Actualnext4full70HPOrcGuards at131,169; sourcearmor0 supports conservingcasters with KatAxe/normalheals andoneHeroFireball. No Ogre/Shamanvictory claimed. Next4OrcGuards at131,169 wonwithoneHeroC3/normalCutterheals,Kat66. Next3Guards at131,168 physical/heal win113,Kat37->normalBridgitheal68. Bothactual2x70HPOgrepairs at130,168 and130,167 defeatedphysically;114retainsall6live,Kat71,Allu50,Nox14MP,otherHPfull,gold331. NormalKatC0healsAllu50->64,cost2MP;9normalretreatsteps131,175 forcamp beforeShaman. No guardedprefixreplay.",
+  "orc_finish": "115label prepared is qualified:Shamanfollowed131,174adjacent;Hcamprefused/resourcesunchanged. ActualnormalUpadmittedoriginal2Ogres70+Shaman256. Focus3castsShaman256->7,oneOgrealso killed; Allu41healednormally; fourthAlluC3killsShaman,remainingOgrephysicalwin. All6alive,116gold331->368,savehash30a9d122d5d8995579d905122d02f5b7532d007d60b9c1f108235ae046b29243c. No summon admitted/no injectedoutcome/no retry. SubsequentnormalKithealAllu/campnowallowed restoresMP6/15/15/24/24/15,food424->342. Additional2guards enroutechests won2normalC3. Fixedchest130,162 actualSearchbook3; random131,162 initialtrapCutter63->46,oneY/2retry opens; normalA takesall.117KithealCutter46->63,all6fullHP,gold368food342,savehash9245a8bd7b360384343584899e543a85b61ff67ca07e64cb2907debbc9bd15082. Book3quantity2; +1Recurve24 alreadyappearsin116bossloot;117addsIronShortsword19. ExistingunreadyMagicStaff23predatesplainbook2(slot22vs24); equipnowratherthanleaveunused. Inspectinventory tool rows report69quantity4/68quantity1; worldfield33 aftergatewas2, do not conflate these readouts."
 }

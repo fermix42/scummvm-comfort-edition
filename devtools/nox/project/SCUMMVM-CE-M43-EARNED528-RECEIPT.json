@@ -1867,6 +1867,56 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot112.g0.ce-achievements.json": "b19bfd7b7fcabcfe8931b246b3d32f766cf94670d9889da7cf08c31a280d26df"
       },
       "process": 19
+    },
+    {
+      "label": "orc-gate-guards-cleared531",
+      "slot": 113,
+      "parent": "ac71856023edf32fccaea19dd5f623969fc7f39139169607953b5ed2c92f2a1b",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot113.g0": "9c7363b7ba295c088f071edd4d2ee48bccff404b061dcf13c38fbfc2148ac8be",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot113.g0.ce-achievements.json": "a7cb6e39104a5292bb13e1d5efe7626cc915efcb08b1aaa9c3b02d42d9b5b269"
+      },
+      "process": 19
+    },
+    {
+      "label": "orc-ogre-pairs-cleared531",
+      "slot": 114,
+      "parent": "954a0244022e435dffb65150a69ffaf08ce26e7cab975f1350b76584c97d504a",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot114.g0": "c1aab048da8300cb971e1ef5549a4086ae58b5fbce26a83cd0fd08279910b4d8",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot114.g0.ce-achievements.json": "4f745ff4da190c69fafeef33211a9f6cd22e43ec8cb40b7524d09c42ad7a96fe"
+      },
+      "process": 19
+    },
+    {
+      "label": "orc-shaman-prepared-earned531",
+      "slot": 115,
+      "parent": "999a7f73e07cceba5ac8f74fde73e8d941668eef40552d25467401ae5b1c9af3",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot115.g0": "d8bc9de61356452bcb0bec9eb057072b2137e184cc3437d4801961886cdf07c1",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot115.g0.ce-achievements.json": "05497d27b7045e6888077e96f0cd8c5da6861289750252a42998cce07b98720a"
+      },
+      "process": 19
+    },
+    {
+      "label": "orc-shaman-earned-victory531",
+      "slot": 116,
+      "parent": "b0302559a9217b55036472097e8e743725fb863351bbd50670ead6bdf821be89",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot116.g0": "a507ce635ba722f6db2517f268e7445d4942a4e7ebe1c89acb444e23422159e3",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot116.g0.ce-achievements.json": "25a92440a539716abd6bc50407947649c55fdc5a5379abd09c9f06404d09ecfa"
+      },
+      "process": 19
+    },
+    {
+      "label": "orc-shaman-rewards-earned531",
+      "slot": 117,
+      "parent": "30a9d122d5d8995579d90512d02f5b7532d007d60b9c1f108235ae046b29243c",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot117.g0": "97e8267548804bb1aa7ca82aea299705b87c5cb68840e294add00f9a69635c47",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot117.g0.ce-achievements.json": "42970b2044bacd30b3e04ffbf02dcaf5ae66bde490445eada0cf13b09b21a0dc"
+      },
+      "process": 19
     }
   ],
   "correction": "SCUMMVM-CE-NPC529-VERIFICATION.json",
