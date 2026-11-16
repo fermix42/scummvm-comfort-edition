@@ -1,3 +1,11 @@
+# B-MELEE-PACKED-RANGE retired within scoped531 evidence - VERIFIED
+
+General helper now preservespackedrangeformeleyandrangedhands;12originalAttackcasesmatchallrecords/RNG/credit/pendingroundtrip. Separate5thnative-onlybuild0warnings/errors,sourceb9faa45cc63. Actual102cold019sameparty/inventory/fields/resources/sound/session;103newsourcebinding. COMBAT531-VERIFICATION scopesclosure. Naturalearnedrange2inputcoveragepending;nooptionalbattle/prefixreplaytoforceit,combat.04stillPARTIAL/INPROGRESS. Bothfocuseddriverqualificationsretained. Continueearnedcampaignusingcorrected531.
+
+# B-MELEE-PACKED-RANGE - IN PROGRESS
+
+Original Attack DB54..DB5B passes packed per-hand range even for kind0 melee; DCC8 is prompt only. Native BattleTargets::hand forced1 for melee despite earnedAxe range2. Twelve focused originalCPU cases prove both hands atdistance2 plus ordinary/unavailable/ranged controls. General correction and focused existing-validator subset prepared; one separate-output native-only build started. Preserve102 and all old earned deaths/wins; no scene-specific bypass or injected state. COMBAT531-WORK binds evidence. Combat.04 remains PARTIAL/IN PROGRESS.
+
 # NPC529 viewport-exit correction - VERIFIED within demonstrated failure
 
 B-NPC-VIEWPORT-EXIT retired by general bounded destination policy; same earned36 and original blocked-step/Open inputs reach48/38,33. Save37/cold010/same clean owner/first subsequent icon pass. One corrective rerun; two justified builds including diagnosis,10CLI launches total528. Verification receipt SCUMMVM-CE-NPC529-VERIFICATION.json. All-direction policy is general; earned scenario proves North only. No broad subsystem promotion/original scratch-alias equivalence. Continue earned Bayport route; no accepted suite rerun.

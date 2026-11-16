@@ -1801,7 +1801,8 @@
         "engines/nox/native_quick_battle.h"
       ],
       "original_evidence": [
-        "SCUMMVM-CE-INTEGRATION527-I3-VERIFICATION.json:bounded Engine joined integration/cold/nextinput only; broad row remains qualified; story.08 UNKNOWN unchanged."
+        "SCUMMVM-CE-INTEGRATION527-I3-VERIFICATION.json:bounded Engine joined integration/cold/nextinput only; broad row remains qualified; story.08 UNKNOWN unchanged.",
+        "SCUMMVM-CE-COMBAT531-VERIFICATION.json:sharedpackedrangebothhands,12originalcompleteAttackcases/fullRNG/pending-roundtrip,earned102cold019;scopeonly,nobroadrowpromotion."
       ],
       "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
       "fallback_dependencies": [],
@@ -8041,5 +8042,6 @@
     "scope": "Scoped permitted integration concluded. Stop before earnedcampaign/ending; story.08 UNKNOWN and broader qualifications retained. No port-complete claim."
   },
   "count_definition": "native_implemented counts IMPLEMENTED; CE_REPLACEMENT is separately reported. VERIFIED applies only to row evidence scope; no overall completion percentage.",
-  "source_batch_report": "SCUMMVM-CE-SOURCE-BATCH-COMPLETION526.md"
+  "source_batch_report": "SCUMMVM-CE-SOURCE-BATCH-COMPLETION526.md",
+  "latest_scoped_correction531": "B-MELEE-PACKED-RANGE VERIFIED within receipt; combat.04 remains PARTIAL/IN PROGRESS."
 }

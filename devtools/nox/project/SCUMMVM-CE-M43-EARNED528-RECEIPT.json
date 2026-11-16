@@ -1715,6 +1715,68 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot097.g1.ce-achievements.json": "bcb4ad95ad78c2785a37c3a6a57e9c69a4e0132744d15b1bdb603c99c3607a40"
       },
       "process": 18
+    },
+    {
+      "label": "guild-guard-earned-nox-recovery530",
+      "slot": 98,
+      "parent": "7ab0840cfae9e3cec57bef0fb82040bf05c938eb6620d0beae03991c0a45da9a",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot098.g0": "d4db34ac5304aed91603da02854541df9b5988c03be25f550009d6f5a9250f0c",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot098.g0.ce-achievements.json": "e18ef751793dfba6707baa4235d37cd4258b044ac6e0bf8bd903fff6d03ffefc",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot098.g1": "243da04c97a00ce1eb43094676afd8965e958c0b1238c9f1a98162c777386bca",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot098.g1.ce-achievements.json": "5dabea67b47b2bd97ea91ec5812d343623fa06bca95ff31684e38acb11995a1e"
+      },
+      "process": 18
+    },
+    {
+      "label": "guild-second-caster-funding22gold530",
+      "slot": 99,
+      "parent": "e46e674617e15efa79a151581d0f4718f2188d66ba3d91e19309ffc8bc68b6f0",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot099.g0": "7f9990b075015e133a52b35ca0ed09c779cab85d7d0624d270f79d8f0e4cc906",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot099.g0.ce-achievements.json": "b6f008fff7ae3bccc645dcf80acdfe0b53003bb1e2e73d8ce11e834cae74851d"
+      },
+      "process": 18
+    },
+    {
+      "label": "guild-second-caster-recovery530",
+      "slot": 100,
+      "parent": "0fc2709c0201f39d6e9e9e082f37bf857a1a34e16d575967005f6e8c27d387d1",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot100.g0": "6450d658ccde3d774c383db3823a52690998c3bd8cdc01629326f0a4b20db622",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot100.g0.ce-achievements.json": "517f18d4b085a0abcf37aeb4305cf306f3222f9e55c665639352cc2a316776d5"
+      },
+      "process": 18
+    },
+    {
+      "label": "bridgit-third-level-int32-earned530",
+      "slot": 101,
+      "parent": "7821769c30e31baea5e8c371d3f17e636b0ed028542024e24979d7dce2c32956",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot101.g0": "0e3e371de4b3776c389cb68d0278b04a4f2b957eba12f3ede6c1010ad2e467e1",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot101.g0.ce-achievements.json": "dc20e8643362b76bfd8110a21c1a0bdfdf4d58b2df0a80c9dce69dcb75079563"
+      },
+      "process": 18
+    },
+    {
+      "label": "guild-two-fireball-casters-full-rest530",
+      "slot": 102,
+      "parent": "f539ad3d1c0eccee827be45142c4b318ff6aa2011781245f33cbd72892661bb1",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot102.g0": "3f3e5d75c008493e1bed8478f5eba46ee208d9827cc0c3db8a7f66416f6b438b",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot102.g0.ce-achievements.json": "6bd9378d30f02e9c125a5fe3ef444bb31a3fd71d7cd8d9faaaf1d3d8db58c5ef"
+      },
+      "process": 18
+    },
+    {
+      "label": "combat531-cold-earned102-continuation",
+      "slot": 103,
+      "parent": "afec1404af542e0f0fc4762770a5714d6733dd84ec544b9d2412ebc8f32e239c",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot103.g0": "f270ceb868965fc6849a46953455ba1009e48af1d1df8e0432859425c43eba86",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot103.g0.ce-achievements.json": "451b4a3966ebbe380794734e14c768f96951f9690215dd8c5ce290add9a92aed"
+      },
+      "process": 19
     }
   ],
   "correction": "SCUMMVM-CE-NPC529-VERIFICATION.json",

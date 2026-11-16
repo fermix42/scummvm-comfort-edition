@@ -1,0 +1,29 @@
+{
+  "status": "VERIFIED",
+  "blocker": "B-MELEE-PACKED-RANGE",
+  "scope": "Shared per-hand melee range correction, original12case nativecomparison and sameearned102 coldcontinuity only; see COMBAT531-VERIFICATION forlimitations.",
+  "accepted_executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4",
+  "earned_checkpoint": 102,
+  "earned_checkpoint_label": "guild-two-fireball-casters-full-rest530",
+  "earned_checkpoint_sha256": "afec1404af542e0f0fc4762770a5714d6733dd84ec544b9d2412ebc8f32e239c",
+  "original_oracle": "ce-native-acceptance528/combat531/original-oracle/metadata.json",
+  "original_oracle_sha256": "b0b5b2439f5b1ddeb1c9fc16fade479d5dce0cbf26c93da437936be51073b529",
+  "original_cases": 12,
+  "changes": [
+    "native_battle_targets.h:preserve packed range for both melee/ranged hands",
+    "native_battle_action_validation.h:allow bounded focused subset, keep historical88 report unchanged",
+    "native_startup_host.h:opt-in existing Attack oracle-only return"
+  ],
+  "builds_started": 5,
+  "game_cli_processes": 19,
+  "focused_native_processes": 2,
+  "next_action": "Continue source-planned guarded Guild route; capture first naturally executed normal distance2 melee Attack without forcing/repeating accepted battles.",
+  "lineage": "Prior commands selected Attack only at distance1, which original also permits. No accepted earned state edit or unfair earlier victory introduced; preserve historical casualties/forks and102 source binding.",
+  "developer_context": "https://steamcommunity.com/app/1509080/discussions/0/594062684485372040/",
+  "focused_validation": "VERIFIED:12 original complete Attack cases,35208 recordbytes,10resolvedhands,4freecancels,fullRNG/credit/pending-roundtrip. First root-admission setup rejection before Engine; second actual check passes then expected Engine exit misclassified by driver, result recovered without rerun. Both retained.",
+  "builds_completed": 5,
+  "executable_sha256": "230a07406fef270426acb14431b755cb92208e912aba6e49e7580dffbeedb568",
+  "source_commit": "b9faa45cc63",
+  "material_cli_processes": 21,
+  "cold": "VERIFIED:cold019 normal102load on corrected531 preserves map48/17,24,all party/inventory/questfields/gold13/food450/sound/session,no assistance; save103 new source binding, prior102 unchanged."
+}
