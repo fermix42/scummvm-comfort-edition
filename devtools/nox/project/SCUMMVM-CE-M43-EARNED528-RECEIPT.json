@@ -4,11 +4,12 @@
   "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed",
   "source_binding": "SCUMMVM-CE-MOUNTED-TALK532-VERIFICATION.json",
   "builds": 6,
-  "process_launches": 26,
+  "process_launches": 27,
   "verified_selected_nodes": [
     "opening-exit",
     "royal-access",
     "gordon-shrubbery",
+    "moat-key-door",
     "axea-page",
     "rusty-key"
   ],
@@ -3172,22 +3173,44 @@
       },
       "process": 26,
       "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
+    },
+    {
+      "label": "earned Moat key door passage221",
+      "slot": 221,
+      "parent": "2a877d4462a94732232d17ec333fde021b738f2d4a1094ef7240acbf7dee55b1",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot221.g0": "26af7d128ae195d29bceaf81c813911800e93ab0052b7a020dc7c68176b9082d",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot221.g0.ce-achievements.json": "c09d917ec9aad3a49a54a81c33d13a77cb583593358061bd74792fdaed1af945"
+      },
+      "process": 26,
+      "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
+    },
+    {
+      "label": "earned Moat cold next passage222",
+      "slot": 222,
+      "parent": "2a79c668f1b7c846ee1cde5945166db6e1d8928b3a9622da14abbbd568852774",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot222.g0": "97b7a2519c4188e1cc89d725193daca804b257a4e7baa05a79997f5b0943257d",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot222.g0.ce-achievements.json": "50c09faf8614e435cb080906f5aff6c4984cb7e45e14dd9f70c77f1588abe4e3"
+      },
+      "process": 27,
+      "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
     }
   ],
   "correction": "SCUMMVM-CE-NPC529-VERIFICATION.json",
-  "last_checkpoint": 220,
-  "cold_evidence": "ce-native-acceptance528/earned-modern/cold024.json",
-  "next_action": "Continue actual Moat door54/38,14 positive Open/passage and normal cold continuity, then controls/Arcane/pages; no milestone stop.",
+  "last_checkpoint": 222,
+  "cold_evidence": "ce-native-acceptance528/earned-modern/cold027.json",
+  "next_action": "Continue Castle78 paired wall/control, Arcane absent-key refusal/acquisition/passage, remaining pages and subsequent finite earned campaign; no milestone stop.",
   "current_source_commit": "e073e27e3e3",
   "current_executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed",
-  "latest_earned": "Normal Inn58 rest14gold552->538 restored all six HP/MP; four owned Magic Staffs normally readied, save219. Source route through58/54/78, one50HP enemy won without HP/MP cost. Ordinary lock78/16,32 picked by Cutter2 with no damage; initial follower Enter-only party prompt bound retained, not Engine defect. At78/14,37 SearchRight, Cutter2 finds one Moat key116; repeat SearchRight shows Nothing found and inventory unchanged. Save220 retains all six fullHP/MP,538gold272food. Key presentation screenshots76/77 and private before/found/repeat/final proof retained. Moat positive passage/cold and other Castle operations remain unverified.",
+  "latest_earned": "Earned absent Moat refusal218; normal SearchRight/Cutter2 key116 pickup and repeat220. Normal OpenUp at54/38,15 opens38,14; actual steps38,14 then38,13, key retained and field24mask4 set,221. Actual cold027 preserves party/inventory/allquestfields/resources/sound/session/noassistance. First normal Down crosses38,14, next Down38,15,222. Source/exe unchanged. Actual return crossed one known231 cell17damage each; all six alive HP66/54/60/53/53/56,MP20/32/32/44/44/32,538gold272food. No Engine change/build/suite rerun.",
   "historical_receipt_baseline": {
     "executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4",
     "source_binding": "SCUMMVM-CE-CANNON530-VERIFICATION.json",
     "qualification": "Initialreceiptbaseline only; percheckpoint/current identities control later progression."
   },
   "source_commit": "e073e27e3e3",
-  "local_full_ledger_sha256": "bd1271d12f39a8beef7dd4ac9001f52be586dd8bd844ad2daaf12b9dd1e1b156",
+  "local_full_ledger_sha256": "4f42fd17acfb242f057258c33a49f5b4541d21b48692819f86b56e5bbd2c5e80",
   "latest_scoped_evidence": {
     "status": "VERIFIED",
     "scope": "Actual141cold021/142normalnextstep retain quest/inventory/party/resources/sound/session and parkedhorse; not Rustydoorpositivecrossing or fullcampaign acceptance",
@@ -3205,9 +3228,9 @@
     "SCUMMVM-CE-M43-ROYAL532-VERIFICATION.json": "c0912514074864c657a8cfe93e14ade54f08093f7e455ac31386ae3658dfa4c7",
     "SCUMMVM-CE-M43-NOURTHELD-RECOVERY532-VERIFICATION.json": "a7d86544f25de761a7441526d69221e04aef5efaf6c633342bff5d28d34cd426",
     "SCUMMVM-CE-M43-SCALES532-WORK.json": "0ae8239c7e75489373b0604738e1e79d35ccd3a81e348f47832e978cd82b9645",
-    "SCUMMVM-CE-M43-CASTLE532-WORK.json": "507ff04b867edebf872d2628f8e85dfba9397b3b97b3e5c6320d09690f700b95"
+    "SCUMMVM-CE-M43-CASTLE532-WORK.json": "f9d2665d4ca5d4bb4ef5e0e83a6b6fbd812c9f2832d176f5a29c1995006e9dff"
   },
-  "private_ledger_sha256": "bd1271d12f39a8beef7dd4ac9001f52be586dd8bd844ad2daaf12b9dd1e1b156",
+  "private_ledger_sha256": "4f42fd17acfb242f057258c33a49f5b4541d21b48692819f86b56e5bbd2c5e80",
   "superseded_current_aliases_royal532": {
     "last_checkpoint": 44,
     "latest_earned": "142 firstnormalworldstep after actual141cold021, fullparty/questinventory/resources/session retained;horseparked persistence",

@@ -456,11 +456,11 @@
     },
     {
       "id": "moat-key-door",
-      "status": "IN PROGRESS",
+      "status": "VERIFIED",
       "prerequisites": [
-        "castle-control-wall"
+        "royal-access"
       ],
-      "source_contract": "Actual Castle control/keys/portals; source-valid Search positions yield seven retained pages (43E=FD,count7), actual Axea eighth (FF,count8), optional research, real Nystul binding/spell12, Ready and actual full12HP Rat Vortex. Source12 and source39 are distinct linked segments, not one continuous route.",
+      "source_contract": "CSTL78 chest15,37 item116 field24mask4; normal Search/lock/repeat. CSTL54 door38,14 requires same key flag; absent refusal, retained key positive opening and physical passage; normal save/cold and first next input.",
       "source_anchors": [
         "Original CSTL BE/BD records; original SRTN.COMBAT.S9C84 / LOADER.P280B control handlers"
       ],
@@ -481,12 +481,33 @@
         "scoped audio/presentation",
         "actual earned verification criteria"
       ],
-      "earned_lineage": "NormalNew0 ancestry through actual218; all retained defeats/reloads disclosed in receipt",
+      "earned_lineage": "NormalNew0 ancestry through222; preserved defeats/reloads remain disclosed",
       "earned_absence_refusal": {
         "checkpoint": 218,
         "report": "SCUMMVM-CE-M43-CASTLE532-WORK.json",
         "private_proof_sha256": "14b2dcac69a90370fa3a538021d9786907aa9f72db583c6e0baad997d72e0285",
-        "qualification": "Acquisition/positive door/cold not yet earned."
+        "qualification": "Acquisition/positive passage/cold subsequently earned220..222."
+      },
+      "historical_planning_prerequisites": [
+        "castle-control-wall"
+      ],
+      "source_order_reconciliation": "Original Moat chest/door checks field24mask4, independent of paired control/wall. Actual normal earned route proves physical access before control. Historical source39 test order was not a mechanical dependency.",
+      "actual_result": "Earned absent Moat refusal218; normal SearchRight/Cutter2 key116 pickup and repeat220. Normal OpenUp at54/38,15 opens38,14; actual steps38,14 then38,13, key retained and field24mask4 set,221. Actual cold027 preserves party/inventory/allquestfields/resources/sound/session/noassistance. First normal Down crosses38,14, next Down38,15,222. Source/exe unchanged. Actual return crossed one known231 cell17damage each; all six alive HP66/54/60/53/53/56,MP20/32/32/44/44/32,538gold272food. No Engine change/build/suite rerun.",
+      "earned_evidence": {
+        "report": "SCUMMVM-CE-M43-CASTLE532-WORK.json",
+        "checkpoints": [
+          218,
+          220,
+          221,
+          222
+        ],
+        "proofs": {
+          "ce-native-acceptance528\\earned-modern\\earned-Moat-absent-refusal218-532.json": "14b2dcac69a90370fa3a538021d9786907aa9f72db583c6e0baad997d72e0285",
+          "ce-native-acceptance528\\earned-modern\\earned-Moat-key220-532.json": "3487c6c88fd581b3bcc4a1801b28362e6a58d5e0de03b1d69aac3f3c22bb33f3",
+          "ce-native-acceptance528\\earned-modern\\earned-Moat-positive221-532.json": "bd7e07c994f604070aa7dc7c86dd62d86935e27aed2aa482fac13f214db5d41c",
+          "ce-native-acceptance528\\earned-modern\\cold027.json": "58f4def811835764c816b06e0f6d0c1a8ea44f690766bef468601cb5bd984b73",
+          "ce-native-acceptance528\\earned-modern\\earned-Moat-cold-next222-532.json": "fecce39443ec651bb8e81dbbd1282e720407f233974e510e3af6c3f25908ed56"
+        }
       }
     },
     {
