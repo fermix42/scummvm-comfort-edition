@@ -43,7 +43,8 @@
     "75 piratevictoryhasfourcasualties; Nox3INT32 andAlluvion3INT20actual. 76..80retainweaksea winswithtwosurvivors. Unfoughtfivepiratefork retained;normal80restore, heal/E/F-South clearsworldactor180withoutXP. No injectedstateorEnginechange.",
     "Actual146 retains Kat/Cutter dead and prior107->53 Flee; 137HP followup victory70gold. Four98HP upperRuin20 defeat preserved, normal146 restored with both prior deaths. Camp refusals retained. Subsequent two normal Flees70->35->17 and actual unready deadKat Axe/Ready Hero. New three98HP victory147 kills Hero/Alluvion, retains two fullHP62 casters/noMP,38gold. Source-derived nearest westboundary route11steps; normal Left at9,22 prompts leave, Y reaches Surface139,215. NormalH restores living24MP each,food845->797; actual148.",
     "Actual normal Ask/Q single137HP Rogue victory152/all6fullHP, then originalthree137HP Rogue Quick defeat preservedfork and normal152restore; onechanged Tactical choice actualvictory153 butKat/Cutter/Hero/Bridgitdead. No full Guild/Skull/boss acceptance.",
-    "224 actual raw17 trap Cutter death retained as branch; normal pretrap998 load225 excludes that death from continued mainline. No successful raw17 opening claimed."
+    "224 actual raw17 trap Cutter death retained as branch; normal pretrap998 load225 excludes that death from continued mainline. No successful raw17 opening claimed.",
+    "After250 boarding cannon defeat preserved privately; normal preboarding998 reload and changed dry-land camp251 continues mainline, no defeat rewards or casualty erasure hidden."
   ],
   "checkpoints": [
     {
@@ -3479,22 +3480,66 @@
       },
       "process": 31,
       "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd"
+    },
+    {
+      "label": "earned Raque east shore landing248",
+      "slot": 248,
+      "parent": "98652f1fa7b0aa8bbe0a850bc1665de5bdb79e7d68ac50371e9f65e7c44117ba",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot248.g0": "e7d9951e15ebf1fa3d0671c354ba202208544e57bf8a82b8c2ca6fcf98f07ecd",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot248.g0.ce-achievements.json": "3dfeed56e770cb13f355b2d692f4ad95fe84d2ff165e4941fd9c0b3c6c567c3b"
+      },
+      "process": 31,
+      "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd"
+    },
+    {
+      "label": "earned Raque full five enemy key132-249",
+      "slot": 249,
+      "parent": "28bac912875dbdf9e48f2416465818f932dacf3b5a00c71be0788792065e3fc9",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot249.g0": "e8574c6becbe2711ed44aff177f2eb6c1eff4be8d1a13a3a6934eb0f8be765ae",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot249.g0.ce-achievements.json": "690dc097ff1a4fbbd7da5d9a5b44469e5895412182d8eb5599886f1a4a0037c1"
+      },
+      "process": 31,
+      "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd"
+    },
+    {
+      "label": "earned Raque town food restock250",
+      "slot": 250,
+      "parent": "25f9be92bc1971bc72822a4626cb7437707d872d802969b1ef0fa3486444fbdc",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot250.g0": "2d773a722d44ddc478aad316ddabd4c0e0e43ac6d135dc43ee1c31a9938863f0",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot250.g0.ce-achievements.json": "1553381af5eebc47f379b0784ff44b1fa1ed075d61b6ea2c60300ed8c5d83dd5"
+      },
+      "process": 31,
+      "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd"
+    },
+    {
+      "label": "earned dry land camp after normal boarding defeat reload251",
+      "slot": 251,
+      "parent": "6b1ef0f5a3e4a6c0f28c18a78bfb2a59ccdd3452c6858aa4a7ebd9545153b9f9",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot251.g0": "ed758f88b32abf2a111b70e6ef3521fab9c00be2265adfe83969dfa321025347",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot251.g0.ce-achievements.json": "21dd690edb5c2a314514e6eb743b7b7e6435286925652b170295a45502962ce2"
+      },
+      "process": 31,
+      "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd"
     }
   ],
   "correction": "SCUMMVM-CE-NPC529-VERIFICATION.json",
-  "last_checkpoint": 247,
+  "last_checkpoint": 251,
   "cold_evidence": "ce-native-acceptance528/earned-modern/cold031.json",
-  "next_action": "Continue frigate75step deep-water/2x2 route to206105, skiff eastshore204105(one230rough cell), normal Raque town41 approach/OUT clue/KEY encounter and earned132, then Brown/Cult source branch; no unchanged Guild/Drake retry.",
+  "next_action": "Continue ten-step source dry-foot route from198106 to19999, enter cave20099 fromwest; earned132 doorUM97/196107, Brown74 control/chest/gate and Cult75 chain. No unchanged boarding/Guild/Drake retry; no milestone stop.",
   "current_source_commit": "c660ae8ac41",
   "current_executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd",
-  "latest_earned": "Normal Inn14gold591->577 fullHP/MP243; normal C5/Down3/Enter Bridgit QuickExit4MP reachesSurface17762,244. Initial digit4 only left caster selection pending; no refusal/charge. Foot3steps17963 intercepted ten98/137Pirates before boarding; actual Tactical/spells/heals wins all6fullHP,637gold272food,245. Normal B Skiff124/object212, twoUp17961/B Frigate119/object208 triggerssingle191HPsprite150 sea enemy; actual cannon victory noHP/MPcost,+14food286,246. Normal H aboard restores64MP/64food ->222, all6fullHP MP15/24/24/33/33/24,247. Owned boats survive cold lineage. Raque132 notowned; shrubbery95 and all7pages retained. Source Town41 Surface198106/actor56 KEY triggers quest battle/key132; pirate caveSurface20099 and interior97door196107 require132 before Brown74.",
+  "latest_earned": "Frigate75step route to206105 and normal skiff landing204105 cause no HP loss248. Normal Town41 Raque OUT clue and KEY admission triggers full five-enemy191/137/137/98/98 battle. Actual Tactical/fireballs/heals victory all6fullHP earns132 and field12 128->129249, Queen Writ preserved. Normal food service14packs clips222->900food for56gold637->581250. Town exit normal Left/Y and boarding at206105 triggers ten-pirate battle before camp; cannon tactic actual defeat retained. Normal pre-boarding998 reload restores earned250 resources atSurface198106; changed normal H on dry land restores107MP for107food900->793251. All6fullHP, MP15/24/24/33/33/24. No injected state, Engine change, build or new process.",
   "historical_receipt_baseline": {
     "executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4",
     "source_binding": "SCUMMVM-CE-CANNON530-VERIFICATION.json",
     "qualification": "Initialreceiptbaseline only; percheckpoint/current identities control later progression."
   },
   "source_commit": "c660ae8ac41",
-  "local_full_ledger_sha256": "57b84bc2f6675ca9b65670689e8457434729b34bc8583632622c33c7f2ddc2c7",
+  "local_full_ledger_sha256": "614f3bb837695ac12f0627773b3bd8286bfb816dba0ceabc63b35f0cc141de87",
   "latest_scoped_evidence": {
     "status": "VERIFIED",
     "scope": "Actual141cold021/142normalnextstep retain quest/inventory/party/resources/sound/session and parkedhorse; not Rustydoorpositivecrossing or fullcampaign acceptance",
@@ -3514,9 +3559,9 @@
     "SCUMMVM-CE-M43-SCALES532-WORK.json": "0ae8239c7e75489373b0604738e1e79d35ccd3a81e348f47832e978cd82b9645",
     "SCUMMVM-CE-M43-CASTLE532-WORK.json": "c1d4286b16d7e8cd3cadcc17047ce6d12a740089562c4df18d0493a527da57d6",
     "SCUMMVM-CE-DOOR533-VERIFICATION.json": "b56eda55bb27385ee3a31fda61b57f58965e91465d68e120ba271e1c360e3c6b",
-    "SCUMMVM-CE-M43-CULT533-WORK.json": "9586f103118eea67c4f8dab400554f9bef7faf911e2557bbe2bb4f7267096522"
+    "SCUMMVM-CE-M43-CULT533-WORK.json": "22a0b2bd91f461c9ab25d493add0e4868110337ebed68c0df83009526e2b8562"
   },
-  "private_ledger_sha256": "57b84bc2f6675ca9b65670689e8457434729b34bc8583632622c33c7f2ddc2c7",
+  "private_ledger_sha256": "614f3bb837695ac12f0627773b3bd8286bfb816dba0ceabc63b35f0cc141de87",
   "superseded_current_aliases_royal532": {
     "last_checkpoint": 44,
     "latest_earned": "142 firstnormalworldstep after actual141cold021, fullparty/questinventory/resources/session retained;horseparked persistence",
