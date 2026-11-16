@@ -2864,22 +2864,44 @@
       },
       "process": 26,
       "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
+    },
+    {
+      "label": "upgraded-seven-pirate-win-all-six-normal-healed532",
+      "slot": 193,
+      "parent": "ea59519bd2811c1f5da4530f6c5ed84d9e3d4b35ff004fd8663f4797122bcb37",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot193.g0": "a2900b92dca3427b0d7ef084308b4803e4da5eb1a80d6f62eb0b556d7d073704",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot193.g0.ce-achievements.json": "0546794bcbcbe190debaa6bb28e06722a1292bb615743306fe4f9c1f14aa85f3"
+      },
+      "process": 26,
+      "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
+    },
+    {
+      "label": "earned-seven-pirates-two-mages-cleared-dry-camp532",
+      "slot": 194,
+      "parent": "6b096c7b7879b0cc709cd37c6844a98440c46994512a2a4d1babb73df35e0912",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot194.g0": "0f0a884757c3dae1a238cd6dbb01324abf60a710bfe40f07cd4c55b60035664d",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot194.g0.ce-achievements.json": "badacd3db1f710b4806e4e8864eeeef34875608d04ba051c28841f8d2a0ad91e"
+      },
+      "process": 26,
+      "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
     }
   ],
   "correction": "SCUMMVM-CE-NPC529-VERIFICATION.json",
-  "last_checkpoint": 192,
+  "last_checkpoint": 194,
   "cold_evidence": "ce-native-acceptance528/earned-modern/cold024.json",
-  "next_action": "Finish actual141109 seven-pirate encounter, preserve outcome; retrieve ownedskiff129110/Frigate126113, thenBayportInn/Guild branch. No current-strength Drake retry.",
+  "next_action": "Finish actual139110 eight-pirate encounter, retrieveownedskiff/Frigate, thenBayportInn/Guild branch; no current-strength Drake retry.",
   "current_source_commit": "e073e27e3e3",
   "current_executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed",
-  "latest_earned": "Five98HP road enemies at16472 won, noHPdamage, two actual plainFireball casts20MP,Cutter/Allu7MP,food900. Eight98/137HP pirates149102 won all6fullHP,gold53->115,MP16/7/2/6/4/7,190. Hcamp refused on actual232shore; sourceSCEN no land enemies and terrain232 establish water refusal, earlier enemy/ship explanation corrected. One normalUp149101dry, H success:MP16/24/24/33/33/24,food900->788 (112MP restored),191. Five98/137pirates146107 won all6alive/fullHP,gold115->143,fiveFireball+1casts75MP; dryUp146106H restores75MPfood788->713,192.",
+  "latest_earned": "141109 seven98/137pirates won all6alive. Shared17HP approach damage retained/unclassified; normalNoxbattleheal and normalKatworldselfheal2MP fillall6HP83/71/77/70/70/73.193gold160food713MP10/7/7/3/3/7. SourceCampclearance route interrupted by two87HPsprite143 at139110; normalweaponfight won noHP/MPcost,gold182. FreshsourceplanoneUp139109dry; normalHcamp194 givesMP15/24/24/33/33/24, food713->597 (116MP restored),all6fullHP.",
   "historical_receipt_baseline": {
     "executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4",
     "source_binding": "SCUMMVM-CE-CANNON530-VERIFICATION.json",
     "qualification": "Initialreceiptbaseline only; percheckpoint/current identities control later progression."
   },
   "source_commit": "e073e27e3e3",
-  "local_full_ledger_sha256": "e11740db306e2058ee3585427accac84ce20212695ece5ff5e4ba6fe21547bd0",
+  "local_full_ledger_sha256": "a7938d32bc47862ccc8cda42aa49a5d7bc8fd6672137ee81414adf3991cd0f84",
   "latest_scoped_evidence": {
     "status": "VERIFIED",
     "scope": "Actual141cold021/142normalnextstep retain quest/inventory/party/resources/sound/session and parkedhorse; not Rustydoorpositivecrossing or fullcampaign acceptance",
@@ -2896,9 +2918,9 @@
     "SCUMMVM-CE-M43-ARCHUS532-WORK.json": "d67b22e38777e6b33dfa950ae8b3b3143179edeb314f84932c0fbf67b1be4e0a",
     "SCUMMVM-CE-M43-ROYAL532-VERIFICATION.json": "c0912514074864c657a8cfe93e14ade54f08093f7e455ac31386ae3658dfa4c7",
     "SCUMMVM-CE-M43-NOURTHELD-RECOVERY532-VERIFICATION.json": "a7d86544f25de761a7441526d69221e04aef5efaf6c633342bff5d28d34cd426",
-    "SCUMMVM-CE-M43-SCALES532-WORK.json": "10bdaef52c751fc63b2ea73e55279e3c3a919c6de937eeecca8b7e327261ea2a"
+    "SCUMMVM-CE-M43-SCALES532-WORK.json": "c322ae3902140b17007e09d8a0ce3e1624207100bbbac6a4db612429eebdabc5"
   },
-  "private_ledger_sha256": "e11740db306e2058ee3585427accac84ce20212695ece5ff5e4ba6fe21547bd0",
+  "private_ledger_sha256": "a7938d32bc47862ccc8cda42aa49a5d7bc8fd6672137ee81414adf3991cd0f84",
   "superseded_current_aliases_royal532": {
     "last_checkpoint": 44,
     "latest_earned": "142 firstnormalworldstep after actual141cold021, fullparty/questinventory/resources/session retained;horseparked persistence",
