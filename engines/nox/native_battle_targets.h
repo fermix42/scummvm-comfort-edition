@@ -10,7 +10,8 @@ public:
     static bool hand(const VortexVictim &caster,bool off,byte &kind,byte &range) {
         if (caster.kind!=3) return false;
         kind=byte(off?caster.stats[21]&15:caster.stats[21]>>4);
-        range=kind?byte(off?caster.stats[22]&15:caster.stats[22]>>4):1;
+        // Original Attack uses the packed per-hand range for melee too.
+        range=byte(off?caster.stats[22]&15:caster.stats[22]>>4);
         return kind!=1;
     }
     static bool permitted(const BattleRecords &battle,byte casterCell,byte targetCell,byte range,bool partyTargeting,bool &allowed) {

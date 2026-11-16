@@ -47,10 +47,12 @@ inline bool validateNativeBattleTargets(HdvArchive &,Common::SeekableReadStream 
     report="native-battle-targets\tcases=320\troster_bytes=938880\tlarge_footprints=1\trectangular_ranges=1\tarrow_cycles=1\tremembered_targets=1\tPvP_fallback=1\tcpu_execution=0\n";return true;
 }
 inline bool validateNativeBattleAction(HdvArchive &archive,Common::SeekableReadStream &input,Common::String &report) {
-    if (input.readUint32BE()!=MKTAG('N','B','A','C') || input.readUint32LE()!=1 || input.readUint32LE()!=88 || input.size()!=12+88*5893) return false;
+    if (input.readUint32BE()!=MKTAG('N','B','A','C') || input.readUint32LE()!=1) return false;
+    const uint caseCount=input.readUint32LE();
+    if (!caseCount || caseCount>88 || input.size()!=12+caseCount*5893) return false;
     Native::BattlePhysical rules;if (!rules.load(archive)) return false;
     uint resolved=0,cancelled=0;
-    for (uint i=0;i<88;++i) {
+    for (uint i=0;i<caseCount;++i) {
         const byte caster=input.readByte(),count=input.readByte();byte keys[8];if (count>8 || input.read(keys,8)!=8) return false;
         const uint32 seed=input.readUint32LE();Native::BattleRecords battle;
         if (input.read(battle.stats,2048)!=2048 || input.read(battle.compact,256)!=256 || input.read(battle.extended,256)!=256 || input.read(battle.indices,187)!=187 || input.read(battle.kinds,187)!=187) return false;
@@ -83,7 +85,9 @@ inline bool validateNativeBattleAction(HdvArchive &archive,Common::SeekableReadS
         cancelled+=!retired;
     }
     if (input.err() || input.pos()!=input.size()) return false;
-    report=Common::String::format("native-battle-action\tcases=88\trecord_bytes=258192\tresolved_hands=%u\tfree_cancels=%u\tdual_hand_and_Tab=1\tpost_hit_cancel=1\tpending_roundtrip=1\tcpu_execution=0\n",resolved,cancelled);return true;
+    if (caseCount==88) report=Common::String::format("native-battle-action\tcases=88\trecord_bytes=258192\tresolved_hands=%u\tfree_cancels=%u\tdual_hand_and_Tab=1\tpost_hit_cancel=1\tpending_roundtrip=1\tcpu_execution=0\n",resolved,cancelled);
+    else report=Common::String::format("native-battle-action\tcases=%u\trecord_bytes=%u\tresolved_hands=%u\tfree_cancels=%u\tcontrolled_subset=1\tpending_roundtrip=1\tcpu_execution=0\n",caseCount,caseCount*2934,resolved,cancelled);
+    return true;
 }
 }
 #endif

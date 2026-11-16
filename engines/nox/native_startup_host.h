@@ -377,6 +377,7 @@ inline Common::Error NoxEngine::runNativeStartup() {
         if (!oracle.open(Common::FSNode(ConfMan.getPath("nox_native_battle_action_oracle"))) || !validateNativeBattleAction(_resources,oracle,report)) return fail(report.empty()?"Native complete Attack protocol rejected":report.c_str());
         Common::OutSaveFile *out=_system->getSavefileManager()->openForSaving("nox-native-battle-action-oracle.tsv",false);if (!out) return Common::kWritingFailed;
         out->writeString(report);out->finalize();const bool ok=!out->err();delete out;if (!ok) return Common::kWritingFailed;
+        if (ConfMan.hasKey("nox_native_battle_action_only") && ConfMan.getBool("nox_native_battle_action_only")) return Common::kNoError;
     }
     if (replay && ConfMan.hasKey("nox_native_battle_ranged_oracle")) {
         Common::File oracle;Common::String report;
