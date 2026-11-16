@@ -18,7 +18,7 @@
 #include "nox/native_praevoc.h"
 namespace Nox { namespace Native {
 enum WorldConversationResult { kWorldConversationHandled,kWorldConversationFinished,kWorldConversationMessage,kWorldConversationUnsupported,kWorldConversationTravel };
-// Ordinary on-foot directional Talk, plain authored response/input/closing and
+// Ordinary directional Talk, plain authored response/input/closing and
 // exit handoff. Service callbacks and structured text are explicit boundaries.
 // All phases and data references are semantic; no original instructions run.
 class WorldConversation {
@@ -36,7 +36,7 @@ public:
     }
     bool matchesWorld(const World &world) const { return !active() || (world.ready() && world.mapType()==_type && world.mapId()==_map); }
     bool choose(const World &world,const HgrFrame &frame) {
-        if (active() || !world.ready() || !world.onFoot()) return false;
+        if (active() || !world.ready()) return false;
         WorldConversation next;next._sounds=_sounds;next._effectsEnabled=_effectsEnabled;next._type=world.mapType();next._map=world.mapId();next._underlay=frame;next._stage=1;*this=next;return true;
     }
     WorldConversationResult handle(const Common::Event &event,HdvArchive &archive,NewGame &game,const WorldScene &scene,
@@ -76,9 +76,11 @@ public:
             if (role<8 || role==16) {
                 // M:FF01-FF13 bypasses the flag/capability gate in underworld2.
                 if (_type!=2 && (!(actor[4]&64) || actor[6])) return refuseStrip(9,message);
-                // choose() admits only on-foot context. FF13's mounted/swimming
-                // compact-player sprite sentinels belong to transport callers;
-                // they must not be read from unrelated first-NPC coordinates.
+                // FF13..FF2A restrict service access for the actual player
+                // transport picture. Generic dialogue branches to FF72 before
+                // this gate, so riding does not prevent ordinary conversation.
+                if (game.appearance==127 || game.appearance==238)
+                    return refuseStrip(game.appearance==127?0:30,message);
                 if (role==0) {
                     MerchantCatalog merchants;MerchantOffer offer;
                     if (!merchants.load(archive) || !merchants.select(_map,slot,offer)) return kWorldConversationUnsupported;
