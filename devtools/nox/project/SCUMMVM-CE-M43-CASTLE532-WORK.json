@@ -79,15 +79,21 @@
     },
     "remaining_pages": {
       "status": "IN PROGRESS",
-      "pageflags": 42,
-      "earned_pages": 3,
+      "pageflags": 62,
+      "earned_pages": 5,
       "required_pages": 8,
       "checkpoints": [
         228,
         229,
-        230
+        230,
+        235,
+        236
       ],
-      "scope": "Axea plus Castle bits8/32; five others not earned"
+      "scope": "Axea2 plus allfour Castle78 bits4/8/16/32 earned; Castle57 bits1/64/128 unearned",
+      "latest_proofs": {
+        "ce-native-acceptance528\\earned-modern\\earned-west-page4-235-533.json": "34d861e57fc86331917b99b327a365890263e0435ee59e1ec6edf9768bd3652c",
+        "ce-native-acceptance528\\earned-modern\\earned-west-page16-236-533.json": "ef6515d630c630dcbb505e498b4b8df37166405d6695ac5187f3f2dc769229a4"
+      }
     }
   },
   "cost": {
@@ -96,7 +102,7 @@
     "focused_cli": 5,
     "material_cli": 34
   },
-  "next_action": "Continue Castle78 page5,9(bit4),9,12(bit16) using source water groups/dry healing; then actual Arcane door56/32,25 opening/passage/cold and Castle57 pages32,1/37,36/44,20. No assumed Order prerequisite, no milestone stop.",
+  "next_action": "Continue actual Arcane door56/32,25 positive Open/passage and cold combining both keys/five pages/control state, then remaining Castle57 pagebits64/128/1 and finite campaign. No milestone stop.",
   "actual_through220": "Normal Inn58 rest14gold552->538 restored all six HP/MP; four owned Magic Staffs normally readied, save219. Source route through58/54/78, one50HP enemy won without HP/MP cost. Ordinary lock78/16,32 picked by Cutter2 with no damage; initial follower Enter-only party prompt bound retained, not Engine defect. At78/14,37 SearchRight, Cutter2 finds one Moat key116; repeat SearchRight shows Nothing found and inventory unchanged. Save220 retains all six fullHP/MP,538gold272food. Key presentation screenshots76/77 and private before/found/repeat/final proof retained. Moat positive passage/cold and other Castle operations remain unverified.",
   "actual_through222": "Earned absent Moat refusal218; normal SearchRight/Cutter2 key116 pickup and repeat220. Normal OpenUp at54/38,15 opens38,14; actual steps38,14 then38,13, key retained and field24mask4 set,221. Actual cold027 preserves party/inventory/allquestfields/resources/sound/session/noassistance. First normal Down crosses38,14, next Down38,15,222. Source/exe unchanged. Actual return crossed one known231 cell17damage each; all six alive HP66/54/60/53/53/56,MP20/32/32/44/44/32,538gold272food. No Engine change/build/suite rerun.",
   "actual_through230": "Actual closed wall78/28,9 blocks Down from28,8. Source-supported alternate63step route from21,12 reaches control10,8 without high raw17 lock. Normal OpenLeft toggles control151/49 to150/48 and paired wall42/50 to42/254. Normal reverse close then reopen verified from actual normal saves226. Actual steps28,9 then28,10 prove passage227. SearchDown/Cutter2 page27,13 earns field62bit8,repeatunchanged228. Three231 cells51damage/member toward33,17; normal Nox six heals12MP, SearchDown/Cutter2 page33,18 earns bit32,229. Current pageflags42 (Axea2+Castle8+32),three pages only. Actual cold029 exact party/inventory/allquestfields/resources/sound/session/noassistance. First SearchDown after cold awards no duplicate; normal save confirms wall254/control48 persist. Six normal Bridgit heals12MP restore fullHP230, MP16/2/17/17/9/17,546gold272food. No new Engine change/build/suite.",
@@ -136,5 +142,6 @@
       }
     ]
   },
-  "actual_through234": "Normal43step upper56->60->59->58 Inn route, paid14gold546->532, full6HP/MP233. Source127step59->58->54->78 Arcane chest route: nine231 cells153damage/member, bounded dry stops and four six-member normal LesserHeal sets48MP total; no extra battle/death. At78/4,32 SearchRight/Cutter2 first attempt earns one Arcane key115 and field24mask2 (both key bits now6). Repeat SearchRight finds nothing, inventory unchanged234, screenshots85/86. HP74/62/68/61/61/64 MP8/32/32/44/8/32,532gold272food. Arcane positive passage/cold remain unearned; collect nearby remaining Castle78 pages then return gate. No Engine change/build/process/suite."
+  "actual_through234": "Normal43step upper56->60->59->58 Inn route, paid14gold546->532, full6HP/MP233. Source127step59->58->54->78 Arcane chest route: nine231 cells153damage/member, bounded dry stops and four six-member normal LesserHeal sets48MP total; no extra battle/death. At78/4,32 SearchRight/Cutter2 first attempt earns one Arcane key115 and field24mask2 (both key bits now6). Repeat SearchRight finds nothing, inventory unchanged234, screenshots85/86. HP74/62/68/61/61/64 MP8/32/32/44/8/32,532gold272food. Arcane positive passage/cold remain unearned; collect nearby remaining Castle78 pages then return gate. No Engine change/build/process/suite.",
+  "actual_through236": "From Arcane234, normal west-page route51steps/eleven231cells187damage/member with five six-member normal heal sets60MP; no casualty/battle. At78/4,9 SearchRight/Cutter2 earns Castlepagebit4, repeatunchanged235:flags46/four pages,532gold272food. Before nextpage, six Bridgit heals12MP fullHP, three231cells51damage/member, six Cutter heals12MP ->HP67/55/61/54/54/57. Remaining dryroute intercepted four98HPsprite242 at78/11,12: actual normal Tactical/four readied Magic Staffs wins without HP/MP loss, +29gold561. One final Left10,12; SearchLeft/Cutter2 firstordinary lock refusal/noHP loss retained; normal Return/2 second attempt earns bit16, repeatunchanged236. Flags62/five pages,HP67/55/61/54/54/57 MP8/8/8/20/8/20,561gold272food. Both keys retained; Arcane positive/cold still pending. No Engine change/build/newprocess/suite."
 }

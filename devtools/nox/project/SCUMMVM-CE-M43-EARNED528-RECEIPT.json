@@ -3329,22 +3329,44 @@
       },
       "process": 29,
       "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd"
+    },
+    {
+      "label": "earned west castle page bit4 repeat235",
+      "slot": 235,
+      "parent": "0d850fd6bf9260f7e50dfd25fdacf5c01b28e0fc7d89425c54e2294e965dd824",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot235.g0": "c1c2c55509820ef2f614e9a0f1ed672b21d78c8b35d92098b399605297d2fa3e",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot235.g0.ce-achievements.json": "8558487245ab12c73a0c0ba0f2e4f4437e17813a058b709d2e41a6c6f0cdf9d6"
+      },
+      "process": 29,
+      "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd"
+    },
+    {
+      "label": "earned castle page bit16 second pick repeat236",
+      "slot": 236,
+      "parent": "2e9e79a6610086c61542a14f67f3475f08c626fc901ce61c0f65420c15c88489",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot236.g0": "24e528dbcea470f50fd79ce3cd3e8c3e87736824f1eae0cb9bb068357bf13ebe",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot236.g0.ce-achievements.json": "5685e1908f494c77d8f6a505ed3307789fadc1364d9acdd09f3288c9ea9f0792"
+      },
+      "process": 29,
+      "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd"
     }
   ],
   "correction": "SCUMMVM-CE-NPC529-VERIFICATION.json",
-  "last_checkpoint": 234,
+  "last_checkpoint": 236,
   "cold_evidence": "ce-native-acceptance528/earned-modern/cold029.json",
-  "next_action": "Continue Castle78 page5,9(bit4),9,12(bit16) using source water groups/dry healing; then actual Arcane door56/32,25 opening/passage/cold and Castle57 pages32,1/37,36/44,20. No assumed Order prerequisite, no milestone stop.",
+  "next_action": "Continue actual Arcane door56/32,25 positive Open/passage and cold combining both keys/five pages/control state, then remaining Castle57 pagebits64/128/1 and finite campaign. No milestone stop.",
   "current_source_commit": "c660ae8ac41",
   "current_executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd",
-  "latest_earned": "Normal43step upper56->60->59->58 Inn route, paid14gold546->532, full6HP/MP233. Source127step59->58->54->78 Arcane chest route: nine231 cells153damage/member, bounded dry stops and four six-member normal LesserHeal sets48MP total; no extra battle/death. At78/4,32 SearchRight/Cutter2 first attempt earns one Arcane key115 and field24mask2 (both key bits now6). Repeat SearchRight finds nothing, inventory unchanged234, screenshots85/86. HP74/62/68/61/61/64 MP8/32/32/44/8/32,532gold272food. Arcane positive passage/cold remain unearned; collect nearby remaining Castle78 pages then return gate. No Engine change/build/process/suite.",
+  "latest_earned": "From Arcane234, normal west-page route51steps/eleven231cells187damage/member with five six-member normal heal sets60MP; no casualty/battle. At78/4,9 SearchRight/Cutter2 earns Castlepagebit4, repeatunchanged235:flags46/four pages,532gold272food. Before nextpage, six Bridgit heals12MP fullHP, three231cells51damage/member, six Cutter heals12MP ->HP67/55/61/54/54/57. Remaining dryroute intercepted four98HPsprite242 at78/11,12: actual normal Tactical/four readied Magic Staffs wins without HP/MP loss, +29gold561. One final Left10,12; SearchLeft/Cutter2 firstordinary lock refusal/noHP loss retained; normal Return/2 second attempt earns bit16, repeatunchanged236. Flags62/five pages,HP67/55/61/54/54/57 MP8/8/8/20/8/20,561gold272food. Both keys retained; Arcane positive/cold still pending. No Engine change/build/newprocess/suite.",
   "historical_receipt_baseline": {
     "executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4",
     "source_binding": "SCUMMVM-CE-CANNON530-VERIFICATION.json",
     "qualification": "Initialreceiptbaseline only; percheckpoint/current identities control later progression."
   },
   "source_commit": "c660ae8ac41",
-  "local_full_ledger_sha256": "0d7b57e8bcb05c5c731299acaec8aedf428ef1e1e25acc2a05fa11ffdb6278a5",
+  "local_full_ledger_sha256": "c7b9a58fbc24d0057206339f5faa693126ef51d382fac384bad122fd1459465a",
   "latest_scoped_evidence": {
     "status": "VERIFIED",
     "scope": "Actual141cold021/142normalnextstep retain quest/inventory/party/resources/sound/session and parkedhorse; not Rustydoorpositivecrossing or fullcampaign acceptance",
@@ -3362,10 +3384,10 @@
     "SCUMMVM-CE-M43-ROYAL532-VERIFICATION.json": "c0912514074864c657a8cfe93e14ade54f08093f7e455ac31386ae3658dfa4c7",
     "SCUMMVM-CE-M43-NOURTHELD-RECOVERY532-VERIFICATION.json": "a7d86544f25de761a7441526d69221e04aef5efaf6c633342bff5d28d34cd426",
     "SCUMMVM-CE-M43-SCALES532-WORK.json": "0ae8239c7e75489373b0604738e1e79d35ccd3a81e348f47832e978cd82b9645",
-    "SCUMMVM-CE-M43-CASTLE532-WORK.json": "b808985df89b9582e425727d33a349edc3ee73616b589a94d160740bd88024b8",
+    "SCUMMVM-CE-M43-CASTLE532-WORK.json": "8ccd51978134f2ffa83f8cb595063a390da7994d1952cb5f2da343575ca81ed5",
     "SCUMMVM-CE-DOOR533-VERIFICATION.json": "b56eda55bb27385ee3a31fda61b57f58965e91465d68e120ba271e1c360e3c6b"
   },
-  "private_ledger_sha256": "0d7b57e8bcb05c5c731299acaec8aedf428ef1e1e25acc2a05fa11ffdb6278a5",
+  "private_ledger_sha256": "c7b9a58fbc24d0057206339f5faa693126ef51d382fac384bad122fd1459465a",
   "superseded_current_aliases_royal532": {
     "last_checkpoint": 44,
     "latest_earned": "142 firstnormalworldstep after actual141cold021, fullparty/questinventory/resources/session retained;horseparked persistence",
