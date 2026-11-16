@@ -63,7 +63,7 @@
     "focused_cli": 2,
     "material_cli": 28
   },
-  "next_action": "Finish actual139110 eight-pirate encounter, retrieveownedskiff/Frigate, thenBayportInn/Guild branch; no current-strength Drake retry.",
+  "next_action": "Complete Frigate17961 approach, sourceSkiff/footCastle17762 entry, actual Castle78control/Moat116/Arcane115/pages contracts; no currentstrength Guild/Drake retry",
   "first_drake_attempt": {
     "status": "IN PROGRESS",
     "result": "Normalsourcepath98->99->100->101withoutdamage. At101/51,28actual10full191HPDrakes118level5 admitted; normalTactical/ownedspellcasts endedactualdefeat. NoScalesaward/falsevictory. Completefailedbranchretained.",
@@ -160,5 +160,10 @@
     "status": "IN PROGRESS",
     "scope": "Earned northern return only; castle operations not yet earned",
     "actual": "208withdrawal: Bayport48southgate is9,39 closed16; normalOpenDown from9,38/Down/Yes returnsSurface120147. Prior guessedexit24,38/Left9,38 ignored/blocked, no Enginegap; falsechainedroute stoppedatbound,nochange. Reverseknownsixsafefootsteps toownedskiff118145, B/reverse3sailing115145/B storesSkiffinFrigate119, all6fullHP209. Source49step northboundroute hits actualeight98/137pirates120113; normalcannoncrew/oneKat2MPheal winsall6fullHP,288->347gold,386food210. Continue126113, actualwaterfoesnone; Xdeploystoredskiff/sixcalmsteps129110/Xsafe232, fourStaffsnormalReady211. Full6HP83/71/77/70/70/73,MP18/32/32/44/44/32,347gold386food. Source96step road17762: one50HPenemy130106 won noHP/MPcost food388; five98HPcontact134103 nowinprogress. No Enginechange/build/suite. Stopcurrent-strengthGuild/Drakes; sourceCastle78control9,8 toggleswall28,9; Moat116chest15,37/field24bit4; Arcane115chest5,32/field24bit2; remainingcastlepages separateearnedobjectives."
+  },
+  "closest_castle_sail215": {
+    "status": "IN PROGRESS",
+    "scope": "Earned recovery/aboard rest and source transit planning only; castle objectives remain unearned",
+    "actual": "212 retained first50/five98/sixpirate road wins; shore13696Camprefused, Right13796dry normalH restores84MP,food388->304, all6fullHP. Post212 one50/sixpirate temporary wins thenninepirates14583:noFlee128refusal/nocharge, actual low-mana physicaldefeat preservedfork. Normal212restore213 excludesbothlater temporarywins andtheirXP/gold/food. Label213 fullmana isonly75pctCampthreshold:18/24/24/33/33/24, notfullInnMP. Filteredgang/ship clearance4/3 dryroadplansNoRoute. Two87returncontact wonnoHP/MPcost; ownedSkiff129110->126112sixpirateinterception wonall6fullHP,Gold410->454,90MPspent. LastDown126113/B storesSkiff/Frigate119, fourshieldsnormallyreadied214. Waterfoesnone; actualHaboard215 advances8h andrestores90MP,Food304->214,all6HP83/71/77/70/70/73 MP18/24/24/33/33/24. Read-onlyoriginalocean2x2 query finds reachableFrigate17961 threecellsfromNourtheld17762; live-clearance4 plan141steps avoidsforcedlongshorefootroute. Sailingunderway. No Enginechange/build/suite; noGuild/Scales/castlekey/pagesawardclaimed."
   }
 }
