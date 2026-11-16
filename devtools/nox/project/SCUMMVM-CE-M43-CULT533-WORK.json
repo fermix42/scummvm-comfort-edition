@@ -1,0 +1,19 @@
+{
+  "status": "IN PROGRESS",
+  "scope": "Earned Raque key132, Brown74 and CultLetter75 branch; transport preparation only through247, no key/battle award yet",
+  "source_commit": "c660ae8ac41",
+  "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd",
+  "actual": "Normal Inn14gold591->577 fullHP/MP243; normal C5/Down3/Enter Bridgit QuickExit4MP reachesSurface17762,244. Initial digit4 only left caster selection pending; no refusal/charge. Foot3steps17963 intercepted ten98/137Pirates before boarding; actual Tactical/spells/heals wins all6fullHP,637gold272food,245. Normal B Skiff124/object212, twoUp17961/B Frigate119/object208 triggerssingle191HPsprite150 sea enemy; actual cannon victory noHP/MPcost,+14food286,246. Normal H aboard restores64MP/64food ->222, all6fullHP MP15/24/24/33/33/24,247. Owned boats survive cold lineage. Raque132 notowned; shrubbery95 and all7pages retained. Source Town41 Surface198106/actor56 KEY triggers quest battle/key132; pirate caveSurface20099 and interior97door196107 require132 before Brown74.",
+  "source_contract": {
+    "Raque": "Town41/actor56, Surface198106, KEY Over my dead body; Group52 source Captain52/Guard51/Pirate50, resistance byte11=0. Key132/field12mask1. CaveSurface20099 fromwest19999; interior97door196107 requires132.",
+    "Brown": "UM98 control22950/wall21459, chest21853 item74 field25mask16; normal lock/trap/search; lowergate21620 and UM99 portal/mouth VHA.",
+    "Letter": "UM99 chest21382 item75 field56mask4; earned native monk/cultist prerequisites remain required, not controlled M3 setup."
+  },
+  "cost": {
+    "builds": 8,
+    "game_cli": 31,
+    "focused_cli": 5,
+    "material_cli": 36
+  },
+  "next_action": "Continue frigate75step deep-water/2x2 route to206105, skiff eastshore204105(one230rough cell), normal Raque town41 approach/OUT clue/KEY encounter and earned132, then Brown/Cult source branch; no unchanged Guild/Drake retry."
+}

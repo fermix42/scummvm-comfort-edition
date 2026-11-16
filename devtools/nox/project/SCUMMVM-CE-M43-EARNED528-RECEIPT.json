@@ -3424,22 +3424,77 @@
       },
       "process": 31,
       "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd"
+    },
+    {
+      "label": "earned Inn fullmana before Raque Cult243",
+      "slot": 243,
+      "parent": "49e34ef17b21ba7f707b1347c3c24bee08724dfb6c46ec68ff6ed84aa0c286ec",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot243.g0": "1711318f7748b5133ce41c84a59c33020b2a7986f4042d09dda9af2f3361dbc9",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot243.g0.ce-achievements.json": "7d941118fd9abd5ccfbce7f876d70c7562a126be0c9d5b65467aab7e8cf254f8"
+      },
+      "process": 31,
+      "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd"
+    },
+    {
+      "label": "earned QuickExit seven pages Surface244",
+      "slot": 244,
+      "parent": "21adb1d7c7289eee2670812fdd3a3a4322831e31d9825dd798fc24602924d419",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot244.g0": "9655b78c4749d8634b539e8f1242c5035dd15631609583d6617b9b403acd0262",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot244.g0.ce-achievements.json": "a84fcc057c887e9d57295975b2d7aae1683602fd0f9084b85eb3d905afa870ed"
+      },
+      "process": 31,
+      "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd"
+    },
+    {
+      "label": "earned ten pirate shore victory245",
+      "slot": 245,
+      "parent": "256014011e909df3c40be85a9b21f0e837a159746090cbfe8e3fba6d58421a7a",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot245.g0": "5d79989dbce31003a6da453d9570845a4128a1fb4a1cbf8311b635d4d2553d62",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot245.g0.ce-achievements.json": "a672c98e6b46148936c71e59532ca2a9b71e3f7328a67bc5fee55ef2113f6a99"
+      },
+      "process": 31,
+      "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd"
+    },
+    {
+      "label": "earned frigate single191 sea victory246",
+      "slot": 246,
+      "parent": "04c6a0323d49abf34d9d90460b670ae1b27fbce5eec0dc82c16eb9a04be0c188",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot246.g0": "6572b9c97e2d234ebc75b03456ca0c7f2218a499b030d1f21016b5a1be95f9da",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot246.g0.ce-achievements.json": "3bb583939fb68bb76ad2d91f4cfe0dfaace87a80084cb9d55c08ca761d3bf91f"
+      },
+      "process": 31,
+      "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd"
+    },
+    {
+      "label": "earned frigate Camp mana247",
+      "slot": 247,
+      "parent": "f00e19e495e18234f899b9c98881a8f6ac111cf0cd7d4866a2c14b47063a0f84",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot247.g0": "1a86c4cf93d6bc9ae83237a336aba51d824b4cd512abf239bbf105f7fbe096d4",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot247.g0.ce-achievements.json": "6027a90b0419a0e8db3326cdfcdab5cc310be520763a6c36e578619be43b47aa"
+      },
+      "process": 31,
+      "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd"
     }
   ],
   "correction": "SCUMMVM-CE-NPC529-VERIFICATION.json",
-  "last_checkpoint": 242,
+  "last_checkpoint": 247,
   "cold_evidence": "ce-native-acceptance528/earned-modern/cold031.json",
-  "next_action": "Normal Inn recovery and Brown/Cult source route; continue finite earned acceptance.",
+  "next_action": "Continue frigate75step deep-water/2x2 route to206105, skiff eastshore204105(one230rough cell), normal Raque town41 approach/OUT clue/KEY encounter and earned132, then Brown/Cult source branch; no unchanged Guild/Drake retry.",
   "current_source_commit": "c660ae8ac41",
   "current_executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd",
-  "latest_earned": "After seven-page cold241, return route crosses one231cell17damage/member and intercepts eight98HPsprite242 enemies at57/23,11 with party low. Private normal-input policy now heals critical living members before offense; actual Tactical/heals/two available Fireball casters/staves wins all6fullHP,591gold272food,MP2/2/4/3/4/3,242. No Engine change/build/newprocess/assistance; actual232..241 gates/pages retained. Continue normal Inn from actual position, then source Brown/Cult prerequisites; no unchanged Guild/Drake retry.",
+  "latest_earned": "Normal Inn14gold591->577 fullHP/MP243; normal C5/Down3/Enter Bridgit QuickExit4MP reachesSurface17762,244. Initial digit4 only left caster selection pending; no refusal/charge. Foot3steps17963 intercepted ten98/137Pirates before boarding; actual Tactical/spells/heals wins all6fullHP,637gold272food,245. Normal B Skiff124/object212, twoUp17961/B Frigate119/object208 triggerssingle191HPsprite150 sea enemy; actual cannon victory noHP/MPcost,+14food286,246. Normal H aboard restores64MP/64food ->222, all6fullHP MP15/24/24/33/33/24,247. Owned boats survive cold lineage. Raque132 notowned; shrubbery95 and all7pages retained. Source Town41 Surface198106/actor56 KEY triggers quest battle/key132; pirate caveSurface20099 and interior97door196107 require132 before Brown74.",
   "historical_receipt_baseline": {
     "executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4",
     "source_binding": "SCUMMVM-CE-CANNON530-VERIFICATION.json",
     "qualification": "Initialreceiptbaseline only; percheckpoint/current identities control later progression."
   },
   "source_commit": "c660ae8ac41",
-  "local_full_ledger_sha256": "763ba16e20c4ee057c49cfa558d07429e8385cccb0c5e67c2382b138b61d4289",
+  "local_full_ledger_sha256": "57b84bc2f6675ca9b65670689e8457434729b34bc8583632622c33c7f2ddc2c7",
   "latest_scoped_evidence": {
     "status": "VERIFIED",
     "scope": "Actual141cold021/142normalnextstep retain quest/inventory/party/resources/sound/session and parkedhorse; not Rustydoorpositivecrossing or fullcampaign acceptance",
@@ -3458,9 +3513,10 @@
     "SCUMMVM-CE-M43-NOURTHELD-RECOVERY532-VERIFICATION.json": "a7d86544f25de761a7441526d69221e04aef5efaf6c633342bff5d28d34cd426",
     "SCUMMVM-CE-M43-SCALES532-WORK.json": "0ae8239c7e75489373b0604738e1e79d35ccd3a81e348f47832e978cd82b9645",
     "SCUMMVM-CE-M43-CASTLE532-WORK.json": "c1d4286b16d7e8cd3cadcc17047ce6d12a740089562c4df18d0493a527da57d6",
-    "SCUMMVM-CE-DOOR533-VERIFICATION.json": "b56eda55bb27385ee3a31fda61b57f58965e91465d68e120ba271e1c360e3c6b"
+    "SCUMMVM-CE-DOOR533-VERIFICATION.json": "b56eda55bb27385ee3a31fda61b57f58965e91465d68e120ba271e1c360e3c6b",
+    "SCUMMVM-CE-M43-CULT533-WORK.json": "9586f103118eea67c4f8dab400554f9bef7faf911e2557bbe2bb4f7267096522"
   },
-  "private_ledger_sha256": "763ba16e20c4ee057c49cfa558d07429e8385cccb0c5e67c2382b138b61d4289",
+  "private_ledger_sha256": "57b84bc2f6675ca9b65670689e8457434729b34bc8583632622c33c7f2ddc2c7",
   "superseded_current_aliases_royal532": {
     "last_checkpoint": 44,
     "latest_earned": "142 firstnormalworldstep after actual141cold021, fullparty/questinventory/resources/session retained;horseparked persistence",
