@@ -3018,22 +3018,44 @@
       },
       "process": 26,
       "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
+    },
+    {
+      "label": "earned Guild summon and shield preparation207",
+      "slot": 207,
+      "parent": "4be04660236b083ea03be7d907bae52e4ebf157aff41655f874f16b10ab1d9b4",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot207.g0": "ebca6ba99849c33178397db91e8400d304643a3e65875a191aa6c8f6f1817f57",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot207.g0.ce-achievements.json": "52d8d880e53461d5cb8b0f053113a846e7fde737377f5e92d0f11c41c0f26dda"
+      },
+      "process": 26,
+      "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
+    },
+    {
+      "label": "earned normal998 Guild withdrawal recovery208",
+      "slot": 208,
+      "parent": "5af4b90195d32c936cc9760e663c9ebf28fd6489e91d307226a98fad0640e4e7",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot208.g0": "0ebf73790dd7b1dd5178f09cfd3c6285d951ec8faa1a834cbf84d9273c6ed03e",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot208.g0.ce-achievements.json": "959d8ef26dce9a89ae1bfd9c9b21cd28141bdf6bc5e11163cc39646195f67fac"
+      },
+      "process": 26,
+      "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
     }
   ],
   "correction": "SCUMMVM-CE-NPC529-VERIFICATION.json",
-  "last_checkpoint": 206,
+  "last_checkpoint": 208,
   "cold_evidence": "ce-native-acceptance528/earned-modern/cold024.json",
-  "next_action": "Normal withdrawal/PurchaseSummon14 at47NPC88, shield/healing/physical strategy before changed guard attempt; continue independent required branch if unresolved",
+  "next_action": "Ownedboats backtoNourtheld; sourceCastle78control10,8/MoatSearch14,37/ArcaneSearch4,32 and actual associateddoors/pages, not another guard retry",
   "current_source_commit": "e073e27e3e3",
   "current_executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed",
-  "latest_earned": "204 normal10gold BayportInn full6HP83/71/77/70/70/73 MP20/32/32/44/44/32,324gold386food. ThreeStaffs normallyreadied confirmed savedgear, then normalGuild52entry. Source-specificroute opensordinarydoor and manualCutter2 picks17,36 lock successfully,205 fullparty. At25,36 actualsix144HPAssassins64 Lv5armor94resistance255; attemptedFireballpolicywithholdsimmune-targetcasts; actualphysicaldefeat retainedfork, allbattleMPunspent. Originalrawmonster/SpellDamage confirmimmunity, noEnginebug. Normal205restore206 withfullparty/openedpassage. Changedplannedtactic ordinarySummon14/shields/healing/physicalfront; booknotcurrentlyowned (pre-inputStopIteration,noinventorymutation), sourceBayport47NPC88stock1price36. Withdrawcurrent52towardnormalpurchase; no unchanged guard retry.",
+  "latest_earned": "207 ordinaryBayport47/88 stock1 Summon14 purchase36gold324->288; Readybookslot1 requirement26, threeWoodenShields andAlluBuckler, allsixfullHP/MP. Sourceboundedsummon/physical attempt at52/23,36 againadmits six144HP magicimmuneAssassins. Ignoredzero-actionAsk inputs reachedhelperbound withoutHP/MPchange; privatehelper nowselectsnormalTacticalatadmission. ActualTacticalSummon/shield attempt thenactualdefeat, sixenemiesstill144HP; no Enginebug/victoryclaimed. Fork retainsdefeat/start/transcript and copiednearestactualnormal998withhashes. Normal998restore208 at52/23,33, full6HP83/71/77/70/70/73 MP20/32/32/44/44/32,288gold386food,Book14/readiedShields retained. NormalLeft/Right returns48. Stopthiscurrent-strengthGuildpath; no more unchangedguard/Drake attempts. ContinueindependentNourtheldCastle78 controls/Moat/Arcane keys/pages usingCASTLE73sourcecontracts; physicalaccessmustearnactualevidence.",
   "historical_receipt_baseline": {
     "executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4",
     "source_binding": "SCUMMVM-CE-CANNON530-VERIFICATION.json",
     "qualification": "Initialreceiptbaseline only; percheckpoint/current identities control later progression."
   },
   "source_commit": "e073e27e3e3",
-  "local_full_ledger_sha256": "b05454eaf4606e59d012bfceb47c1497c5275a835466f06656a4d62e93f29d7c",
+  "local_full_ledger_sha256": "07bab67eab332682ea5183cd54f39966be60dd453353eded9fd118b612d9a722",
   "latest_scoped_evidence": {
     "status": "VERIFIED",
     "scope": "Actual141cold021/142normalnextstep retain quest/inventory/party/resources/sound/session and parkedhorse; not Rustydoorpositivecrossing or fullcampaign acceptance",
@@ -3050,9 +3072,9 @@
     "SCUMMVM-CE-M43-ARCHUS532-WORK.json": "d67b22e38777e6b33dfa950ae8b3b3143179edeb314f84932c0fbf67b1be4e0a",
     "SCUMMVM-CE-M43-ROYAL532-VERIFICATION.json": "c0912514074864c657a8cfe93e14ade54f08093f7e455ac31386ae3658dfa4c7",
     "SCUMMVM-CE-M43-NOURTHELD-RECOVERY532-VERIFICATION.json": "a7d86544f25de761a7441526d69221e04aef5efaf6c633342bff5d28d34cd426",
-    "SCUMMVM-CE-M43-SCALES532-WORK.json": "d27041d291622442351e63db2c7d2a1454d3e47500155563d6012cfa809e998f"
+    "SCUMMVM-CE-M43-SCALES532-WORK.json": "3cbdbf23410ea3250e6869070a4cd0a20c89d3e604cc58dbf8afccf26de56629"
   },
-  "private_ledger_sha256": "b05454eaf4606e59d012bfceb47c1497c5275a835466f06656a4d62e93f29d7c",
+  "private_ledger_sha256": "07bab67eab332682ea5183cd54f39966be60dd453353eded9fd118b612d9a722",
   "superseded_current_aliases_royal532": {
     "last_checkpoint": 44,
     "latest_earned": "142 firstnormalworldstep after actual141cold021, fullparty/questinventory/resources/session retained;horseparked persistence",
