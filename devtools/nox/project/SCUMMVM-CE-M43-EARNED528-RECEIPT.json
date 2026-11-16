@@ -1683,6 +1683,38 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot094.g0.ce-achievements.json": "8b48230799eff89141fef5c6dc9beb37401c7f152c6037775227c8708e0eb73e"
       },
       "process": 17
+    },
+    {
+      "label": "guild52-full-party-fireball-return530",
+      "slot": 95,
+      "parent": "0e3a5b8a3551b7d2726f1bef4ec8dd6e66dbc751f19fe3aa6aea26611380b156",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot095.g0": "00a2b160726e4a09a2dd4fd30d8e7853c647ad230c6ca7f68ac5960b1a59a64f",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot095.g0.ce-achievements.json": "3231b1fccc3de53b6480fa4455dbf03d5f4e1d827ee634979fe3340462a33448"
+      },
+      "process": 18
+    },
+    {
+      "label": "guild-five-rogue-earned-victory530",
+      "slot": 96,
+      "parent": "3ca39d12b05b91bc8b738af728d1b3f3353b31beef96e2be9384bca35c55b833",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot096.g0": "787d8e917bc7c1dd376023188c04d92002e12e1d3f6e59268ea722e816a4c536",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot096.g0.ce-achievements.json": "d20c9c866866b1458d645bb75fe14fb972ef29540a679886247abea62b6479e6"
+      },
+      "process": 18
+    },
+    {
+      "label": "guild-three-levers-earned-four-casualties530",
+      "slot": 97,
+      "parent": "d00e8ff62f81804ba4890ab04bff2176bb11b72dc0086af17ec3446d299bba56",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot097.g0": "cb348de16ca5e84c018d1e8f10d80c0de8bc2cd9bee3a34f59c0cde7499a3a27",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot097.g0.ce-achievements.json": "c3edf7afc486518487bd0f4ed9fbeb458d39fd8b3923d1cd148c6b1c036ec6bd",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot097.g1": "a3bc74fda7da95a0c489913f3ce1e2e27396e345b7b40537633f9d06be6611c1",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot097.g1.ce-achievements.json": "bcb4ad95ad78c2785a37c3a6a57e9c69a4e0132744d15b1bdb603c99c3607a40"
+      },
+      "process": 18
     }
   ],
   "correction": "SCUMMVM-CE-NPC529-VERIFICATION.json",

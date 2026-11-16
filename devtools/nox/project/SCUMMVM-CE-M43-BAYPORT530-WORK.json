@@ -32,7 +32,10 @@
     91,
     92,
     93,
-    94
+    94,
+    95,
+    96,
+    97
   ],
   "builds": 4,
   "process_launches": 18,
@@ -43,7 +46,7 @@
     "ce-native-acceptance528\\earned-modern\\wrapper-recovery.json": "6a10ca459214ec33acf71751b4b744779e36ae3f60601175a309d39027f26de9",
     "ce-native-acceptance528/earned-modern/earned-partial-recovery530.json": "e6febeb06a275d3e3abec6f25f961a8adf0a93ed9f984627e050a839dfae55c1"
   },
-  "next_action": "Guild return and changed full-party Fireball+1 attempt; source melee range1 qualification retained.",
+  "next_action": "Normal earned97 withdrawal, recover Bridgit (XP301 pending3,INT20->32 on next realwin) using17gold financed by spareKnife1 and2Lockpicks; retain guard/lever changes. Source-supported resource preparation before remaining guards; no Engine defect/build.",
   "squid_fork": "ce-native-acceptance528/earned-modern/forks/squid-seven-first-defeat",
   "failures": [
     "Seven full191HP range15 Squids defeat; normal74restored, no unchanged retry.",
@@ -56,5 +59,6 @@
   "advancement": "Actual46/41HP wolves defeated normally at119,149. Kat3STR32 HP55, Cutter3INT20 HP63MP20; gold0,food450; save88 hashbd2b90aa59eeaa74c1d2b2b27e1cb9f5ab0d73c53432d9b21d57795f1eecb4689. Two dead members unchanged.",
   "prepared_guild_failure": "Actual ten137HP Rogues defeat; two C1 summons spent20MP, no enemy dismissed. Preserve forks/guild-prepared-first-defeat. Normal90 restored; no Engine defect. Earlier range2 axe strategy was mistaken: native_battle_targets.h forces ordinary kind0 melee range1; input helper matched source. No code correction or success claimed.",
   "changed_guild_preparation": "Normal90 restore. Gemmerchant sells unready Scale breastplate58,Staff3,Shortsword4,LightMace6,BrigandineBoots5 ->76gold. WoodenShield offer refused as all3readied; no shield sold. Normal lastTorch1/3Lockpicks1each ->80gold,2Lockpicks remain. Fireball+1 book3 costs36, shortcut2 (92); Hero2/Bridgit3 temple17each ->all6alive,gold10 (93). Inn full rest next; replace Torch after income before always-dark maps.",
-  "inn_cold": "94 actual10gold inn fullrest at48/17,24, HP71/63/58/55/62/64, MP8/20/8/20/32/20,gold0food450. cold018 compares same party/inventory/questfields/gold/food/sound/session, no assistance. Four builds/18CLI launches; only coherent preparation cold check, no suite rerun."
+  "inn_cold": "94 actual10gold inn fullrest at48/17,24, HP71/63/58/55/62/64, MP8/20/8/20/32/20,gold0food450. cold018 compares same party/inventory/questfields/gold/food/sound/session, no assistance. Four builds/18CLI launches; only coherent preparation cold check, no suite rerun.",
+  "fireball_attempt": "Actual5full137HP Rogues. C2 casts4right killed, left137->77 byKat, Kat/Nox died. Samebattle normalinventory transfersAxe12 toHero; remaining Rogue77->0, Cutter/Bridgit also died. Actualvictory96, Hero3INT20/HP67/MP12 normalallocation, Allu64/0MP, gold14food450. All5dismissed; no allaliveclaim. Earned97 opens20,18/26,18/32,19 via3actual levers; further locked passages and guards remain, no stairs/boss claim. Camp refused twice with nearby guards, resources unchanged."
 }
