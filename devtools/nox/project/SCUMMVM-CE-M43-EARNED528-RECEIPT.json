@@ -2655,22 +2655,33 @@
       },
       "process": 24,
       "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
+    },
+    {
+      "label": "um101-normal-pre-fight998-restored-after-real-drake-defeat532",
+      "slot": 174,
+      "parent": "c6063214e0dc3865ec3f8c8dbb772b77fe0faa0f157b2b5eb903146c6c5b21eb",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot174.g0": "3095edd4fca52bd33ffecff1fc5eafed3cfb9b7bc429b9a53e4299d5560d00f4",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot174.g0.ce-achievements.json": "9f59ac47f36c4254689a8382b460d51a49a4223c0b36a5e5c06f599255e45853"
+      },
+      "process": 24,
+      "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
     }
   ],
   "correction": "SCUMMVM-CE-NPC529-VERIFICATION.json",
-  "last_checkpoint": 173,
+  "last_checkpoint": 174,
   "cold_evidence": "ce-native-acceptance528/earned-modern/cold024.json",
-  "next_action": "ContinueactualUM98->99->100->101sourcepath, normalencounters/doors; acquireScales146bySearchfromsafeEast74,41, preservealloutcomes. RequiredBruce/Archusmembership/other55nodesremain.",
+  "next_action": "Finishnormalwithdrawal97->Castle78->Surface; Town44normalFireball+2/QuickExitpurchase/readiness, thencontinueScaleswithmaterialpreparation. No unchangedfightretry orEnginebuild.",
   "current_source_commit": "e073e27e3e3",
   "current_executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed",
-  "latest_earned": "Actualfivefull70HPsprite144 win167,69, all6survive; Cutterloses16HP47, othersundamaged, noMPspent. Normalearnedlevel4 KatINT+12 ->20/83HP, CutterINT+12 ->32/71maxHP. NormalCutterselfLesserHeal2MP ->71HP/30MP;172gold167food898. NormalReady ownedClothGloves3/ownedlastspareMagicStaff23,Cutter actualsavedgearconfirmed8weight/STR8,INT32, fourreadyStaffs.173normalUM98entryall6fullHP83/71/67/62/70/73,MP20/30/20/32/44/32.",
+  "latest_earned": "NearestordinaryEngine998at101/53,27 copiedwithsidecars/hashbeforeload. ActualnormalLoadchooser174restores earnedpre-fightstatewith173parent, no otheroutcomeaccepted. Newpermanent174preservesfullparty/167gold898food/fourownedStaffs. Startednormalwithdrawal101->100, one70winwithoutHP/MPcost; subsequenttwo70contactpending.",
   "historical_receipt_baseline": {
     "executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4",
     "source_binding": "SCUMMVM-CE-CANNON530-VERIFICATION.json",
     "qualification": "Initialreceiptbaseline only; percheckpoint/current identities control later progression."
   },
   "source_commit": "e073e27e3e3",
-  "local_full_ledger_sha256": "ec3263c1361a647e30cce007f259fd3383c2e9cec4426341567b7839d56a3799",
+  "local_full_ledger_sha256": "db4524b5e400243678e0a31a2e7c8b59c38bfd51fb2c10a71246ce28dfdf5e0a",
   "latest_scoped_evidence": {
     "status": "VERIFIED",
     "scope": "Actual141cold021/142normalnextstep retain quest/inventory/party/resources/sound/session and parkedhorse; not Rustydoorpositivecrossing or fullcampaign acceptance",
@@ -2687,9 +2698,9 @@
     "SCUMMVM-CE-M43-ARCHUS532-WORK.json": "d67b22e38777e6b33dfa950ae8b3b3143179edeb314f84932c0fbf67b1be4e0a",
     "SCUMMVM-CE-M43-ROYAL532-VERIFICATION.json": "c0912514074864c657a8cfe93e14ade54f08093f7e455ac31386ae3658dfa4c7",
     "SCUMMVM-CE-M43-NOURTHELD-RECOVERY532-VERIFICATION.json": "a7d86544f25de761a7441526d69221e04aef5efaf6c633342bff5d28d34cd426",
-    "SCUMMVM-CE-M43-SCALES532-WORK.json": "6f8bf92458da1deab9a8e62cf44a7bb771874c47afc14fed0ade523052f55c52"
+    "SCUMMVM-CE-M43-SCALES532-WORK.json": "0899ee260e797377211d986ac5c270c3264e8ba952763117958f3b404f904c9d"
   },
-  "private_ledger_sha256": "ec3263c1361a647e30cce007f259fd3383c2e9cec4426341567b7839d56a3799",
+  "private_ledger_sha256": "db4524b5e400243678e0a31a2e7c8b59c38bfd51fb2c10a71246ce28dfdf5e0a",
   "superseded_current_aliases_royal532": {
     "last_checkpoint": 44,
     "latest_earned": "142 firstnormalworldstep after actual141cold021, fullparty/questinventory/resources/session retained;horseparked persistence",

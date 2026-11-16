@@ -2595,7 +2595,7 @@
   "process_launches": 24,
   "planned_node_count": 60,
   "mandatory_node_count_note": "All selected M3 nodes explicitly represented alongside dependency76 graph; includes supporting/advice/alternative nodes. Necessity is retained per source,not inferred from node count.",
-  "last_earned_checkpoint": 173,
+  "last_earned_checkpoint": 174,
   "baseline_candidate_sha256": "81feb2c7ff17594a6ea9754dc60602a755b2f37ea7c53b437f65a18e7c35000f",
   "candidate_change": "NPC529,cannon530,packedmelee531,mountedTalk532 source corrections; exact scoped receipts and earned ancestry retained. No broad matrix promotion.",
   "earned_failures_retained": [
@@ -2603,7 +2603,8 @@
     "Fourmember return-road/boat contacts with hostile ships retained;actual tactical defeat,normal Engine47 restore. Native defect not demonstrated. Sixparty48 prepares missing companions instead of repeating fourparty route.",
     "Sevenfull191HP Squids at64,124 defeated party in actual native tactical combat; no victory/reward. Source116 weaponmode240 is range15,power52; centraldeck repositioning cannot prevent ranged damage. Preserve forks/squid-seven-first-defeat; normalactual74 restores99,113. No unchanged retry/nativebugclaim.",
     "One changedpirateattempt afternormal74restore wonall10originalenemies, butKat/Cutter/Hero/Bridgitactuallydied. ActualinventoryUI shieldloan toCutter/Nox raisedarmor25->39, raw75 confirms. Noallaliveclaim. Nox/Alluvionnormal12INT level3allocation;gold14->70,food422.",
-    "137 actualfourth5GhoulvictorywithKat/Bridgitdead; no restore orcleanerreplay. Normalwithdrawal/paidTemple/inn recoveryplanned; keydoorcrossingstillpending."
+    "137 actualfourth5GhoulvictorywithKat/Bridgitdead; no restore orcleanerreplay. Normalwithdrawal/paidTemple/inn recoveryplanned; keydoorcrossingstillpending.",
+    "174actual10full191HPDrakedefeatretainedfork; nearestnormal998101/53,27restoredafterrealdefeat,allprior173lineageretained. Source-spelltierpreparationbeforeanotherattempt."
   ],
   "preparation_after_raque_attempt": {
     "status": "IN PROGRESS",
