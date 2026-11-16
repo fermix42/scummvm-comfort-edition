@@ -2489,12 +2489,45 @@
       },
       "process": 23,
       "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
+    },
+    {
+      "label": "suurt-prepared-surface-departure532",
+      "slot": 159,
+      "parent": "277d66b77fd25719b969c88026519b960fc33db6d530bda61172982a126f24a1",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot159.g0": "d0e36df21bb353ef7bec8984c349c3871d4c62b09f032642560b8c78730e7634",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot159.g0.ce-achievements.json": "27a0ff36b4b851ba6342ebfd8fa7ffb9546c0b96fadcac4ec5e46aaa2fc7001d"
+      },
+      "process": 23,
+      "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
+    },
+    {
+      "label": "owned-skiff-loaded-aboard-frigate532",
+      "slot": 160,
+      "parent": "c57e90cd225a8c73894f4db231ffe33537e5ef50b46c05a9e22096c7c7876f7c",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot160.g0": "70f864c98069ea93f1c49496569deede6155560d1567e395e26a8dd97ade6b01",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot160.g0.ce-achievements.json": "eabe021cc2a8a09eb878586a57b66c32a97afc4d9c251a74def94271ca65aad2"
+      },
+      "process": 23,
+      "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
+    },
+    {
+      "label": "nourtheld-crossing-ten-pirates-kat-dead532",
+      "slot": 161,
+      "parent": "e55dd6c995feb2a4586185d456e268b15112da72b8b5067a143e3d1c21ce6bbf",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot161.g0": "fcc05539c96b5583e1e3d3f93c1fdc1fe3436f805b4a80b6ab814fcca01bcd7d",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot161.g0.ce-achievements.json": "98794116a7d7689ae1ee4067d478e353ed3e3c82b0edce6a6ce3b340bcb2a3c9"
+      },
+      "process": 23,
+      "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
     }
   ],
   "correction": "SCUMMVM-CE-NPC529-VERIFICATION.json",
   "last_checkpoint": 44,
   "cold_evidence": "earned-modern/cold011.json",
-  "next_action": "Continue earlier required Nourtheld54/Styx NAME/Archus TEST; normal earned transport and actual access, all60criteria remain. No Guild guards until genuine preparation.",
+  "next_action": "Finish actual pirate contact; continue126,113; normalX launches storedskiff, sail232 beforeX/foot. ReachNourtheld54,StyxNAME/ArchusTEST. Preserve casualties and all60criteria.",
   "current_source_commit": "e073e27e3e3",
   "current_executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed",
   "latest_earned": "142 firstnormalworldstep after actual141cold021, fullparty/questinventory/resources/session retained;horseparked persistence",
@@ -2516,7 +2549,8 @@
     },
     "SCUMMVM-CE-M43-RUSTY532-VERIFICATION.json": "a8b7cbde178b27d20ecdf9f8e02c4629c939fb0ecefc436ab627ea8098488b2d",
     "SCUMMVM-CE-M43-RUSTY-RECOVERY532-VERIFICATION.json": "17b77f3d267c40eb082b4eeb4dc6c79a6e418858fbe84cf714d688bfebe4fa70",
-    "SCUMMVM-CE-M43-SUURTHELD532-VERIFICATION.json": "04b6de86d57357ac7d1b413b5c4b4f836db61699b94ea9e092f3ba1593eeb472"
+    "SCUMMVM-CE-M43-SUURTHELD532-VERIFICATION.json": "8ea20dd7a6cf4622980424cc7b3f76f518659dbde6e600a2d8d55344af7e2129",
+    "SCUMMVM-CE-M43-NORTH-CROSSING532-WORK.json": "fc9a5b69d363d1c42f04d295d38d9134a55e7fb847fed99d514c850db24bb7f4"
   },
-  "private_ledger_sha256": "7299d100fd0c37886dc055466ba4cf29f8870ed343e13f0d922f2aaa3a3efa6a"
+  "private_ledger_sha256": "7a1b8c257d96bbc4d7c587990739b9d6775fdd70e3db00ed63f103cd5e23e693"
 }

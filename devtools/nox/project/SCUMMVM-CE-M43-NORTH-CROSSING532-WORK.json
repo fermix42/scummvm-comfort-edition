@@ -1,0 +1,24 @@
+{
+  "status": "IN PROGRESS",
+  "scope": "Earned northbound sea crossing after local preparation; not whole campaign acceptance.",
+  "source_commit": "e073e27e3e3",
+  "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed",
+  "lineage": [
+    159,
+    160,
+    161
+  ],
+  "result": "Normal local departure159 and road victories retain fullHP,304gold. Actual skiff124 object212 boarded, sailed over frigate119 and loaded160: frigate208 stored count1, skiff212 cleared. Normal aboard camp restoresBr24MP,880food. At113,138 actual ten98/137HP pirates defeated with ordinary movement/F/cannon targets/healing; Kat died, five survive,Hero58HP,Cutter16MP,401gold. Checkpoint161 preserves death. Two50HP sea enemies subsequently won without additional damage/mana, food886. At113,122 a further eight98/137HP pirate contact is currently being fought; outcome pending.",
+  "commands": "Normal B,Left,Left,B,H; planned49step frigate route115,145->126,113 interrupted by actual contacts. No outcomes injected or accepted-prefix replay.",
+  "qualification": "Read-only target126,112 rejected:frigate requires2x2 all229. Corrected reachable target126,113. No Engine gap demonstrated. TrainingService only raises six skill triplets, not Intelligence; Vortex110Int remains a legitimate advancement prerequisite.",
+  "cost": {
+    "builds": 6,
+    "game_cli": 23,
+    "focused_cli": 2,
+    "material_cli": 25
+  },
+  "evidence": {
+    "ce-native-acceptance528\\earned-modern\\earned-frigate-skiff-loading532.json": "6da908f375aba7b31985db60c772d721c6b5c3ac3556323e72697f4abecb6218"
+  },
+  "next_action": "Finish actual pirate contact; continue126,113; normalX launches storedskiff, sail232 beforeX/foot. ReachNourtheld54,StyxNAME/ArchusTEST. Preserve casualties and all60criteria."
+}

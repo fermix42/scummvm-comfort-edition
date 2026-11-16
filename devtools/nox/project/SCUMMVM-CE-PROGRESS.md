@@ -1,3 +1,7 @@
+# Acceptance528 earned northern crossing159..161 - IN PROGRESS
+
+Normal road/local departure159, owned skiff loaded into frigate160, aboard camp; ten full98/137HP pirates won161 at113,138 but Kat died, five survive,401gold880food. Actual next two50 sea enemies won/noadditionaldamage,886food; eightpirate contact113,122 ongoing. No accepted-prefix replay, source/build/audiochange or broad suite. Sixbuilds/23gameCLI+2focused=25materialCLI. Four/60selectednodesVERIFIED,endingunverified. Continue crossing126,113 then normalstoredskiffX,232landing beforefootX; Nourtheld54 StyxNAME/ArchusTEST. Trainingonlyskills, Vortex110Int remains required earnedadvancement. Canonicalconversion and CEdevtools/nox/project mirrors.
+
 # Acceptance528 coherent Suurtheld preparation158 complete - campaign IN PROGRESS
 
 NormalPlateGauntlets81/ChainGauntlets18/Rapier17 buys/Ready, foodfour2goldunits clipped724->900.158all6aliveHP71/63/67/62/62/64,MP8/20/20/28/24/15,268gold900food. Actualgear/catalog derivesarmor38/51/58/33/35/58,weights24/32,8/8,20/20,7/8,8/8,14/14. LocalTemple/necklaces/500proof retained; source532/audio473unchanged,6builds/23gameCLI+2focused=25materialCLI. Fourof60nodesVERIFIED/endingunverified. DepartnormalSurface/NourtheldStyx/Order earlierrequirements; no furtherprematureGuild. Canonicalconversion/CEdevtools/nox/project recoverymirror.
