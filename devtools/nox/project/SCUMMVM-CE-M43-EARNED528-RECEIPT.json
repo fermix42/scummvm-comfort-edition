@@ -1553,6 +1553,86 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot081.g0.ce-achievements.json": "254119137bae0c6ecda24e71a0aba5482c7715e3bde6fcf8e85c5a68c1c62c82"
       },
       "process": 17
+    },
+    {
+      "label": "Final Bayport approach jellyfish victory 82",
+      "slot": 82,
+      "parent": "9e865a54db9538b72d24bea0b2a7215365060777bdc633818012fc57d67a17ae",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot082.g0": "9d9a221e68a1897543bf32411bfae93f35098b9abe042591db0ec4baf92a5324",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot082.g0.ce-achievements.json": "3c87860ca52886d70e590343cdaa037cabefbebbbe45708703fd7762019836d2"
+      },
+      "process": 17
+    },
+    {
+      "label": "North retreat aligns and clears coastal pirate before recovery",
+      "slot": 83,
+      "parent": "1367037c8a153a25d8319ec0f2b92707ebf698de46eada6237023bc9a304a17e",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot083.g0": "3c20c0ef0ef5ec27d9df7668b0578c8c3beae35c7cfe45070b8fe9927dcd6a08",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot083.g0.ce-achievements.json": "a44d995449937dbd67f545cbdd56744babdff2d4ff6e9d5018809589c147f570"
+      },
+      "process": 17
+    },
+    {
+      "label": "Morning Bayport dock before paid recovery",
+      "slot": 84,
+      "parent": "097f4fdeb8a60713a0985ee6063a1dc49c50a26bcd9fc402c6fa1bf5aeadc270",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot084.g0": "13005f37ca08edb1b0a9a7f0b44ee5d67aa882ffe8e506e651411e4038984391",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot084.g0.ce-achievements.json": "bf4f04f4ecfba8822fba56c4dc113374fb38e4e20ad83399a1b951f024db71be"
+      },
+      "process": 17
+    },
+    {
+      "label": "bayport-partial-recovery-kat-cutter530",
+      "slot": 85,
+      "parent": "f24d9da6e52e3e1b0ff6498f3bba0202dddb0429f1b215676a4fae3a5e2ec6bb",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot085.g0": "b4bbcfc67586c19aeb4e07469b9717381c5f8df86ebb7c847cffeb8f6896d9e0",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot085.g0.ce-achievements.json": "412c2052e0129c72fac287198bcf62ac2edb6874577e1d5046f22df437ed1cfa"
+      },
+      "process": 17
+    },
+    {
+      "label": "bayport-battleaxe-and-shield-earned530",
+      "slot": 86,
+      "parent": "24a56398c128c18d637808d631f5cdc572683a4a26794c5f1bf2ceccf9ed2122",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot086.g0": "bf8eaf5fd0497d7ef976f7cbff4aa6c2297c5b404971ae53b547b50306dc3dc4",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot086.g0.ce-achievements.json": "b3bf942c2c049c4a326d76d22673967619c9d14acc59d712c4f5990fec9f929b"
+      },
+      "process": 17
+    },
+    {
+      "label": "bayport-summon-book-equipped530",
+      "slot": 87,
+      "parent": "13389c11d706e4e46506e5f4770c896859826a8a7e31143a3b4f521a48e432df",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot087.g0": "b01c3121285e0a16602f7353bdb5d2e391f1028a76711a3694766ec3125d641d",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot087.g0.ce-achievements.json": "6293774aeed365adf97a2108ef84dbe1d2782a0185a9eb9b6243bc1d5fcdfafc"
+      },
+      "process": 17
+    },
+    {
+      "label": "bayport-wolf-victory-kat-str-cutter-int530",
+      "slot": 88,
+      "parent": "329c10da690a0a2c2231c1b4c7041be6e6c8dd981cf51002cb19763506a7fcff",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot088.g0": "5616af7f075fa6eebe2fdaca19d98eec92223b96c91b0e8b536ea73b5a2ba09b",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot088.g0.ce-achievements.json": "a81abde25a705173eb927ee006bc6c8cffcde616a1c4ba0f3464ab34ff56c17e"
+      },
+      "process": 17
+    },
+    {
+      "label": "bayport-return-contact167-victory530",
+      "slot": 89,
+      "parent": "bd2b90aa59eaa74c1d2b2b27e1cb9f5ab0d73c53432d9b21d57795f1eecb4689",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot089.g0": "72345688487dbcf9a4950fae2b71bd1f9b44c0ab47640e6540b2aa934f877eb5",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot089.g0.ce-achievements.json": "38115c6f989aa0bb38c31627e9fc2fe1a23338eeee840a738c90473089917ff0"
+      },
+      "process": 17
     }
   ],
   "correction": "SCUMMVM-CE-NPC529-VERIFICATION.json",

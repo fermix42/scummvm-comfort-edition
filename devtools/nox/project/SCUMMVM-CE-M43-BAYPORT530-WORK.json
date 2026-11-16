@@ -19,7 +19,15 @@
     78,
     79,
     80,
-    81
+    81,
+    82,
+    83,
+    84,
+    85,
+    86,
+    87,
+    88,
+    89
   ],
   "builds": 4,
   "process_launches": 17,
@@ -27,14 +35,18 @@
     "ce-native-acceptance528\\earned-watcher530.json": "af5fda5988b03cafc1916fe981a66862c0e94fedff82dbb630162a87ebc356d6",
     "ce-native-acceptance528\\earned-margrave-guild-request530.json": "2a6b6c9658b0edca195ab29106497520b09972412072be7c2fbce5f532fc1904",
     "ce-native-acceptance528\\earned-modern\\earned-preparation-sea151-530.json": "5482ce11ef573d3ec1698b5b7789d373cb9a271aa8ab86ce50a5a1e913e99ad5",
-    "ce-native-acceptance528\\earned-modern\\wrapper-recovery.json": "6a10ca459214ec33acf71751b4b744779e36ae3f60601175a309d39027f26de9"
+    "ce-native-acceptance528\\earned-modern\\wrapper-recovery.json": "6a10ca459214ec33acf71751b4b744779e36ae3f60601175a309d39027f26de9",
+    "ce-native-acceptance528/earned-modern/earned-partial-recovery530.json": "e6febeb06a275d3e3abec6f25f961a8adf0a93ed9f984627e050a839dfae55c1"
   },
-  "next_action": "NormalBayportreturn, necessarypartialrecovery/equipment/spell preparation; sourceGuildboss-before-children ordering avoidsreturnvisit. No additionalunchangedpirateretry.",
+  "next_action": "Return to Guild52 with earned Kat3STR32 Battleaxe, Cutter3INT20, NoxSummon14 shortcut1 and shielded Alluvion. Actual coastal167 contact won; normal Cutter heals Kat33->64->71; all four living retained.",
   "squid_fork": "ce-native-acceptance528/earned-modern/forks/squid-seven-first-defeat",
   "failures": [
     "Seven full191HP range15 Squids defeat; normal74restored, no unchanged retry.",
     "Ten full98/137HP pirates: seven dismissed but actualpartydefeat; both initialflankshotsmissed, noXP/gold. Normal74restore, one changed guard/gun-cycle tacticalattempt planned."
   ],
   "changed_pirate_attempt": "Actualvictory over10originalfull98/137HPpirates;4casualties retained. NormalBattleInventory shieldchanges; raw75 provesCutter/Noxarmor39. Nox3INT32/HP62 andAlluvion3INT20/HP64;gold14->70. No nativecodechange.",
-  "return": "76..80normalweakjellyfishwins, allactualfourdeadretained. Unfoughtfivepirateadmission at114,127 retained; normal80restore. ActualC0healtoNox49->62,East115,126,F-South clears savedpirate180115,129/flag255;noXP/loot.81saved."
+  "return": "82..84 normal coastal world-cannon clearing and morning dock arrival; actual dock landing and Town49 entry; no XP claimed for world cannon removals.",
+  "recovery": "85 normal Temple49/64 resurrection Kat0 and Cutter1,17 gold each:70->36; HP59/56, four alive/two dead. Morning attendant inactive until normal quarter reentry; no source defect claimed.",
+  "equipment": "Normal spare CopperDagger4,Staff1,Rapier8,Flatbow8,Torch1 sales:36->58gold. Battleaxe22:58->36; Kat ready12 (twohands auto-unready Buckler), Alluvion readyBuckler17. Normal Summon14 purchase36->0, readied shortcut1 requirement26; actual saved NBSK begins50,14. Earned86/87 retain four alive/two dead.",
+  "advancement": "Actual46/41HP wolves defeated normally at119,149. Kat3STR32 HP55, Cutter3INT20 HP63MP20; gold0,food450; save88 hashbd2b90aa59eeaa74c1d2b2b27e1cb9f5ab0d73c53432d9b21d57795f1eecb4689. Two dead members unchanged."
 }
