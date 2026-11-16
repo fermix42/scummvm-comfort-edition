@@ -2522,12 +2522,56 @@
       },
       "process": 23,
       "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
+    },
+    {
+      "label": "nourtheld-eight-pirates-kat-cutter-dead-level4-earned532",
+      "slot": 162,
+      "parent": "e01c52d6faf1eb74ffb7a9498cb42540e7b52c1af398ce8b0fe1a7988c8e7a39",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot162.g0": "ac857c92fc72c21fd0a8308f4d32bd7db7146ea0f9ea93ef18acef1004b9fcc7",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot162.g0.ce-achievements.json": "9a3f1feddb58bd9650adca86a815728647a842e751731a1c4271a376ae649471"
+      },
+      "process": 23,
+      "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
+    },
+    {
+      "label": "nourtheld-earned-safe-shore-kat-cutter-dead532",
+      "slot": 163,
+      "parent": "85778f31b3646a9705992e65f7e7e2ca661ff71112f5308f3fe957b9703b43fd",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot163.g0": "fd4a0901b4aa7260a56e4436d1b15f48461acfa97069aeb1ad58632ad6c64a15",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot163.g0.ce-achievements.json": "be7a88418428ed08acab779208ff1e53033f2207816d25cdfecefc8bbad9acc4"
+      },
+      "process": 23,
+      "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
+    },
+    {
+      "label": "north-land-group-eight-win-Alluvion-owned-staff532",
+      "slot": 164,
+      "parent": "68a523ebb5541e8e73d5fc383a36c8e46897cf9954882c488dd57a7d5597f0a8",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot164.g0": "c299030bcb5cf4b6a713cd71616f43f20a9f7467d02d7208560433e2766be33e",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot164.g0.ce-achievements.json": "8737c8269518fc5f5879792db6601229fbc7c12a6b9abcb0a0f186ecb190c976"
+      },
+      "process": 23,
+      "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
+    },
+    {
+      "label": "nourtheld-return-earned-castle54-entry532",
+      "slot": 165,
+      "parent": "d9467bf6ab881adcf24251c7b95eac2a33d80a05ac4f27b74c1aec594154c4c7",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot165.g0": "79b425bf4fb4273c2db181ad0b163b284160366991cc1c2d870802c834fec502",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot165.g0.ce-achievements.json": "2418a74b5f6643fc13d74b3373becc08a5930ee888173e534b33146d5f0d8680"
+      },
+      "process": 23,
+      "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
     }
   ],
   "correction": "SCUMMVM-CE-NPC529-VERIFICATION.json",
   "last_checkpoint": 44,
   "cold_evidence": "earned-modern/cold011.json",
-  "next_action": "Finish actual pirate contact; continue126,113; normalX launches storedskiff, sail232 beforeX/foot. ReachNourtheld54,StyxNAME/ArchusTEST. Preserve casualties and all60criteria.",
+  "next_action": "Normal54stairs9,8->58; actualArchusTEST,57StyxNAME/repeat. Retainall60criteria andactualcasualties.",
   "current_source_commit": "e073e27e3e3",
   "current_executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed",
   "latest_earned": "142 firstnormalworldstep after actual141cold021, fullparty/questinventory/resources/session retained;horseparked persistence",
@@ -2550,7 +2594,7 @@
     "SCUMMVM-CE-M43-RUSTY532-VERIFICATION.json": "a8b7cbde178b27d20ecdf9f8e02c4629c939fb0ecefc436ab627ea8098488b2d",
     "SCUMMVM-CE-M43-RUSTY-RECOVERY532-VERIFICATION.json": "17b77f3d267c40eb082b4eeb4dc6c79a6e418858fbe84cf714d688bfebe4fa70",
     "SCUMMVM-CE-M43-SUURTHELD532-VERIFICATION.json": "8ea20dd7a6cf4622980424cc7b3f76f518659dbde6e600a2d8d55344af7e2129",
-    "SCUMMVM-CE-M43-NORTH-CROSSING532-WORK.json": "fc9a5b69d363d1c42f04d295d38d9134a55e7fb847fed99d514c850db24bb7f4"
+    "SCUMMVM-CE-M43-NORTH-CROSSING532-WORK.json": "1d3d29280dca97a2344579f0b14d55b9bfad59e2127986e212148939607a7166"
   },
-  "private_ledger_sha256": "7a1b8c257d96bbc4d7c587990739b9d6775fdd70e3db00ed63f103cd5e23e693"
+  "private_ledger_sha256": "b3940ff53c06d31b9d7e7302a97b6253e49e1c24c4d2ef79b173a4ba09b3a135"
 }

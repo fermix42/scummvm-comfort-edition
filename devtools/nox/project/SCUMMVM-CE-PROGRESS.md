@@ -1,3 +1,11 @@
+# Acceptance528 earned Nourtheld arrival165 - IN PROGRESS
+
+Actualsafe northernlanding163, preservedmandatorypiratedefeatfork andnormal163restore; changedship-clearancefootroute, normal87/eight87-98/single87/two46-41wins,onepaidFlee465->232retained. 164AlluvionnormalownedStaff equipped/actualbattleconfirmed;camprefused. ActualSurface17762->Castle54/22,38,165. KatCutterdead,fourliving46/48/70/58HP,MP2/7/7/5,241gold898food. Nox/Allu earnedlevel4INT12each. Continueactual54->58ArchusTEST and57StyxNAME/repeat. No source/build/audiochange;6builds/23gameCLI+2focused=25materialCLI. Four/60nodesVERIFIED,endingunverified. Canonicalconversion/CEdevtools/nox/project mirrors.
+
+# Acceptance528 northern shore163 and land164 - IN PROGRESS
+
+162eightpirates won/Cutteralso dead; Nox/Allu normallevel4INT12. Actualfrigate126113,storedskiffX/sixsafesteps129110/232/normalXfoot/noadditionaldamage163. Land142109tenpiratenoflee actualdefeat retainedfork; normal163restore retainsKatCutterdeaths. Changed96step ship-only4clearance route bypasseshostileship145108. Shared34damage retained/unattributed; single87win/normalhealing465gold, eight87/98normalFlee232thenrecontactactualwin241/allfourliving. AlluownedStaff23normalReadyconfirmednextbattlehand97;camprefused,164. Later single87winundamaged,weak46/41contactpending16363. Source532/audio473unchanged,6builds/23gameCLI+2focused=25materialCLI. Four/60selectednodesVERIFIED;endingunverified. ContinueNourtheldStyx/Archus. Canonicalconversion/CEdevtools/nox/project mirrors.
+
 # Acceptance528 earned northern crossing159..161 - IN PROGRESS
 
 Normal road/local departure159, owned skiff loaded into frigate160, aboard camp; ten full98/137HP pirates won161 at113,138 but Kat died, five survive,401gold880food. Actual next two50 sea enemies won/noadditionaldamage,886food; eightpirate contact113,122 ongoing. No accepted-prefix replay, source/build/audiochange or broad suite. Sixbuilds/23gameCLI+2focused=25materialCLI. Four/60selectednodesVERIFIED,endingunverified. Continue crossing126,113 then normalstoredskiffX,232landing beforefootX; Nourtheld54 StyxNAME/ArchusTEST. Trainingonlyskills, Vortex110Int remains required earnedadvancement. Canonicalconversion and CEdevtools/nox/project mirrors.
