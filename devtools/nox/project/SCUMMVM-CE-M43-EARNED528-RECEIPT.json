@@ -1633,6 +1633,56 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot089.g0.ce-achievements.json": "38115c6f989aa0bb38c31627e9fc2fe1a23338eeee840a738c90473089917ff0"
       },
       "process": 17
+    },
+    {
+      "label": "guild52-equipped-return530",
+      "slot": 90,
+      "parent": "22b3fd382998ed0cc31cdcef8a929ec08237014c97a7cd8e633ffe62c207ddbb",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot090.g0": "69c9ad8e6717aaa660ee340a23f80a984ae556c0183adfa270d694f890b28387",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot090.g0.ce-achievements.json": "b33f9414333787e64be3cf721c38778dda5230e39952ca9eaa6336601c197435"
+      },
+      "process": 17
+    },
+    {
+      "label": "guild-regear-sales80gold-two-lockpicks530",
+      "slot": 91,
+      "parent": "648946bfe9ec4ea6b54c62acebb7a17624f205ad6a2d8cc9e66f07bc0e69a63f",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot091.g0": "ba8510de6f5e2fe0da6e531a657d8ac8b4d51ca38deff2bcfef7c0aa4c48f1b1",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot091.g0.ce-achievements.json": "84943bc10742346905c883309312d7a426eb51d57277adeb9044870bc0e9c474"
+      },
+      "process": 17
+    },
+    {
+      "label": "guild-fireball-book-shortcut2-earned530",
+      "slot": 92,
+      "parent": "7a9b55abf0b18319d46412205342ebce59b4f6af9a164f625bb6b02992bfc774",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot092.g0": "af5af0c6dc93657f0092bcc699706903ffbc8e9afd58d88ea3332cf0ca31a3ef",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot092.g0.ce-achievements.json": "cda2a687b4f406d0ea3fbbedc599b9ebe8a0b0856dc6fbd4a22df4cb0d5d65e3"
+      },
+      "process": 17
+    },
+    {
+      "label": "guild-full-party-revival-earned530",
+      "slot": 93,
+      "parent": "709952bf49dac9a0b810da251a68264455ccd25c2764971e7d152e4c6772bf9c",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot093.g0": "9507afe7418f8c67638b1dbf422b0006f292bae22d0b1a945d836da107011e69",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot093.g0.ce-achievements.json": "dade4265866cd03bda86d18e692b2e61cb4f2fa052bbcf711230c4ea5f5c88e8"
+      },
+      "process": 17
+    },
+    {
+      "label": "guild-full-party-fireball-inn-rest530",
+      "slot": 94,
+      "parent": "dcf0265add1706615a50d51400ac84902300578ef601675185bbcba92d2b8bf1",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot094.g0": "7737bb9248f745dfd288970e1d384bfbbab00b4c34cdd8ab7c02d0a91d25751a",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot094.g0.ce-achievements.json": "8b48230799eff89141fef5c6dc9beb37401c7f152c6037775227c8708e0eb73e"
+      },
+      "process": 17
     }
   ],
   "correction": "SCUMMVM-CE-NPC529-VERIFICATION.json",
