@@ -44,7 +44,8 @@
     "Actual146 retains Kat/Cutter dead and prior107->53 Flee; 137HP followup victory70gold. Four98HP upperRuin20 defeat preserved, normal146 restored with both prior deaths. Camp refusals retained. Subsequent two normal Flees70->35->17 and actual unready deadKat Axe/Ready Hero. New three98HP victory147 kills Hero/Alluvion, retains two fullHP62 casters/noMP,38gold. Source-derived nearest westboundary route11steps; normal Left at9,22 prompts leave, Y reaches Surface139,215. NormalH restores living24MP each,food845->797; actual148.",
     "Actual normal Ask/Q single137HP Rogue victory152/all6fullHP, then originalthree137HP Rogue Quick defeat preservedfork and normal152restore; onechanged Tactical choice actualvictory153 butKat/Cutter/Hero/Bridgitdead. No full Guild/Skull/boss acceptance.",
     "224 actual raw17 trap Cutter death retained as branch; normal pretrap998 load225 excludes that death from continued mainline. No successful raw17 opening claimed.",
-    "After250 boarding cannon defeat preserved privately; normal preboarding998 reload and changed dry-land camp251 continues mainline, no defeat rewards or casualty erasure hidden."
+    "After250 boarding cannon defeat preserved privately; normal preboarding998 reload and changed dry-land camp251 continues mainline, no defeat rewards or casualty erasure hidden.",
+    "255 label mentions camp prematurely: H actually refused danger; no mana/food recovery credited. Subsequent normal route continues from actual earned victory/heal."
   ],
   "checkpoints": [
     {
@@ -3524,22 +3525,66 @@
       },
       "process": 31,
       "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd"
+    },
+    {
+      "label": "earned pirate cave entrance252",
+      "slot": 252,
+      "parent": "51a3325985866d635dddceb5d6391e8445adf95f1027ef9076c9d30eaa65c1ad",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot252.g0": "6d43b23c418cfc74418a08db378d83ad9a9ed456eb53c3e872ce61880e7cff35",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot252.g0.ce-achievements.json": "0c396593a207d8c7d5bb12a598f5db4ab2c4249cbe19bc115dd008f30e2a6460"
+      },
+      "process": 31,
+      "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd"
+    },
+    {
+      "label": "earned Raque key cave door passage253",
+      "slot": 253,
+      "parent": "5022e695d643f991ee8d26d7da926b1797dc6436b8e86e4c46820f19a768e9e6",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot253.g0": "19d89d1220813549f77af1bff8bc34393dc803fe4e2fb6a65284f8f954a55559",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot253.g0.ce-achievements.json": "b432aad778b3f5ac068b7dc73841a499f8fffcbf9ab0eff1cc44703b3a8aa04b"
+      },
+      "process": 31,
+      "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd"
+    },
+    {
+      "label": "earned cave random encounter normal flee254",
+      "slot": 254,
+      "parent": "b19b43647ad77b80765fc44dfd7ffa728ce7c9a2c0da213fe3917a3bca7d3b6a",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot254.g0": "b8d0368b690e1d2e8a43590c589271dea4b5bab5f71599cc97940a5abe9e5c04",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot254.g0.ce-achievements.json": "68c4b240108bfde0351ff7048d20a62bbb8074c8245c1e103355f518f66ba325"
+      },
+      "process": 31,
+      "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd"
+    },
+    {
+      "label": "earned three satyr victory and cave camp255",
+      "slot": 255,
+      "parent": "7df71d299052cace03d6e730b65411478f3c33f9b980cfbb52f3d67aba48f2b0",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot255.g0": "f8bd1baa0a4421b64336cd23810389c7f1a8dd0b36e0435295855b9a798e6615",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot255.g0.ce-achievements.json": "b1a990c3a1f9a8f18bcb4853a6ec92fa1a7b2e84135385f3a77aaa504c74b92c"
+      },
+      "process": 31,
+      "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd"
     }
   ],
   "correction": "SCUMMVM-CE-NPC529-VERIFICATION.json",
-  "last_checkpoint": 251,
+  "last_checkpoint": 255,
   "cold_evidence": "ce-native-acceptance528/earned-modern/cold031.json",
-  "next_action": "Continue ten-step source dry-foot route from198106 to19999, enter cave20099 fromwest; earned132 doorUM97/196107, Brown74 control/chest/gate and Cult75 chain. No unchanged boarding/Guild/Drake retry; no milestone stop.",
+  "next_action": "Finish alternate authored eastward route to Brown missing-key refusal98/21621, then control22950/chest21853 and normal return; no unchanged eight-enemy or repeated flee loop.",
   "current_source_commit": "c660ae8ac41",
   "current_executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd",
-  "latest_earned": "Frigate75step route to206105 and normal skiff landing204105 cause no HP loss248. Normal Town41 Raque OUT clue and KEY admission triggers full five-enemy191/137/137/98/98 battle. Actual Tactical/fireballs/heals victory all6fullHP earns132 and field12 128->129249, Queen Writ preserved. Normal food service14packs clips222->900food for56gold637->581250. Town exit normal Left/Y and boarding at206105 triggers ten-pirate battle before camp; cannon tactic actual defeat retained. Normal pre-boarding998 reload restores earned250 resources atSurface198106; changed normal H on dry land restores107MP for107food900->793251. All6fullHP, MP15/24/24/33/33/24. No injected state, Engine change, build or new process.",
+  "latest_earned": "Normal cave252 and earned132 door Open/Down/Down pass253 all6fullHP/resources unchanged. Source route to absent-Brown gate intercepted at98/195100 beforeRight196100 by eight191/148HP cultist/satyr/mage encounter; actual Tactical/spells/heals defeat retained. Normal prebattle998 load; changed normal Tactical/Escape/Y flees581->290gold254 all6fullHP/MP unchanged. Two further admissions at same attempted cell fled normally290->145->72; no XP/reward. Alternate source route avoids196100 via normal97/98 stair return then east197109; ongoing full-source route to Brown gate. Retained normal flee254 followed by two more same-cell admissions/flees290->145->72gold. Alternate source route via normal97/98 stairs bypasses196100 and reaches201104; two-Satyr incidental admission fled72->36, then three-Satyr admission actual Tactical/spells/heals victory36->72gold255. All6alive; Hero59HP healed normally byKat2MP to77. Normal H cave camp REFUSED You sense danger near; food793 and MP11/9/9/2/2/9 unchanged. Checkpoint255 label mentions camp prematurely; actual camp is refused, not credited. Normal full-source route continues east220100 and north toward Brown gate; no source/build/newCLI.",
   "historical_receipt_baseline": {
     "executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4",
     "source_binding": "SCUMMVM-CE-CANNON530-VERIFICATION.json",
     "qualification": "Initialreceiptbaseline only; percheckpoint/current identities control later progression."
   },
   "source_commit": "c660ae8ac41",
-  "local_full_ledger_sha256": "614f3bb837695ac12f0627773b3bd8286bfb816dba0ceabc63b35f0cc141de87",
+  "local_full_ledger_sha256": "1674efe6652aa25cba7c676e01bbbf988eb1e5705137e6a001668b6c90a96412",
   "latest_scoped_evidence": {
     "status": "VERIFIED",
     "scope": "Actual141cold021/142normalnextstep retain quest/inventory/party/resources/sound/session and parkedhorse; not Rustydoorpositivecrossing or fullcampaign acceptance",
@@ -3559,9 +3604,9 @@
     "SCUMMVM-CE-M43-SCALES532-WORK.json": "0ae8239c7e75489373b0604738e1e79d35ccd3a81e348f47832e978cd82b9645",
     "SCUMMVM-CE-M43-CASTLE532-WORK.json": "c1d4286b16d7e8cd3cadcc17047ce6d12a740089562c4df18d0493a527da57d6",
     "SCUMMVM-CE-DOOR533-VERIFICATION.json": "b56eda55bb27385ee3a31fda61b57f58965e91465d68e120ba271e1c360e3c6b",
-    "SCUMMVM-CE-M43-CULT533-WORK.json": "22a0b2bd91f461c9ab25d493add0e4868110337ebed68c0df83009526e2b8562"
+    "SCUMMVM-CE-M43-CULT533-WORK.json": "2f352c18fb4287006086230c71eeedb465694fdc69341eab9e4a895b33a4774b"
   },
-  "private_ledger_sha256": "614f3bb837695ac12f0627773b3bd8286bfb816dba0ceabc63b35f0cc141de87",
+  "private_ledger_sha256": "1674efe6652aa25cba7c676e01bbbf988eb1e5705137e6a001668b6c90a96412",
   "superseded_current_aliases_royal532": {
     "last_checkpoint": 44,
     "latest_earned": "142 firstnormalworldstep after actual141cold021, fullparty/questinventory/resources/session retained;horseparked persistence",

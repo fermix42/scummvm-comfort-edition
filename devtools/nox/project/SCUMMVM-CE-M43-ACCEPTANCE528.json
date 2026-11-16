@@ -169,7 +169,7 @@
     },
     {
       "id": "brown-key",
-      "status": "NOT STARTED",
+      "status": "IN PROGRESS",
       "prerequisites": [
         "gordon-shrubbery"
       ],
@@ -196,7 +196,8 @@
         "scoped audio/presentation",
         "actual earned verification criteria"
       ],
-      "earned_lineage": null
+      "earned_lineage": null,
+      "actual_result": "Earned Raque full five-enemy victory249/key132, normal cave entry252 and actual key door/passage253. Brown74/control/lowergate not yet verified; cave battle interrupts source route."
     },
     {
       "id": "cult-lower-portal",
