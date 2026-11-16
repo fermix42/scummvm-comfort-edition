@@ -17,7 +17,7 @@ public:
     bool load(HdvArchive &archive, byte type) {
         Common::Array<byte> game, range, scale, guards; MapAssetRange assets;
         if (!archive.read("NA/GAME", game) || !resolveMapAssets(game, type, assets) ||
-                !archive.readRange(assets.resource, assets.offset + assets.size + 26, 2, range) || range.size() != 2 || !archive.readRange("NA/SRTN.INVENTORY",0x8a92+0x33c,20,scale) || !archive.readRange(assets.resource,assets.offset+assets.size+64,3,guards) || !_lock.load(archive)) return false;
+                !archive.readRange(assets.resource, assets.offset + assets.size + 26, 2, range) || range.size() != 2 || !archive.readRange("NA/SRTN.INVENTORY",0x8a92+0x33c,20,scale) || !archive.readRange(assets.resource,assets.offset+assets.size+64,3,guards) || !_lock.load(archive) || !_doorLock.load(archive,true)) return false;
         _lower = range[0]; _upper = range[1]; _type = type;memcpy(_guards,guards.data(),3);
         for (uint i=0;i<10;++i) _currencyScale[i]=READ_LE_UINT16(scale.data()+i*2);return true;
     }
@@ -25,6 +25,7 @@ public:
     bool locked(byte tile) const { return tile >= _lower && tile < _upper; }
     bool guard(byte picture) const {return (picture>=_guards[0] && picture<_guards[1]) || picture==_guards[2] || picture==123;}
     const LockRules &locks() const { return _lock; }
+    const LockRules &doorLocks() const { return _doorLock; }
     bool currency(byte descriptor,byte level,byte partyCount,uint16 food,uint16 gold,GameplayRandom &random,uint16 &amount) const {
         if (_type==255 || !level || level>10 || !partyCount || partyCount>6 || (descriptor&15)>9 || (descriptor>>4)>9) return false;
         GameplayRandom next=random;byte variation,sign;
@@ -40,7 +41,7 @@ public:
     }
 
 private:
-    byte _type, _lower, _upper; byte _guards[3];uint16 _currencyScale[10];LockRules _lock;
+    byte _type, _lower, _upper; byte _guards[3];uint16 _currencyScale[10];LockRules _lock, _doorLock;
 };
 
 // Commit one attempt's verified effects together. UI/death checks belong to

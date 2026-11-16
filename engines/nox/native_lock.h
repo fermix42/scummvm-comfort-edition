@@ -17,15 +17,19 @@ struct LockEffect {
 enum LockResult { kLockUnsupported, kLockNoTools, kLockCancelled, kLockOpened, kLockTrapAvoided, kLockTrapped };
 class LockRules {
 public:
-    LockRules() : _ready(false) {}
-    bool load(HdvArchive &archive) {
+    LockRules() : _ready(false), _door(false) {}
+    bool load(HdvArchive &archive, bool door = false) {
         Common::Array<byte> data;
-        if (!archive.readRange("NA/SRTN.INVENTORY", 0x8a92 + 0x5ba, 22, data) || data.size() != 22) return false;
-        for (uint i = 0; i < 11; ++i) _damage[i] = READ_LE_UINT16(data.data() + i * 2) / 4;
-        _ready = true; return true;
+        // Open reads its full difficulty byte and wraps the doubled table index.
+        // Keep reads inside its original loaded resource; Search has level0..10.
+        const uint count = door ? 32 : 11;
+        if (!archive.readRange("NA/SRTN.INVENTORY", door ? 0x9549 + 0x237 : 0x8a92 + 0x5ba, count * 2, data) || data.size() != count * 2) return false;
+        for (uint i = 0; i < count; ++i) _damage[i] = READ_LE_UINT16(data.data() + i * 2) / 4;
+        _door = door; _ready = true; return true;
     }
+    bool supportsDifficulty(byte difficulty) const { return _door ? (difficulty & 127) < 32 : difficulty <= 10; }
     LockResult attempt(const LockContext &context, LockState &state, GameplayRandom &random, Common::Array<LockEffect> &effects) const {
-        if (!_ready || context.difficulty > 10 || !context.selectedMember || context.selectedMember > context.partyCount || context.partyCount > 6)
+        if (!_ready || !supportsDifficulty(context.difficulty) || !context.selectedMember || context.selectedMember > context.partyCount || context.partyCount > 6)
             return kLockUnsupported;
         Common::Array<LockEffect> next;
         if (!state.picks) { effects = next; return kLockNoTools; }
@@ -47,8 +51,8 @@ public:
         else {
             if (!candidate.next(1, 199, roll)) return kLockUnsupported;
             if (roll < 25) for (byte member = 1; member <= context.partyCount; ++member)
-                next.push_back(LockEffect(LockEffect::kDamage, member, _damage[context.difficulty]));
-            else next.push_back(LockEffect(LockEffect::kDamage, context.selectedMember, _damage[context.difficulty]));
+                next.push_back(LockEffect(LockEffect::kDamage, member, _damage[_door ? context.difficulty & 127 : context.difficulty]));
+            else next.push_back(LockEffect(LockEffect::kDamage, context.selectedMember, _damage[_door ? context.difficulty & 127 : context.difficulty]));
             result = kLockTrapped;
         }
         --state.picks; ++state.priorAttempts; random = candidate; effects = next; return result;
@@ -56,7 +60,7 @@ public:
 private:
     static byte threshold(byte skill, byte difficulty) { return byte((skill >> 1) - difficulty * 2 + 50); }
     static byte fold(byte roll) { return roll >= 100 ? roll - 100 : roll; }
-    bool _ready; uint16 _damage[11];
+    bool _ready, _door; uint16 _damage[32];
 };
 } }
 #endif

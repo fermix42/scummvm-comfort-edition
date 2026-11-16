@@ -178,14 +178,14 @@ public:
     SearchResult pickDoor(byte targetX,byte targetY,byte slot,byte selectedMember,const SearchRules &rules,SearchState &search,GameplayRandom &random,Party &party,bool &promoted) {
         if (!ready() || rules.mapType()!=_type || slot>248 || (slot&3) || distance(_x,targetX)+distance(_y,targetY)!=1) return kSearchUnsupported;
         byte *object=_states[_current].tables.data()+1024+slot;
-        if (object[0]!=targetX || object[1]!=targetY || object[3]!=17 || object[7]>10) return kSearchUnsupported;
+        if (object[0]!=targetX || object[1]!=targetY || object[3]!=17 || !rules.doorLocks().supportsDifficulty(object[7])) return kSearchUnsupported;
         if (!_fields[33]) {promoted=false;return kSearchNoTools;}
         const CharacterRecord *member=party.member(selectedMember?selectedMember-1:6);
         if (!member || selectedMember>party.memberCount()) return kSearchUnsupported;
         LockContext context;context.difficulty=object[7];context.lockSkill=member->bytes[37];context.trapSkill=member->bytes[31];
         context.map=mapId();context.selectedMember=selectedMember;context.partyCount=party.memberCount();context.forceOpen=false;context.cancelled=false;
         Party candidate=party;GameplayRandom rng=random;LockState state={_fields[33],search.priorLockAttempts};Common::Array<LockEffect> effects;bool advanced=false;
-        const LockResult access=rules.locks().attempt(context,state,rng,effects);
+        const LockResult access=rules.doorLocks().attempt(context,state,rng,effects);
         if (access==kLockUnsupported || !applyLockPartyEffects(effects,candidate,advanced)) return kSearchUnsupported;
         _fields[33]=state.picks;search.priorLockAttempts=state.priorAttempts;party=candidate;random=rng;promoted=advanced;
         if (access!=kLockOpened) return kSearchRetry;
