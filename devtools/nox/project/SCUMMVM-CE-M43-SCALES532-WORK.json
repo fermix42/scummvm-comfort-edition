@@ -133,5 +133,11 @@
     "actual": "141109 seven98/137pirates won all6alive. Shared17HP approach damage retained/unclassified; normalNoxbattleheal and normalKatworldselfheal2MP fillall6HP83/71/77/70/70/73.193gold160food713MP10/7/7/3/3/7. SourceCampclearance route interrupted by two87HPsprite143 at139110; normalweaponfight won noHP/MPcost,gold182. FreshsourceplanoneUp139109dry; normalHcamp194 givesMP15/24/24/33/33/24, food713->597 (116MP restored),all6fullHP.",
     "qualification": "First proposedcamp194 helper continuedafterrouteinterruption into battle; H ignored/checkpointcorrectly refused; no camp/save counted, private attemptartifact retained. Replanned fromactualnormal998aftertwo-magevictory; actualcamp194separatefile. Private checkpoint error nowcompact, fullstate remainsdurableCLItrace. No Enginechange/build.",
     "current_path": "Source10steps139109->130110 ownedskiff approach stopped at139110 neweight98/137pirates. Actualfightunderway. Private normalspellpolicy now permitsreadiedFireball+2 onlevel4groups onlywhensafe sourcepower/cost/coverage improves overcurrentchoice; no expectedoutcomes injected."
+  },
+  "coastal_return201": {
+    "status": "VERIFIED",
+    "scope": "Earned return/rest only; Guild/Scales/ending unverified",
+    "actual": "195 eight-pirate victory retained Kat death; 196 normal camp/five heals, five healthy.197 nine-pirate victory344gold.198 owned skiff stored frigate.199 actual Space-unready/three wooden shields.200 seven-pirate naval victory five alive410gold479food. Misaligned world shots/blocked moves left five critically wounded; branch preserved before normal200 reload. Legal Left/Up to127117 aligned cannon against126118 ship; actual FLeft then H restored mana24/24/33/33/24, food350.201 earned save retains Kat dead, fiveHP71/68/62/70/73. No Engine changes/builds.",
+    "next": "Source52step frigate route113145 then normal skiff/shore/Bayport Temple/Inn/Guild"
   }
 }

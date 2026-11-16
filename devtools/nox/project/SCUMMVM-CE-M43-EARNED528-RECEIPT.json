@@ -2886,22 +2886,99 @@
       },
       "process": 26,
       "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
+    },
+    {
+      "label": "coastal-eight-pirate-victory-Kat-dead-retained532",
+      "slot": 195,
+      "parent": "60be7c6c1fd937f96d714cfbe0502563800e25c4a4c62f3492deaa06d57fbb0c",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot195.g0": "ef3059eb27ddd7a24a3e7f9972583b66f987de3fca085fada13aadeae2b9ce54",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot195.g0.ce-achievements.json": "4bca3bdba1f3245246c86758562e86f104957450493c4ef420319d4f5d9b204f"
+      },
+      "process": 26,
+      "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
+    },
+    {
+      "label": "coastal-Kat-dead-five-living-full-healed-and-rested532",
+      "slot": 196,
+      "parent": "c88a1c5849ba31451999ecbfbfacd85bef632eb30ae691349fb48b306b97d363",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot196.g0": "4d05cd9e6f09d90f3388f0a003adbf2bf625a87db53cd78d25088e092f4ef19d",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot196.g0.ce-achievements.json": "6e309afe46bd5bfe73a6fea71efafa686091b22ee2c22e6f112e285ca201e31f"
+      },
+      "process": 26,
+      "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
+    },
+    {
+      "label": "earned-nine-coastal-pirates-win-five-survive-Kat-dead532",
+      "slot": 197,
+      "parent": "376bbb0e7d7ae8adca6feb043474efc6d1ca7863009196d7c76c5a3e1739c592",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot197.g0": "69cf3fe5e9ec7cf2b23fe4d2c456f3d2b22d53d53399887d9567dfa5172dbd1c",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot197.g0.ce-achievements.json": "41d09a239908574b5a60ac978862b2abcb3959b8c092cac3375e31a3b3b20390"
+      },
+      "process": 26,
+      "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
+    },
+    {
+      "label": "earned-north-owned-skiff-loaded-Frigate-return532",
+      "slot": 198,
+      "parent": "916ea71dc8bf02df86c22f2cf76dcf455ec50b64633bd80b0e4973bd0b0f1ab2",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot198.g0": "faeaf3ca8e605934da2a76dc78fce224e0e930e1827fd5656a5b8f62d4c1b2c3",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot198.g0.ce-achievements.json": "f250888102cd917a59d808f3966b63b5e4aaa3b123f603d027f7fb326fed0853"
+      },
+      "process": 26,
+      "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
+    },
+    {
+      "label": "earned-Frigate-three-owned-crew-shields-Kat-dead532",
+      "slot": 199,
+      "parent": "75860ba0dda6327c8e3d423d6518c369394f7faad638057916f743859fa5a208",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot199.g0": "ee77b49289eeda8b7bee30a03e1314705636e61ffcbcd0afe5d49c62c59af3c5",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot199.g0.ce-achievements.json": "5dff340526247ab1642085a9dd31b6300c75b4bedeccbc9cca2f65c73e90ff30"
+      },
+      "process": 26,
+      "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
+    },
+    {
+      "label": "Frigate-seven-pirates-cannon-win-five-survivors532",
+      "slot": 200,
+      "parent": "b10f823c4bd7f8199d01b27e240cd6c91b83c38c620994088c9ac269e8c3819f",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot200.g0": "5831172b65508c2cf0f1ae39e0391e1eb8ef3d60634c72c1b2dd766c0ceec88d",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot200.g0.ce-achievements.json": "4892ca105162146a620a776a2ad7d2503b2658ab7aceb36f9db57f1eff25d2b3"
+      },
+      "process": 26,
+      "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
+    },
+    {
+      "label": "Frigate aligned cannon and earned camp201",
+      "slot": 201,
+      "parent": "a4fbc05430065a7d32a712ac1113266ef9800f06358f650b8cce44916019cb4d",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot201.g0": "253713b14f428cebc2737c517fa1a7833b69346e770cf7350172ebd2220f1bde",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot201.g0.ce-achievements.json": "71d951abb9e4811a4ea2f9ee6dc3a6c5a081aedee24e1f17a11decc7e3f94295"
+      },
+      "process": 26,
+      "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
     }
   ],
   "correction": "SCUMMVM-CE-NPC529-VERIFICATION.json",
-  "last_checkpoint": 194,
+  "last_checkpoint": 201,
   "cold_evidence": "ce-native-acceptance528/earned-modern/cold024.json",
-  "next_action": "Finish actual139110 eight-pirate encounter, retrieveownedskiff/Frigate, thenBayportInn/Guild branch; no current-strength Drake retry.",
+  "next_action": "Source52step frigate route113145 then normal skiff/shore/Bayport Temple/Inn/Guild",
   "current_source_commit": "e073e27e3e3",
   "current_executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed",
-  "latest_earned": "141109 seven98/137pirates won all6alive. Shared17HP approach damage retained/unclassified; normalNoxbattleheal and normalKatworldselfheal2MP fillall6HP83/71/77/70/70/73.193gold160food713MP10/7/7/3/3/7. SourceCampclearance route interrupted by two87HPsprite143 at139110; normalweaponfight won noHP/MPcost,gold182. FreshsourceplanoneUp139109dry; normalHcamp194 givesMP15/24/24/33/33/24, food713->597 (116MP restored),all6fullHP.",
+  "latest_earned": "195 eight-pirate victory retained Kat death; 196 normal camp/five heals, five healthy.197 nine-pirate victory344gold.198 owned skiff stored frigate.199 actual Space-unready/three wooden shields.200 seven-pirate naval victory five alive410gold479food. Misaligned world shots/blocked moves left five critically wounded; branch preserved before normal200 reload. Legal Left/Up to127117 aligned cannon against126118 ship; actual FLeft then H restored mana24/24/33/33/24, food350.201 earned save retains Kat dead, fiveHP71/68/62/70/73. No Engine changes/builds.",
   "historical_receipt_baseline": {
     "executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4",
     "source_binding": "SCUMMVM-CE-CANNON530-VERIFICATION.json",
     "qualification": "Initialreceiptbaseline only; percheckpoint/current identities control later progression."
   },
   "source_commit": "e073e27e3e3",
-  "local_full_ledger_sha256": "a7938d32bc47862ccc8cda42aa49a5d7bc8fd6672137ee81414adf3991cd0f84",
+  "local_full_ledger_sha256": "397ddfd89a6246d1689c4fc37fd3341390a6f4af83f918f55f28cc3e5896380d",
   "latest_scoped_evidence": {
     "status": "VERIFIED",
     "scope": "Actual141cold021/142normalnextstep retain quest/inventory/party/resources/sound/session and parkedhorse; not Rustydoorpositivecrossing or fullcampaign acceptance",
@@ -2918,9 +2995,9 @@
     "SCUMMVM-CE-M43-ARCHUS532-WORK.json": "d67b22e38777e6b33dfa950ae8b3b3143179edeb314f84932c0fbf67b1be4e0a",
     "SCUMMVM-CE-M43-ROYAL532-VERIFICATION.json": "c0912514074864c657a8cfe93e14ade54f08093f7e455ac31386ae3658dfa4c7",
     "SCUMMVM-CE-M43-NOURTHELD-RECOVERY532-VERIFICATION.json": "a7d86544f25de761a7441526d69221e04aef5efaf6c633342bff5d28d34cd426",
-    "SCUMMVM-CE-M43-SCALES532-WORK.json": "c322ae3902140b17007e09d8a0ce3e1624207100bbbac6a4db612429eebdabc5"
+    "SCUMMVM-CE-M43-SCALES532-WORK.json": "4758af0bbf54fc2fa3e40bcbcefa203a82c88045bd653a899b8fdec49c24be93"
   },
-  "private_ledger_sha256": "a7938d32bc47862ccc8cda42aa49a5d7bc8fd6672137ee81414adf3991cd0f84",
+  "private_ledger_sha256": "397ddfd89a6246d1689c4fc37fd3341390a6f4af83f918f55f28cc3e5896380d",
   "superseded_current_aliases_royal532": {
     "last_checkpoint": 44,
     "latest_earned": "142 firstnormalworldstep after actual141cold021, fullparty/questinventory/resources/session retained;horseparked persistence",
