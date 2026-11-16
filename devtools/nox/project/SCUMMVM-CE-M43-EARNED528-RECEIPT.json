@@ -1,10 +1,10 @@
 {
   "status": "IN PROGRESS",
-  "scope": "Actual8x98HP sea152 cannon victory; normal12STR Hero/12INT Bridgit firstlevel allocations; later10full98/137HP pirate boarding victory all6alive/gold136->184. Not full advancement/ship/combat/campaign acceptance.",
+  "scope": "Earned mainline through72, actualWatcherpermission/door/stairs andMargravepre-award request/repeat; normaldockfrigateboarding+single50HPjellyfishcannonvictory. FullGuildguard/Raque/endingstillunearned.",
   "executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4",
   "source_binding": "SCUMMVM-CE-CANNON530-VERIFICATION.json",
   "builds": 4,
-  "process_launches": 16,
+  "process_launches": 17,
   "verified_selected_nodes": [
     "opening-exit",
     "axea-page",
@@ -27,7 +27,8 @@
     "No claim that current party has defeated Guildmaster or earned its XP",
     "Two post-landing land victories/camping in coastal-ship fork were excluded and repeated from nearest actual saved boundary; no duplicated XP in mainline",
     "Current primary60 excludes island58/59 progression; retained evidence remains alternate earned branch",
-    "Historical M3 search/execution ordering Rusty72->Skull78 was not a mechanical dependency. Immutable Skull78 pickup53/misc2 atTown2map50(16,15) checks only its own field26/mask2/repeat/capacity; native_search.h reward lines70..83. Rusty72 and its Ruin19 field25/mask2 door remain separate required acceptance, reordered after the independent Bayport chain. Actual Guild password/door/stair access, Skull pickup and prison gate remain required; no bypass or injected state."
+    "Historical M3 search/execution ordering Rusty72->Skull78 was not a mechanical dependency. Immutable Skull78 pickup53/misc2 atTown2map50(16,15) checks only its own field26/mask2/repeat/capacity; native_search.h reward lines70..83. Rusty72 and its Ruin19 field25/mask2 door remain separate required acceptance, reordered after the independent Bayport chain. Actual Guild password/door/stair access, Skull pickup and prison gate remain required; no bypass or injected state.",
+    "Checkpoint71 boarding label is premature; raw state onfoot116/146. Actual subsequent B and72 prove119boarding."
   ],
   "checkpoints": [
     {
@@ -1421,6 +1422,46 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot068.g0.ce-achievements.json": "80cac668e13db88af9a953802834d4d783877264988e1803d0da03fb795dfa25"
       },
       "process": 16
+    },
+    {
+      "label": "Margrave KEY request before Guild Orders",
+      "slot": 69,
+      "parent": "736f983380c2bea16fff5854ec7cd9c1f9aafe316e95b3b0ac01c81bf33ba8e9",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot069.g0": "5299a4c3a3aeb304abacdb403ca8196f6ed171bea476f7c5f5157a1345cbce7b",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot069.g0.ce-achievements.json": "3d69ad1081c0b208b61cd221c961f1beaa14ad6f0de7c95146dc607a2b39e945"
+      },
+      "process": 17
+    },
+    {
+      "label": "Margrave Guildmaster request without Orders or Tomb Key",
+      "slot": 70,
+      "parent": "2a4de9dbce91b5cd6b58c6d5695638e5ebf34f06dcf1eeb2fd297fac125249ad",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot070.g0": "677cc48e69ea990b965eaa1faeec9a45ea1bc18de255aae8341cf670ab89e236",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot070.g0.ce-achievements.json": "15bb3d8a430901d880bdd8f1ce1dc9ba6c36d0dc716105ebf83ea3203da349b0"
+      },
+      "process": 17
+    },
+    {
+      "label": "Margrave request preserved and frigate reboarded from south dock",
+      "slot": 71,
+      "parent": "15fe046b9995382fd5655c295f11ede3febba68e4b332580e179ba765c0b85ea",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot071.g0": "b093e282b75357e28e280c34fbd496250b04efebee27b332e1a34f94ac3c6f3e",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot071.g0.ce-achievements.json": "e3191be2cf3efbb961ab6a901b712245bbafff29cf595a66c9f2c9f3fabd7940"
+      },
+      "process": 17
+    },
+    {
+      "label": "Margrave request retained aboard frigate after jellyfish victory",
+      "slot": 72,
+      "parent": "004510831d2b8fc6d2c2e8b177c5c36e4f57436336c29b91eedd677a44557bdf",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot072.g0": "dad1625412a3db9bb5cdf934467421d336490720a3568470a42c0897c92708e9",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot072.g0.ce-achievements.json": "4affb8ef739c86009c0350146cba8deec54589c97a98711cb2a49bb33ab4af7d"
+      },
+      "process": 17
     }
   ],
   "correction": "SCUMMVM-CE-NPC529-VERIFICATION.json",

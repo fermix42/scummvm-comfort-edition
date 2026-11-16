@@ -1,0 +1,24 @@
+{
+  "status": "IN PROGRESS",
+  "scope": "Earned Watcher/door/stairs, Margrave pre-award request/repeat and naval preparation; guarded Guild and ending remain unearned.",
+  "checkpoints": [
+    64,
+    65,
+    66,
+    67,
+    68,
+    69,
+    70,
+    71,
+    72
+  ],
+  "builds": 4,
+  "process_launches": 17,
+  "evidence": {
+    "ce-native-acceptance528\\earned-watcher530.json": "af5fda5988b03cafc1916fe981a66862c0e94fedff82dbb630162a87ebc356d6",
+    "ce-native-acceptance528\\earned-margrave-guild-request530.json": "2a6b6c9658b0edca195ab29106497520b09972412072be7c2fbce5f532fc1904",
+    "ce-native-acceptance528\\earned-modern\\earned-preparation-sea151-530.json": "5482ce11ef573d3ec1698b5b7789d373cb9a271aa8ab86ce50a5a1e913e99ad5",
+    "ce-native-acceptance528\\earned-modern\\wrapper-recovery.json": "6a10ca459214ec33acf71751b4b744779e36ae3f60601175a309d39027f26de9"
+  },
+  "next_action": "Continue actual naval approach from72; targeted source-supported rewards/equipment preparation before full Rogue guard."
+}

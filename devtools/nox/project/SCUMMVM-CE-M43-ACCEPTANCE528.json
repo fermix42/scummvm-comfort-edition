@@ -1149,7 +1149,7 @@
     },
     {
       "id": "margrave-key",
-      "status": "NOT STARTED",
+      "status": "IN PROGRESS",
       "prerequisites": [
         "skull-key",
         "guild-children-rescue",
@@ -1179,7 +1179,8 @@
         "actual earned verification criteria"
       ],
       "earned_lineage": null,
-      "ordering_reconciliation": "Historical M3 search/execution ordering Rusty72->Skull78 was not a mechanical dependency. Immutable Skull78 pickup53/misc2 atTown2map50(16,15) checks only its own field26/mask2/repeat/capacity; native_search.h reward lines70..83. Rusty72 and its Ruin19 field25/mask2 door remain separate required acceptance, reordered after the independent Bayport chain. Actual Guild password/door/stair access, Skull pickup and prison gate remain required; no bypass or injected state."
+      "ordering_reconciliation": "Historical M3 search/execution ordering Rusty72->Skull78 was not a mechanical dependency. Immutable Skull78 pickup53/misc2 atTown2map50(16,15) checks only its own field26/mask2/repeat/capacity; native_search.h reward lines70..83. Rusty72 and its Ruin19 field25/mask2 door remain separate required acceptance, reordered after the independent Bayport chain. Actual Guild password/door/stair access, Skull pickup and prison gate remain required; no bypass or injected state.",
+      "earned_pre_award": "Checkpoints69/70: actual normal KEY/GUILDMASTER, requestfields2->6; actual repeatKEY refusal, noOrders77/noTombKey84. Reward/cold stillpending."
     },
     {
       "id": "ghrodwir-elders",
@@ -2570,7 +2571,7 @@
   "process_launches": 17,
   "planned_node_count": 60,
   "mandatory_node_count_note": "All selected M3 nodes explicitly represented alongside dependency76 graph; includes supporting/advice/alternative nodes. Necessity is retained per source,not inferred from node count.",
-  "last_earned_checkpoint": "68 Watcher permission4; actual door passage/map52 stairs earned in process16; normal recovery17 resumes68 with full party.",
+  "last_earned_checkpoint": "72 actual Margrave pre-award request/repeat refusal retained, six fully alive/fullMP, normal dock frigate119 boarding and50HP jellyfish cannon victory; source-planned squid approach in progress.",
   "baseline_candidate_sha256": "81feb2c7ff17594a6ea9754dc60602a755b2f37ea7c53b437f65a18e7c35000f",
   "candidate_change": "NPC529 verified general viewport-exit correction; SCUMMVM-CE-NPC529-VERIFICATION.json",
   "earned_failures_retained": [
@@ -2592,7 +2593,10 @@
       "Two post-landing land victories/camping in coastal-ship fork were excluded and repeated from nearest actual saved boundary; no duplicated XP in mainline",
       "Current primary60 excludes island58/59 progression; retained evidence remains alternate earned branch",
       "Map48/50/52 authored objects contain no Rusty72/field25 key door; map48 door17,33 requires field28/4 and actual password succeeded. Physical Guild52 route has Rogue encounters: first actual six full137HP level4/armor76; no victory/XP/Orders77 claimed. Single70HP Guildmaster does not establish easy access.",
-      "Process16 driver interrupt also closed Engine while stopping the underprepared Rogue attempt. Process17 normal cold recovery of earned68 validated party/inventory/flags/gold/food. No engine code change or failed Engine boundary demonstrated."
+      "Process16 driver interrupt also closed Engine while stopping the underprepared Rogue attempt. Process17 normal cold recovery of earned68 validated party/inventory/flags/gold/food. No engine code change or failed Engine boundary demonstrated.",
+      "Actual Margrave KEY sets field50 bit2; GUILDMASTER sets discoverybit4, total6. Historical request shorthand field50bit4 alone was incomplete. Checkpoints69/70 have no77/84, source-directed request/repeat earned before Guild victory.",
+      "Current saved XP at post-Guild-request boundary: Kat/Cutter272,Hero196,Bridgit194,Nox/Alluvion264, alllevel2. Native physical damage uses2*power-armor; fullRogues armor76 require meaningful offensive preparation. Normal naval cannons offer source-supported combat and rewards.",
+      "Checkpoint71 label prematurely says reboarded; actual state is onfoot116,146 overlappingfrigate. Following actual B aligns115,145/appearance119/on_footfalse; checkpoint72 confirms boarding. No checkpoint label overrides its actual state."
     ],
     "ordering_reconciliation": "Historical M3 search/execution ordering Rusty72->Skull78 was not a mechanical dependency. Immutable Skull78 pickup53/misc2 atTown2map50(16,15) checks only its own field26/mask2/repeat/capacity; native_search.h reward lines70..83. Rusty72 and its Ruin19 field25/mask2 door remain separate required acceptance, reordered after the independent Bayport chain. Actual Guild password/door/stair access, Skull pickup and prison gate remain required; no bypass or injected state."
   }
