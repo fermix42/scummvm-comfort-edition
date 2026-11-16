@@ -2710,22 +2710,44 @@
       },
       "process": 24,
       "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
+    },
+    {
+      "label": "prepared-books-earned-Nourtheld-return-all-six532",
+      "slot": 179,
+      "parent": "d5c70a1d6d453d2d2ee36aaaab633bb95a5c33bd0f432aab61660654b9909a09",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot179.g0": "6870364fef04c66c8c818836bc5aa6d50bc0664b0d35832565d2ee5874bc7631",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot179.g0.ce-achievements.json": "730328dba834ea0c9a1a9526d251a2d381b4fe87271568396f7762e9454d2e2c"
+      },
+      "process": 24,
+      "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
+    },
+    {
+      "label": "prepared-earned-underworld97-four-staffs-two-Fireball2-mages532",
+      "slot": 180,
+      "parent": "d1bfe4ded5ccc1aff43ecaf1c245139275d835c31686be099dcdbfa04821b099",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot180.g0": "fd36902c385aeb834b1a0296440b3d9e2ed75b29c5f68cb244111e41becb5af0",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot180.g0.ce-achievements.json": "b10875f7559b65c0759a0dd8fafab326ca1e605de7c3c35f94123a88d5f9d767"
+      },
+      "process": 24,
+      "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
     }
   ],
   "correction": "SCUMMVM-CE-NPC529-VERIFICATION.json",
-  "last_checkpoint": 178,
+  "last_checkpoint": 180,
   "cold_evidence": "ce-native-acceptance528/earned-modern/cold024.json",
-  "next_action": "Normal Surface94step route17762 then Castle78stairs/UM97->101 Scales; prepared earned books and mana retained.",
+  "next_action": "289step source contact route97->98->99->100->101, zero planned hazards, firstleg40. Actual encounters unchanged; preserve high-tier mage mana.",
   "current_source_commit": "e073e27e3e3",
   "current_executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed",
-  "latest_earned": "Return canal exactly34damage/member, no deaths. Second normal11gold Inn89->78, allsix fullHP83/71/77/70/70/73 and MP20/32/32/44/44/32. Checkpoint178. Normal45room->44, source route to9,32 thenWest/Y exitsSurface132109. Ships now129109/137110: offline4cellavoidance closes entrance; source3cellclearance route94steps found, normal encounters retained.",
+  "latest_earned": "94step normal Surface route: two50HP win noHP/MPcost, one98HP win noHP/MPcost, six98/87HP victory retained Hero68HP/Kat16MP, next six98/87HP win four Fireball+1 casts60MP; allsixalive153gold880food. Normal17762->Castle54 179; normal54->78stairs->UM97/17662 180. HP83/71/68/70/70/73,MP16/2/17/44/44/17.",
   "historical_receipt_baseline": {
     "executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4",
     "source_binding": "SCUMMVM-CE-CANNON530-VERIFICATION.json",
     "qualification": "Initialreceiptbaseline only; percheckpoint/current identities control later progression."
   },
   "source_commit": "e073e27e3e3",
-  "local_full_ledger_sha256": "849085ba9b38b20669f0e4a843ecd96c6593a0287f2fa214b9f6930bba96eff8",
+  "local_full_ledger_sha256": "9fcfc8dfce3ea196d9aa50bb7ec13372aa03b3b7b70f7851b773b5795bfb3ec2",
   "latest_scoped_evidence": {
     "status": "VERIFIED",
     "scope": "Actual141cold021/142normalnextstep retain quest/inventory/party/resources/sound/session and parkedhorse; not Rustydoorpositivecrossing or fullcampaign acceptance",
@@ -2742,9 +2764,9 @@
     "SCUMMVM-CE-M43-ARCHUS532-WORK.json": "d67b22e38777e6b33dfa950ae8b3b3143179edeb314f84932c0fbf67b1be4e0a",
     "SCUMMVM-CE-M43-ROYAL532-VERIFICATION.json": "c0912514074864c657a8cfe93e14ade54f08093f7e455ac31386ae3658dfa4c7",
     "SCUMMVM-CE-M43-NOURTHELD-RECOVERY532-VERIFICATION.json": "a7d86544f25de761a7441526d69221e04aef5efaf6c633342bff5d28d34cd426",
-    "SCUMMVM-CE-M43-SCALES532-WORK.json": "68494f5d69261added26ff8a9bd2c3669c89d2edc0afa5c0e19aa79e144e4f1a"
+    "SCUMMVM-CE-M43-SCALES532-WORK.json": "ab0faaa78df722b0d00e30ab0c64c952d8eedfd8215093871712d80a7ee0e2f7"
   },
-  "private_ledger_sha256": "849085ba9b38b20669f0e4a843ecd96c6593a0287f2fa214b9f6930bba96eff8",
+  "private_ledger_sha256": "9fcfc8dfce3ea196d9aa50bb7ec13372aa03b3b7b70f7851b773b5795bfb3ec2",
   "superseded_current_aliases_royal532": {
     "last_checkpoint": 44,
     "latest_earned": "142 firstnormalworldstep after actual141cold021, fullparty/questinventory/resources/session retained;horseparked persistence",

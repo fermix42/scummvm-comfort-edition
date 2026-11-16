@@ -1,3 +1,7 @@
+# Acceptance528 prepared earned underworld return180 - IN PROGRESS
+
+Actualroad two50/single98/six98-87/nextsix98-87 victories, allsixalive153gold880food. FouractualFireball+1casts60MP onlastgroup; Hero68HP/Kat16MP retained. NormalCastle54 179 ->78stairs ->UM97/17662 180. HP83/71/68/70/70/73,MP16/2/17/44/44/17; bothFireball+2mages full44,ownedbooks4/60readied. Privatehelper pass-key160bound and six-enemy160bound retained; continuedsameactualfights/no reload. ExplicitSpacecode and observedHP source-template choice correct normalinputpolicy, noEnginebug. Continue289step zero-hazard source route97..101/Scales. Five/60selectednodesVERIFIED,endingunverified;6builds/24gameCLI+2focused=26materialCLI. Canonicalconversion/CEdevtools/nox/project mirrors.
+
 # Acceptance528 fully prepared178 return route - IN PROGRESS
 
 Normal secondInn11 restores allsix fullHP83/71/77/70/70/73 andMP20/32/32/44/44/32,78gold874food,178; savedbooks4/60slots4/5requirements38. NormalTown45->44West/Y->Surface132109. Offline4cellshipavoidance closes narrow entrance;3cellsourceclearance94step route17762 found, actual encounters remain. ContinueCastle78stairs/UM97->101/Scales. No Enginechange/build/suitererun;5/60selectednodesVERIFIED,endingunverified,6builds/24gameCLI+2focused=26materialCLI. Canonicalconversion/CEdevtools/nox/project mirrors.

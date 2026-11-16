@@ -12,7 +12,9 @@
     175,
     176,
     177,
-    178
+    178,
+    179,
+    180
   ],
   "route": "NormalCastle78/18,32->UM97/176,62,171. Readonly originalfivefloor route to101safeEast74,41 totals289steps,zerothermalcells/no225energyactorintersections. Contactpermitting sourcepath means normalGameactors remain; battles required. UM97->98stair149,75 completed,173; remaining249steps, first98leg140steps toward99.",
   "actual": "Actualfivefull70HPsprite144 win167,69, all6survive; Cutterloses16HP47, othersundamaged, noMPspent. Normalearnedlevel4 KatINT+12 ->20/83HP, CutterINT+12 ->32/71maxHP. NormalCutterselfLesserHeal2MP ->71HP/30MP;172gold167food898. NormalReady ownedClothGloves3/ownedlastspareMagicStaff23,Cutter actualsavedgearconfirmed8weight/STR8,INT32, fourreadyStaffs.173normalUM98entryall6fullHP83/71/67/62/70/73,MP20/30/20/32/44/32.",
@@ -34,7 +36,7 @@
     "focused_cli": 2,
     "material_cli": 26
   },
-  "next_action": "Normal Surface94step route17762 then Castle78stairs/UM97->101 Scales; prepared earned books and mana retained.",
+  "next_action": "289step source contact route97->98->99->100->101, zero planned hazards, firstleg40. Actual encounters unchanged; preserve high-tier mage mana.",
   "first_drake_attempt": {
     "status": "IN PROGRESS",
     "result": "Normalsourcepath98->99->100->101withoutdamage. At101/51,28actual10full191HPDrakes118level5 admitted; normalTactical/ownedspellcasts endedactualdefeat. NoScalesaward/falsevictory. Completefailedbranchretained.",
@@ -50,5 +52,12 @@
     "qualification": "NPC movement/counter alignment caused failed Talks; saved world and viewport actor tables agree. Earlier ownership-mismatch suspicion withdrawn. No engine defect or source change demonstrated.",
     "next": "Return canal with full HP, normal Inn11 full mana, then source route back to Scales.",
     "rest178": "Return canal exactly34damage/member, no deaths. Second normal11gold Inn89->78, allsix fullHP83/71/77/70/70/73 and MP20/32/32/44/44/32. Checkpoint178. Normal45room->44, source route to9,32 thenWest/Y exitsSurface132109. Ships now129109/137110: offline4cellavoidance closes entrance; source3cellclearance route94steps found, normal encounters retained."
+  },
+  "prepared_return180": {
+    "status": "VERIFIED",
+    "scope": "Earned normal return only; Scales unverified",
+    "actual": "94step normal Surface route: two50HP win noHP/MPcost, one98HP win noHP/MPcost, six98/87HP victory retained Hero68HP/Kat16MP, next six98/87HP win four Fireball+1 casts60MP; allsixalive153gold880food. Normal17762->Castle54 179; normal54->78stairs->UM97/17662 180. HP83/71/68/70/70/73,MP16/2/17/44/44/17.",
+    "input_policy_corrections": "One finite160-step pass loop left actual party/enemies unchanged; explicit Space keycode32/ascii0 advanced turn. Ordinary six-enemy fight reached helper160step bound, continued same live fight to victory without load/reset. Source spell decision formerly used strongest template sharing artwork, suppressing useful casts. Exact observed startingHP/source-template matches now used where available; ambiguous templates conservative. No Engine defect/source change claimed.",
+    "next": "289step source contact route97->98->99->100->101, zero planned hazards, firstleg40. Actual encounters unchanged; preserve high-tier mage mana."
   }
 }
