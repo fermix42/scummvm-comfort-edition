@@ -2097,6 +2097,26 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot135.g0.ce-achievements.json": "3462cf4dcc1ef26ba1f1f75b9cb731dd4ae5753b94912cfb44d8b041b853ee4f"
       },
       "process": 20
+    },
+    {
+      "label": "veylan-five-ghouls-free-staves-earned532",
+      "slot": 136,
+      "parent": "8431c74dd1fb4785706da0f84e269d103fff29e0d9e67a01241b5f4ca939e9ab",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot136.g0": "c8cf8a5b6f5f5cbeac6b414dcedb92b44373cad9daa84a16c1f93cfd3d40a273",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot136.g0.ce-achievements.json": "95dca0a36aad8f2925b61704ca265af84d82c8eee8bdc8adc867b7cb8e5259e9"
+      },
+      "process": 20
+    },
+    {
+      "label": "veylan-fourth-ghoul-win-kat-bridgit-dead532",
+      "slot": 137,
+      "parent": "9cfc903ccd5ab8439604881bad8bded5a29e681fce11f5c1c9e422ff4cdf8a10",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot137.g0": "399f505cf79f6a8d0a28afd124725acaefd2ca59873bcb80d3908f6f09ceb22a",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot137.g0.ce-achievements.json": "f2c971f89449b755413d64c27cad6688162f12b7e456919871a13b045c3906e3"
+      },
+      "process": 20
     }
   ],
   "correction": "SCUMMVM-CE-NPC529-VERIFICATION.json",
@@ -2111,5 +2131,5 @@
   ],
   "current_source_commit": "e073e27e3e3",
   "current_executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed",
-  "latest_earned": "135 actualRustyKeySearch72qty1/field25=2,normalrepeat;134second7Ghoulvictory/all6fullHP,gold357food900"
+  "latest_earned": "137 actual4thGhoulwin withKat/Bridgitdead,gold409;Rustykeyandpriorwinsretained;normalwithdrawal/recoveryunderway"
 }

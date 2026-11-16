@@ -1,3 +1,7 @@
+# Acceptance528 Veylan casualties137 retained - IN PROGRESS
+
+136actual5full98Ghouls wonwithfreeStaffs/noHPMPcost. Fourthactual5full98Ghouls won137 butKat/Bridgitdead; preserveHP0/63/67/0/62/64,MP4/4/0/2/2/0,gold409food900. No restore/casualtycleanup. SourceResurrect49 requiresINT62; nearestknownnormalTemple49/inn route selected. Actualnorthpassage19->20withdrawal passed. Rusty72/field25=2 andno-key/repeat proofsretained; actualkeydoorcrossingstillpending. Battlehelperusesordinarypausemenuonworldreturn duringplanning, noEnginechange. Sixbuilds/20gameCLI+2focusedCLI,3/60selectednodesVERIFIED/endingunverified. Canonicalconversion/CEdevtools/nox/project mirror.
+
 # Acceptance528 actual Rusty Key135 - IN PROGRESS
 
 Second7full98Ghoulgroupwon134/all6fullHP,gold357MP8/8/0/2/2/0. NormalHroom26,10 refused/enemies/resourcesunchanged. ActualSearchRight29,10/Cutter2 grantsRusty72qty1/field25=2,135hash8431c74dd1fb4785706da0f84ee269d103fff29e0d9e67a01241b5f4ca939e9ab. Normalrepeatno duplicate. ActualdoorOpen/traverse/cold next; no originalcontrolledguarddeath or expectedoutcomeinjected. Native532/audio473unchanged,6builds/20gameCLI+2focusedCLI,3/60selectednodesVERIFIED/endingunverified. Canonicalconversion/CEdevtools/nox/project recoverymirror.

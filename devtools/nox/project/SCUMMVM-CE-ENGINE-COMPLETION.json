@@ -8039,9 +8039,15 @@
   },
   "current_subsystem": {
     "status": "IN PROGRESS",
-    "scope": "Scoped permitted integration concluded. Stop before earnedcampaign/ending; story.08 UNKNOWN and broader qualifications retained. No port-complete claim."
+    "scope": "Readiness528 passed; owner ACCEPTANCE528 authorizes earned M4.3 campaign and supported branches. General mountedTalk532 correction scoped VERIFIED; no broad row promotion or port-complete claim. story.08 UNKNOWN and earned ending remain outstanding."
   },
   "count_definition": "native_implemented counts IMPLEMENTED; CE_REPLACEMENT is separately reported. VERIFIED applies only to row evidence scope; no overall completion percentage.",
   "source_batch_report": "SCUMMVM-CE-SOURCE-BATCH-COMPLETION526.md",
-  "latest_scoped_correction531": "B-MELEE-PACKED-RANGE VERIFIED within receipt; combat.04 remains PARTIAL/IN PROGRESS."
+  "latest_scoped_correction531": "B-MELEE-PACKED-RANGE VERIFIED within receipt; combat.04 remains PARTIAL/IN PROGRESS.",
+  "latest_scoped_correction532": {
+    "status": "VERIFIED",
+    "source": "e073e27e3e3",
+    "evidence": "SCUMMVM-CE-MOUNTED-TALK532-VERIFICATION.json",
+    "scope": "Mounted generic Talk admission and original service picture127/238 restrictions; original12branches and actualearnedcold/mountedHELP/horse refusal/onfootopening/reboard; no broadrowpromotion"
+  }
 }

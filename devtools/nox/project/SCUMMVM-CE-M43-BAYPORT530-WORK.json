@@ -69,7 +69,9 @@
     132,
     133,
     134,
-    135
+    135,
+    136,
+    137
   ],
   "builds": 5,
   "process_launches": 19,
@@ -80,7 +82,7 @@
     "ce-native-acceptance528\\earned-modern\\wrapper-recovery.json": "6a10ca459214ec33acf71751b4b744779e36ae3f60601175a309d39027f26de9",
     "ce-native-acceptance528/earned-modern/earned-partial-recovery530.json": "e6febeb06a275d3e3abec6f25f961a8adf0a93ed9f984627e050a839dfae55c1"
   },
-  "next_action": "Return actualRustydoor15,27; resolveanyactualcontactwithownedexceptionalStaffsandnormalheals; actualOpen/traverse/cold, continue remainingselectedsourcequests.",
+  "next_action": "Withdrawfromactual137viaRuin19northpassageto20/horse24,38 thenknownBayportTemple/inn. SourceonlyTemples1/49/53;Resurrectbook49INT62 unavailablecurrent32. RetainRustykey/refusal/repeat; actualdoorcrossingpendinguntilnormalrecovery.",
   "squid_fork": "ce-native-acceptance528/earned-modern/forks/squid-seven-first-defeat",
   "failures": [
     "Seven full191HP range15 Squids defeat; normal74restored, no unchanged retry.",
@@ -110,7 +112,8 @@
     "MagicStaff23 requiresINT32/weight3/price48,primaryrange15 afterready. Alreadyownedat102, nowNox4ready. +1RecurveBow24 price210,not76; ordinaryunreadied Gem50%sale105.",
     "FullLeather bodyweight10; HeroSTR20 couldfitAxe10+body10. PreferownedBroadsword9+mediumbody8+Buckler3=20 ratherthanbuytemporaryAxe. Items12/14gloves/boots weight2 each, cuirass16weight4/price12, helm13weight2.",
     "117 actualgold450 includes82randomtreasuregold; older368summarywaspre-chest. Canonical ledger actualstate/hash controls.",
-    "Monster formation copies original32bytes: physical armor is byte7, attack power byte9, level byte1&127/physical-immunity bit128. Older summary armor6 shorthand was wrong. Staff23 exceptional flag128 can bypass immunity/quarter mitigation per BattlePhysical; no accepted earlier fight is reclassified. SourceRat50HP/armor40,power25; Zombie/DeathRaven137HP/armor76,power58,physicalimmune."
+    "Monster formation copies original32bytes: physical armor is byte7, attack power byte9, level byte1&127/physical-immunity bit128. Older summary armor6 shorthand was wrong. Staff23 exceptional flag128 can bypass immunity/quarter mitigation per BattlePhysical; no accepted earlier fight is reclassified. SourceRat50HP/armor40,power25; Zombie/DeathRaven137HP/armor76,power58,physicalimmune.",
+    "SpellBook::select maps itemdefinition byte6 to preparedspell, not byte5. Resurrectbook49 requiresINT62/spell49/cost51; unavailablecurrent32, no speculativecheaprevival. CurrentLesserHealbook50/spell50/cost2 remainscorrect."
   ],
   "equipment119": "118 actualSurface109,178 caveexit, all6fullHP,gold450food342. Returnroad4full70/67HP enemies defeated usingNoxreadyMagicStaff/noMPspent,Hero42normallyhealedbyAllu. Gemnormal+1RecurveBow105 andunreadiedextraFireball+1copy18:450->573; sourceFood47/96 buy12x50@3 clipped900:573->537. FourMagicStaff23 purchases48each:537->345 (fiveowned,two readied,3reserveforINT32). ReadyBrStaff/NoxownedStaff,HeroBroadsword19+Buckler,AlluKnife, NoxfreeLeatherHelm,CutterfreeClothHelm,BrfreePaddedRobes. BuyHeroCuirass12/Boots4+10Torches10+10Picks10:345->309.119 actualweight/STR 20/32,8/8,20/20,7/8,8/8,14/14; armor33/43/46/25/27/50; nooverweightbypass. Worldtools32/33 actual10/11; genericinventoryrowcountnotauthorityforconsumption. Save119hash34557168a328535716d774c2c01550bd1a29f4201660d37e942fd8adfde6e36ec. No build/launch; nextInn48via47West->46Southshorterquarters.",
   "inn120": "Actual10gold Inn48/208 normalT/Yes/R/Yes to17,24, all6HP71/63/67/62/62/64,MP8/20/20/32/32/20,gold299food900,hour06.120hash2ac3b29c841d1fb45083bbd4f42768aea30f6c317f4372e34875b8338db450096. No sourcechange/build/launch after531; normaldeparture next. Correction:117actual450gold includes82treasure, notpre-chest368.",
@@ -121,5 +124,6 @@
   "veylan131_132": "131 actualSurface139,214->Ruin3/20, horsepark24,38, gold257/all6fullHP (CutterMP18afterroadheal).12,36tile92/state16 is source-unopenable Ruin object, normalOrefusal retained/plannercorrected; noEnginegap. Actual11,8 passage ->Ruin19/10,8. Normal61step eastside route16,27, no battle; OLeftwithoutRustyrefuses unchanged.132saved. Sourcekey29,10 room viaRat contact/26,16lockeddoor next. No expectedoutcomeinjected/forcedguarddeath. Correction: actualsavedlivecompact108 at26,17 is174 Ghoul, not initialstaticRat151. Actualnormalroutecontact24,19 admits7full98HP Ghouls; sourceundeadphysicalimmunity/armor61/power44. OrdinaryFireball/exceptionalStaff tacticsselectedbeforefighting; no expectedenemyoutcomeinjected.",
   "veylan133": "Actual7full98HPGhouls defeatednormalFireball/exceptionalStaff,all6fullHP,gold257->312,MP8/8/0/17/17/10;133hash0ada6914213d7ee97f6eb955fbf1c48d52c0478e41ae100b898bb35a30ef1d535. ActualnormalCutterOUp/2opens26,16 roomdoor to13/state39. SourceinitialRatassumptionqualifiedbyactualsavedspawnedGhoul174 records100/104/108; no syntheticguarddeath. Normalstepthroughopenentry26,16admitssecond7full98Ghouls. Outcomeunclaimed,normaltacticsproceedwithremainingmana/freeStaffs.",
   "veylan134": "Secondactual7full98Ghoulgroupwon,noHP loss,all6fullHP,gold357food900,MP8/8/0/2/2/0;134hash44fd0c5a38752ba111947b2a05114398bad996c2f9b1a6b9e5269f8f642ba2907. No restore/casualtycleanup/injectedoutcome; source532unchanged. Continueclearedroom26,10 fornormalcamp thenkeychest29,10.",
-  "veylan135": "NormalH26,10 refuseddueenemies/resourcesunchanged, retained. NormalSearchRight29,10from28,10/Cutter2 earnsRusty72qty1/field25=2,135hash8431c74dd1fb4785706da0f84ee269d103fff29e0d9e67a01241b5f4ca939e9ab. RepeatedSearchRight leavesonekey; no expectedoutcomeedit. All6fullHP,MP8/8/0/2/2/0,gold357food900. Returnnormalopen/traversegate pending; originalguarddeathnotinjected."
+  "veylan135": "NormalH26,10 refuseddueenemies/resourcesunchanged, retained. NormalSearchRight29,10from28,10/Cutter2 earnsRusty72qty1/field25=2,135hash8431c74dd1fb4785706da0f84ee269d103fff29e0d9e67a01241b5f4ca939e9ab. RepeatedSearchRight leavesonekey; no expectedoutcomeedit. All6fullHP,MP8/8/0/2/2/0,gold357food900. Returnnormalopen/traversegate pending; originalguarddeathnotinjected.",
+  "veylan136_137": "Third5full98Ghouls wonwithtwofreeStaffs, noHPMPcost,136gold379. Afternewclearedenemy normalHstillrefused/resourcesunchanged. Fourth5full98Ghoulgroup24,22 actuallywon but Kat/Bridgitdied;137retains4living,HP0/63/67/0/62/64,MP4/4/0/2/2/0,gold409food900. No restore/casualtycleanup. Battlehelpernowordinarypausemenuimmediatelyonworldreturn toavoidunintendedliveworldtimewhilesourcereviewing. Source/Engineunchanged."
 }
