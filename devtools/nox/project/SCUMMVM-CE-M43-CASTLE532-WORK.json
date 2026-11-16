@@ -55,7 +55,21 @@
       }
     },
     "Arcane_key_door": {
-      "status": "IN PROGRESS"
+      "status": "IN PROGRESS",
+      "absence": {
+        "status": "VERIFIED",
+        "checkpoint": 232,
+        "stand": [
+          56,
+          32,
+          24
+        ],
+        "command": "OpenDown",
+        "private_artifact": "ce-native-acceptance528/earned-modern/earned-Arcane-absence232-533.json",
+        "sha256": "5dfa1e7dd1f934caab25cd059148c4581880aab48fae4d1e08e951f421bf8363"
+      },
+      "key": "NOT STARTED",
+      "positive_cold": "NOT STARTED"
     },
     "remaining_pages": {
       "status": "IN PROGRESS",
@@ -76,8 +90,44 @@
     "focused_cli": 5,
     "material_cli": 34
   },
-  "next_action": "Continue planned Arcane north-side approach56/32,24: leave water alcove to dry37,17, normal healing, then floor54/55/56; actual absent refusal, Arcane key115/passage, remaining pages and finite earned plan. No milestone stop.",
+  "next_action": "Normal Inn58 fullmana rest (source43step route from56 via60/59/58, no hazards), then Arcane115 chest78/5,32 using finite water/healing segments, repeat, actual Arcane door passage/cold and remaining source pages; continue without milestone stop.",
   "actual_through220": "Normal Inn58 rest14gold552->538 restored all six HP/MP; four owned Magic Staffs normally readied, save219. Source route through58/54/78, one50HP enemy won without HP/MP cost. Ordinary lock78/16,32 picked by Cutter2 with no damage; initial follower Enter-only party prompt bound retained, not Engine defect. At78/14,37 SearchRight, Cutter2 finds one Moat key116; repeat SearchRight shows Nothing found and inventory unchanged. Save220 retains all six fullHP/MP,538gold272food. Key presentation screenshots76/77 and private before/found/repeat/final proof retained. Moat positive passage/cold and other Castle operations remain unverified.",
   "actual_through222": "Earned absent Moat refusal218; normal SearchRight/Cutter2 key116 pickup and repeat220. Normal OpenUp at54/38,15 opens38,14; actual steps38,14 then38,13, key retained and field24mask4 set,221. Actual cold027 preserves party/inventory/allquestfields/resources/sound/session/noassistance. First normal Down crosses38,14, next Down38,15,222. Source/exe unchanged. Actual return crossed one known231 cell17damage each; all six alive HP66/54/60/53/53/56,MP20/32/32/44/44/32,538gold272food. No Engine change/build/suite rerun.",
-  "actual_through230": "Actual closed wall78/28,9 blocks Down from28,8. Source-supported alternate63step route from21,12 reaches control10,8 without high raw17 lock. Normal OpenLeft toggles control151/49 to150/48 and paired wall42/50 to42/254. Normal reverse close then reopen verified from actual normal saves226. Actual steps28,9 then28,10 prove passage227. SearchDown/Cutter2 page27,13 earns field62bit8,repeatunchanged228. Three231 cells51damage/member toward33,17; normal Nox six heals12MP, SearchDown/Cutter2 page33,18 earns bit32,229. Current pageflags42 (Axea2+Castle8+32),three pages only. Actual cold029 exact party/inventory/allquestfields/resources/sound/session/noassistance. First SearchDown after cold awards no duplicate; normal save confirms wall254/control48 persist. Six normal Bridgit heals12MP restore fullHP230, MP16/2/17/17/9/17,546gold272food. No new Engine change/build/suite."
+  "actual_through230": "Actual closed wall78/28,9 blocks Down from28,8. Source-supported alternate63step route from21,12 reaches control10,8 without high raw17 lock. Normal OpenLeft toggles control151/49 to150/48 and paired wall42/50 to42/254. Normal reverse close then reopen verified from actual normal saves226. Actual steps28,9 then28,10 prove passage227. SearchDown/Cutter2 page27,13 earns field62bit8,repeatunchanged228. Three231 cells51damage/member toward33,17; normal Nox six heals12MP, SearchDown/Cutter2 page33,18 earns bit32,229. Current pageflags42 (Axea2+Castle8+32),three pages only. Actual cold029 exact party/inventory/allquestfields/resources/sound/session/noassistance. First SearchDown after cold awards no duplicate; normal save confirms wall254/control48 persist. Six normal Bridgit heals12MP restore fullHP230, MP16/2/17/17/9/17,546gold272food. No new Engine change/build/suite.",
+  "actual_through232": "230 fullHP before three231cell exit; actual51damage/member, six normal Kat heals12MP on dry37,17 ->HP73/61/67/60/60/63,MP4/2/17/17/9/17,231. Authored78->54->55->56 route reaches north Arcane stand32,24 without further damage/battle. Field24bit2 absent/no115. Actual OpenDown shows No key or pick that fits; afterack party/inventory/allquestfields/gold/food/position unchanged,232, screenshot84. Positive/key/cold remain unearned. Direct original item97 records correct remaining three pages to Castle57 positions32,1(bit64),37,36(bit128),44,20(bit1); previous55/56 floor wording was wrong. Still3/8 pages,flags42; no assumed Order dependency.",
+  "source_remaining_pages": {
+    "source": "Direct original CSTL state53/itemkind2/id97 records, not inferred M3 floor labels",
+    "locations": [
+      {
+        "map": 78,
+        "x": 5,
+        "y": 9,
+        "bit": 4
+      },
+      {
+        "map": 78,
+        "x": 9,
+        "y": 12,
+        "bit": 16
+      },
+      {
+        "map": 57,
+        "x": 32,
+        "y": 1,
+        "bit": 64
+      },
+      {
+        "map": 57,
+        "x": 37,
+        "y": 36,
+        "bit": 128
+      },
+      {
+        "map": 57,
+        "x": 44,
+        "y": 20,
+        "bit": 1
+      }
+    ]
+  }
 }

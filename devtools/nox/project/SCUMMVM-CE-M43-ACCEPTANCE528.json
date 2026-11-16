@@ -557,7 +557,12 @@
         "scoped audio/presentation",
         "actual earned verification criteria"
       ],
-      "earned_lineage": null
+      "earned_lineage": null,
+      "earned_absence_refusal": {
+        "checkpoint": 232,
+        "report": "SCUMMVM-CE-M43-CASTLE532-WORK.json",
+        "qualification": "Actual north-side absent-key refusal only; acquisition/passage/cold pending"
+      }
     },
     {
       "id": "order-castle-portals",
