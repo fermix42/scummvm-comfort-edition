@@ -8,7 +8,10 @@
     171,
     172,
     173,
-    174
+    174,
+    175,
+    176,
+    177
   ],
   "route": "NormalCastle78/18,32->UM97/176,62,171. Readonly originalfivefloor route to101safeEast74,41 totals289steps,zerothermalcells/no225energyactorintersections. Contactpermitting sourcepath means normalGameactors remain; battles required. UM97->98stair149,75 completed,173; remaining249steps, first98leg140steps toward99.",
   "actual": "Actualfivefull70HPsprite144 win167,69, all6survive; Cutterloses16HP47, othersundamaged, noMPspent. Normalearnedlevel4 KatINT+12 ->20/83HP, CutterINT+12 ->32/71maxHP. NormalCutterselfLesserHeal2MP ->71HP/30MP;172gold167food898. NormalReady ownedClothGloves3/ownedlastspareMagicStaff23,Cutter actualsavedgearconfirmed8weight/STR8,INT32, fourreadyStaffs.173normalUM98entryall6fullHP83/71/67/62/70/73,MP20/30/20/32/44/32.",
@@ -19,7 +22,9 @@
     "ce-native-acceptance528/earned-um98-scales-source532.json": "ae4d8a10f0a6571554091ac7c19526ab8d1f95ae6486baaa1a3dec1a4e69fe9c",
     "ce-native-acceptance528/earned-modern/earned-um101-ten-drakes-admission532.json": "23d82847908a3e10a4571fc06f5fe9be130f3f545d0af918b9606349353aaa02",
     "ce-native-acceptance528/earned-modern/forks/um101-ten-drakes-first-defeat532/defeat.json": "c688d257546bd0f3123ad05cb88ff3ecb54a69b10727b7b7c213e93fecabedf7",
-    "ce-native-acceptance528/earned-modern/forks/um101-ten-drakes-first-defeat532/lineage.json": "ad9694e85add291f3a542311cc0955a4efe87a731da637ea5bc6d659e3f9907e"
+    "ce-native-acceptance528/earned-modern/forks/um101-ten-drakes-first-defeat532/lineage.json": "ad9694e85add291f3a542311cc0955a4efe87a731da637ea5bc6d659e3f9907e",
+    "ce-native-acceptance528/earned-modern/earned-town44-inn11-full-rest532.json": "0d88f46b4db7b160d117c3da212d45562ed605a654ae38e652d7ca28cec60365",
+    "ce-native-acceptance528/earned-modern/earned-town44-book4-book60-ready532.json": "ab12d94b24e69530f811a2c7c59e00164f5f64ba390d1384364007bc9e8ce04a"
   },
   "cost": {
     "builds": 6,
@@ -27,12 +32,20 @@
     "focused_cli": 2,
     "material_cli": 26
   },
-  "next_action": "Finishnormalwithdrawal97->Castle78->Surface; Town44normalFireball+2/QuickExitpurchase/readiness, thencontinueScaleswithmaterialpreparation. No unchangedfightretry orEnginebuild.",
+  "next_action": "Return canal with full HP, normal Inn11 full mana, then source route back to Scales.",
   "first_drake_attempt": {
     "status": "IN PROGRESS",
     "result": "Normalsourcepath98->99->100->101withoutdamage. At101/51,28actual10full191HPDrakes118level5 admitted; normalTactical/ownedspellcasts endedactualdefeat. NoScalesaward/falsevictory. Completefailedbranchretained.",
     "classification": "Gameplaypreparation/inputpolicy, notdemonstratednativeEnginegap. OriginalSpellPower:Fireball2base48threshold2->12vslevel5,Fireball+1base47threshold3->23; armor94thenfurthermitigates. SourceFireball+2base42threshold4/cost21requiresINT38,QuickExit60INT38/cost4. ExistingNoxINT44eligible.",
     "recovery": "NearestordinaryEngine998at101/53,27 copiedwithsidecars/hashbeforeload. ActualnormalLoadchooser174restores earnedpre-fightstatewith173parent, no otheroutcomeaccepted. Newpermanent174preservesfullparty/167gold898food/fourownedStaffs. Startednormalwithdrawal101->100, one70winwithoutHP/MPcost; subsequenttwo70contactpending.",
     "next_preparation": "Town44 Surface132109 magiMerchant96 work8-14/15-19,9,11; stock0Fireball+2book4 andstock6QuickExit60, both76gold/buyPercent100, total152<=167. Purchase/Ready normally; no simulatedspell/item/grant. Strong-targetinputpolicy mustrespectsourcelevelattenuation, notonlyAoEcoverage."
+  },
+  "spell_preparation": {
+    "status": "VERIFIED",
+    "scope": "Normal purchased and readied books only; Scales and next Drake encounter remain unverified",
+    "earned_withdrawal": "175 Hero/Bridgit earned level4, twelve normal INT points each; all six level4. Three137HP Cursed Warriors defeated normally using four Fireball+1 casts; camp capped mana at75%. 176 normal surface exit247gold874food.",
+    "local_preparation": "Town44 Inn11 gold247->236, full rest; single50HP win adds5gold. Canal crossing two231 cells17damage each. Actual Magi NPC9,10 reached from11,10 across counter. Purchased stock0 Fireball+2 and stock6 QuickExit at76 each:241->89gold. Both normally Readied slots4/5; saved requirements38. All six self LesserHeal casts cost2MP each, fullHP83/71/77/70/70/73, MP18/30/30/42/42/30. 177 ordinary permanent save.",
+    "qualification": "NPC movement/counter alignment caused failed Talks; saved world and viewport actor tables agree. Earlier ownership-mismatch suspicion withdrawn. No engine defect or source change demonstrated.",
+    "next": "Return canal with full HP, normal Inn11 full mana, then source route back to Scales."
   }
 }

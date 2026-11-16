@@ -2666,22 +2666,55 @@
       },
       "process": 24,
       "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
+    },
+    {
+      "label": "underworld-withdrawal-Hero-Bridgit-earned-level4-INT532",
+      "slot": 175,
+      "parent": "efea88636e830c813072c11639b68bb99d1987354d05faf1e2f60fe3c35f8d5a",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot175.g0": "93c603dd7f747a6582e8a592b1acaa96c43349f79b42d3ff0ec592ca66eb6cdb",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot175.g0.ce-achievements.json": "0b08549eed385e453f9b24a2005a8884515eafc0fb3c3c85d78d79f0784a262e"
+      },
+      "process": 24,
+      "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
+    },
+    {
+      "label": "drake-withdrawal-earned-surface-full-party-level4-532",
+      "slot": 176,
+      "parent": "098d32c14eeea3f755d28436d54ca080d979b509ddfc174fb8d7ed24e4d7b7b3",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot176.g0": "b4805b9fe7027ff3bece2568a933d7c4b09a0f1b12937262f9d186811933daab",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot176.g0.ce-achievements.json": "8f795862025f2e1b108ece526f7414ace6bf9bed17dac3f77b2477af4d4f7d2f"
+      },
+      "process": 24,
+      "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
+    },
+    {
+      "label": "town44-earned-Fireball2-QuickExit-normal-ready-healed532",
+      "slot": 177,
+      "parent": "02dae1f1576752209a5c8f25ec6b4a7066433dbde438a0e03ed84d9ff2d12c99",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot177.g0": "e54b60a68a9558fa6dae8fec802190ebb5a1582e0bde45bc41dced381cab667a",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot177.g0.ce-achievements.json": "45179f2acfef53b5ba3fa83814b73a5921de155b2cf3b7cd75820a2f06dc378b"
+      },
+      "process": 24,
+      "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
     }
   ],
   "correction": "SCUMMVM-CE-NPC529-VERIFICATION.json",
-  "last_checkpoint": 174,
+  "last_checkpoint": 177,
   "cold_evidence": "ce-native-acceptance528/earned-modern/cold024.json",
-  "next_action": "Finishnormalwithdrawal97->Castle78->Surface; Town44normalFireball+2/QuickExitpurchase/readiness, thencontinueScaleswithmaterialpreparation. No unchangedfightretry orEnginebuild.",
+  "next_action": "Return canal with full HP, normal Inn11 full mana, then source route back to Scales.",
   "current_source_commit": "e073e27e3e3",
   "current_executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed",
-  "latest_earned": "NearestordinaryEngine998at101/53,27 copiedwithsidecars/hashbeforeload. ActualnormalLoadchooser174restores earnedpre-fightstatewith173parent, no otheroutcomeaccepted. Newpermanent174preservesfullparty/167gold898food/fourownedStaffs. Startednormalwithdrawal101->100, one70winwithoutHP/MPcost; subsequenttwo70contactpending.",
+  "latest_earned": "Town44 Inn11 gold247->236, full rest; single50HP win adds5gold. Canal crossing two231 cells17damage each. Actual Magi NPC9,10 reached from11,10 across counter. Purchased stock0 Fireball+2 and stock6 QuickExit at76 each:241->89gold. Both normally Readied slots4/5; saved requirements38. All six self LesserHeal casts cost2MP each, fullHP83/71/77/70/70/73, MP18/30/30/42/42/30. 177 ordinary permanent save.",
   "historical_receipt_baseline": {
     "executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4",
     "source_binding": "SCUMMVM-CE-CANNON530-VERIFICATION.json",
     "qualification": "Initialreceiptbaseline only; percheckpoint/current identities control later progression."
   },
   "source_commit": "e073e27e3e3",
-  "local_full_ledger_sha256": "db4524b5e400243678e0a31a2e7c8b59c38bfd51fb2c10a71246ce28dfdf5e0a",
+  "local_full_ledger_sha256": "64a98ab42c633ebdf2a95fe82293e930959e6b9ee6adc9faf1084e4a8b9cf2bf",
   "latest_scoped_evidence": {
     "status": "VERIFIED",
     "scope": "Actual141cold021/142normalnextstep retain quest/inventory/party/resources/sound/session and parkedhorse; not Rustydoorpositivecrossing or fullcampaign acceptance",
@@ -2698,9 +2731,9 @@
     "SCUMMVM-CE-M43-ARCHUS532-WORK.json": "d67b22e38777e6b33dfa950ae8b3b3143179edeb314f84932c0fbf67b1be4e0a",
     "SCUMMVM-CE-M43-ROYAL532-VERIFICATION.json": "c0912514074864c657a8cfe93e14ade54f08093f7e455ac31386ae3658dfa4c7",
     "SCUMMVM-CE-M43-NOURTHELD-RECOVERY532-VERIFICATION.json": "a7d86544f25de761a7441526d69221e04aef5efaf6c633342bff5d28d34cd426",
-    "SCUMMVM-CE-M43-SCALES532-WORK.json": "0899ee260e797377211d986ac5c270c3264e8ba952763117958f3b404f904c9d"
+    "SCUMMVM-CE-M43-SCALES532-WORK.json": "332a97341d948cd739071e98fda36a1ed2a4041dd3ee7fd4823199b80127fc80"
   },
-  "private_ledger_sha256": "db4524b5e400243678e0a31a2e7c8b59c38bfd51fb2c10a71246ce28dfdf5e0a",
+  "private_ledger_sha256": "64a98ab42c633ebdf2a95fe82293e930959e6b9ee6adc9faf1084e4a8b9cf2bf",
   "superseded_current_aliases_royal532": {
     "last_checkpoint": 44,
     "latest_earned": "142 firstnormalworldstep after actual141cold021, fullparty/questinventory/resources/session retained;horseparked persistence",

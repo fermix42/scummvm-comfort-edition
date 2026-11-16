@@ -1,3 +1,7 @@
+# Acceptance528 earned spell preparation177 - IN PROGRESS
+
+Normal withdrawal175/176 retains all earned victories and level4 INT allocations. Town44 paidInn11, source canal two17damagecells, normal purchases Fireball+2/QuickExit76each, slots4/5 saved requirements38 verified. 177 fullHP83/71/77/70/70/73, MP18/30/30/42/42/30,89gold874food after six normal selfheals. Return canal/Inn fullmana then Scales route. FailedTalks were NPC movement/counter alignment; saved actor tables agree, no Enginebug. Five/60selectednodesVERIFIED; endingunverified. Engine532/audio473 unchanged,6builds/24gameCLI+2focused=26materialCLI. Canonicalconversion/CEdevtools/nox/project mirrors.
+
 # Acceptance528 ten-Drake defeat preserved, normal174 recovery - IN PROGRESS
 
 Actual98->99->100->101sourcewalknoadditionalcost. Actual101/51,28tenfull191HPlevel5Drakes;normalT/ownedspells endeddefeat,preservedfork. Nearestnormal998earned101/53,27copied/hashboundthenactualLoadchooser174,newpermanent174full6/167gold898food/fourStaffs. NoScalesaward/replaycleanup/Enginefix. OriginalSpellPowerlevelattenuationplainFireball48->12,+1Fireball47->23vsDrake5/armor94; bettertiernecessary. SourceTown44Surface132109Merchant96stock0Fireball+2/stock6QuickExit,both76,total152affordable,NoxINT44eligible38. Normalwithdrawal101->100(one70winundamaged,nexttwo70pending)foractualpurchase/readiness. No unchangedretry. Five/60nodesVERIFIED,endingunverified. Engine532/audio473unchanged,6builds/24gameCLI+2focused=26materialCLI. Canonicalconversion/CEdevtools/nox/project mirrors.
