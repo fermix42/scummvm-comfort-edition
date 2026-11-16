@@ -531,12 +531,12 @@
     },
     {
       "id": "arcane-key-door",
-      "status": "IN PROGRESS",
+      "status": "VERIFIED",
       "prerequisites": [
         "castle-control-wall",
         "moat-key-door"
       ],
-      "source_contract": "Actual Castle control/keys/portals; source-valid Search positions yield seven retained pages (43E=FD,count7), actual Axea eighth (FF,count8), optional research, real Nystul binding/spell12, Ready and actual full12HP Rat Vortex. Source12 and source39 are distinct linked segments, not one continuous route.",
+      "source_contract": "CSTL78 key115 chest5,32 field24mask2; normal Search/pick/repeat. CSTL56 keyed door32,25: absent-key refusal, retained-key opening/passage; actual cold and first next input continuity.",
       "source_anchors": [
         "Original CSTL BE/BD records; original SRTN.COMBAT.S9C84 / LOADER.P280B control handlers"
       ],
@@ -557,11 +557,28 @@
         "scoped audio/presentation",
         "actual earned verification criteria"
       ],
-      "earned_lineage": null,
+      "earned_lineage": "NormalNew0 through238; earlier disclosed failures/reloads remain preserved",
       "earned_absence_refusal": {
         "checkpoint": 232,
         "report": "SCUMMVM-CE-M43-CASTLE532-WORK.json",
-        "qualification": "Actual north-side absent-key refusal only; acquisition/passage/cold pending"
+        "qualification": "Subsequent acquisition234 and actual retained-key passage/cold237/238 verified."
+      },
+      "actual_result": "Earned Arcane absent refusal232; normal115 pickup/repeat234. After fivepages236, source70step return crosses one231cell17damage/member, no battle. At56/32,24 normal OpenDown opens32,25; steps32,25 then32,26 prove physicalpassage/keyretained237, screenshot90. Actual cold030 preserves map/party/inventory/allquestfields/resources/sound/session/noassistance; first normal Up32,25 and Down32,26 prove retained passage238. Both keys retained/field24=6, fivepages/field62=62;HP50/38/44/37/37/40 MP8/8/8/20/8/20,561gold272food. No Engine change/build/suite.",
+      "earned_evidence": {
+        "report": "SCUMMVM-CE-M43-CASTLE532-WORK.json",
+        "checkpoints": [
+          232,
+          234,
+          237,
+          238
+        ],
+        "proofs": {
+          "ce-native-acceptance528\\earned-modern\\earned-Arcane-absence232-533.json": "5dfa1e7dd1f934caab25cd059148c4581880aab48fae4d1e08e951f421bf8363",
+          "ce-native-acceptance528\\earned-modern\\earned-Arcane-key234-533.json": "6bc5e24560f306b62bcb486184b9c8da62c74e12e68971640d83e3e52c483fb7",
+          "ce-native-acceptance528\\earned-modern\\earned-Arcane-positive237-533.json": "9bd9ae92b2eb06aea4f4bf6c725fccb45c1583ce4c524e12151f0574577c479f",
+          "ce-native-acceptance528\\earned-modern\\cold030.json": "effaaac7913eced6ccdad34d9c166246fae23a8883cdd47501eb40ef35f4384a",
+          "ce-native-acceptance528\\earned-modern\\earned-Arcane-cold-next238-533.json": "fb763e27b3416991eedc75626006fa614e323984f44ce605dcf2def4842485e9"
+        }
       }
     },
     {
@@ -597,7 +614,7 @@
     },
     {
       "id": "remaining-pages",
-      "status": "NOT STARTED",
+      "status": "IN PROGRESS",
       "prerequisites": [
         "castle-control-wall",
         "moat-key-door",
@@ -1818,9 +1835,9 @@
     },
     {
       "id": "page-bit-4",
-      "status": "NOT STARTED",
+      "status": "VERIFIED",
       "prerequisites": [],
-      "source_contract": "Verified node on the selected main-story route; relationship and alternatives are explicit in CAMPAIGN-DEPENDENCIES76.",
+      "source_contract": "Original CSTL78 source Search item97 at[5, 9], field62mask4; actual normal access/Search/pick, award and no duplicate repeat; normal save/cold retain earned item/quest state. Later complete-page/binding operations remain separate required nodes.",
       "source_anchors": [
         "NA/DATA.MAP.CSTL offset42975",
         "native/progression_search.inc BE08/BE0B field commit"
@@ -1844,17 +1861,23 @@
         "scoped audio/presentation",
         "actual earned verification criteria"
       ],
-      "earned_lineage": null,
+      "earned_lineage": "NormalNew0 earned ancestry through actual235, retained in actual238 cold/next-command lineage; no setup or outcome injection.",
       "source_qualifications": [
         "All seven source Search awards now retained into actual Axea eighth-page/research/binding/Ready/refusal/full-health Rat Vortex/cold, both modes. No page inventory/count/flag initialization.",
         "CONTROLLED source-valid authored routes/adjacency/noon, initial25lockpicks and original PRNG0x12345678 before each firstSearch; source floor and original DEC421 ledger checked. Original level10 caster stats remain controlled before Ready. Not earned continuous exploration/leveling or full campaign."
-      ]
+      ],
+      "actual_result": "Actual Search/Cutter2 awarded bit4; subsequent repeat unchanged, saved235; actualcold030.json matches party/inventory/allquestfields/resources/sound/session/noassistance. ",
+      "earned_evidence": {
+        "ce-native-acceptance528\\earned-modern\\earned-west-page4-235-533.json": "34d861e57fc86331917b99b327a365890263e0435ee59e1ec6edf9768bd3652c",
+        "ce-native-acceptance528\\earned-modern\\cold030.json": "effaaac7913eced6ccdad34d9c166246fae23a8883cdd47501eb40ef35f4384a"
+      },
+      "coverage_qualification": "Source qualifications retained below describe historical controlled predecessor only. Current earned evidence verifies this individual award; total eight-page check/research/binding/Ready/Vortex/ending remain separately unverified."
     },
     {
       "id": "page-bit-8",
-      "status": "NOT STARTED",
+      "status": "VERIFIED",
       "prerequisites": [],
-      "source_contract": "Verified node on the selected main-story route; relationship and alternatives are explicit in CAMPAIGN-DEPENDENCIES76.",
+      "source_contract": "Original CSTL78 source Search item97 at[27, 13], field62mask8; actual normal access/Search/pick, award and no duplicate repeat; normal save/cold retain earned item/quest state. Later complete-page/binding operations remain separate required nodes.",
       "source_anchors": [
         "NA/DATA.MAP.CSTL offset42987",
         "native/progression_search.inc BE08/BE0B field commit"
@@ -1878,17 +1901,23 @@
         "scoped audio/presentation",
         "actual earned verification criteria"
       ],
-      "earned_lineage": null,
+      "earned_lineage": "NormalNew0 earned ancestry through actual228, retained in actual238 cold/next-command lineage; no setup or outcome injection.",
       "source_qualifications": [
         "All seven source Search awards now retained into actual Axea eighth-page/research/binding/Ready/refusal/full-health Rat Vortex/cold, both modes. No page inventory/count/flag initialization.",
         "CONTROLLED source-valid authored routes/adjacency/noon, initial25lockpicks and original PRNG0x12345678 before each firstSearch; source floor and original DEC421 ledger checked. Original level10 caster stats remain controlled before Ready. Not earned continuous exploration/leveling or full campaign."
-      ]
+      ],
+      "actual_result": "Actual Search/Cutter2 awarded bit8; subsequent repeat unchanged, saved228; actualcold029.json matches party/inventory/allquestfields/resources/sound/session/noassistance. ",
+      "earned_evidence": {
+        "ce-native-acceptance528\\earned-modern\\earned-castle-page8-228-533.json": "1d5d9d8a2e08b0e25340a3662dc595464a9a12350a3a629a1b15cf031e5d7a75",
+        "ce-native-acceptance528\\earned-modern\\cold029.json": "b2fb8052462bef0903cf3c43c6128208163c08981fd52c9a4d3540727cb61a6f"
+      },
+      "coverage_qualification": "Source qualifications retained below describe historical controlled predecessor only. Current earned evidence verifies this individual award; total eight-page check/research/binding/Ready/Vortex/ending remain separately unverified."
     },
     {
       "id": "page-bit-16",
-      "status": "NOT STARTED",
+      "status": "VERIFIED",
       "prerequisites": [],
-      "source_contract": "Verified node on the selected main-story route; relationship and alternatives are explicit in CAMPAIGN-DEPENDENCIES76.",
+      "source_contract": "Original CSTL78 source Search item97 at[9, 12], field62mask16; actual normal access/Search/pick, award and no duplicate repeat; normal save/cold retain earned item/quest state. Later complete-page/binding operations remain separate required nodes.",
       "source_anchors": [
         "NA/DATA.MAP.CSTL offset42999",
         "native/progression_search.inc BE08/BE0B field commit"
@@ -1912,17 +1941,23 @@
         "scoped audio/presentation",
         "actual earned verification criteria"
       ],
-      "earned_lineage": null,
+      "earned_lineage": "NormalNew0 earned ancestry through actual236, retained in actual238 cold/next-command lineage; no setup or outcome injection.",
       "source_qualifications": [
         "All seven source Search awards now retained into actual Axea eighth-page/research/binding/Ready/refusal/full-health Rat Vortex/cold, both modes. No page inventory/count/flag initialization.",
         "CONTROLLED source-valid authored routes/adjacency/noon, initial25lockpicks and original PRNG0x12345678 before each firstSearch; source floor and original DEC421 ledger checked. Original level10 caster stats remain controlled before Ready. Not earned continuous exploration/leveling or full campaign."
-      ]
+      ],
+      "actual_result": "Actual Search/Cutter2 awarded bit16; subsequent repeat unchanged, saved236; actualcold030.json matches party/inventory/allquestfields/resources/sound/session/noassistance. First normal lock refusal236 retained; second ordinary attempt succeeds.",
+      "earned_evidence": {
+        "ce-native-acceptance528\\earned-modern\\earned-west-page16-236-533.json": "ef6515d630c630dcbb505e498b4b8df37166405d6695ac5187f3f2dc769229a4",
+        "ce-native-acceptance528\\earned-modern\\cold030.json": "effaaac7913eced6ccdad34d9c166246fae23a8883cdd47501eb40ef35f4384a"
+      },
+      "coverage_qualification": "Source qualifications retained below describe historical controlled predecessor only. Current earned evidence verifies this individual award; total eight-page check/research/binding/Ready/Vortex/ending remain separately unverified."
     },
     {
       "id": "page-bit-32",
-      "status": "NOT STARTED",
+      "status": "VERIFIED",
       "prerequisites": [],
-      "source_contract": "Verified node on the selected main-story route; relationship and alternatives are explicit in CAMPAIGN-DEPENDENCIES76.",
+      "source_contract": "Original CSTL78 source Search item97 at[33, 18], field62mask32; actual normal access/Search/pick, award and no duplicate repeat; normal save/cold retain earned item/quest state. Later complete-page/binding operations remain separate required nodes.",
       "source_anchors": [
         "NA/DATA.MAP.CSTL offset43011",
         "native/progression_search.inc BE08/BE0B field commit"
@@ -1946,11 +1981,17 @@
         "scoped audio/presentation",
         "actual earned verification criteria"
       ],
-      "earned_lineage": null,
+      "earned_lineage": "NormalNew0 earned ancestry through actual229, retained in actual238 cold/next-command lineage; no setup or outcome injection.",
       "source_qualifications": [
         "All seven source Search awards now retained into actual Axea eighth-page/research/binding/Ready/refusal/full-health Rat Vortex/cold, both modes. No page inventory/count/flag initialization.",
         "CONTROLLED source-valid authored routes/adjacency/noon, initial25lockpicks and original PRNG0x12345678 before each firstSearch; source floor and original DEC421 ledger checked. Original level10 caster stats remain controlled before Ready. Not earned continuous exploration/leveling or full campaign."
-      ]
+      ],
+      "actual_result": "Actual Search/Cutter2 awarded bit32; subsequent repeat unchanged, saved229; actualcold029.json matches party/inventory/allquestfields/resources/sound/session/noassistance. ",
+      "earned_evidence": {
+        "ce-native-acceptance528\\earned-modern\\earned-castle-page32-229-533.json": "6019ca1e6e47a847cdb0728ef86f172f5004a75046d24fa1472fe03189e0a0ae",
+        "ce-native-acceptance528\\earned-modern\\cold029.json": "b2fb8052462bef0903cf3c43c6128208163c08981fd52c9a4d3540727cb61a6f"
+      },
+      "coverage_qualification": "Source qualifications retained below describe historical controlled predecessor only. Current earned evidence verifies this individual award; total eight-page check/research/binding/Ready/Vortex/ending remain separately unverified."
     },
     {
       "id": "page-bit-64",
