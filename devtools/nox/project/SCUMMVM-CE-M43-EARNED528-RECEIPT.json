@@ -4,7 +4,7 @@
   "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed",
   "source_binding": "SCUMMVM-CE-MOUNTED-TALK532-VERIFICATION.json",
   "builds": 6,
-  "process_launches": 24,
+  "process_launches": 26,
   "verified_selected_nodes": [
     "opening-exit",
     "royal-access",
@@ -2765,22 +2765,55 @@
       },
       "process": 24,
       "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
+    },
+    {
+      "label": "earned-um99-entry-after-Goblin-win-rest-three-area-casts532",
+      "slot": 184,
+      "parent": "fe27cc74c665913c62a50e5984ffa516881ac2a094e8bb48cbd0d026220e823a",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot184.g0": "434930f8091c0c3ea5041734519613768d8196469b99a7a5ed71c878444803ca",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot184.g0.ce-achievements.json": "583cea233e80515626ba2d9b6e7ba033aa7cd158d7399788ea3a4cfd29e9a6dd"
+      },
+      "process": 24,
+      "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
+    },
+    {
+      "label": "earned-um101-prepared-entry-two-full-Fireball2-mages532",
+      "slot": 185,
+      "parent": "dd469d489d2769cec6d1cf997182ea9599d577f58fff579f83de6debb36afdff",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot185.g0": "0b9e6d1685f65a592454cbee367d53dcc8156607fe27e1a09f7c18dcbbc85a9e",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot185.g0.ce-achievements.json": "dd41ed0ce48982221d559679950392be14af3cad967b06b2df977d16555cecf6"
+      },
+      "process": 24,
+      "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
+    },
+    {
+      "label": "um101-normal185-driver-interruption-recovery026-532",
+      "slot": 186,
+      "parent": "0fc2709c0201f39d6e9e9e082f37bf857a1a34e16d575967005f6e8c27d387d1",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot186.g0": "b907c46dd8dbda2614e28cc872da18c92f53a7ec36f18f60363215b6ba52e443",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot186.g0.ce-achievements.json": "d56e7483dc86c8608e27b190d8b734e21247f54ab4b661f8dd6afb4da15cb15d"
+      },
+      "process": 26,
+      "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
     }
   ],
   "correction": "SCUMMVM-CE-NPC529-VERIFICATION.json",
-  "last_checkpoint": 183,
+  "last_checkpoint": 186,
   "cold_evidence": "ce-native-acceptance528/earned-modern/cold024.json",
-  "next_action": "Return source55steps59->58->54->78 stairs, then earned97..101 Scales; use appropriate area spells against armored contacts rather than preserving mana at cost of defeat.",
+  "next_action": "Replay only interrupted unsaved leg from normal185. Normal input policy holds front only while high-tier casts remain, then releases Axe/Rapier and heals at actual health threshold. Bounded batches replace interrupting driver. Not a new Engine build or cold-live-fight persistence claim.",
   "current_source_commit": "e073e27e3e3",
   "current_executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed",
-  "latest_earned": "Same earned98route, same four137HP GreatGoblins: normalTactical/all eligible owned area spells, four Fireball+1 casts60MP. Allsix survive without additionalHPdamage; gold153->188, MP16/2/2/29/29/2,182. ActualC5/Bridgit normalQuickExit60 spends4MP29->25, returnsSurface17762. Down17763/Up17762 authoredentryCastle54. Normal58inn14gold188->174, allsix fullHP83/71/77/70/70/73,MP20/32/32/44/44/32,food880,183.",
+  "latest_earned": "Normal185 restored. Process025Engine started/loaded185 but Python REPL lacked a console and repeatedly errored; identified Python30088 stopped. Process026 normal tty/basicREPL loaded185 and permanent186 records recovery. No expected state/progression injections. Helper dependency ack missing failed before movement and loaded existing dialogue helper.",
   "historical_receipt_baseline": {
     "executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4",
     "source_binding": "SCUMMVM-CE-CANNON530-VERIFICATION.json",
     "qualification": "Initialreceiptbaseline only; percheckpoint/current identities control later progression."
   },
   "source_commit": "e073e27e3e3",
-  "local_full_ledger_sha256": "2e63aacee9db6d59157a53fde49287a1a9451f3c9288bc6e9f47d7086c26a5cb",
+  "local_full_ledger_sha256": "446f4d4c799d56efebf32df34e5012dc912ba27265b062322bee735e4a86fd42",
   "latest_scoped_evidence": {
     "status": "VERIFIED",
     "scope": "Actual141cold021/142normalnextstep retain quest/inventory/party/resources/sound/session and parkedhorse; not Rustydoorpositivecrossing or fullcampaign acceptance",
@@ -2797,9 +2830,9 @@
     "SCUMMVM-CE-M43-ARCHUS532-WORK.json": "d67b22e38777e6b33dfa950ae8b3b3143179edeb314f84932c0fbf67b1be4e0a",
     "SCUMMVM-CE-M43-ROYAL532-VERIFICATION.json": "c0912514074864c657a8cfe93e14ade54f08093f7e455ac31386ae3658dfa4c7",
     "SCUMMVM-CE-M43-NOURTHELD-RECOVERY532-VERIFICATION.json": "a7d86544f25de761a7441526d69221e04aef5efaf6c633342bff5d28d34cd426",
-    "SCUMMVM-CE-M43-SCALES532-WORK.json": "dbe55d6aa855d4f0f0e079baa60900e1ac98eaf6f7f5fec8ca8a706218517b73"
+    "SCUMMVM-CE-M43-SCALES532-WORK.json": "ef9df0911f5216bfe9c108bdc781637ba4d80dfe145648c759872919114b55f9"
   },
-  "private_ledger_sha256": "2e63aacee9db6d59157a53fde49287a1a9451f3c9288bc6e9f47d7086c26a5cb",
+  "private_ledger_sha256": "446f4d4c799d56efebf32df34e5012dc912ba27265b062322bee735e4a86fd42",
   "superseded_current_aliases_royal532": {
     "last_checkpoint": 44,
     "latest_earned": "142 firstnormalworldstep after actual141cold021, fullparty/questinventory/resources/session retained;horseparked persistence",
