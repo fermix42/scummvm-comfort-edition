@@ -2600,22 +2600,44 @@
       },
       "process": 24,
       "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
+    },
+    {
+      "label": "nourtheld-paid-inn14-four-living-full-rest532",
+      "slot": 169,
+      "parent": "5e660c72286bdc33aeda17793829777a91243320ad51e942df46192779b455ea",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot169.g0": "80e8d4130ae4f81e7e7c11abf613882fc43e685f875d36197e244e8237cafa58",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot169.g0.ce-achievements.json": "c3a975f8e23dfae46c1af46284de4facf5d9e8a638c8628e045592ec447b50d4"
+      },
+      "process": 24,
+      "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
+    },
+    {
+      "label": "nourtheld-local-inn-Temple-full-six-recovery532",
+      "slot": 170,
+      "parent": "f40c5ffb1d447422ecc47c9b442306fa06d9366e55ff0c60532b8b7f10a39864",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot170.g0": "8c412d5227a1a7071cf5255d06c2a038e9230646c3f98ade72dc0e299e386101",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot170.g0.ce-achievements.json": "36715e6f52672b7ac3a3962efb9deba8f8e0e52d476a55c73ba10f44a905a8f3"
+      },
+      "process": 24,
+      "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
     }
   ],
   "correction": "SCUMMVM-CE-NPC529-VERIFICATION.json",
-  "last_checkpoint": 168,
+  "last_checkpoint": 170,
   "cold_evidence": "ce-native-acceptance528/earned-modern/cold024.json",
-  "next_action": "NormalNourtheldInnrestfourliving; continueactualScales/Bruce/Order andrequiredpageaccess. No prematureGuild/unsafeNoRoute retries.",
+  "next_action": "NormalCastle78stairs18,32 ->UM97/176,62; original-source route through97..101toScales146safeEast74,41,thenBruce/Archusmembership. No syntheticcheckpoint orprematureGuild.",
   "current_source_commit": "e073e27e3e3",
   "current_executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed",
-  "latest_earned": "Normal165Castle54entry and54->58->57. Source-safe authored57->58->59->60->57leftwing path; actualStyxT Right from3,14. RecognizesoriginalQueenIsaWrit64; NAME twice saysNoxStyx, noitem/party/gold/foodchange.167normalEngine save; actualcold024 allparty/inventory/fields/resources/sound/transport/session/noassistance match.168firstnormalTalk/PAGESclue/repeat, noaward. ActualArchus166field60bit1 persists.",
+  "latest_earned": "NormalCastle58/88Inn14gold241->227 restoresfourliving andauthoredroom59/28,34,nextmorning6. NormalW2 then59->58->54->78 entry18,30,Temple15227,27 reachednormally. Twoactual36goldresurrections Kat/Cutter ->155, allsixfullHP71/63/67/62/70/73,MP8/20/20/32/44/32,food898. No restoredoutcome/statgrant. ThirdownedStaff23Alluvionretained.",
   "historical_receipt_baseline": {
     "executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4",
     "source_binding": "SCUMMVM-CE-CANNON530-VERIFICATION.json",
     "qualification": "Initialreceiptbaseline only; percheckpoint/current identities control later progression."
   },
   "source_commit": "e073e27e3e3",
-  "local_full_ledger_sha256": "21db26011be7c03b59ad00d4328163a25706ae7c24c5c7cb70f8124907efb29f",
+  "local_full_ledger_sha256": "bf8e2b40fb5e9a3d70b1238645b782c1a4bf202be46ddf6b01eccd2c706a083b",
   "latest_scoped_evidence": {
     "status": "VERIFIED",
     "scope": "Actual141cold021/142normalnextstep retain quest/inventory/party/resources/sound/session and parkedhorse; not Rustydoorpositivecrossing or fullcampaign acceptance",
@@ -2630,9 +2652,10 @@
     "SCUMMVM-CE-M43-SUURTHELD532-VERIFICATION.json": "8ea20dd7a6cf4622980424cc7b3f76f518659dbde6e600a2d8d55344af7e2129",
     "SCUMMVM-CE-M43-NORTH-CROSSING532-WORK.json": "1d3d29280dca97a2344579f0b14d55b9bfad59e2127986e212148939607a7166",
     "SCUMMVM-CE-M43-ARCHUS532-WORK.json": "d67b22e38777e6b33dfa950ae8b3b3143179edeb314f84932c0fbf67b1be4e0a",
-    "SCUMMVM-CE-M43-ROYAL532-VERIFICATION.json": "c0912514074864c657a8cfe93e14ade54f08093f7e455ac31386ae3658dfa4c7"
+    "SCUMMVM-CE-M43-ROYAL532-VERIFICATION.json": "c0912514074864c657a8cfe93e14ade54f08093f7e455ac31386ae3658dfa4c7",
+    "SCUMMVM-CE-M43-NOURTHELD-RECOVERY532-VERIFICATION.json": "a7d86544f25de761a7441526d69221e04aef5efaf6c633342bff5d28d34cd426"
   },
-  "private_ledger_sha256": "21db26011be7c03b59ad00d4328163a25706ae7c24c5c7cb70f8124907efb29f",
+  "private_ledger_sha256": "bf8e2b40fb5e9a3d70b1238645b782c1a4bf202be46ddf6b01eccd2c706a083b",
   "superseded_current_aliases_royal532": {
     "last_checkpoint": 44,
     "latest_earned": "142 firstnormalworldstep after actual141cold021, fullparty/questinventory/resources/session retained;horseparked persistence",

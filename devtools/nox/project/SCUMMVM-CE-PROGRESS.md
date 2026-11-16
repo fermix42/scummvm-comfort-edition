@@ -1,3 +1,7 @@
+# Acceptance528 local full recovery169/170 - IN PROGRESS
+
+NormalNourtheld58/88Inn14gold241->227,fullrestfourliving,authoredroom59/28,34morning6. NormalW2/floorwalk59->58->54->78/18,30,Temple15227,27; twoactual36goldresurrectionsKat/Cutter ->155. AllsixfullHP71/63/67/62/70/73,MP8/20/20/32/44/32,food898,170. ThirdownedStaffAlluvionretained; no casualtycleanup/restoredoutcome. Continue78stairs18,32->UM97/176,62, source-supportedScales101safeEast74,41/Bruce/Archusmembership. Sevenremainingpages physicalsafeaccessunproven,no unsafeNoRoute retry. Source532/audio473unchanged,6builds/24gameCLI+2focused=26materialCLI;five/60selectednodesVERIFIED,endingunverified. Canonicalconversion/CEdevtools/nox/project mirrors.
+
 # Acceptance528 royal-access VERIFIED167/cold024/168 - IN PROGRESS
 
 Earned165Castle54entry,166ArchusTESTsavedfield60=1. Source-safe authored57->58->59->60->57leftwing normalinputs; actualStyxT Right3,14recognizesQueenIsaWrit,NAME/repeatbothNoxStyx,noitem/party/gold/foodchange,167. Actualcold024 exactallstate/session/noassistance;168firstnormalTalk/PAGESclue/repeat,noaward. Royal-access fifth/60selectednodeVERIFIED. EarlyPAGESonlyINPROGRESS;sevenpagephysicalsafeaccessnotyetproven,noassumedOrdergateforeverypage. ContinuelocalInnrestfourlivingthenScales/Bruce/Order/remainingpages. KatCutterdeadretained,241gold898food. Source532/audio473unchanged,6builds/24gameCLI+2focused=26materialCLI. Endingunverified. Canonicalconversion/CEdevtools/nox/project mirrors.

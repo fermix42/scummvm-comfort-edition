@@ -1,0 +1,24 @@
+{
+  "status": "VERIFIED",
+  "scope": "EarnedNourtheld local recovery169/170 only, not campaign/Scales/ending completion.",
+  "source_commit": "e073e27e3e3",
+  "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed",
+  "lineage": [
+    168,
+    169,
+    170
+  ],
+  "actual": "NormalCastle58/88Inn14gold241->227 restoresfourliving andauthoredroom59/28,34,nextmorning6. NormalW2 then59->58->54->78 entry18,30,Temple15227,27 reachednormally. Twoactual36goldresurrections Kat/Cutter ->155, allsixfullHP71/63/67/62/70/73,MP8/20/20/32/44/32,food898. No restoredoutcome/statgrant. ThirdownedStaff23Alluvionretained.",
+  "qualification": "FirstEntercancelledInnwelcome withoutpayment; normalTUp/Y/R/Y thenactual14paid. Newlydiscoveredcloseddoor18,19 replanidentifiedstate16; normalOpen succeeded. NoEnginegap/build/suite. SevenremainingpageNoRoutesretainunprovenphysicalaccess; continueScales/Bruceinstead ofunsafeexperiments.",
+  "evidence": {
+    "ce-native-acceptance528/earned-modern/earned-nourtheld-inn14-rest532.json": "265267e999bebc912bc69f30a1fea01b0aa253b668833414c05319a0224fe53d",
+    "ce-native-acceptance528/earned-modern/earned-nourtheld-cellar-two-resurrections532.json": "8324e6ccd9522f105a8ba881aa369d277b3afdc3bb01e086b5fa409530e4e529"
+  },
+  "cost": {
+    "builds": 6,
+    "game_cli": 24,
+    "focused_cli": 2,
+    "material_cli": 26
+  },
+  "next_action": "NormalCastle78stairs18,32 ->UM97/176,62; original-source route through97..101toScales146safeEast74,41,thenBruce/Archusmembership. No syntheticcheckpoint orprematureGuild."
+}
