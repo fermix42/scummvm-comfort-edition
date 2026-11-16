@@ -1,3 +1,7 @@
+# Acceptance528 actual Archus authorization166 and safe Styx route - IN PROGRESS
+
+Normal58Archus20,12 TEST/repeat/BYE; deferreddialoguecommit savedfield60=1,166. NoLetterrequiredforthistopic; Scales/Bruce/membership/key94 remain. SinglefloorStyxNoRoute resolved by original authored floorlinks, not Enginepatch: safe74step57->58->59->60->57leftwing route; firsttransitionactual, remainderunderway. No waterorstatinjection. Source532/audio473unchanged,6builds/23gameCLI+2focused=25materialCLI. Four/60nodesVERIFIED,OrdertestINPROGRESSonly. Canonicalconversion/CEdevtools/nox/project mirrors.
+
 # Acceptance528 earned Nourtheld arrival165 - IN PROGRESS
 
 Actualsafe northernlanding163, preservedmandatorypiratedefeatfork andnormal163restore; changedship-clearancefootroute, normal87/eight87-98/single87/two46-41wins,onepaidFlee465->232retained. 164AlluvionnormalownedStaff equipped/actualbattleconfirmed;camprefused. ActualSurface17762->Castle54/22,38,165. KatCutterdead,fourliving46/48/70/58HP,MP2/7/7/5,241gold898food. Nox/Allu earnedlevel4INT12each. Continueactual54->58ArchusTEST and57StyxNAME/repeat. No source/build/audiochange;6builds/23gameCLI+2focused=25materialCLI. Four/60nodesVERIFIED,endingunverified. Canonicalconversion/CEdevtools/nox/project mirrors.

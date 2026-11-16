@@ -2566,12 +2566,23 @@
       },
       "process": 23,
       "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
+    },
+    {
+      "label": "archus-test-authorization-normal-repeat532",
+      "slot": 166,
+      "parent": "bad9ffe89944921828b89e497db4cb6f2acb203366ac3a9aecd1c76da43816db",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot166.g0": "1b617608556170ab89cd256e531691a91eedb66dcefa1dca565c9e2a7138ced4",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot166.g0.ce-achievements.json": "a698eec10f68df9766c7fdbe1cedbca9bfe1ce19e385afa99bf593909484d869"
+      },
+      "process": 23,
+      "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
     }
   ],
   "correction": "SCUMMVM-CE-NPC529-VERIFICATION.json",
   "last_checkpoint": 44,
   "cold_evidence": "earned-modern/cold011.json",
-  "next_action": "Normal54stairs9,8->58; actualArchusTEST,57StyxNAME/repeat. Retainall60criteria andactualcasualties.",
+  "next_action": "CompleteStyxNAME/repeat viaoriginal source-supported safe/protected/boundedhealingroute; continueScales/Bruce/Order/other60criteria.",
   "current_source_commit": "e073e27e3e3",
   "current_executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed",
   "latest_earned": "142 firstnormalworldstep after actual141cold021, fullparty/questinventory/resources/session retained;horseparked persistence",
@@ -2594,7 +2605,8 @@
     "SCUMMVM-CE-M43-RUSTY532-VERIFICATION.json": "a8b7cbde178b27d20ecdf9f8e02c4629c939fb0ecefc436ab627ea8098488b2d",
     "SCUMMVM-CE-M43-RUSTY-RECOVERY532-VERIFICATION.json": "17b77f3d267c40eb082b4eeb4dc6c79a6e418858fbe84cf714d688bfebe4fa70",
     "SCUMMVM-CE-M43-SUURTHELD532-VERIFICATION.json": "8ea20dd7a6cf4622980424cc7b3f76f518659dbde6e600a2d8d55344af7e2129",
-    "SCUMMVM-CE-M43-NORTH-CROSSING532-WORK.json": "1d3d29280dca97a2344579f0b14d55b9bfad59e2127986e212148939607a7166"
+    "SCUMMVM-CE-M43-NORTH-CROSSING532-WORK.json": "1d3d29280dca97a2344579f0b14d55b9bfad59e2127986e212148939607a7166",
+    "SCUMMVM-CE-M43-ARCHUS532-WORK.json": "2d8d6bb2945fa51c4f9724f2086080004b398a436cd095bd2975f928c7462428"
   },
-  "private_ledger_sha256": "b3940ff53c06d31b9d7e7302a97b6253e49e1c24c4d2ef79b173a4ba09b3a135"
+  "private_ledger_sha256": "55bbf94401988b5c98bb7640f6b2edd22970620663338d0805ce72b7dac483a1"
 }
