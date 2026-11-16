@@ -20,7 +20,10 @@
     183,
     184,
     185,
-    186
+    186,
+    187,
+    188,
+    189
   ],
   "route": "NormalCastle78/18,32->UM97/176,62,171. Readonly originalfivefloor route to101safeEast74,41 totals289steps,zerothermalcells/no225energyactorintersections. Contactpermitting sourcepath means normalGameactors remain; battles required. UM97->98stair149,75 completed,173; remaining249steps, first98leg140steps toward99.",
   "actual": "Actualfivefull70HPsprite144 win167,69, all6survive; Cutterloses16HP47, othersundamaged, noMPspent. Normalearnedlevel4 KatINT+12 ->20/83HP, CutterINT+12 ->32/71maxHP. NormalCutterselfLesserHeal2MP ->71HP/30MP;172gold167food898. NormalReady ownedClothGloves3/ownedlastspareMagicStaff23,Cutter actualsavedgearconfirmed8weight/STR8,INT32, fourreadyStaffs.173normalUM98entryall6fullHP83/71/67/62/70/73,MP20/30/20/32/44/32.",
@@ -40,7 +43,10 @@
     "ce-native-acceptance528/earned-modern/earned-QuickExit60-first-normal-cast532.json": "a932146c8a69805af55d0556d6685ccb086473367f90b5bf366fab126b04f1dd",
     "ce-native-acceptance528/earned-modern/earned-nourtheld-prepared-inn14-full-six-rest532.json": "4151623383cb5353044d5eda4d023d1b5941eb5e34dfe74c343b591a2ef29397",
     "ce-native-acceptance528/earned-modern/forks/um101-prepared-driver-interrupted532/last-observed.json": "8bf91e9eced0b6ec5c78ceb083717df0ca07931759099e2f60ea9f9743b04783",
-    "ce-native-acceptance528/earned-modern/forks/um101-prepared-driver-interrupted532/lineage.json": "0f80d8acd02e16a4894ebd8af688294abbe50adea7c83f12227022ad8f3dc387"
+    "ce-native-acceptance528/earned-modern/forks/um101-prepared-driver-interrupted532/lineage.json": "0f80d8acd02e16a4894ebd8af688294abbe50adea7c83f12227022ad8f3dc387",
+    "ce-native-acceptance528/earned-modern/forks/um101-prepared-nine-Drakes-defeat026-532/defeat.json": "14a65cc40c94b41636b1ebc47245fa37e4c531af8ff745a6a0097723044a7043",
+    "ce-native-acceptance528/earned-modern/forks/um101-prepared-nine-Drakes-defeat026-532/lineage.json": "83c46a57dff2f5c21c76e9ef78a3f9be2e5df0fa8df28656f1e6064ea48f7972",
+    "ce-native-acceptance528/earned-modern/earned-local-physical-gear188-proof532.json": "0c087b25438ba95013c75ae8e26c36203606385b3077c89382032ef3c5a23ff2"
   },
   "cost": {
     "builds": 6,
@@ -48,7 +54,7 @@
     "focused_cli": 2,
     "material_cli": 28
   },
-  "next_action": "Replay only interrupted unsaved leg from normal185. Normal input policy holds front only while high-tier casts remain, then releases Axe/Rapier and heals at actual health threshold. Bounded batches replace interrupting driver. Not a new Engine build or cold-live-fight persistence claim.",
+  "next_action": "Source no dryfoot routeBayport120147 even withoutactoravoidance. Ownfrigate object208126113/119 andskiff212129110/124 retained. Static3cellshipavoidance blocks northernshore; source95stepcontactroute to130110 keepsactualEnginecontacts. Retrieveownedboats, normalBayportInn/Guild branch before another Scales attempt.",
   "first_drake_attempt": {
     "status": "IN PROGRESS",
     "result": "Normalsourcepath98->99->100->101withoutdamage. At101/51,28actual10full191HPDrakes118level5 admitted; normalTactical/ownedspellcasts endedactualdefeat. NoScalesaward/falsevictory. Completefailedbranchretained.",
@@ -92,5 +98,17 @@
     "interrupted_attempt": "Actual101/5228 nine191HPDrakes. Four normalFireball+2 casts and threeFireball+1 casts defeated seven. Continued holding front line after high-tier mana spent was wrong tactic. Last retained trace86actions has Kat/Nox/Alluvion dead, Cutter71/0MP,Hero76/0MP,Bridgit70/2MP, remainingDrakes48/5HP. No victory claimed. WindowsCtrl+C intended to pause Python terminated driver and Engine; interrupted branch retained and excluded from completed progression.",
     "recovery": "Normal185 restored. Process025Engine started/loaded185 but Python REPL lacked a console and repeatedly errored; identified Python30088 stopped. Process026 normal tty/basicREPL loaded185 and permanent186 records recovery. No expected state/progression injections. Helper dependency ack missing failed before movement and loaded existing dialogue helper.",
     "next": "Replay only interrupted unsaved leg from normal185. Normal input policy holds front only while high-tier casts remain, then releases Axe/Rapier and heals at actual health threshold. Bounded batches replace interrupting driver. Not a new Engine build or cold-live-fight persistence claim."
+  },
+  "prepared_defeat187_and_route_revision": {
+    "status": "IN PROGRESS",
+    "actual": "Process026 prepared nineDrake attempt ended actual defeat. Full failing state/lineage retained; normal186 restored and187 permanent all6actualearnedfullHP,191gold880food, MP20/17/17/44/44/17. No further Drake attempt at current strength.",
+    "source_cause": "Party weapon base power31..49 is marginal/below originalDrake armor94. Native physical gross2*powerRoll minus armorRoll permits zero damage. Two high-tier44MPcasters have only four21MPcasts; surviving targets and weak physical follow-through remained. No demonstrated Engine defect.",
+    "priority": "Earlier required Guild branch before Scales. Original monster62 Guildmaster:level2/HP70/baseXP8400/armor49/resistance0. Actual earned guards/levers already partial, no boss/Skull award yet. Party level4XP928..1006; authored nextlevel threshold2000. Actual award still must use native credit/distribution, not assumed8400 per member. No grinding/fabricatedXP."
+  },
+  "physical_upgrade188_189": {
+    "status": "VERIFIED",
+    "scope": "Normal purchase/owned Ready only, not combat acceptance",
+    "actual": "NormalQuickExit->Surface17762->54. Borrow ownedMageNecklace18 fromCutter->Kat; Cutter normalownedThiefNecklace19; Kat ownedLeatherGloves12 replacesPlate61. Hero ownedPaddedRobes15/+1Broadsword17. W4 and normal78floorrefresh placeslocalSmith168 working33,15; TUp33,16 service22. Normalstock5 Scimitar35 buy160:191->31. Kat normalScimitar/Buckler17Ready,188. ActualsavedKatpower68/armor58/weight29STR32; Hero52/56/weight20STR20; Cutter33/37/weight8STR8. All ready ownership and weights valid. NormalLongBow29sale+22 ->53gold,189. Firsthelperexpected38 wrongly assumedGem50%; Smithnonstock30%actual22 retained, no reset. Remaining planned sales did not occur. NormalQuickExit4Br40->36 toSurface17762; all6fullHP,food880.",
+    "next": "Source no dryfoot routeBayport120147 even withoutactoravoidance. Ownfrigate object208126113/119 andskiff212129110/124 retained. Static3cellshipavoidance blocks northernshore; source95stepcontactroute to130110 keepsactualEnginecontacts. Retrieveownedboats, normalBayportInn/Guild branch before another Scales attempt."
   }
 }

@@ -1132,7 +1132,7 @@
     },
     {
       "id": "thieves-guild-boss",
-      "status": "NOT STARTED",
+      "status": "IN PROGRESS",
       "prerequisites": [
         "legitimate-new-game"
       ],
@@ -1161,7 +1161,8 @@
       ],
       "earned_lineage": null,
       "ordering_reconciliation": "Historical M3 search/execution ordering Rusty72->Skull78 was not a mechanical dependency. Immutable Skull78 pickup53/misc2 atTown2map50(16,15) checks only its own field26/mask2/repeat/capacity; native_search.h reward lines70..83. Rusty72 and its Ruin19 field25/mask2 door remain separate required acceptance, reordered after the independent Bayport chain. Actual Guild password/door/stair access, Skull pickup and prison gate remain required; no bypass or injected state.",
-      "source_access_qualification": "Actual Watcher/field28 permission, door/stairs and physicalGuild52 passage remain mandatory. Source L011slot120 opening may change wording forchildquest but BYE unconditionallysets battletriggerfield17/32; native_world_input.h closure340..355 admits actualactor. NoSkull78/childrescue53/2 battleadmission predicate. RequiredSkull/rescue nodes remain separatelyrequired."
+      "source_access_qualification": "Actual Watcher/field28 permission, door/stairs and physicalGuild52 passage remain mandatory. Source L011slot120 opening may change wording forchildquest but BYE unconditionallysets battletriggerfield17/32; native_world_input.h closure340..355 admits actualactor. NoSkull78/childrescue53/2 battleadmission predicate. RequiredSkull/rescue nodes remain separatelyrequired.",
+      "earned_progress_note": "Historical actualguardvictory96/threelevers97 retained;189sourcegearreparation andreturn beforeScales. No boss/Skull victory claimed."
     },
     {
       "id": "margrave-key",
@@ -2595,7 +2596,7 @@
   "process_launches": 26,
   "planned_node_count": 60,
   "mandatory_node_count_note": "All selected M3 nodes explicitly represented alongside dependency76 graph; includes supporting/advice/alternative nodes. Necessity is retained per source,not inferred from node count.",
-  "last_earned_checkpoint": 186,
+  "last_earned_checkpoint": 189,
   "baseline_candidate_sha256": "81feb2c7ff17594a6ea9754dc60602a755b2f37ea7c53b437f65a18e7c35000f",
   "candidate_change": "NPC529,cannon530,packedmelee531,mountedTalk532 source corrections; exact scoped receipts and earned ancestry retained. No broad matrix promotion.",
   "earned_failures_retained": [
@@ -2644,5 +2645,6 @@
     "retained": "All60selectednodes/criteria;4VERIFIED. Guild152positiveQuick and failedthree-Quick/153tacticalwinfourcasualties retained. No furtherprematureGuild.",
     "preparation": "155actualHraakvar500,156localTemple3resurrections,157fiveNecklace+2,158normalPlate/ChainGloves/Rapier/full900food;6alive,268gold. No new Engine source or builds.",
     "next": "Continue earlier required Nourtheld54/Styx NAME/Archus TEST; normal earned transport and actual access, all60criteria remain. No Guild guards until genuine preparation."
-  }
+  },
+  "source_route_revision189": "Earlier required Guildmaster/baseXP8400 before furtherDrakes;189gear materially stronger; all60criteria preserved,5VERIFIED."
 }

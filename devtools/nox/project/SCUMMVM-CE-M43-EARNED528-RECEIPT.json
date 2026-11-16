@@ -2798,22 +2798,55 @@
       },
       "process": 26,
       "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
+    },
+    {
+      "label": "um101-normal186-restored-after-prepared-Drake-defeat026-532",
+      "slot": 187,
+      "parent": "1ac6f91fa0494a27701a250268457abe506698b9ed21f880facb318c63480b92",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot187.g0": "508da961ec5431cad6e3f04d64d62ec1a2aa82512adc59ddcf3c0a6b7878634e",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot187.g0.ce-achievements.json": "e08f8fb20aada219678b0b378cf686a3e90128b53d8f5b4e36e1481c1904d2de"
+      },
+      "process": 26,
+      "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
+    },
+    {
+      "label": "earned-local-Scimitar-Buckler-Kat-plus1Broadsword-Hero532",
+      "slot": 188,
+      "parent": "af82e1c57764de623cacd6a6c70348a1a9c1ff2eafb5e1c96ea4eec525087985",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot188.g0": "b47a50fd66395afba5eb67e54e9bd4c5fc6d2c902df058b8a723f936cde6d689",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot188.g0.ce-achievements.json": "ce903a175650dd39d2b5dbd0149e407df4fb6f50dc5a7fa6b088cd43659efe4f"
+      },
+      "process": 26,
+      "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
+    },
+    {
+      "label": "earned-local-physical-upgrades-LongBow-normal-sale22-532",
+      "slot": 189,
+      "parent": "861474d3eb4dfd03254c0ed5ccf05462af75bf9f86baf5b1beb6f98c86332662",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot189.g0": "7d77b1c11106ad51ce676418a3f476dfdae4ce8cad039986fd7c92eb2a6d110e",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot189.g0.ce-achievements.json": "70a5ebf7388828e3b6e67142d8ac1e717ea29869262793f8315ceb55417be342"
+      },
+      "process": 26,
+      "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
     }
   ],
   "correction": "SCUMMVM-CE-NPC529-VERIFICATION.json",
-  "last_checkpoint": 186,
+  "last_checkpoint": 189,
   "cold_evidence": "ce-native-acceptance528/earned-modern/cold024.json",
-  "next_action": "Replay only interrupted unsaved leg from normal185. Normal input policy holds front only while high-tier casts remain, then releases Axe/Rapier and heals at actual health threshold. Bounded batches replace interrupting driver. Not a new Engine build or cold-live-fight persistence claim.",
+  "next_action": "Source no dryfoot routeBayport120147 even withoutactoravoidance. Ownfrigate object208126113/119 andskiff212129110/124 retained. Static3cellshipavoidance blocks northernshore; source95stepcontactroute to130110 keepsactualEnginecontacts. Retrieveownedboats, normalBayportInn/Guild branch before another Scales attempt.",
   "current_source_commit": "e073e27e3e3",
   "current_executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed",
-  "latest_earned": "Normal185 restored. Process025Engine started/loaded185 but Python REPL lacked a console and repeatedly errored; identified Python30088 stopped. Process026 normal tty/basicREPL loaded185 and permanent186 records recovery. No expected state/progression injections. Helper dependency ack missing failed before movement and loaded existing dialogue helper.",
+  "latest_earned": "NormalQuickExit->Surface17762->54. Borrow ownedMageNecklace18 fromCutter->Kat; Cutter normalownedThiefNecklace19; Kat ownedLeatherGloves12 replacesPlate61. Hero ownedPaddedRobes15/+1Broadsword17. W4 and normal78floorrefresh placeslocalSmith168 working33,15; TUp33,16 service22. Normalstock5 Scimitar35 buy160:191->31. Kat normalScimitar/Buckler17Ready,188. ActualsavedKatpower68/armor58/weight29STR32; Hero52/56/weight20STR20; Cutter33/37/weight8STR8. All ready ownership and weights valid. NormalLongBow29sale+22 ->53gold,189. Firsthelperexpected38 wrongly assumedGem50%; Smithnonstock30%actual22 retained, no reset. Remaining planned sales did not occur. NormalQuickExit4Br40->36 toSurface17762; all6fullHP,food880.",
   "historical_receipt_baseline": {
     "executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4",
     "source_binding": "SCUMMVM-CE-CANNON530-VERIFICATION.json",
     "qualification": "Initialreceiptbaseline only; percheckpoint/current identities control later progression."
   },
   "source_commit": "e073e27e3e3",
-  "local_full_ledger_sha256": "446f4d4c799d56efebf32df34e5012dc912ba27265b062322bee735e4a86fd42",
+  "local_full_ledger_sha256": "2970e908f24a3d366ae94666f0f25a74a0e8b003774b8f162e2347864e1233ab",
   "latest_scoped_evidence": {
     "status": "VERIFIED",
     "scope": "Actual141cold021/142normalnextstep retain quest/inventory/party/resources/sound/session and parkedhorse; not Rustydoorpositivecrossing or fullcampaign acceptance",
@@ -2830,9 +2863,9 @@
     "SCUMMVM-CE-M43-ARCHUS532-WORK.json": "d67b22e38777e6b33dfa950ae8b3b3143179edeb314f84932c0fbf67b1be4e0a",
     "SCUMMVM-CE-M43-ROYAL532-VERIFICATION.json": "c0912514074864c657a8cfe93e14ade54f08093f7e455ac31386ae3658dfa4c7",
     "SCUMMVM-CE-M43-NOURTHELD-RECOVERY532-VERIFICATION.json": "a7d86544f25de761a7441526d69221e04aef5efaf6c633342bff5d28d34cd426",
-    "SCUMMVM-CE-M43-SCALES532-WORK.json": "ef9df0911f5216bfe9c108bdc781637ba4d80dfe145648c759872919114b55f9"
+    "SCUMMVM-CE-M43-SCALES532-WORK.json": "cdee6f292317bdb9669c8fdcb79266d1a1fbf6e2b784834eeaddb5845ddb2895"
   },
-  "private_ledger_sha256": "446f4d4c799d56efebf32df34e5012dc912ba27265b062322bee735e4a86fd42",
+  "private_ledger_sha256": "2970e908f24a3d366ae94666f0f25a74a0e8b003774b8f162e2347864e1233ab",
   "superseded_current_aliases_royal532": {
     "last_checkpoint": 44,
     "latest_earned": "142 firstnormalworldstep after actual141cold021, fullparty/questinventory/resources/session retained;horseparked persistence",
