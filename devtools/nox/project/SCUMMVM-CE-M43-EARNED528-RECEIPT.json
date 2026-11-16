@@ -31,7 +31,8 @@
     "Historical M3 search/execution ordering Rusty72->Skull78 was not a mechanical dependency. Immutable Skull78 pickup53/misc2 atTown2map50(16,15) checks only its own field26/mask2/repeat/capacity; native_search.h reward lines70..83. Rusty72 and its Ruin19 field25/mask2 door remain separate required acceptance, reordered after the independent Bayport chain. Actual Guild password/door/stair access, Skull pickup and prison gate remain required; no bypass or injected state.",
     "Checkpoint71 boarding label is premature; raw state onfoot116/146. Actual subsequent B and72 prove119boarding.",
     "75 piratevictoryhasfourcasualties; Nox3INT32 andAlluvion3INT20actual. 76..80retainweaksea winswithtwosurvivors. Unfoughtfivepiratefork retained;normal80restore, heal/E/F-South clearsworldactor180withoutXP. No injectedstateorEnginechange.",
-    "Actual146 retains Kat/Cutter dead and prior107->53 Flee; 137HP followup victory70gold. Four98HP upperRuin20 defeat preserved, normal146 restored with both prior deaths. Camp refusals retained. Subsequent two normal Flees70->35->17 and actual unready deadKat Axe/Ready Hero. New three98HP victory147 kills Hero/Alluvion, retains two fullHP62 casters/noMP,38gold. Source-derived nearest westboundary route11steps; normal Left at9,22 prompts leave, Y reaches Surface139,215. NormalH restores living24MP each,food845->797; actual148."
+    "Actual146 retains Kat/Cutter dead and prior107->53 Flee; 137HP followup victory70gold. Four98HP upperRuin20 defeat preserved, normal146 restored with both prior deaths. Camp refusals retained. Subsequent two normal Flees70->35->17 and actual unready deadKat Axe/Ready Hero. New three98HP victory147 kills Hero/Alluvion, retains two fullHP62 casters/noMP,38gold. Source-derived nearest westboundary route11steps; normal Left at9,22 prompts leave, Y reaches Surface139,215. NormalH restores living24MP each,food845->797; actual148.",
+    "Actual normal Ask/Q single137HP Rogue victory152/all6fullHP, then originalthree137HP Rogue Quick defeat preservedfork and normal152restore; onechanged Tactical choice actualvictory153 butKat/Cutter/Hero/Bridgitdead. No full Guild/Skull/boss acceptance."
   ],
   "checkpoints": [
     {
@@ -2411,12 +2412,34 @@
       },
       "process": 23,
       "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
+    },
+    {
+      "label": "guild-normal-quick-guard-earned532",
+      "slot": 152,
+      "parent": "524f902686d68825d63d7a96be5c526a3a540ccb7796d4c96072a0292d1916fe",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot152.g0": "8e05640e7483329665f6fa7247aea41576abab930cc60765af4cd044f4c6f018",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot152.g0.ce-achievements.json": "aad12239f6af4e449abd52def5ab4671c054571ea6cda5f034d71d1f18058347"
+      },
+      "process": 23,
+      "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
+    },
+    {
+      "label": "guild-three-tactical-win-four-casualties532",
+      "slot": 153,
+      "parent": "3e7f432164d4d5f63248e0463cfa59c85518c001343e91bef1af5a01cbae77e9",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot153.g0": "810fe1357d26bfa8adedb83892ea2b334426e14b1fc175f0755acb2169012d81",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot153.g0.ce-achievements.json": "4ec76b348e9491e2fa8740c157f7eff8c28a2d7da8aec4da129bb48374f746dc"
+      },
+      "process": 23,
+      "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
     }
   ],
   "correction": "SCUMMVM-CE-NPC529-VERIFICATION.json",
   "last_checkpoint": 44,
   "cold_evidence": "earned-modern/cold011.json",
-  "next_action": "Continue required Guild access/Skull/boss path with normal supported combat choice; retain prior guard victory/levers and every casualty/defeat/flee. No new source build or suite.",
+  "next_action": "NormalBridgit36resurrection from43gold, then sourceearlierSuurtheldHraakvar dialogue/funding. OriginalL006/184 EDUA text explains framedEduard/Jorgen/Vantra; ACCE checksabsencefield51/2, awards500andsets2. Currentfield51=32. No priorEduardinvestigationcompletion or freegift claimed; normaldialogue predicates/outcome and any qualification must remain explicit. No injected quest/gold.",
   "current_source_commit": "e073e27e3e3",
   "current_executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed",
   "latest_earned": "142 firstnormalworldstep after actual141cold021, fullparty/questinventory/resources/session retained;horseparked persistence",
@@ -2439,5 +2462,5 @@
     "SCUMMVM-CE-M43-RUSTY532-VERIFICATION.json": "a8b7cbde178b27d20ecdf9f8e02c4629c939fb0ecefc436ab627ea8098488b2d",
     "SCUMMVM-CE-M43-RUSTY-RECOVERY532-VERIFICATION.json": "17b77f3d267c40eb082b4eeb4dc6c79a6e418858fbe84cf714d688bfebe4fa70"
   },
-  "private_ledger_sha256": "ca117b3c2e9f241aab147a0d77688d1917271d106c07ab9fcb480b903566fe27"
+  "private_ledger_sha256": "cad1f1b9c3aff835e4e14c034fc8938c04046374bb9098c8f41ae025a8e8cd86"
 }

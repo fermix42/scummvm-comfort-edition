@@ -255,5 +255,24 @@
       "ce-native-acceptance528\\earned-modern\\cold023.json": "4de9592593230c0e4f365924838b63cc3c2d19fa164ef1174484297d2adb6f8c"
     },
     "next_action": "Continue required Guild access/Skull/boss path with normal supported combat choice; retain prior guard victory/levers and every casualty/defeat/flee. No new source build or suite."
+  },
+  "guild152_153": {
+    "status": "IN PROGRESS",
+    "scope": "Actual normal Ask/Q single137HP Rogue victory152/all6fullHP, then originalthree137HP Rogue Quick defeat preservedfork and normal152restore; onechanged Tactical choice actualvictory153 butKat/Cutter/Hero/Bridgitdead. No full Guild/Skull/boss acceptance.",
+    "source": "Monster63 originalrecord: Rogue,level4,137HP,armor76,power46; not sixAssassins group62. Actual variable admission controls roster, not static descriptor guesses.",
+    "access": "Normal48permission door/52stairs retained. Actualdoor picker attempt/trap Cutter63->42, normalCutterheal2MP->63. Old follower ack reaches party/retryprompt, no Engine defect. NormalFurtherdoor/passage after manual2.",
+    "result": "15343gold757food; normalH permitted aftergroupdead ->Nox24MP/Allu15MP,food724,HP62/64; fourdead unchanged. Normal57step withdraw52->48 then96step route49, no further battle.",
+    "failure": "Quick is not an automatic safe/stronger route; owner told wrong to revisitGuildthisearly. No more Guild guards until actual preparation changes. Earlier whole-port tests/builds not rerun.",
+    "proofs": {
+      "ce-native-acceptance528\\earned-modern\\earned-normal-quick-guard532.json": "6dfef16d1a834407c9b0d88c796ed1df8bfc33342cc87dde8887990df2e69451",
+      "ce-native-acceptance528\\earned-modern\\forks\\guild-three-quick-defeat532\\defeat.json": "82cc19cd247ec81849cfb9a634f96682b1ae2ae0aa87be90ae14366bfb914a42"
+    },
+    "next": "NormalBridgit36resurrection from43gold, then sourceearlierSuurtheldHraakvar dialogue/funding. OriginalL006/184 EDUA text explains framedEduard/Jorgen/Vantra; ACCE checksabsencefield51/2, awards500andsets2. Currentfield51=32. No priorEduardinvestigationcompletion or freegift claimed; normaldialogue predicates/outcome and any qualification must remain explicit. No injected quest/gold.",
+    "cost": {
+      "builds": 6,
+      "game_cli": 23,
+      "focused_cli": 2,
+      "material_cli": 25
+    }
   }
 }

@@ -1,3 +1,7 @@
+# Acceptance528 Guild153 casualties and route correction - IN PROGRESS
+
+NormalAsk/Q singlefull137HPRogue won152/all6fullHP. Nextthree137HPRogueQuickdefeat preservedfork; normal152restore retainsfirstvictory. ChangedTacticalchoice wins153 butKat/Cutter/Hero/Bridgitdead;43gold757food. ActualH nowallowed,Nox24/Allu15MP,food724,4deadretained. Normalwithdraw52->48->49 succeeded. RevisitGuildwaswrongroutechoice atcurrentstrength; no furtherguardsuntilpreparationchanges. NormalBridgit36resurrection/earlierSuurtheldsourcefunding next, allremaining60criteria retained. No Enginegap/build/newprocess;6builds/23gameCLI+2focused=25materialCLI,4of60nodesVERIFIED/endingunverified. Canonicalconversion/CEdevtools/nox/project recoverymirror.
+
 # Acceptance528 full paid recovery150/cold023/151 - IN PROGRESS
 
 Actual148 two living returnroad wins2x70/five70/67/five70/67 allsurvivorsundamaged,38->86gold. Normal3Broadsword19sales18each/oneStaff23sale24 ->164. Fouractual36goldTemple resurrections149 ->20;10goldInn150 ->10,food757, all6fullHP71/63/67/62/62/64,MP8/20/20/32/32/20. NormalKatAxe/HeroKnifeBuckler/twoStaffs equipped. Actualcold023 exactparty/inventory/allquestfields/resources/sound/transport/session/noassistance match;151 normalAsk preference2 stored, actualcombatselectionnext. Source532/audio473unchanged,6builds/23gameCLI+2focused=25materialCLI. Fourof60nodesVERIFIED/endingunverified. Continue normalGuild access/Skull/boss sourcepath withsupportedcombatchoice, no further build/suite. Canonicalconversion/CEdevtools/nox/project recoverymirror.
