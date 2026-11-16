@@ -214,5 +214,19 @@
       "material_cli": 24
     },
     "next_action": "Normal recovery and next source-derived required campaign gate; all other selected criteria retained."
+  },
+  "rusty_withdrawal148": {
+    "status": "IN PROGRESS",
+    "result": "Actual146 retains Kat/Cutter dead and prior107->53 Flee; 137HP followup victory70gold. Four98HP upperRuin20 defeat preserved, normal146 restored with both prior deaths. Camp refusals retained. Subsequent two normal Flees70->35->17 and actual unready deadKat Axe/Ready Hero. New three98HP victory147 kills Hero/Alluvion, retains two fullHP62 casters/noMP,38gold. Source-derived nearest westboundary route11steps; normal Left at9,22 prompts leave, Y reaches Surface139,215. NormalH restores living24MP each,food845->797; actual148.",
+    "failure": "First progress health observation incorrectly used world party records during battle; those records are stale until battle return. Use battle_party for live health. Defeat and correction disclosed to owner.",
+    "route_qualification": "Existing follower does not acknowledge Y at local-boundary confirmation and reports blocked atlast9,22. Native behavior correct, normalY leaves. Old horse-route recontact afterFlee was not a general Engine blocker. Horse remains normally parked20/24,38.",
+    "policy": "Existing private normal-input fight policy now applies heal_at to all living wounded targets, previously only support casters used configured threshold and others waited20HP. No engine/source/executable build change.",
+    "fork": "ce-native-acceptance528/earned-modern/forks/rusty-return-first-defeat532",
+    "next": "Continue actual148 earned two-living Bayport recovery using normal road battles/Temple/merchant; no casualty cleanup or XP/outcome injection.",
+    "cost": {
+      "builds": 6,
+      "game_cli": 22,
+      "focused_cli": 2
+    }
   }
 }

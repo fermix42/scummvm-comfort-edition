@@ -30,7 +30,8 @@
     "Current primary60 excludes island58/59 progression; retained evidence remains alternate earned branch",
     "Historical M3 search/execution ordering Rusty72->Skull78 was not a mechanical dependency. Immutable Skull78 pickup53/misc2 atTown2map50(16,15) checks only its own field26/mask2/repeat/capacity; native_search.h reward lines70..83. Rusty72 and its Ruin19 field25/mask2 door remain separate required acceptance, reordered after the independent Bayport chain. Actual Guild password/door/stair access, Skull pickup and prison gate remain required; no bypass or injected state.",
     "Checkpoint71 boarding label is premature; raw state onfoot116/146. Actual subsequent B and72 prove119boarding.",
-    "75 piratevictoryhasfourcasualties; Nox3INT32 andAlluvion3INT20actual. 76..80retainweaksea winswithtwosurvivors. Unfoughtfivepiratefork retained;normal80restore, heal/E/F-South clearsworldactor180withoutXP. No injectedstateorEnginechange."
+    "75 piratevictoryhasfourcasualties; Nox3INT32 andAlluvion3INT20actual. 76..80retainweaksea winswithtwosurvivors. Unfoughtfivepiratefork retained;normal80restore, heal/E/F-South clearsworldactor180withoutXP. No injectedstateorEnginechange.",
+    "Actual146 retains Kat/Cutter dead and prior107->53 Flee; 137HP followup victory70gold. Four98HP upperRuin20 defeat preserved, normal146 restored with both prior deaths. Camp refusals retained. Subsequent two normal Flees70->35->17 and actual unready deadKat Axe/Ready Hero. New three98HP victory147 kills Hero/Alluvion, retains two fullHP62 casters/noMP,38gold. Source-derived nearest westboundary route11steps; normal Left at9,22 prompts leave, Y reaches Surface139,215. NormalH restores living24MP each,food845->797; actual148."
   ],
   "checkpoints": [
     {
@@ -2344,12 +2345,45 @@
       },
       "process": 22,
       "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
+    },
+    {
+      "label": "rusty-return-flee-followup-kat-dead532",
+      "slot": 146,
+      "parent": "49e9add2a9f322f0cccf9eaaadd2c2164a96b0c32c096512d7649aaaa3e6f455",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot146.g0": "b40f72c6e9f9716eb3ee26a22d53ed072af409a3266afac27d1281fbebf27311",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot146.g0.ce-achievements.json": "a4e6a4cb70f559e81adf06e786575d9a41ef53efc422e5e83844d2dbc12ff5cc"
+      },
+      "process": 22,
+      "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
+    },
+    {
+      "label": "rusty-return-axe-victory-four-dead532",
+      "slot": 147,
+      "parent": "099a71828f941f11c584cb9dba710e6164886cdd22ef54daf17f3073d6494c5e",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot147.g0": "9598958ae5cf58fcc34b48a0c195bedd284d939cf25e4cca7ceb663e424f2a58",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot147.g0.ce-achievements.json": "efe559789a8ca994cb8cf7170f0133510a6c42f3bb8d87598a4dde9b3aa37961"
+      },
+      "process": 22,
+      "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
+    },
+    {
+      "label": "rusty-earned-surface-withdrawal-four-dead532",
+      "slot": 148,
+      "parent": "075acc8553b3e803311c339539c38300450a98a084bf5a792b0abc379d96c392",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot148.g0": "c4ec77b3ebab5db579386f61750e00a2d56f1b896fc1589a57a38ddd5f40305e",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot148.g0.ce-achievements.json": "e16f4ab1e68e3a8e70685d8305665964a85947fb2b02d5485b2e03c3ebbafd97"
+      },
+      "process": 22,
+      "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
     }
   ],
   "correction": "SCUMMVM-CE-NPC529-VERIFICATION.json",
   "last_checkpoint": 44,
   "cold_evidence": "earned-modern/cold011.json",
-  "next_action": "Normal recovery and next source-derived required campaign gate; all other selected criteria retained.",
+  "next_action": "Continue actual148 earned two-living Bayport recovery using normal road battles/Temple/merchant; no casualty cleanup or XP/outcome injection.",
   "current_source_commit": "e073e27e3e3",
   "current_executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed",
   "latest_earned": "142 firstnormalworldstep after actual141cold021, fullparty/questinventory/resources/session retained;horseparked persistence",
@@ -2371,5 +2405,5 @@
     },
     "SCUMMVM-CE-M43-RUSTY532-VERIFICATION.json": "a8b7cbde178b27d20ecdf9f8e02c4629c939fb0ecefc436ab627ea8098488b2d"
   },
-  "private_ledger_sha256": "10ae23c22615d5d75650bce71e778f5199921e19c2726725124593ba9783e15a"
+  "private_ledger_sha256": "c32b174852a1afb7f436c4b169ba89f7b49249624a4c4d0837fee9d91aa78d3a"
 }

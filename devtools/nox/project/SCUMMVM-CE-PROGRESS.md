@@ -1,3 +1,7 @@
+# Acceptance528 normal surface withdrawal148 - IN PROGRESS
+
+Return146 Kat/Cutterdead retained. Actualfour98HP defeat preservedfork; normal146 restored, no cleaner accepted-prefix replay. Camp refusals/twoFlees and normaldeadKatAxe->Hero retained. Actualthree98HP victory147 also killsHero/Allu; two livingBr/Nox62HP,0MP,38gold. Source11step westboundaryroute/normalY reachesSurface139,215; normalH restores24MPeach/food797,148. Horse remainsRuin20/24,38. Privatebattlepolicy heal_at now appliesalltargets; use battle_party not stale worldparty duringcombat. No Enginechange/build/newlaunch;6builds/22gameCLI+2focused=24materialCLI. Rusty gate remainsVERIFIED/4of60nodes; campaignending IN PROGRESS. Continue normalpaidrecovery, canonicalconversion/CEdevtools/nox/project mirrors.
+
 # Acceptance528 earned Rusty gate VERIFIED - campaign IN PROGRESS
 
 Actual no-key132/key135/repeat ->positive Open ->three full137HP Zombie guard victory ->144 passage14,27 ->cold022 exact state ->145 nextLeft13,27. Return encounter killed Cutter143; retained, five survivors fullHP, MP8/20dead/0/2/2/0,107gold845food. Actual persisted door15,27 opened, field25/2 retained. Four/60 selected nodes VERIFIED; whole campaign/ending remain unverified. Sourcee073e27e3e3/exe345bcc4... unchanged,6builds/22gameCLI+2focusedCLI=24materialCLI. Normal recovery and next source-derived required gate continue. Canonicalconversion/CEdevtools/nox/project recoverymirror.
