@@ -1,3 +1,11 @@
+# Acceptance528 actual Rusty Key135 - IN PROGRESS
+
+Second7full98Ghoulgroupwon134/all6fullHP,gold357MP8/8/0/2/2/0. NormalHroom26,10 refused/enemies/resourcesunchanged. ActualSearchRight29,10/Cutter2 grantsRusty72qty1/field25=2,135hash8431c74dd1fb4785706da0f84ee269d103fff29e0d9e67a01241b5f4ca939e9ab. Normalrepeatno duplicate. ActualdoorOpen/traverse/cold next; no originalcontrolledguarddeath or expectedoutcomeinjected. Native532/audio473unchanged,6builds/20gameCLI+2focusedCLI,3/60selectednodesVERIFIED/endingunverified. Canonicalconversion/CEdevtools/nox/project recoverymirror.
+
+# Acceptance528 Veylan access/refusal/Ghoul133 - IN PROGRESS
+
+131horseparkRuin20/24,38, actual11,8passage->19/10,8. Ruin92/state16cannotOpen; refusals/planningqualificationretained,nativeunchanged.132actualOLeftat16,27 keydoorwithoutkeyrefuses. RouteactualGhoul174spawn(notstaticRat)admits7full98HPGhouls, allwon/all6fullHP,133gold312MP8/8/0/17/17/10. NormalCutterpickopens26,16door13/state39. Actualnextstepadmitssecond7full98Ghouls,outcomeunclaimed. Keypickup/gatepass/coldremain. Sixbuilds/20gameCLI+2focusedCLI,532/audio473unchanged,3/60selectednodesVERIFIED/endingunverified. Canonicalconversion/CEdevtools/nox/project recoverymirror.
+
 # Acceptance528 early British Ankh130 - IN PROGRESS
 
 SourceL01D TRAVELunconditional/ANKHonly58bit16absence explicitlyreconcileshistorical latepredecessorordering; allselectedlatequests/Shadowopening remainrequired. NormalmountedKeep65visit earns157qty1/58=24,130hash ecf5dbe1780db6dfd011de2bf03b882b250a6fb2cebc5e5ee40031d2b00f0a5a3. RepeatANKHnormallyrefusesduplicate;gold241food900/all6fullHPMP. Native532/audio473unchanged,6builds/20gameCLI+2focusedCLI,3/60selectednodesVERIFIED/endingunverified. SourceVeylanRusty route next; canonicalconversion/CEdevtools/nox/project recoverymirror.

@@ -1018,7 +1018,7 @@
     },
     {
       "id": "rusty-key",
-      "status": "NOT STARTED",
+      "status": "IN PROGRESS",
       "prerequisites": [
         "legitimate-new-game"
       ],
@@ -1046,7 +1046,8 @@
         "scoped audio/presentation",
         "actual earned verification criteria"
       ],
-      "earned_lineage": null
+      "earned_lineage": "New ->131 Veylanarrival ->132 actualRuin19 keydoorno-keyrefusal",
+      "earned_progress": "132normalno-keydoorrefusal;133/134actualtwo7full98Ghoulgroupswon,normalCutterroomlock;135actualSearchRusty72qty1/field25=2 andrepeatno duplicate. ActualkeydoorOpen/traverse/cold remain."
     },
     {
       "id": "skull-key",
@@ -2576,7 +2577,7 @@
   "process_launches": 20,
   "planned_node_count": 60,
   "mandatory_node_count_note": "All selected M3 nodes explicitly represented alongside dependency76 graph; includes supporting/advice/alternative nodes. Necessity is retained per source,not inferred from node count.",
-  "last_earned_checkpoint": "129 mountedTalk/servicegate controls,sourcee073e27e3e3;128 ErdanHELP100gold,gold241food900,all6fullHPMP",
+  "last_earned_checkpoint": "135 RustyKeyearned;all6fullHP,MP8/8/0/2/2/0,gold357food900,532unchanged",
   "baseline_candidate_sha256": "81feb2c7ff17594a6ea9754dc60602a755b2f37ea7c53b437f65a18e7c35000f",
   "candidate_change": "NPC529,cannon530,packedmelee531,mountedTalk532 source corrections; exact scoped receipts and earned ancestry retained. No broad matrix promotion.",
   "earned_failures_retained": [

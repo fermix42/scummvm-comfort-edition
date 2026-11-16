@@ -2047,6 +2047,56 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot130.g0.ce-achievements.json": "7cf8dd298486a528eb8548f731d51ff26471a7b5d516397430643f834b87afe4"
       },
       "process": 20
+    },
+    {
+      "label": "veylan-arrival-horse-parked532",
+      "slot": 131,
+      "parent": "ecf5dbe1780db6dfd01de2bf03b882b250a6fb2cebc5e5ee40031d2b00f0a5a3",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot131.g0": "0229e626f31894b081087c343297a055ae886395e5639c9abf5be910cb1926c6",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot131.g0.ce-achievements.json": "ea88417ffc0b34ecf2e04353ddc66b5e65abf52707c1f8d1cd9f7c0d083f20d7"
+      },
+      "process": 20
+    },
+    {
+      "label": "rusty-door-no-key-earned532",
+      "slot": 132,
+      "parent": "a4199276f7684801a986110a3267b613b10adf708ae4576ed58cd61daeeca70e",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot132.g0": "e05af37672ac33b934b81c7f23531d841f4c609b8040db183b6a662aa8d69555",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot132.g0.ce-achievements.json": "32edfe6ba5d05151dda8536eb3ae2122bd457e8e7108dc8345839be62fe04a4a"
+      },
+      "process": 20
+    },
+    {
+      "label": "veylan-seven-ghouls-earned532",
+      "slot": 133,
+      "parent": "7471b554d83ac51c20a80feec0ab917586d0d50b4b3e5d329842e660293d6c84",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot133.g0": "24b334e833f3777aab0e88dce2c94aedfd02f2358db540e1d2482e5cbabca54c",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot133.g0.ce-achievements.json": "20c0e1f627f2e2fb0a1bc623da579126bfc9d8855dfbe6fdfdde6d0d1a9ecb41"
+      },
+      "process": 20
+    },
+    {
+      "label": "veylan-second-seven-ghouls-earned532",
+      "slot": 134,
+      "parent": "0ada6914213d7ee97f6eb95fbf1c48d52c0478e41ae100b898bb35a30ef1d535",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot134.g0": "4dc8292165a03e3a6000fb6ef98cc4bb1590282095833c1bd51007534187c0e5",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot134.g0.ce-achievements.json": "a9355b6d1278783783a830b00af16c30a0354ec2fa7ff3ad8fd6655721516670"
+      },
+      "process": 20
+    },
+    {
+      "label": "rusty-key-earned-search532",
+      "slot": 135,
+      "parent": "44fd0c5a38752ba11947b2a05114398bad996c2f9b1a6b9e5269f8f642ba2907",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot135.g0": "148a64ea8c7cf821b3d4a77fb244ba9fca9388981c80a75fbd7cfa6495dff0db",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot135.g0.ce-achievements.json": "3462cf4dcc1ef26ba1f1f75b9cb731dd4ae5753b94912cfb44d8b041b853ee4f"
+      },
+      "process": 20
     }
   ],
   "correction": "SCUMMVM-CE-NPC529-VERIFICATION.json",
@@ -2061,5 +2111,5 @@
   ],
   "current_source_commit": "e073e27e3e3",
   "current_executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed",
-  "latest_earned": "130 earlyLordBritish item157qty1/field58=24,normalrepeatrefusal;lateopening/cold/planeacceptance pending"
+  "latest_earned": "135 actualRustyKeySearch72qty1/field25=2,normalrepeat;134second7Ghoulvictory/all6fullHP,gold357food900"
 }
