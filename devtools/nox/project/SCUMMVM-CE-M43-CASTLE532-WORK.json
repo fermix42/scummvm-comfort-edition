@@ -14,7 +14,11 @@
       "sha256": "14b2dcac69a90370fa3a538021d9786907aa9f72db583c6e0baad997d72e0285"
     },
     "Moat_key": {
-      "status": "NOT STARTED"
+      "status": "VERIFIED",
+      "scope": "Earned pickup and repeat only; full Moat node still IN PROGRESS",
+      "checkpoint": 220,
+      "private_artifact": "ce-native-acceptance528/earned-modern/earned-Moat-key220-532.json",
+      "sha256": "3487c6c88fd581b3bcc4a1801b28362e6a58d5e0de03b1d69aac3f3c22bb33f3"
     },
     "Moat_positive_cold": {
       "status": "NOT STARTED"
@@ -35,5 +39,6 @@
     "focused_cli": 2,
     "material_cli": 28
   },
-  "next_action": "Normal paidInn58 fullrest, then sourceMoatkey116/Search/repeat/actualdoorpassage/cold; continuecontrols/Arcane/pages without stopping."
+  "next_action": "Continue actual Moat door54/38,14 positive Open/passage and normal cold continuity, then controls/Arcane/pages; no milestone stop.",
+  "actual_through220": "Normal Inn58 rest14gold552->538 restored all six HP/MP; four owned Magic Staffs normally readied, save219. Source route through58/54/78, one50HP enemy won without HP/MP cost. Ordinary lock78/16,32 picked by Cutter2 with no damage; initial follower Enter-only party prompt bound retained, not Engine defect. At78/14,37 SearchRight, Cutter2 finds one Moat key116; repeat SearchRight shows Nothing found and inventory unchanged. Save220 retains all six fullHP/MP,538gold272food. Key presentation screenshots76/77 and private before/found/repeat/final proof retained. Moat positive passage/cold and other Castle operations remain unverified."
 }
