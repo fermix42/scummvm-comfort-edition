@@ -1,3 +1,7 @@
+# B-MOUNTED-TALK-ADMISSION - VERIFIED within scoped532 evidence
+
+Oneisolated native-only build0warnings/errors2m52.45;sourcee073e27e3e3/exe345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed. Original12branchcases;actualnormal998cold020 matchesparty/inventory/allquestfields/resources/horse/sound/session.127sourcebinding,128mountedErdanHELP100gold,129mountedrole16barrefusal/onfootopening/NO/BYE/reboard. ActualframeNOHORSINGAROUNDHERE; no resource/questchangeonrefusal. Bartender88notrangeTrainer; no training claim. Sixbuilds/20gameCLI+2focusedCLI,onecorrectivererun. Fullcampaign/ending/othertransportbranchesunverified.
+
 # B-MOUNTED-TALK-ADMISSION - IN PROGRESS
 
 Normal horse-mounted T at Knaerwood6/28 33,25 fails admitted phase before direction. Earned998 pre-input and fatal transcript preserved. Original FEF1..FF34 12branchcases show ordinary dialogue permits mounts, service roles gate actual picture127/238. General choose admission/service restriction correction e073e27e3e3; one isolated sixthbuild underway. No topic/award earned or save mutation; recover actual998 without replay.

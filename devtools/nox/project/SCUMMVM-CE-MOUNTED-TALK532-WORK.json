@@ -1,7 +1,7 @@
 {
-  "status": "IN PROGRESS",
+  "status": "VERIFIED",
   "blocker": "B-MOUNTED-TALK-ADMISSION",
-  "scope": "Normal horse-mounted Talk fatals before direction; source generic dialogue permits mounted context while service roles restrict player picture127/238",
+  "scope": "General mounted Talk admission/service-gate correction; original12 branch cases and actual earned normal998 recovery/mounted Erdan HELP/horse service refusal/onfoot opening/reboard only",
   "accepted_source": "b9faa45cc63",
   "accepted_executable_sha256": "230a07406fef270426acb14431b755cb92208e912aba6e49e7580dffbeedb568",
   "corrected_source": "e073e27e3e3",
@@ -17,12 +17,34 @@
   "original_cases": 12,
   "correction": "Remove blanket onFoot admission gate; preserve original role<8/16 service capability and actual player appearance127 message0/238 message30 restrictions. Generic roles bypass service gates, matching FEF1..FF34.",
   "builds_started": 6,
-  "game_cli_processes": 19,
+  "game_cli_processes": 20,
   "focused_cli_processes": 2,
-  "next_action": "One native-only isolated532build; resume actual normal998 earned save, compare party/inventory/quest/resources/session, ordinary mounted Erdan dialogue and service refusal; no synthetic setup or replay prefix",
+  "next_action": "Continue earned British/Veylan source route; broader conversation/transport branches and M4.3 remain qualified",
   "limitations": [
     "No earned HELP award yet",
     "No full campaign/ending acceptance",
     "Boat/swimming service branches original oracle only; broader owner remains qualified"
-  ]
+  ],
+  "builds_completed": 6,
+  "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed",
+  "source_binding": "ce-native-acceptance528/mounted-talk532/corrected-source.json",
+  "build_result": "lidated\\build-scummvm\\Releasex64\\zvision.lib\"\n  Generating code\n  Finished generating code\n  scummvm.vcxproj -> Releasex64\\scummvm-mounted-talk532.exe\nFinalizeBuildStatus:\n  Deleting file \"Releasex64\\scummvm\\scummvm.tlog\\unsuccessfulbuild\".\n  Touching \"Releasex64\\scummvm\\scummvm.tlog\\scummvm.lastbuildstate\".\nDone Building Project \"S:\\scummvm-ce-2026.4.0-consolidated\\build-scummvm\\scummvm.vcxproj\" (default targets).\nDone Building Project \"S:\\scummvm-ce-2026.4.0-consolidated\\build-scummvm\\scummvm.sln\" (default targets).\n\nBuild succeeded.\n    0 Warning(s)\n    0 Error(s)\n\nTime Elapsed 00:02:52.45\n",
+  "changed_source": [
+    "engines/nox/native_world_conversation.h"
+  ],
+  "cold_recovery": "VERIFIED actual normal998 source531 ->532 same map/party/inventory/allquestfields/resources/transport/sound/session;127 sourcebinding, no replay",
+  "mounted_dialogue": "VERIFIED actual Erdan opening/HELP/close mounted127; gold141->241,field49=2;128 all6fullHPMP food900",
+  "service_gate": "VERIFIED actual role16 Grumpy bartender88 counter conversation whilehorse127 refuses with NO HORSING AROUND HERE; party/inventory/quest/resources unchanged. NormalX opensonfoot dialogue, NO/BYE closes, B reboards. Actor88 was mistakenly calledtrainer in planning only; no training claim.",
+  "corrective_reruns": 1,
+  "material_cli_processes": 22,
+  "artifacts": {
+    "ce-native-acceptance528\\mounted-talk532\\corrected-source.json": "3d5f9e212eb6dbd132e32e31d04a83c9bbcf3500c43bee55038bd2356758464a",
+    "ce-native-acceptance528\\mounted-talk532\\corrected-source.zip": "5b2e73afc92f282bd7209378234de326bb8b9e787b602fda53c7f0111dd5db56",
+    "ce-native-acceptance528\\mounted-talk532\\original-branch-oracle.json": "dfd83cbf2728e30ca3866cc7773dca1a0862d9e0e337bd727c076d6a792de7ba",
+    "ce-native-acceptance528\\earned-modern\\earned-mounted-talk-failure531.json": "c9e1da629f76cdcbbf8905a73f0c2b3eb943259b18f98ad1f765c86f3782e8bc",
+    "ce-native-acceptance528\\earned-modern\\cold020-mounted-talk532.json": "0361b6cd07acdbec4485d10415575bb2ad60ad351d442cf343347c2da1637053",
+    "ce-native-acceptance528\\earned-modern\\earned-mounted-erdan-help532.json": "c1e896ca57f8a165f7b088ec49cf1adec2fd5bc2ba452637ccbb2f6662c1ac69",
+    "ce-native-acceptance528\\earned-modern\\earned-mounted-service-refusal532.json": "7eb405b74233636abca4c0b8c1cc06bc02a143c8649ff33cfb139398c5f61ca1",
+    "ce-native-acceptance528\\earned-modern\\screenshots\\scummvm-cli-game-00049.png": "1851fc56a62d06ccb54fd4e6699ab3d2f0af68fcd280edcbcb355f9b75723a0d"
+  }
 }

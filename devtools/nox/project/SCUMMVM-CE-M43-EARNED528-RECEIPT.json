@@ -3,8 +3,8 @@
   "scope": "Earned mainline through81: Watcher/door, Margravepre-award request, tenpiratevictory withfourcasualties, twoearnedINTlevels, normalBattleInventory shieldloans, returnweaksea victories andworldpirate180cannonremoval. Guild/Raque/ending remainunearned.",
   "executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4",
   "source_binding": "SCUMMVM-CE-CANNON530-VERIFICATION.json",
-  "builds": 5,
-  "process_launches": 19,
+  "builds": 6,
+  "process_launches": 20,
   "verified_selected_nodes": [
     "opening-exit",
     "axea-page",
@@ -1997,6 +1997,46 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot125.g0.ce-achievements.json": "2b28dae37874845abb070f2f3a677c38e137f77ab76ffa2aec64500047d69e19"
       },
       "process": 19
+    },
+    {
+      "label": "horse-earned-castle-surface531",
+      "slot": 126,
+      "parent": "785a4b2557e0d8518390c285a84ae5c98f5774ba0808bcb909a90d245577ed3e",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot126.g0": "07d26c07f95a2a8ca5d43211d0ca315e64340d39e70314cfc5be22f05adc70f9",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot126.g0.ce-achievements.json": "8c6b2f8d2df350d7f84caf470c88528cabbb25751eb25396d95cdf02051e7a51"
+      },
+      "process": 19
+    },
+    {
+      "label": "mounted-talk532-earned-route-recovery",
+      "slot": 127,
+      "parent": "4ac6ef5cf6125ca1dd33ec90bb56bc897aadc7f5eed293fe929fc6cef61788a0",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot127.g0": "be0d8cbb941232760a5da65a00ff6bef3529c7c16a11ca902b0d578bbe9f1896",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot127.g0.ce-achievements.json": "37d04394c2db2fd2df9055a4d665e4548280e514b3e95704b5ab254e7c052b2b"
+      },
+      "process": 20
+    },
+    {
+      "label": "knaerwood-erdan-help-earned532",
+      "slot": 128,
+      "parent": "a7a7c31afd6f2ef68051f093a7dd4389b9473934cbcdbca2b75314b77da60182",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot128.g0": "02cbed804ecb54fceb34d675dc03405e0ae28f0f0b582382b5f7237aea0e2c08",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot128.g0.ce-achievements.json": "b47ed8be66450f65046d59b82ab0f9bb50083362e3a1ce844cdb7145737fa930"
+      },
+      "process": 20
+    },
+    {
+      "label": "mounted-talk-and-service-gate-earned532",
+      "slot": 129,
+      "parent": "0e50c981ba95d1dde40c0ac172c2096017d05336557ffc12cc300d287f141a59",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot129.g0": "cac983d9f60ba1042076f82babc68d61173edc8250889819488fed97ba97e568",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot129.g0.ce-achievements.json": "6837d2291df925337f15483fb902fa92672e123fdf12d2c1123fa0d5385b449a"
+      },
+      "process": 20
     }
   ],
   "correction": "SCUMMVM-CE-NPC529-VERIFICATION.json",
@@ -2009,7 +2049,7 @@
     "Actual full single70HP Guildmaster battle/source XP reward and normal allocations",
     "Required Rusty72/Veylan guard/door remains pending parallel task; needed equipment/books; return Raque"
   ],
-  "current_source_commit": "b9faa45cc63",
-  "current_executable_sha256": "230a07406fef270426acb14431b755cb92208e912aba6e49e7580dffbeedb568",
-  "latest_earned": "125 Yvviar early CULT/STOP and MagicMissile/Illuminate purchases; fields55/56=96/1,gold129,all6fullHPMP"
+  "current_source_commit": "e073e27e3e3",
+  "current_executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed",
+  "latest_earned": "129 mountedTalk/servicegate and normalonfoot/reboard,128ErdanHELP100gold;all6fullHPMP,gold241food900"
 }

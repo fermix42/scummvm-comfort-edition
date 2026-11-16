@@ -1,3 +1,7 @@
+# Mounted Talk532 focused correction VERIFIED - campaign IN PROGRESS
+
+Original12sourcebranches and actualearnednormal998cold020/mountedErdanHELP/role16servicerefusal/onfootopening/reboard pass. Sixbuilds,20gameCLI+2focusedCLI;onecorrectivererun. Singleheadercorrection e073e27e3e3,exe345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed;0warnings/errors2m52.45.128gold241food900/all6fullHPMP,129mountedreadydepartKnaerwood. Preserved531/audio473/failedT/preinput998/noearnedprefixreplay. ContinueBritish/Veylan source route;3/60selectednodesVERIFIED/endingunverified. Canonicalconversion/CEdevtools/nox/project recoverymirror.
+
 # Mounted Talk532 focused correction - IN PROGRESS
 
 126mountedCastle->Surfaceearned, next normalroad2x70HPwin/Knaerwoodentry and998legalroute save retained. NormalmountedT beforedirection failsadmittedphase; noErdanHELPaward. Original12branchoracle confirmsblanketonFootgateincorrect for ordinarydialogue, servicehorse127/swim238refusals separate. General e073e27e3e3 correction, oneisolated sixthnativebuild underway. Preserve531/audio473/earned126/actual998,19gameCLI+2focusedCLI,3/60selectednodesVERIFIED/endingunverified. Source/earned-statecomparison thenfocusedmountedtalk/servicecheck; canonicalconversion/CEdevtools/nox/project mirror.
