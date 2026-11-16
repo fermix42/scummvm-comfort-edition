@@ -1,3 +1,7 @@
+# Acceptance528 earned UM98 entry173/four owned Staffs - IN PROGRESS
+
+Normal170recovery->78stairs18,32->UM97/176,62,171. SourcefivefloorScalesroute289stepszeroheat/no225energyintersections,normalGamecontactsretained. Actualfivefull70HPsprite144win167,69 all6alive,noMPcost,Cutter16damage. NormalearnedKat/Cutterlevel4INT12each;Cutterselfheal2MPfullHP172. NormalownedClothGloves3/lastspareStaff23readyCutter,actualsaved8weight/STR8/INT32confirmed;fourreadystaffs.173actualUM98/149,75fullHP83/71/67/62/70/73,MP20/30/20/32/44/32,167gold898food. Continue249steps98->99->100->101safeEast74,41/Scales146, thenBruce/Archusmembership. Five/60nodesVERIFIED,endingunverified. Engine532/audio473unchanged,6builds/24gameCLI+2focused=26materialCLI. Canonicalconversion/CEdevtools/nox/project mirrors.
+
 # Acceptance528 local full recovery169/170 - IN PROGRESS
 
 NormalNourtheld58/88Inn14gold241->227,fullrestfourliving,authoredroom59/28,34morning6. NormalW2/floorwalk59->58->54->78/18,30,Temple15227,27; twoactual36goldresurrectionsKat/Cutter ->155. AllsixfullHP71/63/67/62/70/73,MP8/20/20/32/44/32,food898,170. ThirdownedStaffAlluvionretained; no casualtycleanup/restoredoutcome. Continue78stairs18,32->UM97/176,62, source-supportedScales101safeEast74,41/Bruce/Archusmembership. Sevenremainingpages physicalsafeaccessunproven,no unsafeNoRoute retry. Source532/audio473unchanged,6builds/24gameCLI+2focused=26materialCLI;five/60selectednodesVERIFIED,endingunverified. Canonicalconversion/CEdevtools/nox/project mirrors.

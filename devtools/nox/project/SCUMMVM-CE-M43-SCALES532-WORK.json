@@ -1,0 +1,27 @@
+{
+  "status": "IN PROGRESS",
+  "scope": "Earned route toward Scales; no Scales/Bruce/Ordermembership victory or completion claimed.",
+  "source_commit": "e073e27e3e3",
+  "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed",
+  "lineage": [
+    170,
+    171,
+    172,
+    173
+  ],
+  "route": "NormalCastle78/18,32->UM97/176,62,171. Readonly originalfivefloor route to101safeEast74,41 totals289steps,zerothermalcells/no225energyactorintersections. Contactpermitting sourcepath means normalGameactors remain; battles required. UM97->98stair149,75 completed,173; remaining249steps, first98leg140steps toward99.",
+  "actual": "Actualfivefull70HPsprite144 win167,69, all6survive; Cutterloses16HP47, othersundamaged, noMPspent. Normalearnedlevel4 KatINT+12 ->20/83HP, CutterINT+12 ->32/71maxHP. NormalCutterselfLesserHeal2MP ->71HP/30MP;172gold167food898. NormalReady ownedClothGloves3/ownedlastspareMagicStaff23,Cutter actualsavedgearconfirmed8weight/STR8,INT32, fourreadyStaffs.173normalUM98entryall6fullHP83/71/67/62/70/73,MP20/30/20/32/44/32.",
+  "qualification": "InitialsafeNoRoutes were actor-avoidance constraints, not Enginebug. Sourcecontactroute retains actual battles/actors; no expectedoutcomes injected. Handlerresumeassert afterLevelpending occurredbeforemovement, thennormalpointallocation completed. Firstread-onlygearproofsyntaxerror beforeGamecalls corrected; actualnormalSaveverified. Privateinputpolicy Fireball+1 expanded toactualeligibleCutter/AlluvionINT32; no Engine/source/buildchange.",
+  "evidence": {
+    "ce-native-acceptance528/earned-modern/earned-cutter-level4-fourth-staff532.json": "4164a310c201e81c934c85d5fc9c237f2ce08bed6dd7aec7bdc5ffe31045a6e5",
+    "ce-native-acceptance528/earned-um97-scales-source532.json": "aa61b99dc4192a64c5b8e9a2dc4e1d1a987d16b858d4a63b9e1017d9ded66818",
+    "ce-native-acceptance528/earned-um98-scales-source532.json": "ae4d8a10f0a6571554091ac7c19526ab8d1f95ae6486baaa1a3dec1a4e69fe9c"
+  },
+  "cost": {
+    "builds": 6,
+    "game_cli": 24,
+    "focused_cli": 2,
+    "material_cli": 26
+  },
+  "next_action": "ContinueactualUM98->99->100->101sourcepath, normalencounters/doors; acquireScales146bySearchfromsafeEast74,41, preservealloutcomes. RequiredBruce/Archusmembership/other55nodesremain."
+}

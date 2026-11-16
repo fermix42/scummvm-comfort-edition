@@ -2622,22 +2622,55 @@
       },
       "process": 24,
       "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
+    },
+    {
+      "label": "nourtheld-normal-stairs-underworld97-full-party532",
+      "slot": 171,
+      "parent": "b995dd0f5ed40f4e7e84be06b8c6e889a6e1730e2609be04366fdfa0698d6b74",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot171.g0": "19fa3d5ecd96c4627a0bd179cb26983255577ba22bcb7648355b8029d5ce0bb2",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot171.g0.ce-achievements.json": "5233578cf7fab09c725b23ae986b66abb0d64f05daa43d3c876e2e6fbebe1af7"
+      },
+      "process": 24,
+      "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
+    },
+    {
+      "label": "underworld-five70-win-Kat-Cutter-earned-level4-INT532",
+      "slot": 172,
+      "parent": "8e6af316186b1cb9689c8ed1fcd6e558d65660034e1df9f7dc26b9fffe8bb9c4",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot172.g0": "6a8f08bf4e20b7bf89ad38b6170261bfc8034bcf025b90b117076e06af31c294",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot172.g0.ce-achievements.json": "da258636bcbdecd253fb213727483bf88859e2531a331fddb01ba1192c25fa83"
+      },
+      "process": 24,
+      "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
+    },
+    {
+      "label": "underworld98-earned-entry-four-owned-staffs532",
+      "slot": 173,
+      "parent": "1e1b133f2fed68d1326ca47d8d24a01ae41aa0c32dca07b644c5e2d5861eb6ab",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot173.g0": "7243495fa72933478b3fb3b0fb00439f5345259c1dc78f7c8aa2f28f7d05193a",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot173.g0.ce-achievements.json": "ea3f3300343a750d59eeb90680e5f003f4306f8c7f723611443d531564b473a2"
+      },
+      "process": 24,
+      "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
     }
   ],
   "correction": "SCUMMVM-CE-NPC529-VERIFICATION.json",
-  "last_checkpoint": 170,
+  "last_checkpoint": 173,
   "cold_evidence": "ce-native-acceptance528/earned-modern/cold024.json",
-  "next_action": "NormalCastle78stairs18,32 ->UM97/176,62; original-source route through97..101toScales146safeEast74,41,thenBruce/Archusmembership. No syntheticcheckpoint orprematureGuild.",
+  "next_action": "ContinueactualUM98->99->100->101sourcepath, normalencounters/doors; acquireScales146bySearchfromsafeEast74,41, preservealloutcomes. RequiredBruce/Archusmembership/other55nodesremain.",
   "current_source_commit": "e073e27e3e3",
   "current_executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed",
-  "latest_earned": "NormalCastle58/88Inn14gold241->227 restoresfourliving andauthoredroom59/28,34,nextmorning6. NormalW2 then59->58->54->78 entry18,30,Temple15227,27 reachednormally. Twoactual36goldresurrections Kat/Cutter ->155, allsixfullHP71/63/67/62/70/73,MP8/20/20/32/44/32,food898. No restoredoutcome/statgrant. ThirdownedStaff23Alluvionretained.",
+  "latest_earned": "Actualfivefull70HPsprite144 win167,69, all6survive; Cutterloses16HP47, othersundamaged, noMPspent. Normalearnedlevel4 KatINT+12 ->20/83HP, CutterINT+12 ->32/71maxHP. NormalCutterselfLesserHeal2MP ->71HP/30MP;172gold167food898. NormalReady ownedClothGloves3/ownedlastspareMagicStaff23,Cutter actualsavedgearconfirmed8weight/STR8,INT32, fourreadyStaffs.173normalUM98entryall6fullHP83/71/67/62/70/73,MP20/30/20/32/44/32.",
   "historical_receipt_baseline": {
     "executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4",
     "source_binding": "SCUMMVM-CE-CANNON530-VERIFICATION.json",
     "qualification": "Initialreceiptbaseline only; percheckpoint/current identities control later progression."
   },
   "source_commit": "e073e27e3e3",
-  "local_full_ledger_sha256": "bf8e2b40fb5e9a3d70b1238645b782c1a4bf202be46ddf6b01eccd2c706a083b",
+  "local_full_ledger_sha256": "ec3263c1361a647e30cce007f259fd3383c2e9cec4426341567b7839d56a3799",
   "latest_scoped_evidence": {
     "status": "VERIFIED",
     "scope": "Actual141cold021/142normalnextstep retain quest/inventory/party/resources/sound/session and parkedhorse; not Rustydoorpositivecrossing or fullcampaign acceptance",
@@ -2653,9 +2686,10 @@
     "SCUMMVM-CE-M43-NORTH-CROSSING532-WORK.json": "1d3d29280dca97a2344579f0b14d55b9bfad59e2127986e212148939607a7166",
     "SCUMMVM-CE-M43-ARCHUS532-WORK.json": "d67b22e38777e6b33dfa950ae8b3b3143179edeb314f84932c0fbf67b1be4e0a",
     "SCUMMVM-CE-M43-ROYAL532-VERIFICATION.json": "c0912514074864c657a8cfe93e14ade54f08093f7e455ac31386ae3658dfa4c7",
-    "SCUMMVM-CE-M43-NOURTHELD-RECOVERY532-VERIFICATION.json": "a7d86544f25de761a7441526d69221e04aef5efaf6c633342bff5d28d34cd426"
+    "SCUMMVM-CE-M43-NOURTHELD-RECOVERY532-VERIFICATION.json": "a7d86544f25de761a7441526d69221e04aef5efaf6c633342bff5d28d34cd426",
+    "SCUMMVM-CE-M43-SCALES532-WORK.json": "6f8bf92458da1deab9a8e62cf44a7bb771874c47afc14fed0ade523052f55c52"
   },
-  "private_ledger_sha256": "bf8e2b40fb5e9a3d70b1238645b782c1a4bf202be46ddf6b01eccd2c706a083b",
+  "private_ledger_sha256": "ec3263c1361a647e30cce007f259fd3383c2e9cec4426341567b7839d56a3799",
   "superseded_current_aliases_royal532": {
     "last_checkpoint": 44,
     "latest_earned": "142 firstnormalworldstep after actual141cold021, fullparty/questinventory/resources/session retained;horseparked persistence",
