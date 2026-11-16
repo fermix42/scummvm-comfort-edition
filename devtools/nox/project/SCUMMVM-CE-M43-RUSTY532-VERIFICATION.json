@@ -1,0 +1,78 @@
+{
+  "status": "VERIFIED",
+  "scope": "Earned Rusty72 acquisition/repeat, prior no-key refusal, actual keyed Open, original-full-health three-Zombie guard victory, actual passage and cold022/next movement. Not whole campaign or broader subsystem acceptance.",
+  "source_commit": "e073e27e3e3",
+  "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed",
+  "checkpoints": [
+    132,
+    135,
+    143,
+    144,
+    145
+  ],
+  "door": [
+    15,
+    27,
+    17,
+    40
+  ],
+  "quest_field25": 2,
+  "current": {
+    "map_type": 3,
+    "map": 19,
+    "x": 13,
+    "y": 27,
+    "gold": 107,
+    "food": 845,
+    "party": [
+      {
+        "mp": 8,
+        "hp": 71
+      },
+      {
+        "mp": 20,
+        "hp": 0
+      },
+      {
+        "mp": 0,
+        "hp": 67
+      },
+      {
+        "mp": 2,
+        "hp": 62
+      },
+      {
+        "mp": 2,
+        "hp": 62
+      },
+      {
+        "mp": 0,
+        "hp": 64
+      }
+    ]
+  },
+  "qualifications": [
+    "Return-road two137HP enemy victory killed Cutter; retained143, no restore or casualty cleanup.",
+    "Guard actual roster three137HP Zombies, not guessed four-enemy descriptor. All five survivors undamaged; normal spells spent.",
+    "Initial cold helper call used nonexistent label and raised StopIteration before closing/launching; corrected exact144 label, one actual cold launch.",
+    "Route helper initial expected_map integer assertion failed before movement; corrected tuple.",
+    "No production change, new build, audio suite rerun, injected outcome or original CPU runtime."
+  ],
+  "evidence": {
+    "ce-native-acceptance528\\earned-modern\\earned-rusty-door-no-key532.json": "962ddb17b9b4811268d7c6ce136ead50f71a8533778b61f52e9de3d3ba035599",
+    "ce-native-acceptance528\\earned-modern\\earned-rusty-key-search532.json": "47b88e30deae64271d9384dd403eaad9f9307ba6b4e9e6b96fdc428f32aeb54c",
+    "ce-native-acceptance528\\earned-modern\\earned-rusty-key-repeat532.json": "8a5aa68fceaae23065c584c5cb19b5d505ad4e0bee7d7c5945ad753ea80af50c",
+    "ce-native-acceptance528\\earned-modern\\rusty-door-positive532.json": "50eed52575139281ef51bbb786737b82be2a1689dd193abb4d613296c0f776f1",
+    "ce-native-acceptance528\\earned-modern\\rusty-door-guard-admission532.json": "7ad1843b6c74c209ff4a37dd84803ad9fbbab2d8e36f9494f473c0365af0a834",
+    "ce-native-acceptance528\\earned-modern\\rusty-door-earned-traversal532.json": "240a1a8ae31dc190ffe89944da0c70cce109b87724390052912e2f8de90bdd18",
+    "ce-native-acceptance528\\earned-modern\\cold022.json": "7f881d3e5d5f634b022bb8742b98f5e90d5b6b1f6f12aa1351521ef2c2a16033",
+    "ce-native-acceptance528\\earned-modern\\rusty-door-cold022-next-step532.json": "854834af45fb303447c482418e978834eb7088dd73d7a12f055fb7a9dc8d8204"
+  },
+  "cost": {
+    "builds": 6,
+    "game_cli": 22,
+    "focused_cli": 2,
+    "material_cli": 24
+  },
+  "next_action": "Normal recovery and next source-derived required campaign gate; all other selected criteria retained."
+}

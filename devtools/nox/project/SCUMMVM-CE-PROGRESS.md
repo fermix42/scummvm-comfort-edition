@@ -1,3 +1,7 @@
+# Acceptance528 earned Rusty gate VERIFIED - campaign IN PROGRESS
+
+Actual no-key132/key135/repeat ->positive Open ->three full137HP Zombie guard victory ->144 passage14,27 ->cold022 exact state ->145 nextLeft13,27. Return encounter killed Cutter143; retained, five survivors fullHP, MP8/20dead/0/2/2/0,107gold845food. Actual persisted door15,27 opened, field25/2 retained. Four/60 selected nodes VERIFIED; whole campaign/ending remain unverified. Sourcee073e27e3e3/exe345bcc4... unchanged,6builds/22gameCLI+2focusedCLI=24materialCLI. Normal recovery and next source-derived required gate continue. Canonicalconversion/CEdevtools/nox/project recoverymirror.
+
 # Acceptance528 full recovery141/cold021/nextstep142 - IN PROGRESS
 
 NormalInn10gold restoresall6fullHP71/63/67/62/62/64,MP8/20/20/32/32/20,gold54food845,06AM. Actualcold021 exactparty/inventory/allquestfields/resources/sound/transport/session/noassistance match. NormalSave998 confirmsparkedhorseRuin20/24,38row192/127state0. FirstnormalUp17,24->17,23 succeeds142 andnormalinnexit9,38 follows. Sixbuilds/21gameCLI+2focusedCLI=23materialCLI,sourcee073e27e3e3/exe345bcc4.../audio473unchanged. ReturnVeylanactualkeydoorOpen/traverse next;3/60selectednodesVERIFIED/endingunverified/allcriteriaretained. Canonicalconversion/CEdevtools/nox/project recoverymirror.

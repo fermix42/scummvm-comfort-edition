@@ -4,11 +4,12 @@
   "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed",
   "source_binding": "SCUMMVM-CE-MOUNTED-TALK532-VERIFICATION.json",
   "builds": 6,
-  "process_launches": 21,
+  "process_launches": 22,
   "verified_selected_nodes": [
     "opening-exit",
+    "gordon-shrubbery",
     "axea-page",
-    "gordon-shrubbery"
+    "rusty-key"
   ],
   "qualifications": [
     "opening-log requires post-acquisition recognition/repeat",
@@ -2310,18 +2311,45 @@
       },
       "process": 21,
       "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
+    },
+    {
+      "label": "veylan-return-two-enemies-cutter-dead532",
+      "slot": 143,
+      "parent": "1fcb311971111a05174715fc5406f609ed332fb95a5784b3f866544cf82b284e",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot143.g0": "f8928cba1a4a6b5309aa7d40d367ede03e46f2412f74422857318776e5d8a838",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot143.g0.ce-achievements.json": "cd25a4cf57a1d2050ec6a02291d2a5c4c5a7e0e9da4b3025a5d38924cd9d5380"
+      },
+      "process": 21,
+      "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
+    },
+    {
+      "label": "rusty-key-open-guard-victory-traverse532",
+      "slot": 144,
+      "parent": "5edde97ec05f6b029163a48a5bb61ca080b5060d3cd2d87da6ce393caad21eea",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot144.g0": "685cdcff6e582f6255a8e9ec0c63603c2db049e1818a19d07a9c1b8390379934",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot144.g0.ce-achievements.json": "74e1519228fe1a3944df2612d0082402154eb59a9e811637897982fd40914ba7"
+      },
+      "process": 21,
+      "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
+    },
+    {
+      "label": "rusty-key-cold022-subsequent-passage532",
+      "slot": 145,
+      "parent": "3b00ae94d9ace67739a2aa36a7f2a9e7662beb4165f8d36bca4b89622852f143",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot145.g0": "449caef8822a01f75cf5cb393eb20f69a0431436e51f84b92459bd36eafeb24c",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot145.g0.ce-achievements.json": "3e60bf3c881742d05c8e9a2990af3b0a15ac5be72180df363289bbdecac4509a"
+      },
+      "process": 22,
+      "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
     }
   ],
   "correction": "SCUMMVM-CE-NPC529-VERIFICATION.json",
   "last_checkpoint": 44,
   "cold_evidence": "earned-modern/cold011.json",
-  "next_action": [
-    "Earned return to Bayport",
-    "Actual normal Guild access/SkullKey78/prison child rescue; relevant refusal/repeat gates",
-    "Margrave KEY request without Orders77 before Guildmaster",
-    "Actual full single70HP Guildmaster battle/source XP reward and normal allocations",
-    "Required Rusty72/Veylan guard/door remains pending parallel task; needed equipment/books; return Raque"
-  ],
+  "next_action": "Normal recovery and next source-derived required campaign gate; all other selected criteria retained.",
   "current_source_commit": "e073e27e3e3",
   "current_executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed",
   "latest_earned": "142 firstnormalworldstep after actual141cold021, fullparty/questinventory/resources/session retained;horseparked persistence",
@@ -2331,5 +2359,17 @@
     "qualification": "Initialreceiptbaseline only; percheckpoint/current identities control later progression."
   },
   "source_commit": "e073e27e3e3",
-  "local_full_ledger_sha256": "1055a6d0a99b86b6a95c1c6003f723d18a341512566d14e8ffd802157f188872"
+  "local_full_ledger_sha256": "1055a6d0a99b86b6a95c1c6003f723d18a341512566d14e8ffd802157f188872",
+  "latest_scoped_evidence": {
+    "status": "VERIFIED",
+    "scope": "Actual141cold021/142normalnextstep retain quest/inventory/party/resources/sound/session and parkedhorse; not Rustydoorpositivecrossing or fullcampaign acceptance",
+    "artifacts": {
+      "ce-native-acceptance528/earned-modern/cold021.json": "88f1c43a855329198a242e3f39be55ad6852dbda5bc3509fbd915bf307c28fac",
+      "ce-native-acceptance528/earned-modern/earned-cold021-parked-horse532.json": "a6534be13e375fe9eaa65ecf68b58a989e82e4a4646b06f45e6b9f8dd2c5aeb7",
+      "ce-native-acceptance528/earned-modern/earned-veylan-paid-recovery532.json": "16e97f7adca442a5e826079dcf788c3723a678638f98fe817849107a1710d678",
+      "ce-native-acceptance528/earned-modern/earned-veylan-full-inn-rest532.json": "f84c4b8611479a1cc1623e71428309e71bf3c1e65ce5b77cea9f7c3a1d067cd6"
+    },
+    "SCUMMVM-CE-M43-RUSTY532-VERIFICATION.json": "a8b7cbde178b27d20ecdf9f8e02c4629c939fb0ecefc436ab627ea8098488b2d"
+  },
+  "private_ledger_sha256": "10ae23c22615d5d75650bce71e778f5199921e19c2726725124593ba9783e15a"
 }

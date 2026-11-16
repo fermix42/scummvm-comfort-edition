@@ -79,7 +79,7 @@
     142
   ],
   "builds": 5,
-  "process_launches": 19,
+  "process_launches": 22,
   "evidence": {
     "ce-native-acceptance528\\earned-watcher530.json": "af5fda5988b03cafc1916fe981a66862c0e94fedff82dbb630162a87ebc356d6",
     "ce-native-acceptance528\\earned-margrave-guild-request530.json": "2a6b6c9658b0edca195ab29106497520b09972412072be7c2fbce5f532fc1904",
@@ -134,5 +134,85 @@
   "veylan138": "Normalwithdraw19->20;singleRat50 actualwin/noHPMPgoldchange. Nextsource6full98HP144group at16,23 notfought: normalEsc/YFlee succeeds,409->204gold,4livingunchanged,2deadretained. FourordinarySouthsteps16,27 retained;138hash7bb870eadcfa8eaee9d0c3e9a41869cfddf18c35ce6d68d102dc1f3c2561e39ac. Sourceflee3stepgrace, no enemydeath/XPclaim or stateedit. Actualrouteavoidsremaininghostilebacktoownedhorse24,38.",
   "veylan139": "Secondexitcontact8full98HP144 at12,38; normalEsc/YFlee204->102gold, no enemyvictory/XPclaim. NormalDown/Yfromactualwalkable103boundary12,39 exitsSurface139,215 within sourcegrace. Ownedhorse remainsRuin20/24,38 object192/127,state0 confirmedactualsavedcanonicalmap. NormalHoutside allowed:livingMP15/15/24/15,deadKat4/Br2unchanged;food900->837,4livingfullHP.139hash70267845f2b8eaf222e9a4e70d821f283a656e0b32ac7abf2f1ae389f3fa1baf5. KnownTemple49/inn102goldfunds72+10. No sourcebuildlaunchorstateedit.",
   "recovery140": "87step normalSurface return retainedactualsolo83,3x50,4x50,4x50roadwins;4livingHPfulluntilHero67->60lastfight, gold102->136,food837->845. Bayport01:54Templeinactive; normalquarterWest48, W9 from02:04->11:04, East49refresh. Temple49/64 day37,37actualnormal36eachKat/Br resurrected,136->64gold,140hashdff378353689addb2b1d00ebd1dea77b893fa3a90e0e0862b443a807c400ced7c. All6aliveHP71/63/60/62/62/64,MP8/1/5/32/24/15; innfullrest/cold next. No restore/cleanerreplay/Enginechange.",
-  "recovery141_cold021_142": "NormalInn48/208 afternoon W2/reentryrefresh, TDown/Y/R/Y10gold ->141 fullHP71/63/67/62/62/64,MP8/20/20/32/32/20,gold54food845,06AM.141hashf71defec7751e32a53559c78a1ff4b918f59fe2d59eec1bf6b7f9971531e17975. Actualcold021 exactparty/inventory/allquestfields/resources/sound/onfoot/appearance/transportobject/session/noassistance matches; actualnormalSave998parkedhorseRuin20row192 remains24/38/127/0. FirstnormalUp17,24->17,23 passed142hash1fcb311971111a051774715fc5406f609ed332fb95a5784b3f866544cf82b284e, sameHPMP/resources;53stepinnexitcontinuationpassed9,38.6builds/21gameCLI+2focusedCLI=23materialCLI,source532unchanged."
+  "recovery141_cold021_142": "NormalInn48/208 afternoon W2/reentryrefresh, TDown/Y/R/Y10gold ->141 fullHP71/63/67/62/62/64,MP8/20/20/32/32/20,gold54food845,06AM.141hashf71defec7751e32a53559c78a1ff4b918f59fe2d59eec1bf6b7f9971531e17975. Actualcold021 exactparty/inventory/allquestfields/resources/sound/onfoot/appearance/transportobject/session/noassistance matches; actualnormalSave998parkedhorseRuin20row192 remains24/38/127/0. FirstnormalUp17,24->17,23 passed142hash1fcb311971111a051774715fc5406f609ed332fb95a5784b3f866544cf82b284e, sameHPMP/resources;53stepinnexitcontinuationpassed9,38.6builds/21gameCLI+2focusedCLI=23materialCLI,source532unchanged.",
+  "horse_postcold_return": "Normalfullpartyreturnroad2x50wonwithoutHPMPcost,54->64gold; other87step routepassed. ActualreturnRuin20/24,38ownedhorseB/X bothsuccessful aftercold021, noHPMPcost; privateearned-horse-post-cold021-reboard532.json. No gallop/jump/fulltransportbranch closure.",
+  "dig_route_qualification": "Ruin91/92coffins requireDig withfield52bit8, NOTOpen. Currentfield52=0; misc97 isOldSpellbookPage, notshovel. ToolisPickaxe82fromL00Eactor96HAMMER81return (/ ->P24C/item82); no shovel purchase/ownership/Digsuccessclaimed. Useexistingnorthernroute; no missingtoolflag injected or optionaltoolquest executed.",
+  "rusty144_cold022_145": {
+    "status": "VERIFIED",
+    "scope": "Earned Rusty72 acquisition/repeat, prior no-key refusal, actual keyed Open, original-full-health three-Zombie guard victory, actual passage and cold022/next movement. Not whole campaign or broader subsystem acceptance.",
+    "source_commit": "e073e27e3e3",
+    "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed",
+    "checkpoints": [
+      132,
+      135,
+      143,
+      144,
+      145
+    ],
+    "door": [
+      15,
+      27,
+      17,
+      40
+    ],
+    "quest_field25": 2,
+    "current": {
+      "map_type": 3,
+      "map": 19,
+      "x": 13,
+      "y": 27,
+      "gold": 107,
+      "food": 845,
+      "party": [
+        {
+          "mp": 8,
+          "hp": 71
+        },
+        {
+          "mp": 20,
+          "hp": 0
+        },
+        {
+          "mp": 0,
+          "hp": 67
+        },
+        {
+          "mp": 2,
+          "hp": 62
+        },
+        {
+          "mp": 2,
+          "hp": 62
+        },
+        {
+          "mp": 0,
+          "hp": 64
+        }
+      ]
+    },
+    "qualifications": [
+      "Return-road two137HP enemy victory killed Cutter; retained143, no restore or casualty cleanup.",
+      "Guard actual roster three137HP Zombies, not guessed four-enemy descriptor. All five survivors undamaged; normal spells spent.",
+      "Initial cold helper call used nonexistent label and raised StopIteration before closing/launching; corrected exact144 label, one actual cold launch.",
+      "Route helper initial expected_map integer assertion failed before movement; corrected tuple.",
+      "No production change, new build, audio suite rerun, injected outcome or original CPU runtime."
+    ],
+    "evidence": {
+      "ce-native-acceptance528\\earned-modern\\earned-rusty-door-no-key532.json": "962ddb17b9b4811268d7c6ce136ead50f71a8533778b61f52e9de3d3ba035599",
+      "ce-native-acceptance528\\earned-modern\\earned-rusty-key-search532.json": "47b88e30deae64271d9384dd403eaad9f9307ba6b4e9e6b96fdc428f32aeb54c",
+      "ce-native-acceptance528\\earned-modern\\earned-rusty-key-repeat532.json": "8a5aa68fceaae23065c584c5cb19b5d505ad4e0bee7d7c5945ad753ea80af50c",
+      "ce-native-acceptance528\\earned-modern\\rusty-door-positive532.json": "50eed52575139281ef51bbb786737b82be2a1689dd193abb4d613296c0f776f1",
+      "ce-native-acceptance528\\earned-modern\\rusty-door-guard-admission532.json": "7ad1843b6c74c209ff4a37dd84803ad9fbbab2d8e36f9494f473c0365af0a834",
+      "ce-native-acceptance528\\earned-modern\\rusty-door-earned-traversal532.json": "240a1a8ae31dc190ffe89944da0c70cce109b87724390052912e2f8de90bdd18",
+      "ce-native-acceptance528\\earned-modern\\cold022.json": "7f881d3e5d5f634b022bb8742b98f5e90d5b6b1f6f12aa1351521ef2c2a16033",
+      "ce-native-acceptance528\\earned-modern\\rusty-door-cold022-next-step532.json": "854834af45fb303447c482418e978834eb7088dd73d7a12f055fb7a9dc8d8204"
+    },
+    "cost": {
+      "builds": 6,
+      "game_cli": 22,
+      "focused_cli": 2,
+      "material_cli": 24
+    },
+    "next_action": "Normal recovery and next source-derived required campaign gate; all other selected criteria retained."
+  }
 }

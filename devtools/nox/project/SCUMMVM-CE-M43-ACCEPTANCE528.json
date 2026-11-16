@@ -1021,7 +1021,7 @@
     },
     {
       "id": "rusty-key",
-      "status": "IN PROGRESS",
+      "status": "VERIFIED",
       "prerequisites": [
         "legitimate-new-game"
       ],
@@ -1049,8 +1049,9 @@
         "scoped audio/presentation",
         "actual earned verification criteria"
       ],
-      "earned_lineage": "New ->131 Veylanarrival ->132 actualRuin19 keydoorno-keyrefusal",
-      "earned_progress": "132normalno-keydoorrefusal;133/134actualtwo7full98Ghoulgroupswon,normalCutterroomlock;135actualSearchRusty72qty1/field25=2 andrepeatno duplicate. ActualkeydoorOpen/traverse/cold remain."
+      "earned_lineage": "New ->132 refusal ->135 key ->143 retained Cutter death ->144 positive Open/full-health guard victory/passage ->145 cold022 and subsequent movement",
+      "earned_progress": "Earned Rusty72 acquisition/repeat, prior no-key refusal, actual keyed Open, original-full-health three-Zombie guard victory, actual passage and cold022/next movement. Not whole campaign or broader subsystem acceptance.",
+      "verification": "SCUMMVM-CE-M43-RUSTY532-VERIFICATION.json"
     },
     {
       "id": "skull-key",
