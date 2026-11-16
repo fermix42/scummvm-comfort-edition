@@ -2732,22 +2732,55 @@
       },
       "process": 24,
       "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
+    },
+    {
+      "label": "um98-normal998-restored-after-real-GreatGoblin-defeat532",
+      "slot": 181,
+      "parent": "0a2d834472103ad0a33c159df7004bdda13ea13bd758919e5ae4e081584f804c",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot181.g0": "f0fc025992757ff986323229ca028e58f1b95b4b168533fcfab441ff0d221348",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot181.g0.ce-achievements.json": "d024930e7869a1e843438265ae39b5464dec1dff263b7e6bcb4aca1d4ac82e4d"
+      },
+      "process": 24,
+      "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
+    },
+    {
+      "label": "um98-four-GreatGoblins-normal-area-spell-win532",
+      "slot": 182,
+      "parent": "4365c2b0b07ec08fef2f7399b8c7d453bbee5d2ad1801ff9cf0f3ae9c648d1ec",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot182.g0": "3ae7ca25eb3e510fea8b764a35cf0ba015b2e188c43db781e6e41d6dbde3fc58",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot182.g0.ce-achievements.json": "05b2f5f4bf152bd41a31465b2cf8bc2ffb8b9e3b20f070b0c2f50d871a1eb8f4"
+      },
+      "process": 24,
+      "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
+    },
+    {
+      "label": "Nourtheld-earned-area-victory-QuickExit-full-six-inn14-rest532",
+      "slot": 183,
+      "parent": "296029fa9fad397ece27a1a401f16eee19692ca233b96468cecf75637e7d175f",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot183.g0": "dc578ca76f86becec1bfd4b3fc441723ad389692bf795bf148d6c334438c2feb",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot183.g0.ce-achievements.json": "95f94ba49c47d84a4372c781a8991f865104e170bd9c2668e20218d4b0643c3d"
+      },
+      "process": 24,
+      "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
     }
   ],
   "correction": "SCUMMVM-CE-NPC529-VERIFICATION.json",
-  "last_checkpoint": 180,
+  "last_checkpoint": 183,
   "cold_evidence": "ce-native-acceptance528/earned-modern/cold024.json",
-  "next_action": "289step source contact route97->98->99->100->101, zero planned hazards, firstleg40. Actual encounters unchanged; preserve high-tier mage mana.",
+  "next_action": "Return source55steps59->58->54->78 stairs, then earned97..101 Scales; use appropriate area spells against armored contacts rather than preserving mana at cost of defeat.",
   "current_source_commit": "e073e27e3e3",
   "current_executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed",
-  "latest_earned": "94step normal Surface route: two50HP win noHP/MPcost, one98HP win noHP/MPcost, six98/87HP victory retained Hero68HP/Kat16MP, next six98/87HP win four Fireball+1 casts60MP; allsixalive153gold880food. Normal17762->Castle54 179; normal54->78stairs->UM97/17662 180. HP83/71/68/70/70/73,MP16/2/17/44/44/17.",
+  "latest_earned": "Same earned98route, same four137HP GreatGoblins: normalTactical/all eligible owned area spells, four Fireball+1 casts60MP. Allsix survive without additionalHPdamage; gold153->188, MP16/2/2/29/29/2,182. ActualC5/Bridgit normalQuickExit60 spends4MP29->25, returnsSurface17762. Down17763/Up17762 authoredentryCastle54. Normal58inn14gold188->174, allsix fullHP83/71/77/70/70/73,MP20/32/32/44/44/32,food880,183.",
   "historical_receipt_baseline": {
     "executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4",
     "source_binding": "SCUMMVM-CE-CANNON530-VERIFICATION.json",
     "qualification": "Initialreceiptbaseline only; percheckpoint/current identities control later progression."
   },
   "source_commit": "e073e27e3e3",
-  "local_full_ledger_sha256": "9fcfc8dfce3ea196d9aa50bb7ec13372aa03b3b7b70f7851b773b5795bfb3ec2",
+  "local_full_ledger_sha256": "2e63aacee9db6d59157a53fde49287a1a9451f3c9288bc6e9f47d7086c26a5cb",
   "latest_scoped_evidence": {
     "status": "VERIFIED",
     "scope": "Actual141cold021/142normalnextstep retain quest/inventory/party/resources/sound/session and parkedhorse; not Rustydoorpositivecrossing or fullcampaign acceptance",
@@ -2764,9 +2797,9 @@
     "SCUMMVM-CE-M43-ARCHUS532-WORK.json": "d67b22e38777e6b33dfa950ae8b3b3143179edeb314f84932c0fbf67b1be4e0a",
     "SCUMMVM-CE-M43-ROYAL532-VERIFICATION.json": "c0912514074864c657a8cfe93e14ade54f08093f7e455ac31386ae3658dfa4c7",
     "SCUMMVM-CE-M43-NOURTHELD-RECOVERY532-VERIFICATION.json": "a7d86544f25de761a7441526d69221e04aef5efaf6c633342bff5d28d34cd426",
-    "SCUMMVM-CE-M43-SCALES532-WORK.json": "ab0faaa78df722b0d00e30ab0c64c952d8eedfd8215093871712d80a7ee0e2f7"
+    "SCUMMVM-CE-M43-SCALES532-WORK.json": "dbe55d6aa855d4f0f0e079baa60900e1ac98eaf6f7f5fec8ca8a706218517b73"
   },
-  "private_ledger_sha256": "9fcfc8dfce3ea196d9aa50bb7ec13372aa03b3b7b70f7851b773b5795bfb3ec2",
+  "private_ledger_sha256": "2e63aacee9db6d59157a53fde49287a1a9451f3c9288bc6e9f47d7086c26a5cb",
   "superseded_current_aliases_royal532": {
     "last_checkpoint": 44,
     "latest_earned": "142 firstnormalworldstep after actual141cold021, fullparty/questinventory/resources/session retained;horseparked persistence",

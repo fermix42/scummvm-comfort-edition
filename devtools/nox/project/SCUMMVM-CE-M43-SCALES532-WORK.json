@@ -14,7 +14,10 @@
     177,
     178,
     179,
-    180
+    180,
+    181,
+    182,
+    183
   ],
   "route": "NormalCastle78/18,32->UM97/176,62,171. Readonly originalfivefloor route to101safeEast74,41 totals289steps,zerothermalcells/no225energyactorintersections. Contactpermitting sourcepath means normalGameactors remain; battles required. UM97->98stair149,75 completed,173; remaining249steps, first98leg140steps toward99.",
   "actual": "Actualfivefull70HPsprite144 win167,69, all6survive; Cutterloses16HP47, othersundamaged, noMPspent. Normalearnedlevel4 KatINT+12 ->20/83HP, CutterINT+12 ->32/71maxHP. NormalCutterselfLesserHeal2MP ->71HP/30MP;172gold167food898. NormalReady ownedClothGloves3/ownedlastspareMagicStaff23,Cutter actualsavedgearconfirmed8weight/STR8,INT32, fourreadyStaffs.173normalUM98entryall6fullHP83/71/67/62/70/73,MP20/30/20/32/44/32.",
@@ -28,7 +31,11 @@
     "ce-native-acceptance528/earned-modern/forks/um101-ten-drakes-first-defeat532/lineage.json": "ad9694e85add291f3a542311cc0955a4efe87a731da637ea5bc6d659e3f9907e",
     "ce-native-acceptance528/earned-modern/earned-town44-inn11-full-rest532.json": "0d88f46b4db7b160d117c3da212d45562ed605a654ae38e652d7ca28cec60365",
     "ce-native-acceptance528/earned-modern/earned-town44-book4-book60-ready532.json": "ab12d94b24e69530f811a2c7c59e00164f5f64ba390d1384364007bc9e8ce04a",
-    "ce-native-acceptance528/earned-modern/earned-town44-second-inn11-full-rest532.json": "b5d3732a95a85f58d8ac75e73a78a104592679da03101f86dee4f40e669975c7"
+    "ce-native-acceptance528/earned-modern/earned-town44-second-inn11-full-rest532.json": "b5d3732a95a85f58d8ac75e73a78a104592679da03101f86dee4f40e669975c7",
+    "ce-native-acceptance528/earned-modern/forks/um98-four-goblins-conserved-mana-defeat532/defeat.json": "58bbac07d8cbc2c66fc6da666028d74d124324fa69d17ce82982ead521af320c",
+    "ce-native-acceptance528/earned-modern/forks/um98-four-goblins-conserved-mana-defeat532/lineage.json": "6c9fc575211a459543fb75dd61d9efa2434df82ef384e056ef87f67164db9432",
+    "ce-native-acceptance528/earned-modern/earned-QuickExit60-first-normal-cast532.json": "a932146c8a69805af55d0556d6685ccb086473367f90b5bf366fab126b04f1dd",
+    "ce-native-acceptance528/earned-modern/earned-nourtheld-prepared-inn14-full-six-rest532.json": "4151623383cb5353044d5eda4d023d1b5941eb5e34dfe74c343b591a2ef29397"
   },
   "cost": {
     "builds": 6,
@@ -36,7 +43,7 @@
     "focused_cli": 2,
     "material_cli": 26
   },
-  "next_action": "289step source contact route97->98->99->100->101, zero planned hazards, firstleg40. Actual encounters unchanged; preserve high-tier mage mana.",
+  "next_action": "Return source55steps59->58->54->78 stairs, then earned97..101 Scales; use appropriate area spells against armored contacts rather than preserving mana at cost of defeat.",
   "first_drake_attempt": {
     "status": "IN PROGRESS",
     "result": "Normalsourcepath98->99->100->101withoutdamage. At101/51,28actual10full191HPDrakes118level5 admitted; normalTactical/ownedspellcasts endedactualdefeat. NoScalesaward/falsevictory. Completefailedbranchretained.",
@@ -59,5 +66,19 @@
     "actual": "94step normal Surface route: two50HP win noHP/MPcost, one98HP win noHP/MPcost, six98/87HP victory retained Hero68HP/Kat16MP, next six98/87HP win four Fireball+1 casts60MP; allsixalive153gold880food. Normal17762->Castle54 179; normal54->78stairs->UM97/17662 180. HP83/71/68/70/70/73,MP16/2/17/44/44/17.",
     "input_policy_corrections": "One finite160-step pass loop left actual party/enemies unchanged; explicit Space keycode32/ascii0 advanced turn. Ordinary six-enemy fight reached helper160step bound, continued same live fight to victory without load/reset. Source spell decision formerly used strongest template sharing artwork, suppressing useful casts. Exact observed startingHP/source-template matches now used where available; ambiguous templates conservative. No Engine defect/source change claimed.",
     "next": "289step source contact route97->98->99->100->101, zero planned hazards, firstleg40. Actual encounters unchanged; preserve high-tier mage mana."
+  },
+  "goblin_defeat181": {
+    "status": "IN PROGRESS",
+    "actual": "NormalUM97->98 withoutcost. Actual98/12976 fourfull137HPGreatGoblins82/L4/armor76/power46. Conserving spells with four Staffs endedactualdefeat; no Scales claimed.",
+    "classification": "Wrong normal input tactic, not demonstrated Engine defect. Changed attempt uses actual owned appropriate area spells/all living eligible casters; no unchanged attempt or fabricated progression.",
+    "recovery": "Nearest normal Engine998 atUM98/14975 copied/hashbound before actual normal chooser181 load. Permanent181 allsix actual earned83/71/68/70/70/73HP,16/2/17/44/44/17MP,153gold880food. 180parent; no road-victory cleanup or prefix replay.",
+    "next": "Finish materially changed normal Goblin attempt, preserve outcome, then continue source Scales route; normal QuickExit60 permits surface return for earned paid rest if necessary."
+  },
+  "goblin_victory182_rest183": {
+    "status": "VERIFIED",
+    "scope": "Actual Goblin victory, first QuickExit and paid rest only; Scales not yet earned",
+    "actual": "Same earned98route, same four137HP GreatGoblins: normalTactical/all eligible owned area spells, four Fireball+1 casts60MP. Allsix survive without additionalHPdamage; gold153->188, MP16/2/2/29/29/2,182. ActualC5/Bridgit normalQuickExit60 spends4MP29->25, returnsSurface17762. Down17763/Up17762 authoredentryCastle54. Normal58inn14gold188->174, allsix fullHP83/71/77/70/70/73,MP20/32/32/44/44/32,food880,183.",
+    "qualifications": "One changed attempt after actual defeat; no engine fix or expected-outcome injection. HourWait did not relocate sleeping innkeeper on same floor; normal58->59->58 schedule refresh succeeded; service opened normally TUp33,37 to actual innkeeper33,36. Bounded failedTalks and blockedmovement retained.",
+    "next": "Return source55steps59->58->54->78 stairs, then earned97..101 Scales; use appropriate area spells against armored contacts rather than preserving mana at cost of defeat."
   }
 }

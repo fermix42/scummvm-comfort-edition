@@ -1,3 +1,7 @@
+# Acceptance528 actual Goblin victory182/QuickExit/rest183 - IN PROGRESS
+
+Firstfour137GreatGoblin conserved-mana attempt actualdefeat retainedfork/normal998recovery181. One changed actualTactical attempt usesfourFireball+1casts60MP, allsix survive/noadditionalHPdamage,188gold,182. FirstnormalC5/BrQuickExit60 costs4MP->Surface17762; normalDown/Up castleentry. Normal58->59->58 refresh sleepingInn schedule afterW2; actualTUp33,37 service9, paidInn14->174gold,183 allsixfullHP83/71/77/70/70/73,MP20/32/32/44/44/32,880food. NoScalesyet/Enginegap/build. Continue55step59..78 stairs then97..101 usingappropriateareasagainstarmoredgroups. Five/60selectednodesVERIFIED,endingunverified;6builds/24gameCLI+2focused=26materialCLI. Canonicalconversion/CEdevtools/nox/project mirrors.
+
 # Acceptance528 prepared earned underworld return180 - IN PROGRESS
 
 Actualroad two50/single98/six98-87/nextsix98-87 victories, allsixalive153gold880food. FouractualFireball+1casts60MP onlastgroup; Hero68HP/Kat16MP retained. NormalCastle54 179 ->78stairs ->UM97/17662 180. HP83/71/68/70/70/73,MP16/2/17/44/44/17; bothFireball+2mages full44,ownedbooks4/60readied. Privatehelper pass-key160bound and six-enemy160bound retained; continuedsameactualfights/no reload. ExplicitSpacecode and observedHP source-template choice correct normalinputpolicy, noEnginebug. Continue289step zero-hazard source route97..101/Scales. Five/60selectednodesVERIFIED,endingunverified;6builds/24gameCLI+2focused=26materialCLI. Canonicalconversion/CEdevtools/nox/project mirrors.
