@@ -3040,22 +3040,55 @@
       },
       "process": 26,
       "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
+    },
+    {
+      "label": "earned full party Frigate northbound209",
+      "slot": 209,
+      "parent": "949b177687fbb739c85d0e802607af342954048b798d661a3e7cd273a3e91109",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot209.g0": "edf1089f5b6415029bf79dd6d6f46b0341ed33a09e60d1d8009cb881ea139df6",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot209.g0.ce-achievements.json": "098ff2983e533150fd4a097364d9c6e23103c4cc0924f79b2bda3bbc8bb1bf50"
+      },
+      "process": 26,
+      "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
+    },
+    {
+      "label": "earned eight pirate naval victory210",
+      "slot": 210,
+      "parent": "66816a7b9f97dd805d0c2739c4af53d2ddf43dab0aa195a87460d1c1dbd701e1",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot210.g0": "24a361529054cc6707ef769bd62092f401c44356cc54352fc8bdfcc7c314f789",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot210.g0.ce-achievements.json": "4f39c9862522deef6e777b03c8540099e75702c14722c8360b73e22b87bb7cb0"
+      },
+      "process": 26,
+      "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
+    },
+    {
+      "label": "earned full party northern landing and Staffs211",
+      "slot": 211,
+      "parent": "37204ec477da7f5dd0b72bc83bcd4c92253fe55de7907b34d4101150f0f0ad18",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot211.g0": "3aea8b3ab59688609ad602b41b32c9c077f6167518a8c65a3fcfe22d385c0087",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot211.g0.ce-achievements.json": "093fb71d82e094248b68c93a3ae7c90087f82bac3e458949030875b889482080"
+      },
+      "process": 26,
+      "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
     }
   ],
   "correction": "SCUMMVM-CE-NPC529-VERIFICATION.json",
-  "last_checkpoint": 208,
+  "last_checkpoint": 211,
   "cold_evidence": "ce-native-acceptance528/earned-modern/cold024.json",
-  "next_action": "Ownedboats backtoNourtheld; sourceCastle78control10,8/MoatSearch14,37/ArcaneSearch4,32 and actual associateddoors/pages, not another guard retry",
+  "next_action": "Finish actual five98 road encounter, continueNourtheld54, sourcecontrol/Moat/Arcane/pages contracts with actual refusal/acquisition/passage/persistence; no further currentstrength Guild/Drakes",
   "current_source_commit": "e073e27e3e3",
   "current_executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed",
-  "latest_earned": "207 ordinaryBayport47/88 stock1 Summon14 purchase36gold324->288; Readybookslot1 requirement26, threeWoodenShields andAlluBuckler, allsixfullHP/MP. Sourceboundedsummon/physical attempt at52/23,36 againadmits six144HP magicimmuneAssassins. Ignoredzero-actionAsk inputs reachedhelperbound withoutHP/MPchange; privatehelper nowselectsnormalTacticalatadmission. ActualTacticalSummon/shield attempt thenactualdefeat, sixenemiesstill144HP; no Enginebug/victoryclaimed. Fork retainsdefeat/start/transcript and copiednearestactualnormal998withhashes. Normal998restore208 at52/23,33, full6HP83/71/77/70/70/73 MP20/32/32/44/44/32,288gold386food,Book14/readiedShields retained. NormalLeft/Right returns48. Stopthiscurrent-strengthGuildpath; no more unchangedguard/Drake attempts. ContinueindependentNourtheldCastle78 controls/Moat/Arcane keys/pages usingCASTLE73sourcecontracts; physicalaccessmustearnactualevidence.",
+  "latest_earned": "208withdrawal: Bayport48southgate is9,39 closed16; normalOpenDown from9,38/Down/Yes returnsSurface120147. Prior guessedexit24,38/Left9,38 ignored/blocked, no Enginegap; falsechainedroute stoppedatbound,nochange. Reverseknownsixsafefootsteps toownedskiff118145, B/reverse3sailing115145/B storesSkiffinFrigate119, all6fullHP209. Source49step northboundroute hits actualeight98/137pirates120113; normalcannoncrew/oneKat2MPheal winsall6fullHP,288->347gold,386food210. Continue126113, actualwaterfoesnone; Xdeploystoredskiff/sixcalmsteps129110/Xsafe232, fourStaffsnormalReady211. Full6HP83/71/77/70/70/73,MP18/32/32/44/44/32,347gold386food. Source96step road17762: one50HPenemy130106 won noHP/MPcost food388; five98HPcontact134103 nowinprogress. No Enginechange/build/suite. Stopcurrent-strengthGuild/Drakes; sourceCastle78control9,8 toggleswall28,9; Moat116chest15,37/field24bit4; Arcane115chest5,32/field24bit2; remainingcastlepages separateearnedobjectives.",
   "historical_receipt_baseline": {
     "executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4",
     "source_binding": "SCUMMVM-CE-CANNON530-VERIFICATION.json",
     "qualification": "Initialreceiptbaseline only; percheckpoint/current identities control later progression."
   },
   "source_commit": "e073e27e3e3",
-  "local_full_ledger_sha256": "07bab67eab332682ea5183cd54f39966be60dd453353eded9fd118b612d9a722",
+  "local_full_ledger_sha256": "28f2db40aec82f8b634c82a91068a5efa9a23de24338d4f55ff06861b64bde94",
   "latest_scoped_evidence": {
     "status": "VERIFIED",
     "scope": "Actual141cold021/142normalnextstep retain quest/inventory/party/resources/sound/session and parkedhorse; not Rustydoorpositivecrossing or fullcampaign acceptance",
@@ -3072,9 +3105,9 @@
     "SCUMMVM-CE-M43-ARCHUS532-WORK.json": "d67b22e38777e6b33dfa950ae8b3b3143179edeb314f84932c0fbf67b1be4e0a",
     "SCUMMVM-CE-M43-ROYAL532-VERIFICATION.json": "c0912514074864c657a8cfe93e14ade54f08093f7e455ac31386ae3658dfa4c7",
     "SCUMMVM-CE-M43-NOURTHELD-RECOVERY532-VERIFICATION.json": "a7d86544f25de761a7441526d69221e04aef5efaf6c633342bff5d28d34cd426",
-    "SCUMMVM-CE-M43-SCALES532-WORK.json": "3cbdbf23410ea3250e6869070a4cd0a20c89d3e604cc58dbf8afccf26de56629"
+    "SCUMMVM-CE-M43-SCALES532-WORK.json": "7039a35ab2475eb78bf89e8f1dc225ccc926a08c2ec511c394cd627ce38b4e09"
   },
-  "private_ledger_sha256": "07bab67eab332682ea5183cd54f39966be60dd453353eded9fd118b612d9a722",
+  "private_ledger_sha256": "28f2db40aec82f8b634c82a91068a5efa9a23de24338d4f55ff06861b64bde94",
   "superseded_current_aliases_royal532": {
     "last_checkpoint": 44,
     "latest_earned": "142 firstnormalworldstep after actual141cold021, fullparty/questinventory/resources/session retained;horseparked persistence",
