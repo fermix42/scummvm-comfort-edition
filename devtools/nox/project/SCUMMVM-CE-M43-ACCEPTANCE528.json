@@ -2515,7 +2515,8 @@
         "50 actual3roughwater crossing/healing/camp/Bayportreturn with2actualbattles",
         "51 actual550goldfrigatepurchase/ownership255;boarding/cannon/horse stillpending",
         "52 real119boarding/alignment/FWestmisswithactualSFXcue+1/sea115145",
-        "53 sourceauthoredshipcannonstations/reloadcyclekill6full98/137HPpirates;normal2worldshotmissesretained;twoactualpartydeaths"
+        "53 sourceauthoredshipcannonstations/reloadcyclekill6full98/137HPpirates;normal2worldshotmissesretained;twoactualpartydeaths",
+        "122/123 legitimateCastle11horse154purchase, actualmountedstep,Xdismount/Breboard/Xpark;horsemaptransition/coldcontinuity pending."
       ],
       "remaining": "Ocean arrival/disembark,cannon,horse and remaining supported contexts remain unverified."
     },
@@ -2570,7 +2571,7 @@
   "process_launches": 19,
   "planned_node_count": 60,
   "mandatory_node_count_note": "All selected M3 nodes explicitly represented alongside dependency76 graph; includes supporting/advice/alternative nodes. Necessity is retained per source,not inferred from node count.",
-  "last_earned_checkpoint": "120 fullregearedparty inn48rest, all6fullHPMP,299gold900food;119gear identities and116Shaman/117loot/118exit retained.531unchanged.",
+  "last_earned_checkpoint": "123 horse moved/reboarded/parked Castle11/15,24, all6fullHPMP,145gold900food;source531 unchanged.122paid154purchase/121prestate retained.",
   "baseline_candidate_sha256": "81feb2c7ff17594a6ea9754dc60602a755b2f37ea7c53b437f65a18e7c35000f",
   "candidate_change": "NPC529,cannon530 and original packed melee reach531 general corrections; focused source/oracle/cold receipts retain identity. No additional source change after531.",
   "earned_failures_retained": [
