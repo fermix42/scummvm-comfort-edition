@@ -2985,22 +2985,55 @@
       },
       "process": 26,
       "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
+    },
+    {
+      "label": "earned Bayport full party rest204",
+      "slot": 204,
+      "parent": "7d587e00273da44689f1b2a5f05f117994063dfd46255243a4cbb929a1eacb16",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot204.g0": "77e7575fddc5bfff09697d0bbf1bfe494642bb97a65910804b6f363611d3614c",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot204.g0.ce-achievements.json": "79036769df048de71df6f73409de7ddd6afe43c3172ebc41f0451f2f6508d73f"
+      },
+      "process": 26,
+      "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
+    },
+    {
+      "label": "earned Guild Cutter picked passage205",
+      "slot": 205,
+      "parent": "2b066ecf8509f6de431498aeed10ea2e606979190d0353f83f68be1044472e5a",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot205.g0": "f82dfbb1ac9c9599dd5113839400d4768b51bdf3ca8cb8cffbe7ed88899bbb95",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot205.g0.ce-achievements.json": "31786292db5780fbded212c5297fa83a1ea3b3a49d8544b73a024444adef128f"
+      },
+      "process": 26,
+      "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
+    },
+    {
+      "label": "earned Guild immune guard defeat recovery206",
+      "slot": 206,
+      "parent": "aee0e04af329db5241b7c964e917e1f49fc8f05dffa48ce85f905a7430c7a4b8",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot206.g0": "61230419683bd61b7443f8217595a2b79303ebfc2b6d5892371becfc48966d81",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot206.g0.ce-achievements.json": "03d56260372d481130c81629754cb02f5c9f77ee8eb2e33dbdda6ebffa4e6ff8"
+      },
+      "process": 26,
+      "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
     }
   ],
   "correction": "SCUMMVM-CE-NPC529-VERIFICATION.json",
-  "last_checkpoint": 203,
+  "last_checkpoint": 206,
   "cold_evidence": "ce-native-acceptance528/earned-modern/cold024.json",
-  "next_action": "Normal Inn48 full recovery, owned caster Staffs, then source-derived Guild branch",
+  "next_action": "Normal withdrawal/PurchaseSummon14 at47NPC88, shield/healing/physical strategy before changed guard attempt; continue independent required branch if unresolved",
   "current_source_commit": "e073e27e3e3",
   "current_executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed",
-  "latest_earned": "201..202 actual52step Frigate return113145; four98HPsea enemies won noHP/MPcost,food350->386. Frigate115145, normalstoredskiffX, threeRight to118145/232, Xfoot/sixstepBayportentry49. No additional damage. Priest schedule source11AM..23PM (not earlier9AM assumption); normalW/reentrycounter37,37, ordinary paidKat resurrection76gold334,203. Allsixalive HP83/71/68/62/70/73 MP20/24/24/33/33/24 food386. Sourceapproach includes boundedNPCblockedroute/replan and ordinaryLeaveYes prompt. No Engine defect/build claimed.",
+  "latest_earned": "204 normal10gold BayportInn full6HP83/71/77/70/70/73 MP20/32/32/44/44/32,324gold386food. ThreeStaffs normallyreadied confirmed savedgear, then normalGuild52entry. Source-specificroute opensordinarydoor and manualCutter2 picks17,36 lock successfully,205 fullparty. At25,36 actualsix144HPAssassins64 Lv5armor94resistance255; attemptedFireballpolicywithholdsimmune-targetcasts; actualphysicaldefeat retainedfork, allbattleMPunspent. Originalrawmonster/SpellDamage confirmimmunity, noEnginebug. Normal205restore206 withfullparty/openedpassage. Changedplannedtactic ordinarySummon14/shields/healing/physicalfront; booknotcurrentlyowned (pre-inputStopIteration,noinventorymutation), sourceBayport47NPC88stock1price36. Withdrawcurrent52towardnormalpurchase; no unchanged guard retry.",
   "historical_receipt_baseline": {
     "executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4",
     "source_binding": "SCUMMVM-CE-CANNON530-VERIFICATION.json",
     "qualification": "Initialreceiptbaseline only; percheckpoint/current identities control later progression."
   },
   "source_commit": "e073e27e3e3",
-  "local_full_ledger_sha256": "32865fcb58a94f399e126193c063a7aeb6012bb22ef0fbc0723041e050c950ba",
+  "local_full_ledger_sha256": "b05454eaf4606e59d012bfceb47c1497c5275a835466f06656a4d62e93f29d7c",
   "latest_scoped_evidence": {
     "status": "VERIFIED",
     "scope": "Actual141cold021/142normalnextstep retain quest/inventory/party/resources/sound/session and parkedhorse; not Rustydoorpositivecrossing or fullcampaign acceptance",
@@ -3017,9 +3050,9 @@
     "SCUMMVM-CE-M43-ARCHUS532-WORK.json": "d67b22e38777e6b33dfa950ae8b3b3143179edeb314f84932c0fbf67b1be4e0a",
     "SCUMMVM-CE-M43-ROYAL532-VERIFICATION.json": "c0912514074864c657a8cfe93e14ade54f08093f7e455ac31386ae3658dfa4c7",
     "SCUMMVM-CE-M43-NOURTHELD-RECOVERY532-VERIFICATION.json": "a7d86544f25de761a7441526d69221e04aef5efaf6c633342bff5d28d34cd426",
-    "SCUMMVM-CE-M43-SCALES532-WORK.json": "b28bff221280e003c67536fc5f84c8cbf0cdea9c2b515503d418d2042bc69754"
+    "SCUMMVM-CE-M43-SCALES532-WORK.json": "d27041d291622442351e63db2c7d2a1454d3e47500155563d6012cfa809e998f"
   },
-  "private_ledger_sha256": "32865fcb58a94f399e126193c063a7aeb6012bb22ef0fbc0723041e050c950ba",
+  "private_ledger_sha256": "b05454eaf4606e59d012bfceb47c1497c5275a835466f06656a4d62e93f29d7c",
   "superseded_current_aliases_royal532": {
     "last_checkpoint": 44,
     "latest_earned": "142 firstnormalworldstep after actual141cold021, fullparty/questinventory/resources/session retained;horseparked persistence",
