@@ -427,11 +427,11 @@
     },
     {
       "id": "castle-control-wall",
-      "status": "NOT STARTED",
+      "status": "VERIFIED",
       "prerequisites": [
         "legitimate-new-game"
       ],
-      "source_contract": "Actual Castle control/keys/portals; source-valid Search positions yield seven retained pages (43E=FD,count7), actual Axea eighth (FF,count8), optional research, real Nystul binding/spell12, Ready and actual full12HP Rat Vortex. Source12 and source39 are distinct linked segments, not one continuous route.",
+      "source_contract": "Original CSTL78 control9,8 states49/48 pairs preceding wall28,9 states50/254. Normal directional Open toggles both; source-valid blocked/allowed traversal, reverse operation and durable cold state.",
       "source_anchors": [
         "Original CSTL BE/BD records; original SRTN.COMBAT.S9C84 / LOADER.P280B control handlers"
       ],
@@ -452,7 +452,26 @@
         "scoped audio/presentation",
         "actual earned verification criteria"
       ],
-      "earned_lineage": null
+      "earned_lineage": "NormalNew0 through230; raw17 trap/death224 retained alternate branch and normal pretrap225 recovery explicitly disclosed",
+      "actual_result": "Actual closed wall78/28,9 blocks Down from28,8. Source-supported alternate63step route from21,12 reaches control10,8 without high raw17 lock. Normal OpenLeft toggles control151/49 to150/48 and paired wall42/50 to42/254. Normal reverse close then reopen verified from actual normal saves226. Actual steps28,9 then28,10 prove passage227. SearchDown/Cutter2 page27,13 earns field62bit8,repeatunchanged228. Three231 cells51damage/member toward33,17; normal Nox six heals12MP, SearchDown/Cutter2 page33,18 earns bit32,229. Current pageflags42 (Axea2+Castle8+32),three pages only. Actual cold029 exact party/inventory/allquestfields/resources/sound/session/noassistance. First SearchDown after cold awards no duplicate; normal save confirms wall254/control48 persist. Six normal Bridgit heals12MP restore fullHP230, MP16/2/17/17/9/17,546gold272food. No new Engine change/build/suite.",
+      "earned_evidence": {
+        "report": "SCUMMVM-CE-M43-CASTLE532-WORK.json",
+        "checkpoints": [
+          226,
+          227,
+          229,
+          230
+        ],
+        "proofs": {
+          "ce-native-acceptance528\\earned-modern\\earned-castle-control226-533.json": "07cfb65b6ec9c5dc2527d6fcff9b6c6b62fda36d40cfdf9f1a70207447ae3c24",
+          "ce-native-acceptance528\\earned-modern\\earned-control-wall-passage227-533.json": "799940d37785ad3995dbf2887921c089c4f9fc5ac9abbd2a02fe373bb44f2a66",
+          "ce-native-acceptance528\\earned-modern\\earned-castle-page8-228-533.json": "1d5d9d8a2e08b0e25340a3662dc595464a9a12350a3a629a1b15cf031e5d7a75",
+          "ce-native-acceptance528\\earned-modern\\earned-castle-page32-229-533.json": "6019ca1e6e47a847cdb0728ef86f172f5004a75046d24fa1472fe03189e0a0ae",
+          "ce-native-acceptance528\\earned-modern\\cold029.json": "b2fb8052462bef0903cf3c43c6128208163c08981fd52c9a4d3540727cb61a6f",
+          "ce-native-acceptance528\\earned-modern\\earned-castle-cold-next230-533.json": "610be2f8daed43b88af92a1324e0e9190cdab85566774eb5fdb32bd355c34f67",
+          "ce-native-acceptance528\\earned-modern\\earned-control-cold-records230-533.json": "9fbaf55921d30bed6d6e8b53f2ecb3ac4842d988ac1c4c18db32a9c709316f85"
+        }
+      }
     },
     {
       "id": "moat-key-door",
@@ -512,7 +531,7 @@
     },
     {
       "id": "arcane-key-door",
-      "status": "NOT STARTED",
+      "status": "IN PROGRESS",
       "prerequisites": [
         "castle-control-wall",
         "moat-key-door"
