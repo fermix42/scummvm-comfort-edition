@@ -1643,7 +1643,7 @@
       "implementation": "PARTIAL",
       "verification": {
         "status": "IN PROGRESS",
-        "scope": "Observed raw17 door unsupported on532. General source correction533 awaiting native build/focused/earned continuation; raw53/254 original inherited-memory table reads unresolved. Old scoped evidence retained."
+        "scope": "533 general Open raw byte/readable table and RNG correction VERIFIED36cases plus actual earned224 trap/death,223 cold state and225 normal recovery. Broad row remains IN PROGRESS; raw53/254 inherited-memory evidence unresolved."
       },
       "native_owners": [
         "engines/nox/native_inventory.h",
@@ -1659,7 +1659,8 @@
       "original_evidence": [
         "SCUMMVM-CE-INVENTORY-IMPLEMENTATION510.md:static known operation model/production ownership closure;existing verification and unknown dynamic producer/legacy scopes retained.",
         "SCUMMVM-CE-INTEGRATION527-I3-VERIFICATION.json:bounded Engine joined integration/cold/nextinput only; broad row remains qualified; story.08 UNKNOWN unchanged.",
-        "SCUMMVM-CE-DOOR533-CONTRACT.md"
+        "SCUMMVM-CE-DOOR533-CONTRACT.md",
+        "SCUMMVM-CE-DOOR533-VERIFICATION.json"
       ],
       "production_connection": "Shared Inventory/Party/SpellBook/EquipmentActions/SearchInput/World/BattleLoot owners through ordinary InventoryWindow/WorldInput and tactical482;known model reviewed510,broader workflow verification unchanged.",
       "fallback_dependencies": [],

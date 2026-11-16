@@ -3,7 +3,7 @@
   "scope": "Finite controlled earned native M4.3 acceptance,source-derived graph; no exploratory gameplay.",
   "readiness": "SCUMMVM-CE-READINESS528.json",
   "origin": "Fresh normal New,default Male/Human character; engine entropy, no random_seed override/fixture/import/cheat.",
-  "candidate_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed",
+  "candidate_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd",
   "nodes": [
     {
       "id": "opening-exit",
@@ -2673,5 +2673,8 @@
     "preparation": "155actualHraakvar500,156localTemple3resurrections,157fiveNecklace+2,158normalPlate/ChainGloves/Rapier/full900food;6alive,268gold. No new Engine source or builds.",
     "next": "Continue earlier required Nourtheld54/Styx NAME/Archus TEST; normal earned transport and actual access, all60criteria remain. No Guild guards until genuine preparation."
   },
-  "source_route_revision189": "Earlier required Guildmaster/baseXP8400 before furtherDrakes;189gear materially stronger; all60criteria preserved,5VERIFIED."
+  "source_route_revision189": "Earlier required Guildmaster/baseXP8400 before furtherDrakes;189gear materially stronger; all60criteria preserved,5VERIFIED.",
+  "previous_candidate_before533": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed",
+  "candidate_source_commit": "c660ae8ac41",
+  "candidate_transition": "SCUMMVM-CE-DOOR533-VERIFICATION.json; normal223 cold recovery before further inputs; earlier nodes retain original bound evidence."
 }

@@ -1,0 +1,36 @@
+{
+  "status": "VERIFIED",
+  "scope": "General Open-specific raw difficulty with wrapped table index inside loaded original resource, and trap-spread RNG1..255; Search0..10 retained. Not complete raw-door/campaign acceptance.",
+  "source_commit": "c660ae8ac41",
+  "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd",
+  "actual": "533b native-only build0warnings/errors2m50.36, sourcec660ae8ac41/exe7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd. All36 original Open comparisons match RNG/picks/attempts/practice/damage,14opened/5damage callbacks. Actual normal998 cold recovery223 matches map/party/inventory/allquestfields/resources/sound/session/noassistance and preserves seven-enemy victory. Ordinary OpenLeft/Cutter2 raw17 now resolves trap/refusal without Engine fatal; Cutter dies, saved224/screens79/privateproof. Normal load pretrap998 then225 restores all6alive, retains earlier victories/Moat key; branch224 is preserved, not merged as successful lock opening. Alternate authored control route excludes dangerous high-level locks; no repeat of raw17.",
+  "proofs": {
+    "ce-native-acceptance528\\door533b\\focused-verification.json": "f6c0f9ee98cd26c1a0d166b56dc263ee0e393a22a6a8900f7d6357afad832915",
+    "ce-native-acceptance528\\door533b\\corrected-source.json": "8ddcbd520a5a9d7c95d80afe28b7cf9fdee729a43eb2aa1f06ba4be041ab1aed",
+    "ce-native-acceptance528\\door533b\\corrected-source.zip": "7f524cf50d2a718e11c54cc29fdb60be16f48b272491c4625570ede822b1a79b",
+    "door533-build.log": "b6c18849bdab3465a2b5034751dcda35df17ba0e7c7ef8802d6824afa8b9b34a",
+    "door533b-build.log": "f28e4d019f98c218150d9bf6b08e77cb618636b0fafb1a98909d8d12a49a7d4b",
+    "ce-native-acceptance528\\door533\\original-oracle\\input.bin": "d106b08edc2085f0a68aa46c399f4917a21d503ed04bcd8df8ecfce7d1fc1ee6",
+    "ce-native-acceptance528\\earned-modern\\earned-door533-cold-recovery223.json": "6a373a24307d74d89d7f1f65b4a009ff4938d5d6ed116eb6890f3785e1bd193d",
+    "ce-native-acceptance528\\earned-modern\\earned-door533-raw17-trap224.json": "dd4dea9fff24a8c05392497f22417bc5a6ea15050ec4be346c97a87cc09cf0dd",
+    "ce-native-acceptance528\\earned-modern\\screenshots\\scummvm-cli-game-00079.png": "e0d5658ad2f44f633f9699db73f91f1624cfd19cbbf89daf52200de91a634dbd"
+  },
+  "failures": [
+    "Initial focused runner nonempty root before game launch.",
+    "First533 native comparison case2 found Open RNG upper255 versus Search199; justified second build533b.",
+    "Passing533b runner quit after engine_exited produced EOF; retained36-case report verified without rerun."
+  ],
+  "limitations": [
+    "Authored raw53/254 Open trap reads reach original inherited memory beyond loaded Open resource; remain unresolved.",
+    "Controlled callbacks are separate from actual earned224 trap death; full campaign and ending remain unverified."
+  ],
+  "cost": {
+    "builds": 8,
+    "game_cli": 28,
+    "focused_cli": 5,
+    "material_cli": 33,
+    "door533_builds": 2,
+    "door533_focused_cli": 3,
+    "corrective_native_comparison_reruns": 1
+  }
+}

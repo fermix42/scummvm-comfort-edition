@@ -2,7 +2,7 @@
   "status": "IN PROGRESS",
   "blocker": "B-OPEN-RAW-DIFFICULTY",
   "accepted_source": "e073e27e3e3",
-  "corrected_source": "7b467318947",
+  "corrected_source": "c660ae8ac41",
   "failure": "Actual earned78/21,12 OpenLeft targets20,12; Cutter2 triggers unsupported interaction on raw difficulty17. Last observed pending modal/state, stderr and actual normal998 copied privately before stopping stalled Engine. No failed result counted as progression.",
   "private_failure": "ce-native-acceptance528/earned-modern/forks/castle-door-lock-boundary533",
   "contract": "SCUMMVM-CE-DOOR533-CONTRACT.md",
@@ -11,12 +11,22 @@
   "original_oracle_sha256": "d106b08edc2085f0a68aa46c399f4917a21d503ed04bcd8df8ecfce7d1fc1ee6",
   "source_uncertainty": "Authored TOWN1 slot40 difficulty254 and TOWN2/52 slot128 difficulty53 read outside original Open loaded resource. Inherited-memory trap data unresolved; no complete raw-door coverage claimed.",
   "cost": {
-    "builds_started": 7,
-    "builds_completed": 6,
-    "game_cli": 27,
-    "focused_cli": 2,
-    "material_cli": 29,
-    "corrective_reruns": 0
+    "builds": 8,
+    "game_cli": 28,
+    "focused_cli": 5,
+    "material_cli": 33,
+    "door533_builds": 2,
+    "door533_focused_cli": 3,
+    "corrective_native_comparison_reruns": 1
   },
-  "next_action": "Finish single isolated native-only build; run36 original/native attempts; normal load actual998, verify unchanged earned state and resume normal control route. No full suite/audio rerun."
+  "next_action": "Continue alternate authored control route, Arcane refusal/key/door/pages and finite earned plan; preserve224 trap branch, no repeat or prefix/audio suite.",
+  "first_build": "PASS 0warnings/0errors 3m05.63; original/native focused comparison then failed case2",
+  "additional_source_difference": "Open978B uses RNG1..255 after damage division; Search uses1..199. First correction preserved source table but still shared wrong trap-spread range; corrected generally, not campaign bypass.",
+  "failures": [
+    "Initial focused setup test_root_not_empty before engine launch",
+    "First actual focused comparison case2: Open trap-spread RNG bound differs"
+  ],
+  "verified_scope": "SCUMMVM-CE-DOOR533-VERIFICATION.json",
+  "actual_through225": "533b native-only build0warnings/errors2m50.36, sourcec660ae8ac41/exe7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd. All36 original Open comparisons match RNG/picks/attempts/practice/damage,14opened/5damage callbacks. Actual normal998 cold recovery223 matches map/party/inventory/allquestfields/resources/sound/session/noassistance and preserves seven-enemy victory. Ordinary OpenLeft/Cutter2 raw17 now resolves trap/refusal without Engine fatal; Cutter dies, saved224/screens79/privateproof. Normal load pretrap998 then225 restores all6alive, retains earlier victories/Moat key; branch224 is preserved, not merged as successful lock opening. Alternate authored control route excludes dangerous high-level locks; no repeat of raw17.",
+  "remaining": "Original inherited-memory evidence for authored raw53/254; broad inventory.11 remains PARTIAL. Current raw17 fatal corrected/verified."
 }
