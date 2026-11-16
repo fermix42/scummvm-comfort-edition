@@ -1817,6 +1817,56 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot107.g0.ce-achievements.json": "65f05bcdf578d931485feb440f9118fce85591a08bdb3f1c355312cc1ba7b22b"
       },
       "process": 19
+    },
+    {
+      "label": "plain-fireball-earned-ready531",
+      "slot": 108,
+      "parent": "fcf29ce001f42958ffcdfd7fa545b6f72c9ce506e76da12b3ef6587e2d5fbeac",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot108.g0": "4b3d68f5e271dd1a03eb9fce801b4584cb74accd6d0854044e2f70376505f5ec",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot108.g0.ce-achievements.json": "3b47dce8fb10bb546463df38af066b461d7b3cbd1b8518ab970e9767d44a48dc"
+      },
+      "process": 19
+    },
+    {
+      "label": "road-hooligans-cleared531",
+      "slot": 109,
+      "parent": "66dcd2761d9bfb3ca9edae3cb2a29f1e54ec4ecfece1a7c63e4b20139dc745b3",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot109.g0": "fba4773147b6aed3de7f77056e012dd0d864c00d4cd02911f742a8e414476477",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot109.g0.ce-achievements.json": "c61f14fc8968840db74f092552293affc4d9de26df4211cdb3618e3c50686492"
+      },
+      "process": 19
+    },
+    {
+      "label": "early-road-wins-and-camp531",
+      "slot": 110,
+      "parent": "8db760d3572e214c87022f0884fa854febf57c76146b3c126ab0227595028f2e",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot110.g0": "1bb4bdcfafba92828c542e0af637b683882747072dcb5800c33a2e5eb73a70f7",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot110.g0.ce-achievements.json": "8d794517befc647e3218b5e9b205209ecdebe383e3bff122ad8153d7a705ebb0"
+      },
+      "process": 19
+    },
+    {
+      "label": "orc-cave-first-lever531",
+      "slot": 111,
+      "parent": "3ee94f4842af0ca05e8d4a16df0434323b08d3cd92b984dd1d616462b049c5cb",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot111.g0": "d98dbb93590a28b3f579038761554c51b404a6f38d1feb953ff2be8cf983afbf",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot111.g0.ce-achievements.json": "086a8eb68596e66d5bae92b65f9e17102f9ebf63a39ca9debd41fd4e1c77a081"
+      },
+      "process": 19
+    },
+    {
+      "label": "orc-wall-open-first-guards-won531",
+      "slot": 112,
+      "parent": "d3f345ddad27098dfa320bdcca9731f36efe656bdc79bff8071f925fec6a9ace",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot112.g0": "88e0deaf7841e55d72f03990532b694b7b58fe5b392bc78cbac8bf7dd97c711c",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot112.g0.ce-achievements.json": "b19bfd7b7fcabcfe8931b246b3d32f766cf94670d9889da7cf08c31a280d26df"
+      },
+      "process": 19
     }
   ],
   "correction": "SCUMMVM-CE-NPC529-VERIFICATION.json",

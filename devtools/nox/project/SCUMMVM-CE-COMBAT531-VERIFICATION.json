@@ -43,8 +43,15 @@
     "Second Engine wrote successful12-case receipt then returned normally through explicit oracle-only exit; CLI reported engine_exited. Driver initially treated this expected exit as failure and aborted idle host; no third launch or repeated successful check. Driver check corrected."
   ],
   "limitations": [
-    "First ordinary earned distance2 Attack remains to be observed naturally; no accepted prefix replay to force it.",
+    "Historical pending earned distance2 observation is now fulfilled by earned_range2 below; no accepted prefix replay.",
     "All previous casualties/forks retained; 60selectedcampaignnodes stillrequired,3complete;endingunverified.",
     "Combat.04 remainsPARTIAL/IN PROGRESS; no broadrowpromotion."
-  ]
+  ],
+  "earned_range2": {
+    "status": "VERIFIED",
+    "scope": "Natural road encounter116,184,Kat0 axe12 at4,7 attacked actual138 at3,5 distance2;24->0HP/absent,turn advances toCutter1. No forcedbattle/setup/replay. Broadercombat remains qualified.",
+    "evidence": "ce-native-acceptance528/earned-modern/earned-melee-range2-combat531.json",
+    "sha256": "844c5111c149efe551554532441fa1dc91e4a739c7fe449fa8d38178b017397c",
+    "checkpoint": 109
+  }
 }

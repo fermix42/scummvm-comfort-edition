@@ -1,3 +1,7 @@
+# B-MELEE-PACKED-RANGE earned distance2 evidence added - VERIFIED
+
+Natural road116,184 battle: Kat0 at4,7 uses ordinary Axe12 Attack on138 at3,5, distance2. Actual24->0HP/presentfalse and nextCutter turn; save109. COMBAT531-VERIFICATION binds earned-melee-range2-combat531.json. No forcedencounter/setup/replay, no new build/process. Broadercombat remains qualified.
+
 # B-MELEE-PACKED-RANGE retired within scoped531 evidence - VERIFIED
 
 The shared helper now preserves packed range for melee and ranged hands. All 12 original Attack cases match complete records, RNG, credit and pending-action roundtrips. Separate5thnative-onlybuild0warnings/errors,sourceb9faa45cc63. Actual102cold019sameparty/inventory/fields/resources/sound/session;103newsourcebinding. COMBAT531-VERIFICATION scopesclosure. Naturalearnedrange2inputcoveragepending;nooptionalbattle/prefixreplaytoforceit,combat.04stillPARTIAL/INPROGRESS. Bothfocuseddriverqualificationsretained. Continueearnedcampaignusingcorrected531.
