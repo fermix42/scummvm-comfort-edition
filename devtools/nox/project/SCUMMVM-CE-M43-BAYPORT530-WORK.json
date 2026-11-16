@@ -10,7 +10,16 @@
     69,
     70,
     71,
-    72
+    72,
+    73,
+    74,
+    75,
+    76,
+    77,
+    78,
+    79,
+    80,
+    81
   ],
   "builds": 4,
   "process_launches": 17,
@@ -20,5 +29,12 @@
     "ce-native-acceptance528\\earned-modern\\earned-preparation-sea151-530.json": "5482ce11ef573d3ec1698b5b7789d373cb9a271aa8ab86ce50a5a1e913e99ad5",
     "ce-native-acceptance528\\earned-modern\\wrapper-recovery.json": "6a10ca459214ec33acf71751b4b744779e36ae3f60601175a309d39027f26de9"
   },
-  "next_action": "Continue actual naval approach from72; targeted source-supported rewards/equipment preparation before full Rogue guard."
+  "next_action": "NormalBayportreturn, necessarypartialrecovery/equipment/spell preparation; sourceGuildboss-before-children ordering avoidsreturnvisit. No additionalunchangedpirateretry.",
+  "squid_fork": "ce-native-acceptance528/earned-modern/forks/squid-seven-first-defeat",
+  "failures": [
+    "Seven full191HP range15 Squids defeat; normal74restored, no unchanged retry.",
+    "Ten full98/137HP pirates: seven dismissed but actualpartydefeat; both initialflankshotsmissed, noXP/gold. Normal74restore, one changed guard/gun-cycle tacticalattempt planned."
+  ],
+  "changed_pirate_attempt": "Actualvictory over10originalfull98/137HPpirates;4casualties retained. NormalBattleInventory shieldchanges; raw75 provesCutter/Noxarmor39. Nox3INT32/HP62 andAlluvion3INT20/HP64;gold14->70. No nativecodechange.",
+  "return": "76..80normalweakjellyfishwins, allactualfourdeadretained. Unfoughtfivepirateadmission at114,127 retained; normal80restore. ActualC0healtoNox49->62,East115,126,F-South clears savedpirate180115,129/flag255;noXP/loot.81saved."
 }

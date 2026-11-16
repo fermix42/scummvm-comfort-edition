@@ -1,6 +1,6 @@
 {
   "status": "IN PROGRESS",
-  "scope": "Earned mainline through72, actualWatcherpermission/door/stairs andMargravepre-award request/repeat; normaldockfrigateboarding+single50HPjellyfishcannonvictory. FullGuildguard/Raque/endingstillunearned.",
+  "scope": "Earned mainline through81: Watcher/door, Margravepre-award request, tenpiratevictory withfourcasualties, twoearnedINTlevels, normalBattleInventory shieldloans, returnweaksea victories andworldpirate180cannonremoval. Guild/Raque/ending remainunearned.",
   "executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4",
   "source_binding": "SCUMMVM-CE-CANNON530-VERIFICATION.json",
   "builds": 4,
@@ -28,7 +28,8 @@
     "Two post-landing land victories/camping in coastal-ship fork were excluded and repeated from nearest actual saved boundary; no duplicated XP in mainline",
     "Current primary60 excludes island58/59 progression; retained evidence remains alternate earned branch",
     "Historical M3 search/execution ordering Rusty72->Skull78 was not a mechanical dependency. Immutable Skull78 pickup53/misc2 atTown2map50(16,15) checks only its own field26/mask2/repeat/capacity; native_search.h reward lines70..83. Rusty72 and its Ruin19 field25/mask2 door remain separate required acceptance, reordered after the independent Bayport chain. Actual Guild password/door/stair access, Skull pickup and prison gate remain required; no bypass or injected state.",
-    "Checkpoint71 boarding label is premature; raw state onfoot116/146. Actual subsequent B and72 prove119boarding."
+    "Checkpoint71 boarding label is premature; raw state onfoot116/146. Actual subsequent B and72 prove119boarding.",
+    "75 piratevictoryhasfourcasualties; Nox3INT32 andAlluvion3INT20actual. 76..80retainweaksea winswithtwosurvivors. Unfoughtfivepiratefork retained;normal80restore, heal/E/F-South clearsworldactor180withoutXP. No injectedstateorEnginechange."
   ],
   "checkpoints": [
     {
@@ -1460,6 +1461,96 @@
       "saved_files": {
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot072.g0": "dad1625412a3db9bb5cdf934467421d336490720a3568470a42c0897c92708e9",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot072.g0.ce-achievements.json": "4affb8ef739c86009c0350146cba8deec54589c97a98711cb2a49bb33ab4af7d"
+      },
+      "process": 17
+    },
+    {
+      "label": "Second naval jellyfish victory with full six member party",
+      "slot": 73,
+      "parent": "f0de09c6353b8d29ad1464884e53cd23bb101097e34e688d8132296406d92e29",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot073.g0": "6797324848d412ba48554ae5990b61a8205cc113b7e0fa22ec0d157af76141e4",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot073.g0.ce-achievements.json": "1ed19a6dd0a2622429fe7611ba37117da13a9273ac597d082c56e2ee71f4757e"
+      },
+      "process": 17
+    },
+    {
+      "label": "Third naval jellyfish victory retained on planned squid route",
+      "slot": 74,
+      "parent": "7256be62b4f614d202138e558f79920570dea18cc8702dc6854da4e91de8565f",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot074.g0": "676b5a28a36352533fa885509fc97e7a7d27140f90e992dfc1842f7f740ed621",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot074.g0.ce-achievements.json": "49f9792b6bea659aaac62f2142b4f82f49f3e6cf6d2b156f7e3bd1a33c106cca"
+      },
+      "process": 17
+    },
+    {
+      "label": "Earned ten pirate victory and two INT level allocations with four casualties",
+      "slot": 75,
+      "parent": "7b3f68e049e58511a6d1df99fd6b3e156fb4317dce62ec8183acb77da6e78d46",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot075.g0": "a73a0ef81bcc7b6a831d4447de39ce409058a24fe0b270d4eaa5fbc578c2d808",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot075.g0.ce-achievements.json": "e9fc3a541b1f5e7781fa497055d26f8be6fafe7586526a62884baf22deeeb527"
+      },
+      "process": 17
+    },
+    {
+      "label": "Two survivors retain pirate rewards after return sea encounter",
+      "slot": 76,
+      "parent": "01742143538cad386a43cef4600ee1d6dbfe96d127e3bce8042bcdc2771a60a0",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot076.g0": "96874d87dd7bdd5b053abec5b0c4fefdd429dd33a89cfcb2e63a098095ee9772",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot076.g0.ce-achievements.json": "589697b071a9a27db9f7252aafe0743a585d0d3d05a51b8ccfe5b35316c53eed"
+      },
+      "process": 17
+    },
+    {
+      "label": "Bayport return jellyfish victory 77",
+      "slot": 77,
+      "parent": "61f5f2575f06d7ebe1036532e58e78dcf64e26dbedb08f5ce36ddbf1726ed03a",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot077.g0": "da813113a64fe2ead2e5406eb78ff0a8566e6f5bcb52372fdc4285721de6face",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot077.g0.ce-achievements.json": "bd6c4099e94c51c811406d554f0ea59c396ae31436b4296864b5047d873c4ea0"
+      },
+      "process": 17
+    },
+    {
+      "label": "Bayport return jellyfish victory 78",
+      "slot": 78,
+      "parent": "939e1e150142bc570eeb9c20ce285ae5025f7777d75f802532a4e2f35e6520e9",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot078.g0": "30420e71b489b757c39a78c1eafc984e38a5c45f274be9f5ebe9c0657915cf2c",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot078.g0.ce-achievements.json": "1a9bb17850a8fd30b81f54a36b25ec4aef1d1d30cd490da6ca87b51232b21294"
+      },
+      "process": 17
+    },
+    {
+      "label": "Bayport return jellyfish victory 79",
+      "slot": 79,
+      "parent": "73791c9947e0448e4a4ea35ebcc4f10c1afb117c698eb49a905d06b1f6b6504a",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot079.g0": "dd2a873aea3c3cf65338d0e41bf594e57777938ab3e6ce5d35db1f0e81e67f46",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot079.g0.ce-achievements.json": "d63505dcbf0eb734b1b82170f06053c9f80116a3816e1a6a60e5363548574f4a"
+      },
+      "process": 17
+    },
+    {
+      "label": "Bayport return jellyfish victory 80",
+      "slot": 80,
+      "parent": "07f954fe4028ca1ddb6e6888e721cd6f87a334b6502ed520f16b47e551b3c5f6",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot080.g0": "efe681e5352cd0383eb6af74603c20f545ede2af80816dcf2e92b51b45071510",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot080.g0.ce-achievements.json": "1dbebe7996f9072d0c9e8f8cb37a17a95d7ba4cbb4f47bd86e8bb2587a4556f3"
+      },
+      "process": 17
+    },
+    {
+      "label": "Aligned world cannon clears return pirate without boarding",
+      "slot": 81,
+      "parent": "8bb4a9704db6faebed1d492e147131aaaee36f6f1764231a9b037d7c13639425",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot081.g0": "21c3c2367e0e81dc8988a694b009d65397104e2e1ea0aa4358e17edf12c619c8",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot081.g0.ce-achievements.json": "254119137bae0c6ecda24e71a0aba5482c7715e3bde6fcf8e85c5a68c1c62c82"
       },
       "process": 17
     }

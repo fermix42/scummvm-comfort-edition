@@ -1118,8 +1118,7 @@
       "id": "thieves-guild-boss",
       "status": "NOT STARTED",
       "prerequisites": [
-        "skull-key",
-        "guild-children-rescue"
+        "legitimate-new-game"
       ],
       "source_contract": "Actual keys72/78 and gates; rescue43502; Watcher/Guild/orders77/43208 -> Margrave84/43210; actual timed elders43508/42A01 -> Scroll85/phylactery40C04 -> original Lich/Water Jewel. Separate controlled battle endpoints remain unearned.",
       "source_anchors": [
@@ -1145,14 +1144,13 @@
         "actual earned verification criteria"
       ],
       "earned_lineage": null,
-      "ordering_reconciliation": "Historical M3 search/execution ordering Rusty72->Skull78 was not a mechanical dependency. Immutable Skull78 pickup53/misc2 atTown2map50(16,15) checks only its own field26/mask2/repeat/capacity; native_search.h reward lines70..83. Rusty72 and its Ruin19 field25/mask2 door remain separate required acceptance, reordered after the independent Bayport chain. Actual Guild password/door/stair access, Skull pickup and prison gate remain required; no bypass or injected state."
+      "ordering_reconciliation": "Historical M3 search/execution ordering Rusty72->Skull78 was not a mechanical dependency. Immutable Skull78 pickup53/misc2 atTown2map50(16,15) checks only its own field26/mask2/repeat/capacity; native_search.h reward lines70..83. Rusty72 and its Ruin19 field25/mask2 door remain separate required acceptance, reordered after the independent Bayport chain. Actual Guild password/door/stair access, Skull pickup and prison gate remain required; no bypass or injected state.",
+      "source_access_qualification": "Actual Watcher/field28 permission, door/stairs and physicalGuild52 passage remain mandatory. Source L011slot120 opening may change wording forchildquest but BYE unconditionallysets battletriggerfield17/32; native_world_input.h closure340..355 admits actualactor. NoSkull78/childrescue53/2 battleadmission predicate. RequiredSkull/rescue nodes remain separatelyrequired."
     },
     {
       "id": "margrave-key",
       "status": "IN PROGRESS",
       "prerequisites": [
-        "skull-key",
-        "guild-children-rescue",
         "thieves-guild-boss"
       ],
       "source_contract": "Actual keys72/78 and gates; rescue43502; Watcher/Guild/orders77/43208 -> Margrave84/43210; actual timed elders43508/42A01 -> Scroll85/phylactery40C04 -> original Lich/Water Jewel. Separate controlled battle endpoints remain unearned.",
@@ -1180,7 +1178,8 @@
       ],
       "earned_lineage": null,
       "ordering_reconciliation": "Historical M3 search/execution ordering Rusty72->Skull78 was not a mechanical dependency. Immutable Skull78 pickup53/misc2 atTown2map50(16,15) checks only its own field26/mask2/repeat/capacity; native_search.h reward lines70..83. Rusty72 and its Ruin19 field25/mask2 door remain separate required acceptance, reordered after the independent Bayport chain. Actual Guild password/door/stair access, Skull pickup and prison gate remain required; no bypass or injected state.",
-      "earned_pre_award": "Checkpoints69/70: actual normal KEY/GUILDMASTER, requestfields2->6; actual repeatKEY refusal, noOrders77/noTombKey84. Reward/cold stillpending."
+      "earned_pre_award": "Checkpoints69/70: actual normal KEY/GUILDMASTER, requestfields2->6; actual repeatKEY refusal, noOrders77/noTombKey84. Reward/cold stillpending.",
+      "source_access_qualification": "OwnedL012slot0 opening requiresGuild50/8 andnot-yet-key50/16; priorM3 no-request-key case proves request/rescue inheritedstate isnotmechanicalaward prerequisite. EarnedKEY/GUILDMASTER/repeatrequest alreadyretained69/70. RequiredSkull/rescue remainseparate."
     },
     {
       "id": "ghrodwir-elders",
@@ -2571,21 +2570,24 @@
   "process_launches": 17,
   "planned_node_count": 60,
   "mandatory_node_count_note": "All selected M3 nodes explicitly represented alongside dependency76 graph; includes supporting/advice/alternative nodes. Necessity is retained per source,not inferred from node count.",
-  "last_earned_checkpoint": "72 actual Margrave pre-award request/repeat refusal retained, six fully alive/fullMP, normal dock frigate119 boarding and50HP jellyfish cannon victory; source-planned squid approach in progress.",
+  "last_earned_checkpoint": "81 alignednormalworldF-South clearsactualpirate180 afterunfoughtboardingfork/normal80restore. Gold70,food442,twohealthy3levelsurvivors,fourdead. FinalBayportapproach continuing.",
   "baseline_candidate_sha256": "81feb2c7ff17594a6ea9754dc60602a755b2f37ea7c53b437f65a18e7c35000f",
-  "candidate_change": "NPC529 verified general viewport-exit correction; SCUMMVM-CE-NPC529-VERIFICATION.json",
+  "candidate_change": "NPC529 generalviewport-exit andcannon530 generalresource-row continuation corrections; scopedverification receipts preserved. No implementationchanges duringpost530 earnedcampaign.",
   "earned_failures_retained": [
     "library north-wing source planner omitted water229..231;actual party loss retained;normal Engine route98 checkpoint restored as43,not native defect. Source-safe route currently unavailable with protections0/MP0;defer.",
-    "Fourmember return-road/boat contacts with hostile ships retained;actual tactical defeat,normal Engine47 restore. Native defect not demonstrated. Sixparty48 prepares missing companions instead of repeating fourparty route."
+    "Fourmember return-road/boat contacts with hostile ships retained;actual tactical defeat,normal Engine47 restore. Native defect not demonstrated. Sixparty48 prepares missing companions instead of repeating fourparty route.",
+    "Sevenfull191HP Squids at64,124 defeated party in actual native tactical combat; no victory/reward. Source116 weaponmode240 is range15,power52; centraldeck repositioning cannot prevent ranged damage. Preserve forks/squid-seven-first-defeat; normalactual74 restores99,113. No unchanged retry/nativebugclaim.",
+    "One changedpirateattempt afternormal74restore wonall10originalenemies, butKat/Cutter/Hero/Bridgitactuallydied. ActualinventoryUI shieldloan toCutter/Nox raisedarmor25->39, raw75 confirms. Noallaliveclaim. Nox/Alluvionnormal12INT level3allocation;gold14->70,food422."
   ],
   "preparation_after_raque_attempt": {
     "status": "IN PROGRESS",
     "reason": "Party levels1/2; Raque armor94/power57 can kill59HPfront member in one ordinary hit; first earned attack did not win. No repeated attempt without preparation.",
     "order": [
-      "Earned Watcher/door access retained at68; Guild52 Rogue combat requires equipment/levels before retry.",
-      "Complete independent required Margrave pre-award request and Rusty72/Veylan source route as accessible.",
-      "Use source-supported equipment/spell/level preparation before Guild52 full Rogues, Skull78/rescue and70HP Guildmaster.",
-      "Continue earned Raque and remaining campaign; no bypass or generated outcomes."
+      "Retain75 earnedvictory andtwocasterlevelallocations; normalBayportreturn, noSquidretry/extraunchangedpirateattempt.",
+      "PaidKat/Cutter recovery first forfrontline/lockpicks; sellunreadiedStaff/spareDagger/Rapier/Flatbow (and1Torch ifneeded) usingnormalmerchant. Buy36goldSummonLsrUndead and22goldBattleaxe. LoanfreedBucklertoAlluvion throughnormalUI. Othersremainactualdeaduntilfunds, not declaredrecovered.",
+      "One normalweakbattle afterKat/Cutterrevival earns pending3levels fromstoredXP324: KatSTR,CutterINT; sourcegame classfree. Actualsummoning/two-cellweaponrange required,noassumedoutcome.",
+      "ActualGuild52physicalgates ->50; sourcepermitsbossbeforechildrescue. CollectSkull78 andfightfull70HPGuildmaster inonevisit beforebacktracking; allrequiredrefusal/repeat/childrescue criteria retained.",
+      "Spendactualearnedloot onremainingpaidrevival; childprison/rescue andMargravekey onreturn; applyactualbossXP normally, thenrequiredRusty/Raque/remainingcampaign."
     ],
     "qualifications": [
       "Guild access/password prerequisites remain actual required operations, not assumed cleared",
