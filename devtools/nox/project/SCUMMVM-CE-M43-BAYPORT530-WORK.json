@@ -1,6 +1,6 @@
 {
   "status": "IN PROGRESS",
-  "scope": "Earned Watcher/door/stairs, Margrave pre-award request/repeat and naval preparation; guarded Guild and ending remain unearned.",
+  "scope": "Earned source-driven M4.3 throughVeylanRusty/retainedcasualties/normalTemple recovery; remaininggate/cold/selectedcampaignending outstanding.",
   "checkpoints": [
     68,
     69,
@@ -71,7 +71,12 @@
     134,
     135,
     136,
-    137
+    137,
+    138,
+    139,
+    140,
+    141,
+    142
   ],
   "builds": 5,
   "process_launches": 19,
@@ -82,7 +87,7 @@
     "ce-native-acceptance528\\earned-modern\\wrapper-recovery.json": "6a10ca459214ec33acf71751b4b744779e36ae3f60601175a309d39027f26de9",
     "ce-native-acceptance528/earned-modern/earned-partial-recovery530.json": "e6febeb06a275d3e3abec6f25f961a8adf0a93ed9f984627e050a839dfae55c1"
   },
-  "next_action": "Withdrawfromactual137viaRuin19northpassageto20/horse24,38 thenknownBayportTemple/inn. SourceonlyTemples1/49/53;Resurrectbook49INT62 unavailablecurrent32. RetainRustykey/refusal/repeat; actualdoorcrossingpendinguntilnormalrecovery.",
+  "next_action": "NormalBayportSWexit thenVeylanreturn withfullparty tofinishactualRustykeydoorOpen/traverse; retainall60/lateAnkh/Yvviargates. EarlyOrdernetwork authorization mechanicalordering researchedonly; noDragonroute/outcome claim.",
   "squid_fork": "ce-native-acceptance528/earned-modern/forks/squid-seven-first-defeat",
   "failures": [
     "Seven full191HP range15 Squids defeat; normal74restored, no unchanged retry.",
@@ -107,7 +112,7 @@
   "orc_progress": "Actual109,178 entry, normalCutter lockpicking opens128,177 gate,2picksremain. IigniteslastTorch.111label premature wallOrefusal unchanged qualified. ActualO Eastfrom121,160 togglescontrol122,160 116/49->115/48 andwall131,170 state50->254. Normalroute meets actual3full70HP144OrcGuards at120,160; CutterC3 andHeroC3 spend10MPeach,all3killed; all6fullHP,gold288->304. Actualadmission andcasts retained; no source/build/process change. 112normalcamp restoresCutter15/Hero15MP,food424. Next2full70HPOrcGuards at123,172 killedoneCutterC3,allHPunchanged,gold311. Actualnext4full70HPOrcGuards at131,169; sourcearmor0 supports conservingcasters with KatAxe/normalheals andoneHeroFireball. No Ogre/Shamanvictory claimed. Next4OrcGuards at131,169 wonwithoneHeroC3/normalCutterheals,Kat66. Next3Guards at131,168 physical/heal win113,Kat37->normalBridgitheal68. Bothactual2x70HPOgrepairs at130,168 and130,167 defeatedphysically;114retainsall6live,Kat71,Allu50,Nox14MP,otherHPfull,gold331. NormalKatC0healsAllu50->64,cost2MP;9normalretreatsteps131,175 forcamp beforeShaman. No guardedprefixreplay.",
   "orc_finish": "115label prepared is qualified:Shamanfollowed131,174adjacent;Hcamprefused/resourcesunchanged. ActualnormalUpadmittedoriginal2Ogres70+Shaman256. Focus3castsShaman256->7,oneOgrealso killed; Allu41healednormally; fourthAlluC3killsShaman,remainingOgrephysicalwin. All6alive,116gold331->368,savehash30a9d122d5d8995579d905122d02f5b7532d007d60b9c1f108235ae046b29243c. No summon admitted/no injectedoutcome/no retry. SubsequentnormalKithealAllu/campnowallowed restoresMP6/15/15/24/24/15,food424->342. Additional2guards enroutechests won2normalC3. Fixedchest130,162 actualSearchbook3; random131,162 initialtrapCutter63->46,oneY/2retry opens; normalA takesall.117KithealCutter46->63,all6fullHP,gold450food342 (actualrandomtreasure adds82gold; earlier summary368waspre-chest),savehash9245a8bd7b360384343584899e543a85b61ff67ca07e64cb2907debbc9bd15082. Book3quantity2; +1Recurve24 alreadyappearsin116bossloot;117addsBroadsword19. ExistingunreadyMagicStaff23predatesplainbook2(slot22vs24); equipnowratherthanleaveunused. Inspectinventory tool rows report69quantity4/68quantity1; worldfield33 aftergatewas2, do not conflate these readouts.",
   "source_corrections531": [
-    "Inventory book IDs differ from prepared spell IDs: MageArmor is book45/spell32, QuickExit book60/INT38, book57 is Illuminate/INT8. Do not repeat prior guessed item/spell equivalence.",
+    "SpellBook::select uses itemdefinition byte6. v119 bookdefinitions inspected0..63 map acceptedbookID tosamepreparedspellID; earlier book45/spell32 remapping claim was wrong. MageArmorbook32/prepared32/INT26 is distinct from duplicate-name book45/prepared45; no45purchase/cast claimed. QuickExitbook60/INT38, Illuminate57/INT8.",
     "Actual weapon19 name is Broadsword, weight9/DEX1/INT1,price36; not IronShortsword. It is ordinary onehand, can replace HeroKnife and retainBuckler.",
     "MagicStaff23 requiresINT32/weight3/price48,primaryrange15 afterready. Alreadyownedat102, nowNox4ready. +1RecurveBow24 price210,not76; ordinaryunreadied Gem50%sale105.",
     "FullLeather bodyweight10; HeroSTR20 couldfitAxe10+body10. PreferownedBroadsword9+mediumbody8+Buckler3=20 ratherthanbuytemporaryAxe. Items12/14gloves/boots weight2 each, cuirass16weight4/price12, helm13weight2.",
@@ -125,5 +130,9 @@
   "veylan133": "Actual7full98HPGhouls defeatednormalFireball/exceptionalStaff,all6fullHP,gold257->312,MP8/8/0/17/17/10;133hash0ada6914213d7ee97f6eb955fbf1c48d52c0478e41ae100b898bb35a30ef1d535. ActualnormalCutterOUp/2opens26,16 roomdoor to13/state39. SourceinitialRatassumptionqualifiedbyactualsavedspawnedGhoul174 records100/104/108; no syntheticguarddeath. Normalstepthroughopenentry26,16admitssecond7full98Ghouls. Outcomeunclaimed,normaltacticsproceedwithremainingmana/freeStaffs.",
   "veylan134": "Secondactual7full98Ghoulgroupwon,noHP loss,all6fullHP,gold357food900,MP8/8/0/2/2/0;134hash44fd0c5a38752ba111947b2a05114398bad996c2f9b1a6b9e5269f8f642ba2907. No restore/casualtycleanup/injectedoutcome; source532unchanged. Continueclearedroom26,10 fornormalcamp thenkeychest29,10.",
   "veylan135": "NormalH26,10 refuseddueenemies/resourcesunchanged, retained. NormalSearchRight29,10from28,10/Cutter2 earnsRusty72qty1/field25=2,135hash8431c74dd1fb4785706da0f84ee269d103fff29e0d9e67a01241b5f4ca939e9ab. RepeatedSearchRight leavesonekey; no expectedoutcomeedit. All6fullHP,MP8/8/0/2/2/0,gold357food900. Returnnormalopen/traversegate pending; originalguarddeathnotinjected.",
-  "veylan136_137": "Third5full98Ghouls wonwithtwofreeStaffs, noHPMPcost,136gold379. Afternewclearedenemy normalHstillrefused/resourcesunchanged. Fourth5full98Ghoulgroup24,22 actuallywon but Kat/Bridgitdied;137retains4living,HP0/63/67/0/62/64,MP4/4/0/2/2/0,gold409food900. No restore/casualtycleanup. Battlehelpernowordinarypausemenuimmediatelyonworldreturn toavoidunintendedliveworldtimewhilesourcereviewing. Source/Engineunchanged."
+  "veylan136_137": "Third5full98Ghouls wonwithtwofreeStaffs, noHPMPcost,136gold379. Afternewclearedenemy normalHstillrefused/resourcesunchanged. Fourth5full98Ghoulgroup24,22 actuallywon but Kat/Bridgitdied;137retains4living,HP0/63/67/0/62/64,MP4/4/0/2/2/0,gold409food900. No restore/casualtycleanup. Battlehelpernowordinarypausemenuimmediatelyonworldreturn toavoidunintendedliveworldtimewhilesourcereviewing. Source/Engineunchanged.",
+  "veylan138": "Normalwithdraw19->20;singleRat50 actualwin/noHPMPgoldchange. Nextsource6full98HP144group at16,23 notfought: normalEsc/YFlee succeeds,409->204gold,4livingunchanged,2deadretained. FourordinarySouthsteps16,27 retained;138hash7bb870eadcfa8eaee9d0c3e9a41869cfddf18c35ce6d68d102dc1f3c2561e39ac. Sourceflee3stepgrace, no enemydeath/XPclaim or stateedit. Actualrouteavoidsremaininghostilebacktoownedhorse24,38.",
+  "veylan139": "Secondexitcontact8full98HP144 at12,38; normalEsc/YFlee204->102gold, no enemyvictory/XPclaim. NormalDown/Yfromactualwalkable103boundary12,39 exitsSurface139,215 within sourcegrace. Ownedhorse remainsRuin20/24,38 object192/127,state0 confirmedactualsavedcanonicalmap. NormalHoutside allowed:livingMP15/15/24/15,deadKat4/Br2unchanged;food900->837,4livingfullHP.139hash70267845f2b8eaf222e9a4e70d821f283a656e0b32ac7abf2f1ae389f3fa1baf5. KnownTemple49/inn102goldfunds72+10. No sourcebuildlaunchorstateedit.",
+  "recovery140": "87step normalSurface return retainedactualsolo83,3x50,4x50,4x50roadwins;4livingHPfulluntilHero67->60lastfight, gold102->136,food837->845. Bayport01:54Templeinactive; normalquarterWest48, W9 from02:04->11:04, East49refresh. Temple49/64 day37,37actualnormal36eachKat/Br resurrected,136->64gold,140hashdff378353689addb2b1d00ebd1dea77b893fa3a90e0e0862b443a807c400ced7c. All6aliveHP71/63/60/62/62/64,MP8/1/5/32/24/15; innfullrest/cold next. No restore/cleanerreplay/Enginechange.",
+  "recovery141_cold021_142": "NormalInn48/208 afternoon W2/reentryrefresh, TDown/Y/R/Y10gold ->141 fullHP71/63/67/62/62/64,MP8/20/20/32/32/20,gold54food845,06AM.141hashf71defec7751e32a53559c78a1ff4b918f59fe2d59eec1bf6b7f9971531e17975. Actualcold021 exactparty/inventory/allquestfields/resources/sound/onfoot/appearance/transportobject/session/noassistance matches; actualnormalSave998parkedhorseRuin20row192 remains24/38/127/0. FirstnormalUp17,24->17,23 passed142hash1fcb311971111a051774715fc5406f609ed332fb95a5784b3f866544cf82b284e, sameHPMP/resources;53stepinnexitcontinuationpassed9,38.6builds/21gameCLI+2focusedCLI=23materialCLI,source532unchanged."
 }

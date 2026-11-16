@@ -1,10 +1,10 @@
 {
   "status": "IN PROGRESS",
-  "scope": "Earned mainline through81: Watcher/door, Margravepre-award request, tenpiratevictory withfourcasualties, twoearnedINTlevels, normalBattleInventory shieldloans, returnweaksea victories andworldpirate180cannonremoval. Guild/Raque/ending remainunearned.",
-  "executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4",
-  "source_binding": "SCUMMVM-CE-CANNON530-VERIFICATION.json",
+  "scope": "Earned normal New ancestry throughYvviar/horse/earlyAnkh/VeylanRusty/refusals/retainedcasualties/paidrecovery; fullcampaign,selectedbranches andending remainINPROGRESS.",
+  "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed",
+  "source_binding": "SCUMMVM-CE-MOUNTED-TALK532-VERIFICATION.json",
   "builds": 6,
-  "process_launches": 20,
+  "process_launches": 21,
   "verified_selected_nodes": [
     "opening-exit",
     "axea-page",
@@ -40,7 +40,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot000.g0": "641140b00487869f6dbbbb8fce4a5d5e81e9478c7651eb5c5efba8922b2341c5",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot000.g0.ce-achievements.json": "677de54e41991de7ff9f340b951df31fe670f89edac543b33afeb5249f87cfd7"
       },
-      "process": 1
+      "process": 1,
+      "executable_sha256": "81feb2c7ff17594a6ea9754dc60602a755b2f37ea7c53b437f65a18e7c35000f"
     },
     {
       "label": "Keep first door",
@@ -52,7 +53,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot001.g0": "ce3922a0af4482ffbf220de30e131c39fb459fe69e9155de9416cf510c709e72",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot001.g0.ce-achievements.json": "cb27d3203ec11041af57826a48129df3ac8b4f7071d63372ee54a9a825cc7f1d"
       },
-      "process": 2
+      "process": 2,
+      "executable_sha256": "81feb2c7ff17594a6ea9754dc60602a755b2f37ea7c53b437f65a18e7c35000f"
     },
     {
       "label": "tutorial rat victory",
@@ -66,7 +68,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot002.g0": "b9f54d4d2e82dad1484212618b9297f3f0737bebf29f88027814ec05887a67a3",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot002.g0.ce-achievements.json": "d0912b98a62b6592272436ff4d53c81cce45b82a369fc42a18fd8e4a9e3ef905"
       },
-      "process": 4
+      "process": 4,
+      "executable_sha256": "81feb2c7ff17594a6ea9754dc60602a755b2f37ea7c53b437f65a18e7c35000f"
     },
     {
       "label": "ship upper stairs",
@@ -82,7 +85,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot003.g0": "b33e5261c1ac565e4674b78846e9355c49a6b9e96ae5bc5d2ad6981706b4fdc3",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot003.g0.ce-achievements.json": "f89e6baf5434c4f438a76a5d77959c5ea75649807b5bf126d144a4f253da6b8c"
       },
-      "process": 4
+      "process": 4,
+      "executable_sha256": "81feb2c7ff17594a6ea9754dc60602a755b2f37ea7c53b437f65a18e7c35000f"
     },
     {
       "label": "pirate log directions",
@@ -100,7 +104,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot004.g0": "c3b3c672ac7987bf88174ae85afec2ed48e92b412dbd691b31cf81c6568d8199",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot004.g0.ce-achievements.json": "5297a90c901a1ec52b6a7ed18e1fd6e46e057aaeaf979f427722aec4e80a7c2b"
       },
-      "process": 4
+      "process": 4,
+      "executable_sha256": "81feb2c7ff17594a6ea9754dc60602a755b2f37ea7c53b437f65a18e7c35000f"
     },
     {
       "label": "Captains log acquired",
@@ -120,7 +125,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot005.g0": "61b553a22cda708c28b8af104881638f1e9fb0b714a8aa2b00911df2800828f1",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot005.g0.ce-achievements.json": "bbda419cd9ad7bbfebf9ea971fadbfd3356428fe5534df4ab7cdda08db840443"
       },
-      "process": 4
+      "process": 4,
+      "executable_sha256": "81feb2c7ff17594a6ea9754dc60602a755b2f37ea7c53b437f65a18e7c35000f"
     },
     {
       "label": "shipwreck exit",
@@ -142,7 +148,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot006.g0": "d27c3ef2dfac047400fa1a39f8db9cd8b6cecd9a5b9fbae75826ea6618eea30d",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot006.g0.ce-achievements.json": "d0fe33ccaaa70c97741c6786143003d4d2085107406b6a4e5158f86ffe1b2d38"
       },
-      "process": 4
+      "process": 4,
+      "executable_sha256": "81feb2c7ff17594a6ea9754dc60602a755b2f37ea7c53b437f65a18e7c35000f"
     },
     {
       "label": "authored shipwreck exit",
@@ -166,7 +173,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot007.g0": "b8ca9a433f3130077e0ff5dbf56da66b27d22aac32be6d3a190b5a06a71ae573",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot007.g0.ce-achievements.json": "c9c7514b9ffbcb017ab465683a83e92a5340ad37c58bacb353857f67b14950fa"
       },
-      "process": 4
+      "process": 4,
+      "executable_sha256": "81feb2c7ff17594a6ea9754dc60602a755b2f37ea7c53b437f65a18e7c35000f"
     },
     {
       "label": "Everton arrival",
@@ -192,7 +200,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot008.g0": "7792fd4c460e2635e466d4de2266aa6118e7e95255c8440653e4178a19ca5a91",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot008.g0.ce-achievements.json": "fa83c6f0c74f76b069b3008920265151308de4416f8bccd458ff1f1832474958"
       },
-      "process": 5
+      "process": 5,
+      "executable_sha256": "81feb2c7ff17594a6ea9754dc60602a755b2f37ea7c53b437f65a18e7c35000f"
     },
     {
       "label": "Everton before recruitment",
@@ -220,7 +229,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot009.g0": "bdf59621467013b824369b0c7c732786329f38ac8c56c047d519fe4b088414c8",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot009.g0.ce-achievements.json": "1dbd07954e84fe099af64569bf83e77376f9a42f7b598be86c01c3aafc64e4dc"
       },
-      "process": 5
+      "process": 5,
+      "executable_sha256": "81feb2c7ff17594a6ea9754dc60602a755b2f37ea7c53b437f65a18e7c35000f"
     },
     {
       "label": "Everton moving recruit approach",
@@ -250,7 +260,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot010.g0": "39ebd4a13f7fc7f96d722fe6a5daf82c716061de2c51ac41f85fa8b9a711de31",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot010.g0.ce-achievements.json": "4d917a6a1a366ee5b6a542be950cb57bbe7b2759d2661fab31159911a3cfe409"
       },
-      "process": 5
+      "process": 5,
+      "executable_sha256": "81feb2c7ff17594a6ea9754dc60602a755b2f37ea7c53b437f65a18e7c35000f"
     },
     {
       "label": "Bridgit legitimately recruited",
@@ -282,7 +293,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot011.g0": "7508b6ae94c4c1278f27c5df78bdae1d82d1ece829f61edfca7090544eef7a0e",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot011.g0.ce-achievements.json": "b0ee36f19d7dc46007078484acde51107d78412003f16c4e0bbaaa2fbb16841f"
       },
-      "process": 5
+      "process": 5,
+      "executable_sha256": "81feb2c7ff17594a6ea9754dc60602a755b2f37ea7c53b437f65a18e7c35000f"
     },
     {
       "label": "Everton departed with Bridgit",
@@ -316,7 +328,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot012.g0": "b636ecdc2be5c86631ff72598cddd86da9a536a0332661642bcbfa1f03555b8b",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot012.g0.ce-achievements.json": "aac7ee084f8d8c594fa976b5acd78346b0eee8bb574e92cab7e52f65d899e1af"
       },
-      "process": 5
+      "process": 5,
+      "executable_sha256": "81feb2c7ff17594a6ea9754dc60602a755b2f37ea7c53b437f65a18e7c35000f"
     },
     {
       "label": "first earned surface battle",
@@ -352,7 +365,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot013.g0": "fd075ffb04f14a21a84660f114391c3ba6420b6066808afd839d552988deb691",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot013.g0.ce-achievements.json": "4b2f4bbdb033417c024b4e2b61671599908d22ce9ad37cfb4920069dc081c495"
       },
-      "process": 5
+      "process": 5,
+      "executable_sha256": "81feb2c7ff17594a6ea9754dc60602a755b2f37ea7c53b437f65a18e7c35000f"
     },
     {
       "label": "earned stronger encounter escaped",
@@ -390,7 +404,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot014.g0": "902d4acbb74060c9d92b426b3f87a4622f24656031d535e41b96a8d737908c51",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot014.g0.ce-achievements.json": "2e659586ed2c01f0f761bd7de0de5a38fab0402d134bea3c2c3956a826b402ed"
       },
-      "process": 5
+      "process": 5,
+      "executable_sha256": "81feb2c7ff17594a6ea9754dc60602a755b2f37ea7c53b437f65a18e7c35000f"
     },
     {
       "label": "Suurtheld Castle11 arrival",
@@ -430,7 +445,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot015.g0": "29904ff511fc5a38d0950d6ad5380a2054d4b53b4dbc6c02973f68e68b874459",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot015.g0.ce-achievements.json": "373a195c5f174fa44133e799169649c4a699d3ce8b9b07a9954cf6b746125f2d"
       },
-      "process": 5
+      "process": 5,
+      "executable_sha256": "81feb2c7ff17594a6ea9754dc60602a755b2f37ea7c53b437f65a18e7c35000f"
     },
     {
       "label": "Castle11 visit completed",
@@ -472,7 +488,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot016.g0": "606d24f1a36c5259fd7de23999b43fe74dfce6e3957511720b0c3bf68e62e11f",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot016.g0.ce-achievements.json": "eadb335dbb9ccc345fd04e962184d5074381f4b7fa16d2f5e9828261587c5b27"
       },
-      "process": 5
+      "process": 5,
+      "executable_sha256": "81feb2c7ff17594a6ea9754dc60602a755b2f37ea7c53b437f65a18e7c35000f"
     },
     {
       "label": "Maldac road earned escape",
@@ -516,7 +533,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot017.g0": "362d4a446fa03660359beeee4ba0d8c547a44926aef5d811c8ceecc92301fcb5",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot017.g0.ce-achievements.json": "fb89c4a9dd7b8b5515ac428578843ded53a1aef3e29772e93c6ae60729ea84b5"
       },
-      "process": 5
+      "process": 5,
+      "executable_sha256": "81feb2c7ff17594a6ea9754dc60602a755b2f37ea7c53b437f65a18e7c35000f"
     },
     {
       "label": "earned road encounter resolved",
@@ -562,7 +580,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot018.g0": "e1dd939174874b07b09e4ed5647639d43d3241a01b7645afe446981dde225e25",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot018.g0.ce-achievements.json": "d220bfd2709a762e3198f66855fb0f7c4854e872b92158719ef7e4bbff6c3684"
       },
-      "process": 5
+      "process": 5,
+      "executable_sha256": "81feb2c7ff17594a6ea9754dc60602a755b2f37ea7c53b437f65a18e7c35000f"
     },
     {
       "label": "earned Lesser Heal first cast",
@@ -610,7 +629,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot019.g0": "f91f144e9957bf7a78e9a4269c2871671cd5c03b4962b366e219a954418983b1",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot019.g0.ce-achievements.json": "b1e67682579bc835dcbb66304e90795a35db0bf3cc20092e241ea590803eefa7"
       },
-      "process": 5
+      "process": 5,
+      "executable_sha256": "81feb2c7ff17594a6ea9754dc60602a755b2f37ea7c53b437f65a18e7c35000f"
     },
     {
       "label": "Lesser Heal readied",
@@ -660,7 +680,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot020.g0": "e3372d1d617a6093aed8985bf7d1489f243d67cfc5892836bb0f7644502de5d5",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot020.g0.ce-achievements.json": "582c65e8d503c469a3509021c45ff32b4cb5b965e63993a3bd76b7fdba5949d4"
       },
-      "process": 5
+      "process": 5,
+      "executable_sha256": "81feb2c7ff17594a6ea9754dc60602a755b2f37ea7c53b437f65a18e7c35000f"
     },
     {
       "label": "Lesser Heal earned result",
@@ -712,7 +733,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot021.g0": "e82e57945cc39b5b2fa42ddd3f2e5bd153b1cf21dda2c33eabfe7cff64f0075c",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot021.g0.ce-achievements.json": "d889a691b2a4465a456da4ca66fdc164a693d63ca47c0a0ed5ee3d5a2362e633"
       },
-      "process": 5
+      "process": 5,
+      "executable_sha256": "81feb2c7ff17594a6ea9754dc60602a755b2f37ea7c53b437f65a18e7c35000f"
     },
     {
       "label": "both earned members healed",
@@ -766,7 +788,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot022.g0": "12bb7b07a3252d607cb7db7bff5d77628729aec0f2dabf0a6d8f8a9bf749ee3a",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot022.g0.ce-achievements.json": "91bb5b478e97c86d25763ecb5b978251980c71bac3a38ee0aae5eea84afdd38d"
       },
-      "process": 5
+      "process": 5,
+      "executable_sha256": "81feb2c7ff17594a6ea9754dc60602a755b2f37ea7c53b437f65a18e7c35000f"
     },
     {
       "label": "earned road pursuers defeated",
@@ -822,7 +845,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot023.g0": "222306d5f121cb67cf111f02d814ac3fcdf28ae35d2e27b341083a6ee002832a",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot023.g0.ce-achievements.json": "c007cc0cc06b7a3cecd81e4f7cc8658f9bd11ceb3946e85ba9a19ce068bde1ea"
       },
-      "process": 5
+      "process": 5,
+      "executable_sha256": "81feb2c7ff17594a6ea9754dc60602a755b2f37ea7c53b437f65a18e7c35000f"
     },
     {
       "label": "Maldac earned arrival",
@@ -880,7 +904,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot024.g0": "ef12196c57fc35a1b928a01242f83ec21eb5a4e643be09915e29928948dd5a4a",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot024.g0.ce-achievements.json": "b5f22f84199165378a07e149bd7846e5a2439140488de01df5112a6ea984d6b0"
       },
-      "process": 5
+      "process": 5,
+      "executable_sha256": "81feb2c7ff17594a6ea9754dc60602a755b2f37ea7c53b437f65a18e7c35000f"
     },
     {
       "label": "Maldac dock approach",
@@ -940,7 +965,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot025.g0": "95e24d6d20349e1ed487290d2affa8cb5de4572bf2f85318ac5bb827afa56ea2",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot025.g0.ce-achievements.json": "e96a418a95efb620430c2a2300a41caaaa71c5b130f73144e5d885ba7288b630"
       },
-      "process": 5
+      "process": 5,
+      "executable_sha256": "81feb2c7ff17594a6ea9754dc60602a755b2f37ea7c53b437f65a18e7c35000f"
     },
     {
       "label": "authored skiff legitimately boarded",
@@ -1002,7 +1028,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot026.g0": "66b75f7df620d445a309ce669c3ff56c4192cf5b94f863e38ebbcd25c4bb7f6a",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot026.g0.ce-achievements.json": "56c5119c8d6b840cdd4f84a06ebd62c12f8584c0e733fe40dd8274fccac2c79f"
       },
-      "process": 5
+      "process": 5,
+      "executable_sha256": "81feb2c7ff17594a6ea9754dc60602a755b2f37ea7c53b437f65a18e7c35000f"
     },
     {
       "label": "earned skiff on surface",
@@ -1012,7 +1039,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot027.g0": "8bd0076a746dfb26b19498ee449fd7a2dd3fd2b3ff1140eceaca60affa72d780",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot027.g0.ce-achievements.json": "477c7df98611c6dc9201458cd10acb2dc7c66056a9302377579d8eac79932fbb"
       },
-      "process": 6
+      "process": 6,
+      "executable_sha256": "81feb2c7ff17594a6ea9754dc60602a755b2f37ea7c53b437f65a18e7c35000f"
     },
     {
       "label": "Axea island landing",
@@ -1022,7 +1050,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot028.g0": "10d5ef7869709c3a9f9c3e404de29d06616cab838633ed55c3b0e86f4d8cd340",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot028.g0.ce-achievements.json": "b5e3dddf40d2a35c1ab77f44afe9967a79104af5577c61881142198c4e88ef84"
       },
-      "process": 6
+      "process": 6,
+      "executable_sha256": "81feb2c7ff17594a6ea9754dc60602a755b2f37ea7c53b437f65a18e7c35000f"
     },
     {
       "label": "Axea source approach",
@@ -1032,7 +1061,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot029.g0": "fa5c9a9b91f640562696482c624aa97f0c40f9972e15ed1787076b0d5544cb37",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot029.g0.ce-achievements.json": "6ef90abc9b5fbb62aecb583e7b0634d17e8957a100b0351a7facbe4a8acb39f6"
       },
-      "process": 6
+      "process": 6,
+      "executable_sha256": "81feb2c7ff17594a6ea9754dc60602a755b2f37ea7c53b437f65a18e7c35000f"
     },
     {
       "label": "Axea first parchment earned",
@@ -1042,7 +1072,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot030.g0": "fbee6338f3e6ccafbb313da1d9a6ed2d8392f9233d4b1073b2662222147414cb",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot030.g0.ce-achievements.json": "152fb99fac13ed6a6e3ae8e82e3f76739dd805849d18e1a4dcfa683c296c5b4f"
       },
-      "process": 6
+      "process": 6,
+      "executable_sha256": "81feb2c7ff17594a6ea9754dc60602a755b2f37ea7c53b437f65a18e7c35000f"
     },
     {
       "label": "Axea repeat declined",
@@ -1052,7 +1083,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot031.g0": "69b247063aa13faa91e21f29733920de4efb3d56b8cafa224ae62ed1042839b5",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot031.g0.ce-achievements.json": "b94eb009ba6d164bde0686a30d9d7303d97883312db21a16bce12a7a06006a1e"
       },
-      "process": 6
+      "process": 6,
+      "executable_sha256": "81feb2c7ff17594a6ea9754dc60602a755b2f37ea7c53b437f65a18e7c35000f"
     },
     {
       "label": "Axea earned cold continued",
@@ -1062,7 +1094,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot032.g0": "f5f2f4d4b3d134ab30cf937c71ec6c8ca84cd4fcc8c30ea6f6f874a3583a1de9",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot032.g0.ce-achievements.json": "c8ddbe04a0ff4aa27a578608274ebec33f79b43da5af596c495ce9545bfe701e"
       },
-      "process": 7
+      "process": 7,
+      "executable_sha256": "81feb2c7ff17594a6ea9754dc60602a755b2f37ea7c53b437f65a18e7c35000f"
     },
     {
       "label": "Axea page mainland return",
@@ -1072,7 +1105,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot033.g0": "df005f53c943dd4971f898f83e9c0d523d729f850b13bf6f865a32532c5b8ed2",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot033.g0.ce-achievements.json": "f155b313f512434b7865a2978a0c952d43856ff8ddf96d417f4603001f9f3553"
       },
-      "process": 7
+      "process": 7,
+      "executable_sha256": "81feb2c7ff17594a6ea9754dc60602a755b2f37ea7c53b437f65a18e7c35000f"
     },
     {
       "label": "Kat legitimately recruited",
@@ -1082,7 +1116,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot034.g0": "b09eda06b48c929ef10c61f6c151c293e27a67aead9711ed86792431f3cff2dc",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot034.g0.ce-achievements.json": "69d2c8c1a5d4db7a80dd985c932af394ef1dc6bb0c8779ff368d972f96083ee1"
       },
-      "process": 7
+      "process": 7,
+      "executable_sha256": "81feb2c7ff17594a6ea9754dc60602a755b2f37ea7c53b437f65a18e7c35000f"
     },
     {
       "label": "Bayport earned arrival",
@@ -1092,7 +1127,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot035.g0": "a4accf71601317447c4fa4eb1a74c23fcf174e166d6b9bf3d7fb4f14ee0dfad5",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot035.g0.ce-achievements.json": "e5a2ccb97cd1b24e38830c2f5fb3312c240e7ec9b14600e6e5f82a2e0670edd2"
       },
-      "process": 7
+      "process": 7,
+      "executable_sha256": "81feb2c7ff17594a6ea9754dc60602a755b2f37ea7c53b437f65a18e7c35000f"
     },
     {
       "label": "Vulon earned aid and repeat",
@@ -1102,7 +1138,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot036.g0": "8ede1c22777968e2e1c31558fade55f6d4479c89edefd79ab16fcb2c8eb1e1ec",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot036.g0.ce-achievements.json": "f3a9bd01600b323dd851bc04fcc8836fc0b05a380739b7fe8785fb9017dcc96d"
       },
-      "process": 7
+      "process": 7,
+      "executable_sha256": "81feb2c7ff17594a6ea9754dc60602a755b2f37ea7c53b437f65a18e7c35000f"
     },
     {
       "label": "Bayport NPC edge continuation",
@@ -1112,7 +1149,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot037.g0": "6ee57ffdb7dea64d58a54f726bf17d3d9a61e94ea57e8b59c6b3a993ae16d1b4",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot037.g0.ce-achievements.json": "735f47d9d701ae1503c4a4fe3565639d6f15843f11bd1da01203ff9fe94446c2"
       },
-      "process": 9
+      "process": 9,
+      "executable_sha256": "bc41a7d987509306add2702efb598eea2244663329627b10c4341e92e69944aa"
     },
     {
       "label": "Cutter legitimately recruited",
@@ -1122,7 +1160,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot038.g0": "2f8ed7ebb7f4b0e9315e4d7895fc470ee62d8d671253c149183739d69da8d865",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot038.g0.ce-achievements.json": "0e0309e57c0f5105470b990bf1c31c93cf6cebe8ae5e1286aef18065b47d1637"
       },
-      "process": 10
+      "process": 10,
+      "executable_sha256": "bc41a7d987509306add2702efb598eea2244663329627b10c4341e92e69944aa"
     },
     {
       "label": "Bayport boat legitimately purchased",
@@ -1132,7 +1171,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot039.g0": "696a9caa95e187eb5fbfc28f71fec507b0c7eb73a0195c2504cb72fe3b504712",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot039.g0.ce-achievements.json": "7364df62c1c16c16ba385532ce33714922f51b4701f942032f89ad415e6ba3df"
       },
-      "process": 10
+      "process": 10,
+      "executable_sha256": "bc41a7d987509306add2702efb598eea2244663329627b10c4341e92e69944aa"
     },
     {
       "label": "Purchased skiff earned sea departure",
@@ -1142,7 +1182,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot040.g0": "88a0ac909372d6ce51ee2a013cb953a018744ce80978f2f7e61825d62ef44741",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot040.g0.ce-achievements.json": "70784690bc1bf769e0be49509e9a41aadb8436ee0865dc61a2923b5be0d1c795"
       },
-      "process": 10
+      "process": 10,
+      "executable_sha256": "bc41a7d987509306add2702efb598eea2244663329627b10c4341e92e69944aa"
     },
     {
       "label": "Earned northern shore landing and rest",
@@ -1152,7 +1193,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot041.g0": "230a2f1c197619cf3ce33f807ef1ea26fe2267920abc0a6c01f2f181d5572f74",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot041.g0.ce-achievements.json": "12a785b4ae321bc1a11a7e7a8c3b49ab8a086ffb8cff7040298751865e05c92c"
       },
-      "process": 10
+      "process": 10,
+      "executable_sha256": "bc41a7d987509306add2702efb598eea2244663329627b10c4341e92e69944aa"
     },
     {
       "label": "Nourtheld earned arrival after northern battle",
@@ -1162,7 +1204,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot042.g0": "821fa48860aff022a0e8be2425e496283e5443cdd703a59619efb665e7e82176",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot042.g0.ce-achievements.json": "23b7d8e078773a7f3fba34755450f3e7d1a5cb86b5b101a2db6b8bf566ac07a9"
       },
-      "process": 10
+      "process": 10,
+      "executable_sha256": "bc41a7d987509306add2702efb598eea2244663329627b10c4341e92e69944aa"
     },
     {
       "label": "Library earned entrance restored after hazard defeat",
@@ -1172,7 +1215,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot043.g0": "43122dc1ebdd643b8b4c36f80da030a30c8da08ce14fc07b46c81e012e29552f",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot043.g0.ce-achievements.json": "7d32477ba691bdb7201ad235c14332596c5471b09af073484fec6db698ff686c"
       },
-      "process": 10
+      "process": 10,
+      "executable_sha256": "bc41a7d987509306add2702efb598eea2244663329627b10c4341e92e69944aa"
     },
     {
       "label": "Sally shrubbery legitimately earned",
@@ -1182,7 +1226,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot044.g0": "387a6f7b32bfebf4c793dbc3a0cd5f83e8e269422614170ff2795bd61b7fbf4d",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot044.g0.ce-achievements.json": "aaf709b18ba723d4601486fce9595b7d0471e264f2c87974fff5334f33f21858"
       },
-      "process": 10
+      "process": 10,
+      "executable_sha256": "bc41a7d987509306add2702efb598eea2244663329627b10c4341e92e69944aa"
     },
     {
       "label": "Gordon hideout legitimately earned and repeat",
@@ -1192,7 +1237,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot045.g0": "bf7d0a894ecedf87550cb06a14d605c68770253c35846f768605b127ec6245c9",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot045.g0.ce-achievements.json": "b2a65b5ea603e2fa4ef6a798f8f7d54c53233dd48d8af26669deb759a86ec3df"
       },
-      "process": 11
+      "process": 11,
+      "executable_sha256": "bc41a7d987509306add2702efb598eea2244663329627b10c4341e92e69944aa"
     },
     {
       "label": "Captain Ray earned funding and repeat",
@@ -1202,7 +1248,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot046.g0": "d6d9f473e96396045d8081aca01415224d9c274c3666c647b747ae26d6e4c37d",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot046.g0.ce-achievements.json": "4f78750c8b101abfbabb8b9c050dd1558508858ab946b41d655582c63342f8b3"
       },
-      "process": 12
+      "process": 12,
+      "executable_sha256": "bc41a7d987509306add2702efb598eea2244663329627b10c4341e92e69944aa"
     },
     {
       "label": "Nourtheld funding full rest and food prepared",
@@ -1212,7 +1259,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot047.g0": "8a94c405c8c376b9a0760f39e9b9e7bd88cd26d0c522284bdb84da5d530d17ed",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot047.g0.ce-achievements.json": "2250ad67e454e2376af1d58f1a21f9b94c986e71ed0a84000bdc75c475897583"
       },
-      "process": 12
+      "process": 12,
+      "executable_sha256": "bc41a7d987509306add2702efb598eea2244663329627b10c4341e92e69944aa"
     },
     {
       "label": "Nourtheld Xujamar and Alluvion legitimately recruited",
@@ -1222,7 +1270,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot048.g0": "b764adbec503b934ff54933a0fef84122bcb9afa134b9b0e1b770486d8809ded",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot048.g0.ce-achievements.json": "248e43e4f00002170f3922b5bd55606b07607d8faa8dc73bd10b6822f35989ab"
       },
-      "process": 12
+      "process": 12,
+      "executable_sha256": "bc41a7d987509306add2702efb598eea2244663329627b10c4341e92e69944aa"
     },
     {
       "label": "Six-member party returned to earned skiff",
@@ -1232,7 +1281,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot049.g0": "f400682d1e6f26d9b3332626b66d5052963ac6917b13ac61b144e9923b9f4f68",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot049.g0.ce-achievements.json": "2edfdf7a64695dd5bd37740540ec43360ecde3b9f481f9463be6f3177bdf159e"
       },
-      "process": 12
+      "process": 12,
+      "executable_sha256": "bc41a7d987509306add2702efb598eea2244663329627b10c4341e92e69944aa"
     },
     {
       "label": "Six-member Bayport return after sea crossing",
@@ -1242,7 +1292,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot050.g0": "88535b46c553bdc9230f2346d6a570d8b18cdf436310044a4edd7adf2582e377",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot050.g0.ce-achievements.json": "8f2c05703bc280e9b4efe07725cbc8785b6560e642d52313ad693b40cce7d596"
       },
-      "process": 12
+      "process": 12,
+      "executable_sha256": "bc41a7d987509306add2702efb598eea2244663329627b10c4341e92e69944aa"
     },
     {
       "label": "Frigate legitimately purchased with Captain Ray funding",
@@ -1252,7 +1303,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot051.g0": "a6fedcc06918d6b6d942c530b3a1777090290e6d250e3fa3462d3d4223dd52ef",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot051.g0.ce-achievements.json": "802c278dda70e47677acc6191af0a1950b9014522e906da80b3a4cea8762cdfd"
       },
-      "process": 12
+      "process": 12,
+      "executable_sha256": "bc41a7d987509306add2702efb598eea2244663329627b10c4341e92e69944aa"
     },
     {
       "label": "Earned frigate boarding cannon and sea departure",
@@ -1262,7 +1314,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot052.g0": "2d556d36d71c93a99a3cdb32fd3d0a708f4ce0f733c93e39f11f9307e89e20c3",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot052.g0.ce-achievements.json": "106c6e3d86ec70490e50575049433540baea752af66738add5039b6d30d18cc2"
       },
-      "process": 12
+      "process": 12,
+      "executable_sha256": "bc41a7d987509306add2702efb598eea2244663329627b10c4341e92e69944aa"
     },
     {
       "label": "Pirate boarding victory with Cutter and Bridgit dead",
@@ -1272,7 +1325,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot053.g0": "66d91328b119aeaa1b8d75e8b90bc8c3df0268b6ab515e902177a15daa2853f5",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot053.g0.ce-achievements.json": "9ce69e1aebd16d2e8d47c51c045afe6b4d5a6d328957039bef469c02074be641"
       },
-      "process": 12
+      "process": 12,
+      "executable_sha256": "bc41a7d987509306add2702efb598eea2244663329627b10c4341e92e69944aa"
     },
     {
       "label": "Earned Cutter Bridgit resurrection and party healing",
@@ -1282,7 +1336,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot054.g0": "031005f944ae30820b8ed183d7cca4e61f2d8309c21f97ea8193cf72745b707d",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot054.g0.ce-achievements.json": "08704c96c5d9ed77726ce7686553a5866d6b3d38ad1791bdadd6d3cd270aa13d"
       },
-      "process": 12
+      "process": 12,
+      "executable_sha256": "bc41a7d987509306add2702efb598eea2244663329627b10c4341e92e69944aa"
     },
     {
       "label": "Frigate reboard after earned Temple recovery",
@@ -1292,7 +1347,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot055.g0": "1e22e7d64338cb2439230e4f57ee14524fd195cc879dacab73b92dbc3fa8ef38",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot055.g0.ce-achievements.json": "da87b7303d92df96e1f749b5d9908483da0ea5f9c7bde75a535dd1465043d94d"
       },
-      "process": 13
+      "process": 13,
+      "executable_sha256": "bc41a7d987509306add2702efb598eea2244663329627b10c4341e92e69944aa"
     },
     {
       "label": "Source-edge cannon turn completed",
@@ -1302,7 +1358,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot056.g0": "7f2c7b442d2f5e0e5aa0e80dffcef67f05f942b20ede864bf06090d46447491a",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot056.g0.ce-achievements.json": "ce2b1640938275a89561362cbd3b5cfa9bdb50e4692027eef6fa3325915b4a3d"
       },
-      "process": 15
+      "process": 15,
+      "executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4"
     },
     {
       "label": "Four pirate ships cleared and north island approach",
@@ -1312,7 +1369,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot057.g0": "f86428dfadcffe5a1570b95ba6cc5debe87b431af95cc453a371e17babfd6314",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot057.g0.ce-achievements.json": "b43d6190d7cb39072ce8df167265b32fba04b210247cb49567ce372cbe5321ce"
       },
-      "process": 16
+      "process": 16,
+      "executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4"
     },
     {
       "label": "Freebooters Cove earned island arrival",
@@ -1322,7 +1380,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot058.g0": "ff87a5bc5bdd0e235cfc4b6feaa0137b434112ea60b6a341f3651bacd71a8630",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot058.g0.ce-achievements.json": "e2cc5ea3623d6f76707eb45e3956c0b99dea741af3326572f14748c303d96fd7"
       },
-      "process": 16
+      "process": 16,
+      "executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4"
     },
     {
       "label": "Raque clue repeat before full battle",
@@ -1332,7 +1391,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot059.g0": "066d6d9083f67bdc13c36ff6f4ef3d2773dafd9f7b67c079372bc950c083e213",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot059.g0.ce-achievements.json": "2a4e115ac15b7d7c9848949e719b7189408f45627d1b9911da753a838ba8b017"
       },
-      "process": 16
+      "process": 16,
+      "executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4"
     },
     {
       "label": "Primary restored frigate for required Guild preparation",
@@ -1342,7 +1402,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot060.g0": "22605f4d86c982bdff2996ad9d5efdcec6f511741ae9ef491838edffeef1ffd4",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot060.g0.ce-achievements.json": "2c567e27fd268440439cba28ee62438f1b174b7bd298dee89c17acc91163e3a6"
       },
-      "process": 16
+      "process": 16,
+      "executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4"
     },
     {
       "label": "Eight sea enemies cannon victory and earned level allocations",
@@ -1352,7 +1413,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot061.g0": "f3f936781b36a84e4402bb9cc4bde64d5edca2efa6055712d49d6ed468bdaf14",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot061.g0.ce-achievements.json": "1e16e0280f4da0aba3214842074e8d1e6c1b61a2a82cf9ca9b60119cd8dd257f"
       },
-      "process": 16
+      "process": 16,
+      "executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4"
     },
     {
       "label": "Earned sea victory retained and Cove ship cleared",
@@ -1362,7 +1424,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot062.g0": "07340c5a57d689106237b73b48ce51c5754dbc27a0d0fc524f05c0d6bc2de8c3",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot062.g0.ce-achievements.json": "ec6586ceb36ffc6ff38c227413196c2fe4c8fc6036d941b687917119be7fea89"
       },
-      "process": 16
+      "process": 16,
+      "executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4"
     },
     {
       "label": "Ten pirate cannon victory all six survived",
@@ -1372,7 +1435,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot063.g0": "ccd6fbad26a5e3ea1c188f7ffbb26aeb8ca0e2ab07b4d22976d1ee54752a95de",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot063.g0.ce-achievements.json": "8530fe06609c6ef45247ee1ee4b80a4e4036e420e8ffbd399c25f76af57d3a33"
       },
-      "process": 16
+      "process": 16,
+      "executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4"
     },
     {
       "label": "Three sea enemies victory Kat and Alluvion dead",
@@ -1382,7 +1446,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot064.g0": "78c5d8aa20cfad4a5b674e904f6979f2f4d6bab1251f40a9c12e97dfb740f098",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot064.g0.ce-achievements.json": "70c41a3771ad14429040af59deb230c5435dd6113393e3783ddcb5dd01fac925"
       },
-      "process": 16
+      "process": 16,
+      "executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4"
     },
     {
       "label": "Bayport sea return with earned Kat Alluvion deaths",
@@ -1392,7 +1457,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot065.g0": "2b1e1609f0567c7a6eda463edb7d03118759969358945c7fcae9cc2bca127817",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot065.g0.ce-achievements.json": "0fa51fe7b161d3d3133be518aab195961d1d227db3d4c195bc7712f2cfc0357a"
       },
-      "process": 16
+      "process": 16,
+      "executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4"
     },
     {
       "label": "Earned Kat Cutter Alluvion paid resurrection",
@@ -1402,7 +1468,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot066.g0": "42113b77069700955b3792d42bd668c18c1535f914429076ac5a93336bcaeb7f",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot066.g0.ce-achievements.json": "3d8901eb9de7479252c0f0f5115e92050ccca9eb9717d2efb9e5f193de2d56c4"
       },
-      "process": 16
+      "process": 16,
+      "executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4"
     },
     {
       "label": "Six member paid recovery and full Bayport rest",
@@ -1412,7 +1479,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot067.g0": "69595ef659f901905560a8a598cbd66534754c44be1479fc0a05578a69b24f2b",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot067.g0.ce-achievements.json": "5bafe435b5350910c51d71287d90c597cec0927a7b689918417f59682eb96d9b"
       },
-      "process": 16
+      "process": 16,
+      "executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4"
     },
     {
       "label": "Watcher night password earned after day refusal and wrong password",
@@ -1422,7 +1490,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot068.g0": "4ce0a080a45eb4606bb9467f40a60e6a8e71c1a905467607d06a1da8e900ecfd",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot068.g0.ce-achievements.json": "80cac668e13db88af9a953802834d4d783877264988e1803d0da03fb795dfa25"
       },
-      "process": 16
+      "process": 16,
+      "executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4"
     },
     {
       "label": "Margrave KEY request before Guild Orders",
@@ -1432,7 +1501,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot069.g0": "5299a4c3a3aeb304abacdb403ca8196f6ed171bea476f7c5f5157a1345cbce7b",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot069.g0.ce-achievements.json": "3d69ad1081c0b208b61cd221c961f1beaa14ad6f0de7c95146dc607a2b39e945"
       },
-      "process": 17
+      "process": 17,
+      "executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4"
     },
     {
       "label": "Margrave Guildmaster request without Orders or Tomb Key",
@@ -1442,7 +1512,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot070.g0": "677cc48e69ea990b965eaa1faeec9a45ea1bc18de255aae8341cf670ab89e236",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot070.g0.ce-achievements.json": "15bb3d8a430901d880bdd8f1ce1dc9ba6c36d0dc716105ebf83ea3203da349b0"
       },
-      "process": 17
+      "process": 17,
+      "executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4"
     },
     {
       "label": "Margrave request preserved and frigate reboarded from south dock",
@@ -1452,7 +1523,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot071.g0": "b093e282b75357e28e280c34fbd496250b04efebee27b332e1a34f94ac3c6f3e",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot071.g0.ce-achievements.json": "e3191be2cf3efbb961ab6a901b712245bbafff29cf595a66c9f2c9f3fabd7940"
       },
-      "process": 17
+      "process": 17,
+      "executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4"
     },
     {
       "label": "Margrave request retained aboard frigate after jellyfish victory",
@@ -1462,7 +1534,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot072.g0": "dad1625412a3db9bb5cdf934467421d336490720a3568470a42c0897c92708e9",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot072.g0.ce-achievements.json": "4affb8ef739c86009c0350146cba8deec54589c97a98711cb2a49bb33ab4af7d"
       },
-      "process": 17
+      "process": 17,
+      "executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4"
     },
     {
       "label": "Second naval jellyfish victory with full six member party",
@@ -1472,7 +1545,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot073.g0": "6797324848d412ba48554ae5990b61a8205cc113b7e0fa22ec0d157af76141e4",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot073.g0.ce-achievements.json": "1ed19a6dd0a2622429fe7611ba37117da13a9273ac597d082c56e2ee71f4757e"
       },
-      "process": 17
+      "process": 17,
+      "executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4"
     },
     {
       "label": "Third naval jellyfish victory retained on planned squid route",
@@ -1482,7 +1556,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot074.g0": "676b5a28a36352533fa885509fc97e7a7d27140f90e992dfc1842f7f740ed621",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot074.g0.ce-achievements.json": "49f9792b6bea659aaac62f2142b4f82f49f3e6cf6d2b156f7e3bd1a33c106cca"
       },
-      "process": 17
+      "process": 17,
+      "executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4"
     },
     {
       "label": "Earned ten pirate victory and two INT level allocations with four casualties",
@@ -1492,7 +1567,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot075.g0": "a73a0ef81bcc7b6a831d4447de39ce409058a24fe0b270d4eaa5fbc578c2d808",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot075.g0.ce-achievements.json": "e9fc3a541b1f5e7781fa497055d26f8be6fafe7586526a62884baf22deeeb527"
       },
-      "process": 17
+      "process": 17,
+      "executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4"
     },
     {
       "label": "Two survivors retain pirate rewards after return sea encounter",
@@ -1502,7 +1578,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot076.g0": "96874d87dd7bdd5b053abec5b0c4fefdd429dd33a89cfcb2e63a098095ee9772",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot076.g0.ce-achievements.json": "589697b071a9a27db9f7252aafe0743a585d0d3d05a51b8ccfe5b35316c53eed"
       },
-      "process": 17
+      "process": 17,
+      "executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4"
     },
     {
       "label": "Bayport return jellyfish victory 77",
@@ -1512,7 +1589,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot077.g0": "da813113a64fe2ead2e5406eb78ff0a8566e6f5bcb52372fdc4285721de6face",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot077.g0.ce-achievements.json": "bd6c4099e94c51c811406d554f0ea59c396ae31436b4296864b5047d873c4ea0"
       },
-      "process": 17
+      "process": 17,
+      "executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4"
     },
     {
       "label": "Bayport return jellyfish victory 78",
@@ -1522,7 +1600,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot078.g0": "30420e71b489b757c39a78c1eafc984e38a5c45f274be9f5ebe9c0657915cf2c",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot078.g0.ce-achievements.json": "1a9bb17850a8fd30b81f54a36b25ec4aef1d1d30cd490da6ca87b51232b21294"
       },
-      "process": 17
+      "process": 17,
+      "executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4"
     },
     {
       "label": "Bayport return jellyfish victory 79",
@@ -1532,7 +1611,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot079.g0": "dd2a873aea3c3cf65338d0e41bf594e57777938ab3e6ce5d35db1f0e81e67f46",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot079.g0.ce-achievements.json": "d63505dcbf0eb734b1b82170f06053c9f80116a3816e1a6a60e5363548574f4a"
       },
-      "process": 17
+      "process": 17,
+      "executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4"
     },
     {
       "label": "Bayport return jellyfish victory 80",
@@ -1542,7 +1622,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot080.g0": "efe681e5352cd0383eb6af74603c20f545ede2af80816dcf2e92b51b45071510",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot080.g0.ce-achievements.json": "1dbebe7996f9072d0c9e8f8cb37a17a95d7ba4cbb4f47bd86e8bb2587a4556f3"
       },
-      "process": 17
+      "process": 17,
+      "executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4"
     },
     {
       "label": "Aligned world cannon clears return pirate without boarding",
@@ -1552,7 +1633,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot081.g0": "21c3c2367e0e81dc8988a694b009d65397104e2e1ea0aa4358e17edf12c619c8",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot081.g0.ce-achievements.json": "254119137bae0c6ecda24e71a0aba5482c7715e3bde6fcf8e85c5a68c1c62c82"
       },
-      "process": 17
+      "process": 17,
+      "executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4"
     },
     {
       "label": "Final Bayport approach jellyfish victory 82",
@@ -1562,7 +1644,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot082.g0": "9d9a221e68a1897543bf32411bfae93f35098b9abe042591db0ec4baf92a5324",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot082.g0.ce-achievements.json": "3c87860ca52886d70e590343cdaa037cabefbebbbe45708703fd7762019836d2"
       },
-      "process": 17
+      "process": 17,
+      "executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4"
     },
     {
       "label": "North retreat aligns and clears coastal pirate before recovery",
@@ -1572,7 +1655,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot083.g0": "3c20c0ef0ef5ec27d9df7668b0578c8c3beae35c7cfe45070b8fe9927dcd6a08",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot083.g0.ce-achievements.json": "a44d995449937dbd67f545cbdd56744babdff2d4ff6e9d5018809589c147f570"
       },
-      "process": 17
+      "process": 17,
+      "executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4"
     },
     {
       "label": "Morning Bayport dock before paid recovery",
@@ -1582,7 +1666,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot084.g0": "13005f37ca08edb1b0a9a7f0b44ee5d67aa882ffe8e506e651411e4038984391",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot084.g0.ce-achievements.json": "bf4f04f4ecfba8822fba56c4dc113374fb38e4e20ad83399a1b951f024db71be"
       },
-      "process": 17
+      "process": 17,
+      "executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4"
     },
     {
       "label": "bayport-partial-recovery-kat-cutter530",
@@ -1592,7 +1677,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot085.g0": "b4bbcfc67586c19aeb4e07469b9717381c5f8df86ebb7c847cffeb8f6896d9e0",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot085.g0.ce-achievements.json": "412c2052e0129c72fac287198bcf62ac2edb6874577e1d5046f22df437ed1cfa"
       },
-      "process": 17
+      "process": 17,
+      "executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4"
     },
     {
       "label": "bayport-battleaxe-and-shield-earned530",
@@ -1602,7 +1688,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot086.g0": "bf8eaf5fd0497d7ef976f7cbff4aa6c2297c5b404971ae53b547b50306dc3dc4",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot086.g0.ce-achievements.json": "b3bf942c2c049c4a326d76d22673967619c9d14acc59d712c4f5990fec9f929b"
       },
-      "process": 17
+      "process": 17,
+      "executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4"
     },
     {
       "label": "bayport-summon-book-equipped530",
@@ -1612,7 +1699,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot087.g0": "b01c3121285e0a16602f7353bdb5d2e391f1028a76711a3694766ec3125d641d",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot087.g0.ce-achievements.json": "6293774aeed365adf97a2108ef84dbe1d2782a0185a9eb9b6243bc1d5fcdfafc"
       },
-      "process": 17
+      "process": 17,
+      "executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4"
     },
     {
       "label": "bayport-wolf-victory-kat-str-cutter-int530",
@@ -1622,7 +1710,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot088.g0": "5616af7f075fa6eebe2fdaca19d98eec92223b96c91b0e8b536ea73b5a2ba09b",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot088.g0.ce-achievements.json": "a81abde25a705173eb927ee006bc6c8cffcde616a1c4ba0f3464ab34ff56c17e"
       },
-      "process": 17
+      "process": 17,
+      "executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4"
     },
     {
       "label": "bayport-return-contact167-victory530",
@@ -1632,7 +1721,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot089.g0": "72345688487dbcf9a4950fae2b71bd1f9b44c0ab47640e6540b2aa934f877eb5",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot089.g0.ce-achievements.json": "38115c6f989aa0bb38c31627e9fc2fe1a23338eeee840a738c90473089917ff0"
       },
-      "process": 17
+      "process": 17,
+      "executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4"
     },
     {
       "label": "guild52-equipped-return530",
@@ -1642,7 +1732,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot090.g0": "69c9ad8e6717aaa660ee340a23f80a984ae556c0183adfa270d694f890b28387",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot090.g0.ce-achievements.json": "b33f9414333787e64be3cf721c38778dda5230e39952ca9eaa6336601c197435"
       },
-      "process": 17
+      "process": 17,
+      "executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4"
     },
     {
       "label": "guild-regear-sales80gold-two-lockpicks530",
@@ -1652,7 +1743,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot091.g0": "ba8510de6f5e2fe0da6e531a657d8ac8b4d51ca38deff2bcfef7c0aa4c48f1b1",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot091.g0.ce-achievements.json": "84943bc10742346905c883309312d7a426eb51d57277adeb9044870bc0e9c474"
       },
-      "process": 17
+      "process": 17,
+      "executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4"
     },
     {
       "label": "guild-fireball-book-shortcut2-earned530",
@@ -1662,7 +1754,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot092.g0": "af5af0c6dc93657f0092bcc699706903ffbc8e9afd58d88ea3332cf0ca31a3ef",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot092.g0.ce-achievements.json": "cda2a687b4f406d0ea3fbbedc599b9ebe8a0b0856dc6fbd4a22df4cb0d5d65e3"
       },
-      "process": 17
+      "process": 17,
+      "executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4"
     },
     {
       "label": "guild-full-party-revival-earned530",
@@ -1672,7 +1765,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot093.g0": "9507afe7418f8c67638b1dbf422b0006f292bae22d0b1a945d836da107011e69",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot093.g0.ce-achievements.json": "dade4265866cd03bda86d18e692b2e61cb4f2fa052bbcf711230c4ea5f5c88e8"
       },
-      "process": 17
+      "process": 17,
+      "executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4"
     },
     {
       "label": "guild-full-party-fireball-inn-rest530",
@@ -1682,7 +1776,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot094.g0": "7737bb9248f745dfd288970e1d384bfbbab00b4c34cdd8ab7c02d0a91d25751a",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot094.g0.ce-achievements.json": "8b48230799eff89141fef5c6dc9beb37401c7f152c6037775227c8708e0eb73e"
       },
-      "process": 17
+      "process": 17,
+      "executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4"
     },
     {
       "label": "guild52-full-party-fireball-return530",
@@ -1692,7 +1787,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot095.g0": "00a2b160726e4a09a2dd4fd30d8e7853c647ad230c6ca7f68ac5960b1a59a64f",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot095.g0.ce-achievements.json": "3231b1fccc3de53b6480fa4455dbf03d5f4e1d827ee634979fe3340462a33448"
       },
-      "process": 18
+      "process": 18,
+      "executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4"
     },
     {
       "label": "guild-five-rogue-earned-victory530",
@@ -1702,7 +1798,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot096.g0": "787d8e917bc7c1dd376023188c04d92002e12e1d3f6e59268ea722e816a4c536",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot096.g0.ce-achievements.json": "d20c9c866866b1458d645bb75fe14fb972ef29540a679886247abea62b6479e6"
       },
-      "process": 18
+      "process": 18,
+      "executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4"
     },
     {
       "label": "guild-three-levers-earned-four-casualties530",
@@ -1714,7 +1811,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot097.g1": "a3bc74fda7da95a0c489913f3ce1e2e27396e345b7b40537633f9d06be6611c1",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot097.g1.ce-achievements.json": "bcb4ad95ad78c2785a37c3a6a57e9c69a4e0132744d15b1bdb603c99c3607a40"
       },
-      "process": 18
+      "process": 18,
+      "executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4"
     },
     {
       "label": "guild-guard-earned-nox-recovery530",
@@ -1726,7 +1824,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot098.g1": "243da04c97a00ce1eb43094676afd8965e958c0b1238c9f1a98162c777386bca",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot098.g1.ce-achievements.json": "5dabea67b47b2bd97ea91ec5812d343623fa06bca95ff31684e38acb11995a1e"
       },
-      "process": 18
+      "process": 18,
+      "executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4"
     },
     {
       "label": "guild-second-caster-funding22gold530",
@@ -1736,7 +1835,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot099.g0": "7f9990b075015e133a52b35ca0ed09c779cab85d7d0624d270f79d8f0e4cc906",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot099.g0.ce-achievements.json": "b6f008fff7ae3bccc645dcf80acdfe0b53003bb1e2e73d8ce11e834cae74851d"
       },
-      "process": 18
+      "process": 18,
+      "executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4"
     },
     {
       "label": "guild-second-caster-recovery530",
@@ -1746,7 +1846,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot100.g0": "6450d658ccde3d774c383db3823a52690998c3bd8cdc01629326f0a4b20db622",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot100.g0.ce-achievements.json": "517f18d4b085a0abcf37aeb4305cf306f3222f9e55c665639352cc2a316776d5"
       },
-      "process": 18
+      "process": 18,
+      "executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4"
     },
     {
       "label": "bridgit-third-level-int32-earned530",
@@ -1756,7 +1857,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot101.g0": "0e3e371de4b3776c389cb68d0278b04a4f2b957eba12f3ede6c1010ad2e467e1",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot101.g0.ce-achievements.json": "dc20e8643362b76bfd8110a21c1a0bdfdf4d58b2df0a80c9dce69dcb75079563"
       },
-      "process": 18
+      "process": 18,
+      "executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4"
     },
     {
       "label": "guild-two-fireball-casters-full-rest530",
@@ -1766,7 +1868,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot102.g0": "3f3e5d75c008493e1bed8478f5eba46ee208d9827cc0c3db8a7f66416f6b438b",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot102.g0.ce-achievements.json": "6bd9378d30f02e9c125a5fe3ef444bb31a3fd71d7cd8d9faaaf1d3d8db58c5ef"
       },
-      "process": 18
+      "process": 18,
+      "executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4"
     },
     {
       "label": "combat531-cold-earned102-continuation",
@@ -1776,7 +1879,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot103.g0": "f270ceb868965fc6849a46953455ba1009e48af1d1df8e0432859425c43eba86",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot103.g0.ce-achievements.json": "451b4a3966ebbe380794734e14c768f96951f9690215dd8c5ce290add9a92aed"
       },
-      "process": 19
+      "process": 19,
+      "executable_sha256": "230a07406fef270426acb14431b755cb92208e912aba6e49e7580dffbeedb568"
     },
     {
       "label": "ffred-nightstand-book-earned531",
@@ -1786,7 +1890,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot104.g0": "99f780ce58b96e5b6f021e88e56089bc9ee50c863d2ede5d2ac0f62c9d4faf3b",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot104.g0.ce-achievements.json": "5393ea56c5027f060971ba7a3604fd8a8c9f06ba6d66f8b9655c10114c89716e"
       },
-      "process": 19
+      "process": 19,
+      "executable_sha256": "230a07406fef270426acb14431b755cb92208e912aba6e49e7580dffbeedb568"
     },
     {
       "label": "ffred-sale-funded-recovery531",
@@ -1796,7 +1901,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot105.g0": "afaf9251bb0e24e6d234456e99dab525d4376460737dc4396996ff4207852e79",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot105.g0.ce-achievements.json": "081576c09db6bdc5e12fb9408df8fe5a970efafacecd9a98d72cdf5a43592b9d"
       },
-      "process": 19
+      "process": 19,
+      "executable_sha256": "230a07406fef270426acb14431b755cb92208e912aba6e49e7580dffbeedb568"
     },
     {
       "label": "essential-equipment-restored531",
@@ -1806,7 +1912,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot106.g0": "acb9067c969dfe5091ca9b82a0b6400896dad78d85325757e7ccc6d04f247dbb",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot106.g0.ce-achievements.json": "054245860ac9f0d7e633336ee42c5a5fb95fe6f2ab8d5935b7eab99fede8363b"
       },
-      "process": 19
+      "process": 19,
+      "executable_sha256": "230a07406fef270426acb14431b755cb92208e912aba6e49e7580dffbeedb568"
     },
     {
       "label": "six-alive-full-recovery531",
@@ -1816,7 +1923,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot107.g0": "2aacfd58b1406f24d845eea68dbd9a28a3b7306738fc6e87afa9a3ffe00f7a63",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot107.g0.ce-achievements.json": "65f05bcdf578d931485feb440f9118fce85591a08bdb3f1c355312cc1ba7b22b"
       },
-      "process": 19
+      "process": 19,
+      "executable_sha256": "230a07406fef270426acb14431b755cb92208e912aba6e49e7580dffbeedb568"
     },
     {
       "label": "plain-fireball-earned-ready531",
@@ -1826,7 +1934,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot108.g0": "4b3d68f5e271dd1a03eb9fce801b4584cb74accd6d0854044e2f70376505f5ec",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot108.g0.ce-achievements.json": "3b47dce8fb10bb546463df38af066b461d7b3cbd1b8518ab970e9767d44a48dc"
       },
-      "process": 19
+      "process": 19,
+      "executable_sha256": "230a07406fef270426acb14431b755cb92208e912aba6e49e7580dffbeedb568"
     },
     {
       "label": "road-hooligans-cleared531",
@@ -1836,7 +1945,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot109.g0": "fba4773147b6aed3de7f77056e012dd0d864c00d4cd02911f742a8e414476477",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot109.g0.ce-achievements.json": "c61f14fc8968840db74f092552293affc4d9de26df4211cdb3618e3c50686492"
       },
-      "process": 19
+      "process": 19,
+      "executable_sha256": "230a07406fef270426acb14431b755cb92208e912aba6e49e7580dffbeedb568"
     },
     {
       "label": "early-road-wins-and-camp531",
@@ -1846,7 +1956,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot110.g0": "1bb4bdcfafba92828c542e0af637b683882747072dcb5800c33a2e5eb73a70f7",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot110.g0.ce-achievements.json": "8d794517befc647e3218b5e9b205209ecdebe383e3bff122ad8153d7a705ebb0"
       },
-      "process": 19
+      "process": 19,
+      "executable_sha256": "230a07406fef270426acb14431b755cb92208e912aba6e49e7580dffbeedb568"
     },
     {
       "label": "orc-cave-first-lever531",
@@ -1856,7 +1967,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot111.g0": "d98dbb93590a28b3f579038761554c51b404a6f38d1feb953ff2be8cf983afbf",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot111.g0.ce-achievements.json": "086a8eb68596e66d5bae92b65f9e17102f9ebf63a39ca9debd41fd4e1c77a081"
       },
-      "process": 19
+      "process": 19,
+      "executable_sha256": "230a07406fef270426acb14431b755cb92208e912aba6e49e7580dffbeedb568"
     },
     {
       "label": "orc-wall-open-first-guards-won531",
@@ -1866,7 +1978,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot112.g0": "88e0deaf7841e55d72f03990532b694b7b58fe5b392bc78cbac8bf7dd97c711c",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot112.g0.ce-achievements.json": "b19bfd7b7fcabcfe8931b246b3d32f766cf94670d9889da7cf08c31a280d26df"
       },
-      "process": 19
+      "process": 19,
+      "executable_sha256": "230a07406fef270426acb14431b755cb92208e912aba6e49e7580dffbeedb568"
     },
     {
       "label": "orc-gate-guards-cleared531",
@@ -1876,7 +1989,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot113.g0": "9c7363b7ba295c088f071edd4d2ee48bccff404b061dcf13c38fbfc2148ac8be",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot113.g0.ce-achievements.json": "a7cb6e39104a5292bb13e1d5efe7626cc915efcb08b1aaa9c3b02d42d9b5b269"
       },
-      "process": 19
+      "process": 19,
+      "executable_sha256": "230a07406fef270426acb14431b755cb92208e912aba6e49e7580dffbeedb568"
     },
     {
       "label": "orc-ogre-pairs-cleared531",
@@ -1886,7 +2000,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot114.g0": "c1aab048da8300cb971e1ef5549a4086ae58b5fbce26a83cd0fd08279910b4d8",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot114.g0.ce-achievements.json": "4f745ff4da190c69fafeef33211a9f6cd22e43ec8cb40b7524d09c42ad7a96fe"
       },
-      "process": 19
+      "process": 19,
+      "executable_sha256": "230a07406fef270426acb14431b755cb92208e912aba6e49e7580dffbeedb568"
     },
     {
       "label": "orc-shaman-prepared-earned531",
@@ -1896,7 +2011,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot115.g0": "d8bc9de61356452bcb0bec9eb057072b2137e184cc3437d4801961886cdf07c1",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot115.g0.ce-achievements.json": "05497d27b7045e6888077e96f0cd8c5da6861289750252a42998cce07b98720a"
       },
-      "process": 19
+      "process": 19,
+      "executable_sha256": "230a07406fef270426acb14431b755cb92208e912aba6e49e7580dffbeedb568"
     },
     {
       "label": "orc-shaman-earned-victory531",
@@ -1906,7 +2022,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot116.g0": "a507ce635ba722f6db2517f268e7445d4942a4e7ebe1c89acb444e23422159e3",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot116.g0.ce-achievements.json": "25a92440a539716abd6bc50407947649c55fdc5a5379abd09c9f06404d09ecfa"
       },
-      "process": 19
+      "process": 19,
+      "executable_sha256": "230a07406fef270426acb14431b755cb92208e912aba6e49e7580dffbeedb568"
     },
     {
       "label": "orc-shaman-rewards-earned531",
@@ -1916,7 +2033,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot117.g0": "97e8267548804bb1aa7ca82aea299705b87c5cb68840e294add00f9a69635c47",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot117.g0.ce-achievements.json": "42970b2044bacd30b3e04ffbf02dcaf5ae66bde490445eada0cf13b09b21a0dc"
       },
-      "process": 19
+      "process": 19,
+      "executable_sha256": "230a07406fef270426acb14431b755cb92208e912aba6e49e7580dffbeedb568"
     },
     {
       "label": "orc-cave-earned-return531",
@@ -1926,7 +2044,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot118.g0": "988a6e4bcca7c0ebf1067a42d2af21b840e0a36ad0370bfa009b74ac8775961d",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot118.g0.ce-achievements.json": "e073de2503c77dedaac5581463563607674c16fd88bffd51af523be467bdd760"
       },
-      "process": 19
+      "process": 19,
+      "executable_sha256": "230a07406fef270426acb14431b755cb92208e912aba6e49e7580dffbeedb568"
     },
     {
       "label": "party-staves-and-armor-earned531",
@@ -1936,7 +2055,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot119.g0": "509e4e31abb20fb86704cac9eaa6e483c8fcac4395c205c4c90a0049deb5b568",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot119.g0.ce-achievements.json": "f6fb27916907ce84abc1c2a180912751e8e69a12645accfd21dbce27ec11e80b"
       },
-      "process": 19
+      "process": 19,
+      "executable_sha256": "230a07406fef270426acb14431b755cb92208e912aba6e49e7580dffbeedb568"
     },
     {
       "label": "regeared-party-full-inn-rest531",
@@ -1946,7 +2066,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot120.g0": "cf3c706a30f57e862691ae21b379dbe448dc187496fea5d8a0024535cc1ebe63",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot120.g0.ce-achievements.json": "63ca642cb0bf6fb9c3e0eae131e09a51519473e555a1f6ac169609ce854cfea0"
       },
-      "process": 19
+      "process": 19,
+      "executable_sha256": "230a07406fef270426acb14431b755cb92208e912aba6e49e7580dffbeedb568"
     },
     {
       "label": "earned-castle-before-horse531",
@@ -1956,7 +2077,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot121.g0": "f7b8c4d81bbb3bc0f63705d5ce7d8ebcfcf05c21bb138013035e7626f758fed6",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot121.g0.ce-achievements.json": "bc1a9f0a39a4be890bf38cf57fe63439e8ae10b231326d65317d7ea5e4b142b4"
       },
-      "process": 19
+      "process": 19,
+      "executable_sha256": "230a07406fef270426acb14431b755cb92208e912aba6e49e7580dffbeedb568"
     },
     {
       "label": "horse-legitimately-purchased531",
@@ -1966,7 +2088,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot122.g0": "730b53c0bf884fde758db5cdaa4fe1b6f9e7be0662a330cf20005654dd0a0f70",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot122.g0.ce-achievements.json": "8784854afdc2132b9d34633fe142ab861b606bab07dacaffc0456c38d28e16bb"
       },
-      "process": 19
+      "process": 19,
+      "executable_sha256": "230a07406fef270426acb14431b755cb92208e912aba6e49e7580dffbeedb568"
     },
     {
       "label": "horse-moved-reboarded-and-parked531",
@@ -1976,7 +2099,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot123.g0": "277afe6afa0b548fa2b9d695f42a2513468c4362d412bd721178c7d52da9d2fc",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot123.g0.ce-achievements.json": "7947a9720ecde060452b0ea45ba040e7f5f1ee3867cf4d17b4a94c6f03ec7955"
       },
-      "process": 19
+      "process": 19,
+      "executable_sha256": "230a07406fef270426acb14431b755cb92208e912aba6e49e7580dffbeedb568"
     },
     {
       "label": "yvviar-early-cult-stop-earned531",
@@ -1986,7 +2110,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot124.g0": "4144fe6b58b7bf9f7cee0c550f082c72776d1a9885ad62c9f9af1ae18220cfa2",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot124.g0.ce-achievements.json": "b7547704943a05aff3d9a58c1f30a7c7c5a04ebef3ca25c0a4f2db78136137b3"
       },
-      "process": 19
+      "process": 19,
+      "executable_sha256": "230a07406fef270426acb14431b755cb92208e912aba6e49e7580dffbeedb568"
     },
     {
       "label": "yvviar-investigation-and-backup-books531",
@@ -1996,7 +2121,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot125.g0": "b8358beb2c0585416ff56492e21b175e4f504ae1aa144681c478bde013c57c67",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot125.g0.ce-achievements.json": "2b28dae37874845abb070f2f3a677c38e137f77ab76ffa2aec64500047d69e19"
       },
-      "process": 19
+      "process": 19,
+      "executable_sha256": "230a07406fef270426acb14431b755cb92208e912aba6e49e7580dffbeedb568"
     },
     {
       "label": "horse-earned-castle-surface531",
@@ -2006,7 +2132,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot126.g0": "07d26c07f95a2a8ca5d43211d0ca315e64340d39e70314cfc5be22f05adc70f9",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot126.g0.ce-achievements.json": "8c6b2f8d2df350d7f84caf470c88528cabbb25751eb25396d95cdf02051e7a51"
       },
-      "process": 19
+      "process": 19,
+      "executable_sha256": "230a07406fef270426acb14431b755cb92208e912aba6e49e7580dffbeedb568"
     },
     {
       "label": "mounted-talk532-earned-route-recovery",
@@ -2016,7 +2143,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot127.g0": "be0d8cbb941232760a5da65a00ff6bef3529c7c16a11ca902b0d578bbe9f1896",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot127.g0.ce-achievements.json": "37d04394c2db2fd2df9055a4d665e4548280e514b3e95704b5ab254e7c052b2b"
       },
-      "process": 20
+      "process": 20,
+      "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
     },
     {
       "label": "knaerwood-erdan-help-earned532",
@@ -2026,7 +2154,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot128.g0": "02cbed804ecb54fceb34d675dc03405e0ae28f0f0b582382b5f7237aea0e2c08",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot128.g0.ce-achievements.json": "b47ed8be66450f65046d59b82ab0f9bb50083362e3a1ce844cdb7145737fa930"
       },
-      "process": 20
+      "process": 20,
+      "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
     },
     {
       "label": "mounted-talk-and-service-gate-earned532",
@@ -2036,7 +2165,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot129.g0": "cac983d9f60ba1042076f82babc68d61173edc8250889819488fed97ba97e568",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot129.g0.ce-achievements.json": "6837d2291df925337f15483fb902fa92672e123fdf12d2c1123fa0d5385b449a"
       },
-      "process": 20
+      "process": 20,
+      "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
     },
     {
       "label": "lord-british-early-ankh-earned532",
@@ -2046,7 +2176,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot130.g0": "af6ee8441871bcc3a97e1889505fb01ce817d6514256335d417c0dc79810fd2f",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot130.g0.ce-achievements.json": "7cf8dd298486a528eb8548f731d51ff26471a7b5d516397430643f834b87afe4"
       },
-      "process": 20
+      "process": 20,
+      "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
     },
     {
       "label": "veylan-arrival-horse-parked532",
@@ -2056,7 +2187,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot131.g0": "0229e626f31894b081087c343297a055ae886395e5639c9abf5be910cb1926c6",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot131.g0.ce-achievements.json": "ea88417ffc0b34ecf2e04353ddc66b5e65abf52707c1f8d1cd9f7c0d083f20d7"
       },
-      "process": 20
+      "process": 20,
+      "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
     },
     {
       "label": "rusty-door-no-key-earned532",
@@ -2066,7 +2198,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot132.g0": "e05af37672ac33b934b81c7f23531d841f4c609b8040db183b6a662aa8d69555",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot132.g0.ce-achievements.json": "32edfe6ba5d05151dda8536eb3ae2122bd457e8e7108dc8345839be62fe04a4a"
       },
-      "process": 20
+      "process": 20,
+      "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
     },
     {
       "label": "veylan-seven-ghouls-earned532",
@@ -2076,7 +2209,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot133.g0": "24b334e833f3777aab0e88dce2c94aedfd02f2358db540e1d2482e5cbabca54c",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot133.g0.ce-achievements.json": "20c0e1f627f2e2fb0a1bc623da579126bfc9d8855dfbe6fdfdde6d0d1a9ecb41"
       },
-      "process": 20
+      "process": 20,
+      "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
     },
     {
       "label": "veylan-second-seven-ghouls-earned532",
@@ -2086,7 +2220,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot134.g0": "4dc8292165a03e3a6000fb6ef98cc4bb1590282095833c1bd51007534187c0e5",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot134.g0.ce-achievements.json": "a9355b6d1278783783a830b00af16c30a0354ec2fa7ff3ad8fd6655721516670"
       },
-      "process": 20
+      "process": 20,
+      "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
     },
     {
       "label": "rusty-key-earned-search532",
@@ -2096,7 +2231,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot135.g0": "148a64ea8c7cf821b3d4a77fb244ba9fca9388981c80a75fbd7cfa6495dff0db",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot135.g0.ce-achievements.json": "3462cf4dcc1ef26ba1f1f75b9cb731dd4ae5753b94912cfb44d8b041b853ee4f"
       },
-      "process": 20
+      "process": 20,
+      "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
     },
     {
       "label": "veylan-five-ghouls-free-staves-earned532",
@@ -2106,7 +2242,8 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot136.g0": "c8cf8a5b6f5f5cbeac6b414dcedb92b44373cad9daa84a16c1f93cfd3d40a273",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot136.g0.ce-achievements.json": "95dca0a36aad8f2925b61704ca265af84d82c8eee8bdc8adc867b7cb8e5259e9"
       },
-      "process": 20
+      "process": 20,
+      "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
     },
     {
       "label": "veylan-fourth-ghoul-win-kat-bridgit-dead532",
@@ -2116,7 +2253,63 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot137.g0": "399f505cf79f6a8d0a28afd124725acaefd2ca59873bcb80d3908f6f09ceb22a",
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot137.g0.ce-achievements.json": "f2c971f89449b755413d64c27cad6688162f12b7e456919871a13b045c3906e3"
       },
-      "process": 20
+      "process": 20,
+      "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
+    },
+    {
+      "label": "veylan-normal-flee-recovery-route532",
+      "slot": 138,
+      "parent": "e7a0c87ebfbdf39b7b543902f863b38c7f3d49969e57cb2101d78c4599b045b0",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot138.g0": "f9d31f22baf5b0cbd5c88c8541e5650066e7909471d3fdc3d542bd5b83a949f5",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot138.g0.ce-achievements.json": "90017663f1002c7f94a007316bd72085d9e99fe73c831e41d435eca773ce778c"
+      },
+      "process": 20,
+      "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
+    },
+    {
+      "label": "veylan-earned-surface-withdrawal532",
+      "slot": 139,
+      "parent": "7bb870eadcfa8eae9d0c3e9a41869cfddf18c35ce6d68d102dc1f3c2561e39ac",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot139.g0": "e7decc81c61cc301056e71f6d6653ec4eeae4a4b41d9768a93f9b384b2f9722f",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot139.g0.ce-achievements.json": "ffc1225f44bb4063f4aa5df5924ebf65030e38e326cc184ce19b682d507826c8"
+      },
+      "process": 20,
+      "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
+    },
+    {
+      "label": "veylan-paid-full-party-resurrection532",
+      "slot": 140,
+      "parent": "70267845f2b8eaf22e9a4e70d821f283a656e0b32ac7abf2f1ae389f3fa1baf5",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot140.g0": "f4b72799cfad0af6de6d37d7df2df56ee9035af2f22ef12cd2a2866513c7ba2d",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot140.g0.ce-achievements.json": "52372c0a83a757bd81d15618d86a56dbe870051811ba67502764aa243b9f598d"
+      },
+      "process": 20,
+      "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
+    },
+    {
+      "label": "veylan-recovered-full-inn-rest532",
+      "slot": 141,
+      "parent": "dff378353689adb2b1d00ebd1dea77b893fa3a90e0e0862b443a807c400ced7c",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot141.g0": "f205b844bb051f08c5d56d017cc92045eb1033431422396df40e1ac797098b85",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot141.g0.ce-achievements.json": "5bf6dd0365c6975738540764d092a7164e25212b27d7754ad3bc41918735f083"
+      },
+      "process": 20,
+      "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
+    },
+    {
+      "label": "cold021-first-earned-world-step532",
+      "slot": 142,
+      "parent": "f71defec7751e32a5359c78a1ff4b918f59fe2d59eec1bf6b7f9971531e17975",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot142.g0": "78f98a188822856922aa8330ac5adaf62af5c74a7c273033f05c131b292da7aa",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot142.g0.ce-achievements.json": "bf01e8a9324a5f3550e29168cc892aee097463d284ebd4153e547f37a420e9d5"
+      },
+      "process": 21,
+      "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
     }
   ],
   "correction": "SCUMMVM-CE-NPC529-VERIFICATION.json",
@@ -2131,5 +2324,12 @@
   ],
   "current_source_commit": "e073e27e3e3",
   "current_executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed",
-  "latest_earned": "137 actual4thGhoulwin withKat/Bridgitdead,gold409;Rustykeyandpriorwinsretained;normalwithdrawal/recoveryunderway"
+  "latest_earned": "142 firstnormalworldstep after actual141cold021, fullparty/questinventory/resources/session retained;horseparked persistence",
+  "historical_receipt_baseline": {
+    "executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4",
+    "source_binding": "SCUMMVM-CE-CANNON530-VERIFICATION.json",
+    "qualification": "Initialreceiptbaseline only; percheckpoint/current identities control later progression."
+  },
+  "source_commit": "e073e27e3e3",
+  "local_full_ledger_sha256": "1055a6d0a99b86b6a95c1c6003f723d18a341512566d14e8ffd802157f188872"
 }

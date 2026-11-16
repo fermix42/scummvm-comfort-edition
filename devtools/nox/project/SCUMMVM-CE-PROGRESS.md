@@ -1,3 +1,11 @@
+# Acceptance528 full recovery141/cold021/nextstep142 - IN PROGRESS
+
+NormalInn10gold restoresall6fullHP71/63/67/62/62/64,MP8/20/20/32/32/20,gold54food845,06AM. Actualcold021 exactparty/inventory/allquestfields/resources/sound/transport/session/noassistance match. NormalSave998 confirmsparkedhorseRuin20/24,38row192/127state0. FirstnormalUp17,24->17,23 succeeds142 andnormalinnexit9,38 follows. Sixbuilds/21gameCLI+2focusedCLI=23materialCLI,sourcee073e27e3e3/exe345bcc4.../audio473unchanged. ReturnVeylanactualkeydoorOpen/traverse next;3/60selectednodesVERIFIED/endingunverified/allcriteriaretained. Canonicalconversion/CEdevtools/nox/project recoverymirror.
+
+# Acceptance528 normal recovery140 - IN PROGRESS
+
+139normalSurfacecamp4livingMP15/15/24/15,food837,102gold,2deadremain; ownedhorseRuin20/24,38confirmed. Actualreturnroad4winsretained,136gold845food,Hero60. SourceTempledaytime W9/quarterreentry thennormal36eachKat/Brresurrection140,all6alive64gold. Innrest/coldnext; no restore/casualtycleanup/sourcebuildlaunch. Source532/audio473preserved,6builds/20gameCLI+2focusedCLI,3/60selectednodesVERIFIED/endingunverified. Candidate345bcc4...,sourcee073e27e3e3. Canonicalconversion/CEdevtools/nox/project recoverymirror.
+
 # Acceptance528 Veylan casualties137 retained - IN PROGRESS
 
 136actual5full98Ghouls wonwithfreeStaffs/noHPMPcost. Fourthactual5full98Ghouls won137 butKat/Bridgitdead; preserveHP0/63/67/0/62/64,MP4/4/0/2/2/0,gold409food900. No restore/casualtycleanup. SourceResurrect49 requiresINT62; nearestknownnormalTemple49/inn route selected. Actualnorthpassage19->20withdrawal passed. Rusty72/field25=2 andno-key/repeat proofsretained; actualkeydoorcrossingstillpending. Battlehelperusesordinarypausemenuonworldreturn duringplanning, noEnginechange. Sixbuilds/20gameCLI+2focusedCLI,3/60selectednodesVERIFIED/endingunverified. Canonicalconversion/CEdevtools/nox/project mirror.

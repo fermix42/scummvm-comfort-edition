@@ -409,7 +409,10 @@
         "scoped audio/presentation",
         "actual earned verification criteria"
       ],
-      "earned_lineage": null
+      "earned_lineage": null,
+      "source_qualifications": [
+        "Earlyordering review: L015 actor8 TEST unconditionally setsfield60bit1 authorization; L01B actor0 opening checksScales field60bit2 andnotpassed field48bit128, notLetter75 orauthorization. ActualDragonScales146 pickupUM101(73,41) ->Brucepass ->Archusmembership/key94 canbeearlierthanletterchain. All60selectedcriteria andlaterletter/Archus/Styx gatesremainrequired. PhysicalearnedDragonavoidance androute remainunverified; thisisplanningonly, noearlyoutcomeclaimed."
+      ]
     },
     {
       "id": "castle-control-wall",
@@ -2574,10 +2577,10 @@
   "mode_strategy": "One primary Modern earned lineage; targeted Classic legal earned fork/restore/transitions; no duplicate complete campaign required by existing criteria.",
   "failure_policy": "Freeze failing path,source general diagnosis,focused correction+regression,at most2corrective reruns; resume valid nearest earned save,no prefix replay or outcome injection.",
   "builds": 6,
-  "process_launches": 20,
+  "process_launches": 21,
   "planned_node_count": 60,
   "mandatory_node_count_note": "All selected M3 nodes explicitly represented alongside dependency76 graph; includes supporting/advice/alternative nodes. Necessity is retained per source,not inferred from node count.",
-  "last_earned_checkpoint": "137 GhoulvictorywithKat/Bridgitdead; primaryretainscasualtiesandkey, recoveryunderway",
+  "last_earned_checkpoint": "142 cold021 nextworldstep afterfullparty141innrest;gold54food845/all6fullHPMP;questflags/horse/source532 retained",
   "baseline_candidate_sha256": "81feb2c7ff17594a6ea9754dc60602a755b2f37ea7c53b437f65a18e7c35000f",
   "candidate_change": "NPC529,cannon530,packedmelee531,mountedTalk532 source corrections; exact scoped receipts and earned ancestry retained. No broad matrix promotion.",
   "earned_failures_retained": [

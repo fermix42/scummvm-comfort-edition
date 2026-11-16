@@ -46,5 +46,11 @@
     "ce-native-acceptance528\\earned-modern\\earned-mounted-erdan-help532.json": "c1e896ca57f8a165f7b088ec49cf1adec2fd5bc2ba452637ccbb2f6662c1ac69",
     "ce-native-acceptance528\\earned-modern\\earned-mounted-service-refusal532.json": "7eb405b74233636abca4c0b8c1cc06bc02a143c8649ff33cfb139398c5f61ca1",
     "ce-native-acceptance528\\earned-modern\\screenshots\\scummvm-cli-game-00049.png": "1851fc56a62d06ccb54fd4e6699ab3d2f0af68fcd280edcbcb355f9b75723a0d"
+  },
+  "original_oracle_execution_cost": {
+    "python_executions": 2,
+    "unique_cases": 12,
+    "case_executions": 24,
+    "qualification": "Preflight and apply script both ran same bounded offline original branch oracle; no additional Engine CLI process or corrective gameplay rerun."
   }
 }
