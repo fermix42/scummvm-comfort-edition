@@ -4,9 +4,10 @@
   "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed",
   "source_binding": "SCUMMVM-CE-MOUNTED-TALK532-VERIFICATION.json",
   "builds": 6,
-  "process_launches": 23,
+  "process_launches": 24,
   "verified_selected_nodes": [
     "opening-exit",
+    "royal-access",
     "gordon-shrubbery",
     "axea-page",
     "rusty-key"
@@ -2577,22 +2578,44 @@
       },
       "process": 23,
       "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
+    },
+    {
+      "label": "styx-writ-recognition-name-repeat-earned532",
+      "slot": 167,
+      "parent": "1fa980e148c5b39bd8b03e0061d1d0a75b9f6911aaf4eb93c4b0f18ee758fa05",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot167.g0": "3f80b98163cdda07e5130dac6a719ad70b3fab7ad7eee9804614ff237619f9b7",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot167.g0.ce-achievements.json": "a620171e5721e8bc645b5304863a75815ea1459d2d9236e11a647b0c5ffd9c5f"
+      },
+      "process": 23,
+      "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
+    },
+    {
+      "label": "styx-cold024-first-normal-talk-pages-clue532",
+      "slot": 168,
+      "parent": "65ae9abefafb99c93abd714728ca1822713617e01b68c65a7c8c7e7c7d720c74",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot168.g0": "11a5abd22c9e693eff7618ccab7c091abba549b7da805e881ad756966ee9ef46",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot168.g0.ce-achievements.json": "f45e5412bb80874881e1be6fa7e52a0ba8d4f7b5ec37e14aa1e7637b88d2fa4c"
+      },
+      "process": 24,
+      "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
     }
   ],
   "correction": "SCUMMVM-CE-NPC529-VERIFICATION.json",
-  "last_checkpoint": 44,
-  "cold_evidence": "earned-modern/cold011.json",
-  "next_action": "CompleteStyxNAME/repeat viaoriginal source-supported safe/protected/boundedhealingroute; continueScales/Bruce/Order/other60criteria.",
+  "last_checkpoint": 168,
+  "cold_evidence": "ce-native-acceptance528/earned-modern/cold024.json",
+  "next_action": "NormalNourtheldInnrestfourliving; continueactualScales/Bruce/Order andrequiredpageaccess. No prematureGuild/unsafeNoRoute retries.",
   "current_source_commit": "e073e27e3e3",
   "current_executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed",
-  "latest_earned": "142 firstnormalworldstep after actual141cold021, fullparty/questinventory/resources/session retained;horseparked persistence",
+  "latest_earned": "Normal165Castle54entry and54->58->57. Source-safe authored57->58->59->60->57leftwing path; actualStyxT Right from3,14. RecognizesoriginalQueenIsaWrit64; NAME twice saysNoxStyx, noitem/party/gold/foodchange.167normalEngine save; actualcold024 allparty/inventory/fields/resources/sound/transport/session/noassistance match.168firstnormalTalk/PAGESclue/repeat, noaward. ActualArchus166field60bit1 persists.",
   "historical_receipt_baseline": {
     "executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4",
     "source_binding": "SCUMMVM-CE-CANNON530-VERIFICATION.json",
     "qualification": "Initialreceiptbaseline only; percheckpoint/current identities control later progression."
   },
   "source_commit": "e073e27e3e3",
-  "local_full_ledger_sha256": "1055a6d0a99b86b6a95c1c6003f723d18a341512566d14e8ffd802157f188872",
+  "local_full_ledger_sha256": "21db26011be7c03b59ad00d4328163a25706ae7c24c5c7cb70f8124907efb29f",
   "latest_scoped_evidence": {
     "status": "VERIFIED",
     "scope": "Actual141cold021/142normalnextstep retain quest/inventory/party/resources/sound/session and parkedhorse; not Rustydoorpositivecrossing or fullcampaign acceptance",
@@ -2606,7 +2629,14 @@
     "SCUMMVM-CE-M43-RUSTY-RECOVERY532-VERIFICATION.json": "17b77f3d267c40eb082b4eeb4dc6c79a6e418858fbe84cf714d688bfebe4fa70",
     "SCUMMVM-CE-M43-SUURTHELD532-VERIFICATION.json": "8ea20dd7a6cf4622980424cc7b3f76f518659dbde6e600a2d8d55344af7e2129",
     "SCUMMVM-CE-M43-NORTH-CROSSING532-WORK.json": "1d3d29280dca97a2344579f0b14d55b9bfad59e2127986e212148939607a7166",
-    "SCUMMVM-CE-M43-ARCHUS532-WORK.json": "2d8d6bb2945fa51c4f9724f2086080004b398a436cd095bd2975f928c7462428"
+    "SCUMMVM-CE-M43-ARCHUS532-WORK.json": "d67b22e38777e6b33dfa950ae8b3b3143179edeb314f84932c0fbf67b1be4e0a",
+    "SCUMMVM-CE-M43-ROYAL532-VERIFICATION.json": "c0912514074864c657a8cfe93e14ade54f08093f7e455ac31386ae3658dfa4c7"
   },
-  "private_ledger_sha256": "55bbf94401988b5c98bb7640f6b2edd22970620663338d0805ce72b7dac483a1"
+  "private_ledger_sha256": "21db26011be7c03b59ad00d4328163a25706ae7c24c5c7cb70f8124907efb29f",
+  "superseded_current_aliases_royal532": {
+    "last_checkpoint": 44,
+    "latest_earned": "142 firstnormalworldstep after actual141cold021, fullparty/questinventory/resources/session retained;horseparked persistence",
+    "cold_evidence": "earned-modern/cold011.json",
+    "local_full_ledger_sha256": "1055a6d0a99b86b6a95c1c6003f723d18a341512566d14e8ffd802157f188872"
+  }
 }

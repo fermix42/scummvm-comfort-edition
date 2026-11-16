@@ -1,3 +1,7 @@
+# Acceptance528 royal-access VERIFIED167/cold024/168 - IN PROGRESS
+
+Earned165Castle54entry,166ArchusTESTsavedfield60=1. Source-safe authored57->58->59->60->57leftwing normalinputs; actualStyxT Right3,14recognizesQueenIsaWrit,NAME/repeatbothNoxStyx,noitem/party/gold/foodchange,167. Actualcold024 exactallstate/session/noassistance;168firstnormalTalk/PAGESclue/repeat,noaward. Royal-access fifth/60selectednodeVERIFIED. EarlyPAGESonlyINPROGRESS;sevenpagephysicalsafeaccessnotyetproven,noassumedOrdergateforeverypage. ContinuelocalInnrestfourlivingthenScales/Bruce/Order/remainingpages. KatCutterdeadretained,241gold898food. Source532/audio473unchanged,6builds/24gameCLI+2focused=26materialCLI. Endingunverified. Canonicalconversion/CEdevtools/nox/project mirrors.
+
 # Acceptance528 actual Archus authorization166 and safe Styx route - IN PROGRESS
 
 Normal58Archus20,12 TEST/repeat/BYE; deferreddialoguecommit savedfield60=1,166. NoLetterrequiredforthistopic; Scales/Bruce/membership/key94 remain. SinglefloorStyxNoRoute resolved by original authored floorlinks, not Enginepatch: safe74step57->58->59->60->57leftwing route; firsttransitionactual, remainderunderway. No waterorstatinjection. Source532/audio473unchanged,6builds/23gameCLI+2focused=25materialCLI. Four/60nodesVERIFIED,OrdertestINPROGRESSonly. Canonicalconversion/CEdevtools/nox/project mirrors.

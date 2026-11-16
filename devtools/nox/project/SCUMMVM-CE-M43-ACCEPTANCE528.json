@@ -47,7 +47,7 @@
     },
     {
       "id": "royal-access",
-      "status": "IN PROGRESS",
+      "status": "VERIFIED",
       "prerequisites": [
         "opening-exit"
       ],
@@ -75,12 +75,19 @@
         "scoped audio/presentation",
         "actual earned verification criteria"
       ],
-      "earned_lineage": null,
-      "earned_evidence": [
-        "42 actual surface->54 entry22,38; real courtyard encounter victory",
-        "real54->58->57 stairs; normal saved library entrance, later44 Sally cold"
+      "earned_lineage": [
+        42,
+        43,
+        165,
+        166,
+        167,
+        168
       ],
-      "remaining": "Styx NAME/repeat through source-accessible wing; do not count controlled adjacency as earned."
+      "earned_evidence": [
+        "SCUMMVM-CE-M43-ROYAL532-VERIFICATION.json"
+      ],
+      "remaining": null,
+      "actual_result": "Normal165Castle54entry and54->58->57. Source-safe authored57->58->59->60->57leftwing path; actualStyxT Right from3,14. RecognizesoriginalQueenIsaWrit64; NAME twice saysNoxStyx, noitem/party/gold/foodchange.167normalEngine save; actualcold024 allparty/inventory/fields/resources/sound/transport/session/noassistance match.168firstnormalTalk/PAGESclue/repeat, noaward. ActualArchus166field60bit1 persists."
     },
     {
       "id": "opening-brig-door",
@@ -1687,7 +1694,7 @@
     },
     {
       "id": "styx-page",
-      "status": "NOT STARTED",
+      "status": "IN PROGRESS",
       "prerequisites": [
         "high-cultist"
       ],
@@ -1716,6 +1723,9 @@
       "earned_lineage": null,
       "source_qualifications": [
         "Styx PAGES is an unconditional location clue, not an NPC inventory award or a mechanical prerequisite. Actual PAGES/repeat/no duplicate pages/cold tested after actual collection, not claimed to cause earlier acquisitions. Source library object identity and all3 actual pickups covered separately."
+      ],
+      "earned_evidence": [
+        "168earlyunconditionalPAGES/repeat only; postcollectioncriterionremains"
       ]
     },
     {
@@ -2582,10 +2592,10 @@
   "mode_strategy": "One primary Modern earned lineage; targeted Classic legal earned fork/restore/transitions; no duplicate complete campaign required by existing criteria.",
   "failure_policy": "Freeze failing path,source general diagnosis,focused correction+regression,at most2corrective reruns; resume valid nearest earned save,no prefix replay or outcome injection.",
   "builds": 6,
-  "process_launches": 21,
+  "process_launches": 24,
   "planned_node_count": 60,
   "mandatory_node_count_note": "All selected M3 nodes explicitly represented alongside dependency76 graph; includes supporting/advice/alternative nodes. Necessity is retained per source,not inferred from node count.",
-  "last_earned_checkpoint": 166,
+  "last_earned_checkpoint": 168,
   "baseline_candidate_sha256": "81feb2c7ff17594a6ea9754dc60602a755b2f37ea7c53b437f65a18e7c35000f",
   "candidate_change": "NPC529,cannon530,packedmelee531,mountedTalk532 source corrections; exact scoped receipts and earned ancestry retained. No broad matrix promotion.",
   "earned_failures_retained": [

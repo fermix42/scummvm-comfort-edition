@@ -1,0 +1,29 @@
+{
+  "status": "VERIFIED",
+  "scope": "Selected royal-access gate only: earned castle/library entry, actualWrit recognition,StyxNAME/repeat,normalcold024 andsubsequentnormalconversation. Not whole campaign/Order/pages/ending.",
+  "source_commit": "e073e27e3e3",
+  "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed",
+  "lineage": [
+    42,
+    43,
+    165,
+    166,
+    167,
+    168
+  ],
+  "actual": "Normal165Castle54entry and54->58->57. Source-safe authored57->58->59->60->57leftwing path; actualStyxT Right from3,14. RecognizesoriginalQueenIsaWrit64; NAME twice saysNoxStyx, noitem/party/gold/foodchange.167normalEngine save; actualcold024 allparty/inventory/fields/resources/sound/transport/session/noassistance match.168firstnormalTalk/PAGESclue/repeat, noaward. ActualArchus166field60bit1 persists.",
+  "qualification": "SinglefloorNoRoute andmiddayNPCtargetplanning corrected viaexistingauthoredfloors/normalTalk atactualblockedNPCcell. NoEnginebug/sourcebuild orhazardcrossing. EarlyPAGESclue isnotpostcollectionacceptance orpageaward. Sevenremainingpages safe routesnotyetproven; no speculativeclaim thatOrdermembership is required for everypage.",
+  "evidence": {
+    "ce-native-acceptance528\\earned-modern\\earned-styx-royal-name-repeat532.json": "f1197830534922a4551fa140d5ab1fc962ad00086bdaf5730bb7ac8de2d31882",
+    "ce-native-acceptance528\\earned-modern\\cold024.json": "765e63bfffa1c70807780061a5115d0afc8e85c2ea440e7b0ca851c7eecb73b7",
+    "ce-native-acceptance528\\earned-modern\\earned-styx-pages-early-clue532.json": "c5d896ef3c07240b81f30fc0383207d00ed339f004e799ab4a1581322cb5bb05",
+    "ce-native-acceptance528\\earned-modern\\earned-archus-test-authorization532.json": "7b0b9e8cac7105556277361f592e7daa88621134e5f47890033200d8965f662a"
+  },
+  "cost": {
+    "builds": 6,
+    "game_cli": 24,
+    "focused_cli": 2,
+    "material_cli": 26
+  },
+  "next_action": "NormalNourtheldInnrestfourliving; continueactualScales/Bruce/Order andrequiredpageaccess. No prematureGuild/unsafeNoRoute retries."
+}
