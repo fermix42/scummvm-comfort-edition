@@ -1917,6 +1917,36 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot117.g0.ce-achievements.json": "42970b2044bacd30b3e04ffbf02dcaf5ae66bde490445eada0cf13b09b21a0dc"
       },
       "process": 19
+    },
+    {
+      "label": "orc-cave-earned-return531",
+      "slot": 118,
+      "parent": "9245a8bd7b36038434358489e543a85b61ff67ca07e64cb2907debbc9bd15082",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot118.g0": "988a6e4bcca7c0ebf1067a42d2af21b840e0a36ad0370bfa009b74ac8775961d",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot118.g0.ce-achievements.json": "e073de2503c77dedaac5581463563607674c16fd88bffd51af523be467bdd760"
+      },
+      "process": 19
+    },
+    {
+      "label": "party-staves-and-armor-earned531",
+      "slot": 119,
+      "parent": "57cd11ef16a2f56af54fb0a47341e48bd224fe6477a1be5686496304f3d033d5",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot119.g0": "509e4e31abb20fb86704cac9eaa6e483c8fcac4395c205c4c90a0049deb5b568",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot119.g0.ce-achievements.json": "f6fb27916907ce84abc1c2a180912751e8e69a12645accfd21dbce27ec11e80b"
+      },
+      "process": 19
+    },
+    {
+      "label": "regeared-party-full-inn-rest531",
+      "slot": 120,
+      "parent": "34557168a328535716d74c2c01550bd1a29f4201660d37e942fd8adfde6e36ec",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot120.g0": "cf3c706a30f57e862691ae21b379dbe448dc187496fea5d8a0024535cc1ebe63",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot120.g0.ce-achievements.json": "63ca642cb0bf6fb9c3e0eae131e09a51519473e555a1f6ac169609ce854cfea0"
+      },
+      "process": 19
     }
   ],
   "correction": "SCUMMVM-CE-NPC529-VERIFICATION.json",
