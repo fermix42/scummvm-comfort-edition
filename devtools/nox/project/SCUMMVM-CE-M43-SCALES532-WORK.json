@@ -23,7 +23,10 @@
     186,
     187,
     188,
-    189
+    189,
+    190,
+    191,
+    192
   ],
   "route": "NormalCastle78/18,32->UM97/176,62,171. Readonly originalfivefloor route to101safeEast74,41 totals289steps,zerothermalcells/no225energyactorintersections. Contactpermitting sourcepath means normalGameactors remain; battles required. UM97->98stair149,75 completed,173; remaining249steps, first98leg140steps toward99.",
   "actual": "Actualfivefull70HPsprite144 win167,69, all6survive; Cutterloses16HP47, othersundamaged, noMPspent. Normalearnedlevel4 KatINT+12 ->20/83HP, CutterINT+12 ->32/71maxHP. NormalCutterselfLesserHeal2MP ->71HP/30MP;172gold167food898. NormalReady ownedClothGloves3/ownedlastspareMagicStaff23,Cutter actualsavedgearconfirmed8weight/STR8,INT32, fourreadyStaffs.173normalUM98entryall6fullHP83/71/67/62/70/73,MP20/30/20/32/44/32.",
@@ -46,7 +49,10 @@
     "ce-native-acceptance528/earned-modern/forks/um101-prepared-driver-interrupted532/lineage.json": "0f80d8acd02e16a4894ebd8af688294abbe50adea7c83f12227022ad8f3dc387",
     "ce-native-acceptance528/earned-modern/forks/um101-prepared-nine-Drakes-defeat026-532/defeat.json": "14a65cc40c94b41636b1ebc47245fa37e4c531af8ff745a6a0097723044a7043",
     "ce-native-acceptance528/earned-modern/forks/um101-prepared-nine-Drakes-defeat026-532/lineage.json": "83c46a57dff2f5c21c76e9ef78a3f9be2e5df0fa8df28656f1e6064ea48f7972",
-    "ce-native-acceptance528/earned-modern/earned-local-physical-gear188-proof532.json": "0c087b25438ba95013c75ae8e26c36203606385b3077c89382032ef3c5a23ff2"
+    "ce-native-acceptance528/earned-modern/earned-local-physical-gear188-proof532.json": "0c087b25438ba95013c75ae8e26c36203606385b3077c89382032ef3c5a23ff2",
+    "ce-native-acceptance528/earned-modern/earned-eight-pirates-upgraded-gear-camp532.json": "705377bbb3aee5027327e08a0a79f48b207032e60afd988145e53728f75ce051",
+    "ce-native-acceptance528/earned-modern/earned-dry-shore-camp191-532.json": "ec26d1d7d327c34ac870e83ffe91cc873b738e5b88367f12a20aaac3a595dcb1",
+    "ce-native-acceptance528/earned-modern/earned-five-pirates-dry-camp192-532.json": "b6aaae38c4c63a4d7c701bc2c2b82d3504a78227825717876f67f205550fb205"
   },
   "cost": {
     "builds": 6,
@@ -54,7 +60,7 @@
     "focused_cli": 2,
     "material_cli": 28
   },
-  "next_action": "Source no dryfoot routeBayport120147 even withoutactoravoidance. Ownfrigate object208126113/119 andskiff212129110/124 retained. Static3cellshipavoidance blocks northernshore; source95stepcontactroute to130110 keepsactualEnginecontacts. Retrieveownedboats, normalBayportInn/Guild branch before another Scales attempt.",
+  "next_action": "Finish actual141109 seven-pirate encounter, preserve outcome; retrieve ownedskiff129110/Frigate126113, thenBayportInn/Guild branch. No current-strength Drake retry.",
   "first_drake_attempt": {
     "status": "IN PROGRESS",
     "result": "Normalsourcepath98->99->100->101withoutdamage. At101/51,28actual10full191HPDrakes118level5 admitted; normalTactical/ownedspellcasts endedactualdefeat. NoScalesaward/falsevictory. Completefailedbranchretained.",
@@ -110,5 +116,12 @@
     "scope": "Normal purchase/owned Ready only, not combat acceptance",
     "actual": "NormalQuickExit->Surface17762->54. Borrow ownedMageNecklace18 fromCutter->Kat; Cutter normalownedThiefNecklace19; Kat ownedLeatherGloves12 replacesPlate61. Hero ownedPaddedRobes15/+1Broadsword17. W4 and normal78floorrefresh placeslocalSmith168 working33,15; TUp33,16 service22. Normalstock5 Scimitar35 buy160:191->31. Kat normalScimitar/Buckler17Ready,188. ActualsavedKatpower68/armor58/weight29STR32; Hero52/56/weight20STR20; Cutter33/37/weight8STR8. All ready ownership and weights valid. NormalLongBow29sale+22 ->53gold,189. Firsthelperexpected38 wrongly assumedGem50%; Smithnonstock30%actual22 retained, no reset. Remaining planned sales did not occur. NormalQuickExit4Br40->36 toSurface17762; all6fullHP,food880.",
     "next": "Source no dryfoot routeBayport120147 even withoutactoravoidance. Ownfrigate object208126113/119 andskiff212129110/124 retained. Static3cellshipavoidance blocks northernshore; source95stepcontactroute to130110 keepsactualEnginecontacts. Retrieveownedboats, normalBayportInn/Guild branch before another Scales attempt."
+  },
+  "road190_192": {
+    "status": "VERIFIED",
+    "scope": "Normal northern return battles and dry-ground camps only; Guild/Scales remain unverified",
+    "actual": "Five98HP road enemies at16472 won, noHPdamage, two actual plainFireball casts20MP,Cutter/Allu7MP,food900. Eight98/137HP pirates149102 won all6fullHP,gold53->115,MP16/7/2/6/4/7,190. Hcamp refused on actual232shore; sourceSCEN no land enemies and terrain232 establish water refusal, earlier enemy/ship explanation corrected. One normalUp149101dry, H success:MP16/24/24/33/33/24,food900->788 (112MP restored),191. Five98/137pirates146107 won all6alive/fullHP,gold115->143,fiveFireball+1casts75MP; dryUp146106H restores75MPfood788->713,192.",
+    "camp_contract": "NativeWorldCamp forbids terrain229..232 whileonfoot; considers visible17x11 land enemies, excludes water enemies whileonfoot. Rest raises lowHP/MP to75% with food per recoveredpoint; preserves values already above75%, advances8hours. Source and actual191/192 agree. No fixed24foodcost or reduction of above75% values.",
+    "current_path": "Source20step normalcontact route146106->ownedskiff130110 approach. At141109 actualseven98/137pirates admitted, shared17damageall retained/unclassified; normalNoxheal then actualfight underway, no result claimed."
   }
 }

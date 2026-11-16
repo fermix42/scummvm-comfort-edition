@@ -2831,22 +2831,55 @@
       },
       "process": 26,
       "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
+    },
+    {
+      "label": "upgraded-earned-eight-pirate-win-normal-camp-attempt532",
+      "slot": 190,
+      "parent": "ba7783bd76df8376d0c047d9afc875532d6af7f14c4f00aa65a6365b131909ba",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot190.g0": "730217b3b9257da7462af18bb8744702163b46783e5210dc0a01a2a0a37db9fb",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot190.g0.ce-achievements.json": "5ac135ba6f011e83d71ffb2b39b584cb447cc71ead7ccf8ef36d8adfe99bb883"
+      },
+      "process": 26,
+      "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
+    },
+    {
+      "label": "upgraded-pirate-win-safe-dry-shore-camp532",
+      "slot": 191,
+      "parent": "c7700475c0aa46c4387380d464593b0a82f31294f42b955f065cf4bb27f3361b",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot191.g0": "175b0a2871a742ce7562c39f9895369867874bfb6f46e7cb4db51459516676e6",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot191.g0.ce-achievements.json": "827bfc88ff99c02e4bc8f4f8a4400bd35feb2c52f2bdf5b5ca8bc425c5e800c4"
+      },
+      "process": 26,
+      "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
+    },
+    {
+      "label": "earned-five-pirate-win-and-dry-camp532",
+      "slot": 192,
+      "parent": "460eb20ea30202ceafa737ad2e740d0c92686e005eb5da2b682ae4babf9faa1f",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot192.g0": "d75959876ed3cd157a36cac254995de865f777bc14f97e528e281829ad6591c9",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot192.g0.ce-achievements.json": "f95aa605408329850c71e48ec6eab84ee29d7d1603904a4dbb13693a457f5c3d"
+      },
+      "process": 26,
+      "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
     }
   ],
   "correction": "SCUMMVM-CE-NPC529-VERIFICATION.json",
-  "last_checkpoint": 189,
+  "last_checkpoint": 192,
   "cold_evidence": "ce-native-acceptance528/earned-modern/cold024.json",
-  "next_action": "Source no dryfoot routeBayport120147 even withoutactoravoidance. Ownfrigate object208126113/119 andskiff212129110/124 retained. Static3cellshipavoidance blocks northernshore; source95stepcontactroute to130110 keepsactualEnginecontacts. Retrieveownedboats, normalBayportInn/Guild branch before another Scales attempt.",
+  "next_action": "Finish actual141109 seven-pirate encounter, preserve outcome; retrieve ownedskiff129110/Frigate126113, thenBayportInn/Guild branch. No current-strength Drake retry.",
   "current_source_commit": "e073e27e3e3",
   "current_executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed",
-  "latest_earned": "NormalQuickExit->Surface17762->54. Borrow ownedMageNecklace18 fromCutter->Kat; Cutter normalownedThiefNecklace19; Kat ownedLeatherGloves12 replacesPlate61. Hero ownedPaddedRobes15/+1Broadsword17. W4 and normal78floorrefresh placeslocalSmith168 working33,15; TUp33,16 service22. Normalstock5 Scimitar35 buy160:191->31. Kat normalScimitar/Buckler17Ready,188. ActualsavedKatpower68/armor58/weight29STR32; Hero52/56/weight20STR20; Cutter33/37/weight8STR8. All ready ownership and weights valid. NormalLongBow29sale+22 ->53gold,189. Firsthelperexpected38 wrongly assumedGem50%; Smithnonstock30%actual22 retained, no reset. Remaining planned sales did not occur. NormalQuickExit4Br40->36 toSurface17762; all6fullHP,food880.",
+  "latest_earned": "Five98HP road enemies at16472 won, noHPdamage, two actual plainFireball casts20MP,Cutter/Allu7MP,food900. Eight98/137HP pirates149102 won all6fullHP,gold53->115,MP16/7/2/6/4/7,190. Hcamp refused on actual232shore; sourceSCEN no land enemies and terrain232 establish water refusal, earlier enemy/ship explanation corrected. One normalUp149101dry, H success:MP16/24/24/33/33/24,food900->788 (112MP restored),191. Five98/137pirates146107 won all6alive/fullHP,gold115->143,fiveFireball+1casts75MP; dryUp146106H restores75MPfood788->713,192.",
   "historical_receipt_baseline": {
     "executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4",
     "source_binding": "SCUMMVM-CE-CANNON530-VERIFICATION.json",
     "qualification": "Initialreceiptbaseline only; percheckpoint/current identities control later progression."
   },
   "source_commit": "e073e27e3e3",
-  "local_full_ledger_sha256": "2970e908f24a3d366ae94666f0f25a74a0e8b003774b8f162e2347864e1233ab",
+  "local_full_ledger_sha256": "e11740db306e2058ee3585427accac84ce20212695ece5ff5e4ba6fe21547bd0",
   "latest_scoped_evidence": {
     "status": "VERIFIED",
     "scope": "Actual141cold021/142normalnextstep retain quest/inventory/party/resources/sound/session and parkedhorse; not Rustydoorpositivecrossing or fullcampaign acceptance",
@@ -2863,9 +2896,9 @@
     "SCUMMVM-CE-M43-ARCHUS532-WORK.json": "d67b22e38777e6b33dfa950ae8b3b3143179edeb314f84932c0fbf67b1be4e0a",
     "SCUMMVM-CE-M43-ROYAL532-VERIFICATION.json": "c0912514074864c657a8cfe93e14ade54f08093f7e455ac31386ae3658dfa4c7",
     "SCUMMVM-CE-M43-NOURTHELD-RECOVERY532-VERIFICATION.json": "a7d86544f25de761a7441526d69221e04aef5efaf6c633342bff5d28d34cd426",
-    "SCUMMVM-CE-M43-SCALES532-WORK.json": "cdee6f292317bdb9669c8fdcb79266d1a1fbf6e2b784834eeaddb5845ddb2895"
+    "SCUMMVM-CE-M43-SCALES532-WORK.json": "10bdaef52c751fc63b2ea73e55279e3c3a919c6de937eeecca8b7e327261ea2a"
   },
-  "private_ledger_sha256": "2970e908f24a3d366ae94666f0f25a74a0e8b003774b8f162e2347864e1233ab",
+  "private_ledger_sha256": "e11740db306e2058ee3585427accac84ce20212695ece5ff5e4ba6fe21547bd0",
   "superseded_current_aliases_royal532": {
     "last_checkpoint": 44,
     "latest_earned": "142 firstnormalworldstep after actual141cold021, fullparty/questinventory/resources/session retained;horseparked persistence",
