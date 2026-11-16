@@ -4,7 +4,7 @@
   "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed",
   "source_binding": "SCUMMVM-CE-MOUNTED-TALK532-VERIFICATION.json",
   "builds": 6,
-  "process_launches": 22,
+  "process_launches": 23,
   "verified_selected_nodes": [
     "opening-exit",
     "gordon-shrubbery",
@@ -2378,12 +2378,45 @@
       },
       "process": 22,
       "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
+    },
+    {
+      "label": "rusty-four-paid-resurrections532",
+      "slot": 149,
+      "parent": "b9b25b7822bcba67fc3dff85f6680e471e001720dd841e7e44952aeeadc4716a",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot149.g0": "a007ef0d8ff7f835a998b892bebb8debfa4f5e547ee7e070a2e2a1d46ba0e9f4",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot149.g0.ce-achievements.json": "0fc79f2fec44bc986c7dbaed139e0ef53af60ade9f2f6424b8fe2f84379c94cc"
+      },
+      "process": 22,
+      "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
+    },
+    {
+      "label": "rusty-paid-full-recovery-and-gear532",
+      "slot": 150,
+      "parent": "28a82b96cf977085d80d897ac29cabae8de3ab2903834fdc577f3467f6dc1db5",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot150.g0": "ba18621e3b6c9b204f9bf706fe61a7135366eab16cb22429f0810a61b2683608",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot150.g0.ce-achievements.json": "3dd6f60206ede42b304514249a9a4a59ff624db285b3897b959d4ffdb7655671"
+      },
+      "process": 22,
+      "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
+    },
+    {
+      "label": "full-recovery-cold023-normal-ask-combat532",
+      "slot": 151,
+      "parent": "93a807a714a0232a55a9f84acde39d0f26f9da223a178df2cbc461c7f56a8e7d",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot151.g0": "c4e5a1ece5e176841789715b55eb8d7f92a8124bebfadc18d3501468fdb3140c",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot151.g0.ce-achievements.json": "3d12b692fdca6aeb792049316f75828b99470e9ebe0c7b0e5c6693be3e28075b"
+      },
+      "process": 23,
+      "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
     }
   ],
   "correction": "SCUMMVM-CE-NPC529-VERIFICATION.json",
   "last_checkpoint": 44,
   "cold_evidence": "earned-modern/cold011.json",
-  "next_action": "Continue actual148 earned two-living Bayport recovery using normal road battles/Temple/merchant; no casualty cleanup or XP/outcome injection.",
+  "next_action": "Continue required Guild access/Skull/boss path with normal supported combat choice; retain prior guard victory/levers and every casualty/defeat/flee. No new source build or suite.",
   "current_source_commit": "e073e27e3e3",
   "current_executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed",
   "latest_earned": "142 firstnormalworldstep after actual141cold021, fullparty/questinventory/resources/session retained;horseparked persistence",
@@ -2403,7 +2436,8 @@
       "ce-native-acceptance528/earned-modern/earned-veylan-paid-recovery532.json": "16e97f7adca442a5e826079dcf788c3723a678638f98fe817849107a1710d678",
       "ce-native-acceptance528/earned-modern/earned-veylan-full-inn-rest532.json": "f84c4b8611479a1cc1623e71428309e71bf3c1e65ce5b77cea9f7c3a1d067cd6"
     },
-    "SCUMMVM-CE-M43-RUSTY532-VERIFICATION.json": "a8b7cbde178b27d20ecdf9f8e02c4629c939fb0ecefc436ab627ea8098488b2d"
+    "SCUMMVM-CE-M43-RUSTY532-VERIFICATION.json": "a8b7cbde178b27d20ecdf9f8e02c4629c939fb0ecefc436ab627ea8098488b2d",
+    "SCUMMVM-CE-M43-RUSTY-RECOVERY532-VERIFICATION.json": "17b77f3d267c40eb082b4eeb4dc6c79a6e418858fbe84cf714d688bfebe4fa70"
   },
-  "private_ledger_sha256": "c32b174852a1afb7f436c4b169ba89f7b49249624a4c4d0837fee9d91aa78d3a"
+  "private_ledger_sha256": "ca117b3c2e9f241aab147a0d77688d1917271d106c07ab9fcb480b903566fe27"
 }

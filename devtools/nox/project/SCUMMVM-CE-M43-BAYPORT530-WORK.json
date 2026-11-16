@@ -79,7 +79,7 @@
     142
   ],
   "builds": 5,
-  "process_launches": 22,
+  "process_launches": 23,
   "evidence": {
     "ce-native-acceptance528\\earned-watcher530.json": "af5fda5988b03cafc1916fe981a66862c0e94fedff82dbb630162a87ebc356d6",
     "ce-native-acceptance528\\earned-margrave-guild-request530.json": "2a6b6c9658b0edca195ab29106497520b09972412072be7c2fbce5f532fc1904",
@@ -228,5 +228,32 @@
       "game_cli": 22,
       "focused_cli": 2
     }
+  },
+  "rusty_recovery149_151": {
+    "status": "VERIFIED",
+    "scope": "Actual148 four dead/two living -> normal road victories and spare gear sales -> four paid resurrections149 -> normal full inn rest/equipment150 -> exact cold023/151. Not whole campaign or ending.",
+    "source_commit": "e073e27e3e3",
+    "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed",
+    "lineage": [
+      148,
+      149,
+      150,
+      151
+    ],
+    "cost": {
+      "builds": 6,
+      "game_cli": 23,
+      "focused_cli": 2,
+      "material_cli": 25
+    },
+    "funding": "Road:38->44->65->86, no living damage. Three unready Broadswords19 @18 and one unready Staff23 @24 ->164. Temple four36 ->20, Inn10 ->10.",
+    "equipment": "Normal inventory: unready Axe12 from Hero, ready Kat; Hero owned HuntingKnife1 and Buckler17; two readied MagicStaff23 and two spare remain. All six original earned party members retained.",
+    "configuration": "Normal supported nox_combat_mode=2 Ask each encounter stored before cold023; no debug combat/fixture flags. Actual future mode choice remains to be observed.",
+    "evidence": {
+      "ce-native-acceptance528\\earned-modern\\rusty-four-paid-resurrections532.json": "c97b82498a9ace24ed2730717f40ece6a64226efb22508606480322f2a400213",
+      "ce-native-acceptance528\\earned-modern\\rusty-paid-full-rest-and-gear532.json": "5d8cf1c7474d8c6a080928e571dbfc52462f7dce3bec60769192a464c2547084",
+      "ce-native-acceptance528\\earned-modern\\cold023.json": "4de9592593230c0e4f365924838b63cc3c2d19fa164ef1174484297d2adb6f8c"
+    },
+    "next_action": "Continue required Guild access/Skull/boss path with normal supported combat choice; retain prior guard victory/levers and every casualty/defeat/flee. No new source build or suite."
   }
 }
