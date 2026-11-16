@@ -1,3 +1,7 @@
+# B-MOUNTED-TALK-ADMISSION - IN PROGRESS
+
+Normal horse-mounted T at Knaerwood6/28 33,25 fails admitted phase before direction. Earned998 pre-input and fatal transcript preserved. Original FEF1..FF34 12branchcases show ordinary dialogue permits mounts, service roles gate actual picture127/238. General choose admission/service restriction correction e073e27e3e3; one isolated sixthbuild underway. No topic/award earned or save mutation; recover actual998 without replay.
+
 # B-MELEE-PACKED-RANGE earned distance2 evidence added - VERIFIED
 
 Natural road116,184 battle: Kat0 at4,7 uses ordinary Axe12 Attack on138 at3,5, distance2. Actual24->0HP/presentfalse and nextCutter turn; save109. COMBAT531-VERIFICATION binds earned-melee-range2-combat531.json. No forcedencounter/setup/replay, no new build/process. Broadercombat remains qualified.

@@ -1,0 +1,28 @@
+{
+  "status": "IN PROGRESS",
+  "blocker": "B-MOUNTED-TALK-ADMISSION",
+  "scope": "Normal horse-mounted Talk fatals before direction; source generic dialogue permits mounted context while service roles restrict player picture127/238",
+  "accepted_source": "b9faa45cc63",
+  "accepted_executable_sha256": "230a07406fef270426acb14431b755cb92208e912aba6e49e7580dffbeedb568",
+  "corrected_source": "e073e27e3e3",
+  "earned_parent126": "4ac6ef5cf6125ca1dd33ecc90bb56bc897aadc7f5eed293fe929fc6cef61788a0",
+  "failing_context": "Knaerwood6/28 at33,25, horse127, all6fullHPMP,gold141food900; no topic/direction/award entered",
+  "normal_route_save998_sha256": {
+    "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot998.g0": "f279789e1c88164272c4fb54e00a31f36cbe2501a9878ba7879fd4e3293ee177",
+    "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot998.g0.ce-achievements.json": "bdb1b0ceb0ec1412d75e4ce71a8fe482b5332889cb2461d835b8b42d27b0518f",
+    "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot998.g1": "072abaf5ad8a6d0a558a1ce6f92fc9769c2ca9c494f35c7e2e0d0d933748f81f",
+    "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot998.g1.ce-achievements.json": "1f700d9afe730a8ad9e694eeb384576a61f405705529d9575bba9a67a129abd3"
+  },
+  "original_oracle": "ce-native-acceptance528/mounted-talk532/original-branch-oracle.json",
+  "original_cases": 12,
+  "correction": "Remove blanket onFoot admission gate; preserve original role<8/16 service capability and actual player appearance127 message0/238 message30 restrictions. Generic roles bypass service gates, matching FEF1..FF34.",
+  "builds_started": 6,
+  "game_cli_processes": 19,
+  "focused_cli_processes": 2,
+  "next_action": "One native-only isolated532build; resume actual normal998 earned save, compare party/inventory/quest/resources/session, ordinary mounted Erdan dialogue and service refusal; no synthetic setup or replay prefix",
+  "limitations": [
+    "No earned HELP award yet",
+    "No full campaign/ending acceptance",
+    "Boat/swimming service branches original oracle only; broader owner remains qualified"
+  ]
+}

@@ -1,3 +1,7 @@
+# Mounted Talk532 focused correction - IN PROGRESS
+
+126mountedCastle->Surfaceearned, next normalroad2x70HPwin/Knaerwoodentry and998legalroute save retained. NormalmountedT beforedirection failsadmittedphase; noErdanHELPaward. Original12branchoracle confirmsblanketonFootgateincorrect for ordinarydialogue, servicehorse127/swim238refusals separate. General e073e27e3e3 correction, oneisolated sixthnativebuild underway. Preserve531/audio473/earned126/actual998,19gameCLI+2focusedCLI,3/60selectednodesVERIFIED/endingunverified. Source/earned-statecomparison thenfocusedmountedtalk/servicecheck; canonicalconversion/CEdevtools/nox/project mirror.
+
 # Acceptance528 Yvviar early investigation124/125 - IN PROGRESS
 
 Normal daytime CULT/STOP changes fields55/56 32/0->96/1; early opening refusal/W3/floor refresh retained. Actual acquired-letter return/Archus/Styx/cold remain. Normal MagicMissile0/Illuminate57 purchases8each,125gold129food900/all6fullHPMP. Native531/audio473unchanged,5builds/19gameCLI+2focusedCLI,3/60nodesVERIFIED/endingunverified. Returnownedhorse andsourceplannedKnaerwood/British/Veylan next. Canonicalconversion/CEdevtools/nox/project recoverymirror.
