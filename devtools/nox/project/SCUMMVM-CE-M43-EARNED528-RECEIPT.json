@@ -4,7 +4,7 @@
   "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd",
   "source_binding": "SCUMMVM-CE-DOOR533-VERIFICATION.json",
   "builds": 8,
-  "process_launches": 30,
+  "process_launches": 31,
   "verified_selected_nodes": [
     "opening-exit",
     "royal-access",
@@ -17,7 +17,9 @@
     "page-bit-4",
     "page-bit-8",
     "page-bit-16",
-    "page-bit-32"
+    "page-bit-32",
+    "page-bit-64",
+    "page-bit-128"
   ],
   "qualifications": [
     "opening-log requires post-acquisition recognition/repeat",
@@ -3378,22 +3380,66 @@
       },
       "process": 30,
       "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd"
+    },
+    {
+      "label": "earned Castle57 page bit128 repeat239",
+      "slot": 239,
+      "parent": "8963a09648e539b1b6eb520515551e9c347db1e145afc0628728859b2f33664d",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot239.g0": "f2ad260428ea5a585d0674537e650b6abcab2684c8820dcaeeabc33d5ad74bfb",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot239.g0.ce-achievements.json": "b9bd91b7b8c9708b9632c8cd325d274046e71048a87da36d2a0cbf8223515ea4"
+      },
+      "process": 30,
+      "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd"
+    },
+    {
+      "label": "earned seventh page bit64 repeat240",
+      "slot": 240,
+      "parent": "5f8cef690a43b1a6d343de0fc0673cd0b74fb97f4685026e2306797def0885e5",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot240.g0": "02dc8d45080a43a110db563d7f9dc715596f9ba76ba235deedd1e86464bc613b",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot240.g0.ce-achievements.json": "a2a9ec762542f4f19eed2edbff583c5e20ac74e7ef13482cfa122a8cbc7ed9be"
+      },
+      "process": 30,
+      "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd"
+    },
+    {
+      "label": "earned seven-page cold next repeat241",
+      "slot": 241,
+      "parent": "bbee505c9bae17ec1139f4ac9d4a876b9b70640f8c5051ceb92529ca01afaf5e",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot241.g0": "f983cf5911ebf52772a0fd0ee08d42c51903b4396f83f0429963c7e6dacfeda9",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot241.g0.ce-achievements.json": "ff50f72b1b0b3afedfd530788624d11d0d557d4fafe73dfe9909767ac359bba5"
+      },
+      "process": 31,
+      "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd"
+    },
+    {
+      "label": "earned eight enemy return battle fullHP242",
+      "slot": 242,
+      "parent": "b37668b3d7ef070fabeb18ae092fb0b6d4cab6eb84874389d8636a105ed23b9e",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot242.g0": "cffbdc687b611e6cf9c300d525cae68b318f64bd8083b2049f12b81ad434b48d",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot242.g0.ce-achievements.json": "add12608ee234845a339704b02171ee905973156946f70a5ecf87dec222a3847"
+      },
+      "process": 31,
+      "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd"
     }
   ],
   "correction": "SCUMMVM-CE-NPC529-VERIFICATION.json",
-  "last_checkpoint": 238,
-  "cold_evidence": "ce-native-acceptance528/earned-modern/cold030.json",
-  "next_action": "Continue reachable Castle57 pages37,36(bit128) and32,1(bit64). Page44,20(bit1) current ordinary planner NoRoute; inspect authored access/portals, not assumed Engine defect or prerequisite for other pages. Source portal54/36,11->57/38,44 requires field60mask4, currentlyabsent; planner does not model object portals. Continue independent earned tasks; no milestone stop.",
+  "last_checkpoint": 242,
+  "cold_evidence": "ce-native-acceptance528/earned-modern/cold031.json",
+  "next_action": "Normal Inn recovery and Brown/Cult source route; continue finite earned acceptance.",
   "current_source_commit": "c660ae8ac41",
   "current_executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd",
-  "latest_earned": "Earned Arcane absent refusal232; normal115 pickup/repeat234. After fivepages236, source70step return crosses one231cell17damage/member, no battle. At56/32,24 normal OpenDown opens32,25; steps32,25 then32,26 prove physicalpassage/keyretained237, screenshot90. Actual cold030 preserves map/party/inventory/allquestfields/resources/sound/session/noassistance; first normal Up32,25 and Down32,26 prove retained passage238. Both keys retained/field24=6, fivepages/field62=62;HP50/38/44/37/37/40 MP8/8/8/20/8/20,561gold272food. No Engine change/build/suite.",
+  "latest_earned": "After seven-page cold241, return route crosses one231cell17damage/member and intercepts eight98HPsprite242 enemies at57/23,11 with party low. Private normal-input policy now heals critical living members before offense; actual Tactical/heals/two available Fireball casters/staves wins all6fullHP,591gold272food,MP2/2/4/3/4/3,242. No Engine change/build/newprocess/assistance; actual232..241 gates/pages retained. Continue normal Inn from actual position, then source Brown/Cult prerequisites; no unchanged Guild/Drake retry.",
   "historical_receipt_baseline": {
     "executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4",
     "source_binding": "SCUMMVM-CE-CANNON530-VERIFICATION.json",
     "qualification": "Initialreceiptbaseline only; percheckpoint/current identities control later progression."
   },
   "source_commit": "c660ae8ac41",
-  "local_full_ledger_sha256": "3e14dc9d10440d1520a54bbe4acfdc4541ac87db50af120254281bca779e89cf",
+  "local_full_ledger_sha256": "763ba16e20c4ee057c49cfa558d07429e8385cccb0c5e67c2382b138b61d4289",
   "latest_scoped_evidence": {
     "status": "VERIFIED",
     "scope": "Actual141cold021/142normalnextstep retain quest/inventory/party/resources/sound/session and parkedhorse; not Rustydoorpositivecrossing or fullcampaign acceptance",
@@ -3411,10 +3457,10 @@
     "SCUMMVM-CE-M43-ROYAL532-VERIFICATION.json": "c0912514074864c657a8cfe93e14ade54f08093f7e455ac31386ae3658dfa4c7",
     "SCUMMVM-CE-M43-NOURTHELD-RECOVERY532-VERIFICATION.json": "a7d86544f25de761a7441526d69221e04aef5efaf6c633342bff5d28d34cd426",
     "SCUMMVM-CE-M43-SCALES532-WORK.json": "0ae8239c7e75489373b0604738e1e79d35ccd3a81e348f47832e978cd82b9645",
-    "SCUMMVM-CE-M43-CASTLE532-WORK.json": "99284ac3f73c2799fb9094a26d8c84c85eb36e4d8183d6d19d59ba62f4e8795d",
+    "SCUMMVM-CE-M43-CASTLE532-WORK.json": "c1d4286b16d7e8cd3cadcc17047ce6d12a740089562c4df18d0493a527da57d6",
     "SCUMMVM-CE-DOOR533-VERIFICATION.json": "b56eda55bb27385ee3a31fda61b57f58965e91465d68e120ba271e1c360e3c6b"
   },
-  "private_ledger_sha256": "3e14dc9d10440d1520a54bbe4acfdc4541ac87db50af120254281bca779e89cf",
+  "private_ledger_sha256": "763ba16e20c4ee057c49cfa558d07429e8385cccb0c5e67c2382b138b61d4289",
   "superseded_current_aliases_royal532": {
     "last_checkpoint": 44,
     "latest_earned": "142 firstnormalworldstep after actual141cold021, fullparty/questinventory/resources/session retained;horseparked persistence",
