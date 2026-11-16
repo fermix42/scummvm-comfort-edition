@@ -11,7 +11,8 @@
     174,
     175,
     176,
-    177
+    177,
+    178
   ],
   "route": "NormalCastle78/18,32->UM97/176,62,171. Readonly originalfivefloor route to101safeEast74,41 totals289steps,zerothermalcells/no225energyactorintersections. Contactpermitting sourcepath means normalGameactors remain; battles required. UM97->98stair149,75 completed,173; remaining249steps, first98leg140steps toward99.",
   "actual": "Actualfivefull70HPsprite144 win167,69, all6survive; Cutterloses16HP47, othersundamaged, noMPspent. Normalearnedlevel4 KatINT+12 ->20/83HP, CutterINT+12 ->32/71maxHP. NormalCutterselfLesserHeal2MP ->71HP/30MP;172gold167food898. NormalReady ownedClothGloves3/ownedlastspareMagicStaff23,Cutter actualsavedgearconfirmed8weight/STR8,INT32, fourreadyStaffs.173normalUM98entryall6fullHP83/71/67/62/70/73,MP20/30/20/32/44/32.",
@@ -24,7 +25,8 @@
     "ce-native-acceptance528/earned-modern/forks/um101-ten-drakes-first-defeat532/defeat.json": "c688d257546bd0f3123ad05cb88ff3ecb54a69b10727b7b7c213e93fecabedf7",
     "ce-native-acceptance528/earned-modern/forks/um101-ten-drakes-first-defeat532/lineage.json": "ad9694e85add291f3a542311cc0955a4efe87a731da637ea5bc6d659e3f9907e",
     "ce-native-acceptance528/earned-modern/earned-town44-inn11-full-rest532.json": "0d88f46b4db7b160d117c3da212d45562ed605a654ae38e652d7ca28cec60365",
-    "ce-native-acceptance528/earned-modern/earned-town44-book4-book60-ready532.json": "ab12d94b24e69530f811a2c7c59e00164f5f64ba390d1384364007bc9e8ce04a"
+    "ce-native-acceptance528/earned-modern/earned-town44-book4-book60-ready532.json": "ab12d94b24e69530f811a2c7c59e00164f5f64ba390d1384364007bc9e8ce04a",
+    "ce-native-acceptance528/earned-modern/earned-town44-second-inn11-full-rest532.json": "b5d3732a95a85f58d8ac75e73a78a104592679da03101f86dee4f40e669975c7"
   },
   "cost": {
     "builds": 6,
@@ -32,7 +34,7 @@
     "focused_cli": 2,
     "material_cli": 26
   },
-  "next_action": "Return canal with full HP, normal Inn11 full mana, then source route back to Scales.",
+  "next_action": "Normal Surface94step route17762 then Castle78stairs/UM97->101 Scales; prepared earned books and mana retained.",
   "first_drake_attempt": {
     "status": "IN PROGRESS",
     "result": "Normalsourcepath98->99->100->101withoutdamage. At101/51,28actual10full191HPDrakes118level5 admitted; normalTactical/ownedspellcasts endedactualdefeat. NoScalesaward/falsevictory. Completefailedbranchretained.",
@@ -46,6 +48,7 @@
     "earned_withdrawal": "175 Hero/Bridgit earned level4, twelve normal INT points each; all six level4. Three137HP Cursed Warriors defeated normally using four Fireball+1 casts; camp capped mana at75%. 176 normal surface exit247gold874food.",
     "local_preparation": "Town44 Inn11 gold247->236, full rest; single50HP win adds5gold. Canal crossing two231 cells17damage each. Actual Magi NPC9,10 reached from11,10 across counter. Purchased stock0 Fireball+2 and stock6 QuickExit at76 each:241->89gold. Both normally Readied slots4/5; saved requirements38. All six self LesserHeal casts cost2MP each, fullHP83/71/77/70/70/73, MP18/30/30/42/42/30. 177 ordinary permanent save.",
     "qualification": "NPC movement/counter alignment caused failed Talks; saved world and viewport actor tables agree. Earlier ownership-mismatch suspicion withdrawn. No engine defect or source change demonstrated.",
-    "next": "Return canal with full HP, normal Inn11 full mana, then source route back to Scales."
+    "next": "Return canal with full HP, normal Inn11 full mana, then source route back to Scales.",
+    "rest178": "Return canal exactly34damage/member, no deaths. Second normal11gold Inn89->78, allsix fullHP83/71/77/70/70/73 and MP20/32/32/44/44/32. Checkpoint178. Normal45room->44, source route to9,32 thenWest/Y exitsSurface132109. Ships now129109/137110: offline4cellavoidance closes entrance; source3cellclearance route94steps found, normal encounters retained."
   }
 }

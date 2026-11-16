@@ -1,3 +1,7 @@
+# Acceptance528 fully prepared178 return route - IN PROGRESS
+
+Normal secondInn11 restores allsix fullHP83/71/77/70/70/73 andMP20/32/32/44/44/32,78gold874food,178; savedbooks4/60slots4/5requirements38. NormalTown45->44West/Y->Surface132109. Offline4cellshipavoidance closes narrow entrance;3cellsourceclearance94step route17762 found, actual encounters remain. ContinueCastle78stairs/UM97->101/Scales. No Enginechange/build/suitererun;5/60selectednodesVERIFIED,endingunverified,6builds/24gameCLI+2focused=26materialCLI. Canonicalconversion/CEdevtools/nox/project mirrors.
+
 # Acceptance528 earned spell preparation177 - IN PROGRESS
 
 Normal withdrawal175/176 retains all earned victories and level4 INT allocations. Town44 paidInn11, source canal two17damagecells, normal purchases Fireball+2/QuickExit76each, slots4/5 saved requirements38 verified. 177 fullHP83/71/77/70/70/73, MP18/30/30/42/42/30,89gold874food after six normal selfheals. Return canal/Inn fullmana then Scales route. FailedTalks were NPC movement/counter alignment; saved actor tables agree, no Enginebug. Five/60selectednodesVERIFIED; endingunverified. Engine532/audio473 unchanged,6builds/24gameCLI+2focused=26materialCLI. Canonicalconversion/CEdevtools/nox/project mirrors.

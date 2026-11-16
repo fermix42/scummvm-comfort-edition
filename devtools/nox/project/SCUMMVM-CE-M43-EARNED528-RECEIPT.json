@@ -2699,22 +2699,33 @@
       },
       "process": 24,
       "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
+    },
+    {
+      "label": "town44-two-earned-books-full-party-full-mana-ready532",
+      "slot": 178,
+      "parent": "e42f025b31eb2acba3cb54d703ec454db60306f6bce82f6594d74eee23d3ad3c",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot178.g0": "4a6852cb4b8b03fb7f8e9123dad2c887035b656ecb062230a8c4973b82dd5e94",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot178.g0.ce-achievements.json": "b0fb35fea138b34c150db7ae93bc5a7d81d1c86766c20594818e4102272848e2"
+      },
+      "process": 24,
+      "executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed"
     }
   ],
   "correction": "SCUMMVM-CE-NPC529-VERIFICATION.json",
-  "last_checkpoint": 177,
+  "last_checkpoint": 178,
   "cold_evidence": "ce-native-acceptance528/earned-modern/cold024.json",
-  "next_action": "Return canal with full HP, normal Inn11 full mana, then source route back to Scales.",
+  "next_action": "Normal Surface94step route17762 then Castle78stairs/UM97->101 Scales; prepared earned books and mana retained.",
   "current_source_commit": "e073e27e3e3",
   "current_executable_sha256": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed",
-  "latest_earned": "Town44 Inn11 gold247->236, full rest; single50HP win adds5gold. Canal crossing two231 cells17damage each. Actual Magi NPC9,10 reached from11,10 across counter. Purchased stock0 Fireball+2 and stock6 QuickExit at76 each:241->89gold. Both normally Readied slots4/5; saved requirements38. All six self LesserHeal casts cost2MP each, fullHP83/71/77/70/70/73, MP18/30/30/42/42/30. 177 ordinary permanent save.",
+  "latest_earned": "Return canal exactly34damage/member, no deaths. Second normal11gold Inn89->78, allsix fullHP83/71/77/70/70/73 and MP20/32/32/44/44/32. Checkpoint178. Normal45room->44, source route to9,32 thenWest/Y exitsSurface132109. Ships now129109/137110: offline4cellavoidance closes entrance; source3cellclearance route94steps found, normal encounters retained.",
   "historical_receipt_baseline": {
     "executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4",
     "source_binding": "SCUMMVM-CE-CANNON530-VERIFICATION.json",
     "qualification": "Initialreceiptbaseline only; percheckpoint/current identities control later progression."
   },
   "source_commit": "e073e27e3e3",
-  "local_full_ledger_sha256": "64a98ab42c633ebdf2a95fe82293e930959e6b9ee6adc9faf1084e4a8b9cf2bf",
+  "local_full_ledger_sha256": "849085ba9b38b20669f0e4a843ecd96c6593a0287f2fa214b9f6930bba96eff8",
   "latest_scoped_evidence": {
     "status": "VERIFIED",
     "scope": "Actual141cold021/142normalnextstep retain quest/inventory/party/resources/sound/session and parkedhorse; not Rustydoorpositivecrossing or fullcampaign acceptance",
@@ -2731,9 +2742,9 @@
     "SCUMMVM-CE-M43-ARCHUS532-WORK.json": "d67b22e38777e6b33dfa950ae8b3b3143179edeb314f84932c0fbf67b1be4e0a",
     "SCUMMVM-CE-M43-ROYAL532-VERIFICATION.json": "c0912514074864c657a8cfe93e14ade54f08093f7e455ac31386ae3658dfa4c7",
     "SCUMMVM-CE-M43-NOURTHELD-RECOVERY532-VERIFICATION.json": "a7d86544f25de761a7441526d69221e04aef5efaf6c633342bff5d28d34cd426",
-    "SCUMMVM-CE-M43-SCALES532-WORK.json": "332a97341d948cd739071e98fda36a1ed2a4041dd3ee7fd4823199b80127fc80"
+    "SCUMMVM-CE-M43-SCALES532-WORK.json": "68494f5d69261added26ff8a9bd2c3669c89d2edc0afa5c0e19aa79e144e4f1a"
   },
-  "private_ledger_sha256": "64a98ab42c633ebdf2a95fe82293e930959e6b9ee6adc9faf1084e4a8b9cf2bf",
+  "private_ledger_sha256": "849085ba9b38b20669f0e4a843ecd96c6593a0287f2fa214b9f6930bba96eff8",
   "superseded_current_aliases_royal532": {
     "last_checkpoint": 44,
     "latest_earned": "142 firstnormalworldstep after actual141cold021, fullparty/questinventory/resources/session retained;horseparked persistence",
