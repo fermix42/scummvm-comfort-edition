@@ -2014,7 +2014,7 @@
     },
     {
       "id": "yvviar-cult-investigation",
-      "status": "NOT STARTED",
+      "status": "IN PROGRESS",
       "prerequisites": [
         "opening-exit"
       ],
@@ -2042,12 +2042,13 @@
         "scoped audio/presentation",
         "actual earned verification criteria"
       ],
-      "earned_lineage": null,
+      "earned_lineage": "New ->123 ->124 early CULT/STOP ->125 backup purchases",
       "source_qualifications": [
         "Early originalLog/HP50/noLetter -> actual CULT/STOP43740/43801/cold; no serious-letter opening, independent journal confirms. Retained actual PirateKey/cave/letter -> original Yvviar letter opening -> actual Archus/Styx4381C/cold both modes.",
         "Source advice flag43740 guides British ADVI; no hard PirateKey/letter prerequisite invented. All route/noon/adjacency controls explicit. Opt-in exact word observer verified Yvviar, not universally all NPCs; optional strict Archus probe failed, existing default controller succeeds.",
         "Earlier failed direct routes, STOP timing and wrong427 flag expectation preserved/excluded."
-      ]
+      ],
+      "earned_progress": "Early no-letter opening and CULT/STOP through actual daytime conversation; fields55/56 32/0->96/1. Later letter/opening/Archus/Styx/cold comparisons remain."
     },
     {
       "id": "cult-four-pressure-plates",

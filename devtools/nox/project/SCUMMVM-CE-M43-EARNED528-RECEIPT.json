@@ -3,8 +3,8 @@
   "scope": "Earned mainline through81: Watcher/door, Margravepre-award request, tenpiratevictory withfourcasualties, twoearnedINTlevels, normalBattleInventory shieldloans, returnweaksea victories andworldpirate180cannonremoval. Guild/Raque/ending remainunearned.",
   "executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4",
   "source_binding": "SCUMMVM-CE-CANNON530-VERIFICATION.json",
-  "builds": 4,
-  "process_launches": 17,
+  "builds": 5,
+  "process_launches": 19,
   "verified_selected_nodes": [
     "opening-exit",
     "axea-page",
@@ -1977,6 +1977,26 @@
         "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot123.g0.ce-achievements.json": "7947a9720ecde060452b0ea45ba040e7f5f1ee3867cf4d17b4a94c6f03ec7955"
       },
       "process": 19
+    },
+    {
+      "label": "yvviar-early-cult-stop-earned531",
+      "slot": 124,
+      "parent": "08b9189de1080479a9219bedc205b24906eca6b70a317aa92e61e71333eb0e8c",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot124.g0": "4144fe6b58b7bf9f7cee0c550f082c72776d1a9885ad62c9f9af1ae18220cfa2",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot124.g0.ce-achievements.json": "b7547704943a05aff3d9a58c1f30a7c7c5a04ebef3ca25c0a4f2db78136137b3"
+      },
+      "process": 19
+    },
+    {
+      "label": "yvviar-investigation-and-backup-books531",
+      "slot": 125,
+      "parent": "6013d172c0cd19f15eea566d69f62822a56716e84f36c244a60efa20564898a8",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot125.g0": "b8358beb2c0585416ff56492e21b175e4f504ae1aa144681c478bde013c57c67",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot125.g0.ce-achievements.json": "2b28dae37874845abb070f2f3a677c38e137f77ab76ffa2aec64500047d69e19"
+      },
+      "process": 19
     }
   ],
   "correction": "SCUMMVM-CE-NPC529-VERIFICATION.json",
@@ -1988,5 +2008,8 @@
     "Margrave KEY request without Orders77 before Guildmaster",
     "Actual full single70HP Guildmaster battle/source XP reward and normal allocations",
     "Required Rusty72/Veylan guard/door remains pending parallel task; needed equipment/books; return Raque"
-  ]
+  ],
+  "current_source_commit": "b9faa45cc63",
+  "current_executable_sha256": "230a07406fef270426acb14431b755cb92208e912aba6e49e7580dffbeedb568",
+  "latest_earned": "125 Yvviar early CULT/STOP and MagicMissile/Illuminate purchases; fields55/56=96/1,gold129,all6fullHPMP"
 }

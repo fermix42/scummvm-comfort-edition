@@ -1,3 +1,7 @@
+# Acceptance528 Yvviar early investigation124/125 - IN PROGRESS
+
+Normal daytime CULT/STOP changes fields55/56 32/0->96/1; early opening refusal/W3/floor refresh retained. Actual acquired-letter return/Archus/Styx/cold remain. Normal MagicMissile0/Illuminate57 purchases8each,125gold129food900/all6fullHPMP. Native531/audio473unchanged,5builds/19gameCLI+2focusedCLI,3/60nodesVERIFIED/endingunverified. Returnownedhorse andsourceplannedKnaerwood/British/Veylan next. Canonicalconversion/CEdevtools/nox/project recoverymirror.
+
 # Acceptance528 earned horse122/123 - IN PROGRESS campaign
 
 121normalCastle11arrival/footappearance250/object255,all6fullHPMP,299gold900food.122normalHorsevendor11/80role6 paid154 ->145gold,onfootfalse/appearance127. ActualmountedRight14,24->15,24,Xdismount/Breboard/Xpark allpass;123onfoot/ownedhorse15,24,resourcesunchanged,hash08b9189de1080479aa9219bedc205b24906eca6b70a317aa92e61e71333eb0e8c. Horsemap/coldcontinuity andremainingtransportbranches stayunverified; fullbranchINPROGRESS. NormalfootCastle15visit/Yvviarearlyinvestigation/backupprep underway. Native531/audio473unchanged,5builds/19gameCLI+2focusedCLI;3/60selectednodesVERIFIED,endingunverified. BayportSW9,39closeddooropenednormallyafterearlierwall/closed-gaterefusals; noEnginegapclaimed. Canonical conversion/CEdevtools/nox/project recoverymirrors.

@@ -57,7 +57,9 @@
     120,
     121,
     122,
-    123
+    123,
+    124,
+    125
   ],
   "builds": 5,
   "process_launches": 19,
@@ -68,7 +70,7 @@
     "ce-native-acceptance528\\earned-modern\\wrapper-recovery.json": "6a10ca459214ec33acf71751b4b744779e36ae3f60601175a309d39027f26de9",
     "ce-native-acceptance528/earned-modern/earned-partial-recovery530.json": "e6febeb06a275d3e3abec6f25f961a8adf0a93ed9f984627e050a839dfae55c1"
   },
-  "next_action": "CompleteInnfullrest, then necessaryearlysourcequest/transport path:Castle11horse154/backupspells, Knaerwood/LordBritish andVeylanRusty route; no prematureGuildAssassins. All60criteriaretained.",
+  "next_action": "Return owned horse Castle11/15,24, continue source-derived Knaerwood/British/Veylan route; later Yvviar acquired-letter branch remains required.",
   "squid_fork": "ce-native-acceptance528/earned-modern/forks/squid-seven-first-defeat",
   "failures": [
     "Seven full191HP range15 Squids defeat; normal74restored, no unchanged retry.",
@@ -101,5 +103,6 @@
   ],
   "equipment119": "118 actualSurface109,178 caveexit, all6fullHP,gold450food342. Returnroad4full70/67HP enemies defeated usingNoxreadyMagicStaff/noMPspent,Hero42normallyhealedbyAllu. Gemnormal+1RecurveBow105 andunreadiedextraFireball+1copy18:450->573; sourceFood47/96 buy12x50@3 clipped900:573->537. FourMagicStaff23 purchases48each:537->345 (fiveowned,two readied,3reserveforINT32). ReadyBrStaff/NoxownedStaff,HeroBroadsword19+Buckler,AlluKnife, NoxfreeLeatherHelm,CutterfreeClothHelm,BrfreePaddedRobes. BuyHeroCuirass12/Boots4+10Torches10+10Picks10:345->309.119 actualweight/STR 20/32,8/8,20/20,7/8,8/8,14/14; armor33/43/46/25/27/50; nooverweightbypass. Worldtools32/33 actual10/11; genericinventoryrowcountnotauthorityforconsumption. Save119hash34557168a328535716d774c2c01550bd1a29f4201660d37e942fd8adfde6e36ec. No build/launch; nextInn48via47West->46Southshorterquarters.",
   "inn120": "Actual10gold Inn48/208 normalT/Yes/R/Yes to17,24, all6HP71/63/67/62/62/64,MP8/20/20/32/32/20,gold299food900,hour06.120hash2ac3b29c841d1fb45083bbd4f42768aea30f6c317f4372e34875b8338db450096. No sourcechange/build/launch after531; normaldeparture next. Correction:117actual450gold includes82treasure, notpre-chest368.",
-  "horse122_123": "121fullpartyCastle11arrival/footappearance250/object255,299gold900food;122normalvendor11/80 role6 paid154,145gold/onfootfalse/appearance127. NormalRight14,24->15,24 mounted, Xdismount/Breboard/Xpark allsuccessful;123onfoot withownedhorse15,24 retained,HP/MP/foodunchanged. Hash122f0d89bd97f0fe17746ead242c96d6323798f3274dda8295281d16b1156dc9289,12308b9189de1080479aa9219bedc205b24906eca6b70a317aa92e61e71333eb0e8c. Native531unchanged/no build/launch. BayportSW9,39actualcloseddoor wasopenednormally beforeSurface departure; earlier24,39wall/closed9,39 refusal preserve no Engine defect."
+  "horse122_123": "121fullpartyCastle11arrival/footappearance250/object255,299gold900food;122normalvendor11/80 role6 paid154,145gold/onfootfalse/appearance127. NormalRight14,24->15,24 mounted, Xdismount/Breboard/Xpark allsuccessful;123onfoot withownedhorse15,24 retained,HP/MP/foodunchanged. Hash122f0d89bd97f0fe17746ead242c96d6323798f3274dda8295281d16b1156dc9289,12308b9189de1080479aa9219bedc205b24906eca6b70a317aa92e61e71333eb0e8c. Native531unchanged/no build/launch. BayportSW9,39actualcloseddoor wasopenednormally beforeSurface departure; earlier24,39wall/closed9,39 refusal preserve no Engine defect.",
+  "yvviar124_125": "First early opening refusal preserved; normal W3 and floor reentry activate daytime schedule. Fresh NPC15,20/player15,21 TalkUp reaches prompt; CULT/STOP changes canonical fields55/56 32/0->96/1. No letter owned.125 normal MagicMissile0 and Illuminate57 purchases8each,gold145->129,all6fullHPMP. No engine source/build/launch."
 }
