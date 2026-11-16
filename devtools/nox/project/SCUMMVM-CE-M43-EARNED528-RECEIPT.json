@@ -3307,22 +3307,44 @@
       },
       "process": 29,
       "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd"
+    },
+    {
+      "label": "earned Inn fullmana before Arcane233",
+      "slot": 233,
+      "parent": "e9ced318ba20dfc371b04d03f80108601eb69d33482a4618eeb64a0ff2db3e03",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot233.g0": "ebf9bec877353fb4108ff8f31c64cf107308603f11aef0226a12a8dbc90f60fb",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot233.g0.ce-achievements.json": "e028362cc5af18fbc1ea89dd22336b458b7f400451d1cc5168ada5e84b2d6d75"
+      },
+      "process": 29,
+      "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd"
+    },
+    {
+      "label": "earned Arcane key and repeat234",
+      "slot": 234,
+      "parent": "6716e0980f9d236937079b8531cb83af1f12d20fbaad2bfde526aa29b6c94bd1",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot234.g0": "4e2883c894390b393a64e57ac946a2baa28eeeeeabbc2df1cb8b04742b11239d",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot234.g0.ce-achievements.json": "31eb97a83c0c24f6c70e8821ce7ddab86d35f2a5f05d7bc465af743427046ae5"
+      },
+      "process": 29,
+      "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd"
     }
   ],
   "correction": "SCUMMVM-CE-NPC529-VERIFICATION.json",
-  "last_checkpoint": 232,
+  "last_checkpoint": 234,
   "cold_evidence": "ce-native-acceptance528/earned-modern/cold029.json",
-  "next_action": "Normal Inn58 fullmana rest (source43step route from56 via60/59/58, no hazards), then Arcane115 chest78/5,32 using finite water/healing segments, repeat, actual Arcane door passage/cold and remaining source pages; continue without milestone stop.",
+  "next_action": "Continue Castle78 page5,9(bit4),9,12(bit16) using source water groups/dry healing; then actual Arcane door56/32,25 opening/passage/cold and Castle57 pages32,1/37,36/44,20. No assumed Order prerequisite, no milestone stop.",
   "current_source_commit": "c660ae8ac41",
   "current_executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd",
-  "latest_earned": "230 fullHP before three231cell exit; actual51damage/member, six normal Kat heals12MP on dry37,17 ->HP73/61/67/60/60/63,MP4/2/17/17/9/17,231. Authored78->54->55->56 route reaches north Arcane stand32,24 without further damage/battle. Field24bit2 absent/no115. Actual OpenDown shows No key or pick that fits; afterack party/inventory/allquestfields/gold/food/position unchanged,232, screenshot84. Positive/key/cold remain unearned. Direct original item97 records correct remaining three pages to Castle57 positions32,1(bit64),37,36(bit128),44,20(bit1); previous55/56 floor wording was wrong. Still3/8 pages,flags42; no assumed Order dependency.",
+  "latest_earned": "Normal43step upper56->60->59->58 Inn route, paid14gold546->532, full6HP/MP233. Source127step59->58->54->78 Arcane chest route: nine231 cells153damage/member, bounded dry stops and four six-member normal LesserHeal sets48MP total; no extra battle/death. At78/4,32 SearchRight/Cutter2 first attempt earns one Arcane key115 and field24mask2 (both key bits now6). Repeat SearchRight finds nothing, inventory unchanged234, screenshots85/86. HP74/62/68/61/61/64 MP8/32/32/44/8/32,532gold272food. Arcane positive passage/cold remain unearned; collect nearby remaining Castle78 pages then return gate. No Engine change/build/process/suite.",
   "historical_receipt_baseline": {
     "executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4",
     "source_binding": "SCUMMVM-CE-CANNON530-VERIFICATION.json",
     "qualification": "Initialreceiptbaseline only; percheckpoint/current identities control later progression."
   },
   "source_commit": "c660ae8ac41",
-  "local_full_ledger_sha256": "9f2d7f703d2a98d30ca180b0972304e9a0941db102b425bad9f819b2699d3e22",
+  "local_full_ledger_sha256": "0d7b57e8bcb05c5c731299acaec8aedf428ef1e1e25acc2a05fa11ffdb6278a5",
   "latest_scoped_evidence": {
     "status": "VERIFIED",
     "scope": "Actual141cold021/142normalnextstep retain quest/inventory/party/resources/sound/session and parkedhorse; not Rustydoorpositivecrossing or fullcampaign acceptance",
@@ -3340,10 +3362,10 @@
     "SCUMMVM-CE-M43-ROYAL532-VERIFICATION.json": "c0912514074864c657a8cfe93e14ade54f08093f7e455ac31386ae3658dfa4c7",
     "SCUMMVM-CE-M43-NOURTHELD-RECOVERY532-VERIFICATION.json": "a7d86544f25de761a7441526d69221e04aef5efaf6c633342bff5d28d34cd426",
     "SCUMMVM-CE-M43-SCALES532-WORK.json": "0ae8239c7e75489373b0604738e1e79d35ccd3a81e348f47832e978cd82b9645",
-    "SCUMMVM-CE-M43-CASTLE532-WORK.json": "06b98a7323e3319e1330a317d0f5a3c8a4596758f3dc791b8df5a11eeecb1c09",
+    "SCUMMVM-CE-M43-CASTLE532-WORK.json": "b808985df89b9582e425727d33a349edc3ee73616b589a94d160740bd88024b8",
     "SCUMMVM-CE-DOOR533-VERIFICATION.json": "b56eda55bb27385ee3a31fda61b57f58965e91465d68e120ba271e1c360e3c6b"
   },
-  "private_ledger_sha256": "9f2d7f703d2a98d30ca180b0972304e9a0941db102b425bad9f819b2699d3e22",
+  "private_ledger_sha256": "0d7b57e8bcb05c5c731299acaec8aedf428ef1e1e25acc2a05fa11ffdb6278a5",
   "superseded_current_aliases_royal532": {
     "last_checkpoint": 44,
     "latest_earned": "142 firstnormalworldstep after actual141cold021, fullparty/questinventory/resources/session retained;horseparked persistence",
