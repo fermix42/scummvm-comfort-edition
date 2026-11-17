@@ -4297,12 +4297,12 @@
     }
   ],
   "correction": "SCUMMVM-CE-NPC529-VERIFICATION.json",
-  "last_checkpoint": 366,
+  "last_checkpoint": 369,
   "cold_evidence": "ce-native-acceptance528/earned-modern/cold036.json",
-  "next_action": "Complete424Skiff from113132 to119216, boardFrigate119217, Bruce75surface231232, Archus/Order andremainingfinitecampaign",
+  "next_action": "Complete424 fromindex121 at65,147, boardFrigate119217; Bruce75/Archus/Order/remainingcampaign",
   "current_source_commit": "c660ae8ac41",
   "current_executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd",
-  "latest_earned": "ActualownedSkiff365/five35exposures/normalaboardcamp366, fullHP MP33/42/42,0gold517food; Scalesretained",
+  "latest_earned": "Four-pirate victory369, fullHP89/80/80 MP3/2/17 food569, Scales retained; current south route. Camps368 and430 refused, not recovery.",
   "historical_receipt_baseline": {
     "executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4",
     "source_binding": "SCUMMVM-CE-CANNON530-VERIFICATION.json",
@@ -4338,9 +4338,9 @@
     "SCUMMVM-CE-M43-TRAVEL-REST357-WORK.json": "353011e6bdbf32ea80edd6a0d119eb48ed9ee090965aca5290c303f1c539672a",
     "SCUMMVM-CE-M43-LETTER-CHAIN392-VERIFICATION.json": "f866ae5540d1b14ebd93ff069eb3230c7f21828a51564503d1042a8bc61b2e6f",
     "SCUMMVM-CE-M43-SCALES419-VERIFICATION.json": "2414a29908ca0f0b4547e33e8338131b99ec8e687da2d20e9fea2dd7c3cd1bb6",
-    "SCUMMVM-CE-M43-BRUCE420-WORK.json": "aff24a12fb4f2df2d155ecae4abfcff54e0ed9886e3e67c64d229bc912667f9d"
+    "SCUMMVM-CE-M43-BRUCE420-WORK.json": "f2adf8e011b7ded958d542a237485c468facffa331e5a918ddd897eb34cdc9b6"
   },
-  "private_ledger_sha256": "60ce67e2432ef214287379cf5b636d3c684d69ca15b9cf50c01634037d9b867f",
+  "private_ledger_sha256": "e1f9eee9075e8c1a132addcd700650f96245e6ad6c973b56bc45e59f4a61839a",
   "superseded_current_aliases_royal532": {
     "last_checkpoint": 44,
     "latest_earned": "142 firstnormalworldstep after actual141cold021, fullparty/questinventory/resources/session retained;horseparked persistence",

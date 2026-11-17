@@ -1,3 +1,11 @@
+# Acceptance528 coastal clearance369 - IN PROGRESS
+
+After367, second seven98HP pirates at65,158 were defeated normally, fullHP89/80/80, MP3/17/42, food545. Camp was refused;368 records unchanged mana. Four98HP pirates at65,159 with retreat forbidden128 were then defeated using normal BrFireball/NoxShock and Staff actions. Actual369 saved fullHP89/80/80, MP3/2/17, food569, gold0. Eight ordinary south moves reached65,167. Camp there was also refused, with mana/food unchanged. Current normal route continues south; no camp recovery credited at either refused location. No Engine defect demonstrated, changes, builds or new processes. 21/60 nodes VERIFIED; ending unverified. Eight builds,40 gameCLI+5 focused=45 material launches. Source c660ae8ac41 unchanged. Next ownedFrigate/Bruce/Order, continue remaining acceptance.
+
+# Acceptance528 Skiff pirate victory367 - VERIFIED within scope
+
+Actualforcedseven98HPpirates at65,147,noFleecontrol128. NormalHeroFireball4x2/BrShock27/NoxShock27/Stafffullvictory, all3fullHP,MP3/17/17,food517->567. NormalaboardHcamp restores80MPfor80food,HP89/80/80 MP33/42/42,0gold487food;367saved,Scales146/field60=3retained. Current424route resumedindex121,remaining133safe-watersteps towardFrigate119216. NextBruce75surface231232/Archus/Order andremainingcampaign.21/60nodesVERIFIED;8builds40gameCLI+5focused=45;noEnginechange/build/suitererun. Work SCUMMVM-CE-M43-BRUCE420-WORK.json.
+
 # Acceptance528 Scales voyage366 - IN PROGRESS
 
 Scales419pickup/repeat/cold364 remainsVERIFIED within scope. Source95step foot421, two50HP Staffvictory noHP/MP,+4food601, northSkiff129110/B124 actual365. BalancedsourceSkiff424254steps175HP ratherthan336steps105HP; firstfive35deep exposures actuallycrossed andeachDivine17healedfullHP. At113132 normalaboardHcamp restores84MPfor84food601->517;HP89/80/80 MP33/42/42,366saved. Currentremaining216source-safe-water steps towardFrigate119216approach/owned119217 running. NextBruceTown75surface231232, Archus/Order/remainingcampaign; noBrucepass/endingclaimed.21/60nodesVERIFIED;8builds40gameCLI+5focused=45;noEnginechange/build/suitererun. Work SCUMMVM-CE-M43-BRUCE420-WORK.json.

@@ -6,13 +6,25 @@
   "lineage": [
     364,
     365,
-    366
+    366,
+    367,
+    368,
+    369
   ],
   "actual": "Source95step exact-actor dryfoot421 from17762 to129109. Two50HP sprite148 roadenemies16470 normalStaffvictory, noHP/MP,+4food597->601. NormalDown129110/B boardsownedSkiff124 (appearance124/onfootfalse asserted),365. Read-only originalSkiff watercontract compared north/leftFrigateapproaches: minimumdamage north336steps105HP vsleft338steps140HP. Existingprivateplanner givenoptionalexposure-step-cost20 objective; defaultdamage-first unchanged. Actualbalanced424route254steps175HP/fivedeep229cells chosen,82fewersteps. First38moves includeactualfive35HP episodes at128117/127117/126117/114132/113132. Aftereachone normalDivineHeal52 costs17, Brtwocasts39->5MP andNoxthree56->5MP; Hero23unchanged, all3HP89/80/80 restored eachtime, zero deaths/battle. AboardSkiff normalHcamp at113132 actuallyrestores84MP:Hero23->33 Br5->42 Nox5->42, food601->517, HPpreserved,366saved. Currentremaining216source-safe-water moves424 fromindex38 towardFrigateapproach119216 underway, stoponactualdamage/battle. Scalesqty1/field60=3 retained. NoEnginechange/build/oldsuitererun.",
   "planned_next": "Complete normalSkiff route toownedFrigate119217; board119, normalworld-cannon travel guard340. SourceBruceTown75(type6) surfaceentry231232. CompleteBruce/Archus/Order thenallremaining60campaignrequirements, no milestone stop.",
   "evidence": {
     "ce-native-acceptance528/earned-modern/earned-skiff-south-exposures425-533.json": "4ec8f9e7d8ca9f0e3d4c27b1c53ee5ef9439e2cbcdaaf54ca4f36f8c13d6cedb",
-    "ce-native-acceptance528/earned-modern/earned-skiff-south-camp425-533.json": "3980144e0087d3b711edb302b02f5dfbde5370c33cd6d1afb23f6af97ac07776"
+    "ce-native-acceptance528/earned-modern/earned-skiff-south-camp425-533.json": "3980144e0087d3b711edb302b02f5dfbde5370c33cd6d1afb23f6af97ac07776",
+    "ce-native-acceptance528/earned-modern/earned-Skiff-seven-pirates426-533.json": "ef6f5fbf19869c23931595c3d002baeeeae67cc63366df6b37990a311ba4ea64",
+    "ce-native-acceptance528/earned-modern/earned-Skiff-seven-pirates-result426-533.json": "e922f65504eb44eed99231e73ec7ec747a26e3c49327f48cfc9e9d5451d34adb",
+    "ce-native-acceptance528/earned-modern/earned-Skiff-seven-pirate-camp426-533.json": "db974590c103a261ff8de55575f124a2a1d9324d5a2a53b1c9f25be5d903af43",
+    "ce-native-acceptance528/earned-modern/earned-Skiff-second-seven-camp427-533.json": "d6cac4ca38c9c2d57c5dc9bfb9f398db5a43ff9671e144a45d98de2a836746a2",
+    "ce-native-acceptance528/earned-modern/earned-Skiff-second-seven-pirates-result427-533.json": "bfbc43c41bb6acc08d0a65158677f123c9752c23b8d097999e04b2651f66d536",
+    "ce-native-acceptance528/earned-modern/earned-Skiff-second-seven-pirates427-533.json": "3a3764db8daa40863bb8e97709cee4c06f2f25775a12112527427e6b5cc8220f",
+    "ce-native-acceptance528/earned-modern/earned-Skiff-four-pirates-result429-533.json": "2fa1b6b6614e322d64a72f91a11a44d29c70c2853cb49cf0a44732f271ca9787",
+    "ce-native-acceptance528/earned-modern/earned-Skiff-four-pirates429-533.json": "ba5104e3a994d2a0b07f43d35f480990e5dd596bdae5707cfc6c475cb81c67ff",
+    "ce-native-acceptance528/earned-modern/earned-Skiff-clearance-camp430-533.json": "44bf2d45f4d39b458b9500ceb8f04482b66d4c3da00d19e1d7de0e50d7948370"
   },
   "cost": {
     "builds": 8,
@@ -52,6 +64,19 @@
     }
   ],
   "modified_local_helpers": [
-    "conversion/plan_nourtheld_wings532.py (optional additive route cost only; no Engine edits)"
-  ]
+    "conversion/plan_nourtheld_wings532.py (optional additive route cost only; no Engine edits)",
+    "conversion/plan_earned528.py (snapshot lookup skips archived ledger parse; no Game/state behavior change)"
+  ],
+  "actual_through367": {
+    "status": "VERIFIED",
+    "scope": "Actual forcedsevenpirate victory andcamp only, notwholevoyage",
+    "actual": "At65,147 seven98HPsprite152interceptSkiff. Actualbattle_exit_control128 forbidsretreat. NormalTactical,HerotwoFireball4casts30MP,Br/NoxoneShock27each25MP, remainingnormalStaffactions yieldfullvictoryall3HP89/80/80,MP3/17/17,0gold,food517->567. NormalaboardHcamp restores80MP to33/42/42 for80food567->487.367saved,Scales146retained, no newdeaths/Enginegap/build/process.",
+    "next_action": "Resume424 fromindex121 at65,147, remaining133source-safe-watersteps to119216; boardFrigate119217, continueBruce75surface231232."
+  },
+  "actual_through369": {
+    "status": "VERIFIED",
+    "scope": "Pirate victories and refused camp state only; voyage/Order not complete",
+    "actual": "After367, second seven98HP pirates at65,158 were defeated normally, fullHP89/80/80, MP3/17/42, food545. Camp was refused;368 records unchanged mana. Four98HP pirates at65,159 with retreat forbidden128 were then defeated using normal BrFireball/NoxShock and Staff actions. Actual369 saved fullHP89/80/80, MP3/2/17, food569, gold0. Eight ordinary south moves reached65,167. Camp there was also refused, with mana/food unchanged. Current normal route continues south; no camp recovery credited at either refused location. No Engine defect demonstrated, changes, builds or new processes.",
+    "next_action": "Continue balanced424 normal route toward119216; camp only when actual safety permits; board owned Frigate119217 and continue Bruce."
+  }
 }
