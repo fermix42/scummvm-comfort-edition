@@ -1,0 +1,40 @@
+{
+  "status": "VERIFIED",
+  "scope": "Actual lastpagebit1/pick/repeat, completeearned8pageset, cold/firstnextflight; noValessrecognition/binding/endingclaim",
+  "source_commit": "c660ae8ac41",
+  "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd",
+  "checkpoints": [
+    397,
+    398,
+    399,
+    400,
+    401,
+    402
+  ],
+  "actual": "Normal31flightcommands494 Surface69,81->177,65, noHPMPcost. FlyingUp entersCastle54 andfinishesremainingstep22,37; Yland/397. Source73step495 carriesgroundWyvernviastairs; actualNPCblocks58/1519 at16,19, fresh20step496 completes59/60/57 selfstairs to57/4213. Yfly/Down4 crosses42,14..17 withnoAir152/protectionfield57=0 andnoHPdamage,398. Yland/Xpark128at42,17, normal6steps498 to44,21. SearchUp actuallockedprompt screenshot177; normalparty4Brfirstpick succeeds: OldSpellbookPage97qty7->8, field62 254->255, noHPMPcost, screenshot178,399. RepeatNothingfound screenshot179/qty8/flags255,400. Normal6steps500 back42,17/B/Y ->actualflying128 withall8pages,401. Clean cold044 exactstate/session/noassistance/audio; firstnormalUp movesfourcells to42,13 stillmounted128, all8pages retained,402. ActualnextUp selfstairs57/429->57/1,9, Yland/Right ->60/11,11. Currentsource41step506 toward58/3322 forlibraryportal/Valess. FullHP89/80/80 MP3/32/42,42gold594food,112qty1/149qty2/94qty1/Scales146qty1 retained.",
+  "prior_page_lineage": "Prior sixCastlebits4/8/16/32/64/128 plusAxea2 werealreadyverified onretainedprimary. Existingreceipt/page scopes andCold040/042/043 preserve254/qty7 beforeactualnewbit1. No newgame/save/item/flag/RNG setup or cross-save rewardmerge.",
+  "mechanical_alternative": "ActualearnedWyvern128 flight providesoriginaltransportalternative toAir152 footprotection. EarlierAir-first selectedfootplan is superseded; noAiraward orfootbarrierpassclaimed. Libraryportal/Valess/Nystul/guardiancriteria remainseparate.",
+  "evidence": {
+    "ce-native-acceptance528/earned-modern/earned-Wyvern-page-chamber497-533.json": "9a7ffd4fafa53c7043af63121553f7e4e08d07709b0a786fac6514e7beb8ccfa",
+    "ce-native-acceptance528/earned-modern/earned-last-page-search499-533.json": "4fa66423e8acad1c33d7a51d97f613d966db69ec64c04b8ad32839146f638fa3",
+    "ce-native-acceptance528/earned-modern/earned-last-page-pick499-533.json": "69078f190332c5f810c649d1149f5cfd67741e06f647879d0d82e14cdebba00e",
+    "ce-native-acceptance528/earned-modern/earned-last-page-repeat499-533.json": "9489366eab63151eef7a34f7aae3c3580528313f22ab8d7a2ffde198551d5533",
+    "ce-native-acceptance528/earned-modern/cold044.json": "8a0f1c2504c5599e1b9927d30dfe0373cf10dfc65d098cfb72963d3b2717f199",
+    "ce-native-acceptance528/earned-modern/earned-eight-pages-postcold-flight501-533.json": "7ee26862aa07d9db656bf51b2f6f993a9ff98c5e60c18f2bbce371f45996d2b8",
+    "ce-native-acceptance528/earned-modern/screenshots/scummvm-cli-game-00176.png": "357b43ab8efb18156e4ba0ed6ab78de78700a9e947cd92b9b420e2cd79767ff5",
+    "ce-native-acceptance528/earned-modern/screenshots/scummvm-cli-game-00177.png": "ec770956e2f93f4af1a9bedce1153864a4f15e856b58931fbc4515ab82a36190",
+    "ce-native-acceptance528/earned-modern/screenshots/scummvm-cli-game-00178.png": "3b3fd30621416e2b54ad6dfbf210c7005c348e423beecb760b6aaeb382762c73",
+    "ce-native-acceptance528/earned-modern/screenshots/scummvm-cli-game-00179.png": "6385352e501497de012a30915483fdc9151255b1c39cc6903f05a908d19b7bcf"
+  },
+  "cost": {
+    "builds": 8,
+    "game_cli": 44,
+    "focused_cli": 5,
+    "material_cli": 49
+  },
+  "remaining": [
+    "ActualValess8pagecheck/relevantlegitimateforkrefusal",
+    "NystulCOMPmaze/binding/Ready/actualVortex",
+    "Allremainingrequiredcampaign/supportbranches/ending"
+  ]
+}

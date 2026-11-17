@@ -655,7 +655,7 @@
     },
     {
       "id": "remaining-pages",
-      "status": "IN PROGRESS",
+      "status": "VERIFIED",
       "prerequisites": [
         "castle-control-wall",
         "moat-key-door",
@@ -687,7 +687,17 @@
         "scoped audio/presentation",
         "actual earned verification criteria"
       ],
-      "earned_lineage": null
+      "earned_lineage": null,
+      "earned_verification": {
+        "report": "SCUMMVM-CE-M43-PAGES501-VERIFICATION.json",
+        "checkpoints": [
+          399,
+          400,
+          401,
+          402
+        ],
+        "scope": "Actualpagecollection/repeat/cold/nextinput only; otherchainnodes notpromoted"
+      }
     },
     {
       "id": "axea-page",
@@ -2148,7 +2158,7 @@
     },
     {
       "id": "page-bit-1",
-      "status": "NOT STARTED",
+      "status": "VERIFIED",
       "prerequisites": [],
       "source_contract": "Verified node on the selected main-story route; relationship and alternatives are explicit in CAMPAIGN-DEPENDENCIES76.",
       "source_anchors": [
@@ -2182,10 +2192,20 @@
       "selected_route_prerequisites": [],
       "route_reconciliation": "Actual no-Air page approaches465/466 NoRoute. Original57 chamber energy208 at43..45/15; Air152 awardUM49466 (semantic Air152 acquisition/protection descriptor; original bytes retained locally) grants field57bit2. Offline-only read-only reachability with this single hypothetical bit reaches page adjacency57/4320 in99steps. No Game/save mutation or executable route emitted. Selectedroute updated to acquire requiredartifacts/Fire/Air beforelastpage/binding; oldercontrolled Vortexguardian evidence doesnotestablish earned Vortex-first feasibility. Source19move468 through60 portal37,18 ->Keep26/1318 targetsAkora56, eliminating sea trip.",
       "selected_mechanical_alternatives": [
-        "Air152 protection forfootbarrierpassage",
-        "EarnedWyvern128flight390/carry/land alternative, executionINPROGRESS"
+        "ActualWyvern128flight398/landing/normalSearch399 VERIFIED",
+        "Air152 footprotection remainsseparate reachablealternative, notearnedhere"
       ],
-      "active_route_reconciliation": "Supersedes selected Air-first footroute only: newlyearnedWyvern128 sourceflight bypassescollision/energybarrier whileonfootprotection remainsAir152. Offline-only actualno-Air flags planning54/2238 ->57/4213 finds74ordinarysafe steps through58/59/60/57, noGame/save mutation orrouteemitted. PlannedcarrygroundWyvernviastairs, takeflightfromnorthside to42,17, land/X andSearchpage; notyetaccepted orclaimed. Guardians/Vortex-first old controlledancestry remainsseparate until actualpage/binding isearned."
+      "active_route_reconciliation": "Wyvern alternative actuallycompleted, supersedesearlierAir-firstselectedfootplan.",
+      "earned_verification": {
+        "report": "SCUMMVM-CE-M43-PAGES501-VERIFICATION.json",
+        "checkpoints": [
+          399,
+          400,
+          401,
+          402
+        ],
+        "scope": "Actualpagecollection/repeat/cold/nextinput only; otherchainnodes notpromoted"
+      }
     },
     {
       "id": "dark-plane-return-praevoc",
@@ -2795,7 +2815,7 @@
   "mode_strategy": "One primary Modern earned lineage; targeted Classic legal earned fork/restore/transitions; no duplicate complete campaign required by existing criteria.",
   "failure_policy": "Freeze failing path,source general diagnosis,focused correction+regression,at most2corrective reruns; resume valid nearest earned save,no prefix replay or outcome injection.",
   "builds": 6,
-  "process_launches": 43,
+  "process_launches": 44,
   "planned_node_count": 60,
   "mandatory_node_count_note": "All selected M3 nodes explicitly represented alongside dependency76 graph; includes supporting/advice/alternative nodes. Necessity is retained per source,not inferred from node count.",
   "last_earned_checkpoint": 364,
