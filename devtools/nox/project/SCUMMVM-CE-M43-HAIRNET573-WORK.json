@@ -1,0 +1,42 @@
+{
+  "status": "IN PROGRESS",
+  "scope": "Earned Hairnet missing-key refusal VERIFIED; FooleryKEY award/repeat, actualkeyedgate/Hairnetpickup/repeat/cold remain.",
+  "source_commit": "c660ae8ac41",
+  "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd",
+  "refusal": {
+    "status": "VERIFIED",
+    "actual": "Actual earned423 reachesKeep70/1337 beforeFooleryKEY. Key133/Hairnet113 bothabsent, field26=0. NormalOpenLeft refuses; normalLeft remains1337. Gate1237 retainsstate18 andnoquestitems/flagsawarded; screenshot190 No key or pick fits. Four ordinarylocks opened byfive actualBrpicks; onlyfirsttrap17HP, normalBrheal2MP. Three consecutive shallowcells2229/2129/2029 each17HP, dry2028 followedthree normalBrheals6MP. RefusalHP78/69/69 MP33/34/42,40gold606food. Two read-only directreturn queries574/575NoRoute, no Gameinputs; normalHeroC5QuickExit4MP returnsSurface8378. Hnormalcamp andDown/Up reenterUharadKeep24; selected76step577 footroute hasno lockeddoors orwaterdamage. Current577 runningto26/1919, thenfootportaltoFoolery andactualKEY/repeat beforepositiveHairnet path. NoEnginechanges/build/processlaunch.",
+    "checkpoint": 423,
+    "quest_field": 26,
+    "required_mask": 32,
+    "observed_before_after": 0
+  },
+  "evidence": {
+    "ce-native-acceptance528/earned-modern/earned-Foolery-portal565-533.json": "36a68b2b88da29c53284bfe075b5a08fc423be8963913fec9a46902fb8306110",
+    "ce-native-acceptance528/earned-modern/earned-Foolery-door567-533.json": "56c223bfd040f28138d5fa7c6c1a77faf78564cb53033ad0d1fafca2a32540d2",
+    "ce-native-acceptance528/earned-modern/earned-Foolery-door-second568-533.json": "299009470237ab0b7134a1290768c05e35f9bcdd706b00d5b776af1ac5e95fe9",
+    "ce-native-acceptance528/earned-modern/earned-Foolery-door33-first569-533.json": "fa1f25bcc5a7dc7e0cfad00f40d75e872cd537519826e37d2e7823a5dff88803",
+    "ce-native-acceptance528/earned-modern/earned-Hairnet-moat-cross570-533.json": "12961d2cb6d56d93189d79d30b9091afa1b60a5e60c9a4cccd1723eea86eaa53",
+    "ce-native-acceptance528/earned-modern/earned-Hairnet-door17-29-first571-533.json": "0791b3ee103c31e2c902f017425c7b723fcdfb475e72bfe8b515af27531dcfee",
+    "ce-native-acceptance528/earned-modern/earned-Hairnet-door17-37-first572-533.json": "170af7052ebe004471c6d1f6283605b8abd6e879305488dad3162055d46539a2",
+    "ce-native-acceptance528/earned-modern/earned-Hairnet-no-key-before573-533.json": "0591ce8f6b5cce3bd74780b1972025a3fbffed8811dc134146a06052474e18f1",
+    "ce-native-acceptance528/earned-modern/earned-Hairnet-no-key-refusal573-533.json": "c96981f3bc465e0ffb1b07697ea167a6d0e9cb0417ee0729efadcbefee9bfb13",
+    "ce-native-acceptance528/earned-modern/earned-Hairnet-no-key-blocked573-533.json": "31eabb42383a1ee3a6b117a34b937f76c4f50d1cba9fe72036108dfa597cc10b",
+    "ce-native-acceptance528/earned-modern/earned-Hairnet-no-key-QuickExit576-533.json": "916a26dd3625f58e59ba1e8399ab9708e564f99f987bf4c616c04dae39af85a4"
+  },
+  "presentation_sha256": "ad1a68db96f50b1aeba9b56d22a43b05a329f529593ff652e02f22aa16663063",
+  "checkpoint_metadata": {
+    "ce-native-acceptance528/earned-modern/checkpoints/423-Earned-Hairnet-missing-key-refusal423/checkpoint.json": "9fdc69469b442b15357b07add3eed7ae952793dbe49e807c46dce29a2fa3d3a6"
+  },
+  "remaining": [
+    "Foolery144 actual HOLY/GOTH/KEY award and original repeat stack.",
+    "Actual earned133 keygate1237 crossing and113 SearchLeft from1037, no duplicate repeat.",
+    "Combined positive cold and subsequentcompatibility; selectedClassicfork coverage staysseparate."
+  ],
+  "cost": {
+    "builds": 8,
+    "game_cli_processes": 45,
+    "focused_cli_processes": 5,
+    "material_launches": 50
+  }
+}

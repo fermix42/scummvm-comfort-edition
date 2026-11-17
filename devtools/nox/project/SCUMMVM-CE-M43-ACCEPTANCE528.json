@@ -1101,7 +1101,7 @@
     },
     {
       "id": "holy-hairnet",
-      "status": "NOT STARTED",
+      "status": "IN PROGRESS",
       "prerequisites": [
         "devils-key",
         "essence-angels"
@@ -1129,7 +1129,12 @@
         "scoped audio/presentation",
         "actual earned verification criteria"
       ],
-      "earned_lineage": null
+      "earned_lineage": null,
+      "earned_refusal_scope": {
+        "status": "VERIFIED",
+        "report": "SCUMMVM-CE-M43-HAIRNET573-WORK.json",
+        "scope": "Actual preKEY absence/refusal/noncrossing only; positive acquisition/cold pending."
+      }
     },
     {
       "id": "fire-jewel-guardian",
@@ -2857,7 +2862,7 @@
   "process_launches": 45,
   "planned_node_count": 60,
   "mandatory_node_count_note": "All selected M3 nodes explicitly represented alongside dependency76 graph; includes supporting/advice/alternative nodes. Necessity is retained per source,not inferred from node count.",
-  "last_earned_checkpoint": 416,
+  "last_earned_checkpoint": 423,
   "baseline_candidate_sha256": "81feb2c7ff17594a6ea9754dc60602a755b2f37ea7c53b437f65a18e7c35000f",
   "candidate_change": "NPC529,cannon530,packedmelee531,mountedTalk532 source corrections; exact scoped receipts and earned ancestry retained. No broad matrix promotion.",
   "earned_failures_retained": [

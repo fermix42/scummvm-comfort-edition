@@ -4299,12 +4299,12 @@
     }
   ],
   "correction": "SCUMMVM-CE-NPC529-VERIFICATION.json",
-  "last_checkpoint": 416,
+  "last_checkpoint": 423,
   "cold_evidence": "ce-native-acceptance528/earned-modern/cold036.json",
   "next_action": "Complete424 fromindex121 at65,147, boardFrigate119217; Bruce75/Archus/Order/remainingcampaign",
   "current_source_commit": "c660ae8ac41",
   "current_executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd",
-  "latest_earned": "Earned Nystul binding411, repeat539, Staff412 and real low-INT refusal413; cold045 and actual Right move415 retain all state. Normal post-cold return crosses COMP-opened wall and B reboards Wyvern416. Maze access/Staff nodes VERIFIED; 25/60 nodes VERIFIED. Eight-page recognition/binding positive scopes VERIFIED; missing-pages forks/selected Classic coverage remain. Book12qty1, Staff83qty1, field61=67, field15=84, pages8/255. HP89/79/80 MP1/28/42,81gold594food. Current normal flight548 leaves maze toward Foolery/Hairnet. No Engine changes or builds; 8 builds,45 gameCLI+5 focused=50 launches. Vortex Ready/cast requires lawful110INT progression; no ending claim.",
+  "latest_earned": "Actual earned423 reachesKeep70/1337 beforeFooleryKEY. Key133/Hairnet113 bothabsent, field26=0. NormalOpenLeft refuses; normalLeft remains1337. Gate1237 retainsstate18 andnoquestitems/flagsawarded; screenshot190 No key or pick fits. Four ordinarylocks opened byfive actualBrpicks; onlyfirsttrap17HP, normalBrheal2MP. Three consecutive shallowcells2229/2129/2029 each17HP, dry2028 followedthree normalBrheals6MP. RefusalHP78/69/69 MP33/34/42,40gold606food. Two read-only directreturn queries574/575NoRoute, no Gameinputs; normalHeroC5QuickExit4MP returnsSurface8378. Hnormalcamp andDown/Up reenterUharadKeep24; selected76step577 footroute hasno lockeddoors orwaterdamage. Current577 runningto26/1919, thenfootportaltoFoolery andactualKEY/repeat beforepositiveHairnet path. NoEnginechanges/build/processlaunch.",
   "historical_receipt_baseline": {
     "executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4",
     "source_binding": "SCUMMVM-CE-CANNON530-VERIFICATION.json",
@@ -4346,9 +4346,10 @@
     "SCUMMVM-CE-M43-ARTIFACT473-WORK.json": "8de482812a5f4075c8f680cf7554e9017237fc9e9fc4cf7c0ae9029697b0a19e",
     "SCUMMVM-CE-M43-ESSENCE490-VERIFICATION.json": "a52fab255d24e676c326eade26d74123ca2bea9dd2b115f09de03a80e0b7bc6e",
     "SCUMMVM-CE-M43-PAGES501-VERIFICATION.json": "f7fa65dd3a469be35c2f19792b86f576478de732ec8493d7b94a84e587f012d3",
-    "SCUMMVM-CE-M43-NYSTUL548-VERIFICATION.json": "f426fc3ca78aabeda699f76c0320df8cccb315d5e0b155bc1db59b87bcde3efa"
+    "SCUMMVM-CE-M43-NYSTUL548-VERIFICATION.json": "f426fc3ca78aabeda699f76c0320df8cccb315d5e0b155bc1db59b87bcde3efa",
+    "SCUMMVM-CE-M43-HAIRNET573-WORK.json": "d2da2db39dbae01a1b9e0a99ae984f4b054ada059f3fe7dca72d780705fb02d4"
   },
-  "private_ledger_sha256": "b760ca1ef6668d0c81129e797156c11cc40eade0ed1879bb2870c98320844809",
+  "private_ledger_sha256": "b594d3f477a048f5dfe99f19a28ed651cb05e787ab25ea27fa708d40c8346406",
   "superseded_current_aliases_royal532": {
     "last_checkpoint": 44,
     "latest_earned": "142 firstnormalworldstep after actual141cold021, fullparty/questinventory/resources/session retained;horseparked persistence",
@@ -4388,10 +4389,19 @@
     "report": "SCUMMVM-CE-M43-NYSTUL548-VERIFICATION.json",
     "actual": "Earned Nystul binding411, repeat539, Staff412 and real low-INT refusal413; cold045 and actual Right move415 retain all state. Normal post-cold return crosses COMP-opened wall and B reboards Wyvern416. Maze access/Staff nodes VERIFIED; 25/60 nodes VERIFIED. Eight-page recognition/binding positive scopes VERIFIED; missing-pages forks/selected Classic coverage remain. Book12qty1, Staff83qty1, field61=67, field15=84, pages8/255. HP89/79/80 MP1/28/42,81gold594food. Current normal flight548 leaves maze toward Foolery/Hairnet. No Engine changes or builds; 8 builds,45 gameCLI+5 focused=50 launches. Vortex Ready/cast requires lawful110INT progression; no ending claim."
   },
-  "active_next": "Foolery key133/Hairnet113, lawful caster110INT/87MP progression and actualVortex, fullFire/Air, remainingcampaign and finite supported-branch acceptance. Continue autonomously.",
+  "active_next": "Finish actual no-FooleryKey gate refusal at70/1337, then normalFoolery HOLY/GOTH/KEY award/repeat, actual keyed gate/Hairnet113 Search/repeat/cold. Source566 crossing51HP total/member is deliberate; preserve livingparty via normal healing. Continue remainingfinite acceptance.",
   "Uharad_sea552": {
     "status": "IN PROGRESS",
     "actual": "Actual Uharad flight550 interrupted atSurface126123 by seven98/137 sea boarding, retreat128. Source screenshot189 confirms ship/cannons. Actual twoShock killfour; remainingthree defeatparty under normalcannon/Staff policy. Raw552 filename says victory but actualphase2 isdefeat; no victorycredited. Failedpath and fourowned998generations/sidecars retained in forks/Uharad-sea-failure552. Normalowned998restore atSurface134176 retains416 lineage/fullpredepartureHP89/79/80, MP1/28/42,81gold594food,book12/Staff83. No awards/state merged from failedattempt. Sourceflightplanner now gives ships147..156 twelve-cell clearance, other actors three; originalwide-all12 query553 NoRoute because nearby225environmentactor, no Game inputs. Revised55437-command route avoidsobservedship approach; actualfollower stopsdamage/encounters. No Enginechanges/build/processlaunch.",
     "raw_result_sha256": "391aa27822760f277e2b90448e66893ac87ecd54650cca2207d89483984fae65"
+  },
+  "Foolery422": {
+    "status": "IN PROGRESS",
+    "actual": "Normal418 eight98HP pirates defeated by rangedStaff/twoShock with no partyHP loss. Normal419 seven98HP pirates defeated by rangedStaff plus C1 SummonLesserUndead14/10MP, no partyHP loss. WorldCamp on dry90,96 restoresMP33/42/42 for106food704->598. Ordinary46/41 pair wonfreeStaff,420. Flight completes82,80;421 exterior82,79 (labelUharadreturn is not interior entry). Right/Up enters actualSurface83,78 Keep24/2438. Groundfloorportal24/3130 gated; unused. NormalWyvernflight bypasses ordinary21,32lock, then source71step564 crosses25/23/26 to19,19. XparksWyvern26/1919, Downportal26/1920->Keep71/2130,422. Key133absent/field15=84; selectedsource56683step noKeyapproach has threeconsecutive17HP watercells70/2229..2029 andfour ordinarylocks. Door71/2732: firstfail17HP trap, Brselfheal2MP, secondpickopens/passed. Door71/3331 firstpickopens/passed. Currentnormal566 indices19..42 to70/2329 beforewater. HP89/80/80 MP33/40/42,40gold606food. Quick555 single83victory hadtwo newdeaths andNox5HP/gold104, preservednormal997fork; normal998resume discardsno rewardsmerged. TacticalFlee556 retainsall3HPMP, gold81->40; failed/costlybranches remainexplicit. No Enginechanges/build/processlaunch."
+  },
+  "Hairnet423": {
+    "status": "IN PROGRESS",
+    "report": "SCUMMVM-CE-M43-HAIRNET573-WORK.json",
+    "actual": "Actual earned423 reachesKeep70/1337 beforeFooleryKEY. Key133/Hairnet113 bothabsent, field26=0. NormalOpenLeft refuses; normalLeft remains1337. Gate1237 retainsstate18 andnoquestitems/flagsawarded; screenshot190 No key or pick fits. Four ordinarylocks opened byfive actualBrpicks; onlyfirsttrap17HP, normalBrheal2MP. Three consecutive shallowcells2229/2129/2029 each17HP, dry2028 followedthree normalBrheals6MP. RefusalHP78/69/69 MP33/34/42,40gold606food. Two read-only directreturn queries574/575NoRoute, no Gameinputs; normalHeroC5QuickExit4MP returnsSurface8378. Hnormalcamp andDown/Up reenterUharadKeep24; selected76step577 footroute hasno lockeddoors orwaterdamage. Current577 runningto26/1919, thenfootportaltoFoolery andactualKEY/repeat beforepositiveHairnet path. NoEnginechanges/build/processlaunch."
   }
 }
