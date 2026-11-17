@@ -14,7 +14,7 @@
     "Guildmaster is a required authored boss, not excluded as friendly: retained L011 actor120 BYE trigger17/32 and descriptor119 sprite207/group60/monster62 HP70/baseXP8400. Actual full fight and credit remain unearned; no assumed8400 per member.",
     "Source-only group review identifies genuine hostile groups; group59 is Ghosts, not monster59 Cultists. No hypothetical encounter, reward, level or outcome is credited."
   ],
-  "next": "Current source77-step620 return through Castle58/59/78/57/60 runs from435. Then normal Keep26 portal/reboard owned Wyvern, required Bayport Guild branch and remaining finite acceptance.",
+  "next": "Continue actual Guild52 stairs, source gates/guards and50 Guildmaster/SkullKey; retain existing earned state and required branch contracts.",
   "evidence_locations": [
     "ce-native-acceptance528/earned-modern/process046.jsonl",
     "ce-native-acceptance528/earned-modern/earned-roster-staff-sale612-533.json",
@@ -46,5 +46,9 @@
     "ce-native-acceptance528/earned-modern/earned-roster-revive5-616-533.json": "bca5f03efc9347cc5f4c1fa7b76b464154071f5007e4655ebcff6ce235499015"
   },
   "completion_report": "SCUMMVM-CE-M43-ROSTER620-VERIFICATION.json",
-  "actual_completed": "Normal Staff83 sale715, FireStaff39 purchase214/Ready Nox431; three actual160-gold Temple resurrections432. Four normal inn Leave operations store Kat,Cutter,Alluvion and created M4NATIVE at Castle58. Active Bridgit/Nox remain original level5 INT56 XP4106/4176; no XP or ability grant. Normal party-cap food reduction556->450->300. Paid14-gold full rest434 restores both80HP/56MP,47gold. Cold047 exact party/world/inventory/inn/audio/session/no-assistance continuity PASS. First normal Right moves59/28,34->29,34,435. Four stored characters retain their own original records; equipment ownership follows normal party reordering. No Engine change/build."
+  "actual_completed": "Normal Staff83 sale715, FireStaff39 purchase214/Ready Nox431; three actual160-gold Temple resurrections432. Four normal inn Leave operations store Kat,Cutter,Alluvion and created M4NATIVE at Castle58. Active Bridgit/Nox remain original level5 INT56 XP4106/4176; no XP or ability grant. Normal party-cap food reduction556->450->300. Paid14-gold full rest434 restores both80HP/56MP,47gold. Cold047 exact party/world/inventory/inn/audio/session/no-assistance continuity PASS. First normal Right moves59/28,34->29,34,435. Four stored characters retain their own original records; equipment ownership follows normal party reordering. No Engine change/build.",
+  "travel438": {
+    "status": "VERIFIED",
+    "actual": "Normal source620 return via58/59/78/57/60, Right37,18 portalKeep26/13,18; source621 to18,19. Historical436 label is premature: B requires overlap; actual Right19,19/B/Y proves board437. Five Down flightcommands reach19,38; sixth Down opens leave prompt (can_save=false,notice=false), normalY Surface83,79. Source flight622 excludes entrances by design; first query raced unfinished998 save and refused staleKeep input; second target119147 excluded because authored entrance, not ship collision. Final119143 route29flightcommands executes with no HP/MP cost. Actual Down entersBayport49/24,38, Yland/Xpark,438; allquestitems/Hairnet retained,2livingfull80HP/56MP,47gold300food. Normal20-step623 reachesCity48/38,33. Current95-step624 normal path to23,33 Guild52 stairs running. No Engine defect/change/build/process."
+  }
 }

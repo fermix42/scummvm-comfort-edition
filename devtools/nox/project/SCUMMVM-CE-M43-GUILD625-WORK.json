@@ -1,0 +1,67 @@
+{
+  "status": "IN PROGRESS",
+  "scope": "Resume required earned Guild/Skull/child-rescue branch from primary438; no Guildmaster victory or Skull reward yet credited.",
+  "source_commit": "c660ae8ac41",
+  "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd",
+  "last_checkpoint": 439,
+  "actual": "Roster preparation431..435 is complete in ROSTER620. Source620 returns to Castle60/36,18; actual Right enters Keep26/13,18. Source621 ends adjacent18,19. Checkpoint436 label is premature: source Board requires overlapping vehicle, actual appearance250/object255 was foot. Normal Right19,19/B/Y asserts actual128/object bound,437. Flying Down commands19,23/27/31/35/38; additional Down enters leave confirmation with can_save=false,notice=false. NormalY exitsSurface83,79. No failed assertion is credited as an exit. Source flight622 first stale998 read refused; direct119147 is an excluded authored entrance, not a harbor-actor failure. Actual29-command route to119143 has no HPMP cost. Normal Down entersBayport49/24,38,Yland/Xpark,438. Normal20-step623 enters48/38,33;95-step624 traverses existing permissions and enters52/23,33. Source625 actor-conservative NoRoute is read-only; contact-enabled95-step route is selected for actual required guarded progression. First55 normal steps reach52/15,38 without battle/damage. Actual saved doors15,37 and17,36 are picture64/state16: already unlocked ordinary doors from prior earned progress, no new pick required. Current normal625 indices55..94 running toward actual50 stairs26,17, with ordinary Open and stop on battle/damage.",
+  "initial_active_party": {
+    "members": [
+      "Bridgit",
+      "Nox"
+    ],
+    "level": [
+      5,
+      5
+    ],
+    "int": [
+      56,
+      56
+    ],
+    "xp": [
+      4106,
+      4176
+    ],
+    "hp": [
+      80,
+      80
+    ],
+    "mp": [
+      56,
+      56
+    ],
+    "gold": 47,
+    "food": 300
+  },
+  "source_contract": [
+    "Guild52 authored26,17 stair enters50; actual earned access/guard state retained, no flags or teleport.",
+    "Original50 NPC120 day placement20,20; L011 BYE arms battle field17/mask32. Require actual full70HP Guildmaster admission, normal victory and actual distributed XP; do not assume8400 per member.",
+    "Original50 Search16,15 contains SkullKey78; require actual Search/pick, reward/repeat and persistence, then required child-rescue chain."
+  ],
+  "private_policy": "Ordinary input helpers only. Actual roster indices0/1 configured for eligible Shock/Divine/Fireball and HP80/80; no game state writes. No incidental Quick or cannon walking. Actual combat/state determines continuation.",
+  "evidence": [
+    "ce-native-acceptance528/earned-modern/process047.jsonl",
+    "ce-native-acceptance528/earned-modern/checkpoints/438-Earned-caster-Bayport-flight-arrival438/checkpoint.json",
+    "ce-native-acceptance528/earned-Guild-entry624.json",
+    "ce-native-acceptance528/earned-Guild-lower625.json"
+  ],
+  "cost": {
+    "builds": 8,
+    "game_cli_processes": 47,
+    "focused_cli_processes": 5,
+    "material_launches": 52
+  },
+  "next": "Acquire original SummonMinorDemon16 before any further Assassin attempt. Normal source stock Castle59/64, minimumINT50 (eligible56),17MP,160gold; summoned actor104HP/armor94/power85. Sell genuinely unused equipment for funding, normal purchase/Ready/full rest. No retry with LesserUndead14 or unchanged current equipment.",
+  "acceptance": "26/60 selected nodes VERIFIED; whole campaign/guardians/ending and supported branches remain IN PROGRESS.",
+  "Assassin626": {
+    "status": "IN PROGRESS",
+    "actual": "Normal625 reaches52/23,36 after two ordinary already-unlocked doors. Actual admission is six144HP level5 sprite187 Assassins, template64, armor94, magic resistance255. Normal Tactical and NoxC1 LesserUndead14/10MP ends in actual defeat; both partyHP0, Br56MP/Nox46MP. No enemy victory/reward/XP credited. Same weaker-summon failure existed in retained207/208 evidence and should have been checked before this attempt; acknowledged as avoidable. Frozen Engine not deficient. Both actual998 generations/sidecars plus defeat/lineage copied unchanged in forks/Guild-six-immune-Assassins-defeat626. Normal owned998 load restores52/15,38 before625 index55, then checkpoint439 parents438; no failed rewards or casualties merged."
+  },
+  "recovery_transport627": "Normal BrQuickExit4MP returnsSurface119147. Right enters secondBayportentrance120147 ->49/2438; overlap B reboards ownedWyvern,Yflight,Down/leaveY returnsSurface120147. ActualMP52/56 HP80/80. Source flight target17663 rejected by12-cell ship margin; actual nearbyship18453, land143at17765. Source clear drytarget17267 terrain116 yields33flightcommands; current normal execution running. No injected position, clock, stats or inventory.",
+  "evidence_hashes": {
+    "ce-native-acceptance528/earned-modern/earned-Guild-six-admission626-533.json": "8820e5cf4cadc6c40051287034497e9fca349e66fabc0f2e3676205264091b32",
+    "ce-native-acceptance528/earned-modern/earned-Guild-six-defeat626-533.json": "ff163cf7f6723c45b700ec5480858fc9ed71b2557d21d9315fc9dafab93828f8",
+    "ce-native-acceptance528/earned-modern/forks/Guild-six-immune-Assassins-defeat626/lineage.json": "c74b7e378f4182667479324f9327cd89818b0b9fa53154d3fa32bbd05c63ba63",
+    "ce-native-acceptance528/earned-modern/earned-Guild-recovery-transport627-533.json": "4377b7a04edf25afcd35f895aa62487d47935d8ebd5e89989e8029b573cdafae"
+  }
+}
