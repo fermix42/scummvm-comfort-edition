@@ -2,7 +2,7 @@
   "status": "IN PROGRESS",
   "scope": "ActualnearbyInnrest scopedVERIFIED; sourceplannedreturn towardNourtheld INPROGRESS",
   "actual": "After344 normal HeroQuickExit4 returns114204. Source44step dry route reachesTown28/148196 with noencounter/damage. Initial talk missedmovingInnNPC152: anticipated345fullrest label and private full-rest356 filename doNOT representrest, gold14/MP40,3,56 unchanged. NormalRight to37,35 alignsNPC37,37; TalkDown reachesauthoredInnwelcome, actualY/R/Y costs12gold14->2 and transitionsroom29/33,32; actuallivingHP89/80/80 MP44/56/56, food589, permanent346. No newcold required orperformed. HeroQuickExit4 returns148196. All dry/exact/contact foot routes toNourtheld17762 fail terrain; source-only bounded cave154170 offlinefeasibility alsofails43nodes, no Game movement. Native-source water-aware planning finds216steps/415damage percharacter; rejected beforeexecution. Readactualsavedobjects findsanother parkedSkiff124 at123144 (record192), Frigate119217record208 andSkiff118209record212retained. Normaldry76step approach123145 selected. Movingstorm225 at146183 causesactual71damage toall3 at147184; no deaths. NoxnormalWorldDivineHeal17 restoresallfullHP, MP56->39. NormalRight148184 leavescontactwithoutdamage; fresh64step route aroundcurrentstormcontinues. Currentobserved127155 fullHP, MP40/56/39. NoNativeEngine defect/build/suite demonstrated. Eightbuilds38gameCLI+5focused=43;20/60nodesVERIFIED, endingunverified.",
-  "next_action": "Finish actual parked-skiff-storm362-exact route to123145, normalUp123144/Board existingownedSkiff. Replanfromactualownedboat usingexisting waterplanner --skiff (onecell229..232) towardknownnorthshore129110, then existingzero-water footroute toNourtheld17762, unlessactual sourcepath givesbetter supportedconnection. Avoid speculative longsea detours. Normalincidental landFlee allowed whenpermitted; no requiredgate outcome injected. CompleteArchus/Styx earnedLetterrecognition/repeat/cold, remainingpage1 at57/44,20, sourcecastleportals/eightpage/Nystulbinding andallremaining60requirements. ActuallivingHero89/40MP,Br80/56MP,Nox80/39MP; three olderdeaths retained,gold2food589. Readiedbook6Illuminate57; BladeStorm21sold/privateoffenseguarddisabled. Continue no milestone stop/push/publication.",
+  "next_action": "Earn Archus58 Letter recognition, remaining Castle57 page1, Styx Letter/PAGES and Nystul binding through normal inputs; continue finite60-node campaign. Full ending remains unverified.",
   "source_commit": "c660ae8ac41",
   "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd",
   "cost": {
@@ -15,10 +15,23 @@
     "ce-native-acceptance528/earned-modern/earned-nearby-Inn-full-rest356-533.json": "5c92f794d65d5a7d2090f3d759ac242c1489ef69010621fc8f3581daabfea496",
     "ce-native-acceptance528/earned-modern/earned-Treceito-Inn-full-rest357-533.json": "f7bb0a6c55c2cc895c1e53b0272bac3e3c071caab2a018e8193b2bbe780d1a11",
     "ce-native-acceptance528/earned-modern/earned-parked-Skiff-road-damage358-533.json": "7cc8b78e0c7e9a4d7d7172e8e8f0d6f7eccb41257298867de1f7291e717b8d37",
-    "ce-native-acceptance528/earned-modern/earned-storm-normal-Divine-recovery359-533.json": "e426ad3e0e517ca5174dc06ec630f11e225bdf20457ce9e23499a99a8a0e175d"
+    "ce-native-acceptance528/earned-modern/earned-storm-normal-Divine-recovery359-533.json": "e426ad3e0e517ca5174dc06ec630f11e225bdf20457ce9e23499a99a8a0e175d",
+    "ce-native-acceptance528/earned-modern/earned-north-channel-two-victory364-533.json": "7e620040c34e1614869e2869f77c4cd2bb08e649104387b373c7c303f58ce05b",
+    "ce-native-acceptance528/earned-modern/earned-source-budgeted-deepwater-recovery368-533.json": "dfd1b2a31b8b4a90e0668d306d89bcd105a70db236a442fccd1ea5ba9d7e328b",
+    "ce-native-acceptance528/earned-modern/earned-northshore-two50-victory369-533.json": "d6c94ed132406e77cf06aebb3e4fb92a76c7751c45755877dca1decc96b5b0bb",
+    "ce-native-acceptance528/earned-modern/earned-northern-road-damage370-533.json": "1ae7ff38e622adf1247540932f672b844dffc6edff7d764f74b7c04a8846c948",
+    "ce-native-acceptance528/earned-modern/earned-northern-road-six-admission371-533.json": "7681d3c217bded4edd544beca68e08de75845159ebb9f5f4a0567f6144730bf7",
+    "ce-native-acceptance528/earned-modern/earned-northern-road-six-victory371-533.json": "a11368925d1049d3a6a0082db90cfbd95eddaf6ebd9516b5fde872ec9d82e735",
+    "ce-native-acceptance528/earned-modern/earned-Nourtheld-paid-Inn382-533.json": "06c1bdf90aed3ae29816bff6082f4d492c9ddd8b6430bd2679bab90b636d0b5d"
   },
   "qualifications": [
     "Historical filenameTreceito refers toactualTrecitoInn inMap28; ordinarypaid346 isrealrest, earlier345/fullrest356anticipatedlabelsareunpaid/noMPchange.",
     "Offlinefeasibility origins neverwriteorloadGame states; no executionroutewritten for hypotheticalorigin. Surfacewatercandidate nottraversed."
-  ]
+  ],
+  "actual_through348": "Actual secondparkedSkiff123144 normalboard124. Source40step nauticalroute selected; two46/41 enemies125121 defeatednormalattacks/noHPMPcost,+4food593. AttemptedW5 didnotadvancetime, no daytimewaitcredited. Repeated35damage atdeep229 was initiallymisattributed toactor151; NativeWorldTransportMotion::water(mode1) andGAME0156 establishunprotectedSkiff124seaexposure35, not an Enginedefect/rangedactor. Threeactual35HPepisodes healedwithnineordinaryLesserHeals,Br56->38MP. PrivateSkiffplanner corrected to230..232/bridge205..210 safety; fromactual125114 thereisnozeroexposureroute. SourceDijkstra finds8step minimum withtwo229cells70damage total. FullHP89/80/80 beforeactualtwo moves ->19/10/10; normalNoxDivine17 restoresfull, Nox39->22MP; remaining6safe steps reach129110. Normaldismountfoot250; firstUp consumednotice, soH on232 refused/noMPchange. Two50HPwaterenemies admitted, normalStaffattacks win noHPMP/+4food597. ActualUp129109dry. H againdenied; permanent347 retainsfullHP MP40/38/22. Source95step dryroute toNourtheld. At14185 actual17damageeach; normalselfLesserHeal2each restoresallHP,MP38/36/20. Six98/137 coastalmonsters at14285 withnoflee128: normalHeroSummon14, Shock/Blade/correctlydisabledsoldStorm21/ordinaryattacks winall3fullHP, MP0/11/6 andgold2->19; Hrefused, actual348 saved. No newdeaths/Enginebuild/process/suitererun;8builds38gameCLI+5focused=43;20/60nodesVERIFIED, endingunverified.",
+  "return_checkpoint351": {
+    "status": "VERIFIED",
+    "actual": "Three incidental road groups fled normally; retained victories and casualties. South bypass entered Castle54. Dead Cutter ThiefCloak30 and ThiefNeck32 sold normally for7+6, gold2->15. Normal source route reaches Inn58/33,36. TalkUp/Y/R/Y paid14, gold15->1, room59/28,34; living HP89/80/80 and MP44/56/56. Actual permanent351; Letter75 retained. W3 advances source clock6->9 before next floor entry. No Engine changes/builds/process launch.",
+    "evidence": "ce-native-acceptance528/earned-modern/earned-Nourtheld-paid-Inn382-533.json"
+  }
 }

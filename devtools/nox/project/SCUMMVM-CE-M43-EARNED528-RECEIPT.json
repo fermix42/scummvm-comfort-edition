@@ -4296,19 +4296,19 @@
     }
   ],
   "correction": "SCUMMVM-CE-NPC529-VERIFICATION.json",
-  "last_checkpoint": 346,
+  "last_checkpoint": 351,
   "cold_evidence": "ce-native-acceptance528/earned-modern/cold036.json",
-  "next_action": "Finish actual parked-skiff-storm362-exact route to123145, normalUp123144/Board existingownedSkiff. Replanfromactualownedboat usingexisting waterplanner --skiff (onecell229..232) towardknownnorthshore129110, then existingzero-water footroute toNourtheld17762, unlessactual sourcepath givesbetter supportedconnection. Avoid speculative longsea detours. Normalincidental landFlee allowed whenpermitted; no requiredgate outcome injected. CompleteArchus/Styx earnedLetterrecognition/repeat/cold, remainingpage1 at57/44,20, sourcecastleportals/eightpage/Nystulbinding andallremaining60requirements. ActuallivingHero89/40MP,Br80/56MP,Nox80/39MP; three olderdeaths retained,gold2food589. Readiedbook6Illuminate57; BladeStorm21sold/privateoffenseguarddisabled. Continue no milestone stop/push/publication.",
+  "next_action": "Archus58 Letter recognition, Castle57 last page1, Styx and Nystul; continue finite earned acceptance",
   "current_source_commit": "c660ae8ac41",
   "current_executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd",
-  "latest_earned": "After344 normal HeroQuickExit4 returns114204. Source44step dry route reachesTown28/148196 with noencounter/damage. Initial talk missedmovingInnNPC152: anticipated345fullrest label and private full-rest356 filename doNOT representrest, gold14/MP40,3,56 unchanged. NormalRight to37,35 alignsNPC37,37; TalkDown reachesauthoredInnwelcome, actualY/R/Y costs12gold14->2 and transitionsroom29/33,32; actuallivingHP89/80/80 MP44/56/56, food589, permanent346. No newcold required orperformed. HeroQuickExit4 returns148196. All dry/exact/contact foot routes toNourtheld17762 fail terrain; source-only bounded cave154170 offlinefeasibility alsofails43nodes, no Game movement. Native-source water-aware planning finds216steps/415damage percharacter; rejected beforeexecution. Readactualsavedobjects findsanother parkedSkiff124 at123144 (record192), Frigate119217record208 andSkiff118209record212retained. Normaldry76step approach123145 selected. Movingstorm225 at146183 causesactual71damage toall3 at147184; no deaths. NoxnormalWorldDivineHeal17 restoresallfullHP, MP56->39. NormalRight148184 leavescontactwithoutdamage; fresh64step route aroundcurrentstormcontinues. Currentobserved127155 fullHP, MP40/56/39. NoNativeEngine defect/build/suite demonstrated. Eightbuilds38gameCLI+5focused=43;20/60nodesVERIFIED, endingunverified.",
+  "latest_earned": "Nourtheld paid Inn351; livingHP89/80/80 MP44/56/56, earnedLetter retained; Archus/Styx remaining",
   "historical_receipt_baseline": {
     "executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4",
     "source_binding": "SCUMMVM-CE-CANNON530-VERIFICATION.json",
     "qualification": "Initialreceiptbaseline only; percheckpoint/current identities control later progression."
   },
   "source_commit": "c660ae8ac41",
-  "local_full_ledger_sha256": "339b979bfa2bc9d66d01b33a825ba13af43f5c12f027e90a96ee558518cddf26",
+  "local_full_ledger_sha256": "1001ee7a1deaa64dcddd33aa880a0ee5268f0f92127d40f27c20a2e304a70707",
   "latest_scoped_evidence": {
     "status": "VERIFIED",
     "scope": "Actual141cold021/142normalnextstep retain quest/inventory/party/resources/sound/session and parkedhorse; not Rustydoorpositivecrossing or fullcampaign acceptance",
@@ -4334,9 +4334,9 @@
     "SCUMMVM-CE-M43-CULT-LETTER533-VERIFICATION.json": "8007d051a76b4a10e6a01cff2019f7ebdc5c7a594cfdee896caa8661113d91d8",
     "SCUMMVM-CE-M43-YVVIAR-RETURN340-WORK.json": "60ba05cf914d9888472c6db67c1feef0560d50d5a8312f87e71fca50eacc621f",
     "SCUMMVM-CE-M43-YVVIAR350-VERIFICATION.json": "155964ee515160350d1366c206e2c56de51e520753f0ff8448185fb9762c7b39",
-    "SCUMMVM-CE-M43-TRAVEL-REST357-WORK.json": "0964f1994b24cb7253982a7e3d2f11729e640f807286bb72cea9d99280377f8c"
+    "SCUMMVM-CE-M43-TRAVEL-REST357-WORK.json": "353011e6bdbf32ea80edd6a0d119eb48ed9ee090965aca5290c303f1c539672a"
   },
-  "private_ledger_sha256": "339b979bfa2bc9d66d01b33a825ba13af43f5c12f027e90a96ee558518cddf26",
+  "private_ledger_sha256": "946e5edcaf9450f39a90875518ca0b12751bccb3e68b6fdbd333da455c4a2dc3",
   "superseded_current_aliases_royal532": {
     "last_checkpoint": 44,
     "latest_earned": "142 firstnormalworldstep after actual141cold021, fullparty/questinventory/resources/session retained;horseparked persistence",
