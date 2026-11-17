@@ -46,7 +46,8 @@
     "224 actual raw17 trap Cutter death retained as branch; normal pretrap998 load225 excludes that death from continued mainline. No successful raw17 opening claimed.",
     "After250 boarding cannon defeat preserved privately; normal preboarding998 reload and changed dry-land camp251 continues mainline, no defeat rewards or casualty erasure hidden.",
     "255 label mentions camp prematurely: H actually refused danger; no mana/food recovery credited. Subsequent normal route continues from actual earned victory/heal.",
-    "Normal250 reload263 explicitly forks parent250;251..262 are retained alternate earned evidence, not current carried state/XP/resources. Brown control258 must be re-earned on resumed primary after equipment upgrade. No cross-save item transfer."
+    "Normal250 reload263 explicitly forks parent250;251..262 are retained alternate earned evidence, not current carried state/XP/resources. Brown control258 must be re-earned on resumed primary after equipment upgrade. No cross-save item transfer.",
+    "Ice/Fire staff plan corrected before purchase: INT68/56 requirements exceed current44. No staff upgrade credited; proceeding to eligible Town44 armor/spells and full rest."
   ],
   "checkpoints": [
     {
@@ -3669,22 +3670,66 @@
       },
       "process": 31,
       "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd"
+    },
+    {
+      "label": "earned funded dry land mana rest265",
+      "slot": 265,
+      "parent": "625207b40b1dc93219dd46487334f49c4cf0cbdcaca0e553af137914eee9040c",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot265.g0": "2d6b1659531b2e20dc48145d0b2ef77b790e005f714686fd9c18071d871f6908",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot265.g0.ce-achievements.json": "ef664e88547204111b90741d991cbc7d7cb08bf035cab342636260b95c86c369"
+      },
+      "process": 31,
+      "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd"
+    },
+    {
+      "label": "earned funded shore healing266",
+      "slot": 266,
+      "parent": "8d36b25acacee0995add96c6a1a4844acd57f3bc3227920c4f3f2404243f67f5",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot266.g0": "37a10d913524a89ce19c2ff27456e8e873e350153de7ac0d5a5a5f9ae0736a5d",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot266.g0.ce-achievements.json": "f677e60cf042f7fb4c6ccd843a0a0b38a9390f64e9305ed3fee7ee663b06f619"
+      },
+      "process": 31,
+      "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd"
+    },
+    {
+      "label": "earned five pirate boarding victory camp267",
+      "slot": 267,
+      "parent": "39cd4d5a52fd4408e3b649fd25fc1a265416114bd84341f391929109d8e1e22d",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot267.g0": "6423a8a94ff11b74cbb32bbbadc1b541d637425c6166e987332065ba9482fd25",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot267.g0.ce-achievements.json": "99c5a605eeb805f5a438df68fc18230a390d6f08733628206d727e9855d1ac4c"
+      },
+      "process": 31,
+      "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd"
+    },
+    {
+      "label": "earned corrected eligible gear route QuickExit268",
+      "slot": 268,
+      "parent": "cfd6b95f08a4d56594f59e4c40254a493321d15b1492b5e00dfb483e7fe15e43",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot268.g0": "c86ef22b1b5103ed2e1478aa255e9dea4b8704c7b853adc671faf61f09decd4e",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot268.g0.ce-achievements.json": "6f569fed77e18578138120345c15a610332f0505113fee7ed220850b7a5a043d"
+      },
+      "process": 31,
+      "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd"
     }
   ],
   "correction": "SCUMMVM-CE-NPC529-VERIFICATION.json",
-  "last_checkpoint": 264,
+  "last_checkpoint": 268,
   "cold_evidence": "ce-native-acceptance528/earned-modern/cold031.json",
-  "next_action": "Normal40step town exit and dry-land camp; return owned boat towardNourtheld/castle59 apothecary, buy source-authored staff upgrades within actual earned budget (IceStaff47 base57/452gold versus current MagicStaff23 base27). No money grind. Re-earn necessary Brown control route on improved branch, then Brown/Cult and remaining campaign; no milestone stop.",
+  "next_action": "Finish actual three-enemy road encounter; resume92step Town44 route. Buy eligibility-checked Mage armor and BladeStorm21/Smite15 at44merchant96; normal Ready and11gold Inn112 fullrest. Return source Brown/Cult chain on improved legitimate branch; no unusable Ice/Fire staff purchase, no arbitrary money grind, no milestone stop.",
   "current_source_commit": "c660ae8ac41",
   "current_executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd",
-  "latest_earned": "Cave return at23553 blocked by mage admission; normal Flee72->36, another nine-enemy admission normal Flee36->18,259. Normal Bridgit QuickExit4MP returnsSurface20099,260. Entrance treasure door picked; eight137HP guards actual Tactical/spells/heals victory all6fullHP18->36gold261. First entrance chest initial ordinary lock refusal, second Search succeeds +19gold36->55,262; no trap damage. Small payout does not fund452gold IceStaff. Explicit normal250 chooser reload263 resumes original earned Raque132/7pages/bothcastlekeys/581gold900food; parent points to250. Checkpoints251..262 preserved as alternate earned branch, not carried into resumed mainline: later guard XP/gold and Brown opened-control state excluded. Current Brown74 absent and wall not yet opened in resumed mainline. Normal Town41 merchant112 approach corrects stale NPC coordinates and one blocked cell; actual23 surplus sales +264gold581->845,264. Equipped items, spellbooks/quest items, ProtectionRing33 and ThiefNeck32/Cloak30 retained. No expected outcome injection, Engine source change, build or new CLI.",
+  "latest_earned": "Funded primary264 exits town normally; dry-land H restores107MP/900->793food265. Shore approach causes actual17HP loss/member; six normal Bridgit heals12MP restore all6fullHP266. Normal ownedSkiff/Frigate boarding admits five98/137Pirates; Tactical/fireballs/cannons victory all6fullHP845->873gold. Normal H restores72MP/793->721food267. Frigate75step route206105->17961 no damage/encounter; normal skiff landing17963 and foot castle54 entry all6fullHP. Castle Inn route interrupted by NPC blocking27,35; no Inn payment. Source equipment eligibility correction: IceStaff47 requires68INT, FireStaff39 requires56INT; highest partyINT44. Earlier staff plan missed these requirements; NO purchase/equip attempt made. Corrected source contract: Town44 MageCloak42/Neck44 and BladeStorm21/BladeSmite15 require38INT, usable by Bridgit/Nox44. BladeStorm is hostile mass-target, no Fireball area/friendly proximity constraint; Smite is single-target. Town44 Inn112 costs11gold/fullHPMP and room45/14,29. Normal Bridgit QuickExit4MP returns17762,268,873gold721food,MP15/24/24/29/33/24. Source92step dry-foot Town44 entry132109 route active; three196HPsprite139 road admission at17766, actual battle ongoing. No source/build/newCLI/suite.",
   "historical_receipt_baseline": {
     "executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4",
     "source_binding": "SCUMMVM-CE-CANNON530-VERIFICATION.json",
     "qualification": "Initialreceiptbaseline only; percheckpoint/current identities control later progression."
   },
   "source_commit": "c660ae8ac41",
-  "local_full_ledger_sha256": "8397b623a3ed055394e3b90aaca04f1ad4c29d5e6e9cf3d14415a58df635c65e",
+  "local_full_ledger_sha256": "fe6722f7d45740414c7b618a8a9aaeb2804355534f293cde420c8cac464845bb",
   "latest_scoped_evidence": {
     "status": "VERIFIED",
     "scope": "Actual141cold021/142normalnextstep retain quest/inventory/party/resources/sound/session and parkedhorse; not Rustydoorpositivecrossing or fullcampaign acceptance",
@@ -3704,9 +3749,9 @@
     "SCUMMVM-CE-M43-SCALES532-WORK.json": "0ae8239c7e75489373b0604738e1e79d35ccd3a81e348f47832e978cd82b9645",
     "SCUMMVM-CE-M43-CASTLE532-WORK.json": "c1d4286b16d7e8cd3cadcc17047ce6d12a740089562c4df18d0493a527da57d6",
     "SCUMMVM-CE-DOOR533-VERIFICATION.json": "b56eda55bb27385ee3a31fda61b57f58965e91465d68e120ba271e1c360e3c6b",
-    "SCUMMVM-CE-M43-CULT533-WORK.json": "d16e29d1dcdf4b05d275991826f89b8f7c2e12a4e4faba1473c5c586f5c22ba6"
+    "SCUMMVM-CE-M43-CULT533-WORK.json": "f899f8a0bd3cea88830e669bad5433ebb8f5a248749ded6023621cd4c9f07e80"
   },
-  "private_ledger_sha256": "8397b623a3ed055394e3b90aaca04f1ad4c29d5e6e9cf3d14415a58df635c65e",
+  "private_ledger_sha256": "fe6722f7d45740414c7b618a8a9aaeb2804355534f293cde420c8cac464845bb",
   "superseded_current_aliases_royal532": {
     "last_checkpoint": 44,
     "latest_earned": "142 firstnormalworldstep after actual141cold021, fullparty/questinventory/resources/session retained;horseparked persistence",
