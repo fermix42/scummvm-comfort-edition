@@ -3,7 +3,7 @@
   "scope": "Resume required earned Guild/Skull/child-rescue branch from primary438; no Guildmaster victory or Skull reward yet credited.",
   "source_commit": "c660ae8ac41",
   "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd",
-  "last_checkpoint": 439,
+  "last_checkpoint": 441,
   "actual": "Roster preparation431..435 is complete in ROSTER620. Source620 returns to Castle60/36,18; actual Right enters Keep26/13,18. Source621 ends adjacent18,19. Checkpoint436 label is premature: source Board requires overlapping vehicle, actual appearance250/object255 was foot. Normal Right19,19/B/Y asserts actual128/object bound,437. Flying Down commands19,23/27/31/35/38; additional Down enters leave confirmation with can_save=false,notice=false. NormalY exitsSurface83,79. No failed assertion is credited as an exit. Source flight622 first stale998 read refused; direct119147 is an excluded authored entrance, not a harbor-actor failure. Actual29-command route to119143 has no HPMP cost. Normal Down entersBayport49/24,38,Yland/Xpark,438. Normal20-step623 enters48/38,33;95-step624 traverses existing permissions and enters52/23,33. Source625 actor-conservative NoRoute is read-only; contact-enabled95-step route is selected for actual required guarded progression. First55 normal steps reach52/15,38 without battle/damage. Actual saved doors15,37 and17,36 are picture64/state16: already unlocked ordinary doors from prior earned progress, no new pick required. Current normal625 indices55..94 running toward actual50 stairs26,17, with ordinary Open and stop on battle/damage.",
   "initial_active_party": {
     "members": [
@@ -51,7 +51,7 @@
     "focused_cli_processes": 5,
     "material_launches": 52
   },
-  "next": "Acquire original SummonMinorDemon16 before any further Assassin attempt. Normal source stock Castle59/64, minimumINT50 (eligible56),17MP,160gold; summoned actor104HP/armor94/power85. Sell genuinely unused equipment for funding, normal purchase/Ready/full rest. No retry with LesserUndead14 or unchanged current equipment.",
+  "next": "Normal source footreturn toWyvern17267, B/Y andflightBayport; retain fresh actualpre-Assassin save withbook16. One source-supported changed summon tactic, no LesserUndead repeat. No Enginechange/build.",
   "acceptance": "26/60 selected nodes VERIFIED; whole campaign/guardians/ending and supported branches remain IN PROGRESS.",
   "Assassin626": {
     "status": "IN PROGRESS",
@@ -62,6 +62,18 @@
     "ce-native-acceptance528/earned-modern/earned-Guild-six-admission626-533.json": "8820e5cf4cadc6c40051287034497e9fca349e66fabc0f2e3676205264091b32",
     "ce-native-acceptance528/earned-modern/earned-Guild-six-defeat626-533.json": "ff163cf7f6723c45b700ec5480858fc9ed71b2557d21d9315fc9dafab93828f8",
     "ce-native-acceptance528/earned-modern/forks/Guild-six-immune-Assassins-defeat626/lineage.json": "c74b7e378f4182667479324f9327cd89818b0b9fa53154d3fa32bbd05c63ba63",
-    "ce-native-acceptance528/earned-modern/earned-Guild-recovery-transport627-533.json": "4377b7a04edf25afcd35f895aa62487d47935d8ebd5e89989e8029b573cdafae"
+    "ce-native-acceptance528/earned-modern/earned-Guild-recovery-transport627-533.json": "4377b7a04edf25afcd35f895aa62487d47935d8ebd5e89989e8029b573cdafae",
+    "ce-native-acceptance528/earned-modern/earned-MinorDemon-funding631-533.json": "ea1352afb8096234aa83515106e87d0facb500843e2d6975419edb911b615f5d",
+    "ce-native-acceptance528/earned-modern/earned-MinorDemon-full-rest633-533.json": "075549cc10d862aa285a6619ecb3cd94b6d95c76e0c32c5f4936c29f0f6c5dd1"
+  },
+  "MinorDemon440": {
+    "status": "VERIFIED",
+    "scope": "Actual ordinary purchase and Ready only; no combat result yet",
+    "actual": "Source33-command627 flight to17267, normalYland/XparkWyvern, source10-step628 entersCastle54. Source65-step629 blockedNPC25,22; fresh53-step630 via58 reaches33,24. Fresh merchantNPC64 at32,22; initialTalkLeft misses; normalLeft/Up32,23, freshNPC32,22 thenactualTalkUp opens merchant22. Actualall-spare sales: +1ThrowingDagger16qty2=90, spareMagicStaff23qty2=28, ProtectionRing33qty3=18. Total136; buy stockindex1 book16=160, normalR/shortcut1 Ready. Actualnormal998 NBSK IDs50,16,3,2,4,60,57,15,27,52, slot1INTrequirement50. Checkpoint440,23gold300food HP80/80 MP52/56; no levels/XP granted. OriginalFireStaff39 retained/readied. Initial inn632 planning used stale33,35 target andNoRoute; failed follower missing-file read caused no Game directional inputs. Fresh actualinnNPC88 at33,36 isopen, 34-step632 route selected andcurrentlyrunning. No Engine defect/change/build/process."
+  },
+  "MinorDemon441": {
+    "status": "VERIFIED",
+    "scope": "Actual purchase/Ready/full rest only; Assassin combat remains unverified",
+    "actual": "Actual440 book16 owned/readied slot1, source requirement50/cost17, actual NBSK slot1=16. Inn target33,35 was stale: actualNPC88 at33,36 made oldadjacency allblocked; no locked access required. Source34-step632 targetsactual3336, reaches3337; freshinnNPC3335, normalUp3336/TalkUp/Y/R/Y pays14, full80HP/56MP each,9gold300food. Normal441 saved. No extra cold/suite/build. Normal BrQuickExit4MP nowreturnsSurface17762 toretrieveownedWyvern17267 andreturnGuild."
   }
 }
