@@ -1,0 +1,76 @@
+{
+  "status": "VERIFIED",
+  "scope": "Earned Modern Nystul self-portal, COMP refusal/success and physical wall passage, binding positive/repeat, Staff reward/repeat, insufficient-INT refusal and cold continuity only. Full readiness, missing-pages dialogue forks, Classic coverage and ending remain unverified.",
+  "source_commit": "c660ae8ac41",
+  "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd",
+  "lineage": [
+    404,
+    405,
+    406,
+    407,
+    408,
+    409,
+    410,
+    411,
+    412,
+    413,
+    414,
+    415,
+    416
+  ],
+  "actual": {
+    "access": "Normal earned Wyvern carried through original UM97/130191 entrance. Original flight reaches UM104/12249; ground Up enters12248 and authored self-exit arrives12280. Ordinary flight approaches magic mouth; land/dismount at10337. FRIE rejected with field42 unchanged; COMP raises portcullis, consumes temporary bit and changes10136 state50 to254. Normal23-step foot route537 crosses10136 at index2 and reaches10324. Flight is a lawful original transport alternative, not evidence for unused maze levers.",
+    "binding": "Normal TalkUp and authored acknowledgements award one book12 and field61 65->67; pages remain8/field62=255. Repeat BIND leaves quantity1. Screenshot186 shows actual binding text.",
+    "staff": "Normal MAZE awards weapon83 quantity1, field15 80->84. Repeat MAZE leaves quantity1. No Staff Ready/combat claim.",
+    "readiness": "Actual normal R then shortcut1 selection refuses with More intelligence needed, screenshot188. Living maximumINT56; source requirement110. Earlier542 artifact is canceled shortcut prompt, not refusal;535 is null and534 is stale pre-topic state, excluded from evidence.",
+    "cold": "Clean cold045 reload of actual413 preserves bound quest/inventory, party/resources, changed maps, audio and unassisted CE ownership. First Down meets wall and does not move; normal Right actually moves10324->10424,415. Normal return545 crosses reopened wall and B reboards parked Wyvern at10337,416."
+  },
+  "evidence": {
+    "ce-native-acceptance528/earned-modern/earned-Nystul-selfportal-before531-533.json": "1b939028f2c135342dc57f71d4c9e3d35cae8a5e8d841acbedb51c63204bdd58",
+    "ce-native-acceptance528/earned-modern/earned-Nystul-selfportal-after531-533.json": "ae3315d25304bb0f39feb8efed40f46c7da488e8f32612ff17f75f2088380000",
+    "ce-native-acceptance528/earned-modern/earned-Nystul-mouth-wrong536-533.json": "8fe879148d18ffe0e076eba0325a4bebc08bd174a416ccbfa9c4a4200cd31c8a",
+    "ce-native-acceptance528/earned-modern/earned-Nystul-mouth-COMP536-533.json": "56e4d05e5cf2815850a52015ed89cc3e0293558db73f75b11b511db45646044e",
+    "ce-native-acceptance528/earned-modern/earned-Nystul-binding-opening538-533.json": "f0b32c7d542a799ce0a2782635351ea476fe43c886ea6cb183bab7ccb819c91f",
+    "ce-native-acceptance528/earned-modern/earned-Nystul-binding-after538-533.json": "b10fbe6cdc96809c5c3b2b2965e036d3f60a8e8573d606192c95e770cf8a9d66",
+    "ce-native-acceptance528/earned-modern/earned-Nystul-binding-repeat539-533.json": "671a741c392fb54f0719c045472dac6e6827a679284fe2624390fc6f61792c03",
+    "ce-native-acceptance528/earned-modern/earned-Nystul-staff540-533.json": "e1e19a3b4a4337bad36d7319073cacbc0155e8e834b1f9d01bc567f2632ef470",
+    "ce-native-acceptance528/earned-modern/earned-Nystul-staff-repeat541-533.json": "3db94136d60634a97e3174648f3252cca45389a5ac8c712975683baca19aa9d6",
+    "ce-native-acceptance528/earned-modern/earned-Vortex-lowINT-actual-refusal543-533.json": "9081da5d93f9aa3cbbe89fdbac8719ece7191fd9683180d5cc3e2785dfeefa95",
+    "ce-native-acceptance528/earned-modern/cold045.json": "d8228be4a9305616d40155fb3bdf3228b6d405fdf067815c2518224aaa9f59cf",
+    "ce-native-acceptance528/earned-modern/earned-Nystul-postcold544-533.json": "0d64ce21062b81dedbc4bab45f4d860e4d1d8cebe99abec19b123a4e6c96517c",
+    "ce-native-acceptance528/earned-modern/earned-Nystul-postcold-move546-533.json": "b844442ef2f33781254329fece65fd741a7d5ebcecc87523f52a6a6f9ebaf5a1",
+    "ce-native-acceptance528/earned-modern/earned-Nystul-postcold-Wyvern547-533.json": "6f3a88167a31f388825110a41fca90fe73adcf4bfa65c196799e046947f1d0e2"
+  },
+  "presentation": {
+    "screenshots/scummvm-cli-game-00185.png": "d4de537e485e641544accfdf426175a0691678c2601dd7a8f07d2702b9cd9ca9",
+    "screenshots/scummvm-cli-game-00186.png": "d262b034e227c4f493a9c267058ce7b43f6fe8ddd1d9b7d7a143fa57d34ef433",
+    "screenshots/scummvm-cli-game-00188.png": "c7432f2bf04ce488f157c4995c06464ac720af4228d8ba0a205a11a600c8cfe8"
+  },
+  "remaining": [
+    "Earn living caster INT>=110 and actual Vortex Ready/cast; no synthetic stats.",
+    "Required no-eight-pages dialogue fork and selected Classic configurations.",
+    "Hairnet/Fire/Air/remaining campaign, supported branches, ending and session acceptance."
+  ],
+  "cost": {
+    "builds": 8,
+    "game_cli_processes": 45,
+    "focused_cli_processes": 5,
+    "material_launches": 50
+  },
+  "engine_changes": "None in this continuation.",
+  "helper_changes": "Private existing follower reuses final advance snapshot and skips redundant on-foot ship checks. Source planner includes UM104; grounded Wyvern water restriction and optional flight actor clearance use observed/source rules. No Engine state or resource edits.",
+  "private_ledger_sha256": "b760ca1ef6668d0c81129e797156c11cc40eade0ed1879bb2870c98320844809",
+  "source_binding_sha256": "8ddcbd520a5a9d7c95d80afe28b7cf9fdee729a43eb2aa1f06ba4be041ab1aed",
+  "checkpoint_metadata": {
+    "ce-native-acceptance528/earned-modern/checkpoints/404-Earned-Valess-eight-page-recognition404/checkpoint.json": "0c7885f13cfed2a13a7cbf768150b4e6b56b1158a88cb9d43462f5cf4b623379",
+    "ce-native-acceptance528/earned-modern/checkpoints/405-Earned-Valess-repeat405/checkpoint.json": "f14483e47844029b01ee9b9dcaf24b76b03aaaebfc6760728200e1468f101b02",
+    "ce-native-acceptance528/earned-modern/checkpoints/409-Earned-Nystul-actual-selfportal409/checkpoint.json": "552ffef86f6ee2ad80c7dd7700203db85efe6fee52fbda8f05cb10a9a93cc9dd",
+    "ce-native-acceptance528/earned-modern/checkpoints/410-Earned-Nystul-COMP-word410/checkpoint.json": "186955f36d7d7112afeb3e3886dab92f209528f16c794470a88e8bb31a393597",
+    "ce-native-acceptance528/earned-modern/checkpoints/411-Earned-Nystul-actual-binding411/checkpoint.json": "e6c4f20d1b8705c291efd7ee3c619ac611d8fa589682a41421883e7840959b1a",
+    "ce-native-acceptance528/earned-modern/checkpoints/412-Earned-Nystul-Staff-and-repeats412/checkpoint.json": "080f322654ede94d713986ffee8d6b020569dc0c6a70bdef0bd8058284090997",
+    "ce-native-acceptance528/earned-modern/checkpoints/413-Earned-Vortex-low-INT-refusal413/checkpoint.json": "1a24c34e5af6859722fd3b0cef27cfeb17cb3ef60d30b3e29804533a79189542",
+    "ce-native-acceptance528/earned-modern/checkpoints/414-Earned-Nystul-cold045-next-step414/checkpoint.json": "b96fa716b858461721b086e57697099da59c238598060e09634bb1da8ce443e6",
+    "ce-native-acceptance528/earned-modern/checkpoints/415-Earned-Nystul-cold045-actual-move415/checkpoint.json": "b53f2d95433c77ee23f6dd102fe7bcf6d66dd6c5bacff52cebc1271e7fcdaef4",
+    "ce-native-acceptance528/earned-modern/checkpoints/416-Earned-Nystul-postcold-passage-Wyvern416/checkpoint.json": "a5c6a7488939becb8cd4f2593a0439f745faed11c2845be5536df0865fc89b08"
+  }
+}

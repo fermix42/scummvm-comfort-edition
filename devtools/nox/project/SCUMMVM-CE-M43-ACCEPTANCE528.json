@@ -747,7 +747,7 @@
     },
     {
       "id": "eight-page-check",
-      "status": "NOT STARTED",
+      "status": "IN PROGRESS",
       "prerequisites": [
         "castle-control-wall",
         "moat-key-door",
@@ -779,11 +779,16 @@
         "scoped audio/presentation",
         "actual earned verification criteria"
       ],
-      "earned_lineage": null
+      "earned_lineage": null,
+      "earned_positive_scope": {
+        "status": "VERIFIED",
+        "report": "SCUMMVM-CE-M43-NYSTUL548-VERIFICATION.json",
+        "remaining": "Relevant missing-pages dialogue fork and selected Classic coverage; positive Ready/cast additionally requires legitimately earned110INT."
+      }
     },
     {
       "id": "nystul-maze-access",
-      "status": "NOT STARTED",
+      "status": "VERIFIED",
       "prerequisites": [
         "castle-control-wall",
         "moat-key-door",
@@ -818,11 +823,23 @@
         "scoped audio/presentation",
         "actual earned verification criteria"
       ],
-      "earned_lineage": null
+      "earned_lineage": {
+        "checkpoints": [
+          409,
+          410,
+          411,
+          412,
+          413,
+          415,
+          416
+        ],
+        "report": "SCUMMVM-CE-M43-NYSTUL548-VERIFICATION.json",
+        "scope": "Earned Modern actual source gate/reward/repeat/cold and subsequent passage; no unused maze lever, Staff Ready/combat or Classic claim."
+      }
     },
     {
       "id": "binding",
-      "status": "NOT STARTED",
+      "status": "IN PROGRESS",
       "prerequisites": [
         "castle-control-wall",
         "moat-key-door",
@@ -861,11 +878,16 @@
         "scoped audio/presentation",
         "actual earned verification criteria"
       ],
-      "earned_lineage": null
+      "earned_lineage": null,
+      "earned_positive_scope": {
+        "status": "VERIFIED",
+        "report": "SCUMMVM-CE-M43-NYSTUL548-VERIFICATION.json",
+        "remaining": "Relevant missing-pages dialogue fork and selected Classic coverage; positive Ready/cast additionally requires legitimately earned110INT."
+      }
     },
     {
       "id": "bound-spell-readiness",
-      "status": "NOT STARTED",
+      "status": "IN PROGRESS",
       "prerequisites": [
         "castle-control-wall",
         "moat-key-door",
@@ -899,7 +921,12 @@
         "scoped audio/presentation",
         "actual earned verification criteria"
       ],
-      "earned_lineage": null
+      "earned_lineage": null,
+      "earned_refusal_scope": {
+        "status": "VERIFIED",
+        "report": "SCUMMVM-CE-M43-NYSTUL548-VERIFICATION.json",
+        "scope": "Actual insufficient-INT refusal only. Positive Vortex Ready/cast NOT STARTED pending lawful110INT."
+      }
     },
     {
       "id": "vortex-world-refusal",
@@ -2323,7 +2350,7 @@
     },
     {
       "id": "nystul-archmage-staff",
-      "status": "NOT STARTED",
+      "status": "VERIFIED",
       "prerequisites": [
         "nystul-maze-access"
       ],
@@ -2350,7 +2377,19 @@
         "scoped audio/presentation",
         "actual earned verification criteria"
       ],
-      "earned_lineage": null,
+      "earned_lineage": {
+        "checkpoints": [
+          409,
+          410,
+          411,
+          412,
+          413,
+          415,
+          416
+        ],
+        "report": "SCUMMVM-CE-M43-NYSTUL548-VERIFICATION.json",
+        "scope": "Earned Modern actual source gate/reward/repeat/cold and subsequent passage; no unused maze lever, Staff Ready/combat or Classic claim."
+      },
       "source_qualifications": [
         "Actual83quantity1/040F04, repeated MAZE no duplicate/repeat dialogue/cold both modes. Subsequent compatibility here means retained binding and repeat interaction, not weapon Ready/combat; that remains untested. No earned repeated maze completion claimed from flavor text.",
         "39 retains actual all8page/research/Nystul physical word/wall/room/binding/Staff83 prefix through original lowINT refusal, controlled reachableMage BEFORE actualReady, world refusal and full12HP ShipRat actualVortex/cold both modes. Actual weapon83 retained UNREADIED owner0; no weapon83 combat claim."
@@ -2815,10 +2854,10 @@
   "mode_strategy": "One primary Modern earned lineage; targeted Classic legal earned fork/restore/transitions; no duplicate complete campaign required by existing criteria.",
   "failure_policy": "Freeze failing path,source general diagnosis,focused correction+regression,at most2corrective reruns; resume valid nearest earned save,no prefix replay or outcome injection.",
   "builds": 6,
-  "process_launches": 44,
+  "process_launches": 45,
   "planned_node_count": 60,
   "mandatory_node_count_note": "All selected M3 nodes explicitly represented alongside dependency76 graph; includes supporting/advice/alternative nodes. Necessity is retained per source,not inferred from node count.",
-  "last_earned_checkpoint": 364,
+  "last_earned_checkpoint": 416,
   "baseline_candidate_sha256": "81feb2c7ff17594a6ea9754dc60602a755b2f37ea7c53b437f65a18e7c35000f",
   "candidate_change": "NPC529,cannon530,packedmelee531,mountedTalk532 source corrections; exact scoped receipts and earned ancestry retained. No broad matrix promotion.",
   "earned_failures_retained": [
@@ -2861,7 +2900,7 @@
     "no_shortcuts": "No injected items/XP/flags/positions/RNG, no original instruction runtime, no replay of96victory to hide casualties.",
     "earned_preparation": "104Ffredbook->105normal353sale,107fullpartyresurrection,108plainFireball,109naturalrange2melee proof.116actualfullShamanbossvictory/all6live,117earnedtreasure/trap/retry/heal,118exit,119source-owned gear/tools/food. Three selectednodes remain VERIFIED; optionalpreparation is not substituted for60selectedcriteria."
   },
-  "focused_cli_launches": 2,
+  "focused_cli_launches": 5,
   "execution_reconciliation532": {
     "status": "IN PROGRESS",
     "retained": "All60selectednodes/criteria;4VERIFIED. Guild152positiveQuick and failedthree-Quick/153tacticalwinfourcasualties retained. No furtherprematureGuild.",
