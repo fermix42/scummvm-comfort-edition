@@ -52,7 +52,8 @@
     "287 checkpoint label anticipates Copper73; actual search failed withoutdamage, keyABSENT/field25unchanged2/picks0. No questpickup credited. Tacticalincidental280 and fixedactorQuick283 full defeats retained; normal earned reloads281/284 exclude losses. Flee283 cost501->250gold remains in primary.",
     "Original item73 is Wrinkled Note, notCopperKey;287 historical label/proofalias qualified, noitem acquired. Merchant schedule interpretation corrected toWORK08-15/16-21; normal wait only. GMMpaused advance controller timeout recoveredsameprocess, noEnginefatal.",
     "290/291 labels do notcreditrefusedcamp: actualbeach/Skiff/Frigate/openwater HrefusalsretainMP; dry203105H restored89MP/89food. Newprivatepauseguardandremovalofimplicitbattlepausefixcontrolleronly, noEnginebuild.292cannonvictory noHP/MPcost. Minimumreadiness isNox5/INT50, notall6party5. SourceWdigit waitswholehoursnormally, no clockinjection.",
-    "Mixednaval firstfull defeatretained; normalactual998healthy20787reload293 preservespreceding7enemyseavictoryearnedXP. Onechangednormaladjacenttargetpolicywinsall6fullHP,294. Noexpectedoutcome/stateinjection. Normalallocations4members5,Nox56INT; preparationstopswhenminimumeligible,nofurthertrainingrequired."
+    "Mixednaval firstfull defeatretained; normalactual998healthy20787reload293 preservespreceding7enemyseavictoryearnedXP. Onechangednormaladjacenttargetpolicywinsall6fullHP,294. Noexpectedoutcome/stateinjection. Normalallocations4members5,Nox56INT; preparationstopswhenminimumeligible,nofurthertrainingrequired.",
+    "297 casualty victory is alternate;298 normal preapproach998 excludes it. Nine-enemy stalled4casualty battle excluded by normal299 load300. Primary proceeds299->300->301..303. World-party HP is stale during battle: use battle_party; no failed rewards merged. Historical fixed guard location21359 was clear after nine-enemy victory; A found none and normal passage succeeded; no extra fixed8 victory claimed."
   ],
   "checkpoints": [
     {
@@ -4027,22 +4028,99 @@
       },
       "process": 32,
       "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd"
+    },
+    {
+      "label": "alternate three cultists three casualties297",
+      "slot": 297,
+      "parent": "8c3d80bab37a2a5ca939ce4a6318ae5a80f896af272ace17391bcef19475c0ec",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot297.g0": "249e94bf468ca91adabc79591bc1167258ea831581054c47153394810a9b1ce3",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot297.g0.ce-achievements.json": "c122bcaa61c11b8cf09a71759a472e639f0ded02b2f0591a8a8786e3c0de422b"
+      },
+      "process": 32,
+      "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd"
+    },
+    {
+      "label": "earned preapproach998 recovery298",
+      "slot": 298,
+      "parent": "8c3d80bab37a2a5ca939ce4a6318ae5a80f896af272ace17391bcef19475c0ec",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot298.g0": "7ae9b880d6d7c328e13fd40ebca8272fc0dc17c83bf451dd46b90e89d0c1127e",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot298.g0.ce-achievements.json": "ae6573c6f30b12155720b899ce16fdd7de19e6cb271e33870b356fb1e48753a7"
+      },
+      "process": 32,
+      "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd"
+    },
+    {
+      "label": "earned changed three cultist victory299",
+      "slot": 299,
+      "parent": "f1a6d7b55968f047ceb56760e6743ad4bdc84d521584146fb3a7ab8edd44e57b",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot299.g0": "a148d15c6064eabf0599200ce08653fd5baf177dbb09cbaff61c0ecb11e8c0ce",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot299.g0.ce-achievements.json": "079ace7d11bb4498c6e289789fa2fecd840ac8f5aa0bbd736a3ca22f5885a389"
+      },
+      "process": 32,
+      "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd"
+    },
+    {
+      "label": "earned nine battle normal299 recovery300",
+      "slot": 300,
+      "parent": "8f09f83f7bb3bc44c064798f58e3b23e51fb2fc530b04fc58e460b0fa7a5a221",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot300.g0": "d332acf53e778fbca4910a2564070c5c56e0db6d72f092b32ee5b4a7b53ab85e",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot300.g0.ce-achievements.json": "6da597da0221979cb4e4d60b58137cdfcd2cbb09396387d439e0d66e92f803d6"
+      },
+      "process": 32,
+      "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd"
+    },
+    {
+      "label": "earned changed nine cultist victory301",
+      "slot": 301,
+      "parent": "98593ce7ce645af28725c7da8da57f112cf1bc69409e44df8fccf8553073f212",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot301.g0": "5fee817ac225b890562a6190d5c10c91d33aaf4fb5959c06e509345617ffeb69",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot301.g0.ce-achievements.json": "fbe99d1439aaf665e32f46a221ee3794b875b3672edf711a573cf53dcaf52b5c"
+      },
+      "process": 32,
+      "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd"
+    },
+    {
+      "label": "earned nine cultist recovery camp302",
+      "slot": 302,
+      "parent": "1e5b8ef1af24e6f6ae9e242c8d2c3e897f9e0cb671c4513e986193883cbe80c7",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot302.g0": "1147f0bfc1d00999fba99ccfdafb18f468d81c8f609a9df39ffa651e75bc1885",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot302.g0.ce-achievements.json": "29fff8f88dc3b364ae72bd13131a52b440733cae2933f3156ddb7d49088454f6"
+      },
+      "process": 32,
+      "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd"
+    },
+    {
+      "label": "earned Brown key303",
+      "slot": 303,
+      "parent": "3aba46251c22370ffda87fdc5e5e91e531f9208d39a4bf1712439005dc96c654",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot303.g0": "0c83812b320dfb9c1808fdfcf04cc3be3071d1ad4668c8b0b4bc8a2e38e41051",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot303.g0.ce-achievements.json": "89af2d5d136118901806a09d497178125b03a3d2dd0fd010c18779e9ad77ff4f"
+      },
+      "process": 32,
+      "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd"
     }
   ],
   "correction": "SCUMMVM-CE-NPC529-VERIFICATION.json",
-  "last_checkpoint": 296,
+  "last_checkpoint": 303,
   "cold_evidence": "ce-native-acceptance528/earned-modern/cold032.json",
-  "next_action": "Continue normal QuickExit5/Bridgit3 to Surface17762; normal shore17963/SkiffUp2/Frigate17961, source avoid-current-actors sail206105, landing/cave20099/Raque132door/stair98. Primary control280 already open: go directly west of wall21359, earn fixed cultist battle with newly readied spells, Brown74 chest21853, repeat/cold/positive gate21620 and Cult75. Do not toggle control, repeat missing-key refusal256 or rerun unchanged failed fights.",
+  "next_action": "Finish source159step no-hazard Brown door stand98/21621; earned74 OpenUp/physical passage21620/21619, normal cold combining key/repeat/open wall/door and first postcold passage. Missing-key refusal alternate256 already retained, do not repeat. Then source portal21617->99 and VHA mouth217101, authored full monks/Letter75 prerequisites; continue finite earned campaign without milestone stop.",
   "current_source_commit": "c660ae8ac41",
   "current_executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd",
-  "latest_earned": "After294 normal six422HP Great Sharks cannon victory retained; normal Flee refused without gold loss. Hero and Bridgit normal level5 allocations yield INT44/56. Six98HP sea enemies18260 and eight98HP18160 defeated with ordinary cannon/tactical inputs; all six alive. Normal Skiff landing17963, six87/98HP land enemies17863 defeated for12gold,359total. Castle entry54/22,38; normal W9 at01:25 advances10:25, same-floor exact schedule remains old until normal floor entry. Moving merchant64 intercepted at59/32,24 from33,24 TalkLeft; ShockStorm27 and DivineHeal52 bought160each,359->39gold. Normal spell inventory kind2 readies8/9; mistaken kind1 id27 input retained but Nox equipment byte-identical to294. Paid Inn14gold39->25, actual destination59/28,34; all fullHP and MP20/44/44/56/56/44,food900. Checkpoint295 normal saved. Process031 normal quit exit2 is sticky prior CLI timeout status per ce_test_cli.cpp345/387, not a gameplay crash; log preserved. New process032 normal chooser load295 matches party/inventory/allquestfields/resources/map/sound/session, music ready,no cheats/assistance; cold032 and checkpoint296. Brown74/Cult75 absent; primary control280 preserved. No Engine source/build or suite rerun.",
+  "latest_earned": "Earned296 QuickExit to17762; four98HP shore enemies defeated with fullHP retained. Lone87HP creature during dry-land approach defeated without HP/MP loss. Normal camp17763 restores14MP for14food900->886; owned Skiff/Frigate boarding and75step voyage206105, landing204105,15step dry cave approach19999, cave97, retained Raque door and stair98 all without further damage/combat. Source68step Brown-wall approach admits three191HP cultists20675. Attack-heavy policy reaches bounded stall; actual victory297 retains Kat/Cutter/Hero dead. Normal pre-approach998 restore298 excludes casualty victory/rewards. One changed Blade/Storm tactic wins same3 all6fullHP,44gold; normal camp299 restores84MP,886->802food. At21061 nine191/148HP enemies admit. First spell policy stalls with4casualties; actual battle state/trace retained, no rewards credited. Normal299 load300 restores all6fullHP/44gold802food. Changed normal input policy: support casters pass until initial Shock casts, prioritize healer clusters, use Blade Smite on remaining healers, reserve Nox17MP for Divine Heal while multiple enemies remain. Actual full9 victory301 all6alive,105gold802food; Kat70HP/Hero52HP healed normally by Kat4MP tofull. Normal camp302 succeeds at21061, restores168MP for168food802->634; no retreat. No nearby compact hostile actor; stationary extended NPCs are excluded from original camp danger predicate. A Right from21259 finds no actor; actual steps21359 and21459 prove retained open-wall passage, no forced extra fight. Source9step chest approach21854; first SearchUp/Cutter2 traps26HP81->55, second normal Y/2 displays Found Brown key. After acknowledgement inventory kind2/id74 quantity1 andfield25=18 (adds16). Normal Kat2MP heals Cutter55->81. Earned303 saved; repeat SearchUp unchanged inventory. All6fullHP,MP14/33/33/42/42/33,105gold634food. Old health commentary during failed battles used stale world-party snapshots; actual live battle casualties are explicitly retained here. No Engine source/build/newlaunch/suite rerun since296.",
   "historical_receipt_baseline": {
     "executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4",
     "source_binding": "SCUMMVM-CE-CANNON530-VERIFICATION.json",
     "qualification": "Initialreceiptbaseline only; percheckpoint/current identities control later progression."
   },
   "source_commit": "c660ae8ac41",
-  "local_full_ledger_sha256": "ec2cf402525c3316c1999875ffb29104184a7aefc2084b595247575bd580b0b0",
+  "local_full_ledger_sha256": "16b32edfe56207725302a252ed4e4df6c8159a1f31a8d6ea94d6150a9d1717ea",
   "latest_scoped_evidence": {
     "status": "VERIFIED",
     "scope": "Actual141cold021/142normalnextstep retain quest/inventory/party/resources/sound/session and parkedhorse; not Rustydoorpositivecrossing or fullcampaign acceptance",
@@ -4062,9 +4140,9 @@
     "SCUMMVM-CE-M43-SCALES532-WORK.json": "0ae8239c7e75489373b0604738e1e79d35ccd3a81e348f47832e978cd82b9645",
     "SCUMMVM-CE-M43-CASTLE532-WORK.json": "c1d4286b16d7e8cd3cadcc17047ce6d12a740089562c4df18d0493a527da57d6",
     "SCUMMVM-CE-DOOR533-VERIFICATION.json": "b56eda55bb27385ee3a31fda61b57f58965e91465d68e120ba271e1c360e3c6b",
-    "SCUMMVM-CE-M43-CULT533-WORK.json": "be75cd55d83e90bfd13b8d4463234b382e9e6f1fa5c4de77846e0e2f856b218d"
+    "SCUMMVM-CE-M43-CULT533-WORK.json": "ae4650fda2073bcdc89f34d4856d4783b5de435f5167749355abeb6bd51688a5"
   },
-  "private_ledger_sha256": "ec2cf402525c3316c1999875ffb29104184a7aefc2084b595247575bd580b0b0",
+  "private_ledger_sha256": "16b32edfe56207725302a252ed4e4df6c8159a1f31a8d6ea94d6150a9d1717ea",
   "superseded_current_aliases_royal532": {
     "last_checkpoint": 44,
     "latest_earned": "142 firstnormalworldstep after actual141cold021, fullparty/questinventory/resources/session retained;horseparked persistence",
