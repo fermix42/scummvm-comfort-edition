@@ -1,0 +1,27 @@
+{
+  "status": "VERIFIED",
+  "scope": "Earned BRIBE refusal/VHA wall passage+cold and full original8+2 Monk victory/ordinary death+cold only; five real casualties retained, no earned Cast-final-blow or OBLI alternative claim",
+  "source_commit": "c660ae8ac41",
+  "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd",
+  "actual": "Actual original full8Monks191HP+2HighMonks137HP admission after310. Cutter normal C1/10MP createsfive rendered Wisps; original Tactical/area/Blades/summons/ordinary attacks complete whole encounter311. Actual casualty result: only Nox survives80HP/3MP; Kat/Hero prior deaths304 plus new Cutter/Bridgit/Alluvion deaths retained in primary. Gold192->276; no restore or invented victory. Last retained BladeSmite by Nox targetsMonk6,144->32HP; final victory follows ordinary attacks, not an earned Cast final-blow claim. Normal Up215100 thenUp21599 proves VHA wall physical passage312. Normal H restores Nox3->42MP for39food488->449, checkpoint313. Actual clean cold035 preserves allparty/deaths/inventory/allquestfields/resources/map/sound/session/noassistance. First normal Up21598 thenUp21597 passes former guardcell314. Read-only actual314 wall74/254, monk compactslot8[215,100,137,255,0,12,0,2],field12=131 (Raque+Monk bits),field46=4 (VHA bit consumed),field56=1 (corridorCultist/Letter bits absent). Removal is flags255, not tile0; private overly strict tile-zero assertion corrected against BattleRoster removal source, with no record edits. Mouth VHA/BRIBE/physical/cold gate and original full Monk victory/death/cold gate VERIFIED, not entire Cult branch. Corridor2Cultists267HP/Letter75 remain unearned. Normal Nox QuickExit4MP returnsSurface20099. Camp4MPfor4food449->445. Coast recovery approach admits7x98HP sprite152 at197101; Wisp input policy defeats6, last20HP andNox80HP/2MP at bounded pause; same ongoing fight, no outcome yet credited. Source preflight: level5Temple resurrection160each, current276gold cannot reviveall5; Resurrection49 minINT62/cost51 exceeds current56. FireStaff39 minINT56/cost214 is eligible; existing staff/gear prices checked before any sale. No Engine source/build/suite rerun;8builds/35gameCLI+5focused=40.",
+  "evidence": {
+    "ce-native-acceptance528/earned-modern/earned-mouth-BRIBE-blocked308-533.json": "b50a318158747b7883c93164677ba794dd50cc7aa2c71bc03958dc137c594e70",
+    "ce-native-acceptance528/earned-modern/earned-mouth-closed-records308-533.json": "03f4fcc5a3ed385e5564de56e12e9ada1d75c23c8dbd60ab5098197fc33061ea",
+    "ce-native-acceptance528/earned-modern/earned-mouth-VHA309-533.json": "e5d6b1c7f55046c718b9226ff418b456a5d506bc4f2be5d40aa72f1e52f1ecee",
+    "ce-native-acceptance528/earned-modern/earned-mouth-open-records309-533.json": "0cd7e203a1c377d122e987ab6a6e35a9fcac276ab1a941628653f6432875150f",
+    "ce-native-acceptance528/earned-modern/cold034.json": "ebab0e42a520f6cc1636096ce60a462e5c1e71f38df540d1dbe12a3a27a2bd05",
+    "ce-native-acceptance528/earned-modern/earned-full-monks-admission310-533.json": "daf062145430518e2e6d30fc91299e8b77f65708b74974242723dd154818bf16",
+    "ce-native-acceptance528/earned-modern/earned-monks-first-Wisps311-533.json": "9b89cea2d70404f4aab0577772c5585c4e0b820ea0f1c7972f62cd6521e3db9b",
+    "ce-native-acceptance528/earned-modern/earned-full-Monks-victory311-533.json": "3b86f7d96c3a779862af2bae693b585b8f0efe9e6b016645b468177965e52f6c",
+    "ce-native-acceptance528/earned-modern/cold035.json": "ddc0c1b1f6646db3a4027653a3b336ea71b3e9b58b9182402a299c01cc814c1c",
+    "ce-native-acceptance528/earned-modern/earned-mouth-Monk-death-records314-533.json": "9e7768a632aede6c023f33bc5b0a123b24b058b711e71924ab35ac5b74ef8c4b",
+    "ce-native-acceptance528/earned-modern/earned-blades-34-69016.json": "bef793ca6411016f80ee1fd6c17d044310c8f6126186367181724d95916ced2f",
+    "ce-native-acceptance528/earned-modern/screenshots/scummvm-cli-game-00135.png": "f89c45a8a1ed94c423b884ddf61e8c614c15dd71059ae01e7da19fe1e1926a63"
+  },
+  "cost": {
+    "builds": 8,
+    "game_cli": 35,
+    "focused_cli": 5,
+    "material_cli": 40
+  }
+}

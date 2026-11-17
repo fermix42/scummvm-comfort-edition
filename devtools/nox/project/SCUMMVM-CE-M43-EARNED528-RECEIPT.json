@@ -4,13 +4,15 @@
   "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd",
   "source_binding": "SCUMMVM-CE-DOOR533-VERIFICATION.json",
   "builds": 8,
-  "process_launches": 34,
+  "process_launches": 35,
   "verified_selected_nodes": [
     "opening-exit",
     "royal-access",
     "gordon-shrubbery",
     "brown-key",
     "cult-lower-portal",
+    "cult-magic-mouth",
+    "cult-temple-monks",
     "castle-control-wall",
     "moat-key-door",
     "arcane-key-door",
@@ -56,7 +58,8 @@
     "290/291 labels do notcreditrefusedcamp: actualbeach/Skiff/Frigate/openwater HrefusalsretainMP; dry203105H restored89MP/89food. Newprivatepauseguardandremovalofimplicitbattlepausefixcontrolleronly, noEnginebuild.292cannonvictory noHP/MPcost. Minimumreadiness isNox5/INT50, notall6party5. SourceWdigit waitswholehoursnormally, no clockinjection.",
     "Mixednaval firstfull defeatretained; normalactual998healthy20787reload293 preservespreceding7enemyseavictoryearnedXP. Onechangednormaladjacenttargetpolicywinsall6fullHP,294. Noexpectedoutcome/stateinjection. Normalallocations4members5,Nox56INT; preparationstopswhenminimumeligible,nofurthertrainingrequired.",
     "297 casualty victory is alternate;298 normal preapproach998 excludes it. Nine-enemy stalled4casualty battle excluded by normal299 load300. Primary proceeds299->300->301..303. World-party HP is stale during battle: use battle_party; no failed rewards merged. Historical fixed guard location21359 was clear after nine-enemy victory; A found none and normal passage succeeded; no extra fixed8 victory claimed.",
-    "304 actual nine-enemy victory keeps Kat/Hero deaths in primary;305/306 cold preserves them. No all-six-alive or paid resurrection credited for this segment."
+    "304 actual nine-enemy victory keeps Kat/Hero deaths in primary;305/306 cold preserves them. No all-six-alive or paid resurrection credited for this segment.",
+    "311 full Monk victory preserves five total deaths; onlyNox80HP survives.312 physicalwallpass/313camp/035cold/314guardpass retain same earned victory. Finalblow ordinaryAttack, not Cast; no earned spell-final-blow or all-party-survival claim. Resurrection49 requiresINT62/cost51 andTemplelevel5fee160, correcting earlier planning assumptions before action."
   ],
   "checkpoints": [
     {
@@ -4185,22 +4188,66 @@
       },
       "process": 34,
       "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd"
+    },
+    {
+      "label": "earned full Monks victory Nox survivor311",
+      "slot": 311,
+      "parent": "bb0122691515f9dc47b37b67e4399f32e0ff82902dba2b9dd81b544e8d22727b",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot311.g0": "f5e2b7ce7c666d2746ebfedc2b52ae07d16b271509c2c453a6866388ed9b7fad",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot311.g0.ce-achievements.json": "11d728fe6e5fca78c4a3ca0818139d4d7d7c20d97eaba0067d3d94fcdb14d03a"
+      },
+      "process": 34,
+      "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd"
+    },
+    {
+      "label": "earned mouth wall physical passage312",
+      "slot": 312,
+      "parent": "9da562c70661067d0c420cdb388f04005522baed440e49507b2bad8d548e4153",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot312.g0": "79387194e9dff6146afebd1612f67f0cac6903fff70038b822ea0afe4b9d2171",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot312.g0.ce-achievements.json": "aa37f6144545aa0454bfe089247be4105ec4e44f9e51895e995cf53b036e8a54"
+      },
+      "process": 34,
+      "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd"
+    },
+    {
+      "label": "earned Monks Nox camp313",
+      "slot": 313,
+      "parent": "99fd0392653b40b13bf456084388ff56fae922d714d4039b76cf4cb373db712f",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot313.g0": "0001adb1233b52073b56350017587a33ad6664e92e50fe5de3d4b50fff644d6e",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot313.g0.ce-achievements.json": "e944b62cd87e1df27093fb790609ac45709d0580a53e8c58d5bbfbdbe3489168"
+      },
+      "process": 34,
+      "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd"
+    },
+    {
+      "label": "earned Monks cold former guard314",
+      "slot": 314,
+      "parent": "bdc4b269dab7a37ffb44565dbbbf9a73f584d7c4908a5ef5a4ef188703213f10",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot314.g0": "219b19a9270a38609445f8644bcbb5566fea808e5ca1af431fb5d29f9846b443",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot314.g0.ce-achievements.json": "e5db771d035d7f273a6667bf20b0722d542f88b7443502a0f7a5b4c7b6b3fcfb"
+      },
+      "process": 35,
+      "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd"
     }
   ],
   "correction": "SCUMMVM-CE-NPC529-VERIFICATION.json",
-  "last_checkpoint": 310,
-  "cold_evidence": "ce-native-acceptance528/earned-modern/cold034.json",
-  "next_action": "Finish current full8Monks191+2HighMonks137 battle with four surviving legitimate casters, five initial Wisps and readied spells; retain actual casualties, no victory credited until actual. Then physical mouth wall215100 passage, source corridor2Cultists267HP admission/victory and Letter75 chest21382, repeat/cold/compatibility. Restore dead Kat/Hero only through legitimate service or eligible spell; source Resurrection49 minINT62/cost51 exceeds current56, so do not buy/cast under earlier assumed eligibility. Continue finite campaign without milestone stop.",
+  "last_checkpoint": 314,
+  "cold_evidence": "ce-native-acceptance528/earned-modern/cold035.json",
+  "next_action": "Finish current remaining20HP road enemy without replay or newEnginebuild. Then source-led legitimate Temple recovery/necessary equipment preparation preserving fullMonk victory/deaths; exact fees160/member and FireStaff214/minINT56. Do not buy Resurrection49 whileINT56<62 or infer restored party. Prefer exact-occupied-cell route fallback --no-contact-margin before --source-contact-route to avoid unnecessary contact. Return through retained open Brown/VHA gates for actual2Cultists267HP/Letter75 pickup/repeat/cold and remaining finite campaign. No milestone stop/push/publication.",
   "current_source_commit": "c660ae8ac41",
   "current_executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd",
-  "latest_earned": "Normal307 goes98/21619 Up2->99/21617, then6Down through owned selfportal21623->221101; no party/resources mutation or setup injection. Normal Left4 reaches217101 and TalkUp opens original L063 magic mouth. BRIBE refusal308, normal Left2/Up remainsblocked215101; read-only wall215100 stays74/50. Normal Right2/TalkUp/VHA309 receives authored acceptance; after normal conversation close wall215100 is74/254 and transientfield46bit2 consumed (field46=4). Original guard source records found by immutable coordinates: monk compactslot8 [215,98,137,5,0,12,0,2], now21599; corridor cultist compactslot0 [215,86,169,5,0,56,0,2]. Earlier provisional private BD8/slot216 read was wrong-offset zero data and is not guard evidence. Actual clean cold034 matches party/inventory/allquestfields/resources/map/sound/session/noassistance; saved310. First normal postcold Left reaches216101, second Left admits original full8Monks191HP+2HighMonks137HP at215101, so mouth-wall physicalpass remains unverified until actual victory/passage. Lower portal and postcold next-command continuity VERIFIED; Mouth IN PROGRESS. Primary retains actual Kat/Hero deaths304; four survivors fullHP. Normal Cutter C1 Summon Wisp spends10MP29->19 and selected frame135 showsfivewisps; fullMonk battle currentlyINPROGRESS, no outcome credited. No Engine source/build/suite rerun;8builds/34gameCLI+5focused=39.",
+  "latest_earned": "Actual original full8Monks191HP+2HighMonks137HP admission after310. Cutter normal C1/10MP createsfive rendered Wisps; original Tactical/area/Blades/summons/ordinary attacks complete whole encounter311. Actual casualty result: only Nox survives80HP/3MP; Kat/Hero prior deaths304 plus new Cutter/Bridgit/Alluvion deaths retained in primary. Gold192->276; no restore or invented victory. Last retained BladeSmite by Nox targetsMonk6,144->32HP; final victory follows ordinary attacks, not an earned Cast final-blow claim. Normal Up215100 thenUp21599 proves VHA wall physical passage312. Normal H restores Nox3->42MP for39food488->449, checkpoint313. Actual clean cold035 preserves allparty/deaths/inventory/allquestfields/resources/map/sound/session/noassistance. First normal Up21598 thenUp21597 passes former guardcell314. Read-only actual314 wall74/254, monk compactslot8[215,100,137,255,0,12,0,2],field12=131 (Raque+Monk bits),field46=4 (VHA bit consumed),field56=1 (corridorCultist/Letter bits absent). Removal is flags255, not tile0; private overly strict tile-zero assertion corrected against BattleRoster removal source, with no record edits. Mouth VHA/BRIBE/physical/cold gate and original full Monk victory/death/cold gate VERIFIED, not entire Cult branch. Corridor2Cultists267HP/Letter75 remain unearned. Normal Nox QuickExit4MP returnsSurface20099. Camp4MPfor4food449->445. Coast recovery approach admits7x98HP sprite152 at197101; Wisp input policy defeats6, last20HP andNox80HP/2MP at bounded pause; same ongoing fight, no outcome yet credited. Source preflight: level5Temple resurrection160each, current276gold cannot reviveall5; Resurrection49 minINT62/cost51 exceeds current56. FireStaff39 minINT56/cost214 is eligible; existing staff/gear prices checked before any sale. No Engine source/build/suite rerun;8builds/35gameCLI+5focused=40.",
   "historical_receipt_baseline": {
     "executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4",
     "source_binding": "SCUMMVM-CE-CANNON530-VERIFICATION.json",
     "qualification": "Initialreceiptbaseline only; percheckpoint/current identities control later progression."
   },
   "source_commit": "c660ae8ac41",
-  "local_full_ledger_sha256": "dc9ebc87907b2be2ff7b502e6195cdf6db767150a39ea4a363d1222c55dca2d2",
+  "local_full_ledger_sha256": "1765ad6b5d6bfd9e8379db0790df268d6724e332436018cda96058acda16ce9f",
   "latest_scoped_evidence": {
     "status": "VERIFIED",
     "scope": "Actual141cold021/142normalnextstep retain quest/inventory/party/resources/sound/session and parkedhorse; not Rustydoorpositivecrossing or fullcampaign acceptance",
@@ -4220,10 +4267,11 @@
     "SCUMMVM-CE-M43-SCALES532-WORK.json": "0ae8239c7e75489373b0604738e1e79d35ccd3a81e348f47832e978cd82b9645",
     "SCUMMVM-CE-M43-CASTLE532-WORK.json": "c1d4286b16d7e8cd3cadcc17047ce6d12a740089562c4df18d0493a527da57d6",
     "SCUMMVM-CE-DOOR533-VERIFICATION.json": "b56eda55bb27385ee3a31fda61b57f58965e91465d68e120ba271e1c360e3c6b",
-    "SCUMMVM-CE-M43-CULT533-WORK.json": "a15d709d58b3560d905c19a4a7a38fbea4a0b520bbe1b21351b99aa138ab3953",
-    "SCUMMVM-CE-M43-BROWN533-VERIFICATION.json": "63d01dbe71fdaa7c28f0b0e68e1c89b8e50dc2debeeb4c3475629c679d0781f5"
+    "SCUMMVM-CE-M43-CULT533-WORK.json": "61d2f513c72db9001d7bcbb60d7a99c4c8d8be9c24d06b4188a8c3a58978c015",
+    "SCUMMVM-CE-M43-BROWN533-VERIFICATION.json": "63d01dbe71fdaa7c28f0b0e68e1c89b8e50dc2debeeb4c3475629c679d0781f5",
+    "SCUMMVM-CE-M43-MOUTH-MONKS533-VERIFICATION.json": "d2c5ae541c46388f6bfc5077f431a3c7a56422586df6b5ef061bd87f9b6060e0"
   },
-  "private_ledger_sha256": "dc9ebc87907b2be2ff7b502e6195cdf6db767150a39ea4a363d1222c55dca2d2",
+  "private_ledger_sha256": "1765ad6b5d6bfd9e8379db0790df268d6724e332436018cda96058acda16ce9f",
   "superseded_current_aliases_royal532": {
     "last_checkpoint": 44,
     "latest_earned": "142 firstnormalworldstep after actual141cold021, fullparty/questinventory/resources/session retained;horseparked persistence",
