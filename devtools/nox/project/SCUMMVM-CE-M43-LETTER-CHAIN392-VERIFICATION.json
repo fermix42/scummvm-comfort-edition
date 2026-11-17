@@ -1,0 +1,35 @@
+{
+  "status": "VERIFIED",
+  "scope": "Earned Yvviar-Archus-Styx Letter recognition/repeat/cold and next NAME compatibility only; full campaign and ending unverified",
+  "source_commit": "c660ae8ac41",
+  "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd",
+  "lineage": [
+    342,
+    344,
+    351,
+    352,
+    353,
+    354
+  ],
+  "actual": "Original earned Letter75 retained through paid Inn351. Normal W3 hour6->9, source stairs59->58 and walk20,13, TalkUp/LETTER/repeat/BYE: Archus referral to Styx, field56 adds8. Source safe31step58->59->60->57/3,14; TalkRight/LETTER/repeat/PAGES/BYE: original DarkCrown/entered-world narrative and library page clue, field56 adds16 to31. Actual normal353 save, clean cold039 exact comparison, first subsequent TalkRight/NAME/BYE succeeds;354 saved. All three living HP89/80/80 MP44/56/56,1gold597food. Letterquantity1 and pages254 retained. No assistance, Engine change/build or historical suite rerun.",
+  "evidence": {
+    "ce-native-acceptance528/earned-modern/earned-Archus-Letter-opening386-533.json": "0fca404ccb3bd932a5bc097a3436f664eeff7c737893f8bfd22bca813845467b",
+    "ce-native-acceptance528/earned-modern/earned-Archus-Letter-reply386-533.json": "d6e697cbe49b8852fa7d1651e351b5c69f7647abd80dd1ec0671f78d3b3e6d2c",
+    "ce-native-acceptance528/earned-modern/earned-Archus-Letter-repeat386-533.json": "c8bb685b79316feb0ec825cb8aaf8f48f4a19c29c9e8e221ae409a5841c59e08",
+    "ce-native-acceptance528/earned-modern/earned-Styx-Letter391-533.json": "cc458997eb68b9d81e0cef1819792f7cea1a0cc1299937fec0733f30bf8be608",
+    "ce-native-acceptance528/earned-modern/earned-Styx-Letter-repeat-pages391-533.json": "c335d18df8561ea021e7672d3209630c0ebbf503118b9135e8cf298ab4cb03a4",
+    "ce-native-acceptance528/earned-modern/cold039.json": "b3f5bbd75d4cdaae3a429b998aceb653b085076c7e969fe6d47274e2a8e1a45e",
+    "ce-native-acceptance528/earned-modern/earned-Styx-postcold-NAME392-533.json": "3d01869af6f29948e31aff9ade9e98f30e106e476b013752cd589dd8565f438f"
+  },
+  "cost": {
+    "builds": 8,
+    "game_cli": 39,
+    "focused_cli": 5,
+    "material_cli": 44
+  },
+  "qualifications": [
+    "No route387/388/390 generated an executable path; no failed page movement. Static energy barrier208 blocks conservative page route; existing object-portal/Order path remains a source prerequisite, not proven missing Engine behavior.",
+    "Private multi-floor follower continue targeted wrong loop; matched native transitions now break inner retry loop. Extra ordinary step retained, fresh actual-position route used. No Engine edits."
+  ],
+  "next_action": "Continue original Order/Scales prerequisites and supported branches; page1 remains unearned. Do not retry old Drake tactics without changed earned readiness."
+}

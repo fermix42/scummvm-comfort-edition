@@ -1,3 +1,7 @@
+# Acceptance528 Letter chain354 - VERIFIED within scope
+
+Normal Archus352 LETTER/repeat addsfield56bit8; Styx353 LETTER/repeat/PAGES addsbit16, field56=31, Letter75quantity1 retained. Clean cold039 exact persisted state and subsequent StyxNAME354. LivingHP89/80/80 MP44/56/56,1gold597food.21/60nodesVERIFIED; pagebit1, Order/Scales andending unverified.8builds39gameCLI+5focused=44. No Enginechange/build/oldsuitererun. Scoped evidence SCUMMVM-CE-M43-LETTER-CHAIN392-VERIFICATION.json. Next original Order/Scales prerequisites; last-page conservativeNoRoute is not Enginefailure. Canonical conversion and CE devtools/nox/project mirrors.
+
 # Acceptance528 Nourtheld paid rest351 - IN PROGRESS
 
 Normal incidental road Flee and southern castle bypass retain all required victories. Ordinary unused dead-Cutter cloak/neck sales raise2->15gold. Actual Inn58 TalkUp/Y/R/Y costs14gold15->1; room59/28,34, livingHP89/80/80 MP44/56/56, Letter75 retained, permanent351. W3 actualhour6->9. Source route toArchus58 selected. No Engine changes/builds/process/suite reruns;8builds38gameCLI+5focused=43.20/60nodes VERIFIED, endingunverified. Private route file383 was generated from old description-matched snapshot and never executed; corrected384 uses actual normal998 and59/28,34. Continue Archus/Styx/lastpage/Nystul and remaining earned campaign; no milestone stop.

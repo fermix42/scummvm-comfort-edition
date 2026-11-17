@@ -2156,7 +2156,7 @@
     },
     {
       "id": "yvviar-cult-investigation",
-      "status": "IN PROGRESS",
+      "status": "VERIFIED",
       "prerequisites": [
         "opening-exit"
       ],
@@ -2184,14 +2184,24 @@
         "scoped audio/presentation",
         "actual earned verification criteria"
       ],
-      "earned_lineage": "New ->123 ->124 early CULT/STOP ->125 backup purchases",
+      "earned_lineage": "SCUMMVM-CE-M43-LETTER-CHAIN392-VERIFICATION.json",
       "source_qualifications": [
         "Early originalLog/HP50/noLetter -> actual CULT/STOP43740/43801/cold; no serious-letter opening, independent journal confirms. Retained actual PirateKey/cave/letter -> original Yvviar letter opening -> actual Archus/Styx4381C/cold both modes.",
         "Source advice flag43740 guides British ADVI; no hard PirateKey/letter prerequisite invented. All route/noon/adjacency controls explicit. Opt-in exact word observer verified Yvviar, not universally all NPCs; optional strict Archus probe failed, existing default controller succeeds.",
         "Earlier failed direct routes, STOP timing and wrong427 flag expectation preserved/excluded."
       ],
       "earned_progress": "Early124 CULT/STOP plus actual350 earnedLetter opening/repeat and343cold038/344nextstep verified; combined Archus/Styx laterrecognition stillrequired.",
-      "latest_scoped_evidence": "SCUMMVM-CE-M43-YVVIAR350-VERIFICATION.json"
+      "latest_scoped_evidence": "SCUMMVM-CE-M43-YVVIAR350-VERIFICATION.json",
+      "actual_result": "Original earned Letter75 retained through paid Inn351. Normal W3 hour6->9, source stairs59->58 and walk20,13, TalkUp/LETTER/repeat/BYE: Archus referral to Styx, field56 adds8. Source safe31step58->59->60->57/3,14; TalkRight/LETTER/repeat/PAGES/BYE: original DarkCrown/entered-world narrative and library page clue, field56 adds16 to31. Actual normal353 save, clean cold039 exact comparison, first subsequent TalkRight/NAME/BYE succeeds;354 saved. All three living HP89/80/80 MP44/56/56,1gold597food. Letterquantity1 and pages254 retained. No assistance, Engine change/build or historical suite rerun.",
+      "earned_evidence": [
+        "ce-native-acceptance528/earned-modern/earned-Archus-Letter-opening386-533.json",
+        "ce-native-acceptance528/earned-modern/earned-Archus-Letter-reply386-533.json",
+        "ce-native-acceptance528/earned-modern/earned-Archus-Letter-repeat386-533.json",
+        "ce-native-acceptance528/earned-modern/earned-Styx-Letter391-533.json",
+        "ce-native-acceptance528/earned-modern/earned-Styx-Letter-repeat-pages391-533.json",
+        "ce-native-acceptance528/earned-modern/cold039.json",
+        "ce-native-acceptance528/earned-modern/earned-Styx-postcold-NAME392-533.json"
+      ]
     },
     {
       "id": "cult-four-pressure-plates",
@@ -2715,7 +2725,7 @@
   "process_launches": 36,
   "planned_node_count": 60,
   "mandatory_node_count_note": "All selected M3 nodes explicitly represented alongside dependency76 graph; includes supporting/advice/alternative nodes. Necessity is retained per source,not inferred from node count.",
-  "last_earned_checkpoint": 319,
+  "last_earned_checkpoint": 354,
   "baseline_candidate_sha256": "81feb2c7ff17594a6ea9754dc60602a755b2f37ea7c53b437f65a18e7c35000f",
   "candidate_change": "NPC529,cannon530,packedmelee531,mountedTalk532 source corrections; exact scoped receipts and earned ancestry retained. No broad matrix promotion.",
   "earned_failures_retained": [
