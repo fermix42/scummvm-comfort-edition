@@ -55,13 +55,19 @@
     "ce-native-acceptance528/earned-modern/earned-eight-pirates-upgraded-gear-camp532.json": "705377bbb3aee5027327e08a0a79f48b207032e60afd988145e53728f75ce051",
     "ce-native-acceptance528/earned-modern/earned-dry-shore-camp191-532.json": "ec26d1d7d327c34ac870e83ffe91cc873b738e5b88367f12a20aaac3a595dcb1",
     "ce-native-acceptance528/earned-modern/earned-five-pirates-dry-camp192-532.json": "b6aaae38c4c63a4d7c701bc2c2b82d3504a78227825717876f67f205550fb205",
-    "ce-native-acceptance528/earned-modern/earned-coastal-mages-cleared-camp194-532.json": "7c7c556b0ea463e00f1548d754d23ba6d8d6b020443c5439df64c4eb59d1de3d"
+    "ce-native-acceptance528/earned-modern/earned-coastal-mages-cleared-camp194-532.json": "7c7c556b0ea463e00f1548d754d23ba6d8d6b020443c5439df64c4eb59d1de3d",
+    "ce-native-acceptance528/earned-modern/earned-Scales-road-five-result396-533.json": "1d090c647dc8ddbd2ac731aeb870bceb1ebc54a76cd6ebacbafeb2684a196f65",
+    "ce-native-acceptance528/earned-modern/earned-Scales-road-one397-533.json": "09822403889fc11c160e514155f5519975bdb4f0bdd69a855afbcb00d8eccc54",
+    "ce-native-acceptance528/earned-modern/earned-ten-Drakes-admission399-533.json": "91026767be0bb2049dd2c2c09a3ef5489a919b11d63b13a683486abf9d398b84",
+    "ce-native-acceptance528/earned-modern/earned-ten-Drakes-retreat399-533.json": "4fcfc3252695e8d7a2a1c8570f30c1f90ad54c0634b29dcad4317bd0c8c0b15b",
+    "ce-native-acceptance528/earned-modern/earned-Scales-corridor-attack402-533.json": "bfd44bc10bfd025c9da15b079a3b14d7203e44bfd9c9195ece316c8fff496327",
+    "ce-native-acceptance528/earned-modern/earned-Scales-corridor-Drake-result402-533.json": "d8570073f67cfd2f714b149231399bbdf985a00883aff6af9726e94fdd530c3d"
   },
   "cost": {
-    "builds": 6,
-    "game_cli": 26,
-    "focused_cli": 2,
-    "material_cli": 28
+    "builds": 8,
+    "game_cli": 39,
+    "focused_cli": 5,
+    "material_cli": 44
   },
   "next_action": "Normal paidInn58 fullrest, then sourceMoatkey116/Search/repeat/actualdoorpassage/cold; continuecontrols/Arcane/pages without stopping.",
   "first_drake_attempt": {
@@ -170,5 +176,17 @@
     "status": "IN PROGRESS",
     "report": "SCUMMVM-CE-M43-CASTLE532-WORK.json",
     "scope": "Actual Moat missing-key refusal; no Scales/Guild completion."
+  },
+  "current_source_commit": "c660ae8ac41",
+  "current_executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd",
+  "actual_through358": {
+    "status": "IN PROGRESS",
+    "actual": "After Letter354, actual75step safeCastle route to78/18,31, normalDown entersUM97/176,62,355. Source289step zero-terrain-damage Scales path. Five70, lone98 and lone70 normalStaff victories preserveall3fullHP/MP; one6x70 group normalT/Escape/Y retreats9->4gold, noHP/MP. Original ten191Drakes at101/52,28 normalretreat12->6gold,356. Further Drakes at101/66,45: retreat keeps original compact actor occupying nextcell66,46; repeated unchanged route attempts re-enter battle and cost6->3->1->0gold, no HP/MP or reward. Read-only actualtables establish north66,44 andsouth66,46 occupied in onecellwidecorridor; no terrain-safe bypass. NormalAttackDown admitsfour191Drakes. ActualHeroSummon14 costs10MP andfour actualShock27 casts cost100MP, fullvictory noHPdamage/newcasualty,19gold;357. Remaining10steps to72,49 admitsanotherfourDrakes; normalT/Escape/Y19->9gold. Actual358 saves retainedfourDrakevictory, fullHP89/80/80 MP34/6/6,9gold597food,Letter75 retained, noScales146. Exact-actor routeNoRoute1cell; normalHeroQuickExit5/Enter costs4MP andreturnsSurface17762. One87 enemy normalStaffvictory noHP/MP/goldgain, ordinaryDown17763/Up entersCastle54. W9/W6 shifts day for service beforefloor59entry; source70step merchant route running. This is normal recovery from insufficientmana, not demonstratedmissingEnginebehavior. No Enginechanges/builds/oldsuitereruns.",
+    "qualifications": [
+      "Normalretreat requires Tactical selection beforeEscape/Y if modechoicepending. F andEscape/Y beforemodechoice were ignored, noGameoutcomes.",
+      "Prior claim that a protection spell was owned was corrected in commentary; no such spell exists in worlddispatch. Lastpage1 stillunearned.",
+      "New privateShock minimum2targets policy selected for subsequentDrakefights to avoid four eager single-target25MPcasts; no expectedenemyoutcomes injected."
+    ],
+    "next_action": "Sell unusedRecurveBow21 atCastle59 merchant64, normalInn58 rest14, retainfourDrakevictory andreturn sourceScales route. ClusteredShock/summons; ordinaryScales146 Search/repeat/cold, Bruce/Archus membership, objectportals andlastpage remain unverified."
   }
 }
