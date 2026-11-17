@@ -4297,12 +4297,12 @@
     }
   ],
   "correction": "SCUMMVM-CE-NPC529-VERIFICATION.json",
-  "last_checkpoint": 381,
+  "last_checkpoint": 383,
   "cold_evidence": "ce-native-acceptance528/earned-modern/cold036.json",
   "next_action": "Complete424 fromindex121 at65,147, boardFrigate119217; Bruce75/Archus/Order/remainingcampaign",
   "current_source_commit": "c660ae8ac41",
   "current_executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd",
-  "latest_earned": "EarnedNourtheldreturn381 actualCastle54/2238,fullHP89/80/80 MP3/38/42,30gold594food; Brucepassed226/Scalesretained. SourceArchus454 underway.",
+  "latest_earned": "ActualArchusmembership/key94/field60=7 grant382/repeat383; fullHP89/80/80 MP3/38/42,30gold594food. Source462one17HP crossing route toOrderportal underway. Membershipcold/refusal/wholeOrder/endingunverified.",
   "historical_receipt_baseline": {
     "executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4",
     "source_binding": "SCUMMVM-CE-CANNON530-VERIFICATION.json",
@@ -4338,10 +4338,10 @@
     "SCUMMVM-CE-M43-TRAVEL-REST357-WORK.json": "353011e6bdbf32ea80edd6a0d119eb48ed9ee090965aca5290c303f1c539672a",
     "SCUMMVM-CE-M43-LETTER-CHAIN392-VERIFICATION.json": "f866ae5540d1b14ebd93ff069eb3230c7f21828a51564503d1042a8bc61b2e6f",
     "SCUMMVM-CE-M43-SCALES419-VERIFICATION.json": "2414a29908ca0f0b4547e33e8338131b99ec8e687da2d20e9fea2dd7c3cd1bb6",
-    "SCUMMVM-CE-M43-BRUCE420-WORK.json": "967ef381629d3a763b40b650d843f5d4398681a118b36ef1de9fe6eb3c45cb1d",
+    "SCUMMVM-CE-M43-BRUCE420-WORK.json": "63db604b877d490d46a1188b11f585bfb9d2d5181b13b5f5eb03180c63f6df2c",
     "SCUMMVM-CE-M43-BRUCE445-VERIFICATION.json": "ec909d5768cab7325621e2e52bb5f788e84072abbec2f7933cf278090fc12a7e"
   },
-  "private_ledger_sha256": "fe950379f9af6bd47a6de6307f6e4bc7d987a2596fe4cb18be48e7bd774ef0ff",
+  "private_ledger_sha256": "fbb7332e29911a078922c6ac324b287f30c81db11339be51443e2c1348937f41",
   "superseded_current_aliases_royal532": {
     "last_checkpoint": 44,
     "latest_earned": "142 firstnormalworldstep after actual141cold021, fullparty/questinventory/resources/session retained;horseparked persistence",

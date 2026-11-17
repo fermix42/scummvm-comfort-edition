@@ -21,10 +21,12 @@
     378,
     379,
     380,
-    381
+    381,
+    382,
+    383
   ],
   "actual": "Source95step exact-actor dryfoot421 from17762 to129109. Two50HP sprite148 roadenemies16470 normalStaffvictory, noHP/MP,+4food597->601. NormalDown129110/B boardsownedSkiff124 (appearance124/onfootfalse asserted),365. Read-only originalSkiff watercontract compared north/leftFrigateapproaches: minimumdamage north336steps105HP vsleft338steps140HP. Existingprivateplanner givenoptionalexposure-step-cost20 objective; defaultdamage-first unchanged. Actualbalanced424route254steps175HP/fivedeep229cells chosen,82fewersteps. First38moves includeactualfive35HP episodes at128117/127117/126117/114132/113132. Aftereachone normalDivineHeal52 costs17, Brtwocasts39->5MP andNoxthree56->5MP; Hero23unchanged, all3HP89/80/80 restored eachtime, zero deaths/battle. AboardSkiff normalHcamp at113132 actuallyrestores84MP:Hero23->33 Br5->42 Nox5->42, food601->517, HPpreserved,366saved. Currentremaining216source-safe-water moves424 fromindex38 towardFrigateapproach119216 underway, stoponactualdamage/battle. Scalesqty1/field60=3 retained. NoEnginechange/build/oldsuitererun.",
-  "planned_next": "Finish source454 toArchus58, actualmembership/key94/repeat/cold thensourceOrderportals/lastpage andremainingM4.3; no milestone stop.",
+  "planned_next": "Stopatactual462shallowdamage, ordinaryheal, finishportalapproach; actualOrderportal andlastpage, latercoldpersistsmembership/key/pages together; continueallremainingM4.3.",
   "evidence": {
     "ce-native-acceptance528/earned-modern/earned-skiff-south-exposures425-533.json": "4ec8f9e7d8ca9f0e3d4c27b1c53ee5ef9439e2cbcdaaf54ca4f36f8c13d6cedb",
     "ce-native-acceptance528/earned-modern/earned-skiff-south-camp425-533.json": "3980144e0087d3b711edb302b02f5dfbde5370c33cd6d1afb23f6af97ac07776",
@@ -50,7 +52,12 @@
     "ce-native-acceptance528/earned-modern/earned-Frigate-return-pirates449-533.json": "e366769fd3dc72a8b886052087a79a987b3f01758b6fb41c00d2460330eb1d65",
     "ce-native-acceptance528/earned-modern/earned-Nourtheld-frigate-camp450-533.json": "ff4ed4b4fe45e1950df0900e4e7f6c4df5cd8cdc66f2d69962535f902c5aa9b4",
     "ce-native-acceptance528/earned-modern/earned-Nourtheld-entrance-attack453-533.json": "236279ce7e97c430248fd59dee6d217557aaa21d5694ff45021469e2c95431e8",
-    "ce-native-acceptance528/earned-modern/earned-Nourtheld-entrance-result453-533.json": "f2538aa60bf45fd67150241327a5270db16d088c37883e3d7963d92b994c3779"
+    "ce-native-acceptance528/earned-modern/earned-Nourtheld-entrance-result453-533.json": "f2538aa60bf45fd67150241327a5270db16d088c37883e3d7963d92b994c3779",
+    "ce-native-acceptance528/earned-modern/earned-Archus-membership459-533.json": "f27d9e36ff9fae957c257e4e44812affa753e1973291e31ee0a5e5be4add5142",
+    "ce-native-acceptance528/earned-modern/earned-Archus-membership-ack459-533.json": "46b54807140839fac41bd071b40d2806fd22853bd6e68b85265882fa91297de5",
+    "ce-native-acceptance528/earned-modern/earned-Archus-membership-repeat459-533.json": "ff62e968afd88c571687fdf31dbf40c45904e87906df011c60e3c8bc972e683c",
+    "ce-native-acceptance528/earned-modern/screenshots/scummvm-cli-game-00167.png": "5f3df74022e532dbd6a10b949cea01831c8f087184d06b45d61929a0bfb159dd",
+    "ce-native-acceptance528/earned-modern/screenshots/scummvm-cli-game-00168.png": "f7fad5ed32baed3643a7a0576432351bed2790dd571eec46946a3f61deb3fc6c"
   },
   "cost": {
     "builds": 8,
@@ -144,5 +151,11 @@
     "status": "VERIFIED",
     "scope": "Earnedreturn/boat/camp/ordinarycombat/castleentry only; Archus grant notyetverified",
     "actual": "AfterBruce378, normal6footmoves to225232, Up/B ownedSkiff225231, source6moves447 toFrigate223227 withnoHP/MPdamage; B119/379 saved. Source212move448 northbound toward17961. Seven98HP pirateboarding at21070; existingnormalcannon policy plus source-supportedordinaryShock casts onallthreecasters yieldfullvictory HP89/80/80 MP2/17/17 food675,380. No expectedoutcomes injected. Remainingroute reaches17961. ActualaboardHcamp restores81MPfor81food675->594, MP33/42/42. NormalX/Down/Down launchesSkiff and17963 shore. Sixmixed87/98HP landcreatures allowT/Esc/Yretreat; actualX thenfoot. Fourstepdryroute451 interruptedat17764 bytwo87HP; normalFlee. Upblocked byactualretainedcompact132at17763, no repeatedmovementloop. NormalAttackUp admitsactualfourmixed87/98HP, normalFireball/Staff fullvictory HP80/80/45, MP3/42/42,30gold. TwoBrLesserHeals4MPrestoreall3HP; Up17763 succeeds, nextUpactualCastle54/2238,381saved. Current56source454/twofloor54->58 towardArchus2012 running. Brucepassedfield48=226/Scalesqty1/Letter/pages254retained. No Engine change/build/process."
+  },
+  "membership383": {
+    "status": "IN PROGRESS",
+    "warm_grant_repeat": "VERIFIED",
+    "actual": "Actual381 Castle54 entry, source56steps454 to58/2013. Archus home29,22 at01:55, normalW8 reaches09AM butretainedschedule unchanged. Normal11step457 to59/2023 and13step458 back58/2013 refreshArchus20,12. A read-only456target59/2912 NoRoute wasnotexecuted. NormalTalkUp459 presentsactualmembership/keynotice screenshot167, ack commitsfield60 3->7 andKey94qty1; normal382saved. Repeat normalopening/finish no duplicateKey,383. Scales146qty1/Letter75/page254 retained, HP89/80/80 MP3/38/42,30gold594food. Membershipcold/portalcompatibility pending; missingScalesrefusal/wholeOrder node stillINPROGRESS. Sourcezero-exposureportalapproaches460/461 NoRoute; boundedsource462withshallowcrossing finds102moves/one17HP at54/3835, floorchain54,78,54. Currentnormal462executionstopondamage. No Enginechange/build/process.",
+    "remaining": "RequiredmissingScalesrefusal, membershipcold and subsequentportal/key compatibility; wholeOrder notpromoted"
   }
 }
