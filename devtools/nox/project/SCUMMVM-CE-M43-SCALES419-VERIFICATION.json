@@ -1,0 +1,36 @@
+{
+  "status": "VERIFIED",
+  "scope": "Earned Dragon Scales146 acquisition, repeat no-duplicate, cold and subsequent normal Quick Exit only; Bruce/Archus/Order and full M4 remain unverified",
+  "source_commit": "c660ae8ac41",
+  "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd",
+  "lineage": [
+    360,
+    361,
+    362,
+    363,
+    364
+  ],
+  "actual": "Actual361 normal998 restore retains original fourDrake357 victory and openeddoor83,46, excludes failednineDrake416 rewards/casualties. Source98step thermal415 route first87dry reach66,44; three actual35HP episodes at67,44/70,44/73,42. Firsttwo moveontoDry68,44/71,44 thenthreeordinaryHeroLesserHeals each,12MPtotal41->29. Thirdreaches74,41 andactualDrakecontact; normalFlee, BridgitDivine17MP56->39 restoresall3fullHP. SearchLeft withlivingnormalpartyselection. Five actual lockfailures plus two intercepted privateattemptlabels3/6; final normalY/4 opens chest anddisplaysFoundDragonScales,screenshot161,item146qty1,field60 1->3. Openingtrap26reducesBr80->54; subsequent7Drakeadmission normalFlee, Hero2MPheal restoresBr80. Actual362saved at74,41,HP89/80/80 MP27/39/56,gold0food597. RepeatSearchLeft displaysNothingfound/screenshot162,qty1/field3retained,363saved. Actualcleancold040 normal363reload exactcomparison, sameCEsession/noassistance/sound0/musicready. FirstnormalC5/Enter HeroQuickExit4MPreturnsSurface17762;364saved,HP89/80/80 MP23/39/56,0gold597food. Allolderthreecasualtiesretained, no newdeaths. No newEnginechanges/builds/oldsuitereruns.",
+  "evidence": {
+    "ce-native-acceptance528/earned-modern/earned-controlled-fire-crossings417-533.json": "3921b077721a05918d804f9f85054ac8b7ae6c7a59a684eccf732594ecccd60f",
+    "ce-native-acceptance528/earned-modern/earned-Scales-found418-533.json": "244eef923b87b72edee1469794f9598c2a33339895bb2dec32519e58a372afac",
+    "ce-native-acceptance528/earned-modern/earned-Scales-repeat418-533.json": "37bcb1df392a5100f3245997c6f40084982fb6b75909d04e7242fc3d4c865d14",
+    "ce-native-acceptance528/earned-modern/cold040.json": "724331944fade8dc8c11a4355117ec1cce24cf88c24639edcb1f9b326b5b59ca",
+    "ce-native-acceptance528/earned-modern/earned-Scales-postcold-exit419-533.json": "ea4fab813e5d4f0cafa692280a0911b8e7c4e77dd13a8504026217eb72112a21",
+    "ce-native-acceptance528/earned-modern/screenshots/scummvm-cli-game-00161.png": "477e5a9a735d9fc12881f734368eec7bee4f3b3e621d36d2a764a5265df93259",
+    "ce-native-acceptance528/earned-modern/screenshots/scummvm-cli-game-00162.png": "bdb65db9ea801ea580866bfa42e1affec61a67c511fc5760d361def4df981abd"
+  },
+  "cost": {
+    "builds": 8,
+    "game_cli": 40,
+    "focused_cli": 5,
+    "material_cli": 45
+  },
+  "qualifications": [
+    "No fullnineDrakevictory claimed;416defeat andnormalownedprebattle restore lineage retained privately andinSCUMMVM-CE-M43-SCALES532-WORK.json.",
+    "Privateattemptlabels3/6 areinterceptedbattles, notcompletedlockattempts/awards. Fiveactualfailedpicks precedeactualsuccess.",
+    "This verifiesScales award/persistence, notcombinedOrdertest,membership,key94,towerportals,lastpage or ending. Existing21/60nodesVERIFIED remainsunchanged.",
+    "Firepath usednormalearnedHP/MP/healing and source35damage budget; no expectedoutcomes or prerequisites injected."
+  ],
+  "next_action": "Current95step exact-actor dryfoot421 routeSurface17762->ownedSkiffshore129109 running. ContinuelegitimateBruceTown75surface231232, Order/Archus/key94/portals andremainingcampaign; no milestone stop."
+}
