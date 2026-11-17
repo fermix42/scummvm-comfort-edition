@@ -26,7 +26,7 @@
     383
   ],
   "actual": "Source95step exact-actor dryfoot421 from17762 to129109. Two50HP sprite148 roadenemies16470 normalStaffvictory, noHP/MP,+4food597->601. NormalDown129110/B boardsownedSkiff124 (appearance124/onfootfalse asserted),365. Read-only originalSkiff watercontract compared north/leftFrigateapproaches: minimumdamage north336steps105HP vsleft338steps140HP. Existingprivateplanner givenoptionalexposure-step-cost20 objective; defaultdamage-first unchanged. Actualbalanced424route254steps175HP/fivedeep229cells chosen,82fewersteps. First38moves includeactualfive35HP episodes at128117/127117/126117/114132/113132. Aftereachone normalDivineHeal52 costs17, Brtwocasts39->5MP andNoxthree56->5MP; Hero23unchanged, all3HP89/80/80 restored eachtime, zero deaths/battle. AboardSkiff normalHcamp at113132 actuallyrestores84MP:Hero23->33 Br5->42 Nox5->42, food601->517, HPpreserved,366saved. Currentremaining216source-safe-water moves424 fromindex38 towardFrigateapproach119216 underway, stoponactualdamage/battle. Scalesqty1/field60=3 retained. NoEnginechange/build/oldsuitererun.",
-  "planned_next": "Stopatactual462shallowdamage, ordinaryheal, finishportalapproach; actualOrderportal andlastpage, latercoldpersistsmembership/key/pages together; continueallremainingM4.3.",
+  "planned_next": "Privateexistingread-onlyplan_nourtheld_wings532 now skipsstate56objectportalcells; theyareenteredmanuallyfromadjacentgoals. Directreasonobserved468authoredhubtransition. Addedoptional--keep usingoriginalKEEPassets/family6/allauthoredKEEPfloorgraph; existinggeometryanddefaultunchanged. Source475 finds72normalstepsvia23/25/24 tobaseexit24/2438, nohazards. Currentnormal475 running; nextDownactualexterior, thenCave69,80/Devilkeygate/Essence, Foolery/Hairnet/Fire/Air, lastpage andremainingM4.3. No Enginechange/build/suitererun.",
   "evidence": {
     "ce-native-acceptance528/earned-modern/earned-skiff-south-exposures425-533.json": "4ec8f9e7d8ca9f0e3d4c27b1c53ee5ef9439e2cbcdaaf54ca4f36f8c13d6cedb",
     "ce-native-acceptance528/earned-modern/earned-skiff-south-camp425-533.json": "3980144e0087d3b711edb302b02f5dfbde5370c33cd6d1afb23f6af97ac07776",
@@ -61,9 +61,9 @@
   },
   "cost": {
     "builds": 8,
-    "game_cli": 41,
+    "game_cli": 42,
     "focused_cli": 5,
-    "material_cli": 46
+    "material_cli": 47
   },
   "verification_qualifications": [
     "Fiveexposures/camp actualscoped evidence only; entirevoyage/Bruce/Order/ending remainINPROGRESS.",
@@ -153,9 +153,21 @@
     "actual": "AfterBruce378, normal6footmoves to225232, Up/B ownedSkiff225231, source6moves447 toFrigate223227 withnoHP/MPdamage; B119/379 saved. Source212move448 northbound toward17961. Seven98HP pirateboarding at21070; existingnormalcannon policy plus source-supportedordinaryShock casts onallthreecasters yieldfullvictory HP89/80/80 MP2/17/17 food675,380. No expectedoutcomes injected. Remainingroute reaches17961. ActualaboardHcamp restores81MPfor81food675->594, MP33/42/42. NormalX/Down/Down launchesSkiff and17963 shore. Sixmixed87/98HP landcreatures allowT/Esc/Yretreat; actualX thenfoot. Fourstepdryroute451 interruptedat17764 bytwo87HP; normalFlee. Upblocked byactualretainedcompact132at17763, no repeatedmovementloop. NormalAttackUp admitsactualfourmixed87/98HP, normalFireball/Staff fullvictory HP80/80/45, MP3/42/42,30gold. TwoBrLesserHeals4MPrestoreall3HP; Up17763 succeeds, nextUpactualCastle54/2238,381saved. Current56source454/twofloor54->58 towardArchus2012 running. Brucepassedfield48=226/Scalesqty1/Letter/pages254retained. No Engine change/build/process."
   },
   "membership383": {
-    "status": "IN PROGRESS",
+    "status": "VERIFIED",
     "warm_grant_repeat": "VERIFIED",
     "actual": "Actual381 Castle54 entry, source56steps454 to58/2013. Archus home29,22 at01:55, normalW8 reaches09AM butretainedschedule unchanged. Normal11step457 to59/2023 and13step458 back58/2013 refreshArchus20,12. A read-only456target59/2912 NoRoute wasnotexecuted. NormalTalkUp459 presentsactualmembership/keynotice screenshot167, ack commitsfield60 3->7 andKey94qty1; normal382saved. Repeat normalopening/finish no duplicateKey,383. Scales146qty1/Letter75/page254 retained, HP89/80/80 MP3/38/42,30gold594food. Membershipcold/portalcompatibility pending; missingScalesrefusal/wholeOrder node stillINPROGRESS. Sourcezero-exposureportalapproaches460/461 NoRoute; boundedsource462withshallowcrossing finds102moves/one17HP at54/3835, floorchain54,78,54. Currentnormal462executionstopondamage. No Enginechange/build/process.",
-    "remaining": "RequiredmissingScalesrefusal, membershipcold and subsequentportal/key compatibility; wholeOrder notpromoted"
+    "remaining": "MissingScalesrefusal/wholeOrder and supportedbranches remainINPROGRESS"
+  },
+  "order_portals386": {
+    "status": "VERIFIED",
+    "scope": "Northpair only",
+    "report": "SCUMMVM-CE-M43-ORDER467-VERIFICATION.json",
+    "actual": "Actual membership382/repeat383 field60=7/Key94qty1; source102step462 with one actual17HP crossing at54/3835, dry3834 and three normalBrLesserHeals6MP restorefullHP, MP3/32/42. Reach54/3612. ActualUp Orderportal54/3611 ->57/3844,384. ActualUpoff/Downreverse ->54/3611; Downoff/Upforwardagain ->57/3844,385. Clean cold042 exactstate/session/noassistance/audio, firstnormalUp57/3843,386. FullHP89/80/80 MP3/32/42,30gold594food; Key94,Scales146,Letter75,page254 retained. No Engine changes/build;42gameCLI+5focused=47,8builds."
+  },
+  "route_reconciliation": "Actual no-Air page approaches465/466 NoRoute. Original57 chamber energy208 at43..45/15; Air152 awardUM49466 [224,57,0,2,0,2,0,152,0,61,0,64] grants field57bit2. Offline-only read-only reachability with this single hypothetical bit reaches page adjacency57/4320 in99steps. No Game/save mutation or executable route emitted. Selectedroute updated to acquire requiredartifacts/Fire/Air beforelastpage/binding; oldercontrolled Vortexguardian evidence doesnotestablish earned Vortex-first feasibility. Source19move468 through60 portal37,18 ->Keep26/1318 targetsAkora56, eliminating sea trip.",
+  "post_order_artifact_route": {
+    "status": "IN PROGRESS",
+    "report": "SCUMMVM-CE-M43-ARTIFACT473-WORK.json",
+    "actual": "Actual386 northportal/cold nextstep retainedmembership/key. Source468 route crossed unmodeledauthoredobjectportal60/3118 ->17/2920; normal5step469 ->17/3420 andRightportal17/3520 ->Keep26/1918,387. Normal5step471 andtwoactualpositioningmoves reach14,18 adjacentmovingAkora56 at13,18. InitialTalk472 missedroamingNPC; refreshedactualTalkLeft473 succeeds. NormalESSE/CAVE yields cavecoordinates69,80. KEY awards149qty1 andendsconversation; attemptedimmediate secondtopic rejectedbyprivatephaseassert, no secondinput/outcome. Normalretalk/introack/KEY awardssecond149,qty2,field15 64->80,388saved. Source-supportedrepeatstack, noquestitemgrantinjection. FullHP89/80/80 MP3/32/42,30gold594food."
   }
 }

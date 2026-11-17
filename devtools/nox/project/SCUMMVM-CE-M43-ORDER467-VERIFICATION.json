@@ -1,0 +1,40 @@
+{
+  "status": "VERIFIED",
+  "scope": "Warm/cold Ordermembership/key plus northportal bothdirections and nextinput only; library/refusals/Classic/wholeOrder remain IN PROGRESS",
+  "source_commit": "c660ae8ac41",
+  "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd",
+  "checkpoints": [
+    382,
+    383,
+    384,
+    385,
+    386
+  ],
+  "actual": "Actual membership382/repeat383 field60=7/Key94qty1; source102step462 with one actual17HP crossing at54/3835, dry3834 and three normalBrLesserHeals6MP restorefullHP, MP3/32/42. Reach54/3612. ActualUp Orderportal54/3611 ->57/3844,384. ActualUpoff/Downreverse ->54/3611; Downoff/Upforwardagain ->57/3844,385. Clean cold042 exactstate/session/noassistance/audio, firstnormalUp57/3843,386. FullHP89/80/80 MP3/32/42,30gold594food; Key94,Scales146,Letter75,page254 retained. No Engine changes/build;42gameCLI+5focused=47,8builds.",
+  "route_reconciliation": "Actual no-Air page approaches465/466 NoRoute. Original57 chamber energy208 at43..45/15; Air152 awardUM49466 (semantic Air152 acquisition/protection descriptor; original bytes retained locally) grants field57bit2. Offline-only read-only reachability with this single hypothetical bit reaches page adjacency57/4320 in99steps. No Game/save mutation or executable route emitted. Selectedroute updated to acquire requiredartifacts/Fire/Air beforelastpage/binding; oldercontrolled Vortexguardian evidence doesnotestablish earned Vortex-first feasibility. Source19move468 through60 portal37,18 ->Keep26/1318 targetsAkora56, eliminating sea trip.",
+  "evidence": {
+    "ce-native-acceptance528/earned-modern/earned-Archus-membership459-533.json": "f27d9e36ff9fae957c257e4e44812affa753e1973291e31ee0a5e5be4add5142",
+    "ce-native-acceptance528/earned-modern/earned-Archus-membership-ack459-533.json": "46b54807140839fac41bd071b40d2806fd22853bd6e68b85265882fa91297de5",
+    "ce-native-acceptance528/earned-modern/earned-Archus-membership-repeat459-533.json": "ff62e968afd88c571687fdf31dbf40c45904e87906df011c60e3c8bc972e683c",
+    "ce-native-acceptance528/earned-modern/earned-Order-moat-recovery463-533.json": "cbbff2311161c5355ba0a55edb4cf259b74aee568776af3134859bf3723701a9",
+    "ce-native-acceptance528/earned-modern/earned-Order-portal-forward464-533.json": "1ebc61fb8798d12dcad7523b5917527ab98c764b8a62cdfb5c7b66e9c1bd2318",
+    "ce-native-acceptance528/earned-modern/earned-Order-portal-reverse464-533.json": "01fb7e29d3b5edc93b5fb008a604f697f48541025e20bb01463e9c41e86c4343",
+    "ce-native-acceptance528/earned-modern/earned-Order-portal-forward-repeat464-533.json": "31b8b247475e8c6a7791dd89e64f1d8b5b4e5f5e4c1d9fe3a201a14a290f1807",
+    "ce-native-acceptance528/earned-modern/cold042.json": "52d9c11d453c19962097a527546737eacb9307e093f169c09f9d6f9150f42b7e",
+    "ce-native-acceptance528/earned-modern/earned-Order-postcold-step467-533.json": "d0c166c865d1c183f820a60065d0d39fc8358cde947da9cd58f2d6e778f9efd0",
+    "ce-native-acceptance528/earned-modern/screenshots/scummvm-cli-game-00167.png": "5f3df74022e532dbd6a10b949cea01831c8f087184d06b45d61929a0bfb159dd",
+    "ce-native-acceptance528/earned-modern/screenshots/scummvm-cli-game-00169.png": "e8888975788b78f8f1e577798eec8df114dbbf98f68b511098d4182c53420f80"
+  },
+  "cost": {
+    "builds": 8,
+    "game_cli": 42,
+    "focused_cli": 5,
+    "material_cli": 47
+  },
+  "remaining": [
+    "Library portal bothdirections",
+    "Relevant no-membership and missingScales refusals from legitimate forks",
+    "SelectedClassicbranch",
+    "Airprotected finalpage/remainingearnedcampaign/ending"
+  ]
+}

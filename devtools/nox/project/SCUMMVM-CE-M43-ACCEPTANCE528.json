@@ -445,6 +445,16 @@
           364
         ],
         "remaining": "Bruce pass/refusal andArchusmembership/key94/portal obligations remainINPROGRESS"
+      },
+      "earned_membership_scope": {
+        "status": "VERIFIED",
+        "report": "SCUMMVM-CE-M43-ORDER467-VERIFICATION.json",
+        "checkpoints": [
+          382,
+          383,
+          385,
+          386
+        ]
       }
     },
     {
@@ -605,7 +615,7 @@
     },
     {
       "id": "order-castle-portals",
-      "status": "NOT STARTED",
+      "status": "IN PROGRESS",
       "prerequisites": [
         "castle-control-wall",
         "moat-key-door",
@@ -632,7 +642,16 @@
         "scoped audio/presentation",
         "actual earned verification criteria"
       ],
-      "earned_lineage": null
+      "earned_lineage": null,
+      "earned_north_portal_scope": {
+        "status": "VERIFIED",
+        "report": "SCUMMVM-CE-M43-ORDER467-VERIFICATION.json",
+        "checkpoints": [
+          384,
+          385,
+          386
+        ]
+      }
     },
     {
       "id": "remaining-pages",
@@ -953,7 +972,7 @@
     },
     {
       "id": "devils-key",
-      "status": "NOT STARTED",
+      "status": "IN PROGRESS",
       "prerequisites": [
         "legitimate-new-game"
       ],
@@ -980,7 +999,18 @@
         "scoped audio/presentation",
         "actual earned verification criteria"
       ],
-      "earned_lineage": null
+      "earned_lineage": null,
+      "earned_award_repeat_scope": {
+        "status": "VERIFIED",
+        "checkpoint": 388,
+        "report": "SCUMMVM-CE-M43-ARTIFACT473-WORK.json",
+        "quantity": [
+          1,
+          2
+        ],
+        "field15": 80
+      },
+      "remaining": "Requiredno-keyrefusal/cold/actualkeydoor/Essencecompatibility remain"
     },
     {
       "id": "essence-angels",
@@ -2129,7 +2159,11 @@
       "source_qualifications": [
         "All seven source Search awards now retained into actual Axea eighth-page/research/binding/Ready/refusal/full-health Rat Vortex/cold, both modes. No page inventory/count/flag initialization.",
         "CONTROLLED source-valid authored routes/adjacency/noon, initial25lockpicks and original PRNG0x12345678 before each firstSearch; source floor and original DEC421 ledger checked. Original level10 caster stats remain controlled before Ready. Not earned continuous exploration/leveling or full campaign."
-      ]
+      ],
+      "selected_route_prerequisites": [
+        "air-jewel-guardian"
+      ],
+      "route_reconciliation": "Actual no-Air page approaches465/466 NoRoute. Original57 chamber energy208 at43..45/15; Air152 awardUM49466 (semantic Air152 acquisition/protection descriptor; original bytes retained locally) grants field57bit2. Offline-only read-only reachability with this single hypothetical bit reaches page adjacency57/4320 in99steps. No Game/save mutation or executable route emitted. Selectedroute updated to acquire requiredartifacts/Fire/Air beforelastpage/binding; oldercontrolled Vortexguardian evidence doesnotestablish earned Vortex-first feasibility. Source19move468 through60 portal37,18 ->Keep26/1318 targetsAkora56, eliminating sea trip."
     },
     {
       "id": "dark-plane-return-praevoc",
@@ -2732,7 +2766,7 @@
   "mode_strategy": "One primary Modern earned lineage; targeted Classic legal earned fork/restore/transitions; no duplicate complete campaign required by existing criteria.",
   "failure_policy": "Freeze failing path,source general diagnosis,focused correction+regression,at most2corrective reruns; resume valid nearest earned save,no prefix replay or outcome injection.",
   "builds": 6,
-  "process_launches": 36,
+  "process_launches": 42,
   "planned_node_count": 60,
   "mandatory_node_count_note": "All selected M3 nodes explicitly represented alongside dependency76 graph; includes supporting/advice/alternative nodes. Necessity is retained per source,not inferred from node count.",
   "last_earned_checkpoint": 364,

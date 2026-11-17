@@ -1,0 +1,37 @@
+{
+  "status": "IN PROGRESS",
+  "scope": "Earned AkoraKey149 award/repeat and subsequentartifactroute; no keygate/Essence/Hairnet/guardian/ending claim",
+  "source_commit": "c660ae8ac41",
+  "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd",
+  "lineage": [
+    386,
+    387,
+    388
+  ],
+  "actual": "Actual386 northportal/cold nextstep retainedmembership/key. Source468 route crossed unmodeledauthoredobjectportal60/3118 ->17/2920; normal5step469 ->17/3420 andRightportal17/3520 ->Keep26/1918,387. Normal5step471 andtwoactualpositioningmoves reach14,18 adjacentmovingAkora56 at13,18. InitialTalk472 missedroamingNPC; refreshedactualTalkLeft473 succeeds. NormalESSE/CAVE yields cavecoordinates69,80. KEY awards149qty1 andendsconversation; attemptedimmediate secondtopic rejectedbyprivatephaseassert, no secondinput/outcome. Normalretalk/introack/KEY awardssecond149,qty2,field15 64->80,388saved. Source-supportedrepeatstack, noquestitemgrantinjection. FullHP89/80/80 MP3/32/42,30gold594food.",
+  "normal_restore": "One normalBrQuickExit60/4MP returnedlastSurfaceanchor17762, as sourceWorldCast specifies, notUharadexterior. Rawstate andfouractualowned998generations/sidecars preserved in forks/Akora-QuickExit-detour474 withhashboundlineage; no rewardsorquestchangesfollowed388. Normalowned388load resumesKeep26/1418 beforethatsole navigationdetour. Parentremains388; no rewardmerge or earlierbattle/casualtyerasure.",
+  "helper_and_next": "Privateexistingread-onlyplan_nourtheld_wings532 now skipsstate56objectportalcells; theyareenteredmanuallyfromadjacentgoals. Directreasonobserved468authoredhubtransition. Addedoptional--keep usingoriginalKEEPassets/family6/allauthoredKEEPfloorgraph; existinggeometryanddefaultunchanged. Source475 finds72normalstepsvia23/25/24 tobaseexit24/2438, nohazards. Currentnormal475 running; nextDownactualexterior, thenCave69,80/Devilkeygate/Essence, Foolery/Hairnet/Fire/Air, lastpage andremainingM4.3. No Enginechange/build/suitererun.",
+  "remaining": [
+    "DevilsKey missingkeyrefusal/cold/gatecompatibility",
+    "Essence112/Hairnet113 acquisition andeffects",
+    "FullFire2600/Air1950 victories andawards",
+    "Airprotectedfinalpage/binding andremainingcampaign"
+  ],
+  "evidence": {
+    "ce-native-acceptance528/earned-modern/earned-Order-Uharad-portal470-533.json": "5d439ff1b50348374e84d7d59618f6680753750acf0a0240d70c565619a6f964",
+    "ce-native-acceptance528/earned-modern/earned-Akora-opening472-533.json": "c47e32bc2fa71749dfbbd44453af0383bf3273dc243324354a90be432080b2b2",
+    "ce-native-acceptance528/earned-modern/earned-Akora-opening473-533.json": "807719ffcdff84b8d61d58f2c5540d968585807bc5ba324d54183ba4b957945e",
+    "ce-native-acceptance528/earned-modern/earned-Akora-ESSE473-533.json": "325ce1526a4982ac493f1d1677badadaa20d1657bc0ffd337e4ce515cc1bd1d5",
+    "ce-native-acceptance528/earned-modern/earned-Akora-CAVE473-533.json": "8b5d8a593d97f353542a23158870a6496d1f24059b8dd866a815c73b231a5f2f",
+    "ce-native-acceptance528/earned-modern/earned-Akora-key473-533.json": "9cbd67ad28be776fbf7558e3ac9df322ccb311d49c23c87511ac8f15c5d487da",
+    "ce-native-acceptance528/earned-modern/earned-Akora-key-repeat473-533.json": "bbbc69aba1b117e51367714ec15aa5f293ac37dc07f6d0878f95ad1dec0919c9",
+    "ce-native-acceptance528/earned-modern/earned-Akora-QuickExit-detour474-533.json": "1b942705d150cc939502686ba7202726a791192d8884c3c20a1ac4a7eafdbfc9",
+    "ce-native-acceptance528/earned-modern/forks/Akora-QuickExit-detour474/lineage.json": "8fa7dbfe61af8e2c09d2406beaee5a843ddaa8a760f3336377d6ff6a8805a450"
+  },
+  "cost": {
+    "builds": 8,
+    "game_cli": 42,
+    "focused_cli": 5,
+    "material_cli": 47
+  }
+}
