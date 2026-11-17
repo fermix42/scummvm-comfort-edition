@@ -1,0 +1,57 @@
+{
+  "status": "IN PROGRESS",
+  "scope": "Earned travel carrying actual Scales146 toward BruceTown75; no Bruce pass/refusal or Order membership claimed",
+  "source_commit": "c660ae8ac41",
+  "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd",
+  "lineage": [
+    364,
+    365,
+    366
+  ],
+  "actual": "Source95step exact-actor dryfoot421 from17762 to129109. Two50HP sprite148 roadenemies16470 normalStaffvictory, noHP/MP,+4food597->601. NormalDown129110/B boardsownedSkiff124 (appearance124/onfootfalse asserted),365. Read-only originalSkiff watercontract compared north/leftFrigateapproaches: minimumdamage north336steps105HP vsleft338steps140HP. Existingprivateplanner givenoptionalexposure-step-cost20 objective; defaultdamage-first unchanged. Actualbalanced424route254steps175HP/fivedeep229cells chosen,82fewersteps. First38moves includeactualfive35HP episodes at128117/127117/126117/114132/113132. Aftereachone normalDivineHeal52 costs17, Brtwocasts39->5MP andNoxthree56->5MP; Hero23unchanged, all3HP89/80/80 restored eachtime, zero deaths/battle. AboardSkiff normalHcamp at113132 actuallyrestores84MP:Hero23->33 Br5->42 Nox5->42, food601->517, HPpreserved,366saved. Currentremaining216source-safe-water moves424 fromindex38 towardFrigateapproach119216 underway, stoponactualdamage/battle. Scalesqty1/field60=3 retained. NoEnginechange/build/oldsuitererun.",
+  "planned_next": "Complete normalSkiff route toownedFrigate119217; board119, normalworld-cannon travel guard340. SourceBruceTown75(type6) surfaceentry231232. CompleteBruce/Archus/Order thenallremaining60campaignrequirements, no milestone stop.",
+  "evidence": {
+    "ce-native-acceptance528/earned-modern/earned-skiff-south-exposures425-533.json": "4ec8f9e7d8ca9f0e3d4c27b1c53ee5ef9439e2cbcdaaf54ca4f36f8c13d6cedb",
+    "ce-native-acceptance528/earned-modern/earned-skiff-south-camp425-533.json": "3980144e0087d3b711edb302b02f5dfbde5370c33cd6d1afb23f6af97ac07776"
+  },
+  "cost": {
+    "builds": 8,
+    "game_cli": 40,
+    "focused_cli": 5,
+    "material_cli": 45
+  },
+  "verification_qualifications": [
+    "Fiveexposures/camp actualscoped evidence only; entirevoyage/Bruce/Order/ending remainINPROGRESS.",
+    "NoHP/MP/transport/item/flag setup or outcome injection; all actualnormal moves/casts/camp/saves.",
+    "Read-only pathobjective trades affordableHP/healing for fewerordinarymoves; not an Enginechange or newexecutionframework."
+  ],
+  "commands": [
+    {
+      "command": "python conversion/plan_earned528.py plan_maldac434_nourtheld.py earned-Skiff-approach420 129 109 --snapshot",
+      "result": "EXIT1 No normal source route with expanded contact margin; no Game execution"
+    },
+    {
+      "command": "python conversion/plan_earned528.py plan_maldac434_nourtheld.py earned-Skiff-approach-exact421 129 109 --snapshot --no-contact-margin",
+      "result": "EXIT0 95steps"
+    },
+    {
+      "command": "python conversion/plan_nourtheld_wings532.py skiff-south-left422 --snapshot --surface --target 0 119 217 --stand 118 217 --skiff-motion --deep-water-crossing",
+      "result": "EXIT0 338steps/140HP"
+    },
+    {
+      "command": "python conversion/plan_nourtheld_wings532.py skiff-south-north423 --snapshot --surface --target 0 119 217 --stand 119 216 --skiff-motion --deep-water-crossing",
+      "result": "EXIT0 336steps/105HP"
+    },
+    {
+      "command": "python conversion/plan_nourtheld_wings532.py skiff-south-balanced424 --snapshot --surface --target 0 119 217 --stand 119 216 --skiff-motion --deep-water-crossing --exposure-step-cost 20",
+      "result": "EXIT0 254steps/175HP; chosen"
+    },
+    {
+      "command": "planned_batch('skiff-south-balanced424.json',start_index=38,stop_on_damage=True)",
+      "result": "IN PROGRESS; exact normal native input transcript ce-native-acceptance528/earned-modern/process040.jsonl"
+    }
+  ],
+  "modified_local_helpers": [
+    "conversion/plan_nourtheld_wings532.py (optional additive route cost only; no Engine edits)"
+  ]
+}
