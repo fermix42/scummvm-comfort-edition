@@ -4297,12 +4297,12 @@
     }
   ],
   "correction": "SCUMMVM-CE-NPC529-VERIFICATION.json",
-  "last_checkpoint": 360,
+  "last_checkpoint": 361,
   "cold_evidence": "ce-native-acceptance528/earned-modern/cold036.json",
-  "next_action": "ReturnScales/Order afteractualpaidrecovery360 withclusteredShock policy; fullending unverified",
+  "next_action": "Thermal415 threebounded35HPcrossings withnormaldry-groundheals; Scales146 thenBruce/Order/remainingcampaign",
   "current_source_commit": "c660ae8ac41",
   "current_executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd",
-  "latest_earned": "Paid recovery360: full3HP/MP,5gold597food; fourDrake357 andLetter354 retained",
+  "latest_earned": "OpenedScalesroutedoor412/normalrestored361; nineDrake416defeat retained/excluded; thermalroute415 underway",
   "historical_receipt_baseline": {
     "executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4",
     "source_binding": "SCUMMVM-CE-CANNON530-VERIFICATION.json",
@@ -4326,7 +4326,7 @@
     "SCUMMVM-CE-M43-ARCHUS532-WORK.json": "d67b22e38777e6b33dfa950ae8b3b3143179edeb314f84932c0fbf67b1be4e0a",
     "SCUMMVM-CE-M43-ROYAL532-VERIFICATION.json": "c0912514074864c657a8cfe93e14ade54f08093f7e455ac31386ae3658dfa4c7",
     "SCUMMVM-CE-M43-NOURTHELD-RECOVERY532-VERIFICATION.json": "a7d86544f25de761a7441526d69221e04aef5efaf6c633342bff5d28d34cd426",
-    "SCUMMVM-CE-M43-SCALES532-WORK.json": "fc6282203549359ea2636c5a21792a6c51eba8c39c4eb40daebd67f1ce5edd7a",
+    "SCUMMVM-CE-M43-SCALES532-WORK.json": "e4eb41cb2933c7daa87d710efa717082a477a77db0bf4b556ab8e820ca351036",
     "SCUMMVM-CE-M43-CASTLE532-WORK.json": "c1d4286b16d7e8cd3cadcc17047ce6d12a740089562c4df18d0493a527da57d6",
     "SCUMMVM-CE-DOOR533-VERIFICATION.json": "b56eda55bb27385ee3a31fda61b57f58965e91465d68e120ba271e1c360e3c6b",
     "SCUMMVM-CE-M43-CULT533-WORK.json": "53e76936099d8d5540c58204921457ea509549a633de1c4d76106c9bc6e3209d",
@@ -4338,7 +4338,7 @@
     "SCUMMVM-CE-M43-TRAVEL-REST357-WORK.json": "353011e6bdbf32ea80edd6a0d119eb48ed9ee090965aca5290c303f1c539672a",
     "SCUMMVM-CE-M43-LETTER-CHAIN392-VERIFICATION.json": "f866ae5540d1b14ebd93ff069eb3230c7f21828a51564503d1042a8bc61b2e6f"
   },
-  "private_ledger_sha256": "27da047115f62e7f5bd75fb275c767e2d0f5ba91b367d9127cd03671c1722040",
+  "private_ledger_sha256": "7c3d9e53f2cf8ad7e18ba293c29a023431fe827a31da1f61452be34cf60946bc",
   "superseded_current_aliases_royal532": {
     "last_checkpoint": 44,
     "latest_earned": "142 firstnormalworldstep after actual141cold021, fullparty/questinventory/resources/session retained;horseparked persistence",

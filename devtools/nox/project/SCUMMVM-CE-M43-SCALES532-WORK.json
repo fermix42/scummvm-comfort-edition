@@ -63,7 +63,12 @@
     "ce-native-acceptance528/earned-modern/earned-Scales-corridor-attack402-533.json": "bfd44bc10bfd025c9da15b079a3b14d7203e44bfd9c9195ece316c8fff496327",
     "ce-native-acceptance528/earned-modern/earned-Scales-corridor-Drake-result402-533.json": "d8570073f67cfd2f714b149231399bbdf985a00883aff6af9726e94fdd530c3d",
     "ce-native-acceptance528/earned-modern/earned-unused-Bow-Inn-funds407-533.json": "0deec636ecec0195df48435ae5ad9f9f5cd391104b54668c37389744e5707eb7",
-    "ce-native-acceptance528/earned-modern/earned-paid-Inn-full-recovery408-533.json": "fd5aab91a49acf7e816e80b0e04930dc40bb64c5d11c93e7dcb3b5d66f17274b"
+    "ce-native-acceptance528/earned-modern/earned-paid-Inn-full-recovery408-533.json": "fd5aab91a49acf7e816e80b0e04930dc40bb64c5d11c93e7dcb3b5d66f17274b",
+    "ce-native-acceptance528/earned-modern/earned-Scales-safe-door412-533.json": "65046a4721229b06dcc3f0aea25bd5616cce081b6403a5c594be8990ce62769f",
+    "ce-native-acceptance528/earned-modern/earned-moving-nine-Drakes-door413-533.json": "4c5aed25770b435b9c225a283d194111e939b834383402dd18608af77218c478",
+    "ce-native-acceptance528/earned-modern/earned-directed-nine-Drakes416-533.json": "977edb49ee369e67bd22e711a72697cabfc5ee09e5dd0760c4b7cd4e2622e713",
+    "ce-native-acceptance528/earned-modern/forks/nine-Drakes416-defeat/defeat.json": "cf4fcf4ea6a1403d0200885b89e0f19ed784659a0b1c97e9f38cb35aeae3bc97",
+    "ce-native-acceptance528/earned-modern/forks/nine-Drakes416-defeat/lineage.json": "4f4c62717ad80795326482c82176ddfbbb35273b12be479c3c0faa84c091a584"
   },
   "cost": {
     "builds": 8,
@@ -196,5 +201,11 @@
     "scope": "Paid recovery only; Scales/Order remain unverified",
     "actual": "Actualmerchant59/33,24 firstTalkLeft misses off-dutyNPC64actual27,19. Originalclock is BCD: livehour5=05; W6 reachesraw17=11AM. PriorW9/W6 were based on wrongly interpreting priorraw19(13:xx) as19:xx, not failed Engine waiting. Normal59->58->59 floorrefresh405/406, NPC64actual32,23. NormalLeft32,24/TalkUp reachesphase22. UnusedRecurveBow21 sold10gold9->19; Escapealone exitsmerchant,359. Source34safe steps toInn58/33,36. ActualTalkUp phase9/Y/R/Y costs14gold19->5; room59/28,34, all3fullHP89/80/80 andMP44/56/56,food597. Actual360saved. RequiredLetter/otherqueststate andfourDrakevictory357 retained, no newdeaths or Enginechanges. New55step source route409 towardCastle78/18,31 underway.",
     "next_action": "Normalcastleportal->UM97; returnScales source route with clearedfourDrakeparent retained. ClusteredShock minimum2 except actuallastenemy permits1; HeroSummon budget1, source-derived ordinaryinputs. EarnScales146/repeat/cold thenBruce/Archus/Order andremainingfinitecampaign. No milestone stop."
+  },
+  "actual_through361": {
+    "status": "IN PROGRESS",
+    "actual": "Return360->Castle78/UM97 withoutloss. New10mixed137/87roadgroup14276 normalFlee5->2gold; repeatednextcellcontactFlee2->1, freshsource4stepfloor bypass reaches14076thenactual3enemycontact; normalFlee1->0 thencontinueswest. Single98 at12476 andthree98 at11876 normalStaffvictories noHP/MP,+27gold. Actual101/53,27 withfull3HP/MP. Freshsafe105stepactoravoidingroute411 findsordinarylockeddoor83,46. Stops84,46; OLeft displays Picklock byparty1-6/Esc; Enterignored, correctnormal3 selectsHero. Firstfailure traps26HP89->63, Ncancel andnormalHero2MPheal->89. OwnedIlluminate57 normalC6/Enter costs1MP. SecondOLeft/3 opensdoor,screenshot153. NormalLeft83,46 provespassage. MovingDrakeparent96 now82,46 blocksnextLeft; normal9enemyretreat27->13gold. Nozero-hazardactoravoidingroute414; source-only thermal415 finds98steps/three35HPcells105total. NormaldirectedAttackLeft insteadadmitsnine191Drakes. ActualfightwithoneSummon14 andclusteredShockpolicy endsfull defeat; BrtwoShockkills6, remainingDrakescloseandkillparty. NoEnginefailure/codegap demonstrated, no victory/rewards credited. Failedstate andownedprebattle998 generations copiedtoforks/nine-Drakes416-defeat withhashboundlineage. NormalEngineLoad ownedM43routeplanning998 restoresactualpostdoor83,46,HP89/80/80 MP41/56/56,13gold597food, retainedLetter/fourDrake357 andopeneddoor; normal361 saved. NoHP/MP/item/flag injection. Currentthermal415first87dry steps running; no more9Drakefightatcurrentreadiness.",
+    "planned_route": "98steps with35HP thermal atindices87(67,44),90(70,44),95(73,42). PlannednormalmoveofffiretodrythenLesserHealsbeforeeachsubsequentcrossing; totaldamage105splitintothree35episodes, notoneunhealed105crossing. Allcrossings/healsremainINPROGRESS untilactual.",
+    "next_action": "Complete thermal415 withactualdamageinspection/normaldry-groundheals; originalScales146Search/repeat/cold, thenBruce/Archus/Order. Keepallremaining60requirements; no milestone stop."
   }
 }
