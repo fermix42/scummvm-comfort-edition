@@ -30,8 +30,24 @@
   },
   "cost": {
     "builds": 8,
-    "game_cli": 42,
+    "game_cli": 43,
     "focused_cli": 5,
-    "material_cli": 47
-  }
+    "material_cli": 48
+  },
+  "actual_exterior389": {
+    "status": "VERIFIED",
+    "actual": "Normal475 hitcurrentNPCat25/1326 afterauthored26->23->25; refreshed476 completes24/2438, Downexitconfirmation followednormalY ->Surface83,79,389saved. FullHP89/80/80 MP3/32/42,30gold594food, Key149qty2. A premature checkpointattemptduringExitareaY/Ncorrectlyrefused; no savecredited untilconfirmed389."
+  },
+  "route_correction_Wyvern": {
+    "status": "IN PROGRESS",
+    "actual": "Read-only477 directFoot69,80 NoRoute: cave47 andstand69,81 areisolatedbymountain6. SourceKEEP23 hasUM97connection35,32 but478/479/480 foundnoordinarysafeapproach; noneexecuted. OriginalAkora TRAN/WYVE/ASSI/HELP explicitlyprovidesWyvernCymintynth andinstructsboard/Yell. Sourceauthored128object26/1819; Y setsflying speed/pace4. Missedtransportinstructions causedunnecessaryexit/return, notEnginedefect. NormalUpSurface83,78 reenters24/2438. Source481 returntowermovedto25/2329, blockedbycurrentNPC2229; fresh48238step routevia23/26 isrunning. NextB actual128/Y flight, normalkeepdeparture; aligngroundSurface81,80 thenflyWesttoward69,80, actualcaveentry andland/footbeforekeygate. Route isdeclaredplanning, flightnotyetcredited."
+  },
+  "actual_through396": {
+    "status": "VERIFIED",
+    "scope": "Scopedkey/Essence/flight/ordinaryQuick",
+    "report": "SCUMMVM-CE-M43-ESSENCE490-VERIFICATION.json",
+    "actual": "Normalsource481/482 towerreturn handlesactualNPCblock and reaches26/1819. B boardsauthoredWyvern128,Ysetsflight; actualDownmoves4cells. FourmoreDown andnormalExitareaY leave26toSurface83,79 mounted128/flight,390. Yland, Left/Left/Down align81,80,Yfly andthreeLeft commands enterCave69,80 ->UM97/6980. Yland/Xfoot,391. Normal9step486 ->69,89; OpenDown actualearned149 opensquestdoor69,90 (field15bit16), normalDown/Down passes69,91,392. Normal14step488 ->70,104; SearchRight yields112qty1/field61bit64,393. RepeatNothingfound/noextra112,394. Clean cold043 exactstate/session/noassistance/audio, firstnormalUp70,103,395. Normal23step491 returns69,81, including actualpostcoldkeyreopen/passage. Up exitsSurface69,80; Down/Up reentersUM97/6980 andnormalB reboardsparked128, provingchangedmapvehicle survivedcold. Six70HP sprite144ambushfollowsboarding; normalQ resolvesall6, victoryacks/normal396saved, noHP/MP loss, gold30->42. ActualmountedDown/Up returnsSurface69,80, Down/Y alignsflight69,81. Current31four-cellcommand494 flightto17765 underway. FullHP89/80/80 MP3/32/42,42gold594food,112qty1/149qty2/94qty1/Scales146qty1/page254 retained."
+  },
+  "active_next": "Supersedes selected Air-first footroute only: newlyearnedWyvern128 sourceflight bypassescollision/energybarrier whileonfootprotection remainsAir152. Offline-only actualno-Air flags planning54/2238 ->57/4213 finds74ordinarysafe steps through58/59/60/57, noGame/save mutation orrouteemitted. PlannedcarrygroundWyvernviastairs, takeflightfromnorthside to42,17, land/X andSearchpage; notyetaccepted orclaimed. Guardians/Vortex-first old controlledancestry remainsseparate until actualpage/binding isearned.",
+  "private_helper_change": "plan_frigate_earned528.py optional--wyvern: validatesactualsavedNTRN128speed/pace4, fourcellBFSprimitives, conservativeSurface17/entrance/actor/object/thermalavoidance. NoEnginechange,newdriverframework or defaultboatbehaviorchange. Existingfollowerexecutesnormalkeys;494=31commands/124cells."
 }

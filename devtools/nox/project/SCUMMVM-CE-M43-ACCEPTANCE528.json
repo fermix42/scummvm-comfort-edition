@@ -1010,11 +1010,20 @@
         ],
         "field15": 80
       },
-      "remaining": "Requiredno-keyrefusal/cold/actualkeydoor/Essencecompatibility remain"
+      "remaining": "RelevantmissingKeyrefusal fromlegitimatekeylessfork remains",
+      "earned_gate_cold_scope": {
+        "status": "VERIFIED",
+        "report": "SCUMMVM-CE-M43-ESSENCE490-VERIFICATION.json",
+        "checkpoints": [
+          392,
+          394,
+          395
+        ]
+      }
     },
     {
       "id": "essence-angels",
-      "status": "NOT STARTED",
+      "status": "IN PROGRESS",
       "prerequisites": [
         "devils-key"
       ],
@@ -1041,7 +1050,17 @@
         "scoped audio/presentation",
         "actual earned verification criteria"
       ],
-      "earned_lineage": null
+      "earned_lineage": null,
+      "earned_pickup_scope": {
+        "status": "VERIFIED",
+        "report": "SCUMMVM-CE-M43-ESSENCE490-VERIFICATION.json",
+        "checkpoints": [
+          393,
+          394,
+          395
+        ]
+      },
+      "remaining": "ActualAirguardian1950effect/compatibility remains"
     },
     {
       "id": "holy-hairnet",
@@ -2160,10 +2179,13 @@
         "All seven source Search awards now retained into actual Axea eighth-page/research/binding/Ready/refusal/full-health Rat Vortex/cold, both modes. No page inventory/count/flag initialization.",
         "CONTROLLED source-valid authored routes/adjacency/noon, initial25lockpicks and original PRNG0x12345678 before each firstSearch; source floor and original DEC421 ledger checked. Original level10 caster stats remain controlled before Ready. Not earned continuous exploration/leveling or full campaign."
       ],
-      "selected_route_prerequisites": [
-        "air-jewel-guardian"
+      "selected_route_prerequisites": [],
+      "route_reconciliation": "Actual no-Air page approaches465/466 NoRoute. Original57 chamber energy208 at43..45/15; Air152 awardUM49466 (semantic Air152 acquisition/protection descriptor; original bytes retained locally) grants field57bit2. Offline-only read-only reachability with this single hypothetical bit reaches page adjacency57/4320 in99steps. No Game/save mutation or executable route emitted. Selectedroute updated to acquire requiredartifacts/Fire/Air beforelastpage/binding; oldercontrolled Vortexguardian evidence doesnotestablish earned Vortex-first feasibility. Source19move468 through60 portal37,18 ->Keep26/1318 targetsAkora56, eliminating sea trip.",
+      "selected_mechanical_alternatives": [
+        "Air152 protection forfootbarrierpassage",
+        "EarnedWyvern128flight390/carry/land alternative, executionINPROGRESS"
       ],
-      "route_reconciliation": "Actual no-Air page approaches465/466 NoRoute. Original57 chamber energy208 at43..45/15; Air152 awardUM49466 (semantic Air152 acquisition/protection descriptor; original bytes retained locally) grants field57bit2. Offline-only read-only reachability with this single hypothetical bit reaches page adjacency57/4320 in99steps. No Game/save mutation or executable route emitted. Selectedroute updated to acquire requiredartifacts/Fire/Air beforelastpage/binding; oldercontrolled Vortexguardian evidence doesnotestablish earned Vortex-first feasibility. Source19move468 through60 portal37,18 ->Keep26/1318 targetsAkora56, eliminating sea trip."
+      "active_route_reconciliation": "Supersedes selected Air-first footroute only: newlyearnedWyvern128 sourceflight bypassescollision/energybarrier whileonfootprotection remainsAir152. Offline-only actualno-Air flags planning54/2238 ->57/4213 finds74ordinarysafe steps through58/59/60/57, noGame/save mutation orrouteemitted. PlannedcarrygroundWyvernviastairs, takeflightfromnorthside to42,17, land/X andSearchpage; notyetaccepted orclaimed. Guardians/Vortex-first old controlledancestry remainsseparate until actualpage/binding isearned."
     },
     {
       "id": "dark-plane-return-praevoc",
@@ -2684,8 +2706,15 @@
   "supported_branches": [
     {
       "id": "tactical-quick",
-      "status": "NOT STARTED",
-      "obligation": "Legitimate earned encounters and lawful Q/T restrictions; compare stable state/cold at legal return. Compatible527 supports mechanics but not earned encounter ancestry."
+      "status": "IN PROGRESS",
+      "obligation": "Legitimate earned encounters and lawful Q/T restrictions; compare stable state/cold at legal return. Compatible527 supports mechanics but not earned encounter ancestry.",
+      "earned_quick_scope": {
+        "status": "VERIFIED",
+        "report": "SCUMMVM-CE-M43-ESSENCE490-VERIFICATION.json",
+        "checkpoint": 396,
+        "scope": "Ordinary6x70HPgroup, Qnormalvictory/noHPMP"
+      },
+      "remaining": "Source-supportedlawfulmode/refusalcontexts andselectedClassiccombination remain"
     },
     {
       "id": "defeat-escape",
@@ -2766,7 +2795,7 @@
   "mode_strategy": "One primary Modern earned lineage; targeted Classic legal earned fork/restore/transitions; no duplicate complete campaign required by existing criteria.",
   "failure_policy": "Freeze failing path,source general diagnosis,focused correction+regression,at most2corrective reruns; resume valid nearest earned save,no prefix replay or outcome injection.",
   "builds": 6,
-  "process_launches": 42,
+  "process_launches": 43,
   "planned_node_count": 60,
   "mandatory_node_count_note": "All selected M3 nodes explicitly represented alongside dependency76 graph; includes supporting/advice/alternative nodes. Necessity is retained per source,not inferred from node count.",
   "last_earned_checkpoint": 364,

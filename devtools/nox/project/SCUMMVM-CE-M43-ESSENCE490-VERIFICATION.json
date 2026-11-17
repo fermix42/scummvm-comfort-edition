@@ -1,0 +1,47 @@
+{
+  "status": "VERIFIED",
+  "scope": "EarnedKeygate/Essencepickup/repeat/cold/nextcommand andtransport/ordinaryQuickpositive only; missingKeyrefusal/Essenceguardianeffect/wholecampaignremainINPROGRESS",
+  "source_commit": "c660ae8ac41",
+  "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd",
+  "checkpoints": [
+    390,
+    391,
+    392,
+    393,
+    394,
+    395,
+    396
+  ],
+  "actual": "Normalsource481/482 towerreturn handlesactualNPCblock and reaches26/1819. B boardsauthoredWyvern128,Ysetsflight; actualDownmoves4cells. FourmoreDown andnormalExitareaY leave26toSurface83,79 mounted128/flight,390. Yland, Left/Left/Down align81,80,Yfly andthreeLeft commands enterCave69,80 ->UM97/6980. Yland/Xfoot,391. Normal9step486 ->69,89; OpenDown actualearned149 opensquestdoor69,90 (field15bit16), normalDown/Down passes69,91,392. Normal14step488 ->70,104; SearchRight yields112qty1/field61bit64,393. RepeatNothingfound/noextra112,394. Clean cold043 exactstate/session/noassistance/audio, firstnormalUp70,103,395. Normal23step491 returns69,81, including actualpostcoldkeyreopen/passage. Up exitsSurface69,80; Down/Up reentersUM97/6980 andnormalB reboardsparked128, provingchangedmapvehicle survivedcold. Six70HP sprite144ambushfollowsboarding; normalQ resolvesall6, victoryacks/normal396saved, noHP/MP loss, gold30->42. ActualmountedDown/Up returnsSurface69,80, Down/Y alignsflight69,81. Current31four-cellcommand494 flightto17765 underway. FullHP89/80/80 MP3/32/42,42gold594food,112qty1/149qty2/94qty1/Scales146qty1/page254 retained.",
+  "active_route_alternative": "Supersedes selected Air-first footroute only: newlyearnedWyvern128 sourceflight bypassescollision/energybarrier whileonfootprotection remainsAir152. Offline-only actualno-Air flags planning54/2238 ->57/4213 finds74ordinarysafe steps through58/59/60/57, noGame/save mutation orrouteemitted. PlannedcarrygroundWyvernviastairs, takeflightfromnorthside to42,17, land/X andSearchpage; notyetaccepted orclaimed. Guardians/Vortex-first old controlledancestry remainsseparate until actualpage/binding isearned.",
+  "evidence": {
+    "ce-native-acceptance528/earned-modern/earned-Wyvern-flight483-533.json": "3da6c442e3449e56afa81ca706ce5e598ae6348eb480b17e421e8c0ce5ec3f36",
+    "ce-native-acceptance528/earned-modern/earned-Wyvern-surface484-533.json": "f64cd3028895e04c03a21ebe80ee416dbf550d75345ffa9937efd62525e9f1ec",
+    "ce-native-acceptance528/earned-modern/earned-Wyvern-cave-entry485-533.json": "e45496c3e926fef43ccbdd99ed8168719c20c3bf1f5e45fe5e88309b58f78c44",
+    "ce-native-acceptance528/earned-modern/earned-Devils-door-before-source487.json": "9beaf9b3685a50a13cd448ff6e70267e6c82c9de7851d2a7358a20fbbf4dd0ca",
+    "ce-native-acceptance528/earned-modern/earned-Devils-door-open487-533.json": "13ac437a7ab0180e1e2f86cae3b5453da44eff28ffabb1c7b807c0a73f0920f2",
+    "ce-native-acceptance528/earned-modern/earned-Essence-search489-533.json": "19c942ec6cc716a76bc690348ffc575409b62119167f173d400f6b17dc4ed767",
+    "ce-native-acceptance528/earned-modern/earned-Essence-repeat489-533.json": "e95203a8be56056e9bf5029d6c023b634bf38a2acbe85d818a172095f4d3b216",
+    "ce-native-acceptance528/earned-modern/cold043.json": "5f13b8a027c44e4fc04a79854f7ce068f288648c56aba58a406e956dc1056869",
+    "ce-native-acceptance528/earned-modern/earned-Essence-postcold-step490-533.json": "45d5f526136e59b0f7e24de1d340ecd6d5dd17a404876054df13d2c333fe0ec7",
+    "ce-native-acceptance528/earned-modern/earned-Wyvern-postcold-reboard492-533.json": "cb65d43c6364f7a69669c7fd6b99470d38d5476b0a57b7c1470fdd634637ef2d",
+    "ce-native-acceptance528/earned-modern/earned-Quick-ambush-before493-533.json": "76074ff445b1f20d9e6aff48d5b5226c228acdf1cb07affb6b804a6884f280a8",
+    "ce-native-acceptance528/earned-modern/earned-Quick-ambush-after493-533.json": "bf3879a44511d69db29a091e710388361127412fa8ef70c2829751236bcd828e",
+    "ce-native-acceptance528/earned-modern/earned-Quick-ambush-result493-533.json": "90202dca568705c7421949a9ac34213ad69d4b9eadefbb0f856f8ee542a36279",
+    "ce-native-acceptance528/earned-modern/screenshots/scummvm-cli-game-00173.png": "d6b487e8dcdff4061d5b1a03316ab43228f285a90056574744703ddacb50c015",
+    "ce-native-acceptance528/earned-modern/screenshots/scummvm-cli-game-00174.png": "38ac1f26fe6a2224a73635db8f8888b02c09cd52d143e7687ac13f920e8406c8",
+    "ce-native-acceptance528/earned-modern/screenshots/scummvm-cli-game-00175.png": "7310ebe36f24dbfc49835486a711a4411c1bfaa41a63bbea6b906fb988547cfb"
+  },
+  "cost": {
+    "builds": 8,
+    "game_cli": 43,
+    "focused_cli": 5,
+    "material_cli": 48
+  },
+  "remaining": [
+    "Missingkeyrefusal fromlegitimatekeylessfork",
+    "FullAir1950 compatibility/effect withactualEssence",
+    "SupportedClassic/Qrestrictions/othertransportcontexts",
+    "Finalpage/binding/remainingcampaign/ending"
+  ]
+}

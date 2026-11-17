@@ -4,7 +4,7 @@
   "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd",
   "source_binding": "SCUMMVM-CE-DOOR533-VERIFICATION.json",
   "builds": 8,
-  "process_launches": 42,
+  "process_launches": 43,
   "verified_selected_nodes": [
     "opening-exit",
     "royal-access",
@@ -4297,12 +4297,12 @@
     }
   ],
   "correction": "SCUMMVM-CE-NPC529-VERIFICATION.json",
-  "last_checkpoint": 388,
+  "last_checkpoint": 396,
   "cold_evidence": "ce-native-acceptance528/earned-modern/cold036.json",
   "next_action": "Complete424 fromindex121 at65,147, boardFrigate119217; Bruce75/Archus/Order/remainingcampaign",
   "current_source_commit": "c660ae8ac41",
   "current_executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd",
-  "latest_earned": "ActualAkoraKEYaward/repeat388,149qty2/field15=80. Normal388restore excludespreservedQuickExitdetour only. FullHP89/80/80 MP3/32/42,30gold594food. Source47572stepKeepstairs exit running, nextCave69,80/Essence.",
+  "latest_earned": "Wyvern390/cave391/keygate392/Essence393-repeat394/cold043-next395/ordinaryQuickvictory396. FullHP89/80/80 MP3/32/42,42gold594food,Essence112qty1/Key149qty2. Current31commandflight494 toNourtheld; selectedWyvern pagealternative replacesAir-first footroute.",
   "historical_receipt_baseline": {
     "executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4",
     "source_binding": "SCUMMVM-CE-CANNON530-VERIFICATION.json",
@@ -4341,9 +4341,10 @@
     "SCUMMVM-CE-M43-BRUCE420-WORK.json": "76a3da808070702d4952df3ab4e6e422dde82913202f707b7f14c5b088ab9ca5",
     "SCUMMVM-CE-M43-BRUCE445-VERIFICATION.json": "ec909d5768cab7325621e2e52bb5f788e84072abbec2f7933cf278090fc12a7e",
     "SCUMMVM-CE-M43-ORDER467-VERIFICATION.json": "8bf0a51be99c5fed96c5c8387b90151dc8a7890c77a46b5b2c1e75fab20c6da5",
-    "SCUMMVM-CE-M43-ARTIFACT473-WORK.json": "153ff9fc0ffe9e9bbe2186dcb162b04ec39ee7e23317ab2fbfc9114b7c60d370"
+    "SCUMMVM-CE-M43-ARTIFACT473-WORK.json": "60cb6422d4e11e67795174d87a520b89d40ec7ce3b31713667442377406f355c",
+    "SCUMMVM-CE-M43-ESSENCE490-VERIFICATION.json": "a52fab255d24e676c326eade26d74123ca2bea9dd2b115f09de03a80e0b7bc6e"
   },
-  "private_ledger_sha256": "fceea62aba7cc651bb7c0e193aa78d20412cba3e99f4c9d7f6923adadcd67ad0",
+  "private_ledger_sha256": "b9c0ea9c78c72a3b85c96f1890220e761406858aac6482bc7182ee59e82b5419",
   "superseded_current_aliases_royal532": {
     "last_checkpoint": 44,
     "latest_earned": "142 firstnormalworldstep after actual141cold021, fullparty/questinventory/resources/session retained;horseparked persistence",
