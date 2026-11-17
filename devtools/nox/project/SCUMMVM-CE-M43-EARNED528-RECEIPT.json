@@ -4299,12 +4299,12 @@
     }
   ],
   "correction": "SCUMMVM-CE-NPC529-VERIFICATION.json",
-  "last_checkpoint": 402,
+  "last_checkpoint": 405,
   "cold_evidence": "ce-native-acceptance528/earned-modern/cold036.json",
   "next_action": "Complete424 fromindex121 at65,147, boardFrigate119217; Bruce75/Archus/Order/remainingcampaign",
   "current_source_commit": "c660ae8ac41",
   "current_executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd",
-  "latest_earned": "Actual8pages/field255/qty8 Search399/repeat400, flying401/cold044/firstnormal4cellflight402. FullHP89/80/80 MP3/32/42,42gold594food. Current506 tolibraryportal/Valess; Nystulbindingnext.23/60nodesVERIFIED, endingunverified.",
+  "latest_earned": "Earned404 Valess recognized all eight pages; CREA/NYST directs binding to Nystul in Depths of Vacous. Earned405 repeat gives no duplicate reward. Actual normal998 research field61=65, pages field62=255; current source51767-step route into Depths is underway. Cold persistence will be checked with binding. No Engine changes/build/process launch.",
   "historical_receipt_baseline": {
     "executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4",
     "source_binding": "SCUMMVM-CE-CANNON530-VERIFICATION.json",
@@ -4343,11 +4343,11 @@
     "SCUMMVM-CE-M43-BRUCE420-WORK.json": "76a3da808070702d4952df3ab4e6e422dde82913202f707b7f14c5b088ab9ca5",
     "SCUMMVM-CE-M43-BRUCE445-VERIFICATION.json": "ec909d5768cab7325621e2e52bb5f788e84072abbec2f7933cf278090fc12a7e",
     "SCUMMVM-CE-M43-ORDER467-VERIFICATION.json": "8bf0a51be99c5fed96c5c8387b90151dc8a7890c77a46b5b2c1e75fab20c6da5",
-    "SCUMMVM-CE-M43-ARTIFACT473-WORK.json": "da22472601d3e0e482ba61d601875d2d35f3df0ff8a8689538c9e2f31713d217",
+    "SCUMMVM-CE-M43-ARTIFACT473-WORK.json": "8de482812a5f4075c8f680cf7554e9017237fc9e9fc4cf7c0ae9029697b0a19e",
     "SCUMMVM-CE-M43-ESSENCE490-VERIFICATION.json": "a52fab255d24e676c326eade26d74123ca2bea9dd2b115f09de03a80e0b7bc6e",
     "SCUMMVM-CE-M43-PAGES501-VERIFICATION.json": "f7fa65dd3a469be35c2f19792b86f576478de732ec8493d7b94a84e587f012d3"
   },
-  "private_ledger_sha256": "8df59e214e7aee5988943aeecedf0fb83f40f69059be1e61fbcf5cc06638d214",
+  "private_ledger_sha256": "3f8b0725159602bcf56289f1e2425d86e4d9fdcd0a190b168f68a29ed15f0b28",
   "superseded_current_aliases_royal532": {
     "last_checkpoint": 44,
     "latest_earned": "142 firstnormalworldstep after actual141cold021, fullparty/questinventory/resources/session retained;horseparked persistence",
@@ -4357,5 +4357,15 @@
   "builds_started": 8,
   "current_blocker": "No demonstrated blocking native defect on the active path. Historical raw53/254 original-evidence qualification remains retained, not a reason to stop permitted acceptance.",
   "focused_cli_processes": 5,
-  "page_credit_reconciliation": "Four individual page-bit nodes4/8/16/32 credited from already retained normal pickup/repeat/cold evidence. No new execution, denominator change, broad Engine promotion or eight-page/binding claim."
+  "page_credit_reconciliation": "Four individual page-bit nodes4/8/16/32 credited from already retained normal pickup/repeat/cold evidence. No new execution, denominator change, broad Engine promotion or eight-page/binding claim.",
+  "Valess404_405": {
+    "status": "IN PROGRESS",
+    "actual": "Earned404 Valess recognized all eight pages; CREA/NYST directs binding to Nystul in Depths of Vacous. Earned405 repeat gives no duplicate reward. Actual normal998 research field61=65, pages field62=255; current source51767-step route into Depths is underway. Cold persistence will be checked with binding. No Engine changes/build/process launch.",
+    "evidence": {
+      "ce-native-acceptance528/earned-modern/earned-Valess-CREA513-533.json": "9fbdd7952a78efe35911e6d3ac3a637f1ccce306d6def1effb5340e94264bc87",
+      "ce-native-acceptance528/earned-modern/earned-Valess-eight-pages513-533.json": "649db4c0f192e96241a27dd9eb53a53963dea003f80947720da511faa2783e40",
+      "ce-native-acceptance528/earned-modern/earned-Valess-NYST513-533.json": "a898aa0b4684447878e95cc20d1d67afb0465edac683089c7bce7c464f7852c0",
+      "ce-native-acceptance528/earned-modern/earned-Valess-repeat513-533.json": "2d9420bf9fef698edeef631d7c8916dda165a36c139a2f187a2df5ab63c2185d"
+    }
+  }
 }

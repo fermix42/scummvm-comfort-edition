@@ -48,12 +48,26 @@
     "report": "SCUMMVM-CE-M43-ESSENCE490-VERIFICATION.json",
     "actual": "Normalsource481/482 towerreturn handlesactualNPCblock and reaches26/1819. B boardsauthoredWyvern128,Ysetsflight; actualDownmoves4cells. FourmoreDown andnormalExitareaY leave26toSurface83,79 mounted128/flight,390. Yland, Left/Left/Down align81,80,Yfly andthreeLeft commands enterCave69,80 ->UM97/6980. Yland/Xfoot,391. Normal9step486 ->69,89; OpenDown actualearned149 opensquestdoor69,90 (field15bit16), normalDown/Down passes69,91,392. Normal14step488 ->70,104; SearchRight yields112qty1/field61bit64,393. RepeatNothingfound/noextra112,394. Clean cold043 exactstate/session/noassistance/audio, firstnormalUp70,103,395. Normal23step491 returns69,81, including actualpostcoldkeyreopen/passage. Up exitsSurface69,80; Down/Up reentersUM97/6980 andnormalB reboardsparked128, provingchangedmapvehicle survivedcold. Six70HP sprite144ambushfollowsboarding; normalQ resolvesall6, victoryacks/normal396saved, noHP/MP loss, gold30->42. ActualmountedDown/Up returnsSurface69,80, Down/Y alignsflight69,81. Current31four-cellcommand494 flightto17765 underway. FullHP89/80/80 MP3/32/42,42gold594food,112qty1/149qty2/94qty1/Scales146qty1/page254 retained."
   },
-  "active_next": "ActualValess78 recognition andNystulUM104COMP/binding/Ready/Vortex; thenFoolery/Hairnet/fullFire/Air andremainingcampaign. PriorAir-firstfootroute supersededbyactualearnedWyvernalternative.",
+  "active_next": "Actual earned Nystul maze approach/selfportal/COMP passage/binding/Staff; then lawful stat progression to110INT/Vortex and remaining finite acceptance.",
   "private_helper_change": "plan_frigate_earned528.py optional--wyvern: validatesactualsavedNTRN128speed/pace4, fourcellBFSprimitives, conservativeSurface17/entrance/actor/object/thermalavoidance. NoEnginechange,newdriverframework or defaultboatbehaviorchange. Existingfollowerexecutesnormalkeys;494=31commands/124cells.",
   "actual_through402": {
     "status": "VERIFIED",
     "report": "SCUMMVM-CE-M43-PAGES501-VERIFICATION.json",
     "scope": "Completepageset/flightcold",
     "actual": "Normal31flightcommands494 Surface69,81->177,65, noHPMPcost. FlyingUp entersCastle54 andfinishesremainingstep22,37; Yland/397. Source73step495 carriesgroundWyvernviastairs; actualNPCblocks58/1519 at16,19, fresh20step496 completes59/60/57 selfstairs to57/4213. Yfly/Down4 crosses42,14..17 withnoAir152/protectionfield57=0 andnoHPdamage,398. Yland/Xpark128at42,17, normal6steps498 to44,21. SearchUp actuallockedprompt screenshot177; normalparty4Brfirstpick succeeds: OldSpellbookPage97qty7->8, field62 254->255, noHPMPcost, screenshot178,399. RepeatNothingfound screenshot179/qty8/flags255,400. Normal6steps500 back42,17/B/Y ->actualflying128 withall8pages,401. Clean cold044 exactstate/session/noassistance/audio; firstnormalUp movesfourcells to42,13 stillmounted128, all8pages retained,402. ActualnextUp selfstairs57/429->57/1,9, Yland/Right ->60/11,11. Currentsource41step506 toward58/3322 forlibraryportal/Valess. FullHP89/80/80 MP3/32/42,42gold594food,112qty1/149qty2/94qty1/Scales146qty1 retained."
+  },
+  "library403_and_route510": {
+    "status": "IN PROGRESS",
+    "actual": "After402 actualflyingUp selfstairs57/429->57/1,9,Yland/Right->60/1111. Footlibraryapproaches502/503 andoccupied29,18candidate505 NoRoute, noneexecuted. DirectValess504124step route preparednotexecuted; chosen50641steps to58/3322. Yfly/Left4 ->29,22,Yland/Xfoot/DownOrderportal58/2923 ->78/446,403saved. ActualValess88 currently37,32; stalehomegoal508notexecuted, corrected50998steps withoneordinarylock45,3. First3moves reach45,4. FiveactualBr4pickattempts:1traps41HP80->39; normalN/Heroheal2MP restores80.2fail/trapavoided;3fail/traps41->39; N/Brselfheal2MP to79.4fail/trapavoided;5opens noHPdamage. NormalNendsnotice/cancel; actualnormal998 decodeddoor64/state39, thenUp45,3 actualpass. Current509resumesindex4/remaining94normalsteps toValess. ActualHP89/79/80 MP1/30/42,42gold594food,8pages/255/Essence/keysretained. No Enginechange/build/process."
+  },
+  "Valess404_405": {
+    "status": "IN PROGRESS",
+    "actual": "Earned404 Valess recognized all eight pages; CREA/NYST directs binding to Nystul in Depths of Vacous. Earned405 repeat gives no duplicate reward. Actual normal998 research field61=65, pages field62=255; current source51767-step route into Depths is underway. Cold persistence will be checked with binding. No Engine changes/build/process launch.",
+    "evidence": {
+      "ce-native-acceptance528/earned-modern/earned-Valess-CREA513-533.json": "9fbdd7952a78efe35911e6d3ac3a637f1ccce306d6def1effb5340e94264bc87",
+      "ce-native-acceptance528/earned-modern/earned-Valess-eight-pages513-533.json": "649db4c0f192e96241a27dd9eb53a53963dea003f80947720da511faa2783e40",
+      "ce-native-acceptance528/earned-modern/earned-Valess-NYST513-533.json": "a898aa0b4684447878e95cc20d1d67afb0465edac683089c7bce7c464f7852c0",
+      "ce-native-acceptance528/earned-modern/earned-Valess-repeat513-533.json": "2d9420bf9fef698edeef631d7c8916dda165a36c139a2f187a2df5ab63c2185d"
+    }
   }
 }
