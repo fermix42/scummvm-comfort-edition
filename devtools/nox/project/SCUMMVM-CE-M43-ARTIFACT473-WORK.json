@@ -93,5 +93,10 @@
     "status": "IN PROGRESS",
     "report": "SCUMMVM-CE-M43-HAIRNET573-WORK.json",
     "actual": "Actual earned423 reachesKeep70/1337 beforeFooleryKEY. Key133/Hairnet113 bothabsent, field26=0. NormalOpenLeft refuses; normalLeft remains1337. Gate1237 retainsstate18 andnoquestitems/flagsawarded; screenshot190 No key or pick fits. Four ordinarylocks opened byfive actualBrpicks; onlyfirsttrap17HP, normalBrheal2MP. Three consecutive shallowcells2229/2129/2029 each17HP, dry2028 followedthree normalBrheals6MP. RefusalHP78/69/69 MP33/34/42,40gold606food. Two read-only directreturn queries574/575NoRoute, no Gameinputs; normalHeroC5QuickExit4MP returnsSurface8378. Hnormalcamp andDown/Up reenterUharadKeep24; selected76step577 footroute hasno lockeddoors orwaterdamage. Current577 runningto26/1919, thenfootportaltoFoolery andactualKEY/repeat beforepositiveHairnet path. NoEnginechanges/build/processlaunch."
+  },
+  "Hairnet430": {
+    "status": "VERIFIED",
+    "report": "SCUMMVM-CE-M43-HAIRNET604-VERIFICATION.json",
+    "actual": "Earned Modern missing-key Open refusal and blocked passage423; Foolery HOLY/GOTH/KEY awards133 and field26=32 at424, original repeat stacks second key425. Actual keyed Open and physical passage426. First Search pick fails with38HP Br trap; second normal pick awards113qty1/field63=1 at427. Repeat Search yields Nothing found, no duplicate428. Clean cold046 retains exact state/session/audio/no-assistance; actual Right10,37->11,37 at429. Normal QuickExit/camp/heal430 returns Surface83,78, HP89/80/80 MP31/42/42,40gold556food. No Engine change/build. Hairnet effect in guardian and selected Classic coverage remain separate."
   }
 }

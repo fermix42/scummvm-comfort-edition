@@ -1,4 +1,8 @@
-# Acceptance528 earned Nystul binding/cold416 ó VERIFIED within scope
+# Acceptance528 earned Hairnet/cold430 - VERIFIED within scope
+
+Earned Modern missing-key Open refusal and blocked passage423; Foolery HOLY/GOTH/KEY awards133 and field26=32 at424, original repeat stacks second key425. Actual keyed Open and physical passage426. First Search pick fails with38HP Br trap; second normal pick awards113qty1/field63=1 at427. Repeat Search yields Nothing found, no duplicate428. Clean cold046 retains exact state/session/audio/no-assistance; actual Right10,37->11,37 at429. Normal QuickExit/camp/heal430 returns Surface83,78, HP89/80/80 MP31/42/42,40gold556food. No Engine change/build. Hairnet effect in guardian and selected Classic coverage remain separate. 26/60 selected nodes VERIFIED; M4.3 remains IN PROGRESS, ending unverified. 8 builds,46 gameCLI+5 focused=51 launches. Report `SCUMMVM-CE-M43-HAIRNET604-VERIFICATION.json`. Next: source-supported legitimate caster advancement to110INT, actual Vortex Ready/cast and full guardians; continue remaining acceptance without milestone stop. Canonical conversion records mirrored byte-identically to CE devtools/nox/project.
+
+# Acceptance528 earned Nystul binding/cold416 ‚Äî VERIFIED within scope
 
 Earned Nystul binding411, repeat539, Staff412 and real low-INT refusal413; cold045 and actual Right move415 retain all state. Normal post-cold return crosses COMP-opened wall and B reboards Wyvern416. Maze access/Staff nodes VERIFIED; 25/60 nodes VERIFIED. Eight-page recognition/binding positive scopes VERIFIED; missing-pages forks/selected Classic coverage remain. Book12qty1, Staff83qty1, field61=67, field15=84, pages8/255. HP89/79/80 MP1/28/42,81gold594food. Current normal flight548 leaves maze toward Foolery/Hairnet. No Engine changes or builds; 8 builds,45 gameCLI+5 focused=50 launches. Vortex Ready/cast requires lawful110INT progression; no ending claim.
 
@@ -2476,7 +2480,7 @@ Canonical recovery docs are mirrored byte-identically under CE devtools/nox/proj
 +Do not run audio suite, campaign traversal, earned acceptance or broad old suites.
 +Current production changes are unbuilt/unverified until475 integration completes.
 +
-+# Source-driven milestone: native party ordering implemented ‚Äî November14
++# Source-driven milestone: native party ordering implemented √¢‚Ç¨‚Äù November14
 
 Current CE branch codex/ce-2026.4.0-consolidated. Audit/contract commit1d3b4095a9c;
 accepted audio473 source/build-selector baseline committed54714c3f6c2 without
@@ -2736,7 +2740,7 @@ CurrentPTY84026/gameLIVE438Maldac6/35/10,22 ordinary66;no build. NextD4Quick ret
 
 Next: source-qualify TerrainLighting outer-sample addressing at local entrance9,22 at night. Original sample offsets decode outer columns-3,-2,-1; current byte-coordinate terrainAt asks negative worldX (wrap255) and rejects. A linear48-wide loaded-map address would carry into previous row rather than reject; this is a hypothesis to establish from original source, not yet a gameplay fix. Do not fabricate edge padding or skip light samples. Modified diagnostics native_world_input.h, native_world_scene_phase.h, native_world_viewport.h, native_world_presentation.h; no semantic changes436/437. After connected return closes, prioritize D4Quick retained context. Full goal active; previous user-facing goal-restatement turn was no progress, this turn yields executable-backed failure localization.
 
-# D3 owned skiff435 and connected return436 ó IN PROGRESS
+# D3 owned skiff435 and connected return436 ‚Äî IN PROGRESS
 
 Build435 passed cleanly; accepted SHA a5a4eed7325c3b9abda7bce1d51d56340f440faca8fad873cfab3deabe2ba44d. The live idle owner now validates owned static boats119/123/124 rather than requiring an on-foot icon. Source sceneD2C1 skips pictures below128, so existing boat footprints remain painted while scenery animates. Only124 has current live acceptance; frigate/caravel/mount domains remain explicit. Read-only CLI now exposes appearance/on_foot/transport_object.
 
@@ -2920,7 +2924,7 @@ Next concrete gap: ordinary Search key is absent although World::searchQuestItem
 
 Build398 native-only exit0,0warnings/errors,2m47.66. SHA256 c2976e4d9c3dc8b63e27746f8c512d3c0e2cb9bea39e6af02bab32c14b1a237d. Optional DISC stores reused M2 discovery/journal owner. Temple dialogue/cold two-process regression passes exact restore, sequence3/one character. Earned physical-input lineage defeated full12HP tutorial Rat and saved slot2, hero50HP8MP,cells4. Fresh process ordinary load confirmed those values (ce-m4-earned-cold398b.jsonl). Next stairs travel reached13,8 before unexpected idle. Investigate exit; prior close timed out, own child may remain. Current new client in PTY68767 loaded slot2. See earned progress JSON. D3-D5 remain active; no campaign completion claim.
 
-# D3 startup/Continue396 ó VERIFIED scoped; standing goal IN PROGRESS
+# D3 startup/Continue396 ‚Äî VERIFIED scoped; standing goal IN PROGRESS
 
 Native normal launch now offers New Game/Continue/Q and starts authored splash
 music. Actual menu New Game/story/movement and ordinary save/cold/next movement
@@ -2947,7 +2951,7 @@ owned inspection/ordinary saves/frames so the required earned campaign can begin
 without compiled input-driver loops. No new test platform. D3 remains IN PROGRESS;
 continue D3-D5 under standing overnight goal, no milestone stop.
 
-# Standing overnight completion goal ó IN PROGRESS, November 13, 2026
+# Standing overnight completion goal ‚Äî IN PROGRESS, November 13, 2026
 
 User authorized continuous autonomous D3-D5 work; completing a milestone is not
 a stop or approval point. D1 and D2 are VERIFIED baselines. Start D3 normal-player
@@ -2960,7 +2964,7 @@ Initial source review confirms older lifecycle/audio records contain stale pendi
 claims; use current host/owners and qualified later evidence before selecting
 new code. No additional build or gameplay claim is made by this goal setup.
 
-# Connected native Temple workflow goal ó VERIFIED, November 13, 2026
+# Connected native Temple workflow goal ‚Äî VERIFIED, November 13, 2026
 
 SCUMMVM-CE-TEMPLE-WORKFLOW-VERIFICATION.json records the completed bounded user
 goal. Both Modern and Classic on build394 pass actual Talk -> full10 battle
@@ -3005,7 +3009,7 @@ D2 VERIFIED. Whole M4 remains IN PROGRESS; D3-D5 remain. Stop at this goal's exp
 boundary. Canonical planning/progress/verification copies are mirrored byte-identically
 under CE devtools/nox/project; private artifacts stay local. No push/publication.
 
-# Connected Temple goal/build392 ó IN PROGRESS, November 13, 2026
+# Connected Temple goal/build392 ‚Äî IN PROGRESS, November 13, 2026
 
 Scope: actual Talk/full admission -> declared pre-attack setup -> revelation/
 journal/travel/Archus/subsequent gameplay; pending-revelation normal save/cold split
@@ -3044,7 +3048,7 @@ unlaunched attempt and choose new artifacts. Only targeted workflow validation.
 Current work record: SCUMMVM-CE-M4-TEMPLE-CAMPAIGN-WORK.json. Canonical recovery
 copies updated under CE devtools/nox/project; proprietary fixtures remain local.
 
-# D1 native-only development build goal ó VERIFIED, November 13, 2026
+# D1 native-only development build goal ‚Äî VERIFIED, November 13, 2026
 
 User-defined goal finish line is complete. SCUMMVM-CE-NATIVE-ONLY-VERIFICATION.json
 binds the exact final source/executable, build inputs, link audit and smoke results.
@@ -3087,7 +3091,7 @@ No push/publication/security-policy change. D1 VERIFIED; D2-D5 remain independen
 unfinished port work. Canonical files mirrored byte-identically into CE
  devtools/nox/project; private gameplay artifacts stay local.
 
-# Build restored and Temple continuation accepted ó November 13, 2026
+# Build restored and Temple continuation accepted ‚Äî November 13, 2026
 
 M4 IN PROGRESS. Windows Code Integrity events3033/3077 identify enforced policy
 {0283AC0F-FFF1-49AE-ADA1-8A933130CAD6}; registry VerifiedAndReputablePolicyState=1
@@ -3133,7 +3137,7 @@ security exception. No remaining block prevents ordinary incremental engine work
 Updated canonical plan/progress and explicit recovery mirrors at
 CE devtools/nox/project; no proprietary artifacts are mirrored. No push/deployment.
 
-# Delivery implementation started ó November 13, 2026
+# Delivery implementation started ‚Äî November 13, 2026
 
 User clarification: prioritize finishing ASAP; irrelevant scaffolding need not be
 preserved. Delivery-plan clarification records this without changing native-only,
@@ -3160,7 +3164,7 @@ rebuilding the test platform. No extra driver was created. Next: resolve build
 permission/environment, then focused Temple continuation/cold and native-only
 link cut. Preserve the source fix without promoting its result.
 
-# Delivery review and revised execution plan ‚Äî November 13, 2026
+# Delivery review and revised execution plan √¢‚Ç¨‚Äù November 13, 2026
 
 Status: IN PROGRESS (M4). User requested source review and plan revision; that
 review/planning is complete. No engine implementation, build or gameplay rerun.
@@ -6426,7 +6430,7 @@ Stop after M2 until M3 is explicitly authorized.
 - Build2097 PASS0 warnings/errors2m36s. First Modern run ce-m2-grid-modern/20261015-150324: actual New Save, typed GRID-NEW then GRID-OVERWRITE, logical0, sequence2 and byte-identical saved/live runtime PASS. Cold UI load FAILED (no completion JSON); screenshot shows chooser filtered to sessionA while grid fixture belonged toB. Existing default selects newest-started with stable first-record ties; both fixture sessions started in same second. This is a test-selection assumption, not save corruption or a reason to change product default policy.
 - Corrected cold diagnostic to select expected owner through actual Play Session popup (click, Home, Down as required, Return), then real tile/list click. No direct activation/load API substitute. Popup capture retained for evidence. No live ScummVM before rebuild14508; linking at checkpoint. Final Modern and Classic --grid --chooser-ui, source/schema and migration checks pending. M2.2d2 remains IN PROGRESS.
 
-### M2.2d2 final positive caller evidence ó VERIFIED
+### M2.2d2 final positive caller evidence ‚Äî VERIFIED
 
 Build14508 passed with zero warnings/errors. Audit `ce-m2-grid-verification.json` binds source and all four reports to executable ff56de5bfd4b69b70db84c75debc0cce9b8641b53bb6df198b8014683fa79883.
 
@@ -6438,7 +6442,7 @@ Build14508 passed with zero warnings/errors. Audit `ce-m2-grid-verification.json
 
 Actual source files modified for d2: engines/nox/grid_validation.h (new), nox.cpp, nox.h, host_validation.h; devtools/nox/test_gameplay.py and sync_project.py; canonical progress plus safe audit and mirrored recovery copies. Full session reset/owner semantics and complete lifecycle failure coverage remain unverified; no full M2 completion claim.
 
-### M2.2d3 initial runtime-owner correction ó IN PROGRESS
+### M2.2d3 initial runtime-owner correction ‚Äî IN PROGRESS
 
 Source now gives NoxEngine an explicit Runtime session owner. Saving requires the active CE ID to equal that owner. Successful candidate loads assign saved ownership only after validation. A changed active ID creates a fresh Runtime from immutable resources, clears old audio, resets engine playtime and adopts the new-session mode default before gameplay advances; it does not reset CE-owned history. Updated the old warm fixture to start A before gameplay and reject a save immediately after starting B, then boot and play a separate real new-game journey for B instead of relabeling A's world.
 
@@ -6457,7 +6461,7 @@ Corrected build14043 PASS zero warnings/errors 00:02:38.38, executable SHA256 8a
 
 Remaining explicit d3a evidence: nonzero pre-switch playtime resets and old queued audio cleared specifically on new-session selection, not merely on cold load. Then d3b active-default-change versus new-session default/restored mode and complete M2.3/M2.4 owner/history lifecycle. No full session-isolation or M2 completion claim; no online tests performed at this checkpoint.
 
-### M2.2d3a explicit reset evidence ó VERIFIED
+### M2.2d3a explicit reset evidence ‚Äî VERIFIED
 
 Build65363 PASS zero warnings/errors 00:02:35.83; `ce-m2-reset-verification.json` binds source/report hashes to executable 430fd32e023f0e66afd789bb0ceecf637dc8c31ff0fc802a53f938148ae499dc. Actual changed diagnostic files: engines/nox/nox.cpp and devtools/nox/test_gameplay.py. No further product-policy or save-format change.
 
@@ -6476,7 +6480,7 @@ Added separate offline test_gameplay.py --mode-defaults scenario (repeat --class
 
 Changed diagnostic source engines/nox/nox.cpp and devtools/nox/test_gameplay.py. Build68620 active (nox-m2-defaults-build.out.log). No product-policy change and no new acceptance verified yet. Next: wait same handle, run both default directions, diagnose any failure, record evidence; keep enhancement/history requirements of parent d3b pending.
 
-### M2.2d3b mode-default criterion ó VERIFIED (parent remains IN PROGRESS)
+### M2.2d3b mode-default criterion ‚Äî VERIFIED (parent remains IN PROGRESS)
 
 Build68620 PASS0 warnings/errors 00:02:38.99; `ce-m2-defaults-verification.json` binds source and report hashes to executable 5aa7ac1389f5e2f5d8bd71dc44da8ab0cfca8919a6e79f9d067ba409ec3d3997.
 
@@ -6484,7 +6488,7 @@ Separate offline --mode-defaults --host-lifecycle scenario passed in both direct
 
 Same binary resource/schema/metadata regression ce-m2-defaults-resources/20261015-152950 and genuine frozen M1 migration ce-m2-defaults-migration/20261015-152957 pass. Originals unchanged. Actual changed files are diagnostic nox.cpp and test_gameplay.py, plus safe audit/sync recovery copies; no product mode-policy change needed. Parent M2.2d3b is NOT VERIFIED: complete enhancement reset/restore and permanent CE assistance/history lifecycle remain. Next M2.3a owners/codec; no API test, push or deploy.
 
-### M2.3a initial enhancement owner/codec implementation ó IN PROGRESS
+### M2.3a initial enhancement owner/codec implementation ‚Äî IN PROGRESS
 
 New engines/nox/enhancements.h/.cpp adapt existing standalone ConversationJournal semantics to Common containers/C++11 and per-runtime ownership: private authored matching data is derived; only spoken/resolved keywords become discoveries, used state and resolved reply history are durable; resource+record identity separates NPCs. Discovery cells use resource/map type/id/coordinates with independent observed/revealed bits and annotations. A derived cell index is rebuilt on load. No final UI or placeholder achievements.
 
@@ -6500,7 +6504,7 @@ Added explicitly labeled enhancement_fixture.h and test_gameplay.py --enhancemen
 
 Build34064 active (nox-m2-enhancement-fixture-build.out.log). Next: finish and run controlled nonempty fixtures in both modes, resource23 contracts and genuine M1 migration on same executable; diagnose defects. No M2.3 acceptance marked VERIFIED yet and no earned-capture claim.
 
-### M2.3a owner/codec acceptance ó VERIFIED
+### M2.3a owner/codec acceptance ‚Äî VERIFIED
 
 Build34064 PASS0 warnings/errors 00:02:38.39, executable3f0b2bf007121ccb905e34db5805a09c050907fe15849c3bdbaa808717b5d947. `ce-m2-enhancement-owners-verification.json` binds all source/report hashes and post-exit generation/sidecar hashes; re-ran independent binary enhancement parser while writing the audit.
 
@@ -6513,7 +6517,7 @@ Actual changed files for M2.3a: enhancements.h/.cpp, enhancement_validation.h an
 
 M2.3a VERIFIED only. Journal/discovery state is not yet populated by normal live CE events; no final enhancement UI or full campaign claim. M2.3b actual observed capture, M2.3c older-save/session lifecycle and M2.4 permanent CE assistance/history remain. Next source-backed adapter work uses existing conversation_observer.inc/live_events.inc semantics and source-qualified map loading, not guessed discovery from resource reads. No online/API test, deploy or push.
 
-### M2.3b first observed-capture adapter ó IN PROGRESS
+### M2.3b first observed-capture adapter ‚Äî IN PROGRESS
 
 New runtime_observers.cpp ports the existing conversation_observer.inc boundaries: code-fingerprint-qualified packet identity, response-input admission, selected-label observation, completed renderer return with matching stack, and authoritative recruitment name. Only completed resolved replies enter Enhancements; Bye/exit returning to the qualified world command ends transient query without inventing a response. Save eligibility also requires no pending/query observer. No standalone event-file/proprietary packet logging added to ordinary CE.
 
@@ -6523,7 +6527,7 @@ Changed runtime.h/.cpp/runtime_state.cpp, nox.h/.cpp, module.mk and clean build 
 
 Build18839 active in nox-m2-observers-build.out.log. Next run actual opening map observation in both modes and controlled fixture regression, inspect evidence before further capture claims. Conversation adapter not yet tested in CE; actual original dialogue route remains required. Opening resource evidence shows KEEP7, not Town2; source membership NPC route uses authored relocations and must not be called an earned journey. Normal early route or explicitly labeled dialogue-boundary fixture needs separate evidence.
 
-### M2.3b observed opening-cell checkpoint ó IN PROGRESS
+### M2.3b observed opening-cell checkpoint ‚Äî IN PROGRESS
 
 Build18839 PASS0 warnings/errors 00:02:38.02, executable5ca254b1bd9de434f17875c6dc02ff5c85649b2720a9248039bf65097135b759. `ce-m2-observed-capture-checkpoint.json` deliberately keeps M2.3b IN PROGRESS and records missing dialogue acceptance.
 
@@ -6559,7 +6563,7 @@ Source-backed correction: original dialogue input uses the shared keyboard/raste
 
 Build67300 active in nox-m2-dialogue-poll-observation-build.out.log. Next fresh NPC test on that executable; retain all prior failed evidence and strict nine-response/six-topic/cold criteria. First opening reply alone does not verify M2.3b.
 
-### M2.3b actual observed NPC capture ó VERIFIED (bounded criteria)
+### M2.3b actual observed NPC capture ‚Äî VERIFIED (bounded criteria)
 
 Build67300 PASS0 warnings/errors 00:02:37.84, executable4d3f661e82b5593914d2c8751af7603a6ac17882c47eb7e0a1c9ce0dfed05a11. `ce-m2-dialogue-capture-verification.json` binds compiled source, reports, intermediate knowledge and post-exit save/sidecar hashes. Standalone nox_live.exe remains the original d26b2e8d... executable.
 
@@ -6600,7 +6604,7 @@ Build17855 PASS0 warnings/errors 00:02:36.92, executable724a0c1a53b703f3550edcb1
 
 Actual files modified: dialogue_validation.h, nox.cpp (CE reset integration), test_dialogue.py, enhancement_oracle.py; plan/progress/state-owner docs, safe checkpoint and recovery copies. First tutorial-driver failure and earlier passing narrower checkpoint retained as historical evidence, not substituted for final source. No API test, production changes, push or deploy. Next M2.1d independent owner/continuation contracts before complete M2.4 matrix.
 
-## M2.1d controlled owner/continuation work ó October 15, 16:52
+## M2.1d controlled owner/continuation work ‚Äî October 15, 16:52
 
 Status: IN PROGRESS. Added Runtime::validateOwnerContracts in CE runtime_state.cpp,
 its declaration in runtime.h, phase6 diagnostic integration/report in nox.cpp,
@@ -6630,7 +6634,7 @@ enhancement state, empty consumed-input queues and exact PCM without requiring a
 modal to finish. It uses syncState only for internal clone comparison; normal
 saveState eligibility is unchanged. Live-world unchanged check remains mandatory.
 
-## M2.1d VERIFIED ó October 15, 17:00
+## M2.1d VERIFIED ‚Äî October 15, 17:00
 
 Completion audit: ce-m2-state-contracts-verification.json, with source hashes and
 8 independently recorded latest-binary reports. Modern actual observed-cell and
@@ -6683,7 +6687,7 @@ and authoritative decision hashes unchanged; project mirror --check and Git
 whitespace check pass. All eight latest-binary validation commands completed;
 no outstanding build or SDL test process at this checkpoint.
 
-## M2.4a assistance-reason ownership implementation ó 17:04 IN PROGRESS
+## M2.4a assistance-reason ownership implementation ‚Äî 17:04 IN PROGRESS
 
 Inspected actual getAssistanceFlags/noteDisqualifyingAssistance/registry/load-event
 paths, plus prior actual private offline fixtures; global reason ownership gap
@@ -7512,7 +7516,7 @@ Build99893 zero warnings/errors2:40.44, SHA256 bb70858867b68fca525c8508eef3ea6e6
 
 SCUMMVM-CE-M2-VERIFICATION.json now exists as an explicit IN PROGRESS completion candidate binding compiled-source/executable hashes, requirement/evidence map, active suite, preservation and remaining API/final audit gates. Do not mark M2 complete until every requirement has actual current coverage. New safe runner run_final_local.py records exact invocations/results; plan scope/acceptance unchanged.
 
-## M2 final completion ‚Äî VERIFIED
+## M2 final completion √¢‚Ç¨‚Äù VERIFIED
 
 Final executable build99893, SHA256 bb70858867b68fca525c8508eef3ea6e674fb052c528ab77f43a96d5f2309df7, zero warnings/errors2:40.44. SCUMMVM-CE-M2-VERIFICATION.json is the machine-readable complete requirement/source/report audit. All23 final local tasks VERIFIED at ce-m2-final-local/20261015-211020, with actual flags/coverage inspected rather than trusting a top-level status. Final live summary ce-m2-final-online/20261015-212403: ordinary Modern18, recovered Classic15, ordinary Classic18, recovered Modern15 session-only requests. The first verified Modern report was reused without resending after a recovered-case input precondition failed. That failure used a current registry instead of a genuine older no-queue registry; it made no recovered-case server requests and revoked credentials. Fresh current Delete Keep/recovery runs from preserved genuine older fixtures supplied correct input; no fake world/identity/start times. Existing completed Modern result remains hash-bound. The resumed run waited61 seconds after its first completed pair; each relay caps upstream requests at24. No rate limit increased; no rate-limit stress.
 
@@ -7525,7 +7529,7 @@ Temporary dependencies/limitations: general65C02 execution bridge and full per-s
 Historical M2 stop: superseded for M3 by the subsequent explicit testing-strategy authorization below; M4 remains unauthorized.
 
 
-## M3 first checkpoint implementation ó IN PROGRESS
+## M3 first checkpoint implementation ‚Äî IN PROGRESS
 
 Added CE engines/nox/campaign_validation.h, deterministic offline diagnostic
 entry points in nox.cpp/nox.h/runtime.h, and devtools/nox/test_campaign.py.
@@ -7552,7 +7556,7 @@ fails; then linked reaction and additional source-supported gates. Do not rerun
 failed binary or claim controlled setup as earned progression. M4 NOT STARTED.
 
 
-## M3 controlled acquisition unit ó VERIFIED for bounded scope
+## M3 controlled acquisition unit ‚Äî VERIFIED for bounded scope
 
 Build2 exit0,0 warnings/errors,2m45.35; executable SHA256
 3b202640d946c10e40a876e5a4dd1121b7ecc789843f4918c80d82272ab64b27.
@@ -7596,7 +7600,7 @@ used nonexistent old filenames and were corrected by rg --files; a build-log rea
 from the CE cwd used the wrong relative path and was corrected to canonical cwd.
 
 
-## M3 linked recognition diagnosis ó IN PROGRESS
+## M3 linked recognition diagnosis ‚Äî IN PROGRESS
 
 Build4 exit0,0 warnings/errors,2m41.92. Command from CE root:
 python devtools/nox/test_campaign.py --exe build-scummvm/Releasex64/scummvm.exe --game "D:/Codex Projects/Nox Archaist" --artifacts "D:/Codex Projects/Nox Archaist/conversion/ce-m3-linked" --linked
@@ -7616,7 +7620,7 @@ HDVs remain read-only. One exploratory rg used an unexpanded Windows wildcard;
 explicit rg --files discovery/paths are used afterward.
 
 
-## M3 linked Log chain ó VERIFIED for this controlled-start chain
+## M3 linked Log chain ‚Äî VERIFIED for this controlled-start chain
 
 Build5 exit0,0 warnings/errors,2m41.36. Exact prior --linked command exit0;
 repeated with --classic exit0. Reports: ce-m3-linked/20261015-220504/verification.json
@@ -7640,7 +7644,7 @@ succeed. No tested page state is injected after an operation begins.
 Build6 clean command redirected to conversion/ce-m3-build-6.log IN PROGRESS.
 
 
-## M3 page operation discrepancy ó IN PROGRESS
+## M3 page operation discrepancy ‚Äî IN PROGRESS
 
 Build6 exit0,0 warnings/errors,2m40.89. --page1 exit1 at ce-m3-pages/20261015-220817:
 16000 bounded iterations, actual Search set043E bit04, no idle completion/repeat/cold
@@ -7660,7 +7664,7 @@ clean build IN PROGRESS. Next: inspect instrumented failure, correct handshake o
 if evidence supports it, rerun, then other pages. Not classified as campaign defect.
 
 
-## M3 page input diagnosis ó source correction IN PROGRESS
+## M3 page input diagnosis ‚Äî source correction IN PROGRESS
 
 Build7 exit0,0 warnings/errors,2m40.36. Instrumented --page2 command exit1,
 ce-m3-page-diagnostic/20261015-221327; input-identity.json now binds executable and
@@ -7677,7 +7681,7 @@ will be repeated without this source correction. Next: page2, then other pages,
 Log regression on same latest binary, evidence/matrix reconciliation.
 
 
-## M3 corrected input results and safe-adjacency correction ó IN PROGRESS
+## M3 corrected input results and safe-adjacency correction ‚Äî IN PROGRESS
 
 Build8 exit0,0 warnings/errors,2m40.84; SHA256
 ffb9c67aaa853900c2a4760dbf30c30475c18b6b23c37548d794bd668b109c6d.
@@ -7707,7 +7711,7 @@ on map35 (dialogue00D); useful for next genuine eighth-page award fixture. No Ax
 CE implementation/test claimed. Valess/Nystul and actual ending still NOT STARTED.
 
 
-## M3 latest bounded checkpoint ó VERIFIED cases, milestone IN PROGRESS
+## M3 latest bounded checkpoint ‚Äî VERIFIED cases, milestone IN PROGRESS
 
 Build9 PASS exit0,0 warnings/errors,2m40.16 (ce-m3-build-9.log), source frozen
 before all16 passing reports. Modern page1..7:
@@ -7754,7 +7758,7 @@ to CE. No running test/build remains. Next authorized M3 task is the linked eigh
 page/research/binding chain above; full gate census and actual ending remain open.
 
 
-## M3 continuation: linked Vortex transactions ó IN PROGRESS
+## M3 continuation: linked Vortex transactions ‚Äî IN PROGRESS
 
 Recovered current M3 source/executable checkpoint: all hashes MATCH; actual CE Git
 tracked set unchanged, Nox remains non-Git. Historical memory's pre-integration

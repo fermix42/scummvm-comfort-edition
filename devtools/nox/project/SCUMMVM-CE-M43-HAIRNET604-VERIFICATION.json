@@ -1,0 +1,62 @@
+{
+  "status": "VERIFIED",
+  "scope": "Earned Modern Holy Hairnet gate acquisition/refusal/repeat/cold and subsequent compatibility only.",
+  "source_commit": "c660ae8ac41",
+  "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd",
+  "actual": "Earned Modern missing-key Open refusal and blocked passage423; Foolery HOLY/GOTH/KEY awards133 and field26=32 at424, original repeat stacks second key425. Actual keyed Open and physical passage426. First Search pick fails with38HP Br trap; second normal pick awards113qty1/field63=1 at427. Repeat Search yields Nothing found, no duplicate428. Clean cold046 retains exact state/session/audio/no-assistance; actual Right10,37->11,37 at429. Normal QuickExit/camp/heal430 returns Surface83,78, HP89/80/80 MP31/42/42,40gold556food. No Engine change/build. Hairnet effect in guardian and selected Classic coverage remain separate.",
+  "evidence": {
+    "ce-native-acceptance528/earned-modern/earned-Foolery-portal565-533.json": "36a68b2b88da29c53284bfe075b5a08fc423be8963913fec9a46902fb8306110",
+    "ce-native-acceptance528/earned-modern/earned-Foolery-door567-533.json": "56c223bfd040f28138d5fa7c6c1a77faf78564cb53033ad0d1fafca2a32540d2",
+    "ce-native-acceptance528/earned-modern/earned-Foolery-door-second568-533.json": "299009470237ab0b7134a1290768c05e35f9bcdd706b00d5b776af1ac5e95fe9",
+    "ce-native-acceptance528/earned-modern/earned-Foolery-door33-first569-533.json": "fa1f25bcc5a7dc7e0cfad00f40d75e872cd537519826e37d2e7823a5dff88803",
+    "ce-native-acceptance528/earned-modern/earned-Hairnet-moat-cross570-533.json": "12961d2cb6d56d93189d79d30b9091afa1b60a5e60c9a4cccd1723eea86eaa53",
+    "ce-native-acceptance528/earned-modern/earned-Hairnet-door17-29-first571-533.json": "0791b3ee103c31e2c902f017425c7b723fcdfb475e72bfe8b515af27531dcfee",
+    "ce-native-acceptance528/earned-modern/earned-Hairnet-door17-37-first572-533.json": "170af7052ebe004471c6d1f6283605b8abd6e879305488dad3162055d46539a2",
+    "ce-native-acceptance528/earned-modern/earned-Hairnet-no-key-before573-533.json": "0591ce8f6b5cce3bd74780b1972025a3fbffed8811dc134146a06052474e18f1",
+    "ce-native-acceptance528/earned-modern/earned-Hairnet-no-key-refusal573-533.json": "c96981f3bc465e0ffb1b07697ea167a6d0e9cb0417ee0729efadcbefee9bfb13",
+    "ce-native-acceptance528/earned-modern/earned-Hairnet-no-key-blocked573-533.json": "31eabb42383a1ee3a6b117a34b937f76c4f50d1cba9fe72036108dfa597cc10b",
+    "ce-native-acceptance528/earned-modern/earned-Hairnet-no-key-QuickExit576-533.json": "916a26dd3625f58e59ba1e8399ab9708e564f99f987bf4c616c04dae39af85a4",
+    "ce-native-acceptance528/earned-modern/earned-Foolery-day-opening590-533.json": "4362d27d4c90c0b4e2ef9f5fdbe82d6c0471b3c1fb0ee0111d13841decd5d9ca",
+    "ce-native-acceptance528/earned-modern/earned-Foolery-GOTH591-533.json": "768686320b35be2f9b2666a67be86ddc27c046b340b5112d790879cd6b1a5cde",
+    "ce-native-acceptance528/earned-modern/earned-Foolery-HOLY591-533.json": "6ad08f1c49363ee42740eecddbec60ba05073066ed95091577876ff21e8537e9",
+    "ce-native-acceptance528/earned-modern/earned-Foolery-key-repeat592-533.json": "03bf5c23ff7e6973ddc20a28e58cd3385e09b1d794408db21c9d1d0a99c5cf9b",
+    "ce-native-acceptance528/earned-modern/earned-Foolery-KEY591-533.json": "2e804f7fd41ddb1a7b54951562ebfd5f6b6f3d9a770626799ee59af391d275a7",
+    "ce-native-acceptance528/earned-modern/earned-Hairnet-keyed-moat597-533.json": "04a1f604bd9632cacb2c274bd2e218ebbda02c49a4bbe4c0223ba74f6da9938f",
+    "ce-native-acceptance528/earned-modern/earned-Hairnet-keyed-open598-533.json": "d94cab4d30f1c37e7a2d866cbf2e85f28f60cdd1b7b837c47da3e869bd7ed99d",
+    "ce-native-acceptance528/earned-modern/earned-Hairnet-keyed-passage598-533.json": "412ef1f0ba8b2e6d46a349f3224d5b557349a5af423e96d387eb3cb6d7208aa3",
+    "ce-native-acceptance528/earned-modern/earned-Hairnet-search599-533.json": "4042d6a324698faf0c873ef019e73b73cb93d02f99d3052f24e2db62ce8c5457",
+    "ce-native-acceptance528/earned-modern/earned-Hairnet-pick-first600-533.json": "7b0020649702215647d28a56a10d5e5bfc9d8a0dc4700bb29219b7a4d3ac099d",
+    "ce-native-acceptance528/earned-modern/earned-Hairnet-pick-second601-533.json": "136531ef42e9dca896a651cdc18edf551480baf51719d48d254c7152fc0d4306",
+    "ce-native-acceptance528/earned-modern/earned-Hairnet-postcold604-533.json": "a3a46cc07136f9dd03c4117ed4e8dd54d7ee5a2c209090f5fe8e000132b6c8ea",
+    "ce-native-acceptance528/earned-modern/earned-Hairnet-repeat603-533.json": "a30c1071322253fd03f27fb0bafa361d7cc81ac844ff0e95b1cdea7871559903",
+    "ce-native-acceptance528/earned-modern/cold046.json": "dcf9413169ff4a7e8ac492f7cb5d72d4f2f8d6068c2bd411a332366717842af4"
+  },
+  "checkpoint_metadata": {
+    "ce-native-acceptance528/earned-modern/checkpoints/423-Earned-Hairnet-missing-key-refusal423/checkpoint.json": "9fdc69469b442b15357b07add3eed7ae952793dbe49e807c46dce29a2fa3d3a6",
+    "ce-native-acceptance528/earned-modern/checkpoints/424-Earned-Foolery-key-award424/checkpoint.json": "c389b2869ac256cbc864e3bde964d8e7402a3b93f511f3b53b05b5564fa7afd1",
+    "ce-native-acceptance528/earned-modern/checkpoints/425-Earned-Foolery-key-repeat425/checkpoint.json": "abbc6122a6dbb04fefd67a5c05fd5cba1e9fd46b4cb8839f9ba0e85035e87159",
+    "ce-native-acceptance528/earned-modern/checkpoints/426-Earned-Hairnet-keyed-gate-passage426/checkpoint.json": "81af9489e5438b4adf666b85594b184034fc04744f7b9a031201a9751be43c60",
+    "ce-native-acceptance528/earned-modern/checkpoints/427-Earned-Holy-Hairnet-actual-pickup427/checkpoint.json": "6474d9aa5a244c00cdf6416010591384676ee2849bdbfb6d40fe719f60c1a85f",
+    "ce-native-acceptance528/earned-modern/checkpoints/428-Earned-Holy-Hairnet-repeat428/checkpoint.json": "c861cd1f5c0fc01b1048c369fb765bbf4f5062f973387abd4723f5de7491c760",
+    "ce-native-acceptance528/earned-modern/checkpoints/429-Earned-Hairnet-cold046-next-move429/checkpoint.json": "9f469144b31982a2018903784f17586c450d5aa86519f6a6e89fbf5a07ca500b",
+    "ce-native-acceptance528/earned-modern/checkpoints/430-Earned-Hairnet-return-and-recovery430/checkpoint.json": "c59879cbb7c03b6c08b62dec3d797d79b3e447ddbad9f4c270715ce91a907612"
+  },
+  "presentation": {
+    "ce-native-acceptance528/earned-modern/screenshots/scummvm-cli-game-00190.png": "ad1a68db96f50b1aeba9b56d22a43b05a329f529593ff652e02f22aa16663063",
+    "ce-native-acceptance528/earned-modern/screenshots/scummvm-cli-game-00191.png": "ed2ae8dc35bf42291aa8f5ff7df3a07e7118f744dbc354f2705b36f464d00bf6",
+    "ce-native-acceptance528/earned-modern/screenshots/scummvm-cli-game-00192.png": "3e0a4ef6d6ca2f47d0c6e73603fd113bb71c7368d4401f97fc6160b90baa94a3",
+    "ce-native-acceptance528/earned-modern/screenshots/scummvm-cli-game-00193.png": "432e5f335c47111a13d7f84877644f592f82f02536587b53897c3235afeb4754"
+  },
+  "qualifications": [
+    "Screenshot191 is pick chooser, not found caption. Screenshot192 is awarded inventory;193 repeat Nothing found. Trap difficulty7 costs38HP, not62. No missing-artifact Vortex refusal is invented."
+  ],
+  "remaining": [
+    "Hairnet guardian effect and selected Classic branch remain separate acceptance obligations."
+  ],
+  "cost": {
+    "builds": 8,
+    "game_cli_processes": 46,
+    "focused_cli_processes": 5,
+    "material_launches": 51
+  }
+}

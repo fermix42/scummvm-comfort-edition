@@ -1,6 +1,6 @@
 {
-  "status": "IN PROGRESS",
-  "scope": "Earned Hairnet missing-key refusal VERIFIED; FooleryKEY award/repeat, actualkeyedgate/Hairnetpickup/repeat/cold remain.",
+  "status": "VERIFIED",
+  "scope": "Earned Modern Holy Hairnet gate acquisition/refusal/repeat/cold and subsequent compatibility only.",
   "source_commit": "c660ae8ac41",
   "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd",
   "refusal": {
@@ -22,21 +22,30 @@
     "ce-native-acceptance528/earned-modern/earned-Hairnet-no-key-before573-533.json": "0591ce8f6b5cce3bd74780b1972025a3fbffed8811dc134146a06052474e18f1",
     "ce-native-acceptance528/earned-modern/earned-Hairnet-no-key-refusal573-533.json": "c96981f3bc465e0ffb1b07697ea167a6d0e9cb0417ee0729efadcbefee9bfb13",
     "ce-native-acceptance528/earned-modern/earned-Hairnet-no-key-blocked573-533.json": "31eabb42383a1ee3a6b117a34b937f76c4f50d1cba9fe72036108dfa597cc10b",
-    "ce-native-acceptance528/earned-modern/earned-Hairnet-no-key-QuickExit576-533.json": "916a26dd3625f58e59ba1e8399ab9708e564f99f987bf4c616c04dae39af85a4"
+    "ce-native-acceptance528/earned-modern/earned-Hairnet-no-key-QuickExit576-533.json": "916a26dd3625f58e59ba1e8399ab9708e564f99f987bf4c616c04dae39af85a4",
+    "ce-native-acceptance528/earned-modern/earned-Foolery-day-opening590-533.json": "4362d27d4c90c0b4e2ef9f5fdbe82d6c0471b3c1fb0ee0111d13841decd5d9ca",
+    "ce-native-acceptance528/earned-modern/earned-Foolery-GOTH591-533.json": "768686320b35be2f9b2666a67be86ddc27c046b340b5112d790879cd6b1a5cde",
+    "ce-native-acceptance528/earned-modern/earned-Foolery-HOLY591-533.json": "6ad08f1c49363ee42740eecddbec60ba05073066ed95091577876ff21e8537e9",
+    "ce-native-acceptance528/earned-modern/earned-Foolery-key-repeat592-533.json": "03bf5c23ff7e6973ddc20a28e58cd3385e09b1d794408db21c9d1d0a99c5cf9b",
+    "ce-native-acceptance528/earned-modern/earned-Foolery-KEY591-533.json": "2e804f7fd41ddb1a7b54951562ebfd5f6b6f3d9a770626799ee59af391d275a7"
   },
   "presentation_sha256": "ad1a68db96f50b1aeba9b56d22a43b05a329f529593ff652e02f22aa16663063",
   "checkpoint_metadata": {
     "ce-native-acceptance528/earned-modern/checkpoints/423-Earned-Hairnet-missing-key-refusal423/checkpoint.json": "9fdc69469b442b15357b07add3eed7ae952793dbe49e807c46dce29a2fa3d3a6"
   },
   "remaining": [
-    "Foolery144 actual HOLY/GOTH/KEY award and original repeat stack.",
-    "Actual earned133 keygate1237 crossing and113 SearchLeft from1037, no duplicate repeat.",
-    "Combined positive cold and subsequentcompatibility; selectedClassicfork coverage staysseparate."
+    "Hairnet guardian effect and selected Classic branch remain separate acceptance obligations."
   ],
   "cost": {
     "builds": 8,
-    "game_cli_processes": 45,
+    "game_cli_processes": 46,
     "focused_cli_processes": 5,
-    "material_launches": 50
-  }
+    "material_launches": 51
+  },
+  "key425": {
+    "status": "VERIFIED",
+    "actual": "SourceKeep71 actor144 firstdayposition is1100/1124, bedposition1800/2611. InitialnightTalk582hitbedterrain93refusal; noHOLY/GOTH/KEYtopic was sent. W8/W6 to0950 stillbefore1100. Source schedule derived; normalQuickExit/W2/dayreentry reaches11124, normal17+9step588/589 fromportal. TalkUp actualopeningShrubberyCity; HOLY/GOTH/KEY591 awards133qty1,field26 0->32,424. NormalrepeatKEY592 grantsoriginalsecondcopy,qty2/field26=32,425. No outcome/state injection orEnginechanges. Current95step594 positivegateapproach deliberatelyexcludes1237untilactualOpen; first55movesbeforerunofthree17HPwatercells. Hairnet63flag1 remains0 beforeSearch."
+  },
+  "completion_report": "SCUMMVM-CE-M43-HAIRNET604-VERIFICATION.json",
+  "actual_completed": "Earned Modern missing-key Open refusal and blocked passage423; Foolery HOLY/GOTH/KEY awards133 and field26=32 at424, original repeat stacks second key425. Actual keyed Open and physical passage426. First Search pick fails with38HP Br trap; second normal pick awards113qty1/field63=1 at427. Repeat Search yields Nothing found, no duplicate428. Clean cold046 retains exact state/session/audio/no-assistance; actual Right10,37->11,37 at429. Normal QuickExit/camp/heal430 returns Surface83,78, HP89/80/80 MP31/42/42,40gold556food. No Engine change/build. Hairnet effect in guardian and selected Classic coverage remain separate."
 }

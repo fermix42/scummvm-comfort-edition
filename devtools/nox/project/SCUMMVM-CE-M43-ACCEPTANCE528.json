@@ -1101,7 +1101,7 @@
     },
     {
       "id": "holy-hairnet",
-      "status": "IN PROGRESS",
+      "status": "VERIFIED",
       "prerequisites": [
         "devils-key",
         "essence-angels"
@@ -1129,11 +1129,25 @@
         "scoped audio/presentation",
         "actual earned verification criteria"
       ],
-      "earned_lineage": null,
+      "earned_lineage": [
+        423,
+        424,
+        425,
+        426,
+        427,
+        428,
+        429,
+        430
+      ],
       "earned_refusal_scope": {
         "status": "VERIFIED",
         "report": "SCUMMVM-CE-M43-HAIRNET573-WORK.json",
         "scope": "Actual preKEY absence/refusal/noncrossing only; positive acquisition/cold pending."
+      },
+      "earned_scope": {
+        "status": "VERIFIED",
+        "report": "SCUMMVM-CE-M43-HAIRNET604-VERIFICATION.json",
+        "scope": "Earned Modern Holy Hairnet gate acquisition/refusal/repeat/cold and subsequent compatibility only."
       }
     },
     {
@@ -2859,10 +2873,10 @@
   "mode_strategy": "One primary Modern earned lineage; targeted Classic legal earned fork/restore/transitions; no duplicate complete campaign required by existing criteria.",
   "failure_policy": "Freeze failing path,source general diagnosis,focused correction+regression,at most2corrective reruns; resume valid nearest earned save,no prefix replay or outcome injection.",
   "builds": 6,
-  "process_launches": 45,
+  "process_launches": 46,
   "planned_node_count": 60,
   "mandatory_node_count_note": "All selected M3 nodes explicitly represented alongside dependency76 graph; includes supporting/advice/alternative nodes. Necessity is retained per source,not inferred from node count.",
-  "last_earned_checkpoint": 423,
+  "last_earned_checkpoint": 430,
   "baseline_candidate_sha256": "81feb2c7ff17594a6ea9754dc60602a755b2f37ea7c53b437f65a18e7c35000f",
   "candidate_change": "NPC529,cannon530,packedmelee531,mountedTalk532 source corrections; exact scoped receipts and earned ancestry retained. No broad matrix promotion.",
   "earned_failures_retained": [

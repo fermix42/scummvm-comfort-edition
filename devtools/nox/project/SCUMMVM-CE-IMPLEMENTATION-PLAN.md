@@ -1,4 +1,8 @@
-# Acceptance528 earned Nystul binding/cold416 � VERIFIED within scope
+# Acceptance528 earned Hairnet/cold430 - VERIFIED within scope
+
+Earned Modern missing-key Open refusal and blocked passage423; Foolery HOLY/GOTH/KEY awards133 and field26=32 at424, original repeat stacks second key425. Actual keyed Open and physical passage426. First Search pick fails with38HP Br trap; second normal pick awards113qty1/field63=1 at427. Repeat Search yields Nothing found, no duplicate428. Clean cold046 retains exact state/session/audio/no-assistance; actual Right10,37->11,37 at429. Normal QuickExit/camp/heal430 returns Surface83,78, HP89/80/80 MP31/42/42,40gold556food. No Engine change/build. Hairnet effect in guardian and selected Classic coverage remain separate. 26/60 selected nodes VERIFIED; M4.3 remains IN PROGRESS, ending unverified. 8 builds,46 gameCLI+5 focused=51 launches. Report `SCUMMVM-CE-M43-HAIRNET604-VERIFICATION.json`. Next: source-supported legitimate caster advancement to110INT, actual Vortex Ready/cast and full guardians; continue remaining acceptance without milestone stop. Canonical conversion records mirrored byte-identically to CE devtools/nox/project.
+
+# Acceptance528 earned Nystul binding/cold416 — VERIFIED within scope
 
 Earned Nystul binding411, repeat539, Staff412 and real low-INT refusal413; cold045 and actual Right move415 retain all state. Normal post-cold return crosses COMP-opened wall and B reboards Wyvern416. Maze access/Staff nodes VERIFIED; 25/60 nodes VERIFIED. Eight-page recognition/binding positive scopes VERIFIED; missing-pages forks/selected Classic coverage remain. Book12qty1, Staff83qty1, field61=67, field15=84, pages8/255. HP89/79/80 MP1/28/42,81gold594food. Current normal flight548 leaves maze toward Foolery/Hairnet. No Engine changes or builds; 8 builds,45 gameCLI+5 focused=50 launches. Vortex Ready/cast requires lawful110INT progression; no ending claim.
 
@@ -318,21 +322,21 @@ campaign/ending/publication remain excluded. No AGENTS change or M4 waiver.
 
 The source-driven subsystem directive supersedes dated reactive/campaign queues and the prior audio stop. Current execution plan: SCUMMVM-CE-SUBSYSTEM-PLAN.md. Matrix: SCUMMVM-CE-ENGINE-COMPLETION.json. No gameplay discovery or campaign acceptance is authorized now. Audio473 remains accepted; D3-D5 remain unfinished.
 
-# Connected Temple goal VERIFIED � November 13, 2026
+# Connected Temple goal VERIFIED — November 13, 2026
 
 D2 is VERIFIED in SCUMMVM-CE-TEMPLE-WORKFLOW-VERIFICATION.json on native build394:
 full connected workflow and exact pending normal-save cold continuation in both
 modes, including subsequent gameplay. Stop at the user goal boundary. D3-D5 and
 whole-port release/campaign acceptance remain unfinished.
 
-# Native-only development goal VERIFIED � November 13, 2026
+# Native-only development goal VERIFIED — November 13, 2026
 
 D1 is VERIFIED in SCUMMVM-CE-NATIVE-ONLY-VERIFICATION.json: native-only build,
 startup/movement, ordinary CE saving, exact cold load and next movement.
 This completes the bounded user goal, not full M4.2 release or M4.3 campaign.
 The current delivery queue below retains the remaining independent port work.
 
-# Current delivery order — November 13, 2026
+# Current delivery order â€” November 13, 2026
 
 The user requested an actual-engine review and a shorter path to completion.
 [SCUMMVM-CE-DELIVERY-PLAN.md](SCUMMVM-CE-DELIVERY-PLAN.md) now controls execution
@@ -1317,7 +1321,7 @@ saving. All tasks below must be VERIFIED for M1 VERIFIED.
 | M1.4 CE audio and pacing | M1.3 | Speaker/PSG behavior routed through Audio::Mixer; normal pacing and music exercised; pause, quit and load flush/restart cleanly; no waveOut/WinMain host dependency in engine |
 | M1.5 Zero-definition CE sessions | M1.2; playable integration needs M1.3 | Existing CE registry/lifecycle/sidecars used; shared capability separates session support from achievement presence without making unsupported games sync eligible; two local sessions persist; no fake awards; registered game/variant/token behavior verified if available, otherwise explicitly BLOCKED pending existing API registration and continue offline work |
 | M1.6 Complete M1 snapshot and durable slots | M1.3, M1.5 | Capture proven quiescent state including authoritative bridge/resource mutations; one versioned serializer via SaveFileManager; per-session physical keys; validated generations; fresh-process load restores changed playable state/session; two sessions using same logical slot do not collide; interrupted overwrite retains prior valid generation; corrupt/failed save/load reports errors without replacing live state |
-| M1.7 Destination acceptance and regression | M1.2–M1.6 | Demonstrate launcher launch, real new game, render/movement/modal action, audio, two sessions, durable cold reload and interrupted overwrite in actual CE executable; baseline standalone regressions still pass; compare source HDV hashes; record all passing/failing criteria and limitations; only then mark M1 VERIFIED and stop |
+| M1.7 Destination acceptance and regression | M1.2â€“M1.6 | Demonstrate launcher launch, real new game, render/movement/modal action, audio, two sessions, durable cold reload and interrupted overwrite in actual CE executable; baseline standalone regressions still pass; compare source HDV hashes; record all passing/failing criteria and limitations; only then mark M1 VERIFIED and stop |
 
 Each task may have small evidence-backed subtasks in progress. Code compilation is
 not a substitute for the gameplay and cold-process tests. Website deployment is
@@ -1483,7 +1487,7 @@ These subdivide the existing full M2.4 criterion; none removes its completion ga
 | M2.4c Missing/invalid history | M2.4a | Absent, corrupt, stale or mismatched CE sidecar never silently acquires trusted history from unsigned payload; explicitly conservative existing CE unknown/assisted recovery or refusal; candidate rejection leaves live owner/files/history unchanged; document recoverability and cold behavior. |
 | M2.4d Offline/link/transport | M2.4a/c | Dedicated non-admin hermesbox test account; zero achievement definitions/events; offline A/B creation, save/load, later link/sync and immutable event replay; exact client/server IDs, labels/hashes, flags and separated sessions audited; revoke temporary token afterward; no production deploy or credentials in reports. Existing provision_hermesbox.py and ONLINE-VERIFICATION.md supply trusted local environment steps. |
 | M2.4e Storage-failure matrix | M2.1d, M2.4b/c | Interrupted overwrite and malformed candidate tests plus real read/write/delete failures; no silent successful incomplete operation, previous committed logical generation recoverable, unrelated files intact. Repeat both save modes with nonempty enhancements using test_failures.py extensions. |
-| M2.4f Final integration/provenance | M2.4a�e, M2.2d4 | Every full M2 acceptance gate reconciled to latest build/source hashes; fresh-process early/middle/late representative owner states with honest earned-versus-controlled provenance; full owner/enhancement and permanent history matrix; native/standalone/original resource preservation and genuine M1 migration retained. Campaign completion remains M3, never inferred from controlled fixtures. |
+| M2.4f Final integration/provenance | M2.4a–e, M2.2d4 | Every full M2 acceptance gate reconciled to latest build/source hashes; fresh-process early/middle/late representative owner states with honest earned-versus-controlled provenance; full owner/enhancement and permanent history matrix; native/standalone/original resource preservation and genuine M1 migration retained. Campaign completion remains M3, never inferred from controlled fixtures. |
 
 M2.1d command/evidence: test_gameplay.py --native-video --observed-enhancements
 --callers --metadata --interfaces --chooser-ui, then same with --classic and
@@ -1567,7 +1571,7 @@ research/binding or earned continuous progression. Failed experiments remain in
 progress; use the current checkpoint/source hash before reusing evidence.
 
 
-### M3 Vortex linked transaction unit � IN PROGRESS
+### M3 Vortex linked transaction unit — IN PROGRESS
 
 Historical attempted approach, not current acceptance: chain seven Search transactions, then Axea's
 eighth-page award/repeat refusal, Valess research/repeat branch and Nystul
