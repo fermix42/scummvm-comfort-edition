@@ -51,7 +51,8 @@
     "After269 unsaved road branch reached120input bound with3casualties/lastGuard97, Escape refused; normal269 load270 excludes that branch. No successful Flee or battle save claimed; proceeding by sea with full party.",
     "287 checkpoint label anticipates Copper73; actual search failed withoutdamage, keyABSENT/field25unchanged2/picks0. No questpickup credited. Tacticalincidental280 and fixedactorQuick283 full defeats retained; normal earned reloads281/284 exclude losses. Flee283 cost501->250gold remains in primary.",
     "Original item73 is Wrinkled Note, notCopperKey;287 historical label/proofalias qualified, noitem acquired. Merchant schedule interpretation corrected toWORK08-15/16-21; normal wait only. GMMpaused advance controller timeout recoveredsameprocess, noEnginefatal.",
-    "290/291 labels do notcreditrefusedcamp: actualbeach/Skiff/Frigate/openwater HrefusalsretainMP; dry203105H restored89MP/89food. Newprivatepauseguardandremovalofimplicitbattlepausefixcontrolleronly, noEnginebuild.292cannonvictory noHP/MPcost. Minimumreadiness isNox5/INT50, notall6party5. SourceWdigit waitswholehoursnormally, no clockinjection."
+    "290/291 labels do notcreditrefusedcamp: actualbeach/Skiff/Frigate/openwater HrefusalsretainMP; dry203105H restored89MP/89food. Newprivatepauseguardandremovalofimplicitbattlepausefixcontrolleronly, noEnginebuild.292cannonvictory noHP/MPcost. Minimumreadiness isNox5/INT50, notall6party5. SourceWdigit waitswholehoursnormally, no clockinjection.",
+    "Mixednaval firstfull defeatretained; normalactual998healthy20787reload293 preservespreceding7enemyseavictoryearnedXP. Onechangednormaladjacenttargetpolicywinsall6fullHP,294. Noexpectedoutcome/stateinjection. Normalallocations4members5,Nox56INT; preparationstopswhenminimumeligible,nofurthertrainingrequired."
   ],
   "checkpoints": [
     {
@@ -3982,22 +3983,44 @@
       },
       "process": 31,
       "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd"
+    },
+    {
+      "label": "earned normal998 naval recovery293",
+      "slot": 293,
+      "parent": "378b80446ff98e1ce718249ec04c98691e9806069eb67092d684ce8f8b1fba54",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot293.g0": "c595f909dab725967604201a921bcc0552abd736c80b29ffc68fdcbbc4c47c4b",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot293.g0.ce-achievements.json": "ae2dc4f62b00f278f94e14bf948ea56ac97f2c3079d68c8d8b47a7c507336a9e"
+      },
+      "process": 31,
+      "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd"
+    },
+    {
+      "label": "earned naval victory and caster level5 readiness294",
+      "slot": 294,
+      "parent": "53d2be6ae5a9e5fceede0a9b281d72daea71406636caa15f72421cc89bae99b7",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot294.g0": "1f90882deb56e55884c34688dd5fc92bf685d52e9a265d592296ea6f0007402d",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot294.g0.ce-achievements.json": "7de49e51ee85b4de3a9c78bc41807b5b0a19fa57df4e9a5a0867bea595c62015"
+      },
+      "process": 31,
+      "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd"
     }
   ],
   "correction": "SCUMMVM-CE-NPC529-VERIFICATION.json",
-  "last_checkpoint": 292,
+  "last_checkpoint": 294,
   "cold_evidence": "ce-native-acceptance528/earned-modern/cold031.json",
-  "next_action": "Continue known75stepcastle17961voyage from20795, ordinarysafe-cannonadmissions. StopXPpreparation onceNoxearns5 andnormal12INTallocationqualifies50INTspell. Castle59merchant64/stock2ShockStorm27 costs160, fullInn56MP; thenBrown/Cultmateriallyimproved. UseoriginalW1..9hourwaitinsafeareas, nothundredsofSpace. DriverguardpreventsGMMgameinputtimeouts; norepeatacceptedtests.",
+  "next_action": "Finish55stepcastleanchor17961; normalSkiffDown2landing17963 andcastle54entry. Castle59merchant64 stock2 ShockStorm27/160gold; sourcecastmin50INT metNox56. NormalReadyshortcut8 andfullInnrest56MPbeforeBrown/Cultreturn. UseoriginalWdigitwholehourwaitifneeded, sourcecorrectWORKcap64/travel0; readactualpost-passNPCpositionswithoutextraGMMresumebeforeTalk. No unchanged battle reruns/sourcebuilds/suite reruns.",
   "current_source_commit": "c660ae8ac41",
   "current_executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd",
-  "latest_earned": "Normal usablepicks50 confirmedfield33; rawinventory69 remains64 (prior14 plus50), no broadcounterparityclaim. Shore289 routefirsthit17HP/member202105 thenfive98/137enemy admission204105; actual Tactical/spells victorynoadditionalHPdamage,+33gold268->301. Afterprivatehelperimplicitpause caused2timedoutadvances, secondnormalEscape recoverednestedGMM,sameprocess. Private13linecachedpauseguard installedandbattlehelperautomaticpause removed; noEngineedits/build/relaunch. SixnormalKatheals12MPrestoreallHP; beachH REFUSED.290 savedactualvictory. Left203105 normalH succeeds89MP/686->597food. Right204105 admitsfive98HPsprite152; normalFireball victoryall6fullHP,+42food639; no extraHPdamage. BownedSkiff124, H REFUSED. Right2/BFrigate119206105, H REFUSED,291. Source remaining3cannonships inshallows havezero229/2x2Frigateattackorigins; no attack/movementexperiment, skipdetour. Known75stepFrigatecastle17961 routeintercepts five98HPseaenemies20795; full15safe-cannon victory noHP/MPcost,+38food677,292. HaboardstillREFUSED, nomana restoration credited. MP15/9/9/18/18/24,all6fullHP,301gold677food. Resumeactual75stepvoyage; narrow readiness toNox50INT, notall6level5.",
+  "latest_earned": "Seven98HP sea enemies20787 cannon victory retainsall6fullHP/noMPcost,+50food677->727. Resumeadmits mixed7enemy98/137group20786; first Tactical/Blades/cannons full defeatretained. TwoBladecasts killeddistant98HPenemy0/2 whileadjacent137HPguard2,2 remained; Noxfirstcasualty. Normalactualprebattle998 reload293 restoreshealthy20787/301gold727food andearned7seavictoryXP, excludesfailedmixedgroup. Onechangedordinary-inputattempt: BladeSmite prioritizesadjacentthreat; meleefighterAttackadjacentbeforeCannonwalk. ActualtwoSmitecasts target6,137->32->0 beforeenemyround. Wholefull7enemyvictoryall6fullHP; noEnginechanges/build/relaunch. Normalreward/UIallocations: Kat12STR->44/level5/maxHP99; Cutter12INT->44/level5/maxHP81; Nox12INT->56/level5/maxHP80; Alluvion12INT->44/level5/maxHP84. Hero/Bridgitstay4. Actualnormal294save XP2012/2012/1936/1934/2004/2004, MP15/13/1/2/14/21,347gold727food,picks50. Minimum50INTcasterreadiness VERIFIED withinpreparationonly; nofurtherXPtraining. Brown74/Cult75 remainunacquired,14/60selectednodesVERIFIED,7/8pages,endingunverified. Replanned55stepdeep-waterCastle17961routeavoidsallcurrentsourcecompactactor typeswith2cellmargin, ratherthancontinuingoldencountercontactroute.",
   "historical_receipt_baseline": {
     "executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4",
     "source_binding": "SCUMMVM-CE-CANNON530-VERIFICATION.json",
     "qualification": "Initialreceiptbaseline only; percheckpoint/current identities control later progression."
   },
   "source_commit": "c660ae8ac41",
-  "local_full_ledger_sha256": "154475b7a99cac2670c6e3206868c8439586b966b39ce42168884c5e82ad8e1b",
+  "local_full_ledger_sha256": "2060a4b28ab003cc41201c69dbc4324b490c3250f225b2ad344513e6153972fc",
   "latest_scoped_evidence": {
     "status": "VERIFIED",
     "scope": "Actual141cold021/142normalnextstep retain quest/inventory/party/resources/sound/session and parkedhorse; not Rustydoorpositivecrossing or fullcampaign acceptance",
@@ -4017,9 +4040,9 @@
     "SCUMMVM-CE-M43-SCALES532-WORK.json": "0ae8239c7e75489373b0604738e1e79d35ccd3a81e348f47832e978cd82b9645",
     "SCUMMVM-CE-M43-CASTLE532-WORK.json": "c1d4286b16d7e8cd3cadcc17047ce6d12a740089562c4df18d0493a527da57d6",
     "SCUMMVM-CE-DOOR533-VERIFICATION.json": "b56eda55bb27385ee3a31fda61b57f58965e91465d68e120ba271e1c360e3c6b",
-    "SCUMMVM-CE-M43-CULT533-WORK.json": "8ca398539344251e6cec1249c87680b9ea7c8ebefba83a0e101faa8711e52cd1"
+    "SCUMMVM-CE-M43-CULT533-WORK.json": "551c94487540687b39d44f7c91c85c2b5995e74f15d5a4b3dab129e0a5c5c4f0"
   },
-  "private_ledger_sha256": "154475b7a99cac2670c6e3206868c8439586b966b39ce42168884c5e82ad8e1b",
+  "private_ledger_sha256": "2060a4b28ab003cc41201c69dbc4324b490c3250f225b2ad344513e6153972fc",
   "superseded_current_aliases_royal532": {
     "last_checkpoint": 44,
     "latest_earned": "142 firstnormalworldstep after actual141cold021, fullparty/questinventory/resources/session retained;horseparked persistence",

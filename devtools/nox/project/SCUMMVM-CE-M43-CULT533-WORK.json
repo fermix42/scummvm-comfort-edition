@@ -15,7 +15,7 @@
     "focused_cli": 5,
     "material_cli": 36
   },
-  "next_action": "Continue known75stepcastle17961voyage from20795, ordinarysafe-cannonadmissions. StopXPpreparation onceNoxearns5 andnormal12INTallocationqualifies50INTspell. Castle59merchant64/stock2ShockStorm27 costs160, fullInn56MP; thenBrown/Cultmateriallyimproved. UseoriginalW1..9hourwaitinsafeareas, nothundredsofSpace. DriverguardpreventsGMMgameinputtimeouts; norepeatacceptedtests.",
+  "next_action": "Finish55stepcastleanchor17961; normalSkiffDown2landing17963 andcastle54entry. Castle59merchant64 stock2 ShockStorm27/160gold; sourcecastmin50INT metNox56. NormalReadyshortcut8 andfullInnrest56MPbeforeBrown/Cultreturn. UseoriginalWdigitwholehourwaitifneeded, sourcecorrectWORKcap64/travel0; readactualpost-passNPCpositionswithoutextraGMMresumebeforeTalk. No unchanged battle reruns/sourcebuilds/suite reruns.",
   "earned_evidence": {
     "ce-native-acceptance528\\earned-modern\\earned-Raque-clue-and-admission249-533.json": "c5fb471e23bbf8801094b6144b08d887f2a864e775e35e185cc4b7ed6eec4435",
     "ce-native-acceptance528\\earned-modern\\earned-Raque-full-battle-key249-533.json": "5756b397c0facb60358bc9a8bedb0911f35c7e579f9cff1ed587ba37ac9172b2",
@@ -37,12 +37,18 @@
     "ce-native-acceptance528\\earned-modern\\earned-fixed-cult-Quick-result283-533.json": "f89bdcd34ba6f8d911f694b19dfa655660456407b6bbf6fa97bf669b82ac61ed",
     "ce-native-acceptance528\\earned-modern\\earned-treasury-Copper287-533.json": "d23648e6264ab7acbedcbc1209f9e2dcfbcf9b1f6c3601e47644bee52f1910a3",
     "ce-native-acceptance528\\earned-modern\\earned-normal-shop-hours-wait288-533.json": "a258727e28de3d28aae923f91af19fc0e6ebf555d98ac9437d89f20d362eb3ee",
-    "ce-native-acceptance528\\earned-modern\\earned-picks289-533.json": "f47e36fb4c098fa3948ccbbbcbbf0ffa320c76d66e6fe1c0ac1e14238d6dac11"
+    "ce-native-acceptance528\\earned-modern\\earned-picks289-533.json": "f47e36fb4c098fa3948ccbbbcbbf0ffa320c76d66e6fe1c0ac1e14238d6dac11",
+    "ce-native-acceptance528\\earned-modern\\earned-mixed-naval-defeat-after292-533.json": "fe7e47c1dd7300874d4dce428c640a120deb6a1f37181b6fd2f14491606bc28e",
+    "ce-native-acceptance528\\earned-modern\\earned-naval-normal998-recovery293-533.json": "9bcbb8b428753931c3d8f9c6b3e255219862c36134ae3a1d614fa356888805d8",
+    "ce-native-acceptance528\\earned-modern\\earned-mixed-naval-changed-tactic293-533.json": "76fa51b112bf02dbb95371f82a971b7357e2c4f7b9441e3fdae9ab45508c5fe9",
+    "ce-native-acceptance528\\earned-modern\\earned-mixed-naval-changed-victory293-533.json": "d38020d1ccda91e6635bb9f318957b2c120003393a3d0263f212fefff3932527",
+    "ce-native-acceptance528\\earned-modern\\earned-normal-level5-allocations294-533.json": "4fe39e339fa8aa7844deb03d24ba73df4b8f20beccf9749d0f9afa8de8e13787",
+    "ce-native-acceptance528\\earned-modern\\earned-level5-actual-records294-533.json": "90cfcbf0550c26bb1bcbcce80d01928a1719f7dd460ac51fa704b99492dd5f9c"
   },
   "actual_after251": "Normal cave252 and earned132 door Open/Down/Down pass253 all6fullHP/resources unchanged. Source route to absent-Brown gate intercepted at98/195100 beforeRight196100 by eight191/148HP cultist/satyr/mage encounter; actual Tactical/spells/heals defeat retained. Normal prebattle998 load; changed normal Tactical/Escape/Y flees581->290gold254 all6fullHP/MP unchanged. Two further admissions at same attempted cell fled normally290->145->72; no XP/reward. Alternate source route avoids196100 via normal97/98 stair return then east197109; ongoing full-source route to Brown gate.",
   "actual_after254": "Retained normal flee254 followed by two more same-cell admissions/flees290->145->72gold. Alternate source route via normal97/98 stairs bypasses196100 and reaches201104; two-Satyr incidental admission fled72->36, then three-Satyr admission actual Tactical/spells/heals victory36->72gold255. All6alive; Hero59HP healed normally byKat2MP to77. Normal H cave camp REFUSED You sense danger near; food793 and MP11/9/9/2/2/9 unchanged. Checkpoint255 label mentions camp prematurely; actual camp is refused, not credited. Normal full-source route continues east220100 and north toward Brown gate; no source/build/newCLI.",
   "actual_through258": "Normal alternate cave walking reaches Brown gate98/21621. Actual OUp refusal No key or pick fits256; party/inventory/allquestfields/gold/food/xy unchanged. Normal H there restores111MP,793->682food257. Normal60step route to23150; first OLeft/Cutter2 difficulty5 lockpick fails with26HP trap45HP, second opens. NormalLeft/Left to22950 and OLeft flips control22850 116/49->115/48 and wall21459 74/50->74/254, actual normal save records258. No injected outcomes. Normal Kat heal2MP restores Cutter71HP before99step return to wall21359. Brown74 not yet acquired.",
-  "primary_lineage": "0..250 ->263..269 ->270..280 ->281..283 ->284..289;251..262 alternate;unsaved roadfailure/Tactical280/Quick283 defeats retained andexcluded bynormal earnedreloads",
+  "primary_lineage": "0..250 ->263..269 ->270..292 ->normalpost-seven-sea-victory998 ->293..294; allfailedroad/cult/navalbranchesretained/excludedbydocumentednormalearnedreloads",
   "actual_through264": "Cave return at23553 blocked by mage admission; normal Flee72->36, another nine-enemy admission normal Flee36->18,259. Normal Bridgit QuickExit4MP returnsSurface20099,260. Entrance treasure door picked; eight137HP guards actual Tactical/spells/heals victory all6fullHP18->36gold261. First entrance chest initial ordinary lock refusal, second Search succeeds +19gold36->55,262; no trap damage. Small payout does not fund452gold IceStaff. Explicit normal250 chooser reload263 resumes original earned Raque132/7pages/bothcastlekeys/581gold900food; parent points to250. Checkpoints251..262 preserved as alternate earned branch, not carried into resumed mainline: later guard XP/gold and Brown opened-control state excluded. Current Brown74 absent and wall not yet opened in resumed mainline. Normal Town41 merchant112 approach corrects stale NPC coordinates and one blocked cell; actual23 surplus sales +264gold581->845,264. Equipped items, spellbooks/quest items, ProtectionRing33 and ThiefNeck32/Cloak30 retained. No expected outcome injection, Engine source change, build or new CLI.",
   "equipment_reason": "Actual eight-enemy defeat; full source equipment preflight now includes weight/DEX/INT, not power alone. Earlier Ice/Fire staff proposal is invalid for currentINT44 and withdrawn before purchase. Eligible armor, higher-tier hostile mass/single-target spells and full Inn MP are the bounded preparation.",
   "actual_through268": "Funded primary264 exits town normally; dry-land H restores107MP/900->793food265. Shore approach causes actual17HP loss/member; six normal Bridgit heals12MP restore all6fullHP266. Normal ownedSkiff/Frigate boarding admits five98/137Pirates; Tactical/fireballs/cannons victory all6fullHP845->873gold. Normal H restores72MP/793->721food267. Frigate75step route206105->17961 no damage/encounter; normal skiff landing17963 and foot castle54 entry all6fullHP. Castle Inn route interrupted by NPC blocking27,35; no Inn payment. Source equipment eligibility correction: IceStaff47 requires68INT, FireStaff39 requires56INT; highest partyINT44. Earlier staff plan missed these requirements; NO purchase/equip attempt made. Corrected source contract: Town44 MageCloak42/Neck44 and BladeStorm21/BladeSmite15 require38INT, usable by Bridgit/Nox44. BladeStorm is hostile mass-target, no Fireball area/friendly proximity constraint; Smite is single-target. Town44 Inn112 costs11gold/fullHPMP and room45/14,29. Normal Bridgit QuickExit4MP returns17762,268,873gold721food,MP15/24/24/29/33/24. Source92step dry-foot Town44 entry132109 route active; three196HPsprite139 road admission at17766, actual battle ongoing. No source/build/newCLI/suite.",
@@ -105,18 +111,33 @@
   "minimum_readiness": {
     "required_new_spell": "Shock Storm27",
     "required_caster_int": 50,
-    "current_Nox_int": 44,
-    "Nox_xp": 1947,
-    "Nox_level5_deficit": 53,
+    "current_Nox_int": 56,
+    "Nox_xp": 2004,
+    "Nox_level5_deficit": 0,
     "all_six_level5_required": false,
-    "normal_allocation": "Nox12INT when earned level5 prompt appears; fullInnrest56MP permits2x25costcasts",
-    "stop_preparation_when_eligible": true
+    "normal_allocation": "NormalNox12INTallocationcompleted294; stoptraining. FullInn56MPstillrequired.",
+    "stop_preparation_when_eligible": true,
+    "status": "VERIFIED",
+    "scope": "Eligibilityonly,notcampaignacceptance"
   },
   "actual_through292": "Normal usablepicks50 confirmedfield33; rawinventory69 remains64 (prior14 plus50), no broadcounterparityclaim. Shore289 routefirsthit17HP/member202105 thenfive98/137enemy admission204105; actual Tactical/spells victorynoadditionalHPdamage,+33gold268->301. Afterprivatehelperimplicitpause caused2timedoutadvances, secondnormalEscape recoverednestedGMM,sameprocess. Private13linecachedpauseguard installedandbattlehelperautomaticpause removed; noEngineedits/build/relaunch. SixnormalKatheals12MPrestoreallHP; beachH REFUSED.290 savedactualvictory. Left203105 normalH succeeds89MP/686->597food. Right204105 admitsfive98HPsprite152; normalFireball victoryall6fullHP,+42food639; no extraHPdamage. BownedSkiff124, H REFUSED. Right2/BFrigate119206105, H REFUSED,291. Source remaining3cannonships inshallows havezero229/2x2Frigateattackorigins; no attack/movementexperiment, skipdetour. Known75stepFrigatecastle17961 routeintercepts five98HPseaenemies20795; full15safe-cannon victory noHP/MPcost,+38food677,292. HaboardstillREFUSED, nomana restoration credited. MP15/9/9/18/18/24,all6fullHP,301gold677food. Resumeactual75stepvoyage; narrow readiness toNox50INT, notall6level5.",
   "private_controller_sha256": {
     "earned_controller_guard289.py": "2dc4f54477e73cf05c9608416566942ffdc0078315b20c7baa87571ae0146f64",
-    "earned_battle528.py": "11679b06256a19e3ea0e51ddb42f80f839c7f2a8522583f10204293fd78ba32c",
-    "earned_market530.py": "a6284d968ac0d36440e0628fda2d8299ba8cb10d3c2e06f7349aa06ecf003d52",
+    "earned_battle528.py": "0be93c8b938f227137bc74e57d28b0b7cf7e44a1b7d0db6aecd1fe07ca779dcd",
+    "earned_market530.py": "7f3da1a87e74b86ac05ddbe997f2d46fe8bc5b7fd0416683fce56d30b233121c",
     "follow_earned528.py": "deeff6cf6127d3e2e60984662080ecf9378a13c83f9bfe71dcbbe34870694582"
-  }
+  },
+  "naval293": {
+    "status": "VERIFIED",
+    "first_actual": "After292, seven98HP sea enemies20787 defeated all6fullHP/noMPcost,+50food677->727. Resume thenmixed7enemy180/155 admission20786. NormalTactical/Blades/oneFireball/cannons endsactualfull defeat. BothBladecasts targeted distant98HPenemy0/2 andkilledthem; adjacent137HPenemy2,2remained,Noxfirstcasualty. NoEngineimplementationdefectdemonstrated.",
+    "recovery": "Normalactualprebattle998 reload preservesearned7enemyvictoryXP:healthy20787/301gold727food,checkpoint293,parent292plusdocumentedpost292normal998 lineage. Failedmixedgrouprewardsexcluded.",
+    "one_changed_attempt": "Privateinputs prioritizeadjacentthreatwithBladeSmite andadjacentmeleeAttack beforewalkingtoCannon. Samefull7enemyadmission20786 retained. Onechangedretry underway; nofurtherunchangedretry.",
+    "production_changes": false,
+    "builds": 8,
+    "game_cli": 31,
+    "focused_cli": 5,
+    "material_cli": 36,
+    "scope": "Onechangednormaltactic winsfull7enemyencounterafterexplicitnormal998reload; retained firstdefeatnotmerged"
+  },
+  "actual_through294": "Seven98HP sea enemies20787 cannon victory retainsall6fullHP/noMPcost,+50food677->727. Resumeadmits mixed7enemy98/137group20786; first Tactical/Blades/cannons full defeatretained. TwoBladecasts killeddistant98HPenemy0/2 whileadjacent137HPguard2,2 remained; Noxfirstcasualty. Normalactualprebattle998 reload293 restoreshealthy20787/301gold727food andearned7seavictoryXP, excludesfailedmixedgroup. Onechangedordinary-inputattempt: BladeSmite prioritizesadjacentthreat; meleefighterAttackadjacentbeforeCannonwalk. ActualtwoSmitecasts target6,137->32->0 beforeenemyround. Wholefull7enemyvictoryall6fullHP; noEnginechanges/build/relaunch. Normalreward/UIallocations: Kat12STR->44/level5/maxHP99; Cutter12INT->44/level5/maxHP81; Nox12INT->56/level5/maxHP80; Alluvion12INT->44/level5/maxHP84. Hero/Bridgitstay4. Actualnormal294save XP2012/2012/1936/1934/2004/2004, MP15/13/1/2/14/21,347gold727food,picks50. Minimum50INTcasterreadiness VERIFIED withinpreparationonly; nofurtherXPtraining. Brown74/Cult75 remainunacquired,14/60selectednodesVERIFIED,7/8pages,endingunverified. Replanned55stepdeep-waterCastle17961routeavoidsallcurrentsourcecompactactor typeswith2cellmargin, ratherthancontinuingoldencountercontactroute."
 }
