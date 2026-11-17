@@ -202,7 +202,7 @@
     },
     {
       "id": "cult-lower-portal",
-      "status": "IN PROGRESS",
+      "status": "VERIFIED",
       "prerequisites": [
         "gordon-shrubbery",
         "brown-key"
@@ -232,12 +232,13 @@
         "scoped audio/presentation",
         "actual earned verification criteria"
       ],
-      "earned_lineage": null,
-      "actual_result": "Actual normal earned307 first floor transition and selfportal221101; subsequent cold/compatibility pending"
+      "earned_lineage": "Earned306->307->308->309->cold034/310; original two casualties retained",
+      "actual_result": "Normal307 goes98/21619 Up2->99/21617, then6Down through owned selfportal21623->221101; no party/resources mutation or setup injection. Normal Left4 reaches217101 and TalkUp opens original L063 magic mouth. BRIBE refusal308, normal Left2/Up remainsblocked215101; read-only wall215100 stays74/50. Normal Right2/TalkUp/VHA309 receives authored acceptance; after normal conversation close wall215100 is74/254 and transientfield46bit2 consumed (field46=4). Original guard source records found by immutable coordinates: monk compactslot8 [215,98,137,5,0,12,0,2], now21599; corridor cultist compactslot0 [215,86,169,5,0,56,0,2]. Earlier provisional private BD8/slot216 read was wrong-offset zero data and is not guard evidence. Actual clean cold034 matches party/inventory/allquestfields/resources/map/sound/session/noassistance; saved310. First normal postcold Left reaches216101, second Left admits original full8Monks191HP+2HighMonks137HP at215101, so mouth-wall physicalpass remains unverified until actual victory/passage. Lower portal and postcold next-command continuity VERIFIED; Mouth IN PROGRESS. Primary retains actual Kat/Hero deaths304; four survivors fullHP. Normal Cutter C1 Summon Wisp spends10MP29->19 and selected frame135 showsfivewisps; fullMonk battle currentlyINPROGRESS, no outcome credited. No Engine source/build/suite rerun;8builds/34gameCLI+5focused=39.",
+      "earned_evidence": "SCUMMVM-CE-M43-CULT533-WORK.json lower_portal"
     },
     {
       "id": "cult-magic-mouth",
-      "status": "NOT STARTED",
+      "status": "IN PROGRESS",
       "prerequisites": [
         "gordon-shrubbery",
         "brown-key",
@@ -269,11 +270,12 @@
         "scoped audio/presentation",
         "actual earned verification criteria"
       ],
-      "earned_lineage": null
+      "earned_lineage": null,
+      "actual_result": "Normal307 goes98/21619 Up2->99/21617, then6Down through owned selfportal21623->221101; no party/resources mutation or setup injection. Normal Left4 reaches217101 and TalkUp opens original L063 magic mouth. BRIBE refusal308, normal Left2/Up remainsblocked215101; read-only wall215100 stays74/50. Normal Right2/TalkUp/VHA309 receives authored acceptance; after normal conversation close wall215100 is74/254 and transientfield46bit2 consumed (field46=4). Original guard source records found by immutable coordinates: monk compactslot8 [215,98,137,5,0,12,0,2], now21599; corridor cultist compactslot0 [215,86,169,5,0,56,0,2]. Earlier provisional private BD8/slot216 read was wrong-offset zero data and is not guard evidence. Actual clean cold034 matches party/inventory/allquestfields/resources/map/sound/session/noassistance; saved310. First normal postcold Left reaches216101, second Left admits original full8Monks191HP+2HighMonks137HP at215101, so mouth-wall physicalpass remains unverified until actual victory/passage. Lower portal and postcold next-command continuity VERIFIED; Mouth IN PROGRESS. Primary retains actual Kat/Hero deaths304; four survivors fullHP. Normal Cutter C1 Summon Wisp spends10MP29->19 and selected frame135 showsfivewisps; fullMonk battle currentlyINPROGRESS, no outcome credited. No Engine source/build/suite rerun;8builds/34gameCLI+5focused=39."
     },
     {
       "id": "cult-temple-monks",
-      "status": "NOT STARTED",
+      "status": "IN PROGRESS",
       "prerequisites": [
         "gordon-shrubbery",
         "brown-key",
@@ -303,7 +305,8 @@
         "scoped audio/presentation",
         "actual earned verification criteria"
       ],
-      "earned_lineage": null
+      "earned_lineage": null,
+      "actual_result": "Actual original full8+2 admission after cold310; normal SummonWisp10MP, five rendered friendly wisps. Battle ongoing; no outcome claimed."
     },
     {
       "id": "cult-corridor-cultists",
@@ -2702,10 +2705,10 @@
   "mode_strategy": "One primary Modern earned lineage; targeted Classic legal earned fork/restore/transitions; no duplicate complete campaign required by existing criteria.",
   "failure_policy": "Freeze failing path,source general diagnosis,focused correction+regression,at most2corrective reruns; resume valid nearest earned save,no prefix replay or outcome injection.",
   "builds": 6,
-  "process_launches": 33,
+  "process_launches": 34,
   "planned_node_count": 60,
   "mandatory_node_count_note": "All selected M3 nodes explicitly represented alongside dependency76 graph; includes supporting/advice/alternative nodes. Necessity is retained per source,not inferred from node count.",
-  "last_earned_checkpoint": 307,
+  "last_earned_checkpoint": 310,
   "baseline_candidate_sha256": "81feb2c7ff17594a6ea9754dc60602a755b2f37ea7c53b437f65a18e7c35000f",
   "candidate_change": "NPC529,cannon530,packedmelee531,mountedTalk532 source corrections; exact scoped receipts and earned ancestry retained. No broad matrix promotion.",
   "earned_failures_retained": [
