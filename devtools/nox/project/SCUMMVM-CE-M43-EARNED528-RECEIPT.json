@@ -4,7 +4,7 @@
   "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd",
   "source_binding": "SCUMMVM-CE-DOOR533-VERIFICATION.json",
   "builds": 8,
-  "process_launches": 40,
+  "process_launches": 41,
   "verified_selected_nodes": [
     "opening-exit",
     "royal-access",
@@ -4297,12 +4297,12 @@
     }
   ],
   "correction": "SCUMMVM-CE-NPC529-VERIFICATION.json",
-  "last_checkpoint": 375,
+  "last_checkpoint": 378,
   "cold_evidence": "ce-native-acceptance528/earned-modern/cold036.json",
   "next_action": "Complete424 fromindex121 at65,147, boardFrigate119217; Bruce75/Archus/Order/remainingcampaign",
   "current_source_commit": "c660ae8ac41",
   "current_executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd",
-  "latest_earned": "Earned BruceTown75 arrival375, fullHP89/80/80 MP31/42/42,0gold617food; Scales/Letter/page254 retained. Bruce conversation not yet credited.",
+  "latest_earned": "Bruceascension376/repeat377/clean cold041/normalQuickExit378; fullHP89/80/80 MP27/42/42,0gold617food; passedfield48=226, Scales146qty1. Membership/refusal/endingunverified.",
   "historical_receipt_baseline": {
     "executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4",
     "source_binding": "SCUMMVM-CE-CANNON530-VERIFICATION.json",
@@ -4338,9 +4338,10 @@
     "SCUMMVM-CE-M43-TRAVEL-REST357-WORK.json": "353011e6bdbf32ea80edd6a0d119eb48ed9ee090965aca5290c303f1c539672a",
     "SCUMMVM-CE-M43-LETTER-CHAIN392-VERIFICATION.json": "f866ae5540d1b14ebd93ff069eb3230c7f21828a51564503d1042a8bc61b2e6f",
     "SCUMMVM-CE-M43-SCALES419-VERIFICATION.json": "2414a29908ca0f0b4547e33e8338131b99ec8e687da2d20e9fea2dd7c3cd1bb6",
-    "SCUMMVM-CE-M43-BRUCE420-WORK.json": "f53cf9fbc3e7772ee2c9af0562a8ddc80bed377a75f7c6dfa40478e1693e4778"
+    "SCUMMVM-CE-M43-BRUCE420-WORK.json": "2dfb96c8bf6034f4161b75469837f6d005e14e8868998ff4826d591296bb83d8",
+    "SCUMMVM-CE-M43-BRUCE445-VERIFICATION.json": "ec909d5768cab7325621e2e52bb5f788e84072abbec2f7933cf278090fc12a7e"
   },
-  "private_ledger_sha256": "056c20d0c5a1aa0ee729fe50662b8a2a13f2aabd5226500665dae821c9b156e3",
+  "private_ledger_sha256": "9fe8d6164fd83cf9f8d676b67f5264810f733b1b98849d5f438a581850ab0c05",
   "superseded_current_aliases_royal532": {
     "last_checkpoint": 44,
     "latest_earned": "142 firstnormalworldstep after actual141cold021, fullparty/questinventory/resources/session retained;horseparked persistence",

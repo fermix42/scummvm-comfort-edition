@@ -15,10 +15,13 @@
     372,
     373,
     374,
-    375
+    375,
+    376,
+    377,
+    378
   ],
   "actual": "Source95step exact-actor dryfoot421 from17762 to129109. Two50HP sprite148 roadenemies16470 normalStaffvictory, noHP/MP,+4food597->601. NormalDown129110/B boardsownedSkiff124 (appearance124/onfootfalse asserted),365. Read-only originalSkiff watercontract compared north/leftFrigateapproaches: minimumdamage north336steps105HP vsleft338steps140HP. Existingprivateplanner givenoptionalexposure-step-cost20 objective; defaultdamage-first unchanged. Actualbalanced424route254steps175HP/fivedeep229cells chosen,82fewersteps. First38moves includeactualfive35HP episodes at128117/127117/126117/114132/113132. Aftereachone normalDivineHeal52 costs17, Brtwocasts39->5MP andNoxthree56->5MP; Hero23unchanged, all3HP89/80/80 restored eachtime, zero deaths/battle. AboardSkiff normalHcamp at113132 actuallyrestores84MP:Hero23->33 Br5->42 Nox5->42, food601->517, HPpreserved,366saved. Currentremaining216source-safe-water moves424 fromindex38 towardFrigateapproach119216 underway, stoponactualdamage/battle. Scalesqty1/field60=3 retained. NoEnginechange/build/oldsuitererun.",
-  "planned_next": "Complete source441 to actual BruceNPC0 at24,11, normalTalk and original Scales recognition; then Archus membership/key94, portals/lastpage and remaining finite M4.3 requirements.",
+  "planned_next": "Normalreturn toFrigate/Archus58, actualmembership/key94/portals andremainingM4.3; no milestone stop.",
   "evidence": {
     "ce-native-acceptance528/earned-modern/earned-skiff-south-exposures425-533.json": "4ec8f9e7d8ca9f0e3d4c27b1c53ee5ef9439e2cbcdaaf54ca4f36f8c13d6cedb",
     "ce-native-acceptance528/earned-modern/earned-skiff-south-camp425-533.json": "3980144e0087d3b711edb302b02f5dfbde5370c33cd6d1afb23f6af97ac07776",
@@ -43,9 +46,9 @@
   },
   "cost": {
     "builds": 8,
-    "game_cli": 40,
+    "game_cli": 41,
     "focused_cli": 5,
-    "material_cli": 45
+    "material_cli": 46
   },
   "verification_qualifications": [
     "Fiveexposures/camp actualscoped evidence only; entirevoyage/Bruce/Order/ending remainINPROGRESS.",
@@ -119,5 +122,14 @@
     "status": "VERIFIED",
     "scope": "Earned voyage, recovery and actual BruceTown75 arrival only",
     "actual": "Normal seven-pirate Staff victory at103,208 retained all3 fullHP and MP3/2/2, food673,371. Fresh source24step434 reaches119216; Down/B actually reboards ownedFrigate119 at119217,372. Original2x2 deep-water136step435 crossing reaches209227 where seven98HP pirates board. Source cannon positions read directly from GAME08BB; normal cannon/fire/reload/Staff and two ordinary heals yield fullvictory, HP89/80/73 MP1/0/2 food727,373. Remaining14moves reach223227. ActualHcamp restores114MP for114food727->613; normalHero2MP heal Nox73->80, HP89/80/80 MP31/42/42,374. NormalX launches carriedSkiff124, Right224227 takes no damage within Frigate footprint; normal safe-water moves reach225231. Two46/41HP sea creatures intercept before dismount, ordinaryStaff victory noHP/MP food617; a premature save during this encounter was correctly rejected, no save credited. NormalX/dryDown225232, six-source-footsteps440 enterTown75 at2438,375. Scales146/Letter75/page254 retained. No Engine edits/build/process. Current34step source441 to actualBruceNPC0 at24,11 underway; noBrucepass/Order/ending credited."
-  }
+  },
+  "earned_Bruce_ascension": {
+    "status": "VERIFIED",
+    "checkpoints": [
+      376,
+      377
+    ],
+    "actual": "NormalTown75NPC0 TalkRight from24,12 recognizes actualearnedScales, originalascension text. Dialogueack commitsfield48 98->226 (bit128). Repeatopeninggenericmage, norepeatedascension. Scalesqty1/field60=3 retained. Clean cold041 exact377 state, noassistance/session/audio preserved. FirstnormalHeroC5/Enter QuickExit4 returnsSurface231232, MP31->27, fullHP retained. NoMissingScalesrefusal orArchusmembership/key94/wholeOrderclaim. InitialTalkUp443 metNobody becauseBrucewandered25,12; refreshedactualNPCandnormalTalkRight444 succeeded. No Enginechange."
+  },
+  "ascension_report": "SCUMMVM-CE-M43-BRUCE445-VERIFICATION.json"
 }

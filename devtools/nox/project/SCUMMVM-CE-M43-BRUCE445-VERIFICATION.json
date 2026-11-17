@@ -1,0 +1,28 @@
+{
+  "status": "VERIFIED",
+  "scope": "Actual earned Scales recognition/ascension, repeat, cold persistence and subsequent normal QuickExit only; missingScales refusal/Archus membership and wholeOrder remain IN PROGRESS",
+  "source_commit": "c660ae8ac41",
+  "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd",
+  "checkpoints": [
+    375,
+    376,
+    377,
+    378
+  ],
+  "actual": "Source441 ordinary34steps/twodoors to24,12. Bruce wandered from24,11 to25,12, firstTalkUp443 Nobody; currentactualTalkRight444 presents fullascension. Originalack field48bit128 98->226, Scales146qty1 retained. Repeatgenericmage/noascension. Normal377/clean cold041 exactstate/session/noassistance/audio; firstHeroC5/Enter QuickExit4 returnsSurface231232,4MP31->27, fullHP. Actual378 saved. No state/outcome injection, Engine change or newbuild.",
+  "evidence": {
+    "ce-native-acceptance528/earned-modern/earned-Bruce-opening443-533.json": "463c6b6c3de36d36e938762abedb112af66016884111c3f3e6c8739dc81a1f33",
+    "ce-native-acceptance528/earned-modern/earned-Bruce-opening444-533.json": "527608598d922a4e40fcf43625d546890a779abf378fb9f34660b5735e54318f",
+    "ce-native-acceptance528/earned-modern/earned-Bruce-repeat444-533.json": "aa0d21444f83046573ecb808a948df18109a7493db22d2b1b0e78bb7145b5cc3",
+    "ce-native-acceptance528/earned-modern/cold041.json": "ebef6d58eaf496c7e785348c70b9f31f4341e14862e127f1f01b9752e25b6bef",
+    "ce-native-acceptance528/earned-modern/earned-Bruce-postcold-exit445-533.json": "77aa463433f0c4fe40ed8c5e18cee749245e7be87d46e115e7edfb97eaf9e3b7",
+    "ce-native-acceptance528/earned-modern/screenshots/scummvm-cli-game-00166.png": "254012612d9c222f85a96bfdbe39628f651a6c43c998d31f7f4a7c3f198102e0"
+  },
+  "cost": {
+    "builds": 8,
+    "game_cli": 41,
+    "focused_cli": 5,
+    "material_cli": 46
+  },
+  "next_action": "Normalreturn toFrigate/Archus58, actualmembership/key94/portals andremainingM4.3; no milestone stop."
+}
