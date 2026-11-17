@@ -4,7 +4,7 @@
   "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd",
   "source_binding": "SCUMMVM-CE-DOOR533-VERIFICATION.json",
   "builds": 8,
-  "process_launches": 31,
+  "process_launches": 32,
   "verified_selected_nodes": [
     "opening-exit",
     "royal-access",
@@ -4005,22 +4005,44 @@
       },
       "process": 31,
       "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd"
+    },
+    {
+      "label": "earned Shock Storm Divine Heal full rest295",
+      "slot": 295,
+      "parent": "aac49f409f6ca0329886499a8b4a812050cf84da4fac4367ae731ac44b76e573",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot295.g0": "9ce40fe7d2982ab9e854c2a70f8790c75e51ae3b5606f4c797ae857882ebb921",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot295.g0.ce-achievements.json": "c26fe5667e4b4f0130e0b16aae7db316d5e55609604fbca88d75ad01281d5a34"
+      },
+      "process": 31,
+      "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd"
+    },
+    {
+      "label": "earned caster preparation cold296",
+      "slot": 296,
+      "parent": "167730c170471e7a1a8017c09019d1a3372435cacc9916ba1c95de2b5bbbe6dc",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot296.g0": "0d6f9bc0b75f1c541c4d99c9b511c37ce1ac776eaf976d062fa61c20d5f92111",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot296.g0.ce-achievements.json": "9e5cc84a2c187893015670f4c3d4695bb5eb1cf9f4e3147e6895faafbcb4a8bc"
+      },
+      "process": 32,
+      "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd"
     }
   ],
   "correction": "SCUMMVM-CE-NPC529-VERIFICATION.json",
-  "last_checkpoint": 294,
-  "cold_evidence": "ce-native-acceptance528/earned-modern/cold031.json",
-  "next_action": "Finish55stepcastleanchor17961; normalSkiffDown2landing17963 andcastle54entry. Castle59merchant64 stock2 ShockStorm27/160gold; sourcecastmin50INT metNox56. NormalReadyshortcut8 andfullInnrest56MPbeforeBrown/Cultreturn. UseoriginalWdigitwholehourwaitifneeded, sourcecorrectWORKcap64/travel0; readactualpost-passNPCpositionswithoutextraGMMresumebeforeTalk. No unchanged battle reruns/sourcebuilds/suite reruns.",
+  "last_checkpoint": 296,
+  "cold_evidence": "ce-native-acceptance528/earned-modern/cold032.json",
+  "next_action": "Continue normal QuickExit5/Bridgit3 to Surface17762; normal shore17963/SkiffUp2/Frigate17961, source avoid-current-actors sail206105, landing/cave20099/Raque132door/stair98. Primary control280 already open: go directly west of wall21359, earn fixed cultist battle with newly readied spells, Brown74 chest21853, repeat/cold/positive gate21620 and Cult75. Do not toggle control, repeat missing-key refusal256 or rerun unchanged failed fights.",
   "current_source_commit": "c660ae8ac41",
   "current_executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd",
-  "latest_earned": "Seven98HP sea enemies20787 cannon victory retainsall6fullHP/noMPcost,+50food677->727. Resumeadmits mixed7enemy98/137group20786; first Tactical/Blades/cannons full defeatretained. TwoBladecasts killeddistant98HPenemy0/2 whileadjacent137HPguard2,2 remained; Noxfirstcasualty. Normalactualprebattle998 reload293 restoreshealthy20787/301gold727food andearned7seavictoryXP, excludesfailedmixedgroup. Onechangedordinary-inputattempt: BladeSmite prioritizesadjacentthreat; meleefighterAttackadjacentbeforeCannonwalk. ActualtwoSmitecasts target6,137->32->0 beforeenemyround. Wholefull7enemyvictoryall6fullHP; noEnginechanges/build/relaunch. Normalreward/UIallocations: Kat12STR->44/level5/maxHP99; Cutter12INT->44/level5/maxHP81; Nox12INT->56/level5/maxHP80; Alluvion12INT->44/level5/maxHP84. Hero/Bridgitstay4. Actualnormal294save XP2012/2012/1936/1934/2004/2004, MP15/13/1/2/14/21,347gold727food,picks50. Minimum50INTcasterreadiness VERIFIED withinpreparationonly; nofurtherXPtraining. Brown74/Cult75 remainunacquired,14/60selectednodesVERIFIED,7/8pages,endingunverified. Replanned55stepdeep-waterCastle17961routeavoidsallcurrentsourcecompactactor typeswith2cellmargin, ratherthancontinuingoldencountercontactroute.",
+  "latest_earned": "After294 normal six422HP Great Sharks cannon victory retained; normal Flee refused without gold loss. Hero and Bridgit normal level5 allocations yield INT44/56. Six98HP sea enemies18260 and eight98HP18160 defeated with ordinary cannon/tactical inputs; all six alive. Normal Skiff landing17963, six87/98HP land enemies17863 defeated for12gold,359total. Castle entry54/22,38; normal W9 at01:25 advances10:25, same-floor exact schedule remains old until normal floor entry. Moving merchant64 intercepted at59/32,24 from33,24 TalkLeft; ShockStorm27 and DivineHeal52 bought160each,359->39gold. Normal spell inventory kind2 readies8/9; mistaken kind1 id27 input retained but Nox equipment byte-identical to294. Paid Inn14gold39->25, actual destination59/28,34; all fullHP and MP20/44/44/56/56/44,food900. Checkpoint295 normal saved. Process031 normal quit exit2 is sticky prior CLI timeout status per ce_test_cli.cpp345/387, not a gameplay crash; log preserved. New process032 normal chooser load295 matches party/inventory/allquestfields/resources/map/sound/session, music ready,no cheats/assistance; cold032 and checkpoint296. Brown74/Cult75 absent; primary control280 preserved. No Engine source/build or suite rerun.",
   "historical_receipt_baseline": {
     "executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4",
     "source_binding": "SCUMMVM-CE-CANNON530-VERIFICATION.json",
     "qualification": "Initialreceiptbaseline only; percheckpoint/current identities control later progression."
   },
   "source_commit": "c660ae8ac41",
-  "local_full_ledger_sha256": "2060a4b28ab003cc41201c69dbc4324b490c3250f225b2ad344513e6153972fc",
+  "local_full_ledger_sha256": "ec2cf402525c3316c1999875ffb29104184a7aefc2084b595247575bd580b0b0",
   "latest_scoped_evidence": {
     "status": "VERIFIED",
     "scope": "Actual141cold021/142normalnextstep retain quest/inventory/party/resources/sound/session and parkedhorse; not Rustydoorpositivecrossing or fullcampaign acceptance",
@@ -4040,9 +4062,9 @@
     "SCUMMVM-CE-M43-SCALES532-WORK.json": "0ae8239c7e75489373b0604738e1e79d35ccd3a81e348f47832e978cd82b9645",
     "SCUMMVM-CE-M43-CASTLE532-WORK.json": "c1d4286b16d7e8cd3cadcc17047ce6d12a740089562c4df18d0493a527da57d6",
     "SCUMMVM-CE-DOOR533-VERIFICATION.json": "b56eda55bb27385ee3a31fda61b57f58965e91465d68e120ba271e1c360e3c6b",
-    "SCUMMVM-CE-M43-CULT533-WORK.json": "551c94487540687b39d44f7c91c85c2b5995e74f15d5a4b3dab129e0a5c5c4f0"
+    "SCUMMVM-CE-M43-CULT533-WORK.json": "be75cd55d83e90bfd13b8d4463234b382e9e6f1fa5c4de77846e0e2f856b218d"
   },
-  "private_ledger_sha256": "2060a4b28ab003cc41201c69dbc4324b490c3250f225b2ad344513e6153972fc",
+  "private_ledger_sha256": "ec2cf402525c3316c1999875ffb29104184a7aefc2084b595247575bd580b0b0",
   "superseded_current_aliases_royal532": {
     "last_checkpoint": 44,
     "latest_earned": "142 firstnormalworldstep after actual141cold021, fullparty/questinventory/resources/session retained;horseparked persistence",
