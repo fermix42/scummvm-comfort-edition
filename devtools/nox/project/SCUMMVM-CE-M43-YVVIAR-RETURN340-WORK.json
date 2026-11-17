@@ -1,0 +1,29 @@
+{
+  "status": "IN PROGRESS",
+  "scope": "Earned postLetter voyage/recovery; Yvviar Letter opening not yet demonstrated",
+  "source_commit": "c660ae8ac41",
+  "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd",
+  "actual": "Earned Letter/cold330 retained. Normal surface camp331 restores100MP/100food444->344. Source-owned Frigate transit toward Yvviar114204 uses119217 deepwater landing. Three seven98HP victories332/333/334 retain full three-survivor HP/MP and food344->496; saved332 proves two distinct adjacent actors224dead255 and228active1, not repeated failed victory. Six sea monsters335 victory givesgold78, actualHero68/Br45/Nox80; two normal Br LesserHeals restoreallHP, MP31/38/42. Two subsequent four98HP victories retained in actual998, food562. Ten sea monsters at210183: cannon-only full defeat338 preserved. Ordinary chooser actual prebattle998 restored with archive/hashes and explicit reparent336, retaining all earlier wins/Cult/Letter. One changed normal Wisp+twoShock+Divine+cannon tactic wins339: actual Hero and Nox die; Bridgit survives30HP/1MP, gold159food562; permanent337 retains casualties. No Engine defect or build claimed. H refused danger. Source-supported normal FUp hits ordinary actor68[210181149193], removes255; normal H nowallowed restoresBr30->60HP/1->42MP for71food562->491. Normal BrselfLesserHeal2 restores80HP/40MP; permanent338. Five actual deaths retained. Existing thin travel helper extended to normal Frigate world-F against aligned ordinary hostile water actors, using existing ordinary998 save decoder every3steps. Native game owns actual hit/miss/removal; no expected outcomes, save edits or RNG overrides. No new framework/Engine code/build/suite. Voyage ongoing.",
+  "evidence": {
+    "ce-native-acceptance528/earned-modern/earned-Yvviar-cannon-victory332-533.json": "d078f484716d8c2b0d5e4fc113c0ae882b2778a1a90b4746a8889bff937f7376",
+    "ce-native-acceptance528/earned-modern/earned-distinct-sea-actors333-533.json": "2633995c01f6178cc38b4a3c6b7394e87f9277a9ad7108ad471e032e136057f8",
+    "ce-native-acceptance528/earned-modern/earned-second-Yvviar-sea-victory333-533.json": "e545241254e0dcaaba305c07c021547d2d4f31f164664609c7ce5dd7a3573be1",
+    "ce-native-acceptance528/earned-modern/earned-third-Yvviar-sea-victory334-533.json": "8b59e213a3fec95146328ea86dd4f8b6c35b1d13293d760e5bf1da88de8f50c0",
+    "ce-native-acceptance528/earned-modern/earned-Yvviar-sea-monsters-victory335-533.json": "3e6deec67772a33ac059a5f025b78fe2a2d1c38eca6db4c13708fd6b642fad42",
+    "ce-native-acceptance528/earned-modern/earned-Yvviar-four-pirates-victory336-533.json": "aeedcee9a0822bdef2d97a2769c031a1f0f7f7467f0c138a22c093e25525950d",
+    "ce-native-acceptance528/earned-modern/earned-Yvviar-four-pirates-b-victory337-533.json": "35e89c7385a5ac5e1eaa58270f663e0d45b2f9bc69b92a30956f184f90d7089e",
+    "ce-native-acceptance528/earned-modern/earned-Yvviar-ten-sea-defeat338-533.json": "d2fbb13e0e30988e340e4139f5f94c1f8870f69d25ec62a3cd408f4aa3e90450",
+    "ce-native-acceptance528/earned-modern/forks/ten-sea-defeat338/lineage.json": "1665c8d3bd26ae2351cd1afdef481a3238f6498d616d5471dd31991a239b5a21",
+    "ce-native-acceptance528/earned-modern/earned-ten-sea-changed-admission339-533.json": "da6f1473c7c896294a13944b493a044f89a6e744c36f130143bca7762ec91cd3",
+    "ce-native-acceptance528/earned-modern/earned-ten-sea-changed-victory339-533.json": "963fdb8ce5dc531079132d438b966b1867eb282f67a013efc1858d8899a43b4a",
+    "ce-native-acceptance528/earned-modern/earned-world-cannon-recovery340-533.json": "5dba20bda72773682166ffa6d4ad56f6d8581608d88dc2133607fc45b341c5ad",
+    "ce-native-acceptance528/earned-modern/earned-world-cannon-camp340-533.json": "4f8bb89ce7c37b20ac5632aa4e362ad2aab27ba1b3d52e02545fd522d4fa393a"
+  },
+  "cost": {
+    "builds": 8,
+    "game_cli": 37,
+    "focused_cli": 5,
+    "material_cli": 42
+  },
+  "next_action": "Finish source-planned voyage119217; deploy ownedSkiff, nine normal stepsUp8/Left1 to source232 shore118209 if current occupancy permits, normal dismount and source-foot route114204. Retain five deaths, reach Suurtheld services via actual normal sale/paid revival, and complete Yvviar Letter opening before Archus Letter recognition setsfield56bit8. Then Nourtheld Archus/Styx, last library page1 at57/44,20, source castle portals/eight-page/Nystul binding before harder optional supported branches where dependencies allow. Do not replay victorious ten-monster encounter or accepted suites. Current lastpermanent338: Br80HP40MP alone, gold159food491; source/exe unchanged, cost8builds37gameCLI+5focused=42;20/60VERIFIED, endingunverified. Continue no milestone stop."
+}

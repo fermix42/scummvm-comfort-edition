@@ -4296,19 +4296,19 @@
     }
   ],
   "correction": "SCUMMVM-CE-NPC529-VERIFICATION.json",
-  "last_checkpoint": 331,
+  "last_checkpoint": 338,
   "cold_evidence": "ce-native-acceptance528/earned-modern/cold036.json",
-  "next_action": "After normal331 surface camp, livingHP89/80/80 MP33/42/42, gold45food344. Source-directed ownedboat transit to Nourtheld for Letter recognition and remaining Order/finalpage graph. No new build or milestone stop.",
+  "next_action": "Finish source-planned voyage119217; deploy ownedSkiff, nine normal stepsUp8/Left1 to source232 shore118209 if current occupancy permits, normal dismount and source-foot route114204. Retain five deaths, reach Suurtheld services via actual normal sale/paid revival, and complete Yvviar Letter opening before Archus Letter recognition setsfield56bit8. Then Nourtheld Archus/Styx, last library page1 at57/44,20, source castle portals/eight-page/Nystul binding before harder optional supported branches where dependencies allow. Do not replay victorious ten-monster encounter or accepted suites. Current lastpermanent338: Br80HP40MP alone, gold159food491; source/exe unchanged, cost8builds37gameCLI+5focused=42;20/60VERIFIED, endingunverified. Continue no milestone stop.",
   "current_source_commit": "c660ae8ac41",
   "current_executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd",
-  "latest_earned": "Legitimate paid recovery319 retained. Four normal incidental Flee operations during cave return preserve HP/MP, gold18->1; normal directed Attack admits one148HP upper guard, victory321 costs28MP/noHP and gold15. Camp322 restores7MP for7food451->444; retained Brown/selfportal/VHA/Monk passage reaches323. Five70HP incidental corridor enemies: first Flee15->7, actual full victory324 noHP loss, gold37; camp325 REFUSED, no restoredMP credited. Original required two267HP sprite169 Cultists admitted by normal AttackDown from99/21383 at326, actual adjacent battle cells(2,3)/(2,4). Hero normal Wisp10, normal support/heal, Nox Shock27 twice25MP: both267->28/49 then both0/absent. Full victory327, all three survivors alive; Hero89/Br80/Nox68HP, MP0/21/6, gold90. Field56 1->3. Normal Bridgit LesserHeal2 restoresNox80HP. Chest21382 SearchUp/Hero3: two failures, one62HP trap89->27; cancel and two normal Br heals4MP restore89. Third attempt finds Unsealed Letter75; field56 3->7, qty1, frame143. A roaming five70HP group interrupts immediately after award; normal Flee90->45, noHP/MP cost; permanent328. RepeatSearch Nothing found, same qty1/field7, frame144; permanent329. Clean cold037 preserves allparty/inventory/questfields/resources/sound/session/noassistance. First postcold normal Br QuickExit4MP returnsSurface20099, field56=7 and Letterqty1 retained330. Three older deaths remain. Eight builds/37gameCLI+5focused=42. Twenty/60 selected nodes VERIFIED; seven pages; ending unverified. No Engine source change/build or accepted-suite rerun.",
+  "latest_earned": "Earned Letter/cold330 retained. Normal surface camp331 restores100MP/100food444->344. Source-owned Frigate transit toward Yvviar114204 uses119217 deepwater landing. Three seven98HP victories332/333/334 retain full three-survivor HP/MP and food344->496; saved332 proves two distinct adjacent actors224dead255 and228active1, not repeated failed victory. Six sea monsters335 victory givesgold78, actualHero68/Br45/Nox80; two normal Br LesserHeals restoreallHP, MP31/38/42. Two subsequent four98HP victories retained in actual998, food562. Ten sea monsters at210183: cannon-only full defeat338 preserved. Ordinary chooser actual prebattle998 restored with archive/hashes and explicit reparent336, retaining all earlier wins/Cult/Letter. One changed normal Wisp+twoShock+Divine+cannon tactic wins339: actual Hero and Nox die; Bridgit survives30HP/1MP, gold159food562; permanent337 retains casualties. No Engine defect or build claimed. H refused danger. Source-supported normal FUp hits ordinary actor68[210181149193], removes255; normal H nowallowed restoresBr30->60HP/1->42MP for71food562->491. Normal BrselfLesserHeal2 restores80HP/40MP; permanent338. Five actual deaths retained. Existing thin travel helper extended to normal Frigate world-F against aligned ordinary hostile water actors, using existing ordinary998 save decoder every3steps. Native game owns actual hit/miss/removal; no expected outcomes, save edits or RNG overrides. No new framework/Engine code/build/suite. Voyage ongoing.",
   "historical_receipt_baseline": {
     "executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4",
     "source_binding": "SCUMMVM-CE-CANNON530-VERIFICATION.json",
     "qualification": "Initialreceiptbaseline only; percheckpoint/current identities control later progression."
   },
   "source_commit": "c660ae8ac41",
-  "local_full_ledger_sha256": "8196b7117baabb728b2097e2f5d702a1a56bfcb914abcc99b462368605edabab",
+  "local_full_ledger_sha256": "287fea74276b33ac3524956812077e2d5e009c20fc34ddcba71a5b02d4f021e8",
   "latest_scoped_evidence": {
     "status": "VERIFIED",
     "scope": "Actual141cold021/142normalnextstep retain quest/inventory/party/resources/sound/session and parkedhorse; not Rustydoorpositivecrossing or fullcampaign acceptance",
@@ -4331,9 +4331,10 @@
     "SCUMMVM-CE-M43-CULT533-WORK.json": "53e76936099d8d5540c58204921457ea509549a633de1c4d76106c9bc6e3209d",
     "SCUMMVM-CE-M43-BROWN533-VERIFICATION.json": "63d01dbe71fdaa7c28f0b0e68e1c89b8e50dc2debeeb4c3475629c679d0781f5",
     "SCUMMVM-CE-M43-MOUTH-MONKS533-VERIFICATION.json": "d2c5ae541c46388f6bfc5077f431a3c7a56422586df6b5ef061bd87f9b6060e0",
-    "SCUMMVM-CE-M43-CULT-LETTER533-VERIFICATION.json": "8007d051a76b4a10e6a01cff2019f7ebdc5c7a594cfdee896caa8661113d91d8"
+    "SCUMMVM-CE-M43-CULT-LETTER533-VERIFICATION.json": "8007d051a76b4a10e6a01cff2019f7ebdc5c7a594cfdee896caa8661113d91d8",
+    "SCUMMVM-CE-M43-YVVIAR-RETURN340-WORK.json": "2fa9c0de86a184714526ec577bfcfcbb62146bf938617df39d9cbcc6352af95c"
   },
-  "private_ledger_sha256": "8196b7117baabb728b2097e2f5d702a1a56bfcb914abcc99b462368605edabab",
+  "private_ledger_sha256": "287fea74276b33ac3524956812077e2d5e009c20fc34ddcba71a5b02d4f021e8",
   "superseded_current_aliases_royal532": {
     "last_checkpoint": 44,
     "latest_earned": "142 firstnormalworldstep after actual141cold021, fullparty/questinventory/resources/session retained;horseparked persistence",
