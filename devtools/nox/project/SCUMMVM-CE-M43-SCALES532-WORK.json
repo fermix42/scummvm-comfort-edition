@@ -61,7 +61,9 @@
     "ce-native-acceptance528/earned-modern/earned-ten-Drakes-admission399-533.json": "91026767be0bb2049dd2c2c09a3ef5489a919b11d63b13a683486abf9d398b84",
     "ce-native-acceptance528/earned-modern/earned-ten-Drakes-retreat399-533.json": "4fcfc3252695e8d7a2a1c8570f30c1f90ad54c0634b29dcad4317bd0c8c0b15b",
     "ce-native-acceptance528/earned-modern/earned-Scales-corridor-attack402-533.json": "bfd44bc10bfd025c9da15b079a3b14d7203e44bfd9c9195ece316c8fff496327",
-    "ce-native-acceptance528/earned-modern/earned-Scales-corridor-Drake-result402-533.json": "d8570073f67cfd2f714b149231399bbdf985a00883aff6af9726e94fdd530c3d"
+    "ce-native-acceptance528/earned-modern/earned-Scales-corridor-Drake-result402-533.json": "d8570073f67cfd2f714b149231399bbdf985a00883aff6af9726e94fdd530c3d",
+    "ce-native-acceptance528/earned-modern/earned-unused-Bow-Inn-funds407-533.json": "0deec636ecec0195df48435ae5ad9f9f5cd391104b54668c37389744e5707eb7",
+    "ce-native-acceptance528/earned-modern/earned-paid-Inn-full-recovery408-533.json": "fd5aab91a49acf7e816e80b0e04930dc40bb64c5d11c93e7dcb3b5d66f17274b"
   },
   "cost": {
     "builds": 8,
@@ -181,12 +183,18 @@
   "current_executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd",
   "actual_through358": {
     "status": "IN PROGRESS",
-    "actual": "After Letter354, actual75step safeCastle route to78/18,31, normalDown entersUM97/176,62,355. Source289step zero-terrain-damage Scales path. Five70, lone98 and lone70 normalStaff victories preserveall3fullHP/MP; one6x70 group normalT/Escape/Y retreats9->4gold, noHP/MP. Original ten191Drakes at101/52,28 normalretreat12->6gold,356. Further Drakes at101/66,45: retreat keeps original compact actor occupying nextcell66,46; repeated unchanged route attempts re-enter battle and cost6->3->1->0gold, no HP/MP or reward. Read-only actualtables establish north66,44 andsouth66,46 occupied in onecellwidecorridor; no terrain-safe bypass. NormalAttackDown admitsfour191Drakes. ActualHeroSummon14 costs10MP andfour actualShock27 casts cost100MP, fullvictory noHPdamage/newcasualty,19gold;357. Remaining10steps to72,49 admitsanotherfourDrakes; normalT/Escape/Y19->9gold. Actual358 saves retainedfourDrakevictory, fullHP89/80/80 MP34/6/6,9gold597food,Letter75 retained, noScales146. Exact-actor routeNoRoute1cell; normalHeroQuickExit5/Enter costs4MP andreturnsSurface17762. One87 enemy normalStaffvictory noHP/MP/goldgain, ordinaryDown17763/Up entersCastle54. W9/W6 shifts day for service beforefloor59entry; source70step merchant route running. This is normal recovery from insufficientmana, not demonstratedmissingEnginebehavior. No Enginechanges/builds/oldsuitereruns.",
+    "actual": "After Letter354, actual75step safeCastle route to78/18,31, normalDown entersUM97/176,62,355. Source289step zero-terrain-damage Scales path. Five70, lone98 and lone70 normalStaff victories preserveall3fullHP/MP; one6x70 group normalT/Escape/Y retreats9->4gold, noHP/MP. Original ten191Drakes at101/52,28 normalretreat12->6gold,356. Further Drakes at101/66,45: retreat keeps original compact actor occupying nextcell66,46; repeated unchanged route attempts re-enter battle and cost6->3->1->0gold, no HP/MP or reward. Read-only actualtables establish north66,44 andsouth66,46 occupied in onecellwidecorridor; no terrain-safe bypass. NormalAttackDown admitsfour191Drakes. ActualHeroSummon14 costs10MP andfour actualShock27 casts cost100MP, fullvictory noHPdamage/newcasualty,19gold;357. Remaining10steps to72,49 admitsanotherfourDrakes; normalT/Escape/Y19->9gold. Actual358 saves retainedfourDrakevictory, fullHP89/80/80 MP34/6/6,9gold597food,Letter75 retained, noScales146. Exact-actor routeNoRoute1cell; normalHeroQuickExit5/Enter costs4MP andreturnsSurface17762. One87 enemy normalStaffvictory noHP/MP/goldgain, ordinaryDown17763/Up entersCastle54. W9/W6 attempted service timing; later actualBCD clock5 establishes off-duty schedule, corrected in360 below; source70step merchant route running. This is normal recovery from insufficientmana, not demonstratedmissingEnginebehavior. No Enginechanges/builds/oldsuitereruns.",
     "qualifications": [
       "Normalretreat requires Tactical selection beforeEscape/Y if modechoicepending. F andEscape/Y beforemodechoice were ignored, noGameoutcomes.",
       "Prior claim that a protection spell was owned was corrected in commentary; no such spell exists in worlddispatch. Lastpage1 stillunearned.",
       "New privateShock minimum2targets policy selected for subsequentDrakefights to avoid four eager single-target25MPcasts; no expectedenemyoutcomes injected."
     ],
     "next_action": "Sell unusedRecurveBow21 atCastle59 merchant64, normalInn58 rest14, retainfourDrakevictory andreturn sourceScales route. ClusteredShock/summons; ordinaryScales146 Search/repeat/cold, Bruce/Archus membership, objectportals andlastpage remain unverified."
+  },
+  "actual_through360": {
+    "status": "VERIFIED",
+    "scope": "Paid recovery only; Scales/Order remain unverified",
+    "actual": "Actualmerchant59/33,24 firstTalkLeft misses off-dutyNPC64actual27,19. Originalclock is BCD: livehour5=05; W6 reachesraw17=11AM. PriorW9/W6 were based on wrongly interpreting priorraw19(13:xx) as19:xx, not failed Engine waiting. Normal59->58->59 floorrefresh405/406, NPC64actual32,23. NormalLeft32,24/TalkUp reachesphase22. UnusedRecurveBow21 sold10gold9->19; Escapealone exitsmerchant,359. Source34safe steps toInn58/33,36. ActualTalkUp phase9/Y/R/Y costs14gold19->5; room59/28,34, all3fullHP89/80/80 andMP44/56/56,food597. Actual360saved. RequiredLetter/otherqueststate andfourDrakevictory357 retained, no newdeaths or Enginechanges. New55step source route409 towardCastle78/18,31 underway.",
+    "next_action": "Normalcastleportal->UM97; returnScales source route with clearedfourDrakeparent retained. ClusteredShock minimum2 except actuallastenemy permits1; HeroSummon budget1, source-derived ordinaryinputs. EarnScales146/repeat/cold thenBruce/Archus/Order andremainingfinitecampaign. No milestone stop."
   }
 }
