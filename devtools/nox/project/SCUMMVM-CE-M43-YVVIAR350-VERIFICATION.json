@@ -1,0 +1,32 @@
+{
+  "status": "VERIFIED",
+  "scope": "Earned Yvviar actualLetter opening/repeat and unchanged quest/item cold persistence plus normalpaidrecovery only; combinedArchus/Styx andfullM4 unverified",
+  "source_commit": "c660ae8ac41",
+  "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd",
+  "actual": "Normal post338 travel retains ten-monster casualty victory. Solo six-pirate victory341 at163237 usesShock/cannons, noHP loss,25MP and48food gain. One17HP world hit146233 healed byBr2MP. Solo six sea-monster343 defeat preserved; ordinary latest998 one-move-before contact restored with explicit archived hashes/reparent, retaining ten-monster casualties and solo pirate victory. Normal Up reroute143232, source41step new route; seven pirates132232 actual summon/cannon victory345, Brfull80HP/3MP, gold159food589. No failed sea-monster rewards credited. Proactive normal world-cannon guard now checks each Frigate movement; source-backed normal targets, native hit/miss outcomes, no RNG/save edits. Frigate119217/ownedSkiffUp8Left118209/normaldismount/9safefoot steps reachCastle11, noadditionalHP loss. Repeated camp refusals, including historical checkpoint340 label landcamp, didNOT restoreMP or chargefood. Actual ordinary sale: Hero +1Broadsword72, deadKatScale34, unusedThiefNeck+5 27, unusedAlluStaff14, twofreeMageNeck+2 4, replacedBladeStorm21book22, unreadyMagicMissilebook2 total175gold159->334. Normal Ready ownedIlluminate57 inbookslot6 replaces21; removed oldoffense from privateinputpolicy, not Engine. DeadCutter Staff normally unreadied/transferred toHero; all3futurelivingcasters ownMagicStaff23. One incorrect merchant exit openedGMM; advance10126 timeout and late responseID mismatch retained. Normal rawEscape resumes sameprocess with334gold intact; saved341, no sales replay. Wait1 plusnormalstairrefresh alignsYvviar noon work. Original L006actor176 opening fromearnedLetter75 actually saysyou showLetter/grimexpression/takeinformation toArchusMagus; repeat retainsLetterqty1/field56=7,334gold, saved342. Priest13-14break handlednormalWait1 andnearby15->16->15stairrefresh; a roamingNPCblock onlycausesread-only replan. Normal Temple216paidHero2/Nox4 160each334->14gold, saved343; restoresHero89HP/44MP,Nox80HP/56MP, Br80HP/3MP andthree olderdeaths retained. Cold038 actual normal343 chooserreload preservesallparty/inventory/allquestfields/resources/sound/session/noassistance. Old037quitexit2 explicitlyqualifiedbyearlier10126CLI timeout/stderr, fresh038loadverified; no newEnginecrash. FirstnormalDown to23,13 works, permanent344. NormalHeroQuickExit4 returnsSurface114204, Hero40MP. Frozen source/exe unchanged;8builds38gameCLI+5focused=43. Twenty/60nodesVERIFIED; Yvviaropening scoped VERIFIED, combinedYvviar/Archus/Styx node stillINPROGRESS; endingunverified.",
+  "evidence": {
+    "ce-native-acceptance528/earned-modern/earned-solo-six-sea-defeat343-533.json": "7cfdb53e1ebde2e5e01a17d06ca13c605f516bb42a4de6c6abd7be7a8eca1101",
+    "ce-native-acceptance528/earned-modern/forks/solo-six-sea-defeat343/lineage.json": "d6c4f10f859c62c791e5f3d0c8bf85dd2d8be5229231cbbf26f39b8e534e7743",
+    "ce-native-acceptance528/earned-modern/earned-Yvviar-solo-seven-pirates-victory345-533.json": "77afb63a884e7fd98c4c972a4fdb00279e7c8b5d6d69032d09a8713f79d206d5",
+    "ce-native-acceptance528/earned-modern/earned-Suurtheld-recovery-sales348-533.json": "36c2feef88dc0e56350d46b64a6a24626605eaf0267e85b158acf4c746c723ec",
+    "ce-native-acceptance528/earned-modern/earned-Yvviar-Letter-before350-533.json": "5ab4b779641d9884837c85011aea2a6b9b44cf9119a3491c9f0eb053289b0962",
+    "ce-native-acceptance528/earned-modern/earned-Yvviar-Letter-opening350-533.json": "5773927af7ff946e0ff71c07f0e71c34477e6949900d5f14c5e8dc134ef6c5f8",
+    "ce-native-acceptance528/earned-modern/earned-Yvviar-Letter-repeat350-533.json": "6ecbf2e5b239fa29023fb03e9708b9e8c895e48bbf29e4280b141d809f572ec0",
+    "ce-native-acceptance528/earned-modern/earned-Suurtheld-paid-recovery354-533.json": "709b0eeb2e600ee621eac1484696af84a814c9f8a4df47878682b94acdad6996",
+    "ce-native-acceptance528/earned-modern/cold038.json": "b6f41c12ff786db4eac47601384ed36388a048140cad7b38b871e13ba6f7cd3a",
+    "ce-native-acceptance528/earned-modern/process037-quit343-stderr.log": "6b0f4718450ff82816302338b6eec1d9e52d0ac3879fd14d2a4ac3f396a7af6c",
+    "ce-native-acceptance528/earned-modern/earned-Yvviar-paid-recovery-postcold344-533.json": "8ff6a288fbaec0e3d301b336d0f3f1fc5727af8072cf151b7fbed45c6c57ae1a"
+  },
+  "cost": {
+    "builds": 8,
+    "game_cli": 38,
+    "focused_cli": 5,
+    "material_cli": 43
+  },
+  "qualifications": [
+    "Normalold037quitexit2 is retained CLI advance10126 modal timeout, not freshGameEnginefailure. Actualcold038 verifiedwith noafter-start outcome writes.",
+    "Historical checkpoint340 landcamp is anticipated label only: campREFUSED, no MP/food restoration credited.",
+    "Combined yvviar-cult-investigation retains Archus/Styx recognition/cold obligations; no entire node promotion."
+  ],
+  "next_action": "Existing source plannearby-inn355 is44safeoverlandsteps114204->Town28entry148196, authoredInn28/actor152 costs12 and room29. Preferthis nearby rest then source-shortest overland progression towardNourtheld17762 rather than automatic longFrigate transit. ActualpartyHero89/40MP Br80/3MP Nox80/56MP, gold14food589; other3dead. Readiedbookslots50,14,3,2,4,60,57,15,27,52; BladeStorm21 sold/privatepolicydisabled. Boats retainedFrigate119217/Skiff118209. NextNourtheld Archus/Styx Letter recognition, remaininglibrarypage1 map57(44,20), sourcecastleportals/eightpage/Nystulbinding; preserveallremaining60requirements. No more replay ofsuccessfulprefixes without actualneed; uselegitimateprebattle saves forfailedpathonly. No milestone stop/push/publication."
+}
