@@ -312,7 +312,7 @@
     },
     {
       "id": "cult-corridor-cultists",
-      "status": "NOT STARTED",
+      "status": "VERIFIED",
       "prerequisites": [
         "gordon-shrubbery",
         "brown-key",
@@ -344,11 +344,13 @@
         "scoped audio/presentation",
         "actual earned verification criteria"
       ],
-      "earned_lineage": null
+      "earned_lineage": "Earned original New ancestry through actual330; source/exe unchanged; full private ledger hash in public receipt",
+      "earned_evidence": "SCUMMVM-CE-M43-CULT-LETTER533-VERIFICATION.json",
+      "remaining": "Other supported alternatives retain their separate acceptance nodes; this node scoped to original full encounter, Letter and persistence."
     },
     {
       "id": "cult-letter",
-      "status": "NOT STARTED",
+      "status": "VERIFIED",
       "prerequisites": [
         "gordon-shrubbery",
         "brown-key",
@@ -387,7 +389,9 @@
         "scoped audio/presentation",
         "actual earned verification criteria"
       ],
-      "earned_lineage": null
+      "earned_lineage": "Earned original New ancestry through actual330; source/exe unchanged; full private ledger hash in public receipt",
+      "earned_evidence": "SCUMMVM-CE-M43-CULT-LETTER533-VERIFICATION.json",
+      "remaining": "Other supported alternatives retain their separate acceptance nodes; this node scoped to original full encounter, Letter and persistence."
     },
     {
       "id": "order-test",

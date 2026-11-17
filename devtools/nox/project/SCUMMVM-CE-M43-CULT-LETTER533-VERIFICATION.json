@@ -1,0 +1,32 @@
+{
+  "status": "VERIFIED",
+  "scope": "Earned original two267HP Cultists/full Shock final blow, Letter pickup/repeat/cold/next normal travel only; not full campaign or every alternative",
+  "source_commit": "c660ae8ac41",
+  "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd",
+  "actual": "Legitimate paid recovery319 retained. Four normal incidental Flee operations during cave return preserve HP/MP, gold18->1; normal directed Attack admits one148HP upper guard, victory321 costs28MP/noHP and gold15. Camp322 restores7MP for7food451->444; retained Brown/selfportal/VHA/Monk passage reaches323. Five70HP incidental corridor enemies: first Flee15->7, actual full victory324 noHP loss, gold37; camp325 REFUSED, no restoredMP credited. Original required two267HP sprite169 Cultists admitted by normal AttackDown from99/21383 at326, actual adjacent battle cells(2,3)/(2,4). Hero normal Wisp10, normal support/heal, Nox Shock27 twice25MP: both267->28/49 then both0/absent. Full victory327, all three survivors alive; Hero89/Br80/Nox68HP, MP0/21/6, gold90. Field56 1->3. Normal Bridgit LesserHeal2 restoresNox80HP. Chest21382 SearchUp/Hero3: two failures, one62HP trap89->27; cancel and two normal Br heals4MP restore89. Third attempt finds Unsealed Letter75; field56 3->7, qty1, frame143. A roaming five70HP group interrupts immediately after award; normal Flee90->45, noHP/MP cost; permanent328. RepeatSearch Nothing found, same qty1/field7, frame144; permanent329. Clean cold037 preserves allparty/inventory/questfields/resources/sound/session/noassistance. First postcold normal Br QuickExit4MP returnsSurface20099, field56=7 and Letterqty1 retained330. Three older deaths remain. Eight builds/37gameCLI+5focused=42. Twenty/60 selected nodes VERIFIED; seven pages; ending unverified. No Engine source change/build or accepted-suite rerun.",
+  "evidence": {
+    "ce-native-acceptance528/earned-modern/earned-original-two-Cultists326-533.json": "c20eb4cc0839ebabecffe7a57c3ac1aea6373352a356c3c664c0ddf52a808d87",
+    "ce-native-acceptance528/earned-modern/earned-Cultists-first-Wisps327-533.json": "e8704c04dd1d502373bf3132a777fb17329c899745cd5d781d403cc53738367a",
+    "ce-native-acceptance528/earned-modern/earned-upgraded-36-234144.json": "1ae0ff3c6f3e6569b65d911b62ef26234bc490de018c25dd95e6dd20d8a490b4",
+    "ce-native-acceptance528/earned-modern/earned-upgraded-36-234295.json": "c7b90f02070bf19c29f0b0901eb20c7b19e946c94b3969384055f8a0b173be1e",
+    "ce-native-acceptance528/earned-modern/earned-full-Cultists-victory327-533.json": "3c3cb1696adeecfdff5c852c0b57d87e9e48f53314ba68f1107f2534b9030258",
+    "ce-native-acceptance528/earned-modern/earned-Letter328-533.json": "989366172302fbe00667ae15913e181fe8261575e0faa9acb5c562647331c0b7",
+    "ce-native-acceptance528/earned-modern/earned-Letter-repeat329-533.json": "da8a92f7506bb36bde5f87be442db649417b7519d96799f5832c8871b27877e3",
+    "ce-native-acceptance528/earned-modern/cold037.json": "326960daf0906152f36ae296de789186579af41b58f5ab34d9d8459b3d9907db",
+    "ce-native-acceptance528/earned-modern/earned-Letter-postcold330-533.json": "c7950120543cfdbb3257a93b04191c5587d753a682a79cb44ff5c3d446d20263",
+    "ce-native-acceptance528/earned-modern/screenshots/scummvm-cli-game-00143.png": "dac2478db4509a7cf272cb57cec32f0bad5074e898be9e1b57cd8e1792128084",
+    "ce-native-acceptance528/earned-modern/screenshots/scummvm-cli-game-00144.png": "92c674c56b861522b15bca3fe2b82d6cd2a74c1d4be817f952a6d6f1e448df8e"
+  },
+  "cost": {
+    "builds": 8,
+    "game_cli": 37,
+    "focused_cli": 5,
+    "material_cli": 42
+  },
+  "qualifications": [
+    "Historical filename earned-full-Cultists-admission324 actually five70HP incidental enemies; file explicitly qualified, not required admission.",
+    "Private route helper now honors explicit excluded cell/radius even with contact-permitting planning; no Engine state/resource edits.",
+    "Camp322 restores only75pct cap33/42/56, not full InnMP. Camp325 refused.",
+    "No rollback of earned victories/casualties during319->330. No earned ordinary-physical-final-blow alternative claimed for these twoCultists."
+  ]
+}
