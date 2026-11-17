@@ -1,0 +1,24 @@
+{
+  "status": "IN PROGRESS",
+  "scope": "ActualnearbyInnrest scopedVERIFIED; sourceplannedreturn towardNourtheld INPROGRESS",
+  "actual": "After344 normal HeroQuickExit4 returns114204. Source44step dry route reachesTown28/148196 with noencounter/damage. Initial talk missedmovingInnNPC152: anticipated345fullrest label and private full-rest356 filename doNOT representrest, gold14/MP40,3,56 unchanged. NormalRight to37,35 alignsNPC37,37; TalkDown reachesauthoredInnwelcome, actualY/R/Y costs12gold14->2 and transitionsroom29/33,32; actuallivingHP89/80/80 MP44/56/56, food589, permanent346. No newcold required orperformed. HeroQuickExit4 returns148196. All dry/exact/contact foot routes toNourtheld17762 fail terrain; source-only bounded cave154170 offlinefeasibility alsofails43nodes, no Game movement. Native-source water-aware planning finds216steps/415damage percharacter; rejected beforeexecution. Readactualsavedobjects findsanother parkedSkiff124 at123144 (record192), Frigate119217record208 andSkiff118209record212retained. Normaldry76step approach123145 selected. Movingstorm225 at146183 causesactual71damage toall3 at147184; no deaths. NoxnormalWorldDivineHeal17 restoresallfullHP, MP56->39. NormalRight148184 leavescontactwithoutdamage; fresh64step route aroundcurrentstormcontinues. Currentobserved127155 fullHP, MP40/56/39. NoNativeEngine defect/build/suite demonstrated. Eightbuilds38gameCLI+5focused=43;20/60nodesVERIFIED, endingunverified.",
+  "next_action": "Finish actual parked-skiff-storm362-exact route to123145, normalUp123144/Board existingownedSkiff. Replanfromactualownedboat usingexisting waterplanner --skiff (onecell229..232) towardknownnorthshore129110, then existingzero-water footroute toNourtheld17762, unlessactual sourcepath givesbetter supportedconnection. Avoid speculative longsea detours. Normalincidental landFlee allowed whenpermitted; no requiredgate outcome injected. CompleteArchus/Styx earnedLetterrecognition/repeat/cold, remainingpage1 at57/44,20, sourcecastleportals/eightpage/Nystulbinding andallremaining60requirements. ActuallivingHero89/40MP,Br80/56MP,Nox80/39MP; three olderdeaths retained,gold2food589. Readiedbook6Illuminate57; BladeStorm21sold/privateoffenseguarddisabled. Continue no milestone stop/push/publication.",
+  "source_commit": "c660ae8ac41",
+  "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd",
+  "cost": {
+    "builds": 8,
+    "game_cli": 38,
+    "focused_cli": 5,
+    "material_cli": 43
+  },
+  "evidence": {
+    "ce-native-acceptance528/earned-modern/earned-nearby-Inn-full-rest356-533.json": "5c92f794d65d5a7d2090f3d759ac242c1489ef69010621fc8f3581daabfea496",
+    "ce-native-acceptance528/earned-modern/earned-Treceito-Inn-full-rest357-533.json": "f7bb0a6c55c2cc895c1e53b0272bac3e3c071caab2a018e8193b2bbe780d1a11",
+    "ce-native-acceptance528/earned-modern/earned-parked-Skiff-road-damage358-533.json": "7cc8b78e0c7e9a4d7d7172e8e8f0d6f7eccb41257298867de1f7291e717b8d37",
+    "ce-native-acceptance528/earned-modern/earned-storm-normal-Divine-recovery359-533.json": "e426ad3e0e517ca5174dc06ec630f11e225bdf20457ce9e23499a99a8a0e175d"
+  },
+  "qualifications": [
+    "Historical filenameTreceito refers toactualTrecitoInn inMap28; ordinarypaid346 isrealrest, earlier345/fullrest356anticipatedlabelsareunpaid/noMPchange.",
+    "Offlinefeasibility origins neverwriteorloadGame states; no executionroutewritten for hypotheticalorigin. Surfacewatercandidate nottraversed."
+  ]
+}
