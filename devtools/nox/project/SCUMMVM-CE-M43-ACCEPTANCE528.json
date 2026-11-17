@@ -197,7 +197,7 @@
         "actual earned verification criteria"
       ],
       "earned_lineage": null,
-      "actual_result": "Earned Raque full five-enemy victory249/key132, normal cave entry252 and actual key door/passage253. Brown74/control/lowergate not yet verified; cave battle interrupts source route."
+      "actual_result": "Earned Raque249/132 persists in resumed primary250->263. Retained alternate251..262 contains actual cave door253, missing-Brown refusal256, camp257 and paired control258; Brown74 not acquired. Explicit normal250 reload263 excludes later branch world/control/XP/gold. Staff preparation264 before re-earning relevant approach."
     },
     {
       "id": "cult-lower-portal",
