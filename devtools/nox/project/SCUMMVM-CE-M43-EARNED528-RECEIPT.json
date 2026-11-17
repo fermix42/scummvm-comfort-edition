@@ -48,7 +48,8 @@
     "255 label mentions camp prematurely: H actually refused danger; no mana/food recovery credited. Subsequent normal route continues from actual earned victory/heal.",
     "Normal250 reload263 explicitly forks parent250;251..262 are retained alternate earned evidence, not current carried state/XP/resources. Brown control258 must be re-earned on resumed primary after equipment upgrade. No cross-save item transfer.",
     "Ice/Fire staff plan corrected before purchase: INT68/56 requirements exceed current44. No staff upgrade credited; proceeding to eligible Town44 armor/spells and full rest.",
-    "After269 unsaved road branch reached120input bound with3casualties/lastGuard97, Escape refused; normal269 load270 excludes that branch. No successful Flee or battle save claimed; proceeding by sea with full party."
+    "After269 unsaved road branch reached120input bound with3casualties/lastGuard97, Escape refused; normal269 load270 excludes that branch. No successful Flee or battle save claimed; proceeding by sea with full party.",
+    "287 checkpoint label anticipates Copper73; actual search failed withoutdamage, keyABSENT/field25unchanged2/picks0. No questpickup credited. Tacticalincidental280 and fixedactorQuick283 full defeats retained; normal earned reloads281/284 exclude losses. Flee283 cost501->250gold remains in primary."
   ],
   "checkpoints": [
     {
@@ -3847,22 +3848,99 @@
       },
       "process": 31,
       "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd"
+    },
+    {
+      "label": "earned healthy control reload281",
+      "slot": 281,
+      "parent": "af4cf91dc7598cc326dc2e11f2e2df71776b3c8de16edc22972273e5f84e641b",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot281.g0": "3c8c2804fd6ef16722a62933897bd92cafdae7e5f6f9915dc62a0d1a3bd69593",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot281.g0.ce-achievements.json": "55fcaf4ddf38cbec5d3651ef4e8a99747be5ae879cef9ef92598c9917a599af2"
+      },
+      "process": 31,
+      "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd"
+    },
+    {
+      "label": "earned Brown wall approach282",
+      "slot": 282,
+      "parent": "7c604d04252a401ae5c2c17ce794c22f3068f957fb29cbadbe5d0e4f75b7ffb4",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot282.g0": "ccfbeb0c108661d75be056e6814ea8172595cf5dc984d5507d61f836711ca7f5",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot282.g0.ce-achievements.json": "55d642c4d9ffa41d5829440dcd609efdccda0c74c117f16a2ebde59d610a8a28"
+      },
+      "process": 31,
+      "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd"
+    },
+    {
+      "label": "earned Brown approach normal flee283",
+      "slot": 283,
+      "parent": "a724b411982b496cdc872b047bdd0a076b302fcdf1e3f374750baa286a23600d",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot283.g0": "106c7e3feb1e6d20a5fee19fd2156fbbbbeaff6b29d631c89b4c4b49e558ea4e",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot283.g0.ce-achievements.json": "9f723234f90bce6555def0605522336d93985dbf9b1d17548bd899f348f8a0d9"
+      },
+      "process": 31,
+      "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd"
+    },
+    {
+      "label": "earned healthy Brown approach reload284",
+      "slot": 284,
+      "parent": "6536f0dfa6dbeffd9e5c70af62de9f206f7387c70a80cab88288e070899e3e1b",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot284.g0": "b5a61f0c12e7a08c472aaf90f37f1c5d572bc566a90f875e4cab0825e68ab354",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot284.g0.ce-achievements.json": "f7ed8f31de2010cea48c88718945a42eab74ae0e1fd3ff7e383e151293bab2fd"
+      },
+      "process": 31,
+      "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd"
+    },
+    {
+      "label": "earned primary retreat to cave treasury285",
+      "slot": 285,
+      "parent": "a4f0f29523af4132e004540423aa5832c2818a3cd2575d6c045746a509a0bb6a",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot285.g0": "2232b7503336e24693af4ffcce6cfef41bb91712f1b3e4a388dd79be80b38e4e",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot285.g0.ce-achievements.json": "146d1f6d447454b0d76817491cd08f191e677bc09c7e86f0d5be163f7aa60013"
+      },
+      "process": 31,
+      "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd"
+    },
+    {
+      "label": "earned treasury seven guard victory286",
+      "slot": 286,
+      "parent": "b80b716b2a09385ca5f6cd10fb340fa305b58e136b4fc561eb3e4f69c8cbaf80",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot286.g0": "859d47ea20d4b191d4a9534685aaf90fba7fd5d5ab7a24f21c8f26bf9dc39cb0",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot286.g0.ce-achievements.json": "18d4254d400bc7228937b86317e7c9029ede02cdf674791dcc0a497d7ff8581d"
+      },
+      "process": 31,
+      "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd"
+    },
+    {
+      "label": "earned treasury Copper key287",
+      "slot": 287,
+      "parent": "c8b1821b3a4d9c39152b3e5f045b4d169aca9f93df3079f9f2c4f274d1a6a0c0",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot287.g0": "7f74e0d5031567486c050dd3c25531367a129ffcab9b96a60c2a3596dbaef2c1",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot287.g0.ce-achievements.json": "21d8ae1018d2358d2313c2425d024f1032ec7c4846dac25b323c2c082783388e"
+      },
+      "process": 31,
+      "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd"
     }
   ],
   "correction": "SCUMMVM-CE-NPC529-VERIFICATION.json",
-  "last_checkpoint": 280,
+  "last_checkpoint": 287,
   "cold_evidence": "ce-native-acceptance528/earned-modern/cold031.json",
-  "next_action": "Finish actual99step return to21359, Right passage21459; approach21854/SearchUp/Cutter2 earnsBrown74, repeat/cold/positive lowergate thenCult mouth/Letter. Reuse earned alternate256 refusal. Continue campaign.",
+  "next_action": "Restock normal lockpicks and rest; finite prerequisiteXP deficit182 toward authored level5 threshold2000, treasuryCopper73/remaining treasure and appropriate lower-level campaign branches. No unchanged cult fight retry. Resume Brown/Cult only with materially improved readiness.",
   "current_source_commit": "c660ae8ac41",
   "current_executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd",
-  "latest_earned": "Earned277 fullrest leavesTown44 and ownedSkiff/Frigate143112. Sail encounters ship171108 ranged alignment: two17HP/member impacts retained; first normally healed12KatMP, then normal two-step move172113 breaks line and revised44step sail reaches206105 with no further damage. Normal skiff landing204105 admits three41HP enemies, victory noadditionalHP/MPcost,+10food788,278. Six normal Cutter heals12MP restoreallHP; H onshore REFUSED danger, no rest credit. Normal15step sourcefoot approach admits single50HP enemy197102, victory noHP/MPcost,+4food792. Normal H19999 restores11MP/food781 then cave97,279. Raque132 door/passage into98 and104step control approach23150 all6fullHP/noencounters. Ordinary pick failures/traps Cutter26HP each retained; UI acknowledgement mistakes caused helper bounds, no Engine fatal. Heal52HP fourKatMP and subsequent26HP heals preserve livingCutter. Retained thiefcloak30/neck32 normalReady. Successful pick followed actualLeft23050 passage; normalLeft22950/OLeft flips control22850 to115/48 and pairedwall21459 to74/254. NormalSave280 confirms both; all6fullHP, MP7/24/32/44/44/32,501gold781food,2picks. Brown74 stillabsent;99step wallreturn underway. NoEngineedits/build/newCLI.",
+  "latest_earned": "99step control return admits eight191/164/148HP enemies at21259. Prepared Tactical withBladeSmite/Fireball/heals ends actual full defeat; retained private admission/result. Normal280 reload281 retains control/fullparty and excludes battlelosses.97step normal approach21159 checkpoint282; Right21259 then attemptedRight21359 admits same incidental group. Normal Tactical/Escape/Y Flee501->250gold283, all6healthy. Compactactor21359 sprite167/state193 blocksmovement; normalAttackRight admits fixed eight191/148HPcult/mage group. Normal Q Quick combat actual full defeat retained separately. Normal283 reload284 restores healthy250gold781food/MP7/24/32/44/44/32, excludesQuickloss. No repeated unchanged Tactical/Quick attempt planned. Source party4 XP1776..1854 against authored level5 threshold2000:146..224XP short. Current true encounter/combat constraint does not demonstrate native implementation defect. Brown74 absent; control/wall preserved. NormalBridgit QuickExit4MP returnsSurface20099. Continue earned entrance-treasury branch for finite prerequisiteXP/funds, not arbitrary retry/grind. Normal camp restores8MP/8food, but17HP/member damage during surface return retained285. Six normal Kat heals12MP restoreallHP. Cave97 Raque door/stairs98; treasury194109 firstpick fails26HP Cutter, normalKatheal2MP, finalpickopens, seven137HP guards admitted. Actual Tactical/BladeStorm/Fireballs fullvictory all6fullHP,250->318gold, MP1/9/17/19/23/17,42XP each286. XP1896/1896/1820/1818/1888/1888, maxdeficit182. Sourcekeychest98/190107 SearchUp/Cutter fails/trapavoided andconsumeslastpick. Normal287 label anticipates Copper key but actualkey73 ABSENT,field25=2 unchanged/cheststillclosed/picks0; labelisexplicitlyqualified,no pickuporquestcredit. Brown74 alsoabsent. NormalQuickExit return/restock underway. NoEnginechange/build/newCLI.",
   "historical_receipt_baseline": {
     "executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4",
     "source_binding": "SCUMMVM-CE-CANNON530-VERIFICATION.json",
     "qualification": "Initialreceiptbaseline only; percheckpoint/current identities control later progression."
   },
   "source_commit": "c660ae8ac41",
-  "local_full_ledger_sha256": "de05fc244091f0beda1e0f5b896b0a7d04364ad937c49c811df0dc6ba096deef",
+  "local_full_ledger_sha256": "761f8505b1058addd8548fe4ee67eb4b7130f2620a0e2fface8875d9dcb83ac5",
   "latest_scoped_evidence": {
     "status": "VERIFIED",
     "scope": "Actual141cold021/142normalnextstep retain quest/inventory/party/resources/sound/session and parkedhorse; not Rustydoorpositivecrossing or fullcampaign acceptance",
@@ -3882,9 +3960,9 @@
     "SCUMMVM-CE-M43-SCALES532-WORK.json": "0ae8239c7e75489373b0604738e1e79d35ccd3a81e348f47832e978cd82b9645",
     "SCUMMVM-CE-M43-CASTLE532-WORK.json": "c1d4286b16d7e8cd3cadcc17047ce6d12a740089562c4df18d0493a527da57d6",
     "SCUMMVM-CE-DOOR533-VERIFICATION.json": "b56eda55bb27385ee3a31fda61b57f58965e91465d68e120ba271e1c360e3c6b",
-    "SCUMMVM-CE-M43-CULT533-WORK.json": "70097c660d9e902ed57b107f1a74a6fa99197a6cc78b3a455c2293e4cc32b46e"
+    "SCUMMVM-CE-M43-CULT533-WORK.json": "1bb1a4506d7f27cb4e4dd91265b7c0b10b85a8ca4b8ff83f8b9e672dc22b0a1b"
   },
-  "private_ledger_sha256": "de05fc244091f0beda1e0f5b896b0a7d04364ad937c49c811df0dc6ba096deef",
+  "private_ledger_sha256": "761f8505b1058addd8548fe4ee67eb4b7130f2620a0e2fface8875d9dcb83ac5",
   "superseded_current_aliases_royal532": {
     "last_checkpoint": 44,
     "latest_earned": "142 firstnormalworldstep after actual141cold021, fullparty/questinventory/resources/session retained;horseparked persistence",
