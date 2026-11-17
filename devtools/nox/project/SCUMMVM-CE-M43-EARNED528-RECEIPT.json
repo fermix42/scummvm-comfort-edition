@@ -47,7 +47,8 @@
     "After250 boarding cannon defeat preserved privately; normal preboarding998 reload and changed dry-land camp251 continues mainline, no defeat rewards or casualty erasure hidden.",
     "255 label mentions camp prematurely: H actually refused danger; no mana/food recovery credited. Subsequent normal route continues from actual earned victory/heal.",
     "Normal250 reload263 explicitly forks parent250;251..262 are retained alternate earned evidence, not current carried state/XP/resources. Brown control258 must be re-earned on resumed primary after equipment upgrade. No cross-save item transfer.",
-    "Ice/Fire staff plan corrected before purchase: INT68/56 requirements exceed current44. No staff upgrade credited; proceeding to eligible Town44 armor/spells and full rest."
+    "Ice/Fire staff plan corrected before purchase: INT68/56 requirements exceed current44. No staff upgrade credited; proceeding to eligible Town44 armor/spells and full rest.",
+    "After269 unsaved road branch reached120input bound with3casualties/lastGuard97, Escape refused; normal269 load270 excludes that branch. No successful Flee or battle save claimed; proceeding by sea with full party."
   ],
   "checkpoints": [
     {
@@ -3714,22 +3715,121 @@
       },
       "process": 31,
       "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd"
+    },
+    {
+      "label": "earned three road enemies victory normal camp269",
+      "slot": 269,
+      "parent": "f6e2dd5d34c367727978a649b4f6d15aef4bba8f12b066fe4a8f027f7ec30caa",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot269.g0": "64bddf3d501a1b9fafc3069a43e569fff045341a9b21ad173cb7259cf6b1c71c",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot269.g0.ce-achievements.json": "c5c8bd6d064069a8363d85585a18d2c40e2c3bb66c15658702428e54b6aa3236"
+      },
+      "process": 31,
+      "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd"
+    },
+    {
+      "label": "earned normal269 reload sea approach270",
+      "slot": 270,
+      "parent": "a7186e13cd6e25c4169fd6701be7df51eab92d4b62581cf69a1cdfc2b49c8a34",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot270.g0": "1af460f67a80eab845f09c658cce453fd2c4df6eb22d2dbd87baf1a55b88c5a2",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot270.g0.ce-achievements.json": "9205f3cafcff3bc2211f0d9de58115bee2e8066182e032b0aa1b06d54ce82c81"
+      },
+      "process": 31,
+      "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd"
+    },
+    {
+      "label": "earned healthy frigate sea approach271",
+      "slot": 271,
+      "parent": "0a9dd4ab7a7038aa383c9be2ba56616cf2d026c2b352594429e3d967a9bb48a5",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot271.g0": "423d366b64f3c1faa18ec323456c8a6d5a8ca5c837cdfbe1fb45b138e9982a78",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot271.g0.ce-achievements.json": "6743ea3e8a537f6bb6cd585423b092e45ae1df465b7f4364cfcbfc2ea8cd24ad"
+      },
+      "process": 31,
+      "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd"
+    },
+    {
+      "label": "earned seven sea creatures cannon victory272",
+      "slot": 272,
+      "parent": "2b8034ccbb032b3fb84ab892627e1e87515e4c6149460199fa1e4f39d526e3b2",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot272.g0": "0b8ec495b4463d2ec3d14b085115e9199b88d19167e7e0c3ab619f43faf3e12c",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot272.g0.ce-achievements.json": "0b94ec2a4139315b427286def4668172cb9119a981f6972ff52ec04be1107550"
+      },
+      "process": 31,
+      "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd"
+    },
+    {
+      "label": "earned Town44 healthy sea arrival273",
+      "slot": 273,
+      "parent": "7953ec11f88c6be057ffb4bd7ada9249700a47174558b89091dfdd95837932a9",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot273.g0": "e316e371dfc9bde3676217396d5b8a115a7eed4a2d3e580a2968a002ec965857",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot273.g0.ce-achievements.json": "6a8d4001f715a157327fad3f5f8542d65118c53d405ff1125b100dade36ce44b"
+      },
+      "process": 31,
+      "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd"
+    },
+    {
+      "label": "earned Town44 full Inn rest274",
+      "slot": 274,
+      "parent": "979d141383f6b7037e4289ebe98c7b15ca4fe8f9a426ad4727dd8f0827ddd57e",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot274.g0": "e8163c1ec8198480a7736a2ff6dbc7672a35b3648ff140ebaaa855f192f34402",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot274.g0.ce-achievements.json": "6965331037e8873e37fab889e410e086b6f7d5b39c49a49497757332807d1791"
+      },
+      "process": 31,
+      "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd"
+    },
+    {
+      "label": "earned eligible Mage armor and Blade books275",
+      "slot": 275,
+      "parent": "fdc2f871f3578825f3b5ccc84a6d9911d03a3c36a82e2ed44062a08d9575b539",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot275.g0": "482e8d7105c0d2e9973d39ca0dc23b868a943ca2b7f57a93c889c09e68196b61",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot275.g0.ce-achievements.json": "4c0f5eb051b704f6826bda8480b06bed48c87c91ea182ba251ce2b9a86702d40"
+      },
+      "process": 31,
+      "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd"
+    },
+    {
+      "label": "earned Mage armor Blade slots and protection ready276",
+      "slot": 276,
+      "parent": "df5c833d6fed89c8651daaa9f6aa37aacd9e76aeb7923cb738c38802cee9c8b4",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot276.g0": "df7a2adc6aa4ac484dc3835eaffe83067ed045810cbe2c9294454164a086d6a5",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot276.g0.ce-achievements.json": "8066eb79c11003ab32bc4b46579f25ea9581e01907014ecf8360ece5946ec229"
+      },
+      "process": 31,
+      "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd"
+    },
+    {
+      "label": "earned prepared blades armor full Inn rest277",
+      "slot": 277,
+      "parent": "2d4eafd6931896a96178339c0a5f3ca6887424c0c5f47b59b7a24844332accea",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot277.g0": "236667ede6ab6d410c341101bb4131c0f681040bd0f58bfb196676a3017b91a7",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot277.g0.ce-achievements.json": "be9ed372564b38720a4728cf96275420f800c0a884915cb9d05afb03f753ed08"
+      },
+      "process": 31,
+      "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd"
     }
   ],
   "correction": "SCUMMVM-CE-NPC529-VERIFICATION.json",
-  "last_checkpoint": 268,
+  "last_checkpoint": 277,
   "cold_evidence": "ce-native-acceptance528/earned-modern/cold031.json",
-  "next_action": "Finish actual three-enemy road encounter; resume92step Town44 route. Buy eligibility-checked Mage armor and BladeStorm21/Smite15 at44merchant96; normal Ready and11gold Inn112 fullrest. Return source Brown/Cult chain on improved legitimate branch; no unusable Ice/Fire staff purchase, no arbitrary money grind, no milestone stop.",
+  "next_action": "Return ownedSkiff142109/Frigate143112; sail206105, land204105, Raque cave20099. Re-earn mainline control/Brown74, cold continuity/positive gate then Cult75. Reuse alternate256 missing-key refusal, no repeat. Continue remaining campaign.",
   "current_source_commit": "c660ae8ac41",
   "current_executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd",
-  "latest_earned": "Funded primary264 exits town normally; dry-land H restores107MP/900->793food265. Shore approach causes actual17HP loss/member; six normal Bridgit heals12MP restore all6fullHP266. Normal ownedSkiff/Frigate boarding admits five98/137Pirates; Tactical/fireballs/cannons victory all6fullHP845->873gold. Normal H restores72MP/793->721food267. Frigate75step route206105->17961 no damage/encounter; normal skiff landing17963 and foot castle54 entry all6fullHP. Castle Inn route interrupted by NPC blocking27,35; no Inn payment. Source equipment eligibility correction: IceStaff47 requires68INT, FireStaff39 requires56INT; highest partyINT44. Earlier staff plan missed these requirements; NO purchase/equip attempt made. Corrected source contract: Town44 MageCloak42/Neck44 and BladeStorm21/BladeSmite15 require38INT, usable by Bridgit/Nox44. BladeStorm is hostile mass-target, no Fireball area/friendly proximity constraint; Smite is single-target. Town44 Inn112 costs11gold/fullHPMP and room45/14,29. Normal Bridgit QuickExit4MP returns17762,268,873gold721food,MP15/24/24/29/33/24. Source92step dry-foot Town44 entry132109 route active; three196HPsprite139 road admission at17766, actual battle ongoing. No source/build/newCLI/suite.",
+  "latest_earned": "Normal Town44 purchases275 spend350gold512remaining: BladeStorm21/Smite15 books76each, MageCloak42 two55each, MageNeck44 two44each; all require38INT and Bridgit/Nox44 qualify. Normal Ready276 confirms magearmor51/53, rings on Cutter/Alluvion, bookslots6=21/7=15. No Ice/Fire staff purchased. Final normal Inn11gold pays512->501, room45/14,29, all6fullHP and MP20/32/32/44/44/32, food778, checkpoint277. Normal room exit and Town44 westexit reachSurface132109 unchanged. No Engine changes/build/new CLI.",
   "historical_receipt_baseline": {
     "executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4",
     "source_binding": "SCUMMVM-CE-CANNON530-VERIFICATION.json",
     "qualification": "Initialreceiptbaseline only; percheckpoint/current identities control later progression."
   },
   "source_commit": "c660ae8ac41",
-  "local_full_ledger_sha256": "fe6722f7d45740414c7b618a8a9aaeb2804355534f293cde420c8cac464845bb",
+  "local_full_ledger_sha256": "5dc9acb2ab949b0cae86452197f815f2cc1b2a576a157db4d2a16c92f928d9a5",
   "latest_scoped_evidence": {
     "status": "VERIFIED",
     "scope": "Actual141cold021/142normalnextstep retain quest/inventory/party/resources/sound/session and parkedhorse; not Rustydoorpositivecrossing or fullcampaign acceptance",
@@ -3749,9 +3849,9 @@
     "SCUMMVM-CE-M43-SCALES532-WORK.json": "0ae8239c7e75489373b0604738e1e79d35ccd3a81e348f47832e978cd82b9645",
     "SCUMMVM-CE-M43-CASTLE532-WORK.json": "c1d4286b16d7e8cd3cadcc17047ce6d12a740089562c4df18d0493a527da57d6",
     "SCUMMVM-CE-DOOR533-VERIFICATION.json": "b56eda55bb27385ee3a31fda61b57f58965e91465d68e120ba271e1c360e3c6b",
-    "SCUMMVM-CE-M43-CULT533-WORK.json": "f899f8a0bd3cea88830e669bad5433ebb8f5a248749ded6023621cd4c9f07e80"
+    "SCUMMVM-CE-M43-CULT533-WORK.json": "f05e36ac75dd44dff5d45651a8e04b53702002323580fceb86c65424c254ba74"
   },
-  "private_ledger_sha256": "fe6722f7d45740414c7b618a8a9aaeb2804355534f293cde420c8cac464845bb",
+  "private_ledger_sha256": "5dc9acb2ab949b0cae86452197f815f2cc1b2a576a157db4d2a16c92f928d9a5",
   "superseded_current_aliases_royal532": {
     "last_checkpoint": 44,
     "latest_earned": "142 firstnormalworldstep after actual141cold021, fullparty/questinventory/resources/session retained;horseparked persistence",
