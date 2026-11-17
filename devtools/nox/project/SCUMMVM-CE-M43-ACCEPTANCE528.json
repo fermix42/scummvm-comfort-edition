@@ -2873,10 +2873,10 @@
   "mode_strategy": "One primary Modern earned lineage; targeted Classic legal earned fork/restore/transitions; no duplicate complete campaign required by existing criteria.",
   "failure_policy": "Freeze failing path,source general diagnosis,focused correction+regression,at most2corrective reruns; resume valid nearest earned save,no prefix replay or outcome injection.",
   "builds": 6,
-  "process_launches": 46,
+  "process_launches": 47,
   "planned_node_count": 60,
   "mandatory_node_count_note": "All selected M3 nodes explicitly represented alongside dependency76 graph; includes supporting/advice/alternative nodes. Necessity is retained per source,not inferred from node count.",
-  "last_earned_checkpoint": 430,
+  "last_earned_checkpoint": 435,
   "baseline_candidate_sha256": "81feb2c7ff17594a6ea9754dc60602a755b2f37ea7c53b437f65a18e7c35000f",
   "candidate_change": "NPC529,cannon530,packedmelee531,mountedTalk532 source corrections; exact scoped receipts and earned ancestry retained. No broad matrix promotion.",
   "earned_failures_retained": [

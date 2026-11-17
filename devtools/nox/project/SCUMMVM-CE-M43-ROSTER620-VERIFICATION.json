@@ -1,0 +1,40 @@
+{
+  "status": "VERIFIED",
+  "scope": "Earned paid resurrection, normal inn storage/party reorder, full rest and cold continuity only. Not Vortex readiness or campaign completion.",
+  "actual": "Normal Staff83 sale715, FireStaff39 purchase214/Ready Nox431; three actual160-gold Temple resurrections432. Four normal inn Leave operations store Kat,Cutter,Alluvion and created M4NATIVE at Castle58. Active Bridgit/Nox remain original level5 INT56 XP4106/4176; no XP or ability grant. Normal party-cap food reduction556->450->300. Paid14-gold full rest434 restores both80HP/56MP,47gold. Cold047 exact party/world/inventory/inn/audio/session/no-assistance continuity PASS. First normal Right moves59/28,34->29,34,435. Four stored characters retain their own original records; equipment ownership follows normal party reordering. No Engine change/build.",
+  "source_commit": "c660ae8ac41",
+  "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd",
+  "evidence": {
+    "ce-native-acceptance528/earned-modern/earned-roster-staff-sale612-533.json": "ae39deac4bbc7af0d25bf9bc6d9a67b108eb54fb89242f32ef88df376ded08e5",
+    "ce-native-acceptance528/earned-modern/earned-roster-revive0-616-533.json": "098e291d9fcdd71a0eb8aabef4077952efc8533bd0a672cce70c74c2076555d2",
+    "ce-native-acceptance528/earned-modern/earned-roster-revive1-616-533.json": "64683a7140279336029e223a5572ba6df504f1fabf63011bb7aca3227e714a52",
+    "ce-native-acceptance528/earned-modern/earned-roster-revive5-616-533.json": "bca5f03efc9347cc5f4c1fa7b76b464154071f5007e4655ebcff6ce235499015",
+    "ce-native-acceptance528/earned-modern/earned-roster-leave0-618-533.json": "1dee09b62f34d7d881e1a60739e82294175201ba115532564b152a12b08e2d73",
+    "ce-native-acceptance528/earned-modern/earned-roster-leave1-618-533.json": "1ce5fd2236044b27e9e6a08a515cbd877a213b4e301ae01c12af4def3eee39bc",
+    "ce-native-acceptance528/earned-modern/earned-roster-leave2-618-533.json": "273666c46ba148f12ed16654ebc6afdc5e2e693d55e11a9ddd6ebef0be3c56e5",
+    "ce-native-acceptance528/earned-modern/earned-roster-leave3-618-533.json": "c90a58cf59343aa47e8b4a34684ff9dd05652788d1d612380bcbd1f4e856b98c",
+    "ce-native-acceptance528/earned-modern/earned-roster-full-rest619-533.json": "5d3bbc6dc7de564a5a291b22b55035a02cc622692d200f9b5961a131264b4cfb",
+    "ce-native-acceptance528/earned-modern/cold047.json": "f4cdfe2683c41fbcd2f2a43054f82037a3e750274d25379db47d41c29a370aab"
+  },
+  "checkpoint_metadata": {
+    "ce-native-acceptance528/earned-modern/checkpoints/431-Earned-roster-funding-and-Fire-Staff431/checkpoint.json": "1139c73a5ca87f5ff26a331e6e357fd56b9ae6662a6754c3dedaa4a96269a5f6",
+    "ce-native-acceptance528/earned-modern/checkpoints/432-Earned-three-paid-resurrections432/checkpoint.json": "7e50c8b0d2102a28c1289071d966ce4dc10800aa9fa07704fb206b2df391ee88",
+    "ce-native-acceptance528/earned-modern/checkpoints/433-Earned-Bridgit-Nox-active-roster433/checkpoint.json": "ba25e8b82efb47dc19b4b1419aa1fd18e1ea2bb98f228a91f347e28180f9d2b2",
+    "ce-native-acceptance528/earned-modern/checkpoints/434-Earned-two-caster-full-inn-rest434/checkpoint.json": "41b99944aee9a07996341456e2eb11febaff33f5862270495f4b97d444cb420b",
+    "ce-native-acceptance528/earned-modern/checkpoints/435-Earned-stored-roster-cold047-first-move435/checkpoint.json": "383c50568f6b9b5d9fe67927a90c85ec171247a689671ef9f128b3872d308e7e"
+  },
+  "source_binding_sha256": "8ddcbd520a5a9d7c95d80afe28b7cf9fdee729a43eb2aa1f06ba4be041ab1aed",
+  "private_ledger_sha256": "4a92e3236c7e1bc5608e96e950eabbbbc417374a52a4c0be0ea0d07e2aa6410c",
+  "qualifications": [
+    "Normal failed/nonadjacent Talk and schedule/floor detours remain in605 work/transcript; no service credited until actual dispatch.",
+    "Private normal-input helper receives optional caster-index/maxHP configuration for actual two-member roster; no production code or game-state mutation.",
+    "Vortex still needs lawful110INT/87MP and actual Ready/cast. No new quest acceptance node promoted."
+  ],
+  "cost": {
+    "builds": 8,
+    "game_cli_processes": 47,
+    "focused_cli_processes": 5,
+    "material_launches": 52
+  },
+  "next": "Current source77-step620 return through Castle58/59/78/57/60 runs from435. Then normal Keep26 portal/reboard owned Wyvern, required Bayport Guild branch and remaining finite acceptance."
+}

@@ -1,0 +1,50 @@
+{
+  "status": "VERIFIED",
+  "scope": "Earned paid resurrection, normal inn storage/party reorder, full rest and cold continuity only. Not Vortex readiness or campaign completion.",
+  "source_commit": "c660ae8ac41",
+  "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd",
+  "initial_checkpoint": 430,
+  "latest_checkpoint": 435,
+  "actual": "Normal Uharad entry and source75-step605 return to Keep26. Parked Wyvern at19,19 prevents occupying that cell; route ends18,19. Akora blocks15,19; fresh607 detours via18. Actual Left from14,18 enters13,18 portal to Castle60/37,18. Normal60835-step route reaches Castle59. Initial night and later nonadjacent Talk attempts yield Nobody to talk to, not an engine failure. Normal W8/W4 changes22:54 to10:54; normal map re-entry refreshes source schedule. Reverse portal detour reaches57,4,25 and is corrected by source610. Moving merchant blocks33,24; source61164-step route via58 reaches32,22. Fresh saved NPC64 at32,24; normal Down32,23/TalkDown opens actual merchant22. Ordinary sale of unreadied Archmage Staff83 earns715gold; buy stockindex5 FireStaff39 costs214. Actual normal Ready selects Nox. Checkpoint431 saved at59/32,23,541gold556food; HP89/80/80 MP31/42/42, three prior deaths unchanged.",
+  "source_findings": [
+    "Vortex12 requires110INT/cost87; living maximum56 at level5. Twelve ordinary INT points per level; Br/Nox can reach116 at10. Current XP Hero4108/Br4106/Nox4176.",
+    "BattleRewardRules distributes XP across all partyCount, including dead members. InnMembership refuses dead Leave, but permits ordinary living-member storage without item or XP injection.",
+    "Temple level5 resurrection costs160 each. Paid restoration of all three prior dead members costs480 and is funded by normal431 sale. Inn storage can then reduce XP dilution.",
+    "Resurrection49 costs51MP, requires62INT, baseprice336; unavailable to current56INT. Not claimed learned or cast.",
+    "Guildmaster is a required authored boss, not excluded as friendly: retained L011 actor120 BYE trigger17/32 and descriptor119 sprite207/group60/monster62 HP70/baseXP8400. Actual full fight and credit remain unearned; no assumed8400 per member.",
+    "Source-only group review identifies genuine hostile groups; group59 is Ghosts, not monster59 Cultists. No hypothetical encounter, reward, level or outcome is credited."
+  ],
+  "next": "Current source77-step620 return through Castle58/59/78/57/60 runs from435. Then normal Keep26 portal/reboard owned Wyvern, required Bayport Guild branch and remaining finite acceptance.",
+  "evidence_locations": [
+    "ce-native-acceptance528/earned-modern/process046.jsonl",
+    "ce-native-acceptance528/earned-modern/earned-roster-staff-sale612-533.json",
+    "ce-native-acceptance528/earned-modern/checkpoints/431-Earned-roster-funding-and-Fire-Staff431/checkpoint.json",
+    "ce-native-acceptance528/earned-roster-Uharad605.json",
+    "ce-native-acceptance528/earned-roster-portal606.json",
+    "ce-native-acceptance528/earned-roster-portal607.json",
+    "ce-native-acceptance528/earned-roster-merchant608.json",
+    "ce-native-acceptance528/earned-roster-refresh609.json",
+    "ce-native-acceptance528/earned-roster-shop610.json",
+    "ce-native-acceptance528/earned-roster-shop611.json",
+    "ce-native-acceptance528/earned-roster-temple613.json"
+  ],
+  "engine_changes": "None",
+  "cost": {
+    "builds": 8,
+    "game_cli_processes": 47,
+    "focused_cli_processes": 5,
+    "material_launches": 52
+  },
+  "acceptance": "26/60 nodes VERIFIED; earned campaign, Vortex positive readiness, guardians, supported branches and ending remain IN PROGRESS.",
+  "resurrection432": {
+    "status": "VERIFIED",
+    "actual": "Source lunch refusal at78/27,28 retained. Normal W1 afternoon and ordinary floor transitions54/55/54/78 refresh service. Actual TalkUp opensTemple5. Three normal paid160 resurrections target0/1/5, each correct target and all other party records unchanged. All6alive HP99/81/89/80/80/84 MP20/44/31/42/42/44;61gold556food. Checkpoint432 saved. No level allocation/XP/guardian claim."
+  },
+  "evidence_hashes": {
+    "ce-native-acceptance528/earned-modern/earned-roster-revive0-616-533.json": "098e291d9fcdd71a0eb8aabef4077952efc8533bd0a672cce70c74c2076555d2",
+    "ce-native-acceptance528/earned-modern/earned-roster-revive1-616-533.json": "64683a7140279336029e223a5572ba6df504f1fabf63011bb7aca3227e714a52",
+    "ce-native-acceptance528/earned-modern/earned-roster-revive5-616-533.json": "bca5f03efc9347cc5f4c1fa7b76b464154071f5007e4655ebcff6ce235499015"
+  },
+  "completion_report": "SCUMMVM-CE-M43-ROSTER620-VERIFICATION.json",
+  "actual_completed": "Normal Staff83 sale715, FireStaff39 purchase214/Ready Nox431; three actual160-gold Temple resurrections432. Four normal inn Leave operations store Kat,Cutter,Alluvion and created M4NATIVE at Castle58. Active Bridgit/Nox remain original level5 INT56 XP4106/4176; no XP or ability grant. Normal party-cap food reduction556->450->300. Paid14-gold full rest434 restores both80HP/56MP,47gold. Cold047 exact party/world/inventory/inn/audio/session/no-assistance continuity PASS. First normal Right moves59/28,34->29,34,435. Four stored characters retain their own original records; equipment ownership follows normal party reordering. No Engine change/build."
+}
