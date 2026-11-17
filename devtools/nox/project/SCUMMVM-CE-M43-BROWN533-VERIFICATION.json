@@ -1,0 +1,24 @@
+{
+  "status": "VERIFIED",
+  "scope": "Earned Brown74 pickup/repeat, negative refusal, positive physical key-door crossing and cold persistence only; primary retains two actual casualties",
+  "source_commit": "c660ae8ac41",
+  "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd",
+  "actual": "Brown74 pickup/repeat303 is earned on primary withfield25=18. Source159step door approach admits full9 enemies21226, four191HP healers156, two148HP162, melee202/two152. Actual normal Tactical/area/Blades victory304 earns192gold, retains Kat and Hero dead; this casualty result remains primary, not reloaded or hidden. Camp restores living75% floors,634->488food. Remaining9step source route reaches98/21621. Actual OpenUp uses retained Brown key; normal Up21620 thenUp21619 proves passage305. Cutter heals Br/Allu normally4MP; survivors fullHP. Actual clean quit/cold033 normal chooser load305 matches party/inventory/allquestfields/resources/map/sound/session, no assistance/cheats. First normal Down21620 thenUp21619 confirms postcold passage306. Read-only normal306 bytes verify door64/40, original control115/48 and wall74/254,field25=18, books8/9 retained. Negative no-key refusal256 is retained alternate earned branch; no rewards/world state merged. Brown key remainsquantity1. Enabled Open SFX count452->454, sound0/musicready and selected Found Brown key frame131. Fifteen/60 nodes VERIFIED; no Cult/ending completion claim. Normal Up2 from21619 then99/21617 andDown6 actual owned selfportal221101 earned307; portal cold/next-operation still IN PROGRESS.",
+  "evidence": {
+    "ce-native-acceptance528/earned-modern/earned-Brown-missing-key-refusal256-533.json": "28b49ee43e095d701e79b737fe4116737a7cb6496a3f5b67a8c79c53288e205b",
+    "ce-native-acceptance528/earned-modern/earned-Brown-key303-533.json": "aa565c586281753f7cd1d9ec596869459a9b20d34678436081678491aa345f7b",
+    "ce-native-acceptance528/earned-modern/earned-Brown-repeat303-533.json": "64dc7a6afbd3c9b6debae0c983e87cc5a2a0e585d1239cec7ff9e8036337a28e",
+    "ce-native-acceptance528/earned-modern/earned-Brown-positive-door305-533.json": "095377399d2cf09becce30114d838caf518ff4d123632e6741df7170852b55d0",
+    "ce-native-acceptance528/earned-modern/cold033.json": "8422ac8e9d819ce8d2eed4f6767a7fd8a7f1349b72ced05a29425fe329961d23",
+    "ce-native-acceptance528/earned-modern/earned-Brown-postcold306-533.json": "22364a3dd9691f63a460dcf83e3d0e1e32b95b7a0c792e973a86d84f5e84dae4",
+    "ce-native-acceptance528/earned-modern/earned-Brown-records306-533.json": "4e6018b3b352e5f0bc0cea450c98676c2824e13d936c36995ebd424705375e60",
+    "ce-native-acceptance528/earned-modern/screenshots/scummvm-cli-game-00131.png": "6e35dd671d6d36e39f8a1ce38953c8ec909490192451024a1b6ffe8859cfc4e0"
+  },
+  "earned_lineage": "Primary through303->304(actual Kat/Hero deaths retained)->305->306; alternate negative refusal256; failed297 and stalled nine-enemy battle before300 excluded as recorded",
+  "cost": {
+    "builds": 8,
+    "game_cli": 33,
+    "focused_cli": 5,
+    "material_cli": 38
+  }
+}

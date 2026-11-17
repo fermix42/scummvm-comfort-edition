@@ -4,11 +4,12 @@
   "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd",
   "source_binding": "SCUMMVM-CE-DOOR533-VERIFICATION.json",
   "builds": 8,
-  "process_launches": 32,
+  "process_launches": 33,
   "verified_selected_nodes": [
     "opening-exit",
     "royal-access",
     "gordon-shrubbery",
+    "brown-key",
     "castle-control-wall",
     "moat-key-door",
     "arcane-key-door",
@@ -53,7 +54,8 @@
     "Original item73 is Wrinkled Note, notCopperKey;287 historical label/proofalias qualified, noitem acquired. Merchant schedule interpretation corrected toWORK08-15/16-21; normal wait only. GMMpaused advance controller timeout recoveredsameprocess, noEnginefatal.",
     "290/291 labels do notcreditrefusedcamp: actualbeach/Skiff/Frigate/openwater HrefusalsretainMP; dry203105H restored89MP/89food. Newprivatepauseguardandremovalofimplicitbattlepausefixcontrolleronly, noEnginebuild.292cannonvictory noHP/MPcost. Minimumreadiness isNox5/INT50, notall6party5. SourceWdigit waitswholehoursnormally, no clockinjection.",
     "Mixednaval firstfull defeatretained; normalactual998healthy20787reload293 preservespreceding7enemyseavictoryearnedXP. Onechangednormaladjacenttargetpolicywinsall6fullHP,294. Noexpectedoutcome/stateinjection. Normalallocations4members5,Nox56INT; preparationstopswhenminimumeligible,nofurthertrainingrequired.",
-    "297 casualty victory is alternate;298 normal preapproach998 excludes it. Nine-enemy stalled4casualty battle excluded by normal299 load300. Primary proceeds299->300->301..303. World-party HP is stale during battle: use battle_party; no failed rewards merged. Historical fixed guard location21359 was clear after nine-enemy victory; A found none and normal passage succeeded; no extra fixed8 victory claimed."
+    "297 casualty victory is alternate;298 normal preapproach998 excludes it. Nine-enemy stalled4casualty battle excluded by normal299 load300. Primary proceeds299->300->301..303. World-party HP is stale during battle: use battle_party; no failed rewards merged. Historical fixed guard location21359 was clear after nine-enemy victory; A found none and normal passage succeeded; no extra fixed8 victory claimed.",
+    "304 actual nine-enemy victory keeps Kat/Hero deaths in primary;305/306 cold preserves them. No all-six-alive or paid resurrection credited for this segment."
   ],
   "checkpoints": [
     {
@@ -4105,22 +4107,66 @@
       },
       "process": 32,
       "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd"
+    },
+    {
+      "label": "earned door route victory two casualties304",
+      "slot": 304,
+      "parent": "0adb2b1a4161324c9fddb94fc1bd0ebf517c5e618c74cdbe97e5f24bde1b2356",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot304.g0": "e6c67f0a59d1d39b05edd11ba339f4c4dbd98444cdce4a568c815f8a6312df62",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot304.g0.ce-achievements.json": "823e20b6484373a89112d66d1de8ffd3ab10c12325325009b9bfb5582537dc5b"
+      },
+      "process": 32,
+      "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd"
+    },
+    {
+      "label": "earned Brown door physical passage305",
+      "slot": 305,
+      "parent": "9f501d34680e32ff6be78e6ef5891df60adf394c04b55717cc7c90f6d3abf641",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot305.g0": "c2458db93fda0bdde1548a207eebcdea9af070aa9d2cf68aafe8eb25f6ac609a",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot305.g0.ce-achievements.json": "6d35fa77015412bc2704eeac257d63d512257dc6891d16f89567ecdec072dce7"
+      },
+      "process": 32,
+      "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd"
+    },
+    {
+      "label": "earned Brown door cold passage306",
+      "slot": 306,
+      "parent": "823041b3f39c0c18bf9e368b19e9fd0d804457a59530afa12b2188e56a533253",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot306.g0": "9009d9e8bb3d7ef15859bd446cf4fe8eb33bc8cf18016781f401af4fa4d6ccb2",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot306.g0.ce-achievements.json": "dc7355615cd1e44fa8df0f4a76baba0360d75848597cd78f9cffa7290674f2d7"
+      },
+      "process": 33,
+      "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd"
+    },
+    {
+      "label": "earned Cult lower selfportal307",
+      "slot": 307,
+      "parent": "272c3e3fb8d77b72c52c2ddfc52e8f655e93319b266ccdde496bbb74f62f9156",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot307.g0": "6ddc32faf06ddcab943dbc6bf764e511b7eec7002106e9d3ea7c2186927fcf64",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot307.g0.ce-achievements.json": "7f19b1f475e83e239335e49d6105a9354afb5c1fe228d4a61b199b27433fa7c6"
+      },
+      "process": 33,
+      "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd"
     }
   ],
   "correction": "SCUMMVM-CE-NPC529-VERIFICATION.json",
-  "last_checkpoint": 303,
-  "cold_evidence": "ce-native-acceptance528/earned-modern/cold032.json",
-  "next_action": "Finish source159step no-hazard Brown door stand98/21621; earned74 OpenUp/physical passage21620/21619, normal cold combining key/repeat/open wall/door and first postcold passage. Missing-key refusal alternate256 already retained, do not repeat. Then source portal21617->99 and VHA mouth217101, authored full monks/Letter75 prerequisites; continue finite earned campaign without milestone stop.",
+  "last_checkpoint": 307,
+  "cold_evidence": "ce-native-acceptance528/earned-modern/cold033.json",
+  "next_action": "At99/221101 earned307 follow normal Left to vestibule218101 and magic mouth217101. Actual wrong/BRIBE refusal then VHA, wall215100 removal, physical passage and combined portal/mouth cold; full original monk/corridor-cultist battles and Letter75. Retain Kat/Hero deaths304, restore only via legitimate service/spell; no reset of these earned victories. Continue finite campaign, no milestone stop.",
   "current_source_commit": "c660ae8ac41",
   "current_executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd",
-  "latest_earned": "Earned296 QuickExit to17762; four98HP shore enemies defeated with fullHP retained. Lone87HP creature during dry-land approach defeated without HP/MP loss. Normal camp17763 restores14MP for14food900->886; owned Skiff/Frigate boarding and75step voyage206105, landing204105,15step dry cave approach19999, cave97, retained Raque door and stair98 all without further damage/combat. Source68step Brown-wall approach admits three191HP cultists20675. Attack-heavy policy reaches bounded stall; actual victory297 retains Kat/Cutter/Hero dead. Normal pre-approach998 restore298 excludes casualty victory/rewards. One changed Blade/Storm tactic wins same3 all6fullHP,44gold; normal camp299 restores84MP,886->802food. At21061 nine191/148HP enemies admit. First spell policy stalls with4casualties; actual battle state/trace retained, no rewards credited. Normal299 load300 restores all6fullHP/44gold802food. Changed normal input policy: support casters pass until initial Shock casts, prioritize healer clusters, use Blade Smite on remaining healers, reserve Nox17MP for Divine Heal while multiple enemies remain. Actual full9 victory301 all6alive,105gold802food; Kat70HP/Hero52HP healed normally by Kat4MP tofull. Normal camp302 succeeds at21061, restores168MP for168food802->634; no retreat. No nearby compact hostile actor; stationary extended NPCs are excluded from original camp danger predicate. A Right from21259 finds no actor; actual steps21359 and21459 prove retained open-wall passage, no forced extra fight. Source9step chest approach21854; first SearchUp/Cutter2 traps26HP81->55, second normal Y/2 displays Found Brown key. After acknowledgement inventory kind2/id74 quantity1 andfield25=18 (adds16). Normal Kat2MP heals Cutter55->81. Earned303 saved; repeat SearchUp unchanged inventory. All6fullHP,MP14/33/33/42/42/33,105gold634food. Old health commentary during failed battles used stale world-party snapshots; actual live battle casualties are explicitly retained here. No Engine source/build/newlaunch/suite rerun since296.",
+  "latest_earned": "Brown74 pickup/repeat303 is earned on primary withfield25=18. Source159step door approach admits full9 enemies21226, four191HP healers156, two148HP162, melee202/two152. Actual normal Tactical/area/Blades victory304 earns192gold, retains Kat and Hero dead; this casualty result remains primary, not reloaded or hidden. Camp restores living75% floors,634->488food. Remaining9step source route reaches98/21621. Actual OpenUp uses retained Brown key; normal Up21620 thenUp21619 proves passage305. Cutter heals Br/Allu normally4MP; survivors fullHP. Actual clean quit/cold033 normal chooser load305 matches party/inventory/allquestfields/resources/map/sound/session, no assistance/cheats. First normal Down21620 thenUp21619 confirms postcold passage306. Read-only normal306 bytes verify door64/40, original control115/48 and wall74/254,field25=18, books8/9 retained. Negative no-key refusal256 is retained alternate earned branch; no rewards/world state merged. Brown key remainsquantity1. Enabled Open SFX count452->454, sound0/musicready and selected Found Brown key frame131. Fifteen/60 nodes VERIFIED; no Cult/ending completion claim. Normal Up2 from21619 then99/21617 andDown6 actual owned selfportal221101 earned307; portal cold/next-operation still IN PROGRESS.",
   "historical_receipt_baseline": {
     "executable_sha256": "5fd42e03059dbb987a12448b4b5d842171c6b788edc3ac3ca0eb4c68b98340e4",
     "source_binding": "SCUMMVM-CE-CANNON530-VERIFICATION.json",
     "qualification": "Initialreceiptbaseline only; percheckpoint/current identities control later progression."
   },
   "source_commit": "c660ae8ac41",
-  "local_full_ledger_sha256": "16b32edfe56207725302a252ed4e4df6c8159a1f31a8d6ea94d6150a9d1717ea",
+  "local_full_ledger_sha256": "9599fdd62fb406af518a03eb241431a63277ba957d78f81d5fbe0e0498e72c9a",
   "latest_scoped_evidence": {
     "status": "VERIFIED",
     "scope": "Actual141cold021/142normalnextstep retain quest/inventory/party/resources/sound/session and parkedhorse; not Rustydoorpositivecrossing or fullcampaign acceptance",
@@ -4140,9 +4186,10 @@
     "SCUMMVM-CE-M43-SCALES532-WORK.json": "0ae8239c7e75489373b0604738e1e79d35ccd3a81e348f47832e978cd82b9645",
     "SCUMMVM-CE-M43-CASTLE532-WORK.json": "c1d4286b16d7e8cd3cadcc17047ce6d12a740089562c4df18d0493a527da57d6",
     "SCUMMVM-CE-DOOR533-VERIFICATION.json": "b56eda55bb27385ee3a31fda61b57f58965e91465d68e120ba271e1c360e3c6b",
-    "SCUMMVM-CE-M43-CULT533-WORK.json": "ae4650fda2073bcdc89f34d4856d4783b5de435f5167749355abeb6bd51688a5"
+    "SCUMMVM-CE-M43-CULT533-WORK.json": "c80a82f28c52fcf26c74bac310bc62ee804b6673219b77226490abc33a96f5bf",
+    "SCUMMVM-CE-M43-BROWN533-VERIFICATION.json": "63d01dbe71fdaa7c28f0b0e68e1c89b8e50dc2debeeb4c3475629c679d0781f5"
   },
-  "private_ledger_sha256": "16b32edfe56207725302a252ed4e4df6c8159a1f31a8d6ea94d6150a9d1717ea",
+  "private_ledger_sha256": "9599fdd62fb406af518a03eb241431a63277ba957d78f81d5fbe0e0498e72c9a",
   "superseded_current_aliases_royal532": {
     "last_checkpoint": 44,
     "latest_earned": "142 firstnormalworldstep after actual141cold021, fullparty/questinventory/resources/session retained;horseparked persistence",

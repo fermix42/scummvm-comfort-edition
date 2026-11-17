@@ -169,7 +169,7 @@
     },
     {
       "id": "brown-key",
-      "status": "IN PROGRESS",
+      "status": "VERIFIED",
       "prerequisites": [
         "gordon-shrubbery"
       ],
@@ -196,12 +196,13 @@
         "scoped audio/presentation",
         "actual earned verification criteria"
       ],
-      "earned_lineage": null,
-      "actual_result": "Earned Raque249/132 persists in resumed primary250->263. Retained alternate251..262 contains actual cave door253, missing-Brown refusal256, camp257 and paired control258; Brown74 not acquired. Explicit normal250 reload263 excludes later branch world/control/XP/gold. Staff preparation264 before re-earning relevant approach."
+      "earned_lineage": "Primary303->304->305->306; original absent-key refusal alternate256",
+      "actual_result": "Brown74 pickup/repeat303 is earned on primary withfield25=18. Source159step door approach admits full9 enemies21226, four191HP healers156, two148HP162, melee202/two152. Actual normal Tactical/area/Blades victory304 earns192gold, retains Kat and Hero dead; this casualty result remains primary, not reloaded or hidden. Camp restores living75% floors,634->488food. Remaining9step source route reaches98/21621. Actual OpenUp uses retained Brown key; normal Up21620 thenUp21619 proves passage305. Cutter heals Br/Allu normally4MP; survivors fullHP. Actual clean quit/cold033 normal chooser load305 matches party/inventory/allquestfields/resources/map/sound/session, no assistance/cheats. First normal Down21620 thenUp21619 confirms postcold passage306. Read-only normal306 bytes verify door64/40, original control115/48 and wall74/254,field25=18, books8/9 retained. Negative no-key refusal256 is retained alternate earned branch; no rewards/world state merged. Brown key remainsquantity1. Enabled Open SFX count452->454, sound0/musicready and selected Found Brown key frame131. Fifteen/60 nodes VERIFIED; no Cult/ending completion claim. Normal Up2 from21619 then99/21617 andDown6 actual owned selfportal221101 earned307; portal cold/next-operation still IN PROGRESS.",
+      "earned_evidence": "SCUMMVM-CE-M43-BROWN533-VERIFICATION.json"
     },
     {
       "id": "cult-lower-portal",
-      "status": "NOT STARTED",
+      "status": "IN PROGRESS",
       "prerequisites": [
         "gordon-shrubbery",
         "brown-key"
@@ -231,7 +232,8 @@
         "scoped audio/presentation",
         "actual earned verification criteria"
       ],
-      "earned_lineage": null
+      "earned_lineage": null,
+      "actual_result": "Actual normal earned307 first floor transition and selfportal221101; subsequent cold/compatibility pending"
     },
     {
       "id": "cult-magic-mouth",
@@ -2700,10 +2702,10 @@
   "mode_strategy": "One primary Modern earned lineage; targeted Classic legal earned fork/restore/transitions; no duplicate complete campaign required by existing criteria.",
   "failure_policy": "Freeze failing path,source general diagnosis,focused correction+regression,at most2corrective reruns; resume valid nearest earned save,no prefix replay or outcome injection.",
   "builds": 6,
-  "process_launches": 26,
+  "process_launches": 33,
   "planned_node_count": 60,
   "mandatory_node_count_note": "All selected M3 nodes explicitly represented alongside dependency76 graph; includes supporting/advice/alternative nodes. Necessity is retained per source,not inferred from node count.",
-  "last_earned_checkpoint": 194,
+  "last_earned_checkpoint": 307,
   "baseline_candidate_sha256": "81feb2c7ff17594a6ea9754dc60602a755b2f37ea7c53b437f65a18e7c35000f",
   "candidate_change": "NPC529,cannon530,packedmelee531,mountedTalk532 source corrections; exact scoped receipts and earned ancestry retained. No broad matrix promotion.",
   "earned_failures_retained": [
