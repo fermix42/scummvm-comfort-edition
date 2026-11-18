@@ -1,0 +1,21 @@
+{
+  "status": "VERIFIED",
+  "scope": "Earned postJournal preShadow Styx opening, post-eight-page PAGES/repeat/noaward, cold/firstnext only. No-Journal comparison remains separate.",
+  "source_commit": "d52b130c5df",
+  "executable_sha256": "f9215345b158b1a8cffcfef51f2ee8a37938a7538b52c5009399ad4f2001b7a4",
+  "lineage": "Normal595 valid earnedfork,33sourcegroundcommands through58/59/60/57. Primary617 remains unchanged.",
+  "actual": "Normalstand6,14/TLeft catchesrealStyx5,14. Actualopening sharesHighCultistJournaltranslation and warnsDarkShadow crossedgate/Wynmarsouthernisland. Field59=2 remainsbeforeearlydiscoverybit1. ActualPAGES/repeat identicallibrarylocationclue; pages8/field62=255 andentireinventoryunchanged. Normal802save/cold070 exactparty/inventory/quest/resources/map/transport/sound andnoassistancePASS; firstUp6,13.",
+  "excluded": "FirstTUpfrom6,13hasnoNPC; excludedasbranchproof; sourceNPC5,14thenDown/TLeft correctednormalapproach.",
+  "evidence": {
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Styx1054-pages-repeat.json": "ed5f3bfcf177bf56b4cf20980cad22c75305a2a2083050772d10f8d2213c9fc4",
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Styx1054-preShadow-opening.json": "6024286879bde628a5abc448e34fa1713c5cd2832dd8e09883576c45c601900f",
+    "conversion\\ce-native-acceptance528\\earned-modern\\forks\\Styx1054\\cold-first-next.json": "cbd5cc2e0250c7a04b388abfe6341203c1413ffeffc7803f484c3c11334224ec",
+    "conversion\\ce-native-acceptance528\\earned-modern\\forks\\Styx1054\\manifest.json": "517e1c9aa0f367c0a083d0e8e1ac333ced2550b8d8f3dd601a94dfccde852b9d"
+  },
+  "cost": {
+    "build_attempts": 11,
+    "game_cli": 70,
+    "focused_cli": 7,
+    "material_launches": 77
+  }
+}

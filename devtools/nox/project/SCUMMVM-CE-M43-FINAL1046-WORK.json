@@ -20,5 +20,6 @@
     "conversion\\ce-native-acceptance528\\earned-modern\\earned-Final1046-result.json": "f7642ec40f7d07317939869cf2eeaec79301fa9a583506b7620f93f9ecb2cc7c",
     "conversion\\ce-native-acceptance528\\earned-modern\\cold068.json": "7408f94e1bc1504d4f88b89713277193c872e79d46d9bf8d39bc9f1c52b01bab"
   },
-  "faster_attempt": "1047 actualNoxoffense/Brheal reducedboss3210->2099 beforeBrdeath. Samebattle1048 Noxselfheal/Chaos continuation endedactualdefeat1747HPenemy. FailedfutureFinal1048 preserved; noendingclaim. Do not repeat this tactic; continueindependentearnedbranches."
+  "faster_attempt": "1047 actualNoxoffense/Brheal reducedboss3210->2099 beforeBrdeath. Samebattle1048 Noxselfheal/Chaos continuation endedactualdefeat1747HPenemy. FailedfutureFinal1048 preserved; noendingclaim. Do not repeat this tactic; continueindependentearnedbranches.",
+  "source_reconciliation1049": "Owned armor definitions confirm STR8 actual weight limit: clothitems1each, cloak42weight1/armor23, Necklace116weight0/armor50/MR45, Chaos90weight4. OwnedBuckler17weight3/armor17qty2. Normalshieldhandrules explicitly allow two freehand shields and requireactualcopyownership/weight. Possible futureBrsupportpreparation: remove2clotharmor pieces (-2weight,-8armor), ready2Bucklers(+6weight,+34armor) toweight8/basearmor111; oneShield32 adds29 ->140. This is SOURCE-ONLY plan, no equipment inputs or claimed improvement yet. Avoid further unchanged tactical retries."
 }

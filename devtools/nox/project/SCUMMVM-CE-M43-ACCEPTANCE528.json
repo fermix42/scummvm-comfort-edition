@@ -1864,9 +1864,10 @@
       ],
       "earned_lineage": null,
       "earned_translation": "SCUMMVM-CE-M43-CULTIST959-VERIFICATION.json",
-      "remaining": "Styx post-Journal guidance, required Shadow event/confrontation and relevant earned no-Journal comparison.",
+      "remaining": "Relevant earned no-Journal comparison only; discovery/confrontation/retreat andpostJournalguidance nowverified.",
       "earned_discovery_confrontation_retreat": "SCUMMVM-CE-M43-SHADOW963-VERIFICATION.json",
-      "source_qualification": "Early59bit1 is discovery, not victory; the source-supported normal retreat at full3210HP returned toRuin31. No full Shadow win claimed or required by the Styx predicate."
+      "source_qualification": "Early59bit1 is discovery, not victory; the source-supported normal retreat at full3210HP returned toRuin31. No full Shadow win claimed or required by the Styx predicate.",
+      "earned_postJournal_guidance": "SCUMMVM-CE-M43-STYX1054-VERIFICATION.json"
     },
     {
       "id": "lord-british-ankh",
@@ -2104,7 +2105,7 @@
     },
     {
       "id": "styx-page",
-      "status": "IN PROGRESS",
+      "status": "VERIFIED",
       "prerequisites": [
         "high-cultist"
       ],
@@ -2135,8 +2136,10 @@
         "Styx PAGES is an unconditional location clue, not an NPC inventory award or a mechanical prerequisite. Actual PAGES/repeat/no duplicate pages/cold tested after actual collection, not claimed to cause earlier acquisitions. Source library object identity and all3 actual pickups covered separately."
       ],
       "earned_evidence": [
-        "168earlyunconditionalPAGES/repeat only; postcollectioncriterionremains"
-      ]
+        "168earlyunconditionalPAGES/repeat only; postcollectioncriterionremains",
+        "SCUMMVM-CE-M43-STYX1054-VERIFICATION.json"
+      ],
+      "remaining": "None within this clue contract; no extra page award or causation claimed."
     },
     {
       "id": "vazarath-gemstone",
@@ -3359,7 +3362,7 @@
     },
     "next": "Continue source-authored cave/stair flight toUM101 Lich(originalNPC32,source108148;inspectactualposition). Earnedphylacteryflag12bit4 retained. Inspectactualfull1300HP/protection/partypositions, thennormalC1VortexNorth avoidingfriendlyfire, actualWaterJewel153 andpersistentdeath. Nofixture/Rat/campaignendingclaim."
   },
-  "verified_count": 41,
+  "verified_count": 42,
   "lich877": {
     "status": "IN PROGRESS",
     "scope": "Earned fullLich/WaterJewel acceptance approach only",
