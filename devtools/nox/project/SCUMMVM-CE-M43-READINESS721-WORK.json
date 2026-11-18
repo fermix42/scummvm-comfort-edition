@@ -1,7 +1,7 @@
 {
   "status": "IN PROGRESS",
   "root_checkpoint": 479,
-  "current_checkpoint": 527,
+  "current_checkpoint": 530,
   "source_commit": "c660ae8ac41",
   "scope": "Required lawful caster advancement for Vortex110INT/87MP, not an Engine implementation gap.",
   "actual": "Normal source39-flight Ring808 reaches22,198. Incidental single46HP and two46/41HP encounters allow actualT/Esc/Y retreat, no HP/MP/XP loss; actual worldgold172->86->43 retained. Initial flee harness incorrectly expected battle_phase1; source-confirmed visible Y/N prompt actually leavesphase0, normalY completes flee. Normal groundRight/Down entersTown74/24,38,509. Source40-foot815 reaches11,11, normalLeft10,11/TalkUp targets actualMouthNPC0 at10,10. Real WRONG817 leavesfield46=4/field58=24; normalLeft9,11/OpenUp refuses and actualUp remains9,11,510. Correct normalKAYL/finish opens timeddoor; actualLeft9,11/Up9,10/Up9,9, with no redundant Open. SearchUp awards155qty1/field58=152,511. RepeatNothingfound/no duplicate512. Clean cold055 exact-state/session/audio/no-assistance PASS. ActualY/Right flight9,9->13,9 proves native postcold movement/transport,513. QuickExit returnsSurface23,199,514. Source17-flightChaos823 then actualUp entersCave79,192 and residualmovement endsUM97/79,191,515. Both112HP,MP61/69,43gold219food. No Engine change/build. Ring acquisition/persistence verified; actual death-spell effect remains IN PROGRESS.",
@@ -12,15 +12,15 @@
   },
   "next": "Acquire original ChaosWand90 fromUM101/79,40 chest216 (questfield15 bit2). RequirementINT92 matches both current casters; actual Ready/derived hand power must be inspected before combat. Source directUM97->99 portal82,171 avoids98; current825 four-flight approach to79,175. Continue source-supported stairs/flight to101, approaching Wand fromeast outsideDragon sight. Normal level10 lock trap damage47 is source-supported and survivable at112HP; heal between failed attempts as needed. No victory/XP/eligibleVortex claim; remainingXP1264/1194 tolevel9. All60 criteria retained.",
   "report": "SCUMMVM-CE-M43-CULT734-VERIFICATION.json",
-  "last_checkpoint": 527,
-  "last_earned_checkpoint": 527,
+  "last_checkpoint": 530,
+  "last_earned_checkpoint": 530,
   "process_launches": 55,
   "essence775": {
     "status": "VERIFIED",
     "report": "SCUMMVM-CE-M43-ESSENCE775-VERIFICATION.json",
     "scope": "Earned Essence of Death pickup/repeat and actual lawful saves only; Nox book/XP/Vortex/guardians remain IN PROGRESS."
   },
-  "active_next": "Continue source-supported small physical-only undead encounters toward1164/1094XP, inspect before fighting; actual Necrosis eligibility, Dragon and remaining campaign gates still pending.",
+  "active_next": "Continue remaining fourteen physical undead kills for earned level9 INT104. Actual source2flight847 to150176 succeeded; normal alignmentreturn interrupted by three50HP surface enemies149172, current ordinary physical battle; no result presumed.",
   "necro795": {
     "status": "VERIFIED",
     "report": "SCUMMVM-CE-M43-NECRO795-VERIFICATION.json",
@@ -78,5 +78,30 @@
     "source_commit": "c660ae8ac41",
     "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd",
     "next": "Continue source-supported small physical-only undead encounters toward1164/1094XP, inspect before fighting; actual Necrosis eligibility, Dragon and remaining campaign gates still pending."
+  },
+  "actual_528": "Actual earned528 defeats four DeathJesters101 and oneNightmare102 after source3ground844 incidental admission at31/37,33. Two ordinary SummonLesserUndead casts, ChaosWand attacks; both112HP,MP53/39,629gold219food,XP22086/22156. Exactly250XP/member, remaining914/844 to23000. NoEngine/build/process change;527 fixed153 retirement preserved. Continue small physical-only undead encounters, no victory/eligibility claim for later gates.",
+  "chaos848": {
+    "status": "VERIFIED",
+    "scope": "Earned five-undead victories528/529, actual retreats and Surface camp530 only",
+    "actual": "Actual528 five-undead victory has both112HP,MP53/39,629gold219food. Subsequent source Y/Left/Left flight from39,32 admits seven-enemy Nightmare/Archmage group; normal exit0 T/Esc/Y,629->314gold. Normal Left admits ten including fourArchmages; actual flee314->157gold, residualflight27,32. AttackRight misses moving actual154 at29,32; fresh save thenYland/Right admits five physical-only:fourNightmares/oneUndeadWarrior. Actual two10MP summons/Chaos victory529, both112HP,MP53/19,598gold219food. Hcamp refuses danger, no recovery. QuickExit150168/source6flight846 reaches150184, actualHcamp530 both69MP,149food. NoEngine/build/process or save reload; penalties retained.",
+    "xp": [
+      22336,
+      22406
+    ],
+    "remaining_xp": [
+      664,
+      594
+    ],
+    "cost": {
+      "builds": 8,
+      "game_cli": 55,
+      "focused_cli": 5
+    },
+    "next": "Continue remaining fourteen physical undead kills for earned level9 INT104. Actual source2flight847 to150176 succeeded; normal alignmentreturn interrupted by three50HP surface enemies149172, current ordinary physical battle; no result presumed.",
+    "checkpoints": {
+      "ce-native-acceptance528/earned-modern/checkpoints/528-Earned-Chaos-five-undead-victory528/checkpoint.json": "eed64d927d31e23829e565404066a293bef8b1a9833f6e267553cc04d030cb15",
+      "ce-native-acceptance528/earned-modern/checkpoints/529-Earned-Chaos-natural-five-victory529/checkpoint.json": "7555428e0b44c3c0095af538e9792e423056d31c47121190da1a5071548eb622",
+      "ce-native-acceptance528/earned-modern/checkpoints/530-Earned-Chaos-mana-camp530/checkpoint.json": "141fda1234ee4be8438c0f177227ce1d1bd96b89b1453c0f43aa63add21638dc"
+    }
   }
 }
