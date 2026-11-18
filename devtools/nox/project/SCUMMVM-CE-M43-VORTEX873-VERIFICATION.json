@@ -1,0 +1,29 @@
+{
+  "status": "VERIFIED",
+  "scope": "Earned Vortex positiveReady, actualoutside-battle refusal andcold/subsequentmovement only; battleeffect/guardians remainuntested",
+  "actual": "Normalsource5flight870 toSurface71,204;Yland/source3foot871 to70,206,actualUp entersJorbek9/24,38 at551. ActualfoodNPC32 at33,37/open74. Source25foot872 reaches32,37;normalTalkRight displays originalJorbek50foodpacks1gold offer. Actual4/Enter purchases200food,99->299,21->17gold;552. QuickExitSurface70,205,Nox40->36MP. ActualHcamp553 restoresboth92HP/87MP,food174. NormalC1Vortex/NoxEnter yieldsOnly in combat!,screenshot263;party,inventory,questfields,gold,food,locationunchanged andbothretain87MP. Actualack554. NormalDivineBr17MP restores123HPboth;HcamprefillsBr87MP,food157;555. Clean cold056 exactparty/world/inventory/quest/session/noassistance continuityPASS. ActualDownSurface70,206 aftercold,556. Bothlevel10 INT116 HP123 MP87,VortexC1,17gold157food. NoEngine/buildchange;56gameCLI+5focused=61launches.",
+  "source_commit": "c660ae8ac41",
+  "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd",
+  "cost": {
+    "builds": 8,
+    "game_cli": 56,
+    "focused_cli": 5,
+    "material_launches": 61
+  },
+  "checkpoints": {
+    "ce-native-acceptance528/earned-modern/checkpoints/551-Earned-Jorbek-food-entry551/checkpoint.json": "d75fb74b65a5055636a4df5ba3c13df90782cbbf5b9a13368b06a805129c4468",
+    "ce-native-acceptance528/earned-modern/checkpoints/552-Earned-Jorbek-food-purchase552/checkpoint.json": "3dd0f15d051d8ae3544103b6ed1eaa0235cc2b7aa03c5df93ec2703601cd2f27",
+    "ce-native-acceptance528/earned-modern/checkpoints/553-Earned-Vortex-mana-camp553/checkpoint.json": "212bc9be51ee5a648323b3483c6a77827e3efb33b788f699d04d47466fbd9916",
+    "ce-native-acceptance528/earned-modern/checkpoints/554-Earned-Vortex-world-refusal554/checkpoint.json": "474435e4448e329b6e76a887a20a9c1be7e71e36d139137e0908a5abfcc0ebe1",
+    "ce-native-acceptance528/earned-modern/checkpoints/555-Earned-Vortex-guardian-readiness555/checkpoint.json": "da9f142df0d11b54ff33c9f39c6c0ad509b6778dabf977714b774785602a1068",
+    "ce-native-acceptance528/earned-modern/checkpoints/556-Earned-Vortex-postcold-movement556/checkpoint.json": "a91ac4ff36e522b6004c9c83a5912796879b26969a155dcc8153e201f5d7d160"
+  },
+  "private_evidence": {
+    "ce-native-acceptance528/earned-modern/earned-Vortex-world873.json": "745779210f5dc3c12f5fe3500fcd580a9a40023907492cd6825558312a5b7e55",
+    "ce-native-acceptance528/earned-modern/cold056.json": "fed13548cb4155d22a0f8eb98e33f8a232354a181c607500fd4677bccb5ef8d6",
+    "ce-native-acceptance528/earned-modern/screenshots/scummvm-cli-game-00261.png": "0a74463361b4a73d52c745a92ebb2f722c14cbdf8dc57fd49ccd61c66c1c0463",
+    "ce-native-acceptance528/earned-modern/screenshots/scummvm-cli-game-00262.png": "413f7b6b047c06e257ad34df52dc3d761b43d2e85f58954b8f7cff7cc21528b8",
+    "ce-native-acceptance528/earned-modern/screenshots/scummvm-cli-game-00263.png": "e4a395c59525259c02471d3cb9aaa631a66ff3ed91adffbcd670e4443ae10756"
+  },
+  "next": "Continue source-authored cave/stair flight toUM101 Lich(originalNPC32,source108148;inspectactualposition). Earnedphylacteryflag12bit4 retained. Inspectactualfull1300HP/protection/partypositions, thennormalC1VortexNorth avoidingfriendlyfire, actualWaterJewel153 andpersistentdeath. Nofixture/Rat/campaignendingclaim."
+}

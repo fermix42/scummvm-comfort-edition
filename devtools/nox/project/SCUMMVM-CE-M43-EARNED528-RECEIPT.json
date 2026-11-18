@@ -4,7 +4,7 @@
   "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd",
   "source_binding": "SCUMMVM-CE-DOOR533-VERIFICATION.json",
   "builds": 8,
-  "process_launches": 55,
+  "process_launches": 56,
   "verified_selected_nodes": [
     "opening-exit",
     "royal-access",
@@ -4308,7 +4308,7 @@
     }
   ],
   "correction": "SCUMMVM-CE-NPC529-VERIFICATION.json",
-  "last_checkpoint": 550,
+  "last_checkpoint": 556,
   "cold_evidence": "ce-native-acceptance528/earned-modern/cold036.json",
   "next_action": "Complete424 fromindex121 at65,147, boardFrigate119217; Bruce75/Archus/Order/remainingcampaign",
   "current_source_commit": "c660ae8ac41",
@@ -4398,7 +4398,7 @@
     "report": "SCUMMVM-CE-M43-NYSTUL548-VERIFICATION.json",
     "actual": "Earned Nystul binding411, repeat539, Staff412 and real low-INT refusal413; cold045 and actual Right move415 retain all state. Normal post-cold return crosses COMP-opened wall and B reboards Wyvern416. Maze access/Staff nodes VERIFIED; 25/60 nodes VERIFIED. Eight-page recognition/binding positive scopes VERIFIED; missing-pages forks/selected Classic coverage remain. Book12qty1, Staff83qty1, field61=67, field15=84, pages8/255. HP89/79/80 MP1/28/42,81gold594food. Current normal flight548 leaves maze toward Foolery/Hairnet. No Engine changes or builds; 8 builds,45 gameCLI+5 focused=50 launches. Vortex Ready/cast requires lawful110INT progression; no ending claim."
   },
-  "active_next": "Source5flight870 toSurface71,204; normalJorbek70,205 entrance/Town9 foodvendor32, original50foodpacks1gold. Normalfoodpurchase/camp sufficientVortex87MP, realworldrefusal/cold, fullguardians andremainingfiniteacceptance. No optionalDragonloot/innrequired.",
+  "active_next": "Continue source-authored cave/stair flight toUM101 Lich(originalNPC32,source108148;inspectactualposition). Earnedphylacteryflag12bit4 retained. Inspectactualfull1300HP/protection/partypositions, thennormalC1VortexNorth avoidingfriendlyfire, actualWaterJewel153 andpersistentdeath. Nofixture/Rat/campaignendingclaim.",
   "Uharad_sea552": {
     "status": "IN PROGRESS",
     "actual": "Actual Uharad flight550 interrupted atSurface126123 by seven98/137 sea boarding, retreat128. Source screenshot189 confirms ship/cannons. Actual twoShock killfour; remainingthree defeatparty under normalcannon/Staff policy. Raw552 filename says victory but actualphase2 isdefeat; no victorycredited. Failedpath and fourowned998generations/sidecars retained in forks/Uharad-sea-failure552. Normalowned998restore atSurface134176 retains416 lineage/fullpredepartureHP89/79/80, MP1/28/42,81gold594food,book12/Staff83. No awards/state merged from failedattempt. Sourceflightplanner now gives ships147..156 twelve-cell clearance, other actors three; originalwide-all12 query553 NoRoute because nearby225environmentactor, no Game inputs. Revised55437-command route avoidsobservedship approach; actualfollower stopsdamage/encounters. No Enginechanges/build/processlaunch.",
@@ -4464,13 +4464,13 @@
     "report": "SCUMMVM-CE-M43-PHYL715-VERIFICATION.json",
     "actual": "Earned Scroll85 reading/cold and paid full rest471 retained. Actual source55 ground-Wyvern steps704 through59/58/54/78; Down78/18,31 entersUM97/176,62, Right177,62/Yflight472. Actual11flight705 reaches98/149,78,473;45flight706 reaches99/81,190,474;17flight707 reaches100/149,190,475. Read-only source geometry selects8flight710 to100/141,166, Yland/Left140,166/Yflight. Actual11flight711 crosses source stair to101/136,162 and lands116,146. These92 actual flight commands replace184-command fixed-grid planning; no positions or outcomes injected. Yland/X and firstRight complete normal disembark; subsequent actualRight moves117,146. First position assertion failed before checkpoint476 because firstRight had not moved; not a demonstrated Engine defect. ActualLookUp identifies Phylactery (screenshot218). Before contact field12=131/no4bit; actualUp117,145 sets135/bit4,477/screenshot219. ActualDown/Up/Down repeat retains135 at117,146,478. Clean cold054 exact party/world/inventory/audio/session/no-assistance continuity PASS. First actualLeft to116,146, normalB reboards ownedWyvern479. Both92HP/68MP,57gold300food. No WaterJewel153 or Lich victory; no Engine edit/build."
   },
-  "last_earned_checkpoint": 550,
+  "last_earned_checkpoint": 556,
   "cult734": {
     "status": "VERIFIED",
     "report": "SCUMMVM-CE-M43-CULT734-VERIFICATION.json",
     "scope": "Four actual earned Cultist pair victories and level6-to8 advancement only; Vortex/guardian/ending acceptance remains IN PROGRESS."
   },
-  "current_checkpoint": 550,
+  "current_checkpoint": 556,
   "essence775": {
     "status": "VERIFIED",
     "report": "SCUMMVM-CE-M43-ESSENCE775-VERIFICATION.json",
@@ -4634,5 +4634,34 @@
       "ce-native-acceptance528/earned-modern/screenshots/scummvm-cli-game-00260.png": "98c547a67152835405c9351e330bbb00271ecdccc3606ac4af3c581b16ce4d12"
     },
     "qualification": "Checkpoint542/543/544 route labels werepremature:actualstatesremain97/79,172 then83,172. Corrected inprogress545. Offline safe-target attempts fromoutside theauthoredstair component returnedNoRoute; sourceactual80..83,171 destinations reconciledbeforeexecution. Selected source route545 isactual, notofflineinjection. Lava35damage/step retained, no4-lava-cell flight at117HP."
+  },
+  "vortex873": {
+    "status": "VERIFIED",
+    "scope": "Earned Vortex positiveReady, actualoutside-battle refusal andcold/subsequentmovement only; battleeffect/guardians remainuntested",
+    "actual": "Normalsource5flight870 toSurface71,204;Yland/source3foot871 to70,206,actualUp entersJorbek9/24,38 at551. ActualfoodNPC32 at33,37/open74. Source25foot872 reaches32,37;normalTalkRight displays originalJorbek50foodpacks1gold offer. Actual4/Enter purchases200food,99->299,21->17gold;552. QuickExitSurface70,205,Nox40->36MP. ActualHcamp553 restoresboth92HP/87MP,food174. NormalC1Vortex/NoxEnter yieldsOnly in combat!,screenshot263;party,inventory,questfields,gold,food,locationunchanged andbothretain87MP. Actualack554. NormalDivineBr17MP restores123HPboth;HcamprefillsBr87MP,food157;555. Clean cold056 exactparty/world/inventory/quest/session/noassistance continuityPASS. ActualDownSurface70,206 aftercold,556. Bothlevel10 INT116 HP123 MP87,VortexC1,17gold157food. NoEngine/buildchange;56gameCLI+5focused=61launches.",
+    "source_commit": "c660ae8ac41",
+    "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd",
+    "cost": {
+      "builds": 8,
+      "game_cli": 56,
+      "focused_cli": 5,
+      "material_launches": 61
+    },
+    "checkpoints": {
+      "ce-native-acceptance528/earned-modern/checkpoints/551-Earned-Jorbek-food-entry551/checkpoint.json": "d75fb74b65a5055636a4df5ba3c13df90782cbbf5b9a13368b06a805129c4468",
+      "ce-native-acceptance528/earned-modern/checkpoints/552-Earned-Jorbek-food-purchase552/checkpoint.json": "3dd0f15d051d8ae3544103b6ed1eaa0235cc2b7aa03c5df93ec2703601cd2f27",
+      "ce-native-acceptance528/earned-modern/checkpoints/553-Earned-Vortex-mana-camp553/checkpoint.json": "212bc9be51ee5a648323b3483c6a77827e3efb33b788f699d04d47466fbd9916",
+      "ce-native-acceptance528/earned-modern/checkpoints/554-Earned-Vortex-world-refusal554/checkpoint.json": "474435e4448e329b6e76a887a20a9c1be7e71e36d139137e0908a5abfcc0ebe1",
+      "ce-native-acceptance528/earned-modern/checkpoints/555-Earned-Vortex-guardian-readiness555/checkpoint.json": "da9f142df0d11b54ff33c9f39c6c0ad509b6778dabf977714b774785602a1068",
+      "ce-native-acceptance528/earned-modern/checkpoints/556-Earned-Vortex-postcold-movement556/checkpoint.json": "a91ac4ff36e522b6004c9c83a5912796879b26969a155dcc8153e201f5d7d160"
+    },
+    "private_evidence": {
+      "ce-native-acceptance528/earned-modern/earned-Vortex-world873.json": "745779210f5dc3c12f5fe3500fcd580a9a40023907492cd6825558312a5b7e55",
+      "ce-native-acceptance528/earned-modern/cold056.json": "fed13548cb4155d22a0f8eb98e33f8a232354a181c607500fd4677bccb5ef8d6",
+      "ce-native-acceptance528/earned-modern/screenshots/scummvm-cli-game-00261.png": "0a74463361b4a73d52c745a92ebb2f722c14cbdf8dc57fd49ccd61c66c1c0463",
+      "ce-native-acceptance528/earned-modern/screenshots/scummvm-cli-game-00262.png": "413f7b6b047c06e257ad34df52dc3d761b43d2e85f58954b8f7cff7cc21528b8",
+      "ce-native-acceptance528/earned-modern/screenshots/scummvm-cli-game-00263.png": "e4a395c59525259c02471d3cb9aaa631a66ff3ed91adffbcd670e4443ae10756"
+    },
+    "next": "Continue source-authored cave/stair flight toUM101 Lich(originalNPC32,source108148;inspectactualposition). Earnedphylacteryflag12bit4 retained. Inspectactualfull1300HP/protection/partypositions, thennormalC1VortexNorth avoidingfriendlyfire, actualWaterJewel153 andpersistentdeath. Nofixture/Rat/campaignendingclaim."
   }
 }
