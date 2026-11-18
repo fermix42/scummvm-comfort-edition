@@ -784,7 +784,11 @@
       "earned_positive_scope": {
         "status": "VERIFIED",
         "report": "SCUMMVM-CE-M43-NYSTUL548-VERIFICATION.json",
-        "remaining": "Relevant missing-pages dialogue fork and selected Classic coverage; positive Ready/cast additionally requires legitimately earned110INT."
+        "remaining": "Gate-specific earned Classic replay not performed. Existing mode strategy selects Classic policy/settings checks1069 and compatible527, not duplicate entire campaign; preserve this qualification. Nystul missing-pages refusal remains separate binding node."
+      },
+      "earned_missing_pages_scope": {
+        "status": "VERIFIED",
+        "report": "SCUMMVM-CE-M43-PAGES1088-VERIFICATION.json"
       }
     },
     {
@@ -3081,8 +3085,9 @@
     },
     {
       "id": "inventory-drop",
-      "status": "NOT STARTED",
-      "obligation": "Tracked source-supported Drop contexts and readied/protected refusals from earned inventories; bounded branch forks."
+      "status": "VERIFIED",
+      "obligation": "Tracked source-supported Drop contexts and readied/protected refusals from earned inventories; bounded branch forks.",
+      "report": "SCUMMVM-CE-M43-DROP1091-VERIFICATION.json"
     },
     {
       "id": "castle11-services",
@@ -3106,17 +3111,29 @@
       "earned_evidence": [
         "Early openingcold,actualMaldacboatcold,Axeaawardcold,NPC529save37/cold010/nextinput,same clean owner"
       ],
-      "remaining": "Middle/late/prefinal/allowedpostending,abnormalexit-after-save,remainingmode/owner combinations per contract."
+      "remaining": "Current earned early/middle/late/prefinal/postending colds and abnormal076 completed; compatible527 independent owner/actual savechooser evidence retained, Classic1069 same-owner New is not independent-owner proof. Final contract reconciliation remains.",
+      "abnormal_exit_scope": {
+        "status": "VERIFIED",
+        "report": "SCUMMVM-CE-M43-DROP1091-VERIFICATION.json"
+      }
     },
     {
       "id": "audio-settings",
-      "status": "NOT STARTED",
-      "obligation": "Enabled music/SFX at authored transitions,menu pause/load and persisted settings;473 remains accepted generator evidence."
+      "status": "VERIFIED",
+      "obligation": "Enabled music/SFX at authored transitions,menu pause/load and persisted settings;473 remains accepted generator evidence.",
+      "reports": [
+        "SCUMMVM-CE-M43-CLASSIC1069-VERIFICATION.json",
+        "SCUMMVM-CE-M43-ENDING1082-VERIFICATION.json",
+        "SCUMMVM-CE-M43-COMPATIBILITY1087.json"
+      ],
+      "qualification": "Actual earned authored cues and ending song; Classic normalV0/1/2/3/0, effects-only door counter0->3, cold073 nondefault sound2, menu/load continuity. Global preference, not save-local. Accepted473 retained, no suite rerun or headless listening claim."
     },
     {
       "id": "ending",
-      "status": "NOT STARTED",
-      "obligation": "Full original-health final victory,all ending text/presentation/acknowledgement/terminal transition and allowedsave/reload."
+      "status": "VERIFIED",
+      "obligation": "Full original-health final victory,all ending text/presentation/acknowledgement/terminal transition and allowedsave/reload.",
+      "report": "SCUMMVM-CE-M43-ENDING1082-VERIFICATION.json",
+      "qualification": "Actual full3210HP ending618/Return619/cold074/firstSpace/permanentloop, ending song identity and generated sample activity. ActualQchooser/cancel, no GUI write claim."
     },
     {
       "id": "semantic-events",
@@ -3127,7 +3144,7 @@
   "mode_strategy": "One primary Modern earned lineage; targeted Classic legal earned fork/restore/transitions; no duplicate complete campaign required by existing criteria.",
   "failure_policy": "Freeze failing path,source general diagnosis,focused correction+regression,at most2corrective reruns; resume valid nearest earned save,no prefix replay or outcome injection.",
   "builds": 6,
-  "process_launches": 74,
+  "process_launches": 76,
   "planned_node_count": 60,
   "mandatory_node_count_note": "All selected M3 nodes explicitly represented alongside dependency76 graph; includes supporting/advice/alternative nodes. Necessity is retained per source,not inferred from node count.",
   "last_earned_checkpoint": 619,
@@ -3441,9 +3458,11 @@
   "earned_native_new_to_ending_status": "VERIFIED",
   "execution_cost_current": {
     "build_attempts": 11,
-    "game_cli": 74,
+    "game_cli": 76,
     "focused_cli": 7,
-    "material_launches": 81
+    "material_launches": 83
   },
-  "latest_execution_cost": "11 build attempts;75 gameCLI+7 focused=82 material launches; process075 missing-pages earned397 fork."
+  "latest_execution_cost": "11buildattempts76game+7focused=83materiallaunches; no new build.",
+  "pages1088_report": "SCUMMVM-CE-M43-PAGES1088-VERIFICATION.json",
+  "drop1091_report": "SCUMMVM-CE-M43-DROP1091-VERIFICATION.json"
 }

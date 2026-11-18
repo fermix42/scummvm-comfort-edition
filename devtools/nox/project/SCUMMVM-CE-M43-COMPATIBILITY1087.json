@@ -1,0 +1,22 @@
+{
+  "status": "VERIFIED",
+  "scope": "Read-only compatibility qualification for reusing accepted527 lifecycle/owner/audio evidence; not a fresh execution or whole Engine source equivalence.",
+  "unchanged_source_sha256": {
+    "engines/nox/native_audio.h": "71641fccd51ee70a9eefb7cde431da03b5bf91c4dda2179bbbf6864f5dbdecf8",
+    "engines/nox/native_ending.h": "7994f4c935930ec61f489af87df45a43a8ef4645207dd0b736a8d480a97622f2",
+    "engines/nox/native_exploration_save.h": "b53b16ad3c9bff3941a4806281f80ebc598de7665df4da1d2f19b9184d0e47ff",
+    "engines/nox/native_player_session.h": "c336a3ea05001a37c40e79ecefd34eedb3861e59b94b491629e037b3c9f6b60f",
+    "engines/nox/save_policy.h": "890bced00db32c534207055e5f6acf7247310102119da4c5bc66f13a4c7d72fc",
+    "engines/nox/saves.h": "9d0e92a7fb35952d35f2f2ecf0602ba48211162cb3f18b02a5a454919ac514f9",
+    "engines/nox/speaker_audio.cpp": "632173429150497cc48e41297b4dbaf6ec3c4cf9e40734b061088282721ead74",
+    "engines/nox/speaker_audio.h": "e2025b0706262918ca8dcace6706957416e7317f2996a61615d10733624cd655"
+  },
+  "prior_report": "SCUMMVM-CE-INTEGRATION527-I1-VERIFICATION.json",
+  "current_source": "d52b130c5df",
+  "current_executable_sha256": "f9215345b158b1a8cffcfef51f2ee8a37938a7538b52c5009399ad4f2001b7a4",
+  "current_support": [
+    "SCUMMVM-CE-M43-CLASSIC1069-VERIFICATION.json",
+    "SCUMMVM-CE-M43-ENDING1082-VERIFICATION.json"
+  ],
+  "qualification": "Other gameplay files changed since527; exact equality is asserted only for listed owners. Current earned cold073/074 and actual settings/modal checks supply current executable evidence. Classic1069 same-owner New does not prove independent owner isolation."
+}

@@ -1,0 +1,26 @@
+{
+  "status": "VERIFIED",
+  "scope": "Earned seven-page Valess non-recognition, normal generic CREA guidance/no research acknowledgement, repeat, normal808 warm persistence and first-following opening. Positive8page recognition404/405 retained separately.",
+  "source_commit": "d52b130c5df",
+  "executable_sha256": "f9215345b158b1a8cffcfef51f2ee8a37938a7538b52c5009399ad4f2001b7a4",
+  "lineage": "Normal397 earned seven-page parent, grounded ownedWyvern/authoredCastle route/Order portal, one successful actual party4 lockpick, original schedule mealNPC78/37,32; stand37,33/TalkUp. No setup mutation. Main619 retained.",
+  "actual": "Missingpages opening is ordinary woman/halo description, not eight-pages recognition. CREA still directs Nystul; PAGE unrecognized. Inventory remains7pages, field62=254, researchfield61=64. Only dialogue field16 clears64 (127->63), not research completion; repeated/afterwarm opening identical. Warm808 party/inventory/quest/gold/food/location exactPASS.",
+  "qualification": "Generic guidance is not explicit verbal refusal. Actual source conditional recognition/acknowledgement absent with7, present with8 at404/405. Does not prove missing-pages Nystul binding refusal. First source target58/33,22 was library portal approach, corrected using retained513 source; Valess is map78actor88. No exploratory discovery or outcome writes.",
+  "evidence": {
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Pages1088-missing-CREA.json": "e00c871551a98d7b12a2648f3db09e5d38332bb351d6a5f8c379744698fe93b8",
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Pages1088-missing-opening.json": "7b7fbd09886868aa05bae364f0b88235ed76b5ca4291ab59239a03efd6798509",
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Pages1088-missing-PAGE.json": "54275df2e7c0f4afe4107b556d1e30273b9bc711b9939366733e29d481de5c97",
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Pages1088-missing-repeat.json": "bab33d7d0ba12c5a0e201c03b8cee3270986ac516df85651eb2b301423f0a958",
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Pages1088-warm-first-opening.json": "a58d681d1b9e873fa2ffbfe4c5000be4521e1d4fc30c77d00aafebd92f50a46b"
+  },
+  "saved_files": {
+    "conversion\\ce-native-acceptance528\\earned-modern\\forks\\Pages1088\\nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot808.g0": "1e5292da68494e42271ffb3a9da50793c81368f9d6c4095484ba3af538689387",
+    "conversion\\ce-native-acceptance528\\earned-modern\\forks\\Pages1088\\nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot808.g0.ce-achievements.json": "22c8cfac6650504da24364a7360892ce5a61bf6a48cf6bb03a4e560f016f0be9"
+  },
+  "cost": {
+    "build_attempts": 11,
+    "game_cli": 75,
+    "focused_cli": 7,
+    "material_launches": 82
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "status": "VERIFIED",
+  "scope": "Normal earned inventory Drop protected/readied/cancel and source-retained commercekind0/kind2 tracked Torches removal; warm809 and deliberate abnormal-exit810/cold076/firstnormalPass.",
+  "source_commit": "d52b130c5df",
+  "executable_sha256": "f9215345b158b1a8cffcfef51f2ee8a37938a7538b52c5009399ad4f2001b7a4",
+  "lineage": "397->normal808 Valess fork ->809kind0; normal614 restored exact ->810kind2. Both independent forks, no dropped inventory or rewards merged into main619.",
+  "actual": "Protected7pages97: You must keep that item; readiedLesserHeal50: You must unready the item first, images310/311 inspected. Inventoryunchanged. NormalTorches cancellation retains inventory; confirmed kind0 removes11Torches but field32stays10; inheritedcontext [1,1,0,1]. Normal614context [1,1,2,1],11Torches removed andfield32 9->8. Original sourceA24B uses retained commercequantity1, not removecount11; no invented counter synchronization. Warm809 exactPASS. Required isolatedprocess075 kill after successful810save; process076 normalchooser restore exactparty/inventory/quest/resources/map/transport/mode/sound/session andnoassist, firstnormalSpace returnsworld. No original resource mutation.",
+  "evidence": {
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Drop1089-protected.json": "00e92783f1697946bd61f0bff028599c8c88dc01fe006f5081f7709bf3fceddc",
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Drop1089-readied.json": "bab01efb167e6fb8cc8b5f2959ad4877eb984e35acfe4ceec232e5cd273ceb79",
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Drop1090-cancel.json": "057234b1e372d535259ccdeb3c55317d32264047b60ea23e8c0db338c2230ad0",
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Drop1090-kind0-torches.json": "3fcccd3b69939a42ffd95d4709f5374d24271edfb5309a7cb0d0d9f36c4a1d69",
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Drop1091-cold-first-pass.json": "563f6930618fea0f5855190568e8cda9abf826825ee50ac4f3c4d34e2857461c",
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Drop1091-kind2-torches.json": "d70a81c1cc4d8f08c48b0234540c0055c60c396bb755515ac11e788a702aff92",
+    "conversion\\ce-native-acceptance528\\earned-modern\\cold076-Drop1091-abnormal.json": "31aaf58964cd6557a81d4c24bb36f645a9c4b967e067fe3aff0ec00dbf546a6e"
+  },
+  "saved_files": {
+    "conversion\\ce-native-acceptance528\\earned-modern\\forks\\Drop1091\\nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot809.g0": "d55c5872f7f25083b0f55435739725f70cb4ada29938349d66c095b74ce1aa3e",
+    "conversion\\ce-native-acceptance528\\earned-modern\\forks\\Drop1091\\nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot809.g0.ce-achievements.json": "a0b605211769fe3154aa20ce0f6a4f20630d7a9b8b73187904092921557aea55",
+    "conversion\\ce-native-acceptance528\\earned-modern\\forks\\Drop1091\\nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot810.g0": "97dc51985d3fa595d9b5a338f5f51f0b4929b0e22ae815d2da03ffc3388e13a7",
+    "conversion\\ce-native-acceptance528\\earned-modern\\forks\\Drop1091\\nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot810.g0.ce-achievements.json": "9492e0650407b73bbfbab5dbc68fbf5209da562e84d88ad7b160e76bf966e2cb"
+  },
+  "cost": {
+    "build_attempts": 11,
+    "game_cli": 76,
+    "focused_cli": 7,
+    "material_launches": 83
+  }
+}
