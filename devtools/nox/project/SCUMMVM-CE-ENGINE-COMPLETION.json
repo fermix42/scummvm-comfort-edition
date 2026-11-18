@@ -8054,5 +8054,11 @@
     "evidence": "SCUMMVM-CE-MOUNTED-TALK532-VERIFICATION.json",
     "scope": "Mounted generic Talk admission and original service picture127/238 restrictions; original12branches and actualearnedcold/mountedHELP/horse refusal/onfootopening/reboard; no broadrowpromotion"
   },
-  "counts_note_door533": "inventory.11 downgraded IMPLEMENTED to PARTIAL after actual raw17 failure; aggregate counts reconciled."
+  "counts_note_door533": "inventory.11 downgraded IMPLEMENTED to PARTIAL after actual raw17 failure; aggregate counts reconciled.",
+  "stationary_mounted_contact885": {
+    "status": "VERIFIED",
+    "scope": "General stationary large automatic NPC contact while party rides a single-cell mount; focused original/native NPC action and actual earned998 cold recovery. Not Fire reward/ending/fullcampaign.",
+    "report": "SCUMMVM-CE-M43-GUARDIAN885-VERIFICATION.json",
+    "broad_statuses_changed": false
+  }
 }

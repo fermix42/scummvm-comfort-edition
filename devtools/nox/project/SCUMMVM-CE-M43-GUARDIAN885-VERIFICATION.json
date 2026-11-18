@@ -1,0 +1,49 @@
+{
+  "status": "VERIFIED",
+  "scope": "General stationary large automatic NPC contact while party rides a single-cell mount; focused original/native NPC action and actual earned998 cold recovery. Not Fire reward/ending/fullcampaign.",
+  "source_commit": "d52b130c5df",
+  "production_correction_commit": "891e6835a97",
+  "executable_sha256": "f9215345b158b1a8cffcfef51f2ee8a37938a7538b52c5009399ad4f2001b7a4",
+  "source_manifest_sha256": "e1b96e3e784ac0a7990f42f1574db40db9d6df64d60e3ea18afb7a8d62d9af8f",
+  "source_archive_sha256": "c7fe7adfbe0ecc303568178e6e35d8416a6c8469fd348a22ecfde0ed7d45480b",
+  "original_actions": 6912,
+  "original_vehicle_actions": {
+    "onfoot": 1728,
+    "horse127": 1728,
+    "Wyvern128": 1728,
+    "Pegasus238": 1728
+  },
+  "authored_records": 2,
+  "native_report": "native-stationary-mounted-contact\tphase=warm\tchains=432\toperations=6912\tbattle_handoffs=0\tforced_waits=3672\tscene_derived_collision_preview=1\tinjected_collision_decisions=0\tstationary_large_domain=1\tcontaining_movement_effects=0\tranged_request_domain=0\tfull_actor_turn=0\tcpu_execution=0\n",
+  "evidence": {
+    "ce-native-acceptance528\\guardian885b\\focused-verification.json": "938c03e7b5c96f9ed454677978f55c27f3a2bb16fdd4fbdc4ba499a6e9e97a22",
+    "ce-native-acceptance528\\guardian885\\authored-domain.json": "fea5e1e7c3f6562b71b9aa30a2ffa9678e31c03cb12832c8f3eac6a5918529f7",
+    "ce-native-acceptance528\\earned-modern\\forks\\Fire-NPC234-capability0-885\\manifest.json": "92ebffa61124c37dea828c1c6deb97ac6e6c9ad7bb7a2318c271451e6e83cea2",
+    "ce-native-acceptance528\\earned-modern\\earned-guardian885-cold-recovery.json": "d4e52f1df695581d688c451d6bddd2ac1024910468722aee7fd4d3c56998afa2",
+    "guardian885-build.log": "9da88b89c77200a99149a0ab6b37d7147bc594ccba018e473e6b92d9c16e05cb",
+    "guardian885-native-build.log": "56282612c6499d2d4efbc027170fe6f9d1240fbfca65fd9e7119949d11b2b9ba",
+    "guardian885b-native-build.log": "a7b1b79a79059fdc5cd1bb5fe68eec2b3acaa40d390dcf3edaba0c52792c613d"
+  },
+  "failures_preserved": [
+    "Original earned Engine returned to launcher at UM101/87,124 while approaching Vazarath.",
+    "Initial build accidentally used default compatibility configuration; existing audio compile errors, not a new native-only defect.",
+    "First focused comparison passed3457 actions then inherited checkpoint adapter rejected stationary mode3. Adapter corrected; no additional gameplay change."
+  ],
+  "cost": {
+    "build_attempts": 11,
+    "game_cli": 58,
+    "focused_cli": 7,
+    "material_launches": 65
+  },
+  "unchanged": [
+    "Save codecs and earned ancestry",
+    "Audio473 production implementation",
+    "No instruction executor/CPU ABI/IRQ/bootstrap",
+    "No original HDV edits or injected outcomes"
+  ],
+  "remaining": [
+    "Large tile119 ship automatic contact retains its explicit guard; no ship coverage claim.",
+    "Moving large NPC cursor-clobber contexts remain outside this stationary equivalence.",
+    "Fire acceptance and full M4.3 remain IN PROGRESS."
+  ]
+}
