@@ -1,6 +1,6 @@
 {
   "status": "IN PROGRESS",
-  "last_checkpoint": 472,
+  "last_checkpoint": 479,
   "source_commit": "c660ae8ac41",
   "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd",
   "actual": "Normal Surface46-command flight690 interrupted at126,124 by nine actual191HP Squids150. Immutable combat template116 L5/armor94/physical128/magic0. Normal Esc/Y refuses due actual battle_exit_control128; no world return, currency/HP/MP loss or victory credited. Admission and actual refusal preserved; current actual Tactical using readied area magic, normal healing and ownedMinorDemon16 if eligible. No Quick, state mutation or Engine change/build.",
@@ -8,7 +8,7 @@
     "ce-native-acceptance528/earned-modern/earned-Squid-route-admission690-533.json",
     "ce-native-acceptance528/earned-modern/earned-Squid-normal-flee691-533.json"
   ],
-  "next": "Validate actual first97->98 flight transition then continue remaining source route, landing/physicalphylactery117,145 contact/repeat/cold. Lawful Vortex readiness and remaining fullcampaign/branches still required.",
+  "next": "Source-supported lawful caster advancement to110INT. Original four UM98 authored169 guards at166154/170154/166158/170158 admit group57/two267HP Cultists59 (3300baseXP each, armor117/magic0). Verify legitimate admission and actual rewards; do not grant XP or presume victories. At98INT, original book11 NoxNecrosis costs29MP; Dragon117 has2844HP/INT0/50000baseXP, instant-kill arithmetic is source-supported. Neither book purchase/Ready nor these fights is yet earned. No same failed Squid/immune-Assassin repeat.",
   "defeat": {
     "status": "VERIFIED",
     "evidence": "ce-native-acceptance528/earned-modern/forks/Squid-nine-no-flee-defeat693/lineage.json",
@@ -25,5 +25,16 @@
   "departure472": {
     "status": "VERIFIED",
     "actual": "Normal14gold full innrest471 restores92HP/68MP both;57gold300food. Actual55-step704 through59/58/54/78 reaches78/18,31. ActualDown entersUM97/176,62 withownedgroundWyvern. ActualRight177,62/Yflight/472. Existing read-only multi-floor planner extended to four-cell original flight and authored transitions; actual savedNTRN128 speed/pace4 guarded. Source705 finds184 commands to101/117,146, first11-command floor segment running. No phylactery/guardian or complete traversal claim."
+  },
+  "phylactery479": {
+    "status": "VERIFIED",
+    "report": "SCUMMVM-CE-M43-PHYL715-VERIFICATION.json",
+    "actual": "Earned Scroll85 reading/cold and paid full rest471 retained. Actual source55 ground-Wyvern steps704 through59/58/54/78; Down78/18,31 entersUM97/176,62, Right177,62/Yflight472. Actual11flight705 reaches98/149,78,473;45flight706 reaches99/81,190,474;17flight707 reaches100/149,190,475. Read-only source geometry selects8flight710 to100/141,166, Yland/Left140,166/Yflight. Actual11flight711 crosses source stair to101/136,162 and lands116,146. These92 actual flight commands replace184-command fixed-grid planning; no positions or outcomes injected. Yland/X and firstRight complete normal disembark; subsequent actualRight moves117,146. First position assertion failed before checkpoint476 because firstRight had not moved; not a demonstrated Engine defect. ActualLookUp identifies Phylactery (screenshot218). Before contact field12=131/no4bit; actualUp117,145 sets135/bit4,477/screenshot219. ActualDown/Up/Down repeat retains135 at117,146,478. Clean cold054 exact party/world/inventory/audio/session/no-assistance continuity PASS. First actualLeft to116,146, normalB reboards ownedWyvern479. Both92HP/68MP,57gold300food. No WaterJewel153 or Lich victory; no Engine edit/build."
+  },
+  "cost": {
+    "builds": 8,
+    "game_cli_processes": 54,
+    "focused_cli_processes": 5,
+    "material_launches": 59
   }
 }

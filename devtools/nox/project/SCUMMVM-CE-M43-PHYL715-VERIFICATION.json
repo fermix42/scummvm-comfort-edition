@@ -1,0 +1,38 @@
+{
+  "status": "VERIFIED",
+  "scope": "Earned Modern native depths travel, actual phylactery Look/contact/repeat/cold/subsequent transport only; Water guardian remains IN PROGRESS.",
+  "actual": "Earned Scroll85 reading/cold and paid full rest471 retained. Actual source55 ground-Wyvern steps704 through59/58/54/78; Down78/18,31 entersUM97/176,62, Right177,62/Yflight472. Actual11flight705 reaches98/149,78,473;45flight706 reaches99/81,190,474;17flight707 reaches100/149,190,475. Read-only source geometry selects8flight710 to100/141,166, Yland/Left140,166/Yflight. Actual11flight711 crosses source stair to101/136,162 and lands116,146. These92 actual flight commands replace184-command fixed-grid planning; no positions or outcomes injected. Yland/X and firstRight complete normal disembark; subsequent actualRight moves117,146. First position assertion failed before checkpoint476 because firstRight had not moved; not a demonstrated Engine defect. ActualLookUp identifies Phylactery (screenshot218). Before contact field12=131/no4bit; actualUp117,145 sets135/bit4,477/screenshot219. ActualDown/Up/Down repeat retains135 at117,146,478. Clean cold054 exact party/world/inventory/audio/session/no-assistance continuity PASS. First actualLeft to116,146, normalB reboards ownedWyvern479. Both92HP/68MP,57gold300food. No WaterJewel153 or Lich victory; no Engine edit/build.",
+  "evidence": {
+    "ce-native-acceptance528/earned-modern/earned-Nourtheld-full-rest703-533.json": "886073e2e279af9b720ea434e2e54f64e581ad11afc14a44f01ca195f2344e84",
+    "ce-native-acceptance528/earned-modern/earned-Depths100-ground-alignment710-533.json": "9e62c12982f43c4c80722a006d479480b03ff5d3d9a9b9b8e698004c74ba2db1",
+    "ce-native-acceptance528/earned-modern/earned-Phylactery-Look712-533.json": "0786dabbc24edc17404da5a6403d20f5b50d585d3c053d6618971c0dd62fb12c",
+    "ce-native-acceptance528/earned-modern/earned-Phylactery-contact713-533.json": "b09253327bbfaa6d5b6c67a7902d4193966f7a6aaf1f409f2bf920d18c5ffadc",
+    "ce-native-acceptance528/earned-modern/earned-Phylactery-repeat714-533.json": "48441da2a7de584d1d045a53d30ef4c8bd05caa1da34d1eb920462e64d1a65b1",
+    "ce-native-acceptance528/earned-modern/cold054.json": "07c79a0535adeecb20641d60d5103897ff30003f0843d66512af31cb8ee11c9e",
+    "ce-native-acceptance528/earned-modern/screenshots/scummvm-cli-game-00218.png": "4861190474b5d056fe64a8ce27c84e2544087ed2aa26becb480123a094f831d4",
+    "ce-native-acceptance528/earned-modern/screenshots/scummvm-cli-game-00219.png": "a6ed54505c90bcfd234f4565667f707e82cc23ddc963588671f829697fdac8c8"
+  },
+  "checkpoints": {
+    "ce-native-acceptance528/earned-modern/checkpoints/471-Earned-paid-full-caster-rest471/checkpoint.json": "bf8774a9afb41129e6e7546df518664ddff05946f232fe6271c07d73f33bfe04",
+    "ce-native-acceptance528/earned-modern/checkpoints/472-Earned-native-depths-flight-departure472/checkpoint.json": "059d303f308af092907233a39ed23765618c917c85b99edf57944c0ec9961879",
+    "ce-native-acceptance528/earned-modern/checkpoints/473-Earned-depths97-to98-flight473/checkpoint.json": "004a627c582ae374c413b0e0238afc886cfa53529bd452aa9a84b8b4faa5f1ee",
+    "ce-native-acceptance528/earned-modern/checkpoints/474-Earned-depths98-to99-flight474/checkpoint.json": "741b5a6e4e6a7072d566d8dc1c2eec4b38f33b64074d6818d95848b730129049",
+    "ce-native-acceptance528/earned-modern/checkpoints/475-Earned-depths99-to100-flight475/checkpoint.json": "61a17193c57cf39eb745c1c3a0ef52a38f5bbb6d9ca72c44349fe54b566f55f8",
+    "ce-native-acceptance528/earned-modern/checkpoints/476-Earned-native-phylactery-approach476/checkpoint.json": "9951bd3b839488444961d8355e544aad1f8873f38674dcc4960b3dda45ae11c4",
+    "ce-native-acceptance528/earned-modern/checkpoints/477-Earned-native-phylactery-contact477/checkpoint.json": "8fd21607bc9666893999b764b77c9c88bcd853fec10a05783e674329889397cd",
+    "ce-native-acceptance528/earned-modern/checkpoints/478-Earned-native-phylactery-repeat478/checkpoint.json": "fa772633d9911afbaca85fc724e90e4a074913d64f7ace357b0b481b280c463c",
+    "ce-native-acceptance528/earned-modern/checkpoints/479-Earned-phylactery-cold-reboard479/checkpoint.json": "0d5ed9039b7a1951b7bf7ed4ab567dec7de74728b968005e8a796f4123c9d3d9"
+  },
+  "source_commit": "c660ae8ac41",
+  "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd",
+  "cost": {
+    "builds": 8,
+    "game_cli_processes": 54,
+    "focused_cli_processes": 5,
+    "material_launches": 59
+  },
+  "remaining": [
+    "Both casters remain level6 INT68; actual book12 Vortex requires110INT/87MP. Lawful advancement is required before full guardian acceptance.",
+    "Earned native Lich1300/Water153, Fire2600/Air1950, remaining branches/ending/config/audio/session acceptance."
+  ]
+}
