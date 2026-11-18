@@ -1741,11 +1741,13 @@
       "earned_lineage": {
         "full_victory_key_repeat_cold": "SCUMMVM-CE-M43-DRATHE943-VERIFICATION.json",
         "remaining": "PhysicalRUIN30Darkdoorpositive andlegitimatemissingkeyrefusal"
-      }
+      },
+      "earned_positive_door": "SCUMMVM-CE-M43-LATE-GATES956-VERIFICATION.json",
+      "remaining": "Legitimate earned missing-key physical-door refusal fork."
     },
     {
       "id": "jewels-temple",
-      "status": "NOT STARTED",
+      "status": "IN PROGRESS",
       "prerequisites": [
         "ring-vacous",
         "dark-key"
@@ -1775,11 +1777,15 @@
         "scoped audio/presentation",
         "actual earned verification criteria"
       ],
-      "earned_lineage": null
+      "earned_lineage": {
+        "positive_crossing": 594,
+        "report": "SCUMMVM-CE-M43-LATE-GATES956-VERIFICATION.json",
+        "remaining": "Relevant missing-Jewel fork and all3Jewels Styx recognition."
+      }
     },
     {
       "id": "high-cultist",
-      "status": "NOT STARTED",
+      "status": "IN PROGRESS",
       "prerequisites": [
         "ring-vacous",
         "dark-key",
@@ -1809,7 +1815,10 @@
         "scoped audio/presentation",
         "actual earned verification criteria"
       ],
-      "earned_lineage": null
+      "earned_lineage": {
+        "pre_full_encounter": 594,
+        "next": "Actual full-group battle957, no outcome setup."
+      }
     },
     {
       "id": "shadow-revelation",

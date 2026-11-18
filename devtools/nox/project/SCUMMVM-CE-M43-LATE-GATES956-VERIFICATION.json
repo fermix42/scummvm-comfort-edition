@@ -1,0 +1,98 @@
+{
+  "status": "VERIFIED",
+  "scope": "Earned Dark Key physical door and positive three-Jewel High Temple crossing only; missing-key and missing-Jewel earned forks remain pending.",
+  "source_commit": "d52b130c5df",
+  "executable_sha256": "f9215345b158b1a8cffcfef51f2ee8a37938a7538b52c5009399ad4f2001b7a4",
+  "lineage": {
+    "dark_key_victory": 589,
+    "key_repeat_cold": 590,
+    "door_approach": 591,
+    "door_um97_arrival": 592,
+    "temple_outside": 593,
+    "temple_crossing": 594,
+    "process": 62
+  },
+  "door": {
+    "before": [
+      3,
+      30,
+      33,
+      8
+    ],
+    "normal_commands": [
+      "Open",
+      "Right",
+      "six Right steps"
+    ],
+    "after": [
+      2,
+      97,
+      150,
+      167
+    ],
+    "DarkKey154": 1,
+    "quest12bit8": true,
+    "cold_compatibility": "Actual door use occurs in cold process062 after Key590 reload; no new initialized progression."
+  },
+  "temple": {
+    "outside": [
+      2,
+      98,
+      168,
+      160
+    ],
+    "normal_commands": [
+      "Up",
+      "Up",
+      "Up"
+    ],
+    "inside": [
+      2,
+      98,
+      168,
+      157
+    ],
+    "quest57": 7,
+    "party_unchanged": true,
+    "HP": [
+      123,
+      123,
+      0,
+      0,
+      0,
+      0
+    ],
+    "MP": [
+      87,
+      87,
+      14,
+      24,
+      4,
+      34
+    ],
+    "gold": 22,
+    "food": 664,
+    "presentation": "Existing torchI ignited normally without spending caster mana; selective actual frame276 retained."
+  },
+  "source_tactic_correction": "A ranged primary attack sets target12, but NPC engager also requires adjacency. It does not guarantee suppression of alternate targets from the back row. Drathe victory and losses remain actual; no code change or replay.",
+  "limitations": [
+    "Four companions remain legitimately dead; this is valid earned progression and is not silently repaired.",
+    "Positive door/crossing only; no missing-key/Jewel negative or whole ending claim.",
+    "No rerun of audio473, old suites, or new build."
+  ],
+  "evidence": {
+    "ce-native-acceptance528\\earned-modern\\checkpoints\\591-Earned-Dark-Key-closed-door-approach591\\checkpoint.json": "4203bfc51949f27687224bb17b1d9bc9515690e2a2e0cd3525d1e27d32274946",
+    "ce-native-acceptance528\\earned-modern\\checkpoints\\592-Earned-Dark-Key-physical-door-UM97-arrival592\\checkpoint.json": "e2da6a970d53ed49c1e871a4abb8cd696b685643546e81adfd10d756a5a513b0",
+    "ce-native-acceptance528\\earned-modern\\checkpoints\\593-Earned-three-Jewels-High-Temple-outside593\\checkpoint.json": "08260d57d86fc746906db1b650e843bcd5d28f7b1b52ad548c1604aa7663570e",
+    "ce-native-acceptance528\\earned-modern\\checkpoints\\594-Earned-three-Jewel-Temple-barrier-fire-crossing594\\checkpoint.json": "a56f98f2b50124a1bd7b7b1e2407eef9213851e982cfffe613d4cd6ed51868f2",
+    "ce-native-acceptance528\\earned-modern\\earned-Temple956-crossing.json": "a75adebf7664d6135244e01cd519b45249f06b049c6e04606a80649c586e1152",
+    "ce-native-acceptance528\\earned-modern\\screenshots\\scummvm-cli-game-00275.png": "0160d670ab9a24381cf92e3282c8b59f74a0f3a128ee576fc8ec4267e3ea8196",
+    "ce-native-acceptance528\\earned-modern\\screenshots\\scummvm-cli-game-00276.png": "c34ac9d833023b85b77b3ebab188f47b1b1adbc6b959bc0e56aaf2e3d85d7a75"
+  },
+  "cost": {
+    "build_attempts": 11,
+    "game_cli": 62,
+    "focused_cli": 7,
+    "material_launches": 69
+  }
+}
