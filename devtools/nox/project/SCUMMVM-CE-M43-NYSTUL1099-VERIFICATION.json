@@ -1,0 +1,25 @@
+{
+  "status": "VERIFIED",
+  "scope": "Earned seven-page Nystul no-binding/no-book, explicit BIND unsupported-topic response/repeat, warm811 exact and firstnextopening only; full positive/binding/Ready/Vortex evidence retained separately.",
+  "source_commit": "d52b130c5df",
+  "executable_sha256": "f9215345b158b1a8cffcfef51f2ee8a37938a7538b52c5009399ad4f2001b7a4",
+  "lineage": "Normal397exact restore; actualCastleExitY; ownedWyvern flight18162->133174; groundcave134176/UM97; authoredUM104stairs130191; flight/selfexit12248->12280; COMPmouth; footthrough10136/10324; no setup mutations.",
+  "actual": "Nystul10323: generic mage/power opening with seven pages. BIND says I do not think any mages of the Order are familiar with that (actual contraction retained in private evidence). Repeat same;7pages/62=254,61=64,no book12/inventoryunchanged. Normal811save/warm exactparty/inventory/quest/resources/map/positionPASS; firstTalkUp samegenericopening.",
+  "qualification": "Not a new cold; positive411/412/cold045 and earned110INTReady/worldrefusal/Water880 retained. First room route was attempted with conversationstillactive (0moves), corrected BYE then normalroute; no Engine defect. Initial mouth BYE was wrongtopic; subsequentCOMPactuallyopenedwall. No successfulprefixreplay.",
+  "evidence": {
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Nystul1099-missing-BIND.json": "7a0fa1eb3d3252246526ca6e87200662601df46e0f24ab4a84aaf63995085f9d",
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Nystul1099-missing-opening.json": "aee35f2e62e2fe4d8b68973cfa540499893ab9b21b249e2d78778c9b7087138e",
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Nystul1099-missing-repeat.json": "0a76c2e11413ea2da343b86c64c291a51e1ba8da596a711732f031e7c7548ba7",
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Nystul1099-warm-first-opening.json": "7893e8a8c3f43a6fbedd2009630584f606f2c7729b9426bdd23b51681991c360"
+  },
+  "saved_files": {
+    "conversion\\ce-native-acceptance528\\earned-modern\\forks\\Nystul1099\\nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot811.g0": "c4d9970dec4976ab54b74f21362bdf6a8e400bacede20259f2e3fcee3cd2f1f5",
+    "conversion\\ce-native-acceptance528\\earned-modern\\forks\\Nystul1099\\nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot811.g0.ce-achievements.json": "36ea9a6b0e38ebd496459bfd3b58858a53856fc1ede91b53ad5a4076dda80bb0"
+  },
+  "cost": {
+    "build_attempts": 11,
+    "game_cli": 76,
+    "focused_cli": 7,
+    "material_launches": 83
+  }
+}

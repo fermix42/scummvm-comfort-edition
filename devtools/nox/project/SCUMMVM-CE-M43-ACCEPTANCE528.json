@@ -748,7 +748,7 @@
     },
     {
       "id": "eight-page-check",
-      "status": "IN PROGRESS",
+      "status": "VERIFIED",
       "prerequisites": [
         "castle-control-wall",
         "moat-key-door",
@@ -784,12 +784,18 @@
       "earned_positive_scope": {
         "status": "VERIFIED",
         "report": "SCUMMVM-CE-M43-NYSTUL548-VERIFICATION.json",
-        "remaining": "Gate-specific earned Classic replay not performed. Existing mode strategy selects Classic policy/settings checks1069 and compatible527, not duplicate entire campaign; preserve this qualification. Nystul missing-pages refusal remains separate binding node."
+        "remaining": "None for Valess node within selected mode strategy; separate Nystul missing-pages binding remains IN PROGRESS. Actual110INT/Vortex readiness/cast demonstrated VORTEX873/Water880, not repeated."
       },
       "earned_missing_pages_scope": {
         "status": "VERIFIED",
         "report": "SCUMMVM-CE-M43-PAGES1088-VERIFICATION.json"
-      }
+      },
+      "verification_reports": [
+        "SCUMMVM-CE-M43-PAGES1088-VERIFICATION.json",
+        "SCUMMVM-CE-M43-PAGES501-VERIFICATION.json",
+        "SCUMMVM-CE-M43-ARTIFACT473-WORK.json",
+        "SCUMMVM-CE-M43-COMPATIBILITY1087.json"
+      ]
     },
     {
       "id": "nystul-maze-access",
@@ -844,7 +850,7 @@
     },
     {
       "id": "binding",
-      "status": "IN PROGRESS",
+      "status": "VERIFIED",
       "prerequisites": [
         "castle-control-wall",
         "moat-key-door",
@@ -888,7 +894,12 @@
         "status": "VERIFIED",
         "report": "SCUMMVM-CE-M43-NYSTUL548-VERIFICATION.json",
         "remaining": "Relevant missing-pages dialogue fork and selected Classic coverage; positive Ready/cast additionally requires legitimately earned110INT."
-      }
+      },
+      "earned_missing_pages_scope": {
+        "status": "VERIFIED",
+        "report": "SCUMMVM-CE-M43-NYSTUL1099-VERIFICATION.json"
+      },
+      "mode_qualification": "SelectedClassic policy/config/restore coverage1069/compatible527; no separateClassic earnedbinding campaign claim."
     },
     {
       "id": "bound-spell-readiness",
@@ -2674,7 +2685,7 @@
     },
     {
       "id": "father-mouth-door",
-      "status": "NOT STARTED",
+      "status": "VERIFIED",
       "prerequisites": [],
       "source_contract": "Optional Father tribute/access branch, independently verified.",
       "source_anchors": [
@@ -2704,7 +2715,8 @@
       "source_qualifications": [
         "Original fixture boundaries remain binding. Current source/necessity/segment classification is in CAMPAIGN-DEPENDENCIES76; historical limitations retain the earlier investigation state.",
         "No earned continuous/full new-game-to-ending run. Controlled positions, stats, recovery and battle endpoints are unearned."
-      ]
+      ],
+      "earned_report": "SCUMMVM-CE-M43-FATHER1105-VERIFICATION.json"
     }
   ],
   "advice_branches": [
@@ -3144,7 +3156,7 @@
   "mode_strategy": "One primary Modern earned lineage; targeted Classic legal earned fork/restore/transitions; no duplicate complete campaign required by existing criteria.",
   "failure_policy": "Freeze failing path,source general diagnosis,focused correction+regression,at most2corrective reruns; resume valid nearest earned save,no prefix replay or outcome injection.",
   "builds": 6,
-  "process_launches": 76,
+  "process_launches": 77,
   "planned_node_count": 60,
   "mandatory_node_count_note": "All selected M3 nodes explicitly represented alongside dependency76 graph; includes supporting/advice/alternative nodes. Necessity is retained per source,not inferred from node count.",
   "last_earned_checkpoint": 619,
@@ -3408,7 +3420,7 @@
     },
     "next": "Continue source-authored cave/stair flight toUM101 Lich(originalNPC32,source108148;inspectactualposition). Earnedphylacteryflag12bit4 retained. Inspectactualfull1300HP/protection/partypositions, thennormalC1VortexNorth avoidingfriendlyfire, actualWaterJewel153 andpersistentdeath. Nofixture/Rat/campaignendingclaim."
   },
-  "verified_count": 46,
+  "verified_count": 49,
   "lich877": {
     "status": "IN PROGRESS",
     "scope": "Earned fullLich/WaterJewel acceptance approach only",
@@ -3458,11 +3470,18 @@
   "earned_native_new_to_ending_status": "VERIFIED",
   "execution_cost_current": {
     "build_attempts": 11,
-    "game_cli": 76,
+    "game_cli": 77,
     "focused_cli": 7,
-    "material_launches": 83
+    "material_launches": 84
   },
-  "latest_execution_cost": "11buildattempts76game+7focused=83materiallaunches; no new build.",
+  "latest_execution_cost": "11buildattempts77game+7focused=84launches; no new production build.",
   "pages1088_report": "SCUMMVM-CE-M43-PAGES1088-VERIFICATION.json",
-  "drop1091_report": "SCUMMVM-CE-M43-DROP1091-VERIFICATION.json"
+  "drop1091_report": "SCUMMVM-CE-M43-DROP1091-VERIFICATION.json",
+  "selected_mode_coverage": {
+    "status": "VERIFIED",
+    "report": "SCUMMVM-CE-M43-COMPATIBILITY1087.json",
+    "qualification": "SelectedClassic policy/config/restore covered1069/cold073. No gate-by-gate earnedClassic duplicate campaign claim."
+  },
+  "nystul1099_report": "SCUMMVM-CE-M43-NYSTUL1099-VERIFICATION.json",
+  "father1105_report": "SCUMMVM-CE-M43-FATHER1105-VERIFICATION.json"
 }

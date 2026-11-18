@@ -1,0 +1,32 @@
+{
+  "status": "VERIFIED",
+  "scope": "Earned optional Father word/physical door branch: closed refusal,wrongNOPE,correctDAD/repeat,normal812/cold077exact and firstLeft actualdoorpass,813.",
+  "source_commit": "d52b130c5df",
+  "executable_sha256": "f9215345b158b1a8cffcfef51f2ee8a37938a7538b52c5009399ad4f2001b7a4",
+  "lineage": "Normal472earned ownedWyvern;14sourceflight to13374, initiallanding had blockedneighbors/no progress. Read-onlysourcefloor geometry thennormal reboard/fly13370->12970/ground12972/fly13772/ground13472/X. No map/player/flag/item outcome injection.",
+  "actual": "Stand13472closedLeft refused. Mouth13471: NOPE gives Begone,intruder, door18unchanged. NormalDAD admits, actualdoorstate35 aftercompletedturn (timedopenphase, do not assertfixed36). field46=4 before/after; temporarywordbitconsumed bynativecallback. RepeatDAD completed withoutinventedaward.812save/cold077 exactparty/inventory/quest/resources/map/transport/sound/session/noassist; firstLeft13472->13372 crossesdoor.813admittedsave. Actual door record65picture retained.",
+  "qualification": "No independentClassic fullquest replay. Selectedmodepolicy/config1069/compatible527 retained. Optionalbranch does not replace primaryending619 ancestry.",
+  "evidence": {
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Father1102-before-door.json": "aa4c5a0a1364d5c02fa1ddd856e7781031912865f5a812eb1674c8c8400cd857",
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Father1103-closed-left.json": "45c66325041df147545e58e6b8d75b1fcc6584bc53721ee9f850a39d6e54a99a",
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Father1103-mouth-opening.json": "bb2fa28df3631fb4023a3b904c4c627991359a0e4a2a0acbc95f07a068194e27",
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Father1103-wrong-word.json": "2aeac7eaef7a760b9cbc6f6ed6ccb55a903cf65c6d8b8ea4f3dea70fbbdb67de",
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Father1104-after-DAD-door.json": "26c1f474438e4dd1d30b0a67ba1ddedb95eba7c8b0f27269447bec036758d97a",
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Father1104-correct-DAD.json": "5e74cedda3d216fc063ac96b7eecc39fb658feb84f95867ef887cffa3aa8d7b6",
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Father1105-cold-first-door-pass.json": "5f5e3f720b5d2dab2cc031eb5f7a3612f18fe142c0ecc9158e60a5826569e961",
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Father1105-repeat-DAD.json": "3e120a58756eb7709bff855348803c8483be38541a040256c47022b6c4c67550",
+    "conversion\\ce-native-acceptance528\\earned-modern\\cold077-Father1105.json": "3b67174a374a073d041d055b51494b6bd7b6f91765acad47c585aeb946c0efd7"
+  },
+  "saved_files": {
+    "conversion\\ce-native-acceptance528\\earned-modern\\forks\\Father1105\\nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot812.g0": "b4a4bd2dbea3e50f6828a8c583d43304e8ec047a71966511fe3eed808f2f1c1a",
+    "conversion\\ce-native-acceptance528\\earned-modern\\forks\\Father1105\\nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot812.g0.ce-achievements.json": "24b9d3c59f4b5375e4b5326b7fa6233c6104416f17745977c400a6d832ee9ffa",
+    "conversion\\ce-native-acceptance528\\earned-modern\\forks\\Father1105\\nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot813.g0": "d431af6f84df4b83d4b7f4675c28ac69f02ebe2b246511f6fb4f10dcf77dfce3",
+    "conversion\\ce-native-acceptance528\\earned-modern\\forks\\Father1105\\nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot813.g0.ce-achievements.json": "e594231d931a6961ed943bf704c2517c9336952c4c2bde3a41b98572665f1e47"
+  },
+  "cost": {
+    "build_attempts": 11,
+    "game_cli": 77,
+    "focused_cli": 7,
+    "material_launches": 84
+  }
+}

@@ -18,5 +18,19 @@
     "SCUMMVM-CE-M43-CLASSIC1069-VERIFICATION.json",
     "SCUMMVM-CE-M43-ENDING1082-VERIFICATION.json"
   ],
-  "qualification": "Other gameplay files changed since527; exact equality is asserted only for listed owners. Current earned cold073/074 and actual settings/modal checks supply current executable evidence. Classic1069 same-owner New does not prove independent owner isolation."
+  "qualification": "Other gameplay files changed since527; exact equality is asserted only for listed owners. Current earned cold073/074 and actual settings/modal checks supply current executable evidence. Classic1069 same-owner New does not prove independent owner isolation.",
+  "selected_mode_strategy": {
+    "status": "VERIFIED",
+    "basis": "ACCEPTANCE528.mode_strategy and owner directive: primaryModern earned campaign plus selectedClassic legal New/restore/transitions; no duplicate complete campaign. ActualClassic1069/cold073 covers selected policy/config combination. Source mode consumers are save slot/metadata/chooser/default/options/inspection, not page/research/binding quest predicates. Shared quest results are not claimed as a second earnedClassic campaign or individual Classic gate replay.",
+    "reviewed_source_sha256": {
+      "native_engine.cpp": "1c0749ada485495e8685bf6823d62af811f421d0b6a645b2648fd89fbcb7e4c6",
+      "native_player_session.h": "c336a3ea05001a37c40e79ecefd34eedb3861e59b94b491629e037b3c9f6b60f",
+      "save_policy.h": "890bced00db32c534207055e5f6acf7247310102119da4c5bc66f13a4c7d72fc",
+      "saves.h": "9d0e92a7fb35952d35f2f2ecf0602ba48211162cb3f18b02a5a454919ac514f9",
+      "metaengine.cpp": "d2795b1c5e6e1681c1cd78cb52d70954196e6c402ed9f2dc5d186aaa776cdc54",
+      "options.h": "bde59780e99f27496d7fcb694c96cf4d6879959e99f03cddbab350c358369ad7",
+      "native_test_cli.h": "a8e1845ce553b6d5a2edd6d4d01ab67216990e1a1fef3237455edc244951d641"
+    },
+    "limits": "This discharges selectedClassic combination wording only; all missing earned prerequisite/refusal/branch obligations remain. Historical527 two-owner isolation is historical compatible evidence, not fresh1069 isolation."
+  }
 }
