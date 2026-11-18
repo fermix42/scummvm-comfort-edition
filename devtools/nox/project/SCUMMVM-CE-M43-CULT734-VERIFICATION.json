@@ -1,0 +1,40 @@
+{
+  "status": "VERIFIED",
+  "scope": "Four actual earned Cultist pair victories and level6-to8 advancement only; Vortex/guardian/ending acceptance remains IN PROGRESS.",
+  "actual": "Normal owned Wyvern flight reaches UM98/153,158 at481. Two four-cell moat crossings each inflict70HP/member; ordinary Divine healing between crossings restores both,482. Normal camp483. Four actual ground Attack admissions defeat all four original two-Cultist guards (slots72,56,80,64); normal Shock casts and real level-allocation UI, no casualties. Saves484/485/486/487 retain victories. Both level8/INT92/maxHP112; XP Bridgit21582/Nox21652. Central High Cultist24 remains alive. Normal QuickExit and Nourtheld entry488,140gold108food,MP40/44. No Engine change/build; no XP/item/position injection. Subsequent normal resupply attempts include refused water/danger camps and night inn Talk; these are not successful rests. Voluntary Attack sets transport alarm; W hour-wait refusal does not advance time.",
+  "evidence": {
+    "ce-native-acceptance528/earned-modern/earned-Cult-guard-approach726-533.json": "413a518485e359f0a52b6f51b7694a5ad65fb3d6579a5b60215a66c7e1d133a1",
+    "ce-native-acceptance528/earned-modern/earned-cult-lower-portal307-533.json": "7ea516809e4d57777d436f3edf61e49c8f2be4d811880da8d56bffafb136b5ab",
+    "ce-native-acceptance528/earned-modern/earned-Cult-moat-first-cross722-533.json": "27128d36f466811cfa99d4482af3132cefc9c8ae43676bc4638be721559ebcae",
+    "ce-native-acceptance528/earned-modern/earned-Cult-moat-first-heal723-533.json": "a29fa540db1a0d80792880edac52d494f75f706bc9ca52a46cd6ce0e19589dff",
+    "ce-native-acceptance528/earned-modern/earned-Cult-moat-second-cross724-533.json": "ac43f5874e713f8ddb0dbf9c1f2a355f3a68cc1198cdce456215ed83ae509686",
+    "ce-native-acceptance528/earned-modern/earned-Cult-moat-second-heal725-533.json": "33092aca363155d62d30431852d69eee52f6cb81b7505ab521ddf8ca8dfcb6e9",
+    "ce-native-acceptance528/earned-modern/earned-Cult-pair-first-admission727-533.json": "1f220dec8198dfc922966c28b1014ead3691b6ac3ca2ae5d3353e2e67d67770f",
+    "ce-native-acceptance528/earned-modern/earned-Cult-pair-first-victory728-533.json": "71302a286b709dcc091567943e9d860f55c2f533cfc252044e9c7e78aca19f9e",
+    "ce-native-acceptance528/earned-modern/earned-Cult-pair-fourth-admission733-533.json": "5d0ecbe077c0ab6742f6c4c30868e8d837fc285c04acb54d541bd81fc1405978",
+    "ce-native-acceptance528/earned-modern/earned-Cult-pair-second-admission729-533.json": "3d085d19821aea42e9acee1e1d9f15965c99ca90409c3946daf72bc5f0bd6390",
+    "ce-native-acceptance528/earned-modern/earned-Cult-pair-second-levels730-533.json": "4837511ef136c9bfb0aadcf1f39df863826e4b7cd87a131b75321687645bf7d4",
+    "ce-native-acceptance528/earned-modern/earned-Cult-pair-third-admission731-533.json": "5999d63ceb115e29997ba5e6eef1785e9b11aaf728ebae2e8af9ef1a55d39205",
+    "ce-native-acceptance528/earned-modern/earned-Cult-pair-third-levels732-533.json": "81a910e4b4a73972afd922ba7adb71bfec52080738530342e24e810030d5186b"
+  },
+  "checkpoints": {
+    "ce-native-acceptance528/earned-modern/checkpoints/480-Earned-phylactery-QuickExit-return480/checkpoint.json": "0285282ebda0fa9e7c672bc474be890b6b9886a30b623739d85827f184bdc167",
+    "ce-native-acceptance528/earned-modern/checkpoints/481-Earned-Cultist-moat-outside481/checkpoint.json": "12edf39dd44a08043c95d8fcb75d5bc200ab8cc8575c74c353b1843b7ea584f2",
+    "ce-native-acceptance528/earned-modern/checkpoints/482-Earned-Cultist-moat-crossing-with-normal-healing482/checkpoint.json": "6f03bd4d170112ec9fbb96375c1c6de38e2dd6854a389da8e95fb7dab939e3b7",
+    "ce-native-acceptance528/earned-modern/checkpoints/483-Earned-Cultist-approach-normal-camp483/checkpoint.json": "fe7830b60dc21f1213fcbbd29694cc743b5323331cf0c113f2dcfcf923d27c89",
+    "ce-native-acceptance528/earned-modern/checkpoints/484-Earned-first-full-Cultist-pair-victory484/checkpoint.json": "30d00ff9857f72dbdea54eeb9dfb70d1457003fc4791cc96cd01fa4770ae2405",
+    "ce-native-acceptance528/earned-modern/checkpoints/485-Earned-second-Cultist-pair-level7-allocations485/checkpoint.json": "32e9e9599854c686427e2ac6f7549696be346cbf439b4c5da71dcf4bb92526ba",
+    "ce-native-acceptance528/earned-modern/checkpoints/486-Earned-third-Cultist-pair-level8-allocations486/checkpoint.json": "5d5858d8f886461bdd35f6e2bd7ff4875ca21091b15adab86f99f3a9d94417c7",
+    "ce-native-acceptance528/earned-modern/checkpoints/487-Earned-fourth-full-Cultist-pair-victory487/checkpoint.json": "10e333372fd1a3cf421874bc42e0f3483adad16451d2d187f6826721cdea78b1",
+    "ce-native-acceptance528/earned-modern/checkpoints/488-Earned-four-Cultist-pairs-return488/checkpoint.json": "c96f84c47f92d3137f4836488c38fc25d364ab64d3a6a2d92346131ec491c50d"
+  },
+  "source_commit": "c660ae8ac41",
+  "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd",
+  "cost": {
+    "builds": 8,
+    "game_cli_processes": 54,
+    "focused_cli_processes": 5,
+    "material_launches": 59
+  },
+  "remaining": "Normal resupply; earn remaining1418/1348XP to level9 INT104. Original Ruin22 static group36 and naturally occurring original group36 yield500XP/member at level8. Essence of Death is item96 at RUIN32/14,27, reached through Death Keep Surface150,168/Ruin31. Nox Alyn Castle60/112 rewards book11 after two normal openings with essence flag60bit16; no shop sells it and no six-hour timer applies. Item130 is Ruined Book, not Essence. Then actual book11 Ready/cast on original UM101 Dragon with both party members retained, lawful level10/INT116 and Vortex eligibility. These future outcomes remain unverified."
+}

@@ -2970,7 +2970,7 @@
   "process_launches": 54,
   "planned_node_count": 60,
   "mandatory_node_count_note": "All selected M3 nodes explicitly represented alongside dependency76 graph; includes supporting/advice/alternative nodes. Necessity is retained per source,not inferred from node count.",
-  "last_earned_checkpoint": 479,
+  "last_earned_checkpoint": 488,
   "baseline_candidate_sha256": "81feb2c7ff17594a6ea9754dc60602a755b2f37ea7c53b437f65a18e7c35000f",
   "candidate_change": "NPC529,cannon530,packedmelee531,mountedTalk532 source corrections; exact scoped receipts and earned ancestry retained. No broad matrix promotion.",
   "earned_failures_retained": [
@@ -3029,5 +3029,12 @@
   "source_route_revision189": "Earlier required Guildmaster/baseXP8400 before furtherDrakes;189gear materially stronger; all60criteria preserved,5VERIFIED.",
   "previous_candidate_before533": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed",
   "candidate_source_commit": "c660ae8ac41",
-  "candidate_transition": "SCUMMVM-CE-DOOR533-VERIFICATION.json; normal223 cold recovery before further inputs; earlier nodes retain original bound evidence."
+  "candidate_transition": "SCUMMVM-CE-DOOR533-VERIFICATION.json; normal223 cold recovery before further inputs; earlier nodes retain original bound evidence.",
+  "last_checkpoint": 488,
+  "cult734": {
+    "status": "VERIFIED",
+    "report": "SCUMMVM-CE-M43-CULT734-VERIFICATION.json",
+    "scope": "Four actual earned Cultist pair victories and level6-to8 advancement only; Vortex/guardian/ending acceptance remains IN PROGRESS."
+  },
+  "active_next": "Normal resupply; earn remaining1418/1348XP to level9 INT104. Original Ruin22 static group36 and naturally occurring original group36 yield500XP/member at level8. Essence of Death is item96 at RUIN32/14,27, reached through Death Keep Surface150,168/Ruin31. Nox Alyn Castle60/112 rewards book11 after two normal openings with essence flag60bit16; no shop sells it and no six-hour timer applies. Item130 is Ruined Book, not Essence. Then actual book11 Ready/cast on original UM101 Dragon with both party members retained, lawful level10/INT116 and Vortex eligibility. These future outcomes remain unverified."
 }
