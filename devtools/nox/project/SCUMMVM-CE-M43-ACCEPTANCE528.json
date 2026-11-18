@@ -3161,8 +3161,8 @@
     "report": "SCUMMVM-CE-M43-CULT734-VERIFICATION.json",
     "scope": "Four actual earned Cultist pair victories and level6-to8 advancement only; Vortex/guardian/ending acceptance remains IN PROGRESS."
   },
-  "active_next": "Finiteearnedrecovery: BayportShield32/paidBridgitrevival, Town44GreaterHeal51, existingownedArchmageStaff83+Chaos90/fullpaidMP, thennormalreturnfromvalidlineageforfullShadow/ending. Firstdefeatpreserved/excluded; no Enginefix/build.",
-  "current_checkpoint": 611,
+  "active_next": "ActualtwoaliveNox/Br afterpaidrevival,104gold774food; Town44entry9,32/source5flightMage1037to9,12inprogress. BuyGreaterHeal51/76gold, ReadyC8, paidrest, normalNreorderlivingcastersindices4/5forradius4separation; returnfullfinal/endingthenfiniteforks/config.",
+  "current_checkpoint": 613,
   "essence775": {
     "status": "VERIFIED",
     "report": "SCUMMVM-CE-M43-ESSENCE775-VERIFICATION.json",
@@ -3398,5 +3398,6 @@
   "styx974_report": "SCUMMVM-CE-M43-STYX974-VERIFICATION.json",
   "british979_report": "SCUMMVM-CE-M43-BRITISH979-VERIFICATION.json",
   "plane1005_report": "SCUMMVM-CE-M43-PLANE1005-VERIFICATION.json",
-  "final1015_recovery": "SCUMMVM-CE-M43-FINAL1015-RECOVERY.json"
+  "final1015_recovery": "SCUMMVM-CE-M43-FINAL1015-RECOVERY.json",
+  "final1032_preparation": "SCUMMVM-CE-M43-FINAL1032-PREPARATION.json"
 }

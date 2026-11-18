@@ -1,0 +1,49 @@
+{
+  "status": "VERIFIED",
+  "scope": "VERIFIED earned funding, Shield/GreaterHeal readiness, paid revival/rest, normal separated formation and return travel only; final encounter/ending remain unverified.",
+  "source_commit": "d52b130c5df",
+  "executable_sha256": "f9215345b158b1a8cffcfef51f2ee8a37938a7538b52c5009399ad4f2001b7a4",
+  "lineage": [
+    611,
+    612,
+    613,
+    614,
+    615,
+    616
+  ],
+  "actual": {
+    "funding": "Normalunusedweapons/armor/spellssales, no cash/XP injection or combatgrind. Actual19->253 beforeShield36->217;Flaming15sale22(notassumed48),remainingactualsales201->440.",
+    "book32": "Bought36gold atMage47/88, globalShieldC9. ReadiedbookRtogglemeansShockC8neededexplicitSpaceunready; sourceconfirmed, normalSellafterunready.",
+    "disposed": "UnneededoldFireStaff39/otherweapons,oldunreadiednecklaces,Phantasm16,Flaming15,Shock27,Divine52,1spareSummon14,all64Lockpicks,unreadiedScaleBoots51and5PaddedRobes. Chaos90/readiedMageCloaks42/Necklaces116 retained.",
+    "revival": "ActualTemple49/64 fromstand36,37/TalkRight, paid336gold,Br1 restored123HP116MP. Nox123HP83MP unchanged,otherfourcorpsesunchanged.613saved,104gold774food.",
+    "next": "QuickExit Nox112MP/Br116MP;47sourceflight to23625 completed, normalalignment and entryKeep67/24,38. Current51groundroute to68/23,19, thenexistingportal/finalapproach.",
+    "GreaterHeal": "Normal Mage44/96 purchase76gold, GreaterHeal51 readiedC8; checkpoint614.",
+    "rest": "Paid11gold at Inn44/112; actualroom45/14,29, both123HP116MP,17gold774food, fourcorpsesunchanged;615.",
+    "formation": "Normal N exchanges put Nox4/Bridgit5, firstfourHP0. Expectedstartingpositions separated5cells; actualbattleconfirmationpending;616."
+  },
+  "source_reconciliation": {
+    "Staff83": "Already legitimatelysoldat431(canonicalROSTER620), notcurrentlyowned. No inventorycorruption. AttemptReady83StopIterationbeforeanyinput, noownershipclaim.",
+    "book23": "Proposedkind2/id23wasnotowned; actualownedweapon0/id23. Helperstoppedbeforeinputandresumeexcludedmissingrow.",
+    "price15": "Actualsourcebase76/30percent=22; wrongexpected48assertedAFTERlegitimatesale. Actualstatepreserved,no replay.",
+    "armor": "BothSTR8; Noxalreadyweight8,Brunarmedweight4. Do not tryheavyequipmentonNox. CurrentlightMagearmor87/85,MR45. Shield32normalbuff/GreaterHeal51andnormalpartyformationareavailabledefenses."
+  },
+  "next_final_formation": "NormalN exchangeNox0withdeadCutter4andBr1withdeadAlluvion5 AFTERshop/rest. Arrowsincludedead;defaultfirstliving0then1. Actualformationindices4=(7,9),5=(2,10)separated5cells>chainradius4. Avoidsummonswhichcreateintermediatechaincenters; castnormalShieldandtargetedfullheals. Verifyactualstatesbeforeoffense; no assumedoutcomes.",
+  "execution_cost": {
+    "build_attempts": 11,
+    "game_process_launches": 67,
+    "focused_launches": 7
+  },
+  "evidence": {
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Final1022-sales.jsonl": "1824f6a3e81a6cd384db61106f4743e81ab6de5e0323e516a4b75a38cfee9824",
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Final1024-Shield-bought.json": "e1e28212b176d30ae588dc2a9ad01aff11633ddf1ae723ec0e1cf1a78f88e960",
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Final1027-first-sale-actual.json": "122f24d2adc17eaf365285ceb2b53f30220e687e17e983356ea6f5dbf2becdd2",
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Final1028-funding-sales.jsonl": "a17593138d0e6e172726b9275f1a6d9d3e8e74febebf832f148ba04436cbba9b",
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Final1028-funded.json": "e725ca683ad0123ab4a40a4f4e9fe46e1ddd64bae35ee5018ffc74a32ff44f8e",
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Final1031-Bridgit-resurrection.json": "f85c6acc93f499df1e8ddebfe75ed1a95362357858e8131c628988aef33add9a",
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Final1034-Town44-entry.json": "de376a5c51523562ae92d90de969427d4f59f0c323b5587f2b66e5badcf85da7",
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Final1038-GreaterHeal-bought-readied.json": "8b371f1770c2d78aa625ca95dbb12e6ec741cc449f71acf7533874a707b19e54",
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Final1040-paid-full-rest.json": "5a5a93bcbca21b0f7656cbb7f0726263f13707dd86de9f1dd050cf4737951abe",
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Final1041-normal-separated-order.json": "426d615024bd6afd02950a2f3b5e095c77e2c9239bfb7a940aa4504c65ddba9b",
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Final1042-Max-return.json": "78f93ec02fc58ce4cf9f809211d4f9be0f0ad0529bc6e5a6939c41895829f1e7"
+  }
+}

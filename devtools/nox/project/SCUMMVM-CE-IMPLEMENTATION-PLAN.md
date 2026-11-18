@@ -1,3 +1,11 @@
+# Acceptance528 earned full preparation614-616 — VERIFIED within scope
+
+Normal GreaterHeal51 purchase76gold/C8; paid11gold Inn rest restores both123HP116MP. Fourcorpsesretained. NormalN exchanges putlivingNox4/Bridgit5, sourceexpected5cell separation; actualbattleconfirmationpending.17gold774food. QuickExit Nox112MP/Br116,47flight1042 completed, actualKeep67/24,38 entry1043. Current51groundportalroute1044. Finalencounter/ending remainunverified;39/60nodes,11buildattempts67game+7focused=74launches. NoEnginechange/build. Continuefiniteacceptancewithoutmilestonestop. ReportFINAL1032-PREPARATION.
+
+# Acceptance528 earned final funding612 / paid Bridgit revival613 — VERIFIED within scope
+
+Normalsurplussalesand36goldShield32purchase give440gold; no combat/cashgrind. ActualMage47/88pricesrecorded; missingbook23proposalstoppedbeforeinput,Flaming15actualsale22correcteddriverexpectation,noEnginebug. Temple49/64/TalkRightfrom36,37 paid336: Br123HP116MP restored, Nox123HP83MP unchanged, fourpriorcorpsesretained.613save104gold774food. Staff83alreadylegitimatelysold431, retainChaos90; STR8rulesoutheavyarmorupgrade. C9Shield32normal+29armor/3MP, current5flightTown44Mage1037forGreaterHeal51/76gold,C8andpaidrest. ThennormalNputs2livingcastersatindices4/5(5cellsapart)beforefullfinalattempt. NoEnginechange/build;11attempts67game+7focused=74launches,39/60nodes. ReportFINAL1032-PREPARATION. Continuefiniteacceptancewithoutmilestonestop.
+
 # Acceptance528 final610/cold067 actual defeat; earned recovery611 — IN PROGRESS
 
 Actualsource92foot121133/fullHPMP610,cold067exactPASS,normalUpadmitsfull3210Shadow. C0sixSkeletons and2Chaos hits reduce3210->2971; actualchainlightningkillssolelivingNox123HP. FailedfuturepreservedforkFinal1010, no victory/fakeprogress. Normal610EngineLoadexactstatePASS; source92foot/authoredreturn/BWyvern/C5givesSurface0/81168,611. No Engine defectdemonstrated. Sourcelevel10maximumrulesoutlevel11grind; fixedshopsdonotsellProtectionRings. FinitecheaprecoveryusesShield32(3MP/self+29armor,book36gold47/88), GreaterHeal51(4MP/fullHP,book76gold44/96), paidrevivalofearnedBridgit, ownedArchmageStaff83+Chaos90, fullpaidmana. Bayport14flight1014underway. ReportFINAL1015-RECOVERY.39/60nodes,endingunverified;11buildattempts67game+7focused=74launches. Continuewithoutmilestonestop/nopublication.
