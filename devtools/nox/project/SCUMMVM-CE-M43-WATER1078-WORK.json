@@ -1,0 +1,22 @@
+{
+  "status": "IN PROGRESS",
+  "scope": "Earned prePhylathery Lich admission/ordinaryattack/normalretreat plus incidentalQuick victory only. Required Vortex refusal NOTverified.",
+  "source_commit": "d52b130c5df",
+  "executable_sha256": "f9215345b158b1a8cffcfef51f2ee8a37938a7538b52c5009399ad4f2001b7a4",
+  "lineage": "Normal476earlierfork, no Phyloperation54contact, field12=131 throughout. Separatefrommain617.",
+  "actual": "Source10footapproach; first3Orcs normalflee returned111,148beforeattempted111,147step, notafterit. Reattempteduncompletedstepadmitted2Orcs; normalQdefeatedbothfull70HPin2actionswith92HP68MPbothunchanged. QuickVictoryphase1needednormalEscapeack, thentakefinalReturn; initialdriverwaitincorrectlyignoredphase1. ActualLichNPC32 at111,147; normalA/Up from111,148 admitsfull1300HP163/exitcontrol0. Oneordinaryrangedattackleft1300HP; nativeEscape/Yreturnsworld111,148, field12=131, no Jewel. Normal805prefight/806retreat savesretainfork.",
+  "qualification": "M3negativecase explicitlyVortex targethit/no damage. Earned476INT68/MP68 cannotqualify110INT/87MP. OrdinaryLichphysicalimmunityalsoexplainszerodamage, so do notcountattackasPhyl/Vortexrefusal. Need qualifyingearlierMageorexplicitreconciliationofpermittedexistingcontrolledcoverage; no statinjection/repeatXPgrindstarted.",
+  "evidence": {
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Water1077-full-Lich-noPhyl-admission.json": "b15f4f82d7da02337e7127ee57413b2576dbd01475a6bfb54e68a6968febb358",
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Water1078-noPhyl-attack.json": "a0006112282ab6bcc4901d599a61165f5be95a79dc6c0c8b2665c73b255febfe",
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Water1078-qualification.json": "9c43bf4cfa066e3c491a643f99a740198808cdb59ec84520f89e2142b2163734",
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Water1078-normal-retreat.json": "b49cddf9c4aaaaa8ad70ecda993c19d8b07cf1ea840548cdd90e8308b042ee70",
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Water1076-Quick-actual-correction.json": "a125ec22f5d66a634de53d7055ebc461f86eca35e8ea9ec1ff8e500c6cb9f94b"
+  },
+  "cost": {
+    "build_attempts": 11,
+    "game_cli": 73,
+    "focused_cli": 7,
+    "material_launches": 80
+  }
+}

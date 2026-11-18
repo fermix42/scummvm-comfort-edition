@@ -1974,7 +1974,7 @@
     },
     {
       "id": "final-encounter",
-      "status": "IN PROGRESS",
+      "status": "VERIFIED",
       "prerequisites": [
         "ring-vacous",
         "dark-key",
@@ -2015,12 +2015,24 @@
         "scoped audio/presentation",
         "actual earned verification criteria"
       ],
-      "earned_lineage": null,
-      "earned_partial_scope": "Full3210HPnormaladmissions610/617, actualtacticalattempts/failedfutures retainedinFINAL1015/FINAL1046; no victory orendingclaim."
+      "earned_lineage": {
+        "primary_origin": 0,
+        "pre_final_parent": 617,
+        "prepared_normal_slot": 807,
+        "ending_checkpoints": [
+          618,
+          619
+        ]
+      },
+      "earned_partial_scope": "Full3210HPnormaladmissions610/617, actualtacticalattempts/failedfutures retainedinFINAL1015/FINAL1046; no victory orendingclaim.",
+      "earned_evidence": [
+        "SCUMMVM-CE-M43-ENDING1082-VERIFICATION.json"
+      ],
+      "remaining": "None within this node; supportedbranchM4.3requirements remain separate."
     },
     {
       "id": "ending",
-      "status": "NOT STARTED",
+      "status": "VERIFIED",
       "prerequisites": [
         "ring-vacous",
         "dark-key",
@@ -2063,7 +2075,19 @@
         "scoped audio/presentation",
         "actual earned verification criteria"
       ],
-      "earned_lineage": null
+      "earned_lineage": {
+        "primary_origin": 0,
+        "pre_final_parent": 617,
+        "prepared_normal_slot": 807,
+        "ending_checkpoints": [
+          618,
+          619
+        ]
+      },
+      "earned_evidence": [
+        "SCUMMVM-CE-M43-ENDING1082-VERIFICATION.json"
+      ],
+      "remaining": "None within this node; supportedbranchM4.3requirements remain separate."
     },
     {
       "id": "opening-log",
@@ -3103,10 +3127,10 @@
   "mode_strategy": "One primary Modern earned lineage; targeted Classic legal earned fork/restore/transitions; no duplicate complete campaign required by existing criteria.",
   "failure_policy": "Freeze failing path,source general diagnosis,focused correction+regression,at most2corrective reruns; resume valid nearest earned save,no prefix replay or outcome injection.",
   "builds": 6,
-  "process_launches": 67,
+  "process_launches": 74,
   "planned_node_count": 60,
   "mandatory_node_count_note": "All selected M3 nodes explicitly represented alongside dependency76 graph; includes supporting/advice/alternative nodes. Necessity is retained per source,not inferred from node count.",
-  "last_earned_checkpoint": 563,
+  "last_earned_checkpoint": 619,
   "baseline_candidate_sha256": "81feb2c7ff17594a6ea9754dc60602a755b2f37ea7c53b437f65a18e7c35000f",
   "candidate_change": "NPC529,cannon530,packedmelee531,mountedTalk532 source corrections; exact scoped receipts and earned ancestry retained. No broad matrix promotion.",
   "earned_failures_retained": [
@@ -3367,7 +3391,7 @@
     },
     "next": "Continue source-authored cave/stair flight toUM101 Lich(originalNPC32,source108148;inspectactualposition). Earnedphylacteryflag12bit4 retained. Inspectactualfull1300HP/protection/partypositions, thennormalC1VortexNorth avoidingfriendlyfire, actualWaterJewel153 andpersistentdeath. Nofixture/Rat/campaignendingclaim."
   },
-  "verified_count": 44,
+  "verified_count": 46,
   "lich877": {
     "status": "IN PROGRESS",
     "scope": "Earned fullLich/WaterJewel acceptance approach only",
@@ -3412,5 +3436,14 @@
   "final1015_recovery": "SCUMMVM-CE-M43-FINAL1015-RECOVERY.json",
   "final1032_preparation": "SCUMMVM-CE-M43-FINAL1032-PREPARATION.json",
   "final1046_report": "SCUMMVM-CE-M43-FINAL1046-WORK.json",
-  "classic1069_report": "SCUMMVM-CE-M43-CLASSIC1069-VERIFICATION.json"
+  "classic1069_report": "SCUMMVM-CE-M43-CLASSIC1069-VERIFICATION.json",
+  "ending1082_report": "SCUMMVM-CE-M43-ENDING1082-VERIFICATION.json",
+  "earned_native_new_to_ending_status": "VERIFIED",
+  "execution_cost_current": {
+    "build_attempts": 11,
+    "game_cli": 74,
+    "focused_cli": 7,
+    "material_launches": 81
+  },
+  "latest_execution_cost": "11 build attempts;75 gameCLI+7 focused=82 material launches; process075 missing-pages earned397 fork."
 }

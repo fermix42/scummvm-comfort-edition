@@ -1,0 +1,106 @@
+{
+  "status": "VERIFIED",
+  "scope": "Legitimate native-only Modern New-to-ending primary lineage, full3210HPfinalvictory, originalendingpresentation, actualReturnack/permanentloop, cold074/firstSpace, endingmusicidentityandnormalQsaveGUI/cancel only. Not complete M4.3supportedbranch acceptance.",
+  "source_commit": "d52b130c5df",
+  "executable_sha256": "f9215345b158b1a8cffcfef51f2ee8a37938a7538b52c5009399ad4f2001b7a4",
+  "lineage": "OriginalnormalNew000 through acceptedprimary617; normal807owns2Bucklers/fourReadyunreadyinputs only; fullnativefight1081 ->618 ->normalReturn ->619 ->cold074 ->normalSpace/QsaveGUI/Escancel. Failed610/1046/1048futures and independentforkrewards excluded by normal617loadexact-state checks. Nofixture/import/flag/item/HP/MP/position/RNG injection.",
+  "actual": {
+    "initial_enemy_hp": 3210,
+    "final_enemy_hp": 0,
+    "hero_actions": 59,
+    "actions": {
+      "ShieldSelf": 2,
+      "ChaosAttack": 29,
+      "GreaterHeal5": 7,
+      "Pass": 20,
+      "GreaterHeal4": 1
+    },
+    "final_party": "Fourpriorcorpses0HPretained; Nox4/Br5both123HP,MP109/81,17gold774food. No newlymanufactured revival or casualtyerasure.",
+    "armor": "Normal2ownedBucklers17 onBr5 afterunreadyClothHelm1/Boots2; actualNPAR armor111/weight8/STR8/MR45; singleShield32->140. Nox87/singleShield116.",
+    "ending": "Actual congratulatory RealmofUral/DarkShadow ending seen307, ordinaryReturn keepsresultPhase4/no ordinaryloot/level/explorationreturn;619save. Cold074 exactowner/party/inventory/quests/resources/map/transport/audio mode andnoassistPASS. FirstSpace stayspermanentendingloop,308seen.",
+    "audio": {
+      "status": "VERIFIED",
+      "scope": "Actual earned ending song identity and generated sample activity only; no headless audible-listening claim.",
+      "authored_ending_song_sha256": "d79a72f6c1bbe87ff331ad99ae87ccf8bd88ee456db0e2ef70812387bb60add7",
+      "song_bytes": 1111,
+      "observations": [
+        {
+          "label": "ack619",
+          "save": "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-acceptance528\\earned-modern\\saves\\nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot619.g0",
+          "save_sha256": "a0a991fb401931064fe0d83f861d9b3e29deb78d74e779380be6669943bf18ae",
+          "song_sha256": "d79a72f6c1bbe87ff331ad99ae87ccf8bd88ee456db0e2ef70812387bb60add7",
+          "samples": 3276000,
+          "nonzero": 3272584,
+          "playing": 0,
+          "preserved_copy": "conversion\\ce-native-acceptance528\\earned-modern\\forks\\Ending1082\\nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot619.g0"
+        },
+        {
+          "label": "cold074-first-Space",
+          "save": "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-acceptance528\\earned-modern\\saves\\nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot998.g1",
+          "save_sha256": "863a21920a3730ec72b568950c2f390ffbb8bc935f57ec4eaddc7cac2c491fc9",
+          "song_sha256": "d79a72f6c1bbe87ff331ad99ae87ccf8bd88ee456db0e2ef70812387bb60add7",
+          "samples": 7434192,
+          "nonzero": 7429018,
+          "playing": 0,
+          "preserved_copy": "conversion\\ce-native-acceptance528\\earned-modern\\forks\\Ending1082\\nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot998.g1"
+        }
+      ]
+    },
+    "save_gui": "ActualQopenssharedSavegamechooser309seen; normalEsc/condition-wait closesitandreturnsEnding4. Thisconfirmscallback/open/cancel, not an additionalUIwrite beyondnormal618/619EngineSaveGameState.",
+    "driver_failure": "Qthroughkey() incorrectlyrequestedEngineframeswhilemodalGUIpausedEngine. CLIadvance233timedout; inspect234 was initiallyreadbehindoldresponse(IDmismatch). Drainedresponse, capturedactualGUI, normalEscape+waitpausedfalse recoveredwithoutgamechange. Process074CLIfailedflag meansexpectedexit1later; do notcallthisa cleanwhole-processreceipt. No productionfix/build/campaignreplay."
+  },
+  "checkpoint_metadata": {
+    "617": {
+      "path": "conversion\\ce-native-acceptance528\\earned-modern\\checkpoints\\617-Earned-two-caster-final-preparation617\\checkpoint.json",
+      "sha256": "2b4876777a55bb7adac1629e9ab9909fd239abcd5997cdfbfc511fccfb137f8c",
+      "parent": "c57ec8c56b23049ff33c840f1ca6c5faee4916124c27deb2f4e66c4845976696",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot617.g0": "7c9c228ab9a0f0a5f82b36ac5139154045b5fb1a551b3bb5a37f0022511d8189",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot617.g0.ce-achievements.json": "7910d4c18d8e8a3277ff0d56c7ae3e532b5019f7de007f65afc2b21904ffac9a"
+      }
+    },
+    "618": {
+      "path": "conversion\\ce-native-acceptance528\\earned-modern\\checkpoints\\618-Earned-full-native-Shadow-ending618\\checkpoint.json",
+      "sha256": "55451e4cc2cbd8667d85dc68774ccf88ae1c2f12e9900e19604662400f7838ae",
+      "parent": "2b4876777a55bb7adac1629e9ab9909fd239abcd5997cdfbfc511fccfb137f8c",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot618.g0": "0851c940152837f59ce5613e2b3f4000a6689341adf197be69afc3f36e85521e",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot618.g0.ce-achievements.json": "a4af1caf04c539624d6e5bd6987215d586bf8bac3a73a51c812ac470649c36dc"
+      }
+    },
+    "619": {
+      "path": "conversion\\ce-native-acceptance528\\earned-modern\\checkpoints\\619-Earned-native-ending-acknowledged619\\checkpoint.json",
+      "sha256": "6066e73373907815fb0e8bbae3885481369271cf32fb5c6c995db5d337151905",
+      "parent": "55451e4cc2cbd8667d85dc68774ccf88ae1c2f12e9900e19604662400f7838ae",
+      "saved_files": {
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot619.g0": "a0a991fb401931064fe0d83f861d9b3e29deb78d74e779380be6669943bf18ae",
+        "nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot619.g0.ce-achievements.json": "811db1484c4eac368f2aa655ce9ee9401aac36685b53d66e71916680927a0bec"
+      }
+    }
+  },
+  "evidence": {
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Final1080-owned-shield-preparation.json": "a85cb0173a8a52466519f949a1f38cfab205038d0c645e75422b96cce6f513c8",
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Final1081-prepared.json": "5015724f0f48a82368bb2af4d2d10e63d222f828bef2d0eec8506efa4c998df0",
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Final1081-full-admission.json": "bc85385a4c7fc1e2f423ee44d7a60f61f604cf8fad305bf43a62488b6046879e",
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Final1081-actions.jsonl": "46ae670617bea9dfb6498edf2824ee1cb837d734ceb2991e5b5f185d7e89ce2f",
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Final1081-result.json": "dd1618a5e2820f45ebb530b1740f2c8e6968ef37021afdf84e3d720a69b56127",
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Ending1082-first-presentation.json": "02c9f509ea3f8d85c291efdf5fabda2095ad73ce235397e7a5b742ba0929d99b",
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Ending1082-Return-acknowledgement.json": "2d5234f2437057d0ddcd7ec095bbbc608fcc5132438d8fbafb9e702379fc15a9",
+    "conversion\\ce-native-acceptance528\\earned-modern\\cold074.json": "2a6bf57a915285dd325bf9273187f71bb324e70dca44b980fcbdda7c78f2a277",
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Ending1082-cold-first-Space.json": "2053950f739b178236f0a664e7b9a4b8cd430f4d5c0f9083817a4ec213033152",
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Ending1082-audio-identity.json": "8d96e1b6199007cd25d4573908232414a039bf9ddce15bc25f8265aa7a32b4c9",
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Ending1083-Q-modal-observation.json": "c4535ec87b981b722f9f93030b839c29fae0f393577490d89579d86ed8725e43",
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Ending1083-Q-cancel-return.json": "a309facfcc8b93923fc4e01cbf274e1f51368746f9d9f6a4cf59c9f98f14f01f",
+    "conversion\\ce-native-acceptance528\\earned-modern\\screenshots\\scummvm-cli-game-00307.png": "fbc90baa7630164c051f4824828b41aa61c8e51f3d69deb79b9625840a6380d8",
+    "conversion\\ce-native-acceptance528\\earned-modern\\screenshots\\scummvm-cli-game-00308.png": "fbc90baa7630164c051f4824828b41aa61c8e51f3d69deb79b9625840a6380d8",
+    "conversion\\ce-native-acceptance528\\earned-modern\\screenshots\\scummvm-cli-game-00309.png": "c27fd1aeddc236b90ddbe181063d2da69f9f1dc8e0f6649ef0159782e4813f76"
+  },
+  "cost": {
+    "build_attempts": 11,
+    "game_cli": 74,
+    "focused_cli": 7,
+    "material_launches": 81
+  },
+  "remaining": "Fourteen composite campaign nodes plus remainingfiniteconfiguration/session/branchqualifications mustbeclosedorhonestlyblocked; no fullM4.3/nativeenginefinished claim. story.08 qualificationretained; no publication.",
+  "controller_recovery": "Process074 close ultimately returned exit2 (not expected1). Modal frame-advance client timeout/queued-response protocol failure preserved. Actual Q open/Esc cancel and prior ending cold persistence passed; process075 continues independent earned397 fork."
+}

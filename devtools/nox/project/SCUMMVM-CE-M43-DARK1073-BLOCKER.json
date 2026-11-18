@@ -1,0 +1,20 @@
+{
+  "status": "BLOCKED",
+  "scope": "Only the current missing-Dark-Key earned approach; no completedrefusal or nativeEngine defect claim.",
+  "source_commit": "d52b130c5df",
+  "executable_sha256": "f9215345b158b1a8cffcfef51f2ee8a37938a7538b52c5009399ad4f2001b7a4",
+  "earned_parent": 588,
+  "preserved_normal_slot": 804,
+  "actual": "Flight32/15,23->31/34,31 completed. Sourceplannedgroundleft33,31 refused, andDown34,32 refused; sameLeftonfootrefused. Privateexpectedcoordinateassertions stoppedpaths. Fullparty123/123/99/81/84/89HP and87/87/14/44/44/44MP unchanged. No DarkKey154, no door operation claimed.",
+  "source_planning": "Old947flightpath starts33,31, not34,31; prior summary mistakenlycalleditground. Freshfixed-flight31/34,31->30/9,15 hasNoRoute161states using actual804 via read-onlysave-description option. Need valid normalphasealignment/landing before furtherinput. Do not repeatblockedsteps withoutnewsourceevidence.",
+  "continued": "Independent earned476 prePhylactery/Waterguardian missing-prerequisite fork1074; primary617 intact.",
+  "evidence": {
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Dark1073-route-blocked.json": "e069650649b0f2a2c9d3573ab3de40e201707fb0793cd6b161e830e2f8efe690"
+  },
+  "cost": {
+    "build_attempts": 11,
+    "game_cli": 73,
+    "focused_cli": 7,
+    "material_launches": 80
+  }
+}
