@@ -1,0 +1,37 @@
+{
+  "status": "VERIFIED",
+  "scope": "Earned Fire thermal protection and full1950HP Air guardian victory/threeJewel inventory/repeat/cold. Composite gate refusals and Air barrier protection remain separate.",
+  "source_commit": "d52b130c5df",
+  "executable_sha256": "f9215345b158b1a8cffcfef51f2ee8a37938a7538b52c5009399ad4f2001b7a4",
+  "summary": "Ordinary81-flight source Air888 route from10123115 brieflycrosses100thenreturns1015127. Actualtwoprotectedthermal cells1015137tile212/5140tile214 crossed;both123HPretained,573. Arrived11199,574. Groundplanner correctlyrefusedtheblockedlanding. NormalY/Down4/Yland111103; oneplanningattempt usedlastcheckpointinsteadcurrent998 andwrote noroute; corrected--snapshot oneUp step to111102 andactualLeft110102. NormalAttackUp admitsonefull1950HP Archdevil177. Brfirst87MP,Nox59MP,both123HP. ActualBrVortexNorth spends87MP,killsguardian,noHP loss. Normalvictory575 awardsAirJewel152qty1;151/152/153qty1each,field57=7. RepeatAttackUp576noduplicate;cold060exactstate/session/noassistancePASS. QuickExitNox4MPreturnsSurface79192,577;Br0MP/Nox55MP,123HPboth,10gold0food. NoEnginechange/build.",
+  "visual_audio": "Actual admission266 and postVortex267 rendered frames captured;266 inspected. Normal mode0/music-ready observed. Accepted473 retained; no oldaudio suite rerun or unsupported audible-headless claim.",
+  "checkpoints": {
+    "ce-native-acceptance528\\earned-modern\\checkpoints\\572-Earned-Air-direct-depths572\\checkpoint.json": "64b4a77329d0e732085133f5ea35a8c126951082bf0e21e9f8653d302d2102b6",
+    "ce-native-acceptance528\\earned-modern\\checkpoints\\573-Earned-Fire-Jewel-thermal-protection573\\checkpoint.json": "167489904101dd171e465daa1e2a8df71cee8266dcb7d157eecfa638839ee5e3",
+    "ce-native-acceptance528\\earned-modern\\checkpoints\\574-Earned-Air-guardian-approach574\\checkpoint.json": "5e70fd1aed6576038fc763a33ef11302e61b5cfa646a2a138cb170d154f61c4b",
+    "ce-native-acceptance528\\earned-modern\\checkpoints\\575-Earned-full-Air-guardian-Jewel575\\checkpoint.json": "3bcc1015c7a9c12a3a80e0a04f1405c018e8ae1ee232980940e19503701e6b71",
+    "ce-native-acceptance528\\earned-modern\\checkpoints\\576-Earned-Air-Jewel-repeat576\\checkpoint.json": "0729eb9c152ec7049b6feb94b7dfcb0d1f6c27f882ef1f352bb4a5a23d822440",
+    "ce-native-acceptance528\\earned-modern\\checkpoints\\577-Earned-Three-Jewels-return577\\checkpoint.json": "0b838fe7ffdb70ce250a15433003c5b1c28f7c81a8ff5bd0ee18563113bcff46"
+  },
+  "private_evidence": {
+    "ce-native-acceptance528\\earned-modern\\earned-Air891-admission.json": "3b8b1e2cd5760288614fe210a7c23498d2979a8d771d6f2e91bea9bd64d641b6",
+    "ce-native-acceptance528\\earned-modern\\earned-Air891-Vortex.json": "5dd39f2bb37db21961b543b38095eb02df079081d013f0c084c7b6895d7bcbc9",
+    "ce-native-acceptance528\\earned-modern\\cold060.json": "59275ad9343ae05f303a2948306d4e8d36c54ef250c883d510860e7e77db9603",
+    "ce-native-acceptance528\\earned-modern\\earned-Air888-flight-prefix.json": "cc3c76444868fb5aea645d0a27617b6f37d23a2135fb916c1b8d634d4256fef1",
+    "ce-native-acceptance528\\earned-Air888.json": "4d4ab8804b74610539030e35bf086bd250c481e42ec63bc380f0bf4c4656efc4",
+    "ce-native-acceptance528\\earned-modern\\screenshots\\scummvm-cli-game-00266.png": "14229e7f640c9770639c6eea55aab79bf70a7c115c4e3014ab5ba81e6f9d2d7d",
+    "ce-native-acceptance528\\earned-modern\\screenshots\\scummvm-cli-game-00267.png": "c0850846d381a6c7337b1d18d052d9b0d397540198ceea38da47616cce2012a4"
+  },
+  "cost": {
+    "build_attempts": 11,
+    "game_cli": 60,
+    "focused_cli": 7,
+    "material_launches": 67
+  },
+  "remaining": [
+    "Relevant missing-prerequisite refusals forFire/Airfromvalid earnedforks",
+    "Actual AirJewel barrier protection",
+    "DarkKey/HighCultist/Temple/Styx/Ankh/plane8/ending",
+    "Remaining finite configuration/audio/session/branch acceptance;35/60composite nodesVERIFIED"
+  ]
+}
