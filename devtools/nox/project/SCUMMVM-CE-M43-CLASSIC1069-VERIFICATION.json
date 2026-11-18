@@ -1,0 +1,22 @@
+{
+  "status": "VERIFIED",
+  "scope": "Independent earned Classic New, two slots/refusals, selected normal door/audio/config/cold/session compatibility only; not an independent Classic campaign or ending.",
+  "source_commit": "d52b130c5df",
+  "executable_sha256": "f9215345b158b1a8cffcfef51f2ee8a37938a7538b52c5009399ad4f2001b7a4",
+  "actual": "NormalNew M43CLASSIC, defaultMale/Human50HP8MP; Classicmode1, normal1origin/2door savesunderownCEsession. Explicit0/3savesrefusedwhilelegalidleworld. NormalV both0->off1->effects2, normalcloseddoorrefusal/O/Up/pass25,37. Actualeffects counter0->3 in effects-only mode, musicchannel0. Cold073 exactparty/inventory/quests/resources/map/transport/Classic1/sound2 preservedunderModernnew-sessiondefault; firstDown/Up recrossopeneddoor. V3music-only andV0both actualchannel255. Noassist/cheats; no473suite rerun.",
+  "corrected_expectation": "Process072 deliberatelysetglobalsoundpref0beforelaunch; loadcorrectlyretainedClassicmode1 butsound0. Firstdriverwronglyexpectedsave-local2. Source native_engine.cpp175/native_startup_host.h985 stores sound preference inConfMan, not per-save. Recordedfailurepreserved; normalV returnedpref2, onejustifiedcold073 verifiedconfigurationpersistence. No Enginefix/build.",
+  "lineage": "Separate legitimateClassicNew. PrimaryModern617andallfailedfuturesretained. MultipleCEsessions changechooserhandles: futureloadsresolvecurrentdescription/session, neverreusehistoricalcachedchooserindex.",
+  "evidence": {
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Classic1067-normal-New.json": "fad51160404c9e36fa1620d3ec8f6fba72cf7d4ed4c95b080dbfe7caad102a21",
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Classic1067-settings-door.json": "ed2c32676ad2cb6eeee3959ceb9449afecd48a9653502644c4cb9e5b142838f4",
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Classic1068-wrong-audio-expectation.json": "87f3a63d36438a1fa49c3bcca9faea41a7b03a4e59e05eae3d0ff36244179991",
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Classic1069-before-cold.json": "4bc009ed8b6bc31fa95d960381afae59e58b2985e376a9cf73f9b1fd0d2fe4a9",
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Classic1069-cold-modes.json": "0e8dc4254c184705497ae4dd04f980ba48544c2f0dc2da4a5499d64252bfe121"
+  },
+  "cost": {
+    "build_attempts": 11,
+    "game_cli": 73,
+    "focused_cli": 7,
+    "material_launches": 80
+  }
+}

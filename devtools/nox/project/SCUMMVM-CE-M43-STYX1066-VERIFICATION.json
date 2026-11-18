@@ -1,0 +1,20 @@
+{
+  "status": "VERIFIED",
+  "scope": "Earned relevant no-Journal Styx comparison only; closes shadow-revelation with retained positive Journal/discovery/advice evidence.",
+  "source_commit": "d52b130c5df",
+  "executable_sha256": "f9215345b158b1a8cffcfef51f2ee8a37938a7538b52c5009399ad4f2001b7a4",
+  "lineage": "Normal354 closest earnedparent besideStyx, Letterrecognitionalreadysettled56=31, noJournal156,59=0. ThisparentpredatesJewels; no all-Jewels/no-Journal claim. Primary617 untouched.",
+  "actual": "NormalT/Right from3,14 opensGreatLibrary/writwelcome, not postJournalDarkShadowwarning. Normalack/BYE retains56=31/59=0 andentireinventory. Normal803save/warmloadexactparty/inventory/quest/resources/map/sound; firstT/Right identicalwelcome.",
+  "comparison": "595fork1054actualpostJournal/preShadowwarning59=2; main596/598actualdiscovery59bit1 andconfrontation/retreat/cold064;599actualStyxpostShadowadvice. Journalpredicate comparison specifically usesabsenceofJournal, not a manufacturednearfinalstate.",
+  "excluded": "584night detour and blockedstairs59/11,11 retained separately; no branchproof or Enginebug claim. Privatefollower correctedsamecoordinates flooralias: full_source_route mustmatchmap aswellascoordinates beforecountingstep.",
+  "evidence": {
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Styx1066-noJournal-opening.json": "ccffd3701eb5bbb3f17e51d2d16447808bf14e42fc7ea77c65ed1532ee54058e",
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Styx1066-noJournal-continuity.json": "9379c9961c212fa96b674d9409dc6954a0681556e40a987e2bd14e5b8e1b3dd1"
+  },
+  "cost": {
+    "build_attempts": 11,
+    "game_cli": 70,
+    "focused_cli": 7,
+    "material_launches": 77
+  }
+}

@@ -1113,7 +1113,7 @@
     },
     {
       "id": "essence-angels",
-      "status": "IN PROGRESS",
+      "status": "VERIFIED",
       "prerequisites": [
         "devils-key"
       ],
@@ -1150,7 +1150,8 @@
           395
         ]
       },
-      "remaining": "ActualAirguardian1950effect/compatibility remains"
+      "remaining": "None within this artifact node: the previously pending fullAir1950 compatibility operation was completed at575/cold060. Missing-prerequisite Airguardian refusal remains in its own Air node.",
+      "earned_full_guardian_compatibility": "SCUMMVM-CE-M43-AIR892-VERIFICATION.json: actualretainedEssence112, full1950HPguardian/normalVortex/award/repeat/cold060/nextQuickExit; joins earned393-395pickup/repeat/cold043 without replay."
     },
     {
       "id": "holy-hairnet",
@@ -1826,7 +1827,7 @@
     },
     {
       "id": "shadow-revelation",
-      "status": "IN PROGRESS",
+      "status": "VERIFIED",
       "prerequisites": [
         "ring-vacous",
         "dark-key",
@@ -1864,10 +1865,11 @@
       ],
       "earned_lineage": null,
       "earned_translation": "SCUMMVM-CE-M43-CULTIST959-VERIFICATION.json",
-      "remaining": "Relevant earned no-Journal comparison only; discovery/confrontation/retreat andpostJournalguidance nowverified.",
+      "remaining": "None within revelation/discovery/guidance contract; finalencounterandending remain separate IN PROGRESS requirements.",
       "earned_discovery_confrontation_retreat": "SCUMMVM-CE-M43-SHADOW963-VERIFICATION.json",
       "source_qualification": "Early59bit1 is discovery, not victory; the source-supported normal retreat at full3210HP returned toRuin31. No full Shadow win claimed or required by the Styx predicate.",
-      "earned_postJournal_guidance": "SCUMMVM-CE-M43-STYX1054-VERIFICATION.json"
+      "earned_postJournal_guidance": "SCUMMVM-CE-M43-STYX1054-VERIFICATION.json",
+      "earned_noJournal_comparison": "SCUMMVM-CE-M43-STYX1066-VERIFICATION.json"
     },
     {
       "id": "lord-british-ankh",
@@ -1972,7 +1974,7 @@
     },
     {
       "id": "final-encounter",
-      "status": "NOT STARTED",
+      "status": "IN PROGRESS",
       "prerequisites": [
         "ring-vacous",
         "dark-key",
@@ -2013,7 +2015,8 @@
         "scoped audio/presentation",
         "actual earned verification criteria"
       ],
-      "earned_lineage": null
+      "earned_lineage": null,
+      "earned_partial_scope": "Full3210HPnormaladmissions610/617, actualtacticalattempts/failedfutures retainedinFINAL1015/FINAL1046; no victory orendingclaim."
     },
     {
       "id": "ending",
@@ -2143,7 +2146,7 @@
     },
     {
       "id": "vazarath-gemstone",
-      "status": "NOT STARTED",
+      "status": "IN PROGRESS",
       "prerequisites": [
         "fire-jewel-guardian"
       ],
@@ -2175,7 +2178,9 @@
       "earned_lineage": null,
       "source_qualifications": [
         "Actual all8pages/bind/cast -> real DevilKey/Essence/FoolKey/Hairnet -> full2600HP Vazarath Vortex victory/cold both modes. Previous missing-Hairnet negative and subsequent Jewel chain apply to this same actor. Controlled mage/routes retained. Optional JOB probe failed/excluded; not required to attack this enemy."
-      ]
+      ],
+      "earned_positive_report": "SCUMMVM-CE-M43-FIRE886-VERIFICATION.json",
+      "remaining": "Alias of fire-jewel-guardian: same fullVazarath2600 positive/repeat/cold alreadyverified; relevant missing-Hairnet refusal remains in shared contract. No second boss or extra page source."
     },
     {
       "id": "page-bit-4",
@@ -3362,7 +3367,7 @@
     },
     "next": "Continue source-authored cave/stair flight toUM101 Lich(originalNPC32,source108148;inspectactualposition). Earnedphylacteryflag12bit4 retained. Inspectactualfull1300HP/protection/partypositions, thennormalC1VortexNorth avoidingfriendlyfire, actualWaterJewel153 andpersistentdeath. Nofixture/Rat/campaignendingclaim."
   },
-  "verified_count": 42,
+  "verified_count": 44,
   "lich877": {
     "status": "IN PROGRESS",
     "scope": "Earned fullLich/WaterJewel acceptance approach only",
@@ -3406,5 +3411,6 @@
   "plane1005_report": "SCUMMVM-CE-M43-PLANE1005-VERIFICATION.json",
   "final1015_recovery": "SCUMMVM-CE-M43-FINAL1015-RECOVERY.json",
   "final1032_preparation": "SCUMMVM-CE-M43-FINAL1032-PREPARATION.json",
-  "final1046_report": "SCUMMVM-CE-M43-FINAL1046-WORK.json"
+  "final1046_report": "SCUMMVM-CE-M43-FINAL1046-WORK.json",
+  "classic1069_report": "SCUMMVM-CE-M43-CLASSIC1069-VERIFICATION.json"
 }
