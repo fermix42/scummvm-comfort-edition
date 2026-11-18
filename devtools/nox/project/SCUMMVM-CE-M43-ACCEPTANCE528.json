@@ -1280,7 +1280,8 @@
       ],
       "earned_lineage": null,
       "earned_positive_report": "SCUMMVM-CE-M43-AIR892-VERIFICATION.json",
-      "remaining_earned_scope": "Relevant prerequisite refusal and actualbarrierprotection; wholecampaign IN PROGRESS."
+      "remaining_earned_scope": "Relevant prerequisite refusal and actualbarrierprotection; wholecampaign IN PROGRESS.",
+      "earned_barrier_effect": "ActualAir206barrier UM98/168,159 crossed normally at594 with all3Jewels and unchangedHP; nativebarrier set{206}. Relevant original missing-prerequisite forks remain pending."
     },
     {
       "id": "rusty-key",
@@ -1785,7 +1786,7 @@
     },
     {
       "id": "high-cultist",
-      "status": "IN PROGRESS",
+      "status": "VERIFIED",
       "prerequisites": [
         "ring-vacous",
         "dark-key",
@@ -1816,13 +1817,15 @@
         "actual earned verification criteria"
       ],
       "earned_lineage": {
-        "pre_full_encounter": 594,
-        "next": "Actual full-group battle957, no outcome setup."
+        "pre_encounter": 594,
+        "actual_victory_journal_translation": 595,
+        "report": "SCUMMVM-CE-M43-CULTIST959-VERIFICATION.json",
+        "cold_process": 63
       }
     },
     {
       "id": "shadow-revelation",
-      "status": "NOT STARTED",
+      "status": "IN PROGRESS",
       "prerequisites": [
         "ring-vacous",
         "dark-key",
@@ -1858,7 +1861,9 @@
         "scoped audio/presentation",
         "actual earned verification criteria"
       ],
-      "earned_lineage": null
+      "earned_lineage": null,
+      "earned_translation": "SCUMMVM-CE-M43-CULTIST959-VERIFICATION.json",
+      "remaining": "Styx post-Journal guidance, required Shadow event/confrontation and relevant earned no-Journal comparison."
     },
     {
       "id": "lord-british-ankh",
@@ -3321,7 +3326,7 @@
     },
     "next": "Continue source-authored cave/stair flight toUM101 Lich(originalNPC32,source108148;inspectactualposition). Earnedphylacteryflag12bit4 retained. Inspectactualfull1300HP/protection/partypositions, thennormalC1VortexNorth avoidingfriendlyfire, actualWaterJewel153 andpersistentdeath. Nofixture/Rat/campaignendingclaim."
   },
-  "verified_count": 36,
+  "verified_count": 37,
   "lich877": {
     "status": "IN PROGRESS",
     "scope": "Earned fullLich/WaterJewel acceptance approach only",

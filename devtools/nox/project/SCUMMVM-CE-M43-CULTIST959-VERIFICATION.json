@@ -1,0 +1,131 @@
+{
+  "status": "VERIFIED",
+  "scope": "Earned full ten-enemy Cultist victory, Journal156 award, authored automatic teleport/Archus translation, cold063 and first subsequent source route. Not whole Shadow branch or M4.3 ending.",
+  "source_commit": "d52b130c5df",
+  "executable_sha256": "f9215345b158b1a8cffcfef51f2ee8a37938a7538b52c5009399ad4f2001b7a4",
+  "lineage": {
+    "origin": "Legitimate New; no outcome setup or stat/flag/item injections.",
+    "pre_encounter": 594,
+    "victory_translation": 595,
+    "battle_process": 62,
+    "cold_process": 63
+  },
+  "actual": {
+    "initial_enemies": [
+      [
+        168,
+        471
+      ],
+      [
+        168,
+        471
+      ],
+      [
+        168,
+        471
+      ],
+      [
+        168,
+        471
+      ],
+      [
+        168,
+        471
+      ],
+      [
+        168,
+        471
+      ],
+      [
+        169,
+        267
+      ],
+      [
+        169,
+        267
+      ],
+      [
+        170,
+        471
+      ],
+      [
+        170,
+        471
+      ]
+    ],
+    "initial_party_hp": [
+      123,
+      123,
+      0,
+      0,
+      0,
+      0
+    ],
+    "initial_party_mp": [
+      87,
+      87,
+      14,
+      24,
+      4,
+      34
+    ],
+    "contact": "Actual NPC98/24 at168,155; movement stopped adjacent168,156. NormalTalkUp opened authored dialogue; normal page acknowledgement started battle. Initial movement-only assumptions did not start combat or change outcomes.",
+    "first_turn": "Nox normal Summon14/10MP; Br normal Vortex12/87MP kills six CultGuards and two Cultists. Two full471HP/INT127 HighCultists resist, as authored.",
+    "loss_and_recovery": "First NPC phase kills Br; Nox survives11HP/77MP. Normal combat inventory unready on deadBr and FireStaffNox, ReadyChaosNox succeeds without HP/MP restoration. Normal DivineHeal52 spends17MP; Nox123HP/60MP after actual next NPC phase.",
+    "continuation": "Same live battle, no reload: actual replenishing summons, Chaos attacks and healing defeat both HighCultists from471HP.",
+    "result_party_hp": [
+      123,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "result_party_mp": [
+      20,
+      0,
+      14,
+      24,
+      4,
+      34
+    ],
+    "gold": 22,
+    "food": 664,
+    "Journal156": 1,
+    "quest56": 95,
+    "quest59": 2,
+    "automatic_destination": [
+      7,
+      58,
+      20,
+      13
+    ],
+    "translation": "Actual authored pages acknowledged with Enter; Escape at topic input; legal world reached with translation59bit2.",
+    "cold063": "Actual party/world/inventory/quests/gold/food/audio/transport/session exact, no assistance; current Inn route is first following normal gameplay."
+  },
+  "limits": [
+    "Five companions remain legitimately dead. No silent restoration or discarded loss on this victorious attempt.",
+    "NPCspell9 is original descriptor137/column2, two HighCultists INT127. The hostile magic damage is original gameplay, not a demonstrated native Engine defect.",
+    "First battle remains full-health enemy evidence; the normal weapon exchange and continuation do not initialize enemy damage or expected rewards.",
+    "Full transcript contains page responses and ordinary input; no claim that every translation page was individually visually compared.",
+    "Relevant no-Journal comparison/Shadow spawn/confrontation and remaining branch/config/ending obligations stay separate.",
+    "Original audio473 and historical suites not rerun; no source or build change."
+  ],
+  "evidence": {
+    "ce-native-acceptance528\\earned-modern\\checkpoints\\595-Earned-full-Cultist-Journal-automatic-translation595\\checkpoint.json": "04248fe9b6516f70cb11317f8fcfd4077c0a6e39ac3086c9642d2b7bfff953a4",
+    "ce-native-acceptance528\\earned-modern\\earned-Cultist957-admission.json": "03ec83a7aadccd9e49035459ea647fdf6ca743a75d6b0af7e9f6c2dd5d198f99",
+    "ce-native-acceptance528\\earned-modern\\earned-Cultist957-actions.jsonl": "4ad914d5ccd75b162ba4f6a9ed056538fc2ee5a76875e257ab8c0ffecf23b08d",
+    "ce-native-acceptance528\\earned-modern\\earned-Cultist957-Vortex.json": "b0f932c6b401d6bb0983a1b6b8e9f4225646a3366ada1bf283331a5947d9bae5",
+    "ce-native-acceptance528\\earned-modern\\earned-Cultist958-TalkUp.json": "5e2e8b970a512986abb96e2e4e391b8525f670773118809ff4b385d239ae9d64",
+    "ce-native-acceptance528\\earned-modern\\earned-Cultist958-weapon-transfer-heal.json": "d88fde87c41182e6081faaaaa4d2e5cd2478b30a5a8d47d74ba22b0496d7f259",
+    "ce-native-acceptance528\\earned-modern\\earned-Cultist959-translation.json": "67d2de56d519d9d8edcbda54780a2edfde3f273faf085054c5fc323aab994f7a",
+    "ce-native-acceptance528\\earned-modern\\cold063.json": "987500993ed862f135cb620a20ca61ba7142284f13930586590dd799bef35208",
+    "ce-native-acceptance528\\earned-modern\\screenshots\\scummvm-cli-game-00277.png": "20e2339e227e790a7c5f4f36d0474c94f128126582068bf61f8cfa61256afbf9"
+  },
+  "cost": {
+    "build_attempts": 11,
+    "game_cli": 63,
+    "focused_cli": 7,
+    "material_launches": 70
+  }
+}
