@@ -1,0 +1,100 @@
+{
+  "status": "VERIFIED",
+  "scope": "Earned full3210HP Drathe/seven471HP minions victory, actualDarkKey154/quest12bit8, retiredrepeat andnormalcold062 only. PhysicalDarkdoor andwholeM4.3 notclaimed.",
+  "source_commit": "d52b130c5df",
+  "executable_sha256": "f9215345b158b1a8cffcfef51f2ee8a37938a7538b52c5009399ad4f2001b7a4",
+  "earned_lineage": {
+    "origin": "legitimateNew",
+    "pre_encounter": 588,
+    "victory": 589,
+    "repeat_and_cold": 590,
+    "process": 61,
+    "cold_process": 62,
+    "failed_travel935": "separate preservedfuturebranch; ordinary998recovery586, no duplicatedrewards"
+  },
+  "actual": {
+    "initial_enemy_hp": [
+      3210,
+      471,
+      471,
+      471,
+      471,
+      471,
+      471,
+      471
+    ],
+    "initial_party_hp": [
+      123,
+      123,
+      99,
+      81,
+      84,
+      89
+    ],
+    "initial_party_mp": [
+      87,
+      87,
+      14,
+      44,
+      44,
+      44
+    ],
+    "first_Vortex": "3Dysenteryactualinstantkills, 5higherINTfoesretained",
+    "primary_finish_round": 10,
+    "primary_finish_action": "ChaosAttack0",
+    "final_party_hp": [
+      123,
+      123,
+      0,
+      0,
+      0,
+      0
+    ],
+    "final_party_mp": [
+      0,
+      53,
+      14,
+      24,
+      4,
+      34
+    ],
+    "gold": 717,
+    "food": 785,
+    "quest12": [
+      135,
+      143
+    ],
+    "DarkKey154": 1,
+    "repeat": "normalAttackUp, worldremains, inventoryidentical",
+    "cold062": "exactparty/world/inventory/quests/gold/food/audio/transport/session,noassistance",
+    "next_normal_camp": "deadcompanionsremainHP0; livingMP87/87,food664"
+  },
+  "ring_effect": {
+    "status": "VERIFIED",
+    "actual": "RetainedearnedRing155/quest58bit128 admitsrealprimaryvulnerability andcompletevictory. Actualround9NPCphase reducesfront123/123 to10/9, nextBrDivine52restores123/123. Originalmap32death11/139 transformsFireball3/powercolumn2 byCastRules; radius2area explainsdangerousreardamage.",
+    "qualification": "NPCspellIDis not directlyexposedbyCLI; transformation identification is source-bound inference fromliveRing-ownedfight andsurvivabledamage, not claimed direct spell-ID telemetry."
+  },
+  "limitations": [
+    "Fourlowlevelcompanions died normally andremaindead; nocorpserestore/statinjection/rewardmerge. Sourcecampcorrectlyskipsdeadmembers. This is an earned validgameoutcome, not an engineimplementationfailure.",
+    "Not an unbrokenunassistedcontinuouscampaign: ordinaryearned reloads/forks explicitlyretained.",
+    "Darkdoorpositiveandmissingkeyrefusal pending; HighCultist/story/ending/config/remainingnegativeforks pending.",
+    "Originalaudio473notrerun; actualsound_mode0/musicreadyandnativebattle/worldframesretained withinthis scope."
+  ],
+  "private_evidence": {
+    "ce-native-acceptance528\\earned-modern\\checkpoints\\588-Earned-full-party-Drathe-approach588\\checkpoint.json": "2b1615d51cd9f49e6ddad53dd0eb725762cf23297bf046dfe3a0a2e3b975544e",
+    "ce-native-acceptance528\\earned-modern\\checkpoints\\589-Earned-full-Drathe-victory-DarkKey589\\checkpoint.json": "7dc941730ffd441d5412cdbbdc95161d9a96738ddcce187093c58e0bd7718c65",
+    "ce-native-acceptance528\\earned-modern\\checkpoints\\590-Earned-Drathe-retired-repeat-DarkKey590\\checkpoint.json": "4670d9e9bd499ce1554b4b051c08d57f97477ccaa86f7e2943cef3766242bbc7",
+    "ce-native-acceptance528\\earned-modern\\earned-Drathe943-admission.json": "f15f7af3709ff54f80d8643e87dbd6b0a548562c1b5fdbf9ccfa334bdb6dbd99",
+    "ce-native-acceptance528\\earned-modern\\earned-Drathe943-Vortex.json": "15da76fea9c4d891cf33e14e3a30be093eb1bcc1ca60320a5c5e12f714b13dee",
+    "ce-native-acceptance528\\earned-modern\\earned-Drathe943-actions.jsonl": "f5e905c64d485530fe403f58d0a29153898b7e90178c98109057ebca57c41c5f",
+    "ce-native-acceptance528\\earned-modern\\cold062.json": "9050a7ad5ea8827c25b63e31c58019d3094df06146fe87fbc6f352adff41d889",
+    "ce-native-acceptance528\\earned-modern\\screenshots\\scummvm-cli-game-00273.png": "667a7670b007f1a619b38af3beb7820cb208dbc01473d86e133ddbfc33d93e4d",
+    "ce-native-acceptance528\\earned-modern\\screenshots\\scummvm-cli-game-00274.png": "9f53fe1f79a154884e96e66145ff5ed6bafbc1af4909257d83ac359100375910"
+  },
+  "cost": {
+    "build_attempts": 11,
+    "game_cli": 62,
+    "focused_cli": 7,
+    "material_launches": 69
+  }
+}

@@ -1664,11 +1664,11 @@
     },
     {
       "id": "ring-vacous",
-      "status": "IN PROGRESS",
+      "status": "VERIFIED",
       "prerequisites": [
         "legitimate-new-game"
       ],
-      "source_contract": "Actual Ring155/Ready protects from death spell; actual Drathe admission/distinct controlled final blow ->154/Dark door. All3Jewels43907 are required for Styx recognition, not absolute physical Temple entry (actual missing-Fire crossing damages35HP). Actual High Cultist final-blow operation ->Journal156/43840/automatic translation43B02; Styx guidance ->Lord British157/43A18 ->Max portal43A38 ->plane8 ->actual ending/ack/cold. Full3210HP defeat is verified; full3210HP victory is not.",
+      "source_contract": "Actual Ring155 quest043A80 protects from death spell; actual Drathe admission/distinct controlled final blow ->154/Dark door. All3Jewels43907 are required for Styx recognition, not absolute physical Temple entry (actual missing-Fire crossing damages35HP). Actual High Cultist final-blow operation ->Journal156/43840/automatic translation43B02; Styx guidance ->Lord British157/43A18 ->Max portal43A38 ->plane8 ->actual ending/ack/cold. HistoricalM3fullvictorywasuntested; actualearnedfull3210HP victory/key/repeat/cold now recorded inDrathe943, with fourcompaniondeathsretained.",
       "source_anchors": [
         "NA/DATA.TLK.L01D actor0 ordered ADVI branches, original v119",
         "L01A actor0 KAYL has no Jewel predicate; B3FD..B42B consumes042E80 into timed door36",
@@ -1692,30 +1692,28 @@
         "scoped audio/presentation",
         "actual earned verification criteria"
       ],
-      "earned_lineage": [
-        509,
-        510,
-        511,
-        512,
-        513,
-        514,
-        515
-      ],
+      "earned_lineage": {
+        "acquisition_report": "SCUMMVM-CE-M43-RING821-VERIFICATION.json",
+        "actual_full_fight_effect": "SCUMMVM-CE-M43-DRATHE943-VERIFICATION.json",
+        "victory_slot": 589,
+        "cold_slot": 590
+      },
       "earned_scope": {
         "status": "IN PROGRESS",
         "pickup_status": "VERIFIED",
         "protection_status": "IN PROGRESS",
         "report": "SCUMMVM-CE-M43-RING821-VERIFICATION.json",
         "source_qualification": "Ring protection is the actual earned global quest field58 bit128. native_encounter_state.h binds it to round.specialSpell. M3 owned ARMOR118 Ready/derived-defense fixture is distinct from MISC155; do not invent a Ring equipment requirement or claim an unperformed Ready. Actual NPC death-spell protection must still be demonstrated during required combat."
-      }
+      },
+      "qualification": "NPCspellIDis not directlyexposedbyCLI; transformation identification is source-bound inference fromliveRing-ownedfight andsurvivabledamage, not claimed direct spell-ID telemetry."
     },
     {
       "id": "dark-key",
-      "status": "NOT STARTED",
+      "status": "IN PROGRESS",
       "prerequisites": [
         "ring-vacous"
       ],
-      "source_contract": "Actual Ring155/Ready protects from death spell; actual Drathe admission/distinct controlled final blow ->154/Dark door. All3Jewels43907 are required for Styx recognition, not absolute physical Temple entry (actual missing-Fire crossing damages35HP). Actual High Cultist final-blow operation ->Journal156/43840/automatic translation43B02; Styx guidance ->Lord British157/43A18 ->Max portal43A38 ->plane8 ->actual ending/ack/cold. Full3210HP defeat is verified; full3210HP victory is not.",
+      "source_contract": "Actual Ring155/Ready protects from death spell; actual Drathe admission/distinct controlled final blow ->154/Dark door. All3Jewels43907 are required for Styx recognition, not absolute physical Temple entry (actual missing-Fire crossing damages35HP). Actual High Cultist final-blow operation ->Journal156/43840/automatic translation43B02; Styx guidance ->Lord British157/43A18 ->Max portal43A38 ->plane8 ->actual ending/ack/cold. HistoricalM3fullvictorywasuntested; actualearnedfull3210HP victory/key/repeat/cold now recorded inDrathe943, with fourcompaniondeathsretained.",
       "source_anchors": [
         "Original RUIN32 following47192 actor8 at15,20 sprite165/26; original template47968 [224,12,0,8,0,2,0,154,0,58,0,128]",
         "Template requires Ring043A80 for vulnerability and awards Dark Key154/040C08 through real victory",
@@ -1740,7 +1738,10 @@
         "scoped audio/presentation",
         "actual earned verification criteria"
       ],
-      "earned_lineage": null
+      "earned_lineage": {
+        "full_victory_key_repeat_cold": "SCUMMVM-CE-M43-DRATHE943-VERIFICATION.json",
+        "remaining": "PhysicalRUIN30Darkdoorpositive andlegitimatemissingkeyrefusal"
+      }
     },
     {
       "id": "jewels-temple",
@@ -1749,7 +1750,7 @@
         "ring-vacous",
         "dark-key"
       ],
-      "source_contract": "Actual Ring155/Ready protects from death spell; actual Drathe admission/distinct controlled final blow ->154/Dark door. All3Jewels43907 are required for Styx recognition, not absolute physical Temple entry (actual missing-Fire crossing damages35HP). Actual High Cultist final-blow operation ->Journal156/43840/automatic translation43B02; Styx guidance ->Lord British157/43A18 ->Max portal43A38 ->plane8 ->actual ending/ack/cold. Full3210HP defeat is verified; full3210HP victory is not.",
+      "source_contract": "Actual Ring155/Ready protects from death spell; actual Drathe admission/distinct controlled final blow ->154/Dark door. All3Jewels43907 are required for Styx recognition, not absolute physical Temple entry (actual missing-Fire crossing damages35HP). Actual High Cultist final-blow operation ->Journal156/43840/automatic translation43B02; Styx guidance ->Lord British157/43A18 ->Max portal43A38 ->plane8 ->actual ending/ack/cold. HistoricalM3fullvictorywasuntested; actualearnedfull3210HP victory/key/repeat/cold now recorded inDrathe943, with fourcompaniondeathsretained.",
       "source_anchors": [
         "NA/DATA.TLK.L015 records8/88/104"
       ],
@@ -1784,7 +1785,7 @@
         "dark-key",
         "jewels-temple"
       ],
-      "source_contract": "Actual Ring155/Ready protects from death spell; actual Drathe admission/distinct controlled final blow ->154/Dark door. All3Jewels43907 are required for Styx recognition, not absolute physical Temple entry (actual missing-Fire crossing damages35HP). Actual High Cultist final-blow operation ->Journal156/43840/automatic translation43B02; Styx guidance ->Lord British157/43A18 ->Max portal43A38 ->plane8 ->actual ending/ack/cold. Full3210HP defeat is verified; full3210HP victory is not.",
+      "source_contract": "Actual Ring155/Ready protects from death spell; actual Drathe admission/distinct controlled final blow ->154/Dark door. All3Jewels43907 are required for Styx recognition, not absolute physical Temple entry (actual missing-Fire crossing damages35HP). Actual High Cultist final-blow operation ->Journal156/43840/automatic translation43B02; Styx guidance ->Lord British157/43A18 ->Max portal43A38 ->plane8 ->actual ending/ack/cold. HistoricalM3fullvictorywasuntested; actualearnedfull3210HP victory/key/repeat/cold now recorded inDrathe943, with fourcompaniondeathsretained.",
       "source_anchors": [
         "NA/DATA.TLK.L01D record0",
         "NA/DATA.TLK.L062 record24 (High Cultist)"
@@ -1819,7 +1820,7 @@
         "jewels-temple",
         "high-cultist"
       ],
-      "source_contract": "Actual Ring155/Ready protects from death spell; actual Drathe admission/distinct controlled final blow ->154/Dark door. All3Jewels43907 are required for Styx recognition, not absolute physical Temple entry (actual missing-Fire crossing damages35HP). Actual High Cultist final-blow operation ->Journal156/43840/automatic translation43B02; Styx guidance ->Lord British157/43A18 ->Max portal43A38 ->plane8 ->actual ending/ack/cold. Full3210HP defeat is verified; full3210HP victory is not.",
+      "source_contract": "Actual Ring155/Ready protects from death spell; actual Drathe admission/distinct controlled final blow ->154/Dark door. All3Jewels43907 are required for Styx recognition, not absolute physical Temple entry (actual missing-Fire crossing damages35HP). Actual High Cultist final-blow operation ->Journal156/43840/automatic translation43B02; Styx guidance ->Lord British157/43A18 ->Max portal43A38 ->plane8 ->actual ending/ack/cold. HistoricalM3fullvictorywasuntested; actualearnedfull3210HP victory/key/repeat/cold now recorded inDrathe943, with fourcompaniondeathsretained.",
       "source_anchors": [
         "NA/DATA.TLK.L015 records8/88/104",
         "FA1D..FA44 writes early43B01 and8E0D/FE95 automatic private-save helper; actual natural caller verified, not battle proof."
@@ -1860,7 +1861,7 @@
         "high-cultist",
         "shadow-revelation"
       ],
-      "source_contract": "Actual Ring155/Ready protects from death spell; actual Drathe admission/distinct controlled final blow ->154/Dark door. All3Jewels43907 are required for Styx recognition, not absolute physical Temple entry (actual missing-Fire crossing damages35HP). Actual High Cultist final-blow operation ->Journal156/43840/automatic translation43B02; Styx guidance ->Lord British157/43A18 ->Max portal43A38 ->plane8 ->actual ending/ack/cold. Full3210HP defeat is verified; full3210HP victory is not.",
+      "source_contract": "Actual Ring155/Ready protects from death spell; actual Drathe admission/distinct controlled final blow ->154/Dark door. All3Jewels43907 are required for Styx recognition, not absolute physical Temple entry (actual missing-Fire crossing damages35HP). Actual High Cultist final-blow operation ->Journal156/43840/automatic translation43B02; Styx guidance ->Lord British157/43A18 ->Max portal43A38 ->plane8 ->actual ending/ack/cold. HistoricalM3fullvictorywasuntested; actualearnedfull3210HP victory/key/repeat/cold now recorded inDrathe943, with fourcompaniondeathsretained.",
       "source_anchors": [
         "residentWorld FA48 activation rectangle",
         "NA/DATA.TLK.L01D actor0 TRAVEL/ANKH; item157,43A18"
@@ -1902,7 +1903,7 @@
         "shadow-revelation",
         "lord-british-ankh"
       ],
-      "source_contract": "Actual Ring155/Ready protects from death spell; actual Drathe admission/distinct controlled final blow ->154/Dark door. All3Jewels43907 are required for Styx recognition, not absolute physical Temple entry (actual missing-Fire crossing damages35HP). Actual High Cultist final-blow operation ->Journal156/43840/automatic translation43B02; Styx guidance ->Lord British157/43A18 ->Max portal43A38 ->plane8 ->actual ending/ack/cold. Full3210HP defeat is verified; full3210HP victory is not.",
+      "source_contract": "Actual Ring155/Ready protects from death spell; actual Drathe admission/distinct controlled final blow ->154/Dark door. All3Jewels43907 are required for Styx recognition, not absolute physical Temple entry (actual missing-Fire crossing damages35HP). Actual High Cultist final-blow operation ->Journal156/43840/automatic translation43B02; Styx guidance ->Lord British157/43A18 ->Max portal43A38 ->plane8 ->actual ending/ack/cold. HistoricalM3fullvictorywasuntested; actualearnedfull3210HP victory/key/repeat/cold now recorded inDrathe943, with fourcompaniondeathsretained.",
       "source_anchors": [
         "NA/DATA.TLK.L01D actor0 TRAVEL/ANKH",
         "NA/DATA.TLK.L018 actor0 PORTAL/NO",
@@ -1943,7 +1944,7 @@
         "lord-british-ankh",
         "plane-transport"
       ],
-      "source_contract": "Actual Ring155/Ready protects from death spell; actual Drathe admission/distinct controlled final blow ->154/Dark door. All3Jewels43907 are required for Styx recognition, not absolute physical Temple entry (actual missing-Fire crossing damages35HP). Actual High Cultist final-blow operation ->Journal156/43840/automatic translation43B02; Styx guidance ->Lord British157/43A18 ->Max portal43A38 ->plane8 ->actual ending/ack/cold. Full3210HP defeat is verified; full3210HP victory is not.",
+      "source_contract": "Actual Ring155/Ready protects from death spell; actual Drathe admission/distinct controlled final blow ->154/Dark door. All3Jewels43907 are required for Styx recognition, not absolute physical Temple entry (actual missing-Fire crossing damages35HP). Actual High Cultist final-blow operation ->Journal156/43840/automatic translation43B02; Styx guidance ->Lord British157/43A18 ->Max portal43A38 ->plane8 ->actual ending/ack/cold. HistoricalM3fullvictorywasuntested; actualearnedfull3210HP victory/key/repeat/cold now recorded inDrathe943, with fourcompaniondeathsretained.",
       "source_anchors": [
         "ResidentWorld F53E/F560: map8 authored exit121,132 starts original Shadow encounter; actual source COMBAT.S361C 3210HP/sprite133.",
         "Actual winning path original death/renderer: PC1324 stackreturn99CD/60E4 nonzero; real Return acknowledgement and cold exact saves.",
@@ -1989,7 +1990,7 @@
         "plane-transport",
         "final-encounter"
       ],
-      "source_contract": "Actual Ring155/Ready protects from death spell; actual Drathe admission/distinct controlled final blow ->154/Dark door. All3Jewels43907 are required for Styx recognition, not absolute physical Temple entry (actual missing-Fire crossing damages35HP). Actual High Cultist final-blow operation ->Journal156/43840/automatic translation43B02; Styx guidance ->Lord British157/43A18 ->Max portal43A38 ->plane8 ->actual ending/ack/cold. Full3210HP defeat is verified; full3210HP victory is not.",
+      "source_contract": "Actual Ring155/Ready protects from death spell; actual Drathe admission/distinct controlled final blow ->154/Dark door. All3Jewels43907 are required for Styx recognition, not absolute physical Temple entry (actual missing-Fire crossing damages35HP). Actual High Cultist final-blow operation ->Journal156/43840/automatic translation43B02; Styx guidance ->Lord British157/43A18 ->Max portal43A38 ->plane8 ->actual ending/ack/cold. HistoricalM3fullvictorywasuntested; actualearnedfull3210HP victory/key/repeat/cold now recorded inDrathe943, with fourcompaniondeathsretained.",
       "source_anchors": [
         "ResidentWorld F53E/F560: map8 authored exit121,132 starts original Shadow encounter; actual source COMBAT.S361C 3210HP/sprite133.",
         "Actual winning path original death/renderer: PC1324 stackreturn99CD/60E4 nonzero; real Return acknowledgement and cold exact saves.",
@@ -3311,7 +3312,7 @@
     },
     "next": "Continue source-authored cave/stair flight toUM101 Lich(originalNPC32,source108148;inspectactualposition). Earnedphylacteryflag12bit4 retained. Inspectactualfull1300HP/protection/partypositions, thennormalC1VortexNorth avoidingfriendlyfire, actualWaterJewel153 andpersistentdeath. Nofixture/Rat/campaignendingclaim."
   },
-  "verified_count": 35,
+  "verified_count": 36,
   "lich877": {
     "status": "IN PROGRESS",
     "scope": "Earned fullLich/WaterJewel acceptance approach only",
