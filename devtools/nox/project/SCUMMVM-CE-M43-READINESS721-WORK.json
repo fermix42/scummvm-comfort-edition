@@ -1,7 +1,7 @@
 {
   "status": "IN PROGRESS",
   "root_checkpoint": 479,
-  "current_checkpoint": 524,
+  "current_checkpoint": 527,
   "source_commit": "c660ae8ac41",
   "scope": "Required lawful caster advancement for Vortex110INT/87MP, not an Engine implementation gap.",
   "actual": "Normal source39-flight Ring808 reaches22,198. Incidental single46HP and two46/41HP encounters allow actualT/Esc/Y retreat, no HP/MP/XP loss; actual worldgold172->86->43 retained. Initial flee harness incorrectly expected battle_phase1; source-confirmed visible Y/N prompt actually leavesphase0, normalY completes flee. Normal groundRight/Down entersTown74/24,38,509. Source40-foot815 reaches11,11, normalLeft10,11/TalkUp targets actualMouthNPC0 at10,10. Real WRONG817 leavesfield46=4/field58=24; normalLeft9,11/OpenUp refuses and actualUp remains9,11,510. Correct normalKAYL/finish opens timeddoor; actualLeft9,11/Up9,10/Up9,9, with no redundant Open. SearchUp awards155qty1/field58=152,511. RepeatNothingfound/no duplicate512. Clean cold055 exact-state/session/audio/no-assistance PASS. ActualY/Right flight9,9->13,9 proves native postcold movement/transport,513. QuickExit returnsSurface23,199,514. Source17-flightChaos823 then actualUp entersCave79,192 and residualmovement endsUM97/79,191,515. Both112HP,MP61/69,43gold219food. No Engine change/build. Ring acquisition/persistence verified; actual death-spell effect remains IN PROGRESS.",
@@ -12,15 +12,15 @@
   },
   "next": "Acquire original ChaosWand90 fromUM101/79,40 chest216 (questfield15 bit2). RequirementINT92 matches both current casters; actual Ready/derived hand power must be inspected before combat. Source directUM97->99 portal82,171 avoids98; current825 four-flight approach to79,175. Continue source-supported stairs/flight to101, approaching Wand fromeast outsideDragon sight. Normal level10 lock trap damage47 is source-supported and survivable at112HP; heal between failed attempts as needed. No victory/XP/eligibleVortex claim; remainingXP1264/1194 tolevel9. All60 criteria retained.",
   "report": "SCUMMVM-CE-M43-CULT734-VERIFICATION.json",
-  "last_checkpoint": 524,
-  "last_earned_checkpoint": 524,
+  "last_checkpoint": 527,
+  "last_earned_checkpoint": 527,
   "process_launches": 55,
   "essence775": {
     "status": "VERIFIED",
     "report": "SCUMMVM-CE-M43-ESSENCE775-VERIFICATION.json",
     "scope": "Earned Essence of Death pickup/repeat and actual lawful saves only; Nox book/XP/Vortex/guardians remain IN PROGRESS."
   },
-  "active_next": "Actual12flight838 to147,167, normalground approach DeathKeep150,168; inspect actual small physical-only undead admission before combat. Earn1264/1194XP, then actual Necrosis readiness. No combat success presumed.",
+  "active_next": "Continue source-supported small physical-only undead encounters toward1164/1094XP, inspect before fighting; actual Necrosis eligibility, Dragon and remaining campaign gates still pending.",
   "necro795": {
     "status": "VERIFIED",
     "report": "SCUMMVM-CE-M43-NECRO795-VERIFICATION.json",
@@ -65,5 +65,18 @@
     "source_commit": "c660ae8ac41",
     "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd",
     "next": "Actual12flight838 to147,167, normalground approach DeathKeep150,168; inspect actual small physical-only undead admission before combat. Earn1264/1194XP, then actual Necrosis readiness. No combat success presumed."
+  },
+  "chaos845": {
+    "status": "VERIFIED",
+    "scope": "Actual ChaosWand/summon two-UndeadWarrior earned victory only",
+    "actual": "Normal source12flight838 to147,167; initial ground movement refused on mountain6. ActualY flight/Right reaches151,167; normalY land/Down151,168/Left entersRuin31/24,38 at525. Source5flight843 reaches36,30. NormalYland/AttackLeft admits original fixed153 at35,30: six471HP UndeadWarriors plus two423HP Archmages. Actual exit_control0 T/Esc/Y retreats, noHP/MP/XP loss,7->3gold,526. Normal reattack without save reload admits two471HP UndeadWarriors, no caster. Actual tactical victory with ChaosWand and one10MP SummonLesserUndead; both112HP,MP53/59,189gold219food,527. Actual XP21836/21906, exactly100/member; original153 actor retired. No Engine change/build/process. Remaining1164/1094XP to23000. No claimed immunity against NPC attacks. Follow-up normalY/Down flight reaches36,34; source3ground844 to adjacent DeathJester. Inspect actual group before combat; no result presumed.",
+    "checkpoints": {
+      "ce-native-acceptance528/earned-modern/checkpoints/525-Earned-Chaos-DeathKeep525/checkpoint.json": "d0142b44c2cd59288c09d67d71f6db3c89ef98ae66c14e6a8c302e88514c2291",
+      "ce-native-acceptance528/earned-modern/checkpoints/526-Earned-DeathKeep-large-group-retreat526/checkpoint.json": "853eb9014f3c55cc96f958154ea9179abbf15aed3f3a1e4219603102f81f0afb",
+      "ce-native-acceptance528/earned-modern/checkpoints/527-Earned-Chaos-two-undead-victory527/checkpoint.json": "88f84e534a7d85ac2a753c6b00eea32c1f9d53865c8550a1ff41f77d9c922c1c"
+    },
+    "source_commit": "c660ae8ac41",
+    "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd",
+    "next": "Continue source-supported small physical-only undead encounters toward1164/1094XP, inspect before fighting; actual Necrosis eligibility, Dragon and remaining campaign gates still pending."
   }
 }

@@ -2985,7 +2985,7 @@
   "process_launches": 55,
   "planned_node_count": 60,
   "mandatory_node_count_note": "All selected M3 nodes explicitly represented alongside dependency76 graph; includes supporting/advice/alternative nodes. Necessity is retained per source,not inferred from node count.",
-  "last_earned_checkpoint": 524,
+  "last_earned_checkpoint": 527,
   "baseline_candidate_sha256": "81feb2c7ff17594a6ea9754dc60602a755b2f37ea7c53b437f65a18e7c35000f",
   "candidate_change": "NPC529,cannon530,packedmelee531,mountedTalk532 source corrections; exact scoped receipts and earned ancestry retained. No broad matrix promotion.",
   "earned_failures_retained": [
@@ -3045,14 +3045,14 @@
   "previous_candidate_before533": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed",
   "candidate_source_commit": "c660ae8ac41",
   "candidate_transition": "SCUMMVM-CE-DOOR533-VERIFICATION.json; normal223 cold recovery before further inputs; earlier nodes retain original bound evidence.",
-  "last_checkpoint": 524,
+  "last_checkpoint": 527,
   "cult734": {
     "status": "VERIFIED",
     "report": "SCUMMVM-CE-M43-CULT734-VERIFICATION.json",
     "scope": "Four actual earned Cultist pair victories and level6-to8 advancement only; Vortex/guardian/ending acceptance remains IN PROGRESS."
   },
-  "active_next": "Actual12flight838 to147,167, normalground approach DeathKeep150,168; inspect actual small physical-only undead admission before combat. Earn1264/1194XP, then actual Necrosis readiness. No combat success presumed.",
-  "current_checkpoint": 524,
+  "active_next": "Continue source-supported small physical-only undead encounters toward1164/1094XP, inspect before fighting; actual Necrosis eligibility, Dragon and remaining campaign gates still pending.",
+  "current_checkpoint": 527,
   "essence775": {
     "status": "VERIFIED",
     "report": "SCUMMVM-CE-M43-ESSENCE775-VERIFICATION.json",
@@ -3102,5 +3102,18 @@
     "source_commit": "c660ae8ac41",
     "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd",
     "next": "Actual12flight838 to147,167, normalground approach DeathKeep150,168; inspect actual small physical-only undead admission before combat. Earn1264/1194XP, then actual Necrosis readiness. No combat success presumed."
+  },
+  "chaos845": {
+    "status": "VERIFIED",
+    "scope": "Actual ChaosWand/summon two-UndeadWarrior earned victory only",
+    "actual": "Normal source12flight838 to147,167; initial ground movement refused on mountain6. ActualY flight/Right reaches151,167; normalY land/Down151,168/Left entersRuin31/24,38 at525. Source5flight843 reaches36,30. NormalYland/AttackLeft admits original fixed153 at35,30: six471HP UndeadWarriors plus two423HP Archmages. Actual exit_control0 T/Esc/Y retreats, noHP/MP/XP loss,7->3gold,526. Normal reattack without save reload admits two471HP UndeadWarriors, no caster. Actual tactical victory with ChaosWand and one10MP SummonLesserUndead; both112HP,MP53/59,189gold219food,527. Actual XP21836/21906, exactly100/member; original153 actor retired. No Engine change/build/process. Remaining1164/1094XP to23000. No claimed immunity against NPC attacks. Follow-up normalY/Down flight reaches36,34; source3ground844 to adjacent DeathJester. Inspect actual group before combat; no result presumed.",
+    "checkpoints": {
+      "ce-native-acceptance528/earned-modern/checkpoints/525-Earned-Chaos-DeathKeep525/checkpoint.json": "d0142b44c2cd59288c09d67d71f6db3c89ef98ae66c14e6a8c302e88514c2291",
+      "ce-native-acceptance528/earned-modern/checkpoints/526-Earned-DeathKeep-large-group-retreat526/checkpoint.json": "853eb9014f3c55cc96f958154ea9179abbf15aed3f3a1e4219603102f81f0afb",
+      "ce-native-acceptance528/earned-modern/checkpoints/527-Earned-Chaos-two-undead-victory527/checkpoint.json": "88f84e534a7d85ac2a753c6b00eea32c1f9d53865c8550a1ff41f77d9c922c1c"
+    },
+    "source_commit": "c660ae8ac41",
+    "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd",
+    "next": "Continue source-supported small physical-only undead encounters toward1164/1094XP, inspect before fighting; actual Necrosis eligibility, Dragon and remaining campaign gates still pending."
   }
 }

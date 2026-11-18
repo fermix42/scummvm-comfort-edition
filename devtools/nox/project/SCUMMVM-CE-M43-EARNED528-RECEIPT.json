@@ -4308,7 +4308,7 @@
     }
   ],
   "correction": "SCUMMVM-CE-NPC529-VERIFICATION.json",
-  "last_checkpoint": 524,
+  "last_checkpoint": 527,
   "cold_evidence": "ce-native-acceptance528/earned-modern/cold036.json",
   "next_action": "Complete424 fromindex121 at65,147, boardFrigate119217; Bruce75/Archus/Order/remainingcampaign",
   "current_source_commit": "c660ae8ac41",
@@ -4398,7 +4398,7 @@
     "report": "SCUMMVM-CE-M43-NYSTUL548-VERIFICATION.json",
     "actual": "Earned Nystul binding411, repeat539, Staff412 and real low-INT refusal413; cold045 and actual Right move415 retain all state. Normal post-cold return crosses COMP-opened wall and B reboards Wyvern416. Maze access/Staff nodes VERIFIED; 25/60 nodes VERIFIED. Eight-page recognition/binding positive scopes VERIFIED; missing-pages forks/selected Classic coverage remain. Book12qty1, Staff83qty1, field61=67, field15=84, pages8/255. HP89/79/80 MP1/28/42,81gold594food. Current normal flight548 leaves maze toward Foolery/Hairnet. No Engine changes or builds; 8 builds,45 gameCLI+5 focused=50 launches. Vortex Ready/cast requires lawful110INT progression; no ending claim."
   },
-  "active_next": "Actual12flight838 to147,167, normalground approach DeathKeep150,168; inspect actual small physical-only undead admission before combat. Earn1264/1194XP, then actual Necrosis readiness. No combat success presumed.",
+  "active_next": "Continue source-supported small physical-only undead encounters toward1164/1094XP, inspect before fighting; actual Necrosis eligibility, Dragon and remaining campaign gates still pending.",
   "Uharad_sea552": {
     "status": "IN PROGRESS",
     "actual": "Actual Uharad flight550 interrupted atSurface126123 by seven98/137 sea boarding, retreat128. Source screenshot189 confirms ship/cannons. Actual twoShock killfour; remainingthree defeatparty under normalcannon/Staff policy. Raw552 filename says victory but actualphase2 isdefeat; no victorycredited. Failedpath and fourowned998generations/sidecars retained in forks/Uharad-sea-failure552. Normalowned998restore atSurface134176 retains416 lineage/fullpredepartureHP89/79/80, MP1/28/42,81gold594food,book12/Staff83. No awards/state merged from failedattempt. Sourceflightplanner now gives ships147..156 twelve-cell clearance, other actors three; originalwide-all12 query553 NoRoute because nearby225environmentactor, no Game inputs. Revised55437-command route avoidsobservedship approach; actualfollower stopsdamage/encounters. No Enginechanges/build/processlaunch.",
@@ -4464,13 +4464,13 @@
     "report": "SCUMMVM-CE-M43-PHYL715-VERIFICATION.json",
     "actual": "Earned Scroll85 reading/cold and paid full rest471 retained. Actual source55 ground-Wyvern steps704 through59/58/54/78; Down78/18,31 entersUM97/176,62, Right177,62/Yflight472. Actual11flight705 reaches98/149,78,473;45flight706 reaches99/81,190,474;17flight707 reaches100/149,190,475. Read-only source geometry selects8flight710 to100/141,166, Yland/Left140,166/Yflight. Actual11flight711 crosses source stair to101/136,162 and lands116,146. These92 actual flight commands replace184-command fixed-grid planning; no positions or outcomes injected. Yland/X and firstRight complete normal disembark; subsequent actualRight moves117,146. First position assertion failed before checkpoint476 because firstRight had not moved; not a demonstrated Engine defect. ActualLookUp identifies Phylactery (screenshot218). Before contact field12=131/no4bit; actualUp117,145 sets135/bit4,477/screenshot219. ActualDown/Up/Down repeat retains135 at117,146,478. Clean cold054 exact party/world/inventory/audio/session/no-assistance continuity PASS. First actualLeft to116,146, normalB reboards ownedWyvern479. Both92HP/68MP,57gold300food. No WaterJewel153 or Lich victory; no Engine edit/build."
   },
-  "last_earned_checkpoint": 524,
+  "last_earned_checkpoint": 527,
   "cult734": {
     "status": "VERIFIED",
     "report": "SCUMMVM-CE-M43-CULT734-VERIFICATION.json",
     "scope": "Four actual earned Cultist pair victories and level6-to8 advancement only; Vortex/guardian/ending acceptance remains IN PROGRESS."
   },
-  "current_checkpoint": 524,
+  "current_checkpoint": 527,
   "essence775": {
     "status": "VERIFIED",
     "report": "SCUMMVM-CE-M43-ESSENCE775-VERIFICATION.json",
@@ -4520,5 +4520,18 @@
     "source_commit": "c660ae8ac41",
     "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd",
     "next": "Actual12flight838 to147,167, normalground approach DeathKeep150,168; inspect actual small physical-only undead admission before combat. Earn1264/1194XP, then actual Necrosis readiness. No combat success presumed."
+  },
+  "chaos845": {
+    "status": "VERIFIED",
+    "scope": "Actual ChaosWand/summon two-UndeadWarrior earned victory only",
+    "actual": "Normal source12flight838 to147,167; initial ground movement refused on mountain6. ActualY flight/Right reaches151,167; normalY land/Down151,168/Left entersRuin31/24,38 at525. Source5flight843 reaches36,30. NormalYland/AttackLeft admits original fixed153 at35,30: six471HP UndeadWarriors plus two423HP Archmages. Actual exit_control0 T/Esc/Y retreats, noHP/MP/XP loss,7->3gold,526. Normal reattack without save reload admits two471HP UndeadWarriors, no caster. Actual tactical victory with ChaosWand and one10MP SummonLesserUndead; both112HP,MP53/59,189gold219food,527. Actual XP21836/21906, exactly100/member; original153 actor retired. No Engine change/build/process. Remaining1164/1094XP to23000. No claimed immunity against NPC attacks. Follow-up normalY/Down flight reaches36,34; source3ground844 to adjacent DeathJester. Inspect actual group before combat; no result presumed.",
+    "checkpoints": {
+      "ce-native-acceptance528/earned-modern/checkpoints/525-Earned-Chaos-DeathKeep525/checkpoint.json": "d0142b44c2cd59288c09d67d71f6db3c89ef98ae66c14e6a8c302e88514c2291",
+      "ce-native-acceptance528/earned-modern/checkpoints/526-Earned-DeathKeep-large-group-retreat526/checkpoint.json": "853eb9014f3c55cc96f958154ea9179abbf15aed3f3a1e4219603102f81f0afb",
+      "ce-native-acceptance528/earned-modern/checkpoints/527-Earned-Chaos-two-undead-victory527/checkpoint.json": "88f84e534a7d85ac2a753c6b00eea32c1f9d53865c8550a1ff41f77d9c922c1c"
+    },
+    "source_commit": "c660ae8ac41",
+    "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd",
+    "next": "Continue source-supported small physical-only undead encounters toward1164/1094XP, inspect before fighting; actual Necrosis eligibility, Dragon and remaining campaign gates still pending."
   }
 }

@@ -1,0 +1,13 @@
+{
+  "status": "VERIFIED",
+  "scope": "Actual ChaosWand/summon two-UndeadWarrior earned victory only",
+  "actual": "Normal source12flight838 to147,167; initial ground movement refused on mountain6. ActualY flight/Right reaches151,167; normalY land/Down151,168/Left entersRuin31/24,38 at525. Source5flight843 reaches36,30. NormalYland/AttackLeft admits original fixed153 at35,30: six471HP UndeadWarriors plus two423HP Archmages. Actual exit_control0 T/Esc/Y retreats, noHP/MP/XP loss,7->3gold,526. Normal reattack without save reload admits two471HP UndeadWarriors, no caster. Actual tactical victory with ChaosWand and one10MP SummonLesserUndead; both112HP,MP53/59,189gold219food,527. Actual XP21836/21906, exactly100/member; original153 actor retired. No Engine change/build/process. Remaining1164/1094XP to23000. No claimed immunity against NPC attacks. Follow-up normalY/Down flight reaches36,34; source3ground844 to adjacent DeathJester. Inspect actual group before combat; no result presumed.",
+  "checkpoints": {
+    "ce-native-acceptance528/earned-modern/checkpoints/525-Earned-Chaos-DeathKeep525/checkpoint.json": "d0142b44c2cd59288c09d67d71f6db3c89ef98ae66c14e6a8c302e88514c2291",
+    "ce-native-acceptance528/earned-modern/checkpoints/526-Earned-DeathKeep-large-group-retreat526/checkpoint.json": "853eb9014f3c55cc96f958154ea9179abbf15aed3f3a1e4219603102f81f0afb",
+    "ce-native-acceptance528/earned-modern/checkpoints/527-Earned-Chaos-two-undead-victory527/checkpoint.json": "88f84e534a7d85ac2a753c6b00eea32c1f9d53865c8550a1ff41f77d9c922c1c"
+  },
+  "source_commit": "c660ae8ac41",
+  "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd",
+  "next": "Continue source-supported small physical-only undead encounters toward1164/1094XP, inspect before fighting; actual Necrosis eligibility, Dragon and remaining campaign gates still pending."
+}
