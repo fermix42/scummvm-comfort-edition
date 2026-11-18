@@ -1,0 +1,42 @@
+{
+  "status": "VERIFIED",
+  "scope": "Incidental full nine-Pirate normal victory and valid residual route continuation; not final campaign acceptance.",
+  "source_commit": "d52b130c5df",
+  "executable_sha256": "f9215345b158b1a8cffcfef51f2ee8a37938a7538b52c5009399ad4f2001b7a4",
+  "checkpoint": 602,
+  "actual": {
+    "admission": "Nine98/137HP enemies, no-flee128; actual source route Max980 index16.",
+    "commands": "Normal Tactical,C0six summons,Chaos target attacks; actual native NPC/summon turns.",
+    "after": "All nine defeated; Nox123HP52MP, five prior companion deaths retained; actual residual140125. NormalHwhileflying did not rest.",
+    "route_resume": "index17 only; second mandatory admission at index56 now being resolved separately."
+  },
+  "evidence": {
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Max981-incidental-admission.json": "3b34dea120fc8108db0f33bc2c06ac1d5cd7fa7c913ec7bdf1723c0d989b500f",
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Max981-incidental-result.json": "5d7d7aa4cc1f7abe934c6160fb7e583a6d68ad7663fded18f63b9e37814611c7",
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Max981-incidental-actions.jsonl": "af7b7bb8610296654a3728c778e8514f1c5d2f5b3e3ce683baa1cca7516fbc48",
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Max982-postbattle-camp.json": "4df03f43aa00b4859756ee8c2d40f2479fcfb35d7031764314828279b524c524",
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Max984-incidental-admission.json": "34093d1c132fe3329d8b1dcc6b31a402f317da0ef7e0cbfdae5d9f5d79127719",
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Max984-incidental-result.json": "a5d081c1e67df7fd8f7deb7bbd5052f25588e9fa73527b81a68cbe9d289841a6",
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Max984-actions.jsonl": "96dceea8a1602b58e193dc3893efc0af43d0ba799f1a25f71ffc1ffd5dbe276f",
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Max985-ground-camp.json": "08d8252526ed02aae22a15a2660606696317e69130160ff06e78020884d74193",
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Max988-normal-entry.json": "80c077eb73db5f576257e30b6f1ff351f2c5c31de0c49e91092a763c4a2eddd9"
+  },
+  "historical_evidence_integrity": "Reused helper appended new actions to old957log; separated new981 actions, restored exact accepted original957 sha4ad914d5ccd75b162ba4f6a9ed056538fc2ee5a76875e257ab8c0ffecf23b08d. Future reuse has unique output prefix. Tagged984 helper writes only new984 files; no accepted957 modifications.",
+  "second_encounter": {
+    "status": "VERIFIED",
+    "checkpoint": 603,
+    "admission": "Six422HP sprite153, no-flee128 at actualMax980 index56,20633.",
+    "normal_resolution": "SixSkeletons10MP, LesserHeal2MP72->123HP, Chaos attacks; allsix defeated, noHP loss afterheal; Nox40MP, originalfivecompaniondeathsretained.",
+    "actual_residual": [
+      208,
+      33
+    ],
+    "resume_index": 57
+  },
+  "source_approach": {
+    "status": "VERIFIED",
+    "camp": "ActualYland/H23621 restores40->87MP for47food825->778, Nox123HP.",
+    "alignment": "23621 is impassablemountain6. Yfly/Down23625/Yland/Up23624/Right23724/Yfly/Up23720/Yland/Right actuallyentersKeep67/2438. NormalCamp and original4cellphase retained; no Enginegap.",
+    "next": "Source53groundMax990 throughauthored67->68stair to68/2519 inprogress; guessed68/2421standwaswall/unexecutedNoRoute only."
+  }
+}

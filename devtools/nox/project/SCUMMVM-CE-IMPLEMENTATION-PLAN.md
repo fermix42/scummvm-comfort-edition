@@ -1,3 +1,7 @@
+# Acceptance528 earned Max travel602/603 and tower entry — IN PROGRESS
+
+Twoactualmandatoryincidentalvictories:9x98/137Pirates602,6x422sprite153603. NormalChaos/summons/LesserHeal, Nox123HP40MP, previousfivecompaniondeathsretained. Source67flightMax980done, no successfulprefixreplayed. ActualYland/H23621 restores87MP for47food ->778. Mountain6blocksgroundmovement; normalphasealignment23625->23724/fly23720/landRightentersKeep67/2438. Source53groundMax990 through67->68stair nowinprogress; finalportal/ending andfiniteforksremain. ReportMAX981-TRAVEL;acceptedCultist957 historicalactionhashpreservedexact, new984tagisolated. Source/exeunchanged,11buildattempts64game+7focused=71launches,37/60nodes. Continuewithoutmilestonestop.
+
 # Acceptance528 earned late British advice601 — VERIFIED within scope
 
 Actual ownedAnkh normalentrySurface148185->Keep65/2438, source33ground2421/TalkUp. ADVICE gives23820, repeatedANKH correctly refusesduplicate.601 ordinarycheckpoint retains mainlineage and original130Ankh. NormalDivine restores123HP,17MP; Hnear148185 refusesrest,62MP593food retained. CurrentownedWyvern67flightMax980 toward23621, thennormal23820portalwizard. NoEnginechange/build/newprocess:11attempts,64game+7focused=71launches. British979 report;37/60 composite nodes, ending stillunverified. Continuefiniteacceptance autonomously.
