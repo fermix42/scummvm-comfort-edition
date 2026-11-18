@@ -1599,7 +1599,7 @@
     },
     {
       "id": "ring-vacous",
-      "status": "NOT STARTED",
+      "status": "IN PROGRESS",
       "prerequisites": [
         "legitimate-new-game"
       ],
@@ -1627,7 +1627,22 @@
         "scoped audio/presentation",
         "actual earned verification criteria"
       ],
-      "earned_lineage": null
+      "earned_lineage": [
+        509,
+        510,
+        511,
+        512,
+        513,
+        514,
+        515
+      ],
+      "earned_scope": {
+        "status": "IN PROGRESS",
+        "pickup_status": "VERIFIED",
+        "protection_status": "IN PROGRESS",
+        "report": "SCUMMVM-CE-M43-RING821-VERIFICATION.json",
+        "source_qualification": "Ring protection is the actual earned global quest field58 bit128. native_encounter_state.h binds it to round.specialSpell. M3 owned ARMOR118 Ready/derived-defense fixture is distinct from MISC155; do not invent a Ring equipment requirement or claim an unperformed Ready. Actual NPC death-spell protection must still be demonstrated during required combat."
+      }
     },
     {
       "id": "dark-key",
@@ -2967,10 +2982,10 @@
   "mode_strategy": "One primary Modern earned lineage; targeted Classic legal earned fork/restore/transitions; no duplicate complete campaign required by existing criteria.",
   "failure_policy": "Freeze failing path,source general diagnosis,focused correction+regression,at most2corrective reruns; resume valid nearest earned save,no prefix replay or outcome injection.",
   "builds": 6,
-  "process_launches": 54,
+  "process_launches": 55,
   "planned_node_count": 60,
   "mandatory_node_count_note": "All selected M3 nodes explicitly represented alongside dependency76 graph; includes supporting/advice/alternative nodes. Necessity is retained per source,not inferred from node count.",
-  "last_earned_checkpoint": 508,
+  "last_earned_checkpoint": 515,
   "baseline_candidate_sha256": "81feb2c7ff17594a6ea9754dc60602a755b2f37ea7c53b437f65a18e7c35000f",
   "candidate_change": "NPC529,cannon530,packedmelee531,mountedTalk532 source corrections; exact scoped receipts and earned ancestry retained. No broad matrix promotion.",
   "earned_failures_retained": [
@@ -3030,14 +3045,14 @@
   "previous_candidate_before533": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed",
   "candidate_source_commit": "c660ae8ac41",
   "candidate_transition": "SCUMMVM-CE-DOOR533-VERIFICATION.json; normal223 cold recovery before further inputs; earlier nodes retain original bound evidence.",
-  "last_checkpoint": 508,
+  "last_checkpoint": 515,
   "cult734": {
     "status": "VERIFIED",
     "report": "SCUMMVM-CE-M43-CULT734-VERIFICATION.json",
     "scope": "Four actual earned Cultist pair victories and level6-to8 advancement only; Vortex/guardian/ending acceptance remains IN PROGRESS."
   },
-  "active_next": "Continue source39-flight Ring808 toSurface22,198, normal entrance23,199 ->Town74. Required Ring155 path: original KAYL magic-mouth password, actual timed door9,10 passage from9,11, Search9,8/repeat, proper Ready/protection and cold scope. Keep Ring acquisition, protection, Drathe/DarkKey, HighCultist and wholecampaign statuses separate. Reconcile subsequent source-supported combat route and actual remainingXP; no fabricated stats, natural-Mage farming, or unsupported500XP claims. All selected60 acceptance criteria remain.",
-  "current_checkpoint": 508,
+  "active_next": "Acquire original ChaosWand90 fromUM101/79,40 chest216 (questfield15 bit2). RequirementINT92 matches both current casters; actual Ready/derived hand power must be inspected before combat. Source directUM97->99 portal82,171 avoids98; current825 four-flight approach to79,175. Continue source-supported stairs/flight to101, approaching Wand fromeast outsideDragon sight. Normal level10 lock trap damage47 is source-supported and survivable at112HP; heal between failed attempts as needed. No victory/XP/eligibleVortex claim; remainingXP1264/1194 tolevel9. All60 criteria retained.",
+  "current_checkpoint": 515,
   "essence775": {
     "status": "VERIFIED",
     "report": "SCUMMVM-CE-M43-ESSENCE775-VERIFICATION.json",
@@ -3053,5 +3068,10 @@
     "report": "SCUMMVM-CE-M43-MAGE807-VERIFICATION.json",
     "scope": "One actual earned fixed Mage victory/150XP only; caster eligibility and M4.3 remain IN PROGRESS."
   },
-  "source_xp_correction807": "Earlier500XP prediction was wrong. Original reward percentages are0,0,0,40,80,100 by level difference. At attacker8/target4, each750XP BattleMage credits150; two yield300pool/2=150. Remaining1264/1194XP to23000. Original Ruin19..22 contain zero229..232 water cells; their defaultwater146 cannot generate additional Mage groups. The one original fixed22 group is now legitimately retired. Original UM99 fixed Cultist0 is also already retired in actual earned state (213,84,169,255); do not revive/replay it or travel there for claimed new rewards. No native reward defect demonstrated."
+  "source_xp_correction807": "Earlier500XP prediction was wrong. Original reward percentages are0,0,0,40,80,100 by level difference. At attacker8/target4, each750XP BattleMage credits150; two yield300pool/2=150. Remaining1264/1194XP to23000. Original Ruin19..22 contain zero229..232 water cells; their defaultwater146 cannot generate additional Mage groups. The one original fixed22 group is now legitimately retired. Original UM99 fixed Cultist0 is also already retired in actual earned state (213,84,169,255); do not revive/replay it or travel there for claimed new rewards. No native reward defect demonstrated.",
+  "ring821": {
+    "status": "VERIFIED",
+    "report": "SCUMMVM-CE-M43-RING821-VERIFICATION.json",
+    "scope": "Earned Ring password refusal/success, timed physical passage, pickup/repeat/cold/subsequent flight only."
+  }
 }

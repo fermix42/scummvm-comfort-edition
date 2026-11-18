@@ -1,0 +1,40 @@
+{
+  "status": "VERIFIED",
+  "scope": "Earned Ring password refusal/success, timed physical passage, pickup/repeat/cold/subsequent flight only.",
+  "actual": "Normal source39-flight Ring808 reaches22,198. Incidental single46HP and two46/41HP encounters allow actualT/Esc/Y retreat, no HP/MP/XP loss; actual worldgold172->86->43 retained. Initial flee harness incorrectly expected battle_phase1; source-confirmed visible Y/N prompt actually leavesphase0, normalY completes flee. Normal groundRight/Down entersTown74/24,38,509. Source40-foot815 reaches11,11, normalLeft10,11/TalkUp targets actualMouthNPC0 at10,10. Real WRONG817 leavesfield46=4/field58=24; normalLeft9,11/OpenUp refuses and actualUp remains9,11,510. Correct normalKAYL/finish opens timeddoor; actualLeft9,11/Up9,10/Up9,9, with no redundant Open. SearchUp awards155qty1/field58=152,511. RepeatNothingfound/no duplicate512. Clean cold055 exact-state/session/audio/no-assistance PASS. ActualY/Right flight9,9->13,9 proves native postcold movement/transport,513. QuickExit returnsSurface23,199,514. Source17-flightChaos823 then actualUp entersCave79,192 and residualmovement endsUM97/79,191,515. Both112HP,MP61/69,43gold219food. No Engine change/build. Ring acquisition/persistence verified; actual death-spell effect remains IN PROGRESS.",
+  "source_qualification": "Ring protection is the actual earned global quest field58 bit128. native_encounter_state.h binds it to round.specialSpell. M3 owned ARMOR118 Ready/derived-defense fixture is distinct from MISC155; do not invent a Ring equipment requirement or claim an unperformed Ready. Actual NPC death-spell protection must still be demonstrated during required combat.",
+  "evidence": {
+    "ce-native-acceptance528/earned-modern/earned-Ring809-admission.json": "c51dd97e9a5d639bcab8b016b80419f2b0cba768d42075faaba62363f6bafffd",
+    "ce-native-acceptance528/earned-modern/earned-Ring812-admission.json": "fa8571db6d27ac1e8fe797570aa31ea3d075fa7f61e06c65e8d09b906085a768",
+    "ce-native-acceptance528/earned-modern/earned-Ring817-wrong-password.json": "2c76fee75dca3d297a5e90a54fc3071aa18388084a29fe7e8d68c870f697372b",
+    "ce-native-acceptance528/earned-modern/earned-Ring818-refused-door-and-passage.json": "f5d62afae909da7a21ebc10803cf237f43c5664c218975b043e3ffccd25db517",
+    "ce-native-acceptance528/earned-modern/earned-Ring819-doorway.json": "bfe26a00fbbd78b5fc4a51d0cd5283be65132146b410b919a6e9bef283f7a813",
+    "ce-native-acceptance528/earned-modern/earned-Ring819-password.json": "defa3c78645ec4e9c9b057e451efbd543f160ddeecf301f06b012fe73ee46709",
+    "ce-native-acceptance528/earned-modern/earned-Ring819-pickup.json": "a16dcf50ba8630d965085741d4be230c0828d17eab3434cb816028a94d69e627",
+    "ce-native-acceptance528/earned-modern/earned-Ring820-repeat.json": "6ffcaee8d9c4ee61cefdd8983e84a4b4405afda76cbf1d1e4a1dd3f0b36c6a77",
+    "ce-native-acceptance528/earned-modern/cold055.json": "2bb32da9afb457866c41579e36c213de0b1ae5f51e78b4c5bb4de8f57ff3efa3",
+    "ce-native-acceptance528/earned-modern/screenshots/scummvm-cli-game-00245.png": "4412d66c59a0ff7c4c19b3ff8c099f0dc8ec0e4e2e7cac20da367d069495e5a4",
+    "ce-native-acceptance528/earned-modern/screenshots/scummvm-cli-game-00246.png": "5b7952c2f68258c856bcaf5788622d5bdc28fc1aedfe9a85d99172606253ad39",
+    "ce-native-acceptance528/earned-modern/screenshots/scummvm-cli-game-00247.png": "fbdce9550642ce0d3b4e7872953f0fffb26cf2c4fed320ab1496e8123f0b7551",
+    "ce-native-acceptance528/earned-modern/screenshots/scummvm-cli-game-00248.png": "c956bb686a84db91f204dca174aaa8c48bae86a813de0d21b80055fda312fcc7"
+  },
+  "checkpoints": {
+    "ce-native-acceptance528/earned-modern/checkpoints/509-Earned-Ring-town-entry509/checkpoint.json": "76e59569ac5e3e73a63c56eace4f7b19891ceef78d206b6f24ec2360791f8413",
+    "ce-native-acceptance528/earned-modern/checkpoints/510-Earned-Ring-wrong-password-and-blocked-gate510/checkpoint.json": "c4ae4b63aedb5212f99f0e02730e0052304127a989e7c93a46cbf77e7a73ae2f",
+    "ce-native-acceptance528/earned-modern/checkpoints/511-Earned-Ring-of-Vacous-pickup511/checkpoint.json": "602593cc52932fc21ecaee9c698550c65372e1ccce9e823f8549d8fdb945a908",
+    "ce-native-acceptance528/earned-modern/checkpoints/512-Earned-Ring-of-Vacous-repeat512/checkpoint.json": "45b1097d9129538d112b9344769a3766e94b6892a786f9b553c614c392baf0ff",
+    "ce-native-acceptance528/earned-modern/checkpoints/513-Earned-Ring-cold-native-flight513/checkpoint.json": "43ea92038765295061f7c18a4f17fe808bab18edc74c6c7f6b1bcf4dcd77fd7d",
+    "ce-native-acceptance528/earned-modern/checkpoints/514-Earned-Ring-return-departure514/checkpoint.json": "0722b63fec308549040370090e152fcc69d0b145a5541463da8356013ae1b8c9",
+    "ce-native-acceptance528/earned-modern/checkpoints/515-Earned-Chaos-cave-entry515/checkpoint.json": "5b1622292bde37bc030755a5a940d24d6a96f2de0e23b6844631d68364c23a58"
+  },
+  "source_commit": "c660ae8ac41",
+  "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd",
+  "cost": {
+    "builds": 8,
+    "game_cli_processes": 55,
+    "focused_cli_processes": 5,
+    "material_launches": 60
+  },
+  "protection_status": "IN PROGRESS",
+  "next": "Acquire original ChaosWand90 fromUM101/79,40 chest216 (questfield15 bit2). RequirementINT92 matches both current casters; actual Ready/derived hand power must be inspected before combat. Source directUM97->99 portal82,171 avoids98; current825 four-flight approach to79,175. Continue source-supported stairs/flight to101, approaching Wand fromeast outsideDragon sight. Normal level10 lock trap damage47 is source-supported and survivable at112HP; heal between failed attempts as needed. No victory/XP/eligibleVortex claim; remainingXP1264/1194 tolevel9. All60 criteria retained."
+}

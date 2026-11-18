@@ -1,26 +1,26 @@
 {
   "status": "IN PROGRESS",
   "root_checkpoint": 479,
-  "current_checkpoint": 508,
+  "current_checkpoint": 515,
   "source_commit": "c660ae8ac41",
   "scope": "Required lawful caster advancement for Vortex110INT/87MP, not an Engine implementation gap.",
-  "actual": "Normal source60-flight RuinMages794 reachesSurface137,214 with two17HP damage stops and one ordinary Divine heal. ActualRight flight entersRuin20, residual movement ends27,38. NormalDivine/camp, onefootLeft alignment and Yflight505 retainfull112HP,MP69/92,285food. Source5flight802 enters21/39,30. Source geometry flight to27,26, two actual ground steps Down/Left to26,27, Yflight/Down/fourLeft enters22/11,31,506. Source7flight804 admits the actual original fixed10-member Mage group: four98HP BanditFighters, four91HP Archers, two113HP BattleMages. Normal tactical victory805, no HP loss; MP19/53,172gold285food,507. Actual XP21736/21806: exactly150XP/member, not predicted500. Normalcamp806 restores69/69MP for66food,219food. QuickExitBr4MP returnsSurface138,214;508 retains112HP,MP65/69,172gold219food. No Engine change/build/process.",
+  "actual": "Normal source39-flight Ring808 reaches22,198. Incidental single46HP and two46/41HP encounters allow actualT/Esc/Y retreat, no HP/MP/XP loss; actual worldgold172->86->43 retained. Initial flee harness incorrectly expected battle_phase1; source-confirmed visible Y/N prompt actually leavesphase0, normalY completes flee. Normal groundRight/Down entersTown74/24,38,509. Source40-foot815 reaches11,11, normalLeft10,11/TalkUp targets actualMouthNPC0 at10,10. Real WRONG817 leavesfield46=4/field58=24; normalLeft9,11/OpenUp refuses and actualUp remains9,11,510. Correct normalKAYL/finish opens timeddoor; actualLeft9,11/Up9,10/Up9,9, with no redundant Open. SearchUp awards155qty1/field58=152,511. RepeatNothingfound/no duplicate512. Clean cold055 exact-state/session/audio/no-assistance PASS. ActualY/Right flight9,9->13,9 proves native postcold movement/transport,513. QuickExit returnsSurface23,199,514. Source17-flightChaos823 then actualUp entersCave79,192 and residualmovement endsUM97/79,191,515. Both112HP,MP61/69,43gold219food. No Engine change/build. Ring acquisition/persistence verified; actual death-spell effect remains IN PROGRESS.",
   "source_contract": {
     "cultists": "UM98 fullNPC169 slots56/64/72/80 at166154/170154/166158/170158; original descriptor2,169 group57 admits two267HP template59 percontact,3300baseXP each, armor117/magic0.",
     "moat": "Original WorldHazards retains35thermal damage percell whilemounted. Selected west crossing at y158: flight153->157 crosses two lava156/157 (70damage), then157->161 crosses158/159 (70damage). Normal WorldCast52 restoresbothmaxHP for17MP; WorldInput casting closure refreshes scene without advancing WorldWait/hazards. Source Ytoggle also doesnotadvanceWorldWait. Normal healing between flight commands, never an HP injection. CurrentfullHP92 supports each70damage segment; inspect actualstate beforecontinuing.",
     "readiness": "Book11 is an earned Nox Alyn quest reward, not purchasable. Minimum INT98/cost29. Dragon117 HP2844/INT0/baseXP50000; keep both party members for original divided reward arithmetic. No victory or spell acquisition yet."
   },
-  "next": "Continue source39-flight Ring808 toSurface22,198, normal entrance23,199 ->Town74. Required Ring155 path: original KAYL magic-mouth password, actual timed door9,10 passage from9,11, Search9,8/repeat, proper Ready/protection and cold scope. Keep Ring acquisition, protection, Drathe/DarkKey, HighCultist and wholecampaign statuses separate. Reconcile subsequent source-supported combat route and actual remainingXP; no fabricated stats, natural-Mage farming, or unsupported500XP claims. All selected60 acceptance criteria remain.",
+  "next": "Acquire original ChaosWand90 fromUM101/79,40 chest216 (questfield15 bit2). RequirementINT92 matches both current casters; actual Ready/derived hand power must be inspected before combat. Source directUM97->99 portal82,171 avoids98; current825 four-flight approach to79,175. Continue source-supported stairs/flight to101, approaching Wand fromeast outsideDragon sight. Normal level10 lock trap damage47 is source-supported and survivable at112HP; heal between failed attempts as needed. No victory/XP/eligibleVortex claim; remainingXP1264/1194 tolevel9. All60 criteria retained.",
   "report": "SCUMMVM-CE-M43-CULT734-VERIFICATION.json",
-  "last_checkpoint": 508,
-  "last_earned_checkpoint": 508,
-  "process_launches": 54,
+  "last_checkpoint": 515,
+  "last_earned_checkpoint": 515,
+  "process_launches": 55,
   "essence775": {
     "status": "VERIFIED",
     "report": "SCUMMVM-CE-M43-ESSENCE775-VERIFICATION.json",
     "scope": "Earned Essence of Death pickup/repeat and actual lawful saves only; Nox book/XP/Vortex/guardians remain IN PROGRESS."
   },
-  "active_next": "Continue source39-flight Ring808 toSurface22,198, normal entrance23,199 ->Town74. Required Ring155 path: original KAYL magic-mouth password, actual timed door9,10 passage from9,11, Search9,8/repeat, proper Ready/protection and cold scope. Keep Ring acquisition, protection, Drathe/DarkKey, HighCultist and wholecampaign statuses separate. Reconcile subsequent source-supported combat route and actual remainingXP; no fabricated stats, natural-Mage farming, or unsupported500XP claims. All selected60 acceptance criteria remain.",
+  "active_next": "Acquire original ChaosWand90 fromUM101/79,40 chest216 (questfield15 bit2). RequirementINT92 matches both current casters; actual Ready/derived hand power must be inspected before combat. Source directUM97->99 portal82,171 avoids98; current825 four-flight approach to79,175. Continue source-supported stairs/flight to101, approaching Wand fromeast outsideDragon sight. Normal level10 lock trap damage47 is source-supported and survivable at112HP; heal between failed attempts as needed. No victory/XP/eligibleVortex claim; remainingXP1264/1194 tolevel9. All60 criteria retained.",
   "necro795": {
     "status": "VERIFIED",
     "report": "SCUMMVM-CE-M43-NECRO795-VERIFICATION.json",
@@ -31,5 +31,10 @@
     "report": "SCUMMVM-CE-M43-MAGE807-VERIFICATION.json",
     "scope": "One actual earned fixed Mage victory/150XP only; caster eligibility and M4.3 remain IN PROGRESS."
   },
-  "source_xp_correction807": "Earlier500XP prediction was wrong. Original reward percentages are0,0,0,40,80,100 by level difference. At attacker8/target4, each750XP BattleMage credits150; two yield300pool/2=150. Remaining1264/1194XP to23000. Original Ruin19..22 contain zero229..232 water cells; their defaultwater146 cannot generate additional Mage groups. The one original fixed22 group is now legitimately retired. Original UM99 fixed Cultist0 is also already retired in actual earned state (213,84,169,255); do not revive/replay it or travel there for claimed new rewards. No native reward defect demonstrated."
+  "source_xp_correction807": "Earlier500XP prediction was wrong. Original reward percentages are0,0,0,40,80,100 by level difference. At attacker8/target4, each750XP BattleMage credits150; two yield300pool/2=150. Remaining1264/1194XP to23000. Original Ruin19..22 contain zero229..232 water cells; their defaultwater146 cannot generate additional Mage groups. The one original fixed22 group is now legitimately retired. Original UM99 fixed Cultist0 is also already retired in actual earned state (213,84,169,255); do not revive/replay it or travel there for claimed new rewards. No native reward defect demonstrated.",
+  "ring821": {
+    "status": "VERIFIED",
+    "report": "SCUMMVM-CE-M43-RING821-VERIFICATION.json",
+    "scope": "Earned Ring password refusal/success, timed physical passage, pickup/repeat/cold/subsequent flight only."
+  }
 }
