@@ -3,7 +3,7 @@
   "scope": "Resume required earned Guild/Skull/child-rescue branch from primary438; no Guildmaster victory or Skull reward yet credited.",
   "source_commit": "c660ae8ac41",
   "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd",
-  "last_checkpoint": 441,
+  "last_checkpoint": 446,
   "actual": "Roster preparation431..435 is complete in ROSTER620. Source620 returns to Castle60/36,18; actual Right enters Keep26/13,18. Source621 ends adjacent18,19. Checkpoint436 label is premature: source Board requires overlapping vehicle, actual appearance250/object255 was foot. Normal Right19,19/B/Y asserts actual128/object bound,437. Flying Down commands19,23/27/31/35/38; additional Down enters leave confirmation with can_save=false,notice=false. NormalY exitsSurface83,79. No failed assertion is credited as an exit. Source flight622 first stale998 read refused; direct119147 is an excluded authored entrance, not a harbor-actor failure. Actual29-command route to119143 has no HPMP cost. Normal Down entersBayport49/24,38,Yland/Xpark,438. Normal20-step623 enters48/38,33;95-step624 traverses existing permissions and enters52/23,33. Source625 actor-conservative NoRoute is read-only; contact-enabled95-step route is selected for actual required guarded progression. First55 normal steps reach52/15,38 without battle/damage. Actual saved doors15,37 and17,36 are picture64/state16: already unlocked ordinary doors from prior earned progress, no new pick required. Current normal625 indices55..94 running toward actual50 stairs26,17, with ordinary Open and stop on battle/damage.",
   "initial_active_party": {
     "members": [
@@ -47,11 +47,11 @@
   ],
   "cost": {
     "builds": 8,
-    "game_cli_processes": 47,
+    "game_cli_processes": 48,
     "focused_cli_processes": 5,
-    "material_launches": 52
+    "material_launches": 53
   },
-  "next": "Normal source footreturn toWyvern17267, B/Y andflightBayport; retain fresh actualpre-Assassin save withbook16. One source-supported changed summon tactic, no LesserUndead repeat. No Enginechange/build.",
+  "next": "Current earned446 missingSkullkey fork: normalQuickExit carriesWyvern to actualSurface119147 (not assumed120147), Yland/Right enters49. Source3-step alignment651 to25,36 then originalflight via37,8 ->47. No primary reward changes will be merged from refusal fork; restore actual446 before78pickup.",
   "acceptance": "26/60 selected nodes VERIFIED; whole campaign/guardians/ending and supported branches remain IN PROGRESS.",
   "Assassin626": {
     "status": "IN PROGRESS",
@@ -75,5 +75,15 @@
     "status": "VERIFIED",
     "scope": "Actual purchase/Ready/full rest only; Assassin combat remains unverified",
     "actual": "Actual440 book16 owned/readied slot1, source requirement50/cost17, actual NBSK slot1=16. Inn target33,35 was stale: actualNPC88 at33,36 made oldadjacency allblocked; no locked access required. Source34-step632 targetsactual3336, reaches3337; freshinnNPC3335, normalUp3336/TalkUp/Y/R/Y pays14, full80HP/56MP each,9gold300food. Normal441 saved. No extra cold/suite/build. Normal BrQuickExit4MP nowreturnsSurface17762 toretrieveownedWyvern17267 andreturnGuild."
+  },
+  "Nourtheld634_635": {
+    "status": "VERIFIED",
+    "scope": "Ordinary incidental exit/boarding encounters and return readiness; no new quest node",
+    "actual": "Footplanner634 NoRoute reflected actual143 at17763 blocking onlydryexit. NormalDown admits3DarkMages87HP+2Adventurers98HP. Normal tacticalShock/Blades winsall5, HP80/70 MP13/31 gold9->49 food300. NormalBrLesserHeal2MP restoresNox80;442 saved HP80/80 MP11/31. Source10step634 toWyvern17267 nowvalidafter143removed. Bactuallyboards128 but nearby142 interception occursbeforeflight; attemptednormal998save correctlyrefusesbattle, no savecredited. Actualthree98HP142 enemies; normalShock27 killsall3, HP80/80 MP11/6 gold49->59,food300. CurrentnormalYflight/savebefore32commandreturnBayport. Restorefullmana atauthoredBayportinn48/208 price10 beforeAssassins."
+  },
+  "Guildmaster446": {
+    "status": "VERIFIED",
+    "report": "SCUMMVM-CE-M43-GUILD651-VERIFICATION.json",
+    "actual": "Original earned Wyvern128 carries through49->48->52 and flies across ordinary walls to50/26,17 without encounters. Actual local flight640..644, not a simulated route or guard victory. Yland/X at50/22,21, roamingGuildmaster120 at22,20. ActualTalkUp645: You will never leave here alive; normalBYE646 arms17mask32 and admits actualsingle70HP207 Guildmaster. ActualBrC7 BladesSmite15/14MP kills70->0 (earned-blades-47-681294). Nativevictory distributes4159XP/member; both normallevelUI allocations0STR/0DEX/12INT thenY yieldlevel6/INT68/maxHP92, XP8353/8423. ActualOrders77qty1/field50 6->14; field17 9->40, noSkull78/field26 remains32, childrenfield53=0. Checkpoint445 saved. Clean cold048 preservesexactstate/session/audio/no-assistance. NormalTalkUp atdeadNPC yieldsNobody/noextra77; normalB/Y/Up moves22,21->22,17,446. No original-instruction execution, stat/HP/item injection, Enginechange orbuild."
   }
 }

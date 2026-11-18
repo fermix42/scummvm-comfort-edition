@@ -1,0 +1,52 @@
+{
+  "status": "VERIFIED",
+  "scope": "Earned Modern full70HP Guildmaster scripted battle, actual Cast final blow, Orders reward/level allocations/repeat/cold and subsequent transport compatibility only.",
+  "actual": "Original earned Wyvern128 carries through49->48->52 and flies across ordinary walls to50/26,17 without encounters. Actual local flight640..644, not a simulated route or guard victory. Yland/X at50/22,21, roamingGuildmaster120 at22,20. ActualTalkUp645: You will never leave here alive; normalBYE646 arms17mask32 and admits actualsingle70HP207 Guildmaster. ActualBrC7 BladesSmite15/14MP kills70->0 (earned-blades-47-681294). Nativevictory distributes4159XP/member; both normallevelUI allocations0STR/0DEX/12INT thenY yieldlevel6/INT68/maxHP92, XP8353/8423. ActualOrders77qty1/field50 6->14; field17 9->40, noSkull78/field26 remains32, childrenfield53=0. Checkpoint445 saved. Clean cold048 preservesexactstate/session/audio/no-assistance. NormalTalkUp atdeadNPC yieldsNobody/noextra77; normalB/Y/Up moves22,21->22,17,446. No original-instruction execution, stat/HP/item injection, Enginechange orbuild.",
+  "source_commit": "c660ae8ac41",
+  "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd",
+  "source_binding_sha256": "8ddcbd520a5a9d7c95d80afe28b7cf9fdee729a43eb2aa1f06ba4be041ab1aed",
+  "evidence": {
+    "ce-native-acceptance528/earned-modern/earned-Guild-city-flight640-533.json": "c2b3d8a3a280595b31890b01a1ca7f65ae43f1abe1b45f3478032b321ca0d7d2",
+    "ce-native-acceptance528/earned-modern/earned-Guild-dungeon-flight641-533.json": "0fe297c6ade03aa68a924ae058d1dd3a85aaba8093d114be463b91e848066e3a",
+    "ce-native-acceptance528/earned-modern/earned-Guild-wall-flight642-533.json": "b66880da44c38bc5df6991453aecafd6a76deaab86c1908c54c952ded8a98794",
+    "ce-native-acceptance528/earned-modern/earned-Guild-north-flight643-533.json": "f78fe52674bb36affdb1d3c26d8f2ddfd8cde39130dfa64ab741aec49b38c66f",
+    "ce-native-acceptance528/earned-modern/earned-Guild-lower-stair-flight644-533.json": "5c5350f341aba5c96114fde1453046d05e869096d49123b6c4c763bfe9517043",
+    "ce-native-acceptance528/earned-modern/earned-Guildmaster-opening645-533.json": "0d24b41dd5112485820d583fdf4640912d721e973043657373583a5b62bfe0c8",
+    "ce-native-acceptance528/earned-modern/earned-Guildmaster-BYE646-533.json": "3b77c29753a7edc35ae53f161cd8f4b7bbdd8570937fa515f3b1013b044de7ab",
+    "ce-native-acceptance528/earned-modern/earned-Guildmaster-full-admission647-533.json": "fc2cd445e858f3b77fba337aac2041ab8c4872c836a636a63e9a6d95f5cab385",
+    "ce-native-acceptance528/earned-modern/earned-blades-47-681294.json": "82ec20b6ec2149edfaa51f66d37f0a5a1e10197b925d97c8cf553b50650ebec9",
+    "ce-native-acceptance528/earned-modern/earned-Guildmaster-levels648-533.json": "b000fcf8ad18dbd937dba3c5d6e2b8ab8a496f850327c95fc265acbf3ae03ae1",
+    "ce-native-acceptance528/earned-modern/cold048.json": "01569c075e775cbf82910c821b75b95dc01730cd7a80c4bb8fa44287b8f5bed5",
+    "ce-native-acceptance528/earned-modern/earned-Guildmaster-repeat-cold650-533.json": "a433e122a6d2e38c44bbd63a841c6822a1574cd84a0ded84d3c4af4a0897e1e4",
+    "ce-native-acceptance528/earned-modern/earned-Guildmaster-cold-first-flight650-533.json": "67d36c851522051fb3b8ec206634b7b9f671b331287e34e36491cacd22b62757"
+  },
+  "checkpoint_metadata": {
+    "ce-native-acceptance528/earned-modern/checkpoints/443-Earned-Minor-Demon-Bayport-full-rest443/checkpoint.json": "2f4fedc7fc68190a6e1c1a6c0316d1c2262e6265ea73163e454d6b40c82419a0",
+    "ce-native-acceptance528/earned-modern/checkpoints/444-Earned-Guildmaster-foot-approach444/checkpoint.json": "a00dbc37fda7dc83fdc5e4fb9cd0ea192b9a59aea52b034775a7f6936fb9731d",
+    "ce-native-acceptance528/earned-modern/checkpoints/445-Earned-full-Guildmaster-victory-and-levels445/checkpoint.json": "63cdef66dfdd734e5b2f2a0ee9dc9a795b745b7febfb59e75c7f3ef074d9572b",
+    "ce-native-acceptance528/earned-modern/checkpoints/446-Earned-Guildmaster-cold048-repeat-flight446/checkpoint.json": "afedeb5c6e4002c08743df7f55a29cdfb326c4ae92ae5d1512d48e4e3aaff343"
+  },
+  "presentation": {
+    "ce-native-acceptance528/earned-modern/screenshots/scummvm-cli-game-00195.png": "7cb7d60827aad9bafe9770918ef4a9cb38e726894a02b4505940f515de3da255",
+    "ce-native-acceptance528/earned-modern/screenshots/scummvm-cli-game-00196.png": "4b0cab5f92c371d948041ddb6553b5e9e42075f5315628b9065ff87a27efa579",
+    "ce-native-acceptance528/earned-modern/screenshots/scummvm-cli-game-00197.png": "69d1218a87cb328cda1d1693086dceb945638c640c4564bc0008863e118f6c2e",
+    "ce-native-acceptance528/earned-modern/screenshots/scummvm-cli-game-00198.png": "c0ad02644d087702ca6c40720c8e958c25176c9fe02fafb383b51f95f7233c91"
+  },
+  "private_ledger_sha256": "b6710b39139ca1deb979bc3797c21eb80e1e71e6ae32baabfa068fada1a6c41b",
+  "qualifications": [
+    "No Assassin victory is claimed; failed626 retained. Source flight c.speed>=4 ignores local collisions (native_world_transport_motion.h); required key-gate operations remain separate actual tests.",
+    "Guildmaster beforechildren/Skull is source-valid; actualfield53=0 and78absent. No historic controlled M3 endpoint was imported.",
+    "Source-only postcold footLeft planningNoRoute was not executed. Actualfirstmovement is reboardedUp fourcells, not a footstep.",
+    "Only exact thief-boss node promoted; whole Guild/rescue/Water/Classic/ending and Vortexpositive readiness remain unverified."
+  ],
+  "remaining": [
+    "Earned missingSkullkeyrefusal from preserved446 fork, actual78pickup/repeat/gate/rescue and remainingcampaign.",
+    "Lawful furtherINT>=110 progression, actualVortexReady/cast/fullguardians; supportedbranches/ending remain."
+  ],
+  "cost": {
+    "builds": 8,
+    "game_cli_processes": 48,
+    "focused_cli_processes": 5,
+    "material_launches": 53
+  }
+}
