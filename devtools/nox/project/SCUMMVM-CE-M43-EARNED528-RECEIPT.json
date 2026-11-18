@@ -4308,7 +4308,7 @@
     }
   ],
   "correction": "SCUMMVM-CE-NPC529-VERIFICATION.json",
-  "last_checkpoint": 519,
+  "last_checkpoint": 524,
   "cold_evidence": "ce-native-acceptance528/earned-modern/cold036.json",
   "next_action": "Complete424 fromindex121 at65,147, boardFrigate119217; Bruce75/Archus/Order/remainingcampaign",
   "current_source_commit": "c660ae8ac41",
@@ -4398,7 +4398,7 @@
     "report": "SCUMMVM-CE-M43-NYSTUL548-VERIFICATION.json",
     "actual": "Earned Nystul binding411, repeat539, Staff412 and real low-INT refusal413; cold045 and actual Right move415 retain all state. Normal post-cold return crosses COMP-opened wall and B reboards Wyvern416. Maze access/Staff nodes VERIFIED; 25/60 nodes VERIFIED. Eight-page recognition/binding positive scopes VERIFIED; missing-pages forks/selected Classic coverage remain. Book12qty1, Staff83qty1, field61=67, field15=84, pages8/255. HP89/79/80 MP1/28/42,81gold594food. Current normal flight548 leaves maze toward Foolery/Hairnet. No Engine changes or builds; 8 builds,45 gameCLI+5 focused=50 launches. Vortex Ready/cast requires lawful110INT progression; no ending claim."
   },
-  "active_next": "Purchase original book14 from Bayport47 actor88 for36gold; Ready C1 and use legitimate six physically immune skeleton summons to support Chaos Wand against small physical-only undead groups. Inspect actual admissions, flee Archmage groups where permitted. Earn1264/1194XP before Necrosis readiness; no fabricated XP, outcomes or friendly-summon farming.",
+  "active_next": "Actual12flight838 to147,167, normalground approach DeathKeep150,168; inspect actual small physical-only undead admission before combat. Earn1264/1194XP, then actual Necrosis readiness. No combat success presumed.",
   "Uharad_sea552": {
     "status": "IN PROGRESS",
     "actual": "Actual Uharad flight550 interrupted atSurface126123 by seven98/137 sea boarding, retreat128. Source screenshot189 confirms ship/cannons. Actual twoShock killfour; remainingthree defeatparty under normalcannon/Staff policy. Raw552 filename says victory but actualphase2 isdefeat; no victorycredited. Failedpath and fourowned998generations/sidecars retained in forks/Uharad-sea-failure552. Normalowned998restore atSurface134176 retains416 lineage/fullpredepartureHP89/79/80, MP1/28/42,81gold594food,book12/Staff83. No awards/state merged from failedattempt. Sourceflightplanner now gives ships147..156 twelve-cell clearance, other actors three; originalwide-all12 query553 NoRoute because nearby225environmentactor, no Game inputs. Revised55437-command route avoidsobservedship approach; actualfollower stopsdamage/encounters. No Enginechanges/build/processlaunch.",
@@ -4464,13 +4464,13 @@
     "report": "SCUMMVM-CE-M43-PHYL715-VERIFICATION.json",
     "actual": "Earned Scroll85 reading/cold and paid full rest471 retained. Actual source55 ground-Wyvern steps704 through59/58/54/78; Down78/18,31 entersUM97/176,62, Right177,62/Yflight472. Actual11flight705 reaches98/149,78,473;45flight706 reaches99/81,190,474;17flight707 reaches100/149,190,475. Read-only source geometry selects8flight710 to100/141,166, Yland/Left140,166/Yflight. Actual11flight711 crosses source stair to101/136,162 and lands116,146. These92 actual flight commands replace184-command fixed-grid planning; no positions or outcomes injected. Yland/X and firstRight complete normal disembark; subsequent actualRight moves117,146. First position assertion failed before checkpoint476 because firstRight had not moved; not a demonstrated Engine defect. ActualLookUp identifies Phylactery (screenshot218). Before contact field12=131/no4bit; actualUp117,145 sets135/bit4,477/screenshot219. ActualDown/Up/Down repeat retains135 at117,146,478. Clean cold054 exact party/world/inventory/audio/session/no-assistance continuity PASS. First actualLeft to116,146, normalB reboards ownedWyvern479. Both92HP/68MP,57gold300food. No WaterJewel153 or Lich victory; no Engine edit/build."
   },
-  "last_earned_checkpoint": 519,
+  "last_earned_checkpoint": 524,
   "cult734": {
     "status": "VERIFIED",
     "report": "SCUMMVM-CE-M43-CULT734-VERIFICATION.json",
     "scope": "Four actual earned Cultist pair victories and level6-to8 advancement only; Vortex/guardian/ending acceptance remains IN PROGRESS."
   },
-  "current_checkpoint": 519,
+  "current_checkpoint": 524,
   "essence775": {
     "status": "VERIFIED",
     "report": "SCUMMVM-CE-M43-ESSENCE775-VERIFICATION.json",
@@ -4504,6 +4504,21 @@
     },
     "source_commit": "c660ae8ac41",
     "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd",
-    "next_action": "Purchase original book14 from Bayport47 actor88 for36gold; Ready C1 and use legitimate six physically immune skeleton summons to support Chaos Wand against small physical-only undead groups. Inspect actual admissions, flee Archmage groups where permitted. Earn1264/1194XP before Necrosis readiness; no fabricated XP, outcomes or friendly-summon farming."
+    "next_action": "Purchase original book14 from Bayport47 actor88 for36gold; Ready C1 and use legitimate six skeleton summons (50HP each; immunity against enemy attacks is not established) to support Chaos Wand against small physical-only undead groups. Inspect actual admissions, flee Archmage groups where permitted. Earn1264/1194XP before Necrosis readiness; no fabricated XP, outcomes or friendly-summon farming."
+  },
+  "summon839": {
+    "status": "VERIFIED",
+    "scope": "Earned summon book purchase/readiness and subsequent normal QuickExit only",
+    "actual": "Normal QuickExit returnsSurface79,192 at520. Source21flight834 reaches119,148 without combat/damage; normalY/Up entersBayport49 at521. Source43ground835 reaches47/37,37;44ground836 reaches stale seller position13,27. TalkLeft gives Nobody, no purchase. Fresh actual save finds actor88 at20,21 with service81; source12ground837 reaches19,21. NormalTalkRight/Buy index1,quantity1 spends36gold,43->7;522. Normal inventory book14 Ready C1 succeeds523; actual NBSK confirms slots50,14,3,2,4,60,57,15,27,52. QuickExit returnsSurface119,147 at524; normalY resumes flight. No Engine change/build/process. Six skeleton bodies have50HP; enemy-attack immunity is not established, because physical immunity branch is player-attack-specific.",
+    "checkpoints": {
+      "ce-native-acceptance528/earned-modern/checkpoints/520-Earned-Chaos-departure520/checkpoint.json": "2b58d764670dce78c51e03211b4effa4610511fe5005e42b239cd141ceb5c47f",
+      "ce-native-acceptance528/earned-modern/checkpoints/521-Earned-Bayport-summon-entry521/checkpoint.json": "976f513db6ed4fa41cc78804c6cf67c4acaa836a6e36e9d9954480b7a379f2ae",
+      "ce-native-acceptance528/earned-modern/checkpoints/522-Earned-Lesser-Undead-purchase522/checkpoint.json": "d9471ecf4e5f4b30596a76c47afc2f3a6daceacc0f26ddaa0b22a7c9eca3b26f",
+      "ce-native-acceptance528/earned-modern/checkpoints/523-Earned-Lesser-Undead-ready523/checkpoint.json": "f384b365d157a384db192c9ee2258bafc6067593bfa3a9ebb7ebf160571f1546",
+      "ce-native-acceptance528/earned-modern/checkpoints/524-Earned-summon-return524/checkpoint.json": "2a44bc0dc7c12a2cd4242f77bd6093f33421309e5fb0a144ce350249fb05c536"
+    },
+    "source_commit": "c660ae8ac41",
+    "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd",
+    "next": "Actual12flight838 to147,167, normalground approach DeathKeep150,168; inspect actual small physical-only undead admission before combat. Earn1264/1194XP, then actual Necrosis readiness. No combat success presumed."
   }
 }

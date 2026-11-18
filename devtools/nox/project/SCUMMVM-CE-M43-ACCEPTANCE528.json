@@ -2985,7 +2985,7 @@
   "process_launches": 55,
   "planned_node_count": 60,
   "mandatory_node_count_note": "All selected M3 nodes explicitly represented alongside dependency76 graph; includes supporting/advice/alternative nodes. Necessity is retained per source,not inferred from node count.",
-  "last_earned_checkpoint": 519,
+  "last_earned_checkpoint": 524,
   "baseline_candidate_sha256": "81feb2c7ff17594a6ea9754dc60602a755b2f37ea7c53b437f65a18e7c35000f",
   "candidate_change": "NPC529,cannon530,packedmelee531,mountedTalk532 source corrections; exact scoped receipts and earned ancestry retained. No broad matrix promotion.",
   "earned_failures_retained": [
@@ -3045,14 +3045,14 @@
   "previous_candidate_before533": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed",
   "candidate_source_commit": "c660ae8ac41",
   "candidate_transition": "SCUMMVM-CE-DOOR533-VERIFICATION.json; normal223 cold recovery before further inputs; earlier nodes retain original bound evidence.",
-  "last_checkpoint": 519,
+  "last_checkpoint": 524,
   "cult734": {
     "status": "VERIFIED",
     "report": "SCUMMVM-CE-M43-CULT734-VERIFICATION.json",
     "scope": "Four actual earned Cultist pair victories and level6-to8 advancement only; Vortex/guardian/ending acceptance remains IN PROGRESS."
   },
-  "active_next": "Purchase original book14 from Bayport47 actor88 for36gold; Ready C1 and use legitimate six physically immune skeleton summons to support Chaos Wand against small physical-only undead groups. Inspect actual admissions, flee Archmage groups where permitted. Earn1264/1194XP before Necrosis readiness; no fabricated XP, outcomes or friendly-summon farming.",
-  "current_checkpoint": 519,
+  "active_next": "Actual12flight838 to147,167, normalground approach DeathKeep150,168; inspect actual small physical-only undead admission before combat. Earn1264/1194XP, then actual Necrosis readiness. No combat success presumed.",
+  "current_checkpoint": 524,
   "essence775": {
     "status": "VERIFIED",
     "report": "SCUMMVM-CE-M43-ESSENCE775-VERIFICATION.json",
@@ -3086,6 +3086,21 @@
     },
     "source_commit": "c660ae8ac41",
     "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd",
-    "next_action": "Purchase original book14 from Bayport47 actor88 for36gold; Ready C1 and use legitimate six physically immune skeleton summons to support Chaos Wand against small physical-only undead groups. Inspect actual admissions, flee Archmage groups where permitted. Earn1264/1194XP before Necrosis readiness; no fabricated XP, outcomes or friendly-summon farming."
+    "next_action": "Purchase original book14 from Bayport47 actor88 for36gold; Ready C1 and use legitimate six skeleton summons (50HP each; immunity against enemy attacks is not established) to support Chaos Wand against small physical-only undead groups. Inspect actual admissions, flee Archmage groups where permitted. Earn1264/1194XP before Necrosis readiness; no fabricated XP, outcomes or friendly-summon farming."
+  },
+  "summon839": {
+    "status": "VERIFIED",
+    "scope": "Earned summon book purchase/readiness and subsequent normal QuickExit only",
+    "actual": "Normal QuickExit returnsSurface79,192 at520. Source21flight834 reaches119,148 without combat/damage; normalY/Up entersBayport49 at521. Source43ground835 reaches47/37,37;44ground836 reaches stale seller position13,27. TalkLeft gives Nobody, no purchase. Fresh actual save finds actor88 at20,21 with service81; source12ground837 reaches19,21. NormalTalkRight/Buy index1,quantity1 spends36gold,43->7;522. Normal inventory book14 Ready C1 succeeds523; actual NBSK confirms slots50,14,3,2,4,60,57,15,27,52. QuickExit returnsSurface119,147 at524; normalY resumes flight. No Engine change/build/process. Six skeleton bodies have50HP; enemy-attack immunity is not established, because physical immunity branch is player-attack-specific.",
+    "checkpoints": {
+      "ce-native-acceptance528/earned-modern/checkpoints/520-Earned-Chaos-departure520/checkpoint.json": "2b58d764670dce78c51e03211b4effa4610511fe5005e42b239cd141ceb5c47f",
+      "ce-native-acceptance528/earned-modern/checkpoints/521-Earned-Bayport-summon-entry521/checkpoint.json": "976f513db6ed4fa41cc78804c6cf67c4acaa836a6e36e9d9954480b7a379f2ae",
+      "ce-native-acceptance528/earned-modern/checkpoints/522-Earned-Lesser-Undead-purchase522/checkpoint.json": "d9471ecf4e5f4b30596a76c47afc2f3a6daceacc0f26ddaa0b22a7c9eca3b26f",
+      "ce-native-acceptance528/earned-modern/checkpoints/523-Earned-Lesser-Undead-ready523/checkpoint.json": "f384b365d157a384db192c9ee2258bafc6067593bfa3a9ebb7ebf160571f1546",
+      "ce-native-acceptance528/earned-modern/checkpoints/524-Earned-summon-return524/checkpoint.json": "2a44bc0dc7c12a2cd4242f77bd6093f33421309e5fb0a144ce350249fb05c536"
+    },
+    "source_commit": "c660ae8ac41",
+    "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd",
+    "next": "Actual12flight838 to147,167, normalground approach DeathKeep150,168; inspect actual small physical-only undead admission before combat. Earn1264/1194XP, then actual Necrosis readiness. No combat success presumed."
   }
 }
