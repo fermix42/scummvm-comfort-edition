@@ -1,0 +1,25 @@
+{
+  "status": "VERIFIED",
+  "scope": "Earned Modern Margrave84 award, repeat refusal/no duplicate, cold and subsequent compatibility only; tomb/elders/ending separate.",
+  "actual": "Earned Orders77/Guild field50bit8 and actual child rescue retained. Normal owned Wyvern travel to49/16,10, one source footstep15,10, actual TalkLeft to Margrave0 at14,10 awards TombKey84qty1, field50 14->30,454. Screenshot203 shows original Here is my key to the Tomb of Ol Rev. Repeat opening starts directly in keyword phase3; earlier unnecessary Enter commands closed it without a KEY operation (private helper assertion, no engine defect). Fresh TalkLeft/KEY actual reply I hope the key was of use to you, screenshot205, no duplicate84/455. Cold052 exact state/session/audio/no-assistance PASS; actual Right to16,10 then normal Board/456. Normal QuickExit to119147, ordinary surface alignment120148/source19flight668/Down enters Ghrodwir38 at9,23; Yland/X/457. No quest/item/stat injection or Engine edits/builds.",
+  "evidence": {
+    "ce-native-acceptance528/earned-modern/earned-Margrave-flight664-533.json": "82dd97cc336b0f4bf1eaf7c7e0f670f68baa196ed5d468af10c40480c4fc0ac7",
+    "ce-native-acceptance528/earned-modern/earned-Margrave-opening665-533.json": "7d0547277592c79866b0380bc6043f275efa1b1e766f819b350da8848eedc280",
+    "ce-native-acceptance528/earned-modern/earned-Margrave-repeat-opening666-533.json": "c04a1e413a386c5ad1db558713c10bc48154e20c2a30ddfa672eb3eb80f11e5a",
+    "ce-native-acceptance528/earned-modern/earned-Margrave-repeat666-533.json": "ada3e62143beceee87d5564d05e895772d22468ead5c0acf0a82bdc1863400a6",
+    "ce-native-acceptance528/earned-modern/cold052.json": "7a6c19f78b03e343768e6d6d8c399c9f8b09eed7a3d173bfaccd8e3655d2b3b0",
+    "ce-native-acceptance528/earned-modern/screenshots/scummvm-cli-game-00203.png": "c37fadbcfa1ad1e3988acf85dbc61db8812ac4afc8f9075f2439b88def9d88f9",
+    "ce-native-acceptance528/earned-modern/screenshots/scummvm-cli-game-00205.png": "35784571ccf3d6fe78db79782007bc58ad415f91278aec35cff5d8f66b23722f"
+  },
+  "source_commit": "c660ae8ac41",
+  "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd",
+  "cost": {
+    "builds": 8,
+    "game_cli_processes": 52,
+    "focused_cli_processes": 5,
+    "material_launches": 57
+  },
+  "qualifications": [
+    "No new no-request/no-Guild outcome fork was fabricated. Existing legitimately earned prior Margrave request/refusal evidence remains separately scoped."
+  ]
+}

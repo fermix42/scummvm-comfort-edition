@@ -4,7 +4,7 @@
   "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd",
   "source_binding": "SCUMMVM-CE-DOOR533-VERIFICATION.json",
   "builds": 8,
-  "process_launches": 51,
+  "process_launches": 52,
   "verified_selected_nodes": [
     "opening-exit",
     "royal-access",
@@ -26,6 +26,7 @@
     "skull-key",
     "guild-children-rescue",
     "thieves-guild-boss",
+    "margrave-key",
     "page-bit-4",
     "page-bit-8",
     "page-bit-16",
@@ -4305,7 +4306,7 @@
     }
   ],
   "correction": "SCUMMVM-CE-NPC529-VERIFICATION.json",
-  "last_checkpoint": 453,
+  "last_checkpoint": 457,
   "cold_evidence": "ce-native-acceptance528/earned-modern/cold036.json",
   "next_action": "Complete424 fromindex121 at65,147, boardFrigate119217; Bruce75/Archus/Order/remainingcampaign",
   "current_source_commit": "c660ae8ac41",
@@ -4355,7 +4356,7 @@
     "SCUMMVM-CE-M43-NYSTUL548-VERIFICATION.json": "f426fc3ca78aabeda699f76c0320df8cccb315d5e0b155bc1db59b87bcde3efa",
     "SCUMMVM-CE-M43-HAIRNET573-WORK.json": "2b3bfe59343f851ea9731f880395b6ec6aa6822ffbee8f1c5ee830646b46d84f"
   },
-  "private_ledger_sha256": "99d466048443179b5dcfac199ae1ec4350b28e381e3fae26dba2f3e9ff7277b5",
+  "private_ledger_sha256": "5940c10afc6bedebb4c4443881774d60957d1c35bdf38e2bbbe277a866dea23c",
   "superseded_current_aliases_royal532": {
     "last_checkpoint": 44,
     "latest_earned": "142 firstnormalworldstep after actual141cold021, fullparty/questinventory/resources/session retained;horseparked persistence",
@@ -4395,7 +4396,7 @@
     "report": "SCUMMVM-CE-M43-NYSTUL548-VERIFICATION.json",
     "actual": "Earned Nystul binding411, repeat539, Staff412 and real low-INT refusal413; cold045 and actual Right move415 retain all state. Normal post-cold return crosses COMP-opened wall and B reboards Wyvern416. Maze access/Staff nodes VERIFIED; 25/60 nodes VERIFIED. Eight-page recognition/binding positive scopes VERIFIED; missing-pages forks/selected Classic coverage remain. Book12qty1, Staff83qty1, field61=67, field15=84, pages8/255. HP89/79/80 MP1/28/42,81gold594food. Current normal flight548 leaves maze toward Foolery/Hairnet. No Engine changes or builds; 8 builds,45 gameCLI+5 focused=50 launches. Vortex Ready/cast requires lawful110INT progression; no ending claim."
   },
-  "active_next": "Normal earned Margrave84 reward/repeat, timed elders/Scroll85 and remaining finite campaign acceptance.",
+  "active_next": "Earned Ghrodwir elders timed opening, actual tomb door/Scroll85 and remaining finite campaign.",
   "Uharad_sea552": {
     "status": "IN PROGRESS",
     "actual": "Actual Uharad flight550 interrupted atSurface126123 by seven98/137 sea boarding, retreat128. Source screenshot189 confirms ship/cannons. Actual twoShock killfour; remainingthree defeatparty under normalcannon/Staff policy. Raw552 filename says victory but actualphase2 isdefeat; no victorycredited. Failedpath and fourowned998generations/sidecars retained in forks/Uharad-sea-failure552. Normalowned998restore atSurface134176 retains416 lineage/fullpredepartureHP89/79/80, MP1/28/42,81gold594food,book12/Staff83. No awards/state merged from failedattempt. Sourceflightplanner now gives ships147..156 twelve-cell clearance, other actors three; originalwide-all12 query553 NoRoute because nearby225environmentactor, no Game inputs. Revised55437-command route avoidsobservedship approach; actualfollower stopsdamage/encounters. No Enginechanges/build/processlaunch.",
@@ -4444,5 +4445,10 @@
     "status": "VERIFIED",
     "report": "SCUMMVM-CE-M43-RESCUE663-VERIFICATION.json",
     "actual": "Earned78 pickup/repeat447 and actual market key passage448, then actual Skull-key cell OpenLeft/passage449. Boy32 dialogue from449 preserved as ordinary901 fork; restore449 before Girl40 actual TalkDown at26,26 with Girl26,27. Both openings/acks actually set field53bit2. Primary450 saves Girl result. Ordinary Down moves26,26->26,27; children remain until full scene refresh. Normal W1 performs that refresh and original rule [46,17,19,53,128,2,3,32,0,0,0,0,3,40,0,0,0,0,255] clears both actor records. Actual452 preserves retirement; clean cold051 exact state PASS. Earlier cold050 preserves450 rescue state; cold049 comparison failed because harness compared later live26,27 to older450 saved26,26, not a save failure. No injected positions, items, flags, XP or outcomes; no Engine changes/builds."
+  },
+  "Margrave457": {
+    "status": "VERIFIED",
+    "report": "SCUMMVM-CE-M43-MARGRAVE670-VERIFICATION.json",
+    "actual": "Earned Orders77/Guild field50bit8 and actual child rescue retained. Normal owned Wyvern travel to49/16,10, one source footstep15,10, actual TalkLeft to Margrave0 at14,10 awards TombKey84qty1, field50 14->30,454. Screenshot203 shows original Here is my key to the Tomb of Ol Rev. Repeat opening starts directly in keyword phase3; earlier unnecessary Enter commands closed it without a KEY operation (private helper assertion, no engine defect). Fresh TalkLeft/KEY actual reply I hope the key was of use to you, screenshot205, no duplicate84/455. Cold052 exact state/session/audio/no-assistance PASS; actual Right to16,10 then normal Board/456. Normal QuickExit to119147, ordinary surface alignment120148/source19flight668/Down enters Ghrodwir38 at9,23; Yland/X/457. No quest/item/stat injection or Engine edits/builds."
   }
 }
