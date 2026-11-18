@@ -1,0 +1,18 @@
+{
+  "status": "IN PROGRESS",
+  "scope": "Remaining earned level9 preparation; not Necrosis or Dragon victory",
+  "actual": "Actual534 loneNightmare victory after original6/7/7 caster-containing admissions and normal retreats438->219->109->54gold. Ordinary one10MP summon/Chaos victory,147gold,MP69/39,HP112both,XP22737/22807. Actual source6flight855 toward33/38,12 admits9 includingArchmage; normal retreat147->73gold,residual39,11. NormalYland/Left admission9 again; bounded normal retreat73->36gold,AttackLeft admits loneUndeadWarrior. Ordinary one10MP summon/Chaos victory535,113gold149food,both112HP,MP69/29,XP22787/22857. Remaining213/143XP to23000:5undead kills sufficient. No reload/RNG injection,Engine/build/process change. Qualify earlier movement-pass wording: after533 the saved transport was landed speed0, so initial Right/Left passes were normal one-cell ground movements, not claimed four-cell flight. Later actualY flight and open-room landing36,23 are separately observed. Source read natural-population placement yields three actual NPCs after48Spaces. All inputs/transcripts retained.",
+  "next": "Actual source9flight856 approaches NPC112 Nightmare25,34 via26,35; normalYland/Up26,34 and actual Attack contact after fresh position inspection. Inspect every admission. Five physical undead kills sufficient, Nox may level first; complete actual allocation UI, update exact maxHP, then continue untilBridgit also9. Do not blindly fight caster groups.",
+  "source_commit": "c660ae8ac41",
+  "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd",
+  "cost": {
+    "builds": 8,
+    "game_cli": 55,
+    "focused_cli": 5
+  },
+  "checkpoints": {
+    "ce-native-acceptance528/earned-modern/checkpoints/533-Earned-Chaos-natural-three-victory533/checkpoint.json": "1ed10059f5d29af40f5b78a86e015559518950deda2addb70ac1992c89ae8d91",
+    "ce-native-acceptance528/earned-modern/checkpoints/534-Earned-Chaos-Nightmare-victory534/checkpoint.json": "40012907fe7a0714c77874e3910ccf111deb537f6d004f365197f619d08011bf",
+    "ce-native-acceptance528/earned-modern/checkpoints/535-Earned-Chaos-Warrior-victory535/checkpoint.json": "2bccc1f06c2d2e317e727327bbe9c1ab37c4d7e99fb5b22f1bea84806ceba2fd"
+  }
+}

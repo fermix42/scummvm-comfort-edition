@@ -2985,7 +2985,7 @@
   "process_launches": 55,
   "planned_node_count": 60,
   "mandatory_node_count_note": "All selected M3 nodes explicitly represented alongside dependency76 graph; includes supporting/advice/alternative nodes. Necessity is retained per source,not inferred from node count.",
-  "last_earned_checkpoint": 530,
+  "last_earned_checkpoint": 540,
   "baseline_candidate_sha256": "81feb2c7ff17594a6ea9754dc60602a755b2f37ea7c53b437f65a18e7c35000f",
   "candidate_change": "NPC529,cannon530,packedmelee531,mountedTalk532 source corrections; exact scoped receipts and earned ancestry retained. No broad matrix promotion.",
   "earned_failures_retained": [
@@ -3045,14 +3045,14 @@
   "previous_candidate_before533": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed",
   "candidate_source_commit": "c660ae8ac41",
   "candidate_transition": "SCUMMVM-CE-DOOR533-VERIFICATION.json; normal223 cold recovery before further inputs; earlier nodes retain original bound evidence.",
-  "last_checkpoint": 530,
+  "last_checkpoint": 540,
   "cult734": {
     "status": "VERIFIED",
     "report": "SCUMMVM-CE-M43-CULT734-VERIFICATION.json",
     "scope": "Four actual earned Cultist pair victories and level6-to8 advancement only; Vortex/guardian/ending acceptance remains IN PROGRESS."
   },
-  "active_next": "Continue remaining fourteen physical undead kills for earned level9 INT104. Actual source2flight847 to150176 succeeded; normal alignmentreturn interrupted by three50HP surface enemies149172, current ordinary physical battle; no result presumed.",
-  "current_checkpoint": 530,
+  "active_next": "Actual source24flight861 toSurface78,192; normalYland/Right intoCave79,192. Inspect actual underworld arrival, source-plan owned Wyvern flight to101/Dragon117 at67,39. Actual Necrosis C1 Nox caster29MP; no victory or50000XP claim until earned. Retain bothparty members for source per-party XP arithmetic.",
+  "current_checkpoint": 540,
   "essence775": {
     "status": "VERIFIED",
     "report": "SCUMMVM-CE-M43-ESSENCE775-VERIFICATION.json",
@@ -3138,6 +3138,47 @@
       "ce-native-acceptance528/earned-modern/checkpoints/528-Earned-Chaos-five-undead-victory528/checkpoint.json": "eed64d927d31e23829e565404066a293bef8b1a9833f6e267553cc04d030cb15",
       "ce-native-acceptance528/earned-modern/checkpoints/529-Earned-Chaos-natural-five-victory529/checkpoint.json": "7555428e0b44c3c0095af538e9792e423056d31c47121190da1a5071548eb622",
       "ce-native-acceptance528/earned-modern/checkpoints/530-Earned-Chaos-mana-camp530/checkpoint.json": "141fda1234ee4be8438c0f177227ce1d1bd96b89b1453c0f43aa63add21638dc"
+    }
+  },
+  "earned532": "Actual531: three471HP UndeadWarriors at32/19,18 defeated with one10MP normal summon, both112HP,MP69/59,850gold149food. Source stair approach briefly returned31; corrected actualUp from31/38,32 ->32/39,31, thenLeft ->33/39,31. Normalflight to33/31,31,32+64Space turns generates originalDeathJester28,37. Normal approach admits ten including Dysentery220; actual exit0 retreat850->425gold,noHP/MP/XP loss. Fresh actual16030,36; normalRight admits single471HP DeathJester; actual wand physical victory532, noMana/HP loss,523gold149food. ActualXP[22537, 22607]. NoEngine change/build/process. Subsequent48Spaces no NPC remains; normal source rectangle flight at33/27,27 continues finite ten-kill objective.",
+  "earned533": "Actual533 defeats three471HP UndeadWarriors onRuin33 after normal retained retreat from7 includingArchmage,438->261gold. Normal flight/ground approach admits3, ordinary one10MP summon/Chaos victory; both112HP,MP69/49,438gold149food. Source read actualXP22687/22757,remaining313/243;7undead kills sufficient. Prior532 total22537/22607 includes actual incidentalSurface+1XP, correcting earlier arithmetic22536/22606. Current finite source-supported normal movement passes seek new original population contact; noEngine/build/process change.",
+  "chaos857": {
+    "status": "IN PROGRESS",
+    "scope": "Remaining earned level9 preparation; not Necrosis or Dragon victory",
+    "actual": "Actual534 loneNightmare victory after original6/7/7 caster-containing admissions and normal retreats438->219->109->54gold. Ordinary one10MP summon/Chaos victory,147gold,MP69/39,HP112both,XP22737/22807. Actual source6flight855 toward33/38,12 admits9 includingArchmage; normal retreat147->73gold,residual39,11. NormalYland/Left admission9 again; bounded normal retreat73->36gold,AttackLeft admits loneUndeadWarrior. Ordinary one10MP summon/Chaos victory535,113gold149food,both112HP,MP69/29,XP22787/22857. Remaining213/143XP to23000:5undead kills sufficient. No reload/RNG injection,Engine/build/process change. Qualify earlier movement-pass wording: after533 the saved transport was landed speed0, so initial Right/Left passes were normal one-cell ground movements, not claimed four-cell flight. Later actualY flight and open-room landing36,23 are separately observed. Source read natural-population placement yields three actual NPCs after48Spaces. All inputs/transcripts retained.",
+    "next": "Actual source9flight856 approaches NPC112 Nightmare25,34 via26,35; normalYland/Up26,34 and actual Attack contact after fresh position inspection. Inspect every admission. Five physical undead kills sufficient, Nox may level first; complete actual allocation UI, update exact maxHP, then continue untilBridgit also9. Do not blindly fight caster groups.",
+    "source_commit": "c660ae8ac41",
+    "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd",
+    "cost": {
+      "builds": 8,
+      "game_cli": 55,
+      "focused_cli": 5
+    },
+    "checkpoints": {
+      "ce-native-acceptance528/earned-modern/checkpoints/533-Earned-Chaos-natural-three-victory533/checkpoint.json": "1ed10059f5d29af40f5b78a86e015559518950deda2addb70ac1992c89ae8d91",
+      "ce-native-acceptance528/earned-modern/checkpoints/534-Earned-Chaos-Nightmare-victory534/checkpoint.json": "40012907fe7a0714c77874e3910ccf111deb537f6d004f365197f619d08011bf",
+      "ce-native-acceptance528/earned-modern/checkpoints/535-Earned-Chaos-Warrior-victory535/checkpoint.json": "2bccc1f06c2d2e317e727327bbe9c1ab37c4d7e99fb5b22f1bea84806ceba2fd"
+    }
+  },
+  "level860": {
+    "status": "VERIFIED",
+    "scope": "Earned level9 both, actual Necrosis readiness and departure only; not Dragon victory/Vortex/ending",
+    "actual": "Actual536 source9flight856 approaches33/25,34; seven-enemy Archmage admission retreat113->56gold. NormalYland/Up26,34 admits8 inclArchmages; bounded normal retreats56->28->14 and actual twoNightmares admitted. Ordinary10MP summon/Chaos victory536,97gold149food,XP22887/22957,both112HP,MP69/19. ActualHcamp537 succeeds,MP69both,99food. Source7flight858 reaches30,10; DeathJester actual29,7 is outside walking boundary, no attack claimed. Source4flight859 reaches34,22, normalland/48Spaces generates reachable16025,21. NormalY/Left/Left reaches26,22; actual actor26,23. Yland/AttackDown admits9 includingDysentery220; normal bounded retreats97->48->24->12, then five physical-only actualfourDeathJesters/oneNightmare. Actual two10MP summons/Chaos victory, noHP loss. Normal original12INT allocation UI for both;538 retains level9 INT104 maxHP117/current117,XP23137/23207,MP81/61,346gold99food. Normal ownedbook11 Ready C1 succeeds539. QuickExit returnsSurface150168,BrMP77,540; actualYflight resumes. No Engine/build/process change. Sourceadvancement review confirms onlyone level/member/victory; both9 were not strictly required beforeDragon, but actualfive-member victory legitimately qualified both. No additional grinding required.",
+    "source_commit": "c660ae8ac41",
+    "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd",
+    "cost": {
+      "builds": 8,
+      "game_cli": 55,
+      "focused_cli": 5,
+      "material_launches": 60
+    },
+    "next": "Actual source24flight861 toSurface78,192; normalYland/Right intoCave79,192. Inspect actual underworld arrival, source-plan owned Wyvern flight to101/Dragon117 at67,39. Actual Necrosis C1 Nox caster29MP; no victory or50000XP claim until earned. Retain bothparty members for source per-party XP arithmetic.",
+    "checkpoints": {
+      "ce-native-acceptance528/earned-modern/checkpoints/536-Earned-Chaos-Nightmare-victory536/checkpoint.json": "ccb62b060819e574e71b8b07b3694e1ad025974ba67f76f385b28ffec9dbf017",
+      "ce-native-acceptance528/earned-modern/checkpoints/537-Earned-final-advancement-mana-camp537/checkpoint.json": "bdbfcf5aee1edf2c59f80acb1cb0c9f755f99ed7a1e5665b686f57aee26e75e1",
+      "ce-native-acceptance528/earned-modern/checkpoints/538-Earned-both-level-nine538/checkpoint.json": "cb755d64c710bc6a89b926258c70de65fb50826df9fc2b0404a69e6a54c54ada",
+      "ce-native-acceptance528/earned-modern/checkpoints/539-Earned-Necrosis-ready539/checkpoint.json": "e39df82a4da0498ecf438b7c81ba666f92aca4e409b605aad01dee07e45e876e",
+      "ce-native-acceptance528/earned-modern/checkpoints/540-Earned-Necrosis-departure540/checkpoint.json": "97647094acc31739199fc8001fc276dc960c029c78ee6eb65c16e9c446adf270"
     }
   }
 }
