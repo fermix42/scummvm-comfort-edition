@@ -1,3 +1,7 @@
+# B-SCRIPT / story.08 investigation1135 — UNKNOWN
+
+M4.3 remains closed. No new blocking native defect demonstrated. Exhaustive source equivalence is not established:1135 provides32 mechanism rows and per-site candidate/source indexes,276 bounded original-code cases, and exact U01..U07 and S-row obligations. Complete original code/data roots, bank/overlay/call/alias/generated contexts, dynamic producer provenance,19 dialogue tails and qualified full-failure behavior remain unresolved. These are source-evidence obligations, not a new campaign/build queue. See STORY08-1135 report/matrix; historical evidence below retained.
+
 # Completion1134 disposition — November 18, 2026
 
 Supported base v119 native port and M4.3 are VERIFIED under the owner source/existing-evidence amendment. Final report SCUMMVM-CE-M43-COMPLETION1134.json separates actual earned gameplay, source review and historical controlled evidence. No demonstrated blocking native implementation defect or required original-execution dependency remains in supported scope. Existing raw53/254, moving-large-NPC/ship-domain and story.08 qualifications remain explicit research/coverage limits; prior failures below remain historical. No acceptance traversal/build/suite rerun pending. No publication/push/release/distribution.

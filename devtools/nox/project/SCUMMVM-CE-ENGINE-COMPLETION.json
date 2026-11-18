@@ -2644,7 +2644,8 @@
       "implementation": "UNKNOWN",
       "verification": {
         "status": "IN PROGRESS",
-        "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement."
+        "scope": "1135 source investigation:32 mechanism rows,10 bounded equivalents/6 justified differences/16 UNKNOWN. Exhaustive original executable/caller/alias/dynamic-context equivalence is not demonstrated.276 bounded original-code cases are not fresh native verification. M4.3 remains closed.",
+        "report": "SCUMMVM-CE-STORY08-1135-RECONCILIATION.json"
       },
       "native_owners": [
         "engines/nox/native_gates.h",
@@ -2659,9 +2660,10 @@
         "SCUMMVM-CE-DIALOGUE-PRESENTATION501.md:complete authored body grammar static scope;not whole rendering/runtime acceptance",
         "SCUMMVM-CE-SCRIPT-SERVICE-OWNERS500.md contact502:17fixed/15role126/9awards static source encoding scope only",
         "SCUMMVM-CE-WORLD-STORY525-VERIFICATION.json and HARDCODED-STORY525-REVIEW:approach producer/core/admission only;wider producer/campaign scope unchanged.",
-        "SCUMMVM-CE-INTEGRATION527-I4-VERIFICATION.json:bounded Engine joined integration/cold/nextinput only; broad row remains qualified; story.08 UNKNOWN unchanged."
+        "SCUMMVM-CE-INTEGRATION527-I4-VERIFICATION.json:bounded Engine joined integration/cold/nextinput only; broad row remains qualified; story.08 UNKNOWN unchanged.",
+        "SCUMMVM-CE-STORY08-1135-RECONCILIATION.json and SCUMMVM-CE-STORY08-1135.md:full static candidate envelope, bounded mechanism matrix and exact unresolved proof obligations; implementation UNKNOWN retained."
       ],
-      "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
+      "production_connection": "Known source/native chains and source hashes are in1135; complete bank/overlay/alias/caller and dynamic producer coverage remains unresolved.",
       "fallback_dependencies": [],
       "blockers": [
         "B-SCRIPT"
@@ -8079,5 +8081,20 @@
     "report": "SCUMMVM-CE-M43-COMPLETION1134.json",
     "scope": "Base v119 supported native-only port",
     "broad_corpus_status": "IN PROGRESS"
+  },
+  "story08_investigation1135": {
+    "status": "IN PROGRESS",
+    "implementation": "UNKNOWN",
+    "report": "SCUMMVM-CE-STORY08-1135-RECONCILIATION.json",
+    "exhaustive_equivalence_demonstrated": false,
+    "mechanism_rows": 32,
+    "verified_equivalent_bounded_rows": 10,
+    "intentionally_different_rows": 6,
+    "unknown_rows": 16,
+    "original_source_cases": 276,
+    "native_corrections": 0,
+    "native_builds": 0,
+    "engine_launches": 0,
+    "m43_status": "VERIFIED and unchanged"
   }
 }

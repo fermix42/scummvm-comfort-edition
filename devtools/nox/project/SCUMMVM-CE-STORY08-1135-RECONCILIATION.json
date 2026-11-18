@@ -1,0 +1,1880 @@
+{
+  "status": "IN PROGRESS",
+  "assignment": "story.08 focused technical investigation1135",
+  "milestone_m43": "VERIFIED; closed and unchanged",
+  "story08_implementation": "UNKNOWN",
+  "story08_verification": "IN PROGRESS",
+  "exhaustive_reachable_equivalence_demonstrated": false,
+  "judgment": "Exhaustive static candidate envelopes and bounded source reconciliation are delivered. Exhaustive original-to-native reachable mutation coverage is NOT demonstrated; story.08 is not promoted.",
+  "requirements": {
+    "original_scope": "Base v119 only; all original story-state mutation mechanisms and execution contexts, not just selected campaign or finite known flags.",
+    "task_authority": "Owner explicit story.08 source investigation/correction assignment; no campaign replay, release preparation, packaging or publication."
+  },
+  "source_image_sha256": "c42a95c7a356548c78957f98693e92d33c9bae3ff5126d9887c2980e5a490c3c",
+  "native_source_commit": "d52b130c5df",
+  "native_source_files": 377,
+  "native_source_drift": [],
+  "accepted_m43_hashes": {
+    "SCUMMVM-CE-COMPLETION1134-INTEGRITY.json": "c1e04220e6820c913b9e3d358df6cdc96e9770be137346f83eeb6f1cd64af504",
+    "SCUMMVM-CE-M43-ACCEPTANCE528.json": "7648de4d2168d55fe521f2d9998c5443f9713040084174013acb537c12a1b4af",
+    "SCUMMVM-CE-M43-COMPLETION1134.json": "00895f7051e6fa243798a0971820bcea97f000b7ebd9dee524425cd6c8d8dafc",
+    "SCUMMVM-CE-M43-COMPLETION1134.md": "0ea1ce9b2d4e0c7f85e1bc6b1275bbc759ed0687e2b416aec816012819c4e193"
+  },
+  "source_bindings": {
+    "module.mk": {
+      "sha256": "ca92bfb762d97850070413576d26a54eaefb12fb9880d261d799e111d9fe66cf",
+      "anchors": []
+    },
+    "native_actors.h": {
+      "sha256": "8c0e8211fcabd90034d90fe1cbd4690107cd86da8cb46a4c6944f533b21765af",
+      "anchors": [
+        {
+          "line": 7,
+          "text": "struct WorldActor {"
+        }
+      ]
+    },
+    "native_battle_aftermath.h": {
+      "sha256": "82cbe9a1f745dff9a24e41a0faca43ffc0419f412d7310c7645fe5dab98367fc",
+      "anchors": [
+        {
+          "line": 12,
+          "text": "class BattleAftermath {"
+        }
+      ]
+    },
+    "native_battle_loot.h": {
+      "sha256": "79b5d735db102a9268e243c3ec195522a84dbeb8a2082b8ef5b95d6c5a55d9b4",
+      "anchors": [
+        {
+          "line": 9,
+          "text": "struct BattleLootState {"
+        },
+        {
+          "line": 34,
+          "text": "class BattleLoot {"
+        }
+      ]
+    },
+    "native_battle_round.h": {
+      "sha256": "2a3a0696931dd556e7d26b3fc23d2b537f4e0441a9e2aeef504267d4d8ab3dc5",
+      "anchors": [
+        {
+          "line": 17,
+          "text": "struct BattleRoundState {"
+        },
+        {
+          "line": 27,
+          "text": "class BattleRound {"
+        }
+      ]
+    },
+    "native_battle_world_return.h": {
+      "sha256": "8b6ec7e2e8314704cbd6a21a2d807fb185e1f0530ca1c6b1de7d2c27f6ce5ef9",
+      "anchors": [
+        {
+          "line": 6,
+          "text": "struct BattleTreasureAward {"
+        },
+        {
+          "line": 12,
+          "text": "class BattleWorldReturn {"
+        }
+      ]
+    },
+    "native_clock.h": {
+      "sha256": "f270eec76b75e96bbac284a25e57ca9738135af908491f4c080f968d3112ac5e",
+      "anchors": [
+        {
+          "line": 9,
+          "text": "struct TurnClock {"
+        },
+        {
+          "line": 13,
+          "text": "struct ClockAdvance {"
+        }
+      ]
+    },
+    "native_conversation.h": {
+      "sha256": "58e0e5aadd227a98c6c9fd51eb74cd1e167c95eb986dd25eb9bf3e0868f0082d",
+      "anchors": [
+        {
+          "line": 20,
+          "text": "struct ConversationContext {"
+        },
+        {
+          "line": 49,
+          "text": "class Conversation {"
+        },
+        {
+          "line": 50,
+          "text": "friend class World;"
+        },
+        {
+          "line": 247,
+          "text": "const DialogueCommitResult result = commitDialogueFields(response, next, sizeof(next), _context.voice, _context.adultMode, _context.hour, _context.minute);"
+        }
+      ]
+    },
+    "native_conversation_callbacks.h": {
+      "sha256": "e36c020513f324798d534ce7c6ca6645ff5e69d0978095a8b2d65a468cee0fa2",
+      "anchors": [
+        {
+          "line": 8,
+          "text": "class ConversationCallbacks {"
+        }
+      ]
+    },
+    "native_dialogue.h": {
+      "sha256": "e0117b66dfd59bd02fd25efeac34076a95548676a60713b152f828d9c4aa8aea",
+      "anchors": [
+        {
+          "line": 11,
+          "text": "struct DialoguePacket {"
+        }
+      ]
+    },
+    "native_dialogue_rules.h": {
+      "sha256": "7222b94089768f9bed6b91e86da6155d82b9b0f1e27adffc5e1f9bda499bd94f",
+      "anchors": [
+        {
+          "line": 11,
+          "text": "struct DialogueFieldPair {"
+        },
+        {
+          "line": 15,
+          "text": "struct DialogueTimeWindow {"
+        },
+        {
+          "line": 20,
+          "text": "struct DialogueResponse {"
+        },
+        {
+          "line": 133,
+          "text": "inline bool dialogueEligible(const DialogueResponse &response, QuestFields fields,"
+        },
+        {
+          "line": 162,
+          "text": "if (dialogueEligible(candidate, fields, voice, adultMode, hour, minute)) { output = candidate; return true; }"
+        },
+        {
+          "line": 174,
+          "text": "inline DialogueCommitResult commitDialogueFields(const DialogueResponse &response,"
+        },
+        {
+          "line": 176,
+          "text": "if (!fields || !dialogueEligible(response, QuestFields(fields, count), voice, adultMode, hour, minute))"
+        }
+      ]
+    },
+    "native_encounter_admission.h": {
+      "sha256": "e8c7b8761ceee866580c17fa63df6b04e0a27879c5dc17fb9d4c630468dcdbdd",
+      "anchors": [
+        {
+          "line": 6,
+          "text": "struct EncounterContext {"
+        },
+        {
+          "line": 9,
+          "text": "struct EncounterAdmission {"
+        },
+        {
+          "line": 16,
+          "text": "class EncounterAdmissionRules {"
+        }
+      ]
+    },
+    "native_ending.h": {
+      "sha256": "7994f4c935930ec61f489af87df45a43a8ef4645207dd0b736a8d480a97622f2",
+      "anchors": [
+        {
+          "line": 11,
+          "text": "class EndingPresentation {"
+        }
+      ]
+    },
+    "native_engine.cpp": {
+      "sha256": "1c0749ada485495e8685bf6823d62af811f421d0b6a645b2648fd89fbcb7e4c6",
+      "anchors": [
+        {
+          "line": 121,
+          "text": "struct PartialWriteTest {Common::SaveFileManager *manager;Common::String report;};"
+        },
+        {
+          "line": 148,
+          "text": "struct NativeLoadCleanup {NativePlayerSession *host;~NativeLoadCleanup(){if(host)host->discardLoad();}} staged={_nativePlayer};"
+        }
+      ]
+    },
+    "native_exploration_save.h": {
+      "sha256": "b53b16ad3c9bff3941a4806281f80ebc598de7665df4da1d2f19b9184d0e47ff",
+      "anchors": [
+        {
+          "line": 17,
+          "text": "class ExplorationSave {"
+        }
+      ]
+    },
+    "native_gates.h": {
+      "sha256": "fc8f0ed3ff23b5dcda4cd29e622061e95d16800d9faf97a43675eaf167e1a08d",
+      "anchors": [
+        {
+          "line": 20,
+          "text": "struct QuestFields {"
+        },
+        {
+          "line": 27,
+          "text": "struct PortalDestination {"
+        },
+        {
+          "line": 31,
+          "text": "inline GateResult keyDoor(const byte *object, uint length, QuestFields fields) {"
+        },
+        {
+          "line": 42,
+          "text": "inline GateResult compoundDoor(const byte *object, uint length, QuestFields fields) {"
+        },
+        {
+          "line": 54,
+          "text": "inline GateResult pressurePlate(const byte *object, uint length, QuestFields fields,"
+        },
+        {
+          "line": 66,
+          "text": "struct ControlPair {"
+        },
+        {
+          "line": 91,
+          "text": "inline GateResult portal(const byte *object, uint length, QuestFields fields,"
+        }
+      ]
+    },
+    "native_inventory.h": {
+      "sha256": "27cb68684a27d4f9b2b48cea997de1caee3eb9e0d55fc2638ecc80eabd2f4f76",
+      "anchors": [
+        {
+          "line": 13,
+          "text": "class ItemCatalog {"
+        },
+        {
+          "line": 31,
+          "text": "struct InventoryItem {"
+        },
+        {
+          "line": 45,
+          "text": "class Inventory {"
+        },
+        {
+          "line": 137,
+          "text": "struct DialogueHandoff {"
+        }
+      ]
+    },
+    "native_inventory_actions.h": {
+      "sha256": "820076d9286df91d3f393557526d815ad6e73c28e13f9b91b38a3bd3208779f1",
+      "anchors": [
+        {
+          "line": 7,
+          "text": "class InventoryActions {"
+        }
+      ]
+    },
+    "native_new_game.h": {
+      "sha256": "8a5d23f527622c57bdb49c3954d08c70410d107c876be821eb299761f18f1927",
+      "anchors": [
+        {
+          "line": 15,
+          "text": "struct CommerceCounterContext {"
+        },
+        {
+          "line": 22,
+          "text": "class NewGame {"
+        },
+        {
+          "line": 23,
+          "text": "friend class PlayerSessionState;"
+        },
+        {
+          "line": 24,
+          "text": "friend class TempleService;"
+        },
+        {
+          "line": 25,
+          "text": "friend class InnService;"
+        },
+        {
+          "line": 26,
+          "text": "friend class InnMembership;"
+        },
+        {
+          "line": 27,
+          "text": "friend class Recruitment;"
+        },
+        {
+          "line": 111,
+          "text": "friend class ExplorationSave;"
+        },
+        {
+          "line": 112,
+          "text": "friend class BattleAftermath;"
+        },
+        {
+          "line": 113,
+          "text": "friend class BattleInventory;"
+        },
+        {
+          "line": 114,
+          "text": "friend class WorldConversation;"
+        }
+      ]
+    },
+    "native_npc_actor_actions.h": {
+      "sha256": "2aa6e51de548d12d2e9199ebf3ff26d3fc97e0a1bfe1df255922b79e1a81930d",
+      "anchors": [
+        {
+          "line": 11,
+          "text": "class NpcActorActions {"
+        }
+      ]
+    },
+    "native_npc_schedule.h": {
+      "sha256": "af35734074f94f643ec3fa0b593810a180366118879bdb043b81df24b3627b50",
+      "anchors": [
+        {
+          "line": 9,
+          "text": "struct NpcScheduleSelection {"
+        },
+        {
+          "line": 13,
+          "text": "class NpcScheduler;"
+        },
+        {
+          "line": 16,
+          "text": "class NpcScheduleState {"
+        },
+        {
+          "line": 17,
+          "text": "friend class NpcRouteFollower;"
+        },
+        {
+          "line": 18,
+          "text": "friend class NpcRouteRecovery;"
+        },
+        {
+          "line": 19,
+          "text": "friend class NpcNavigation;"
+        },
+        {
+          "line": 20,
+          "text": "friend class NpcScheduler;"
+        },
+        {
+          "line": 21,
+          "text": "friend class NpcRouteStore;"
+        },
+        {
+          "line": 60,
+          "text": "struct NpcSchedulePolicy { bool keepSpecialActors,keepSpecialBehavior; };"
+        },
+        {
+          "line": 62,
+          "text": "class NpcScheduler {"
+        }
+      ]
+    },
+    "native_party.h": {
+      "sha256": "d1cbcdc635e7fa1df1473223bb0d518785c29e48f9de73bcdb523f52cd683cc4",
+      "anchors": [
+        {
+          "line": 10,
+          "text": "class Party {"
+        },
+        {
+          "line": 11,
+          "text": "friend class EquipmentActions;"
+        },
+        {
+          "line": 12,
+          "text": "friend class InnMembership;"
+        },
+        {
+          "line": 13,
+          "text": "friend class Recruitment;"
+        },
+        {
+          "line": 14,
+          "text": "friend class TrainingService;"
+        }
+      ]
+    },
+    "native_player_session.h": {
+      "sha256": "c336a3ea05001a37c40e79ecefd34eedb3861e59b94b491629e037b3c9f6b60f",
+      "anchors": [
+        {
+          "line": 16,
+          "text": "class PlayerSessionState : public NativePlayerSession {"
+        }
+      ]
+    },
+    "native_praevoc.h": {
+      "sha256": "0ce81329af13f788bfa30515b339b1a6305f97c434992a8e8e7d644c07888ce9",
+      "anchors": [
+        {
+          "line": 8,
+          "text": "class PraevocSpeechRules {"
+        }
+      ]
+    },
+    "native_recruitment.h": {
+      "sha256": "92465e5ce3fdde935aa849cf23e33978643abd9f803393dd49a16081ef888ba5",
+      "anchors": [
+        {
+          "line": 8,
+          "text": "class Recruitment {"
+        }
+      ]
+    },
+    "native_search.h": {
+      "sha256": "3b75a1d84ca8b5375f06da2327b657fbb2a26727561d44fe9fdbd8d57019fe8b",
+      "anchors": [
+        {
+          "line": 12,
+          "text": "struct SearchTreasure {byte count,descriptor,level;SearchTreasure() : count(0),descriptor(0),level(0) {}};"
+        },
+        {
+          "line": 13,
+          "text": "struct SearchState { byte priorLockAttempts; SearchState() : priorLockAttempts(0) {} };"
+        },
+        {
+          "line": 14,
+          "text": "class SearchRules {"
+        },
+        {
+          "line": 68,
+          "text": "inline SearchRewardResult searchQuestReward(byte *object, uint objectBytes, byte *fields, uint fieldBytes,"
+        }
+      ]
+    },
+    "native_search_input.h": {
+      "sha256": "e0e3e8a93d79565563740769826a7747e0d31805cbf03d48a6e87182ec549fd9",
+      "anchors": [
+        {
+          "line": 11,
+          "text": "class SearchInput {"
+        }
+      ]
+    },
+    "native_startup_host.h": {
+      "sha256": "0675ca1ad0d296f42a890d1d4ff62e8fb4c511b13ad5ded187c29fe6cab15be9",
+      "anchors": [
+        {
+          "line": 94,
+          "text": "class NativeStartupKeys : public Common::EventSource {"
+        },
+        {
+          "line": 635,
+          "text": "struct Unregister { Common::EventDispatcher *dispatcher; Common::EventSource *source; ~Unregister() { if (source) dispatcher->unregisterSource(source); } } cleanup={dispa"
+        },
+        {
+          "line": 821,
+          "text": "struct NativeSessionRegistration {NativePlayerSession *&slot;~NativeSessionRegistration(){slot=nullptr;}} nativeRegistration={_nativePlayer};"
+        }
+      ]
+    },
+    "native_story_patches.h": {
+      "sha256": "c9ff04c561dbcbcc86543d6ad7841ddce35cc544e5fca60cfae1d1fff65bb2a2",
+      "anchors": [
+        {
+          "line": 6,
+          "text": "struct StoryMapState {"
+        },
+        {
+          "line": 11,
+          "text": "class StoryMapPatches {"
+        },
+        {
+          "line": 61,
+          "text": "struct Rule { Common::Array<byte> bytes; };"
+        }
+      ]
+    },
+    "native_world.h": {
+      "sha256": "2c6826b550951d3e04d77d642817c0b8a82b38e151ee19971413fd0c7e477e74",
+      "anchors": [
+        {
+          "line": 17,
+          "text": "class WorldPresentation;"
+        },
+        {
+          "line": 22,
+          "text": "class World {"
+        },
+        {
+          "line": 53,
+          "text": "bool discoverShadowApproach(bool &changed) {"
+        },
+        {
+          "line": 152,
+          "text": "if (kind == 18) result = keyDoor(object, 256 - slot, QuestFields(_fields, sizeof(_fields)));"
+        },
+        {
+          "line": 153,
+          "text": "else if (kind == 19) result = compoundDoor(object, 256 - slot, QuestFields(_fields, sizeof(_fields)));"
+        },
+        {
+          "line": 247,
+          "text": "const SearchRewardResult reward = searchQuestReward(nextObject, 12, fields, 256, catalog, nextInventory);"
+        },
+        {
+          "line": 261,
+          "text": "const GateResult result = pressurePlate(object, 256 - slot, QuestFields(_fields, sizeof(_fields)), next);"
+        },
+        {
+          "line": 271,
+          "text": "const GateResult result = portal(object, 256 - slot, QuestFields(_fields, sizeof(_fields)), _onFoot, destination);"
+        },
+        {
+          "line": 328,
+          "text": "friend class LegacySnapshotData;"
+        },
+        {
+          "line": 349,
+          "text": "friend class ActorSpatialRules;"
+        },
+        {
+          "line": 350,
+          "text": "friend class Recruitment;"
+        },
+        {
+          "line": 351,
+          "text": "friend class NpcWorldAction;"
+        },
+        {
+          "line": 352,
+          "text": "friend class CompactWorldAction;"
+        },
+        {
+          "line": 353,
+          "text": "friend class WorldActorTurn;"
+        },
+        {
+          "line": 354,
+          "text": "friend class WorldPopulation;"
+        },
+        {
+          "line": 355,
+          "text": "friend class WorldWait;"
+        },
+        {
+          "line": 356,
+          "text": "friend class ActorMovementEffects;"
+        },
+        {
+          "line": 357,
+          "text": "friend class WorldPresentation;"
+        },
+        {
+          "line": 358,
+          "text": "friend class WorldStory;"
+        },
+        {
+          "line": 359,
+          "text": "friend class WorldTravel;"
+        },
+        {
+          "line": 360,
+          "text": "friend class WorldInput;"
+        },
+        {
+          "line": 361,
+          "text": "friend class WorldDig;"
+        },
+        {
+          "line": 362,
+          "text": "friend class WorldConversation;"
+        },
+        {
+          "line": 363,
+          "text": "friend class InventoryActions;"
+        },
+        {
+          "line": 364,
+          "text": "friend class WorldScenePhase;"
+        },
+        {
+          "line": 365,
+          "text": "friend class WorldCommand;"
+        },
+        {
+          "line": 366,
+          "text": "friend class WorldOpen;"
+        },
+        {
+          "line": 367,
+          "text": "friend class WorldMove;"
+        },
+        {
+          "line": 368,
+          "text": "friend class WorldViewport;"
+        },
+        {
+          "line": 369,
+          "text": "friend class NpcScheduler;"
+        },
+        {
+          "line": 370,
+          "text": "friend class NpcActorActions;"
+        },
+        {
+          "line": 371,
+          "text": "friend class NpcRouteFollower;"
+        },
+        {
+          "line": 372,
+          "text": "friend class NpcRouteRecovery;"
+        },
+        {
+          "line": 373,
+          "text": "friend class NpcActionDispatcher;"
+        },
+        {
+          "line": 374,
+          "text": "friend class NewGame;"
+        },
+        {
+          "line": 375,
+          "text": "friend class WorldCheckpointFixture;"
+        },
+        {
+          "line": 376,
+          "text": "friend class BattleAftermath;"
+        },
+        {
+          "line": 405,
+          "text": "void syncObjectFields(const byte *lookup) {"
+        },
+        {
+          "line": 415,
+          "text": "struct ChangedMap { byte family, id; Common::Array<byte> tables; };"
+        }
+      ]
+    },
+    "native_world_actor_turn.h": {
+      "sha256": "c0bf5f7f092c5809c5e1963525d1f70bbadbc72c7436a5cf256734b439d41396",
+      "anchors": [
+        {
+          "line": 10,
+          "text": "struct WorldActorTurnState {"
+        },
+        {
+          "line": 66,
+          "text": "struct WorldActorTurnEvent {"
+        },
+        {
+          "line": 73,
+          "text": "class WorldActorTurn {"
+        },
+        {
+          "line": 83,
+          "text": "scene.draws.clear();scene.actors.draws.clear();scene.objects.draws.clear();scene.objects.portal=255;scene.actors.hiddenByTurn=state.presentation.hidden;candidate.syncObje"
+        },
+        {
+          "line": 93,
+          "text": "candidate.syncObjectFields(scene.objects.lookup);"
+        }
+      ]
+    },
+    "native_world_cast.h": {
+      "sha256": "5ee8918aefa61cc945c51ec823b60aa55e6d26708c0d13094ee3486b19e1c574",
+      "anchors": [
+        {
+          "line": 14,
+          "text": "class WorldCast {"
+        }
+      ]
+    },
+    "native_world_conversation.h": {
+      "sha256": "4b9af48854c3d43a747366ce0a0a2e8f18b3ae2d42fc2607aa192c3d01b341f5",
+      "anchors": [
+        {
+          "line": 24,
+          "text": "class WorldConversation {"
+        }
+      ]
+    },
+    "native_world_input.h": {
+      "sha256": "93f45c0e762dea0b6f15e3d5900f36b77d17ff0dcea21744640e24f728dc94ad",
+      "anchors": [
+        {
+          "line": 31,
+          "text": "class WorldInput {"
+        },
+        {
+          "line": 62,
+          "text": "if (atWorldCommand() && game.ready() && !game.world.discoverShadowApproach(changed)) return false;"
+        },
+        {
+          "line": 161,
+          "text": "if (!game.world.discoverShadowApproach(discovered)) return kWorldInputUnsupported;"
+        }
+      ]
+    },
+    "native_world_move.h": {
+      "sha256": "9630372959348d2c19e18d322fda8dcddff329264a408dc2b99c1bb499326c71",
+      "anchors": [
+        {
+          "line": 15,
+          "text": "class WorldMove {"
+        }
+      ]
+    },
+    "native_world_open.h": {
+      "sha256": "df7f10d63541d2627ccad5f8582f9f2dd7dcee4346d0546dd3dca222d0774301",
+      "anchors": [
+        {
+          "line": 7,
+          "text": "struct WorldOpenEvent {"
+        },
+        {
+          "line": 15,
+          "text": "class WorldOpen {"
+        }
+      ]
+    },
+    "native_world_presentation.h": {
+      "sha256": "0a723061ea8355ee2093f4363aa3b6068c9ad6e2fc067ecb66ec60de845b707a",
+      "anchors": [
+        {
+          "line": 8,
+          "text": "struct PresentationState {"
+        },
+        {
+          "line": 14,
+          "text": "struct WorldScene {"
+        },
+        {
+          "line": 21,
+          "text": "class WorldPresentation {"
+        },
+        {
+          "line": 57,
+          "text": "candidate.syncObjectFields(scene.objects.lookup);"
+        },
+        {
+          "line": 68,
+          "text": "candidate.syncObjectFields(scene.objects.lookup);"
+        }
+      ]
+    },
+    "native_world_story.h": {
+      "sha256": "257835f3542c0a6539d305f4c9b6ab5965e551150248703eb0693266f1fa75fe",
+      "anchors": [
+        {
+          "line": 9,
+          "text": "class WorldStory {"
+        }
+      ]
+    },
+    "native_world_story_events.h": {
+      "sha256": "17a58b546b6fca0ff3f8461c52144a87e68a2f77a0911ff2dff0e96d213d6450",
+      "anchors": [
+        {
+          "line": 6,
+          "text": "class WorldStoryEvents {"
+        }
+      ]
+    },
+    "native_world_wait.h": {
+      "sha256": "1e73a7ff6fee602762a2e5d5620d3eb731341443ca5d89ee9ae2461301824cc6",
+      "anchors": [
+        {
+          "line": 16,
+          "text": "class WorldWait {"
+        }
+      ]
+    }
+  },
+  "compatibility": {
+    "map_patch64_normalized_source_exact": true,
+    "dialogue_commit10_normalized_tail_exact": true,
+    "dialogue_eligibility10_normalized_section_exact": true,
+    "archives": {
+      "ce-m4-story-patches64-source.zip": "afa5d60961973ea3c67692708768f194bc47d3071154a6b590fd50d76b2f52c2",
+      "ce-m4-conversation10-source.zip": "43472711a565b033e4308017840a4653baae0e51944f20561902e827a23c49a7"
+    },
+    "qualification": "Line endings normalized for semantic source comparison; frozen current source still uses exact byte hashes. Does not turn older whole-workflow qualifications into fresh current execution."
+  },
+  "mechanism_rows": [
+    {
+      "id": "S01",
+      "mechanism": "Decoded dialogue assignment and bit operators",
+      "disposition": "VERIFIED equivalent",
+      "original_references": [
+        "native/dialogue.cpp",
+        "native/dialogue_controller.inc",
+        "ce-native-dialogue-effects500-local.json"
+      ],
+      "native_owners": [
+        "native_dialogue_rules.h",
+        "native_conversation.h",
+        "native_world_conversation.h",
+        "native_world.h"
+      ],
+      "known_call_chain": "WorldInput Talk -> WorldConversation -> Conversation -> selectDialogueResponse -> commitDialogueFields -> acknowledged handoff -> World.acceptConversation.",
+      "conditions": "439 decoded packets/3227 headers/552 complete effects;551 target the ordinary0..79 field region. Conditions include ordered keyword/opening matching, exact/bit fields, voice, adult and time.",
+      "ordering_and_side_effects": "Read conditions before effects; up to2 assignments precede up to3 ordered set/clear operations; response commit is separate from later item/payment/battle callbacks.",
+      "persistence": "Conversation owns pending fields and codecs; World.acceptConversation copies256 fields; World/NewGame/core codecs retain committed state.",
+      "failure_behavior": "Ineligible response selects the next response; invalid native effect shape returns refusal/invalid before field writes.",
+      "unresolved_evidence_requirement": "Bounded operator equivalence only. All original incoming contexts and the one derived-lookup effect are not included in this row.",
+      "retained_evidence": [
+        "SCUMMVM-CE-SCRIPT-SERVICE-OWNERS500.md",
+        "SCUMMVM-CE-M4-CONVERSATION10-UNIT.json",
+        "SCUMMVM-CE-INTEGRATION527-I2-VERIFICATION.json"
+      ]
+    },
+    {
+      "id": "S02",
+      "mechanism": "Malformed parameter tails",
+      "disposition": "VERIFIED intentionally different",
+      "original_references": [
+        "ce-native-dialogue-effects500-local.json",
+        "native/dialogue.cpp"
+      ],
+      "native_owners": [
+        "native_dialogue_rules.h"
+      ],
+      "known_call_chain": "Packet header scan -> parameter boundary validation before DialogueFieldPair creation.",
+      "conditions": "Two shipped JOB headers end in a bare parameter tag in prototype packets.",
+      "ordering_and_side_effects": "Native stops at header/body separator instead of interpreting separator/body bytes as a field/value pair.",
+      "persistence": "No invented mutation is committed for the missing pair; normal earlier effects retain their order.",
+      "failure_behavior": "Bounded malformed-data handling is explicit; not original out-of-header memory alias parity.",
+      "unresolved_evidence_requirement": "No claim of whole prototype activation equivalence; that remains S03/U03.",
+      "retained_evidence": [
+        "SCUMMVM-CE-DIALOGUE-BOUNDARY486-VERIFICATION.json",
+        "SCUMMVM-CE-SCRIPT-SERVICE-OWNERS500.md"
+      ]
+    },
+    {
+      "id": "S03",
+      "mechanism": "Derived lookup alias and prototype response context",
+      "disposition": "UNKNOWN",
+      "original_references": [
+        "ce-native-dialogue-effects500-local.json",
+        "native/actor_world.inc",
+        "native/scene_actor_frame.inc",
+        "native/scene_vertical.inc"
+      ],
+      "native_owners": [
+        "native_world.h",
+        "native_world_actor_turn.h",
+        "native_world_presentation.h",
+        "native_dialogue_rules.h"
+      ],
+      "known_call_chain": "Original indexed0400+field aliases lookup450+cell; native scene lookup -> syncObjectFields -> Conversation field view -> later scene refresh.",
+      "conditions": "One authored complete mutation targets derived field133; byte-indexed field space aliases only the first176 lookup bytes, not every scene cell.",
+      "ordering_and_side_effects": "Copying a lookup byte into canonical fields is not proof that all later projection/refresh and prototype re-entry orders agree.",
+      "persistence": "Native saves owned fields/scene state; original transient lookup lifetime differs from ordinary persistent flags.",
+      "failure_behavior": "No successful normal-world activation or out-of-header alias parity is inferred from the packet.",
+      "unresolved_evidence_requirement": "Establish exact original/native pre-response lookup, mutation, next redraw/consumer, save and imported/debug activation. Preserve the prototype incoming-edge qualification.",
+      "retained_evidence": [
+        "SCUMMVM-CE-SERVICE-ADMISSION497.md",
+        "SCUMMVM-CE-SCRIPT-SERVICE-OWNERS500.md"
+      ]
+    },
+    {
+      "id": "S04",
+      "mechanism": "Known dialogue world callbacks",
+      "disposition": "VERIFIED equivalent",
+      "original_references": [
+        "native/dialogue_effects.inc"
+      ],
+      "native_owners": [
+        "native_conversation_callbacks.h",
+        "native_world.h",
+        "native_world_conversation.h",
+        "native_world_input.h"
+      ],
+      "known_call_chain": "Conversation marks worldPending -> World.applyConversationCallbacks -> ConversationCallbacks.apply -> retire request -> input refresh.",
+      "conditions": "Callback request bits and map68 portal creation use the canonical field state and authored12-byte template.",
+      "ordering_and_side_effects": "Consume field12 request; portal template then ordered42/46 object operations and bit retirement; callback completion precedes response display/exit.",
+      "persistence": "Canonical changed object records and completed fields persist; pending callback state has a separate modal owner.",
+      "failure_behavior": "Invalid/missing template rejects the staged transaction; no repeated completed callback on ordinary refresh.",
+      "unresolved_evidence_requirement": "Known callback families only; complete arbitrary original callers, main/aux disagreement and imported states remain U03/U04.",
+      "retained_evidence": [
+        "SCUMMVM-CE-CALLBACKS479-VERIFICATION.json",
+        "SCUMMVM-CE-INTEGRATION527-I2-VERIFICATION.json"
+      ]
+    },
+    {
+      "id": "S05",
+      "mechanism": "Canonical map ownership instead of main/aux copies",
+      "disposition": "VERIFIED intentionally different",
+      "original_references": [
+        "native/dialogue_effects.inc",
+        "native/resident_location.inc"
+      ],
+      "native_owners": [
+        "native_world.h",
+        "native_conversation_callbacks.h",
+        "native_world_story.h"
+      ],
+      "known_call_chain": "Original mainBE/aux57 record copies -> one canonical World map plus explicit scene projection.",
+      "conditions": "Original callbacks contain distinct main/aux writes and loader scratch; CE owns one logical changed-map record set.",
+      "ordering_and_side_effects": "Native refreshes projections from canonical committed records; it does not preserve arbitrary divergent machine caches.",
+      "persistence": "Changed maps persist directly in World/core, without modifying the HDV.",
+      "failure_behavior": "Original stale-cache or arbitrary import states are not silently declared equivalent.",
+      "unresolved_evidence_requirement": "Replacement itself is established; every special original cache/context still needs its own effect boundary.",
+      "retained_evidence": [
+        "SCUMMVM-CE-ARCHITECTURE-DECISION.md",
+        "SCUMMVM-CE-CALLBACKS479-VERIFICATION.json",
+        "SCUMMVM-CE-DATA-OWNERSHIP509.md"
+      ]
+    },
+    {
+      "id": "S06",
+      "mechanism": "Dialogue item/gold/recruit/payment handoffs",
+      "disposition": "UNKNOWN",
+      "original_references": [
+        "native/dialogue_effects.inc",
+        "native/progression_handoff.inc",
+        "native/quest_tavern.inc",
+        "native/quest_training.inc"
+      ],
+      "native_owners": [
+        "native_inventory.h",
+        "native_recruitment.h",
+        "native_world_conversation.h",
+        "native_conversation.h"
+      ],
+      "known_call_chain": "Completed Conversation -> describeDialogueHandoff -> inventory/gold/recruit/payment owner -> request retirement -> world commit.",
+      "conditions": "Field16 request state, encoded item kind/id, gold and request17 price/skill/battle/service markers.",
+      "ordering_and_side_effects": "Known staged once-only handoffs exist; cross-caller capacity, payment-cancel and service-lifetime equivalence is not proved by the field header census.",
+      "persistence": "Party/inventory/gold and pending modal state have native core codecs.",
+      "failure_behavior": "Normal poor/cancel/full/repeated cases have retained coverage; every original shared-helper call and failure side effect is not closed.",
+      "unresolved_evidence_requirement": "Map every original request producer and exit caller, including service re-entry and full physical-slot failure, to exact native order/state/result.",
+      "retained_evidence": [
+        "SCUMMVM-CE-SCRIPT-SERVICE-OWNERS500.md",
+        "SCUMMVM-CE-INTEGRATION527-I2-VERIFICATION.json"
+      ]
+    },
+    {
+      "id": "S07",
+      "mechanism": "Authored map-patch effect grammar",
+      "disposition": "VERIFIED equivalent",
+      "original_references": [
+        "NA/BS.ROUTINES.BK2@0x28f2",
+        "native/resident_world.inc@FD00",
+        "ce-native-producers494-local.json"
+      ],
+      "native_owners": [
+        "native_story_patches.h",
+        "native_world_story.h"
+      ],
+      "known_call_chain": "World input/viewport/recenter -> WorldStory.apply -> StoryMapPatches.apply -> canonical objects/actors and owned terrain/spawns.",
+      "conditions": "All11 original variable-length rules; map/neighbor sector plus polarity/mask; kinds0/1/3/4 only.",
+      "ordering_and_side_effects": "Original rule order; one terrain byte, object/actor/spawn four-byte prefixes; actor effect additionally writes role127. No quest field is written by this grammar.",
+      "persistence": "Window state serializes terrain/objects/actors/spawns; canonical changed map records retained separately.",
+      "failure_behavior": "Out-of-range native offsets and unknown kind reject before state assignment; all authored rows satisfy the admitted shapes.",
+      "unresolved_evidence_requirement": "Bounded complete grammar/operation, not all loader/recenter/interleaving contexts; those remain U03/U04.",
+      "retained_evidence": [
+        "SCUMMVM-CE-M4-STORY-PATCHES64-UNIT.json",
+        "SCUMMVM-CE-M4-WORLD-STORY65-UNIT.json",
+        "SCUMMVM-CE-SOURCE-PRODUCERS494.md"
+      ]
+    },
+    {
+      "id": "S08",
+      "mechanism": "Key/compound door and reversible control operators",
+      "disposition": "VERIFIED equivalent",
+      "original_references": [
+        "native/progression_open.inc",
+        "ce-m3-keydoor-census31-local.json"
+      ],
+      "native_owners": [
+        "native_gates.h",
+        "native_world_open.h",
+        "native_world.h"
+      ],
+      "known_call_chain": "WorldInput Open -> WorldOpen.run -> keyDoor/compoundDoor or paired control -> record commit -> object settling.",
+      "conditions": "38 keyed and5 compound authored candidates; any-mask key predicate versus full contiguous compound bits; control requires its paired record.",
+      "ordering_and_side_effects": "Refusal leaves door unchanged; allowed key opening changes marker/picture; control changes matching wall/control states and is reversible.",
+      "persistence": "Owned World map tables retain changes; object countdown/settle is a separate phase.",
+      "failure_behavior": "Malformed pair/extent and unsupported state remain explicit; no bit predicate is silently treated as a successful unlock.",
+      "unresolved_evidence_requirement": "Only the operator and qualified record shapes are closed; arbitrary dynamically written records and all incoming callers remain UNKNOWN.",
+      "retained_evidence": [
+        "SCUMMVM-CE-M4-GATES1-UNIT.json",
+        "SCUMMVM-CE-M43-LATE-GATES956-VERIFICATION.json"
+      ]
+    },
+    {
+      "id": "S09",
+      "mechanism": "Pressure plate/current-cell story flag operator",
+      "disposition": "VERIFIED equivalent",
+      "original_references": [
+        "native/resident_world.inc@EA35",
+        "ce-native-scripted-contacts502-local.json"
+      ],
+      "native_owners": [
+        "native_gates.h",
+        "native_world.h",
+        "native_world_input.h"
+      ],
+      "known_call_chain": "Completed move/stationary world tail -> current-cell operation54 -> World.activatePlate -> pressurePlate.",
+      "conditions": "14 initial plate candidates; source field/mask from the extended object, including the phylactery-style flag operation.",
+      "ordering_and_side_effects": "OR the authored mask, preserve unrelated bits, then refresh/continue; repeat is idempotent.",
+      "persistence": "World fields/core plus object/scene state are owned; normal earned phylactery and four-plate persistence retained.",
+      "failure_behavior": "Invalid record/slot returns typed failure; no flag write on rejected shape.",
+      "unresolved_evidence_requirement": "Complete code entry/continuation contexts and original slot-overlap producer provenance remain U03/U04.",
+      "retained_evidence": [
+        "SCUMMVM-CE-M4-GATES1-UNIT.json",
+        "SCUMMVM-CE-M43-PHYL715-VERIFICATION.json",
+        "SCUMMVM-CE-M43-CULT1118-VERIFICATION.json"
+      ]
+    },
+    {
+      "id": "S10",
+      "mechanism": "Search quest flag and reward transaction",
+      "disposition": "UNKNOWN",
+      "original_references": [
+        "native/progression_search.inc@96EC",
+        "native/progression_handoff.inc@9C9B"
+      ],
+      "native_owners": [
+        "native_search.h",
+        "native_search_input.h",
+        "native_world.h",
+        "native_inventory.h"
+      ],
+      "known_call_chain": "Search target/lock/trap -> World.search -> searchQuestReward -> inventory handoff -> status/ack/tail.",
+      "conditions": "Source extended object state53, quest field/mask, kind/id, prior-claim state and capacity.",
+      "ordering_and_side_effects": "Known source ordering consumes searchable marker on repeat/capacity; normal award sets field and relevant counter, then returns to input.",
+      "persistence": "Committed object/field/party/inventory/RNG values and pending search state have codecs.",
+      "failure_behavior": "Native search explicitly leaves original full physical-slot fatal path unqualified; original flag writes can precede that failure while native staging may not commit.",
+      "unresolved_evidence_requirement": "Establish exact original full physical inventory/fatal side effects, defined caller domain and justified native failure policy. Audit all dynamic object/item producer bounds, not just successful pages.",
+      "retained_evidence": [
+        "SCUMMVM-CE-M4-SEARCH-REWARD36-UNIT.json",
+        "SCUMMVM-CE-M43-PAGES501-VERIFICATION.json"
+      ]
+    },
+    {
+      "id": "S11",
+      "mechanism": "Counted item increment/decrement",
+      "disposition": "UNKNOWN",
+      "original_references": [
+        "native/inventory_lists.inc@A267",
+        "native/progression_loot.inc@9DF9",
+        "native/progression_search.inc@982D"
+      ],
+      "native_owners": [
+        "native_inventory_actions.h",
+        "native_search.h",
+        "native_battle_loot.h",
+        "native_new_game.h"
+      ],
+      "known_call_chain": "Source misc definition -> acquisition/commerce/Drop context -> quantity/counter operation -> native retained commerceCounter and core.",
+      "conditions": "Only two of168 authored misc definitions have the tracked-counter bit; field index comes from definition, not a fixed quest list.",
+      "ordering_and_side_effects": "Acquisition increments; sale/Drop path uses caller-retained quantity and arithmetic mode, which need not equal the removed stack count.",
+      "persistence": "Native commerce counter context and ordinary fields persist with current core.",
+      "failure_behavior": "Protected/readied/cancel and tracked Drop contexts have earned proof; arbitrary inherited quantity/BCD/helper-entry contexts are not closed.",
+      "unresolved_evidence_requirement": "Enumerate all original helper callers and admissible arithmetic/quantity states; distinguish ordinary definitions from dynamically generated/imported IDs.",
+      "retained_evidence": [
+        "SCUMMVM-CE-M43-DROP1091-VERIFICATION.json",
+        "SCUMMVM-CE-DATA-OWNERSHIP509.md"
+      ]
+    },
+    {
+      "id": "S12",
+      "mechanism": "Item Use, spells and navigation producers",
+      "disposition": "UNKNOWN",
+      "original_references": [
+        "native/inventory_lists.inc",
+        "native/battle_services.inc",
+        "native/battle_spells.inc"
+      ],
+      "native_owners": [
+        "native_inventory_actions.h",
+        "native_world_cast.h",
+        "native_world_input.h",
+        "native_new_game.h"
+      ],
+      "known_call_chain": "Inventory Use/Readied book -> world casting or battle cast -> typed effect/navigation -> next world continuation.",
+      "conditions": "Known spell/item domains and initial/shop/chest producers are enumerated in494/519; this does not bound every dynamic original producer.",
+      "ordering_and_side_effects": "Mana, inventory consumption, origin capture, map transition and deferred completion are caller-specific.",
+      "persistence": "Book, inventory, navigation and modal/core owners preserve typed state.",
+      "failure_behavior": "Normal outside-battle refusal/cancel and selected Orb/QuickExit scenarios are retained; not all generated or imported definitions.",
+      "unresolved_evidence_requirement": "Close dialogue/scripted/dynamic item availability and all indirect Use/cast selectors, including obsolete book45, without assuming table presence proves reachability.",
+      "retained_evidence": [
+        "SCUMMVM-CE-SOURCE-PRODUCERS494.md",
+        "SCUMMVM-CE-INTEGRATION527-I3-VERIFICATION.json"
+      ]
+    },
+    {
+      "id": "S13",
+      "mechanism": "Recruitment and party/inn identity mutation",
+      "disposition": "UNKNOWN",
+      "original_references": [
+        "native/party_recruitment.inc@9B27",
+        "native/party_membership.inc",
+        "native/party_reordering.inc"
+      ],
+      "native_owners": [
+        "native_recruitment.h",
+        "native_party.h",
+        "native_inventory.h",
+        "native_new_game.h",
+        "native_world_conversation.h"
+      ],
+      "known_call_chain": "Dialogue/NPC identity -> Recruitment or inn membership/reorder -> party records/owner masks -> actor retirement and core.",
+      "conditions": "Source identities34..65 map into recruitment fields; party capacity/last-member/equipment ownership gates apply.",
+      "ordering_and_side_effects": "Known record exchange/compaction, equipment removal/recalculation and flags are typed transactions; caller copy order still requires a complete provenance proof.",
+      "persistence": "Party, inventory and inn storage are independently serialized; ordinary cold behavior retained.",
+      "failure_behavior": "Full/poor/no-storage/refusal and dead-status policies are explicit; do not equate inn pickup with resurrection.",
+      "unresolved_evidence_requirement": "Trace all original copy-helper callers and dynamic recruitment/retirement contexts, including overlapping buffers and imported identity values.",
+      "retained_evidence": [
+        "SCUMMVM-CE-SCRIPT-SERVICE-OWNERS500.md",
+        "SCUMMVM-CE-INTEGRATION527-I2-VERIFICATION.json"
+      ]
+    },
+    {
+      "id": "S14",
+      "mechanism": "Initial compact and role126 contact encodings",
+      "disposition": "VERIFIED equivalent",
+      "original_references": [
+        "native/combat_results.inc@987D",
+        "native/combat_results.inc@98DE",
+        "ce-native-scripted-contacts502-local.json"
+      ],
+      "native_owners": [
+        "native_actors.h",
+        "native_battle_world_return.h",
+        "native_battle_aftermath.h",
+        "native_battle_loot.h"
+      ],
+      "known_call_chain": "Actor admission/contact -> battle -> victory effects -> advancement/loot -> delayed parent retirement -> world.",
+      "conditions": "17 compact predicates and15 active initial role126 records across76 map records;9 authored rewards.",
+      "ordering_and_side_effects": "Set authored flag before growth/loot; preserve marker2 when bit128 is absent; retire parent only after results; flee skips completed-contact effects.",
+      "persistence": "Canonical actor/field and pending battle/result/loot state use their native owners/codecs.",
+      "failure_behavior": "Invalid reward shape rejects; no expected victory/award is initialized. Original wrapped slot and marker contexts are not generally included.",
+      "unresolved_evidence_requirement": "Verified initial encoding and typed operator only. All dynamically created definitions, arbitrary slot contexts and full-failure effects remain UNKNOWN separately.",
+      "retained_evidence": [
+        "SCUMMVM-CE-SCRIPT-SERVICE-OWNERS500.md",
+        "SCUMMVM-CE-M43-FIRE886-VERIFICATION.json",
+        "SCUMMVM-CE-M43-AIR892-VERIFICATION.json"
+      ]
+    },
+    {
+      "id": "S15",
+      "mechanism": "Combat protection, defeat/flee and consequences",
+      "disposition": "UNKNOWN",
+      "original_references": [
+        "native/actor_suppression.inc",
+        "native/actor_removal.inc",
+        "native/combat_results.inc"
+      ],
+      "native_owners": [
+        "native_encounter_admission.h",
+        "native_battle_round.h",
+        "native_battle_aftermath.h",
+        "native_battle_world_return.h"
+      ],
+      "known_call_chain": "Original actor/template context -> native encounter protection/no-flee -> tactical/Quick effects -> victory/escape/death -> world consequence.",
+      "conditions": "Map/category, parent bank/slot, quest condition, party/enemy side, spell and mode affect the result.",
+      "ordering_and_side_effects": "Normal protected hit suppresses mutation; no reward/quest retirement on escape; source ending/revelation branches precede normal advancement/loot.",
+      "persistence": "Battle records and parent world effects have separate commit/retirement boundaries and codecs.",
+      "failure_behavior": "Actual earned losses/flee/guardian victories and scoped protected289 evidence are retained; not all exceptional raw metadata contexts.",
+      "unresolved_evidence_requirement": "Resolve all original actor/template producers, removal helpers, mode/slot special cases and caller preconditions, including malformed or wrapping definitions.",
+      "retained_evidence": [
+        "SCUMMVM-CE-M43-COMPLETION1134.json",
+        "SCUMMVM-CE-M4-GENERAL-ADMISSION-WORK.json"
+      ]
+    },
+    {
+      "id": "S16",
+      "mechanism": "Keep65 one-shot reveal",
+      "disposition": "VERIFIED equivalent",
+      "original_references": [
+        "native/resident_world.inc",
+        "SCUMMVM-CE-HARDCODED-STORY525-REVIEW.md"
+      ],
+      "native_owners": [
+        "native_world_story.h",
+        "native_world_input.h"
+      ],
+      "known_call_chain": "WorldInput.pollWorldEvents -> WorldStory.revealKeep -> spawn metadata and NPC sprite -> refresh.",
+      "conditions": "Map65, source position rectangle and high-bit spawn marker.",
+      "ordering_and_side_effects": "Shift one-shot marker and set authored sprite; keep both owned window and canonical table bytes consistent.",
+      "persistence": "World/window codecs retain the actual marker and actor record.",
+      "failure_behavior": "Out-of-region or already-used state produces no new reveal.",
+      "unresolved_evidence_requirement": "Bounded direct producer only; all original loaders and nonstandard map/type callers still need U03.",
+      "retained_evidence": [
+        "SCUMMVM-CE-M4-WORLD-STORY65-UNIT.json",
+        "SCUMMVM-CE-HARDCODED-STORY525-REVIEW.md"
+      ]
+    },
+    {
+      "id": "S17",
+      "mechanism": "Shadow approach producer",
+      "disposition": "VERIFIED equivalent",
+      "original_references": [
+        "NA/BS.ROUTINES.BK2@0x2a16",
+        "native/resident_world.inc@FA16"
+      ],
+      "native_owners": [
+        "native_world_story_events.h",
+        "native_world.h",
+        "native_world_input.h"
+      ],
+      "known_call_chain": "Ordinary world poll/input -> World.discoverShadowApproach -> WorldStoryEvents.shadowApproach -> field59 bit1.",
+      "conditions": "Type<3, map0, sector169, Temple prerequisite56 bit64 and not already discovered.",
+      "ordering_and_side_effects": "Set only once; preserve other fields and RNG; typed later encounter admission consumes the state.",
+      "persistence": "Existing normal core/session save retains it; original private disk checkpoint is separate S18.",
+      "failure_behavior": "Wrong prerequisite/map/sector or repeated input makes no mutation.",
+      "unresolved_evidence_requirement": "Eight retained original branches and two native production hooks cover this bounded producer; not every indirect original writer.",
+      "retained_evidence": [
+        "SCUMMVM-CE-WORLD-STORY525-VERIFICATION.json",
+        "SCUMMVM-CE-INTEGRATION527-I4-VERIFICATION.json"
+      ]
+    },
+    {
+      "id": "S18",
+      "mechanism": "Private machine checkpoint and durable saving",
+      "disposition": "VERIFIED intentionally different",
+      "original_references": [
+        "native/resident_world.inc@FA39",
+        "native/shared_helpers.inc"
+      ],
+      "native_owners": [
+        "native_new_game.h",
+        "native_world.h",
+        "native_exploration_save.h",
+        "native_player_session.h"
+      ],
+      "known_call_chain": "Original private8E0D/disk bootstrap checkpoint -> approved native CE core/player-save/session ownership.",
+      "conditions": "Physical HDV/CPU checkpoint has no release-runtime authority.",
+      "ordering_and_side_effects": "Persist semantic world/party/inventory/continuations through CE; no CPU PC/stack/IRQ or HDV mutation is introduced.",
+      "persistence": "Unified durable native saves and owner/assistance semantics deliberately replace original disk serialization.",
+      "failure_behavior": "Staged invalid native restore fails without partial owner adoption; original device failures are not hardware-emulated.",
+      "unresolved_evidence_requirement": "Replacement is approved; do not infer equivalence of every old save/import or arbitrary original memory alias.",
+      "retained_evidence": [
+        "SCUMMVM-CE-ARCHITECTURE-DECISION.md",
+        "SCUMMVM-CE-WORLD-STORY525-VERIFICATION.json",
+        "SCUMMVM-CE-PERSISTENCE520-VERIFICATION.json"
+      ]
+    },
+    {
+      "id": "S19",
+      "mechanism": "Praevoc movement/dialogue phase writer",
+      "disposition": "VERIFIED equivalent",
+      "original_references": [
+        "native/resident_world.inc@FC58",
+        "native/resident_world.inc@FCA0",
+        "native/dialogue_effects.inc@B2F9"
+      ],
+      "native_owners": [
+        "native_praevoc.h",
+        "native_world_move.h",
+        "native_world_conversation.h"
+      ],
+      "known_call_chain": "Selected Keep69 floor or dialogue cue -> PraevocSpeechRules.trigger/baseCue -> source phase/cursor and ordinary completion.",
+      "conditions": "Map/context, admitted notice condition, effect preference, field12 phase bit and cursor0..5.",
+      "ordering_and_side_effects": "Trigger toggles phase; enabled effects advance/wrap cursor and emit corresponding cues; dialogue base cue has a distinct no-phase-advance contract.",
+      "persistence": "Canonical field and actor-turn cursor have explicit codecs; audio remains473-owned.",
+      "failure_behavior": "Invalid cursor rejects; disabled sound preserves source phase behavior without invented audio.",
+      "unresolved_evidence_requirement": "Bounded505/506 contracts only; every original nonlocal stack-return caller remains U03/U04.",
+      "retained_evidence": [
+        "SCUMMVM-CE-PRAEVOC505-VERIFICATION.json",
+        "SCUMMVM-CE-DIALOGUE-SPEECH506-VERIFICATION.json"
+      ]
+    },
+    {
+      "id": "S20",
+      "mechanism": "Ending and revelation state boundary",
+      "disposition": "VERIFIED equivalent",
+      "original_references": [
+        "native/combat_results.inc",
+        "SCUMMVM-CE-M43-ENDING1082-VERIFICATION.json"
+      ],
+      "native_owners": [
+        "native_ending.h",
+        "native_battle_aftermath.h",
+        "native_startup_host.h"
+      ],
+      "known_call_chain": "Actual selected parent victory -> BattleAftermath ending/revelation branch -> EndingPresentation -> acknowledgement/terminal continuation.",
+      "conditions": "Original parent map/contact identity and real victory; no guessed quest flag or ordinary last-enemy event substitutes for the ending.",
+      "ordering_and_side_effects": "Branch precedes ordinary advancement/loot; acknowledgment and terminal phase remain explicit.",
+      "persistence": "Native result phase and legal post-ending core/cold restore retain terminal state.",
+      "failure_behavior": "Ordinary victory and defeat do not become endings; modal/CLI timeout failures remain historical.",
+      "unresolved_evidence_requirement": "This bounded real ending is verified; it does not certify every original special scripted context.",
+      "retained_evidence": [
+        "SCUMMVM-CE-M43-ENDING1082-VERIFICATION.json"
+      ]
+    },
+    {
+      "id": "S21",
+      "mechanism": "Schedule, movement, population and indirect map consequences",
+      "disposition": "UNKNOWN",
+      "original_references": [
+        "native/inventory_schedule.inc",
+        "native/actor_world.inc",
+        "native/resident_location.inc",
+        "native/resident_world.inc"
+      ],
+      "native_owners": [
+        "native_npc_schedule.h",
+        "native_world_actor_turn.h",
+        "native_world_story.h",
+        "native_world_input.h"
+      ],
+      "known_call_chain": "World enter/clock/input -> scheduler/population/actor pass -> mutable actor/object/spawn records -> script predicates and future events.",
+      "conditions": "Map family/type, clock, route, sight/occupancy, freeze flags and dynamic actor identity determine writes.",
+      "ordering_and_side_effects": "Known ordinary scheduling/turn/patch order has dedicated native owners; one complete global original writer/interleaving proof does not exist.",
+      "persistence": "World/window/actor turn/scheduler state are serialized; changed maps survive travel.",
+      "failure_behavior": "NoRoute/Capacity native wait/defer policy is an explicit replacement; invalid contexts remain failures.",
+      "unresolved_evidence_requirement": "Prove every dynamic record producer and its predicate/side-effect consumers, including zero-coordinate templates, partial-map windows and special actor phases.",
+      "retained_evidence": [
+        "SCUMMVM-CE-WORLD-POPULATION517-VERIFICATION.json",
+        "SCUMMVM-CE-NPC-RECOVERY518-VERIFICATION.json"
+      ]
+    },
+    {
+      "id": "S22",
+      "mechanism": "NPC route-failure continuation policy",
+      "disposition": "VERIFIED intentionally different",
+      "original_references": [
+        "native/actor_world.inc"
+      ],
+      "native_owners": [
+        "native_world_actor_turn.h",
+        "native_npc_actor_actions.h"
+      ],
+      "known_call_chain": "Failed ordinary route job -> retire/defer that job -> let other actors/input continue.",
+      "conditions": "Source route exhaustion or queue-capacity condition in admitted ordinary NPC work.",
+      "ordering_and_side_effects": "CE avoids the original fatal/hang continuation; does not permanently erase NPCs, rewind RNG or fabricate a path.",
+      "persistence": "Existing waiting/route state and codecs retain deferred work.",
+      "failure_behavior": "Invalid source context is still rejected; ordinary route failure is recoverable.",
+      "unresolved_evidence_requirement": "Approved narrow replacement; not a declaration that every invalid original context is supported.",
+      "retained_evidence": [
+        "SCUMMVM-CE-NPC-RECOVERY518-VERIFICATION.json",
+        "SCUMMVM-CE-ENGINE-FALLBACKS.md"
+      ]
+    },
+    {
+      "id": "S23",
+      "mechanism": "Clock, tool/torch counters and retained service temporaries",
+      "disposition": "UNKNOWN",
+      "original_references": [
+        "native/resident_world.inc@FE41",
+        "native/quest_tavern.inc",
+        "native/progression_search.inc",
+        "native/progression_open.inc"
+      ],
+      "native_owners": [
+        "native_clock.h",
+        "native_world_wait.h",
+        "native_world_conversation.h",
+        "native_world.h"
+      ],
+      "known_call_chain": "World action/wait/dialogue/service -> source clock/counter update -> actor/story predicate consumers.",
+      "conditions": "Source0400 page includes ordinary counters and request temporaries, not only quest bits; byte overflow, BCD and free/paid action context matter.",
+      "ordering_and_side_effects": "Known hourly20/tool33/torch32 and service17..21 handling is implemented; all original alias/interleaving lifetimes are not proven.",
+      "persistence": "Clock, fields and pending action/turn/modal state have separate native codecs.",
+      "failure_behavior": "Known cancel/free/refusal clock policies are retained and some are approved CE changes; not every helper entry has a lifetime proof.",
+      "unresolved_evidence_requirement": "Bound all original callers, arithmetic flags, pointer aliases and post-dialogue/world-turn ordering for these shared temporaries.",
+      "retained_evidence": [
+        "SCUMMVM-CE-DIALOGUE-CLOCK515-VERIFICATION.json",
+        "SCUMMVM-CE-ENGINE-FALLBACKS.md"
+      ]
+    },
+    {
+      "id": "U01",
+      "mechanism": "Complete executable/data and root universe",
+      "disposition": "UNKNOWN",
+      "original_references": [
+        "story08-1135/resources.local.json",
+        "story08-1135/allocated-layout.local.json",
+        "disassembly/analysis.json"
+      ],
+      "native_owners": [
+        "module.mk",
+        "native_engine.cpp"
+      ],
+      "known_call_chain": "Original file/overlay loader -> selected bank/root -> executed instructions -> mutation. Native has no arbitrary original executor.",
+      "conditions": "All74 base resources, logical/allocated bytes and raw image scanned; their byte patterns do not establish code boundaries.",
+      "ordering_and_side_effects": "204604 logical-payload writer candidates include deliberate data false positives. Do not label them real paths or missing implementations.",
+      "persistence": "Original memory residency/code generation and native logical-state persistence are distinct universes.",
+      "failure_behavior": "No absence-of-opcode or successful-campaign argument can prove global completeness.",
+      "unresolved_evidence_requirement": "Provide a resource-offset/bank/overlay code/data certificate, complete entry roots and load/relocation extents, with explicit dispositions for every excluded region.",
+      "retained_evidence": [
+        "SCUMMVM-CE-HARDCODED-STORY525-REVIEW.md"
+      ]
+    },
+    {
+      "id": "U02",
+      "mechanism": "Caller-derived indirect copy/fill and store destinations",
+      "disposition": "UNKNOWN",
+      "original_references": [
+        "NA/LWR.MAIN.RTNS@0x841",
+        "NA/LWR.MAIN.RTNS@0x873",
+        "native/shared_helpers.inc",
+        "story08-1135/reference-call-index-v2.local.json"
+      ],
+      "native_owners": [
+        "native_new_game.h",
+        "native_inventory.h",
+        "native_party.h",
+        "native_world.h"
+      ],
+      "known_call_chain": "Original caller supplies C2/C4/C6 or EB/end/value ->1441/1473 -> actual destination writes; native counterparts depend on caller, not a general emulated memory API.",
+      "conditions": "16 new original probes; inclusive forward copy versus exclusive fill, page boundaries and both overlap directions. Pointer value sets are not established by known quest flags.",
+      "ordering_and_side_effects": "5690 original instructions/1030 story-page writes confirm the mechanism. Forward copy can propagate newly written bytes under overlap.",
+      "persistence": "Different callers cover creation/load, party membership, combat copies, graphics and menu buffers.",
+      "failure_behavior": "No native bug is inferred merely because no arbitrary-pointer copy API exists; each legitimate caller needs a typed equivalence summary.",
+      "unresolved_evidence_requirement": "For every direct/indirect caller, resolve bank, source/destination/end/value ranges, alias/overlap, full write set, return order and native operation.27 helper-related raw call candidates and137 pointer-store reference sites are indexed, not all certified code.",
+      "retained_evidence": [
+        "story08-1135/original-helper-probes.json",
+        "story08-1135/trace-summary.json"
+      ]
+    },
+    {
+      "id": "U03",
+      "mechanism": "Physical bank, overlay and computed/stack call closure",
+      "disposition": "UNKNOWN",
+      "original_references": [
+        "disassembly/hdv-and-banks.md",
+        "native/bank_services.cpp",
+        "story08-1135/reference-pc-collisions.local.json"
+      ],
+      "native_owners": [
+        "native_world_input.h",
+        "native_world_conversation.h",
+        "native_battle_aftermath.h"
+      ],
+      "known_call_chain": "Original bank/zero-page switch + overlay load + computed call/modified return -> story owner; native typed continuations replace that ABI.",
+      "conditions": "3668 reference call candidates after excluding4 helper definitions;2 computed expressions resolve to bounded selectors in new probes, not a full original graph.9105 PC values occur at multiple reference locations. Unbanked PC equality is not a callee identity.",
+      "ordering_and_side_effects": "Original stack-discard/nonlocal-return and bank switches can change which later writer executes.",
+      "persistence": "Native continuation codecs need per-context relations, not raw stack-byte reproduction.",
+      "failure_behavior": "Unresolved edges are not removed by assuming no runtime fallback in the native target.",
+      "unresolved_evidence_requirement": "Resolve each reachable computed jump/return/overlay edge and summarize entry state and resulting continuation; prove roots/caller set complete rather than matching case labels.",
+      "retained_evidence": [
+        "disassembly/hdv-and-banks.md",
+        "SCUMMVM-CE-HARDCODED-STORY525-REVIEW.md"
+      ]
+    },
+    {
+      "id": "U04",
+      "mechanism": "Copied, patched and generated instruction contexts",
+      "disposition": "UNKNOWN",
+      "original_references": [
+        "disassembly/hdv-and-banks.md",
+        "native/scene_tiles.inc",
+        "native/bank_services.cpp"
+      ],
+      "native_owners": [
+        "native_world_story.h",
+        "native_world_input.h",
+        "native_world_conversation.h"
+      ],
+      "known_call_chain": "Original code-writing store/copy/patch -> later fetch of modified instruction -> potential story mutation/continuation.",
+      "conditions": "Documented driver patch changes an indirect read opcode into a store. Static immutable65C02 scanning does not include every produced opcode value.",
+      "ordering_and_side_effects": "Must follow writes to future instruction operands/opcodes, including cross-bank/shared helper effects.",
+      "persistence": "Native does not execute generated original bytes; equivalence requires semantic effect and caller relation.",
+      "failure_behavior": "A bounded code-pointer guard in a reference program is not a proof that all dynamic versions are admitted or irrelevant.",
+      "unresolved_evidence_requirement": "Enumerate all reachable code-writing ranges and values to a fixed point, then map each version/context or prove its story-state noninterference.",
+      "retained_evidence": [
+        "disassembly/hdv-and-banks.md"
+      ]
+    },
+    {
+      "id": "U05",
+      "mechanism": "Special CPU/ROM/interrupt and inherited-memory contexts",
+      "disposition": "UNKNOWN",
+      "original_references": [
+        "disassembly/NOXARCH.MAIN.asm",
+        "disassembly/NOXARCH.SYSTEM.hdv-driver-D000.asm",
+        "disassembly/hdv-and-banks.md"
+      ],
+      "native_owners": [
+        "native_engine.cpp",
+        "native_new_game.h",
+        "native_world.h"
+      ],
+      "known_call_chain": "Conditional machine/65816 routine, firmware vector, IRQ or beyond-EOF/inherited byte -> later shared state -> story consumer.",
+      "conditions": "Loader has conditional65816 mode and copies beyond EOF; rounded file/raw image envelope adds16723 padding bytes but cannot enumerate inherited/generated RAM.",
+      "ordering_and_side_effects": "Most platform mechanisms have native replacements, but whole-context story noninterference is not automatically established by replacing the host.",
+      "persistence": "CE saves semantic owners; original machine snapshots and arbitrary imported garbage are not native logical state.",
+      "failure_behavior": "Raw Open53/254 inherited-table contexts remain separately source-qualified; this assignment does not silently waive their state consequences.",
+      "unresolved_evidence_requirement": "Provide entry/exit/write-set invariants for each special context and inherited-memory read; prove no additional story effects or document a specific justified difference.",
+      "retained_evidence": [
+        "SCUMMVM-CE-ARCHITECTURE-DECISION.md",
+        "SCUMMVM-CE-M43-COMPLETION1134.json"
+      ]
+    },
+    {
+      "id": "U06",
+      "mechanism": "Dynamic authored-data producers and reachability",
+      "disposition": "UNKNOWN",
+      "original_references": [
+        "ce-native-producers494-local.json",
+        "ce-native-scripted-contacts502-local.json",
+        "native/resident_world.inc"
+      ],
+      "native_owners": [
+        "native_story_patches.h",
+        "native_world_conversation.h",
+        "native_world_actor_turn.h",
+        "native_inventory.h"
+      ],
+      "known_call_chain": "Original code/callback/schedule/copy creates or changes a record -> later dialogue/contact/Search/Use/gate operator.",
+      "conditions": "Initial data closure does not prove all later records, item IDs, service identities, map references or prototype/import entry contexts.",
+      "ordering_and_side_effects": "A complete operator grammar can coexist with an unclassified producer that changes its operands or activation order.",
+      "persistence": "New/loaded/changed maps and modal transactions must maintain the original admissible record invariants across save/travel.",
+      "failure_behavior": "Zero coordinates, missing actor-specific packets or a reserved definition name do not by themselves prove unreachable behavior.",
+      "unresolved_evidence_requirement": "Trace every code-derived producer and consumer, including all legitimate entry/copy/spawn/patch mechanisms; establish induction invariants for reachable record values.",
+      "retained_evidence": [
+        "SCUMMVM-CE-SOURCE-PRODUCERS494.md",
+        "SCUMMVM-CE-SCRIPT-SERVICE-OWNERS500.md",
+        "SCUMMVM-CE-SERVICE-ADMISSION497.md"
+      ]
+    },
+    {
+      "id": "S24",
+      "mechanism": "Four-setter patched movement dispatch",
+      "disposition": "VERIFIED intentionally different",
+      "original_references": [
+        "NA/GAME@0x3289",
+        "native/command_actions.inc@92D8",
+        "story08-1135/original-dispatch-probes.json"
+      ],
+      "native_owners": [
+        "native_world_input.h",
+        "native_world_move.h"
+      ],
+      "known_call_chain": "Original four direction setters patch928F/9290 ->9289 repeat dispatcher ->928E JSR; native key/Direction selection calls the corresponding typed movement owner.",
+      "conditions": "Known setters produce exactly ED5B/EE20/EEDC/EF91; new probes execute all4 setters through the actual call. All static absolute patch-store candidates in the base payloads are the8 GAME stores.",
+      "ordering_and_side_effects": "CE uses typed cardinal selection and transport/move continuations, not writable original call operands. Selector probes leave the story page unchanged.",
+      "persistence": "Persist logical movement/transport/continuation state, not generated instruction bytes.",
+      "failure_behavior": "Other hypothetical indirect patch writers are not excluded by this bounded selector proof.",
+      "unresolved_evidence_requirement": "Typed-dispatch replacement is established for known cardinal entries; original repeat-count/descendant and global operand-alias closure remain U02/U03/U04.",
+      "retained_evidence": [
+        "story08-1135/original-dispatch-probes.json",
+        "SCUMMVM-CE-COMMAND-DOMAIN524.md",
+        "SCUMMVM-CE-ARCHITECTURE-DECISION.md"
+      ]
+    },
+    {
+      "id": "S25",
+      "mechanism": "Fixed loader menu selection and native host replacement",
+      "disposition": "VERIFIED intentionally different",
+      "original_references": [
+        "NA/LOADER.P@0xa9f",
+        "native/menu_controller.inc@A09F",
+        "native/menu_extras.inc"
+      ],
+      "native_owners": [
+        "native_engine.cpp",
+        "native_startup_host.h"
+      ],
+      "known_call_chain": "Original loader A09F six-value branch sequence -> fixed menu destination; native CE host owns New/load/save/options lifecycle.",
+      "conditions": "New probes cover every A byte0..255: values1..6 select the six literal branches;250 other values reach original14A7. entry[3] is a statically enumerated reference expression, not an arbitrary pointer.",
+      "ordering_and_side_effects": "Native host menus deliberately replace original loader/physical disk operations and machine return topology; source selector itself does not write the story page.",
+      "persistence": "Native Engine save/session/configuration owns persistence; no original loader image is resumed.",
+      "failure_behavior": "Native host validation replaces original raw invalid-selector BRK behavior; no new hidden debug entry is authorized.",
+      "unresolved_evidence_requirement": "Approved host replacement only; every descendant story effect or unusual original entry still requires its own source relation. A3B2 has distinct loader and inventory meanings.",
+      "retained_evidence": [
+        "story08-1135/original-dispatch-probes.json",
+        "SCUMMVM-CE-ARCHITECTURE-DECISION.md",
+        "SCUMMVM-CE-M43-COMPLETION1134.json"
+      ]
+    },
+    {
+      "id": "U07",
+      "mechanism": "Dialogue resource tails and selector termination",
+      "disposition": "UNKNOWN",
+      "original_references": [
+        "ce-m3-dialogue-census29-local.json",
+        "native/dialogue_loader.cpp",
+        "native/dialogue_packets.cpp",
+        "story08-1135/retained-dialogue-tails.local.json"
+      ],
+      "native_owners": [
+        "native_dialogue.h",
+        "native_world_conversation.h"
+      ],
+      "known_call_chain": "Original resource/actor selector and loaded-buffer lifetime -> packet boundary/decompress -> response effects; native bounded resource selector -> typed packet or refusal.",
+      "conditions": "Fresh immutable-image revalidation exactly reproduces439 valid packets/3227 headers/552 effects, but the retained catalog also has19 unparsed resource tails totaling4502 bytes.",
+      "ordering_and_side_effects": "Native validates header/payload extents before accepting a matching actor. A parser stopping at malformed/trailing bytes does not establish how original selectors and retained RAM behave.",
+      "persistence": "Selected valid packet/modal state is owned; bytes outside logical payload and original load-buffer reuse require a context-specific relation.",
+      "failure_behavior": "Do not label these tails additional scripts, missing quests or harmless padding without proving their original entry/termination behavior.",
+      "unresolved_evidence_requirement": "For each indexed tail and every legitimate actor selector, establish original scan termination, record limit, buffer/read bounds and any possible mutation/exception; prove unselectability or map actual behavior to the native refusal/consumer.",
+      "retained_evidence": [
+        "story08-1135/retained-input-validation.json",
+        "SCUMMVM-CE-M3-CORPUS74-CLOSURE.json"
+      ]
+    }
+  ],
+  "disposition_counts": {
+    "VERIFIED equivalent": 10,
+    "VERIFIED intentionally different": 6,
+    "UNKNOWN": 16
+  },
+  "private_inventory": {
+    "logical_resources": 74,
+    "logical_bytes": 960173,
+    "logical_writer_candidates": 204604,
+    "logical_indirect_store_candidates": 6871,
+    "rounded_bytes": 976896,
+    "extra_allocated_tail_bytes": 16723,
+    "raw_disk_bytes": 1474560,
+    "authored_instance_rows": 1195,
+    "bounded_instance_dispositions": {
+      "UNKNOWN": 599,
+      "VERIFIED equivalent": 596
+    },
+    "reference_calls": 3668,
+    "unbanked_pc_collisions": 9105,
+    "unparsed_dialogue_resource_tails": 19,
+    "unparsed_dialogue_tail_bytes": 4502,
+    "stack_mmio_context_candidate_rows": 61232,
+    "warning": "Candidate counts include data false positives and overlap; they are not counts of actual story paths, missing code or completed requirements."
+  },
+  "new_focused_checks": {
+    "original_helper_cases": 16,
+    "original_dispatch_cases": 260,
+    "original_cases_total": 276,
+    "original_instruction_steps": 9020,
+    "actual_story_page_writes": 1030,
+    "coverage_counts": "Unique cases/steps in one complete probe pass; immutable reproduction does not add coverage.",
+    "complete_probe_passes": 2,
+    "actual_original_case_executions_in_assignment": 552,
+    "total_original_instruction_steps_in_assignment": 18040,
+    "independent_explicit_addressed_write_opcodes": 62,
+    "implicit_stack_write_opcodes": 6,
+    "documented_memory_write_opcode_total": 68,
+    "decoder_set_and_index_wrap_audit": "PASS",
+    "native_execution_checks": 0,
+    "engine_launches": 0,
+    "builds": 0,
+    "qualification": "Original helper probes and source-integrity/compatibility checks only; no new native execution or campaign claim."
+  },
+  "reproduction": {
+    "status": "VERIFIED",
+    "result": "The original seven-command method reproduced exit0 and immutable outputs; the added stack/MMIO supplement reproduced separately without repeating the original probes.",
+    "reason": "Required reproducibility/completeness audit; no unrelated suite or gameplay repetition."
+  },
+  "demonstrated_native_defects": [],
+  "native_corrections": [],
+  "genuine_discrepancies": [
+    {
+      "id": "A1",
+      "domain": "Inventory method",
+      "finding": "Logical EOF omits16723 bytes in rounded allocated source files.",
+      "disposition": "Corrected source envelope; raw whole-image supplement retained, inherited RAM still UNKNOWN."
+    },
+    {
+      "id": "A2",
+      "domain": "Inventory method",
+      "finding": "Lexical reference index omitted52 increment/decrement/fill spellings.",
+      "disposition": "Additional source coordinates retained; reference index remains supporting evidence, not the completeness certificate."
+    },
+    {
+      "id": "A3",
+      "domain": "Call-chain method",
+      "finding": "9105 case PC values are nonunique across reference locations; initial lexical call scan also counted4 helper definitions.",
+      "disposition": "Revision2 excludes the4 definitions, retains revision1 and records3668 call candidates/2 computed sites. No unbanked-PC matching accepted as equivalence; bank/overlay proof remains required."
+    },
+    {
+      "id": "A4",
+      "domain": "Original mechanism",
+      "finding": "Copy is inclusive/forward sequential; fill is exclusive-end. Substituting memmove or a shared length rule without caller proof is unjustified.",
+      "disposition": "16 bounded original probes pass; native discrepancy is not inferred without a concrete legitimate caller mismatch."
+    },
+    {
+      "id": "A5",
+      "domain": "Retained qualifications",
+      "finding": "Full physical-slot Search failure, prototype lookup alias, dynamic records, generated instructions and special machine contexts lack complete effect relations.",
+      "disposition": "Explicit UNKNOWN rows; not waived by M4.3 or relabeled as newly discovered production defects."
+    },
+    {
+      "id": "A6",
+      "domain": "Authored input completeness",
+      "finding": "Revalidated439 valid packets and552 effects, but retained19 unparsed tails/4502 bytes cannot be declared unreachable solely from the census parser stopping.",
+      "disposition": "Exact tail coordinates retained privately; U07 requires original selector/termination and buffer proof, not exploratory gameplay."
+    },
+    {
+      "id": "A7",
+      "domain": "Instruction/context completeness",
+      "finding": "The initial62-opcode wording omitted implicit stack writers and memory-read side effects on bank/IO context.",
+      "disposition": "Corrected to62 explicit addressed writes/RMW plus6 implicit stack-writing opcodes; stack coordinates and MMIO touch candidates supplemented. Asynchronous and generated contexts remain UNKNOWN, not asserted covered by static decoding."
+    }
+  ],
+  "residual_risk": "A source-reachable mutation or context-specific ordering/failure effect may remain unmapped despite bounded operators and accepted M4.3. No global noninterference or complete original executable/alias/caller proof exists. Native fallback absence and campaign success do not discharge that risk.",
+  "remaining_work": [
+    {
+      "id": "S03",
+      "requirement": "Establish exact original/native pre-response lookup, mutation, next redraw/consumer, save and imported/debug activation. Preserve the prototype incoming-edge qualification."
+    },
+    {
+      "id": "S06",
+      "requirement": "Map every original request producer and exit caller, including service re-entry and full physical-slot failure, to exact native order/state/result."
+    },
+    {
+      "id": "S10",
+      "requirement": "Establish exact original full physical inventory/fatal side effects, defined caller domain and justified native failure policy. Audit all dynamic object/item producer bounds, not just successful pages."
+    },
+    {
+      "id": "S11",
+      "requirement": "Enumerate all original helper callers and admissible arithmetic/quantity states; distinguish ordinary definitions from dynamically generated/imported IDs."
+    },
+    {
+      "id": "S12",
+      "requirement": "Close dialogue/scripted/dynamic item availability and all indirect Use/cast selectors, including obsolete book45, without assuming table presence proves reachability."
+    },
+    {
+      "id": "S13",
+      "requirement": "Trace all original copy-helper callers and dynamic recruitment/retirement contexts, including overlapping buffers and imported identity values."
+    },
+    {
+      "id": "S15",
+      "requirement": "Resolve all original actor/template producers, removal helpers, mode/slot special cases and caller preconditions, including malformed or wrapping definitions."
+    },
+    {
+      "id": "S21",
+      "requirement": "Prove every dynamic record producer and its predicate/side-effect consumers, including zero-coordinate templates, partial-map windows and special actor phases."
+    },
+    {
+      "id": "S23",
+      "requirement": "Bound all original callers, arithmetic flags, pointer aliases and post-dialogue/world-turn ordering for these shared temporaries."
+    },
+    {
+      "id": "U01",
+      "requirement": "Provide a resource-offset/bank/overlay code/data certificate, complete entry roots and load/relocation extents, with explicit dispositions for every excluded region."
+    },
+    {
+      "id": "U02",
+      "requirement": "For every direct/indirect caller, resolve bank, source/destination/end/value ranges, alias/overlap, full write set, return order and native operation.27 helper-related raw call candidates and137 pointer-store reference sites are indexed, not all certified code."
+    },
+    {
+      "id": "U03",
+      "requirement": "Resolve each reachable computed jump/return/overlay edge and summarize entry state and resulting continuation; prove roots/caller set complete rather than matching case labels."
+    },
+    {
+      "id": "U04",
+      "requirement": "Enumerate all reachable code-writing ranges and values to a fixed point, then map each version/context or prove its story-state noninterference."
+    },
+    {
+      "id": "U05",
+      "requirement": "Provide entry/exit/write-set invariants for each special context and inherited-memory read; prove no additional story effects or document a specific justified difference."
+    },
+    {
+      "id": "U06",
+      "requirement": "Trace every code-derived producer and consumer, including all legitimate entry/copy/spawn/patch mechanisms; establish induction invariants for reachable record values."
+    },
+    {
+      "id": "U07",
+      "requirement": "For each indexed tail and every legitimate actor selector, establish original scan termination, record limit, buffer/read bounds and any possible mutation/exception; prove unselectability or map actual behavior to the native refusal/consumer."
+    }
+  ],
+  "reproducible_commands": [
+    "python conversion/inventory_story08_1135.py",
+    "python conversion/audit_story08_envelope1135.py",
+    "python conversion/probe_story08_helpers1135.py",
+    "python conversion/trace_story08_1135.py",
+    "python conversion/probe_story08_dispatch1135.py",
+    "python conversion/validate_story08_inputs1135.py",
+    "python conversion/audit_story08_contexts1135.py",
+    "python conversion/reconcile_story08_1135.py"
+  ],
+  "method_source_sha256": {
+    "inventory_story08_1135.py": "1e0ceab5a829c2e67f8c5a0416ccb641f1cc12235bf8ed5327d2f32dadfcccf2",
+    "audit_story08_envelope1135.py": "a149e2deafd3fddd5e240993657245a56f4f10c66f233807fb58c6f39c5b32f3",
+    "probe_story08_helpers1135.py": "e74fda6a4de2b4af94c4e5924264adc409160df5bd99af56574c974080418016",
+    "trace_story08_1135.py": "3d6063f8eca080c0b9958fd4efc487a8c528ee85360368d8b227a2c5b31df035",
+    "probe_story08_dispatch1135.py": "5af65ffb37cdfcfdec8876618785b1b7f97dee82308355e0c38b16e83f4de2fb",
+    "validate_story08_inputs1135.py": "4169e570d9298247e308664eccc6d29c05c0eb0dc4c6e176830c6a4dbfd86314",
+    "audit_story08_contexts1135.py": "90961d6cd98da9e6bef9bc091c102768ca312432d9ec7b53cbd1e050595cc64b",
+    "reconcile_story08_1135.py": "90754c5bc8e8aee86a557a8a334b0b26f5e1355a2a990f86f20d3129d513fa2a"
+  },
+  "validation_dependency_sha256": {
+    "ce-m3-dialogue-census29-local.json": "c0c4914921ab64e6cf58f4145d2d6277eac19c5eb700933f489a3517150536ee",
+    "ce-native-dialogue-effects500-local.json": "ccccebfd8214b6874e1db9ad5df7f6ac9d96f750fb3866a2eae0a7bca1c93dd3",
+    "ce-native-producers494-local.json": "142df3223ecb6edaa6e06bd8a021e221318ca7e6afb1f937b2547979f7ad5939",
+    "ce-native-scripted-contacts502-local.json": "7918a2547f3a1f4cc418b055f2968831b6da8ac2e1c458d3718e9fb276e93420",
+    "census_dialogue29_m3.py": "5abbc4348e88fa58b4cfa645a0c70a2cdf0e69b9e9e40c507014c75dbc6642eb",
+    "inspect_session.py": "d924b0b39466ba0bc64c5603642f04a21407a34a5359b4b7122b5be9130dd1a0",
+    "local-python/py65-1.2.0.dist-info/METADATA": "beaf437c29d9984b93d2b8a5c82f5c214a6eb2f13ab46e3dd86b131b2469bd74",
+    "local-python/py65/devices/mpu6502.py": "15d93835b4f279b702270d9a0b417938291347ec57cc12d9e0307cd344d381fe",
+    "local-python/py65/devices/mpu65c02.py": "dfc5adcd63b82aaa95e5a4ae2a000af1c19fe7188575f41d70212542ec7694fb"
+  },
+  "artifact_hashes": {
+    "allocated-controls.local.json": "f81b82e2325990e60eb2762f1d7fda385a443994075f4c1e356ba27fb5bca135",
+    "allocated-layout.local.json": "15a35562ad20946f56aa5c9eed1db0e847216a81d3e30cdf841ddf6b7c636fb9",
+    "allocated-writers.local.json": "519a1c25bf4d17799bb365bada23382fa22a0604ffefeac2aebfe59c411b95ed",
+    "authored-instance-matrix.local.json": "aa52fca875acb584bd9468ac83716b5cc60b8e97cfd6e76dc0e043b6c95c031f",
+    "completeness-audit.json": "69b126e1abff7932a37c48d25878f325cd18c4179f638a308d684ccf20a83e1c",
+    "control-envelope.local.json": "5636399bcb4431c8c51470625209a1a82b9abc5926b7615eeb9d00e59fde5d34",
+    "inventory-summary.json": "c983a3d5f304d5a2236902e012502d223a3be176d82e3cfb36a7a611255d09f3",
+    "original-dispatch-probes.json": "04ca0ccee924dd46ffa5ab547f1e309554131f96c4d43c558f3e2cf5eced8c65",
+    "original-helper-probes.json": "20242bbb18975c8feec66d29acebbc6bc720e0827edb990b3e2601438df8122a",
+    "raw-image-controls.local.json": "3af8962af1d7fdde557d471a2a6e8bbd17e4d5db088dc8085fb423022144aec4",
+    "raw-image-writers.local.json": "e1bd515212663b3d775d0e2a2b606c123ad4f50aedefcea11edb8cd6663b0f19",
+    "reference-call-definition-exclusions.local.json": "830116e0fc428b35c321007958abfc82b9ecf51ce29cc6b7dfb7c61d49fa56d1",
+    "reference-call-index-v2.local.json": "8669daabb1a5b3e44133bb552273eeaf4d40920ae0b237d1b2fbc24ec6470c78",
+    "reference-call-index.local.json": "2b1c9e17212318b278a43cd847fd079be1a81211f38135831e19d891c28bfa94",
+    "reference-cases.local.json": "e3f29587bfd5711eb370e23a69749a97f3630775952f659d9411db8aaab52320",
+    "reference-index-additions.local.json": "96d6a93400d0b1bd12bd9628a792be3f4c428cd01f93f7c2956b42820fd80d56",
+    "reference-pc-collisions.local.json": "daad89e16dc4007d203a08f47a20ebec100b197ed4bf8133fd004672a986924b",
+    "reference-source-hashes.local.json": "dbd5adfe5d42a973b0adf0d0c00cd6636141d38c92068ff65ce3f941bebca571",
+    "reference-writers.local.json": "d280105a7aa89d5900d51605b36b68d24106426cdefbc17ddd5d057c51d42c01",
+    "resources.local.json": "77c8cf087265cda55603298fdbbb6145f510450825ee998e35745fe128e28fa1",
+    "retained-dialogue-tails.local.json": "6c261b55534be57f05ae4eca6ccca175304881d3e307f5a9e5b42310f2f1d833",
+    "retained-input-validation.json": "dadaf77babc6530d8cd46e0dc1a7b55a85d4f1febcd728fa48fa18549eacccbc",
+    "stack-mmio-audit.json": "dff56506e53e69c286b1ef051fbb444bcb37d1ba3db3fa3b677045ae3b70a4c8",
+    "stack-mmio-contexts.local.json": "5c72c4335f0af6830985ce920dc4ebdf1b373272f833f3d591445c98b97fa2d9",
+    "trace-summary-v2.json": "6f3f40c211e5e40fe0b4e38ad2c9c9600dbd035dee4366464392065780f74d40",
+    "trace-summary.json": "96b1e87433a3255fe5a760351758b32560c50b237233b11ede3cf0b725fac4b5",
+    "writer-envelope.local.json": "7f0d7f7a68d22ba1f4511f2aa056aa212f744857e07d0599f28278de2ed5d11a"
+  },
+  "retained_evidence_sha256": {
+    "SCUMMVM-CE-SCRIPT-SERVICE-OWNERS500.md": "32253731fe421c2a28a38e8d7e97dc463fdcd45fed48a0007af7e14124dd9df7",
+    "SCUMMVM-CE-M4-CONVERSATION10-UNIT.json": "05cca83d0da7bb0d5bf3bd1660a63755c450fc3b98ec1cfa99f191ba34614862",
+    "SCUMMVM-CE-INTEGRATION527-I2-VERIFICATION.json": "2695f349a4d3d52bb0faa3e05d50fd99c045045369cff75556c9f0017d15406b",
+    "SCUMMVM-CE-DIALOGUE-BOUNDARY486-VERIFICATION.json": "7d3c2d9a05d3f0856cf7613dd60e5a5f31cd44f92ebf44b5d69014d83f9cf195",
+    "SCUMMVM-CE-SERVICE-ADMISSION497.md": "6edb5ee99724648b003d8a68ccfb55a40f318fe320d8ab2a7ce9caef742513fb",
+    "SCUMMVM-CE-CALLBACKS479-VERIFICATION.json": "d2d5086226ce46362be68048aecf811d4d4b7093192eb70c9e4c169f38b1ad87",
+    "SCUMMVM-CE-ARCHITECTURE-DECISION.md": "9ba016bdd2066f513eddf3d1d6b3ac8fb05dfbca912cbc162a79a9e01427639f",
+    "SCUMMVM-CE-DATA-OWNERSHIP509.md": "72c666d32a1d56adbd9ae6cb9811b85c09b6fdafee1718bf31ede693cb776972",
+    "SCUMMVM-CE-M4-STORY-PATCHES64-UNIT.json": "820fc6583990708d2e33165e3c726b6d08cad1a471b84ce98b60084d202a54aa",
+    "SCUMMVM-CE-M4-WORLD-STORY65-UNIT.json": "936b7c0694314e332edfb2ddc2fb92b90f1eb1be543f4ced34da91cfd1e2c6a6",
+    "SCUMMVM-CE-SOURCE-PRODUCERS494.md": "9141c0324f33601497a935cd1a8345c8546a28ea49b93ac5760481b1e1226a3e",
+    "SCUMMVM-CE-M4-GATES1-UNIT.json": "91c31491a942f7f04217cbfd84320c00e203db1cb0bfe30da207cdd01df8b1d2",
+    "SCUMMVM-CE-M43-LATE-GATES956-VERIFICATION.json": "013d5d1ef0b0071ba5f5374ffc4d6b4fc41ac8196bcfc5f1bd386aa14c5c9870",
+    "SCUMMVM-CE-M43-PHYL715-VERIFICATION.json": "bf79e92e6e917739fe353bdc3e0deb614bf2874ed2da84f902c4001cddd3b4db",
+    "SCUMMVM-CE-M43-CULT1118-VERIFICATION.json": "7ddfdacbaa98f49a110b5850e1f33e1b007dbc5f2d8f4c0f5a64b26e04159762",
+    "SCUMMVM-CE-M4-SEARCH-REWARD36-UNIT.json": "cc1def484105371631b9e907e185b8e63dc29b72aa939677941bc3da6b5eec9a",
+    "SCUMMVM-CE-M43-PAGES501-VERIFICATION.json": "f7fa65dd3a469be35c2f19792b86f576478de732ec8493d7b94a84e587f012d3",
+    "SCUMMVM-CE-M43-DROP1091-VERIFICATION.json": "7f9b120f1ccfaad945a4e2da232d7cd1c21285913f888d9f88471f966abfe69a",
+    "SCUMMVM-CE-INTEGRATION527-I3-VERIFICATION.json": "fc6a14f4aeeada15464123641f532749b2a9489833dc11c56d498840e3c850c1",
+    "SCUMMVM-CE-M43-FIRE886-VERIFICATION.json": "a4556ee21448643fc1402e2a6b4e82eb14d8119ea3317c9839157f3761c1a693",
+    "SCUMMVM-CE-M43-AIR892-VERIFICATION.json": "4a870e9318673bb42408f58e3eb036a5b199b4e38b8d8f6283d8257b371d1a51",
+    "SCUMMVM-CE-M43-COMPLETION1134.json": "00895f7051e6fa243798a0971820bcea97f000b7ebd9dee524425cd6c8d8dafc",
+    "SCUMMVM-CE-M4-GENERAL-ADMISSION-WORK.json": "963a3cee8e4dc0483802140a407046c392e8371054727af2f9920a36cca3228d",
+    "SCUMMVM-CE-HARDCODED-STORY525-REVIEW.md": "459c2f56ee2722a157330b68fdd027293df9ecb61530c129ee0619b82c32a9b1",
+    "SCUMMVM-CE-WORLD-STORY525-VERIFICATION.json": "46e841262543f47ce901786ce028c9029326a61d070459b8b71b89ac433389d1",
+    "SCUMMVM-CE-INTEGRATION527-I4-VERIFICATION.json": "937e9acc2d28ed3134eb30d37291908dcc6321b7ad68b8b23e88a06d79c22951",
+    "SCUMMVM-CE-PERSISTENCE520-VERIFICATION.json": "3e5849d62eaeceebec3ea5c07eb5b9bf10732c4ab58b0942ab1e0a6073e7c3ba",
+    "SCUMMVM-CE-PRAEVOC505-VERIFICATION.json": "a5fa3a4756ce1809cdb37dbd2a2b416fe5971394bdfd0fdb6f849d0a238b02fd",
+    "SCUMMVM-CE-DIALOGUE-SPEECH506-VERIFICATION.json": "ed63c1c4a7ac7ce48bcc3edb670995d2af493c6935cd23b91e975d36f400a435",
+    "SCUMMVM-CE-M43-ENDING1082-VERIFICATION.json": "a8a83e5fda10a610e0d01489b84358d4be6cb1d5378f6501568adac239e02f47",
+    "SCUMMVM-CE-WORLD-POPULATION517-VERIFICATION.json": "37a7478541d7cb75014f2b9bbfb7b31e5c4d61dd7a0b2ca6deb6c8a57cea78a5",
+    "SCUMMVM-CE-NPC-RECOVERY518-VERIFICATION.json": "2d2acce5a3307d8d744dcd239f261a0d6a452df1212350108c0993e4cb6faf8b",
+    "SCUMMVM-CE-ENGINE-FALLBACKS.md": "becb098ee9edddbca8c7372ec0a93ac41355aeb37a1384333dfa5e521ebea253",
+    "SCUMMVM-CE-DIALOGUE-CLOCK515-VERIFICATION.json": "64f16ba75df3b90882964fc47fa1ed2e7b16be9f827b297664800ac14a3d791e",
+    "story08-1135/original-helper-probes.json": "20242bbb18975c8feec66d29acebbc6bc720e0827edb990b3e2601438df8122a",
+    "story08-1135/trace-summary.json": "96b1e87433a3255fe5a760351758b32560c50b237233b11ede3cf0b725fac4b5",
+    "disassembly/hdv-and-banks.md": "9035af4d6e06c7162fc783b7a76df8b86f04d774b0e1aecd48af82db16f6e0e5",
+    "story08-1135/original-dispatch-probes.json": "04ca0ccee924dd46ffa5ab547f1e309554131f96c4d43c558f3e2cf5eced8c65",
+    "SCUMMVM-CE-COMMAND-DOMAIN524.md": "83f25f180196de7aea8f5cffd6af3ececfdbb48729096a68cd9fb1f45b910ad8",
+    "story08-1135/retained-input-validation.json": "dadaf77babc6530d8cd46e0dc1a7b55a85d4f1febcd728fa48fa18549eacccbc",
+    "SCUMMVM-CE-M3-CORPUS74-CLOSURE.json": "7371c0b9300cc484b41ba24e7c843d66bc3f1ae84050de5eabe0915046b14f85"
+  },
+  "stopping_judgment": "Technical investigation delivered with an explicit unresolved result, as permitted by the assignment. This is not a research-plan-only report and not a claim of exhaustive closure; exact remaining proof obligations and per-site candidate matrices are retained."
+}
