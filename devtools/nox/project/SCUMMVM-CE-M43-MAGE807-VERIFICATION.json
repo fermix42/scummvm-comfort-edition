@@ -1,0 +1,24 @@
+{
+  "status": "VERIFIED",
+  "scope": "One actual earned fixed Mage victory/150XP only; caster eligibility and M4.3 remain IN PROGRESS.",
+  "actual": "Normal source60-flight RuinMages794 reachesSurface137,214 with two17HP damage stops and one ordinary Divine heal. ActualRight flight entersRuin20, residual movement ends27,38. NormalDivine/camp, onefootLeft alignment and Yflight505 retainfull112HP,MP69/92,285food. Source5flight802 enters21/39,30. Source geometry flight to27,26, two actual ground steps Down/Left to26,27, Yflight/Down/fourLeft enters22/11,31,506. Source7flight804 admits the actual original fixed10-member Mage group: four98HP BanditFighters, four91HP Archers, two113HP BattleMages. Normal tactical victory805, no HP loss; MP19/53,172gold285food,507. Actual XP21736/21806: exactly150XP/member, not predicted500. Normalcamp806 restores69/69MP for66food,219food. QuickExitBr4MP returnsSurface138,214;508 retains112HP,MP65/69,172gold219food. No Engine change/build/process.",
+  "source_correction": "Earlier500XP prediction was wrong. Original reward percentages are0,0,0,40,80,100 by level difference. At attacker8/target4, each750XP BattleMage credits150; two yield300pool/2=150. Remaining1264/1194XP to23000. Original Ruin19..22 contain zero229..232 water cells; their defaultwater146 cannot generate additional Mage groups. The one original fixed22 group is now legitimately retired. Original UM99 fixed Cultist0 is also already retired in actual earned state (213,84,169,255); do not revive/replay it or travel there for claimed new rewards. No native reward defect demonstrated.",
+  "evidence": {
+    "ce-native-acceptance528/earned-modern/earned-RuinMage805-first-admission.json": "fc26f72929e6df15c7303da47972d985f4b3a88492491db1b43cba7a9c204fcc"
+  },
+  "checkpoints": {
+    "ce-native-acceptance528/earned-modern/checkpoints/505-Earned-Ruin-Mage-approach505/checkpoint.json": "498bb526cd547117d20c954546d6303880340ae863a45923c7bbaeb2dcbbcef7",
+    "ce-native-acceptance528/earned-modern/checkpoints/506-Earned-Ruin22-Mage-floor506/checkpoint.json": "482871f08bdba64d4465714055241d13f9ea862a4adc75372cf8610042b0402f",
+    "ce-native-acceptance528/earned-modern/checkpoints/507-Earned-first-Ruin-Mage-victory507/checkpoint.json": "d76f82b0b200242233b4ec545c5315b17d35a828d7e648a56b5e012890186b6f",
+    "ce-native-acceptance528/earned-modern/checkpoints/508-Earned-Ring-route-departure508/checkpoint.json": "c74573d251edecdd87ab438c67dd5fc8b71c9fe9616ac929d820a5342605ac8c"
+  },
+  "source_commit": "c660ae8ac41",
+  "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd",
+  "cost": {
+    "builds": 8,
+    "game_cli_processes": 54,
+    "focused_cli_processes": 5,
+    "material_launches": 59
+  },
+  "next": "Continue source39-flight Ring808 toSurface22,198, normal entrance23,199 ->Town74. Required Ring155 path: original KAYL magic-mouth password, actual timed door9,10 passage from9,11, Search9,8/repeat, proper Ready/protection and cold scope. Keep Ring acquisition, protection, Drathe/DarkKey, HighCultist and wholecampaign statuses separate. Reconcile subsequent source-supported combat route and actual remainingXP; no fabricated stats, natural-Mage farming, or unsupported500XP claims. All selected60 acceptance criteria remain."
+}

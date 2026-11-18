@@ -2970,7 +2970,7 @@
   "process_launches": 54,
   "planned_node_count": 60,
   "mandatory_node_count_note": "All selected M3 nodes explicitly represented alongside dependency76 graph; includes supporting/advice/alternative nodes. Necessity is retained per source,not inferred from node count.",
-  "last_earned_checkpoint": 504,
+  "last_earned_checkpoint": 508,
   "baseline_candidate_sha256": "81feb2c7ff17594a6ea9754dc60602a755b2f37ea7c53b437f65a18e7c35000f",
   "candidate_change": "NPC529,cannon530,packedmelee531,mountedTalk532 source corrections; exact scoped receipts and earned ancestry retained. No broad matrix promotion.",
   "earned_failures_retained": [
@@ -3030,14 +3030,14 @@
   "previous_candidate_before533": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed",
   "candidate_source_commit": "c660ae8ac41",
   "candidate_transition": "SCUMMVM-CE-DOOR533-VERIFICATION.json; normal223 cold recovery before further inputs; earlier nodes retain original bound evidence.",
-  "last_checkpoint": 504,
+  "last_checkpoint": 508,
   "cult734": {
     "status": "VERIFIED",
     "report": "SCUMMVM-CE-M43-CULT734-VERIFICATION.json",
     "scope": "Four actual earned Cultist pair victories and level6-to8 advancement only; Vortex/guardian/ending acceptance remains IN PROGRESS."
   },
-  "active_next": "Actual60-flight RuinMages794 toSurface137,214, stopping on damage/encounters. Then normalRight flight crosses authored138,214 entrance toRuin20; inspect residual local movement. Required1414/1344XP to level9/INT104: actual static Ruin22 group36 plus two naturally occurring original Mage groups, source500XP/member at level8. Inspect each actual admission before deciding normal tactical/flee; do not blindly fight incidental471HP enemies. Then actual book11 Ready/cast on original Dragon with both party members retained, earned level10/INT116, Vortex readiness, full guardians and remaining acceptance. No injected outcomes or XP.",
-  "current_checkpoint": 504,
+  "active_next": "Continue source39-flight Ring808 toSurface22,198, normal entrance23,199 ->Town74. Required Ring155 path: original KAYL magic-mouth password, actual timed door9,10 passage from9,11, Search9,8/repeat, proper Ready/protection and cold scope. Keep Ring acquisition, protection, Drathe/DarkKey, HighCultist and wholecampaign statuses separate. Reconcile subsequent source-supported combat route and actual remainingXP; no fabricated stats, natural-Mage farming, or unsupported500XP claims. All selected60 acceptance criteria remain.",
+  "current_checkpoint": 508,
   "essence775": {
     "status": "VERIFIED",
     "report": "SCUMMVM-CE-M43-ESSENCE775-VERIFICATION.json",
@@ -3047,5 +3047,11 @@
     "status": "VERIFIED",
     "report": "SCUMMVM-CE-M43-NECRO795-VERIFICATION.json",
     "scope": "Actual earned Nox Alyn research/book11 award/repeat and normal supply transactions only; casting eligibility and Vortex remain IN PROGRESS."
-  }
+  },
+  "mage807": {
+    "status": "VERIFIED",
+    "report": "SCUMMVM-CE-M43-MAGE807-VERIFICATION.json",
+    "scope": "One actual earned fixed Mage victory/150XP only; caster eligibility and M4.3 remain IN PROGRESS."
+  },
+  "source_xp_correction807": "Earlier500XP prediction was wrong. Original reward percentages are0,0,0,40,80,100 by level difference. At attacker8/target4, each750XP BattleMage credits150; two yield300pool/2=150. Remaining1264/1194XP to23000. Original Ruin19..22 contain zero229..232 water cells; their defaultwater146 cannot generate additional Mage groups. The one original fixed22 group is now legitimately retired. Original UM99 fixed Cultist0 is also already retired in actual earned state (213,84,169,255); do not revive/replay it or travel there for claimed new rewards. No native reward defect demonstrated."
 }
