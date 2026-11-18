@@ -2985,7 +2985,7 @@
   "process_launches": 55,
   "planned_node_count": 60,
   "mandatory_node_count_note": "All selected M3 nodes explicitly represented alongside dependency76 graph; includes supporting/advice/alternative nodes. Necessity is retained per source,not inferred from node count.",
-  "last_earned_checkpoint": 540,
+  "last_earned_checkpoint": 550,
   "baseline_candidate_sha256": "81feb2c7ff17594a6ea9754dc60602a755b2f37ea7c53b437f65a18e7c35000f",
   "candidate_change": "NPC529,cannon530,packedmelee531,mountedTalk532 source corrections; exact scoped receipts and earned ancestry retained. No broad matrix promotion.",
   "earned_failures_retained": [
@@ -3045,14 +3045,14 @@
   "previous_candidate_before533": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed",
   "candidate_source_commit": "c660ae8ac41",
   "candidate_transition": "SCUMMVM-CE-DOOR533-VERIFICATION.json; normal223 cold recovery before further inputs; earlier nodes retain original bound evidence.",
-  "last_checkpoint": 540,
+  "last_checkpoint": 550,
   "cult734": {
     "status": "VERIFIED",
     "report": "SCUMMVM-CE-M43-CULT734-VERIFICATION.json",
     "scope": "Four actual earned Cultist pair victories and level6-to8 advancement only; Vortex/guardian/ending acceptance remains IN PROGRESS."
   },
-  "active_next": "Actual source24flight861 toSurface78,192; normalYland/Right intoCave79,192. Inspect actual underworld arrival, source-plan owned Wyvern flight to101/Dragon117 at67,39. Actual Necrosis C1 Nox caster29MP; no victory or50000XP claim until earned. Retain bothparty members for source per-party XP arithmetic.",
-  "current_checkpoint": 540,
+  "active_next": "Source5flight870 toSurface71,204; normalJorbek70,205 entrance/Town9 foodvendor32, original50foodpacks1gold. Normalfoodpurchase/camp sufficientVortex87MP, realworldrefusal/cold, fullguardians andremainingfiniteacceptance. No optionalDragonloot/innrequired.",
+  "current_checkpoint": 550,
   "essence775": {
     "status": "VERIFIED",
     "report": "SCUMMVM-CE-M43-ESSENCE775-VERIFICATION.json",
@@ -3180,5 +3180,41 @@
       "ce-native-acceptance528/earned-modern/checkpoints/539-Earned-Necrosis-ready539/checkpoint.json": "e39df82a4da0498ecf438b7c81ba666f92aca4e409b605aad01dee07e45e876e",
       "ce-native-acceptance528/earned-modern/checkpoints/540-Earned-Necrosis-departure540/checkpoint.json": "97647094acc31739199fc8001fc276dc960c029c78ee6eb65c16e9c446adf270"
     }
+  },
+  "dragon865": "Actual540 Surface150168/source24flight861 reaches78,192; normalYland/Right cave entry541 givesUM97/79,192. ActualYflight/source4flight862 to79,176/Up ends79,172 at542, no portal transfer. ActualRight83,172 at543 also no transfer. Labels542/543 are premature route labels, not evidence of transfer. Original source spawns are80,171->97/90,129;81,171->98/82,187;82,171->99/118,237;83,171->100/231,18. GroundYland/Up at83,172 refuses193collision, remains97/83,172 at544; that label is likewise premature. NormalYflight/Up then actually crosses83,171 to100 and residualUp crosses adjacent100/231,17 stair to101, ending101/231,15. Actual545 saves this. Source58flight864 tosafe101/79,39 via100/101 selected, currently executing. NoEngine/build/process change. Underworld lava212..219 damage35/member/step, transport doesnot exempt it; do not fly4lava steps at117HP. Safe flight approachesWand79,39; use explicit source foot route/healing for innerlair as needed. Current bothlevel9 INT104 HP117,MP77/61,346gold99food; actualNecrosis11 readiedC1.",
+  "dragon869": {
+    "status": "VERIFIED",
+    "scope": "Earned full2844HP Dragon Necrosis defeat, XP/promotions, persistentretirement and Vortexreadiness only",
+    "actual": "Actual545 uses direct authored83,171 stair and residual native flight to101/231,15. Source58flight864 crosses100/101; nine191HP Drake admission at101/73,31, normal flee346->173gold, residual75,31. ActualRight79,31/source2flight866 reaches79,39, noHP/MP loss. Yland546. First privatefoot controller stopped beforeinput because source start was[map,x,y]; corrected read to[-2:], noEngine defect. Actual foot route reaches75,40 with35-per-lava-step damage and one17MP Divine heal; sevenDrakes intercept, normalretreat173->86gold, both47HP retained. NormalDivine heal, original N/Enter/Down/Enter partyexchange makesNoxfirst. Fresh source8step868 detours via75,39/74,39; fourDrakes intercept, normalretreat86->43gold. Remaining groundlava steps with twoDivine heals reach68,39, both82HP,MP61/9;547. Dragon originally67,39 has actually moved65,38, then66,38; firstAttackLeftmisses, latergroundmovement has10Drakeintercept/normalretreat43->21gold. ActualAttackLeft from67,39 admits exactlyone original full2844HP Dragon172. NativeTactical activeparty0 isNox; normalC1Necrosis/targetEnter consumes61->32MP and leavesDragon0HP/notpresent. Both retain82HP; noNPCdamage or injectedoutcome. Normalvictory and two original12INT allocations yield548 bothlevel10 INT116,maxHP123/current88,XP Nox48207/Bridgit48137:exact25000/member. Gold21,food99. ActualDragonretirement record[66,38,172,255,0,126,0,255]. Normalbook12 ReadyC1 Nox549 succeeds; QuickExitSurface79,192,550,MP40/21,HP88. NoEngine change/build/process. Fullcampaign/ending stillINPROGRESS.",
+    "source_commit": "c660ae8ac41",
+    "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd",
+    "cost": {
+      "builds": 8,
+      "game_cli": 55,
+      "focused_cli": 5,
+      "material_launches": 60
+    },
+    "next": "Source5flight870 toSurface71,204; normalJorbek70,205 entrance/Town9 foodvendor32, original50foodpacks1gold. Normalfoodpurchase/camp sufficientVortex87MP, realworldrefusal/cold, fullguardians andremainingfiniteacceptance. No optionalDragonloot/innrequired.",
+    "checkpoints": {
+      "ce-native-acceptance528/earned-modern/checkpoints/541-Earned-Dragon-cave-approach541/checkpoint.json": "8dd2bee6253ae812e76fe85e3bfb2a2b71839e0fcd8f66f61778f5547d9964d8",
+      "ce-native-acceptance528/earned-modern/checkpoints/542-Earned-Dragon-authored-portal542/checkpoint.json": "ed7bb776be1e13d3c9ed89c8ed3cab41b9081025be1eb77840f1a25806f776d3",
+      "ce-native-acceptance528/earned-modern/checkpoints/543-Earned-Dragon-portal-transfer543/checkpoint.json": "fa12925838d91120f2d8fce59553b1f4b1b24d9584e6e4c3f77fe8ea14974b60",
+      "ce-native-acceptance528/earned-modern/checkpoints/544-Earned-Dragon-direct-stair544/checkpoint.json": "d00521c0a4eebe7b61a77409eb7f4a8ddde8fa7a10814cbffe4ce66caa50d4da",
+      "ce-native-acceptance528/earned-modern/checkpoints/545-Earned-Dragon-native-depths545/checkpoint.json": "4078148787818149b2e3747f49f71d89d9ea13e815dc8a38498ac387ae4944ca",
+      "ce-native-acceptance528/earned-modern/checkpoints/546-Earned-Dragon-lava-staging546/checkpoint.json": "2500edfd1f87c3529fb6a1fab743b7ae6643c861cf3577280455a36c7d99a2bf",
+      "ce-native-acceptance528/earned-modern/checkpoints/547-Earned-Dragon-inner-lair-547/checkpoint.json": "e4a26bae045d20f7943dbde0b81ffa66f3d75e36e4fc93204abd47d0e30f8628",
+      "ce-native-acceptance528/earned-modern/checkpoints/548-Earned-Dragon-victory-level-ten548/checkpoint.json": "b0cad7f613036b2bbe3e991d49162735e91ce3d6956cfa3a0d794ec04209b855",
+      "ce-native-acceptance528/earned-modern/checkpoints/549-Earned-Vortex-ready549/checkpoint.json": "c32ba9cecee5e9470b05684c47f8b2f9aa8ac05fab99223f79caa41c375b9caf",
+      "ce-native-acceptance528/earned-modern/checkpoints/550-Earned-Dragon-Surface-return550/checkpoint.json": "ea0d4c40f2f82169023543ec96c08a1cef34404bf238bf755a5b22126ce1455c"
+    },
+    "private_evidence": {
+      "ce-native-acceptance528/earned-modern/earned-Dragon-Necrosis869.json": "441afcbd7bbe8ea95d00bcff46201e8dbc8de584a6cd5d00e3229f97d9592664",
+      "ce-native-acceptance528/earned-modern/earned-Dragon-drake-retreat-1382621.json": "dbd75320595a291fa6b61caac0963423d387cd94910c143269ecd9bedb9ed8ea",
+      "ce-native-acceptance528/earned-modern/earned-Dragon-drake-retreat-1404776.json": "6130698a2053f336683c1ba8867f183c8fb717ccf97b108eb898e5e2ef172511",
+      "ce-native-acceptance528/earned-modern/earned-Dragon-foot867-admission.json": "319146b4db922828c13efdb522793939914e07b33ba55036f501264ff450189a",
+      "ce-native-acceptance528/earned-modern/screenshots/scummvm-cli-game-00259.png": "7e2dd5012a35d74e49b417deb621d3c40cedcec706eb635fe1673dc9b9d8082c",
+      "ce-native-acceptance528/earned-modern/screenshots/scummvm-cli-game-00260.png": "98c547a67152835405c9351e330bbb00271ecdccc3606ac4af3c581b16ce4d12"
+    },
+    "qualification": "Checkpoint542/543/544 route labels werepremature:actualstatesremain97/79,172 then83,172. Corrected inprogress545. Offline safe-target attempts fromoutside theauthoredstair component returnedNoRoute; sourceactual80..83,171 destinations reconciledbeforeexecution. Selected source route545 isactual, notofflineinjection. Lava35damage/step retained, no4-lava-cell flight at117HP."
   }
 }
