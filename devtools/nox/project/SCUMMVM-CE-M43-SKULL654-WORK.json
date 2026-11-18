@@ -1,0 +1,41 @@
+{
+  "status": "VERIFIED",
+  "scope": "Earned Modern Skull pickup/repeat, missing-key refusal, actual two keyed passages, both child dialogue branches and primary rescue/scene-refresh retirement/cold continuity. Selected Classic and broader campaign remain separate.",
+  "source_commit": "c660ae8ac41",
+  "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd",
+  "last_checkpoint": 453,
+  "refusal": {
+    "status": "VERIFIED",
+    "actual": "Legitimate earned446 fork before78 acquisition, field26=32/no2bit/78absent. NormalmountedQuickExit carriesWyvern to actualSurface119147; initial assumed120147 assertion was corrected from actualstate before any following movement. Yland/Right enters49; source3-step651 aligns25,36. Normal originalflight via37,8 enters47 at37,37 (actualarrival, not assumed37,9). Source-only47spawns reviewed; Left3/Up5 staysoutsideprison to25,17, Yland/X. Source7-step653 reaches22,13 withoutcrossing22,12. ActualOpenUp refuses No key or pick that fits, screenshot199; actualUp remains22,13. Normalbranchsave900 persistsfield26=32 andgate22,12picture62/state18, no78. Bothgenerations/sidecars copiedunchanged toforks/Skull-no-key654, withlineage. Normalowned446 load restores50/22,17,MP50/68 andoriginalparty/queststate; no primaryparent change or fork rewards merged."
+  },
+  "pickup": {
+    "status": "VERIFIED",
+    "actual": "Normal sourceLeftflight to50/18,17,Yland/X;3source655 footmoves reach17,15. ActualSearchLeft immediately awardsSkullKey78qty1/field26 32->34, screenshot200 Found Skull Key. No chooser/pick/trap/HPMPcost occurred; rawrecordflags70 are not evidence of a pick. NormalrepeatSearchLeft Nothingfound,qty1/field26=34,screenshot201. Ordinaryprimary447 saved, parenting446. No fabricatedquest,stats,items,positions or originalinstructions."
+  },
+  "evidence": {
+    "ce-native-acceptance528/earned-modern/earned-Skull-no-key-quarter652-533.json": "c3466d9a86bbf1763cff39b42a6d7304f69d6ff57320fbab36742ec13ea73d25",
+    "ce-native-acceptance528/earned-modern/earned-Skull-no-key-refusal654-533.json": "a662e4160c819891a04e2fe7e2337cdf4d6debaaf49283c508af2aaf77d46763",
+    "ce-native-acceptance528/earned-modern/earned-Skull-no-key-blocked654-533.json": "70bddbd043cff5f5774026422c09f6b6a3701c18abf159ece0f5c5ed8d3859bb",
+    "ce-native-acceptance528/earned-modern/forks/Skull-no-key654/lineage.json": "3f3381ccef76e9b2ee8ab16de0381949c62194e4f1c1a15b99a44b133da55755",
+    "ce-native-acceptance528/earned-modern/earned-Skull-search656-533.json": "f2f66f8db5e45e3ef240e816e295255ab4fd4becbf522f647a8ff70af6dc71fa",
+    "ce-native-acceptance528/earned-modern/earned-Skull-repeat657-533.json": "5298dae9b73954bc182c4ffca2f07024b95de9da8de02a2aeae57d45e3c1a217",
+    "ce-native-acceptance528/earned-modern/earned-Skull-keyed-passage658-533.json": "8c775422e33578843a41f1f98c3a8ccc19b8c4d6a79321a1e2a4517ca66170fa"
+  },
+  "presentation": {
+    "ce-native-acceptance528/earned-modern/screenshots/scummvm-cli-game-00199.png": "6688ea41766203df4d162d598bc220dd17816efcf22080451c956c9443f36c2a",
+    "ce-native-acceptance528/earned-modern/screenshots/scummvm-cli-game-00200.png": "5386d2b6332834b67092594ab1f7c3f8723e6901d488bae944b059266cb6ec15",
+    "ce-native-acceptance528/earned-modern/screenshots/scummvm-cli-game-00201.png": "77769346f263eedfe9a6cecca2e51558918fe4d47f44a955ba0827228dd35938"
+  },
+  "cost": {
+    "builds": 8,
+    "game_cli_processes": 48,
+    "focused_cli_processes": 5,
+    "material_launches": 53
+  },
+  "next": "ActualcellOpenLeft from30,26, physicaldoorstep29,26; preserveearnedpre-rescuecheckpoint forGirl/Boy alternatives. Both sourceL00Factors32/40 setshared53/2 andnextworldstepretiresboth; no outcomeinjection orsame-textrepeatclaim.",
+  "market_gate448": {
+    "status": "VERIFIED",
+    "actual": "Actual78present/field26=34. NormalOpenUp from47/22,13 permitsactualUp22,12 andUp22,11;658 before/after andscreenshot202. Ordinary448 saved. NormalOpenDown/reversepass22,12/22,13 retainskey. Source7footmovesreturn2517; Bground/Up2516/Yflight/Left4 enters46/38,16; source4flightcommandsstayoutsidecelltoeast30,24, Yland/X. Currentapproachtoactualcellgate29,26 required, beforechilddialogue."
+  },
+  "completion_report": "SCUMMVM-CE-M43-RESCUE663-VERIFICATION.json"
+}

@@ -1261,7 +1261,7 @@
     },
     {
       "id": "skull-key",
-      "status": "NOT STARTED",
+      "status": "VERIFIED",
       "prerequisites": [
         "legitimate-new-game"
       ],
@@ -1289,12 +1289,25 @@
         "scoped audio/presentation",
         "actual earned verification criteria"
       ],
-      "earned_lineage": null,
-      "ordering_reconciliation": "Historical M3 search/execution ordering Rusty72->Skull78 was not a mechanical dependency. Immutable Skull78 pickup53/misc2 atTown2map50(16,15) checks only its own field26/mask2/repeat/capacity; native_search.h reward lines70..83. Rusty72 and its Ruin19 field25/mask2 door remain separate required acceptance, reordered after the independent Bayport chain. Actual Guild password/door/stair access, Skull pickup and prison gate remain required; no bypass or injected state."
+      "earned_lineage": [
+        447,
+        448,
+        449,
+        450,
+        451,
+        452,
+        453
+      ],
+      "ordering_reconciliation": "Historical M3 search/execution ordering Rusty72->Skull78 was not a mechanical dependency. Immutable Skull78 pickup53/misc2 atTown2map50(16,15) checks only its own field26/mask2/repeat/capacity; native_search.h reward lines70..83. Rusty72 and its Ruin19 field25/mask2 door remain separate required acceptance, reordered after the independent Bayport chain. Actual Guild password/door/stair access, Skull pickup and prison gate remain required; no bypass or injected state.",
+      "earned_scope": {
+        "status": "VERIFIED",
+        "report": "SCUMMVM-CE-M43-RESCUE663-VERIFICATION.json",
+        "scope": "Earned Modern Skull pickup/repeat, missing-key refusal, actual two keyed passages, both child dialogue branches and primary rescue/scene-refresh retirement/cold continuity. Selected Classic and broader campaign remain separate."
+      }
     },
     {
       "id": "guild-children-rescue",
-      "status": "NOT STARTED",
+      "status": "VERIFIED",
       "prerequisites": [
         "skull-key"
       ],
@@ -1322,8 +1335,21 @@
         "scoped audio/presentation",
         "actual earned verification criteria"
       ],
-      "earned_lineage": null,
-      "ordering_reconciliation": "Historical M3 search/execution ordering Rusty72->Skull78 was not a mechanical dependency. Immutable Skull78 pickup53/misc2 atTown2map50(16,15) checks only its own field26/mask2/repeat/capacity; native_search.h reward lines70..83. Rusty72 and its Ruin19 field25/mask2 door remain separate required acceptance, reordered after the independent Bayport chain. Actual Guild password/door/stair access, Skull pickup and prison gate remain required; no bypass or injected state."
+      "earned_lineage": [
+        447,
+        448,
+        449,
+        450,
+        451,
+        452,
+        453
+      ],
+      "ordering_reconciliation": "Historical M3 search/execution ordering Rusty72->Skull78 was not a mechanical dependency. Immutable Skull78 pickup53/misc2 atTown2map50(16,15) checks only its own field26/mask2/repeat/capacity; native_search.h reward lines70..83. Rusty72 and its Ruin19 field25/mask2 door remain separate required acceptance, reordered after the independent Bayport chain. Actual Guild password/door/stair access, Skull pickup and prison gate remain required; no bypass or injected state.",
+      "earned_scope": {
+        "status": "VERIFIED",
+        "report": "SCUMMVM-CE-M43-RESCUE663-VERIFICATION.json",
+        "scope": "Earned Modern Skull pickup/repeat, missing-key refusal, actual two keyed passages, both child dialogue branches and primary rescue/scene-refresh retirement/cold continuity. Selected Classic and broader campaign remain separate."
+      }
     },
     {
       "id": "thieves-guild-boss",
@@ -2883,10 +2909,10 @@
   "mode_strategy": "One primary Modern earned lineage; targeted Classic legal earned fork/restore/transitions; no duplicate complete campaign required by existing criteria.",
   "failure_policy": "Freeze failing path,source general diagnosis,focused correction+regression,at most2corrective reruns; resume valid nearest earned save,no prefix replay or outcome injection.",
   "builds": 6,
-  "process_launches": 48,
+  "process_launches": 51,
   "planned_node_count": 60,
   "mandatory_node_count_note": "All selected M3 nodes explicitly represented alongside dependency76 graph; includes supporting/advice/alternative nodes. Necessity is retained per source,not inferred from node count.",
-  "last_earned_checkpoint": 446,
+  "last_earned_checkpoint": 453,
   "baseline_candidate_sha256": "81feb2c7ff17594a6ea9754dc60602a755b2f37ea7c53b437f65a18e7c35000f",
   "candidate_change": "NPC529,cannon530,packedmelee531,mountedTalk532 source corrections; exact scoped receipts and earned ancestry retained. No broad matrix promotion.",
   "earned_failures_retained": [

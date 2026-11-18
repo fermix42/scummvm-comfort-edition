@@ -1,0 +1,37 @@
+{
+  "status": "VERIFIED",
+  "scope": "Earned Modern Skull pickup/repeat, missing-key refusal, actual two keyed passages, both child dialogue branches and primary rescue/scene-refresh retirement/cold continuity. Selected Classic and broader campaign remain separate.",
+  "actual": "Earned78 pickup/repeat447 and actual market key passage448, then actual Skull-key cell OpenLeft/passage449. Boy32 dialogue from449 preserved as ordinary901 fork; restore449 before Girl40 actual TalkDown at26,26 with Girl26,27. Both openings/acks actually set field53bit2. Primary450 saves Girl result. Ordinary Down moves26,26->26,27; children remain until full scene refresh. Normal W1 performs that refresh and original rule [46,17,19,53,128,2,3,32,0,0,0,0,3,40,0,0,0,0,255] clears both actor records. Actual452 preserves retirement; clean cold051 exact state PASS. Earlier cold050 preserves450 rescue state; cold049 comparison failed because harness compared later live26,27 to older450 saved26,26, not a save failure. No injected positions, items, flags, XP or outcomes; no Engine changes/builds.",
+  "source_commit": "c660ae8ac41",
+  "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd",
+  "evidence": {
+    "ce-native-acceptance528/earned-modern/earned-Skull-keyed-passage658-533.json": "8c775422e33578843a41f1f98c3a8ccc19b8c4d6a79321a1e2a4517ca66170fa",
+    "ce-native-acceptance528/earned-modern/earned-Skull-cell-keyed-gate660-533.json": "172b1fbef5cae95a603d975f2e18147c6864fe49a048366d5cc977c6e7ce36ce",
+    "ce-native-acceptance528/earned-modern/earned-Boy-opening661-533.json": "b327e920e4ae0dfbea029ef0c9cc2de4bcd0ec3b4e79a411d4ac7fa479d0d6f1",
+    "ce-native-acceptance528/earned-modern/earned-Girl-opening662-533.json": "401bf6895925addff26e43901acb35ddc1a1245b7802bbc7ed439cddb14e3cbe",
+    "ce-native-acceptance528/earned-modern/forks/Boy-rescue661/lineage.json": "eb4c9e2b5ed3b2f1ce9f16dd71a5759b611ddc15ba1d5190434d98149b99a3b3",
+    "ce-native-acceptance528/earned-modern/cold049-harness-mismatch.json": "62c7c8f9e005a9daf0af92c9386c70e663083a1732094fc779266c4ba7ae1e7f",
+    "ce-native-acceptance528/earned-modern/cold050.json": "1b185878ef0e11f12880a9d222c8d8c37ffbb65429ceb449f6f214004d1c4a3d",
+    "ce-native-acceptance528/earned-modern/cold051.json": "56ed537a81b77d2d7f5692005eb0a35aaf8d92f70922ec7f8721074635b2d4a1"
+  },
+  "checkpoints": {
+    "ce-native-acceptance528/earned-modern/checkpoints/447-Earned-Skull-Key-search-and-repeat447/checkpoint.json": "4c8f135864d661bd1fed193b28a3677bc040452082ddbae8cc3532cc4ee42c16",
+    "ce-native-acceptance528/earned-modern/checkpoints/448-Earned-Skull-Key-market-gate448/checkpoint.json": "23f053f96be9b1078480b26f235fb11497add98c2a4854196aa3305d6ece992b",
+    "ce-native-acceptance528/earned-modern/checkpoints/449-Earned-cell-gate-before-child-rescue449/checkpoint.json": "aa0bb8871e328dfccb1a76a7f2e57c370eeb323c92090a0cce7a8c80d37b2275",
+    "ce-native-acceptance528/earned-modern/checkpoints/450-Earned-Girl-rescue-and-children-retirement450/checkpoint.json": "1d1f7f4210dbaa2006fd83122aacdba185f4098779fd1cbcced2fe76c700d543",
+    "ce-native-acceptance528/earned-modern/checkpoints/451-Earned-rescue-cold-subsequent-step451/checkpoint.json": "ff77baa286927cc25f1d782eecd84aeacb8b7685042729dd7cbb1d6f2337db0e",
+    "ce-native-acceptance528/earned-modern/checkpoints/452-Earned-children-retired-after-scene-refresh452/checkpoint.json": "3625b62a09c3826865b22d88393c8c8c58b75be3c6a3b97e938dfcf363e5a71d",
+    "ce-native-acceptance528/earned-modern/checkpoints/453-Earned-retired-children-cold-reboard453/checkpoint.json": "9eebf8666999dad667e7e8f48c00de5f08667c319093211d93bb51c02b19765b"
+  },
+  "qualifications": [
+    "450 checkpoint label prematurely says retirement: it proves rescue only; actual retirement452 follows W1 full scene refresh.",
+    "Boy fork901 proves dialogue/rescue flag, not retirement or cold continuity. Primary Girl branch supplies retirement/cold.",
+    "No immediate movement retirement claim: native full scene refresh applies original patch; incremental movement retains actors until refresh. Original incremental parity remains qualified."
+  ],
+  "cost": {
+    "builds": 8,
+    "game_cli_processes": 51,
+    "focused_cli_processes": 5,
+    "material_launches": 56
+  }
+}
