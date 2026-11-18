@@ -1,0 +1,14 @@
+{
+  "status": "VERIFIED",
+  "scope": "Earned Chaos Wand acquisition/repeat/Ready only",
+  "actual": "Actual source192-flight route830 reaches UM101/79,39 without battle or HP loss. Normal landing517; SearchDown at original chest79,40, failed first pick consumes32->31, second succeeds518, weapon90qty1 and quest15=86. Repeat gives no duplicate. Normal inventory Ready Bridgit519 yields primary power167, flags192, exceptional128. Both level8 INT92 HP112, XP21736/21806, MP61/69,43gold219food. Subsequent normal Y flight saved998 at same79,39. No Engine change/build or combat-effect claim.",
+  "checkpoints": {
+    "conversion\\ce-native-acceptance528\\earned-modern\\checkpoints\\516-Earned-Chaos-portal-detour516\\checkpoint.json": "01c2da3b933706df785e6d21c277280d28c603e2c13c930c13dfabf5c45a5000",
+    "conversion\\ce-native-acceptance528\\earned-modern\\checkpoints\\517-Earned-Chaos-Wand-approach517\\checkpoint.json": "3c56f10890852064329c176a6a78440ed0c05f610689b8a6a4da63c192e01b81",
+    "conversion\\ce-native-acceptance528\\earned-modern\\checkpoints\\518-Earned-Chaos-Wand-pickup518\\checkpoint.json": "3cc32c793949c8d80dcea9d45c8a430454f6fe9b2515e1f3a6c939ab8c9810fd",
+    "conversion\\ce-native-acceptance528\\earned-modern\\checkpoints\\519-Earned-Chaos-Wand-ready519\\checkpoint.json": "3cf41114b60d77015c28d729093ef9b5e067de48db3e2612237224895db8cdfa"
+  },
+  "source_commit": "c660ae8ac41",
+  "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd",
+  "next_action": "Purchase original book14 from Bayport47 actor88 for36gold; Ready C1 and use legitimate six physically immune skeleton summons to support Chaos Wand against small physical-only undead groups. Inspect actual admissions, flee Archmage groups where permitted. Earn1264/1194XP before Necrosis readiness; no fabricated XP, outcomes or friendly-summon farming."
+}

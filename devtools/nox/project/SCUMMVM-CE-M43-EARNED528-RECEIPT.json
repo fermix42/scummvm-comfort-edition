@@ -4308,7 +4308,7 @@
     }
   ],
   "correction": "SCUMMVM-CE-NPC529-VERIFICATION.json",
-  "last_checkpoint": 515,
+  "last_checkpoint": 519,
   "cold_evidence": "ce-native-acceptance528/earned-modern/cold036.json",
   "next_action": "Complete424 fromindex121 at65,147, boardFrigate119217; Bruce75/Archus/Order/remainingcampaign",
   "current_source_commit": "c660ae8ac41",
@@ -4398,7 +4398,7 @@
     "report": "SCUMMVM-CE-M43-NYSTUL548-VERIFICATION.json",
     "actual": "Earned Nystul binding411, repeat539, Staff412 and real low-INT refusal413; cold045 and actual Right move415 retain all state. Normal post-cold return crosses COMP-opened wall and B reboards Wyvern416. Maze access/Staff nodes VERIFIED; 25/60 nodes VERIFIED. Eight-page recognition/binding positive scopes VERIFIED; missing-pages forks/selected Classic coverage remain. Book12qty1, Staff83qty1, field61=67, field15=84, pages8/255. HP89/79/80 MP1/28/42,81gold594food. Current normal flight548 leaves maze toward Foolery/Hairnet. No Engine changes or builds; 8 builds,45 gameCLI+5 focused=50 launches. Vortex Ready/cast requires lawful110INT progression; no ending claim."
   },
-  "active_next": "Acquire original ChaosWand90 fromUM101/79,40 chest216 (questfield15 bit2). RequirementINT92 matches both current casters; actual Ready/derived hand power must be inspected before combat. Source directUM97->99 portal82,171 avoids98; current825 four-flight approach to79,175. Continue source-supported stairs/flight to101, approaching Wand fromeast outsideDragon sight. Normal level10 lock trap damage47 is source-supported and survivable at112HP; heal between failed attempts as needed. No victory/XP/eligibleVortex claim; remainingXP1264/1194 tolevel9. All60 criteria retained.",
+  "active_next": "Purchase original book14 from Bayport47 actor88 for36gold; Ready C1 and use legitimate six physically immune skeleton summons to support Chaos Wand against small physical-only undead groups. Inspect actual admissions, flee Archmage groups where permitted. Earn1264/1194XP before Necrosis readiness; no fabricated XP, outcomes or friendly-summon farming.",
   "Uharad_sea552": {
     "status": "IN PROGRESS",
     "actual": "Actual Uharad flight550 interrupted atSurface126123 by seven98/137 sea boarding, retreat128. Source screenshot189 confirms ship/cannons. Actual twoShock killfour; remainingthree defeatparty under normalcannon/Staff policy. Raw552 filename says victory but actualphase2 isdefeat; no victorycredited. Failedpath and fourowned998generations/sidecars retained in forks/Uharad-sea-failure552. Normalowned998restore atSurface134176 retains416 lineage/fullpredepartureHP89/79/80, MP1/28/42,81gold594food,book12/Staff83. No awards/state merged from failedattempt. Sourceflightplanner now gives ships147..156 twelve-cell clearance, other actors three; originalwide-all12 query553 NoRoute because nearby225environmentactor, no Game inputs. Revised55437-command route avoidsobservedship approach; actualfollower stopsdamage/encounters. No Enginechanges/build/processlaunch.",
@@ -4464,13 +4464,13 @@
     "report": "SCUMMVM-CE-M43-PHYL715-VERIFICATION.json",
     "actual": "Earned Scroll85 reading/cold and paid full rest471 retained. Actual source55 ground-Wyvern steps704 through59/58/54/78; Down78/18,31 entersUM97/176,62, Right177,62/Yflight472. Actual11flight705 reaches98/149,78,473;45flight706 reaches99/81,190,474;17flight707 reaches100/149,190,475. Read-only source geometry selects8flight710 to100/141,166, Yland/Left140,166/Yflight. Actual11flight711 crosses source stair to101/136,162 and lands116,146. These92 actual flight commands replace184-command fixed-grid planning; no positions or outcomes injected. Yland/X and firstRight complete normal disembark; subsequent actualRight moves117,146. First position assertion failed before checkpoint476 because firstRight had not moved; not a demonstrated Engine defect. ActualLookUp identifies Phylactery (screenshot218). Before contact field12=131/no4bit; actualUp117,145 sets135/bit4,477/screenshot219. ActualDown/Up/Down repeat retains135 at117,146,478. Clean cold054 exact party/world/inventory/audio/session/no-assistance continuity PASS. First actualLeft to116,146, normalB reboards ownedWyvern479. Both92HP/68MP,57gold300food. No WaterJewel153 or Lich victory; no Engine edit/build."
   },
-  "last_earned_checkpoint": 515,
+  "last_earned_checkpoint": 519,
   "cult734": {
     "status": "VERIFIED",
     "report": "SCUMMVM-CE-M43-CULT734-VERIFICATION.json",
     "scope": "Four actual earned Cultist pair victories and level6-to8 advancement only; Vortex/guardian/ending acceptance remains IN PROGRESS."
   },
-  "current_checkpoint": 515,
+  "current_checkpoint": 519,
   "essence775": {
     "status": "VERIFIED",
     "report": "SCUMMVM-CE-M43-ESSENCE775-VERIFICATION.json",
@@ -4491,5 +4491,19 @@
     "status": "VERIFIED",
     "report": "SCUMMVM-CE-M43-RING821-VERIFICATION.json",
     "scope": "Earned Ring password refusal/success, timed physical passage, pickup/repeat/cold/subsequent flight only."
+  },
+  "chaos833": {
+    "status": "VERIFIED",
+    "scope": "Earned Chaos Wand acquisition/repeat/Ready only",
+    "actual": "Actual source192-flight route830 reaches UM101/79,39 without battle or HP loss. Normal landing517; SearchDown at original chest79,40, failed first pick consumes32->31, second succeeds518, weapon90qty1 and quest15=86. Repeat gives no duplicate. Normal inventory Ready Bridgit519 yields primary power167, flags192, exceptional128. Both level8 INT92 HP112, XP21736/21806, MP61/69,43gold219food. Subsequent normal Y flight saved998 at same79,39. No Engine change/build or combat-effect claim.",
+    "checkpoints": {
+      "conversion\\ce-native-acceptance528\\earned-modern\\checkpoints\\516-Earned-Chaos-portal-detour516\\checkpoint.json": "01c2da3b933706df785e6d21c277280d28c603e2c13c930c13dfabf5c45a5000",
+      "conversion\\ce-native-acceptance528\\earned-modern\\checkpoints\\517-Earned-Chaos-Wand-approach517\\checkpoint.json": "3c56f10890852064329c176a6a78440ed0c05f610689b8a6a4da63c192e01b81",
+      "conversion\\ce-native-acceptance528\\earned-modern\\checkpoints\\518-Earned-Chaos-Wand-pickup518\\checkpoint.json": "3cc32c793949c8d80dcea9d45c8a430454f6fe9b2515e1f3a6c939ab8c9810fd",
+      "conversion\\ce-native-acceptance528\\earned-modern\\checkpoints\\519-Earned-Chaos-Wand-ready519\\checkpoint.json": "3cf41114b60d77015c28d729093ef9b5e067de48db3e2612237224895db8cdfa"
+    },
+    "source_commit": "c660ae8ac41",
+    "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd",
+    "next_action": "Purchase original book14 from Bayport47 actor88 for36gold; Ready C1 and use legitimate six physically immune skeleton summons to support Chaos Wand against small physical-only undead groups. Inspect actual admissions, flee Archmage groups where permitted. Earn1264/1194XP before Necrosis readiness; no fabricated XP, outcomes or friendly-summon farming."
   }
 }
