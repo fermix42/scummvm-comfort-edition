@@ -1,6 +1,6 @@
 {
   "status": "IN PROGRESS",
-  "scope": "Necessary earned late-boss party preparation; no Drathe admission/victory or native defect claimed.",
+  "scope": "Earned preparation VERIFIED; actual full8 Drathe943 combat IN PROGRESS, no victory/key/ending claim.",
   "source_commit": "d52b130c5df",
   "executable_sha256": "f9215345b158b1a8cffcfef51f2ee8a37938a7538b52c5009399ad4f2001b7a4",
   "actual": "Food seller had moved from stale33,37 to35,36; normal3groundsteps/TalkUp/6 units buys300food for6gold579. QuickExitNox4MP/Hcamp580 leavesboth123HP/87MP,177food4gold. Source29flight895 reachesSurface150169,normalYland/UpRuin31entry581. Original ground route modeled onfoot,not groundedWyvern; refused water32,32 leavesactual32,31 withoutdamage. NormalYflightRight admitsactualtwo471HP UndeadWarriors. SourceChaosWand two-hit physical plan with Nox passing wins normally,123HP/87MPboth,100gold582; residualflight ends36,31. No native failure. QuickExitNox4MPreturnsSurface150168,583;preparingnormalCastle58 retrieval ofthreealreadyearnedlevel5casters.",
@@ -20,15 +20,18 @@
     "ce-native-acceptance528\\earned-modern\\checkpoints\\581-Earned-Drathe-Death-Keep-entry581\\checkpoint.json": "e71b7ba0f19aa844229d043e0487da326b8b80fbe706fd77d4c729c3b1090092",
     "ce-native-acceptance528\\earned-modern\\checkpoints\\582-Earned-Death-Keep-two-warrior-clearance582\\checkpoint.json": "1ae37304fcf44e713a7be103ddfc11b6fd29794eff514601b90652187b6175d2",
     "ce-native-acceptance528\\earned-modern\\checkpoints\\583-Earned-Drathe-roster-preparation-departure583\\checkpoint.json": "cd6596d3ad6ecfb7e32886b19dc09d9ddc140f73fb41b4b8fc818eeaaf6fac2a",
-    "ce-native-acceptance528\\earned-modern\\checkpoints\\585-Earned-six-party-full-rest-protection-preparation585\\checkpoint.json": "53d7c2f26e157735c6222ab5d2242c7d89c843537308c6e6ff6633e22a693a5b"
+    "ce-native-acceptance528\\earned-modern\\checkpoints\\585-Earned-six-party-full-rest-protection-preparation585\\checkpoint.json": "53d7c2f26e157735c6222ab5d2242c7d89c843537308c6e6ff6633e22a693a5b",
+    "ce-native-acceptance528\\earned-modern\\checkpoints\\586-Earned-pre-Sea-Serpent-normal998-recovery586\\checkpoint.json": "78c4100e97e3ec824ef00fc3a0e58705f450939db43f21f8912ffae37e096ce2",
+    "ce-native-acceptance528\\earned-modern\\checkpoints\\587-Earned-Sea-Serpent-Vortex-recovery587\\checkpoint.json": "6f108ff70c09a4e10412199336cf3e5d1bfa4e506430614bd6bfbfaea9627b6e",
+    "ce-native-acceptance528\\earned-modern\\checkpoints\\588-Earned-full-party-Drathe-approach588\\checkpoint.json": "2b1615d51cd9f49e6ddad53dd0eb725762cf23297bf046dfe3a0a2e3b975544e"
   },
   "cost": {
     "build_attempts": 11,
-    "game_cli": 60,
+    "game_cli": 61,
     "focused_cli": 7,
-    "material_launches": 67
+    "material_launches": 68
   },
-  "next": "QuickExit completed Surface17762, NoxMP112; normalground departure17864/flight; source-supported DeathKeep return and fullDrathegroup106. NoDrathevictory or newdefect claimed.",
+  "next": "Finish actual Drathe943 combat, preserve normalvictory/key/repeat/cold ifearned; thenremainingstory/ending andfinitebranchacceptance.35/60 unchanged.",
   "corrections_and_current_action": [
     "Original budget assumption was wrong: Inn58 actual pickup fee is140 per companion, not free; rest is14 fixed. Source offerNPC58/88. Currentfunding uses normal merchant sales, not gold injection.",
     "DaytimeCastle60/144 reachedthroughsourcegroundroutes. NPCnightgoal4hasnoservice64bit; normalWdangerrefusal retained. NormalQuickExit/camp8h/Light1MP/camp8h reaches13:52,MP87both,food81;92groundMage922route reachesdaymerchant14:41.",
@@ -38,7 +41,11 @@
     "All four earned companions retrieved normally at 140 gold each; actual party six, gold1946->1386. Both front casters normally equipped MageNecklace+10 armor116; actual armor85/87, MR45. Book shortcuts C0=Summon14,C1=Vortex12,C2=LesserHeal50,C9=DivineHeal52.",
     "Food926 normal Talk at21:41 received closed-service dialogue phase4; Enter returnedworld, no purchase. Source42groundInn927 admitted valid Inn58/88; normal paid14 rest restored actual116/116/20/44/44/44MP and123/123/99/81/84/89HP, gold1372, food81, hour6 minute82(rawhalfminutes). NormalN reorder swapsNox0/Br1. Source42groundFood928 underway; noDratheencounter orEnginefailure.",
     "Inn rest normally relocates toCastle59/28,34. Food928 private planner selected stale earlier description because custom998 description differed fromrequired M43 route planning; firststep mismatchstoppedwithoutdamage. Actualcorrect-description998 saved, freshFood92952groundroutefrom59/28,34 underway. Frontactualsavedorder Noxarmor87/power68 thenBrarmor85/power167 confirmed; noEngine defect orreload.",
-    "Correction: phase4 at Food926/929 was Nobody to talk to (actual screenshot270), not proof of closed shop. Actual normal savedNPC54/160 at11,18 withservice83; normalUp11,19/TalkUp opensphase20. Ordinary99purchase clips81->900food for51gold,1372->1321. Earliernormalwaitsunnecessarybutretained, no undo or save lineage alteration."
+    "Correction: phase4 at Food926/929 was Nobody to talk to (actual screenshot270), not proof of closed shop. Actual normal savedNPC54/160 at11,18 withservice83; normalUp11,19/TalkUp opensphase20. Ordinary99purchase clips81->900food for51gold,1372->1321. Earliernormalwaitsunnecessarybutretained, no undo or save lineage alteration.",
+    "Travel935 original8SeaSerpents191HP no-flee defeated one companion under ordinary physical/summon tactic. Failedfuture preservedprivately forks/Travel935-party-loss/manifest.json and last-observed-state.json; no demonstratedEnginebug. Controllerinterruption endedownedprocess. SameEXEf921 process061 normallyloadsactual998Surface142112, checkpoint586;6alive/fullHP,MP112/41/8/44/44/44,gold1434food900. Failedfutureexcluded,no duplicatedrewards.",
+    "OriginalSeaSerpent115 INTlow7bits0: actual firstturnNoxVortex87 defeatsall8 beforeNPCphase, noHP loss; checkpoint587. Remainingflight150164 thennormalDown admits6x191sprite156 fleeallowed0. NormalT/Esc/Y flees1434->717gold, retainsallHP/MP, residualflight entersRuin31/2438. Camps atwaterrefusednormally; actualRuin31camp restores87/87/15/44/44/44MP for115food,785food. BothfullHP123 retained.",
+    "Normalweaponswap: NoxChaos90 actualpower171, BrFireStaff39 power64; armor87/85 MR45 unchanged. Hero2 normalIlluminate57 cost1MP ->14. Existing5flightDrathe904 reaches3630. Groundleft terrainrefusal leaves3530, normalDown3531;YflyRight crosses32/3931, normalN cancelsareaexit. Source8flightDrathe942 avoidsstair throughy27 to1523; checkpoint588 allHPfull,87/87/14/44/44/44MP,717gold785food.",
+    "ActualYland/Up to1522; nextUp normallyblockedlargeNPC. NormalAttackUp admitsfullgroup106:3210HPDeathKnight+3Dysentery471+4UndeadWarriors471, exit_control0. Declarednormalinputpolicy943 startsNoxC1Northkills3Dysentery,BrFireStaffprimaryengagement,threeC0summons. Round1 actualall6HPfull,MP0/87/14/34/34/34; primary3129HP,Warriors471/471/471/364. Nativecombatongoing;noresultinjection/newbuild. NearestskeletonsdrawNPC target; realengagementpreventsalternateweakrearretarget, doesnotforceprimarytotargetfrontcaster. NPCFireball3radius2,powercolumn2base72; no unsupportedclaimofsingle-targetspell."
   ],
   "preparation_status": "VERIFIED",
   "actual_prepared": {
