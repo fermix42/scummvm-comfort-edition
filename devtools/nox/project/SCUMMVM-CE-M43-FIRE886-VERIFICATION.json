@@ -1,0 +1,31 @@
+{
+  "status": "VERIFIED",
+  "scope": "Earned full2600HP Vazarath Vortex victory, FireJewel151 positive award/repeat/cold and lawful next-caster preparation. Composite Fire node remains IN PROGRESS pending relevant refusal; thermal protection actual travel pending.",
+  "source_commit": "d52b130c5df",
+  "executable_sha256": "f9215345b158b1a8cffcfef51f2ee8a37938a7538b52c5009399ad4f2001b7a4",
+  "summary": "Corrected normal seven-step ground approach reachesUM101/86,125 on earnedWyvern withoutHP loss or Engine failure. ActualAttackDown admitsonefull2600HP DemonLord234;party123HP,Nox87MP/Br86MP. TacticalNoxC1VortexUp spends87MP,removesenemy,leavesboth123HP. Normalvictory567 awardsFireJewel151qty1;field57=5(includesearnedWater4+Fire1). RepeatAttackDownnoenemy/no duplicate568. Cold059exactstate/session/noassistancePASS. QuickExitBr4MPreturnsSurface79192,569. NormalNreordersBrfirst;Hcampprioritizeshis82->87MPthenNox0->60,consumes65foodto0,retains123HPand10gold,570. NoEnginechange/build. Ordinarycaveentry571retainsWyvern;continueAir.",
+  "checkpoints": {
+    "ce-native-acceptance528\\earned-modern\\checkpoints\\567-Earned-full-Vazarath-Fire-Jewel567\\checkpoint.json": "b944a693931c984274cd6ded6a8f23620ea723133cc69b746d542ecd901ab206",
+    "ce-native-acceptance528\\earned-modern\\checkpoints\\568-Earned-Fire-Jewel-repeat568\\checkpoint.json": "a35c7202fe1d84bcea2ab48651650812da7179764a05a091a0a582c3468a6d46",
+    "ce-native-acceptance528\\earned-modern\\checkpoints\\569-Earned-Fire-guardian-return569\\checkpoint.json": "5b9e4fdeca4b75ef80d8c8e2ef54cd96b85fade24118dd24d9c0c2e48f242c42",
+    "ce-native-acceptance528\\earned-modern\\checkpoints\\570-Earned-Air-caster-priority-camp570\\checkpoint.json": "d00c7ede27082852c756deaa9c5b8e824a4aa3b955d2f2fdee72fac40fa6280d",
+    "ce-native-acceptance528\\earned-modern\\checkpoints\\571-Earned-Air-cave-approach571\\checkpoint.json": "574e44a640bd304e3bce222ad396ce56a236bd1c8f64f7d610869fc859a8bb78"
+  },
+  "private_evidence": {
+    "ce-native-acceptance528\\earned-modern\\earned-Fire885-admission.json": "72d79d87cd83cf7a26d5ac13bb840ceaf75af04c16455a7737f2e93a6f68be16",
+    "ce-native-acceptance528\\earned-modern\\earned-Fire885-Vortex.json": "bd0b77d918c9cd0f8e59fc667a36c610041883a69151a1287c59d6f8687ad67f",
+    "ce-native-acceptance528\\earned-modern\\cold059.json": "3862a6961dca550968eae7ba93e853736c6b678ea09ed53c5aaf525f62f5fcc8"
+  },
+  "cost": {
+    "build_attempts": 11,
+    "game_cli": 59,
+    "focused_cli": 7,
+    "material_launches": 66
+  },
+  "remaining": [
+    "Missing-Hairnet/prerequisite refusal from a valid earlier earned fork",
+    "Actual FireJewel thermal protection on requiredtravel",
+    "Air guardian, remaininggates,config/audio/session andending acceptance",
+    "35/60 composite nodes VERIFIED; no unsupported promotion"
+  ]
+}

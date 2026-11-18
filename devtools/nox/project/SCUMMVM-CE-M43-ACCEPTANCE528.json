@@ -1204,7 +1204,7 @@
     },
     {
       "id": "fire-jewel-guardian",
-      "status": "NOT STARTED",
+      "status": "IN PROGRESS",
       "prerequisites": [
         "devils-key",
         "essence-angels",
@@ -1235,7 +1235,9 @@
         "scoped audio/presentation",
         "actual earned verification criteria"
       ],
-      "earned_lineage": null
+      "earned_lineage": null,
+      "earned_positive_report": "SCUMMVM-CE-M43-FIRE886-VERIFICATION.json",
+      "remaining_earned_scope": "Relevant prerequisite refusal and actualthermalprotection; fullcampaign remains IN PROGRESS."
     },
     {
       "id": "air-jewel-guardian",
