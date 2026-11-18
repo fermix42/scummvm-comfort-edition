@@ -8047,8 +8047,8 @@
     "partially_implemented_scoped_owners_added": 1
   },
   "current_subsystem": {
-    "status": "IN PROGRESS",
-    "scope": "Readiness528 passed; owner ACCEPTANCE528 authorizes earned M4.3 campaign and supported branches. General mountedTalk532 correction scoped VERIFIED; no broad row promotion or port-complete claim. story.08 UNKNOWN and earned ending remain outstanding."
+    "status": "VERIFIED",
+    "scope": "Supported local delivery complete1134; no active subsystem implementation. Broad corpus verification remains qualified, not an open implementation queue."
   },
   "count_definition": "native_implemented counts IMPLEMENTED; CE_REPLACEMENT is separately reported. VERIFIED applies only to row evidence scope; no overall completion percentage.",
   "source_batch_report": "SCUMMVM-CE-SOURCE-BATCH-COMPLETION526.md",
@@ -8067,11 +8067,17 @@
     "broad_statuses_changed": false
   },
   "earned_acceptance528": {
-    "status": "IN PROGRESS",
-    "composite_nodes_verified": 50,
+    "status": "VERIFIED",
+    "composite_nodes_verified": 60,
     "composite_nodes_total": 60,
     "primary_new_to_ending": "VERIFIED",
-    "report": "SCUMMVM-CE-M43-ACCEPTANCE528.json",
-    "qualification": "Actual earned story.07 verification does not promote PARTIAL implementation or close story.08 UNKNOWN."
+    "report": "SCUMMVM-CE-M43-COMPLETION1134.json",
+    "qualification": "Source/evidence amendment1134; broad PARTIAL implementation and story.08 UNKNOWN remain unchanged. No exhaustive corpus-completeness claim."
+  },
+  "supported_delivery": {
+    "status": "VERIFIED",
+    "report": "SCUMMVM-CE-M43-COMPLETION1134.json",
+    "scope": "Base v119 supported native-only port",
+    "broad_corpus_status": "IN PROGRESS"
   }
 }

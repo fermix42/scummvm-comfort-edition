@@ -1,0 +1,353 @@
+{
+  "status": "VERIFIED",
+  "date": "2026-11-18",
+  "scope": "Supported base v119 native-only CE port / M4.3 completion under the explicit source-and-existing-evidence amendment.",
+  "authority": "Owner November 18, 2026: stop getting bogged down in edge cases; use source and existing evidence to finish remaining checks, fix real defects, and continue autonomously until the port is complete.",
+  "prior_acceptance_sha256": "614062a793cc23d51b3c249932179ea644e6e3460d166aba8a16e1dccc656b65",
+  "prior_verified_nodes": 50,
+  "verified_nodes": 60,
+  "total_nodes": 60,
+  "supported_branch_count": 10,
+  "earned_new_to_ending": "VERIFIED",
+  "completion_basis": "Mixed evidence explicitly classified per case below; not ten newly executed negative branches.",
+  "source_commit": "d52b130c5df",
+  "production_correction_commit": "891e6835a97",
+  "executable_path": "D:\\Codex Projects\\Nox Archaist\\conversion\\ce-native-acceptance528\\guardian885b\\corrected-bin\\scummvm.exe",
+  "executable_sha256": "f9215345b158b1a8cffcfef51f2ee8a37938a7538b52c5009399ad4f2001b7a4",
+  "source_manifest_sha256": "e1b96e3e784ac0a7990f42f1574db40db9d6df64d60e3ea18afb7a8d62d9af8f",
+  "source_archive_sha256": "c7fe7adfbe0ecc303568178e6e35d8416a6c8469fd348a22ecfde0ed7d45480b",
+  "source_review_sha256": {
+    "module.mk": "ca92bfb762d97850070413576d26a54eaefb12fb9880d261d799e111d9fe66cf",
+    "native_battle_directed_spell.h": "fd79fb4d979a830388aca699c561ccd4ed7b14617e64534d4870e26e66ad469a",
+    "native_battle_round.h": "2a3a0696931dd556e7d26b3fc23d2b537f4e0441a9e2aeef504267d4d8ab3dc5",
+    "native_battle_spell_damage.h": "120f8697fc90f6c6c00a6d12dcf5e888cb6fb135832ab0683ba1ddca3db51609",
+    "native_conversation.h": "58e0e5aadd227a98c6c9fd51eb74cd1e167c95eb986dd25eb9bf3e0868f0082d",
+    "native_dialogue_control.h": "0cc112b37e4763b236b1f197d4373f6b3e5016345b9af7058111a796d40d79aa",
+    "native_dialogue_rules.h": "7222b94089768f9bed6b91e86da6155d82b9b0f1e27adffc5e1f9bda499bd94f",
+    "native_encounter_admission.h": "e8c7b8761ceee866580c17fa63df6b04e0a27879c5dc17fb9d4c630468dcdbdd",
+    "native_encounter_preparation.h": "ccf12d83642db5b82ee35db546bb454c5551cb9bfb364272701493a707f23522",
+    "native_encounter_state.h": "5367ecc78185a1e0ee122dad60657041d4314bd95dbc82748f0be18622c3a1db",
+    "native_engine.cpp": "1c0749ada485495e8685bf6823d62af811f421d0b6a645b2648fd89fbcb7e4c6",
+    "native_exploration_save.h": "b53b16ad3c9bff3941a4806281f80ebc598de7665df4da1d2f19b9184d0e47ff",
+    "native_gates.h": "fc8f0ed3ff23b5dcda4cd29e622061e95d16800d9faf97a43675eaf167e1a08d",
+    "native_player_session.h": "c336a3ea05001a37c40e79ecefd34eedb3861e59b94b491629e037b3c9f6b60f",
+    "native_quick_battle.h": "02e0fd32d011a7554449a933b04bdf5a0792b593405632bd9d38c144ddc5be54",
+    "native_world.h": "2c6826b550951d3e04d77d642817c0b8a82b38e151ee19971413fd0c7e477e74",
+    "native_world_hazards.h": "f362481d3933f744d365c31f3061c4dba4527f7418798bffbcc5851968a69dd1",
+    "native_world_move.h": "9630372959348d2c19e18d322fda8dcddff329264a408dc2b99c1bb499326c71",
+    "native_world_open.h": "df7f10d63541d2627ccad5f8582f9f2dd7dcee4346d0546dd3dca222d0774301",
+    "native_world_portal.h": "5e81ab6b7d98d7bf5d9892990222e9250bf909ca161c557d6629b00503e9b1cb",
+    "native_world_transport_motion.h": "2ee1f9138477511021d69cffa4924bc0d17599197aaa59b9bfd875e3c9fd5dde",
+    "native_world_travel.h": "22c6baf85866763b780c109872789eaff42b168981093d02290c6cb1330072d0"
+  },
+  "remaining_campaign_checks": [
+    {
+      "ids": [
+        "order-test"
+      ],
+      "status": "VERIFIED",
+      "method": "Source review plus retained evidence; no new negative gameplay run",
+      "source_owners": [
+        "native_dialogue_rules.h",
+        "native_conversation.h"
+      ],
+      "earned_reports": [
+        "SCUMMVM-CE-M43-SCALES419-VERIFICATION.json",
+        "SCUMMVM-CE-M43-BRUCE445-VERIFICATION.json",
+        "SCUMMVM-CE-M43-ORDER467-VERIFICATION.json",
+        "SCUMMVM-CE-M43-ORDER1122-WORK.json"
+      ],
+      "historical_reports": [
+        "SCUMMVM-CE-M3-ORDER-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-LATE-CASES17-CHECKPOINT.json",
+        "SCUMMVM-CE-DIALOGUE478-VERIFICATION.json"
+      ],
+      "finding": "Bruce opening requires Scales field60 bit2 and an unclaimed ascension field48 bit128. TEST without Scales gives the authored request or Archus guidance according to field60 bit1. Authorization is advice, not a hard Scales/Bruce prerequisite. Native ordered response selection checks conditions before committing effects. Earned Scales, actual ascension/repeat/cold041 and membership/key/repeat/cold042 already exist.",
+      "qualification": "Historical Bruce missing-Scales dialogue is controlled M3 evidence. Current native Bruce missing-Scales voyage was suspended at normal shore save824; it is not a live refusal PASS. Current Archus and north-portal negative forks are retained separately."
+    },
+    {
+      "ids": [
+        "order-castle-portals"
+      ],
+      "status": "VERIFIED",
+      "method": "Source review plus retained evidence; no new negative gameplay run",
+      "source_owners": [
+        "native_gates.h",
+        "native_world_portal.h",
+        "native_world_travel.h"
+      ],
+      "earned_reports": [
+        "SCUMMVM-CE-M43-ORDER467-VERIFICATION.json",
+        "SCUMMVM-CE-M43-PAGES501-VERIFICATION.json",
+        "SCUMMVM-CE-M43-ORDER1122-WORK.json"
+      ],
+      "historical_reports": [
+        "SCUMMVM-CE-M3-ORDER-PORTALS73-CHECKPOINT.json",
+        "SCUMMVM-CE-PORTAL491-VERIFICATION.json",
+        "SCUMMVM-CE-INTEGRATION527-I3-VERIFICATION.json"
+      ],
+      "finding": "Both authored Order portals use the common prerequisite predicate: absent membership field60 bit4 returns Locked before destination or mount changes. WorldPortal maps this to its locked outcome before constructing a travel plan. Earned north travel/reverse/cold042, library forward and recovered actual process044 library reverse exist. Current819 observes absent-membership north non-travel; original library absence is covered by M3 and the same current predicate.",
+      "qualification": "No new current-candidate keyless library approach is claimed. Failed offline routes were planner results, not Engine failures. Modern/Classic selected policy is covered by1069/1087 and compatible527."
+    },
+    {
+      "ids": [
+        "devils-key",
+        "dark-key"
+      ],
+      "status": "VERIFIED",
+      "method": "Source review plus retained evidence; no new negative gameplay run",
+      "source_owners": [
+        "native_gates.h",
+        "native_world.h",
+        "native_world_open.h"
+      ],
+      "earned_reports": [
+        "SCUMMVM-CE-M43-ESSENCE490-VERIFICATION.json",
+        "SCUMMVM-CE-M43-DRATHE943-VERIFICATION.json",
+        "SCUMMVM-CE-M43-LATE-GATES956-VERIFICATION.json",
+        "SCUMMVM-CE-M43-HAIRNET604-VERIFICATION.json"
+      ],
+      "historical_reports": [
+        "SCUMMVM-CE-M3-KEY-GATE-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-DARK-KEY-CHECKPOINT.json",
+        "SCUMMVM-CE-M4-GATES1-UNIT.json"
+      ],
+      "finding": "keyDoor tests any authored flag bit and returns Locked without changing the record when absent. World.open changes picture/state only for Allowed. Devil door UM97/69,90 tests field15 mask16; Dark door Ruin30/34,8 tests field12 mask8. Earned positive physical passage, award/repeat and cold continuity already exist; actual missing-key Hairnet door exercises the shared native refusal path. Historical exact Devil/Dark negatives corroborate the authored predicates.",
+      "qualification": "No current earned missing-Devil/Dark door traversal is asserted. Dark804 blocked approach is an excluded navigation attempt, not a defect or a successful refusal. Gate unit337 and current source are supporting evidence, not a new full gameplay execution."
+    },
+    {
+      "ids": [
+        "fire-jewel-guardian",
+        "vazarath-gemstone",
+        "air-jewel-guardian",
+        "water-jewel-guardian"
+      ],
+      "status": "VERIFIED",
+      "method": "Source review plus retained evidence; no new negative gameplay run",
+      "source_owners": [
+        "native_encounter_admission.h",
+        "native_encounter_preparation.h",
+        "native_encounter_state.h",
+        "native_battle_round.h",
+        "native_battle_directed_spell.h",
+        "native_battle_spell_damage.h"
+      ],
+      "earned_reports": [
+        "SCUMMVM-CE-M43-FIRE886-VERIFICATION.json",
+        "SCUMMVM-CE-M43-AIR892-VERIFICATION.json",
+        "SCUMMVM-CE-M43-WATER880-VERIFICATION.json",
+        "SCUMMVM-CE-M43-PHYL715-VERIFICATION.json"
+      ],
+      "historical_reports": [
+        "SCUMMVM-CE-M3-GUARDIAN-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-WATER-CHECKPOINT.json",
+        "SCUMMVM-CE-M4-GENERAL-ADMISSION-WORK.json"
+      ],
+      "finding": "Authored conditional actor definitions resolve protection from the required quest field/mask: Fire63/1, Air61/64, Water12/4. EncounterPreparation transfers that result into PreparedEncounter and EncounterState into BattleRound. Directed casts pass the same protectedTargets to BattleSpellDamage. An instant hit with protection returns classification3 before records, RNG, HP or credit commit. Noninstant damage is suppressed and cannot remove the target. Native protected289 tests and M3 full guardian negatives corroborate this. The current primary actually defeated full2600/1950/1300 HP guardians with earned prerequisites, rewards/repeats/cold; Vazarath is the Fire alias, not another boss.",
+      "qualification": "Current earned missing-Hairnet/Essence/Phyl Vortex casts were not replayed. Water1078 ordinary zero damage remains inconclusive and is not used as proof. Protected289 admission owner is byte-identical; reviewed later spell-impact changes add Quick metadata and sound, leaving the tactical instant-protection branch unchanged."
+    },
+    {
+      "ids": [
+        "jewels-temple"
+      ],
+      "status": "VERIFIED",
+      "method": "Source review plus retained evidence; no new negative gameplay run",
+      "source_owners": [
+        "native_world_hazards.h",
+        "native_world_move.h",
+        "native_world_transport_motion.h"
+      ],
+      "earned_reports": [
+        "SCUMMVM-CE-M43-LATE-GATES956-VERIFICATION.json",
+        "SCUMMVM-CE-M43-AIR892-VERIFICATION.json",
+        "SCUMMVM-CE-M43-STYX974-VERIFICATION.json"
+      ],
+      "historical_reports": [
+        "SCUMMVM-CE-M3-TEMPLE-ENTRY-CHECKPOINT.json",
+        "SCUMMVM-CE-INTEGRATION527-I3-VERIFICATION.json"
+      ],
+      "finding": "Corrected the inferred prerequisite: missing Fire does not absolutely block the Temple route. Historical real three-Up crossing without Fire loses35HP; with Fire it retainsHP. Current WorldHazards tests field57 protection masks independently (thermal1, energy2, water4), applies authored damage when absent, and WorldMove blocks an unprotected energy barrier. Earned three-Jewel594 crossing and subsequent High Cultist/Styx progression exist. Compatible527 actually tests protected and unprotected native barrier continuation.",
+      "qualification": "No new missing-Jewel earned branch is claimed. No invented all-three-items admission predicate is required or implemented."
+    },
+    {
+      "ids": [
+        "plane-transport"
+      ],
+      "status": "VERIFIED",
+      "method": "Source review plus retained evidence; no new negative gameplay run",
+      "source_owners": [
+        "native_dialogue_rules.h",
+        "native_dialogue_control.h",
+        "native_gates.h",
+        "native_world_portal.h"
+      ],
+      "earned_reports": [
+        "SCUMMVM-CE-M43-BRITISH979-VERIFICATION.json",
+        "SCUMMVM-CE-M43-PLANE1005-VERIFICATION.json"
+      ],
+      "historical_reports": [
+        "SCUMMVM-CE-M3-TRANSPORT-CHECKPOINT.json",
+        "SCUMMVM-CE-M3-LATE-TRANSPORT-CHECKPOINT.json",
+        "SCUMMVM-CE-PORTAL491-VERIFICATION.json"
+      ],
+      "finding": "Max packet response selection and effects use the shared read-only eligibility then conditional commit; historical phase6 verifies absent-Ankh refusal. Earned Ankh/Max creation/repeat/cold065, actual mounted non-transfer606 then dismount transfer607, real return/cold066/reentry609 are retained. portal checks authorization first, then rejects mounts for a nonzero destination map before constructing a new destination. Map-zero return deliberately preserves its separate rule.",
+      "qualification": "No new current-candidate no-Ankh dialogue is claimed;606 proves non-transfer, not a verbal refusal. No forced portal erasure/recreation was introduced."
+    }
+  ],
+  "supported_branch_reconciliation": {
+    "tactical-quick": [
+      "Earned actual tactical battles including full-health final victory and ordinary six-enemy Quick396; selected Classic527 I3 and current1069 policy. Current initialNoFlee plus original mode299 cover lawful exceptions; no duplicate Classic campaign.",
+      [
+        "SCUMMVM-CE-M43-ESSENCE490-VERIFICATION.json",
+        "SCUMMVM-CE-M43-ENDING1082-VERIFICATION.json",
+        "SCUMMVM-CE-INTEGRATION527-I3-VERIFICATION.json",
+        "SCUMMVM-CE-M4-MODE299-CHECKPOINT.json"
+      ]
+    ],
+    "defeat-escape": [
+      "Actual earned defeat/normal restore, repeated legitimate gold-penalty escapes, partial deaths and paid Temple resurrection/cold013. No victory credited to failed battles; grace/owner semantics reuse compatible527.",
+      [
+        "SCUMMVM-CE-M43-RECOVERY528-VERIFICATION.json",
+        "SCUMMVM-CE-M43-YVVIAR350-VERIFICATION.json",
+        "SCUMMVM-CE-M43-ENDING1082-VERIFICATION.json",
+        "SCUMMVM-CE-M43-COMPATIBILITY1087.json"
+      ]
+    ],
+    "transport-cannon": [
+      "Earned skiff/Frigate purchase, actual boarding/sea motion/disembark, full sea cannon victory61 and boarding63; actual horse purchase122/board/park123, cold021 and following reboard retained. Current primary also earns Wyvern transitions and cold reboarding395. Source-owned shared cargo/transport continuations; no every-vehicle-at-every-map claim.",
+      [
+        "SCUMMVM-CE-M43-SEA528-VERIFICATION.json",
+        "SCUMMVM-CE-M43-ESSENCE490-VERIFICATION.json",
+        "SCUMMVM-CE-M43-EARNED528-RECEIPT.json",
+        "SCUMMVM-CE-M4-FRIGATE463-CHECKPOINT.json"
+      ]
+    ],
+    "castle11-services": [
+      "Actual Castle11 entry, schedule-bound dialogue/shop/food/gear and paid local temple services; Nourtheld normal inn and resurrections. Shared teacher/payment/insufficient-gold/inn ownership and cold in527 I2 supply compatible service coverage. Requirements do not demand every service in every town.",
+      [
+        "SCUMMVM-CE-M43-SUURTHELD532-VERIFICATION.json",
+        "SCUMMVM-CE-M43-NOURTHELD-RECOVERY532-VERIFICATION.json",
+        "SCUMMVM-CE-INTEGRATION527-I2-VERIFICATION.json"
+      ]
+    ],
+    "story-alternatives": [
+      "All15 retained advice classifications and selected operations are already VERIFIED; they are conditional guidance, not15 additional exclusive campaign runs. Required alternative operations, Father door and four plates have earned proof. story.08 wider indirect-writer census remains an explicit original-source uncertainty.",
+      [
+        "SCUMMVM-CE-M43-FATHER1105-VERIFICATION.json",
+        "SCUMMVM-CE-M43-CULT1118-VERIFICATION.json",
+        "SCUMMVM-CE-M43-ACCEPTANCE528.json"
+      ]
+    ],
+    "save-session": [
+      "Earned early/middle/late/pre-final/post-ending colds plus first next commands, normal slots/Classic restrictions1069, deliberate post-save abnormal exit076. Compatible527 supplies literal Q write and two-owner isolation; current Q open/cancel and normal Engine saves are distinct. No live HTTP assertion.",
+      [
+        "SCUMMVM-CE-M43-DROP1091-VERIFICATION.json",
+        "SCUMMVM-CE-M43-CLASSIC1069-VERIFICATION.json",
+        "SCUMMVM-CE-M43-ENDING1082-VERIFICATION.json",
+        "SCUMMVM-CE-M43-COMPATIBILITY1087.json",
+        "SCUMMVM-CE-INTEGRATION527-I1-VERIFICATION.json"
+      ]
+    ],
+    "semantic-events": [
+      "Actual primary619 records journal sequence242,37 characters,12835 observed cells;3853 start/save events use the same CE owner, empty awards/progress/assistance and no assisted or achievement events. Exact cold074 and native exploration save own persistence. CLI queues remain pending by design; no network delivery claim.",
+      [
+        "SCUMMVM-CE-COMPLETION1134-INTEGRITY.json",
+        "SCUMMVM-CE-M43-ENDING1082-VERIFICATION.json",
+        "SCUMMVM-CE-M43-COMPATIBILITY1087.json"
+      ]
+    ]
+  },
+  "reports_sha256": {
+    "SCUMMVM-CE-COMPLETION1134-INTEGRITY.json": "c1e04220e6820c913b9e3d358df6cdc96e9770be137346f83eeb6f1cd64af504",
+    "SCUMMVM-CE-DIALOGUE478-VERIFICATION.json": "2be0bcbaf7d7ed8c4826083c3feb9d9312d414cc2b3f83c98677da42dac9bad6",
+    "SCUMMVM-CE-INTEGRATION527-I1-VERIFICATION.json": "ac2bd6ee41310db1e73c99581f89250cc56f5dcfcb413fc54669b6a6a6332a42",
+    "SCUMMVM-CE-INTEGRATION527-I2-VERIFICATION.json": "2695f349a4d3d52bb0faa3e05d50fd99c045045369cff75556c9f0017d15406b",
+    "SCUMMVM-CE-INTEGRATION527-I3-VERIFICATION.json": "fc6a14f4aeeada15464123641f532749b2a9489833dc11c56d498840e3c850c1",
+    "SCUMMVM-CE-M3-DARK-KEY-CHECKPOINT.json": "3691ab5fa5531d050b0d947f19e7afe445a1e8d76fb296f408fc702dbe1c563a",
+    "SCUMMVM-CE-M3-GUARDIAN-CHECKPOINT.json": "c9ad4813575ab39e2b67d09176bfc5f80deba2f080d83240938689b714072f47",
+    "SCUMMVM-CE-M3-KEY-GATE-CHECKPOINT.json": "460373a7c44a702567e66947b89a632faf3a7ede72df8214348aec3117412936",
+    "SCUMMVM-CE-M3-LATE-CASES17-CHECKPOINT.json": "38936d20e2d780b4ccfa1b449b1b733024ac9458b9ee12ed7200262072c4254b",
+    "SCUMMVM-CE-M3-LATE-TRANSPORT-CHECKPOINT.json": "c5c45db57c0a3f59add12a1516f64d7615bf318bc32bb41b02c2290fd6958259",
+    "SCUMMVM-CE-M3-ORDER-CHECKPOINT.json": "b91cd2e107d043d51bae53501e57f4729cb0ecc9dd31ceb212f28105c7a195e6",
+    "SCUMMVM-CE-M3-ORDER-PORTALS73-CHECKPOINT.json": "fa863012b614481aa23b2d392381d4bf46ab51083cb4ef703ada72b6dd019b75",
+    "SCUMMVM-CE-M3-TEMPLE-ENTRY-CHECKPOINT.json": "ae855ea2ede534c287a17328b96995f1a5870e937508696b066e60ed5e933cf1",
+    "SCUMMVM-CE-M3-TRANSPORT-CHECKPOINT.json": "86ee88c5ff15bf5afc80a6f2a3d6d381e6f29a65b1b1d097b6b162bfaabf8d53",
+    "SCUMMVM-CE-M3-WATER-CHECKPOINT.json": "966703eed7f7c58be88afb03fce8672c77cc54703dc80d2710d3ee043a4ffa0f",
+    "SCUMMVM-CE-M4-FRIGATE463-CHECKPOINT.json": "3051a0cf85f75111ef9426ec196feafd09cce7f2836fcbba013c880214cdd9fd",
+    "SCUMMVM-CE-M4-GATES1-UNIT.json": "91c31491a942f7f04217cbfd84320c00e203db1cb0bfe30da207cdd01df8b1d2",
+    "SCUMMVM-CE-M4-GENERAL-ADMISSION-WORK.json": "963a3cee8e4dc0483802140a407046c392e8371054727af2f9920a36cca3228d",
+    "SCUMMVM-CE-M4-MODE299-CHECKPOINT.json": "9c75719d2a424bd2b8e07f3448789bc57bb7a69616c8352c516cdf2a5a1fa45c",
+    "SCUMMVM-CE-M43-ACCEPTANCE528.json": "7648de4d2168d55fe521f2d9998c5443f9713040084174013acb537c12a1b4af",
+    "SCUMMVM-CE-M43-AIR892-VERIFICATION.json": "4a870e9318673bb42408f58e3eb036a5b199b4e38b8d8f6283d8257b371d1a51",
+    "SCUMMVM-CE-M43-BRITISH979-VERIFICATION.json": "4b33ae59a9014b7fe5076824ce933183f963476184aae386fbd064cbf5cae4f1",
+    "SCUMMVM-CE-M43-BRUCE445-VERIFICATION.json": "ec909d5768cab7325621e2e52bb5f788e84072abbec2f7933cf278090fc12a7e",
+    "SCUMMVM-CE-M43-CLASSIC1069-VERIFICATION.json": "2478da1c6030c78a8c74d1f5d6741d371d3f7e28e04c3f2ed57eb56216e9fa17",
+    "SCUMMVM-CE-M43-COMPATIBILITY1087.json": "c82dd456a69d2968cb2d48ecbdee944735aaad4ee8bf404e549a92905f30ae03",
+    "SCUMMVM-CE-M43-CULT1118-VERIFICATION.json": "7ddfdacbaa98f49a110b5850e1f33e1b007dbc5f2d8f4c0f5a64b26e04159762",
+    "SCUMMVM-CE-M43-DRATHE943-VERIFICATION.json": "058e7fb72d33bb3a2dabf873544d4e56ae4c9c3e9c12ea01b326e43e3dae6125",
+    "SCUMMVM-CE-M43-DROP1091-VERIFICATION.json": "7f9b120f1ccfaad945a4e2da232d7cd1c21285913f888d9f88471f966abfe69a",
+    "SCUMMVM-CE-M43-EARNED528-RECEIPT.json": "087ffaa6f2c8b516a6d0d0f7076ff4c0cbbbcc84b5c32021cf792e303c2052a9",
+    "SCUMMVM-CE-M43-ENDING1082-VERIFICATION.json": "a8a83e5fda10a610e0d01489b84358d4be6cb1d5378f6501568adac239e02f47",
+    "SCUMMVM-CE-M43-ESSENCE490-VERIFICATION.json": "a52fab255d24e676c326eade26d74123ca2bea9dd2b115f09de03a80e0b7bc6e",
+    "SCUMMVM-CE-M43-FATHER1105-VERIFICATION.json": "28e9a41b690cd348cf83998efd95e50b66e507321b8209ee9a96ac9950f3bdd5",
+    "SCUMMVM-CE-M43-FIRE886-VERIFICATION.json": "a4556ee21448643fc1402e2a6b4e82eb14d8119ea3317c9839157f3761c1a693",
+    "SCUMMVM-CE-M43-GUARDIAN885-VERIFICATION.json": "663d157d6bd41cd6715475724adc86409a476408f1f5febe56c405ea8925a99f",
+    "SCUMMVM-CE-M43-HAIRNET604-VERIFICATION.json": "95a8823dbdef455e6f5d755eefc8d2b7ce43239e11f9d8c41957ca462122268d",
+    "SCUMMVM-CE-M43-LATE-GATES956-VERIFICATION.json": "013d5d1ef0b0071ba5f5374ffc4d6b4fc41ac8196bcfc5f1bd386aa14c5c9870",
+    "SCUMMVM-CE-M43-NOURTHELD-RECOVERY532-VERIFICATION.json": "a7d86544f25de761a7441526d69221e04aef5efaf6c633342bff5d28d34cd426",
+    "SCUMMVM-CE-M43-ORDER1122-WORK.json": "e8816705ef0532e2b60fd9aa96c7bf65d6e480aa590c897bb0df088807e2fb91",
+    "SCUMMVM-CE-M43-ORDER467-VERIFICATION.json": "8bf0a51be99c5fed96c5c8387b90151dc8a7890c77a46b5b2c1e75fab20c6da5",
+    "SCUMMVM-CE-M43-PAGES501-VERIFICATION.json": "f7fa65dd3a469be35c2f19792b86f576478de732ec8493d7b94a84e587f012d3",
+    "SCUMMVM-CE-M43-PHYL715-VERIFICATION.json": "bf79e92e6e917739fe353bdc3e0deb614bf2874ed2da84f902c4001cddd3b4db",
+    "SCUMMVM-CE-M43-PLANE1005-VERIFICATION.json": "e73bfcf11c6e1741275682429cb5ead73ba7d57eecbb5fe756e9cd366fcd169b",
+    "SCUMMVM-CE-M43-RECOVERY528-VERIFICATION.json": "10ad7c8062ce6c210eb8201e2fe774fd8acbb5e8c22ea9cebc2f811190d4a009",
+    "SCUMMVM-CE-M43-SCALES419-VERIFICATION.json": "2414a29908ca0f0b4547e33e8338131b99ec8e687da2d20e9fea2dd7c3cd1bb6",
+    "SCUMMVM-CE-M43-SEA528-VERIFICATION.json": "d3c3dc48aee6ac428af0793cf341f6a320ed983996463b44e5f8592569ec3609",
+    "SCUMMVM-CE-M43-STYX974-VERIFICATION.json": "27c6d9501bbcbfad1cc893f4d2a1d1ec5f8fb78040dfd6b9603afa07405641ca",
+    "SCUMMVM-CE-M43-SUURTHELD532-VERIFICATION.json": "8ea20dd7a6cf4622980424cc7b3f76f518659dbde6e600a2d8d55344af7e2129",
+    "SCUMMVM-CE-M43-WATER880-VERIFICATION.json": "06cb596506dc6db973a916dfe42d2e7921f3850614f4821155e2e89dfc378403",
+    "SCUMMVM-CE-M43-YVVIAR350-VERIFICATION.json": "155964ee515160350d1366c206e2c56de51e520753f0ff8448185fb9762c7b39",
+    "SCUMMVM-CE-PORTAL491-VERIFICATION.json": "b2539007439182739ac0976831e3b610c9f333902aad2ba8d0c263e918be16ea",
+    "SCUMMVM-CE-READINESS528.json": "8e58aad110c51ff650186cd7160ae23f2c004fc21243fc38085eb05ca800dc50"
+  },
+  "immutable_observations_sha256": {
+    "ce-native-acceptance528\\earned-modern\\earned-horse-purchase531.json": "e27589cc7a6d84bf7db0cc0e785fc0c77d102efc82c0d9521f5856457fba341e",
+    "ce-native-acceptance528\\earned-modern\\earned-horse-move-board-park531.json": "48c59c97ee07bc018b2c826158028526c85fc923c84ee874be783b76e44b0dad",
+    "ce-native-acceptance528\\earned-modern\\earned-cold021-parked-horse532.json": "a6534be13e375fe9eaa65ecf68b58a989e82e4a4646b06f45e6b9f8dd2c5aeb7",
+    "ce-native-acceptance528\\earned-modern\\earned-horse-post-cold021-reboard532.json": "53f81c64bf2c5032e2c0c315b1e18f4660b1fd094d680f066ad8e871d2f735a7",
+    "ce-native-acceptance528\\earned-modern\\earned-Library1123-retained-reverse044.json": "ef6f1be07f93cadfa2cedce2b826c586e05e4f9b165d43290affd58fb9e28249"
+  },
+  "integrity_report": "SCUMMVM-CE-COMPLETION1134-INTEGRITY.json",
+  "confirmed_unresolved_blocking_native_defects": [],
+  "required_original_execution_dependencies": [],
+  "implementation_readiness": "Readiness528 found no confirmed missing required native owner; source completion526/integration527 plus source-driven corrections529/530/531/532/533/885 and earned ending satisfy selected supported scope. All377 candidate files still exact. No production correction justified by this review.",
+  "remaining_limits": [
+    "story.08 original indirect-writer/special-context census remains UNKNOWN; no exhaustive original-behavior proof. Broad PARTIAL matrix classifications are preserved.",
+    "Extreme inherited-memory Open difficulties53/254 remain an original-evidence qualification; raw17 observed failure was corrected and verified533. No supported campaign blocker remains demonstrated.",
+    "Moving large NPC cursor and large ship119 stationary combinations outside verified885 domain remain coverage qualifications; no new successful execution claim.",
+    "No fresh earned missing-Scales/Devil/Dark/Hairnet/Essence/Phyl/Ankh/library/Jewel negatives beyond the explicitly recorded cases. Source review plus compatible evidence replaces their repetitive journeys under this amendment.",
+    "CLI is headless; generated audio and authored cue identity observed, no human listening assertion. Local session events do not establish live API delivery.",
+    "Earned ancestry contains ordinary reloads, failed tactical attempts, casualties and lawful recovery; no single uninterrupted or death-free campaign claim.",
+    "Expansion Lord of Storms, publication, release tagging, distribution, push and deployment remain outside this completion."
+  ],
+  "cost_this_review": {
+    "builds": 0,
+    "game_processes": 0,
+    "focused_game_processes": 0,
+    "integrity_command": "python conversion/reconcile_completion1134.py"
+  },
+  "total_acceptance_cost": {
+    "build_attempts": 11,
+    "game_cli": 78,
+    "focused_cli": 7,
+    "material_launches": 85
+  },
+  "stopping_boundary": "Completed local supported port; preserve candidate and evidence. Stop before publication/release/distribution.",
+  "shutdown": {
+    "process": 78,
+    "normal_cli_quit": true,
+    "actual_exit_code": 0,
+    "controller_expected_exit_code": 1,
+    "qualification": "Driver assertion only after successful normal exit; no Engine failure, rerun or new launch. Suspended negative824 copied locally; primary619 untouched."
+  }
+}

@@ -1,5 +1,5 @@
 {
-  "status": "IN PROGRESS",
+  "status": "VERIFIED",
   "scope": "Finite controlled earned native M4.3 acceptance,source-derived graph; no exploratory gameplay.",
   "readiness": "SCUMMVM-CE-READINESS528.json",
   "origin": "Fresh normal New,default Male/Human character; engine entropy, no random_seed override/fixture/import/cheat.",
@@ -396,7 +396,7 @@
     },
     {
       "id": "order-test",
-      "status": "IN PROGRESS",
+      "status": "VERIFIED",
       "prerequisites": [
         "gordon-shrubbery",
         "brown-key",
@@ -436,7 +436,6 @@
       "earned_evidence": [
         "166normalArchusL015/8TEST/repeat,actualclose/savefield60=1; notScales/Bruce/membership/Letter"
       ],
-      "remaining": "ActualScales146,Bruce75test andArchusmembership/key94,associatedrequiredrefusal/persistence/compatibility remain; retainalloriginalcriteria.",
       "earned_scales_scope": {
         "status": "VERIFIED",
         "report": "SCUMMVM-CE-M43-SCALES419-VERIFICATION.json",
@@ -456,7 +455,13 @@
           385,
           386
         ]
-      }
+      },
+      "prior_status_before1134": "IN PROGRESS",
+      "historical_remaining_before1134": "ActualScales146,Bruce75test andArchusmembership/key94,associatedrequiredrefusal/persistence/compatibility remain; retainalloriginalcriteria.",
+      "completion_review": "SCUMMVM-CE-M43-COMPLETION1134.json",
+      "completion_evidence_method": "Source review plus retained evidence; no new negative gameplay run",
+      "remaining": [],
+      "execution_qualification": "Historical Bruce missing-Scales dialogue is controlled M3 evidence. Current native Bruce missing-Scales voyage was suspended at normal shore save824; it is not a live refusal PASS. Current Archus and north-portal negative forks are retained separately."
     },
     {
       "id": "castle-control-wall",
@@ -616,7 +621,7 @@
     },
     {
       "id": "order-castle-portals",
-      "status": "IN PROGRESS",
+      "status": "VERIFIED",
       "prerequisites": [
         "castle-control-wall",
         "moat-key-door",
@@ -652,7 +657,12 @@
           385,
           386
         ]
-      }
+      },
+      "prior_status_before1134": "IN PROGRESS",
+      "completion_review": "SCUMMVM-CE-M43-COMPLETION1134.json",
+      "completion_evidence_method": "Source review plus retained evidence; no new negative gameplay run",
+      "remaining": [],
+      "execution_qualification": "No new current-candidate keyless library approach is claimed. Failed offline routes were planner results, not Engine failures. Modern/Classic selected policy is covered by1069/1087 and compatible527."
     },
     {
       "id": "remaining-pages",
@@ -1077,7 +1087,7 @@
     },
     {
       "id": "devils-key",
-      "status": "IN PROGRESS",
+      "status": "VERIFIED",
       "prerequisites": [
         "legitimate-new-game"
       ],
@@ -1115,7 +1125,6 @@
         ],
         "field15": 80
       },
-      "remaining": "RelevantmissingKeyrefusal fromlegitimatekeylessfork remains",
       "earned_gate_cold_scope": {
         "status": "VERIFIED",
         "report": "SCUMMVM-CE-M43-ESSENCE490-VERIFICATION.json",
@@ -1124,7 +1133,13 @@
           394,
           395
         ]
-      }
+      },
+      "prior_status_before1134": "IN PROGRESS",
+      "historical_remaining_before1134": "RelevantmissingKeyrefusal fromlegitimatekeylessfork remains",
+      "completion_review": "SCUMMVM-CE-M43-COMPLETION1134.json",
+      "completion_evidence_method": "Source review plus retained evidence; no new negative gameplay run",
+      "remaining": [],
+      "execution_qualification": "No current earned missing-Devil/Dark door traversal is asserted. Dark804 blocked approach is an excluded navigation attempt, not a defect or a successful refusal. Gate unit337 and current source are supporting evidence, not a new full gameplay execution."
     },
     {
       "id": "essence-angels",
@@ -1221,7 +1236,7 @@
     },
     {
       "id": "fire-jewel-guardian",
-      "status": "IN PROGRESS",
+      "status": "VERIFIED",
       "prerequisites": [
         "devils-key",
         "essence-angels",
@@ -1254,12 +1269,17 @@
       ],
       "earned_lineage": null,
       "earned_positive_report": "SCUMMVM-CE-M43-FIRE886-VERIFICATION.json",
-      "remaining_earned_scope": "Relevant prerequisite refusal; wholecampaign IN PROGRESS.",
-      "earned_thermal_protection_report": "SCUMMVM-CE-M43-AIR892-VERIFICATION.json"
+      "earned_thermal_protection_report": "SCUMMVM-CE-M43-AIR892-VERIFICATION.json",
+      "prior_status_before1134": "IN PROGRESS",
+      "historical_remaining_earned_scope_before1134": "Relevant prerequisite refusal; wholecampaign IN PROGRESS.",
+      "completion_review": "SCUMMVM-CE-M43-COMPLETION1134.json",
+      "completion_evidence_method": "Source review plus retained evidence; no new negative gameplay run",
+      "remaining": [],
+      "execution_qualification": "Current earned missing-Hairnet/Essence/Phyl Vortex casts were not replayed. Water1078 ordinary zero damage remains inconclusive and is not used as proof. Protected289 admission owner is byte-identical; reviewed later spell-impact changes add Quick metadata and sound, leaving the tactical instant-protection branch unchanged."
     },
     {
       "id": "air-jewel-guardian",
-      "status": "IN PROGRESS",
+      "status": "VERIFIED",
       "prerequisites": [
         "devils-key",
         "essence-angels",
@@ -1297,8 +1317,13 @@
       ],
       "earned_lineage": null,
       "earned_positive_report": "SCUMMVM-CE-M43-AIR892-VERIFICATION.json",
-      "remaining_earned_scope": "Relevant prerequisite refusal and actualbarrierprotection; wholecampaign IN PROGRESS.",
-      "earned_barrier_effect": "ActualAir206barrier UM98/168,159 crossed normally at594 with all3Jewels and unchangedHP; nativebarrier set{206}. Relevant original missing-prerequisite forks remain pending."
+      "earned_barrier_effect": "ActualAir206barrier UM98/168,159 crossed normally at594 with all3Jewels and unchangedHP; nativebarrier set{206}. Relevant original missing-prerequisite forks remain pending.",
+      "prior_status_before1134": "IN PROGRESS",
+      "historical_remaining_earned_scope_before1134": "Relevant prerequisite refusal and actualbarrierprotection; wholecampaign IN PROGRESS.",
+      "completion_review": "SCUMMVM-CE-M43-COMPLETION1134.json",
+      "completion_evidence_method": "Source review plus retained evidence; no new negative gameplay run",
+      "remaining": [],
+      "execution_qualification": "Current earned missing-Hairnet/Essence/Phyl Vortex casts were not replayed. Water1078 ordinary zero damage remains inconclusive and is not used as proof. Protected289 admission owner is byte-identical; reviewed later spell-impact changes add Quick metadata and sound, leaving the tactical instant-protection branch unchanged."
     },
     {
       "id": "rusty-key",
@@ -1621,7 +1646,7 @@
     },
     {
       "id": "water-jewel-guardian",
-      "status": "IN PROGRESS",
+      "status": "VERIFIED",
       "prerequisites": [
         "rusty-key",
         "skull-key",
@@ -1678,7 +1703,12 @@
         "missing_phylactery_refusal_status": "NOT STARTED",
         "report": "SCUMMVM-CE-M43-WATER880-VERIFICATION.json",
         "scope": "Earned originalfull1300HP Lich Vortex defeat,WaterJewel reward/retirement/repeat/cold/nextcommand only"
-      }
+      },
+      "prior_status_before1134": "IN PROGRESS",
+      "completion_review": "SCUMMVM-CE-M43-COMPLETION1134.json",
+      "completion_evidence_method": "Source review plus retained evidence; no new negative gameplay run",
+      "remaining": [],
+      "execution_qualification": "Current earned missing-Hairnet/Essence/Phyl Vortex casts were not replayed. Water1078 ordinary zero damage remains inconclusive and is not used as proof. Protected289 admission owner is byte-identical; reviewed later spell-impact changes add Quick metadata and sound, leaving the tactical instant-protection branch unchanged."
     },
     {
       "id": "ring-vacous",
@@ -1727,7 +1757,7 @@
     },
     {
       "id": "dark-key",
-      "status": "IN PROGRESS",
+      "status": "VERIFIED",
       "prerequisites": [
         "ring-vacous"
       ],
@@ -1761,11 +1791,16 @@
         "remaining": "PhysicalRUIN30Darkdoorpositive andlegitimatemissingkeyrefusal"
       },
       "earned_positive_door": "SCUMMVM-CE-M43-LATE-GATES956-VERIFICATION.json",
-      "remaining": "Legitimate earned missing-key physical-door refusal fork."
+      "prior_status_before1134": "IN PROGRESS",
+      "historical_remaining_before1134": "Legitimate earned missing-key physical-door refusal fork.",
+      "completion_review": "SCUMMVM-CE-M43-COMPLETION1134.json",
+      "completion_evidence_method": "Source review plus retained evidence; no new negative gameplay run",
+      "remaining": [],
+      "execution_qualification": "No current earned missing-Devil/Dark door traversal is asserted. Dark804 blocked approach is an excluded navigation attempt, not a defect or a successful refusal. Gate unit337 and current source are supporting evidence, not a new full gameplay execution."
     },
     {
       "id": "jewels-temple",
-      "status": "IN PROGRESS",
+      "status": "VERIFIED",
       "prerequisites": [
         "ring-vacous",
         "dark-key"
@@ -1799,7 +1834,12 @@
         "positive_crossing": 594,
         "report": "SCUMMVM-CE-M43-LATE-GATES956-VERIFICATION.json",
         "remaining": "Relevant missing-Jewel fork and all3Jewels Styx recognition."
-      }
+      },
+      "prior_status_before1134": "IN PROGRESS",
+      "completion_review": "SCUMMVM-CE-M43-COMPLETION1134.json",
+      "completion_evidence_method": "Source review plus retained evidence; no new negative gameplay run",
+      "remaining": [],
+      "execution_qualification": "No new missing-Jewel earned branch is claimed. No invented all-three-items admission predicate is required or implemented."
     },
     {
       "id": "high-cultist",
@@ -1940,7 +1980,7 @@
     },
     {
       "id": "plane-transport",
-      "status": "IN PROGRESS",
+      "status": "VERIFIED",
       "prerequisites": [
         "ring-vacous",
         "dark-key",
@@ -1985,7 +2025,12 @@
       "earned_evidence": [
         "SCUMMVM-CE-M43-PLANE1005-VERIFICATION.json"
       ],
-      "remaining": "Missing-Ankh/mountedexplicitrefusal earned coverage remains separate; full positive/cold/return/subsequentcompatibilityverified."
+      "prior_status_before1134": "IN PROGRESS",
+      "historical_remaining_before1134": "Missing-Ankh/mountedexplicitrefusal earned coverage remains separate; full positive/cold/return/subsequentcompatibilityverified.",
+      "completion_review": "SCUMMVM-CE-M43-COMPLETION1134.json",
+      "completion_evidence_method": "Source review plus retained evidence; no new negative gameplay run",
+      "remaining": [],
+      "execution_qualification": "No new current-candidate no-Ankh dialogue is claimed;606 proves non-transfer, not a verbal refusal. No forced portal erasure/recreation was introduced."
     },
     {
       "id": "final-encounter",
@@ -2185,7 +2230,7 @@
     },
     {
       "id": "vazarath-gemstone",
-      "status": "IN PROGRESS",
+      "status": "VERIFIED",
       "prerequisites": [
         "fire-jewel-guardian"
       ],
@@ -2219,7 +2264,12 @@
         "Actual all8pages/bind/cast -> real DevilKey/Essence/FoolKey/Hairnet -> full2600HP Vazarath Vortex victory/cold both modes. Previous missing-Hairnet negative and subsequent Jewel chain apply to this same actor. Controlled mage/routes retained. Optional JOB probe failed/excluded; not required to attack this enemy."
       ],
       "earned_positive_report": "SCUMMVM-CE-M43-FIRE886-VERIFICATION.json",
-      "remaining": "Alias of fire-jewel-guardian: same fullVazarath2600 positive/repeat/cold alreadyverified; relevant missing-Hairnet refusal remains in shared contract. No second boss or extra page source."
+      "prior_status_before1134": "IN PROGRESS",
+      "historical_remaining_before1134": "Alias of fire-jewel-guardian: same fullVazarath2600 positive/repeat/cold alreadyverified; relevant missing-Hairnet refusal remains in shared contract. No second boss or extra page source.",
+      "completion_review": "SCUMMVM-CE-M43-COMPLETION1134.json",
+      "completion_evidence_method": "Source review plus retained evidence; no new negative gameplay run",
+      "remaining": [],
+      "execution_qualification": "Current earned missing-Hairnet/Essence/Phyl Vortex casts were not replayed. Water1078 ordinary zero damage remains inconclusive and is not used as proof. Protected289 admission owner is byte-identical; reviewed later spell-impact changes add Quick metadata and sound, leaving the tactical instant-protection branch unchanged."
     },
     {
       "id": "page-bit-4",
@@ -3056,7 +3106,7 @@
   "supported_branches": [
     {
       "id": "tactical-quick",
-      "status": "IN PROGRESS",
+      "status": "VERIFIED",
       "obligation": "Legitimate earned encounters and lawful Q/T restrictions; compare stable state/cold at legal return. Compatible527 supports mechanics but not earned encounter ancestry.",
       "earned_quick_scope": {
         "status": "VERIFIED",
@@ -3064,22 +3114,42 @@
         "checkpoint": 396,
         "scope": "Ordinary6x70HPgroup, Qnormalvictory/noHPMP"
       },
-      "remaining": "Source-supportedlawfulmode/refusalcontexts andselectedClassiccombination remain"
+      "prior_status_before1134": "IN PROGRESS",
+      "historical_remaining_before1134": "Source-supportedlawfulmode/refusalcontexts andselectedClassiccombination remain",
+      "completion_review": "SCUMMVM-CE-M43-COMPLETION1134.json",
+      "reconciliation": "Earned actual tactical battles including full-health final victory and ordinary six-enemy Quick396; selected Classic527 I3 and current1069 policy. Current initialNoFlee plus original mode299 cover lawful exceptions; no duplicate Classic campaign.",
+      "reports": [
+        "SCUMMVM-CE-M43-ESSENCE490-VERIFICATION.json",
+        "SCUMMVM-CE-M43-ENDING1082-VERIFICATION.json",
+        "SCUMMVM-CE-INTEGRATION527-I3-VERIFICATION.json",
+        "SCUMMVM-CE-M4-MODE299-CHECKPOINT.json"
+      ],
+      "remaining": []
     },
     {
       "id": "defeat-escape",
-      "status": "IN PROGRESS",
+      "status": "VERIFIED",
       "obligation": "Legitimate fork before a supported ordinary encounter; death/flee/restore and grace compatibility without invented victory.",
       "earned_evidence": [
         "ce-native-acceptance528/earned-modern/earned-defeat-sprite148.json",
         "M43 earned: first earned surface battle -> lawful reload -> actual Escape/Y flee -> M43 earned: earned stronger encounter escaped",
         "53actualpiratevictorypartialdeaths ->54normal8+8goldTemple resurrection/6goldhealing/cold013/fullmap0persistence;RECOVERY528-VERIFICATION scoped"
       ],
-      "qualification": "Actual defeat terminal then normal Engine load; no victory/reward claimed. Flee cost gold19->9 and returned livingparty50/50. Cold branch restoration still separate."
+      "qualification": "Actual defeat terminal then normal Engine load; no victory/reward claimed. Flee cost gold19->9 and returned livingparty50/50. Cold branch restoration still separate.",
+      "prior_status_before1134": "IN PROGRESS",
+      "completion_review": "SCUMMVM-CE-M43-COMPLETION1134.json",
+      "reconciliation": "Actual earned defeat/normal restore, repeated legitimate gold-penalty escapes, partial deaths and paid Temple resurrection/cold013. No victory credited to failed battles; grace/owner semantics reuse compatible527.",
+      "reports": [
+        "SCUMMVM-CE-M43-RECOVERY528-VERIFICATION.json",
+        "SCUMMVM-CE-M43-YVVIAR350-VERIFICATION.json",
+        "SCUMMVM-CE-M43-ENDING1082-VERIFICATION.json",
+        "SCUMMVM-CE-M43-COMPATIBILITY1087.json"
+      ],
+      "remaining": []
     },
     {
       "id": "transport-cannon",
-      "status": "IN PROGRESS",
+      "status": "VERIFIED",
       "obligation": "Earn boat/ship/horse and actual board/move/dismount/cannon where supported; no fixture for acceptance.",
       "earned_evidence": [
         "authored skiff legitimately boarded",
@@ -3095,7 +3165,17 @@
         "53 sourceauthoredshipcannonstations/reloadcyclekill6full98/137HPpirates;normal2worldshotmissesretained;twoactualpartydeaths",
         "122/123 legitimateCastle11horse154purchase, actualmountedstep,Xdismount/Breboard/Xpark;horsemaptransition/coldcontinuity pending."
       ],
-      "remaining": "Ocean arrival/disembark,cannon,horse and remaining supported contexts remain unverified."
+      "prior_status_before1134": "IN PROGRESS",
+      "historical_remaining_before1134": "Ocean arrival/disembark,cannon,horse and remaining supported contexts remain unverified.",
+      "completion_review": "SCUMMVM-CE-M43-COMPLETION1134.json",
+      "reconciliation": "Earned skiff/Frigate purchase, actual boarding/sea motion/disembark, full sea cannon victory61 and boarding63; actual horse purchase122/board/park123, cold021 and following reboard retained. Current primary also earns Wyvern transitions and cold reboarding395. Source-owned shared cargo/transport continuations; no every-vehicle-at-every-map claim.",
+      "reports": [
+        "SCUMMVM-CE-M43-SEA528-VERIFICATION.json",
+        "SCUMMVM-CE-M43-ESSENCE490-VERIFICATION.json",
+        "SCUMMVM-CE-M43-EARNED528-RECEIPT.json",
+        "SCUMMVM-CE-M4-FRIGATE463-CHECKPOINT.json"
+      ],
+      "remaining": []
     },
     {
       "id": "inventory-drop",
@@ -3105,31 +3185,60 @@
     },
     {
       "id": "castle11-services",
-      "status": "IN PROGRESS",
+      "status": "VERIFIED",
       "obligation": "Earned Castle11 entry/schedule policy and actual training/inn/temple/service use as needed.",
       "earned_evidence": [
         "Suurtheld Castle11 arrival",
         "Castle11 visit completed"
       ],
-      "qualification": "Actual earned entry/ordinary movement/departure with original schedule/record ownership; scoped branch,not whole temple/training/inn coverage."
+      "qualification": "Actual earned entry/ordinary movement/departure with original schedule/record ownership; scoped branch,not whole temple/training/inn coverage.",
+      "prior_status_before1134": "IN PROGRESS",
+      "completion_review": "SCUMMVM-CE-M43-COMPLETION1134.json",
+      "reconciliation": "Actual Castle11 entry, schedule-bound dialogue/shop/food/gear and paid local temple services; Nourtheld normal inn and resurrections. Shared teacher/payment/insufficient-gold/inn ownership and cold in527 I2 supply compatible service coverage. Requirements do not demand every service in every town.",
+      "reports": [
+        "SCUMMVM-CE-M43-SUURTHELD532-VERIFICATION.json",
+        "SCUMMVM-CE-M43-NOURTHELD-RECOVERY532-VERIFICATION.json",
+        "SCUMMVM-CE-INTEGRATION527-I2-VERIFICATION.json"
+      ],
+      "remaining": []
     },
     {
       "id": "story-alternatives",
-      "status": "NOT STARTED",
-      "obligation": "15 source advice branches are conditional guidance,not all mechanical prerequisites. Preserve each classification; mutually exclusive supported operations use earned save forks."
+      "status": "VERIFIED",
+      "obligation": "15 source advice branches are conditional guidance,not all mechanical prerequisites. Preserve each classification; mutually exclusive supported operations use earned save forks.",
+      "prior_status_before1134": "NOT STARTED",
+      "completion_review": "SCUMMVM-CE-M43-COMPLETION1134.json",
+      "reconciliation": "All15 retained advice classifications and selected operations are already VERIFIED; they are conditional guidance, not15 additional exclusive campaign runs. Required alternative operations, Father door and four plates have earned proof. story.08 wider indirect-writer census remains an explicit original-source uncertainty.",
+      "reports": [
+        "SCUMMVM-CE-M43-FATHER1105-VERIFICATION.json",
+        "SCUMMVM-CE-M43-CULT1118-VERIFICATION.json",
+        "SCUMMVM-CE-M43-ACCEPTANCE528.json"
+      ],
+      "remaining": []
     },
     {
       "id": "save-session",
-      "status": "IN PROGRESS",
+      "status": "VERIFIED",
       "obligation": "Early,middle,late,prefinal,allowedpostending cold; abnormal exit after successful save; both save interfaces/modes and ownerisolation reusing527 where identical.",
       "earned_evidence": [
         "Early openingcold,actualMaldacboatcold,Axeaawardcold,NPC529save37/cold010/nextinput,same clean owner"
       ],
-      "remaining": "Current earned early/middle/late/prefinal/postending colds and abnormal076 completed; compatible527 independent owner/actual savechooser evidence retained, Classic1069 same-owner New is not independent-owner proof. Final contract reconciliation remains.",
       "abnormal_exit_scope": {
         "status": "VERIFIED",
         "report": "SCUMMVM-CE-M43-DROP1091-VERIFICATION.json"
-      }
+      },
+      "prior_status_before1134": "IN PROGRESS",
+      "historical_remaining_before1134": "Current earned early/middle/late/prefinal/postending colds and abnormal076 completed; compatible527 independent owner/actual savechooser evidence retained, Classic1069 same-owner New is not independent-owner proof. Final contract reconciliation remains.",
+      "completion_review": "SCUMMVM-CE-M43-COMPLETION1134.json",
+      "reconciliation": "Earned early/middle/late/pre-final/post-ending colds plus first next commands, normal slots/Classic restrictions1069, deliberate post-save abnormal exit076. Compatible527 supplies literal Q write and two-owner isolation; current Q open/cancel and normal Engine saves are distinct. No live HTTP assertion.",
+      "reports": [
+        "SCUMMVM-CE-M43-DROP1091-VERIFICATION.json",
+        "SCUMMVM-CE-M43-CLASSIC1069-VERIFICATION.json",
+        "SCUMMVM-CE-M43-ENDING1082-VERIFICATION.json",
+        "SCUMMVM-CE-M43-COMPATIBILITY1087.json",
+        "SCUMMVM-CE-INTEGRATION527-I1-VERIFICATION.json"
+      ],
+      "remaining": []
     },
     {
       "id": "audio-settings",
@@ -3151,8 +3260,17 @@
     },
     {
       "id": "semantic-events",
-      "status": "NOT STARTED",
-      "obligation": "Actual discoveries/journal and zeroaward CE sessions; no placeholder achievements/liveHTTP assertion."
+      "status": "VERIFIED",
+      "obligation": "Actual discoveries/journal and zeroaward CE sessions; no placeholder achievements/liveHTTP assertion.",
+      "prior_status_before1134": "NOT STARTED",
+      "completion_review": "SCUMMVM-CE-M43-COMPLETION1134.json",
+      "reconciliation": "Actual primary619 records journal sequence242,37 characters,12835 observed cells;3853 start/save events use the same CE owner, empty awards/progress/assistance and no assisted or achievement events. Exact cold074 and native exploration save own persistence. CLI queues remain pending by design; no network delivery claim.",
+      "reports": [
+        "SCUMMVM-CE-COMPLETION1134-INTEGRITY.json",
+        "SCUMMVM-CE-M43-ENDING1082-VERIFICATION.json",
+        "SCUMMVM-CE-M43-COMPATIBILITY1087.json"
+      ],
+      "remaining": []
     }
   ],
   "mode_strategy": "One primary Modern earned lineage; targeted Classic legal earned fork/restore/transitions; no duplicate complete campaign required by existing criteria.",
@@ -3227,7 +3345,7 @@
     "report": "SCUMMVM-CE-M43-CULT734-VERIFICATION.json",
     "scope": "Four actual earned Cultist pair victories and level6-to8 advancement only; Vortex/guardian/ending acceptance remains IN PROGRESS."
   },
-  "active_next": "ActualtwoaliveNox/Br afterpaidrevival,104gold774food; Town44entry9,32/source5flightMage1037to9,12inprogress. BuyGreaterHeal51/76gold, ReadyC8, paidrest, normalNreorderlivingcastersindices4/5forradius4separation; returnfullfinal/endingthenfiniteforks/config.",
+  "active_next": "Complete; no further acceptance traversal. No release/publication/push authorized.",
   "current_checkpoint": 613,
   "essence775": {
     "status": "VERIFIED",
@@ -3422,7 +3540,7 @@
     },
     "next": "Continue source-authored cave/stair flight toUM101 Lich(originalNPC32,source108148;inspectactualposition). Earnedphylacteryflag12bit4 retained. Inspectactualfull1300HP/protection/partypositions, thennormalC1VortexNorth avoidingfriendlyfire, actualWaterJewel153 andpersistentdeath. Nofixture/Rat/campaignendingclaim."
   },
-  "verified_count": 50,
+  "verified_count": 60,
   "lich877": {
     "status": "IN PROGRESS",
     "scope": "Earned fullLich/WaterJewel acceptance approach only",
@@ -3486,5 +3604,8 @@
   },
   "nystul1099_report": "SCUMMVM-CE-M43-NYSTUL1099-VERIFICATION.json",
   "father1105_report": "SCUMMVM-CE-M43-FATHER1105-VERIFICATION.json",
-  "cult1118_report": "SCUMMVM-CE-M43-CULT1118-VERIFICATION.json"
+  "cult1118_report": "SCUMMVM-CE-M43-CULT1118-VERIFICATION.json",
+  "completion_review": "SCUMMVM-CE-M43-COMPLETION1134.json",
+  "completion_evidence_authority": "Owner November 18, 2026: stop getting bogged down in edge cases; use source and existing evidence to finish remaining checks, fix real defects, and continue autonomously until the port is complete.",
+  "evidence_scope": "Earned primary and supported operations; remaining negative checks closed by explicit source review and retained compatible evidence, not newly earned negative runs."
 }

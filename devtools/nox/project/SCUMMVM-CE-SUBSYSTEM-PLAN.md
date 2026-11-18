@@ -1,3 +1,7 @@
+# Supported base v119 native port / M4.3 — VERIFIED (November 18, 2026)
+
+Owner explicitly directed source/existing-evidence closure instead of repeated edge-case voyages. Completion1134 records60/60 campaign nodes and10/10 supported obligations using earned progression plus separately labeled source/component/historical evidence. Actual earned New->full3210HP final->ending618/ack619/cold074 remains intact. All377 candidate files match;410 evidence hashes and520-record New ancestry pass. No blocking native defect or original-execution dependency remains demonstrated in supported scope. No new build/launch; acceptance total11 build attempts,78game+7focused=85launches. Broad PARTIAL/story.08 UNKNOWN source-corpus qualifications remain explicit, not silently promoted. Local completion only; no publication/push/release/distribution. Final candidate/report identities and limits: SCUMMVM-CE-M43-COMPLETION1134.md/.json and COMPLETION1134-INTEGRITY.json. Process078 normal quit exit0; prior expected1 assertion is driver-only. No acceptance process left running.
+
 # Current continuation after complete weather/NPC recovery518b
 
 Weather/population517sourcecontractandordinaryNPCfailurecontinuation518are

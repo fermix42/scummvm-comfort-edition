@@ -1,3 +1,7 @@
+# Completion1134 disposition — November 18, 2026
+
+Supported base v119 native port and M4.3 are VERIFIED under the owner source/existing-evidence amendment. Final report SCUMMVM-CE-M43-COMPLETION1134.json separates actual earned gameplay, source review and historical controlled evidence. No demonstrated blocking native implementation defect or required original-execution dependency remains in supported scope. Existing raw53/254, moving-large-NPC/ship-domain and story.08 qualifications remain explicit research/coverage limits; prior failures below remain historical. No acceptance traversal/build/suite rerun pending. No publication/push/release/distribution.
+
 # Controlled integration527 fallback reconciliation
 
 Fallback dependencies unchanged. No gameplay implementation/executor/CPU ABI/disk bootstrap/IRQ path introduced. Only opt-in lifecycle probe changes skip audio tests and emit actualQ; all production gameplay/audio sources unchanged from525. Controlled assisted checkpoints are integration evidence, not an earned campaign replacement. Existing policies below remain.
