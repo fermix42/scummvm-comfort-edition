@@ -43,6 +43,7 @@
 #include "nox/native_battle_results_validation.h"
 #include "nox/native_battle_action_validation.h"
 #include "nox/native_lock_validation.h"
+#include "nox/native_npc_world_action_validation.h"
 #include "nox/native_battle_cast.h"
 #include "nox/native_combat_fixture.h"
 #include "nox/native_player_session.h"
@@ -372,6 +373,16 @@ inline Common::Error NoxEngine::runNativeStartup() {
         if (!oracle.open(Common::FSNode(ConfMan.getPath("nox_native_battle_targets_oracle"))) || !validateNativeBattleTargets(_resources,oracle,report)) return fail(report.empty()?"Native target selection rejected":report.c_str());
         Common::OutSaveFile *out=_system->getSavefileManager()->openForSaving("nox-native-battle-targets-oracle.tsv",false);if (!out) return Common::kWritingFailed;
         out->writeString(report);out->finalize();const bool ok=!out->err();delete out;if (!ok) return Common::kWritingFailed;
+    }
+    if (replay && ConfMan.hasKey("nox_native_stationary_contact_oracle")) {
+        Common::File oracle,continuation;Common::String report,error;
+        if (!oracle.open(Common::FSNode(ConfMan.getPath("nox_native_stationary_contact_oracle"))) ||
+            !continuation.open(Common::FSNode(ConfMan.getPath("nox_native_stationary_contact_cold"))) ||
+            !validateNativeNpcWorldAction(_resources,oracle,continuation,*_system->getSavefileManager(),false,report,error,
+                "native-stationary-mounted-contact","nox-stationary-mounted-contact")) return fail(error.empty()?"Native stationary mounted contact rejected":error.c_str());
+        Common::OutSaveFile *out=_system->getSavefileManager()->openForSaving("nox-native-stationary-contact-oracle.tsv",false);if (!out) return Common::kWritingFailed;
+        out->writeString(report);out->finalize();const bool ok=!out->err();delete out;if (!ok) return Common::kWritingFailed;
+        return Common::kNoError;
     }
     if (replay && ConfMan.hasKey("nox_native_lock_oracle")) {
         Common::File oracle;Common::String report,error;

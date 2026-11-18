@@ -11,7 +11,7 @@ inline bool validateNativeNpcWorldAction(HdvArchive &archive,Common::SeekableRea
     const bool withEffects=version==3; const uint outcomeSize=withEffects?606:347;
     uint mode=0,expectedGroups=1440,expectedOperations=22742,expectedBattles=24,expectedWaits=13739;
     if (version>=2) { mode=input.readUint32LE(); expectedGroups=input.readUint32LE(); expectedOperations=input.readUint32LE(); expectedBattles=input.readUint32LE(); expectedWaits=input.readUint32LE(); }
-    if (mode>2 || (mode==2 && !withEffects) || !expectedGroups || expectedGroups>4000 || expectedOperations>64000) return false;
+    if (mode>3 || (mode==2 && !withEffects) || !expectedGroups || expectedGroups>4000 || expectedOperations>64000) return false;
     if (continuation.readUint32BE()!=MKTAG('N','W','A','C') || continuation.readUint32LE()!=1) return false;
     const uint checkpointGroup=continuation.readUint32LE(),checkpointOperation=continuation.readUint32LE();
     if (checkpointGroup>=2000 || checkpointOperation>=16 || continuation.err() || continuation.pos()!=continuation.size()) return false;
@@ -34,7 +34,8 @@ inline bool validateNativeNpcWorldAction(HdvArchive &archive,Common::SeekableRea
             source.read(context,6); source.read(party,2); const byte terrain=source.readByte(),obstacleAndEffect=source.readByte(),freeze=source.readByte();
             const byte obstacle=mode==2?(obstacleAndEffect&127):obstacleAndEffect;
             const byte initialEffect=mode==2?(obstacleAndEffect>>7):0;
-            const byte worldType=mode?context[0]:8,worldMap=mode?context[1]:7,actorSlot=mode==1?context[4]:0;
+            const byte partyObject=mode==3 && context[5]!=255?0:255;
+            const byte worldType=mode?context[0]:8,worldMap=mode?context[1]:7,actorSlot=(mode==1 || mode==3)?context[4]:0;
             if ((actorSlot&7) || !rules.load(archive,worldType)) return false;
             source.read(actor,8); source.read(objects,256); source.read(payload,256);
             const uint32 seed=source.readUint32LE(); const byte tail=source.readByte(),last=source.readByte(); const uint16 attempts=source.readUint16LE(),count=source.readUint16LE();
@@ -50,14 +51,14 @@ inline bool validateNativeNpcWorldAction(HdvArchive &archive,Common::SeekableRea
                 for (uint i=0;i<owners;++i) delete in[i]; if (!ok) return false;
             } else {
                 byte pages[3584]={}; memcpy(pages,payload,256); state.freezeTimer=freeze; state.enabled=byte(profile); state.contact.slot=248; state.contact.cell=186;
-                if (!world.initialize(worldType,worldMap,party[0],party[1],fields,256) || !schedule.initialize(archive) || !store.importPages(pages,3584) || !random.importState(seed,tail,last,attempts) || !surface.initialize(archive,1)) return false;
+                if (!world.initialize(worldType,worldMap,party[0],party[1],fields,256,partyObject==255) || !schedule.initialize(archive) || !store.importPages(pages,3584) || !random.importState(seed,tail,last,attempts) || !surface.initialize(archive,1)) return false;
                 Common::MemoryWriteStreamDynamic w(DisposeAfterUse::YES),s(DisposeAfterUse::YES); if (!world.save(w) || !schedule.save(s)) return false;
                 Common::Array<byte> imported; imported.resize(w.size()); memcpy(imported.data(),w.getData(),w.size());
                 memset(imported.data()+271+768,0,256); memset(imported.data()+271+1280,0,256);
                 memcpy(imported.data()+271+1024,objects,256); memcpy(imported.data()+271+1280+actorSlot,actor,8);
                 if (obstacle==1) { const byte other[8]={byte(party[0]+1),party[1],137,0,0,0,0,0}; memcpy(imported.data()+271+1288,other,8); }
                 Common::MemoryReadStream ws(imported.data(),imported.size()); if (!world.load(ws)) return false;
-                byte npc[572]; memcpy(npc,s.getData(),572); memset(npc+454,255,56); if (mode!=1) { npc[454]=77; npc[455]=0; npc[456]=1; npc[457]=0; } npc[570]=0;
+                byte npc[572]; memcpy(npc,s.getData(),572); memset(npc+454,255,56); if (mode!=1 && mode!=3) { npc[454]=77; npc[455]=0; npc[456]=1; npc[457]=0; } npc[570]=0;
                 npc[6+77]=context[4]; npc[166+77]=context[5]; Common::MemoryReadStream ss(npc,572); if (!schedule.load(ss)) return false;
             }
             for (uint operation=0;operation<count;++operation) {
@@ -82,8 +83,8 @@ inline bool validateNativeNpcWorldAction(HdvArchive &archive,Common::SeekableRea
                     } else if (record[6] || state.action.navigation.motion.hidden || !(record[7]&128)) scene.actors.lookup[current]=actorSlot;
                     if (obstacle==1) scene.actors.lookup[94]=8;
                     if (obstacle==2) scene.objects.lookup[92]=32;
-                    result=withEffects?rules.advanceWithEffects(world,schedule,store,actorSlot,scene,4,255,state,random,catalog,surface,effects,direction,message):
-                        rules.advance(world,schedule,store,actorSlot,scene,4,255,state,random,catalog,surface,direction,message);
+                    result=withEffects?rules.advanceWithEffects(world,schedule,store,actorSlot,scene,4,partyObject,state,random,catalog,surface,effects,direction,message):
+                        rules.advance(world,schedule,store,actorSlot,scene,4,partyObject,state,random,catalog,surface,direction,message);
                 }
                 if (withEffects && (memcmp(world.currentTables()->data()+1024,expectedObjects,256) || effects.active!=expectedEffects[0] || effects.queued!=expectedEffects[1] || effects.code!=expectedEffects[2])) {
                     error=Common::String::format("Containing NPC movement effects differ profile%u group%u operation%u",profile,group,operation); return false;
@@ -120,7 +121,7 @@ inline bool validateNativeNpcWorldAction(HdvArchive &archive,Common::SeekableRea
     if (input.err() || input.pos()!=input.size() || (!cold && (groupTotal!=expectedGroups || total!=expectedOperations || battles!=expectedBattles || waits!=expectedWaits))) return false;
     error.clear();
     if (cold) report+=Common::String::format("%s\tphase=cold\t%s=1\tprepared_preferences_restored=1\tcontinued_operations=%u\tcpu_execution=0\n",reportKey,mode==2?"actual_queued_effect_restored":mode==1?"actual_queued_request_restored":"actual_route_move_restored",total);
-    else report+=Common::String::format("%s\tphase=warm\tchains=%u\toperations=%u\tbattle_handoffs=%u\tforced_waits=%u\tscene_derived_collision_preview=1\tinjected_collision_decisions=0\tstationary_large_domain=%u\tcontaining_movement_effects=%u\tranged_request_domain=%u\tfull_actor_turn=0\tcpu_execution=0\n",reportKey,groupTotal,total,battles,waits,uint(mode==1),uint(withEffects),uint(mode==2));
+    else report+=Common::String::format("%s\tphase=warm\tchains=%u\toperations=%u\tbattle_handoffs=%u\tforced_waits=%u\tscene_derived_collision_preview=1\tinjected_collision_decisions=0\tstationary_large_domain=%u\tcontaining_movement_effects=%u\tranged_request_domain=%u\tfull_actor_turn=0\tcpu_execution=0\n",reportKey,groupTotal,total,battles,waits,uint(mode==1 || mode==3),uint(withEffects),uint(mode==2));
     return true;
 }
 }

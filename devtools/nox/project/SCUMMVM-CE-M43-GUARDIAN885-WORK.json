@@ -1,0 +1,12 @@
+{
+  "status": "IN PROGRESS",
+  "failure": "ce-native-acceptance528\\earned-modern\\forks\\Fire-NPC234-capability0-885\\manifest.json",
+  "source_actions": 6912,
+  "builds": 10,
+  "game_cli": 57,
+  "focused_cli": 5,
+  "remaining": "Focused native comparison and legitimate998 continuation; whole M4.3 remains IN PROGRESS",
+  "build_failures": [
+    "guardian885-build.log: default compatibility configuration selected accidentally; nine compile errors in existing compatibility audio fields/callers. No engine change for these; rerun with required -NoxNativeOnly."
+  ]
+}

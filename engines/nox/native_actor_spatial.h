@@ -93,11 +93,13 @@ public:
                         // The original large-actor helper clobbers its subcell
                         // cursor and can read outside the candidate vector.
                         // Moving actors must never receive a guessed vector.
-                        // A verified stationary on-foot caller can instead
+                        // A verified stationary caller on foot or a single-cell mount can instead
                         // complete its queued conversation: no navigation or
-                        // RNG consumes the remaining collision scratch.
+                        // RNG consumes the remaining collision scratch. The original
+                        // three-cell ship footprint still needs its full contact probe.
                         const bool clobbersCursor=c.large && (c.actorState&8) && !(request.availability&128) && c.actorFlags!=255;
-                        if (clobbersCursor && (!stationaryConversation || c.capability || c.actorFlags || c.partyObject!=255)) return false;
+                        if (clobbersCursor && (!stationaryConversation || c.capability || c.actorFlags ||
+                                (c.partyObject!=255 && objects[c.partyObject+2]==119))) return false;
                         WorldActor actor; actor.kind=c.kind; actor.state=c.actorState; actor.flags=c.actorFlags;
                         if (!_contact.consider(actor,c.actorSlot,byte(cell),scene.actors.terrain[cell],request)) return false;
                         if (clobbersCursor && !request.availability) {
