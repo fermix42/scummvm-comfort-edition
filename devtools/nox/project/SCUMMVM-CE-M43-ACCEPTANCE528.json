@@ -999,7 +999,7 @@
     },
     {
       "id": "vortex-battle-effect",
-      "status": "NOT STARTED",
+      "status": "VERIFIED",
       "prerequisites": [
         "castle-control-wall",
         "moat-key-door",
@@ -1035,7 +1035,29 @@
         "scoped audio/presentation",
         "actual earned verification criteria"
       ],
-      "earned_lineage": null
+      "earned_lineage": [
+        548,
+        549,
+        550,
+        551,
+        552,
+        553,
+        554,
+        555,
+        556,
+        557,
+        558,
+        559,
+        560,
+        561,
+        562,
+        563
+      ],
+      "earned_scope": {
+        "status": "VERIFIED",
+        "report": "SCUMMVM-CE-M43-WATER880-VERIFICATION.json",
+        "scope": "Actualearned full1300HP Lich NorthVortex87MP; originalM3 Rat12HP remainshistorical, notclaimednewearned."
+      }
     },
     {
       "id": "devils-key",
@@ -1618,13 +1640,21 @@
         476,
         477,
         478,
-        479
+        479,
+        557,
+        558,
+        559,
+        560,
+        561,
+        562,
+        563
       ],
       "earned_scope": {
         "status": "IN PROGRESS",
-        "contact_status": "VERIFIED",
-        "report": "SCUMMVM-CE-M43-PHYL715-VERIFICATION.json",
-        "scope": "Earned Modern native depths travel, actual phylactery Look/contact/repeat/cold/subsequent transport only; Water guardian remains IN PROGRESS."
+        "positive_status": "VERIFIED",
+        "missing_phylactery_refusal_status": "NOT STARTED",
+        "report": "SCUMMVM-CE-M43-WATER880-VERIFICATION.json",
+        "scope": "Earned originalfull1300HP Lich Vortex defeat,WaterJewel reward/retirement/repeat/cold/nextcommand only"
       }
     },
     {
@@ -3012,10 +3042,10 @@
   "mode_strategy": "One primary Modern earned lineage; targeted Classic legal earned fork/restore/transitions; no duplicate complete campaign required by existing criteria.",
   "failure_policy": "Freeze failing path,source general diagnosis,focused correction+regression,at most2corrective reruns; resume valid nearest earned save,no prefix replay or outcome injection.",
   "builds": 6,
-  "process_launches": 56,
+  "process_launches": 57,
   "planned_node_count": 60,
   "mandatory_node_count_note": "All selected M3 nodes explicitly represented alongside dependency76 graph; includes supporting/advice/alternative nodes. Necessity is retained per source,not inferred from node count.",
-  "last_earned_checkpoint": 556,
+  "last_earned_checkpoint": 563,
   "baseline_candidate_sha256": "81feb2c7ff17594a6ea9754dc60602a755b2f37ea7c53b437f65a18e7c35000f",
   "candidate_change": "NPC529,cannon530,packedmelee531,mountedTalk532 source corrections; exact scoped receipts and earned ancestry retained. No broad matrix promotion.",
   "earned_failures_retained": [
@@ -3075,14 +3105,14 @@
   "previous_candidate_before533": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed",
   "candidate_source_commit": "c660ae8ac41",
   "candidate_transition": "SCUMMVM-CE-DOOR533-VERIFICATION.json; normal223 cold recovery before further inputs; earlier nodes retain original bound evidence.",
-  "last_checkpoint": 556,
+  "last_checkpoint": 563,
   "cult734": {
     "status": "VERIFIED",
     "report": "SCUMMVM-CE-M43-CULT734-VERIFICATION.json",
     "scope": "Four actual earned Cultist pair victories and level6-to8 advancement only; Vortex/guardian/ending acceptance remains IN PROGRESS."
   },
-  "active_next": "Continue source-authored cave/stair flight toUM101 Lich(originalNPC32,source108148;inspectactualposition). Earnedphylacteryflag12bit4 retained. Inspectactualfull1300HP/protection/partypositions, thennormalC1VortexNorth avoidingfriendlyfire, actualWaterJewel153 andpersistentdeath. Nofixture/Rat/campaignendingclaim.",
-  "current_checkpoint": 556,
+  "active_next": "Continue actualFireVazarath UM101 NPC0 original86,126/full2600HP INT105. HolyHairnet113/field63bit1 alreadyearned. AirNPC16 original108,100/full1950HP. UseactualfreshNPCpositions andnormalVortexNorth afteractualadmission. Preservecurrentprimarybeforelaterlegitimateearliernegativeforks.",
+  "current_checkpoint": 563,
   "essence775": {
     "status": "VERIFIED",
     "report": "SCUMMVM-CE-M43-ESSENCE775-VERIFICATION.json",
@@ -3276,5 +3306,43 @@
     },
     "next": "Continue source-authored cave/stair flight toUM101 Lich(originalNPC32,source108148;inspectactualposition). Earnedphylacteryflag12bit4 retained. Inspectactualfull1300HP/protection/partypositions, thennormalC1VortexNorth avoidingfriendlyfire, actualWaterJewel153 andpersistentdeath. Nofixture/Rat/campaignendingclaim."
   },
-  "verified_count": 34
+  "verified_count": 35,
+  "lich877": {
+    "status": "IN PROGRESS",
+    "scope": "Earned fullLich/WaterJewel acceptance approach only",
+    "actual": "Actual source5flight874 reachesSurface79,193;normalYland/Up cave557 givesUM97/79,192. NormalYflight/source6flight875 reaches83,172;Up usesauthored100/101 adjacentstairs,558 at101/231,15. FreshactualLichNPC32 is110,147 (original108,148), so attemptedflightgoal111,147 withcontactmargin2 isblockedbyitsactualexclusion, notEnginefailure. Newsource94flight876 to101/115,147 through100/101,zeroThermal,currentlyexecuting. NativeWorldTransportMotion speed>=4 bypasseswalkingbarrierprobe;terrainthermalhazardsremainactive. BothNoxfirst/Bridgit level10 INT116 HP123 MP87,17gold157food,VortexC1;phylacteryfield12bit4earned. NoEngine/build/process change;34/60verified,8builds,56gameCLI+5focused=61launches. Next inspectactualguardianposition/full1300HP/protection;normalVortexNorthcone excludessecondpartymemberatcasterrow. Noexpectedoutcomesinjected.",
+    "last_checkpoint": 558,
+    "next": "Finish876 orinspectactualinterruption, thenactualfreshNPC32 approach/Attack. SourceVortex instantkillrequirescasterINT>=targetINTmasked127;actual116>=originalLich105. FullHPandmana87. CastNorth onlyafteractualpositionsconfirmfriendlysafecone;completeactualvictory/item153/repeat/coldcriteria. NoDragonorPhylreplay."
+  },
+  "water880": {
+    "status": "VERIFIED",
+    "scope": "Earned originalfull1300HP Lich Vortex defeat,WaterJewel reward/retirement/repeat/cold/nextcommand only",
+    "actual": "Actualsource5flight874/normalgroundcave557;source6flight875/authoredadjacentstair558 reaches101/231,15. OriginalLichNPC32 moved110,147, soflightgoal111,147 excludedbycontactmargin2; new94flight876 to115,147. Incidental3x70HP OrcGuard admission111,140,normalretreat17->8gold,residual111,143;checkedpendingdestinationandcontinued94route. Ground7route878 admits3Orcs112,148,normalretreat8->4. FreshLich111,144;4foot879 admits4Orcs111,147;ordinaryphysicalvictory559,noHP/MP loss,10gold. NormalUp/Up reaches111,146,Lichoverlaps. Br normalC6Light costs1MP;DownblockedbyactualLich111,147. NormalAttackDownadmitsoneoriginalfull1300HP Lich163,party123HP,MP87/86. TacticalNoxactive0,normalC1directionNorth includesLich4,0 andexcludesBr6,8 besidecaster4,8. ActualVortexcost87MP,LichHP0/notpresent,both123HP. Normalvictory560 awardsWaterJewel153qty1. ActualretiredNPC[111,147,163,255,0,126,0,255]. RepeatAttackDownreturnsworld,no duplicate153;561. Cold057exactstate/session/noassistancePASS. FirstpostcoldC5/BrDownEnterreturnsSurface79,192,cost4MP,562. Hcamp563restoresboth87MP,HP123,65food10gold. NoEngine/buildchange;57gameCLI+5focused=62launches.",
+    "source_commit": "c660ae8ac41",
+    "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd",
+    "cost": {
+      "builds": 8,
+      "game_cli": 57,
+      "focused_cli": 5,
+      "material_launches": 62
+    },
+    "checkpoints": {
+      "ce-native-acceptance528/earned-modern/checkpoints/557-Earned-Lich-cave-approach557/checkpoint.json": "0891d7677dd90997dd95d18bc6f49b475eb7db9d19b5b1a67e54006f41ac3c93",
+      "ce-native-acceptance528/earned-modern/checkpoints/558-Earned-Lich-direct-depths558/checkpoint.json": "7463ea0670c6751b17baadd51165d454bf539be7f26c33bc981d48759e9ce07f",
+      "ce-native-acceptance528/earned-modern/checkpoints/559-Earned-Lich-Orc-guard-victory559/checkpoint.json": "7f67db0275ae30ae2fc1d71bb757094365574ee6d6a17f33ea08694e2041a28c",
+      "ce-native-acceptance528/earned-modern/checkpoints/560-Earned-full-Lich-Water-Jewel560/checkpoint.json": "565e847b688e93437507de25459c7381c53fe940e603ad6de3021098f3dd3b22",
+      "ce-native-acceptance528/earned-modern/checkpoints/561-Earned-Water-Jewel-repeat561/checkpoint.json": "37ef67595f64f51937ecef69d6a2452622d3265a97452d14004514864e695835",
+      "ce-native-acceptance528/earned-modern/checkpoints/562-Earned-Water-guardian-return562/checkpoint.json": "90d87080198bc4ccf7c96ae341973b1fb11ff1fefb54be86f0c6bb7e4fe02799",
+      "ce-native-acceptance528/earned-modern/checkpoints/563-Earned-postLich-mana-camp563/checkpoint.json": "1ace7cf3baf8683afef919a3d14671bef8e011d065e986997037106c8140817a"
+    },
+    "private_evidence": {
+      "ce-native-acceptance528/earned-modern/earned-Lich-Vortex880.json": "e95e5e3154c9e84396fcb253c740bc22e9dd14ab732d40d3abb628593634b1a7",
+      "ce-native-acceptance528/earned-modern/earned-Water-repeat881.json": "5baccda67b374dd1bba01a23a4dd10ffab9bf144ec0c607bb4ee47bab4840077",
+      "ce-native-acceptance528/earned-modern/cold057.json": "5e33a4d8a543785573fc96f19dcabf0fd17d9dc43847e0e276e3f7e806de8d6a",
+      "ce-native-acceptance528/earned-modern/screenshots/scummvm-cli-game-00264.png": "64fdc80d628656236bfa69c683caef7db92773f57d0d6e774ff05560798e0900",
+      "ce-native-acceptance528/earned-modern/screenshots/scummvm-cli-game-00265.png": "69a2450a5083c76873d43a8d42bb8d72ccc8ee62c6ebe494924ec6544c28a7de"
+    },
+    "qualification": "Vortexbattleeffect demonstrated on earned originalfull1300HP guardian; historicalcontrolled12HP Rat remainshistorical, notclaimedearned. Full Water node remainsINPROGRESS pendingrequiredmissing-phylactery refusal on a legitimateearlierfork. Nofixture or expectedoutcomeinjection.",
+    "next": "Continue actualFireVazarath UM101 NPC0 original86,126/full2600HP INT105. HolyHairnet113/field63bit1 alreadyearned. AirNPC16 original108,100/full1950HP. UseactualfreshNPCpositions andnormalVortexNorth afteractualadmission. Preservecurrentprimarybeforelaterlegitimateearliernegativeforks."
+  }
 }
