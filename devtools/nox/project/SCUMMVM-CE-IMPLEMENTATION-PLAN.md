@@ -1,3 +1,7 @@
+# Acceptance528 earned late British advice601 — VERIFIED within scope
+
+Actual ownedAnkh normalentrySurface148185->Keep65/2438, source33ground2421/TalkUp. ADVICE gives23820, repeatedANKH correctly refusesduplicate.601 ordinarycheckpoint retains mainlineage and original130Ankh. NormalDivine restores123HP,17MP; Hnear148185 refusesrest,62MP593food retained. CurrentownedWyvern67flightMax980 toward23621, thennormal23820portalwizard. NoEnginechange/build/newprocess:11attempts,64game+7focused=71launches. British979 report;37/60 composite nodes, ending stillunverified. Continuefiniteacceptance autonomously.
+
 # Acceptance528 earned Styx guidance599 / three-Jewels600 — VERIFIED within scope
 
 Normal actual moving Styx57/104 TalkUp from6,13 recognizes early Shadow encounter:58 152->158. Next opening recognizes all3Jewels:56 95->255. Ordinary saves599/600 retain main earned lineage. ReportSCUMMVM-CE-M43-STYX974-VERIFICATION.json. Post-Journal-before-Shadow opening remains separate earned595 fork; no broad composite promoted. Source/executable unchanged d52b130c5df/f9215345;11 builds,64game+7focused=71launches. Current normalQuickExit17762/source40flightVali975 for British/Max/ending. Continue finite authorized acceptance without milestone stop.

@@ -1,0 +1,26 @@
+{
+  "status": "VERIFIED",
+  "scope": "Earned late British advice and repeat Ankh refusal on the retained early-Ankh main lineage. No new grant or forced late opening.",
+  "source_commit": "d52b130c5df",
+  "executable_sha256": "f9215345b158b1a8cffcfef51f2ee8a37938a7538b52c5009399ad4f2001b7a4",
+  "lineage": [
+    130,
+    598,
+    599,
+    600,
+    601
+  ],
+  "actual": {
+    "ordinary_return": "Surface148185 entersKeep65/2438 with ownedAnkh; source33ground reaches2421.",
+    "advice": "Thou must open a portal ... X=238 Y=20",
+    "repeat": "Hmmm, it seems thou hast already got one.",
+    "Ankh157_quantity": 1,
+    "camp": "Normal Divine17MP restored106->123HP; H near148185 did not rest. Nox62MP,593food; no rest credited."
+  },
+  "evidence": {
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-British977-opening.json": "4796d38910420a01df7d5b7265d1fe25b6f93d4cc7f21f78bb1b1f19b0694bf2",
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-British978-advice.json": "80c1e996e9534afc34439acb9a63b54c2ac3e3b349940bb4623de6a1455a9b05",
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-British978-repeat.json": "fc31417332d78c181e93f809e9cc5dd8f56fceb4134e1c22b63e6bf8d5c53199",
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-preMax979-camp.json": "31ddabf96c7dd1655f0768bd27547c140230f9e2d2060fbbe46c6b07ee8f02bf"
+  }
+}

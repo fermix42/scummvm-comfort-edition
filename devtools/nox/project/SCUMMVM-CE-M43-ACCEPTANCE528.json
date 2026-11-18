@@ -3133,8 +3133,8 @@
     "report": "SCUMMVM-CE-M43-CULT734-VERIFICATION.json",
     "scope": "Four actual earned Cultist pair victories and level6-to8 advancement only; Vortex/guardian/ending acceptance remains IN PROGRESS."
   },
-  "active_next": "Continue actualFireVazarath UM101 NPC0 original86,126/full2600HP INT105. HolyHairnet113/field63bit1 alreadyearned. AirNPC16 original108,100/full1950HP. UseactualfreshNPCpositions andnormalVortexNorth afteractualadmission. Preservecurrentprimarybeforelaterlegitimateearliernegativeforks.",
-  "current_checkpoint": 563,
+  "active_next": "Earned Max980 source67flight23621; ordinary approach23820, original PORTAL/NO; final plane/ending, remaining finite forks/config acceptance.",
+  "current_checkpoint": 601,
   "essence775": {
     "status": "VERIFIED",
     "report": "SCUMMVM-CE-M43-ESSENCE775-VERIFICATION.json",
@@ -3366,5 +3366,7 @@
     },
     "qualification": "Vortexbattleeffect demonstrated on earned originalfull1300HP guardian; historicalcontrolled12HP Rat remainshistorical, notclaimedearned. Full Water node remainsINPROGRESS pendingrequiredmissing-phylactery refusal on a legitimateearlierfork. Nofixture or expectedoutcomeinjection.",
     "next": "Continue actualFireVazarath UM101 NPC0 original86,126/full2600HP INT105. HolyHairnet113/field63bit1 alreadyearned. AirNPC16 original108,100/full1950HP. UseactualfreshNPCpositions andnormalVortexNorth afteractualadmission. Preservecurrentprimarybeforelaterlegitimateearliernegativeforks."
-  }
+  },
+  "styx974_report": "SCUMMVM-CE-M43-STYX974-VERIFICATION.json",
+  "british979_report": "SCUMMVM-CE-M43-BRITISH979-VERIFICATION.json"
 }
