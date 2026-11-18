@@ -1869,7 +1869,7 @@
     },
     {
       "id": "lord-british-ankh",
-      "status": "IN PROGRESS",
+      "status": "VERIFIED",
       "prerequisites": [
         "ring-vacous",
         "dark-key",
@@ -1902,15 +1902,26 @@
         "scoped audio/presentation",
         "actual earned verification criteria"
       ],
-      "earned_lineage": "New ->129 ->130 early TRAVEL/ANKH through normal mounted dialogue",
+      "earned_lineage": [
+        129,
+        130,
+        601,
+        605,
+        607
+      ],
       "source_qualifications": [
         "Earlyordering explicitlyreconciled:immutableL01D actor0 TRAVEL unconditional; ANKH checks onlyfield58bit16absent then sets58bits16/8 andgrants157. Historical lateRing/Jewels/Shadow predecessorlist is not mechanical itemawardgate. Earlylegitimateacquisitionallowed; allselectedlatequests andLordBritishpostShadowopening/ADVI/portal requirementsretained. No flagsinjected/cleared andno advicecoverageclaim fromunrequestedresponses."
       ],
-      "earned_progress": "Actual item157qty1 andfield58=24 earned; normalrepeatrefusesduplicate. Earlyopening/TRAVEL/reward/repeat saved. LatepostShadowopening andselectedcold/plane acceptance remain required."
+      "earned_progress": "Actual item157qty1 andfield58=24 earned; normalrepeatrefusesduplicate. Earlyopening/TRAVEL/reward/repeat saved. LatepostShadowopening andselectedcold/plane acceptance remain required.",
+      "earned_evidence": [
+        "SCUMMVM-CE-M43-BRITISH979-VERIFICATION.json",
+        "SCUMMVM-CE-M43-PLANE1005-VERIFICATION.json"
+      ],
+      "actual_result": "Actualearlygrant130withnopriorAnkh; laterrepeat601refusesduplicate, MaxrecognizesandusesretainedAnkh605, cold065andplaneentry607retain1. Source-grantprefixandlatercorrectedcandidatecompatibleearnedlineage. No forcedlateopeningclaimed."
     },
     {
       "id": "plane-transport",
-      "status": "NOT STARTED",
+      "status": "IN PROGRESS",
       "prerequisites": [
         "ring-vacous",
         "dark-key",
@@ -1946,7 +1957,16 @@
         "scoped audio/presentation",
         "actual earned verification criteria"
       ],
-      "earned_lineage": null
+      "earned_lineage": [
+        605,
+        607,
+        608,
+        609
+      ],
+      "earned_evidence": [
+        "SCUMMVM-CE-M43-PLANE1005-VERIFICATION.json"
+      ],
+      "remaining": "Missing-Ankh/mountedexplicitrefusal earned coverage remains separate; full positive/cold/return/subsequentcompatibilityverified."
     },
     {
       "id": "final-encounter",
@@ -2446,7 +2466,7 @@
     },
     {
       "id": "dark-plane-return-praevoc",
-      "status": "NOT STARTED",
+      "status": "VERIFIED",
       "prerequisites": [
         "040A bit01; already1 in independently decoded pre-ending readiness/cast saves"
       ],
@@ -2472,10 +2492,18 @@
         "scoped audio/presentation",
         "actual earned verification criteria"
       ],
-      "earned_lineage": null,
+      "earned_lineage": [
+        607,
+        608,
+        609
+      ],
       "source_qualifications": [
         "Inherited earlier controlled seven pages, mage and authored travel. Actual portal entry/return linked; full continuous campaign not demonstrated."
-      ]
+      ],
+      "earned_evidence": [
+        "SCUMMVM-CE-M43-PLANE1005-VERIFICATION.json"
+      ],
+      "actual_result": "ActualgatedMap8/81168returnto68/2320 inprocess065response111;normalLeft22,20save608/cold066,firstUpthenactualportalreuseandcontinuedplane81167/609. No postending/recreationclaim."
     },
     {
       "id": "yvviar-cult-investigation",
@@ -3064,7 +3092,7 @@
   "mode_strategy": "One primary Modern earned lineage; targeted Classic legal earned fork/restore/transitions; no duplicate complete campaign required by existing criteria.",
   "failure_policy": "Freeze failing path,source general diagnosis,focused correction+regression,at most2corrective reruns; resume valid nearest earned save,no prefix replay or outcome injection.",
   "builds": 6,
-  "process_launches": 57,
+  "process_launches": 66,
   "planned_node_count": 60,
   "mandatory_node_count_note": "All selected M3 nodes explicitly represented alongside dependency76 graph; includes supporting/advice/alternative nodes. Necessity is retained per source,not inferred from node count.",
   "last_earned_checkpoint": 563,
@@ -3133,8 +3161,8 @@
     "report": "SCUMMVM-CE-M43-CULT734-VERIFICATION.json",
     "scope": "Four actual earned Cultist pair victories and level6-to8 advancement only; Vortex/guardian/ending acceptance remains IN PROGRESS."
   },
-  "active_next": "ActualKeep67/2438 entry, source53groundMax990 through67->68stair to68/2519. FullHP123/MP87,778food. ActualPORTAL/NO thenfinalplane/ending andfinitefork/configacceptance.",
-  "current_checkpoint": 603,
+  "active_next": "Source92footPlane1007 from8/81167 to121133, normalUpfinalgate121132 afterpre-finalsave/cold. Full3210HP encounter/ending plusfinitefork/configremain.",
+  "current_checkpoint": 609,
   "essence775": {
     "status": "VERIFIED",
     "report": "SCUMMVM-CE-M43-ESSENCE775-VERIFICATION.json",
@@ -3328,7 +3356,7 @@
     },
     "next": "Continue source-authored cave/stair flight toUM101 Lich(originalNPC32,source108148;inspectactualposition). Earnedphylacteryflag12bit4 retained. Inspectactualfull1300HP/protection/partypositions, thennormalC1VortexNorth avoidingfriendlyfire, actualWaterJewel153 andpersistentdeath. Nofixture/Rat/campaignendingclaim."
   },
-  "verified_count": 37,
+  "verified_count": 39,
   "lich877": {
     "status": "IN PROGRESS",
     "scope": "Earned fullLich/WaterJewel acceptance approach only",
@@ -3368,5 +3396,6 @@
     "next": "Continue actualFireVazarath UM101 NPC0 original86,126/full2600HP INT105. HolyHairnet113/field63bit1 alreadyearned. AirNPC16 original108,100/full1950HP. UseactualfreshNPCpositions andnormalVortexNorth afteractualadmission. Preservecurrentprimarybeforelaterlegitimateearliernegativeforks."
   },
   "styx974_report": "SCUMMVM-CE-M43-STYX974-VERIFICATION.json",
-  "british979_report": "SCUMMVM-CE-M43-BRITISH979-VERIFICATION.json"
+  "british979_report": "SCUMMVM-CE-M43-BRITISH979-VERIFICATION.json",
+  "plane1005_report": "SCUMMVM-CE-M43-PLANE1005-VERIFICATION.json"
 }

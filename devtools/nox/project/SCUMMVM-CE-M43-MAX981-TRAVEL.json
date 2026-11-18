@@ -19,7 +19,10 @@
     "conversion\\ce-native-acceptance528\\earned-modern\\earned-Max984-incidental-result.json": "a5d081c1e67df7fd8f7deb7bbd5052f25588e9fa73527b81a68cbe9d289841a6",
     "conversion\\ce-native-acceptance528\\earned-modern\\earned-Max984-actions.jsonl": "96dceea8a1602b58e193dc3893efc0af43d0ba799f1a25f71ffc1ffd5dbe276f",
     "conversion\\ce-native-acceptance528\\earned-modern\\earned-Max985-ground-camp.json": "08d8252526ed02aae22a15a2660606696317e69130160ff06e78020884d74193",
-    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Max988-normal-entry.json": "80c077eb73db5f576257e30b6f1ff351f2c5c31de0c49e91092a763c4a2eddd9"
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Max988-normal-entry.json": "80c077eb73db5f576257e30b6f1ff351f2c5c31de0c49e91092a763c4a2eddd9",
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Max991-opening.json": "49af985bb49b4b089c1d95c95eb6b38d55a898636f47585caf92578928a0484c",
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Max994-Wait-refusal.json": "cda55bf4386f31d8325175b274bb81f369251f481f0c95ef4f7b7623d4d0d426",
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Max996-normal-camp-Wait.json": "9d912ba26204ba8d8222488a87206ea75b3aad61148f6d6a9d97240a86378c6b"
   },
   "historical_evidence_integrity": "Reused helper appended new actions to old957log; separated new981 actions, restored exact accepted original957 sha4ad914d5ccd75b162ba4f6a9ed056538fc2ee5a76875e257ab8c0ffecf23b08d. Future reuse has unique output prefix. Tagged984 helper writes only new984 files; no accepted957 modifications.",
   "second_encounter": {
@@ -38,5 +41,12 @@
     "camp": "ActualYland/H23621 restores40->87MP for47food825->778, Nox123HP.",
     "alignment": "23621 is impassablemountain6. Yfly/Down23625/Yland/Up23624/Right23724/Yfly/Up23720/Yland/Right actuallyentersKeep67/2438. NormalCamp and original4cellphase retained; no Enginegap.",
     "next": "Source53groundMax990 throughauthored67->68stair to68/2519 inprogress; guessed68/2421standwaswall/unexecutedNoRoute only."
+  },
+  "schedule_access": {
+    "status": "IN PROGRESS",
+    "checkpoint": 604,
+    "observed": "ActualMax25,23 asleep at08:43; screenshot284Zzz. Waitinside refuseddanger underretainedalarm1, screenshot286.",
+    "source": "Keep68 actualNPC0scheduleawake11-17/19-23. HourWait::safe retainsalarmfirstterrainrule; original0x257fsourcepathread, no demonstrated Enginegap.",
+    "normal_continuation": "C5QuickExitSurface23820; outsideHcamp8hrs plusnormalW3 succeeds, actual19:45/123HP87MP; no clock/flag injections. Left/Right normalreentryKeep67/2438; source53groundMax990 returningupstairs within19-23."
   }
 }

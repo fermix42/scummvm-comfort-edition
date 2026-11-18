@@ -1,0 +1,50 @@
+{
+  "status": "VERIFIED",
+  "scope": "Earned Max Ankh recognition/YES/NO creation, cold065, actual on-foot plane8 entry, pre-ending Praevoc return, cold066 and subsequent continued plane entry. Not final encounter/ending acceptance.",
+  "source_commit": "d52b130c5df",
+  "executable_sha256": "f9215345b158b1a8cffcfef51f2ee8a37938a7538b52c5009399ad4f2001b7a4",
+  "lineage": [
+    130,
+    601,
+    604,
+    605,
+    606,
+    607,
+    608,
+    609
+  ],
+  "actual": {
+    "Max": "Actualawake68NPC0TalkLeftfrom25,18. PORTAL recognizesownedAnkh157; YES chessflavor; NO createsoriginaltemplate23,20->plane8/81168,58 158->190,Ankhretained.",
+    "cold065": "Exactparty/inventory/quest/world/resources/transport/audio/session/noassistance,firstDown25,19 succeeds.",
+    "portal": "Normalfootrequirement; mountedstep606 stood68/2320, Xdismountactual607arrives0/8/81168 onfoot with123HP87MP.",
+    "Praevoc": "Originalreturnobject81168 gatefield10bit1 actual1. NormalRight isblockedbytile13 and triggersportalreturn; process065response111 proves68/2320. FollowingLeft moves22,20;608saved/cold066exactPASS. FirstUp22,19 thennormalportalreentry andUp reachesplane8/81167,609.",
+    "retained_resources": "Nox123HP87MP, fivepreviouscompaniondeathsretained;19gold774food;all3Jewels,Journal,Ankhretained.",
+    "audio": "Normalenabledsound_mode0/music_readytrue and normalportalcue selected; accepted473suite notrerun."
+  },
+  "qualifications": [
+    "Checkpoint606labelpremature:itsactualsavedstateis68/2320mounted, NOTplane8. Actualarrival607aloneusedasarrivalproof.",
+    "No explicitmountedrefusalnoticeobserved/claimed; actualXonfootentry verified.",
+    "Returnportalremainedpresentinretainednativechangedmap; no forcederase/recreationand no recreation-specificclaim. HistoricalM3transientrecreation remainsdistinct.",
+    "No final3210HP encounter/victory/ending claim."
+  ],
+  "execution_cost": {
+    "build_attempts": 11,
+    "game_process_launches": 66,
+    "focused_launches": 7,
+    "total_material_launches": 73
+  },
+  "evidence": {
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Max998-awake-opening.json": "56023f0d4610bcc67d27cc3003e3a2b72e0c000e10a810f0bfe0e44f92492405",
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Max999-PORTAL.json": "c6fe4939859b871d8df815739955b3800faf58c3b51effafc452bc21dfc00d4e",
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Max999-YES-chess.json": "0c70e73d2bbae8cbf637a4e6e886260d07c7793c263d0e61daafcd03010fb0ba",
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Max999-NO-created.json": "4bb3afa6ad79e4c06938e4715d48909755c85b98cb7fb14b6dd5120420949d74",
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Max999-created-world.json": "c80a9baf40eb6c5d6c4ad36f26f52aa9ad2aaa4ba5c2069eefaa215704a606dc",
+    "conversion\\ce-native-acceptance528\\earned-modern\\cold065.json": "c9eddf0f0d8163795384b636279dc316d02e036dd2be7853ac087f6a5211a793",
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Max1000-cold-next-input.json": "f5026ed299963c33db5b12a0da4219b29b1d2b769befbaeffff7aca7f552e351",
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Max1002-mounted-refusal-dismount-entry.json": "894c44fbfa521f312b84dbeb6daedc6acefd16abe5761b99888571fce71bcefe",
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Praevoc1003-actual-return.json": "35d0057919e4267da43b8d5ffa7e663eab9b6ea5f152d4a16141fb0d54859c71",
+    "conversion\\ce-native-acceptance528\\earned-modern\\cold066.json": "f69c56222463a7c99ae6e6053a6ab522c6f7aa80387b6ec15004552e4d66a8f0",
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Praevoc1004-cold-next-input.json": "51f6e7e2d78454b18a6a1b8b9bc8e259822facf1d42f63ac9426960d280f2692",
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Praevoc1005-continued-plane.json": "a35fc863f2454f4e15375bd75b9826c18cf808153c13ca7750308501f0869f82"
+  }
+}
