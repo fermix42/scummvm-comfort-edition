@@ -1,0 +1,36 @@
+{
+  "status": "VERIFIED",
+  "scope": "Earned Modern timed elders opening/repeat, physical key-door passage, Scroll85 acquisition/repeat/complete reading, combined cold and subsequent compatibility only.",
+  "actual": "Earned Margrave84/Orders77/child rescue retained. Normal Ghrodwir daytime KEY conversation gives03:30 meeting hint without unlock458. Normal owned Wyvern flight, W9/W7 reaches03:53 but elders retain prior walking routes; no success credited. Normal23-hour Wait, actual north exit/Y and reentry initialize authored meeting schedule; flight/foot source675 reach16,11 at03:12.33 ordinary Space turns reach03:29. Actual TalkLeft to Thormeg0/15,11 opening reconciles elders: field53 2->10, field42 0->1,459. Repeat thanks/farewell460/screenshot209. Actual16-step679 outside10,11 then OUp/Up/Up crosses door10,10 to10,9,461. SearchUp immediately awardsScroll85qty1/field28bit1,462; repeatNothingfound/no duplicate463. Inventory Use after normal selection displays original sword/toad/smooth-stone clue, screenshot213; Enter completes reading, Esc closes inventory,464. Clean cold053 exact state/session/audio/no-assistance PASS. Actual Down/Down crosses still-open keydoor to10,11,465; source7steps returns13,11 and normalB reboards earnedWyvern466. No item/clock/NPC/quest/stat injection or Engine edits/builds.",
+  "evidence": {
+    "ce-native-acceptance528/earned-modern/earned-Elder-early-KEY672-533.json": "c3cdce6bb92f3966834f67eefdf7c3e6f2afa6defd65d3365e2dada7df398a7b",
+    "ce-native-acceptance528/earned-modern/earned-Elder-tomb-flight673-533.json": "9db2765c321cce49d26b7b0515420126fafbcf18d157e19369b8001ae5a20c91",
+    "ce-native-acceptance528/earned-modern/earned-Elder-normal-turn-wait676-533.json": "05508332ebbd05570d3fdf2c34708a133418285137d1269a139244a3e9442268",
+    "ce-native-acceptance528/earned-modern/earned-Elder-timed-opening677-533.json": "5ce0060b83d7635c2e1ea4177dc9a8459c4291b0a4d745cab9a55330a8e46cbf",
+    "ce-native-acceptance528/earned-modern/earned-Elder-repeat678-533.json": "d98a975754a6d495a01c4dc1f9384072aa554e39a860421ce22b52915abc6f49",
+    "ce-native-acceptance528/earned-modern/earned-Tomb-keyed-passage679-533.json": "096e8f1e1a4e13ea917fe19fff0b9f2ec7dd7243dad43a343963d3a38b571408",
+    "ce-native-acceptance528/earned-modern/earned-Tomb-Scroll-search680-533.json": "afea0c72f0d2b61303220c0ff6d231127f8dbc7d7b2fbb125157e1af474d009d",
+    "ce-native-acceptance528/earned-modern/earned-Tomb-Scroll-repeat681-533.json": "8665a5a9c43b6198a0fa1217d5ed31fccf57b5e77f202a1494c9734857657dd4",
+    "ce-native-acceptance528/earned-modern/earned-Tomb-Scroll-actual-use683-533.json": "98d144b42cfcff750e31fc5ce60a4d682b4267b124b30504c8c3c2787b6975c8",
+    "ce-native-acceptance528/earned-modern/cold053.json": "b8416337171692805e2dceea5cdfd5066d511e4a383016b155ff75b598c47c95",
+    "ce-native-acceptance528/earned-modern/screenshots/scummvm-cli-game-00207.png": "c5baf28c0e71d4795080777ce8c128c83b06c10524544f2254960505639abb22",
+    "ce-native-acceptance528/earned-modern/screenshots/scummvm-cli-game-00208.png": "177b83dcbc9010b2d1b2c3db0e62619827a27debf61be4372d3648648b9f073c",
+    "ce-native-acceptance528/earned-modern/screenshots/scummvm-cli-game-00209.png": "300b4ba8f975abc6387509f1b186d40fa0bcf8ad87a5e99bf7ed35d43e49f938",
+    "ce-native-acceptance528/earned-modern/screenshots/scummvm-cli-game-00210.png": "d1b6d72dc726e5a8e8788521a77db99fae0b0ba43e276e9d157de716ea449020",
+    "ce-native-acceptance528/earned-modern/screenshots/scummvm-cli-game-00211.png": "a8cb40ab23f189fb01ce6ffff1d96a82ebe119195ea531b2e5f11ffaf1feeeb5",
+    "ce-native-acceptance528/earned-modern/screenshots/scummvm-cli-game-00213.png": "58046009437a5e6655924fa3fc3d0de3eb9d271b2327fbc83dd050d850100267"
+  },
+  "source_commit": "c660ae8ac41",
+  "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd",
+  "qualifications": [
+    "Inventory REPL syntax error prevented first navigation loop; first U was at prior row, not Scroll Use. No reward/quest change credited. Actual Scroll use683 and screenshot213 are the positive reading evidence.",
+    "Scroll reading does not establish phylactery contact/protection or Lich/Water victory.",
+    "Missing-child/key and selected Classic forks remain separate coverage obligations; no controlled M3 state imported."
+  ],
+  "cost": {
+    "builds": 8,
+    "game_cli_processes": 53,
+    "focused_cli_processes": 5,
+    "material_launches": 58
+  }
+}
