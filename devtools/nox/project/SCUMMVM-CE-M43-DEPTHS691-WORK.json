@@ -1,6 +1,6 @@
 {
   "status": "IN PROGRESS",
-  "last_checkpoint": 470,
+  "last_checkpoint": 472,
   "source_commit": "c660ae8ac41",
   "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd",
   "actual": "Normal Surface46-command flight690 interrupted at126,124 by nine actual191HP Squids150. Immutable combat template116 L5/armor94/physical128/magic0. Normal Esc/Y refuses due actual battle_exit_control128; no world return, currency/HP/MP loss or victory credited. Admission and actual refusal preserved; current actual Tactical using readied area magic, normal healing and ownedMinorDemon16 if eligible. No Quick, state mutation or Engine change/build.",
@@ -8,7 +8,7 @@
     "ce-native-acceptance528/earned-modern/earned-Squid-route-admission690-533.json",
     "ce-native-acceptance528/earned-modern/earned-Squid-normal-flee691-533.json"
   ],
-  "next": "Complete normal paid inn rest, source ground-Wyvern13-step Castle54/78 entrance toUM97, legitimate alignment177,62 and source184-command flight through98/99/100/101 tophylactery117,145. Actual contact/cold then remaining lawful readiness/campaign.",
+  "next": "Validate actual first97->98 flight transition then continue remaining source route, landing/physicalphylactery117,145 contact/repeat/cold. Lawful Vortex readiness and remaining fullcampaign/branches still required.",
   "defeat": {
     "status": "VERIFIED",
     "evidence": "ce-native-acceptance528/earned-modern/forks/Squid-nine-no-flee-defeat693/lineage.json",
@@ -21,5 +21,9 @@
   "nourtheld470": {
     "status": "VERIFIED",
     "actual": "Fresh9flight699 reachesSurface176,68. ActualUpflight176,64,Yland,Right177,64,Up177,63,Up177,62 entersCastle54 at22,38,470. HP92/92 MP9/54 gold71 food300. Current normalW5 for10:43 service hours, existing46step inn702 full-source route toCastle58/33,35 adjacency is running for paid full rest. No depths traversal or Vortex success claimed."
+  },
+  "departure472": {
+    "status": "VERIFIED",
+    "actual": "Normal14gold full innrest471 restores92HP/68MP both;57gold300food. Actual55-step704 through59/58/54/78 reaches78/18,31. ActualDown entersUM97/176,62 withownedgroundWyvern. ActualRight177,62/Yflight/472. Existing read-only multi-floor planner extended to four-cell original flight and authored transitions; actual savedNTRN128 speed/pace4 guarded. Source705 finds184 commands to101/117,146, first11-command floor segment running. No phylactery/guardian or complete traversal claim."
   }
 }
