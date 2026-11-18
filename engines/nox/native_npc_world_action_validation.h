@@ -105,7 +105,7 @@ inline bool validateNativeNpcWorldAction(HdvArchive &archive,Common::SeekableRea
                 if (withEffects) { Common::MemoryWriteStreamDynamic e(DisposeAfterUse::YES); if (!effects.save(e)) return false; Common::MemoryReadStream ei(e.getData(),e.size()); if (!effects.load(ei)) return false; }
                 if (!cold && profile==1 && group==checkpointGroup && operation==checkpointOperation) {
                     error=Common::String::format("Native NPC world checkpoint admission rejected direction%u status%u",uint(direction),uint(status));
-                    if (status || (mode==2?effects.queued!=1:mode==1?state.contact.availability!=0:direction>=4)) return false;
+                    if (status || (mode==2?effects.queued!=1:(mode==1 || mode==3)?state.contact.availability!=0:direction>=4)) return false;
                     for (uint i=0;i<owners;++i) {
                         Common::OutSaveFile *out=files.openForSaving(names[i],false); if (!out) return false;
                         bool ok=i==0?world.save(*out):i==1?schedule.save(*out):i==2?store.save(*out):i==3?state.save(*out):i==4?random.save(*out):i==5?surface.save(*out):effects.save(*out);
@@ -120,7 +120,7 @@ inline bool validateNativeNpcWorldAction(HdvArchive &archive,Common::SeekableRea
     error=Common::String::format("Native NPC world totals rejected operations%u battles%u waits%u cold%u",total,battles,waits,uint(cold));
     if (input.err() || input.pos()!=input.size() || (!cold && (groupTotal!=expectedGroups || total!=expectedOperations || battles!=expectedBattles || waits!=expectedWaits))) return false;
     error.clear();
-    if (cold) report+=Common::String::format("%s\tphase=cold\t%s=1\tprepared_preferences_restored=1\tcontinued_operations=%u\tcpu_execution=0\n",reportKey,mode==2?"actual_queued_effect_restored":mode==1?"actual_queued_request_restored":"actual_route_move_restored",total);
+    if (cold) report+=Common::String::format("%s\tphase=cold\t%s=1\tprepared_preferences_restored=1\tcontinued_operations=%u\tcpu_execution=0\n",reportKey,mode==2?"actual_queued_effect_restored":(mode==1 || mode==3)?"actual_queued_request_restored":"actual_route_move_restored",total);
     else report+=Common::String::format("%s\tphase=warm\tchains=%u\toperations=%u\tbattle_handoffs=%u\tforced_waits=%u\tscene_derived_collision_preview=1\tinjected_collision_decisions=0\tstationary_large_domain=%u\tcontaining_movement_effects=%u\tranged_request_domain=%u\tfull_actor_turn=0\tcpu_execution=0\n",reportKey,groupTotal,total,battles,waits,uint(mode==1 || mode==3),uint(withEffects),uint(mode==2));
     return true;
 }
