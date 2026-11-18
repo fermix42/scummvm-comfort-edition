@@ -1,15 +1,24 @@
 {
   "status": "IN PROGRESS",
   "root_checkpoint": 479,
-  "current_checkpoint": 488,
+  "current_checkpoint": 497,
   "source_commit": "c660ae8ac41",
   "scope": "Required lawful caster advancement for Vortex110INT/87MP, not an Engine implementation gap.",
-  "actual": "Normal owned Wyvern flight reaches UM98/153,158 at481. Two four-cell moat crossings each inflict70HP/member; ordinary Divine healing between crossings restores both,482. Normal camp483. Four actual ground Attack admissions defeat all four original two-Cultist guards (slots72,56,80,64); normal Shock casts and real level-allocation UI, no casualties. Saves484/485/486/487 retain victories. Both level8/INT92/maxHP112; XP Bridgit21582/Nox21652. Central High Cultist24 remains alive. Normal QuickExit and Nourtheld entry488,140gold108food,MP40/44. No Engine change/build; no XP/item/position injection. Subsequent normal resupply attempts include refused water/danger camps and night inn Talk; these are not successful rests. Voluntary Attack sets transport alarm; W hour-wait refusal does not advance time.",
+  "actual": "Paid inn rest489 full112HP/92MP; attempted food service was off duty, no purchase. Source Surface flight from490 encountered five98/137HP foes; ordinary tactical victory491, fullHP,158gold, XP21586/21656. Two travel damage segments were healed normally. Checkpoint492 label is premature: stillSurface150,166, not Keep entry. Actual flight entry31/24,38 and normal N cancellation of residual-flight area-exit prompt precede493. Source geometry flight/ground stair reaches32/39,31 at494. Wrong horizontal-first flight crossed authored32->33 stair; return route entered incidental four471HP battle766. Actual defeat preserved in private fork DeathKeep-four471-defeat767; no rewards credited. Normal owned494 load restores exact pre-detour state. Correct north-first flight remains32 and reaches15,27 without damage. SearchLeft targets actual chest14,27. Initial0/Enter ignored by one-based lock prompt; three actual unsuccessful party1 picks consume35->32 picks, no HP loss. Fourth normal pick succeeds, item96qty1/field60=23,495. RepeatSearchLeft Nothing found/no duplicate496; screenshots237/238 inspected. Normal H camp restoresMP29/53->69/59, consumes46food->0, advances8h. QuickExitBr4MP returnsSurface150,168; Y flight and497 retained. No Engine change/build/cold rerun.",
   "source_contract": {
     "cultists": "UM98 fullNPC169 slots56/64/72/80 at166154/170154/166158/170158; original descriptor2,169 group57 admits two267HP template59 percontact,3300baseXP each, armor117/magic0.",
     "moat": "Original WorldHazards retains35thermal damage percell whilemounted. Selected west crossing at y158: flight153->157 crosses two lava156/157 (70damage), then157->161 crosses158/159 (70damage). Normal WorldCast52 restoresbothmaxHP for17MP; WorldInput casting closure refreshes scene without advancing WorldWait/hazards. Source Ytoggle also doesnotadvanceWorldWait. Normal healing between flight commands, never an HP injection. CurrentfullHP92 supports each70damage segment; inspect actualstate beforecontinuing.",
     "readiness": "Book11 is an earned Nox Alyn quest reward, not purchasable. Minimum INT98/cost29. Dragon117 HP2844/INT0/baseXP50000; keep both party members for original divided reward arithmetic. No victory or spell acquisition yet."
   },
-  "next": "Normal resupply; earn remaining1418/1348XP to level9 INT104. Original Ruin22 static group36 and naturally occurring original group36 yield500XP/member at level8. Essence of Death is item96 at RUIN32/14,27, reached through Death Keep Surface150,168/Ruin31. Nox Alyn Castle60/112 rewards book11 after two normal openings with essence flag60bit16; no shop sells it and no six-hour timer applies. Item130 is Ruined Book, not Essence. Then actual book11 Ready/cast on original UM101 Dragon with both party members retained, lawful level10/INT116 and Vortex eligibility. These future outcomes remain unverified.",
-  "report": "SCUMMVM-CE-M43-CULT734-VERIFICATION.json"
+  "next": "Source37-flight Nourtheld778 return to178,64 with damage stop; normal ground entry54, paid rest and daytime food, actual Nox Alyn Castle60/112 two normal openings for book11. Both casters still level8/INT92, XP21586/21656; need1414/1344XP to level9 INT104 before book11 eligibility. Three original Ruin Mage group36 victories at500XP/member remain source-supported planned preparation, not earned. Then original Dragon reward with both party members, actual level10/Vortex readiness, guardians and remaining finite acceptance. No whole M4.3/ending claim.",
+  "report": "SCUMMVM-CE-M43-CULT734-VERIFICATION.json",
+  "last_checkpoint": 497,
+  "last_earned_checkpoint": 497,
+  "process_launches": 54,
+  "essence775": {
+    "status": "VERIFIED",
+    "report": "SCUMMVM-CE-M43-ESSENCE775-VERIFICATION.json",
+    "scope": "Earned Essence of Death pickup/repeat and actual lawful saves only; Nox book/XP/Vortex/guardians remain IN PROGRESS."
+  },
+  "active_next": "Source37-flight Nourtheld778 return to178,64 with damage stop; normal ground entry54, paid rest and daytime food, actual Nox Alyn Castle60/112 two normal openings for book11. Both casters still level8/INT92, XP21586/21656; need1414/1344XP to level9 INT104 before book11 eligibility. Three original Ruin Mage group36 victories at500XP/member remain source-supported planned preparation, not earned. Then original Dragon reward with both party members, actual level10/Vortex readiness, guardians and remaining finite acceptance. No whole M4.3/ending claim."
 }

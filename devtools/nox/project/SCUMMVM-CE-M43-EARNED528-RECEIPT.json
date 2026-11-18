@@ -4308,7 +4308,7 @@
     }
   ],
   "correction": "SCUMMVM-CE-NPC529-VERIFICATION.json",
-  "last_checkpoint": 488,
+  "last_checkpoint": 497,
   "cold_evidence": "ce-native-acceptance528/earned-modern/cold036.json",
   "next_action": "Complete424 fromindex121 at65,147, boardFrigate119217; Bruce75/Archus/Order/remainingcampaign",
   "current_source_commit": "c660ae8ac41",
@@ -4358,7 +4358,7 @@
     "SCUMMVM-CE-M43-NYSTUL548-VERIFICATION.json": "f426fc3ca78aabeda699f76c0320df8cccb315d5e0b155bc1db59b87bcde3efa",
     "SCUMMVM-CE-M43-HAIRNET573-WORK.json": "2b3bfe59343f851ea9731f880395b6ec6aa6822ffbee8f1c5ee830646b46d84f"
   },
-  "private_ledger_sha256": "9c3c87a675c916d6087ba22c3545c0107c1b6256fe21b3423f0cc9c164f3277c",
+  "private_ledger_sha256": "0ac85e9330552f74380a1b4eab77b4c7f623a06dbf86dfe925569ae31747e1b2",
   "superseded_current_aliases_royal532": {
     "last_checkpoint": 44,
     "latest_earned": "142 firstnormalworldstep after actual141cold021, fullparty/questinventory/resources/session retained;horseparked persistence",
@@ -4398,7 +4398,7 @@
     "report": "SCUMMVM-CE-M43-NYSTUL548-VERIFICATION.json",
     "actual": "Earned Nystul binding411, repeat539, Staff412 and real low-INT refusal413; cold045 and actual Right move415 retain all state. Normal post-cold return crosses COMP-opened wall and B reboards Wyvern416. Maze access/Staff nodes VERIFIED; 25/60 nodes VERIFIED. Eight-page recognition/binding positive scopes VERIFIED; missing-pages forks/selected Classic coverage remain. Book12qty1, Staff83qty1, field61=67, field15=84, pages8/255. HP89/79/80 MP1/28/42,81gold594food. Current normal flight548 leaves maze toward Foolery/Hairnet. No Engine changes or builds; 8 builds,45 gameCLI+5 focused=50 launches. Vortex Ready/cast requires lawful110INT progression; no ending claim."
   },
-  "active_next": "Normal resupply; earn remaining1418/1348XP to level9 INT104. Original Ruin22 static group36 and naturally occurring original group36 yield500XP/member at level8. Essence of Death is item96 at RUIN32/14,27, reached through Death Keep Surface150,168/Ruin31. Nox Alyn Castle60/112 rewards book11 after two normal openings with essence flag60bit16; no shop sells it and no six-hour timer applies. Item130 is Ruined Book, not Essence. Then actual book11 Ready/cast on original UM101 Dragon with both party members retained, lawful level10/INT116 and Vortex eligibility. These future outcomes remain unverified.",
+  "active_next": "Source37-flight Nourtheld778 return to178,64 with damage stop; normal ground entry54, paid rest and daytime food, actual Nox Alyn Castle60/112 two normal openings for book11. Both casters still level8/INT92, XP21586/21656; need1414/1344XP to level9 INT104 before book11 eligibility. Three original Ruin Mage group36 victories at500XP/member remain source-supported planned preparation, not earned. Then original Dragon reward with both party members, actual level10/Vortex readiness, guardians and remaining finite acceptance. No whole M4.3/ending claim.",
   "Uharad_sea552": {
     "status": "IN PROGRESS",
     "actual": "Actual Uharad flight550 interrupted atSurface126123 by seven98/137 sea boarding, retreat128. Source screenshot189 confirms ship/cannons. Actual twoShock killfour; remainingthree defeatparty under normalcannon/Staff policy. Raw552 filename says victory but actualphase2 isdefeat; no victorycredited. Failedpath and fourowned998generations/sidecars retained in forks/Uharad-sea-failure552. Normalowned998restore atSurface134176 retains416 lineage/fullpredepartureHP89/79/80, MP1/28/42,81gold594food,book12/Staff83. No awards/state merged from failedattempt. Sourceflightplanner now gives ships147..156 twelve-cell clearance, other actors three; originalwide-all12 query553 NoRoute because nearby225environmentactor, no Game inputs. Revised55437-command route avoidsobservedship approach; actualfollower stopsdamage/encounters. No Enginechanges/build/processlaunch.",
@@ -4464,10 +4464,16 @@
     "report": "SCUMMVM-CE-M43-PHYL715-VERIFICATION.json",
     "actual": "Earned Scroll85 reading/cold and paid full rest471 retained. Actual source55 ground-Wyvern steps704 through59/58/54/78; Down78/18,31 entersUM97/176,62, Right177,62/Yflight472. Actual11flight705 reaches98/149,78,473;45flight706 reaches99/81,190,474;17flight707 reaches100/149,190,475. Read-only source geometry selects8flight710 to100/141,166, Yland/Left140,166/Yflight. Actual11flight711 crosses source stair to101/136,162 and lands116,146. These92 actual flight commands replace184-command fixed-grid planning; no positions or outcomes injected. Yland/X and firstRight complete normal disembark; subsequent actualRight moves117,146. First position assertion failed before checkpoint476 because firstRight had not moved; not a demonstrated Engine defect. ActualLookUp identifies Phylactery (screenshot218). Before contact field12=131/no4bit; actualUp117,145 sets135/bit4,477/screenshot219. ActualDown/Up/Down repeat retains135 at117,146,478. Clean cold054 exact party/world/inventory/audio/session/no-assistance continuity PASS. First actualLeft to116,146, normalB reboards ownedWyvern479. Both92HP/68MP,57gold300food. No WaterJewel153 or Lich victory; no Engine edit/build."
   },
-  "last_earned_checkpoint": 488,
+  "last_earned_checkpoint": 497,
   "cult734": {
     "status": "VERIFIED",
     "report": "SCUMMVM-CE-M43-CULT734-VERIFICATION.json",
     "scope": "Four actual earned Cultist pair victories and level6-to8 advancement only; Vortex/guardian/ending acceptance remains IN PROGRESS."
+  },
+  "current_checkpoint": 497,
+  "essence775": {
+    "status": "VERIFIED",
+    "report": "SCUMMVM-CE-M43-ESSENCE775-VERIFICATION.json",
+    "scope": "Earned Essence of Death pickup/repeat and actual lawful saves only; Nox book/XP/Vortex/guardians remain IN PROGRESS."
   }
 }

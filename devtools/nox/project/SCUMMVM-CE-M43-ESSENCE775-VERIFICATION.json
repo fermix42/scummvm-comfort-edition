@@ -1,0 +1,46 @@
+{
+  "status": "VERIFIED",
+  "scope": "Earned Essence of Death pickup/repeat and actual lawful saves only; Nox book/XP/Vortex/guardians remain IN PROGRESS.",
+  "actual": "Paid inn rest489 full112HP/92MP; attempted food service was off duty, no purchase. Source Surface flight from490 encountered five98/137HP foes; ordinary tactical victory491, fullHP,158gold, XP21586/21656. Two travel damage segments were healed normally. Checkpoint492 label is premature: stillSurface150,166, not Keep entry. Actual flight entry31/24,38 and normal N cancellation of residual-flight area-exit prompt precede493. Source geometry flight/ground stair reaches32/39,31 at494. Wrong horizontal-first flight crossed authored32->33 stair; return route entered incidental four471HP battle766. Actual defeat preserved in private fork DeathKeep-four471-defeat767; no rewards credited. Normal owned494 load restores exact pre-detour state. Correct north-first flight remains32 and reaches15,27 without damage. SearchLeft targets actual chest14,27. Initial0/Enter ignored by one-based lock prompt; three actual unsuccessful party1 picks consume35->32 picks, no HP loss. Fourth normal pick succeeds, item96qty1/field60=23,495. RepeatSearchLeft Nothing found/no duplicate496; screenshots237/238 inspected. Normal H camp restoresMP29/53->69/59, consumes46food->0, advances8h. QuickExitBr4MP returnsSurface150,168; Y flight and497 retained. No Engine change/build/cold rerun.",
+  "evidence": {
+    "ce-native-acceptance528/earned-modern/earned-EssenceDeath768-pickup.json": "ced5bd68948e9d4a9e060df627762be07ead5022d7cf486d62a935be250fc33f",
+    "ce-native-acceptance528/earned-modern/earned-EssenceDeath769-lock.json": "f74bad3e0e196470fd6c8340d04bac184d84a0729c2330bc445b6efd9acfc696",
+    "ce-native-acceptance528/earned-modern/earned-EssenceDeath770-attempt.json": "4df5ad1b59eadf3470eaa68b340af847bfd07a0882bb9eb29936adaef1cca9db",
+    "ce-native-acceptance528/earned-modern/earned-EssenceDeath771-attempt.json": "af6316ebb0dbe8aaf6beeaab6a391d6a0b4dc36fce0e801936e2068535605405",
+    "ce-native-acceptance528/earned-modern/earned-EssenceDeath772-attempt.json": "0f009a9e3497196788d1ecaf61e378e5923d1821ca1c59d29bc1dbad8ba2917d",
+    "ce-native-acceptance528/earned-modern/earned-EssenceDeath773-attempt0.json": "44de1d199701ac613e016bd710d16f87428cd94a4d994c3666edfd0aee8f4c20",
+    "ce-native-acceptance528/earned-modern/earned-EssenceDeath774-repeat.json": "1e00d9d7ca6534bdbf4f49ed8b305538431aaa7c690604803d1768ded1778b32",
+    "ce-native-acceptance528/earned-modern/earned-DeathKeep753-admission.json": "ff82496c0e02b720e1bc4390630b2c1084287b07e362fdae29d0bf27058d2b83",
+    "ce-native-acceptance528/earned-modern/earned-DeathKeep766-admission.json": "71fb817b4aabdfec6671ae794a76f0f2894ad295a4bb45b11867eb66fd69efb4",
+    "ce-native-acceptance528/earned-modern/screenshots/scummvm-cli-game-00237.png": "d707523d8cedea3f8056830db65036949ba996affc0840cbeca4221d720b28b0",
+    "ce-native-acceptance528/earned-modern/screenshots/scummvm-cli-game-00238.png": "7a801ba97b352787bfc04f3b95c4460310fef4a976f6e220aaf58c53f3bbf5fa",
+    "ce-native-acceptance528/earned-modern/forks/DeathKeep-four471-defeat767/admission.json": "71fb817b4aabdfec6671ae794a76f0f2894ad295a4bb45b11867eb66fd69efb4",
+    "ce-native-acceptance528/earned-modern/forks/DeathKeep-four471-defeat767/last-defeat.json": "b5113c4f270238516631db2902b58740f150b23625e479aba2d278f0c336a430",
+    "ce-native-acceptance528/earned-modern/forks/DeathKeep-four471-defeat767/lineage.json": "d1e0d3821bfabeedda0c05629b632ef74a230ad21663d9118f5b360e131a6cc0",
+    "ce-native-acceptance528/earned-modern/forks/DeathKeep-four471-defeat767/nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot998.g0": "f4d6896c09a9ac9efdf37657714d75360fbf9a793b32104ed578454e5b553245",
+    "ce-native-acceptance528/earned-modern/forks/DeathKeep-four471-defeat767/nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot998.g0.ce-achievements.json": "68cb027c1ede3869024ccb2773814e0cb4e7f48c13b3055fd286c79fb918ffa8",
+    "ce-native-acceptance528/earned-modern/forks/DeathKeep-four471-defeat767/nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot998.g1": "59d87a3ee95d70314e295f90b478fc47091304f638478e50fa25a3cc2ea178a3",
+    "ce-native-acceptance528/earned-modern/forks/DeathKeep-four471-defeat767/nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot998.g1.ce-achievements.json": "94974ff2a2be48700ec29d76b5452cdf5c4d6a8efa64a990d1ca4c2eb7b10f09"
+  },
+  "checkpoints": {
+    "ce-native-acceptance528/earned-modern/checkpoints/489-Earned-full-level8-rest489/checkpoint.json": "360b32ed317be56f0bea583404ea844b6cc0c7405f79d63395cc790a5cbfb5da",
+    "ce-native-acceptance528/earned-modern/checkpoints/490-Earned-full-caster-Death-Keep-departure490/checkpoint.json": "d2a8c8a4b946878bb97e3a327ad8203244e0fed6480ebfd287f04a25d039c112",
+    "ce-native-acceptance528/earned-modern/checkpoints/491-Earned-Death-Keep-route-caster-victory491/checkpoint.json": "aaaf3c34a78103917f2f7fc5ad352cfd78916ffcae6e52f4906fa9e72545bff2",
+    "ce-native-acceptance528/earned-modern/checkpoints/492-Earned-Death-Keep-entry492/checkpoint.json": "b86c11b90fffd6f7e2e3813ea7afad9f61e3fa08d93131d8b8410122594b6240",
+    "ce-native-acceptance528/earned-modern/checkpoints/493-Earned-actual-Death-Keep-floor31-entry493/checkpoint.json": "057eb873cd4b87c6dc2eb07a85a6c23fbe66cad7228581c3a80210675813e84e",
+    "ce-native-acceptance528/earned-modern/checkpoints/494-Earned-Death-Keep-lower-floor494/checkpoint.json": "be15f87a7cd877dc3e59b16bd8e71e2302d54c137c5dc01a547c4d203f8188f8",
+    "ce-native-acceptance528/earned-modern/checkpoints/495-Earned-Essence-of-Death-pickup495/checkpoint.json": "1e0f3e40bd91f3aae6edf1ffb1046d35dd9f627245feb31013282a3aa0dc0959",
+    "ce-native-acceptance528/earned-modern/checkpoints/496-Earned-Essence-of-Death-repeat496/checkpoint.json": "e65748da429573a1b0586934ecad65e25f0993200355bf5e06e8ca33ba7e57fa",
+    "ce-native-acceptance528/earned-modern/checkpoints/497-Earned-Essence-return-departure497/checkpoint.json": "bb0afffb4d657aa80a7683f8df3bab2d1dc309663e60a919521e75dee6bf26d0"
+  },
+  "source_commit": "c660ae8ac41",
+  "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd",
+  "cost": {
+    "builds": 8,
+    "game_cli_processes": 54,
+    "focused_cli_processes": 5,
+    "material_launches": 59
+  },
+  "cold": "Deferred to actual spell/Vortex readiness milestone; no new cold claim.",
+  "next": "Source37-flight Nourtheld778 return to178,64 with damage stop; normal ground entry54, paid rest and daytime food, actual Nox Alyn Castle60/112 two normal openings for book11. Both casters still level8/INT92, XP21586/21656; need1414/1344XP to level9 INT104 before book11 eligibility. Three original Ruin Mage group36 victories at500XP/member remain source-supported planned preparation, not earned. Then original Dragon reward with both party members, actual level10/Vortex readiness, guardians and remaining finite acceptance. No whole M4.3/ending claim."
+}
