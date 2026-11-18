@@ -1,0 +1,36 @@
+{
+  "status": "VERIFIED",
+  "scope": "Earned Styx post-Shadow guidance and all-three-Jewels recognition; post-Journal pre-Shadow opening remains a separate earned fork obligation.",
+  "source_commit": "d52b130c5df",
+  "executable_sha256": "f9215345b158b1a8cffcfef51f2ee8a37938a7538b52c5009399ad4f2001b7a4",
+  "lineage": [
+    598,
+    599,
+    600
+  ],
+  "actual": {
+    "shadow_opening": "The Dark Shadow is invincible, you say? ... Lord British and Dr. CAT are in Vali.",
+    "quest58": [
+      152,
+      158
+    ],
+    "jewels_opening": "Nice work finding the Jewels of the Dark Crown!",
+    "quest56": [
+      95,
+      255
+    ],
+    "quest59": 3
+  },
+  "evidence": {
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Styx972-opening.json": "d608cb30a36048cb4010abf2d6d16f55954bde863b53399eec3192afd9c7fcf8",
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Styx972-after.json": "81e8e43430b035e9867d4382b1ee76ff8bdd95e3a88df0a293f39103a2692d53",
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Styx973-opening.json": "dd54f754644c46988420d5321a45c87fd2a922061b724c7d3439bee72f0c9435",
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Styx973-after.json": "9eddd42c7b8d1a0eeb3aa7055648f97b95f66457bf7df125e9bf0fe53eaa93c7"
+  },
+  "execution_cost": {
+    "build_attempts": 11,
+    "game_process_launches": 64,
+    "focused_launches": 7
+  },
+  "remaining": "Post-Journal guidance opening is ordered before Shadow guidance in a distinct earned595 fork; primary already has Shadow guidance and continues British/Max/ending."
+}
