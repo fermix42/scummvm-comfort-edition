@@ -1,0 +1,25 @@
+{
+  "status": "IN PROGRESS",
+  "last_checkpoint": 470,
+  "source_commit": "c660ae8ac41",
+  "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd",
+  "actual": "Normal Surface46-command flight690 interrupted at126,124 by nine actual191HP Squids150. Immutable combat template116 L5/armor94/physical128/magic0. Normal Esc/Y refuses due actual battle_exit_control128; no world return, currency/HP/MP loss or victory credited. Admission and actual refusal preserved; current actual Tactical using readied area magic, normal healing and ownedMinorDemon16 if eligible. No Quick, state mutation or Engine change/build.",
+  "evidence": [
+    "ce-native-acceptance528/earned-modern/earned-Squid-route-admission690-533.json",
+    "ce-native-acceptance528/earned-modern/earned-Squid-normal-flee691-533.json"
+  ],
+  "next": "Complete normal paid inn rest, source ground-Wyvern13-step Castle54/78 entrance toUM97, legitimate alignment177,62 and source184-command flight through98/99/100/101 tophylactery117,145. Actual contact/cold then remaining lawful readiness/campaign.",
+  "defeat": {
+    "status": "VERIFIED",
+    "evidence": "ce-native-acceptance528/earned-modern/forks/Squid-nine-no-flee-defeat693/lineage.json",
+    "actual": "Seven Squids killed by normal magic; remaining two cause actual defeat. No rewards/XP credited; normal owned466 load and recovery467, failed branch retained."
+  },
+  "land_route": {
+    "status": "IN PROGRESS",
+    "actual": "Existing read-only flight planner now optionally minimizes Surface229..232 sea exposure. Actual52-command694 interrupted by four98HP sprite142 Dark Knights (template25), not Rangers as premature468 label says. Actual normal Shock/Blades victory, noHP loss, gold49->71, MP9/54,468. Resume pending transport steps carries actual164,90->164,88. Nearby Surface157 is a storm, confirmed special descriptor0; actual Down flight away to164,92 keepsHP92/92. Fresh13-command697 to176,68 running. Source correction: Surface157 descriptor0 is Rabid Dog template0/41HP, not storm. Prior weather inference was wrong; actual698 encounter proved the identity. Normal Tactical victory uses no MP or HP; no gold change. Actual pending flight resumes160,91->160,88;469. Historical Storm-away filename and Rangers468 label are retained but not evidence of weather or Ranger combat."
+  },
+  "nourtheld470": {
+    "status": "VERIFIED",
+    "actual": "Fresh9flight699 reachesSurface176,68. ActualUpflight176,64,Yland,Right177,64,Up177,63,Up177,62 entersCastle54 at22,38,470. HP92/92 MP9/54 gold71 food300. Current normalW5 for10:43 service hours, existing46step inn702 full-source route toCastle58/33,35 adjacency is running for paid full rest. No depths traversal or Vortex success claimed."
+  }
+}
