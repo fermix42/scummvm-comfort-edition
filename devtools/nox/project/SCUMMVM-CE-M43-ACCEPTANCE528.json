@@ -1863,7 +1863,9 @@
       ],
       "earned_lineage": null,
       "earned_translation": "SCUMMVM-CE-M43-CULTIST959-VERIFICATION.json",
-      "remaining": "Styx post-Journal guidance, required Shadow event/confrontation and relevant earned no-Journal comparison."
+      "remaining": "Styx post-Journal guidance, required Shadow event/confrontation and relevant earned no-Journal comparison.",
+      "earned_discovery_confrontation_retreat": "SCUMMVM-CE-M43-SHADOW963-VERIFICATION.json",
+      "source_qualification": "Early59bit1 is discovery, not victory; the source-supported normal retreat at full3210HP returned toRuin31. No full Shadow win claimed or required by the Styx predicate."
     },
     {
       "id": "lord-british-ankh",

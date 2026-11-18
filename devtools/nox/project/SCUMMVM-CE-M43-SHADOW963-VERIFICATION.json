@@ -1,0 +1,93 @@
+{
+  "status": "VERIFIED",
+  "scope": "Earned early Shadow discovery, full3210HP admission, normal permitted retreat, authored travel, cold064 and subsequent input. Retreat is not Shadow combat victory.",
+  "source_commit": "d52b130c5df",
+  "executable_sha256": "f9215345b158b1a8cffcfef51f2ee8a37938a7538b52c5009399ad4f2001b7a4",
+  "source_contract": [
+    "WorldStoryEvents::shadowApproach: Journal56bit64 and Surface sector169 set early59bit1. This is discovery, not victory.",
+    "WorldTravelRules::enter: actual150168+59bit1 requires scripted encounter, then authored travel.",
+    "EncounterPreparation: scripted sprite133/contextflags0; actual normal flee is permitted.",
+    "Retained M3 source semantics: Styx mechanically checks early59bit1; no invented requirement for full Shadow victory."
+  ],
+  "lineage": {
+    "before_discovery": 595,
+    "earned_discovery": 596,
+    "pre_encounter": 597,
+    "retreat_travel": 598,
+    "process": 63,
+    "cold_process": 64
+  },
+  "actual": {
+    "quest59": [
+      2,
+      3
+    ],
+    "first_enemy_hp": 3210,
+    "first_enemy_sprite": 133,
+    "initial_actions": 0,
+    "exit_control": 0,
+    "normal_commands": [
+      "Left from151168",
+      "Tactics",
+      "Escape",
+      "Y"
+    ],
+    "gold": [
+      11,
+      5
+    ],
+    "party_unchanged": true,
+    "destination": [
+      3,
+      31,
+      24,
+      38
+    ],
+    "cold064": "Exact actual party/world/inventory/quests/gold/food/audio/transport/session; no assistance.",
+    "subsequent_input": "NormalSpace aftercold; normalDown/Y exitsRuin31 toSurface151168 without spending mana.",
+    "party_hp": [
+      123,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "party_mp": [
+      87,
+      0,
+      14,
+      24,
+      4,
+      34
+    ],
+    "food": 593
+  },
+  "preparation_corrections": [
+    "Inn960 TalkUp was unavailable at current NPC88; no rest or fee accepted. Do not infer exact shop hours from phase4 alone.",
+    "QuickExit after authored teleport toCastle58 retains old Surface150168 return anchor; it did not return17762. Initialcamp/groundmoves there refused normally without damage.",
+    "ProvenSurface150184 camp restores livingNox16->87 for71food; five dead members remain unchanged.",
+    "Normal clock hour and minute are both BCD; earlier half-minute interpretations are incorrect."
+  ],
+  "remaining": [
+    "Styx source guidance/three-Jewel recognition and relevant earned comparisons",
+    "LordBritish late opening/Max/plane8/ending and remaining finite branches/configuration",
+    "No claim of actual Shadow offensive hit, full Shadow victory, or original private-disk autosave execution."
+  ],
+  "evidence": {
+    "ce-native-acceptance528\\earned-modern\\checkpoints\\596-Earned-post-Cultist-mana-camp-Shadow-discovery596\\checkpoint.json": "7b67e6742af9827dd398873616eeaf895af6bde20bd21e0f21f1913263f69bb1",
+    "ce-native-acceptance528\\earned-modern\\checkpoints\\597-Earned-first-Shadow-source-approach597\\checkpoint.json": "b13be02b4ff45404ac3ac9c7f2c507568863c6ca00912a731fc847ae112f4387",
+    "ce-native-acceptance528\\earned-modern\\checkpoints\\598-Earned-full-Shadow-admission-retreat-authored-travel598\\checkpoint.json": "f31471c1d7b901ab5a315f72249a27cd57ad61c6cc82619fba1da2e4c06e83ab",
+    "ce-native-acceptance528\\earned-modern\\earned-Shadow963-admission.json": "31dc391401d912d52194d63e2b0854e74899b3ebfca162a2f7a8765a56e6e340",
+    "ce-native-acceptance528\\earned-modern\\earned-Shadow963-retreat.json": "b308f3f7d4401b5ebab4a93010d762bd74e537f634101c51bc08f13a4e9d90c1",
+    "ce-native-acceptance528\\earned-modern\\cold064.json": "884663a24f5acbeb68b8d2bd78a4b1df08d5c597b2ea44b3a791688e84bbcbd2",
+    "ce-native-acceptance528\\earned-modern\\earned-Shadow964-cold-next-input.json": "3a33fe0d36befc4c0c1f2af0d0fea7448df9a2113af9e48ac286b339ffeb6ad1",
+    "ce-native-acceptance528\\earned-modern\\screenshots\\scummvm-cli-game-00278.png": "8af85938be50f2b9dd37bf8f9e17d75d8cd5a244b02141a7800a86c737092f47"
+  },
+  "cost": {
+    "build_attempts": 11,
+    "game_cli": 64,
+    "focused_cli": 7,
+    "material_launches": 71
+  }
+}

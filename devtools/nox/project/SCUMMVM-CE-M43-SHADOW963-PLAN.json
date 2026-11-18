@@ -1,0 +1,25 @@
+{
+  "status": "IN PROGRESS",
+  "scope": "Original first-Shadow discovery, full-health admission, permitted ordinary retreat and authored travel; not a claim of full Shadow victory.",
+  "source": [
+    "native_world_story_events.h: Journal56bit64 + Surface sector169 writes early59bit1",
+    "native_world_travel.h: Surface150168+59bit1 invokes scripted battle before Ruin31 travel",
+    "native_encounter_preparation.h: scripted sprite133/contextflags0",
+    "SCUMMVM-CE-M3-SHADOW-GUIDANCE-CHECKPOINT.json: Styx checks early59bit1, not victory",
+    "SCUMMVM-CE-M4-SHADOW384-CHECKPOINT.json: retained original postbattle travel owner"
+  ],
+  "earned_before": 595,
+  "earned_discovery": 596,
+  "normal_plan": [
+    "Approach151168 from source-safe floor, ordinary Save597 before Left",
+    "Left into150168; preserve actual full-health Shadow formation and exit-control",
+    "If normal Flee is permitted, T/Escape/Y before taking an offensive turn; retain gold penalty and unchanged foeHP",
+    "Verify resulting original travel state, normal save/cold/next input; keep retreat distinct from victory",
+    "Continue Styx source guidance and subsequent endgame route"
+  ],
+  "constraints": [
+    "No flags/items/stats/position/seed injection",
+    "No demand for an optional full Shadow victory that the source story predicate does not require",
+    "Actual admitted/fled/defeated outcomes remain separate; do not fabricate a successful travel or flag result"
+  ]
+}
