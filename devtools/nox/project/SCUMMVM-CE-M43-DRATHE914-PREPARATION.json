@@ -10,7 +10,7 @@
     "Earnedcompanions atCastle58inn:slot0HeroM4NATIVElevel5HP99STR44INT20;slot1Katlevel5HP81INT44;slot2Cutterlevel5HP84INT44;slot3Alluvionlevel5HP89INT44. Retrieve slots1/2/3 normally to addthreeeligibleSummonLesserUndead14casters; no injected/replayedXP.",
     "Book14qty2 is owned; requirement26/cost10 summons6x50HP,16alliedpool. GlobalnormalReady C0 (replaceLesserHeal50), retainVortexC1. ReadyLesserHeal50onanotherkey ifneeded. Paidinnrest price14 at58 restores fullINTmana116/116/44/44/44,notcamp75percent87. Pickup itself restoresstoredcasterHP/MP.",
     "First-round plannedpartyorder:Nox0VortexNorth killthreeDysentery;Br1ChaosAttackprimaryDrathe to set genuineengagement beforeNPCretarget;threeothercastersnormalSummonC0 fillup to16bodypool. SkeletonsactbeforeNPCs;frontplacementnear5,5/5,6 movesforward anddrawsnearesttarget. Keepprimaryengaged toprevent sourcealternate-targetretarget. Analyzeactualadmission/positions beforecommitting;thisispreparation,notvictoryproof.",
-    "OwnedCrossbow72DEX56 is unusable bystoredCutterDEX14 andhasbase9239;can sellnormallyifneeded. SwordPlanes80STR34fitsHero44,butHeroisnotcurrentlyplannedretrieval. Do not sellusefulgear unnecessarily;100gold suffices normalretrieval/rest. No newlevelgrind.",
+    "OwnedCrossbow72DEX56 is unusable bystoredCutterDEX14 andhasbase9239;can sellnormallyifneeded. SwordPlanes80STR34fitsHero44,butHeroisnotcurrentlyplannedretrieval. Do not sellusefulgear unnecessarily;Initial100gold budget was incorrect; actual pickup140each requires normal merchant funding (see current corrections). No newlevelgrind.",
     "SummonDemonLord19has65535HP butisNOTowned;no merchant19/fixedchest19 found. Do not assumegettable orspendmoretimepursuing speculativequest. OrdinaryskeletonsupportplusChaos is actualavailableplan."
   ],
   "evidence": {
@@ -19,7 +19,8 @@
     "ce-native-acceptance528\\earned-modern\\checkpoints\\580-Earned-Drathe-full-mana-preparation580\\checkpoint.json": "67c1a51ef710f258ddd5f772715547c2c60663f5218de885a5cc7397f5ab951a",
     "ce-native-acceptance528\\earned-modern\\checkpoints\\581-Earned-Drathe-Death-Keep-entry581\\checkpoint.json": "e71b7ba0f19aa844229d043e0487da326b8b80fbe706fd77d4c729c3b1090092",
     "ce-native-acceptance528\\earned-modern\\checkpoints\\582-Earned-Death-Keep-two-warrior-clearance582\\checkpoint.json": "1ae37304fcf44e713a7be103ddfc11b6fd29794eff514601b90652187b6175d2",
-    "ce-native-acceptance528\\earned-modern\\checkpoints\\583-Earned-Drathe-roster-preparation-departure583\\checkpoint.json": "cd6596d3ad6ecfb7e32886b19dc09d9ddc140f73fb41b4b8fc818eeaaf6fac2a"
+    "ce-native-acceptance528\\earned-modern\\checkpoints\\583-Earned-Drathe-roster-preparation-departure583\\checkpoint.json": "cd6596d3ad6ecfb7e32886b19dc09d9ddc140f73fb41b4b8fc818eeaaf6fac2a",
+    "ce-native-acceptance528\\earned-modern\\checkpoints\\585-Earned-six-party-full-rest-protection-preparation585\\checkpoint.json": "53d7c2f26e157735c6222ab5d2242c7d89c843537308c6e6ff6633e22a693a5b"
   },
   "cost": {
     "build_attempts": 11,
@@ -27,5 +28,54 @@
     "focused_cli": 7,
     "material_launches": 67
   },
-  "next": "NormalSurfaceflight150168->17864;groundNourtheldentry54;source-groundWyvernrouteCastle58inn;normalretrieve3casters/fullrest/bookReady;resumevalidownedDrathepath. Preserve35/60andallnegative/config/endingobligations."
+  "next": "QuickExit completed Surface17762, NoxMP112; normalground departure17864/flight; source-supported DeathKeep return and fullDrathegroup106. NoDrathevictory or newdefect claimed.",
+  "corrections_and_current_action": [
+    "Original budget assumption was wrong: Inn58 actual pickup fee is140 per companion, not free; rest is14 fixed. Source offerNPC58/88. Currentfunding uses normal merchant sales, not gold injection.",
+    "DaytimeCastle60/144 reachedthroughsourcegroundroutes. NPCnightgoal4hasnoservice64bit; normalWdangerrefusal retained. NormalQuickExit/camp8h/Light1MP/camp8h reaches13:52,MP87both,food81;92groundMage922route reachesdaymerchant14:41.",
+    "Actualnormal sales:unusedCrossbow72+2771gold,unusedSwordPlanes80+2999gold;purchase2MageNecklace+10(armor116)cost3924;gold100->1946. No requiredcontractSwordgate. Gear/bookReadybatch running; no source/build change.",
+    "Retrieveallfour earnedwaitingcompanions,includingoriginalHeroasLesserHeal support,plusthreeINT44summoners. Sixparty;fee560+rest14affordable. KeepBrprimaryengagement beforeNPCphase,threecastersfill16skeletonpool;Nox/BrfrontNecklaces. NoDrathevictoryclaimed.",
+    "Privateinputhelperreusesfinaladvancefullsnapshot ratherthan redundantinspect. Sameordinarydown/advance2/up/advance2 andpauseguard; sourceEngineandframebudgetunchanged.",
+    "All four earned companions retrieved normally at 140 gold each; actual party six, gold1946->1386. Both front casters normally equipped MageNecklace+10 armor116; actual armor85/87, MR45. Book shortcuts C0=Summon14,C1=Vortex12,C2=LesserHeal50,C9=DivineHeal52.",
+    "Food926 normal Talk at21:41 received closed-service dialogue phase4; Enter returnedworld, no purchase. Source42groundInn927 admitted valid Inn58/88; normal paid14 rest restored actual116/116/20/44/44/44MP and123/123/99/81/84/89HP, gold1372, food81, hour6 minute82(rawhalfminutes). NormalN reorder swapsNox0/Br1. Source42groundFood928 underway; noDratheencounter orEnginefailure.",
+    "Inn rest normally relocates toCastle59/28,34. Food928 private planner selected stale earlier description because custom998 description differed fromrequired M43 route planning; firststep mismatchstoppedwithoutdamage. Actualcorrect-description998 saved, freshFood92952groundroutefrom59/28,34 underway. Frontactualsavedorder Noxarmor87/power68 thenBrarmor85/power167 confirmed; noEngine defect orreload.",
+    "Correction: phase4 at Food926/929 was Nobody to talk to (actual screenshot270), not proof of closed shop. Actual normal savedNPC54/160 at11,18 withservice83; normalUp11,19/TalkUp opensphase20. Ordinary99purchase clips81->900food for51gold,1372->1321. Earliernormalwaitsunnecessarybutretained, no undo or save lineage alteration."
+  ],
+  "preparation_status": "VERIFIED",
+  "actual_prepared": {
+    "party_count": 6,
+    "order": [
+      "Nox",
+      "Bridgit",
+      "M4NATIVE",
+      "Kat",
+      "Cutter",
+      "Alluvion"
+    ],
+    "hp": [
+      123,
+      123,
+      99,
+      81,
+      84,
+      89
+    ],
+    "mp": [
+      116,
+      116,
+      20,
+      44,
+      44,
+      44
+    ],
+    "gold": 1321,
+    "food": 900,
+    "front_armor": [
+      87,
+      85
+    ],
+    "front_magic_resistance": [
+      45,
+      45
+    ]
+  }
 }
