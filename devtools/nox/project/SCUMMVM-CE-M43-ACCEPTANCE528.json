@@ -3092,7 +3092,7 @@
   "mode_strategy": "One primary Modern earned lineage; targeted Classic legal earned fork/restore/transitions; no duplicate complete campaign required by existing criteria.",
   "failure_policy": "Freeze failing path,source general diagnosis,focused correction+regression,at most2corrective reruns; resume valid nearest earned save,no prefix replay or outcome injection.",
   "builds": 6,
-  "process_launches": 66,
+  "process_launches": 67,
   "planned_node_count": 60,
   "mandatory_node_count_note": "All selected M3 nodes explicitly represented alongside dependency76 graph; includes supporting/advice/alternative nodes. Necessity is retained per source,not inferred from node count.",
   "last_earned_checkpoint": 563,
@@ -3161,8 +3161,8 @@
     "report": "SCUMMVM-CE-M43-CULT734-VERIFICATION.json",
     "scope": "Four actual earned Cultist pair victories and level6-to8 advancement only; Vortex/guardian/ending acceptance remains IN PROGRESS."
   },
-  "active_next": "Source92footPlane1007 from8/81167 to121133, normalUpfinalgate121132 afterpre-finalsave/cold. Full3210HP encounter/ending plusfinitefork/configremain.",
-  "current_checkpoint": 609,
+  "active_next": "Finiteearnedrecovery: BayportShield32/paidBridgitrevival, Town44GreaterHeal51, existingownedArchmageStaff83+Chaos90/fullpaidMP, thennormalreturnfromvalidlineageforfullShadow/ending. Firstdefeatpreserved/excluded; no Enginefix/build.",
+  "current_checkpoint": 611,
   "essence775": {
     "status": "VERIFIED",
     "report": "SCUMMVM-CE-M43-ESSENCE775-VERIFICATION.json",
@@ -3397,5 +3397,6 @@
   },
   "styx974_report": "SCUMMVM-CE-M43-STYX974-VERIFICATION.json",
   "british979_report": "SCUMMVM-CE-M43-BRITISH979-VERIFICATION.json",
-  "plane1005_report": "SCUMMVM-CE-M43-PLANE1005-VERIFICATION.json"
+  "plane1005_report": "SCUMMVM-CE-M43-PLANE1005-VERIFICATION.json",
+  "final1015_recovery": "SCUMMVM-CE-M43-FINAL1015-RECOVERY.json"
 }

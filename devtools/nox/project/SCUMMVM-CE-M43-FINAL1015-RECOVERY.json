@@ -1,0 +1,37 @@
+{
+  "status": "IN PROGRESS",
+  "scope": "Preserved first full-health final attempt and finite source-supported earned recovery; no final victory/ending claim.",
+  "source_commit": "d52b130c5df",
+  "executable_sha256": "f9215345b158b1a8cffcfef51f2ee8a37938a7538b52c5009399ad4f2001b7a4",
+  "lineage": {
+    "valid_parent": 610,
+    "failed_future": "forks/Final1010-party-defeat/manifest.json",
+    "normal_recovery_return": 611
+  },
+  "actual_failure": "NormalUp121132admitsonefull3210HP Shadow133. NormalT/C0sixSkeletons10MP, twoChaosattacks102/137->2971HP. Nox123->0fromactualNPCspellimpact; fivepriorcompaniondeathsretained. No expectedoutcome/RNG/statinjection. Failedfutureexcluded, normalEngine610loadverifiedexact.",
+  "classification": "Originalcombatpreparation failure; no nativeEngine defect demonstrated.",
+  "source_contract": {
+    "Shadow": "NPCspell12->10 onMap8. Spell10FulminaPluralitasLaxatus is radius4 chainlightning, power79/roll72..86. CurrentArmor87/MR45 permitslethalimpact123HP. Level10 is originalmaximum: no imaginedlevel11 grind.",
+    "recovery": "OriginalShield32 costs3MP, addsINT>>2=29armor/self,cap229. GreaterHeal51 costs4MP andfullyhealsselectedlivingtarget. Sourcefixedmerchant47/88sellsbook32/base36gold;44/96sells51/base76gold. RevivealreadyearnedBridgit, readyownedArchmageStaff83/Chaos90 andspellsnormally, paidfullMP; no speculativeSummon19pursuit.",
+    "equipment_reconciliation": "ProtectionRingsarenotstockedbyanyfixedmerchant, Cloak114cost2445; initialgearproposalnotexecuted. Useavailablecheapdefensivespells instead of speculativepurchases.",
+    "quick_reconciliation": "OriginalQuicklevel10power209 isnotasaferlowdamagealternative; no repeatedQuickattempt."
+  },
+  "current": "Normal92footreturnto81167, authoredPraevocreturn, BreboardsactualearnedWyvernat68/2320, C5normalQuickExitreturnsSurface0/81168(lastglobalcoordinateanchor),611. Source14flightBayport1014currentlyrunningto117148; landRight2/Up enters49 via119147. No build/newprocess.",
+  "execution_cost": {
+    "build_attempts": 11,
+    "game_process_launches": 67,
+    "focused_launches": 7,
+    "total": 74
+  },
+  "evidence": {
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Plane1007-final-south-approach.json": "e85484a6a0038061b384dcd85891aaff8809e8fafe66ba6805606cbe61e76643",
+    "conversion\\ce-native-acceptance528\\earned-modern\\cold067.json": "8d3a61a848f34b9ed23b5e5a9c62e94da1b44f631829081d726a2a6812fde6eb",
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Final1008-full-admission.json": "0303b1658a2fccb0898d06c6677ec6db9f564ffb3476483b6c09b8127ec209c4",
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Final1009-first-summon.json": "7bdac8f18ffc618408c06ebdb769df2c24725e46ca3b515d0b96d23001e5480b",
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Final1009-first-Chaos.json": "e2f50ca65aa77bce632ef51ea08487e853eca9b8335f6e7d0c130b8e4edba51a",
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Final1010-Chaos-actions.jsonl": "3a36c69b0154d4d33e221981c4328bab41c15a6ea787789bffd3573ed2f3b65d",
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Final1010-defeat.json": "b3a93ce88d4dab79fe762dbfb63054692af513e51a7bc5666303638a3e981281",
+    "conversion\\ce-native-acceptance528\\earned-modern\\forks\\Final1010-party-defeat\\manifest.json": "570043f57d3f917ff9ba84e03d110bdb0aacbbf42e090735b37669276296d08c",
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Final1013-return-departure.json": "b40bc628c5f2f061106f8397a17304f8c68d75b792ab70a9dc8f79265af304de"
+  }
+}
