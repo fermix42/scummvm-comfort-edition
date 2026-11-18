@@ -1,0 +1,20 @@
+{
+  "status": "VERIFIED",
+  "scope": "Earned Log acquisition recognition/repeat and warm save/load subsequent recognition only; primary617 unaffected.",
+  "source_commit": "d52b130c5df",
+  "executable_sha256": "f9215345b158b1a8cffcfef51f2ee8a37938a7538b52c5009399ad4f2001b7a4",
+  "lineage": "Normal5 Captainslog acquired fork. Earlieractual0->5 acquisitionandcold retained. No injectedsetup.",
+  "actual": "SourceNPC7/0 at10,8; actualstand11,8/TalkLeft says Arr, ye found the captain's log! Good job matey! Repeatedopeningidentical, inventoryunchanged. Normal801save/warmloadexactfieldsPASS; firstfollowingTLeftidenticalrecognition. Initial12,8/TLeftnoNPC deliberatelyexcluded; sourcecorrectedoneLeft beforeactualNPCtest.",
+  "evidence": {
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Log1051-opening.json": "72844b03dcc5cc1649466be615dfa75738d6db6386b40782a0411dee19ea946e",
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Log1051-repeat.json": "84eb7a76bc1bb9612a8f6704b55abede997fc12265a11692583ea9ccc1ebd96e",
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Log1051-warm-continuity.json": "321384376cae5fb76fd62802928b105b8a637baa7a98362f4454716c3d20397c",
+    "conversion\\ce-native-acceptance528\\earned-modern\\screenshots\\scummvm-cli-game-00297.png": "4bc04eed6468c31e09e4ea4f2815807ded332ef0ce98a686885303a1ca522541"
+  },
+  "cost": {
+    "build_attempts": 11,
+    "game_cli": 69,
+    "focused_cli": 7,
+    "material_launches": 76
+  }
+}

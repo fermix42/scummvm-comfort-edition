@@ -91,7 +91,7 @@
     },
     {
       "id": "opening-brig-door",
-      "status": "IN PROGRESS",
+      "status": "VERIFIED",
       "prerequisites": [
         "opening-exit",
         "royal-access"
@@ -119,11 +119,12 @@
         "scoped audio/presentation",
         "actual earned verification criteria"
       ],
-      "earned_lineage": null,
+      "earned_lineage": "Normal earned0 fork plus retained originalprimary1/2 progression",
       "earned_evidence": [
-        "Actual normal startingdoor OpenUp/transition,early cold and full12HP Rat tactical victory"
+        "Actual normal startingdoor OpenUp/transition,early cold and full12HP Rat tactical victory",
+        "SCUMMVM-CE-M43-BRIG1049-VERIFICATION.json"
       ],
-      "remaining": "Closed-door movement refusal from legitimate early fork remains untested."
+      "remaining": "None within this node contract"
     },
     {
       "id": "gordon-shrubbery",
@@ -2062,7 +2063,7 @@
     },
     {
       "id": "opening-log",
-      "status": "IN PROGRESS",
+      "status": "VERIFIED",
       "prerequisites": [],
       "source_contract": "Supporting opening lore/recognition; exit operation is separate.",
       "source_anchors": [
@@ -2093,11 +2094,13 @@
         "input_transcript": "ce-native-acceptance528/earned-modern/process004.jsonl"
       },
       "source_qualifications": [
-        "Exactly one controlled setup before acquisition; subsequent return and recognition use actual retained gameplay state",
-        "No earned continuous or full new-game-to-ending claim"
+        "NormalNew->acquisition retained; recognition performed on normalearned5fork withoutsetup mutation. No control-fixture acquisition claim."
       ],
       "actual_result": "Actual Search yields item150,book/quest instructions frompirateLOG; ordinary saved state. No injected prerequisite.",
-      "remaining": "Actual acquired Log and pirate directions proven; post-acquisition Bristle Beard recognition/repeat branch remains to demonstrate on legitimate acquired-log fork."
+      "remaining": "None within this node contract",
+      "earned_evidence": [
+        "SCUMMVM-CE-M43-LOG1051-VERIFICATION.json"
+      ]
     },
     {
       "id": "styx-page",
@@ -3356,7 +3359,7 @@
     },
     "next": "Continue source-authored cave/stair flight toUM101 Lich(originalNPC32,source108148;inspectactualposition). Earnedphylacteryflag12bit4 retained. Inspectactualfull1300HP/protection/partypositions, thennormalC1VortexNorth avoidingfriendlyfire, actualWaterJewel153 andpersistentdeath. Nofixture/Rat/campaignendingclaim."
   },
-  "verified_count": 39,
+  "verified_count": 41,
   "lich877": {
     "status": "IN PROGRESS",
     "scope": "Earned fullLich/WaterJewel acceptance approach only",
@@ -3399,5 +3402,6 @@
   "british979_report": "SCUMMVM-CE-M43-BRITISH979-VERIFICATION.json",
   "plane1005_report": "SCUMMVM-CE-M43-PLANE1005-VERIFICATION.json",
   "final1015_recovery": "SCUMMVM-CE-M43-FINAL1015-RECOVERY.json",
-  "final1032_preparation": "SCUMMVM-CE-M43-FINAL1032-PREPARATION.json"
+  "final1032_preparation": "SCUMMVM-CE-M43-FINAL1032-PREPARATION.json",
+  "final1046_report": "SCUMMVM-CE-M43-FINAL1046-WORK.json"
 }

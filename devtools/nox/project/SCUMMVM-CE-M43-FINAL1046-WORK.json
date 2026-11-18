@@ -1,0 +1,24 @@
+{
+  "status": "IN PROGRESS",
+  "scope": "Actual earned prepared final attempt617/cold068 and actual defeat; no ending claim.",
+  "source_commit": "d52b130c5df",
+  "executable_sha256": "f9215345b158b1a8cffcfef51f2ee8a37938a7538b52c5009399ad4f2001b7a4",
+  "parent617": "2b4876777a55bbb7adac1629e9ab9909fd239abcd5997cdfbfc511fccfb137f8c",
+  "actual": "Cold068 exactPASS; normalUp admits full3210HP133. TwoactualShield buffs, separation5cells. Br dies at2451HPenemy; Noxcontinues samebattle Chaos/fullheals to300HPenemy then dies despite fullheal. FailedfuturepreservedforkFinal1046, no rewardsmerge. No demonstratedEngine defect.",
+  "next": "IndependentearnedearlyBrig1049 closeddoorrefusal/open/passage/cold fromnormal0; primary617 retained. Finalcombat/ending still IN PROGRESS.",
+  "cost": {
+    "build_attempts": 11,
+    "game_process_launches": 68,
+    "focused_launches": 7,
+    "material_launches": 75
+  },
+  "evidence": {
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Final1045-full-admission.json": "2a030658b992be3dcc3d5a2734452bf8cbed833d7d8af989c36eee1743a1ae78",
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Final1045-actions.jsonl": "846c4e69f01425b1351d942e156a1d4d7bd41dfe14738b8d66146f6955d7d9cd",
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Final1046-Bridgit-loss.json": "735c7fa7169d0936ddc39a79b45825fea18a2ddf613833c570382bc8e8a8576a",
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Final1046-actions.jsonl": "d7a2e5040142294397a222f5f51c82c4c9840fe1c58ae7b1c897c7226d0ee40c",
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Final1046-result.json": "f7642ec40f7d07317939869cf2eeaec79301fa9a583506b7620f93f9ecb2cc7c",
+    "conversion\\ce-native-acceptance528\\earned-modern\\cold068.json": "7408f94e1bc1504d4f88b89713277193c872e79d46d9bf8d39bc9f1c52b01bab"
+  },
+  "faster_attempt": "1047 actualNoxoffense/Brheal reducedboss3210->2099 beforeBrdeath. Samebattle1048 Noxselfheal/Chaos continuation endedactualdefeat1747HPenemy. FailedfutureFinal1048 preserved; noendingclaim. Do not repeat this tactic; continueindependentearnedbranches."
+}

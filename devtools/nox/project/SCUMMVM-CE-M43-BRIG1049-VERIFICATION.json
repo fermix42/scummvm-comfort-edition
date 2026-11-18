@@ -1,0 +1,19 @@
+{
+  "status": "VERIFIED",
+  "scope": "Earned early brig closed-door refusal, ordinary Open/pass, save/cold and subsequent passage only.",
+  "source_commit": "d52b130c5df",
+  "executable_sha256": "f9215345b158b1a8cffcfef51f2ee8a37938a7538b52c5009399ad4f2001b7a4",
+  "lineage": "Normal earned0 fork, normal load exact fields; independent from main617. No injected setup or reward merge.",
+  "actual": "Right25,38; closedUp remains25,38. NormalO/Up thenUp25,37. Normalfree-slot save800; cold069 exactparty/inventory/quest/resources/map/sound and noassistancePASS. FirstUp25,36. Prior earnedfirstdoor/rat/exit coversforwardcompatibility.",
+  "evidence": {
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Brig1049-actual.json": "6ae1c9b004430455cb637941208d745ce2dfbe0917f16f37fed36fdb4f1c9e00",
+    "conversion\\ce-native-acceptance528\\earned-modern\\forks\\Brig1049\\cold-first-next.json": "f6e054f2fe0ccdf1bf267ff768bf4ea859a552d24c0df1cd25a01da3030b533d",
+    "conversion\\ce-native-acceptance528\\earned-modern\\forks\\Brig1049\\manifest.json": "fb97e57d93960f76a893d0901b266db321dbad56f96c7cb38cf4f155b6586595"
+  },
+  "cost": {
+    "build_attempts": 11,
+    "game_cli": 69,
+    "focused_cli": 7,
+    "material_launches": 76
+  }
+}

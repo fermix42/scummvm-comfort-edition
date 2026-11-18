@@ -1,3 +1,7 @@
+# Acceptance528 earned brig1049 / log1051 branches — VERIFIED within scope
+
+Actualearned0fork closeddoorrefusal/Open/passage, normalfree800save/cold069/firstUp exactPASS. Normalearned5fork actualBristle10,8/stand11,8/TLeft recognizesownedLog, repeat/warm801save-load/firstTLeft identical withnoinventorychange.41/60compositenodesVERIFIED. Actualprepared617/cold068 finalattempt failedat300HPenemy; faster1047/1048attemptfailedat1747HPenemy; preservedseparatefailedfutures, noendingclaim/noEnginebugdemonstrated. Stoprepeatingthatcombatpolicy. Primary617retained. Currentearned595fork forStyxpostJournal/preShadow andpostcollectionPAGES. NoEnginechange/build;11buildattempts69game+7focused=76launches. Continuefiniteacceptancewithoutmilestonestop. ReportsFINAL1046-WORK/BRIG1049/LOG1051.
+
 # Acceptance528 earned full preparation614-616 — VERIFIED within scope
 
 Normal GreaterHeal51 purchase76gold/C8; paid11gold Inn rest restores both123HP116MP. Fourcorpsesretained. NormalN exchanges putlivingNox4/Bridgit5, sourceexpected5cell separation; actualbattleconfirmationpending.17gold774food. QuickExit Nox112MP/Br116,47flight1042 completed, actualKeep67/24,38 entry1043. Current51groundportalroute1044. Finalencounter/ending remainunverified;39/60nodes,11buildattempts67game+7focused=74launches. NoEnginechange/build. Continuefiniteacceptancewithoutmilestonestop. ReportFINAL1032-PREPARATION.
