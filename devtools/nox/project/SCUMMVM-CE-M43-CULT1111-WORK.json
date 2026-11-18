@@ -1,0 +1,10 @@
+{
+  "status": "IN PROGRESS",
+  "scope": "Normal474 fork firstplate34,200 actualfield31 0->16. Required route random3x191HP147 noflee128 encounter defeated using normal spell16/BladeSmite15/summons; both92HP retained,MP9/26. Resumed actual37,204 without successfulprefix replay; secondplate route underway.",
+  "evidence": {
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Cult1107-first-plate.json": "844ed0b9638c2d88990559ae3edb9121424003cdfd32bf9448b445f4cc724cf0",
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Cult1111-incidental-resolution.json": "5bbf819d3e98fbf7dfd7d9462e7ae1a6e001c361922adc5a3a6b3ed38f8d8170"
+  },
+  "driver_corrections": "No flee inputs after sourceexit128inspection; preconditioncorrectlystopped. Wrong firstC1costexpectation10 corrected to actualspell16cost17, cast retained. MissingStorm21driverflag selectedC6actualLight57/refusedNotincombat; no MP/action spent. Actualsavedbook [50,16,3,2,4,60,57,15,27,52] and ownedinventoryqualify subsequentBladeSmiteC7. Stalecontrollerchoices corrected, noEnginefault/build/replay. Shortfilefunctioncalls remove longPTYsubmission overhead.",
+  "next": "Finish remaining3plates, relevant3/4closeddoor refusal, finalplate/all4doorpass and cold/subsequentauthoredexit. Main619unchanged."
+}

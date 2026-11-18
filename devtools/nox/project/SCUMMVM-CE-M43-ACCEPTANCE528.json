@@ -2606,7 +2606,7 @@
     },
     {
       "id": "cult-four-pressure-plates",
-      "status": "NOT STARTED",
+      "status": "VERIFIED",
       "prerequisites": [],
       "source_contract": "Verified deep-Cult access branch; do not infer that every Letter approach requires it.",
       "source_anchors": [
@@ -2634,7 +2634,9 @@
       "source_qualifications": [
         "Original fixture boundaries remain binding. Current source/necessity/segment classification is in CAMPAIGN-DEPENDENCIES76; historical limitations retain the earlier investigation state.",
         "No earned continuous/full new-game-to-ending run. Controlled positions, stats, recovery and battle endpoints are unearned."
-      ]
+      ],
+      "earned_current": "Normal474 fork firstplate34,200 actualfield31 0->16. Required route random3x191HP147 noflee128 encounter defeated using normal spell16/BladeSmite15/summons; both92HP retained,MP9/26. Resumed actual37,204 without successfulprefix replay; secondplate route underway.",
+      "earned_report": "SCUMMVM-CE-M43-CULT1118-VERIFICATION.json"
     },
     {
       "id": "nystul-archmage-staff",
@@ -3156,7 +3158,7 @@
   "mode_strategy": "One primary Modern earned lineage; targeted Classic legal earned fork/restore/transitions; no duplicate complete campaign required by existing criteria.",
   "failure_policy": "Freeze failing path,source general diagnosis,focused correction+regression,at most2corrective reruns; resume valid nearest earned save,no prefix replay or outcome injection.",
   "builds": 6,
-  "process_launches": 77,
+  "process_launches": 78,
   "planned_node_count": 60,
   "mandatory_node_count_note": "All selected M3 nodes explicitly represented alongside dependency76 graph; includes supporting/advice/alternative nodes. Necessity is retained per source,not inferred from node count.",
   "last_earned_checkpoint": 619,
@@ -3420,7 +3422,7 @@
     },
     "next": "Continue source-authored cave/stair flight toUM101 Lich(originalNPC32,source108148;inspectactualposition). Earnedphylacteryflag12bit4 retained. Inspectactualfull1300HP/protection/partypositions, thennormalC1VortexNorth avoidingfriendlyfire, actualWaterJewel153 andpersistentdeath. Nofixture/Rat/campaignendingclaim."
   },
-  "verified_count": 49,
+  "verified_count": 50,
   "lich877": {
     "status": "IN PROGRESS",
     "scope": "Earned fullLich/WaterJewel acceptance approach only",
@@ -3470,11 +3472,11 @@
   "earned_native_new_to_ending_status": "VERIFIED",
   "execution_cost_current": {
     "build_attempts": 11,
-    "game_cli": 77,
+    "game_cli": 78,
     "focused_cli": 7,
-    "material_launches": 84
+    "material_launches": 85
   },
-  "latest_execution_cost": "11buildattempts77game+7focused=84launches; no new production build.",
+  "latest_execution_cost": "11buildattempts78game+7focused=85launches; no new build.",
   "pages1088_report": "SCUMMVM-CE-M43-PAGES1088-VERIFICATION.json",
   "drop1091_report": "SCUMMVM-CE-M43-DROP1091-VERIFICATION.json",
   "selected_mode_coverage": {
@@ -3483,5 +3485,6 @@
     "qualification": "SelectedClassic policy/config/restore covered1069/cold073. No gate-by-gate earnedClassic duplicate campaign claim."
   },
   "nystul1099_report": "SCUMMVM-CE-M43-NYSTUL1099-VERIFICATION.json",
-  "father1105_report": "SCUMMVM-CE-M43-FATHER1105-VERIFICATION.json"
+  "father1105_report": "SCUMMVM-CE-M43-FATHER1105-VERIFICATION.json",
+  "cult1118_report": "SCUMMVM-CE-M43-CULT1118-VERIFICATION.json"
 }

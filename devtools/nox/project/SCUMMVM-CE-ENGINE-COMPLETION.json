@@ -2569,8 +2569,9 @@
       "behavior": "Camp restrictions recovery and world effects",
       "implementation": "PARTIAL",
       "verification": {
-        "status": "NOT STARTED",
-        "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement."
+        "status": "IN PROGRESS",
+        "scope": "Earned source-supported map99 ordinarycamp recovery:67 and75mana restored for exactfoodcost, full92HP retained. Other camp/restriction/world-effect contexts remain qualified.",
+        "evidence": "SCUMMVM-CE-M43-CULT1118-VERIFICATION.json"
       },
       "native_owners": [
         "engines/nox/native_gates.h",
@@ -2618,8 +2619,9 @@
       "behavior": "Ending trigger text presentation and terminal state",
       "implementation": "PARTIAL",
       "verification": {
-        "status": "NOT STARTED",
-        "scope": "No new execution; existing qualified evidence is retained, not automatically promoted to this complete requirement."
+        "status": "VERIFIED",
+        "scope": "Actual earned native New->full3210Shadow defeat->originalendingtext->normalReturn/permanentterminalstate->619save/cold074/firstSpace; original ending music identity/sampleactivity. Explicitly scoped to ending trigger/presentation/terminalstate, not remaining story gates or total Engine implementation.",
+        "evidence": "SCUMMVM-CE-M43-ENDING1082-VERIFICATION.json"
       },
       "native_owners": [
         "engines/nox/native_gates.h",
@@ -2628,8 +2630,10 @@
         "engines/nox/native_world_open.h",
         "engines/nox/native_ending.h"
       ],
-      "original_evidence": [],
-      "production_connection": "Domain owner chain indexed below; individual complete reachability remains to be qualified.",
+      "original_evidence": [
+        "SCUMMVM-CE-M43-ENDING1082-VERIFICATION.json: actual earned ending/ack/cold; implementation classification retained separately."
+      ],
+      "production_connection": "Earned full native final victory calls existing native_ending.h owner; normalReturn resultPhase4/permanent loop and native-player save/cold restore observed. Ending owner source hash remains identical to accepted527.",
       "fallback_dependencies": [],
       "blockers": []
     },
@@ -3462,7 +3466,8 @@
         "SCUMMVM-CE-ENGINE-PRESSURE-PLATE-CONTRACT.md",
         "EA35..EA61",
         "SCUMMVM-CE-INTEGRATION527-I3-VERIFICATION.json:bounded Engine joined integration/cold/nextinput only; broad row remains qualified; story.08 UNKNOWN unchanged.",
-        "SCUMMVM-CE-INTEGRATION527-I4-VERIFICATION.json:bounded Engine joined integration/cold/nextinput only; broad row remains qualified; story.08 UNKNOWN unchanged."
+        "SCUMMVM-CE-INTEGRATION527-I4-VERIFICATION.json:bounded Engine joined integration/cold/nextinput only; broad row remains qualified; story.08 UNKNOWN unchanged.",
+        "SCUMMVM-CE-M43-CULT1118-VERIFICATION.json: earned four actualplates/3of4refusal/all4doorpass/cold078/actualUM100exit; not wholeStory closure."
       ],
       "production_connection": "WorldWait completednonbattle actor/objectphase ->WorldPressurePlate.apply actualcenterlookup ->activatePlate(resolvedslot) beforehazards/clock.",
       "fallback_dependencies": [],
@@ -7989,7 +7994,7 @@
     "story": {
       "known_required": 9,
       "native_implemented": 4,
-      "verified": 2,
+      "verified": 3,
       "partial": 5,
       "missing": 0,
       "unknown_required_rows": 1,
@@ -8060,5 +8065,13 @@
     "scope": "General stationary large automatic NPC contact while party rides a single-cell mount; focused original/native NPC action and actual earned998 cold recovery. Not Fire reward/ending/fullcampaign.",
     "report": "SCUMMVM-CE-M43-GUARDIAN885-VERIFICATION.json",
     "broad_statuses_changed": false
+  },
+  "earned_acceptance528": {
+    "status": "IN PROGRESS",
+    "composite_nodes_verified": 50,
+    "composite_nodes_total": 60,
+    "primary_new_to_ending": "VERIFIED",
+    "report": "SCUMMVM-CE-M43-ACCEPTANCE528.json",
+    "qualification": "Actual earned story.07 verification does not promote PARTIAL implementation or close story.08 UNKNOWN."
   }
 }

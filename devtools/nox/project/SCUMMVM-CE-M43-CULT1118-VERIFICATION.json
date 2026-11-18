@@ -1,0 +1,41 @@
+{
+  "status": "VERIFIED",
+  "scope": "Earned optional UM99 fourpressureplates, three-of-four guarded-door refusal, finalplate/repeat, physicalgatepass, cold078 exact exportedfields and firstnext authored100exit.",
+  "source_commit": "d52b130c5df",
+  "executable_sha256": "f9215345b158b1a8cffcfef51f2ee8a37938a7538b52c5009399ad4f2001b7a4",
+  "lineage": "Normal474earned ownedWyvern, field31=0; sourceflight/ground/foot originalcoordinates, no seed/teleport/item/field/HP/MP/actor/outcome edits. Primary619 ending preserved.",
+  "actual": "34,200:16;57,216:48;44,232:112 including lawfulfly arrival and footrepeat; with112 normalOpenDown andDown at118235 refuse, door19 retained,814. Fourth120213:240/repeatunchanged,815. Normal28foot/O/Down thenactual118236/118237pass,816. Cold078 exact exportedparty/inventory/quest/resources/map/appearance/sound/session/noassist; firstDown actualUM100/118238,817. Bothliving92HP retained. Actualcamps spend67+75food restoringMP to51; food190final. Two required3x191NPC147 encounters resolvednormally; second usesactualreadiedShockStorm27C8:3normalcasts, both92HP. No originallyoptionalbranch required for alreadycompletedprimaryending.",
+  "qualification": "Watercrossings useoriginalflyingWyvern, notfootwaterimmunity. One intended fly target44,228 wasquiet/nonreachable; corrected offline toactualplate44,232, thenexplicitfootrepeat. Missingroutefile callperformed0movement andwasnotcredited. Privatecontroller staleSummon/Storm assumptions corrected againstactualsavedbook; failures retained WORK1111. NoEnginechange/build/accepted473rerun. Cold comparison scope is exportedfields plus actualcontinueddoor/mapbehavior; compatible527 fullserializer evidence retained, no new byteexactNPLS claim.",
+  "evidence": {
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Cult1107-first-plate.json": "844ed0b9638c2d88990559ae3edb9121424003cdfd32bf9448b445f4cc724cf0",
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Cult1108-second-plate.json": "3a05c9e13f1531e8443a6380896e9e735567cbed247fd1dbb5d86338a5ba7c0a",
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Cult1109-third-flight-arrival.json": "8438430f5e7171beef4a24fb45bf292ace68a6b26f772a02d75295083963edfb",
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Cult1109-third-plate.json": "2c7d57f4a4610d8864f6b7edcdea3a4b3e523365758cf222632b170f06606c4e",
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Cult1111-incidental-resolution.json": "5bbf819d3e98fbf7dfd7d9462e7ae1a6e001c361922adc5a3a6b3ed38f8d8170",
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Cult1112-ordinary-camp.json": "1559c5eedfc2cb634d79c021495b50c9026edca5654a41758290294a0f7e6734",
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Cult1113-ShockStorm-victory.json": "6343c18e077ae60f5c610d4a54133a22b2dd00fd1e448e0765284002ab4d8121",
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Cult1114-ordinary-camp.json": "59ca96becaa8541eefec7c29ffa50603fba4dd259075c5b4fa39ca8ac5a75954",
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Cult1116-three-plate-move-refusal.json": "1efdc7c900c5fb6a27ecdd77005e224c5d338e74fb27e95301ece41df74ad2f3",
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Cult1116-three-plate-open-refusal.json": "2938aca781a111710dba6f05d7f8429335f84cc73f98f2c4e957c3c737d0dbb9",
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Cult1117-fourth-plate.json": "a263c745cfcfb163e7ed5aaf7f5425cc04aa539f4ceb62b579d799019b560ddd",
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Cult1117-fourth-repeat.json": "3203404fa549b0cb0ecafadd2f31b061864892e9b4f533c4c29698ae031a924f",
+    "conversion\\ce-native-acceptance528\\earned-modern\\earned-Cult1117-source-state.json": "48a387b6232fe20048cc9708e30cf8a38c17bdacb07e44af201575db43a66e88",
+    "conversion\\ce-native-acceptance528\\earned-modern\\cold078-Cult1118.json": "0e3a377e2f33e29282ce33c05e3cbcd4be6d96aaaac4e0361abc5a0587414e10"
+  },
+  "saved_files": {
+    "conversion\\ce-native-acceptance528\\earned-modern\\forks\\Cult1118\\nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot814.g0": "14e50a7279af3f96c4b1a8b5164012c66ce7c467f5ce89e0ba6eaaec2e6ea3a3",
+    "conversion\\ce-native-acceptance528\\earned-modern\\forks\\Cult1118\\nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot814.g0.ce-achievements.json": "864caf2252faf94ac34e79827dc8b7bfc1d7a5fc6691a14c25ddc9db38b18778",
+    "conversion\\ce-native-acceptance528\\earned-modern\\forks\\Cult1118\\nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot815.g0": "81196b3805d8ca9fab3dd1ec28fca16d15559ae839fc12adba33679d8c64f189",
+    "conversion\\ce-native-acceptance528\\earned-modern\\forks\\Cult1118\\nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot815.g0.ce-achievements.json": "3454a9fffdf0fbfc668208434c038ea9c039c9d0541248ec80026c97f2f98cef",
+    "conversion\\ce-native-acceptance528\\earned-modern\\forks\\Cult1118\\nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot816.g0": "6606c9cc18b2221fd91fd82b6269a4080b1f2b253999d3ea5d057f7bcf5273da",
+    "conversion\\ce-native-acceptance528\\earned-modern\\forks\\Cult1118\\nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot816.g0.ce-achievements.json": "b5024eae36003549f393044460219edfa278eda33db21da99b599cb440ab9602",
+    "conversion\\ce-native-acceptance528\\earned-modern\\forks\\Cult1118\\nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot817.g0": "b460d1f6fbf0bf64fd71fb4a61fa3ffed07b0f9112cde6cfe6cbf024da551db5",
+    "conversion\\ce-native-acceptance528\\earned-modern\\forks\\Cult1118\\nox-ce-71e71a3b8191910835b3cae190cf968a-cef6769ec3296a1e3b4b94fa729606a9-slot817.g0.ce-achievements.json": "02f448603ce64a16c2e9fb528313bcb060d0ccaff4d3409d0d0bb4915455e584"
+  },
+  "cost": {
+    "build_attempts": 11,
+    "game_cli": 78,
+    "focused_cli": 7,
+    "material_launches": 85
+  }
+}
