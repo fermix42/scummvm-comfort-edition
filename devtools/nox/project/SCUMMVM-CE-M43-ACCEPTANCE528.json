@@ -2970,7 +2970,7 @@
   "process_launches": 54,
   "planned_node_count": 60,
   "mandatory_node_count_note": "All selected M3 nodes explicitly represented alongside dependency76 graph; includes supporting/advice/alternative nodes. Necessity is retained per source,not inferred from node count.",
-  "last_earned_checkpoint": 497,
+  "last_earned_checkpoint": 504,
   "baseline_candidate_sha256": "81feb2c7ff17594a6ea9754dc60602a755b2f37ea7c53b437f65a18e7c35000f",
   "candidate_change": "NPC529,cannon530,packedmelee531,mountedTalk532 source corrections; exact scoped receipts and earned ancestry retained. No broad matrix promotion.",
   "earned_failures_retained": [
@@ -3030,17 +3030,22 @@
   "previous_candidate_before533": "345bcc4dbdd6604b790250cb6539ee19ffe430212d2711b325b3a7cf641779ed",
   "candidate_source_commit": "c660ae8ac41",
   "candidate_transition": "SCUMMVM-CE-DOOR533-VERIFICATION.json; normal223 cold recovery before further inputs; earlier nodes retain original bound evidence.",
-  "last_checkpoint": 497,
+  "last_checkpoint": 504,
   "cult734": {
     "status": "VERIFIED",
     "report": "SCUMMVM-CE-M43-CULT734-VERIFICATION.json",
     "scope": "Four actual earned Cultist pair victories and level6-to8 advancement only; Vortex/guardian/ending acceptance remains IN PROGRESS."
   },
-  "active_next": "Source37-flight Nourtheld778 return to178,64 with damage stop; normal ground entry54, paid rest and daytime food, actual Nox Alyn Castle60/112 two normal openings for book11. Both casters still level8/INT92, XP21586/21656; need1414/1344XP to level9 INT104 before book11 eligibility. Three original Ruin Mage group36 victories at500XP/member remain source-supported planned preparation, not earned. Then original Dragon reward with both party members, actual level10/Vortex readiness, guardians and remaining finite acceptance. No whole M4.3/ending claim.",
-  "current_checkpoint": 497,
+  "active_next": "Actual60-flight RuinMages794 toSurface137,214, stopping on damage/encounters. Then normalRight flight crosses authored138,214 entrance toRuin20; inspect residual local movement. Required1414/1344XP to level9/INT104: actual static Ruin22 group36 plus two naturally occurring original Mage groups, source500XP/member at level8. Inspect each actual admission before deciding normal tactical/flee; do not blindly fight incidental471HP enemies. Then actual book11 Ready/cast on original Dragon with both party members retained, earned level10/INT116, Vortex readiness, full guardians and remaining acceptance. No injected outcomes or XP.",
+  "current_checkpoint": 504,
   "essence775": {
     "status": "VERIFIED",
     "report": "SCUMMVM-CE-M43-ESSENCE775-VERIFICATION.json",
     "scope": "Earned Essence of Death pickup/repeat and actual lawful saves only; Nox book/XP/Vortex/guardians remain IN PROGRESS."
+  },
+  "necro795": {
+    "status": "VERIFIED",
+    "report": "SCUMMVM-CE-M43-NECRO795-VERIFICATION.json",
+    "scope": "Actual earned Nox Alyn research/book11 award/repeat and normal supply transactions only; casting eligibility and Vortex remain IN PROGRESS."
   }
 }

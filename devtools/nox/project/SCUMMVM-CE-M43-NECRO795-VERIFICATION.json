@@ -1,0 +1,32 @@
+{
+  "status": "VERIFIED",
+  "scope": "Actual earned Nox Alyn research/book11 award/repeat and normal supply transactions only; casting eligibility and Vortex remain IN PROGRESS.",
+  "actual": "Earned Essence retained through source37-flight Nourtheld return; one17HP travel-damage stop, no battle, subsequent coast178,64/ground entry498, both95HP. Actual inn58 TalkUp and paid14gold rest499 restore112HP/92MP,144gold0food. Inn resets clock to06AM; source food-vendor54/160 schedule opens08AM. Source52-step food746 reaches11,20 at07:24. Exactly78 normal Space turns reach08:03 and actual seller11,19/service flag83. Normal TalkUp/numeric99 purchase clips to300food for18gold,126gold;500. Source88-step zero-damage NoxAlyn786 route reaches60/31,19. Actual slot112 is33,18; ten ordinary waits leave it there, normal2Right reaches33,19 and TalkUp succeeds. Initial phase4 screenshot240 presents Essence research; after normal dialogue completion field60 becomes55 at501. Second normal opening screenshot241 explicitly presents Nox Necrosis; completion sets119 and grants book11qty1 at502. Repeat normal opening/closing retains one book503. No six-hour timer or purchase required. QuickExit returnsSurface177,62; groundRight blocked at coast, assertion stopped that navigation without progression. Actual Y flight and504 saved at177,62, HP112/MP88,92,126gold300food. No Ready/cast claim: both casters remain level8/INT92, XP21586/21656. No Engine change/build or new process.",
+  "evidence": {
+    "ce-native-acceptance528/earned-modern/earned-NoxAlyn789-first.json": "6b8a83b1752116f50c2eb1231658168984a03fad09680b5c707fc11e66f8d678",
+    "ce-native-acceptance528/earned-modern/earned-NoxAlyn790-first-commit.json": "8502a559bec9de36cef8a1df71f82b6e633b9462ba87cdc411fe1401910aa015",
+    "ce-native-acceptance528/earned-modern/earned-NoxAlyn791-second-opening.json": "2a868004d4bab8abd96dfb477436031a1f3a7c9dc12c6383caaa8c838b16ab14",
+    "ce-native-acceptance528/earned-modern/earned-NoxAlyn792-repeat.json": "28a77ace897bc682845279587b2f1486d46ce7f14325bfef902a1761b7615ac6",
+    "ce-native-acceptance528/earned-modern/screenshots/scummvm-cli-game-00240.png": "5e9ed87c5b4bdcb700b209d6109c8a3933f8875a9505ee0d4ee0028f34dc4983",
+    "ce-native-acceptance528/earned-modern/screenshots/scummvm-cli-game-00241.png": "838333ee60f16a74b21229823e3f98c82e9bab8fd770eff781c403020068f47c"
+  },
+  "checkpoints": {
+    "ce-native-acceptance528/earned-modern/checkpoints/498-Earned-Essence-Nourtheld-return498/checkpoint.json": "d90591e5c1acfcb85c47e8a12ea15108e1ee28083d21f9d47557d1eb5b7ddeba",
+    "ce-native-acceptance528/earned-modern/checkpoints/499-Earned-Essence-full-rest499/checkpoint.json": "9eb074ffadfccee4031adf28195e1a90c2875a3f5cf33107f6414b64da942006",
+    "ce-native-acceptance528/earned-modern/checkpoints/500-Earned-full-caster-food-resupply500/checkpoint.json": "40d1c9cd65a04dd8f25d5fcab029242bb5b489cbcc555abe08171e5d37ddf83e",
+    "ce-native-acceptance528/earned-modern/checkpoints/501-Earned-Nox-Alyn-death-research501/checkpoint.json": "e08ce3bb801214df455944fe38f7b56164cd0ec813e86b1abda12bb9e919dcaf",
+    "ce-native-acceptance528/earned-modern/checkpoints/502-Earned-Nox-Necrosis-quest-spell502/checkpoint.json": "cbff4b91ac1ee0ad53802595bb25139df359f57487a7f95ff61e955121dc9942",
+    "ce-native-acceptance528/earned-modern/checkpoints/503-Earned-Nox-Necrosis-repeat503/checkpoint.json": "49e34b2c47c33e74c5a66ec56fe79adaa34eeaa0007c7826c86797110c656a15",
+    "ce-native-acceptance528/earned-modern/checkpoints/504-Earned-Ruin-Mage-departure504/checkpoint.json": "74fa5c2772b5e114598f301e7f8707235c25130a8289916c679e2a6e195fb3bb"
+  },
+  "source_commit": "c660ae8ac41",
+  "executable_sha256": "7cb7bb48f7fe95787df171a2007ebeab5384a84d058e2488c4fbfb76138441dd",
+  "cost": {
+    "builds": 8,
+    "game_cli_processes": 54,
+    "focused_cli_processes": 5,
+    "material_launches": 59
+  },
+  "cold": "Next actual eligible-spell/Vortex milestone; no new cold claim.",
+  "next": "Actual60-flight RuinMages794 toSurface137,214, stopping on damage/encounters. Then normalRight flight crosses authored138,214 entrance toRuin20; inspect residual local movement. Required1414/1344XP to level9/INT104: actual static Ruin22 group36 plus two naturally occurring original Mage groups, source500XP/member at level8. Inspect each actual admission before deciding normal tactical/flee; do not blindly fight incidental471HP enemies. Then actual book11 Ready/cast on original Dragon with both party members retained, earned level10/INT116, Vortex readiness, full guardians and remaining acceptance. No injected outcomes or XP."
+}

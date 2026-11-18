@@ -1,24 +1,29 @@
 {
   "status": "IN PROGRESS",
   "root_checkpoint": 479,
-  "current_checkpoint": 497,
+  "current_checkpoint": 504,
   "source_commit": "c660ae8ac41",
   "scope": "Required lawful caster advancement for Vortex110INT/87MP, not an Engine implementation gap.",
-  "actual": "Paid inn rest489 full112HP/92MP; attempted food service was off duty, no purchase. Source Surface flight from490 encountered five98/137HP foes; ordinary tactical victory491, fullHP,158gold, XP21586/21656. Two travel damage segments were healed normally. Checkpoint492 label is premature: stillSurface150,166, not Keep entry. Actual flight entry31/24,38 and normal N cancellation of residual-flight area-exit prompt precede493. Source geometry flight/ground stair reaches32/39,31 at494. Wrong horizontal-first flight crossed authored32->33 stair; return route entered incidental four471HP battle766. Actual defeat preserved in private fork DeathKeep-four471-defeat767; no rewards credited. Normal owned494 load restores exact pre-detour state. Correct north-first flight remains32 and reaches15,27 without damage. SearchLeft targets actual chest14,27. Initial0/Enter ignored by one-based lock prompt; three actual unsuccessful party1 picks consume35->32 picks, no HP loss. Fourth normal pick succeeds, item96qty1/field60=23,495. RepeatSearchLeft Nothing found/no duplicate496; screenshots237/238 inspected. Normal H camp restoresMP29/53->69/59, consumes46food->0, advances8h. QuickExitBr4MP returnsSurface150,168; Y flight and497 retained. No Engine change/build/cold rerun.",
+  "actual": "Earned Essence retained through source37-flight Nourtheld return; one17HP travel-damage stop, no battle, subsequent coast178,64/ground entry498, both95HP. Actual inn58 TalkUp and paid14gold rest499 restore112HP/92MP,144gold0food. Inn resets clock to06AM; source food-vendor54/160 schedule opens08AM. Source52-step food746 reaches11,20 at07:24. Exactly78 normal Space turns reach08:03 and actual seller11,19/service flag83. Normal TalkUp/numeric99 purchase clips to300food for18gold,126gold;500. Source88-step zero-damage NoxAlyn786 route reaches60/31,19. Actual slot112 is33,18; ten ordinary waits leave it there, normal2Right reaches33,19 and TalkUp succeeds. Initial phase4 screenshot240 presents Essence research; after normal dialogue completion field60 becomes55 at501. Second normal opening screenshot241 explicitly presents Nox Necrosis; completion sets119 and grants book11qty1 at502. Repeat normal opening/closing retains one book503. No six-hour timer or purchase required. QuickExit returnsSurface177,62; groundRight blocked at coast, assertion stopped that navigation without progression. Actual Y flight and504 saved at177,62, HP112/MP88,92,126gold300food. No Ready/cast claim: both casters remain level8/INT92, XP21586/21656. No Engine change/build or new process.",
   "source_contract": {
     "cultists": "UM98 fullNPC169 slots56/64/72/80 at166154/170154/166158/170158; original descriptor2,169 group57 admits two267HP template59 percontact,3300baseXP each, armor117/magic0.",
     "moat": "Original WorldHazards retains35thermal damage percell whilemounted. Selected west crossing at y158: flight153->157 crosses two lava156/157 (70damage), then157->161 crosses158/159 (70damage). Normal WorldCast52 restoresbothmaxHP for17MP; WorldInput casting closure refreshes scene without advancing WorldWait/hazards. Source Ytoggle also doesnotadvanceWorldWait. Normal healing between flight commands, never an HP injection. CurrentfullHP92 supports each70damage segment; inspect actualstate beforecontinuing.",
     "readiness": "Book11 is an earned Nox Alyn quest reward, not purchasable. Minimum INT98/cost29. Dragon117 HP2844/INT0/baseXP50000; keep both party members for original divided reward arithmetic. No victory or spell acquisition yet."
   },
-  "next": "Source37-flight Nourtheld778 return to178,64 with damage stop; normal ground entry54, paid rest and daytime food, actual Nox Alyn Castle60/112 two normal openings for book11. Both casters still level8/INT92, XP21586/21656; need1414/1344XP to level9 INT104 before book11 eligibility. Three original Ruin Mage group36 victories at500XP/member remain source-supported planned preparation, not earned. Then original Dragon reward with both party members, actual level10/Vortex readiness, guardians and remaining finite acceptance. No whole M4.3/ending claim.",
+  "next": "Actual60-flight RuinMages794 toSurface137,214, stopping on damage/encounters. Then normalRight flight crosses authored138,214 entrance toRuin20; inspect residual local movement. Required1414/1344XP to level9/INT104: actual static Ruin22 group36 plus two naturally occurring original Mage groups, source500XP/member at level8. Inspect each actual admission before deciding normal tactical/flee; do not blindly fight incidental471HP enemies. Then actual book11 Ready/cast on original Dragon with both party members retained, earned level10/INT116, Vortex readiness, full guardians and remaining acceptance. No injected outcomes or XP.",
   "report": "SCUMMVM-CE-M43-CULT734-VERIFICATION.json",
-  "last_checkpoint": 497,
-  "last_earned_checkpoint": 497,
+  "last_checkpoint": 504,
+  "last_earned_checkpoint": 504,
   "process_launches": 54,
   "essence775": {
     "status": "VERIFIED",
     "report": "SCUMMVM-CE-M43-ESSENCE775-VERIFICATION.json",
     "scope": "Earned Essence of Death pickup/repeat and actual lawful saves only; Nox book/XP/Vortex/guardians remain IN PROGRESS."
   },
-  "active_next": "Source37-flight Nourtheld778 return to178,64 with damage stop; normal ground entry54, paid rest and daytime food, actual Nox Alyn Castle60/112 two normal openings for book11. Both casters still level8/INT92, XP21586/21656; need1414/1344XP to level9 INT104 before book11 eligibility. Three original Ruin Mage group36 victories at500XP/member remain source-supported planned preparation, not earned. Then original Dragon reward with both party members, actual level10/Vortex readiness, guardians and remaining finite acceptance. No whole M4.3/ending claim."
+  "active_next": "Actual60-flight RuinMages794 toSurface137,214, stopping on damage/encounters. Then normalRight flight crosses authored138,214 entrance toRuin20; inspect residual local movement. Required1414/1344XP to level9/INT104: actual static Ruin22 group36 plus two naturally occurring original Mage groups, source500XP/member at level8. Inspect each actual admission before deciding normal tactical/flee; do not blindly fight incidental471HP enemies. Then actual book11 Ready/cast on original Dragon with both party members retained, earned level10/INT116, Vortex readiness, full guardians and remaining acceptance. No injected outcomes or XP.",
+  "necro795": {
+    "status": "VERIFIED",
+    "report": "SCUMMVM-CE-M43-NECRO795-VERIFICATION.json",
+    "scope": "Actual earned Nox Alyn research/book11 award/repeat and normal supply transactions only; casting eligibility and Vortex remain IN PROGRESS."
+  }
 }
