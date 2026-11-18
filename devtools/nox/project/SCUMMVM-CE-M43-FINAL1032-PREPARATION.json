@@ -25,7 +25,8 @@
     "Staff83": "Already legitimatelysoldat431(canonicalROSTER620), notcurrentlyowned. No inventorycorruption. AttemptReady83StopIterationbeforeanyinput, noownershipclaim.",
     "book23": "Proposedkind2/id23wasnotowned; actualownedweapon0/id23. Helperstoppedbeforeinputandresumeexcludedmissingrow.",
     "price15": "Actualsourcebase76/30percent=22; wrongexpected48assertedAFTERlegitimatesale. Actualstatepreserved,no replay.",
-    "armor": "BothSTR8; Noxalreadyweight8,Brunarmedweight4. Do not tryheavyequipmentonNox. CurrentlightMagearmor87/85,MR45. Shield32normalbuff/GreaterHeal51andnormalpartyformationareavailabledefenses."
+    "armor": "BothSTR8; Noxalreadyweight8,Brunarmedweight4. Do not tryheavyequipmentonNox. CurrentlightMagearmor87/85,MR45. Shield32normalbuff/GreaterHeal51andnormalpartyformationareavailabledefenses.",
+    "Shield_once": "Native BattleRestoration::armor explicitly refuses repeat buffs once armorBackup is set. Shield adds29 once per caster; the earlier proposed five-stack cap229 strategy was incorrect and is excluded BEFORE combat inputs. Final policy uses oneShield and targeted fullheals; no guaranteed survival claim."
   },
   "next_final_formation": "NormalN exchangeNox0withdeadCutter4andBr1withdeadAlluvion5 AFTERshop/rest. Arrowsincludedead;defaultfirstliving0then1. Actualformationindices4=(7,9),5=(2,10)separated5cells>chainradius4. Avoidsummonswhichcreateintermediatechaincenters; castnormalShieldandtargetedfullheals. Verifyactualstatesbeforeoffense; no assumedoutcomes.",
   "execution_cost": {
