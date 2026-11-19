@@ -82,9 +82,11 @@ def main():
         assert state["name"] == "CE SMOKE", state
         assert tuple(state[field] for field in ("map_type", "map", "x", "y")) == (8, 7, 24, 38), state
 
-        press(client, 32, 32)  # World Wait advances the original game clock.
+        press(client, ord("o"), ord("o"))
+        client.command("assert", field="adapter.open_direction", equals=True)
+        press(client, 27, 27)
+        client.command("assert", field="adapter.open_direction", equals=False)
         saved_state = client.command("inspect")["adapter"]
-        assert (saved_state["hour"], saved_state["minute"]) != (state["hour"], state["minute"])
         client.command("screenshot")
         assert list((root / "screenshots").glob("*.png")), "Missing gameplay frame"
         client.command("save", slot=0, description="Nox CE integration smoke")
@@ -109,7 +111,7 @@ def main():
         "binary_sha256": sha256(exe),
         "image_sha256": IMAGE_SHA256,
         "checks": ["detection", "native title", "title music and effects", "New Game",
-                   "world Wait", "world frame", "save", "quit", "cold restore"],
+                   "mapped Open and cancel", "world frame", "save", "quit", "cold restore"],
     }
     (output / "receipt.json").write_text(json.dumps(receipt, indent=2) + "\n", encoding="utf-8")
     print("PASS " + ", ".join(receipt["checks"]))
