@@ -231,7 +231,7 @@ void GfxScreen::fadeMazePlayfield(bool fadeIn) {
 	byte palette[768],work[768],hudMap[256];
 	bool used[256]={},hud[256]={},reserved[256]={};
 	grabPalette(palette,0,256);
-	for(int i=0;i<_displayPixels;++i)used[frame[i]]=true;
+	for(uint i=0;i<_displayPixels;++i)used[frame[i]]=true;
 	for(int i=0;i<10*_displayWidth;++i)hud[frame[i]]=true;
 	memcpy(work,palette,sizeof(work));
 	for(int c=0;c<256;++c) {

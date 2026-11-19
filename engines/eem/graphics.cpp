@@ -477,7 +477,7 @@ bool EEMEngine::doPuzzle(uint puzzleId) {
 				hint.deleteChar(0);
 			bubNum = fitBalloonToText(bubNum, hint);
 			Picture balloon;
-			const bool haveBalloon = _balloonArchive.size() > (bubNum & 0x7F) &&
+			const bool haveBalloon = _balloonArchive.size() > (bubNum & 0x7FU) &&
 				_balloonArchive.loadEntry(bubNum & 0x7F, balloon);
 			const int balloonX = 0x21;
 			int balloonY = 1;

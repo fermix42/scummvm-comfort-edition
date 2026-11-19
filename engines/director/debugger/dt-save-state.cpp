@@ -163,7 +163,7 @@ void loadSavedState() {
 
 	uint index = 0;
 	for (WindowFlag it : windows) {
-		*it.flag = (openFlags & 1 << index) ? true : false;
+		*it.flag = (openFlags & (int64(1) << index)) ? true : false;
 		index += 1;
 	}
 	if (debugChannelSet(7, kDebugImGui)) {

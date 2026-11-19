@@ -364,8 +364,8 @@ void Renderer3D::enter3D() {
 		glScissor(0, 0, g_system->getWidth(), g_system->getHeight());
 
 		glDisable(GL_STENCIL_TEST);
-		glStencilFunc(GL_ALWAYS, 0, -1u);
-		glStencilMask(-1u);
+		glStencilFunc(GL_ALWAYS, 0, ~0u);
+		glStencilMask(~0u);
 		glStencilOp(GL_KEEP, GL_KEEP, GL_KEEP);
 
 		glColorMask(GL_TRUE, GL_TRUE, GL_TRUE, GL_TRUE);

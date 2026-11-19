@@ -904,7 +904,7 @@ void sq5NavigationMenu(SciEvent &event, int argc, reg_t *argv) {
 			for(int index:known) {
 				const uint32 revealAt=180+(revealIndex++*140/MAX<int>(1,known.size()));
 				if(introElapsed<revealAt)continue;
-				const auto &p=galaxyPlaces[index]; int c=index==selected?green:bright;
+				const auto &p=galaxyPlaces[index];
 				// Rounded green marker drawn directly over the galaxy, with no backing box.
 				for(int dy=-2;dy<=2;++dy)for(int dx=-2;dx<=2;++dx)
 					if(dx*dx+dy*dy<=5)fill(p.x+dx,p.y+dy,1,1,green);

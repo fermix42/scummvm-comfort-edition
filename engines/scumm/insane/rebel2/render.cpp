@@ -158,7 +158,7 @@ int getHandler8PovOverlayRandom(ScummEngine_v7 *vm, int max) {
 	if (max == 0)
 		return 0;
 	if (max < 0)
-		return -vm->_rnd.getRandomNumber(-max - 1);
+		return 0U - vm->_rnd.getRandomNumber(-max - 1);
 	return vm->_rnd.getRandomNumber(max - 1);
 }
 

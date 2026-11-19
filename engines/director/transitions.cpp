@@ -473,20 +473,20 @@ void Window::playTransition(uint frame, RenderMode mode, uint16 transDuration, u
 
 		case kTransCoverDown:								// 29
 			rto.setHeight(h);
-			rto.translate(0, -h + t.yStepSize * i / TSTEP_FRAC);
+			rto.translate(0, (0U - h) + t.yStepSize * i / TSTEP_FRAC);
 			rfrom.top += h - clipRect.findIntersectingRect(rto).height();
 			rto.clip(clipRect);
 			break;
 
 		case kTransCoverDownLeft:							// 30
-			rto.translate(w - t.xStepSize * i / TSTEP_FRAC, -h + t.yStepSize * i / TSTEP_FRAC);
+			rto.translate(w - t.xStepSize * i / TSTEP_FRAC, (0U - h) + t.yStepSize * i / TSTEP_FRAC);
 			rfrom.top += h - clipRect.findIntersectingRect(rto).height();
 			rfrom.right -= w - clipRect.findIntersectingRect(rto).width();
 			rto.clip(clipRect);
 			break;
 
 		case kTransCoverDownRight:							// 31
-			rto.translate(-w + t.xStepSize * i / TSTEP_FRAC, -h + t.yStepSize * i / TSTEP_FRAC);
+			rto.translate((0U - w) + t.xStepSize * i / TSTEP_FRAC, (0U - h) + t.yStepSize * i / TSTEP_FRAC);
 			rfrom.top += h - clipRect.findIntersectingRect(rto).height();
 			rfrom.left += w - clipRect.findIntersectingRect(rto).width();
 			rto.clip(clipRect);
@@ -499,7 +499,7 @@ void Window::playTransition(uint frame, RenderMode mode, uint16 transDuration, u
 			break;
 
 		case kTransCoverRight:								// 33
-			rto.translate(-w + t.xStepSize * i / TSTEP_FRAC, 0);
+			rto.translate((0U - w) + t.xStepSize * i / TSTEP_FRAC, 0);
 			rfrom.left += w - clipRect.findIntersectingRect(rto).width();
 			rto.clip(clipRect);
 			break;
@@ -518,7 +518,7 @@ void Window::playTransition(uint frame, RenderMode mode, uint16 transDuration, u
 			break;
 
 		case kTransCoverUpRight:							// 36
-			rto.translate(-w + t.xStepSize * i / TSTEP_FRAC, h - t.yStepSize * i / TSTEP_FRAC);
+			rto.translate((0U - w) + t.xStepSize * i / TSTEP_FRAC, h - t.yStepSize * i / TSTEP_FRAC);
 			rfrom.bottom -= h - clipRect.findIntersectingRect(rto).height();
 			rfrom.right -= w - clipRect.findIntersectingRect(rto).width();
 			rto.clip(clipRect);

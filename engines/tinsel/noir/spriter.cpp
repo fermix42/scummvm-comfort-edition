@@ -373,11 +373,11 @@ void Spriter::LoadVMC(const Common::String& textureName) {
 		}
 		uint aAdj = a & 0xff;
 		if (a < 0) {
-			aAdj = -(-a & 0xffU);
+			aAdj = 0U - (-a & 0xffU);
 		}
 		uint bAdj = b & 0x7f;
 		if (b < 0) {
-			bAdj = -(-b & 0x7fU);
+			bAdj = 0U - (-b & 0x7fU);
 		}
 
 		uint pos = ((((aAdj & 0x1ff) * 128 + (bAdj & 0xffff)) & 0xffff) * 2) + (texId * 65536);

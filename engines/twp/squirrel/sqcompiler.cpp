@@ -158,6 +158,11 @@ public:
             _fs->AddInstruction(_OP_MOVE, _fs->PushTarget(), trg);
         }
     }
+#ifdef _MSC_VER
+// Existing C-style library error boundary; preserve its setjmp recovery.
+#pragma warning(push)
+#pragma warning(disable: 4611)
+#endif
     bool Compile(SQObjectPtr &o)
     {
         _debugline = 1;
@@ -198,6 +203,10 @@ public:
 		_fs = nullptr;
         return true;
     }
+#ifdef _MSC_VER
+#pragma warning(pop)
+#endif
+
     void Statements()
     {
         while(_token != _SC('}') && _token != TK_DEFAULT && _token != TK_CASE) {

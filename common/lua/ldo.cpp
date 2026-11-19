@@ -129,6 +129,11 @@ void luaD_throw (lua_State *L, int errcode) {
 }
 
 
+#ifdef _MSC_VER
+// Existing C-style library error boundary; preserve its setjmp recovery.
+#pragma warning(push)
+#pragma warning(disable: 4611)
+#endif
 int luaD_rawrunprotected (lua_State *L, Pfunc f, void *ud) {
   struct lua_longjmp lj;
   lj.status = 0;
@@ -144,6 +149,10 @@ int luaD_rawrunprotected (lua_State *L, Pfunc f, void *ud) {
   L->errorJmp = lj.previous;  /* restore old error handler */
   return lj.status;
 }
+
+#ifdef _MSC_VER
+#pragma warning(pop)
+#endif
 
 /* }====================================================== */
 

@@ -104,14 +104,14 @@ JSONValue *GrimEngine::testCLIState() {
 		texts.push_back(new JSONValue(text->getName()));
 	}
 	o["text_objects"] = new JSONValue(texts);
-	JSONObject controls;
+	JSONObject controlStates;
 	const int codes[] = { Common::KEYCODE_F1, KEYCODE_JOY1_START, Common::KEYCODE_UP, KEYCODE_JOY1_HUP, Common::KEYCODE_PERIOD };
 	const char *labels[] = { "f1", "start", "keyboard_up", "dpad_up", "skip_line" };
 	for (uint i = 0; i < ARRAYSIZE(codes); ++i) {
 		JSONObject control; control["enabled"] = new JSONValue(_controlsEnabled[codes[i]]); control["held"] = new JSONValue(_controlsState[codes[i]]);
-		controls[labels[i]] = new JSONValue(control);
+		controlStates[labels[i]] = new JSONValue(control);
 	}
-	o["controls"] = new JSONValue(controls);
+	o["controls"] = new JSONValue(controlStates);
 	return new JSONValue(o);
 }
 JSONValue *GrimEngine::testCLICommand(JSONValue &request) {

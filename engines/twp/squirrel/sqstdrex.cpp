@@ -552,6 +552,11 @@ static const SQChar *sqstd_rex_matchnode(SQRex* exp,SQRexNode *node,const SQChar
 }
 
 /* public api */
+#ifdef _MSC_VER
+// Existing C-style library error boundary; preserve its setjmp recovery.
+#pragma warning(push)
+#pragma warning(disable: 4611)
+#endif
 SQRex *sqstd_rex_compile(const SQChar *pattern,const SQChar **error)
 {
     SQRex * volatile exp = (SQRex *)sq_malloc(sizeof(SQRex)); // "volatile" is needed for setjmp()
@@ -596,6 +601,10 @@ SQRex *sqstd_rex_compile(const SQChar *pattern,const SQChar **error)
     }
     return exp;
 }
+
+#ifdef _MSC_VER
+#pragma warning(pop)
+#endif
 
 void sqstd_rex_free(SQRex *exp)
 {

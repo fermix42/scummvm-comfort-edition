@@ -4462,7 +4462,7 @@ void EEMEngine::drawKDBalloonOverCurrentScreen(Common::String text) {
 
 	Picture balloon;
 	const bool haveBalloon =
-		_balloonArchive.size() > (bubNum & 0x7F) &&
+		_balloonArchive.size() > (bubNum & 0x7FU) &&
 		_balloonArchive.loadEntry(bubNum & 0x7F, balloon);
 
 	const int balloonX = isMacTalkie() ? 100 : scaleX(0x21);
@@ -4856,7 +4856,7 @@ void EEMEngine::doAccuse() {
 			_picsArchive.getPicture(picId, suspect);
 		Picture balloon;
 		const bool haveBalloon =
-			_balloonArchive.size() > (bubNum & 0x7F) &&
+			_balloonArchive.size() > (bubNum & 0x7FU) &&
 			_balloonArchive.loadEntry(bubNum & 0x7F, balloon);
 
 		int balloonX = macTalkie ? 100 : 0x21;
@@ -4983,7 +4983,7 @@ void EEMEngine::doAccuse() {
 				rBub = fitBalloonToText(rBub, react);
 				Picture rBalloon;
 				const bool haveR =
-					_balloonArchive.size() > (rBub & 0x7F) &&
+					_balloonArchive.size() > (rBub & 0x7FU) &&
 					_balloonArchive.loadEntry(rBub & 0x7F, rBalloon);
 				const int rX = macTalkie ? 100 : 0x21;
 				int rY = 1;

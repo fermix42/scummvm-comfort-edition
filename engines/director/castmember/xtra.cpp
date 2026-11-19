@@ -121,23 +121,10 @@ bool XtraCastMember::hasField(int field) {
 }
 
 Datum XtraCastMember::getField(int field) {
-	Datum d;
-
-	switch (field) {
-	default:
-		d = CastMember::getField(field);
-		break;
-	}
-
-	return d;
+	return CastMember::getField(field);
 }
 
 void XtraCastMember::setField(int field, const Datum &d) {
-	switch (field) {
-	default:
-		break;
-	}
-
 	CastMember::setField(field, d);
 }
 

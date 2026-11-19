@@ -56,9 +56,7 @@ private:
 //FIXME verify if __WINS__ needs this still
 public:
 #endif
-	static T *makeInstance() {
-		return new T();
-	}
+	static T *makeInstance();
 
 	static void destroyInstance() {
 		delete _singleton;
@@ -95,6 +93,13 @@ protected:
 
 	static T *_singleton;
 };
+
+// Keep the primary factory out of the class's implicit-inline definition.
+// Platform factories may specialize it in a separate translation unit.
+template<class T>
+T *Singleton<T>::makeInstance() {
+	return new T();
+}
 
 /**
  * Note that you need to use this macro from the Common namespace.

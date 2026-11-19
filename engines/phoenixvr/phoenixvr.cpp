@@ -735,11 +735,7 @@ void PhoenixVREngine::until(const Common::String &var, int value) {
 		Common::Event event;
 		renderVR(frameDuration / 1000.0f);
 		while (g_system->getEventManager()->pollEvent(event)) {
-			switch (event.type) {
-			default:
-				processGenericEvents(event);
-				break;
-			}
+			processGenericEvents(event);
 		}
 
 		// Delay for a bit. All events loops should have a delay
@@ -761,11 +757,7 @@ void PhoenixVREngine::wait(float seconds) {
 		Common::Event event;
 		renderVR(frameDuration / 1000.0f);
 		while (g_system->getEventManager()->pollEvent(event)) {
-			switch (event.type) {
-			default:
-				processGenericEvents(event);
-				break;
-			}
+			processGenericEvents(event);
 		}
 
 		// Delay for a bit. All events loops should have a delay

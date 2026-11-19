@@ -527,8 +527,8 @@ bool Scene::processEvent(const Common::Event &event) {
 		}
 		break;
 	case Common::EVENT_KEYDOWN:
-		switch (event.kbd.keycode) {
 #if 0
+		switch (event.kbd.keycode) {
 		case '1':
 		case '2':
 		case '3':
@@ -546,10 +546,10 @@ bool Scene::processEvent(const Common::Event &event) {
 				}
 			}
 			break;
-#endif
 		default:
 			break;
 		}
+#endif
 		break;
 
 	default:
