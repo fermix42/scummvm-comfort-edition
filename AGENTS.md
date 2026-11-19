@@ -28,20 +28,13 @@ D:\Codex Projects\scummvm-private\scummvm-ce-2026.4.0-consolidated\build-scummvm
 Do not try to rediscover `msbuild`, `cmake`, `ninja`, `bash`, `make`, `g++`,
 `cl`, or `nmake` from the ambient `PATH` first.
 
-## Nox Archaist migration work
+## Nox Archaist production ownership
 
-For Nox migration tasks, first read `devtools/nox/project/AGENTS.md` and the
-architecture decision, implementation plan and progress document in that folder.
-Canonical editable copies are in `D:\Codex Projects\Nox Archaist` as documented
-there. Reconcile the two copies and actual Git/build evidence before resuming.
-M1 and M2 implementation/testing are authorized (M2: user's October 15, 2026
-"proceed" after M1 completion); continue unblocked current-milestone tasks autonomously
-and update progress after meaningful work. M3–M4 implementation, remote pushes,
-website deployment and destructive repository operations require separate user
-authorization. Preserve all unrelated instructions and engine behavior.
-
-Nox M2 completion is recorded in devtools/nox/project/SCUMMVM-CE-M2-VERIFICATION.json. When progress says M2 VERIFIED, stop before M3/M4 until explicitly authorized; preserve the completed evidence and current working tree.
-
+The consolidated CE repository owns all Nox production sources and changes.
+Read [the Nox maintenance guide](doc/ce-nox/README.md) for architecture,
+the standard native build, regression checks and the acceptance handoff.
+The independent Nox project and linked M4.5 candidate preserve historical
+research and private evidence. Make future fixes in this checkout.
 
 ## Native gameplay test CLI
 
