@@ -2641,11 +2641,11 @@
       "id": "story.08",
       "subsystem": "story",
       "behavior": "All authored script producers and special contexts",
-      "implementation": "UNKNOWN",
+      "implementation": "IMPLEMENTED",
       "verification": {
-        "status": "IN PROGRESS",
-        "scope": "1135 source investigation:32 mechanism rows,10 bounded equivalents/6 justified differences/16 UNKNOWN. Exhaustive original executable/caller/alias/dynamic-context equivalence is not demonstrated.276 bounded original-code cases are not fresh native verification. M4.3 remains closed.",
-        "report": "SCUMMVM-CE-STORY08-1135-RECONCILIATION.json"
+        "status": "VERIFIED",
+        "scope": "M4.4 supported base v119 functional-domain source reconciliation, retained evidence and six focused allocation cases; not exhaustive arbitrary machine states or newly replayed campaign.",
+        "report": "SCUMMVM-CE-M44-1136-RECONCILIATION.json"
       },
       "native_owners": [
         "engines/nox/native_gates.h",
@@ -2661,13 +2661,13 @@
         "SCUMMVM-CE-SCRIPT-SERVICE-OWNERS500.md contact502:17fixed/15role126/9awards static source encoding scope only",
         "SCUMMVM-CE-WORLD-STORY525-VERIFICATION.json and HARDCODED-STORY525-REVIEW:approach producer/core/admission only;wider producer/campaign scope unchanged.",
         "SCUMMVM-CE-INTEGRATION527-I4-VERIFICATION.json:bounded Engine joined integration/cold/nextinput only; broad row remains qualified; story.08 UNKNOWN unchanged.",
-        "SCUMMVM-CE-STORY08-1135-RECONCILIATION.json and SCUMMVM-CE-STORY08-1135.md:full static candidate envelope, bounded mechanism matrix and exact unresolved proof obligations; implementation UNKNOWN retained."
+        "SCUMMVM-CE-STORY08-1135-RECONCILIATION.json and SCUMMVM-CE-STORY08-1135.md:full static candidate envelope, bounded mechanism matrix and exact unresolved proof obligations; implementation UNKNOWN retained.",
+        "SCUMMVM-CE-M44-1136-RECONCILIATION.json: functional dispositions of16 prior UNKNOWN rows, original selector992 cases/19tail dispositions; prior reports unchanged."
       ],
-      "production_connection": "Known source/native chains and source hashes are in1135; complete bank/overlay/alias/caller and dynamic producer coverage remains unresolved.",
+      "production_connection": "Canonical typed owners cover all inventoried functional producer classes; physical allocation failure is explicit rather than silent reward completion. Original CPU/alias/stack/bank details are replaced as documented.",
       "fallback_dependencies": [],
-      "blockers": [
-        "B-SCRIPT"
-      ]
+      "blockers": [],
+      "functional_domain": "Original HDV data; normal New, ordinary commands/turns/authored events and supported CE save/load. Explicit native differences/exclusions in1136 matrix."
     },
     {
       "id": "persistence.01",
@@ -7994,12 +7994,12 @@
       "ce_replacements": 0
     },
     "story": {
-      "known_required": 9,
-      "native_implemented": 4,
-      "verified": 3,
+      "known_required": 10,
+      "native_implemented": 5,
+      "verified": 4,
       "partial": 5,
       "missing": 0,
-      "unknown_required_rows": 1,
+      "unknown_required_rows": 0,
       "additional_unclassified_scope": 1,
       "ce_replacements": 0
     },
@@ -8096,5 +8096,49 @@
     "native_builds": 0,
     "engine_launches": 0,
     "m43_status": "VERIFIED and unchanged"
+  },
+  "m44_functional_closure1136": {
+    "status": "VERIFIED",
+    "report": "SCUMMVM-CE-M44-1136-RECONCILIATION.json",
+    "production_commit": "404ce5a611101a7d238ab9261379810b4c406cfd",
+    "previous_story08_row": {
+      "id": "story.08",
+      "subsystem": "story",
+      "behavior": "All authored script producers and special contexts",
+      "implementation": "UNKNOWN",
+      "verification": {
+        "status": "IN PROGRESS",
+        "scope": "1135 source investigation:32 mechanism rows,10 bounded equivalents/6 justified differences/16 UNKNOWN. Exhaustive original executable/caller/alias/dynamic-context equivalence is not demonstrated.276 bounded original-code cases are not fresh native verification. M4.3 remains closed.",
+        "report": "SCUMMVM-CE-STORY08-1135-RECONCILIATION.json"
+      },
+      "native_owners": [
+        "engines/nox/native_gates.h",
+        "engines/nox/native_story_patches.h",
+        "engines/nox/native_world_story.h",
+        "engines/nox/native_world_open.h",
+        "engines/nox/native_ending.h"
+      ],
+      "original_evidence": [
+        "SCUMMVM-CE-SOURCE-PRODUCERS494.md (static scope only)",
+        "SCUMMVM-CE-SCRIPT-SERVICE-OWNERS500.md: authored dialogue domain classified;wider code scope retained UNKNOWN",
+        "SCUMMVM-CE-DIALOGUE-PRESENTATION501.md:complete authored body grammar static scope;not whole rendering/runtime acceptance",
+        "SCUMMVM-CE-SCRIPT-SERVICE-OWNERS500.md contact502:17fixed/15role126/9awards static source encoding scope only",
+        "SCUMMVM-CE-WORLD-STORY525-VERIFICATION.json and HARDCODED-STORY525-REVIEW:approach producer/core/admission only;wider producer/campaign scope unchanged.",
+        "SCUMMVM-CE-INTEGRATION527-I4-VERIFICATION.json:bounded Engine joined integration/cold/nextinput only; broad row remains qualified; story.08 UNKNOWN unchanged.",
+        "SCUMMVM-CE-STORY08-1135-RECONCILIATION.json and SCUMMVM-CE-STORY08-1135.md:full static candidate envelope, bounded mechanism matrix and exact unresolved proof obligations; implementation UNKNOWN retained."
+      ],
+      "production_connection": "Known source/native chains and source hashes are in1135; complete bank/overlay/alias/caller and dynamic producer coverage remains unresolved.",
+      "fallback_dependencies": [],
+      "blockers": [
+        "B-SCRIPT"
+      ]
+    },
+    "standard": "Owner M4.4 supported functional equivalence; prior1135 exhaustive machine-state judgment remains historical",
+    "classifications": {
+      "E": 2,
+      "B": 9,
+      "A": 4,
+      "C": 1
+    }
   }
 }

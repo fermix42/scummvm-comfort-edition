@@ -1,0 +1,145 @@
+{
+  "status": "VERIFIED",
+  "scope": "M4.4 supported functional equivalence; M4.3 stays closed",
+  "directive_sha256": "b28b4f38c8def596e13307fc5bf2eb8c4452f6e7c9b8f61f6f384c46ceea67dc",
+  "baseline_source_commit": "d52b130c5df",
+  "baseline_head": "4e6df14bede43c2fdf341cb5720640f225a2959b",
+  "accepted_m43_hashes": {
+    "SCUMMVM-CE-COMPLETION1134-INTEGRITY.json": "c1e04220e6820c913b9e3d358df6cdc96e9770be137346f83eeb6f1cd64af504",
+    "SCUMMVM-CE-M43-ACCEPTANCE528.json": "7648de4d2168d55fe521f2d9998c5443f9713040084174013acb537c12a1b4af",
+    "SCUMMVM-CE-M43-COMPLETION1134.json": "00895f7051e6fa243798a0971820bcea97f000b7ebd9dee524425cd6c8d8dafc",
+    "SCUMMVM-CE-M43-COMPLETION1134.md": "0ea1ce9b2d4e0c7f85e1bc6b1275bbc759ed0687e2b416aec816012819c4e193"
+  },
+  "priority": [
+    "S10",
+    "S03",
+    "U07",
+    "U02"
+  ],
+  "rows": [
+    {
+      "id": "S03",
+      "status": "VERIFIED",
+      "mechanism": "Derived lookup alias and prototype response context",
+      "classification": "E",
+      "scope": "Functional reconciliation; source/runtime qualifications in final report"
+    },
+    {
+      "id": "S06",
+      "status": "VERIFIED",
+      "mechanism": "Dialogue item/gold/recruit/payment handoffs",
+      "classification": "B",
+      "scope": "Functional reconciliation; source/runtime qualifications in final report"
+    },
+    {
+      "id": "S10",
+      "status": "VERIFIED",
+      "mechanism": "Search quest flag and reward transaction",
+      "classification": "B",
+      "scope": "Functional reconciliation; source/runtime qualifications in final report"
+    },
+    {
+      "id": "S11",
+      "status": "VERIFIED",
+      "mechanism": "Counted item increment/decrement",
+      "classification": "A",
+      "scope": "Functional reconciliation; source/runtime qualifications in final report"
+    },
+    {
+      "id": "S12",
+      "status": "VERIFIED",
+      "mechanism": "Item Use, spells and navigation producers",
+      "classification": "A",
+      "scope": "Functional reconciliation; source/runtime qualifications in final report"
+    },
+    {
+      "id": "S13",
+      "status": "VERIFIED",
+      "mechanism": "Recruitment and party/inn identity mutation",
+      "classification": "A",
+      "scope": "Functional reconciliation; source/runtime qualifications in final report"
+    },
+    {
+      "id": "S15",
+      "status": "VERIFIED",
+      "mechanism": "Combat protection, defeat/flee and consequences",
+      "classification": "C",
+      "scope": "Functional reconciliation; source/runtime qualifications in final report"
+    },
+    {
+      "id": "S21",
+      "status": "VERIFIED",
+      "mechanism": "Schedule, movement, population and indirect map consequences",
+      "classification": "B",
+      "scope": "Functional reconciliation; source/runtime qualifications in final report"
+    },
+    {
+      "id": "S23",
+      "status": "VERIFIED",
+      "mechanism": "Clock, tool/torch counters and retained service temporaries",
+      "classification": "B",
+      "scope": "Functional reconciliation; source/runtime qualifications in final report"
+    },
+    {
+      "id": "U01",
+      "status": "VERIFIED",
+      "mechanism": "Complete executable/data and root universe",
+      "classification": "B",
+      "scope": "Functional reconciliation; source/runtime qualifications in final report"
+    },
+    {
+      "id": "U02",
+      "status": "VERIFIED",
+      "mechanism": "Caller-derived indirect copy/fill and store destinations",
+      "classification": "B",
+      "scope": "Functional reconciliation; source/runtime qualifications in final report"
+    },
+    {
+      "id": "U03",
+      "status": "VERIFIED",
+      "mechanism": "Physical bank, overlay and computed/stack call closure",
+      "classification": "B",
+      "scope": "Functional reconciliation; source/runtime qualifications in final report"
+    },
+    {
+      "id": "U04",
+      "status": "VERIFIED",
+      "mechanism": "Copied, patched and generated instruction contexts",
+      "classification": "B",
+      "scope": "Functional reconciliation; source/runtime qualifications in final report"
+    },
+    {
+      "id": "U05",
+      "status": "VERIFIED",
+      "mechanism": "Special CPU/ROM/interrupt and inherited-memory contexts",
+      "classification": "B",
+      "scope": "Functional reconciliation; source/runtime qualifications in final report"
+    },
+    {
+      "id": "U06",
+      "status": "VERIFIED",
+      "mechanism": "Dynamic authored-data producers and reachability",
+      "classification": "A",
+      "scope": "Functional reconciliation; source/runtime qualifications in final report"
+    },
+    {
+      "id": "U07",
+      "status": "VERIFIED",
+      "mechanism": "Dialogue resource tails and selector termination",
+      "classification": "E",
+      "scope": "Functional reconciliation; source/runtime qualifications in final report"
+    }
+  ],
+  "builds": 3,
+  "engine_launches": 3,
+  "current": "Assignment complete; no release work authorized",
+  "failures": [
+    "First source analysis script syntax error or256 corrected before source probes",
+    "Focused1136 first process rejected generic atomicity assertion; no gameplay pass credited; diagnostic-only assertion build underway",
+    "Initial tracking writer used Windows cp1252 and rejected an existing UTF-8 document before its write; corrected explicit UTF-8 handling. No additional build or game process."
+  ],
+  "focused_passes": 1,
+  "campaign_launches": 0,
+  "production_commit": "404ce5a611101a7d238ab9261379810b4c406cfd",
+  "report": "SCUMMVM-CE-M44-1136-RECONCILIATION.json"
+}

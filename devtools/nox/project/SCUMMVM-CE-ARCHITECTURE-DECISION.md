@@ -498,3 +498,7 @@ W uses an explicit first-hour flavor phase and initial alarm terrain probe0,
 rather than original display-page/loader-register ABI. These CE choices and
 source-proof contexts are recorded in the command-controls contract/receipt.
 No synthetic movement turns or invented hourly gameplay effects are introduced.
+
+## M4.4 functional standard1136 — November18,2026
+
+The owner directive SCUMMVM-CE-M44-DIRECTIVE.txt is authoritative: functionally equivalent native PC base v119 using original resources, not Apple II machine-state reproduction. Typed ownership/continuations, safe transaction rejection and CE storage are explicit replacements. Original fatal physical-slot failure may abort with prior-save recovery; silent successful reward loss is corrected. Test/debug/imported arbitrary memory is outside supported New/ordinary-play/CE-save domain. No CPU executor/ROM bootstrap/IRQ delivery or new modernization feature is introduced. The functional matrix and accepted differences are in SCUMMVM-CE-M44-1136-RECONCILIATION.json; prior M4.3 checkpoints remain closed.

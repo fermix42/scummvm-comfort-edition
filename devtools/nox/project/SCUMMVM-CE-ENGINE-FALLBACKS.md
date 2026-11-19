@@ -1,3 +1,7 @@
+# M4.4 functional closure1136 — VERIFIED
+
+B-SCRIPT is closed for the owner-defined supported functional domain by M44-1136-RECONCILIATION.json. Prior machine-equivalence UNKNOWN records remain historical, not erased. Failed physical allocation is explicit error/prior-save recovery, not a completed reward. No CPU/executor/ROM/disk bootstrap/IRQ dependency or release work introduced. Existing unrelated scoped qualifications below retain their own limits.
+
 # Completion1134 disposition — November 18, 2026
 
 Supported base v119 native port and M4.3 are VERIFIED under the owner source/existing-evidence amendment. Final report SCUMMVM-CE-M43-COMPLETION1134.json separates actual earned gameplay, source review and historical controlled evidence. No demonstrated blocking native implementation defect or required original-execution dependency remains in supported scope. Existing raw53/254, moving-large-NPC/ship-domain and story.08 qualifications remain explicit research/coverage limits; prior failures below remain historical. No acceptance traversal/build/suite rerun pending. No publication/push/release/distribution.

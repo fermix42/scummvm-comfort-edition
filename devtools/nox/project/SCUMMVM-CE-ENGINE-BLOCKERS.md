@@ -1,3 +1,7 @@
+# M4.4 functional closure1136 — VERIFIED
+
+B-SCRIPT is closed for the owner-defined supported functional domain by M44-1136-RECONCILIATION.json. Prior machine-equivalence UNKNOWN records remain historical, not erased. Failed physical allocation is explicit error/prior-save recovery, not a completed reward. No CPU/executor/ROM/disk bootstrap/IRQ dependency or release work introduced. Existing unrelated scoped qualifications below retain their own limits.
+
 # B-SCRIPT / story.08 investigation1135 — UNKNOWN
 
 M4.3 remains closed. No new blocking native defect demonstrated. Exhaustive source equivalence is not established:1135 provides32 mechanism rows and per-site candidate/source indexes,276 bounded original-code cases, and exact U01..U07 and S-row obligations. Complete original code/data roots, bank/overlay/call/alias/generated contexts, dynamic producer provenance,19 dialogue tails and qualified full-failure behavior remain unresolved. These are source-evidence obligations, not a new campaign/build queue. See STORY08-1135 report/matrix; historical evidence below retained.

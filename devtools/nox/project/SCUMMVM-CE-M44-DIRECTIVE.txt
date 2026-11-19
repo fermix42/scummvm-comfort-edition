@@ -1,0 +1,399 @@
+# Nox Archaist — M4.4 Functional Equivalence Closure
+
+## Owner directive — November 18, 2026
+
+The Nox Archaist base v119 native-only ScummVM Comfort Edition port has completed M4.3 acceptance. The subsequent `story.08` investigation1135 identified 16 UNKNOWN reconciliation rows but demonstrated no new native implementation defects.
+
+I am authorizing **M4.4: Functional Equivalence Closure**.
+
+This is an implementation-completion assignment, not an unrestricted reverse-engineering research project.
+
+**Execute the entire assignment autonomously. Do not stop after producing an inventory, research plan, partial analysis or another list of proposed investigations.**
+
+## 1. Architectural intent — authoritative
+
+The objective is a **functionally equivalent native PC clone of Nox Archaist**, using the original base v119 HDV image as the authoritative source of game data and resources.
+
+The objective is NOT cycle-accurate emulation, complete Apple II machine-state reproduction, or instruction-by-instruction equivalence.
+
+If machine-perfect duplication were the objective, an emulator would be the appropriate solution.
+
+The native ScummVM CE engine must reproduce the original game's meaningful player-visible behavior:
+
+- Story progression, quests, flags, events and endings.
+- Exploration, maps, movement, transportation and environmental interactions.
+- NPC identities, dialogue, schedules and behavior.
+- Combat, spells, items, equipment, inventory and character progression.
+- Economy, services, recruitment and party management.
+- Rules governing access, failure, refusal, consequences and recovery.
+- Meaningful ordering of state changes and persistent game-state consequences.
+- Original presentation, music, sound and game resources as applicable.
+
+The original disk image remains authoritative for its data and resources. Do not silently substitute reauthored game content, hardcoded approximations or invented behavior.
+
+Native code may interpret and transform those resources into appropriate PC representations.
+
+Apple II-specific implementation details are not requirements unless they materially affect legitimate gameplay.
+
+These include CPU registers, stack layout, ROM calls, bank-switch timing, instruction patching, interrupt delivery, physical disk operations and temporary memory aliases.
+
+Such mechanisms should be understood sufficiently to reproduce their **functional effects**, not reimplemented merely because they existed in the original.
+
+The approved native-only architecture remains mandatory. Do not introduce an original instruction executor, CPU emulation fallback, ROM bootstrap dependency or general-purpose compatibility escape.
+
+### Future modernization
+
+This native implementation is also intended to support future PC-oriented enhancements beyond the ScummVM save system.
+
+Therefore:
+
+- Preserve clean subsystem boundaries and canonical state ownership.
+- Prefer explicit native game rules over machine-address-dependent behavior.
+- Keep original game mechanics distinguishable from modern enhancements.
+- Do not hardcode campaign outcomes or test-specific shortcuts.
+- Avoid architectural choices that would unnecessarily constrain future enhancements.
+- Do not implement new modernization features in this assignment.
+
+**Functional fidelity now; extensibility for later.**
+
+## 2. Preserve accepted M4.3
+
+M4.3 remains VERIFIED and closed under completion1134.
+
+Preserve:
+
+- The legitimately earned New Game-to-ending evidence.
+- All 60 accepted campaign nodes and 10 supported-branch obligations.
+- Existing positive and negative evidence.
+- Original HDV and other proprietary resources.
+- Original, native and historical validation results.
+- Native save619 and cold-load evidence.
+- Existing release candidate hashes and production checkpoints.
+- Unrelated worktrees and Git changes.
+
+Do not retroactively rewrite acceptance evidence or claim that an unexecuted scenario was executed.
+
+Do not reopen the campaign merely because a source-level uncertainty exists.
+
+The 377-file accepted source checkpoint is the baseline. Any new production changes must be separately identifiable, reproducible and justified.
+
+## 3. Reinterpret story.08 using the correct objective
+
+Read:
+
+- `SCUMMVM-CE-STORY08-1135-RECONCILIATION.json`
+- The investigation1135 report.
+- The original-behavior matrix and its `story.08` definition.
+- M4.3 completion1134.
+- Relevant original disassembly/reference sources.
+- Relevant native engine implementations.
+- Retained verification evidence.
+
+The investigation1135 inventories and matrices are starting evidence, not an instruction to pursue exhaustive machine-level equivalence indefinitely.
+
+For each of the 16 UNKNOWN rows, determine whether its unresolved behavior has a meaningful relationship to supported gameplay.
+
+Classify it as one of:
+
+**A — FUNCTIONALLY VERIFIED**
+
+The relevant original behavior and native implementation are equivalent for the defined, supported gameplay domain.
+
+**B — ACCEPTED NATIVE DIFFERENCE**
+
+The original implementation differs, but the difference is intentional, documented and functionally justified. Examples include hardware replacement, memory ownership, safer error recovery and ScummVM save handling.
+
+**C — FUNCTIONAL DEFECT**
+
+A demonstrated discrepancy affects legitimate gameplay or required persistent state. Correct it.
+
+**D — FUNCTIONAL RISK**
+
+A plausible player-visible discrepancy remains unresolved. Identify the precise mechanism, circumstances and impact. Investigate further using targeted evidence.
+
+**E — OUTSIDE SUPPORTED FUNCTIONAL DOMAIN**
+
+The behavior cannot be reached through supported legitimate game operation, or is exclusively a machine-specific implementation detail without gameplay consequences.
+
+An E disposition requires affirmative supporting evidence or an explicit scope exclusion. Absence of a discovered caller is not proof of unreachability.
+
+**F — UNRESOLVED**
+
+The available evidence does not justify any stronger conclusion. State the exact uncertainty, likely player impact and bounded next step.
+
+Do not automatically convert UNKNOWN to VERIFIED.
+
+Do not retain UNKNOWN solely because every theoretical machine state has not been exhaustively modeled.
+
+Distinguish technical uncertainty from actual functional risk.
+
+## 4. Prioritized functional investigations
+
+Resolve the following first.
+
+### S10 — Search rewards and full-inventory failure
+
+Investigate the original sequence involving:
+
+- Search reward eligibility.
+- Inventory capacity and physical-slot exhaustion.
+- Quest-flag updates.
+- Object consumption and repeat Search behavior.
+- Reward assignment.
+- Failure, fatal and recovery paths.
+- Save/reload consequences.
+
+The original may update state before encountering a full-inventory failure, while the native implementation uses staged transactions.
+
+Determine whether this difference is reachable through legitimate gameplay.
+
+Compare meaningful resulting behavior, including the possibility of losing a quest reward, repeating an interaction or corrupting progression.
+
+If the native implementation behaves incorrectly under legitimate conditions, correct it.
+
+An original crash or unrecoverable failure need not be reproduced. A safe PC-specific recovery is acceptable if it does not introduce an unjustified gameplay advantage, progression loss or inconsistent persistent state.
+
+Use focused deterministic validation.
+
+### S03 — Derived dialogue lookup aliases
+
+Investigate the authored mutation targeting derived field133 and its relationship to scene lookup state.
+
+Establish:
+
+- Which dialogue packet or actor produces it.
+- Its legitimate activation conditions.
+- The state observed before response selection.
+- The original mutation's meaningful effect.
+- The subsequent redraw and consumer behavior.
+- Whether it survives or affects persistence.
+- The native equivalent.
+- Whether prototype/import/debug-only activation is relevant to supported gameplay.
+
+Resolve the actual functional behavior rather than reproducing arbitrary original memory aliasing.
+
+Correct any demonstrated discrepancy.
+
+### U07 — Unparsed dialogue resource tails
+
+Investigate all 19 indexed tails totaling 4,502 bytes.
+
+For each tail, determine whether it is:
+
+- Valid selectable game data.
+- Non-dialogue data or padding.
+- A malformed or incomplete resource.
+- A legitimately reachable original special case.
+- Genuinely unresolved.
+
+Follow the original resource selection and termination behavior sufficiently to determine whether any player-visible dialogue, state change or interaction is omitted.
+
+Do not assume that a native parser rejecting a tail establishes original unreachability.
+
+Do not invent additional quests or dialogue based on ambiguous bytes.
+
+### U02 — Indirect copy/fill behavior
+
+The original investigation established:
+
+- Forward sequential copy with an inclusive source endpoint.
+- Fill with an exclusive endpoint.
+- Potentially meaningful overlapping-buffer behavior.
+
+Inspect actual gameplay-relevant callers and native equivalents.
+
+Prioritize inventory, party records, recruitment, combat consequences, world records and persistence.
+
+For each supported functional operation, determine whether original copy direction, overlap or boundary behavior affects the resulting game state.
+
+Correct genuine functional discrepancies.
+
+Do not introduce a general Apple II memory-copy execution layer merely to reproduce internal memory mechanics.
+
+## 5. Resolve the remaining UNKNOWN domains
+
+After the priority investigations, address:
+
+- S06 — Dialogue handoffs and service transactions.
+- S11 — Counted inventory and quantity operations.
+- S12 — Item Use, casting and navigation producers.
+- S13 — Recruitment, membership and party identity.
+- S15 — Combat protection, defeat and consequences.
+- S21 — Dynamic NPC, world and scheduling effects.
+- S23 — Clock, tool, torch and service temporaries.
+- U01 — Executable/data and entry-root universe.
+- U03 — Bank, overlay and computed continuation relationships.
+- U04 — Patched and generated instruction contexts.
+- U05 — CPU, ROM, interrupt and inherited-memory contexts.
+- U06 — Dynamic data producers and reachability.
+
+For U01/U03/U04/U05 specifically, **do not require exhaustive machine-state reconstruction**.
+
+Instead, establish whether the unresolved mechanism has any supported player-visible consequence not already represented by the native implementation.
+
+Use bounded source tracing, caller relationships, known entry points, data provenance and justified native subsystem ownership.
+
+A bank switch, self-modified instruction or CPU-specific continuation is not itself a missing gameplay feature.
+
+Its observable consequence may be.
+
+Preserve explicit residual uncertainties where evidence is insufficient.
+
+Do not treat enormous raw-byte candidate counts as actual executable code or gameplay paths.
+
+## 6. Implementation corrections
+
+For every demonstrated functional defect:
+
+1. Identify the original behavior and its supported gameplay conditions.
+2. Identify the native divergence and player-visible consequence.
+3. Implement a minimal, coherent correction in the appropriate native subsystem.
+4. Preserve canonical ownership and the native-only architecture.
+5. Add a focused deterministic regression test.
+6. Verify the corrected behavior and relevant adjacent invariants.
+7. Document any intentionally different failure or recovery policy.
+
+Avoid isolated special-case patches when a shared native rule is the correct solution.
+
+Do not inject quest flags, alter inventory artificially, manufacture battle results or manipulate saves to make a test pass.
+
+Do not change original source resources to conceal native defects.
+
+## 7. Testing discipline
+
+The project previously suffered excessive repeated build, launch and gameplay loops.
+
+That must not resume.
+
+Use:
+
+- Source-driven analysis.
+- Existing original/native evidence.
+- Deterministic rule-level tests.
+- Narrow integration checks.
+- Focused original-code probes when they answer a specific functional question.
+
+Build only when production changes require validation.
+
+When necessary, perform a bounded build and focused regression checks.
+
+Do not undertake a new entire-campaign playthrough, manual voyage, exploratory game session or comprehensive regression-suite rerun without a demonstrated need that cannot be addressed more narrowly.
+
+Do not repeat a failed test without diagnosing its cause.
+
+Do not equate test harness failures with native engine defects without evidence.
+
+Do not spend substantial effort reproducing hardware-specific failures whose functional replacement is already justified.
+
+## 8. Functional completion standard
+
+M4.4 is complete when:
+
+1. Every investigation1135 UNKNOWN row has an updated, justified functional classification.
+2. All demonstrated supported-gameplay defects discovered during the assignment are corrected and verified.
+3. Every remaining plausible player-visible risk has a specific disposition, severity and reproduction or investigation requirement.
+4. All relevant game rules and state transitions identified through this investigation have native ownership or an explicit documented exclusion.
+5. No required original CPU execution, machine-state emulation or ROM/disk bootstrap has been introduced.
+6. The original HDV remains the authoritative source of game data/resources.
+7. Existing accepted M4.3 evidence remains intact.
+8. Necessary focused tests pass.
+9. The architecture remains suitable for later native PC enhancements.
+
+**Completing M4.4 does not require proving every possible original-machine memory state equivalent.**
+
+However, do not declare complete functional coverage if a credible, potentially progression-breaking native discrepancy remains unresolved.
+
+If a remaining uncertainty cannot reasonably be closed within this assignment, identify it accurately rather than inventing proof or perpetually expanding the investigation.
+
+Do not define an unreachable standard that prevents reporting a useful completed engineering result.
+
+## 9. Deliverables
+
+Produce:
+
+### A. Functional equivalence matrix
+
+For every previously UNKNOWN row:
+
+- Original mechanism.
+- Legitimate gameplay trigger or entry condition.
+- Player-visible behavior.
+- Persistent state consequence.
+- Native owner.
+- Supporting original evidence.
+- Supporting native evidence.
+- Functional classification A–F.
+- Remaining risk, if any.
+- Corrections and tests, if applicable.
+
+### B. Functional discrepancy report
+
+Separate:
+
+- Demonstrated native defects.
+- Corrected defects.
+- Accepted native differences.
+- Potential player-visible risks.
+- Machine-level implementation differences without required gameplay effects.
+- Unresolved evidence limitations.
+
+### C. Implementation delivery
+
+Provide:
+
+- Production files changed.
+- Commits and exact hashes.
+- Focused validation results.
+- Any remaining failures.
+- Confirmation that existing accepted evidence was preserved.
+
+### D. Owner summary
+
+Explain in plain English:
+
+1. Whether any actual gameplay defects were discovered.
+2. What was corrected.
+3. Whether any legitimate gameplay features are still suspected missing.
+4. Whether normal gameplay could encounter unresolved progression problems.
+5. Whether the native base v119 port is functionally ready for release preparation.
+6. Which uncertainties, if any, remain and why they matter.
+
+Do not obscure the engineering outcome behind machine-level opcode statistics or abstract proof terminology.
+
+## 10. Scope and authorization
+
+Authorized:
+
+- Base v119 original/native source investigation.
+- Functional-equivalence reconciliation.
+- Narrow production corrections.
+- Necessary focused deterministic tests.
+- Documentation and local commits.
+
+Not authorized:
+
+- Lord of Storms support.
+- Modern gameplay feature additions.
+- Broad engine redesign.
+- CPU emulation or interpreter fallbacks.
+- Full-campaign replay.
+- Release packaging.
+- Deployment.
+- Publication.
+- Release tagging.
+- Remote pushes.
+- Unrelated repository changes.
+
+Maintain separate development work from the accepted M4.3 candidate.
+
+## Final directive
+
+**Finish the functional port, not the emulation research.**
+
+Determine whether the remaining `story.08` uncertainties represent missing or incorrect game behavior. Fix demonstrated problems, document legitimate native differences, and establish a practical, evidence-based functional completion judgment.
+
+Complete the investigations and justified corrections autonomously in this assignment.
+
+Do not repeatedly stop for permission, produce another research-only milestone without attempting closure, or use exhaustive hardware equivalence as an excuse to leave the functional question unanswered.
+
+The intended result is a faithful, maintainable, extensible PC-native Nox Archaist engine using the original game's data—not a reimplementation of the Apple II computer.

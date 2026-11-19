@@ -1,0 +1,10 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition="'$(MSBuildProjectName)' == 'scummvm'">
+    <TargetName>scummvm-m44-1136</TargetName>
+    <TargetFileName>scummvm-m44-1136.exe</TargetFileName>
+    <TargetPath>$(OutDir)scummvm-m44-1136.exe</TargetPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(MSBuildProjectName)' == 'scummvm'">
+    <Link><OutputFile>$(OutDir)scummvm-m44-1136.exe</OutputFile><ProgramDatabaseFile>$(OutDir)scummvm-m44-1136.pdb</ProgramDatabaseFile></Link>
+  </ItemDefinitionGroup>
+</Project>
