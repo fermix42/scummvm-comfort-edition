@@ -48,57 +48,6 @@ void mock_set_ay_register(Mockingboard *m,unsigned chip,unsigned reg,byte value,
   if(chip>=2||reg>=16)return;
   ay_advance(&m->ay[chip],cycle);m->ay[chip].selected=byte(reg);ay_write(&m->ay[chip],value);
 }
-#ifndef NOX_NATIVE_ONLY
-void mock_advance(Mockingboard *m,uint64 cycle){
-  if(cycle<m->cycle)return;
-  uint64 clocks=cycle-m->cycle;m->cycle=cycle;
-  for(unsigned i=0;i<2;i++){
-    NoxVIA *v=&m->via[i];if(!v->running)continue;
-    if(clocks<v->remaining){v->remaining-=(uint32)clocks;continue;}
-    uint64 extra=clocks-v->remaining;v->ifr|=64;v->expirations++;
-    if(v->reg[11]&64){uint32 reload=(uint32)v->latch+2;v->expirations+=extra/reload;v->remaining=reload-(uint32)(extra%reload);}
-    else{v->remaining=65536-(uint32)(extra%65536);v->running=0;}
-  }
-}
-int mock_irq(const Mockingboard *m){return ((m->via[0].ifr&m->via[0].ier)|(m->via[1].ifr&m->via[1].ier))!=0;}
-int mock_irq_before(const Mockingboard *m,uint64 cycle){
-  if(mock_irq(m))return 1;
-  if(cycle<=m->cycle)return 0;
-  uint64 duration=cycle-m->cycle;
-  for(unsigned i=0;i<2;i++)if(m->via[i].running&&(m->via[i].ier&0x40)&&m->via[i].remaining<=duration)return 1;
-  return 0;
-}
-byte mock_read(Mockingboard *m,unsigned offset){
-  unsigned i=(offset>>7)&1,r=offset&15;NoxVIA *v=&m->via[i];
-  if(r==13)return v->ifr|((v->ifr&v->ier)?128:0);
-  if(r==14)return v->ier|128;
-  if(r==4){v->ifr&=~64;return (byte)(v->remaining-1);}
-  if(r==5)return (byte)((v->remaining-1)>>8);
-  if(r==6)return (byte)v->latch;if(r==7)return v->latch>>8;
-  if(r==1||r==15){
-    if((v->reg[0]&7)==5)return m->ay[i].reg[m->ay[i].selected&15];
-    return (v->reg[1]&v->reg[3])|((byte)~v->reg[3]);
-  }
-  return v->reg[r];
-}
-void mock_write(Mockingboard *m,unsigned offset,byte value,uint64 cycle){
-  mock_advance(m,cycle);unsigned i=(offset>>7)&1,r=offset&15;
-  NoxVIA *v=&m->via[i];NoxAY *a=&m->ay[i];
-  if(r==13){v->ifr&=~(value&127);return;}
-  if(r==14){if(value&128)v->ier|=value&127;else v->ier&=~value;return;}
-  v->reg[r]=value;
-  if(r==15)v->reg[1]=value;
-  if(r==4||r==6)v->latch=(v->latch&0xff00)|value;
-  if(r==5||r==7){v->latch=(v->latch&255)|(value<<8);v->ifr&=~64;
-    if(r==5){v->remaining=(uint32)v->latch+2;v->running=1;}}
-  if(r==0){
-    ay_advance(a,cycle);unsigned control=value&v->reg[2]&7;
-    if(!(control&4))ay_reset(a);
-    else if(control==7)a->selected=v->reg[1]&15;
-    else if(control==6)ay_write(a,v->reg[1]);
-  }
-}
-#endif // Compatibility VIA/timer/IRQ bus is absent from native-only builds.
 int mock_sample(Mockingboard *m,uint64 cycle){
   /* Logarithmic 16-level DAC approximation, six channels mixed to mono. */
   static const int amplitude[16]={0,28,40,57,81,114,161,228,322,455,644,910,1287,1820,2574,3640};

@@ -5,9 +5,6 @@
 #include "common/config-manager.h"
 #include "common/system.h"
 #include "engines/engine.h"
-#ifndef NOX_NATIVE_ONLY
-#include "nox/runtime.h"
-#endif
 #include "gui/gui-manager.h"
 #include "gui/ThemeEval.h"
 #include "image/png.h"
@@ -52,12 +49,8 @@ public:
 		: _engine(engine), _runtime(runtime), _dispatcher(enabled ? events.getEventDispatcher() : nullptr) {
 		if (_dispatcher) _dispatcher->registerSource(this, false);
 	}
-#ifdef NOX_NATIVE_ONLY
     // Native menu stability is checked by the lifecycle probe's owned state.
     uint64 observedClocks() const { return 0; }
-#else
-    uint64 observedClocks() const { return _runtime ? _runtime->cpuClocks() : 0; }
-#endif
 	~MenuValidationSource() { if (_dispatcher) _dispatcher->unregisterSource(this); }
 	void arm() { _armed = true; }
 	void armQuit() { _armed = true; _quit = true; _opened = 0; }

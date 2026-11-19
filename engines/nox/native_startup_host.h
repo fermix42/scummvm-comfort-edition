@@ -686,9 +686,7 @@ inline Common::Error NoxEngine::runNativeStartup() {
     uint battleMoveCommands=0,battleOccupiedRefusals=0,battleCompleted=0;uint16 lastBattleCredit=0;Common::String battleMoveTrace;
     Native::BattlePresentation &battlePresentation=player.battlePresentation;if (!battlePresentation.load(_resources)) return fail("Native battle presentation resources unavailable");
     Native::BattleRound battleRound;if (!battleRound.load(_resources)) return fail("Native battle rule data unavailable");
-#ifdef NOX_NATIVE_ONLY
     Native::SoundEvents soundEvents;battleRound.setSoundEvents(&soundEvents);
-#endif
     Native::BattleCannon battleCannon;if (!battleCannon.load(_resources)) return fail("Native cannon rule data unavailable");
     Native::BattleCast battleCast;if (!battleCast.load(_resources)) return fail("Native cast rule data unavailable");
     Native::BattleAftermath aftermath;if (!aftermath.load(_resources)) return fail("Native battle results data unavailable");
@@ -848,9 +846,7 @@ inline Common::Error NoxEngine::runNativeStartup() {
                     if (!templeTravel && player.music.ready()) {if (!player.music.ambient(_resources,random,game.world.mapType(),game.world.mapId())) return false;resetAudio();player.lastAudioTick=0;}
                     frame=nextFrame;const bool partyTargeting=encounterState.attack.partyTargeting;encounterState=Native::EncounterState();encounterState.attack.partyTargeting=partyTargeting;encounterPrepared=false;redraw=true;lastAnimationTick=_system->getMillis();
                     battleReturnStep=Common::String::format("Archus automatic Talk map%u/%u xy%u/%u north slot%u kind%u hour%u",game.world.mapType(),game.world.mapId(),game.world.x(),game.world.y(),prepared.actors.lookup[76],prepared.actors.kinds[76],game.clock.hour);
-#ifdef NOX_NATIVE_ONLY
                     if (templeTravel) soundEvents.push_back(Native::kSpeakerSelection);
-#endif
                     return !templeTravel || worldInput.beginTempleConversation(_resources,game,prepared,frame,&random,turns.praevocCursor);
     };
     const int automaticRoundLimit=ConfMan.hasKey("nox_native_automatic_round_checkpoint")?ConfMan.getInt("nox_native_automatic_round_checkpoint"):0;
@@ -885,17 +881,13 @@ inline Common::Error NoxEngine::runNativeStartup() {
     if (autoPlay && (!encounterState.formed || !automatic.load(_resources))) return fail("Combat input driver requires a restored battle");
     if (playerProbe.finished()) return Common::kNoError;
     while (!shouldQuit()) {
-#ifdef NOX_NATIVE_ONLY
         if (soundEvents.size()>128) return fail("Native sound event batch exceeded its contract");
         for (uint i=0;i<soundEvents.size();++i) if (!playNativeSpeaker(byte(soundEvents[i]))) return fail("Native gameplay sound event failed");
         soundEvents.clear();
-#endif
         CETestCLI::frame();
         if (!synchronizePlaySession()) return fail("Native player session could not be initialized");
-#ifdef NOX_NATIVE_ONLY
         // CE load/session replacement can reconstruct these owners in frame().
         worldInput.setSoundEvents(&soundEvents,_nativeSoundMode==0 || _nativeSoundMode==2);wait.setSoundEvents(&soundEvents);
-#endif
         if (sceneReady && !startupMenu && !encounterState.formed && worldInput.atWorldCommand()) {
             bool changed=false;
             if (!worldInput.pollWorldEvents(game,window,messages,text,frame,prepared,light,animationState.phase,changed,&_resources,&turns,&random)) return fail("Native world revelation event failed");
@@ -1057,7 +1049,6 @@ inline Common::Error NoxEngine::runNativeStartup() {
         if (sceneReady) {
             if (event.type!=Common::EVENT_KEYDOWN) continue;
             if (replay) inputTrace+=Common::String::format("%u\t%u\t%s\t%u\t%u\n",processedKeys,uint(creation.stage()),creation.name().c_str(),creation.gender(),creation.race());
-#ifdef NOX_NATIVE_ONLY
             const bool soundAtBattleCommand=encounterState.presented && !encounterState.inventory.active() && (encounterState.mode.selection==0 || encounterState.mode.selection==2) && !encounterState.quick.partyCount && !encounterState.command && !encounterState.resultPhase && !encounterState.exit.phase && encounterState.round.phase==Native::kBattlePartyTurn;
             if (((!encounterState.formed && worldInput.atWorldCommand()) || soundAtBattleCommand) && event.kbd.keycode==Common::KEYCODE_v) {
                 _nativeSoundMode=byte((_nativeSoundMode+1)&3);ConfMan.setInt("nox_sound_mode",_nativeSoundMode);ConfMan.flushToDisk();
@@ -1079,7 +1070,6 @@ inline Common::Error NoxEngine::runNativeStartup() {
                 for (uint i=0;i<label.size();++i) if (!soundFrame.drawGlyph(font,byte(label[i])|128,7+i,23,0)) return fail("Native sound preference text failed");
                 if (!soundAtBattleCommand && !animationState.synchronize(frame)) return fail("Native sound preference repaint failed");redraw=true;continue;
             }
-#endif
             // F5/F7 use normal ScummVM dialogs and the existing mode's slot
             // policy. Q is a classic world-save shortcut only; authored dialogue
             // and the combat Quick choice retain their own character input.
@@ -1166,9 +1156,7 @@ inline Common::Error NoxEngine::runNativeStartup() {
                         const byte answer=event.kbd.ascii?byte(event.kbd.ascii|128):byte(key|128);
                         const Native::BattleExitDecision decision=Native::BattleTerminal::decideExit(next.records,true,next.exit.control,answer,control,prompt,refusal);
                         next.exit.phase=decision==Native::kBattleExitRefused?2:decision==Native::kBattleExitFled?3:0;next.exit.control=control;
-#ifdef NOX_NATIVE_ONLY
                         if (refusal && !playNativeRefusal()) return fail("Native flee refusal sound failed");
-#endif
                     }
                     if (next.exit.phase==3) {
                         if (!aftermath.escape(game,next)) return fail("Native flee could not commit its party/currency return");
@@ -1206,9 +1194,7 @@ inline Common::Error NoxEngine::runNativeStartup() {
                         Native::CannonOutcome result;
                         if (!Native::BattleAttack::remember(next.records,caster,next.target,next.attack) ||
                             !battleCannon.fire(caster,next.target,next.round.category,turns.effects.projectileMode,next.cannon,after,next.records,result,next.round.protectedTargets)) return fail("Native cannon impact failed");
-#ifdef NOX_NATIVE_ONLY
                         soundEvents.push_back(Native::kSpeakerProjectile);
-#endif
                         next.command=0;next.target=255;
                         if (!battleRound.pass(preparedEncounter.terrain.data(),preparedEncounter.terrain.size(),next.round,after,next.records)) return fail("Native cannon turn retirement failed");
                     }
@@ -1221,11 +1207,9 @@ inline Common::Error NoxEngine::runNativeStartup() {
                     const Native::BattleCastInput handled=battleCast.handle(event,game.book,preparedEncounter.terrain.data(),preparedEncounter.terrain.size(),battleRound,after,next,notice);
                     if (handled==Native::kBattleCastUnsupported) return fail("Native Cast reached an unsupported family/status/NPC continuation");
                     if (handled==Native::kBattleCastIgnored) continue;
-#ifdef NOX_NATIVE_ONLY
                     if (handled==Native::kBattleCastRefused && !playNativeRefusal()) return fail("Native spell refusal sound failed");
                     if (selectingSpell && (handled==Native::kBattleCastPending || handled==Native::kBattleCastCommitted ||
                             (handled==Native::kBattleCastCancelled && key!=Common::KEYCODE_ESCAPE)) && !playNativeCast()) return fail("Native spell selection sound failed");
-#endif
                     if (!battlePresentation.paint(preparedEncounter,next,next.phase,image,notice.empty()?nullptr:&notice)) return fail("Native Cast presentation rejected its pending state");
                     next.frame=image;encounterState=next;random=after;redraw=true;continue;
                 }
@@ -1256,9 +1240,7 @@ inline Common::Error NoxEngine::runNativeStartup() {
                 if (Native::BattlePartyControl::requested(event.kbd,lockedParty)) {
                     Common::ScopedPtr<Native::EncounterState> nextOwner7(new Native::EncounterState(encounterState));Native::EncounterState &next=*nextOwner7;Native::GameplayRandom after=random;Native::HgrFrame image;bool accepted=false;
                     if (!battleRound.lockParty(lockedParty,preparedEncounter.terrain.data(),preparedEncounter.terrain.size(),next.round,after,next.records,accepted)) return fail("Native party lock scheduling failed");
-#ifdef NOX_NATIVE_ONLY
                     if (!accepted && !playNativeRefusal()) return fail("Native party lock refusal sound failed");
-#endif
                     if (!battlePresentation.paint(preparedEncounter,next,next.phase,image)) return fail("Native party lock presentation failed");
                     next.frame=image;encounterState=next;random=after;redraw=true;continue;
                 }
@@ -1296,9 +1278,7 @@ inline Common::Error NoxEngine::runNativeStartup() {
                         next.frame=image;redraw=true;
                     }
                     else {
-#ifdef NOX_NATIVE_ONLY
                         if (!playNativeRefusal()) return fail("Native unavailable attack sound failed");
-#endif
                         next.attack.resetAction();next.target=255;
                     }
                     encounterState=next;continue;
@@ -1333,9 +1313,7 @@ inline Common::Error NoxEngine::runNativeStartup() {
             }
             const byte priorMusicType=game.world.mapType(),priorMusicMap=game.world.mapId();
             Native::WorldInputResult handled=worldInput.handle(event,_resources,game,window,prepared,turns,light,visibility,routes,random,messages,text,frame,animationState.phase);
-#ifdef NOX_NATIVE_ONLY
             if (worldInput.takeRefusalSound() && !playNativeRefusal()) return fail("Native refusal sound failed");
-#endif
             const auto adoptWorldTransition=[&]() -> bool {
                 const byte type=game.world.mapType();
                 if (player.music.ready() && (priorMusicType!=type || priorMusicMap!=game.world.mapId())) {if (!player.music.ambient(_resources,random,type,game.world.mapId())) return false;resetAudio();player.lastAudioTick=0;}

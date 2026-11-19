@@ -1,2 +1,2 @@
-# Base v119 integration is experimental; enable explicitly during M1.
+# Native engine for the original base game v119 HDV.
 add_engine nox "Nox Archaist" no

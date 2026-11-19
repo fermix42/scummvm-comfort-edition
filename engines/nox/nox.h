@@ -34,10 +34,8 @@ public:
 	explicit NoxEngine(OSystem *system) : Engine(system) {}
 	~NoxEngine() override;
 	Common::Error run() override;
-#ifdef NOX_NATIVE_ONLY
     Common::JSONValue *testCLIState() override;
     Common::JSONValue *testCLICommand(Common::JSONValue &request) override;
-#endif
 	bool hasFeature(EngineFeature feature) const override { return feature == kSupportsReturnToLauncher || feature == kSupportsSavingDuringRuntime || feature == kSupportsLoadingDuringRuntime; }
 	bool canSaveGameStateCurrently(Common::U32String *msg = nullptr) override;
 	bool canLoadGameStateCurrently(Common::U32String *msg = nullptr) override;
@@ -60,14 +58,12 @@ private:
     Audio::QueuingAudioStream *_nativeMusicAudio = nullptr;
     Audio::SoundHandle _nativeMusicSound;
     bool queueNativeMusic(const int16 *samples,uint count);
-#ifdef NOX_NATIVE_ONLY
     bool playNativeRefusal();
     bool playNativeCast();
     bool playNativeSpeaker(byte cue);
     bool queueNativeEffect(const int16 *samples,uint count,uint toggles=0);
     Audio::QueuingAudioStream *_nativeEffectAudio = nullptr;
     byte _nativeSoundMode=0;uint _nativeEffectsPlayed=0,_nativeEffectSamples=0,_nativeEffectToggles=0;
-#endif
     void pauseEngineIntern(bool pause) override;
 	bool validateResources(Common::String &error);
 	Common::Error runNativeStartup();

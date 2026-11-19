@@ -1,8 +1,5 @@
 /* SPDX-License-Identifier: GPL-3.0-or-later */
 // Native-only Engine host. The compatibility/reference host remains in nox.cpp.
-#ifndef NOX_NATIVE_ONLY
-#error native_engine.cpp requires the native-only build target
-#endif
 #include "nox/nox.h"
 #include "engines/util.h"
 #include "common/config-manager.h"

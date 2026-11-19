@@ -1,8 +1,8 @@
-param([switch]$NoxNativeOnly, [switch]$NoxFocused, [switch]$WithoutNox, [switch]$UnitTests, [switch]$WarningAudit, [switch]$GenerateOnly)
+param([switch]$NoxNativeOnly, [switch]$NoxFocused, [switch]$WithoutNox, [switch]$UnitTests, [switch]$WarningAudit, [switch]$GenerateOnly, [switch]$Clean)
 
 $ErrorActionPreference = 'Stop'
 if ($WithoutNox -and ($NoxNativeOnly -or $NoxFocused -or $UnitTests -or $WarningAudit)) { throw 'Use -WithoutNox with the standard Release build.' }
-if ($NoxNativeOnly -and ($NoxFocused -or $UnitTests)) { throw 'Use -NoxNativeOnly with the normal consolidated solution.' }
+# -NoxNativeOnly remains accepted for historical callers. Every Nox build is native.
 $buildDirectory = if ($UnitTests) { 'build-tests' } elseif ($NoxFocused) { 'build-nox-focused' } elseif ($WithoutNox) { 'build-scummvm-no-nox' } else { 'build-scummvm' }
 $buildLogName = if ($UnitTests) { 'msbuild-tests.log' } elseif ($NoxFocused) { 'msbuild-nox-focused.log' } elseif ($WithoutNox) { 'msbuild-release-no-nox.log' } else { 'msbuild-release.log' }
 
@@ -90,7 +90,7 @@ if (-not $projectNeedsRefresh -and -not $WithoutNox) {
     $projectNeedsRefresh = -not (Test-Path $noxProjectPath)
     if (-not $projectNeedsRefresh) {
         $noxProjectContent = Get-Content -LiteralPath $noxProjectPath -Raw
-        $projectNeedsRefresh = -not $noxProjectContent.Contains('..\engines\nox\session_validation.cpp') -or -not $noxProjectContent.Contains('..\engines\nox\runtime_state.cpp') -or -not $noxProjectContent.Contains('..\engines\nox\enhancements.cpp') -or -not $noxProjectContent.Contains('..\engines\nox\runtime_observers.cpp')
+        $projectNeedsRefresh = -not $noxProjectContent.Contains('..\engines\nox\native_engine.cpp') -or $noxProjectContent.Contains('..\engines\nox\runtime.cpp')
     }
 }
 
@@ -174,11 +174,8 @@ foreach ($propsFile in $propsFiles) {
 
 if ($GenerateOnly) { exit 0 }
 
-$nativeBuildArgs = @()
-if ($NoxNativeOnly) {
-    $nativeBuildArgs = @('/p:NoxNativeOnly=true', "/p:ForceImportBeforeCppTargets=$repoRoot\devtools\nox\native-only.targets")
-}
-& 'C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\MSBuild\Current\Bin\amd64\MSBuild.exe' "$buildDirectory\$solutionName.sln" @nativeBuildArgs /m:1 /p:Configuration=Release /p:Platform=x64 /p:VcpkgEnabled=false /p:VcpkgEnableManifest=false /p:VcpkgManifestInstall=false /p:VcpkgRoot=S:\vcpkg\ /p:VcpkgTriplet=x64-windows /p:VcpkgInstalledDir="$substVcpkgInstalled" /p:PreferredToolArchitecture=x64 /v:normal "/flp:logfile=$repoRoot\$buildLogName;verbosity=detailed"
+$buildTarget = if ($Clean) { '/t:Rebuild' } else { '/t:Build' }
+& 'C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\MSBuild\Current\Bin\amd64\MSBuild.exe' "$buildDirectory\$solutionName.sln" $buildTarget /m:1 /p:Configuration=Release /p:Platform=x64 /p:VcpkgEnabled=false /p:VcpkgEnableManifest=false /p:VcpkgManifestInstall=false /p:VcpkgRoot=S:\vcpkg\ /p:VcpkgTriplet=x64-windows /p:VcpkgInstalledDir="$substVcpkgInstalled" /p:PreferredToolArchitecture=x64 /v:normal "/flp:logfile=$repoRoot\$buildLogName;verbosity=detailed"
 $buildExitCode = $LASTEXITCODE
 
 if ($buildExitCode -eq 0) {
