@@ -2,7 +2,7 @@
 
 This file tracks user-facing changes maintained in ScummVM Comfort Edition.
 
-- 2026-11-18: AGS: Recognize additional eXoScummVM builds under their existing game IDs. Correct the supported AGS 2.50 and 2.51 registrations for Marty Chonks and Project Evilspy. Release as CE v0.1.7. See doc/ce-release/0.1.7.md.
+- 2026-11-18: AGS: Recognize additional eXoScummVM builds under their existing game IDs. Correct the supported AGS 2.50 and 2.51 registrations for Marty Chonks and Project Evilspy. Release as CE v0.1.7 with Nox excluded from the Windows package. See doc/ce-release/0.1.7.md.
 - 2026-11-11: Detection: Fix the Macintosh resource parser crash during all-engine detection of Adventure: Welcome to the Genre. Validate complete fork/data/map regions, type and reference tables, names and resource payloads with overflow-safe arithmetic; preserve stream ownership and clean up partial maps. Keep valid raw, MacBinary and AppleDouble probing, including wide embedded-fork positions. Add 12 focused synthetic regression tests. Release as CE v0.1.6; see doc/ce-release/0.1.6.md.
 
 - 2026-11-08: Release preparation: Prepare complete CE v0.1.5 on ScummVM 2026.4.0, with separate application/About CE identity and complete portable packaging; see doc/ce-release/0.1.5.md. Retain all prior CE engines, enhancements and strict portable storage.

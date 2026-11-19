@@ -1,9 +1,10 @@
-param([switch]$NoxNativeOnly, [switch]$NoxFocused, [switch]$UnitTests, [switch]$WarningAudit, [switch]$GenerateOnly)
+param([switch]$NoxNativeOnly, [switch]$NoxFocused, [switch]$WithoutNox, [switch]$UnitTests, [switch]$WarningAudit, [switch]$GenerateOnly)
 
 $ErrorActionPreference = 'Stop'
+if ($WithoutNox -and ($NoxNativeOnly -or $NoxFocused -or $UnitTests -or $WarningAudit)) { throw 'Use -WithoutNox with the standard Release build.' }
 if ($NoxNativeOnly -and ($NoxFocused -or $UnitTests)) { throw 'Use -NoxNativeOnly with the normal consolidated solution.' }
-$buildDirectory = if ($UnitTests) { 'build-tests' } elseif ($NoxFocused) { 'build-nox-focused' } else { 'build-scummvm' }
-$buildLogName = if ($UnitTests) { 'msbuild-tests.log' } elseif ($NoxFocused) { 'msbuild-nox-focused.log' } else { 'msbuild-release.log' }
+$buildDirectory = if ($UnitTests) { 'build-tests' } elseif ($NoxFocused) { 'build-nox-focused' } elseif ($WithoutNox) { 'build-scummvm-no-nox' } else { 'build-scummvm' }
+$buildLogName = if ($UnitTests) { 'msbuild-tests.log' } elseif ($NoxFocused) { 'msbuild-nox-focused.log' } elseif ($WithoutNox) { 'msbuild-release-no-nox.log' } else { 'msbuild-release.log' }
 
 $repoRoot = Split-Path -Parent $MyInvocation.MyCommand.Path
 $workspaceRoot = Split-Path -Parent $repoRoot
@@ -66,7 +67,7 @@ if (-not $projectNeedsRefresh) {
     $projectNeedsRefresh = -not (Test-Path $globalPropsPath)
     if (-not $projectNeedsRefresh) {
         $globalPropsContent = Get-Content -LiteralPath $globalPropsPath -Raw
-        $projectNeedsRefresh = (-not $NoxFocused -and -not $globalPropsContent.Contains('ENABLE_MONKEY4')) -or -not $globalPropsContent.Contains('ENABLE_NOX') -or (-not $NoxFocused -and -not $globalPropsContent.Contains('ENABLE_PHOENIXVR')) -or (-not $NoxFocused -and -not $globalPropsContent.Contains('ENABLE_GOOKA'))
+        $projectNeedsRefresh = (-not $NoxFocused -and -not $globalPropsContent.Contains('ENABLE_MONKEY4')) -or ($globalPropsContent.Contains('ENABLE_NOX') -eq $WithoutNox.IsPresent) -or (-not $NoxFocused -and -not $globalPropsContent.Contains('ENABLE_PHOENIXVR')) -or (-not $NoxFocused -and -not $globalPropsContent.Contains('ENABLE_GOOKA'))
     }
 }
 if (-not $projectNeedsRefresh -and (Test-Path "$buildDirectory\scummvm.vcxproj")) {
@@ -84,7 +85,7 @@ if (-not $projectNeedsRefresh -and -not $NoxFocused -and -not $UnitTests) {
         $projectNeedsRefresh = (Get-Item 'engines\gooka\module.mk').LastWriteTimeUtc -gt (Get-Item $gookaProjectPath).LastWriteTimeUtc
     }
 }
-if (-not $projectNeedsRefresh) {
+if (-not $projectNeedsRefresh -and -not $WithoutNox) {
     $noxProjectPath = "$buildDirectory\nox.vcxproj"
     $projectNeedsRefresh = -not (Test-Path $noxProjectPath)
     if (-not $projectNeedsRefresh) {
@@ -118,6 +119,8 @@ if ($projectNeedsRefresh -or $UnitTests -or $GenerateOnly) {
             ..\build-create-project\Release\create_project.exe .. --msvc --vcpkg --msvc-version 17 --use-windows-unicode --tests
         } elseif ($NoxFocused) {
             ..\build-create-project\Release\create_project.exe .. --msvc --vcpkg --msvc-version 17 --use-windows-unicode --disable-all-engines --enable-engine=nox
+        } elseif ($WithoutNox) {
+            ..\build-create-project\Release\create_project.exe .. --msvc --vcpkg --msvc-version 17 --use-windows-unicode --enable-gif --enable-engine=monkey4,gooka --disable-engine=nox
         } else {
             ..\build-create-project\Release\create_project.exe .. --msvc --vcpkg --msvc-version 17 --use-windows-unicode --enable-gif --enable-engine=monkey4,nox,gooka
         }
