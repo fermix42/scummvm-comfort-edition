@@ -1,3 +1,12 @@
+# Official Nox integration handoff
+
+The consolidated CE repository owns all production Nox development. Follow
+[the Nox maintenance guide](../../../doc/ce-nox/README.md) and the root CE
+instructions. The independent project's conversion records and the M4.5
+candidate worktree are historical evidence. Do not synchronize production
+implementation or current progress back to those trees. The migration
+instructions below describe the historical work.
+
 # Nox Archaist development instructions
 
 ## Approved migration and recovery
