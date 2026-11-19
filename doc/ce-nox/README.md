@@ -91,7 +91,7 @@ and continues it across the menu transition.
 | --- | --- |
 | M4.3 | [Completion1134](../../devtools/nox/project/SCUMMVM-CE-M43-COMPLETION1134.md) documents the earned New Game to victory, 60 supported campaign nodes and 10 branch obligations. |
 | M4.4 | [Functional1136](../../devtools/nox/project/SCUMMVM-CE-M44-1136.md) closes story.08 within the supported domain and dispositions the 16 formerly unknown rows. The correction requires a successful physical-slot grant before clearing pending loot. |
-| M4.5 | RC1149 was built and delivered locally with 201 files, 61 DLLs and 139 registered engines. Its receipt covers package contents and title audio sample generation and routing. RC1149 executable SHA-256 is `25c191b88c91e6127df3a378b5ad693216c1eacf52416d1ff3f5d28a96ae3a3e`. |
+| M4.5 | RC1149 was built and delivered locally with 201 files, 61 DLLs and 139 engine and subengine build defines. Its receipt covers package contents and title audio sample generation and routing. RC1149 executable SHA-256 is `25c191b88c91e6127df3a378b5ad693216c1eacf52416d1ff3f5d28a96ae3a3e`. |
 
 Canonical private evidence lives under the independent project's `conversion/`
 directory. SHA-256 of the canonical JSON records at handoff:
@@ -117,3 +117,38 @@ save implementation through the CE test CLI. It records generated title
 music/effects and verifies a cold restore in a second process. The original
 image remains unchanged. Personal campaign play, display preference and
 listening are ongoing owner validation.
+
+## Integrated Windows x64 validation
+
+The standard CE 0.1.7 / ScummVM 2026.4.0 Release build at production code
+revision `2210a79f99d6e1e20267112c5e1022ee5c9cc238` completed MSBuild
+Rebuild in 9:46.51 with 0 warnings and 0 errors. The executable SHA-256 was
+`8c14d4eec2187bbbf79a4f0aefe52491236f3ecb35f0389119b358f67a27245e`.
+The build log contains no reference to the independent Nox project. The
+linked Nox library contains enhancements, MetaEngine, Mockingboard synthesis,
+native engine and speaker audio objects. Detection is linked through the normal
+CE detection project.
+
+Registration output matches RC1149 exactly (115 playable engines and 128
+detection engines). Compared with the CE 0.1.7 no-Nox package, all 114 other
+playable engines and all 128 detection registrations are present.
+
+In disposable portable copies of this executable:
+
+- The normal detector and Add operation registered Nox Archaist v119 from the
+  original HDV. The retained launcher event driver selected **Start** on the
+  real launcher and entered the Nox engine through the Play Session dialog.
+- The focused M4.4 awards diagnostic passed all six cases, including four
+  atomic full-slot failures and pending loot serialization. The original
+  message wording guard passed.
+- The native test CLI exercised the same player host with ordinary title,
+  menu and character creation input. It reached the original initial world,
+  handled the mapped Open command and Escape, and captured a rendered frame.
+  The CE save implementation produced a persistent slot and restored matching
+  world, party, quest and inventory state after process exit and cold launch.
+- Title audio generated nonzero music samples on an active mixer handle and
+  submitted opening effects. Personal listening remains an owner check.
+
+This integration carries forward M4.3 and M4.4 campaign evidence. The bounded
+validation does not repeat the campaign. The local branch is ready for owner
+playtesting and a separate publication decision.
