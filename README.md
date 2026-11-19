@@ -23,6 +23,9 @@ For the original ScummVM project README, see [UPSTREAM-README.md](UPSTREAM-READM
 The experimental [Gooka engine](doc/ce-gooka/README.md) is included in CE Windows
 builds, with a pinned upstream snapshot and a manual update tool.
 
+The standard CE source build includes the native [Nox Archaist engine]
+(doc/ce-nox/README.md) for the original base game v119.
+
 ## Downloads
 
 Windows x64 portable binary releases are published from tagged GitHub Releases

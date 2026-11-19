@@ -99,7 +99,7 @@ directory. SHA-256 of the canonical JSON records at handoff:
 | Record | SHA-256 |
 | --- | --- |
 | `SCUMMVM-CE-M43-COMPLETION1134.json` | `00895f7051e6fa243798a0971820bcea97f000b7ebd9dee524425cd6c8d8dafc` |
-| `SCUMMVM-CE-M44-1136-RECONCILIATION.json` | `fb75ff66af185cc7c5dc2b2b56cf76468e73a957a1987deB3d70a90ddc582461` |
+| `SCUMMVM-CE-M44-1136-RECONCILIATION.json` | `fb75ff66af185cc7c5dc2b2b56cf76468e73a957a1987deb3d70a90ddc582461` |
 | `SCUMMVM-CE-M45-1149-VERIFICATION.json` | `dfe2fc4d0bed777b5dafbf2a8b22a27bb9706b48e8d272fa05092556a775014b` |
 
 ## Focused regression checks
