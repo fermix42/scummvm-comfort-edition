@@ -6,6 +6,8 @@
 #include "nox/native_party_selection.h"
 #include "nox/native_battle_restoration.h"
 #include "nox/native_sound_events.h"
+#include "nox/native_menu_chrome.h"
+#include "nox/native_original_messages.h"
 namespace Nox { namespace Native {
 enum WorldCastResult {kWorldCastHandled,kWorldCastClosed,kWorldCastTravel,kWorldCastUnsupported};
 // Whole world C workflow: slot -> living caster -> source refusal/effect or
@@ -20,11 +22,11 @@ public:
     bool matches(const World &world) const {return !active() || (world.ready() && world.mapType()==_type && world.mapId()==_map);}
     bool begin(HdvArchive &archive,const NewGame &game,HgrFrame &frame) {
         if (active() || !game.ready()) return false;
-        WorldCast next;next._phase=1;next._type=game.world.mapType();next._map=game.world.mapId();next._underlay=frame;
+        WorldCast next;if (!next._messages.load(archive)) return false;next._phase=1;next._type=game.world.mapType();next._map=game.world.mapId();next._underlay=frame;
         if (!next.paint(archive,game,frame)) return false;*this=next;return true;
     }
     WorldCastResult handle(const Common::Event &event,HdvArchive &archive,NewGame &game,bool riding,HgrFrame &frame) {
-        if (!active() || !matches(game.world) || event.type!=Common::EVENT_KEYDOWN) return kWorldCastUnsupported;
+        if (!_messages.load(archive) || !active() || !matches(game.world) || event.type!=Common::EVENT_KEYDOWN) return kWorldCastUnsupported;
         const Common::KeyCode key=event.kbd.keycode;
         if (_phase==5 || key==Common::KEYCODE_ESCAPE) {close(frame);return kWorldCastClosed;}
         if (_phase==1) {
@@ -58,7 +60,7 @@ public:
                             game.clock.lightTicks=120;game.clock.lightActive=_spell==58?129:1;_phase=5;
                         } else if (_spell==59) {
                             if (!spendMana(game)) return kWorldCastUnsupported;
-                            _message=Common::String::format("X-AXIS %u\rY-AXIS %u",game.world.x(),game.world.y());_phase=5;
+                            _message=_messages.get(OriginalMessages::kWorldX)+Common::String::format("%u\r",game.world.x())+_messages.get(OriginalMessages::kWorldY)+Common::String::format("%u",game.world.y());_phase=5;
                         } else if (_spell==60) {
                             if (!spendMana(game)) return kWorldCastUnsupported;
                             // The source origin helper updates the Surface
@@ -73,8 +75,8 @@ public:
             if (event.kbd.ascii<'1' || event.kbd.ascii>'9') return kWorldCastHandled;
             const NavigationResult result=game.navigation.choose(byte(event.kbd.ascii-'1'),_destination);
             if (result==kNavigationUnsupported) return kWorldCastUnsupported;
-            if (result==kNavigationUnbound) {_message="That orb has not been enchanted.";_phase=5;}
-            else if (_destination.map && riding) {_message="You must exit your transport first.";_phase=5;}
+            if (result==kNavigationUnbound) {_message=_messages.get(OriginalMessages::kOrbInactive);_phase=5;}
+            else if (_destination.map && riding) {_message=_messages.get(OriginalMessages::kOnlyFoot);_phase=5;}
             else {const NavigationPoint destination=_destination;close(frame);_destination=destination;return kWorldCastTravel;}
         } else return kWorldCastUnsupported;
         return paint(archive,game,frame)?kWorldCastHandled:kWorldCastUnsupported;
@@ -117,7 +119,7 @@ private:
             records.stats[uint(_caster)*128+4]-=_cost;
         }
         if (!game.party.applyBattleMembers(records.stats,768,game.party.memberCount())) return false;
-        if (outcome.effect==kRestorationNotDead) _message="That character is not dead.";
+        if (outcome.effect==kRestorationNotDead) _message=_messages.get(OriginalMessages::kNotDead);
         return true;
     }
     static bool line(const GlyphFont &font,HgrFrame &frame,uint x,uint y,const Common::String &text) {
@@ -130,16 +132,27 @@ private:
     }
     bool paint(HdvArchive &archive,const NewGame &game,HgrFrame &frame) const {
         CastRules rules;GlyphFont font;if (!rules.load(archive) || !font.load(archive,1)) return false;HgrFrame next;
-        if (!line(font,next,1,1,"Cast spell")) return false;
+        if (!MenuChrome::begin(font,next,"Spellbook / Cast")) return false;
         if (_phase==1) {
-            for (uint i=0;i<10;++i) if (!line(font,next,1,3+i*2,Common::String::format("%u %s",i,game.book.spell(i)<64?rules.name(game.book.spell(i)).c_str():"--"))) return false;
+            if (!MenuChrome::text(font,next,2,3,_messages.get(OriginalMessages::kCastWhich))) return false;
+            for (uint i=0;i<10;++i) {
+                if (!MenuChrome::text(font,next,2,5+i,Common::String::format("%u",i),127) ||
+                    !MenuChrome::text(font,next,5,5+i,game.book.spell(i)<64?rules.name(game.book.spell(i)):Common::String("-- empty --"))) return false;
+            }
+            if (!MenuChrome::text(font,next,2,18,"Next: choose who casts the spell") ||
+                !MenuChrome::text(font,next,2,21,"0-9: select the numbered spell") || !MenuChrome::text(font,next,2,22,"Esc: return to the game")) return false;
         } else if (_phase==2 || _phase==3) {
-            if (!line(font,next,1,4,_phase==2?"Who casts?":"Who receives the spell?") || !_selection.paint(archive,game.party,next)) return false;
-        } else if (_phase==4) {if (!line(font,next,1,4,"Crystal orb 1-9 (Escape cancels)")) return false;}
-        else if (_phase==5) {if (!line(font,next,1,4,_message) || !line(font,next,1,22,"Press a key")) return false;}
+            if (!MenuChrome::text(font,next,2,3,_messages.get(_phase==2?OriginalMessages::kWhoCasts:_spell==49?OriginalMessages::kResurrectWho:OriginalMessages::kHealWho)) ||
+                !MenuChrome::party(font,game.party,next,_selection.selected()) ||
+                !MenuChrome::text(font,next,1,21,"Up/Down or 1-6: select  Enter: choose") || !MenuChrome::text(font,next,2,22,"Esc: cancel casting")) return false;
+        } else if (_phase==4) {
+            if (!MenuChrome::text(font,next,2,3,_messages.get(OriginalMessages::kGateWhich)) || !MenuChrome::text(font,next,2,21,"1-9: choose the numbered orb") || !MenuChrome::text(font,next,2,22,"Esc: cancel")) return false;
+        } else if (_phase==5) {
+            if (!line(font,next,2,5,_message) || !MenuChrome::text(font,next,2,21,"Press a key to return")) return false;
+        }
         frame=next;return true;
     }
-    byte _phase,_type,_map,_slot,_caster,_spell,_cost;Common::String _message;HgrFrame _underlay;PartySelection _selection;NavigationPoint _destination;SoundEvents *_sounds;
+    byte _phase,_type,_map,_slot,_caster,_spell,_cost;Common::String _message;HgrFrame _underlay;PartySelection _selection;NavigationPoint _destination;SoundEvents *_sounds;OriginalMessages _messages;
 };
 } }
 #endif

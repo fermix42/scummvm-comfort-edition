@@ -92,7 +92,13 @@ public:
     byte automaticDirection() const {return !_fireDirection && !_attackDirection && !_digDirection && !_encounter.battle && !_notice && !_openDirection && !_leave && !_conversation.active() && !_inventory.active() && !_casting.active() && !_transport.defeated && _transport.pendingSteps?_transport.pendingDirection:255;}
     byte conversationStage() const { return _conversation.stage(); }
     const Common::String &visibleReply() const {return _conversation.visibleReply();}
+    byte inventoryTab() const {return _inventory.tab();}
+    byte inventorySheetPage() const {return _inventory.sheetPage();}
     byte inventoryStage() const {return _inventory.phase();}
+    const Common::String &inventoryMessage() const {return _inventory.message();}
+    uint inventorySelected() const {return _inventory.selected();}
+    byte inventoryMember() const {return _inventory.member();}
+    byte castingStage() const {return _casting.phase();}
     bool selectingOpen() const { return _openDirection; }
     const WorldActorTurnEvent &encounter() const { return _encounter; }
     bool scriptedEncounter() const {return _scriptedEncounter;}
@@ -413,7 +419,7 @@ private:
             return fireWorldCannon(direction,archive,game,window,scene,turn,light,visibility,routes,random,catalog,text,frame,animation);
         }
         if (_openDirection) {
-            if (input.kbd.keycode==Common::KEYCODE_ESCAPE) { _openDirection=false;return kWorldInputHandled; }
+            if (input.kbd.keycode==Common::KEYCODE_ESCAPE) { _openDirection=false;return frame.clearTextSpan(7,23,25) && text.importPages(frame.data(),frame.data(),8192)?kWorldInputHandled:kWorldInputUnsupported; }
             if (!arrow) return kWorldInputHandled;
             WorldOpenEvent event;const WorldOpenResult opened=_open.run(game.world,scene,direction,event);
             if (opened==kWorldOpenUnsupported) return kWorldInputUnsupported;
@@ -479,7 +485,7 @@ private:
             return kWorldInputHandled;
         }
         if (input.kbd.keycode==Common::KEYCODE_s) return _search.begin(archive,game,frame)?kWorldInputHandled:kWorldInputUnsupported;
-        if (input.kbd.keycode==Common::KEYCODE_o) { _openDirection=true;return kWorldInputHandled; }
+        if (input.kbd.keycode==Common::KEYCODE_o) { _openDirection=true;return message(catalog,12,text,frame)?kWorldInputHandled:kWorldInputUnsupported; }
         if (!arrow) {
             const byte command=byte(input.kbd.ascii)&127;
             // Original command-table entries have dedicated owners. A truly

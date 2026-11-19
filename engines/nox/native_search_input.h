@@ -2,8 +2,11 @@
 #ifndef NOX_NATIVE_SEARCH_INPUT_H
 #define NOX_NATIVE_SEARCH_INPUT_H
 #include "nox/native_new_game.h"
+#include "nox/native_world_presentation.h"
 #include "nox/native_text_window.h"
 #include "nox/native_battle_loot.h"
+#include "nox/native_original_messages.h"
+#include "nox/native_opening_backdrop.h"
 namespace Nox { namespace Native {
 enum SearchInputResult { kSearchInputHandled,kSearchInputClosed,kSearchInputAttempted,kSearchInputUnsupported };
 // Player continuation for the existing semantic Search/lock/reward owner.
@@ -17,27 +20,30 @@ public:
     bool matches(const World &world) const {return !active() || (world.mapType()==_type && world.mapId()==_map && world.x()==_originX && world.y()==_originY);}
     bool begin(HdvArchive &archive,const NewGame &game,HgrFrame &frame) {
         if (active() || !game.ready()) return false;
-        SearchInput next;next._phase=1;next._type=game.world.mapType();next._map=game.world.mapId();next._originX=game.world.x();next._originY=game.world.y();next._underlay=frame;
-        if (!next.prompt(archive,frame,"Search - direction?")) return false;*this=next;return true;
+        SearchInput next;if (!next._messages.load(archive)) return false;next._phase=1;next._type=game.world.mapType();next._map=game.world.mapId();next._originX=game.world.x();next._originY=game.world.y();next._underlay=frame;
+        // Search965F -> GAME7CD0 clears the old command strip before the object UI.
+        if (!next._underlay.clearTextSpan(7,23,25)) return false;
+        if (!next.prompt(archive,frame,next._messages.get(OriginalMessages::kDirection))) return false;*this=next;return true;
     }
     bool beginDoor(HdvArchive &archive,const NewGame &game,byte slot,HgrFrame &frame) {
         if (active() || !game.ready() || slot>248 || (slot&3)) return false;
         const byte *object=game.world.currentTables()->data()+1024+slot;
         if (object[3]!=17) return false;
-        SearchInput next;next._door=true;next._phase=2;next._type=game.world.mapType();next._map=game.world.mapId();next._originX=game.world.x();next._originY=game.world.y();
+        SearchInput next;if (!next._messages.load(archive)) return false;next._door=true;next._phase=2;next._type=game.world.mapType();next._map=game.world.mapId();next._originX=game.world.x();next._originY=game.world.y();
         next._x=object[0];next._y=object[1];next._slot=slot;next._underlay=frame;
-        if (!game.world.field(33)) {if (next.show(archive,frame,"No lockpicks.",false,false)!=kSearchInputHandled) return false;}
-        else if (!next.prompt(archive,frame,"Pick lock: party 1-6/Esc")) return false;
+        if (!next._underlay.clearTextSpan(7,23,25)) return false;
+        if (!game.world.field(33)) {if (next.show(archive,frame,next._messages.get(OriginalMessages::kNoPicks),false,false)!=kSearchInputHandled) return false;}
+        else if (!next.prompt(archive,frame,next._messages.get(OriginalMessages::kWhoPicks))) return false;
         *this=next;return true;
     }
     SearchInputResult handle(const Common::Event &event,HdvArchive &archive,NewGame &game,const WorldScene &scene,GameplayRandom &random,HgrFrame &frame,bool &alarm) {
-        if (!active() || !matches(game.world)) return kSearchInputUnsupported;
+        if (!_messages.load(archive) || !active() || !matches(game.world)) return kSearchInputUnsupported;
         if (event.type!=Common::EVENT_KEYDOWN) return kSearchInputHandled;
         if (_phase==5) {
             if (_window.waiting()) return _window.handle(event) && _window.paint(frame)?kSearchInputHandled:kSearchInputUnsupported;
             const byte answer=byte(event.kbd.ascii)&95;
-            if (answer!='Y' && answer!='N' && answer!='A') return kSearchInputHandled;
-            BattleLoot policy;if (!policy.load(archive) || !policy.chooseGroup(answer!='N',answer=='A',_lootLevel,_lootDescriptor,game.inventory,random,_loot)) return kSearchInputUnsupported;
+            if (answer!='T' && answer!='L' && answer!='A' && answer!='Y' && answer!='N') return kSearchInputHandled;
+            BattleLoot policy;if (!policy.load(archive) || !policy.chooseGroup(answer!='N' && answer!='L',answer=='A',_lootLevel,_lootDescriptor,game.inventory,random,_loot)) return kSearchInputUnsupported;
             return treasurePresentation(archive,game,policy,frame);
         }
         if (_phase==3) {
@@ -60,8 +66,8 @@ public:
             bool raised;if (!game.world.raiseSearchAlarm(rules,raised)) return kSearchInputUnsupported;
             alarm|=raised;_theftAuthorized=true;
             const byte *object=game.world.currentTables()->data()+1024+_slot;
-            if ((object[3]&191)!=53) return show(archive,frame,"Nothing found.",false,false);
-            if (rules.locked(object[2]) && game.world.field(33)) {_phase=2;return prompt(archive,frame,"Pick lock: party 1-6/Esc")?kSearchInputHandled:kSearchInputUnsupported;}
+            if ((object[3]&191)!=53) return show(archive,frame,_messages.get(OriginalMessages::kNothingFound),false,false);
+            if (rules.locked(object[2]) && game.world.field(33)) {_phase=2;return prompt(archive,frame,_messages.get(OriginalMessages::kWhoPicks))?kSearchInputHandled:kSearchInputUnsupported;}
             _phase=0; // Confirmed unlocked attempt continues in this event.
         }
         if (_phase==1) {
@@ -72,13 +78,13 @@ public:
             default:return kSearchInputHandled;
             }
             _slot=scene.objects.lookup[cell];
-            if (_slot==255) return show(archive,frame,"Nothing found.",false,false);
+            if (_slot==255) return show(archive,frame,_messages.get(OriginalMessages::kNothingFound),false,false);
             if ((_slot&3) || _slot>244) return kSearchInputUnsupported;
             const byte *object=game.world.currentTables()->data()+1024+_slot;
             if (object[0]!=_x || object[1]!=_y) return kSearchInputUnsupported;
-            if ((object[3]&64) && !_theftAuthorized) {_phase=4;return prompt(archive,frame,"Alert guards? Steal? Y/N")?kSearchInputHandled:kSearchInputUnsupported;}
-            if ((object[3]&191)!=53) return show(archive,frame,"Nothing found.",false,false);
-            if (rules.locked(object[2]) && game.world.field(33)) {_phase=2;return prompt(archive,frame,"Pick lock: party 1-6/Esc")?kSearchInputHandled:kSearchInputUnsupported;}
+            if ((object[3]&64) && !_theftAuthorized) {_phase=4;return prompt(archive,frame,_messages.get(OriginalMessages::kSteal))?kSearchInputHandled:kSearchInputUnsupported;}
+            if ((object[3]&191)!=53) return show(archive,frame,_messages.get(OriginalMessages::kNothingFound),false,false);
+            if (rules.locked(object[2]) && game.world.field(33)) {_phase=2;return prompt(archive,frame,_messages.get(OriginalMessages::kWhoPicks))?kSearchInputHandled:kSearchInputUnsupported;}
         }
         byte member=1;
         if (_phase==2) {
@@ -89,10 +95,10 @@ public:
             if (game.party.member(member-1)->bytes[0]==255) return kSearchInputHandled;
         }
         if (_door) {
-            bool promoted=false;const SearchResult result=game.world.pickDoor(_x,_y,_slot,member,rules,_state,random,game.party,promoted);
-            if (result==kSearchAwarded) return show(archive,frame,"Opened.",false,true);
-            if (result==kSearchRetry) return show(archive,frame,promoted?"Lock skill improved. Try again?":"Lock not opened. Try again?",true,true);
-            if (result==kSearchNoTools) return show(archive,frame,"No lockpicks.",false,false);
+            LockResult lockOutcome=kLockUnsupported;bool promoted=false;const SearchResult result=game.world.pickDoor(_x,_y,_slot,member,rules,_state,random,game.party,promoted,&lockOutcome);
+            if (result==kSearchAwarded) return show(archive,frame,_messages.get(OriginalMessages::kDoorUnlocked),false,true);
+            if (result==kSearchRetry) return show(archive,frame,_messages.get(lockOutcome==kLockTrapped?OriginalMessages::kTrapAgain:OriginalMessages::kPickAgain),true,true);
+            if (result==kSearchNoTools) return show(archive,frame,_messages.get(OriginalMessages::kNoPicks),false,false);
             return kSearchInputUnsupported;
         }
         const byte *object=game.world.currentTables()->data()+1024+_slot;
@@ -100,7 +106,7 @@ public:
         const bool currency=(object[7]&128)!=0,foodReward=(object[7]&64)!=0;const uint16 beforeCurrency=foodReward?game.food:game.gold;
         if ((object[7]&192)==64 && catalog.definition(object[4],object[5],definition))
             for (uint i=13;i<32 && definition.bytes[i];++i) title+=char(definition.bytes[i]&127);
-        SearchTreasure treasure;bool promoted=false;const SearchResult result=game.world.searchQuestItem(_x,_y,_slot,member,false,rules,catalog,_state,random,game.party,game.inventory,promoted,&game.food,&game.gold,_theftAuthorized,&treasure);
+        SearchTreasure treasure;LockResult lockOutcome=kLockUnsupported;bool promoted=false;const SearchResult result=game.world.searchQuestItem(_x,_y,_slot,member,false,rules,catalog,_state,random,game.party,game.inventory,promoted,&game.food,&game.gold,_theftAuthorized,&treasure,&lockOutcome);
         switch(result) {
         case kSearchTreasure: {
             BattleLoot policy;_loot=BattleLootState();_lootLevel=treasure.level;_lootDescriptor=treasure.descriptor;
@@ -108,18 +114,18 @@ public:
                 !policy.advanceGroup(_lootLevel,_lootDescriptor,game.inventory,random,_loot)) return kSearchInputUnsupported;
             return treasurePresentation(archive,game,policy,frame);
         }
-        case kSearchAwarded:return show(archive,frame,currency?Common::String::format("Found %u %s.",uint(uint16((foodReward?game.food:game.gold)-beforeCurrency)),foodReward?"food":"gold"):Common::String("Found ")+title+".",false,true);
-        case kSearchCapacity:return show(archive,frame,"Cannot carry any more.",false,true);
-        case kSearchRepeated:return show(archive,frame,"Nothing found.",false,true);
-        case kSearchNothing:return show(archive,frame,"Nothing found.",false,false);
-        case kSearchNoTools:return show(archive,frame,"No lockpicks.",false,false);
-        case kSearchRetry:return show(archive,frame,promoted?"Lock skill improved. Try again?":"Lock not opened. Try again?",true,true);
+        case kSearchAwarded:return show(archive,frame,currency?Common::String::format("%u",uint(uint16((foodReward?game.food:game.gold)-beforeCurrency)))+_messages.get(foodReward?OriginalMessages::kFoodFound:OriginalMessages::kGoldFound):title+_messages.get(OriginalMessages::kItemFound),false,true);
+        case kSearchCapacity:return show(archive,frame,_messages.get(OriginalMessages::kInventoryFull),false,true);
+        case kSearchRepeated:return show(archive,frame,_messages.get(OriginalMessages::kNothingFound),false,true);
+        case kSearchNothing:return show(archive,frame,_messages.get(OriginalMessages::kNothingFound),false,false);
+        case kSearchNoTools:return show(archive,frame,_messages.get(OriginalMessages::kNoPicks),false,false);
+        case kSearchRetry:return show(archive,frame,_messages.get(lockOutcome==kLockTrapped?OriginalMessages::kTrapAgain:OriginalMessages::kPickAgain),true,true);
         case kSearchCancelled:_phase=0;frame=_underlay;return kSearchInputClosed;
         default:warning("Native Search rejected result %u",uint(result));return kSearchInputUnsupported;
         }
     }
     void cancel(HgrFrame *frame=nullptr) {if (frame) *frame=_underlay;_phase=0;}
-    bool refresh(HdvArchive &archive,HgrFrame &frame) {_underlay=frame;return !active() || (_phase==2 && prompt(archive,frame,"Pick lock: party 1-6/Esc"));}
+    bool refresh(HdvArchive &archive,HgrFrame &frame) {if (!_messages.load(archive)) return false;_underlay=frame;return !active() || (_phase==2 && prompt(archive,frame,_messages.get(OriginalMessages::kWhoPicks)));}
     bool save(Common::WriteStream &out) const {
         if (!active() || _phase>5) return false;
         out.writeByte(_theftAuthorized);if (_door) out.writeByte(1);
@@ -144,23 +150,32 @@ private:
     SearchInputResult treasurePresentation(HdvArchive &archive,NewGame &game,const BattleLoot &policy,HgrFrame &frame) {
         if (_loot.finished) {
             if (!policy.commit(game.food,game.gold,_loot)) return kSearchInputUnsupported;
-            return show(archive,frame,Common::String::format("Found %u %s.",_loot.amount,_loot.food?"food":"gold"),false,true);
+            return show(archive,frame,Common::String::format("%u",_loot.amount)+_messages.get(_loot.food?OriginalMessages::kLootFood:OriginalMessages::kLootGold),false,true);
         }
         Common::String title;if (!_loot.pending || !policy.describe(_loot,title)) return kSearchInputUnsupported;
-        const SearchInputResult result=show(archive,frame,Common::String("Found ")+title+".\x8dTake it? Y/N/A",false,false);
-        if (result==kSearchInputHandled) _phase=5;return result;
+        // The authored loot choices are a multi-line panel, not a rewritten
+        // sentence paged word-by-word through the one-line movement strip.
+        Common::String body=_messages.get(OriginalMessages::kYouFound)+"\r"+title+"\r"+_messages.get(OriginalMessages::kLootChoices);
+        Common::Array<byte> encoded;for (uint i=0;i<body.size();++i) encoded.push_back(byte(body[i])|128);
+        HgrFrame background=_underlay;if (!OpeningBackdrop::renderNoticeFrame(background)) return kSearchInputUnsupported;
+        TextWindow window;if (!window.begin(archive,encoded.data(),encoded.size(),25,13,1,12,11,&background) || !window.paint(background)) return kSearchInputUnsupported;
+        _window=window;frame=background;_phase=5;return kSearchInputHandled;
     }
     bool prompt(HdvArchive &archive,HgrFrame &frame,const Common::String &text) const {
         GlyphFont font;if (!font.load(archive,1)) return false;
-        for (uint y=184;y<192;++y) for(uint x=7;x<33;++x) if(!frame.putByte(x,y,0)) return false;
-        for(uint i=0;i<text.size() && i<26;++i) if(!frame.drawGlyph(font,byte(text[i])|128,7+i,23,0)) return false;return true;
+        if (text.size()>25) return false;
+        for (uint y=184;y<192;++y) for(uint x=7;x<32;++x) if(!frame.putByte(x,y,0)) return false;
+        for(uint i=0;i<text.size();++i) if(!frame.drawGlyph(font,byte(text[i])|128,7+(25-text.size())/2+i,23,0)) return false;return true;
     }
     SearchInputResult show(HdvArchive &archive,HgrFrame &frame,const Common::String &text,bool retry,bool spent) {
         TextWindow window;frame=_underlay;
-        if(!window.begin(archive,reinterpret_cast<const byte *>(text.c_str()),text.size(),25,13,1,12,11,&frame) || !window.paint(frame)) return kSearchInputUnsupported;
+        // Search's GAME7C32 -> 7C35 selects column7,row23,width25.
+        if (!frame.clearTextSpan(7,23,25)) return kSearchInputUnsupported;
+        const byte pad=text.size()<=25?byte((25-text.size())/2):0;
+        if(!window.begin(archive,reinterpret_cast<const byte *>(text.c_str()),text.size(),7+pad,25-pad,23,23,1,&frame) || !window.paint(frame)) return kSearchInputUnsupported;
         _window=window;_phase=3;_retry=retry;_spent=spent;return kSearchInputHandled;
     }
-    byte _phase,_type,_map,_originX,_originY,_x,_y,_slot;bool _retry,_spent,_theftAuthorized;SearchState _state;HgrFrame _underlay;TextWindow _window;BattleLootState _loot;byte _lootLevel,_lootDescriptor;bool _door;
+    byte _phase,_type,_map,_originX,_originY,_x,_y,_slot;bool _retry,_spent,_theftAuthorized;SearchState _state;HgrFrame _underlay;TextWindow _window;BattleLootState _loot;byte _lootLevel,_lootDescriptor;bool _door;OriginalMessages _messages;
 };
 } }
 #endif

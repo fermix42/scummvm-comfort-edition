@@ -178,7 +178,14 @@ public:
             if (_conversation.submit(submitted,random)!=kConversationReply) return kWorldConversationUnsupported;
             _closing=farewell || _conversation.terminalReply();_endShown=_footerShown=false;_query.clear();
             return showDialogue(archive,game,frame,random)?kWorldConversationHandled:kWorldConversationUnsupported;
-        } else if (event.kbd.ascii>=32 && event.kbd.ascii<127 && _query.size()<28) _query+=char(event.kbd.ascii);
+        } else if (event.kbd.ascii>=32 && event.kbd.ascii<127 && _query.size()<13) {
+            _query+=char(event.kbd.ascii);
+            // Talk B97D/BA03: thirteen positions, then the normal submit path.
+            if (_query.size()==13) {
+                Common::Event submit=event;submit.kbd.keycode=Common::KEYCODE_RETURN;submit.kbd.ascii=13;
+                return handle(submit,archive,game,scene,frame,message,transport,random,speechCursor);
+            }
+        }
         return input(archive,frame)?kWorldConversationHandled:kWorldConversationUnsupported;
     }
     bool save(Common::WriteStream &out) const {
@@ -305,7 +312,7 @@ private:
     }
     bool trainingQuantity(HdvArchive &archive,HgrFrame &frame) const {
         GlyphFont font;if (!font.load(archive,1) || !frame.clearTextSpan(21,22,14)) return false;
-        const Common::String text=Common::String("Count: ")+_query;
+        const Common::String &text=_query; // The authored offer already asks the quantity.
         for (uint i=0;i<text.size();++i) if (!frame.drawGlyph(font,byte(text[i])|128,21+i,22,0)) return false;
         return frame.drawGlyph(font,0xa0,21+text.size(),22,127);
     }
@@ -712,13 +719,24 @@ private:
     bool input(HdvArchive &archive,HgrFrame &frame) const {
         GlyphFont font;if (!font.load(archive,1)) return false;
         for (uint row=19;row<22;++row) if (!frame.clearTextSpan(25,row,13)) return false;
-        for (uint i=0;i<_query.size();++i) if (!frame.drawGlyph(font,byte(_query[i])|128,25+i%13,19+i/13,0)) return false;
+        // Retain old modal codecs, but new ordinary queries use the source's
+        // single thirteen-column line (Talk B98B..B991).
+        for (uint i=0;i<_query.size() && i<13;++i) if (!frame.drawGlyph(font,byte(_query[i])|128,25+i,19,0)) return false;
         if (!frame.clearTextSpan(25,22,13)) return false;
         if (_hasDialogue && !_conversation.paymentPhase() && !_conversation.trainingPending()) {
-            const char *labels[]={"Tab: normal","Tab: yell","Tab: whisper"};const char *mode=labels[_conversation.context().voice];
-            for (uint i=0;mode[i];++i) if (!frame.drawGlyph(font,byte(mode[i])|128,25+i,22,0)) return false;
+            Common::Array<byte> raw;if (!archive.read("NA/SRTN.NPC.TALK",raw) || raw.size()!=32831) return false;
+            // BAD4 and BAF7: authored prompt at25/21, voice at29/22.
+            const uint offsets[]={0xf66,0xf70,0xf7a};
+            const uint positions[]={0xf5a,offsets[_conversation.context().voice]};
+            for (uint line=0;line<2;++line) {
+                uint at=positions[line],column=line?29:25;
+                while (at<raw.size() && raw[at]) {
+                    if (column>=38 || !frame.drawGlyph(font,raw[at++],column++,21+line,0)) return false;
+                }
+                if (at==raw.size()) return false;
+            }
         }
-        return frame.drawGlyph(font,0xa0,25+_query.size()%13,19+_query.size()/13,127);
+        return frame.drawGlyph(font,0xa0,25+MIN<uint>(_query.size(),12),19,127);
     }
     byte _stage,_type,_map,_slot;
     bool _closing,_endShown,_footerShown,_hasDialogue,_hasWindow,_refused;

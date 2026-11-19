@@ -44,7 +44,16 @@ inline bool validateNativeOpenSearch487(HdvArchive &archive,Common::SeekableRead
         if (send(Common::KEYCODE_1,'1')!=kWorldInputHandled || command.atWorldCommand()) return false;
         Common::MemoryWriteStreamDynamic core(DisposeAfterUse::YES),modal(DisposeAfterUse::YES);if (!game.save(core) || !command.save(modal)) return false;
         if (!profile) {referenceCore.resize(core.size());memcpy(referenceCore.data(),core.getData(),core.size());referenceModal.resize(modal.size());memcpy(referenceModal.data(),modal.getData(),modal.size());referenceSeed=random.seed();}
-        else {if (referenceCore.size()!=core.size() || memcmp(referenceCore.data(),core.getData(),core.size()) || referenceModal.size()!=modal.size() || memcmp(referenceModal.data(),modal.getData(),modal.size()) || referenceSeed!=random.seed()) return false;++pairs;}
+        else {
+            if (referenceCore.size()!=core.size() || memcmp(referenceCore.data(),core.getData(),core.size())) {report="Open/Search core mismatch";return false;}
+            if (referenceSeed!=random.seed()) {report="Open/Search RNG mismatch";return false;}
+            if (referenceModal.size()!=modal.size()) {report=Common::String::format("Open/Search modal sizes %u/%u",referenceModal.size(),modal.size());return false;}
+            for (uint i=0;i<modal.size();++i) if (referenceModal[i]!=modal.getData()[i]) {
+                report=Common::String::format("Open/Search modal first difference byte%u: %u/%u; core and RNG identical",i,uint(referenceModal[i]),uint(modal.getData()[i]));
+                return false;
+            }
+            ++pairs;
+        }
     }
     report=Common::String::format("open-search\tactual_authored_chest=1\tO_S_lock_attempt_equivalent=%u\tadmission_cancel=2\tmodal_codecs=2\tcore_RNG_modal_equal=1\tcampaign=0\taudio_suite=0\n",pairs);return true;
 }

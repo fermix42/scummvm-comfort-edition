@@ -18,10 +18,23 @@ inline Common::JSONValue *NoxEngine::testCLIState() {
     o["name"]=new JSONValue(p.creation.name());o["can_save"]=new JSONValue(canSaveGameStateCurrently());
     o["dialogue_phase"]=new JSONValue((long long)p.worldInput.conversationStage());
     o["visible_reply"]=new JSONValue(p.worldInput.conversationStage()?p.worldInput.visibleReply():String());
-    o["inventory_phase"]=new JSONValue((long long)p.worldInput.inventoryStage());
+    const Native::InventoryWindow *inventoryView=p.encounterState.presented && p.encounterState.inventory.active()?&p.encounterState.inventory:nullptr;
+    o["inventory_tab"]=new JSONValue((long long)(inventoryView?inventoryView->tab():p.worldInput.inventoryTab()));o["inventory_sheet_page"]=new JSONValue((long long)(inventoryView?inventoryView->sheetPage():p.worldInput.inventorySheetPage()));
+    o["inventory_phase"]=new JSONValue((long long)(inventoryView?inventoryView->phase():p.worldInput.inventoryStage()));
+    o["inventory_message"]=new JSONValue(inventoryView?inventoryView->message():p.worldInput.inventoryMessage());
+    o["inventory_selected"]=new JSONValue((long long)(inventoryView?inventoryView->selected():p.worldInput.inventorySelected()));
+    o["inventory_member"]=new JSONValue((long long)(inventoryView?inventoryView->member():p.worldInput.inventoryMember()));
+    o["cast_phase"]=new JSONValue((long long)p.worldInput.castingStage());
     o["notice"]=new JSONValue(p.worldInput.noticeActive());
     o["open_direction"]=new JSONValue(p.worldInput.selectingOpen());
+    o["animation_phase"]=new JSONValue((long long)p.animationState.phase);
+    o["animation_pattern"]=new JSONValue((long long)p.animationState.pattern);
+    o["animation_tick_ms"]=new JSONValue((long long)p.lastAnimationTick);
+    o["animation_interval_ms"]=new JSONValue((long long)Native::WorldAnimation::kIntervalMs);
     o["music_ready"]=new JSONValue(p.music.ready());
+    o["music_samples"]=new JSONValue((long long)p.music.samples());
+    o["music_nonzero_samples"]=new JSONValue((long long)p.music.nonzero());
+    o["music_handle_active"]=new JSONValue(_mixer->isSoundHandleActive(_nativeMusicSound));
     o["observed_cells"]=new JSONValue((long long)p.game.discovery.cells().size());
     o["journal_sequence"]=new JSONValue((long long)p.game.discovery.sequence());
     o["journal_characters"]=new JSONValue((long long)p.game.discovery.characters().size());
@@ -47,6 +60,11 @@ inline Common::JSONValue *NoxEngine::testCLIState() {
     }
     if (p.encounterState.presented) {
         const Native::EncounterState &b=p.encounterState;
+        o["quick_scroll_speed"]=new JSONValue((long long)p.quickDisplay.speed);o["quick_paused"]=new JSONValue(p.quickDisplay.paused);
+        o["quick_character_cycles"]=new JSONValue((long long)Native::QuickBattleDisplay::characterCycles(p.quickDisplay.speed));
+        o["quick_characters"]=new JSONValue((long long)p.quickDisplay.characters);o["quick_remaining"]=new JSONValue((long long)p.quickDisplay.remaining);
+        o["quick_events_shown"]=new JSONValue((long long)p.quickDisplay.shown);o["quick_holding"]=new JSONValue(p.quickDisplay.holding);
+        Common::String quickText;for (uint i=0;i<6;++i) {if (i) quickText+='\n';quickText+=p.quickDisplay.lines[i];}o["quick_text"]=new JSONValue(quickText);
         o["battle_phase"]=new JSONValue((long long)b.round.phase);o["battle_command"]=new JSONValue((long long)b.command);
         o["battle_results"]=new JSONValue((long long)b.resultPhase);o["active_party"]=new JSONValue((long long)b.round.activeParty);
         o["battle_target"]=new JSONValue((long long)b.target);o["battle_exit_phase"]=new JSONValue((long long)b.exit.phase);

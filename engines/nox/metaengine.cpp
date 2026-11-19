@@ -114,12 +114,17 @@ public:
 			{"SOUTH","Move south",Common::KEYCODE_DOWN,"DOWN"},
 			{"WEST","Move west",Common::KEYCODE_LEFT,"LEFT"},
 			{"EAST","Move east",Common::KEYCODE_RIGHT,"RIGHT"},
+			{"SAVE","Save game",Common::KEYCODE_F5,"F5"},
+			{"LOAD","Load game",Common::KEYCODE_F7,"F7"},
+			{"OPEN","Open or operate",Common::KEYCODE_o,"o"},
+			{"SEARCH","Search",Common::KEYCODE_s,"s"},
+			{"HELP","Command reference",Common::KEYCODE_QUESTION,"S+SLASH"},
 			{"ACCEPT","Accept",Common::KEYCODE_RETURN,"RETURN"},
 			{"CANCEL","Cancel",Common::KEYCODE_ESCAPE,"ESCAPE"}
 		};
 		for (uint i=0;i<ARRAYSIZE(actions);++i) {
 			Common::Action *action = new Common::Action(actions[i].id, Common::U32String(actions[i].label));
-			action->setKeyEvent(Common::KeyState(actions[i].key, actions[i].key == Common::KEYCODE_RETURN ? 13 : actions[i].key == Common::KEYCODE_ESCAPE ? 27 : 0));
+			action->setKeyEvent(Common::KeyState(actions[i].key, actions[i].key == Common::KEYCODE_RETURN ? 13 : actions[i].key == Common::KEYCODE_ESCAPE ? 27 : actions[i].key == Common::KEYCODE_QUESTION ? 63 : actions[i].key >= Common::KEYCODE_a && actions[i].key <= Common::KEYCODE_z ? uint16(actions[i].key) : 0));
 			action->addDefaultInputMapping(actions[i].mapping);
 			map->addAction(action);
 		}

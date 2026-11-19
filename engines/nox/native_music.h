@@ -47,6 +47,9 @@ public:
         }
         return false;
     }
+    bool restart(HdvArchive &archive) {
+        MusicSequencer next;if (!next.initialize(archive,_song.data(),_song.size(),_volume)) return false;*this=next;return true;
+    }
     void stop() {_playing=false;_registers[8]=_registers[9]=_registers[10]=0;}
     bool playing() const {return _playing;}
     uint cursor() const {return _cursor;}

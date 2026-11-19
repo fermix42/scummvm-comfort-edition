@@ -6,6 +6,9 @@
 #define NOX_NATIVE_STARTUP_HOST_H
 #include "nox/native_character_creation.h"
 #include "nox/native_startup_menu.h"
+#include "nox/native_title.h"
+#include "nox/native_rc1138_validation.h"
+#include "nox/native_visual1139_validation.h"
 #include "engines/ce_test_cli.h"
 #include "nox/native_world_viewport.h"
 #include "nox/native_text_window.h"
@@ -135,6 +138,15 @@ inline Common::Error NoxEngine::runNativeStartup() {
         Common::OutSaveFile *out=_system->getSavefileManager()->openForSaving("nox-native-world-story.tsv",false);if (!out) return Common::kWritingFailed;
         out->writeString(report);out->finalize();const bool ok=!out->err();delete out;return ok?Common::Error(Common::kNoError):Common::Error(Common::kWritingFailed);
     }
+    if (ConfMan.hasKey("nox_native_messages1146") && ConfMan.getBool("nox_native_messages1146")) {
+        Native::OriginalMessages messages;if (!messages.load(_resources)) return fail("Original message resources rejected");
+        Common::OutSaveFile *out=_system->getSavefileManager()->openForSaving("nox-native-original-messages.bin",false);if (!out) return Common::kWritingFailed;
+        out->writeUint32BE(MKTAG('O','M','S','G'));out->writeUint16LE(Native::OriginalMessages::kCount);
+        for (uint i=0;i<Native::OriginalMessages::kCount;++i) {
+            const Common::String &text=messages.get(Native::OriginalMessages::Id(i));out->writeUint16LE(text.size());out->write(text.c_str(),text.size());
+        }
+        out->finalize();const bool ok=!out->err();delete out;return ok?Common::Error(Common::kNoError):Common::Error(Common::kWritingFailed);
+    }
     if (ConfMan.hasKey("nox_native_search_retry523") && ConfMan.getBool("nox_native_search_retry523")) {
         Common::String report;if (!Native::validateNativeSearchLifecycle523(_resources,report)) return fail(report.empty()?"Search retry focused check failed":report.c_str());
         Common::OutSaveFile *out=_system->getSavefileManager()->openForSaving("nox-native-search-retry.tsv",false);if (!out) return Common::kWritingFailed;
@@ -189,6 +201,26 @@ inline Common::Error NoxEngine::runNativeStartup() {
         if (!fixture.open(Common::FSNode(ConfMan.getPath("nox_native_terrain511_fixture"))) || !Native::validateNativeTerrainAnimation511(_resources,fixture,report)) return fail(report.empty()?"Terrain animation focused check failed":report.c_str());
         Common::OutSaveFile *out=_system->getSavefileManager()->openForSaving("nox-native-terrain-animation.tsv",false);if (!out) return Common::kWritingFailed;
         out->writeString(report);out->finalize();const bool ok=!out->err();delete out;return ok?Common::Error(Common::kNoError):Common::Error(Common::kWritingFailed);
+    }
+    if (ConfMan.hasKey("nox_native_visual1139_fixture")) {
+        Common::File fixture;Common::String report;
+        Common::OutSaveFile *images=_system->getSavefileManager()->openForSaving("nox-visual1139-images.bin",false);if (!images) return Common::kWritingFailed;
+        const bool valid=fixture.open(Common::FSNode(ConfMan.getPath("nox_native_visual1139_fixture"))) && validateNativeVisual1139(_resources,fixture,*images,report);
+        images->finalize();const bool ok=!images->err();delete images;if (!valid || !ok) return fail(report.empty()?"Visual fixture rejected":report.c_str());
+        Common::OutSaveFile *out=_system->getSavefileManager()->openForSaving("nox-visual1139.txt",false);if (!out) return Common::kWritingFailed;
+        out->writeString(report);out->finalize();const bool written=!out->err();delete out;return written?Common::Error(Common::kNoError):Common::Error(Common::kWritingFailed);
+    }
+    if (ConfMan.hasKey("nox_native_rc1138") && ConfMan.getBool("nox_native_rc1138")) {
+        Common::String report;Common::Array<byte> art;Common::Array<uint64> edges;Common::Array<int16> voice;
+        if (!validateNativeRC1138(_resources,report,art,edges,voice)) return fail(report.c_str());
+        const auto output=[&](const char *name,const byte *bytes,uint size) -> bool {
+            Common::OutSaveFile *out=_system->getSavefileManager()->openForSaving(name,false);if (!out) return false;
+            out->write(bytes,size);out->finalize();const bool ok=!out->err();delete out;return ok;
+        };
+        Common::MemoryWriteStreamDynamic pulses(DisposeAfterUse::YES),pcm(DisposeAfterUse::YES);
+        for (uint i=0;i<edges.size();++i) pulses.writeUint64LE(edges[i]);for (uint i=0;i<voice.size();++i) pcm.writeUint16LE(uint16(voice[i]));
+        if (!output("nox-rc1138-title-planes.bin",art.data(),art.size()) || !output("nox-rc1138-title-edges.bin",pulses.getData(),pulses.size()) || !output("nox-rc1138-title.pcm",pcm.getData(),pcm.size()) || !output("nox-rc1138.txt",reinterpret_cast<const byte *>(report.c_str()),report.size())) return Common::kWritingFailed;
+        return Common::kNoError;
     }
     if (ConfMan.hasKey("nox_native_m44_awards1136") && ConfMan.getBool("nox_native_m44_awards1136")) {
         Common::String report;if (!validateNativeM44Awards1136(_resources,report)) return fail(report.c_str());
@@ -836,11 +868,19 @@ inline Common::Error NoxEngine::runNativeStartup() {
     // Ordinary launch offers Continue before creating a new character. The
     // old input-only component replays opt in to the same screen explicitly.
     bool &startupMenu=_nativeStartupMenu;startupMenu=!sceneReady && !storyStarted && (!replay || (ConfMan.hasKey("nox_native_startup_menu") && ConfMan.getBool("nox_native_startup_menu")));
-    const bool menuInitiallyVisible=startupMenu;uint startupMenuCommands=0;
+    const bool menuInitiallyVisible=startupMenu;uint startupMenuCommands=0;byte startupChoice=0;byte startupAnimation=0;uint32 startupAnimationStamp=_system->getMillis();Native::StartupMenu startupPresentation;
+    if (startupMenu && !startupPresentation.load(_resources)) return fail("Original startup menu resources unavailable");
     const bool continueValidation=replay && ConfMan.hasKey("nox_native_continue_validation") && ConfMan.getBool("nox_native_continue_validation");
     if (continueValidation && (_targetName!="nox-native-player-test" || !Common::CEAchievements().getLinkToken().empty())) return fail("Continue validation requires its isolated offline target");
     MenuValidationSource continueInput(*this,_runtime,*_eventMan,continueValidation);
-    if (startupMenu && !player.music.ready() && !player.music.splash(_resources)) return fail("Native startup music resource unavailable");
+    Native::TitlePresentation title;bool titleVisible=startupMenu;uint32 titleStarted=_system->getMillis();
+    if (titleVisible) {
+        // NOXARCH.MAIN loads MUSIC.SPLASH before BF31 calls the LOGO entry.
+        if (!player.music.ready() && !player.music.splash(_resources)) return fail("Original title music resource unavailable");
+        player.lastAudioTick=0;
+        Common::Array<int16> voice;
+        if (!title.load(_resources) || !title.speech(voice) || !queueNativeEffect(voice.data(),voice.size(),159688)) return fail("Original native title resource presentation failed");
+    }
     // Normal Engine save_slot restoration registers the same owned battle.
     if (autoPlay && (!encounterState.formed || !automatic.load(_resources))) return fail("Combat input driver requires a restored battle");
     if (playerProbe.finished()) return Common::kNoError;
@@ -860,6 +900,21 @@ inline Common::Error NoxEngine::runNativeStartup() {
             bool changed=false;
             if (!worldInput.pollWorldEvents(game,window,messages,text,frame,prepared,light,animationState.phase,changed,&_resources,&turns,&random)) return fail("Native world revelation event failed");
             if (changed) {if (!animationState.synchronize(frame)) return fail("Native revelation frame retention failed");redraw=true;}
+        }
+        if (titleVisible) {
+            if (!startupMenu || sceneReady || storyStarted) {titleVisible=false;}
+            else {
+                bool changed;if (!title.advance(uint64(uint32(_system->getMillis()-titleStarted))*NOX_CPU_HZ/1000,changed)) return fail("Original title animation failed");
+                redraw|=changed;
+                if (title.finished()) {
+                    bool idleChanged;
+                    if (!title.advanceMenu(_system->getMillis(),idleChanged)) return fail("Original title idle animation failed");
+                    redraw|=idleChanged;
+                }
+            }
+        }
+        if (startupMenu && !titleVisible && uint32(_system->getMillis()-startupAnimationStamp)>=230) {
+            startupAnimation=byte((startupAnimation+1)&3);startupAnimationStamp=_system->getMillis();redraw=true;
         }
         if ((!replay || pacedReplay) && player.music.ready()) {
             const uint32 now=_system->getMillis();
@@ -886,21 +941,36 @@ inline Common::Error NoxEngine::runNativeStartup() {
         // including cold resumes; Ask's pending prompt has not reached it.
         if (encounterState.presented && !encounterState.resultPhase && encounterState.mode.selection!=1 && player.music.ready() && !player.music.battleCue() &&
             !player.music.combat(_resources,random,encounterState.round.mapId,preparedEncounter.contactSprite)) return fail("Native combat music selection failed");
-        if (encounterState.presented && encounterState.quick.partyCount && !encounterState.quick.phase) {
-            if (quickLimit && encounterState.quick.actions>=uint(quickLimit)) break;
-            if (!quickRules.step(random,encounterState.records,encounterState.quick,encounterState.round.protectedTargets)) return fail("Native Quick scheduler/action reached an unsupported branch");
-            encounterState.round.actions=encounterState.quick.actions;encounterState.round.rounds=encounterState.quick.rounds;
-            encounterState.round.activeParty=encounterState.quick.side?0:encounterState.quick.cursor;
-            if (encounterState.quick.phase) {
-                const bool won=encounterState.quick.phase==1;
-                // Original terminal defeat never enters R's restoration/results
-                // path. Keep its terminal records;only victory restores here.
-                if (won && !Native::QuickBattle::restore(encounterState.records,encounterState.quick)) return fail("Native Quick temporary metadata could not restore");
-                encounterState.quick.phase=won?3:4;encounterState.round.phase=won?Native::kBattleVictory:Native::kBattleDefeat;
+        if (!encounterState.presented || !encounterState.quick.partyCount) player.quickDisplay.reset();
+        if (encounterState.presented && encounterState.quick.partyCount && encounterState.quick.phase<3 && encounterState.round.phase!=Native::kBattleDefeat) {
+            Native::QuickBattleDisplay &display=player.quickDisplay;const uint32 now=_system->getMillis();
+            if (!display.shown) display.speed=Native::CombatPreferences::scrollSpeed(ConfMan,_targetName);
+            if (display.ready(now,!replay || pacedReplay)) {
+                const uint32 turn=encounterState.quick.rounds*2+encounterState.quick.side/2;
+                if (!encounterState.quick.phase && encounterState.quick.cursor==0 && display.announcedTurn!=turn) {
+                    display.announcedTurn=turn;
+                    display.message(battlePresentation.quickMessage(encounterState.quick.flavorDraw),now);
+                    Native::HgrFrame image;
+                    if (!battlePresentation.paintQuick(encounterState,display,image)) return fail("Native Quick message presentation failed");
+                    encounterState.frame=image;redraw=true;
+                } else if (!encounterState.quick.phase) {
+                    if (quickLimit && encounterState.quick.actions>=uint(quickLimit)) break;
+                    if (!quickRules.step(random,encounterState.records,encounterState.quick,encounterState.round.protectedTargets))
+                        return fail("Native Quick scheduler/action reached an unsupported branch");
+                    encounterState.round.actions=encounterState.quick.actions;encounterState.round.rounds=encounterState.quick.rounds;
+                    encounterState.round.activeParty=encounterState.quick.side?0:encounterState.quick.cursor;
+                    Native::HgrFrame image;
+                    if (!battlePresentation.paintQuick(encounterState,display,image)) return fail("Native Quick action presentation failed");
+                    encounterState.frame=image;redraw=true;
+                } else if (encounterState.quick.phase) {
+                    const bool won=encounterState.quick.phase==1;
+                    if (won && !Native::QuickBattle::restore(encounterState.records,encounterState.quick)) return fail("Native Quick temporary metadata could not restore");
+                    encounterState.round.phase=won?Native::kBattleVictory:Native::kBattleDefeat;if (won) encounterState.quick.phase=3;
+                    Native::HgrFrame image;
+                    if (!battlePresentation.paintQuick(encounterState,display,image,won)) return fail("Native Quick roster/outcome presentation failed");
+                    encounterState.frame=image;redraw=true;
+                }
             }
-            Native::HgrFrame image;const Common::String *notice=encounterState.quick.phase==3?&battlePresentation.quickVictory():nullptr;
-            if (!battlePresentation.paint(preparedEncounter,encounterState,encounterState.phase,image,notice)) return fail("Native Quick roster/outcome presentation failed");
-            encounterState.frame=image;redraw=true;
         }
         if (encounterState.presented && Native::CombatModeAdmission::automaticTactical(encounterState)) {
             if (replay && automaticRoundLimit && encounterState.round.rounds+1>=uint(automaticRoundLimit)) break;
@@ -910,8 +980,10 @@ inline Common::Error NoxEngine::runNativeStartup() {
             encounterState.frame=image;redraw=true;
         }
         if (redraw) {
-            if (!sceneReady && (storyStarted?(!storyBackdrop.render(frame,storyAnimation)||!storyWindow.paint(frame)):!(startupMenu?Native::StartupMenu::render(font,frame):creation.render(font,frame)))) return fail("Native startup UI render failed");
-            Common::Array<byte> rgb;(encounterState.presented?encounterState.frame:frame).renderRGB(rgb);
+            if (!sceneReady && (storyStarted?(!storyBackdrop.render(frame,storyAnimation)||!storyWindow.paint(frame)):!(startupMenu?startupPresentation.render(font,frame,startupChoice,startupAnimation):creation.render(font,frame)))) return fail("Native startup UI render failed");
+            Common::Array<byte> rgb;
+            if (titleVisible) title.renderRGB(rgb);
+            else (encounterState.presented?encounterState.frame:frame).renderRGB(rgb);
             for (uint y=0;y<384;++y) for (uint x=0;x<560;++x) {
                 const byte *pixel=rgb.data()+(y*560+x)*3;
                 *static_cast<uint32 *>(_surface.getBasePtr(x,y))=format.RGBToColor(pixel[0],pixel[1],pixel[2]);
@@ -931,7 +1003,7 @@ inline Common::Error NoxEngine::runNativeStartup() {
         }
         if (replay && encounterState.presented && Native::CombatModeAdmission::automaticTactical(encounterState)) continue;
         Common::Event event;bool generated=false;
-        if (replay && encounterState.quick.partyCount && !encounterState.quick.phase) continue;
+        if (replay && encounterState.quick.partyCount && encounterState.quick.phase<3 && encounterState.round.phase!=Native::kBattleDefeat) continue;
         const byte continuedDirection=sceneReady && !encounterState.presented?worldInput.automaticDirection():255;
         if (continuedDirection<4) {
             const Common::KeyCode directions[]={Common::KEYCODE_UP,Common::KEYCODE_DOWN,Common::KEYCODE_RIGHT,Common::KEYCODE_LEFT};
@@ -973,10 +1045,10 @@ inline Common::Error NoxEngine::runNativeStartup() {
                 if (!pacedReplay) { if (!advanceAnimation()) return fail("Native deterministic idle reached an unsupported animation boundary");continue; }
             }
         }
+        // Keep the source-paced visual clock independent of queued player input.
+        if ((!replay || pacedReplay) && sceneReady && !encounterState.presented && uint32(_system->getMillis()-lastAnimationTick)>=Native::WorldAnimation::kIntervalMs)
+            if (!advanceAnimation()) return fail("Native live idle reached an unsupported animation boundary");
         if (!generated && !_eventMan->pollEvent(event)) {
-            if ((!replay || pacedReplay) && sceneReady && !encounterState.presented && uint32(_system->getMillis()-lastAnimationTick)>=33) {
-                if (!advanceAnimation()) return fail("Native live idle reached an unsupported animation boundary");continue;
-            }
             if (!replay || pacedReplay) _system->delayMillis(1);continue;
         }
         if (event.type==Common::EVENT_QUIT || event.type==Common::EVENT_RETURN_TO_LAUNCHER) break;
@@ -1008,9 +1080,15 @@ inline Common::Error NoxEngine::runNativeStartup() {
                 if (!soundAtBattleCommand && !animationState.synchronize(frame)) return fail("Native sound preference repaint failed");redraw=true;continue;
             }
 #endif
-            // The accepted CE Q workflow opens the shared save chooser only
-            // at an idle world command; dialogue/combat retain their Q input.
-            if (((!encounterState.formed && worldInput.atWorldCommand()) || encounterState.resultPhase==4 || encounterState.resultPhase==5) && event.kbd.keycode==Common::KEYCODE_q) {
+            // F5/F7 use normal ScummVM dialogs and the existing mode's slot
+            // policy. Q is a classic world-save shortcut only; authored dialogue
+            // and the combat Quick choice retain their own character input.
+            if (event.kbd.keycode==Common::KEYCODE_F7) {
+                loadGameDialog();redraw=true;lastAnimationTick=_system->getMillis();continue;
+            }
+            const bool worldSaveBoundary=(!encounterState.formed && worldInput.atWorldCommand()) || encounterState.resultPhase==4 || encounterState.resultPhase==5;
+            if (worldSaveBoundary && event.kbd.keycode==Common::KEYCODE_q && _saveMode==kModernSaveMode) continue;
+            if (worldSaveBoundary && (event.kbd.keycode==Common::KEYCODE_F5 || (event.kbd.keycode==Common::KEYCODE_q && _saveMode==kClassicSaveMode))) {
                 if (!playerProbe.beforeQ(playerError)) return fail(playerError.c_str());
                 const bool saved=saveGameDialog();
                 if (!playerProbe.afterQ(saved,playerError)) return fail(playerError.c_str());
@@ -1027,7 +1105,16 @@ inline Common::Error NoxEngine::runNativeStartup() {
                     Native::HgrFrame image;if (!battlePresentation.paint(preparedEncounter,next,next.phase,image)) return fail("Native selected combat mode could not present");
                     next.frame=image;encounterState=next;redraw=true;continue;
                 }
-                if (encounterState.quick.partyCount && !encounterState.quick.phase) continue;
+                if (encounterState.quick.partyCount && encounterState.quick.phase<3 && encounterState.round.phase!=Native::kBattleDefeat) {
+                    Native::QuickBattleDisplay &display=player.quickDisplay;
+                    const byte ascii=byte(event.kbd.ascii?event.kbd.ascii:uint(key));
+                    if (display.control(ascii,_system->getMillis(),!replay || pacedReplay)) {
+                        ConfMan.setInt("nox_combat_scroll_speed",display.speed,_targetName);ConfMan.flushToDisk();
+                        Native::HgrFrame image;if (!battlePresentation.paintQuick(encounterState,display,image)) return fail("Native Quick speed/pause presentation failed");
+                        encounterState.frame=image;redraw=true;
+                    }
+                    continue;
+                }
                 if (encounterState.resultPhase==4) continue;
                 if (encounterState.resultPhase==5) {
                     Native::HgrFrame restored;
@@ -1265,6 +1352,11 @@ inline Common::Error NoxEngine::runNativeStartup() {
                 encounterPrepared=true;
             }
             if (handled==Native::kWorldInputHandled || handled==Native::kWorldInputEncounter) ++ordinaryCommands;
+            // GAME9263..9277 restarts the loaded song after completion at a
+            // normal world-command boundary; it does not draw another pool RNG.
+            if (handled==Native::kWorldInputHandled && worldInput.atWorldCommand() && !encounterState.formed && player.music.ready() && !player.music.playing() && (_nativeSoundMode==0 || _nativeSoundMode==3)) {
+                if (!player.music.restart(_resources)) return fail("Native completed music restart failed");resetAudio();player.lastAudioTick=0;
+            }
             redraw=true;
             if (handled==Native::kWorldInputIgnored && event.kbd.keycode==Common::KEYCODE_SPACE) {
                 Native::WorldActorTurnEvent raised;
@@ -1291,7 +1383,6 @@ inline Common::Error NoxEngine::runNativeStartup() {
             // retained images adopt its repaint; cadence fields stay owned.
             if (!animationState.synchronize(frame)) return fail("Native command animation synchronization failed");
             if (handled==Native::kWorldInputEncounter && !presentEncounter()) return fail("Native encounter presentation unavailable");
-            lastAnimationTick=_system->getMillis();
             if (handled==Native::kWorldInputIgnored && event.kbd.keycode==Common::KEYCODE_SPACE && ConfMan.hasKey("nox_native_checkpoint_wait") &&
                 waitCommands==uint(ConfMan.getInt("nox_native_checkpoint_wait")) && !saveExploration("nox-native-exploration.bin")) return Common::kWritingFailed;
             const byte *records=game.world.currentTables()->data();
@@ -1300,22 +1391,36 @@ inline Common::Error NoxEngine::runNativeStartup() {
         }
         if (startupMenu) {
             if (event.type!=Common::EVENT_KEYDOWN) continue;
-            if (event.kbd.keycode==Common::KEYCODE_n) {startupMenu=false;++startupMenuCommands;}
-            else if (event.kbd.keycode==Common::KEYCODE_c) {
+            if (titleVisible) {
+                titleVisible=false;startupAnimation=0;startupAnimationStamp=_system->getMillis();_mixer->stopHandle(_sound);_nativeEffectAudio=nullptr;
+                if (!player.music.ready()) {
+                    if (!player.music.splash(_resources)) return fail("Native startup music resource unavailable");
+                    player.lastAudioTick=0;
+                }
+                redraw=true;continue;
+            }
+            const bool saved=!Saves::entries(*getSaveFileManager(),_targetName).empty();
+            const Native::StartupMenu::Result result=startupPresentation.handle(event,startupChoice,saved);
+            if (result==Native::StartupMenu::kNew) {startupMenu=false;++startupMenuCommands;}
+            else if (result==Native::StartupMenu::kContinue || result==Native::StartupMenu::kImport) {
                 if (continueValidation) {continueInput.chooser(false);continueInput.loadRow(0);}
                 const bool loaded=loadGameDialog();
                 if (loaded) {startupMenu=false;++startupMenuCommands;}
                 if (continueValidation && !loaded) return fail("Actual native Continue chooser failed");
-            } else if (event.kbd.keycode==Common::KEYCODE_q) {quitGame();break;}
+            }
             redraw=true;continue;
         }
         bool beginWorld=false;
         if (!storyStarted) {
+            creation.setStartFlags(startupPresentation.startFlags());
             if (!creation.handle(event,game)) return fail("Native character confirmation failed");
             if (creation.stage()==Native::CharacterCreation::kCreated) {
                 if (!replay && Common::CEAchievements().getCurrentPlaythroughForTarget(_targetName).empty()) {
                     if (!Common::CEAchievements().startPlaythroughForTarget(_targetName,"nox-archaist","apple2-v119",creation.name())) return fail("Native new game could not create a Play Session");
                     _runtimeSession=Common::CEAchievements().getCurrentPlaythroughForTarget(_targetName);setTotalPlayTime(0);
+                }
+                if (startupPresentation.startFlags()) {
+                    Common::CEAchievements().noteDisqualifyingAssistance("original_start_code");
                 }
                 Common::Array<byte> loader;
                 if (!storyBackdrop.load(_resources) || !storyBackdrop.render(frame,storyAnimation) || !_resources.read("NA/LOADER.P",loader) || loader.size()!=10514 || loader[8281] ||
@@ -1404,7 +1509,7 @@ inline Common::Error NoxEngine::runNativeStartup() {
     trace=_system->getSavefileManager()->openForSaving("nox-native-startup-animation.tsv",false);if (!trace) return Common::kWritingFailed;
     trace->writeString(animationTrace);trace->finalize();const bool animationTraceOk=!trace->err();delete trace;if (!animationTraceOk) return Common::kWritingFailed;
     trace=_system->getSavefileManager()->openForSaving("nox-native-startup-animation-report.tsv",false);if (!trace) return Common::kWritingFailed;
-    trace->writeString(Common::String::format("native-live-animation\tidle_frames=%u\tphase=%u\tpattern=%u\tnext_target=%u\tinterval_ms=33\tcold_history_restored=%u\tinitial_phase_setup=0\tinitial_pattern_setup=0\tcompatibility_runtime=0\n",idleFrames,uint(animationState.phase),uint(animationState.pattern),uint(animationState.target),uint(resumed)));
+    trace->writeString(Common::String::format("native-live-animation\tidle_frames=%u\tphase=%u\tpattern=%u\tnext_target=%u\tinterval_ms=230\tcold_history_restored=%u\tinitial_phase_setup=0\tinitial_pattern_setup=0\tcompatibility_runtime=0\n",idleFrames,uint(animationState.phase),uint(animationState.pattern),uint(animationState.target),uint(resumed)));
     trace->finalize();const bool animationReportOk=!trace->err();delete trace;if (!animationReportOk) return Common::kWritingFailed;
     trace=_system->getSavefileManager()->openForSaving("nox-native-startup-animation-timing.tsv",false);if (!trace) return Common::kWritingFailed;
     trace->writeString(animationTiming);trace->finalize();const bool timingOk=!trace->err();delete trace;if (!timingOk) return Common::kWritingFailed;

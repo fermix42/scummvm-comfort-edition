@@ -47,16 +47,18 @@ public:
     }
     bool help(Common::String &out) const {
         if (!_ready) return false;out=_help;
-        out+="\r\rComfort Edition\rTab: party roster.\rTab/Space again: inventory.\rIn combat, Tab: inventory.\rIn conversation, Tab: normal/yell/whisper.\rN: reorder party.\rV: cycle sound mode.";return true;
+        const uint quick=out.find("Q quick save");
+        if (quick!=Common::String::npos) out=out.substr(0,quick)+"? commands"+out.substr(quick+12);
+        out+="\r\rComfort Edition\rTab: party roster.\rTab again: stats and inventory.\rF5: Save. F7: Load.\rModern: Q has no action.\rClassic: Q opens two slots.\rTabs1-7: categories. Space: character.\rArrows: pages/items. Enter: equip.\rIn combat, Tab: stats/inventory.\rIn conversation, Tab: normal/yell/whisper.\rN: reorder party.\rV: cycle sound mode.";return true;
     }
     bool location(const World &world,Common::String &out) const {
         if (!_ready || !world.ready()) return false;
         const MapDefinition *map=world.mapDefinition();if (!map) return false;
         // Three valid directory records have no authored location string.
-        // Explicit CE category labels replace an unrelated retained scratch name.
+        // Do not invent a place name or display an unrelated scratch caption.
         if (map->metadata.size()==23) {
-            if (world.mapType()==6 && world.mapId()==2) {out="Town";return true;}
-            if (world.mapType()==7 && (world.mapId()==4 || world.mapId()==5)) {out="Castle";return true;}
+            if (world.mapType()==6 && world.mapId()==2) {out.clear();return true;}
+            if (world.mapType()==7 && (world.mapId()==4 || world.mapId()==5)) {out.clear();return true;}
             return false;
         }
         if (world.mapId()!=97) return plain(map->metadata,23,map->metadata.size(),out);

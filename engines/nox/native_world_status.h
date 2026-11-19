@@ -43,7 +43,7 @@ public:
     }
     bool paintStatus(uint16 gold,uint16 food,const TurnClock &clock,HgrFrame &frame) const {
         if (!_ready) return false;ClockAdvance check;if (!advanceTurnClock(clock,check)) return false;
-        for (uint row=1;row<13;++row) if (!frame.clearTextSpan(35,row,4)) return false;
+        for (uint row=1;row<23;++row) if (!frame.clearTextSpan(35,row,4)) return false;
         // Numeric fields have five positions; labels and clock have four.
         const Common::String goldText=Common::String::format("%u",uint(gold)),foodText=Common::String::format("%u",uint(food));
         // Original numeric padding advances the cursor without painting over
@@ -52,7 +52,8 @@ public:
             !draw(frame,goldText,39-goldText.size(),2) || !draw(frame,foodText,39-foodText.size(),5)) return false;
         const uint hour=(clock.hour>>4)*10+(clock.hour&15),minute=(clock.minute>>4)*10+(clock.minute&15);
         const uint display=hour%12?hour%12:12;
-        return draw(frame,Common::String::format("%02u%02u",display,minute),35,7) && draw(frame,hour>=12?_pm:_am,36,8);
+        if (!draw(frame,Common::String::format("%02u%02u",display,minute),35,7) || !draw(frame,hour>=12?_pm:_am,36,8)) return false;
+        return true;
     }
 private:
     static bool label(const Common::Array<byte> &data,uint start,Common::String &out) {

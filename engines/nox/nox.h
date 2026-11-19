@@ -64,6 +64,7 @@ private:
     bool playNativeRefusal();
     bool playNativeCast();
     bool playNativeSpeaker(byte cue);
+    bool queueNativeEffect(const int16 *samples,uint count,uint toggles=0);
     Audio::QueuingAudioStream *_nativeEffectAudio = nullptr;
     byte _nativeSoundMode=0;uint _nativeEffectsPlayed=0,_nativeEffectSamples=0,_nativeEffectToggles=0;
 #endif

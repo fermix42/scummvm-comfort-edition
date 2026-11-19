@@ -32,6 +32,8 @@ public:
                 if (_dead || party.member(_selected)->bytes[0]!=255) break;
             }
         } else {
+            const uint digit=event.kbd.ascii?event.kbd.ascii:uint(key);
+            if (digit>='1' && digit<='6' && digit-'1'<_count && (_dead || party.member(digit-'1')->bytes[0]!=255)) _selected=byte(digit-'1');
             const char *aliases="!@#$%^";for (uint i=0;i<6;++i)
                 if (event.kbd.ascii==uint(aliases[i]) && i<_count && party.member(i)->bytes[0]!=255) _selected=byte(i);
         }

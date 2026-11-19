@@ -52,6 +52,7 @@ public:
             if (action.kind == kCellClear) { if (!nextFrame.clearCell(action.cell)) return false; }
             else if (!painter.draw(nextFrame,0,scene.actors.terrain[action.cell],nextLight.mode,animation,action.cell,16)) return false;
         }
+        for (uint cell=0;cell<187;++cell) if (nextVisibility.cells()[cell] && !nextFrame.clearCell(cell)) return false;
         world.adoptState(nextWorld); window = nextWindow; presentation = nextPresentation;
         light = nextLight; visibility = nextVisibility; frame = nextFrame;
         // Hand back the exact accepted scene. Re-running its preparation would

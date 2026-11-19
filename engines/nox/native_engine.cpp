@@ -53,14 +53,19 @@ bool NoxEngine::playNativeSpeaker(byte cue) {
     if (cue&Native::kCwSpeechFirst) {
         if (!Native::CwSpeechEffect::render(_resources,byte(cue&127),samples,toggles)) return false;
     } else if (cue>Native::kSpeakerPartyHit || !Native::SpeakerEffect::render(_resources,Native::SpeakerCue(cue),samples,toggles)) return false;
-    byte *buffer=static_cast<byte *>(malloc(samples.size()*2));if (!buffer) return false;
-    for (uint i=0;i<samples.size();++i) WRITE_LE_UINT16(buffer+i*2,uint16(samples[i]));
+    return queueNativeEffect(samples.data(),samples.size(),toggles);
+}
+bool NoxEngine::queueNativeEffect(const int16 *samples,uint count,uint toggles) {
+    if (!samples || !count || count>NOX_AUDIO_HZ*10) return false;
+    if (_nativeSoundMode==1 || _nativeSoundMode==3) return true;
+    byte *buffer=static_cast<byte *>(malloc(count*2));if (!buffer) return false;
+    for (uint i=0;i<count;++i) WRITE_LE_UINT16(buffer+i*2,uint16(samples[i]));
     if (!_mixer->isSoundHandleActive(_sound)) {
         _nativeEffectAudio=Audio::makeQueuingAudioStream(NOX_AUDIO_HZ,false);
         _mixer->playStream(Audio::Mixer::kSFXSoundType,&_sound,_nativeEffectAudio);
     }
-    _nativeEffectAudio->queueBuffer(buffer,samples.size()*2,DisposeAfterUse::YES,Audio::FLAG_16BITS|Audio::FLAG_LITTLE_ENDIAN);
-    ++_nativeEffectsPlayed;_nativeEffectSamples+=samples.size();_nativeEffectToggles+=toggles;return true;
+    _nativeEffectAudio->queueBuffer(buffer,count*2,DisposeAfterUse::YES,Audio::FLAG_16BITS|Audio::FLAG_LITTLE_ENDIAN);
+    ++_nativeEffectsPlayed;_nativeEffectSamples+=count;_nativeEffectToggles+=toggles;return true;
 }
 Common::String NoxEngine::getSaveStateName(int slot) const { return getMetaEngine()->getSavegameFile(slot,_targetName.c_str()); }
 bool NoxEngine::synchronizePlaySession() {

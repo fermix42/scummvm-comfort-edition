@@ -50,6 +50,12 @@ public:
             if (!EncounterPreparation::prepare(_archive,next->game,next->prepared,next->turns,next->worldInput.encounter(),next->preparedEncounter,next->worldInput.scriptedEncounter()) || !next->encounterState.formed) {delete next;return false;}
             next->encounterPrepared=true;
         }
+        if (!next->encounterState.presented && next->worldInput.atWorldCommand()) {
+            // Refresh only status chrome in older saves; retain both map images
+            // and their independently owned animation phases/history.
+            if (!next->status.paintStatus(next->game.gold,next->game.food,next->game.clock,next->frame)) {delete next;return false;}
+            for (uint page=0;page<2;++page) if (!next->status.paintStatus(next->game.gold,next->game.food,next->game.clock,next->animationState.pages[page])) {delete next;return false;}
+        }
         next->sceneReady=next->storyStarted=next->animationReady=true;next->redraw=true;_staged=next;return true;
     }
     bool stagedLegacy() const override {return _staged && _stagedLegacy;}
@@ -57,7 +63,7 @@ public:
         if (!_staged) return;adopt(*_staged);discardLoad();resetPresentationClock();
     }
     void discardLoad() override {delete _staged;_staged=nullptr;_stagedLegacy=false;}
-    void resetPresentationClock() override {lastAudioTick=lastAnimationTick=g_system->getMillis();}
+    void resetPresentationClock() override {lastAudioTick=lastAnimationTick=g_system->getMillis();if (quickDisplay.holding) quickDisplay.stamp=lastAnimationTick;}
     bool reset() override {
         discardLoad();PlayerSessionState *next=new PlayerSessionState(_archive);
         if (!next->loadRules(8)) {delete next;return false;}adopt(*next);delete next;lastAnimationTick=g_system->getMillis();return true;
@@ -80,7 +86,7 @@ public:
     TextGlyphSurface text;HgrFrame frame;VisibilityMask visibility;LightState light;WorldInput worldInput;
     WorldAnimation animation;WorldAnimationState animationState;PreparedEncounter preparedEncounter;EncounterState encounterState;
     BattlePresentation battlePresentation;TextWindow storyWindow;OpeningBackdrop storyBackdrop;
-    MusicPlayback music;
+    MusicPlayback music;QuickBattleDisplay quickDisplay;
     bool redraw,sceneReady,storyStarted,animationReady,encounterPrepared;byte storyAnimation,nextStoryAnimation;uint32 lastAnimationTick,lastAudioTick;
 private:
     bool importLegacy(Common::SeekableReadStream &in) {
@@ -137,7 +143,7 @@ private:
         encounterState=next.encounterState;battlePresentation=next.battlePresentation;storyWindow=next.storyWindow;storyBackdrop=next.storyBackdrop;
         redraw=next.redraw;sceneReady=next.sceneReady;storyStarted=next.storyStarted;animationReady=next.animationReady;
         encounterPrepared=next.encounterPrepared;storyAnimation=next.storyAnimation;nextStoryAnimation=next.nextStoryAnimation;
-        music=next.music;resetPresentationClock();
+        music=next.music;quickDisplay.reset();resetPresentationClock();
     }
     HdvArchive &_archive;PlayerSessionState *_staged;bool _stagedLegacy;
 };

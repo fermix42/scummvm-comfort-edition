@@ -49,6 +49,7 @@ struct WorldAnimationDraw {
 // terrain recovery counter advances with the source party-slide raster.
 class WorldAnimation {
 public:
+    static const uint kIntervalMs=230;
     WorldAnimation() : _ready(false),_type(255) {}
     byte mapType() const {return _type;}
     bool load(HdvArchive &archive,byte type=8) {
@@ -141,6 +142,10 @@ public:
             byte picture=tile;if (tile==_footer[62] && ground==232) picture=_footer[63];
             if (!_atlas.animated(picture) || !next.pages[next.target].drawCell(_atlas,picture,phase,cell,16)) { warning("Native animation raster picture %u ground %u cell %u actor %u phase %u",picture,ground,cell,actor,phase);return false; }
             draws.push_back(WorldAnimationDraw(byte(cell),picture,phase));
+        }
+        for (uint cell=0;cell<187;++cell) {
+            const bool overlay=context.notice && cell%17>=context.left && cell%17<context.right && cell/17>=context.top && cell/17<context.bottom;
+            if (visibility[cell] && !overlay && !next.pages[next.target].clearCell(cell)) return false;
         }
         for (uint i=0;i<5;++i) if (enabled[i]) next.groups[i]=byte((state.groups[i]+1)&3);
         next.phase=byte((state.phase+1)&3);next.pattern=byte((state.pattern+1)&15);next.target^=1;

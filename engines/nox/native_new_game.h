@@ -28,7 +28,7 @@ class NewGame {
 public:
     explicit NewGame(HdvArchive &archive) : world(archive), gold(0),food(0),appearance(0), _archive(archive), _ready(false) {}
     bool ready() const { return _ready; }
-    bool create(const Common::String &name, byte gender, byte race) {
+    bool create(const Common::String &name, byte gender, byte race, byte startFlags=0) {
         if (_ready || world.ready() || party.ready()) return false;
         Common::Array<byte> data;
         if (!_archive.read("NA/DATA.SAVE.GAMEN",data) || data.size() != 8045) return false;
@@ -38,7 +38,7 @@ public:
             !nextInventory.importRecords(data.data() + 0x1800,1536) ||
             !nextBook.importState(data.data() + 0x1e60,20)) return false;
         byte fields[256]; memset(fields,0,sizeof(fields)); memcpy(fields,data.data() + 0x1700,80);
-        fields[10] = 1; fields[55] |= 32;
+        fields[10] = 1; fields[55] |= 32; fields[42] |= startFlags&14;
         if (!fields[77]) { fields[77] = 50; fields[78] = 116; fields[79] = 49; }
         TurnClock nextClock;
         nextClock.hour = data[0x1ef3]; nextClock.minute = data[0x1ef5];

@@ -67,6 +67,7 @@ public:
                 else if (!_painter.draw(nextFrame,0,nextScene.actors.terrain[paint.cell],nextLight.mode,animation,paint.cell,16)) return kWorldWaitUnsupported;
             }
         }
+        for (uint cell=0;cell<187;++cell) if (nextVisibility.cells()[cell] && !nextFrame.clearCell(cell)) return kWorldWaitUnsupported;
         if (!nextWindow.captureRecords(candidate)) return kWorldWaitUnsupported;
         if (completeClock) next.population.arm();
         world.adoptState(candidate);window=nextWindow;scene=nextScene;state=next;clock=nextClock;light=nextLight;visibility=nextVisibility;

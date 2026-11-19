@@ -27,7 +27,8 @@ inline bool validateNativeWorldAnimation(HdvArchive &archive,Common::SeekableRea
                 memcmp(world.questFields(),fields,256) || memcmp(world.currentTables()->data(),tables,1792)) return false;
         } else {
             if (!world.initialize(setup[0],setup[1],setup[2],setup[3],fields,256)) return false;
-            Common::MemoryWriteStreamDynamic encoded(DisposeAfterUse::YES);if (!world.save(encoded) || encoded.size()!=2063) return false;
+            Common::MemoryWriteStreamDynamic encoded(DisposeAfterUse::YES);// NWLDv2 retains three entrance-identity bytes after the one-map records.
+            if (!world.save(encoded) || encoded.size()!=2066) return false;
             Common::Array<byte> controlled;controlled.resize(encoded.size());memcpy(controlled.data(),encoded.getData(),encoded.size());memcpy(controlled.data()+271,tables,1792);
             Common::MemoryReadStream initial(controlled.data(),controlled.size());if (!world.load(initial)) return false;
         }

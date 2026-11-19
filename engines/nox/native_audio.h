@@ -82,6 +82,11 @@ public:
         Common::Array<byte> combat,song;
         return archive.read("NA/SRTN.COMBAT.S",combat) && combat.size()>=17587 && descriptorSong(archive,combat.data()+17578,song) && start(archive,song.data(),song.size());
     }
+    bool restart(HdvArchive &archive) {
+        if (!_ready || _music.playing()) return true;
+        MusicPlayback next;next._music=_music;if (!next._music.restart(archive)) return false;
+        next._ready=true;next._battleCue=_battleCue;*this=next;return true;
+    }
     bool ready() const {return _ready;}
     bool playing() const {return _ready&&_music.playing();}
     uint64 samples() const {return _samples;}
@@ -93,7 +98,10 @@ public:
             while (_ready&&_nextTick<=cycle) {
                 const bool update=_music.playing()&&!_music.wait();
                 if (!_music.tick()) return false;
-                if (update&&_music.playing()) for (uint chip=0;chip<2;++chip) for (uint reg=0;reg<16;++reg) mock_set_ay_register(&_synth,chip,reg,_music.registers()[reg],_nextTick);
+                // A finished stream retains its source diagnostic register image, but
+                // must release the actual AY voices instead of sustaining its last note.
+                if (update) for (uint chip=0;chip<2;++chip) for (uint reg=0;reg<16;++reg)
+                    mock_set_ay_register(&_synth,chip,reg,!_music.playing() && reg>=8 && reg<=10?0:_music.registers()[reg],_nextTick);
                 _nextTick+=9730;
             }
             const int sample=_ready?mock_sample(&_synth,cycle):0;
@@ -132,6 +140,10 @@ public:
         }
         uint64 bits=in.readUint64LE();memcpy(&next._synth.last_input,&bits,8);bits=in.readUint64LE();memcpy(&next._synth.last_output,&bits,8);
         if (in.err() || in.pos()!=in.size() || !(next._synth.last_input>=-32768&&next._synth.last_input<=32768) || !(next._synth.last_output>=-65536&&next._synth.last_output<=65536)) return false;
+        // Older native saves can contain an ended stream with audible AY voices.
+        // Adopt the same released state as a newly completed stream; no save rewrite.
+        if (!next._music.playing()) for (uint chip=0;chip<2;++chip) for (uint reg=8;reg<=10;++reg)
+            if (next._synth.ay[chip].reg[reg]) mock_set_ay_register(&next._synth,chip,reg,0,next._cycle);
         next._ready=true;*this=next;return true;
     }
 private:

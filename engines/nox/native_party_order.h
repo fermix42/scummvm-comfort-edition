@@ -3,6 +3,7 @@
 #define NOX_NATIVE_PARTY_ORDER_H
 #include "nox/native_party_selection.h"
 #include "nox/native_equipment_ownership.h"
+#include "nox/native_menu_chrome.h"
 namespace Nox { namespace Native {
 class PartyOrder {
 public:
@@ -48,10 +49,11 @@ public:
 private:
     void close(HgrFrame &frame) {frame=_underlay;*this=PartyOrderInput();}
     bool paint(HdvArchive &archive,const Party &party,HgrFrame &frame) const {
-        HgrFrame next=_underlay;GlyphFont font;
-        if (!font.load(archive,1) || !_selection.paint(archive,party,next) || !next.clearTextSpan(7,23,25)) return false;
-        const char *prompt=_phase==1?"Exchange which member?":"With which member?";
-        for (uint i=0;prompt[i];++i) if (!next.drawGlyph(font,byte(prompt[i]),7+i,23,0)) return false;
+        HgrFrame next;GlyphFont font;
+        if (!font.load(archive,1) || !MenuChrome::begin(font,next,"Party order") ||
+            !MenuChrome::text(font,next,2,3,_phase==1?"Choose the first character":"Choose the second character") ||
+            !MenuChrome::party(font,party,next,_selection.selected()) ||
+            !MenuChrome::text(font,next,1,21,"Up/Down or 1-6: select  Enter: choose") || !MenuChrome::text(font,next,2,22,"Esc: cancel and return")) return false;
         frame=next;return true;
     }
     byte _phase,_first;PartySelection _selection;HgrFrame _underlay;

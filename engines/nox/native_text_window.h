@@ -10,7 +10,7 @@ class TextWindow {
 public:
     TextWindow() : _ready(false),_left(0),_width(0),_top(0),_bottom(0),_paging(0),_lines(0),_position(0),_waiting(false),_ended(false),_resume(kReadWord),_end(kSpace) {}
     bool begin(HdvArchive &archive,const byte *text,uint size,byte left,byte width,byte top,byte bottom,byte paging,const HgrFrame *background=nullptr) {
-        if (_ready || (!text && size) || size>65535 || !width || left+width>40 || top>=bottom || bottom>=24 || !paging) return false;
+        if (_ready || (!text && size) || size>65535 || !width || left+width>40 || top>bottom || bottom>=24 || !paging) return false;
         TextWindow next; if (!next.loadPrompt(archive) || next._prompt.size()>width || !next._surface.initialize(archive,1)) return false;
         if (background && !next._surface.importPages(background->data(),background->data(),8192)) return false;
         for (uint i=0;i<size;++i) if ((text[i]&127)<32 && text[i]!=0x8d) return false;
@@ -25,7 +25,7 @@ public:
         const Common::KeyCode key=event.kbd.keycode;
         if (key==Common::KEYCODE_UP || key==Common::KEYCODE_DOWN || key==Common::KEYCODE_LEFT || key==Common::KEYCODE_RIGHT || key==Common::KEYCODE_BACKSPACE) return true;
         TextWindow next=*this;next._waiting=false;
-        if (!next._surface.clearTextSpan(_left,_bottom,_width) || !next.scroll() || !next.pump()) return false;
+        if (!next._surface.clearTextSpan(_left,_bottom,_width) || !(next._top==next._bottom?next._surface.setCursor(next._left,next._top):next.scroll()) || !next.pump()) return false;
         *this=next;return true;
     }
     bool waiting() const { return _waiting; } bool ended() const { return _ended; }
@@ -60,7 +60,7 @@ public:
         TextWindow next;if (!next.loadPrompt(archive)) return false;
         next._left=in.readByte();next._width=in.readByte();next._top=in.readByte();next._bottom=in.readByte();next._paging=in.readByte();next._lines=in.readByte();next._position=in.readUint16LE();
         const byte waiting=in.readByte(),ended=in.readByte(),resume=in.readByte(),end=in.readByte();
-        if (!next._width || next._left+next._width>40 || next._top>=next._bottom || next._bottom>=24 || !next._paging || next._prompt.size()>next._width || waiting>1 || ended>1 || resume>kConsumeCR || end>kEnd) return false;
+        if (!next._width || next._left+next._width>40 || next._top>next._bottom || next._bottom>=24 || !next._paging || next._prompt.size()>next._width || waiting>1 || ended>1 || resume>kConsumeCR || end>kEnd) return false;
         next._waiting=waiting!=0;next._ended=ended!=0;next._resume=Resume(resume);next._end=WordEnd(end);
         uint size=in.readUint16LE();if (size>next._width || in.size()-in.pos()<int64(size)+2) return false;
         next._word.resize(size);if (size && in.read(next._word.data(),size)!=size) return false;
@@ -82,6 +82,9 @@ private:
     }
     bool scroll() { return _surface.scrollTextRows(_left,_top,_bottom,_width) && _surface.setCursor(_left,_bottom-1); }
     bool newline() {
+        // GAME7C32 messages use a single bottom row. Page it in place without
+        // scrolling or printing the multi-row window prompt over neighboring UI.
+        if (_top==_bottom) {_lines=0;_waiting=true;return true;}
         ++_lines;const byte target=byte(_surface.row()+1);
         if (!_surface.setCursor(_left,target)) return false;
         if (target<_bottom) return true;

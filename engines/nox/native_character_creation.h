@@ -10,7 +10,8 @@ namespace Nox { namespace Native {
 class CharacterCreation {
 public:
     enum Stage { kName,kGender,kRace,kConfirm,kCreated };
-    CharacterCreation() : _stage(kName),_gender(0),_race(0) {}
+    CharacterCreation() : _stage(kName),_gender(0),_race(0),_startFlags(0) {}
+    void setStartFlags(byte flags) {_startFlags=flags&14;}
     Stage stage() const { return _stage; }
     const Common::String &name() const { return _name; }
     byte gender() const { return _gender; }
@@ -41,7 +42,7 @@ public:
         } else if (key==Common::KEYCODE_RETURN) {
             if (_stage==kGender) _stage=kRace;
             else if (_stage==kRace) _stage=kConfirm;
-            else { if (!game.create(_name,_gender,_race)) return false; _stage=kCreated; }
+            else { if (!game.create(_name,_gender,_race,_startFlags)) return false; _stage=kCreated; }
         } else if (key==Common::KEYCODE_RIGHT || key==Common::KEYCODE_LEFT) {
             const uint count=_stage==kGender?3:5;
             if (_stage==kGender) _gender=byte((_gender+(key==Common::KEYCODE_RIGHT?1:count-1))%count);
@@ -68,7 +69,7 @@ private:
         for (uint i=0;i<value.size();++i) if (!frame.drawGlyph(font,byte(value[i]),column+i,row,0)) return false;
         return true;
     }
-    Stage _stage; Common::String _name; byte _gender,_race;
+    Stage _stage; Common::String _name; byte _gender,_race,_startFlags;
 };
 } }
 #endif

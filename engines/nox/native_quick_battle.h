@@ -6,10 +6,10 @@
 #include "nox/native_battle_terminal.h"
 namespace Nox { namespace Native {
 struct QuickBattleState {
-    byte partyCount,enemyCount,side,cursor,phase,category;
+    byte partyCount,enemyCount,side,cursor,phase,category,flavorDraw;
     byte living[22],enemyMetadata[32],partyLevels[6];
     uint32 actions,rounds;
-    QuickBattleState() : partyCount(0),enemyCount(0),side(0),cursor(0),phase(0),category(0),actions(0),rounds(0) {
+    QuickBattleState() : partyCount(0),enemyCount(0),side(0),cursor(0),phase(0),category(0),flavorDraw(0),actions(0),rounds(0) {
         memset(living,1,22);memset(enemyMetadata,0,32);memset(partyLevels,0,6);
     }
     bool valid() const {
@@ -19,20 +19,30 @@ struct QuickBattleState {
     }
     bool save(Common::WriteStream &out) const {
         if (!valid()) return false;
-        out.writeUint32BE(MKTAG('N','Q','B','S'));out.writeUint16LE(1);
+        out.writeUint32BE(MKTAG('N','Q','B','S'));out.writeUint16LE(2);
         out.writeByte(partyCount);out.writeByte(enemyCount);out.writeByte(side);out.writeByte(cursor);out.writeByte(phase);out.writeByte(category);
-        out.write(living,22);out.write(enemyMetadata,32);out.write(partyLevels,6);out.writeUint32LE(actions);out.writeUint32LE(rounds);return !out.err();
+        out.write(living,22);out.write(enemyMetadata,32);out.write(partyLevels,6);out.writeUint32LE(actions);out.writeUint32LE(rounds);out.writeByte(flavorDraw);return !out.err();
     }
     bool load(Common::ReadStream &in) {
-        if (in.readUint32BE()!=MKTAG('N','Q','B','S') || in.readUint16LE()!=1) return false;
+        if (in.readUint32BE()!=MKTAG('N','Q','B','S')) return false;
+        const uint16 version=in.readUint16LE();if (version<1 || version>2) return false;
         QuickBattleState next;next.partyCount=in.readByte();next.enemyCount=in.readByte();next.side=in.readByte();next.cursor=in.readByte();next.phase=in.readByte();next.category=in.readByte();
         if (in.read(next.living,22)!=22 || in.read(next.enemyMetadata,32)!=32 || in.read(next.partyLevels,6)!=6) return false;
-        next.actions=in.readUint32LE();next.rounds=in.readUint32LE();if (in.err() || !next.valid()) return false;*this=next;return true;
+        next.actions=in.readUint32LE();next.rounds=in.readUint32LE();if (version>=2) next.flavorDraw=in.readByte();if (in.err() || !next.valid()) return false;*this=next;return true;
     }
 };
 // Quick Combat is its own ordered policy over shared semantic effects. The
 // temporary level/status interpretation has an explicit lifetime;no CPU state
 // or overlaid executable data is retained by this owner.
+struct QuickBattleAction {
+    Common::String actor,target;bool magic,offHand,killed,suppressed;uint16 damage;PhysicalResult physical;
+    QuickBattleAction() : magic(false),offHand(false),killed(false),suppressed(false),damage(0),physical(kPhysicalMiss) {}
+    static Common::String name(const VortexVictim &who) {
+        Common::String value;const uint first=who.kind==3?75:17,last=who.kind==3?90:32;
+        for (uint i=first;i<last && who.stats[i];++i) {const byte c=who.stats[i]&127;if (c>=32 && c<127) value+=char(c);}
+        return value.empty()?Common::String(who.kind==3?"Party member":"Enemy"):value;
+    }
+};
 class QuickBattle {
 public:
     bool load(HdvArchive &archive) {
@@ -74,9 +84,9 @@ preparedLevel:
         for (uint i=0;i<state.enemyCount;++i) memcpy(records.stats+768+i*32,state.enemyMetadata+i*2,2);
         return true;
     }
-    bool step(GameplayRandom &random,BattleRecords &records,QuickBattleState &state,bool protectedTargets=false) const {
+    bool step(GameplayRandom &random,BattleRecords &records,QuickBattleState &state,bool protectedTargets=false,Common::Array<QuickBattleAction> *output=nullptr) const {
         if (state.phase || !state.partyCount || !state.enemyCount || state.side>2 || state.side==1) return false;
-        QuickBattleState next=state;BattleRecords battle=records;GameplayRandom rng=random;
+        QuickBattleState next=state;BattleRecords battle=records;GameplayRandom rng=random;Common::Array<QuickBattleAction> events;
         const uint count=next.side?next.enemyCount:next.partyCount;
         if (next.cursor>=count) return false;
         const uint member=next.cursor,index=member*(next.side?8:4);
@@ -90,6 +100,8 @@ preparedLevel:
             if (!select(next.side,rear?1:0,next,rng,battle,entry,targetCell)) return false;
             bool magic=next.side?!rear:false;
             if (!next.side && rear) { if (!rng.next(1,255,selected)) return false;magic=(selected&128)!=0; }
+            VortexVictim target;if (!battle.actor(targetCell,target)) return false;
+            QuickBattleAction action;action.actor=QuickBattleAction::name(caster);action.target=QuickBattleAction::name(target);
             bool killed=false;
             if (magic) {
                 const byte level=caster.stats[1]&127;if (!level || level>10) return false;
@@ -103,6 +115,7 @@ preparedLevel:
                     // when another party member performs the Quick action.
                     intent.basePower=power;intent.threshold=level;intent.quick=true;intent.quickPartyLevel=next.partyLevels[0];intent.protectedTargets=protectedTargets;
                     SpellDamageOutcome result;if (!_damage.resolve(intent,rng,battle,result)) return false;killed=result.killed;
+                    action.magic=true;action.damage=result.suppressed?0:result.damage;action.killed=result.killed;action.suppressed=result.suppressed;events.push_back(action);
                 } else magic=false;
             }
             if (!magic) {
@@ -112,6 +125,7 @@ preparedLevel:
                     PhysicalIntent intent;intent.casterCell=cell;intent.targetCell=targetCell;intent.category=next.category;
                     intent.offHand=hand!=0;intent.quick=true;intent.quickRear=rear;intent.quickPartyLevel=next.partyLevels[0];intent.protectedTargets=protectedTargets;
                     PhysicalOutcome result;if (!_physical.resolve(intent,rng,battle,result)) return false;
+                    action.offHand=hand!=0;action.physical=result.killed?(result.classification==0?kPhysicalCritical:result.classification==3?kPhysicalResistedCritical:kPhysicalHit):result.result;action.damage=result.result==kPhysicalSuppressed?0:result.damage;action.killed=result.killed;action.suppressed=result.result==kPhysicalSuppressed;events.push_back(action);
                     if (result.killed) { killed=true;break; }
                 }
             }
@@ -123,16 +137,16 @@ preparedLevel:
             if (!next.phase) compact(next.side,next);
         }
         if (++next.cursor==count) { next.cursor=0;next.side=byte(next.side^2);if (!next.side) ++next.rounds; }
-        records=battle;random=rng;state=next;return true;
+        records=battle;random=rng;state=next;if (output) *output=events;return true;
     }
 private:
     static byte actorCell(const BattleRecords &battle,byte side,byte index) {
         const byte *actor=(side?battle.extended:battle.compact)+index;return byte(actor[1]*17+actor[0]);
     }
-    bool select(byte side,byte segment,const QuickBattleState &state,GameplayRandom &rng,const BattleRecords &battle,byte &entry,byte &cell) const {
+    bool select(byte side,byte segment,QuickBattleState &state,GameplayRandom &rng,const BattleRecords &battle,byte &entry,byte &cell) const {
         for (uint fallback=0;fallback<2;++fallback) {
             const uint key=side+segment,base=_policy[7+key],length=_policy[11+key];byte draw;
-            if (!rng.next(1,255,draw)) return false;
+            if (!rng.next(1,255,draw)) return false;state.flavorDraw=draw;
             byte start=draw>>6;
             if (!base) { start=byte(start*2-2);if (start&128) { start=byte(start*4);if (start>=11) start=0; } }
             else if (base==1) { start=byte(start*4);if (start>=11) start=0; }

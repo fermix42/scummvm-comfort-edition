@@ -175,7 +175,7 @@ public:
     }
     // One semantic Search attempt on a caller-resolved visible object. Keep
     // retries explicit so input/scheduling can run the required turn boundary.
-    SearchResult pickDoor(byte targetX,byte targetY,byte slot,byte selectedMember,const SearchRules &rules,SearchState &search,GameplayRandom &random,Party &party,bool &promoted) {
+    SearchResult pickDoor(byte targetX,byte targetY,byte slot,byte selectedMember,const SearchRules &rules,SearchState &search,GameplayRandom &random,Party &party,bool &promoted,LockResult *lockOutcome=nullptr) {
         if (!ready() || rules.mapType()!=_type || slot>248 || (slot&3) || distance(_x,targetX)+distance(_y,targetY)!=1) return kSearchUnsupported;
         byte *object=_states[_current].tables.data()+1024+slot;
         if (object[0]!=targetX || object[1]!=targetY || object[3]!=17 || !rules.doorLocks().supportsDifficulty(object[7])) return kSearchUnsupported;
@@ -186,6 +186,7 @@ public:
         context.map=mapId();context.selectedMember=selectedMember;context.partyCount=party.memberCount();context.forceOpen=false;context.cancelled=false;
         Party candidate=party;GameplayRandom rng=random;LockState state={_fields[33],search.priorLockAttempts};Common::Array<LockEffect> effects;bool advanced=false;
         const LockResult access=rules.doorLocks().attempt(context,state,rng,effects);
+        if (lockOutcome) *lockOutcome=access;
         if (access==kLockUnsupported || !applyLockPartyEffects(effects,candidate,advanced)) return kSearchUnsupported;
         _fields[33]=state.picks;search.priorLockAttempts=state.priorAttempts;party=candidate;random=rng;promoted=advanced;
         if (access!=kLockOpened) return kSearchRetry;
@@ -194,7 +195,7 @@ public:
 
     SearchResult searchQuestItem(byte targetX, byte targetY, int slot, byte selectedMember, bool cancelled,
             const SearchRules &rules, const ItemCatalog &catalog, SearchState &search,
-            GameplayRandom &random, Party &party, Inventory &inventory, bool &promoted,uint16 *food=nullptr,uint16 *gold=nullptr,bool guardedAuthorized=false,SearchTreasure *treasure=nullptr) {
+            GameplayRandom &random, Party &party, Inventory &inventory, bool &promoted,uint16 *food=nullptr,uint16 *gold=nullptr,bool guardedAuthorized=false,SearchTreasure *treasure=nullptr,LockResult *lockOutcome=nullptr) {
         if (!ready() || rules.mapType() != _type || slot < 0 || slot > 244 || (slot & 3) ||
                 distance(_x, targetX) + distance(_y, targetY) > 1) return kSearchUnsupported;
         byte *object = _states[_current].tables.data() + 1024 + slot;
@@ -222,6 +223,7 @@ public:
             context.map = mapId(); context.selectedMember = selectedMember; context.partyCount = nextParty.memberCount(); context.forceOpen = false; context.cancelled = cancelled;
             LockState state = { fields[33], nextSearch.priorLockAttempts }; Common::Array<LockEffect> effects;
             const LockResult access = rules.locks().attempt(context, state, nextRandom, effects);
+            if (lockOutcome) *lockOutcome=access;
             if (access == kLockUnsupported || !applyLockPartyEffects(effects, nextParty, advanced)) return kSearchUnsupported;
             if (access == kLockNoTools) { promoted = false; return kSearchNoTools; }
             if (access == kLockCancelled) { promoted = false; return kSearchCancelled; }
