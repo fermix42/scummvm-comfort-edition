@@ -58,15 +58,17 @@ public:
         BattleLootState next=state;Inventory items=inventory;GameplayRandom rng=random;
         if (next.scripted) {
             ItemDefinition definition;if (!_catalog.definition(next.kind,next.id,definition)) return false;
-            if (next.kind==2 && (definition.bytes[8]&32)) {
-                if (!fields || fieldSize!=256) return false;
-                ++fields[definition.bytes[7]];
-            }
+            const bool counted=next.kind==2 && (definition.bytes[8]&32);
+            if (counted && (!fields || fieldSize!=256)) return false;
             // The source increments the authored field before inventory's
             // capacity refusal. Special definitions bypass ordinary capacity.
             if ((definition.bytes[8]&128) || items.ordinaryCapacityRemaining()) {
-                if (items.grantOne(_catalog,next.kind,next.id)==kInventoryInvalid) return false;
+                if (items.grantOne(_catalog,next.kind,next.id)!=kInventoryApplied) return false;
             }
+            // A failed physical-slot grant must not become a completed reward.
+            // Ordinary capacity refusal still consumes the source counter; a
+            // physical allocation failure leaves the entire operation pending.
+            if (counted) ++fields[definition.bytes[7]];
             next.cursor=next.count;next.generated=1;next.takeAll=true;next.finished=true;
             state=next;inventory=items;return true;
         }
@@ -111,7 +113,7 @@ public:
             if (!selected) return false;
             if (!next.takeAll) { state=next;inventory=items;random=rng;return true; }
             const InventoryResult granted=items.grantOne(_catalog,next.kind,next.id);
-            if (granted==kInventoryInvalid) return false;
+            if (granted!=kInventoryApplied) return false;
             next.pending=false;
         }
         next.finished=true;state=next;inventory=items;random=rng;return true;
@@ -120,7 +122,7 @@ public:
         if (!_ready || !state.started || !state.pending || state.finished) return false;
         BattleLootState next=state;Inventory items=inventory;GameplayRandom rng=random;
         if (all) { next.takeAll=true;take=true; }
-        if (take && items.grantOne(_catalog,next.kind,next.id)==kInventoryInvalid) return false;
+        if (take && items.grantOne(_catalog,next.kind,next.id)!=kInventoryApplied) return false;
         next.pending=false;
         if (!advance(battle,items,rng,next)) return false;
         state=next;inventory=items;random=rng;return true;
@@ -129,7 +131,7 @@ public:
         if (!_ready || !state.started || !state.pending || state.finished || state.scripted) return false;
         BattleLootState next=state;Inventory items=inventory;GameplayRandom rng=random;
         if (all) {next.takeAll=true;take=true;}
-        if (take && items.grantOne(_catalog,next.kind,next.id)==kInventoryInvalid) return false;
+        if (take && items.grantOne(_catalog,next.kind,next.id)!=kInventoryApplied) return false;
         next.pending=false;if (!advanceGroup(level,descriptor,items,rng,next)) return false;
         state=next;inventory=items;random=rng;return true;
     }

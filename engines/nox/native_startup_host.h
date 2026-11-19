@@ -24,6 +24,7 @@
 #include "nox/native_battle_terrain_validation.h"
 #include "nox/native_battle_world_return_validation.h"
 #include "nox/native_scripted_treasure_validation.h"
+#include "nox/native_m44_award_validation.h"
 #include "nox/native_battle_restoration_validation.h"
 #include "nox/native_battle_spell_damage_validation.h"
 #include "nox/native_battle_area_spell_validation.h"
@@ -187,6 +188,11 @@ inline Common::Error NoxEngine::runNativeStartup() {
         Common::File fixture;Common::String report;
         if (!fixture.open(Common::FSNode(ConfMan.getPath("nox_native_terrain511_fixture"))) || !Native::validateNativeTerrainAnimation511(_resources,fixture,report)) return fail(report.empty()?"Terrain animation focused check failed":report.c_str());
         Common::OutSaveFile *out=_system->getSavefileManager()->openForSaving("nox-native-terrain-animation.tsv",false);if (!out) return Common::kWritingFailed;
+        out->writeString(report);out->finalize();const bool ok=!out->err();delete out;return ok?Common::Error(Common::kNoError):Common::Error(Common::kWritingFailed);
+    }
+    if (ConfMan.hasKey("nox_native_m44_awards1136") && ConfMan.getBool("nox_native_m44_awards1136")) {
+        Common::String report;if (!validateNativeM44Awards1136(_resources,report)) return fail(report.c_str());
+        Common::OutSaveFile *out=_system->getSavefileManager()->openForSaving("nox-native-m44-awards1136.tsv",false);if (!out) return Common::kWritingFailed;
         out->writeString(report);out->finalize();const bool ok=!out->err();delete out;return ok?Common::Error(Common::kNoError):Common::Error(Common::kWritingFailed);
     }
     if (ConfMan.hasKey("nox_native_dialogue_speech506") && ConfMan.getBool("nox_native_dialogue_speech506")) {
