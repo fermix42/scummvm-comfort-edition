@@ -39,6 +39,7 @@ namespace GUI {
 class PopUpWidget : public Widget, public CommandSender {
 	struct Entry {
 		Common::U32String	name;
+		Common::U32String description;
 		uint32		tag;
 	};
 	typedef Common::Array<Entry> EntryList;
@@ -59,6 +60,7 @@ public:
 
 	void appendEntry(const Common::U32String &entry, uint32 tag = (uint32)-1);
 	void appendEntry(const Common::String &entry, uint32 tag = (uint32)-1);
+	void appendEntryWithDescription(const Common::U32String &entry, const Common::U32String &description, uint32 tag);
 	void clearEntries();
 	int numEntries() { return _entries.size(); }
 
@@ -103,6 +105,7 @@ protected:
 
 	typedef Common::Array<Common::U32String> EntryList;
 	EntryList		_entries;
+	EntryList _descriptions;
 
 public:
 	PopUpDialog(Widget *boss, const Common::String &name, int clickX, int clickY);
@@ -122,7 +125,7 @@ public:
 	void setLineHeight(int lineHeight);
 	void setWidth(uint16 width);
 
-	void appendEntry(const Common::U32String &entry);
+	void appendEntry(const Common::U32String &entry, const Common::U32String &description = Common::U32String());
 	void clearEntries();
 	void setSelection(int item);
 

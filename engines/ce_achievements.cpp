@@ -62,6 +62,36 @@ bool CEAchievementService::selectPlaythroughForTarget(const String &target, cons
 	return false;
 }
 
+bool CEAchievementService::selectLauncherPlaythroughForTarget(const String &target, const String &session) {
+	StackLock lock(_stateMutex);
+	for (const auto &record : listPlaythroughsForTarget(target)) {
+		if (record.clientPlaythroughId != session || record.archived)
+			continue;
+		resetPopupState();
+		return activatePlaythroughRecordForLoadedSave(record.clientPlaythroughId, record.playthroughId);
+	}
+	return false;
+}
+
+String CEAchievementService::getLauncherPlaythroughForTarget(const String &target) const {
+	String preferred;
+	const auto *domain = ConfMan.getDomain(target);
+	if (domain)
+		domain->tryGetVal("ce_launcher_session", preferred);
+	String newest, startedAt;
+	for (const auto &record : listPlaythroughsForTarget(target)) {
+		if (record.archived)
+			continue;
+		if (!preferred.empty() && record.clientPlaythroughId == preferred)
+			return preferred;
+		if (newest.empty() || record.startedAt > startedAt) {
+			newest = record.clientPlaythroughId;
+			startedAt = record.startedAt;
+		}
+	}
+	return newest;
+}
+
 JSONValue *CEAchievementService::testCLIState() const {
 	if (!CETestCLI::active()) return CETestCLI::unsupported();
 	StackLock lock(_stateMutex);

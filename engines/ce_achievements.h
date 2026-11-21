@@ -122,6 +122,8 @@ public:
 	CEAchievementService();
 	JSONValue *testCLIState() const;
 	bool selectPlaythroughForTarget(const String &target, const String &session);
+	bool selectLauncherPlaythroughForTarget(const String &target, const String &session);
+	String getLauncherPlaythroughForTarget(const String &target) const;
 
 	bool unlock(AchievementsManager &achievements, const String &game, const String &variant, const String &achievement);
 	bool noteGameEvent(AchievementsManager &achievements, const String &game, const String &variant, const String &event);

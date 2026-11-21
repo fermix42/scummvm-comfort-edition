@@ -192,6 +192,11 @@
 						width = 'Globals.Button.Height'
 				/>
 			</layout>
+			<layout type = 'horizontal' padding = '0, 0, 2, 0' spacing = '2'>
+				<widget name = 'SessionLabel' width = '80' height = 'Globals.Line.Height'/>
+				<widget name = 'SessionPopup' type = 'PopUp'/>
+				<widget name = 'NewSessionButton' type = 'Button'/>
+			</layout>
 			<widget name = 'GameList'/>
 			<layout type = 'horizontal' padding = '0, 0, 6, 0' spacing = '2'>
 				<widget name = 'LoadGameButton'
@@ -283,6 +288,11 @@
 				<widget name = 'GridItemsPerRowLabel'
 						type = 'SmallLabel'
 				/>
+			</layout>
+			<layout type = 'horizontal' padding = '0, 0, 2, 0' spacing = '2'>
+				<widget name = 'SessionLabel' width = '80' height = 'Globals.Line.Height'/>
+				<widget name = 'SessionPopup' type = 'PopUp'/>
+				<widget name = 'NewSessionButton' type = 'Button'/>
 			</layout>
 			<widget name = 'GameList'/>
 			<widget name = 'IconArea'/>

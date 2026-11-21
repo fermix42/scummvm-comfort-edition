@@ -50,7 +50,7 @@ public:
 	 * @return The selcted save slot. -1 in case none is selected.
 	 */
 	int runModalWithCurrentTarget();
-	int runModalWithMetaEngineAndTarget(const MetaEngine *engine, const Common::String &target);
+	int runModalWithMetaEngineAndTarget(const MetaEngine *engine, const Common::String &target, const Common::String &preferredSession = Common::String());
 
 	const Common::String getResultString() const;
 

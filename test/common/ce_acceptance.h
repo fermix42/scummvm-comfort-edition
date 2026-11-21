@@ -5,6 +5,7 @@
 #include "common/fs.h"
 #include "common/savefile.h"
 #include "common/system.h"
+#include "gui/ce-session-date.h"
 #include "engines/achievements.h"
 #include "engines/ce_achievements.h"
 #include "engines/grim/ce_ps2_saves.h"
@@ -57,6 +58,44 @@ public:
 		Common::CEAchievements().resetPopupState();
 	}
 	void tearDown() { Common::uninstall_null_g_system(); }
+
+	void testSessionCreationDateDisplay() {
+		TimeDate local = {};
+		local.tm_year = 126; local.tm_mon = 10; local.tm_mday = 19;
+		local.tm_hour = 10; local.tm_min = 30;
+		TS_ASSERT_EQUALS(GUI::formatSessionCreationDate(local), "Created Nov 19, 2026 - 10:30 AM");
+		local.tm_hour = 0; local.tm_min = 5;
+		TS_ASSERT_EQUALS(GUI::formatSessionCreationDate(local), "Created Nov 19, 2026 - 12:05 AM");
+		local.tm_hour = 12;
+		TS_ASSERT_EQUALS(GUI::formatSessionCreationDate(local), "Created Nov 19, 2026 - 12:05 PM");
+		local.tm_hour = 23;
+		TS_ASSERT_EQUALS(GUI::formatSessionCreationDate(local), "Created Nov 19, 2026 - 11:05 PM");
+	}
+
+	void testLauncherSessionPreferenceAndNormalActivation() {
+		Common::CEAchievementService service;
+		ConfMan.set("gameid", "test-game", "ce-acceptance");
+		write("ce-playthroughs.json", "{\"playthroughs\":[{\"target\":\"ce-acceptance\",\"client_playthrough_id\":\"newest\",\"title\":\"New\",\"status\":\"active\",\"started_at\":\"2026-11-19T12:00:00Z\"},{\"target\":\"ce-acceptance\",\"client_playthrough_id\":\"older\",\"title\":\"Old\",\"status\":\"active\",\"started_at\":\"2026-11-12T12:00:00Z\"}]}");
+		TS_ASSERT_EQUALS(service.getLauncherPlaythroughForTarget("ce-acceptance"), "newest");
+		ConfMan.set("ce_launcher_session", "older", "ce-acceptance");
+		ConfMan.flushToDisk();
+		ConfMan.setActiveDomain("");
+		ConfMan.loadConfigFile(Common::Path(_directory + "/isolated.ini"), Common::Path());
+		ConfMan.setActiveDomain("ce-acceptance");
+		TS_ASSERT_EQUALS(service.getLauncherPlaythroughForTarget("ce-acceptance"), "older");
+		TS_ASSERT(service.selectLauncherPlaythroughForTarget("ce-acceptance", "older"));
+		TS_ASSERT_EQUALS(service.getCurrentPlaythroughForTarget("ce-acceptance"), "older");
+		TS_ASSERT_EQUALS(service.listPlaythroughsForTarget("ce-acceptance").size(), 2U);
+		TS_ASSERT(!service.selectLauncherPlaythroughForTarget("other-game", "older"));
+		TS_ASSERT_EQUALS(service.getLauncherPlaythroughForTarget("other-game"), "");
+		ConfMan.set("ce_launcher_session", "deleted", "ce-acceptance");
+		TS_ASSERT_EQUALS(service.getLauncherPlaythroughForTarget("ce-acceptance"), "newest");
+		TS_ASSERT(service.setPlaythroughStatusForTarget("ce-acceptance", "newest", "completed"));
+		TS_ASSERT(service.selectLauncherPlaythroughForTarget("ce-acceptance", "newest"));
+		TS_ASSERT(service.setPlaythroughArchivedForTarget("ce-acceptance", "newest", true));
+		TS_ASSERT_EQUALS(service.getLauncherPlaythroughForTarget("ce-acceptance"), "older");
+		TS_ASSERT(!service.selectLauncherPlaythroughForTarget("ce-acceptance", "newest"));
+	}
 
 	void testOfflineUnlockOwnershipAndDuplicateSuppression() {
 		Common::CEAchievementService service;

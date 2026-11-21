@@ -61,7 +61,7 @@ void PopUpDialog::open() {
 	_w = 0;
 
 	for (uint i = 0; i < _entries.size(); i++) {
-		int width = g_gui.getStringWidth(_entries[i]);
+		int width = MAX(g_gui.getStringWidth(_entries[i]), g_gui.getStringWidth(_descriptions[i]));
 
 		if (width > _w)
 			_w = width;
@@ -295,12 +295,14 @@ void PopUpDialog::setWidth(uint16 width) {
 	_w = width;
 }
 
-void PopUpDialog::appendEntry(const Common::U32String &entry) {
+void PopUpDialog::appendEntry(const Common::U32String &entry, const Common::U32String &description) {
 	_entries.push_back(entry);
+	_descriptions.push_back(description);
 }
 
 void PopUpDialog::clearEntries() {
 	_entries.clear();
+	_descriptions.clear();
 }
 
 int PopUpDialog::findItem(int x, int y) const {
@@ -410,7 +412,14 @@ void PopUpDialog::drawMenuEntry(int entry, bool hilite) {
 		pad = _rightPadding;
 	}
 
-	if (name.size() == 0) {
+	if (!_descriptions[entry].empty()) {
+		// Both lines belong to one selectable row. Keep ordinary popup rows unchanged.
+		const auto state = hilite ? ThemeEngine::kStateHighlight : ThemeEngine::kStateEnabled;
+		Common::Rect titleRect(r2.left, y + 2, r2.right, y + 2 + kLineHeight);
+		Common::Rect dateRect(r2.left, y + 2 + kLineHeight, r2.right, y + 2 + 2 * kLineHeight);
+		g_gui.theme()->drawText(titleRect, name, state, alignment, ThemeEngine::kTextInversionNone, pad, true, ThemeEngine::kFontStyleBold);
+		g_gui.theme()->drawText(dateRect, _descriptions[entry], state, alignment, ThemeEngine::kTextInversionNone, pad, true, ThemeEngine::kFontStyleNormal);
+	} else if (name.size() == 0) {
 		// Draw a separator
 		g_gui.theme()->drawLineSeparator(r1);
 	} else {
@@ -453,13 +462,18 @@ PopUpWidget::PopUpWidget(GuiObject *boss, int x, int y, int w, int h, const Comm
 void PopUpWidget::handleMouseDown(int x, int y, int button, int clickCount) {
 	if (isEnabled()) {
 		PopUpDialog popupDialog(this, "", x + getAbsX(), y + getAbsY());
-		popupDialog.setPosition(getAbsX(), getAbsY() - _selectedItem * kLineHeight);
+		bool hasDescriptions = false;
+		for (const auto &entry : _entries)
+			hasDescriptions = hasDescriptions || !entry.description.empty();
+		const int rowHeight = hasDescriptions ? 2 * kLineHeight + 4 : kLineHeight;
+		popupDialog.setLineHeight(rowHeight);
+		popupDialog.setPosition(getAbsX(), getAbsY() - _selectedItem * rowHeight);
 		popupDialog.setPadding(_leftPadding, _rightPadding);
 		popupDialog.setWidth(getWidth() - kLineHeight + 2);
 
 
 		for (uint i = 0; i < _entries.size(); i++) {
-			popupDialog.appendEntry(_entries[i].name);
+			popupDialog.appendEntry(_entries[i].name, _entries[i].description);
 		}
 		popupDialog.setSelection(_selectedItem);
 
@@ -508,6 +522,14 @@ void PopUpWidget::appendEntry(const Common::U32String &entry, uint32 tag) {
 
 void PopUpWidget::appendEntry(const Common::String &entry, uint32 tag) {
 	appendEntry(Common::U32String(entry), tag);
+}
+
+void PopUpWidget::appendEntryWithDescription(const Common::U32String &entry, const Common::U32String &description, uint32 tag) {
+	Entry e;
+	e.name = entry;
+	e.description = description;
+	e.tag = tag;
+	_entries.push_back(e);
 }
 
 void PopUpWidget::clearEntries() {

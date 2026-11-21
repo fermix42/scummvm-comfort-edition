@@ -90,7 +90,7 @@ int SaveLoadChooser::runModalWithCurrentTarget() {
 	return runModalWithMetaEngineAndTarget(g_engine->getMetaEngine(), ConfMan.getActiveDomainName());
 }
 
-int SaveLoadChooser::runModalWithMetaEngineAndTarget(const MetaEngine *engine, const Common::String &target) {
+int SaveLoadChooser::runModalWithMetaEngineAndTarget(const MetaEngine *engine, const Common::String &target, const Common::String &preferredSession) {
 	selectChooser(engine, target);
 	if (!_impl)
 		return -1;
@@ -105,8 +105,8 @@ int SaveLoadChooser::runModalWithMetaEngineAndTarget(const MetaEngine *engine, c
 	ConfMan.setActiveDomain(target);
 
 	int ret;
-	bool preservePlaythroughFilter = false;
-	Common::String preservedPlaythroughClientId;
+	bool preservePlaythroughFilter = !preferredSession.empty();
+	Common::String preservedPlaythroughClientId = preferredSession;
 	bool preservedShowArchivedPlaythroughs = false;
 	do {
 		if (preservePlaythroughFilter)

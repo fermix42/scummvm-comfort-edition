@@ -175,6 +175,11 @@
 				/>
 				<space />
 			</layout>
+			<layout type = 'horizontal' padding = '0, 0, 2, 0' spacing = '2'>
+				<widget name = 'SessionLabel' width = '80' height = 'Globals.Line.Height'/>
+				<widget name = 'SessionPopup' type = 'PopUp'/>
+				<widget name = 'NewSessionButton' type = 'Button'/>
+			</layout>
 			<widget name = 'GameList'/>
 			<layout type = 'horizontal' padding = '0, 0, 0, 0' spacing = '10'>
 				<widget name = 'LoadGameButton'

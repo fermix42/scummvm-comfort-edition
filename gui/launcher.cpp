@@ -19,7 +19,12 @@
  *
  */
 
+// Historical UTC session timestamps need the host timezone rules for local display.
+#define FORBIDDEN_SYMBOL_EXCEPTION_localtime
+#include <time.h>
+
 #include "base/version.h"
+#include "gui/ce-session-date.h"
 
 #include "common/config-manager.h"
 #include "common/events.h"
@@ -73,10 +78,10 @@ namespace GUI {
 class CEPlaythroughNameDialog : public Dialog {
 public:
 	CEPlaythroughNameDialog(const Common::String &defaultName) : Dialog(20, 20, 420, 92), _name(nullptr) {
-		new StaticTextWidget(this, 10, 12, 400, 16, _("Playthrough name:"), Graphics::kTextAlignLeft);
+		new StaticTextWidget(this, 10, 12, 400, 16, _("Session name:"), Graphics::kTextAlignLeft);
 		_name = new EditTextWidget(this, 10, 32, 400, 20, Common::U32String(defaultName));
 		new ButtonWidget(this, 230, 62, 80, 20, _("Cancel"), Common::U32String(), kCloseCmd);
-		new ButtonWidget(this, 320, 62, 80, 20, _("Start"), Common::U32String(), kOKCmd);
+		new ButtonWidget(this, 320, 62, 80, 20, _("Create"), Common::U32String(), kOKCmd);
 	}
 
 	Common::String getName() const {
@@ -104,6 +109,8 @@ private:
 
 enum {
 	kStartCmd = 'STRT',
+	kSessionSelectedCmd = 'CESS',
+	kNewSessionCmd = 'CENS',
 	kAboutCmd = 'ABOU',
 	kOptionsCmd = 'OPTN',
 	kAddGameCmd = 'ADDG',
@@ -165,12 +172,39 @@ static Common::String buildQualifiedGameName(const Common::String &engineId, con
 	return Common::String::format("%s:%s", engineId.c_str(), gameId.c_str());
 }
 
-static Common::String makeDefaultPlaythroughName(const Common::String &description) {
-	TimeDate td;
-	g_system->getTimeAndDate(td, false);
-	Common::String title = description.empty() ? _("Playthrough").encode() : description;
-	return Common::String::format("%s - %04d-%02d-%02d %02d:%02d",
-		title.c_str(), td.tm_year + 1900, td.tm_mon + 1, td.tm_mday, td.tm_hour, td.tm_min);
+static Common::String makeDefaultPlaythroughName(const Common::String &target) {
+	const auto records = Common::CEAchievements().listPlaythroughsForTarget(target);
+	uint number = records.size() + 1;
+	for (;;) {
+		const Common::String title = Common::String::format(_("Session %u").encode().c_str(), number++);
+		bool exists = false;
+		for (const auto &record : records)
+			exists = exists || record.title == title;
+		if (!exists) return title;
+	}
+}
+
+static Common::U32String formatSessionCreatedAt(const Common::String &timestamp) {
+	TimeDate utc = {};
+	int year, month;
+	if (sscanf(timestamp.c_str(), "%d-%d-%dT%d:%d:%dZ", &year, &month, &utc.tm_mday, &utc.tm_hour, &utc.tm_min, &utc.tm_sec) == 6 &&
+		year >= 1970 && month >= 1 && month <= 12 && utc.tm_mday >= 1 && utc.tm_mday <= 31 &&
+		utc.tm_hour >= 0 && utc.tm_hour < 24 && utc.tm_min >= 0 && utc.tm_min < 60 && utc.tm_sec >= 0 && utc.tm_sec < 60) {
+		utc.tm_year = year - 1900;
+		utc.tm_mon = month - 1;
+		const time_t created = (time_t)Common::DateTime::dateTimeToInt64(utc);
+		const struct tm *local = localtime(&created);
+		if (local) {
+			TimeDate display = utc;
+			display.tm_year = local->tm_year;
+			display.tm_mon = local->tm_mon;
+			display.tm_mday = local->tm_mday;
+			display.tm_hour = local->tm_hour;
+			display.tm_min = local->tm_min;
+			return Common::U32String(formatSessionCreationDate(display));
+		}
+	}
+	return _("Creation date unavailable");
 }
 
 static Common::String getDomainValueOrEmpty(const Common::ConfigManager::Domain *domain, const Common::String &key) {
@@ -274,7 +308,8 @@ bool LauncherFilterMatcher(void *boss, int idx, const Common::U32String &item, c
 LauncherDialog::LauncherDialog(const Common::String &dialogName)
 	: Dialog(dialogName), _title(dialogName), _browser(nullptr),
 	_loadDialog(nullptr), _searchClearButton(nullptr), _searchDesc(nullptr),
-	_grpChooserDesc(nullptr), _grpChooserPopup(nullptr), _groupBy(kGroupByNone)
+	_grpChooserDesc(nullptr), _grpChooserPopup(nullptr), _groupBy(kGroupByNone),
+	_sessionPopup(nullptr), _newSessionButton(nullptr)
 #ifndef DISABLE_FANCY_THEMES
 	, _logo(nullptr), _searchPic(nullptr), _groupPic(nullptr)
 #endif // !DISABLE_FANCY_THEMES
@@ -318,6 +353,9 @@ LauncherDialog::~LauncherDialog() {
 }
 
 void LauncherDialog::build() {
+	new StaticTextWidget(this, _title + ".SessionLabel", _("Game session:"));
+	_sessionPopup = new PopUpWidget(this, _title + ".SessionPopup", _("Select a session for the highlighted game"), kSessionSelectedCmd);
+	_newSessionButton = new ButtonWidget(this, _title + ".NewSessionButton", _("New Session..."), _("Create and select a new session"), kNewSessionCmd);
 #ifndef DISABLE_FANCY_THEMES
 	if (g_gui.xmlEval()->getVar("Globals.ShowSearchPic") == 1 && g_gui.theme()->supportsImages()) {
 		_grpChooserDesc = nullptr;
@@ -688,11 +726,16 @@ void LauncherDialog::loadGame(int item) {
 		const MetaEngine &metaEngine = enginePlugin->get<MetaEngine>();
 		if (metaEngine.hasFeature(MetaEngine::kSupportsListSaves) &&
 			metaEngine.hasFeature(MetaEngine::kSupportsLoadingDuringStartup)) {
-			int slot = _loadDialog->runModalWithMetaEngineAndTarget(&metaEngine, target);
+			int slot = _loadDialog->runModalWithMetaEngineAndTarget(&metaEngine, target, Common::CEAchievements().getLauncherPlaythroughForTarget(target));
 			if (slot >= 0) {
 				ConfMan.setActiveDomain(_domains[item]);
 				ConfMan.setInt("save_slot", slot, Common::ConfigManager::kTransientDomain);
 				close();
+			} else {
+				// The chooser can delete or archive sessions even when no save is loaded.
+				// Re-read the registry and resolve a deleted selection before showing the launcher.
+				updateButtons();
+				g_gui.scheduleTopDialogRedraw();
 			}
 		} else {
 			MessageDialog dialog
@@ -903,6 +946,79 @@ bool LauncherDialog::doGameDetection(const Common::Path &path) {
 	return true;
 }
 
+void LauncherDialog::updateSessionSelector(int item) {
+	_sessionPopup->clearEntries();
+	_sessionIds.clear();
+	_newSessionButton->setEnabled(item >= 0);
+	_sessionPopup->setEnabled(item >= 0);
+	if (item < 0) {
+		_sessionPopup->appendEntry(_("Select a game"));
+		return;
+	}
+	const Common::String &target = _domains[item];
+	auto records = Common::CEAchievements().listPlaythroughsForTarget(target);
+	// Stable insertion sort: newest creation first, preserving registry order on ties.
+	for (uint i = 1; i < records.size(); ++i) {
+		auto record = records[i];
+		uint j = i;
+		while (j > 0 && records[j - 1].startedAt < record.startedAt) {
+			records[j] = records[j - 1];
+			--j;
+		}
+		records[j] = record;
+	}
+	const auto selected = Common::CEAchievements().getLauncherPlaythroughForTarget(target);
+	int selectedIndex = 0;
+	for (const auto &record : records) {
+		if (record.archived) continue;
+		const uint index = _sessionIds.size();
+		_sessionIds.push_back(record.clientPlaythroughId);
+		Common::String label = record.title.empty() ? record.clientPlaythroughId : record.title;
+		_sessionPopup->appendEntryWithDescription(Common::U32String(label), formatSessionCreatedAt(record.startedAt), index);
+		if (record.clientPlaythroughId == selected)
+			selectedIndex = index;
+	}
+	if (_sessionIds.empty()) {
+		_sessionPopup->appendEntry(_("No sessions yet"));
+		_sessionPopup->setEnabled(false);
+	}
+	_sessionPopup->setSelected(selectedIndex);
+	_sessionPopup->markAsDirty();
+}
+
+bool LauncherDialog::prepareSession(int item, bool createNew) {
+	const Common::String &target = _domains[item];
+	if (!createNew) {
+		const auto session = Common::CEAchievements().getLauncherPlaythroughForTarget(target);
+		if (!session.empty()) {
+			if (Common::CEAchievements().selectLauncherPlaythroughForTarget(target, session))
+				return true;
+			MessageDialog(_("Could not select this game session.")).runModal();
+			return false;
+		}
+	}
+	auto *domain = ConfMan.getDomain(target);
+	Common::String title = makeDefaultPlaythroughName(target);
+	if (createNew) {
+		CEPlaythroughNameDialog dialog(title);
+		if (dialog.runModal() != kOKCmd) return false;
+		title = dialog.getName();
+	}
+	Common::String game, variant;
+	resolveCEAchievementTarget(domain, game, variant);
+	if (!Common::CEAchievements().hasPlaythroughSupportForTarget(target, game, variant)) {
+		game.clear();
+		variant.clear();
+	}
+	if (!Common::CEAchievements().startPlaythroughForTarget(target, game, variant, title)) {
+		MessageDialog(_("Could not create a game session.")).runModal();
+		return false;
+	}
+	ConfMan.set("ce_launcher_session", Common::CEAchievements().getCurrentPlaythroughForTarget(target), target);
+	ConfMan.flushToDisk();
+	return true;
+}
+
 void LauncherDialog::handleCommand(CommandSender *sender, uint32 cmd, uint32 data) {
 	int item = getSelected();
 	bool isAddOn = false;
@@ -953,30 +1069,23 @@ void LauncherDialog::handleCommand(CommandSender *sender, uint32 cmd, uint32 dat
 		about.runModal();
 		}
 		break;
-	case kStartCmd:
-		// Start the selected game.
-		if (item < 0 || isAddOn) return;
-		{
-			Common::ConfigManager::Domain *domain = ConfMan.getDomain(_domains[item]);
-			Common::String description = getDomainValueOrEmpty(domain, "description");
-			if (description.empty())
-				description = _domains[item];
-			CEPlaythroughNameDialog dialog(makeDefaultPlaythroughName(description));
-			if (dialog.runModal() != kOKCmd)
-				return;
-
-			Common::String game;
-			Common::String variant;
-			resolveCEAchievementTarget(domain, game, variant);
-			if (!Common::CEAchievements().hasPlaythroughSupportForTarget(_domains[item], game, variant)) {
-				game.clear();
-				variant.clear();
-			}
-
-			Common::CEAchievements().startPlaythroughForTarget(_domains[item], game, variant, dialog.getName());
-			ConfMan.setActiveDomain(_domains[item]);
-			close();
+	case kSessionSelectedCmd:
+		if (item >= 0 && !isAddOn && data < _sessionIds.size()) {
+			ConfMan.set("ce_launcher_session", _sessionIds[data], _domains[item]);
+			ConfMan.flushToDisk();
 		}
+		break;
+	case kNewSessionCmd:
+		if (item < 0 || isAddOn) return;
+		if (prepareSession(item, true))
+			updateSessionSelector(item);
+		break;
+	case kStartCmd:
+		if (item < 0 || isAddOn) return;
+		if (!prepareSession(item, false)) return;
+		ConfMan.removeKey("save_slot", Common::ConfigManager::kTransientDomain);
+		ConfMan.setActiveDomain(_domains[item]);
+		close();
 		break;
 	case kQuitCmd:
 		ConfMan.setActiveDomain("");
@@ -1660,6 +1769,7 @@ void LauncherSimple::updateButtons() {
 	// Enable Start/Edit buttons only if a single game is selected (not add-on)
 	bool enable = (item >= 0 && !isAddOn && !hasMultiSelection && hasSelection);
 
+	updateSessionSelector(enable ? item : -1);
 	_startButton->setEnabled(enable);
 	_editButton->setEnabled(enable);
 
@@ -1940,6 +2050,15 @@ int LauncherGrid::getItemPos(int item) {
 
 void LauncherGrid::updateButtons() {
     LauncherDialog::updateButtons();
+    int item = _grid ? _grid->getSelected() : -1;
+    int count = 0;
+    for (bool selected : getSelectedItems())
+        if (selected) ++count;
+    if (item >= 0) {
+        const auto *domain = ConfMan.getDomain(_domains[item]);
+        if (domain && domain->contains("parent")) item = -1;
+    }
+    updateSessionSelector(count == 1 ? item : -1);
     // Enable remove button if at least one entry is selected
     if (_grid) {
         const Common::Array<bool> &selectedItems = getSelectedItems();

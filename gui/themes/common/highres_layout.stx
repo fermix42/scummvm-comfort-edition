@@ -210,12 +210,16 @@
 			<layout type = 'horizontal' padding = '0, 0, 0, 0'>
 				<widget name = 'GameList'/>
 				<layout type = 'vertical' padding = '10, 0, 0, 0' align = 'stretch'>
+					<widget name = 'SessionLabel' width = '150' height = 'Globals.Line.Height' textalign = 'start'/>
+					<widget name = 'SessionPopup' type = 'PopUp' width = '220' resolution = 'x>800'/>
+					<widget name = 'SessionPopup' type = 'PopUp' width = '150' resolution = 'x<=800'/>
 					<widget name = 'StartButton'
 							type = 'Button'
 					/>
 					<widget name = 'LoadGameButton'
 							type = 'Button'
 					/>
+					<widget name = 'NewSessionButton' type = 'Button'/>
 					<space size = '5'/>
 					<space size = '5' resolution = 'y>420' />
 					<widget name = 'AddGameButton'
@@ -311,7 +315,12 @@
 				/>
 			</layout>
 			<layout type = 'horizontal' padding = '0, 0, 2, 0' spacing = '2'>
-				<widget name = 'GameList'/>
+				<layout type = 'horizontal' padding = '0, 0, 2, 0' spacing = '2'>
+				<widget name = 'SessionLabel' width = '80' height = 'Globals.Line.Height'/>
+				<widget name = 'SessionPopup' type = 'PopUp'/>
+				<widget name = 'NewSessionButton' type = 'Button'/>
+			</layout>
+			<widget name = 'GameList'/>
 			</layout>
 			<layout type = 'horizontal' padding = '0, 0, 2, 0' spacing = '2'>
 				<widget name = 'LoadGameButton'
@@ -409,6 +418,11 @@
 						height = 'Globals.Line.Height'
 						textalign = 'center'
 				/>
+			</layout>
+			<layout type = 'horizontal' padding = '0, 0, 2, 0' spacing = '2'>
+				<widget name = 'SessionLabel' width = '80' height = 'Globals.Line.Height'/>
+				<widget name = 'SessionPopup' type = 'PopUp'/>
+				<widget name = 'NewSessionButton' type = 'Button'/>
 			</layout>
 			<layout type = 'horizontal' padding = '0, 0, 2, 0' spacing = '2'>
 				<widget name = 'IconArea'/>

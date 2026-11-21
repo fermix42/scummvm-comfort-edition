@@ -126,6 +126,11 @@ public:
 	virtual const Common::Array<bool>& getSelectedItems() const = 0; // Get the selected items from the current view (list or grid)
 	const Common::StringArray& getDomains() const { return _domains; }
 protected:
+	PopUpWidget *_sessionPopup;
+	ButtonWidget *_newSessionButton;
+	Common::StringArray _sessionIds;
+	void updateSessionSelector(int item);
+	bool prepareSession(int item, bool createNew);
 	EditTextWidget  *_searchWidget;
 #ifndef DISABLE_FANCY_THEMES
 	GraphicsWidget		*_logo;
