@@ -39,6 +39,30 @@ WindowsSaveFileManager::WindowsSaveFileManager(bool /*isPortable*/) {
 	ConfMan.registerDefault("savepath", Common::Path("saves"));
 }
 
+bool WindowsSaveFileManager::querySavefileFreeSpace(uint64 &availableBytes) const {
+	availableBytes = 0;
+	// getSavePath() repairs and writes legacy "None" configuration. A capacity
+	// query must stay read-only, including when that legacy setting is present.
+	const Common::Path configured = ConfMan.getPath("savepath");
+	if (configured.empty() || configured == "None")
+		return false;
+	const Common::Path directory = Win32::resolvePortablePath(configured);
+	if (!Win32::isPortableStoragePath(directory))
+		return false;
+	Common::String path = directory.toString(Common::Path::kNativeSeparator);
+	if (!path.hasSuffix("\\"))
+		path += '\\'; // GetDiskFreeSpaceEx requires a trailing slash for UNC paths.
+	TCHAR *nativePath = Win32::stringToTchar(path);
+	ULARGE_INTEGER available;
+	available.QuadPart = 0;
+	const BOOL known = GetDiskFreeSpaceEx(nativePath, &available, nullptr, nullptr);
+	free(nativePath);
+	if (!known)
+		return false;
+	availableBytes = available.QuadPart; // Caller quota, without 32-bit truncation.
+	return true;
+}
+
 Common::ErrorCode WindowsSaveFileManager::removeFile(const Common::FSNode &fileNode) {
 	Win32::requirePortableStoragePath(fileNode.getPath());
 	TCHAR *tFile = Win32::stringToTchar(fileNode.getPath().toString(Common::Path::kNativeSeparator));

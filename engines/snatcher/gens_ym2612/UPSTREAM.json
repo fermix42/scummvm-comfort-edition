@@ -1,0 +1,10 @@
+{
+  "repository": "https://github.com/libgme/game-music-emu",
+  "commit": "8238afd9503a59ffcec0e2685584d5ce819ad7c6",
+  "component": "Gens2.10 YM2612 adaptation",
+  "files_sha256": {
+    "Ym2612_GENS.cpp": "e9bb8453f96dcaddbcf65105506d4346cd7acd6ec9b7470df07cff9fe129420b",
+    "Ym2612_GENS.h": "c7ce2e2e10f67d9987e2d18034a7bdf003f83df9b5cfd77ff4008d02b8b7ee62",
+    "COPYING": "d2efc89fbb7533572a472d34e07964951810a3a4f8d3159ecc2dcaa1452c5c26"
+  }
+}

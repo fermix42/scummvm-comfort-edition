@@ -91,6 +91,9 @@ public:
 	 */
 	virtual bool notifyMousePosition(Common::Point &mouse);
 
+	/** Read-only provenance query on raw window coordinates, before clamping. */
+	bool isMouseOutsideActiveArea(const Common::Point &windowPoint) const;
+
 	bool showMouse(bool visible) override;
 	bool lockMouse(bool lock) override;
 

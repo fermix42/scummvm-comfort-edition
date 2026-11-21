@@ -1,0 +1,7 @@
+/* SPDX-License-Identifier: GPL-3.0-or-later */
+#include "audio_script.h"
+namespace Snatcher {
+bool ScriptAudioWait::start(unsigned queue,std::string& error){error.clear();if(queue!=11&&queue!=19&&queue!=25){error="unsupported script audio wait";return false;}ScriptAudioWaitState next;next.active=true;next.queue=uint16_t(queue);next.remaining=queue==19?2700:queue==25?600:0;_state=next;return true;}
+ScriptAudioWaitResult ScriptAudioWait::tick(uint8_t primary,uint8_t secondary,ScriptCdTransport cd,std::string& error){error.clear();if(!_state.active)return kScriptAudioWaitFinished;bool finished=false;if(_state.queue==11){if(cd==kScriptCdUnknown){error="script CD wait requires owned transport state";return kScriptAudioWaitError;}if(cd!=kScriptCdIdle&&cd!=kScriptCdPlaying&&cd!=kScriptCdPaused){error="invalid script CD transport";return kScriptAudioWaitError;}finished=cd==kScriptCdIdle||cd==kScriptCdPaused;}else{--_state.remaining;finished=!_state.remaining||!(_state.queue==19?primary:secondary);}if(finished){_state.active=false;_state.remaining=0;return kScriptAudioWaitFinished;}return kScriptAudioWaitPending;}
+bool ScriptAudioWait::restore(const ScriptAudioWaitState& s,std::string& error){error.clear();if(s.version!=1||(s.queue!=0&&s.queue!=11&&s.queue!=19&&s.queue!=25)||(!s.queue&&(s.active||s.remaining))||(!s.active&&s.remaining)||(s.queue==11&&s.remaining)||(s.active&&s.queue!=11&&(!s.remaining||s.remaining>(s.queue==19?2700:600)))){error="invalid script audio wait state";return false;}_state=s;return true;}
+}

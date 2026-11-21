@@ -1,0 +1,24 @@
+/* SPDX-License-Identifier: GPL-3.0-or-later */
+#include "../event_state.h"
+#include <cstdio>
+#include <limits>
+namespace {unsigned checks=0;bool check(bool value,const char* message){++checks;if(!value)std::fprintf(stderr,"FAIL event state: %s\n",message);return value;}}
+int main(){using namespace Snatcher;bool ok=true;std::string error;EventScheduler original;EventToken first,second,third;
+ ok&=check(original.create(kDialogueEvent,Cursor(63,12),first,error)&&original.create(kAnimationEvent,Cursor(63,8),second,error)&&original.create(kAudioEvent,Cursor(58,77),third,error),"owned events created");
+ ok&=check(original.complete(third,false,error)&&original.complete(first,true,error),"mixed completion order");original.pause(true);EventSnapshot snapshot=original.snapshot();NativeSaveSection section;
+ ok&=check(encodeEventState(snapshot,section,error)&&section.id==kSaveEvents&&section.required,"semantic event section");NativeSaveEnvelope save;save.sections.push_back(section);std::vector<NativeSaveSectionId> required(1,kSaveEvents);std::vector<uint8_t> encoded;std::string disc(64,'a');
+ ok&=check(encodeNativeSave(save,disc,required,encoded,error),"SNSV envelope with owned events");
+ for(size_t i=0;i<encoded.size();++i){std::vector<uint8_t> corrupt=encoded;corrupt[i]^=1;NativeSaveEnvelope rejected;ok&=check(!decodeNativeSave(corrupt.data(),corrupt.size(),disc,required,rejected,error)&&rejected.sections.empty(),"all byte corruption rejected by envelope");}
+ NativeSaveEnvelope decoded;EventSnapshot loaded;ok&=check(decodeNativeSave(encoded.data(),encoded.size(),disc,required,decoded,error)&&decodeEventState(decoded.sections[0],loaded,error),"owner section decoded");
+ for(size_t i=0;i<section.bytes.size();++i){NativeSaveSection truncated=section;truncated.bytes.resize(i);EventSnapshot rejected;ok&=check(!decodeEventState(truncated,rejected,error)&&rejected.pending.empty(),"every truncated owner payload rejected");}
+ EventScheduler recreated;std::vector<EventRebind> mapped;ok&=check(recreated.restore(loaded,mapped,error)&&mapped.size()==3&&recreated.paused(),"fresh process owner restoration returns rebind map");
+ ok&=check(!recreated.complete(first,false,error)&&!recreated.complete(second,false,error),"pre-restore tokens remain stale");SemanticEvent event;ok&=check(!recreated.take(event),"restored pause preserves posted completions");recreated.pause(false);
+ ok&=check(recreated.take(event)&&event.owner==Cursor(58,77)&&!event.cancelled,"posted order third first");ok&=check(recreated.take(event)&&event.owner==Cursor(63,12)&&event.cancelled,"posted cancellation retained");ok&=check(!recreated.take(event)&&recreated.pending()==1,"unresolved work not fabricated complete");
+ ok&=check(recreated.complete(mapped[1].current,false,error)&&recreated.take(event)&&event.owner==Cursor(63,8),"owner reissued work completes through new token");
+ EventSnapshot invalid=snapshot;invalid.ready.push_back(invalid.ready[0]);uint32_t generation=recreated.generation();ok&=check(!recreated.restore(invalid,mapped,error)&&mapped.empty()&&recreated.generation()==generation&&recreated.pending()==0,"invalid restore transactional");
+ invalid=snapshot;invalid.generation=std::numeric_limits<uint32_t>::max();for(SemanticEvent& e:invalid.pending)e.token.generation=invalid.generation;for(EventToken& t:invalid.ready)t.generation=invalid.generation;ok&=check(!recreated.restore(invalid,mapped,error)&&recreated.generation()==generation,"generation exhaustion rejects without mutation");
+ EventScheduler full;for(unsigned i=0;i<64;++i){EventToken token;ok&=check(full.create(kCommandEvent,Cursor(57,i),token,error)&&full.complete(token,false,error),"bounded complete queue");}ok&=check(encodeEventState(full.snapshot(),section,error)&&section.bytes.size()==1560&&decodeEventState(section,loaded,error),"maximum payload roundtrip");
+ EventToken overflow;ok&=check(full.create(kCommandEvent,Cursor(57,99),overflow,error)&&validateEventSnapshot(full.snapshot(),error),"live65th owner is valid independently of persistence");ok&=check(encodeEventState(full.snapshot(),section,error)&&section.bytes[4]==2&&decodeEventState(section,loaded,error)&&loaded.pending.size()==65,"extended live queue uses an explicit new persistence version");auto mislabeled=section;mislabeled.bytes[4]=1;ok&=check(!decodeEventState(mislabeled,loaded,error),"legacy event version cannot silently acquire extended capacity");
+ for(unsigned i=65;i<kNativeEventCapacity;++i){EventToken token;ok&=check(full.create(kCommandEvent,Cursor(57,i),token,error)&&full.complete(token,false,error),"maximum native queue owner");}ok&=check(encodeEventState(full.snapshot(),section,error)&&decodeEventState(section,loaded,error)&&loaded.pending.size()==kNativeEventCapacity,"all legal pending owners retain exact state");
+ std::printf("event state: %u checks, %u failures\n",checks,ok?0:1);return ok?0:1;
+}

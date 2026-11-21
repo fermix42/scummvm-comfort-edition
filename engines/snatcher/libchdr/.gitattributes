@@ -1,0 +1,4 @@
+# Preserve exact pinned upstream bytes for the source provenance manifest.
+# Preserve pinned upstream bytes, including upstream line endings/whitespace.
+# SOURCE-MANIFEST.json audits this subtree; authored engine files remain checked.
+* -text -whitespace

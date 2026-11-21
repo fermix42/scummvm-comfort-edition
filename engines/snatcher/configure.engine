@@ -1,0 +1,2 @@
+# Independent native engine; explicitly opt in during development.
+add_engine snatcher "Snatcher (experimental native Sega CD)" no

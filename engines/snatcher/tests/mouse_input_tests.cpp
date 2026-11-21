@@ -1,0 +1,34 @@
+/* SPDX-License-Identifier: GPL-3.0-or-later */
+#include "../mouse_input.h"
+#include "../command_input.h"
+#include "../native_visual_jobs.h"
+#include <cstdlib>
+#include <iostream>
+using namespace Snatcher;
+static void check(bool ok,const char* name){if(!ok){std::cerr<<name<<"\n";std::exit(1);}}
+int main(){
+ for(unsigned state=0;state<8;++state){bool busy=state&1,painting=state&2,pending=state&4;check(nativeMenuInputReady(busy,painting,pending)==(state==0),"menu readiness includes producer and publication");check(nativeDialogueInputReady(true,busy,pending)==(!busy&&!pending),"dialogue readiness includes publication");check(!nativeDialogueInputReady(false,busy,pending),"revealing text is never acknowledgement ready");}
+ MouseInput input;MouseContext c;c.kind=kMouseCommands;c.generation=1;c.ready=true;c.canCancel=true;c.targets.push_back(MouseTarget(MouseRect(10,20,30,10),7));c.targets.push_back(MouseTarget(MouseRect(50,20,20,10),8,false));
+ check(input.handle(c,MouseEvent(kMouseMove,10,20)).kind==kMouseHover,"hover inclusive origin");
+ check(input.handle(c,MouseEvent(kMouseMove,40,20)).kind==kMouseNoAction,"half-open right edge");
+ check(input.handle(c,MouseEvent(kMouseLeftDown,15,25)).target==7,"left identity");
+ check(input.handle(c,MouseEvent(kMouseLeftDown,15,25)).kind==kMouseNoAction,"duplicate down");
+ ++c.generation;c.kind=kMouseEntry;check(input.handle(c,MouseEvent(kMouseLeftDown,15,25)).kind==kMouseNoAction,"held crosses generation");
+ check(input.handle(c,MouseEvent(kMouseLeftUp,15,25)).kind==kMouseNoAction,"release never activates");
+ check(input.handle(c,MouseEvent(kMouseLeftDown,15,25)).kind==kMouseActivate,"fresh next generation click");
+ input.handle(c,MouseEvent(kMouseLeftUp));check(input.handle(c,MouseEvent(kMouseLeftDown,55,25)).kind==kMouseNoAction,"disabled choice");
+ input.handle(c,MouseEvent(kMouseLeftUp));check(input.handle(c,MouseEvent(kMouseLeftDown,15,25,false)).kind==kMouseNoAction,"outside game space");
+ input.handle(c,MouseEvent(kMouseLeftUp));c.ready=false;check(input.handle(c,MouseEvent(kMouseLeftDown,15,25)).kind==kMouseNoAction,"busy consumes down");c.ready=true;check(input.handle(c,MouseEvent(kMouseLeftDown,15,25)).kind==kMouseNoAction,"busy down not replayed");
+ input.handle(c,MouseEvent(kMouseLeftUp));input.handle(c,MouseEvent(kMouseFocusLost));check(input.handle(c,MouseEvent(kMouseLeftDown,15,25)).kind==kMouseNoAction,"unfocused down");input.handle(c,MouseEvent(kMouseFocusGained));check(input.handle(c,MouseEvent(kMouseLeftDown,15,25)).kind==kMouseNoAction,"focus gain no stale click");input.handle(c,MouseEvent(kMouseLeftUp));check(input.handle(c,MouseEvent(kMouseLeftDown,15,25)).kind==kMouseActivate,"focus fresh click");
+ input.handle(c,MouseEvent(kMouseLeftUp));check(input.handle(c,MouseEvent(kMouseRightDown,15,25)).kind==kMouseCancel,"right cancel");input.handle(c,MouseEvent(kMouseRightUp));c.canCancel=false;check(input.handle(c,MouseEvent(kMouseRightDown,15,25)).kind==kMouseNoAction,"guard cancel");
+ input.handle(c,MouseEvent(kMouseRightUp));c.canCancel=true;input.handle(c,MouseEvent(kMouseRightDown,15,25));check(input.handle(c,MouseEvent(kMouseLeftDown,15,25)).kind==kMouseNoAction,"held cancel cannot click through new owner");input.handle(c,MouseEvent(kMouseRightUp));input.handle(c,MouseEvent(kMouseLeftUp));
+ c.kind=kMouseCommands;input.handle(c,MouseEvent(kMouseLeftDown,15,25));check(input.handle(c,MouseEvent(kMouseWheel,15,25,true,1)).kind==kMouseNoAction,"wheel cannot retarget held confirm");input.handle(c,MouseEvent(kMouseLeftUp));check(input.handle(c,MouseEvent(kMouseWheel,15,25,true,1)).kind==kMouseScroll,"released wheel remains available");
+ for(unsigned variant=0;variant<2;++variant)for(unsigned n=1;n<=8;++n)for(unsigned selected=0;selected<n;++selected){auto targets=commandMouseTargets(n,selected,variant);unsigned cap=variant?6:7,first=cap-1;bool second=n>cap&&selected>=first;bool found=false;for(const auto& t:targets){if(t.id==selected)found=true;if(t.id<n&&n>cap)check(second?t.id>=first:t.id<first,"hidden rows absent");}check(found,"selected visible");}
+ c.kind=kMouseCommands;c.ready=false;c.deferActivation=true;input.handle(c,MouseEvent(kMouseLeftUp));check(input.handle(c,MouseEvent(kMouseMove,15,25)).kind==kMouseNoAction,"busy hover cannot restart repaint");check(input.handle(c,MouseEvent(kMouseLeftDown,15,25)).kind==kMouseActivate,"stable menu can queue one click during repaint");check(input.handle(c,MouseEvent(kMouseLeftDown,15,25)).kind==kMouseNoAction,"deferred click remains edge-only");input.handle(c,MouseEvent(kMouseLeftUp));c.deferActivation=false;c.ready=true;c.kind=kMouseStartupSkip;check(input.handle(c,MouseEvent(kMouseLeftDown,15,25)).kind==kMouseActivate,"startup skip uses ordinary mouse edge");input.handle(c,MouseEvent(kMouseLeftUp));
+ c.kind=kMouseDialogue;c.ready=false;c.deferActivation=true;check(input.handle(c,MouseEvent(kMouseLeftDown,15,25)).kind==kMouseActivate,"waiting page accepts one click during prompt publication");check(input.handle(c,MouseEvent(kMouseLeftDown,15,25)).kind==kMouseNoAction,"prompt queue cannot repeat held acknowledgement");input.handle(c,MouseEvent(kMouseLeftUp));c.deferActivation=false;check(input.handle(c,MouseEvent(kMouseLeftDown,15,25)).kind==kMouseNoAction,"unready reveal without owned wait cannot queue acknowledgement");input.handle(c,MouseEvent(kMouseLeftUp));
+ // All actionable entry/startup owners preserve the same edge-only contract
+ // while their established graphics owner delays input consumption.
+ for(MouseContextKind kind:{kMouseEntry,kMouseTitle,kMouseOptions,kMouseSaveSlots}){c.kind=kind;c.ready=false;c.deferActivation=true;input.reset();check(input.handle(c,MouseEvent(kMouseLeftDown,15,25)).kind==kMouseActivate,"established UI queues edge during publication");check(input.handle(c,MouseEvent(kMouseLeftDown,15,25)).kind==kMouseNoAction,"publication cannot repeat held edge");input.handle(c,MouseEvent(kMouseFocusLost));check(input.handle(c,MouseEvent(kMouseLeftDown,15,25)).kind==kMouseNoAction,"focus loss cancels deferred ownership");}
+ std::string error;CommandInput command;check(!command.select(0,error),"inactive selection rejected");check(command.open({17,31,42},true,0,error)&&command.select(2,error)&&command.selectedReference()==42,"direct semantic selection");check(!command.select(3,error)&&command.selectedReference()==42,"invalid selection transactional");command.setButton(kCommandConfirm,true,error);auto response=command.update(0);check(response.kind==kCommandConfirmed&&response.reference==42,"existing confirmation owner");
+ std::cout<<"mouse-input contracts PASS\n";return 0;
+}

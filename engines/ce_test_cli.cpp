@@ -139,16 +139,23 @@ static bool matches(JSONValue &req, JSONValue *state) {
 	return actual && req.hasChild("equals") && actual->stringify() == req.child("equals")->stringify();
 }
 static JSONValue *input(JSONValue &req) {
-	if (stringField(req, "kind") == "logical") return g_engine->testCLICommand(req);
-	Event event;
 	String kind = stringField(req, "kind"), phase = stringField(req, "phase");
-	if (phase != "down" && phase != "up" && kind != "mouse_move" && kind != "axis") return error("invalid_phase");
+	const bool mouseInput = kind == "mouse_move" || kind == "mouse_button" || kind == "mouse_wheel";
+	if (req.hasChild("outside_active_area") && (!mouseInput || !req.child("outside_active_area")->isBool())) return error("invalid_outside_active_area");
+	if (req.hasChild("repeat") && (kind != "key" || phase != "down" || !req.child("repeat")->isBool())) return error("invalid_key_repeat");
+	if (kind == "logical") return g_engine->testCLICommand(req);
+	Event event;
+	if (phase != "down" && phase != "up" && kind != "mouse_move" && kind != "mouse_wheel" && kind != "focus" && kind != "axis") return error("invalid_phase");
 	bool down = phase == "down";
-	if (kind == "key") {
+	if (kind == "focus") {
+		if (phase != "lost" && phase != "gained") return error("invalid_focus_phase");
+		event.type = phase == "lost" ? EVENT_FOCUS_LOST : EVENT_FOCUS_GAINED;
+	} else if (kind == "key") {
 		int key = intField(req, "key"), flags = intField(req, "flags", 0), ascii = intField(req, "ascii", 0);
 		if (key < 1 || key >= KEYCODE_LAST || flags < 0 || flags > 255 || ascii < 0 || ascii > 65535) return error("invalid_key");
 		event.type = down ? EVENT_KEYDOWN : EVENT_KEYUP;
 		event.kbd = KeyState((KeyCode)key, ascii, flags);
+		event.kbdRepeat = req.hasChild("repeat") && req.child("repeat")->asBool();
 	} else if (kind == "action") {
 		const Keymap *map = g_system->getEventManager()->getKeymapper()->getKeymap(stringField(req, "map"));
 		if (!map || !map->isEnabled() || map->getType() != Keymap::kKeymapTypeGame) return unsupported();
@@ -179,14 +186,22 @@ static JSONValue *input(JSONValue &req) {
 		// six entries; D-pad/hat input must use buttons or installed actions.
 		if (axis < 0 || axis > 5 || position < -32768 || position > 32767) return error("invalid_axis");
 		event.type = EVENT_JOYAXIS_MOTION; event.joystick.axis = axis; event.joystick.position = position;
-	} else if (kind == "mouse_move" || kind == "mouse_button") {
-		int x = intField(req, "x"), y = intField(req, "y");
+	} else if (mouseInput) {
+		if (req.hasChild("outside_active_area")) {
+			event.mouseOutsideActiveArea = req.child("outside_active_area")->asBool();
+		}
+		if (!req.hasChild("x") || !req.hasChild("y") || !req.child("x")->isIntegerNumber() || !req.child("y")->isIntegerNumber()) return error("invalid_coordinates");
+		int x = intField(req, "x", -1), y = intField(req, "y", -1);
 		if (x < 0 || y < 0 || x >= g_system->getWidth() || y >= g_system->getHeight()) return error("invalid_coordinates");
 		event.mouse = Point(x, y); event.type = EVENT_MOUSEMOVE;
 		if (kind == "mouse_button") {
 			int b = intField(req, "button", 1);
 			if (b != 1 && b != 2) return unsupported();
 			event.type = b == 1 ? (down ? EVENT_LBUTTONDOWN : EVENT_LBUTTONUP) : (down ? EVENT_RBUTTONDOWN : EVENT_RBUTTONUP);
+		} else if (kind == "mouse_wheel") {
+			const int direction = intField(req, "direction", 0);
+			if (direction != -1 && direction != 1) return error("invalid_wheel_direction");
+			event.type = direction < 0 ? EVENT_WHEELUP : EVENT_WHEELDOWN;
 		}
 	} else return unsupported();
 	// Keymapper actions use the installed Action's production output event;
@@ -325,7 +340,15 @@ bool prepare(StringArray &arguments) {
 		arguments.push_back("--config=" + config);
 		arguments.push_back("--savepath=" + s_root + "/saves");
 		arguments.push_back("--logfile=" + s_root + "/engine.log");
-		arguments.push_back(offscreen() ? "--renderer=opengl" : "--renderer=software");
+		if (offscreen()) {
+			arguments.push_back("--renderer=opengl");
+		} else {
+#ifdef USE_TINYGL
+			arguments.push_back("--renderer=software");
+#endif
+			// 2D-only builds may omit TinyGL. SDL dummy and surfacesdl select
+			// headless 2D rendering without an unavailable 3D renderer option.
+		}
 		arguments.push_back(offscreen() ? "--gfx-mode=opengl" : "--gfx-mode=surfacesdl"); arguments.push_back("--no-fullscreen");
 		arguments.push_back("--no-console"); arguments.push_back("--music-driver=null");
 		arguments.push_back("cli-game");
@@ -384,6 +407,9 @@ void frame() { if (active()) { ++s_frame; pump(); } }
 int finish(int result) {
 	if (s_pending) { reply(s_pending, error("engine_exited")); delete s_pending; s_pending = nullptr; s_failed = true; }
 	if (!s_launched && s_eof && result == 64) result = 0;
+	// Release pool-backed storage before the backend and string-pool mutex die.
+	// The static objects themselves outlive OSystem during CRT teardown.
+	s_root.clear(); s_buffer.clear(); s_videoDriver.clear();
 	return result ? result : s_failed ? 2 : 0;
 }
 }

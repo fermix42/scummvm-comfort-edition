@@ -210,6 +210,7 @@ bool Keymapper::mapEvent(const Event &ev, List<Event> &mappedEvents) {
 			Event fakeMouseEvent;
 			fakeMouseEvent.type  = EVENT_MOUSEMOVE;
 			fakeMouseEvent.mouse = ev.mouse;
+			fakeMouseEvent.mouseOutsideActiveArea = ev.mouseOutsideActiveArea;
 
 			mappedEvents.push_back(fakeMouseEvent);
 		}
@@ -322,6 +323,8 @@ Event Keymapper::executeAction(const Action *action, const Event &incomingEvent)
 		outgoingEvent.kbdRepeat = incomingEvent.kbdRepeat;
 	}
 
+	if (isMouseEvent(incomingEvent))
+		outgoingEvent.mouseOutsideActiveArea = incomingEvent.mouseOutsideActiveArea;
 	if (isMouseEvent(outgoingEvent)) {
 		if (isMouseEvent(incomingEvent)) {
 			outgoingEvent.mouse = incomingEvent.mouse;

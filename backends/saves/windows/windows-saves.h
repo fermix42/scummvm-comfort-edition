@@ -30,6 +30,7 @@
 class WindowsSaveFileManager final : public DefaultSaveFileManager {
 public:
 	WindowsSaveFileManager(bool isPortable);
+	bool querySavefileFreeSpace(uint64 &availableBytes) const override;
 
 protected:
 	Common::ErrorCode removeFile(const Common::FSNode &fileNode) override;

@@ -268,106 +268,38 @@ template<st_volume_t volL, st_volume_t volR, typename st_sample_t, MixMode mixMo
 int RateConverter_Impl<inStereo, outStereo, reverseStereo>::downsampleConvert(AudioStream &input, st_sample_t *outBuffer, st_size_t numSamples, st_volume_t volL_val, st_volume_t volR_val) {
 	PRINT_OUTPUT_RATE;
 
-	// How much to increment _outPos by
-	const frac_t outPos_inc = _inRate / _outRate;
-
+	const int channels = inStereo ? 2 : 1;
+	const frac_t inputFramesPerOutput = _inRate / _outRate;
 	const st_sample_t *outStart = outBuffer;
 	const st_sample_t *outEnd = outBuffer + numSamples * (outStereo ? 2 : 1);
 
 	while (outBuffer < outEnd) {
-		// Read enough input samples so that _outPos >= 0
-		while (_outPos >= 0) {
-			const int skip = MIN((int)_outPos + 1, _bufferSize / (inStereo ? 2 : 1));
-			_bufferPos += skip * (inStereo ? 2 : 1);
-			_bufferSize -= skip * (inStereo ? 2 : 1);
+		// A short read need not cover a whole decimation stride. Keep the
+		// remaining skip in _outPos across refills and output callbacks.
+		if (_bufferSize < channels) {
+			_bufferPos = _buffer;
+			_bufferSize = input.readBuffer(_buffer, ARRAYSIZE(_buffer));
+			if (_bufferSize < channels) {
+				_bufferSize = 0;
+				return (outBuffer - outStart) / (outStereo ? 2 : 1);
+			}
+		}
+		if (_outPos >= 0) {
+			const int skip = MIN((int)_outPos + 1, _bufferSize / channels);
+			_bufferPos += skip * channels;
+			_bufferSize -= skip * channels;
 			_outPos -= skip;
-
-			// Check if we have to refill the buffer
-			if (_bufferSize == 0) {
-				_bufferPos = _buffer;
-				_bufferSize = input.readBuffer(_buffer, ARRAYSIZE(_buffer));
-
-				if (_bufferSize <= 0)
-					return (outBuffer - outStart) / (outStereo ? 2 : 1);
-			}
+			continue;
 		}
 
-		// Process as many samples as we can from the current buffer
-		const int count = MIN<int>(
-			_bufferSize / (inStereo ? 2 : 1) / outPos_inc,
-			(int)(outEnd - outBuffer) / (outStereo ? 2 : 1));
-		_bufferSize -= count * outPos_inc * (inStereo ? 2 : 1);
-		_outPos = outPos_inc - 1;
-
-		// Frame stride remaining after reading one frame
-		const int stride = (outPos_inc - 1) * (inStereo ? 2 : 1);
-
-		if (volL | volR) {
-			for (int i = 0; i < count; ++i) {
-				int16 inL, inR;
-
-				if (inStereo) {
-					if (volL != 0)
-						inL = *_bufferPos++;
-					else
-						_bufferPos++;
-
-					if (volR != 0)
-						inR = *_bufferPos++;
-					else
-						_bufferPos++;
-				} else {
-					if (volL != 0) {
-						inL = *_bufferPos++;
-						if (volR != 0)
-							inR = inL;
-					} else {
-						inR = *_bufferPos++;
-					}
-				}
-
-				_bufferPos += stride;
-
-				st_sample_t outL, outR;
-				if (volL != 0) {
-					if (volL != Audio::Mixer::kMaxMixerVolume)
-						outL = (inL * (int)volL_val) / Audio::Mixer::kMaxMixerVolume;
-					else
-						outL = inL;
-				}
-				if (volR != 0) {
-					if (volR != Audio::Mixer::kMaxMixerVolume)
-						outR = (inR * (int)volR_val) / Audio::Mixer::kMaxMixerVolume;
-					else
-						outR = inR;
-				}
-
-				if (outStereo) {
-					// Output left channel
-					if (volL != 0)
-						processSample<mixMode>(outBuffer[reverseStereo    ], outL);
-
-					// Output right channel
-					if (volR != 0)
-						processSample<mixMode>(outBuffer[reverseStereo ^ 1], outR);
-				} else {
-					// Output mono channel
-					st_sample_t monoOut;
-					if (volL != 0 && volR != 0)
-						monoOut = (outL + outR) / 2;
-					else if (volL != 0)
-						monoOut = outL / 2;
-					else if (volR != 0)
-						monoOut = outR / 2;
-					processSample<mixMode>(outBuffer[0], monoOut);
-				}
-
-				outBuffer += (outStereo ? 2 : 1);
-			}
-		} else {
-			_bufferPos += count * outPos_inc * (inStereo ? 2 : 1);
-			outBuffer += count * (outStereo ? 2 : 1);
-		}
+		const int16 inL = _bufferPos[0];
+		const int16 inR = inStereo ? _bufferPos[1] : inL;
+		writeFrame<volL, volR, st_sample_t, mixMode>(outBuffer, inL, inR, volL_val, volR_val);
+		_bufferPos += channels;
+		_bufferSize -= channels;
+		// This frame was consumed already: skip only the remaining stride.
+		// Preserve the constructor's existing initial two-frame input phase.
+		_outPos = inputFramesPerOutput - 2;
 	}
 	return (outBuffer - outStart) / (outStereo ? 2 : 1);
 }

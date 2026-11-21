@@ -1,0 +1,14 @@
+{
+  "project": "Nuked-OPN2",
+  "upstream": "https://github.com/nukeykt/Nuked-OPN2",
+  "commit": "335747d78cb0abbc3b55b004e62dad9763140115",
+  "license": "LGPL-2.1-or-later",
+  "files_sha256": {
+    "LICENSE": "20c17d8b8c48a600800dfd14f95d5cb9ff47066a9641ddeab48dc54aec96e331",
+    "README.md": "21634adf91e4e2a483adfb10084ce06f105225265cf869fe22fd4ab3dcd77bf1",
+    "ym3438.c": "8fa385546f0f2d1c975d097002af00cd729ae2ae097c068e9c883ce08ddf3a76",
+    "ym3438.h": "8e60e35f77049d0e600ad1a47bfc3dfc8b832483e614104473a83c1f33cd7189"
+  },
+  "modifications": "None; ym3438.c, ym3438.h, LICENSE and README.md are exact upstream bytes",
+  "scope": "Standalone FM sound generator only. No Sega CD BIOS, CPU, disc, PCM, graphics, emulator frontend or game implementation. Native sequence scheduling and resource semantics remain independently implemented."
+}

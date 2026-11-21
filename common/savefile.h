@@ -276,6 +276,18 @@ public:
 	 * @return true if the file exists. false otherwise.
 	 */
 	virtual bool exists(const String &name) = 0;
+
+	/**
+	 * Query currently available save-directory bytes for the calling user.
+	 * This optional read-only capability neither creates directories nor reserves
+	 * capacity. A successful snapshot does not guarantee a later write succeeds.
+	 * Unsupported backends and unavailable queries return false, not a zero-space
+	 * fact. The manager's existing error state is unchanged.
+	 */
+	virtual bool querySavefileFreeSpace(uint64 &availableBytes) const {
+		availableBytes = 0;
+		return false;
+	}
 };
 
 /** @} */

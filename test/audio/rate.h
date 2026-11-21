@@ -31,6 +31,45 @@ private:
 
 class RateTestSuite : public CxxTest::TestSuite {
 public:
+	/** Integer decimation retains its initial phase across output callbacks. */
+	void test_downsample_callback_partition() {
+		Audio::RateConverter *converter = Audio::makeRateConverter(44100, 22050, true, true, false);
+		CountingAudioStream input(44100, true);
+		for (int frame = 0; frame < 600; ++frame) {
+			int16 out[2] = {};
+			TS_ASSERT_EQUALS(converter->convert(input, (byte *)out, sizeof(int16), 1,
+				Audio::Mixer::kMaxMixerVolume, Audio::Mixer::kMaxMixerVolume, Audio::MIX_ADD), 1);
+			// The existing initial phase discards two input frames. Thereafter
+			// exactly two input frames separate each selected output frame.
+			TS_ASSERT_EQUALS(out[0], (int16)(2 * (2 + frame * 2) + 1));
+			TS_ASSERT_EQUALS(out[1], (int16)(2 * (2 + frame * 2) + 2));
+		}
+		delete converter;
+	}
+
+	/** A valid one-frame read is shorter than a decimation stride. */
+	void test_downsample_short_reads() {
+		class ShortStream : public CountingAudioStream {
+		public:
+			int reads;
+			ShortStream() : CountingAudioStream(48000, true), reads(0) {}
+			int readBuffer(int16 *buffer, int numSamples) override {
+				// Keep a regression failure finite instead of hanging the test.
+				if (++reads > 100) return 0;
+				return CountingAudioStream::readBuffer(buffer, numSamples < 2 ? numSamples : 2);
+			}
+		} input;
+		Audio::RateConverter *converter = Audio::makeRateConverter(48000, 8000, true, true, false);
+		int16 out[16] = {};
+		TS_ASSERT_EQUALS(converter->convert(input, (byte *)out, sizeof(int16), 8,
+			Audio::Mixer::kMaxMixerVolume, Audio::Mixer::kMaxMixerVolume, Audio::MIX_ADD), 8);
+		for (int frame = 0; frame < 8; ++frame) {
+			TS_ASSERT_EQUALS(out[frame * 2], (int16)(2 * (2 + frame * 6) + 1));
+			TS_ASSERT_EQUALS(out[frame * 2 + 1], (int16)(2 * (2 + frame * 6) + 2));
+		}
+		TS_ASSERT(input.reads <= 2 + 8 * 6);
+		delete converter;
+	}
 	/**
 	 * When the output rate is an exact multiple of the input rate, every input
 	 * frame is written out `factor` times in a row. A request whose frame count

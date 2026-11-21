@@ -64,6 +64,7 @@ bool SdlEventSource::processMouseEvent(Common::Event &event, int x, int y, int r
 	event.mouse.y = y;
 	event.relMouse.x = relx;
 	event.relMouse.y = rely;
+	event.mouseOutsideActiveArea = _graphicsManager && _graphicsManager->isMouseOutsideActiveArea(event.mouse);
 
 	if (_graphicsManager) {
 		return _graphicsManager->notifyMousePosition(event.mouse);

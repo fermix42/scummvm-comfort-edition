@@ -20,6 +20,7 @@
  */
 
 #include "backends/graphics/sdl/sdl-graphics.h"
+#include "backends/graphics/mouse_bounds.h"
 #include "engines/ce_test_cli.h"
 #include "backends/platform/sdl/sdl-sys.h"
 #include "backends/platform/sdl/sdl.h"
@@ -251,6 +252,12 @@ bool SdlGraphicsManager::showMouse(bool visible) {
 
 bool SdlGraphicsManager::lockMouse(bool lock) {
 	return _window->lockMouse(lock);
+}
+
+bool SdlGraphicsManager::isMouseOutsideActiveArea(const Common::Point &windowPoint) const {
+	return Graphics::mouseOutsideActiveArea(windowPoint.x, windowPoint.y,
+		_window->getSdlDpiScalingFactor(), _activeArea.drawRect.left,
+		_activeArea.drawRect.top, _activeArea.drawRect.right, _activeArea.drawRect.bottom);
 }
 
 bool SdlGraphicsManager::notifyMousePosition(Common::Point &mouse) {
