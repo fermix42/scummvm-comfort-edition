@@ -183,11 +183,10 @@ public:
 		if (!_opened) { _opened = g_system->getMillis(); _cycles = observedClocks(); }
 		if (g_system->getMillis() - _opened < 100) return false;
 		if (_quit) {
-			// CEPlaythroughExitDialog uses fixed overlay geometry: origin
-			// (40,40), Quit button (330,80,80,20). This fixture uses the
-			// engine's 560x384 overlay. Leave "mark complete" unchecked.
-			_click=Common::Point(410,130);
-			_armed=false;_mouseUp=true;event.type=Common::EVENT_LBUTTONDOWN;event.mouse=_click;return true;
+			// The standard exit confirmation binds Return to its default button.
+			// Use its keyboard contract rather than fixed dialog coordinates.
+			_armed=false;_gridLastKey=Common::KeyState(Common::KEYCODE_RETURN,13);
+			_gridKeyUp=true;event.type=Common::EVENT_KEYDOWN;event.kbd=_gridLastKey;return true;
 		}
 		stable = _cycles == observedClocks();
 		closed = true; _armed = false; _keyup = true;
