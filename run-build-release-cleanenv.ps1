@@ -1,7 +1,6 @@
-param([switch]$SnatcherIntegration, [switch]$SnatcherTests, [switch]$NoxNativeOnly, [switch]$NoxFocused, [switch]$WithoutNox, [switch]$UnitTests, [switch]$WarningAudit, [switch]$GenerateOnly, [switch]$Clean)
+param([switch]$NoxNativeOnly, [switch]$NoxFocused, [switch]$WithoutNox, [switch]$UnitTests, [switch]$WarningAudit, [switch]$GenerateOnly, [switch]$Clean)
 
 $ErrorActionPreference = 'Stop'
-if ($SnatcherIntegration -and ($NoxFocused -or $WithoutNox -or $UnitTests -or $SnatcherTests)) { throw 'Use -SnatcherIntegration with the complete Release build.' }
 if ($WithoutNox -and ($NoxNativeOnly -or $NoxFocused -or $UnitTests -or $WarningAudit)) { throw 'Use -WithoutNox with the standard Release build.' }
 # -NoxNativeOnly remains accepted for historical callers. Every Nox build is native.
 $buildDirectory = if ($UnitTests) { 'build-tests' } elseif ($NoxFocused) { 'build-nox-focused' } elseif ($WithoutNox) { 'build-scummvm-no-nox' } else { 'build-scummvm' }
@@ -42,14 +41,6 @@ $env:VCPKG_OVERLAY_TRIPLETS = "$substRepoRoot\.github\windows-layout-triplets"
 $env:VCPKG_OVERLAY_PORTS = "$substRepoRoot\.github\vcpkg-ports"
 
 Set-Location $substRepoRoot
-if ($SnatcherTests) {
-    cmake -S engines/snatcher/tests -B build-snatcher-tests
-    if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-    cmake --build build-snatcher-tests --config Release -j 2
-    if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-    & 'C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\ctest.exe' --test-dir build-snatcher-tests -C Release --output-on-failure
-    exit $LASTEXITCODE
-}
 if ($WarningAudit) {
     & 'C:\Users\aaron\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' devtools/ce/prepare_warning_repro.py
     if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
@@ -76,9 +67,8 @@ if (-not $projectNeedsRefresh) {
     $projectNeedsRefresh = -not (Test-Path $globalPropsPath)
     if (-not $projectNeedsRefresh) {
         $globalPropsContent = Get-Content -LiteralPath $globalPropsPath -Raw
-		if ($SnatcherIntegration -and -not $globalPropsContent.Contains('ENABLE_SNATCHER')) { $projectNeedsRefresh = $true }
         $projectNeedsRefresh = (-not $NoxFocused -and -not $globalPropsContent.Contains('ENABLE_MONKEY4')) -or ($globalPropsContent.Contains('ENABLE_NOX') -eq $WithoutNox.IsPresent) -or (-not $NoxFocused -and -not $globalPropsContent.Contains('ENABLE_PHOENIXVR')) -or (-not $NoxFocused -and -not $globalPropsContent.Contains('ENABLE_GOOKA'))
-		$projectNeedsRefresh = $projectNeedsRefresh -or ($SnatcherIntegration -and -not $globalPropsContent.Contains('ENABLE_SNATCHER'))
+		$projectNeedsRefresh = $projectNeedsRefresh -or (-not $NoxFocused -and -not $UnitTests -and -not $globalPropsContent.Contains('ENABLE_SNATCHER'))
     }
 }
 if (-not $projectNeedsRefresh -and (Test-Path "$buildDirectory\scummvm.vcxproj")) {
@@ -124,7 +114,6 @@ if ($projectNeedsRefresh -or $UnitTests -or $GenerateOnly) {
         New-Item -ItemType Directory -Path $buildDirectory | Out-Null
     }
 
-    if ($SnatcherIntegration) { $snatcherArguments = @('--enable-engine=snatcher') } else { $snatcherArguments = @() }
     Push-Location $buildDirectory
     try {
         if ($UnitTests) {
@@ -132,9 +121,9 @@ if ($projectNeedsRefresh -or $UnitTests -or $GenerateOnly) {
         } elseif ($NoxFocused) {
             ..\build-create-project\Release\create_project.exe .. --msvc --vcpkg --msvc-version 17 --use-windows-unicode --disable-all-engines --enable-engine=nox
         } elseif ($WithoutNox) {
-            ..\build-create-project\Release\create_project.exe .. --msvc --vcpkg --msvc-version 17 --use-windows-unicode --enable-gif --enable-engine=monkey4,gooka --disable-engine=nox
+            ..\build-create-project\Release\create_project.exe .. --msvc --vcpkg --msvc-version 17 --use-windows-unicode --enable-gif --enable-engine=monkey4,gooka,snatcher --disable-engine=nox
         } else {
-            ..\build-create-project\Release\create_project.exe .. --msvc --vcpkg --msvc-version 17 --use-windows-unicode --enable-gif --enable-engine=monkey4,nox,gooka @snatcherArguments
+            ..\build-create-project\Release\create_project.exe .. --msvc --vcpkg --msvc-version 17 --use-windows-unicode --enable-gif --enable-engine=monkey4,nox,gooka,snatcher
         }
         if ($LASTEXITCODE -ne 0) {
             exit $LASTEXITCODE
@@ -220,6 +209,14 @@ if ($UnitTests -and $buildExitCode -eq 0) {
     cmake --build build-ce-tests --config Release
     if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
     & 'C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\ctest.exe' --test-dir build-ce-tests -C Release --output-on-failure
+    $buildExitCode = $LASTEXITCODE
+}
+if ($UnitTests -and $buildExitCode -eq 0) {
+    cmake -S engines/snatcher/tests -B build-snatcher-tests
+    if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+    cmake --build build-snatcher-tests --config Release -j 2
+    if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+    & 'C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\ctest.exe' --test-dir build-snatcher-tests -C Release --output-on-failure
     $buildExitCode = $LASTEXITCODE
 }
 exit $buildExitCode

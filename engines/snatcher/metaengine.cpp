@@ -20,7 +20,11 @@ public:
   Common::sort(result.begin(),result.end(),SaveStateDescriptorSlotComparator());return result;
  }
  bool removeSaveState(const char* target,int slot)const override{if(slot<0||slot>99)return false;auto* manager=g_system->getSavefileManager();Common::String file=Common::String::format("%s.%03d",target,slot);manager->removeSavefile(file+".bak");manager->removeSavefile(file+".new");return manager->removeSavefile(file);}
- Common::Error createInstance(OSystem *s,Engine **e,const DetectedGame &,const void *) override {*e=new Snatcher::SnatcherEngine(s);return Common::kNoError;}
+ Common::Error createInstance(OSystem *s,Engine **e,const DetectedGame &game,const void *) override {
+  if(game.gameSupportLevel==kUnstableGame && !Engine::warnUserAboutUnsupportedGame())
+   return Common::kUserCanceled;
+  *e=new Snatcher::SnatcherEngine(s);return Common::kNoError;
+ }
  Common::Array<Common::Keymap *> initKeymaps(const char *) const override {
   Common::Array<Common::Keymap *> maps;
   Common::Keymap *map=new Common::Keymap(Common::Keymap::kKeymapTypeGame,"snatcher","Snatcher");

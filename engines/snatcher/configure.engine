@@ -1,2 +1,2 @@
-# Independent native engine; explicitly opt in during development.
+# Experimental engine; normal CE Windows builds enable it with --enable-engine.
 add_engine snatcher "Snatcher (experimental native Sega CD)" no
