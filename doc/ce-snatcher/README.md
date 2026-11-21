@@ -36,6 +36,14 @@ requests, and preserves manual slot 0. Original four-slot compatibility remains
 separate and unchanged. Existing FM selection/restoration, input, graphics,
 resource loading and strict portable-storage behavior remain intact.
 
+Successful native saves use CE's normal session-recording hook, and successful
+loads restore the saved session through the corresponding load hook. Existing
+untagged saves remain Untracked until deliberately assigned; loading an untagged
+backup does not inherit the newer primary generation's session. Save payloads
+and schemas are unchanged. `devtools/ce/test_snatcher_sessions.py` checks two
+sessions, save ownership, cold continuation, untracked saves, autosave protection
+and backup fallback using owned dummy-device roots.
+
 The qualified source was merged from
 `b906b0006d4c8ac005504acbdbe0d58d73db152f` without conflicts. The earlier
 [integration report](INTEGRATION-20261121.md) is a historical record of the
