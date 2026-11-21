@@ -772,9 +772,19 @@ void SaveLoadChooserDialog::deleteSelectedPlaythrough() {
 		return;
 
 	const Common::String deletedPlaythroughId = _selectedPlaythroughClientId;
+	// The simple chooser pads _saveList with empty display slots after filtering.
+	// Destructive actions must enumerate real saves again and check ownership;
+	// display placeholders are neither files nor members of the selected run.
+	SaveStateList sessionSaves = _metaEngine->listSaves(_target.c_str(), false);
+	for (int i = (int)sessionSaves.size() - 1; i >= 0; --i) {
+		const int slot = sessionSaves[i].getSaveSlot();
+		const Common::String filename = _metaEngine->getSavegameFile(slot, _target.c_str());
+		if (Common::CEAchievements().getSavePlaythroughForTargetSlot(_target, slot, filename) != deletedPlaythroughId)
+			sessionSaves.remove_at(i);
+	}
 	if (dialog.shouldDeleteSaves()) {
-		for (int i = (int)_saveList.size() - 1; i >= 0; --i) {
-			const int saveSlot = _saveList[i].getSaveSlot();
+		for (int i = (int)sessionSaves.size() - 1; i >= 0; --i) {
+			const int saveSlot = sessionSaves[i].getSaveSlot();
 			// Resolve once and let the engine remove a complete logical save
 			// before clearing generic CE metadata needed to validate that save.
 			const Common::String filename = _metaEngine->getSavegameFile(saveSlot, _target.c_str());
@@ -786,8 +796,8 @@ void SaveLoadChooserDialog::deleteSelectedPlaythrough() {
 			Common::CEAchievements().clearSavePlaythroughForTargetSlot(_target, saveSlot, deletedPlaythroughId, filename);
 		}
 	} else {
-		for (uint i = 0; i < _saveList.size(); ++i) {
-			const int slot = _saveList[i].getSaveSlot();
+		for (uint i = 0; i < sessionSaves.size(); ++i) {
+			const int slot = sessionSaves[i].getSaveSlot();
 			if (!_metaEngine->detachSavePlaythrough(_target.c_str(), slot, deletedPlaythroughId)) {
 				MessageDialog alert(_("Could not detach a saved game. The Play Session was kept."));
 				alert.runModal();
