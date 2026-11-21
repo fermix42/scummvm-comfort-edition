@@ -39,6 +39,7 @@
 #define _WIN32_WINNT 0x500
 #endif
 #include <windows.h>
+#include <psapi.h>
 #include <shellapi.h> // for CommandLineToArgvW()
 #include <shlobj.h>
 #include <tchar.h>
@@ -50,6 +51,7 @@
 #include "common/scummsys.h"
 #include "common/textconsole.h"
 #include "backends/platform/sdl/win32/win32_wrapper.h"
+#include "backends/platform/sdl/win32/process-metrics.h"
 
 // VerSetConditionMask, VerifyVersionInfo and SHGetFolderPath didn't appear until Windows 2000,
 // so we need to check for them at runtime
@@ -102,6 +104,20 @@ HRESULT SHGetFolderPathFunc(HWND hwnd, int csidl, HANDLE hToken, DWORD dwFlags, 
 }
 
 namespace Win32 {
+ProcessMetrics processMetrics() {
+ ProcessMetrics result;
+ typedef BOOL (WINAPI *MemoryInfo)(HANDLE,PPROCESS_MEMORY_COUNTERS,DWORD);
+ static MemoryInfo memoryInfo=reinterpret_cast<MemoryInfo>(GetProcAddress(GetModuleHandleW(L"kernel32.dll"),"K32GetProcessMemoryInfo"));
+ PROCESS_MEMORY_COUNTERS_EX memory={};memory.cb=sizeof(memory);DWORD handles=0;
+ if(memoryInfo&&memoryInfo(GetCurrentProcess(),reinterpret_cast<PPROCESS_MEMORY_COUNTERS>(&memory),sizeof(memory))&&GetProcessHandleCount(GetCurrentProcess(),&handles)){
+  result.known=true;result.workingSet=memory.WorkingSetSize;result.privateBytes=memory.PrivateUsage;result.handles=handles;
+ }
+ FILETIME creation,exit,kernel,user;
+ if(GetProcessTimes(GetCurrentProcess(),&creation,&exit,&kernel,&user))result.cpu100ns=(uint64(kernel.dwHighDateTime)<<32)+kernel.dwLowDateTime+(uint64(user.dwHighDateTime)<<32)+user.dwLowDateTime;
+ MEMORYSTATUSEX systemMemory={};systemMemory.dwLength=sizeof(systemMemory);
+ if(GlobalMemoryStatusEx(&systemMemory))result.availablePhysical=systemMemory.ullAvailPhys;
+ return result;
+}
 
 static Common::String s_storageRoot;
 

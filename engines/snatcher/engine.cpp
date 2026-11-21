@@ -27,6 +27,11 @@
 #include "snatcher/narrative_state.h"
 #include "snatcher/audio_fm.h"
 #include "audio/mixer_intern.h"
+#include "base/version.h"
+#include "gui/message.h"
+#ifdef WIN32
+#include "backends/platform/sdl/win32/process-metrics.h"
+#endif
 namespace Snatcher {
 namespace {
 uint64 testInstancesCreated=0,testDestructorsEntered=0,testLastDestructionSerial=0;
@@ -41,6 +46,57 @@ void SnatcherEngine::noteTestInstanceDestruction(){
  testLastDestructionSerial=_testInstanceSerial;testLastDestructionDiscOpen=_resources.isOpen();
 }
 void SnatcherEngine::resetVisualObserver(){_visualObserver=VisualWorkerObserver();}
+void SnatcherEngine::recordInvestigationFrame(){
+ _investigationFrame.millis=_system->getMillis();_investigationFrame.frame=++_investigationFrames;
+ if(_runtime){_investigationFrame.resource=_runtime->cursor().resource;_investigationFrame.node=_runtime->cursor().node;}
+ _investigationFrame.pending=_events.pending();
+ if(_investigationHistory.empty()||uint32_t(_investigationFrame.millis-_investigationLastSample)>=1000||_investigationHistory.back().resource!=_investigationFrame.resource){
+#ifdef WIN32
+  const Win32::ProcessMetrics metrics=Win32::processMetrics();_investigationFrame.processMetrics=metrics.known;_investigationFrame.workingSet=metrics.workingSet;_investigationFrame.privateBytes=metrics.privateBytes;_investigationFrame.handles=metrics.handles;_investigationFrame.cpu100ns=metrics.cpu100ns;_investigationFrame.availablePhysical=metrics.availablePhysical;
+#endif
+  if(_investigationHistory.size()==1800)_investigationHistory.pop_front();
+  _investigationHistory.push_back(_investigationFrame);_investigationLastSample=_investigationFrame.millis;
+  _investigationFrame=InvestigationSample();
+ }
+}
+namespace {
+// SaveFileManager keeps all evidence in the installation's managed save root.
+// Finalize and read back before allowing the UI to report completion.
+bool writeInvestigationJSON(Common::SaveFileManager& manager,const Common::String& name,const Common::JSONValue& value){
+ Common::String bytes=value.stringify(true);Common::OutSaveFile* out=manager.openForSaving(name,false);if(!out)return false;
+ bool good=out->write(bytes.c_str(),bytes.size())==bytes.size();out->finalize();good=good&&!out->err();delete out;if(!good)return false;
+ Common::InSaveFile* in=manager.openForLoading(name);if(!in)return false;
+ Common::String read;while(!in->eos()&&!in->err()){char block[4096];uint32 n=in->read(block,sizeof(block));read.append(block,block+n);}good=!in->err()&&read==bytes;delete in;return good;
+}
+}
+bool SnatcherEngine::captureInvestigation(Common::String& message){
+ _investigationComplete=false;_investigationStatus="Capturing investigation";
+ auto* manager=_system->getSavefileManager();TimeDate now;_system->getTimeAndDate(now);
+ const Common::String prefix=Common::String::format("%s-snatcher-investigation-%04d%02d%02d-%02d%02d%02d-%u-",ConfMan.getActiveDomainName().c_str(),now.tm_year+1900,now.tm_mon+1,now.tm_mday,now.tm_hour,now.tm_min,now.tm_sec,_system->getMillis());
+ Common::String stem;do{stem=prefix+Common::String::format("%u",++_investigationSerial);}while(!manager->listSavefiles(stem+"*").empty());
+ _investigationLastCapture=stem;
+ Common::JSONObject report;report["format"]=new Common::JSONValue("snatcher-investigation/1");report["build"]=new Common::JSONValue(gScummVMFullVersion);
+ report["snapshot_file"]=new Common::JSONValue(stem+".save");report["snapshot_status"]=new Common::JSONValue("See matching .result.json; this report is written before snapshot capture");
+ report["engine"]=testCLIState();report["host_frames"]=new Common::JSONValue((long long)_investigationFrames);report["input_events"]=new Common::JSONValue((long long)_investigationEvents);report["mouse_moves"]=new Common::JSONValue((long long)_investigationMoves);
+ report["current_interval_events"]=new Common::JSONValue((long long)_investigationFrame.events);report["current_poll_elapsed_ms"]=new Common::JSONValue((long long)uint32_t(_system->getMillis()-_investigationPollStart));
+ Common::JSONObject settings;for(const char* key:{"gfx_mode","gfx_mode_submode","fullscreen","aspect_ratio","filtering","vsync","stretch_mode","shader","snatcher_fm_core","snatcher_decensor","snatcher_original_controls","autosave_period"})if(ConfMan.hasKey(key))settings[key]=new Common::JSONValue(ConfMan.get(key));report["settings"]=new Common::JSONValue(settings);
+ Common::JSONArray history;
+ for(const auto& s:_investigationHistory){Common::JSONObject row;row["millis"]=new Common::JSONValue((long long)s.millis);row["frame"]=new Common::JSONValue((long long)s.frame);row["max_poll_ms"]=new Common::JSONValue((long long)s.pollMillis);row["max_update_ms"]=new Common::JSONValue((long long)s.updateMillis);row["max_draw_ms"]=new Common::JSONValue((long long)s.drawMillis);row["max_present_ms"]=new Common::JSONValue((long long)s.presentMillis);row["events"]=new Common::JSONValue((long long)s.events);row["moves"]=new Common::JSONValue((long long)s.moves);row["resource"]=new Common::JSONValue((long long)s.resource);row["node"]=new Common::JSONValue((long long)s.node);row["pending_events"]=new Common::JSONValue((long long)s.pending);row["process_metrics_known"]=new Common::JSONValue(s.processMetrics);
+  row["working_set"]=new Common::JSONValue((long long)s.workingSet);row["private_bytes"]=new Common::JSONValue((long long)s.privateBytes);row["handles"]=new Common::JSONValue((long long)s.handles);
+  row["cpu_100ns"]=new Common::JSONValue((long long)s.cpu100ns);row["available_physical_bytes"]=new Common::JSONValue((long long)s.availablePhysical);
+  history.push_back(new Common::JSONValue(row));}
+ report["history"]=new Common::JSONValue(history);
+ if(!writeInvestigationJSON(*manager,stem+".json",Common::JSONValue(report))){message="Capture FAILED: diagnostic report could not be finalized. Do not assume evidence was saved.";_investigationStatus=message;return false;}
+ _system->displayMessageOnOSD(Common::U32String("Capturing investigation. Please wait for the completion dialog."));
+ std::string error;bool saved=writeNativeSnapshot(stem+".save","F12 investigation recovery snapshot",error);
+ Common::JSONObject result;result["report_file"]=new Common::JSONValue(stem+".json");result["snapshot_file"]=new Common::JSONValue(stem+".save");result["snapshot_validated"]=new Common::JSONValue(saved);result["error"]=new Common::JSONValue(error.c_str());
+ bool finalized=writeInvestigationJSON(*manager,stem+".result.json",Common::JSONValue(result));
+ _investigationComplete=saved&&finalized;_lastTickMillis=_system->getMillis();
+ if(_investigationComplete)message="Capture complete - safe to restart.\nRecovery save and diagnostics were finalized and checked.\nFiles are in this installation's saves folder:\n"+stem;
+ else if(finalized)message="Diagnostics saved, but recovery SAVE FAILED.\nThe report is available after restart.\n"+Common::String(error.c_str())+"\n"+stem;
+ else message="Capture INCOMPLETE: report saved, but completion record failed.\n"+stem;
+ _investigationStatus=message;return _investigationComplete;
+}
 void SnatcherEngine::enterVisualObserver(uint16_t counter){
  if(!_visualObserver.active)return;
  if(_visualObserver.serial==UINT64_MAX){_visualObserver.error="Visual observer serial exhausted";_visualObserver.active=false;return;}
@@ -207,7 +263,7 @@ Common::Error SnatcherEngine::run() {
  size_t crossTargets=0;if(!validateCrossTargets(_scenarios,crossTargets,reason))return Common::Error(Common::kReadingFailed,Common::String(reason.c_str()));
  std::vector<uint8_t> subcode;if(!_resources.readFile("SUBCODE.BIN",subcode,reason)||!_font.load(subcode.data(),subcode.size(),reason)||!_dialogueWindow.loadAssets(subcode.data(),subcode.size(),reason)||!readGameTextPalette(subcode.data(),subcode.size(),_textColors,reason))return Common::Error(Common::kReadingFailed,Common::String(reason.c_str()));
  if(!_scene.loadSharedGraphicsEffects(subcode.data(),subcode.size(),reason)||!_scene.establishBootSubmissionHistory(reason))return Common::Error(Common::kReadingFailed,Common::String(reason.c_str()));
- delete _runtime;_runtime=new NarrativeRuntime(_scenarios,_events,_trace);_runtime->setQuerySource(this);_trace.enable(ConfMan.hasKey("snatcher_trace")&&ConfMan.getBool("snatcher_trace"));
+ delete _runtime;_runtime=new NarrativeRuntime(_scenarios,_events,_trace);_runtime->setQuerySource(this);_trace.enable(true);
  initGraphics(640,240);_pixels.assign(640*240,0);const byte colors[]={12,16,24,230,235,240};_system->getPaletteManager()->setPalette(colors,0,2);
  if(!migrateReservedNativeSaves(*_system->getSavefileManager(),ConfMan.getActiveDomainName(),reason))return Common::Error(Common::kReadingFailed,Common::String(reason.c_str()));
  if(!startStartup(reason))return Common::Error(Common::kReadingFailed,Common::String(reason.c_str()));
@@ -215,7 +271,20 @@ Common::Error SnatcherEngine::run() {
  if(ConfMan.hasKey("save_slot")&&ConfMan.getInt("save_slot")>=0){Common::Error loaded=loadGameState(ConfMan.getInt("save_slot"));if(loaded.getCode()!=Common::kNoError)return loaded;}
  CursorMan.showMouse(false);
  while(!shouldQuit()){
+  const uint32_t pollStart=_system->getMillis();
+  _investigationPollStart=pollStart;
   Common::Event event;while(_eventMan->pollEvent(event)){
+   ++_investigationEvents;++_investigationFrame.events;
+   if(event.type==Common::EVENT_MOUSEMOVE){++_investigationMoves;++_investigationFrame.moves;}
+   if((event.type==Common::EVENT_KEYDOWN||event.type==Common::EVENT_KEYUP)&&event.kbd.keycode==Common::KEYCODE_F12){
+    if(event.type==Common::EVENT_KEYUP)_investigationKeyHeld=false;
+    else if(!event.kbdRepeat&&!_investigationKeyHeld&&_mouseInput.focused()){
+     _investigationKeyHeld=true;Common::String message;captureInvestigation(message);
+     if(!CETestCLI::active()){PauseToken pause=pauseEngine();GUI::MessageDialog dialog(Common::U32String(message.c_str()));dialog.runModal();_investigationKeyHeld=false;}
+     releaseInput();_lastTickMillis=_system->getMillis();
+    }
+    continue;
+   }
    if(event.type==Common::EVENT_SCREEN_CHANGED)_framePublication.invalidate();
    if(event.type==Common::EVENT_KEYDOWN&&(event.mouseOutsideActiveArea||!_mouseInput.focused()))continue;
    if(event.type==Common::EVENT_KEYDOWN&&!event.kbdRepeat&&(event.kbd.keycode==Common::KEYCODE_F5||event.kbd.keycode==Common::KEYCODE_F7)){
@@ -246,12 +315,18 @@ Common::Error SnatcherEngine::run() {
     if(event.kbd.keycode==Common::KEYCODE_RETURN&&!event.kbdRepeat&&!_confirmHeld&&!isPaused()){_confirmHeld=true;if(_runtime->status()!=kRuntimeChoices&&nativeDialogueInputReady(_dialogueReady,_scene.visualBusy(),_scene.fontPublicationPending())&&!acknowledgeText(reason))_blocker=reason;}
    }
   }
-  _output.setPaused(isPaused());_events.pause(isPaused());_audio.setPaused(isPaused());_cd.setPaused(isPaused());_fm.setPaused(isPaused());if(!isPaused())updateNative();else{releaseInput();_commandInput.discardPressed();_lastTickMillis=_system->getMillis();}drawNative();_system->updateScreen();CETestCLI::frame();_system->delayMillis(10);
+  uint32_t stamp=_system->getMillis();_investigationFrame.pollMillis=std::max(_investigationFrame.pollMillis,uint32_t(stamp-pollStart));
+  _output.setPaused(isPaused());_events.pause(isPaused());_audio.setPaused(isPaused());_cd.setPaused(isPaused());_fm.setPaused(isPaused());if(!isPaused())updateNative();else{releaseInput();_commandInput.discardPressed();_lastTickMillis=_system->getMillis();}
+  uint32_t next=_system->getMillis();_investigationFrame.updateMillis=std::max(_investigationFrame.updateMillis,uint32_t(next-stamp));stamp=next;
+  drawNative();next=_system->getMillis();_investigationFrame.drawMillis=std::max(_investigationFrame.drawMillis,uint32_t(next-stamp));stamp=next;
+  _system->updateScreen();next=_system->getMillis();_investigationFrame.presentMillis=std::max(_investigationFrame.presentMillis,uint32_t(next-stamp));recordInvestigationFrame();
+  CETestCLI::frame();_system->delayMillis(10);
  }
  _resources.close();return Common::kNoError;
 }
 Common::JSONValue *SnatcherEngine::testCLIState(){
  Common::JSONObject o;
+ o["investigation_capture"]=new Common::JSONValue(_investigationLastCapture);o["investigation_complete"]=new Common::JSONValue(_investigationComplete);o["investigation_status"]=new Common::JSONValue(_investigationStatus);o["investigation_samples"]=new Common::JSONValue((long long)_investigationHistory.size());
  o["save_dialog_open"]=new Common::JSONValue(_testSaveDialogOpen);o["load_dialog_open"]=new Common::JSONValue(_testLoadDialogOpen);
  o["autosaves_created"]=new Common::JSONValue((long long)_testAutosaves);
  o["host_updates_last"]=new Common::JSONValue((long long)_hostUpdatesLast);

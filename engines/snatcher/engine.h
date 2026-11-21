@@ -102,6 +102,22 @@ private:
  void resetVisualObserver();void enterVisualObserver(uint16_t counter);void finishVisualObserver(uint16_t counter);
  Common::JSONValue *visualCaptureMetadata(const VisualWorkerCapture& capture,const char* filename=nullptr)const;
  bool saveBoundary(std::string& error)const;bool loadFmAssets(std::string& error);
+ bool writeNativeSnapshot(const Common::String& target,const Common::String& description,std::string& error);
+ // Bounded, in-memory flight recorder; never part of gameplay saves.
+ struct InvestigationSample {
+  uint32_t millis=0,pollMillis=0,updateMillis=0,drawMillis=0,presentMillis=0,events=0,moves=0,node=0;
+  uint64_t frame=0;uint16_t resource=0;size_t pending=0;
+  uint64_t workingSet=0,privateBytes=0,cpu100ns=0,availablePhysical=0;uint32_t handles=0;bool processMetrics=false;
+ };
+ std::deque<InvestigationSample> _investigationHistory;
+ InvestigationSample _investigationFrame;
+ uint64_t _investigationFrames=0,_investigationEvents=0,_investigationMoves=0;
+ uint32_t _investigationLastSample=0,_investigationSerial=0,_investigationPollStart=0;
+ bool _investigationKeyHeld=false;
+ Common::String _investigationLastCapture,_investigationStatus;
+ bool _investigationComplete=false;
+ void recordInvestigationFrame();
+ bool captureInvestigation(Common::String& message);
  Common::JSONValue* saveAnywhereProbe(int slot);
  Common::JSONValue* saveOwnerContracts();
  std::string _saveError;
