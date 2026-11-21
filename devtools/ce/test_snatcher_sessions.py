@@ -24,48 +24,49 @@ def main():
         assert owners()[90] == ''
         one = c.command('session_create', title='Session 1')['session']
         assert one
-        c.command('save', slot=0, description='Session one manual zero')
-        assert owners()[0] == one, 'Saved under Session 1 but listed as untracked'
+        c.command('save', slot=5, description='Session one manual zero')
+        assert owners()[5] == one, 'Saved under Session 1 but listed as untracked'
         two = c.command('session_create', title='Session 2')['session']
         assert two and two != one
-        c.command('save', slot=1, description='Session two')
-        assert owners()[1] == two
-        c.command('load', slot=0)
+        c.command('save', slot=6, description='Session two')
+        assert owners()[6] == two
+        c.command('load', slot=5)
         assert c.command('inspect')['session'] == one, 'Loading did not restore Session 1'
-        c.command('save', slot=2, description='Continued Session one')
-        assert owners()[2] == one
-        before = {p.name: sha(p) for p in (root / 'saves').glob('cli-game.000*')}
-        c.command('input', kind='logical', action='autosave_policy_probe')
-        assert before == {p.name: sha(p) for p in (root / 'saves').glob('cli-game.000*')}
+        c.command('save', slot=7, description='Continued Session one')
+        assert owners()[7] == one
+        before = {p.name: sha(p) for p in (root / 'saves').glob('cli-game.005*')}
+        c.command('input', kind='logical', action='autosave_now')
+        assert before == {p.name: sha(p) for p in (root / 'saves').glob('cli-game.005*')}
         c.command('load', slot=90)
         assert c.command('inspect')['session'] == '', 'Untagged save inherited a session'
-        assert owners()[0] == one and owners()[1] == two
+        assert owners()[5] == one and owners()[6] == two
         c.command('session_select', session=two)
     finally:
         c.close()
     c = Client(a.exe, root, a.game, 'gens', reuse=True)
     try:
         launch()
-        assert owners()[0] == one and owners()[1] == two and owners()[90] == ''
-        c.command('load', slot=0)
+        assert owners()[5] == one and owners()[6] == two and owners()[90] == ''
+        c.command('load', slot=5)
         assert c.command('inspect')['session'] == one
-        c.command('save', slot=3, description='Cold continued Session one')
-        assert owners()[3] == one
-        c.command('load', slot=1)
+        c.command('save', slot=8, description='Cold continued Session one')
+        assert owners()[8] == one
+        c.command('load', slot=6)
         assert c.command('inspect')['session'] == two
-        c.command('save', slot=0, description='Session two replaces primary')
-        assert owners()[0] == two
+        c.command('save', slot=9, description='Session two backup fixture')
+        c.command('save', slot=9, description='Session two replaces its own primary')
+        assert owners()[9] == two
     finally:
         c.close()
     # A fallback generation must not inherit the newer primary's owner.
-    backup = root / 'saves' / 'cli-game.000.bak'
+    backup = root / 'saves' / 'cli-game.009.bak'
     backup_hash = sha(backup)
-    (root / 'saves' / 'cli-game.000').write_bytes(b'corrupt owned test fixture')
+    (root / 'saves' / 'cli-game.009').write_bytes(b'corrupt owned test fixture')
     c = Client(a.exe, root, a.game, 'gens', reuse=True)
     c.label = 'profile-backup-cold'
     try:
         launch()
-        c.command('load', slot=0)
+        c.command('load', slot=9)
         assert c.command('inspect')['session'] == '', 'Backup inherited the primary session'
         assert sha(backup) == backup_hash
     finally:

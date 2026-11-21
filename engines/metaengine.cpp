@@ -374,7 +374,7 @@ int MetaEngine::findEmptySaveSlot(const char *target) {
 	const int maxSaveSlot = getMaximumSaveSlot();
 	const int autosaveSlot = getAutosaveSlot();
 	for (int slot = 0; slot <= maxSaveSlot; ++slot) {
-		if (slot == autosaveSlot)
+		if (slot == autosaveSlot || !isSaveSlotAllowed(target, slot))
 			continue;
 		const Common::String filename = getSavegameFile(slot, target);
 		if (!saveFileMan->exists(filename))

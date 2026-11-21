@@ -2,7 +2,7 @@
 #include "game_service_backend.h"
 #include "common/savefile.h"
 namespace Snatcher {namespace {
-Common::String slotName(const Common::String& target,unsigned slot){return Common::String::format("%s-snatcher-original-%u.sgr",target.c_str(),slot);}
+Common::String slotName(const Common::String& target,unsigned slot){return Common::String::format("%s.%03u",target.c_str(),slot);}
 bool readRecord(Common::SaveFileManager& manager,const Common::String& filename,const std::string& disc,const std::vector<uint64_t>& stamps,GameSaveRecord& record,std::string& error){
  Common::InSaveFile* file=manager.openForLoading(filename);
  if(!file){error="Original game slot cannot be opened";return false;}
@@ -26,7 +26,7 @@ bool scanGameStorage(Common::SaveFileManager& manager,const Common::String& targ
  if(writable){Common::InSaveFile* in=manager.openForLoading(probe);byte actual[sizeof(expected)]={};writable=in&&in->size()==sizeof(expected)&&in->read(actual,sizeof(actual))==sizeof(actual)&&!in->err();delete in;for(unsigned i=0;i<sizeof(expected);++i)if(actual[i]!=expected[i])writable=false;}
  bool removed=manager.removeSavefile(probe);if(writable&&!removed)writable=false;
  next.availability=writable?kGameStorageReady:kGameStorageUnavailable;
- for(unsigned i=0;i<4;++i){manager.clearError();auto files=manager.listSavefiles(slotName(target,i+1));bool known=manager.getError().getCode()==Common::kNoError;auto backup=manager.listSavefiles(slotName(target,i+1)+".bak");known=known&&manager.getError().getCode()==Common::kNoError;next.slots[i].known=known;next.slots[i].occupied=known&&(!files.empty()||!backup.empty());}
+ for(unsigned i=0;i<4;++i){manager.clearError();auto files=manager.listSavefiles(slotName(target,i+1));bool known=manager.getError().getCode()==Common::kNoError;auto backup=manager.listSavefiles(slotName(target,i+1)+".bak");known=known&&manager.getError().getCode()==Common::kNoError;auto legacy=manager.listSavefiles(Common::String::format("%s-snatcher-original-%u.sgr",target.c_str(),i+1));auto legacyBackup=manager.listSavefiles(Common::String::format("%s-snatcher-original-%u.sgr.bak",target.c_str(),i+1));next.slots[i].known=known;next.slots[i].occupied=known&&(!files.empty()||!backup.empty()||!legacy.empty()||!legacyBackup.empty());}
  // A full, accessible save namespace is present even when the eight-byte
  // write probe cannot allocate space. Keep that distinct from unknown or
  // unavailable storage so the source can receive its real capacity outcome.
@@ -60,16 +60,21 @@ bool publishGameSave(Common::SaveFileManager& manager,const Common::String& targ
  if(!manager.renameSavefile(pending,filename,false)){bool restored=!previous||manager.renameSavefile(backup,filename,false);manager.removeSavefile(pending);error=restored?"Cannot publish original game slot":"Cannot publish original game slot; previous generation retained in backup";return true;}
  outcome=kGameSaveCommitted;error.clear();return true;
 }
-bool readGameSave(Common::SaveFileManager& manager,const Common::String& target,unsigned slot,const std::string& disc,const std::vector<uint64_t>& stamps,GameSaveRecord& record,std::string& error){
+bool readGameSave(Common::SaveFileManager& manager,const Common::String& target,unsigned slot,const std::string& disc,const std::vector<uint64_t>& stamps,GameSaveRecord& record,std::string& error,Common::String* restoredName){
  error.clear();if(slot<1||slot>4){error="Original game slot outside four-slot namespace";return false;}
- const Common::String filename=slotName(target,slot);GameSaveRecord staged;
+ const Common::String filename=slotName(target,slot);Common::String restored=filename;GameSaveRecord staged;
  if(!readRecord(manager,filename,disc,stamps,staged,error)){
-  if(!readRecord(manager,filename+".bak",disc,stamps,staged,error))return false;
+  if(!readRecord(manager,filename+".bak",disc,stamps,staged,error)){Common::String legacy=Common::String::format("%s-snatcher-original-%u.sgr",target.c_str(),slot);if(!readRecord(manager,legacy,disc,stamps,staged,error)){legacy+=".bak";if(!readRecord(manager,legacy,disc,stamps,staged,error))return false;}record=staged;if(restoredName)*restoredName=legacy;return true;}
+  restored=filename+".bak";
   // A crash may occur between retaining the old generation and publishing the
   // new one. Only a verified old generation is recoverable; an uncommitted .new
   // file is never promoted. A read-only backend can still read the valid backup.
-  if(manager.listSavefiles(filename).empty())manager.renameSavefile(filename+".bak",filename,false);
+  if(manager.listSavefiles(filename).empty()&&manager.renameSavefile(filename+".bak",filename,false)){
+   // A promoted backup cannot retain the newer primary generation's owner.
+   manager.removeSavefile(filename+".ce-achievements.json");
+   manager.renameSavefile(filename+".bak.ce-achievements.json",filename+".ce-achievements.json",false);restored=filename;
+  }
  }
- record=staged;return true;
+ record=staged;if(restoredName)*restoredName=restored;return true;
 }
 }

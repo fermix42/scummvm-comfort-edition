@@ -46,6 +46,8 @@ struct GameSaveRecord {
 bool validateGameSaveRecord(const GameSaveRecord& record,std::string& error);
 bool encodeGameSaveRecord(const GameSaveRecord& record,std::vector<uint8_t>& bytes,std::string& error);
 bool decodeGameSaveRecord(const std::vector<uint8_t>& bytes,const std::string& expectedDisc,const std::vector<uint64_t>& expectedScenarioStamps,GameSaveRecord& record,std::string& error);
+// Structural metadata decoding; runtime restoration still checks current resources.
+bool decodeGameSaveMetadata(const std::vector<uint8_t>& bytes,GameSaveRecord& record,std::string& error);
 struct GameSaveResume {uint16_t resource,entry;GameSaveResume():resource(0),entry(0){} };
 // Source14F12 chooses the first saved local entry (oldest), otherwise outerEntry.
 // The caller validates the resulting entry against its decoded original graph.

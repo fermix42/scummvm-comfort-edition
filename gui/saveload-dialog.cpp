@@ -1273,6 +1273,13 @@ void SaveLoadChooserSimple::updateSaveList(bool external) {
 	if(_saveMode){
 		for(int index=int(_saveList.size())-1;index>=0;--index){
 			if(!_metaEngine->isSaveSlotAllowed(_target.c_str(),_saveList[index].getSaveSlot())){
+                // Engines can expose labeled reserved slots without making them
+                // editable, while other restricted-slot policies retain filtering.
+                SaveStateDescriptor reserved=_metaEngine->querySaveMetaInfos(_target.c_str(),_saveList[index].getSaveSlot());
+                if(reserved.getWriteProtectedFlag()){
+                    reserved.setLocked(true);reserved.setDescription(reserved.getDescription()+Common::String(" [Reserved]"));
+                    _saveList[index]=reserved;saveNames[index]=GUI::ListWidget::getThemeColor(ThemeEngine::kFontColorAlternate)+reserved.getDescription().decode();continue;
+                }
 				_saveList.remove_at(index);saveNames.remove_at(index);filteredSlots=true;
 			}
 		}

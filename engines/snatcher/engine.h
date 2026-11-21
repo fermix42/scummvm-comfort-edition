@@ -41,9 +41,9 @@ public:
  Common::Error run() override;
  bool hasFeature(EngineFeature f) const override {return f==kSupportsReturnToLauncher||f==kSupportsSavingDuringRuntime||f==kSupportsLoadingDuringRuntime;}
  Common::Error saveGameState(int slot,const Common::String& description,bool autosave=false) override;
- // Manual slots 0-99 are never reserved for framework autosaving.
- int getAutosaveSlot() const override { return -1; }
- bool canSaveAutosaveCurrently() override { return false; }
+ // Slot 0 is autosave; 1-4 belong to Metal Gear; manual saves use 5-99.
+ int getAutosaveSlot() const override { return 0; }
+ bool canSaveAutosaveCurrently() override { return canSaveGameStateCurrently(); }
  Common::Error loadGameState(int slot) override;
  bool canSaveGameStateCurrently(Common::U32String* message=nullptr) override;
  bool canLoadGameStateCurrently(Common::U32String* message=nullptr) override;
@@ -53,6 +53,8 @@ private:
  friend class EngineStateCodec;
  // Opt-in CLI lifecycle diagnostics, never serialized or used by gameplay.
  uint64 _testInstanceSerial=0;bool _testRecreationQueued=false;
+ uint64 _testAutosaves=0;
+ bool _testSaveDialogOpen=false,_testLoadDialogOpen=false;
  void noteTestInstanceCreated();void noteTestInstanceDestruction();
  MouseInput _mouseInput;
  FramePublication _framePublication;
@@ -161,7 +163,7 @@ private:
  bool writeOriginalGameSlot(const RuntimeRequest& request,std::string& error);
  bool startupStorage(StartupStorage& storage,std::string& error);
  bool readStartupGameSlot(unsigned slot,std::string& error);
- bool readCompatibleOriginalSlot(unsigned slot,GameSaveRecord& record,std::string& error);
+ bool readCompatibleOriginalSlot(unsigned slot,GameSaveRecord& record,std::string& error,Common::String* restoredName=nullptr);
  bool beginOriginalGameResume(const GameSaveRecord& record,const StartupSettings& settings,std::string& error);
  bool updateOriginalGameResume(std::string& error);
  EventToken _returnTitleToken;unsigned _returnTitlePhase=0,_returnTitleRemaining=0;bool _returnTitleReady=false;

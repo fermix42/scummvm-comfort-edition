@@ -70,7 +70,7 @@ def run(exe, output, game, core, checkpoint):
     try:
         if checkpoint:
             (root / 'saves').mkdir(exist_ok=True)
-            shutil.copyfile(checkpoint, root / 'saves' / 'cli-game.001')
+            shutil.copyfile(checkpoint, root / 'saves' / 'cli-game.056')
         c.command('launch', engine='snatcher', game='snatcher', platform='segacd', path=str(game))
         c.command('wait', field='adapter.ready', equals=True, timeout_ms=30000)
         state = c.command('inspect')
@@ -78,19 +78,19 @@ def run(exe, output, game, core, checkpoint):
         assert not state['adapter']['decensor_enabled'] and state['adapter']['mouse_enabled']
         def probe(action, **fields):
             return c.command('input', kind='logical', action=action, **fields)
-        probe('autosave_policy_probe')
-        assert not (root / 'saves' / 'cli-game.000').exists()
+        probe('autosave_now')
+        assert not (root / 'saves' / 'cli-game.005').exists()
         assert not (root / 'saves' / 'cli-game.099').exists()
-        c.command('save', slot=0, description='Manual zero must survive autosave')
-        zero = root / 'saves' / 'cli-game.000'
+        c.command('save', slot=5, description='Manual zero must survive autosave')
+        zero = root / 'saves' / 'cli-game.005'
         before = sha(zero)
-        probe('autosave_policy_probe')
+        probe('autosave_now')
         assert sha(zero) == before
         c.command('save', slot=99, description='Manual maximum')
         last = sha(root / 'saves' / 'cli-game.099')
-        probe('autosave_policy_probe')
+        probe('autosave_now')
         assert sha(zero) == before and sha(root / 'saves' / 'cli-game.099') == last
-        c.command('load', slot=0)
+        c.command('load', slot=5)
         probe('save_anywhere_probe', slot=80)
         probe('save_owner_contracts')
         probe('resource_transport_probe')
@@ -117,27 +117,27 @@ def run(exe, output, game, core, checkpoint):
         c.command('input', kind='mouse_wheel', x=120, y=120, direction=1)
         c.command('advance', frames=1)
         if checkpoint:
-            c.command('load', slot=1)
+            c.command('load', slot=56)
             probe('save_anywhere_probe', slot=80)
-            probe('autosave_policy_probe')
+            probe('autosave_now')
         assert sha(zero) == before
         listing = c.command('saves')
-        assert {0, 99}.issubset({s['chooser_slot'] for s in listing['saves']})
+        assert {0, 5, 99}.issubset({s['chooser_slot'] for s in listing['saves']})
         final = c.command('inspect')['adapter']
         assert not any(final.get(k) for k in ('blocker', 'runtime_error', 'audio_error', 'render_error'))
     finally:
         c.close()
     # Cold restore through the normal startup slot setting.
     text = (root / 'profile.ini').read_text()
-    (root / 'profile.ini').write_text(text.replace('[cli-game]', '[cli-game]\nsave_slot=0'))
+    (root / 'profile.ini').write_text(text.replace('[cli-game]', '[cli-game]\nsave_slot=5'))
     c = Client(exe, root, game, core, reuse=True)
     try:
         c.command('launch', engine='snatcher', game='snatcher', platform='segacd', path=str(game))
         c.command('wait', field='adapter.ready', equals=True, timeout_ms=30000)
         assert c.command('inspect')['adapter']['fm_core'] == core
-        c.command('load', slot=0)
+        c.command('load', slot=5)
         assert sha(zero) == before
-        c.command('input', kind='logical', action='autosave_policy_probe')
+        c.command('input', kind='logical', action='autosave_now')
         assert sha(zero) == before
     finally:
         c.close()

@@ -209,6 +209,7 @@ Common::Error SnatcherEngine::run() {
  if(!_scene.loadSharedGraphicsEffects(subcode.data(),subcode.size(),reason)||!_scene.establishBootSubmissionHistory(reason))return Common::Error(Common::kReadingFailed,Common::String(reason.c_str()));
  delete _runtime;_runtime=new NarrativeRuntime(_scenarios,_events,_trace);_runtime->setQuerySource(this);_trace.enable(ConfMan.hasKey("snatcher_trace")&&ConfMan.getBool("snatcher_trace"));
  initGraphics(640,240);_pixels.assign(640*240,0);const byte colors[]={12,16,24,230,235,240};_system->getPaletteManager()->setPalette(colors,0,2);
+ if(!migrateReservedNativeSaves(*_system->getSavefileManager(),ConfMan.getActiveDomainName(),reason))return Common::Error(Common::kReadingFailed,Common::String(reason.c_str()));
  if(!startStartup(reason))return Common::Error(Common::kReadingFailed,Common::String(reason.c_str()));
  _ready=true;
  if(ConfMan.hasKey("save_slot")&&ConfMan.getInt("save_slot")>=0){Common::Error loaded=loadGameState(ConfMan.getInt("save_slot"));if(loaded.getCode()!=Common::kNoError)return loaded;}
@@ -217,6 +218,9 @@ Common::Error SnatcherEngine::run() {
   Common::Event event;while(_eventMan->pollEvent(event)){
    if(event.type==Common::EVENT_SCREEN_CHANGED)_framePublication.invalidate();
    if(event.type==Common::EVENT_KEYDOWN&&(event.mouseOutsideActiveArea||!_mouseInput.focused()))continue;
+   if(event.type==Common::EVENT_KEYDOWN&&!event.kbdRepeat&&(event.kbd.keycode==Common::KEYCODE_F5||event.kbd.keycode==Common::KEYCODE_F7)){
+    releaseInput();if(event.kbd.keycode==Common::KEYCODE_F5){_testSaveDialogOpen=true;saveGameDialog();_testSaveDialogOpen=false;}else{_testLoadDialogOpen=true;loadGameDialog();_testLoadDialogOpen=false;}releaseInput();_gameStorageScanned=false;_lastTickMillis=_system->getMillis();continue;
+   }
    if((event.type==Common::EVENT_KEYDOWN||event.type==Common::EVENT_KEYUP)&&event.kbd.keycode==Common::KEYCODE_p){if(event.type==Common::EVENT_KEYUP)_pauseKeyHeld=false;else if(!_pauseKeyHeld&&!event.kbdRepeat){_pauseKeyHeld=true;if(_inputPause.isActive())_inputPause.clear();else _inputPause=pauseEngine();releaseInput();}continue;}
    if(event.type==Common::EVENT_FOCUS_LOST||event.type==Common::EVENT_FOCUS_GAINED||event.type==Common::EVENT_MOUSEMOVE||event.type==Common::EVENT_LBUTTONDOWN||event.type==Common::EVENT_LBUTTONUP||event.type==Common::EVENT_RBUTTONDOWN||event.type==Common::EVENT_RBUTTONUP||event.type==Common::EVENT_WHEELUP||event.type==Common::EVENT_WHEELDOWN){
     if(!processMouseEvent(event,reason))_blocker=reason;
@@ -248,6 +252,8 @@ Common::Error SnatcherEngine::run() {
 }
 Common::JSONValue *SnatcherEngine::testCLIState(){
  Common::JSONObject o;
+ o["save_dialog_open"]=new Common::JSONValue(_testSaveDialogOpen);o["load_dialog_open"]=new Common::JSONValue(_testLoadDialogOpen);
+ o["autosaves_created"]=new Common::JSONValue((long long)_testAutosaves);
  o["host_updates_last"]=new Common::JSONValue((long long)_hostUpdatesLast);
  o["host_suspended_updates"]=new Common::JSONValue((long long)_hostSuspendedUpdates);
  const auto decensorStats=_resources.decensorDiagnostics();
@@ -690,15 +696,12 @@ void SnatcherEngine::drawNative(){
 Common::JSONValue *SnatcherEngine::testCLICommand(Common::JSONValue& request){
  if(!CETestCLI::active()||!_runtime)return CETestCLI::unsupported();Common::String action=CETestCLI::stringField(request,"action");std::string error;
  const Common::String command=CETestCLI::stringField(request,"cmd");
- if(action=="autosave_policy_probe") {
-  // Exercise the real framework gates without manufacturing save payloads.
-  handleAutoSave();
-  saveAutosaveIfEnabled(); // Also used by the framework before loading.
-  const bool rejected0 = saveGameState(0, "Automatic request", true).getCode() != Common::kNoError;
-  const bool rejected99 = saveGameState(99, "Automatic request", true).getCode() != Common::kNoError;
-  if(getAutosaveSlot()!=-1 || getMetaEngine()->getAutosaveSlot()!=-1 || canSaveAutosaveCurrently() || !rejected0 || !rejected99)
-   return CETestCLI::error("autosave_policy_failed");
-  return CETestCLI::ok();
+ if(action=="copy_to_free_slot_probe"){if(!getMetaEngine()->copySaveFileToFreeSlot(ConfMan.getActiveDomainName().c_str(),90))return CETestCLI::error("copy_to_free_slot_failed");return CETestCLI::ok();}
+ if(action=="autosave_now"){saveAutosaveIfEnabled();return CETestCLI::ok();}
+ if(action=="save_policy"){
+  Common::JSONObject result;result["ok"]=new Common::JSONValue(true);Common::JSONArray slots;
+  for(int slot=0;slot<=5;++slot){SaveStateDescriptor desc=getMetaEngine()->querySaveMetaInfos(ConfMan.getActiveDomainName().c_str(),slot);Common::JSONObject item;item["slot"]=new Common::JSONValue((long long)slot);item["manual_allowed"]=new Common::JSONValue(getMetaEngine()->isSaveSlotAllowed(ConfMan.getActiveDomainName().c_str(),slot));item["write_protected"]=new Common::JSONValue(desc.getWriteProtectedFlag());item["label"]=new Common::JSONValue(desc.getDescription());slots.push_back(new Common::JSONValue(item));}
+  result["slots"]=new Common::JSONValue(slots);return new Common::JSONValue(result);
  }
  if(action=="resource_transport_probe"){
   Common::JSONArray tracks;

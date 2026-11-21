@@ -38,9 +38,9 @@ def main():
                 c.command('input', kind='key', key=112, ascii=112, phase='up', map_physical=True)
             if decensor:
                 c.command('input', kind='logical', action='decensor_resource_inventory')
-            c.command('input', kind='logical', action='autosave_policy_probe')
-            c.command('save', slot=0, description='Options manual zero')
-            c.command('load', slot=0)
+            c.command('input', kind='logical', action='autosave_now')
+            c.command('save', slot=5, description='Options manual zero')
+            c.command('load', slot=5)
         finally:
             c.close()
     assert sha(a.sidecar) == original

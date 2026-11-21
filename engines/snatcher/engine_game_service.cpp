@@ -5,6 +5,8 @@
 #include "original_input.h"
 #include "common/config-manager.h"
 #include "common/system.h"
+#include "engines/ce_achievements.h"
+#include "engine_save.h"
 namespace Snatcher {
 bool SnatcherEngine::ensureGameStorage(std::string& error){
  error.clear();if(_gameStorageScanned)return true;
@@ -49,21 +51,22 @@ bool SnatcherEngine::writeOriginalGameSlot(const RuntimeRequest& request,std::st
  GameSaveOutcome outcome;std::string ioError;
  if(!publishGameSave(*_system->getSavefileManager(),ConfMan.getActiveDomainName(),request.first,record,outcome,ioError)){std::string ignored;abortGameSaveWrite(_gameServices,transaction,ignored);error=ioError;return false;}
  if(!finishGameSaveWrite(_gameServices,transaction,outcome,error))return false;
+ if(outcome==kGameSaveCommitted)recordNativeSaveCreated(*_system->getSavefileManager(),Common::String::format("%s.%03u",ConfMan.getActiveDomainName().c_str(),request.first),int(request.first),Common::String::format("Internal Save Slot %u",request.first));
  _saveError=ioError;_trace.record(request.owner,"original_game_slot_result",request.first,_gameServices.lastWriteResult);
  bool completed=_events.complete(request.token,false,error);
  if(completed)for(auto item=_gameSaveCaptures.begin();item!=_gameSaveCaptures.end();++item)if(item->token==request.token){_gameSaveCaptures.erase(item);break;}
  return completed;
 }
-bool SnatcherEngine::readCompatibleOriginalSlot(unsigned slot,GameSaveRecord& record,std::string& error){
+bool SnatcherEngine::readCompatibleOriginalSlot(unsigned slot,GameSaveRecord& record,std::string& error,Common::String* restoredName){
  std::vector<uint64_t> stamps;for(const auto& scenario:_scenarios)stamps.push_back(narrativeScenarioStamp(scenario));
  const std::string disc="69e1a081e2bcc8da5a033433b3e7b91c5fda8d7043300d35550be81a83ec900b";
  auto& manager=*_system->getSavefileManager();const auto& target=ConfMan.getActiveDomainName();
- if(readGameSave(manager,target,slot,disc,stamps,record,error))return true;
+ if(readGameSave(manager,target,slot,disc,stamps,record,error,restoredName))return true;
  if(!_resources.decensorEnabled())return false;
  std::vector<uint8_t> original;Scenario previous;
  if(!_resources.readOriginalResource(82,original,error)||!parseScenario(original.data(),original.size(),previous,error))return false;
  stamps[25]=narrativeScenarioStamp(previous);GameSaveRecord staged;
- if(!readGameSave(manager,target,slot,disc,stamps,staged,error))return false;
+ if(!readGameSave(manager,target,slot,disc,stamps,staged,error,restoredName))return false;
  NarrativeSnapshot continuation;continuation.scenarioStamps=staged.scenarioStamps;continuation.cursor=continuation.entry=Cursor(staged.resource,staged.resumeEntry);
  if(!rebindNarrativeScenario(continuation,25,previous,_scenarios[25],error))return false;
  staged.scenarioStamps=continuation.scenarioStamps;record=staged;return true;
@@ -77,11 +80,12 @@ bool SnatcherEngine::startupStorage(StartupStorage& storage,std::string& error){
  if(!validateStartupStorage(next,error))return false;storage=next;return true;
 }
 bool SnatcherEngine::readStartupGameSlot(unsigned slot,std::string& error){
- GameSaveRecord record;
- if(!readCompatibleOriginalSlot(slot,record,error))return false;
+ GameSaveRecord record;Common::String restoredName;
+ if(!readCompatibleOriginalSlot(slot,record,error,&restoredName))return false;
  PcmRequest cached;if(record.bookmark.pcm!=0xffff&&(!planPcmRequest(_catalog,record.bookmark.pcm,cached,error)||cached.kind!=kLoadResidentBank)){error="Original slot PCM cache is not a resident bank";return false;}
  StartupSettings settings=originalInputSettings(record);
  if(!_startup.acknowledgeLoad(slot,settings,error))return false;
+ Common::CEAchievements().recordSaveLoaded(restoredName,int(slot));
  _startupRecord=record;_startupRecordSlot=slot;_startupRecordReady=true;
  _trace.record(Cursor(record.resource,record.resumeEntry),"original_game_slot_read",slot,record.counter);return true;
 }

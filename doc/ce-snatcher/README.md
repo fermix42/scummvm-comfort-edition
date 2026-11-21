@@ -30,19 +30,43 @@ investigations and evidence are preserved. Automated regression work uses bounde
 SDL dummy-device tests; do not run uncontrolled real-device Snatcher tests on
 the owner's desktop or claim that this issue is fixed.
 
-Manual saves retain slots 0–99 and existing save stems/schema. Snatcher disables
-automatic saving in both engine and metaengine slots, rejects direct automatic
-requests, and preserves manual slot 0. Original four-slot compatibility remains
-separate and unchanged. Existing FM selection/restoration, input, graphics,
-resource loading and strict portable-storage behavior remain intact.
+Snatcher uses slot 0 for ScummVM autosaves, slots 1–4 for Metal Gear's four
+original save choices, and slots 5–99 for manual save-anywhere saves. F5 opens
+the ScummVM save chooser; F7 opens the load chooser. The save chooser labels
+0–4 as reserved and disables manual writes there. Internal saves are listed as
+`Internal Save Slot 1` through `Internal Save Slot 4` and load through CE using
+the original checkpoint-resume semantics. They retain the original SGR2 codec;
+autosaves and manual saves retain the existing full-state SNSV codec.
+
+Autosaving follows the configured ScummVM interval and safe-save checks. CE also
+saves the prior state before loading another slot; loading slot 0 does not
+overwrite the autosave being loaded. Autosave identity is kept in a small
+save-manager-owned fingerprint file, without changing either save schema.
+
+Before the first new-policy launch, legacy save-anywhere files in 0–4 are moved
+to free manual slots starting at 5. Their payloads, backup generations and CE
+ownership sidecars move together; occupied destinations are skipped. A selected
+legacy startup slot follows its relocated file. Genuine new autosaves and
+original-format internal saves are not moved on later launches. If no free
+manual slot exists, relocation refuses to overwrite data. Original `.sgr`
+filenames remain readable for existing in-game saves; new internal writes use
+the CE slot filenames. FM selection/restoration, input, graphics, resource
+loading and strict portable storage remain intact.
 
 Successful native saves use CE's normal session-recording hook, and successful
 loads restore the saved session through the corresponding load hook. Existing
-untagged saves remain Untracked until deliberately assigned; loading an untagged
-backup does not inherit the newer primary generation's session. Save payloads
-and schemas are unchanged. `devtools/ce/test_snatcher_sessions.py` checks two
+untagged saves remain Untracked until deliberately assigned. An untracked save
+replaces stale ownership metadata instead of inheriting an old session, and a
+manual write cannot overwrite another session's occupied manual slot. Loading
+an untagged backup does not inherit the primary generation's session. Save
+payloads and schemas are unchanged. `devtools/ce/test_snatcher_sessions.py` checks two
 sessions, save ownership, cold continuation, untracked saves, autosave protection
 and backup fallback using owned dummy-device roots.
+`devtools/ce/test_snatcher_save_slots.py` additionally checks migration from the
+previous executable, reserved-slot protection, actual F5/F7 dialogs, periodic
+and pre-load autosaving, and ordinary Metal Gear input to all four slots followed
+by CE loading and a cold restore. Its fixture is a retained genuine original
+checkpoint; no campaign state or save outcome is injected.
 
 The qualified source was merged from
 `b906b0006d4c8ac005504acbdbe0d58d73db152f` without conflicts. The earlier
