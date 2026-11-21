@@ -14,7 +14,7 @@ The script sets up the expected Windows build environment:
 - creates `S:` as `subst S: "D:\Codex Projects\scummvm-private"` when needed
 - points `PATH` at the Visual Studio 2022 BuildTools MSBuild/CMake/Ninja locations
 - sets `VCPKG_ROOT`, `VCPKG_DEFAULT_TRIPLET`, `VCPKG_INSTALLED_DIR`, `VCPKG_OVERLAY_TRIPLETS`, and `VCPKG_OVERLAY_PORTS`
-- reuses the populated `vcpkg_installed` tree from the sibling non-Git checkout unless this Git clone has its own
+- reuses the workspace-level `D:\Codex Projects\scummvm-private\vcpkg_installed` dependencies unless this checkout has its own
 - generates `build-scummvm\scummvm.sln` if it does not already exist
 - builds the release x64 solution
 - writes the detailed build log to `D:\Codex Projects\scummvm-private\scummvm-ce-2026.4.0-consolidated\msbuild-release.log`
@@ -68,10 +68,13 @@ push: old tagged commits still contain the automatic publisher. Never temporaril
 disable/restore it, rebuild during publication, or replace approved artifacts.
 Publication and remote workflow configuration require explicit owner authorization.
 
-Use this `codex/ce-2026.4.0-consolidated` worktree for subsequent CE work, subject
-to the user's final acceptance. It contains upstream v2026.4.0, the Native Test
-CLI and always-on portable storage through normal ancestry. Preserve historical
-branches, the dirty original main checkout and all accepted installations.
+Use this `codex/ce-2026.4.0-consolidated` worktree as the default for CE development
+and builds. The owner authorized workspace cleanup on November 12, 2026. It contains
+upstream v2026.4.0, the Native Test CLI and always-on portable storage through normal
+ancestry. Obsolete checkouts were audited and their unique files preserved in the
+workspace's `cleanup-20261112` recovery archives. Preserve historical Git refs,
+recovery archives and all accepted installations. The shared Git repository lives
+at the workspace's `.scummvm-history.git`; do not recreate obsolete source trees.
 Use the native `--test-cli` for gameplay tests whenever suitable engine
 capabilities exist; keep its owned-root restrictions and hidden rendering intact.
 Do not add unrelated adapters during consolidation. Read

@@ -15,7 +15,7 @@ $substRepoRoot = "S:\$repoName"
 $substVcpkgInstalled = if (Test-Path $localVcpkgInstalled) {
     "$substRepoRoot\vcpkg_installed"
 } else {
-    'S:\scummvm-private-feature-usable-desktop-window-layout\vcpkg_installed'
+    'S:\vcpkg_installed'
 }
 
 $pathValue = @(
@@ -89,6 +89,7 @@ $propsFiles = @(
 foreach ($propsFile in $propsFiles) {
     if (Test-Path $propsFile) {
         $propsContent = Get-Content -LiteralPath $propsFile -Raw
+        $propsContent = $propsContent.Replace('S:\scummvm-private-feature-usable-desktop-window-layout\vcpkg_installed', $substVcpkgInstalled)
         $vcpkgIncludePath = "$substVcpkgInstalled\x64-windows\include"
         $vcpkgLibraryPath = "$substVcpkgInstalled\x64-windows\lib"
         $vcpkgLibraries = 'SDL2.lib;SDL2_net.lib;zlib.lib;mad.lib;fribidi.lib;ogg.lib;vorbis.lib;vorbisfile.lib;FLAC.lib;libpng16.lib;mpeg2.lib;theoradec.lib;theora.lib;freetype.lib;jpeg.lib;libfluidsynth-3.lib;libcurl.lib;brotlidec.lib;brotlicommon.lib;bz2.lib;iconv.lib;intl.lib;charset.lib;glib-2.0.lib;gobject-2.0.lib;gmodule-2.0.lib;gthread-2.0.lib;pcre2-8.lib;ffi.lib;OpenAL32.lib;%(AdditionalDependencies)'
