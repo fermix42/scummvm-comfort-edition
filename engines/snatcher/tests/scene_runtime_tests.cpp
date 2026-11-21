@@ -223,6 +223,15 @@ void replacementTransferContracts(){
  check(runtime.install(31,data,0,error)&&finishTransfers(runtime,error)&&runtime.render(kSceneRGB888,image,error)&&image.indexed[0]==1,"final graphics request publishes its own destination");
 }
 void absolutePlanePublicationContracts(){using namespace Snatcher;std::string e;SceneRuntime s;SceneLayout l;l.width=256;l.height=224;l.columns=32;l.rows=64;check(s.configure(l,e),"absolute plane layout");s.establishFreshModuleDialogueContext();
+ {
+  SceneRuntime restored;check(restored.configure(l,e),"animation publication reset layout");restored.establishFreshModuleDialogueContext();
+  check(restored.requestVisualCommand(7,e),"title disables Main scroll publication");for(unsigned i=0;i<8;++i)check(restored.beginFrame(false,e),"finish title publication initialization");
+  auto producer=scene({Actor{1,0,0,0,{0x8d,1,0xff,0xa8,0,0,0,100}}});
+  check(restored.install(10,producer,0,e)&&restored.tick(false,e),"animation posts absolute planeB producer");
+  check(restored.scroll().positions[1].y16==-88*65536&&restored.framePresentationLayout().sourceY[1]==0,"Main retains old sampling while the worker computes the new position");
+  check(restored.tick(false,e)&&restored.tick(false,e),"secondary mailbox and next Main publication advance normally");
+  check(restored.scroll().positions[1].y16==-88*65536&&restored.framePresentationLayout().sourceY[1]==88,"animation re-enables Main publication after title without replacing primary view");
+ }
  auto d=scene({Actor{1,0,0,0,{0x8e,0,1,0,0x8f,0,0xff,0x80,0x8e,1,2,0,0x8f,1,0,0x40,0,0,0,100}}});
  check(s.install(1,d,0,e)&&s.tick(false,e),"authored two-plane velocity setup");check(s.requestVisualCommand(13,e),"primary0D owner before secondary publication");for(unsigned i=0;i<6;++i)check(s.beginFrame(false,e),"settle primary0D before secondary publication");const SceneLayout before=s.presentationLayout();check(!before.viewBands.empty(),"actual primary view band available for preservation");
  check(s.queueScrollPosition(1,kScrollX,23,e)&&s.queueScrollPosition(1,kScrollY,-9,e),"independent planeB pending request");

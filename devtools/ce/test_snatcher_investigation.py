@@ -43,6 +43,31 @@ def main():
         result = json.loads((saves/(stem+'.result.json')).read_text())
         assert result['snapshot_validated'] and not result['error']
         assert report['history'] and len(report['history']) <= 1800
+        assert report['format'] == 'snatcher-investigation/3'
+        stages = ('lock', 'prepare', 'scale', 'upload', 'render', 'present', 'metadata', 'other')
+        graphics = [sample['graphics'] for sample in report['history']]
+        assert all(g['routine_gl_debug_polling'] is False for g in graphics)
+        assert all(g['frames'] > 0 and g['backend'] == 'surface-sdl' for g in graphics)
+        roles = ('game', 'cursor', 'cursor_mask', 'overlay', 'osd_message', 'osd_icon', 'unattributed')
+        operations = ('update', 'convert_scale', 'edge_prepare', 'gl_bind_texture', 'gl_pixel_store',
+                      'gl_tex_sub_image', 'gl_tex_image', 'gl_error_clear', 'gl_error_check')
+        # Dummy video uses surface SDL, so GL-specific metrics must remain empty.
+        for g in graphics:
+            assert set(g['textures']) == set(roles)
+            for texture in g['textures'].values():
+                assert texture['uploads'] == 0 and texture['uploaded_bytes'] == 0
+                assert 'last_upload' not in texture and 'slowest_upload' not in texture
+                assert all(texture[op] == dict(max_ms=0, total_ms=0, calls=0) for op in operations)
+
+        assert any(g['renderer'] == 'software' and g['video_driver'] == 'dummy'
+                   and g['drawable_width'] > 0 and g['drawable_height'] > 0 for g in graphics)
+        assert any(g['upload']['calls'] > 0 and g['render']['calls'] > 0
+                   and g['present']['calls'] > 0 for g in graphics)
+        for g in graphics:
+            for stage in stages:
+                timing = g[stage]
+                assert 0 <= timing['max_ms'] <= timing['total_ms']
+                assert timing['calls'] > 0 or timing['total_ms'] == 0
         assert any(s['process_metrics_known'] and s['private_bytes'] > 0 for s in report['history'])
         assert report['engine']['entry_active'] and report['engine']['trace']
         f12('down')  # Holding F12 must not generate another capture.
@@ -79,7 +104,7 @@ def main():
         assert sha(saves/'cli-game.005') == protected
         (a.output/'results.json').write_text(json.dumps(dict(exe_sha256=sha(a.exe),
             capture=stem, duplicate_suppressed=True, unique_capture=True,
-            failure_reported=True, cold_recovery=True, existing_save_preserved=True), indent=2))
+            failure_reported=True, cold_recovery=True, existing_save_preserved=True, graphics_timings=True, per_texture_schema=True, routine_gl_polling_disabled=True), indent=2))
         print('F12 capture, held-key suppression, failure report, and cold recovery passed')
     finally:
         if alive:

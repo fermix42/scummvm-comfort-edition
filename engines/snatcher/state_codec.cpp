@@ -4,8 +4,8 @@
 namespace Snatcher {namespace {
 uint32_t crc(const uint8_t*p,size_t n){uint32_t c=0xffffffff;while(n--){c^=*p++;for(unsigned j=0;j<8;++j)c=c&1?(c>>1)^0xedb88320:c>>1;}return ~c;}
 const size_t kSaveMaxBytes=128*1024*1024,kSaveMaxSectionBytes=64*1024*1024,kSaveMaxSections=32,kSaveHeaderBytes=80;
-size_t sectionLimit(unsigned id,bool active){return active?(id==kSaveInput||id==kSaveAudio?64*1024*1024:id==kSaveScene?16*1024*1024:1024*1024):1024*1024;}
-bool knownSection(unsigned id){return id>=kSaveStory&&id<=kSaveGameServices;}
+size_t sectionLimit(unsigned id,bool active){if(id==kSaveThumbnail)return 48*1024;return active?(id==kSaveInput||id==kSaveAudio?64*1024*1024:id==kSaveScene?16*1024*1024:1024*1024):1024*1024;}
+bool knownSection(unsigned id){return id>=kSaveStory&&id<=kSaveThumbnail;}
 void put16(std::vector<uint8_t>& out,unsigned value){out.push_back(uint8_t(value>>8));out.push_back(uint8_t(value));}
 void put32(std::vector<uint8_t>& out,uint32_t value){put16(out,value>>16);put16(out,value);}
 unsigned get16(const uint8_t *p){return unsigned(p[0])<<8|p[1];}

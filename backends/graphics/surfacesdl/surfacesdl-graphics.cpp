@@ -19,6 +19,7 @@
  *
  */
 
+#include "backends/graphics/frame-diagnostics.h"
 #include "common/scummsys.h"
 
 #if defined(SDL_BACKEND)
@@ -1192,11 +1193,26 @@ bool SurfaceSdlGraphicsManager::hotswapGFXMode() {
 }
 
 void SurfaceSdlGraphicsManager::updateScreen() {
+ GraphicsDiagnostics::backend("surface-sdl");
 	assert(_transactionMode == kTransactionNone);
 
-	Common::StackLock lock(_graphicsMutex);	// Lock the mutex until this function ends
-
-	internUpdateScreen();
+	Common::StackLock lock(_graphicsMutex); // Lock the mutex until this function ends
+ GraphicsDiagnostics::mark(GraphicsDiagnostics::kLock);
+#if SDL_VERSION_ATLEAST(2, 0, 0) && !SDL_VERSION_ATLEAST(3, 0, 0)
+ auto &diagnostics = GraphicsDiagnostics::state();
+ if (diagnostics.active && diagnostics.queryMetadata && _renderer) {
+  SDL_RendererInfo info = {};
+  if (SDL_GetRendererInfo(_renderer, &info) == 0) {
+   diagnostics.renderer = info.name ? info.name : "";
+   diagnostics.vsync = (info.flags & SDL_RENDERER_PRESENTVSYNC) ? 1 : 0;
+  }
+  SDL_GetRendererOutputSize(_renderer, &diagnostics.width, &diagnostics.height);
+  const char *driver = SDL_GetCurrentVideoDriver();
+  diagnostics.videoDriver = driver ? driver : "";
+  GraphicsDiagnostics::mark(GraphicsDiagnostics::kMetadata);
+ }
+#endif
+ internUpdateScreen();
 }
 
 void SurfaceSdlGraphicsManager::updateScreen(SDL_Rect *dirtyRectList, int actualDirtyRects) {
@@ -1396,8 +1412,10 @@ void SurfaceSdlGraphicsManager::internUpdateScreen() {
 				error("SDL_BlitSurface failed in dirty-rect copy (overlay=%d, source=%p, destination=%p): %s", _overlayVisible, (void *)origSurf, (void *)srcSurf, SDL_GetError());
 		}
 
+		GraphicsDiagnostics::mark(GraphicsDiagnostics::kPrepare);
 		SDL_LockSurface(srcSurf);
 		SDL_LockSurface(_hwScreen);
+		GraphicsDiagnostics::mark(GraphicsDiagnostics::kLock);
 
 #if SDL_VERSION_ATLEAST(3, 0, 0)
 		const SDL_PixelFormatDetails *pixelFormatDetails = SDL_GetPixelFormatDetails(_hwScreen->format);
@@ -1468,6 +1486,7 @@ void SurfaceSdlGraphicsManager::internUpdateScreen() {
 #endif
 			}
 		}
+		GraphicsDiagnostics::mark(GraphicsDiagnostics::kScale);
 		SDL_UnlockSurface(srcSurf);
 		SDL_UnlockSurface(_hwScreen);
 
@@ -1577,6 +1596,7 @@ void SurfaceSdlGraphicsManager::internUpdateScreen() {
 
 		// Finally, blit all our changes to the screen
 		if (!_displayDisabled) {
+			GraphicsDiagnostics::mark(GraphicsDiagnostics::kPrepare);
 			updateScreen(_dirtyRectList, actualDirtyRects);
 #if SDL_VERSION_ATLEAST(2, 0, 0)
 			doPresent = true;
@@ -1598,8 +1618,10 @@ void SurfaceSdlGraphicsManager::internUpdateScreen() {
 	renderImGui();
 #endif
 
+	GraphicsDiagnostics::mark(GraphicsDiagnostics::kPrepare);
 	if (doPresent) {
 		SDL_RenderPresent(_renderer);
+		GraphicsDiagnostics::mark(GraphicsDiagnostics::kPresent);
 	}
 #else
 	if (_isDoubleBuf)
@@ -3167,6 +3189,7 @@ SDL_Surface *SurfaceSdlGraphicsManager::SDL_SetVideoMode(int width, int height, 
 
 void SurfaceSdlGraphicsManager::SDL_UpdateRects(SDL_Surface *screen, int numrects, SDL_Rect *rects) {
 	SDL_UpdateTexture(_screenTexture, nullptr, screen->pixels, screen->pitch);
+ GraphicsDiagnostics::mark(GraphicsDiagnostics::kUpload);
 
 	SDL_Rect viewport;
 
@@ -3207,6 +3230,7 @@ void SurfaceSdlGraphicsManager::SDL_UpdateRects(SDL_Surface *screen, int numrect
 		SDL_RenderCopy(_renderer, _screenTexture, nullptr, &viewport);
 #endif
 	}
+ GraphicsDiagnostics::mark(GraphicsDiagnostics::kRender);
 }
 
 int SurfaceSdlGraphicsManager::SDL_SetColors(SDL_Surface *surface, SDL_Color *colors, int firstcolor, int ncolors) {

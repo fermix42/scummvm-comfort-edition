@@ -11,19 +11,19 @@ class SnatcherMetaEngine : public MetaEngine {
 public:
  const char *getName() const override {return "snatcher";}
  const ExtraGuiOptions getExtraGuiOptions(const Common::String&)const override{ExtraGuiOptions options;options.push_back(ExtraGuiOption("Original controls only","Disable PC mouse interaction and use keyboard or gamepad controls","snatcher_original_controls_only",false,0,0));options.push_back(ExtraGuiOption("Decensor Alice, Lisa and Katrina", "Restore only Alice animation, Lisa artwork and Katrina shower graphics (requires local decensor data)", "snatcher_decensor", false, 0, 0));return options;}
- bool hasFeature(MetaEngineFeature f)const override{return f==kSupportsLoadingDuringStartup||f==kSupportsListSaves||f==kSupportsDeleteSave||f==kSimpleSavesNames||f==kSavesSupportMetaInfo;}
+ bool hasFeature(MetaEngineFeature f)const override{return f==kSupportsLoadingDuringStartup||f==kSupportsListSaves||f==kSupportsDeleteSave||f==kSimpleSavesNames||f==kSavesSupportMetaInfo||f==kSavesSupportThumbnail;}
  int getAutosaveSlot() const override { return 0; }
  int getMaximumSaveSlot()const override{return 99;}
  bool isSaveSlotAllowed(const char*,int slot)const override{return slot>=5&&slot<=99;}
  SaveStateDescriptor querySaveMetaInfos(const char* target,int slot)const override{
   if(slot<0||slot>99)return SaveStateDescriptor();auto* manager=g_system->getSavefileManager();const Common::String file=Common::String::format("%s.%03d",target,slot);
   Common::InSaveFile* in=manager->openForLoading(file);if(!in&&slot>=1&&slot<=4)in=manager->openForLoading(Common::String::format("%s-snatcher-original-%d.sgr",target,slot));
-  std::string description;bool valid=in&&Snatcher::nativeSaveDescription(*in,description);delete in;
-  if(!valid){in=manager->openForLoading(file+".bak");valid=in&&Snatcher::nativeSaveDescription(*in,description);delete in;}
+  Graphics::Surface* thumbnail=nullptr;std::string description;bool valid=in&&Snatcher::nativeSaveDescription(*in,description,&thumbnail);delete in;
+  if(!valid){in=manager->openForLoading(file+".bak");valid=in&&Snatcher::nativeSaveDescription(*in,description,&thumbnail);delete in;}
   if(!valid&&slot>=5)return SaveStateDescriptor();
   Common::String caption=description.c_str();if(slot==0&&(!valid||Snatcher::nativeAutosave(*manager,file)))caption="Autosave";
   if(slot>=1&&slot<=4)caption=Common::String::format("Internal Save Slot %d",slot);
-  SaveStateDescriptor result(this,slot,caption);result.setWriteProtectedFlag(slot<=4);result.setDeletableFlag(valid);result.setAutosave(slot==0&&(!valid||Snatcher::nativeAutosave(*manager,file)));return result;
+  SaveStateDescriptor result(this,slot,caption);if(thumbnail)result.setThumbnail(thumbnail);result.setWriteProtectedFlag(slot<=4);result.setDeletableFlag(valid);result.setAutosave(slot==0&&(!valid||Snatcher::nativeAutosave(*manager,file)));return result;
  }
  SaveStateList listSaves(const char* target)const override{
   SaveStateList result;

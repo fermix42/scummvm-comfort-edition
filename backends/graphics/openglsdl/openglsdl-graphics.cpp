@@ -19,6 +19,7 @@
  *
  */
 
+#include "backends/graphics/frame-diagnostics.h"
 #include "backends/graphics/openglsdl/openglsdl-graphics.h"
 #include "backends/graphics/opengl/texture.h"
 #include "backends/events/sdl/sdl-events.h"
@@ -622,6 +623,22 @@ bool OpenGLSdlGraphicsManager::loadVideoMode(uint requestedWidth, uint requested
 }
 
 void OpenGLSdlGraphicsManager::refreshScreen() {
+ auto &diagnostics = GraphicsDiagnostics::state();
+#if SDL_VERSION_ATLEAST(2, 0, 0) && !SDL_VERSION_ATLEAST(3, 0, 0)
+ if (diagnostics.active && (diagnostics.queryMetadata || diagnostics.renderer.empty())) {
+  const char *renderer = (const char *)glGetString(GL_RENDERER);
+  const char *vendor = (const char *)glGetString(GL_VENDOR);
+  const char *version = (const char *)glGetString(GL_VERSION);
+  diagnostics.renderer = renderer ? renderer : "";
+  diagnostics.vendor = vendor ? vendor : "";
+  diagnostics.version = version ? version : "";
+  diagnostics.vsync = SDL_GL_GetSwapInterval();
+  SDL_GL_GetDrawableSize(_window->getSDLWindow(), &diagnostics.width, &diagnostics.height);
+  const char *driver = SDL_GetCurrentVideoDriver();
+  diagnostics.videoDriver = driver ? driver : "";
+  GraphicsDiagnostics::mark(GraphicsDiagnostics::kMetadata);
+ }
+#endif
 	// Swap OpenGL buffers
 #ifdef EMSCRIPTEN
 	if (_queuedScreenshot) {
@@ -635,7 +652,9 @@ void OpenGLSdlGraphicsManager::refreshScreen() {
 #endif
 
 #if SDL_VERSION_ATLEAST(2, 0, 0)
+	GraphicsDiagnostics::mark(GraphicsDiagnostics::kPrepare);
 	SDL_GL_SwapWindow(_window->getSDLWindow());
+	GraphicsDiagnostics::mark(GraphicsDiagnostics::kPresent);
 #else
 	SDL_GL_SwapBuffers();
 #endif

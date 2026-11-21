@@ -16,6 +16,12 @@
 #include "common/savefile.h"
 #include "common/system.h"
 #include "common/md5.h"
+#include "common/file.h"
+#include "common/memstream.h"
+#include "common/endian.h"
+#include "graphics/thumbnail.h"
+#include "graphics/surface.h"
+#include "common/fs.h"
 #include "common/formats/json.h"
 #include "engines/ce_test_cli.h"
 #include "engines/ce_achievements.h"
@@ -84,10 +90,39 @@ bool nativeInputCompatibilityProbe(const NativeSaveSection& source,const LegacyI
  restored.compatibility=previous;NativeArchive original;if(!EngineStateCodec::archive(original,restored,source.version)||original.bytes!=source.bytes){error="unrelated input state changed during compatibility migration";return false;}
  migrated=next;return true;
 }
-bool nativeSaveDescription(Common::SeekableReadStream& in,std::string& description){
+bool alternateSaveScenario(GameResource& resources,Scenario& scenario,std::string& error){
+ std::vector<uint8_t> bytes;
+ if(resources.decensorEnabled())return resources.readOriginalResource(82,bytes,error)&&parseScenario(bytes.data(),bytes.size(),scenario,error);
+ // Validate the same approved sidecar against the physical disc without
+ // enabling it on the live resource owner. Only SP25's verified counterpart
+ // is used to rebind saved instruction identities in the reverse direction.
+ Common::File patch;if(!patch.open("snatcher-decensor.dat")||patch.size()<=0||patch.size()>1024*1024){error="Loading a decensor save with the option disabled requires snatcher-decensor.dat";return false;}
+ std::vector<uint8_t> data(size_t(patch.size()));if(patch.read(data.data(),uint32(data.size()))!=data.size()||patch.err()){error="Cannot read decensor compatibility data";return false;}
+ GameResource alternate;
+ return openGame(Common::FSNode(ConfMan.getPath("path")),alternate,error)&&alternate.configureDecensor(data,error)&&alternate.readResource(82,bytes,error)&&parseScenario(bytes.data(),bytes.size(),scenario,error);
+}
+bool captureSaveThumbnail(std::vector<uint8_t>& bytes){
+ bytes.clear();Graphics::Surface thumbnail;
+ if(!Graphics::createThumbnail(thumbnail))return false;
+ Common::MemoryWriteStreamDynamic stream(DisposeAfterUse::YES);
+ bool good=Graphics::saveThumbnail(stream,thumbnail)&&!stream.err()&&stream.size()<=48*1024;
+ thumbnail.free();if(good)bytes.assign(stream.getData(),stream.getData()+stream.size());return good;
+}
+Graphics::Surface* decodeSaveThumbnail(const std::vector<uint8_t>& bytes){
+ // Bound dimensions and require our standard RGB565 header before allocation.
+ if(bytes.size()<22||bytes.size()>48*1024||memcmp(bytes.data(),"THMB",4)||READ_BE_UINT32(bytes.data()+4)!=bytes.size()||bytes[8]!=2)return nullptr;
+ unsigned w=READ_BE_UINT16(bytes.data()+9),h=READ_BE_UINT16(bytes.data()+11);
+ const byte format[]={2,3,2,3,8,11,5,0,0};
+ if(!w||w>160||!h||h>120||bytes.size()!=22+w*h*2||memcmp(bytes.data()+13,format,sizeof(format)))return nullptr;
+ Common::MemoryReadStream stream(bytes.data(),uint32(bytes.size()));Graphics::Surface* surface=nullptr;
+ if(!Graphics::loadThumbnail(stream,surface)||stream.err()){if(surface){surface->free();delete surface;}return nullptr;}
+ return surface;
+}
+bool nativeSaveDescription(Common::SeekableReadStream& in,std::string& description,Graphics::Surface** thumbnail){
+ if(thumbnail)*thumbnail=nullptr;
  byte magic[4];if(in.read(magic,4)!=4||!in.seek(0))return false;
- if(!memcmp(magic,"SGR2",4)){if(in.size()>4096)return false;std::vector<uint8_t> bytes(size_t(in.size()));if(in.read(bytes.data(),uint32(bytes.size()))!=bytes.size())return false;GameSaveRecord record;std::string error;if(!decodeGameSaveMetadata(bytes,record,error))return false;description="Internal Save";return true;}
- NativeSaveEnvelope save;std::string error;if(!readNativeSave(in,discIdentity,required(),save,error))return false;const auto* input=section(save,kSaveInput);EngineStateCodec::State state;if(!input||!EngineStateCodec::decode(*input,state,error))return false;description=state.description;return true;
+ if(!memcmp(magic,"SGR2",4)){if(in.size()>65545)return false;std::vector<uint8_t> bytes(size_t(in.size()));if(in.read(bytes.data(),uint32(bytes.size()))!=bytes.size())return false;GameSaveRecord record;std::string error;if(!decodeGameSaveMetadata(bytes,record,error))return false;description="Internal Save";if(thumbnail)*thumbnail=decodeSaveThumbnail(record.thumbnail);return true;}
+ NativeSaveEnvelope save;std::string error;if(!readNativeSave(in,discIdentity,required(),save,error))return false;const auto* input=section(save,kSaveInput);EngineStateCodec::State state;if(!input||!EngineStateCodec::decode(*input,state,error))return false;description=state.description;if(thumbnail){const auto* preview=section(save,kSaveThumbnail);if(preview&&preview->version==1)*thumbnail=decodeSaveThumbnail(preview->bytes);}return true;
 }
 bool nativeAutosave(Common::SaveFileManager& manager,const Common::String& file){
  Common::InSaveFile* marker=manager.openForLoading(file+".autosave");if(!marker)return false;
@@ -151,6 +186,7 @@ bool SnatcherEngine::writeNativeSnapshot(const Common::String& target,const Comm
  if(!saveBoundary(error))return false;
  _output.setPaused(true);_fm.setPaused(true);NativeSaveEnvelope save;NarrativeSnapshot narrative;NativeSaveSection n,events,scene,timing,audio(kSaveAudio),input,services(kSaveGameServices);TimingSnapshot time;time.clock=_clock.snapshot();time.delay=_delay.snapshot();time.delayToken=_delayToken;
  bool valid=_runtime->snapshot(discIdentity,narrative,error)&&encodeNarrativeState(narrative,n,error)&&encodeEventState(_events.snapshot(),events,error)&&SceneStateCodec::encode(_scene,scene,error,true,true)&&encodeTimingState(time,timing,error)&&_fm.snapshotState(audio.bytes,error)&&EngineStateCodec::capture(*this,description,input,error)&&encodeGameServiceState(_gameServices,services.bytes,error);_fm.setPaused(isPaused());_output.setPaused(isPaused());if(!valid)return false;audio.required=services.required=true;save.sections={n,events,scene,timing,audio,input,services};
+ NativeSaveSection preview(kSaveThumbnail);if(captureSaveThumbnail(preview.bytes))save.sections.push_back(preview);
  auto* manager=_system->getSavefileManager();const Common::String pending=target+".new",backup=target+".bak";Common::OutSaveFile* out=manager->openForSaving(pending,false);if(!out){error="Cannot stage native save";return false;}bool written=writeNativeSave(*out,save,discIdentity,required(),error);out->finalize();written=written&&!out->err();delete out;if(!written){manager->removeSavefile(pending);if(error.empty())error="Native save finalization failed";return false;}
  Common::InSaveFile* check=manager->openForLoading(pending);NativeSaveEnvelope verified;bool read=check&&readNativeSave(*check,discIdentity,required(),verified,error);delete check;if(!read){manager->removeSavefile(pending);error="Native save read-back validation failed";return false;}
  bool old=false;Common::InSaveFile* existing=manager->openForLoading(target);if(existing){old=true;delete existing;manager->removeSavefile(backup);if(!manager->renameSavefile(target,backup,false)){manager->removeSavefile(pending);error="Cannot retain previous native save generation";return false;}}
@@ -172,9 +208,9 @@ std::string error;auto* manager=_system->getSavefileManager();NativeSaveEnvelope
  if(!decodeNarrativeState(*n,discIdentity,narrative,error))return failure(_saveError,error,Common::kReadingFailed);
  // Only the verified decensor SP25 pair is eligible. All other scenario stamps
  // and every active instruction/return/request still undergo normal checks.
- if(_resources.decensorEnabled()&&narrative.scenarioStamps[25]!=narrativeScenarioStamp(_scenarios[25])){
-  std::vector<uint8_t> original;Scenario previous;
-  if(!_resources.readOriginalResource(82,original,error)||!parseScenario(original.data(),original.size(),previous,error)||!rebindNarrativeScenario(narrative,25,previous,_scenarios[25],error))return failure(_saveError,error,Common::kReadingFailed);
+ if(narrative.scenarioStamps[25]!=narrativeScenarioStamp(_scenarios[25])){
+  Scenario previous;
+  if(!alternateSaveScenario(_resources,previous,error)||!rebindNarrativeScenario(narrative,25,previous,_scenarios[25],error))return failure(_saveError,error,Common::kReadingFailed);
  }
  if(!decodeEventState(*e,events,error)||!decodeTimingState(*t,timing,error)||!EngineStateCodec::decode(*i,state,error)||!SceneStateCodec::decode(*sc,source,scene,error)||!_resources.readFile("SUBCODE.BIN",subcode,error)||!SceneStateCodec::decodeDialogue(state.dialogue,subcode,dialogue,error)||!stagedRuntime.restore(narrative,discIdentity,events,bindings,error)||!restoreTimingState(timing,events,bindings,clock,delay,delayToken,error)||!EngineStateCodec::associations(state,narrative,events,dialogue,_resources,error))return failure(_saveError,error.empty()?"Native save owner association mismatch":error,Common::kReadingFailed);
  GameServiceState services;const auto* serviceSection=section(save,kSaveGameServices);

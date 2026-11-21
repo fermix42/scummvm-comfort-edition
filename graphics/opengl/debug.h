@@ -24,7 +24,9 @@
 
 #include "graphics/opengl/context.h"
 
-#ifndef __EMSCRIPTEN__
+// Routine diagnostic queries can synchronize the driver on every GL call.
+// Keep them in debug builds; explicit GL_CALL_CHECK remains enabled in Release.
+#if !defined(__EMSCRIPTEN__) && !defined(RELEASE_BUILD)
 #define OPENGL_DEBUG
 #endif
 

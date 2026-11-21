@@ -20,6 +20,7 @@
  */
 
 
+#include "backends/graphics/frame-diagnostics.h"
 #include "backends/graphics/opengl/opengl-graphics.h"
 #include "backends/graphics/opengl/texture.h"
 #include "backends/graphics/opengl/pipelines/pipeline.h"
@@ -726,6 +727,7 @@ void OpenGLGraphicsManager::renderCursor() {
 }
 
 void OpenGLGraphicsManager::updateScreen() {
+ GraphicsDiagnostics::backend("opengl");
 	if ((!_gameScreen
 #if defined(USE_OPENGL_GAME) || defined(USE_OPENGL_SHADERS)
 		&& !_renderer3d
@@ -736,10 +738,12 @@ void OpenGLGraphicsManager::updateScreen() {
 
 #ifdef USE_OSD
 	if (_osdMessageChangeRequest) {
+		GraphicsDiagnostics::TextureScope textureScope(GraphicsDiagnostics::kOSDMessage);
 		osdMessageUpdateSurface();
 	}
 
 	if (_osdIconSurface) {
+		GraphicsDiagnostics::TextureScope textureScope(GraphicsDiagnostics::kOSDIcon);
 		_osdIconSurface->updateGLTexture();
 	}
 #endif
@@ -774,18 +778,26 @@ void OpenGLGraphicsManager::updateScreen() {
 	}
 #endif
 
+	GraphicsDiagnostics::mark(GraphicsDiagnostics::kPrepare);
 	// Update changes to textures.
 	if (_gameScreen) {
+		GraphicsDiagnostics::TextureScope textureScope(GraphicsDiagnostics::kGame);
 		_gameScreen->updateGLTexture();
 	}
 
 	if (_cursorVisible && _cursor) {
+		GraphicsDiagnostics::TextureScope textureScope(GraphicsDiagnostics::kCursor);
 		_cursor->updateGLTexture();
 	}
 	if (_cursorVisible && _cursorMask) {
+		GraphicsDiagnostics::TextureScope textureScope(GraphicsDiagnostics::kCursorMask);
 		_cursorMask->updateGLTexture();
 	}
-	_overlay->updateGLTexture();
+	{
+		GraphicsDiagnostics::TextureScope textureScope(GraphicsDiagnostics::kOverlay);
+		_overlay->updateGLTexture();
+	}
+ GraphicsDiagnostics::mark(GraphicsDiagnostics::kUpload);
 
 #if !USE_FORCED_GLES
 	if (_libretroPipeline) {
@@ -943,6 +955,7 @@ void OpenGLGraphicsManager::updateScreen() {
 
 	_cursorNeedsRedraw = false;
 	_forceRedraw = false;
+	GraphicsDiagnostics::mark(GraphicsDiagnostics::kRender);
 	refreshScreen();
 
 #if defined(USE_OPENGL_GAME) || defined(USE_OPENGL_SHADERS)

@@ -29,6 +29,10 @@
 #include "audio/mixer_intern.h"
 #include "base/version.h"
 #include "gui/message.h"
+#include "gui/saveload-dialog.h"
+#ifdef USE_OPENGL
+#include "graphics/opengl/debug.h"
+#endif
 #ifdef WIN32
 #include "backends/platform/sdl/win32/process-metrics.h"
 #endif
@@ -62,6 +66,36 @@ void SnatcherEngine::recordInvestigationFrame(){
 namespace {
 // SaveFileManager keeps all evidence in the installation's managed save root.
 // Finalize and read back before allowing the UI to report completion.
+Common::JSONValue *uploadInfoJSON(const GraphicsDiagnostics::UploadInfo& info){
+ Common::JSONObject object;
+ object["texture_id"]=new Common::JSONValue((long long)info.texture);
+ object["internal_format"]=new Common::JSONValue((long long)info.internalFormat);
+ object["format"]=new Common::JSONValue((long long)info.format);object["type"]=new Common::JSONValue((long long)info.type);
+ object["millis"]=new Common::JSONValue((long long)info.millis);object["duration_ms"]=new Common::JSONValue((long long)info.duration);
+ object["allocated_width"]=new Common::JSONValue((long long)info.allocatedWidth);object["allocated_height"]=new Common::JSONValue((long long)info.allocatedHeight);
+ object["source_width"]=new Common::JSONValue((long long)info.sourceWidth);object["source_height"]=new Common::JSONValue((long long)info.sourceHeight);
+ object["pitch"]=new Common::JSONValue((long long)info.pitch);object["bytes_per_pixel"]=new Common::JSONValue((long long)info.bpp);
+ object["dirty_left"]=new Common::JSONValue((long long)info.left);object["dirty_top"]=new Common::JSONValue((long long)info.top);
+ object["dirty_right"]=new Common::JSONValue((long long)info.right);object["dirty_bottom"]=new Common::JSONValue((long long)info.bottom);
+ object["uploaded_width"]=new Common::JSONValue((long long)info.sourceWidth);object["uploaded_height"]=new Common::JSONValue((long long)(info.bottom-info.top));
+ object["uploaded_bytes"]=new Common::JSONValue((long long)info.bytes);
+ return new Common::JSONValue(object);
+}
+Common::JSONValue *textureTimingsJSON(const GraphicsDiagnostics::Frame& frame){
+ Common::JSONObject textures;
+ for(unsigned role=0;role<GraphicsDiagnostics::kTextureRoleCount;++role){
+  const auto& texture=frame.textures[role];Common::JSONObject object;
+  for(unsigned op=0;op<GraphicsDiagnostics::kTextureOpCount;++op){
+   const auto& timing=texture.operations[op];Common::JSONObject value;
+   value["max_ms"]=new Common::JSONValue((long long)timing.maximum);value["total_ms"]=new Common::JSONValue((long long)timing.total);value["calls"]=new Common::JSONValue((long long)timing.calls);
+   object[GraphicsDiagnostics::textureOpName(op)]=new Common::JSONValue(value);
+  }
+  object["uploads"]=new Common::JSONValue((long long)texture.uploads);object["uploaded_bytes"]=new Common::JSONValue((long long)texture.bytes);
+  if(texture.uploads){object["last_upload"]=uploadInfoJSON(texture.last);object["slowest_upload"]=uploadInfoJSON(texture.slowest);}
+  textures[GraphicsDiagnostics::textureRoleName(role)]=new Common::JSONValue(object);
+ }
+ return new Common::JSONValue(textures);
+}
 bool writeInvestigationJSON(Common::SaveFileManager& manager,const Common::String& name,const Common::JSONValue& value){
  Common::String bytes=value.stringify(true);Common::OutSaveFile* out=manager.openForSaving(name,false);if(!out)return false;
  bool good=out->write(bytes.c_str(),bytes.size())==bytes.size();out->finalize();good=good&&!out->err();delete out;if(!good)return false;
@@ -75,7 +109,7 @@ bool SnatcherEngine::captureInvestigation(Common::String& message){
  const Common::String prefix=Common::String::format("%s-snatcher-investigation-%04d%02d%02d-%02d%02d%02d-%u-",ConfMan.getActiveDomainName().c_str(),now.tm_year+1900,now.tm_mon+1,now.tm_mday,now.tm_hour,now.tm_min,now.tm_sec,_system->getMillis());
  Common::String stem;do{stem=prefix+Common::String::format("%u",++_investigationSerial);}while(!manager->listSavefiles(stem+"*").empty());
  _investigationLastCapture=stem;
- Common::JSONObject report;report["format"]=new Common::JSONValue("snatcher-investigation/1");report["build"]=new Common::JSONValue(gScummVMFullVersion);
+ Common::JSONObject report;report["format"]=new Common::JSONValue("snatcher-investigation/3");report["build"]=new Common::JSONValue(gScummVMFullVersion);
  report["snapshot_file"]=new Common::JSONValue(stem+".save");report["snapshot_status"]=new Common::JSONValue("See matching .result.json; this report is written before snapshot capture");
  report["engine"]=testCLIState();report["host_frames"]=new Common::JSONValue((long long)_investigationFrames);report["input_events"]=new Common::JSONValue((long long)_investigationEvents);report["mouse_moves"]=new Common::JSONValue((long long)_investigationMoves);
  report["current_interval_events"]=new Common::JSONValue((long long)_investigationFrame.events);report["current_poll_elapsed_ms"]=new Common::JSONValue((long long)uint32_t(_system->getMillis()-_investigationPollStart));
@@ -84,6 +118,16 @@ bool SnatcherEngine::captureInvestigation(Common::String& message){
  for(const auto& s:_investigationHistory){Common::JSONObject row;row["millis"]=new Common::JSONValue((long long)s.millis);row["frame"]=new Common::JSONValue((long long)s.frame);row["max_poll_ms"]=new Common::JSONValue((long long)s.pollMillis);row["max_update_ms"]=new Common::JSONValue((long long)s.updateMillis);row["max_draw_ms"]=new Common::JSONValue((long long)s.drawMillis);row["max_present_ms"]=new Common::JSONValue((long long)s.presentMillis);row["events"]=new Common::JSONValue((long long)s.events);row["moves"]=new Common::JSONValue((long long)s.moves);row["resource"]=new Common::JSONValue((long long)s.resource);row["node"]=new Common::JSONValue((long long)s.node);row["pending_events"]=new Common::JSONValue((long long)s.pending);row["process_metrics_known"]=new Common::JSONValue(s.processMetrics);
   row["working_set"]=new Common::JSONValue((long long)s.workingSet);row["private_bytes"]=new Common::JSONValue((long long)s.privateBytes);row["handles"]=new Common::JSONValue((long long)s.handles);
   row["cpu_100ns"]=new Common::JSONValue((long long)s.cpu100ns);row["available_physical_bytes"]=new Common::JSONValue((long long)s.availablePhysical);
+  Common::JSONObject graphics;graphics["backend"]=new Common::JSONValue(s.graphics.backend);graphics["renderer"]=new Common::JSONValue(s.graphics.renderer);graphics["vendor"]=new Common::JSONValue(s.graphics.vendor);graphics["version"]=new Common::JSONValue(s.graphics.version);graphics["video_driver"]=new Common::JSONValue(s.graphics.videoDriver);
+  graphics["backend_reported_vsync"]=new Common::JSONValue((long long)s.graphics.vsync);graphics["drawable_width"]=new Common::JSONValue((long long)s.graphics.width);graphics["drawable_height"]=new Common::JSONValue((long long)s.graphics.height);graphics["frames"]=new Common::JSONValue((long long)s.graphicsFrames);
+  for(unsigned i=0;i<GraphicsDiagnostics::kStageCount;++i){Common::JSONObject stage;stage["max_ms"]=new Common::JSONValue((long long)s.graphicsMax[i]);stage["total_ms"]=new Common::JSONValue((long long)s.graphicsTotal[i]);stage["calls"]=new Common::JSONValue((long long)s.graphicsCalls[i]);graphics[GraphicsDiagnostics::stageName(i)]=new Common::JSONValue(stage);}
+  graphics["textures"]=textureTimingsJSON(s.graphics);
+#ifdef OPENGL_DEBUG
+  graphics["routine_gl_debug_polling"]=new Common::JSONValue(true);
+#else
+  graphics["routine_gl_debug_polling"]=new Common::JSONValue(false);
+#endif
+  row["graphics"]=new Common::JSONValue(graphics);
   history.push_back(new Common::JSONValue(row));}
  report["history"]=new Common::JSONValue(history);
  if(!writeInvestigationJSON(*manager,stem+".json",Common::JSONValue(report))){message="Capture FAILED: diagnostic report could not be finalized. Do not assume evidence was saved.";_investigationStatus=message;return false;}
@@ -319,7 +363,12 @@ Common::Error SnatcherEngine::run() {
   _output.setPaused(isPaused());_events.pause(isPaused());_audio.setPaused(isPaused());_cd.setPaused(isPaused());_fm.setPaused(isPaused());if(!isPaused())updateNative();else{releaseInput();_commandInput.discardPressed();_lastTickMillis=_system->getMillis();}
   uint32_t next=_system->getMillis();_investigationFrame.updateMillis=std::max(_investigationFrame.updateMillis,uint32_t(next-stamp));stamp=next;
   drawNative();next=_system->getMillis();_investigationFrame.drawMillis=std::max(_investigationFrame.drawMillis,uint32_t(next-stamp));stamp=next;
-  _system->updateScreen();next=_system->getMillis();_investigationFrame.presentMillis=std::max(_investigationFrame.presentMillis,uint32_t(next-stamp));recordInvestigationFrame();
+  GraphicsDiagnostics::begin(_investigationFrame.graphicsFrames==0);
+  _system->updateScreen();GraphicsDiagnostics::end();
+  const auto& graphics=GraphicsDiagnostics::state();_investigationFrame.graphics.copyIdentity(graphics);++_investigationFrame.graphicsFrames;
+  for(unsigned role=0;role<GraphicsDiagnostics::kTextureRoleCount;++role)_investigationFrame.graphics.textures[role].merge(graphics.textures[role]);
+  for(unsigned i=0;i<GraphicsDiagnostics::kStageCount;++i){_investigationFrame.graphicsMax[i]=std::max(_investigationFrame.graphicsMax[i],graphics.millis[i]);_investigationFrame.graphicsTotal[i]+=graphics.millis[i];_investigationFrame.graphicsCalls[i]+=graphics.calls[i];}
+  next=_system->getMillis();_investigationFrame.presentMillis=std::max(_investigationFrame.presentMillis,uint32_t(next-stamp));recordInvestigationFrame();
   CETestCLI::frame();_system->delayMillis(10);
  }
  _resources.close();return Common::kNoError;
@@ -327,6 +376,10 @@ Common::Error SnatcherEngine::run() {
 Common::JSONValue *SnatcherEngine::testCLIState(){
  Common::JSONObject o;
  o["investigation_capture"]=new Common::JSONValue(_investigationLastCapture);o["investigation_complete"]=new Common::JSONValue(_investigationComplete);o["investigation_status"]=new Common::JSONValue(_investigationStatus);o["investigation_samples"]=new Common::JSONValue((long long)_investigationHistory.size());
+ const SceneLayout debugLayout=_scene.framePresentationLayout();Common::JSONObject sceneLayout;
+ sceneLayout["columns"]=new Common::JSONValue((long long)debugLayout.columns);sceneLayout["rows"]=new Common::JSONValue((long long)debugLayout.rows);
+ for(unsigned p=0;p<2;++p){sceneLayout[Common::String::format("x%u",p)]=new Common::JSONValue((long long)debugLayout.sourceX[p]);sceneLayout[Common::String::format("y%u",p)]=new Common::JSONValue((long long)debugLayout.sourceY[p]);sceneLayout[Common::String::format("allocation%u",p)]=new Common::JSONValue((long long)debugLayout.planeAllocation[p]);sceneLayout[Common::String::format("scroll_x%u",p)]=new Common::JSONValue((long long)_scene.scroll().positions[p].x16);sceneLayout[Common::String::format("scroll_y%u",p)]=new Common::JSONValue((long long)_scene.scroll().positions[p].y16);}
+ o["scene_layout"]=new Common::JSONValue(sceneLayout);
  o["save_dialog_open"]=new Common::JSONValue(_testSaveDialogOpen);o["load_dialog_open"]=new Common::JSONValue(_testLoadDialogOpen);
  o["autosaves_created"]=new Common::JSONValue((long long)_testAutosaves);
  o["host_updates_last"]=new Common::JSONValue((long long)_hostUpdatesLast);
@@ -776,6 +829,8 @@ Common::JSONValue *SnatcherEngine::testCLICommand(Common::JSONValue& request){
  if(action=="save_policy"){
   Common::JSONObject result;result["ok"]=new Common::JSONValue(true);Common::JSONArray slots;
   for(int slot=0;slot<=5;++slot){SaveStateDescriptor desc=getMetaEngine()->querySaveMetaInfos(ConfMan.getActiveDomainName().c_str(),slot);Common::JSONObject item;item["slot"]=new Common::JSONValue((long long)slot);item["manual_allowed"]=new Common::JSONValue(getMetaEngine()->isSaveSlotAllowed(ConfMan.getActiveDomainName().c_str(),slot));item["write_protected"]=new Common::JSONValue(desc.getWriteProtectedFlag());item["label"]=new Common::JSONValue(desc.getDescription());slots.push_back(new Common::JSONValue(item));}
+  result["thumbnail_supported"]=new Common::JSONValue(getMetaEngine()->hasFeature(MetaEngine::kSavesSupportThumbnail));
+  result["gallery_selected"]=new Common::JSONValue(GUI::getRequestedSaveLoadDialog(getMetaEngine(),ConfMan.getActiveDomainName().c_str())==GUI::kSaveLoadDialogGrid);
   result["slots"]=new Common::JSONValue(slots);return new Common::JSONValue(result);
  }
  if(action=="resource_transport_probe"){

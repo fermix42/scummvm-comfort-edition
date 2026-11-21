@@ -7,7 +7,7 @@ bool readRecord(Common::SaveFileManager& manager,const Common::String& filename,
  Common::InSaveFile* file=manager.openForLoading(filename);
  if(!file){error="Original game slot cannot be opened";return false;}
  int64 length=file->size();std::vector<uint8_t> bytes;
- bool valid=length>0&&length<=4096;
+ bool valid=length>0&&length<=65545;
  if(valid){bytes.resize(size_t(length));valid=file->read(bytes.data(),uint32(bytes.size()))==bytes.size()&&!file->err();}
  delete file;
  if(!valid){error="Original game slot has invalid extent or read failure";return false;}

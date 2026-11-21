@@ -10,10 +10,14 @@ def main():
     p = argparse.ArgumentParser()
     for name in ('exe', 'game', 'checkpoint', 'output'):
         p.add_argument('--' + name, type=Path, required=True)
+    p.add_argument('--sidecar', type=Path)
     a = p.parse_args()
     a.output.mkdir()
     c = Client(a.exe, a.output / 'profile', a.game, 'gens')
     try:
+        if a.sidecar:
+            profile = c.root / 'profile.ini'
+            profile.write_text(profile.read_text().replace('[scummvm]', '[scummvm]\nextrapath=' + str(a.sidecar.parent)))
         saves = c.root / 'saves'
         saves.mkdir(exist_ok=True)
         shutil.copyfile(a.checkpoint, saves / 'cli-game.056')

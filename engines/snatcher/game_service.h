@@ -36,7 +36,7 @@ struct GameSaveBookmark {
  GameSaveBookmark():known(false),quiet(false),suppressed(false),presentation(0),pcm(0xffff),music(0),ambient(0),interaction(0){actors.fill(0);}
 };
 struct GameSaveRecord {
- std::string disc;std::vector<uint64_t> scenarioStamps;std::vector<uint8_t> packed;
+ std::string disc;std::vector<uint64_t> scenarioStamps;std::vector<uint8_t> packed;std::vector<uint8_t> thumbnail;
  bool contextKnown,sourcePolicy40,sourcePolicy80;uint8_t controllerMapping,pointerAnchorX,pointerAnchorY,counter;
  uint16_t resource,resumeEntry,progression;GameSaveElapsed elapsed;std::vector<uint16_t> cursorHistory;GameSaveBookmark bookmark;
  GameSaveRecord():contextKnown(false),sourcePolicy40(false),sourcePolicy80(false),controllerMapping(0),pointerAnchorX(0),pointerAnchorY(0),counter(0),resource(0),resumeEntry(0),progression(0){}

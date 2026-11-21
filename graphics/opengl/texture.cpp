@@ -25,11 +25,29 @@
 
 #include "graphics/opengl/texture.h"
 #include "graphics/opengl/debug.h"
+#include "backends/graphics/frame-diagnostics.h"
 
 #include "common/algorithm.h"
 #include "common/endian.h"
 #include "common/rect.h"
 #include "common/textconsole.h"
+
+// These wrappers retain the existing GL_CALL debug checks and their ordering,
+// but keep their latency separate from the actual GL entry point.
+#ifdef OPENGL_DEBUG
+#define TEXTURE_GL_CALL(op, call) do { \
+ if (GraphicsDiagnostics::state().active) \
+  GraphicsDiagnostics::textureGLCall(op, [&]() { call; }, []() { OpenGL::clearGLError(); }, \
+   [&]() { OpenGL::checkGLError(#call, __FILE__, __LINE__); }); \
+ else { GL_CALL(call); } \
+} while (false)
+#else
+#define TEXTURE_GL_CALL(op, call) do { GraphicsDiagnostics::TextureTimer timer(op); call; } while (false)
+#endif
+#define TEXTURE_GL_CHECK(err, op, call) do { \
+ GraphicsDiagnostics::textureGLCall(op, [&]() { call; }, []() { OpenGL::clearGLError(); }, \
+  [&]() { err = OpenGL::checkGLError(#call, __FILE__, __LINE__); }); \
+} while (false)
 
 namespace OpenGL {
 
@@ -137,7 +155,7 @@ void Texture::create() {
 	// If a size is specified, allocate memory for it.
 	if (_width != 0 && _height != 0) {
 		// Allocate storage for OpenGL texture.
-		GL_CALL(glTexImage2D(GL_TEXTURE_2D, 0, _glIntFormat, _width, _height,
+		TEXTURE_GL_CALL(GraphicsDiagnostics::kTexImage, glTexImage2D(GL_TEXTURE_2D, 0, _glIntFormat, _width, _height,
 		                     0, _glFormat, _glType, nullptr));
 	}
 }
@@ -146,7 +164,7 @@ bool Texture::bind() const {
 	if (!_glTexture) {
 		return false;
 	}
-	GL_CALL(glBindTexture(GL_TEXTURE_2D, _glTexture));
+	TEXTURE_GL_CALL(GraphicsDiagnostics::kBindTexture, glBindTexture(GL_TEXTURE_2D, _glTexture));
 	return true;
 }
 
@@ -176,7 +194,7 @@ bool Texture::setSize(uint width, uint height) {
 			}
 
 			bool error;
-			GL_CALL_CHECK(error, glTexImage2D(GL_TEXTURE_2D, 0, _glIntFormat, _width, _height,
+			TEXTURE_GL_CHECK(error, GraphicsDiagnostics::kTexImage, glTexImage2D(GL_TEXTURE_2D, 0, _glIntFormat, _width, _height,
 			             0, _glFormat, _glType, nullptr));
 			if (error) {
 				return false;
@@ -247,6 +265,9 @@ void Texture::computeTexCoords() {
 }
 
 void Texture::updateArea(const Common::Rect &area, const Graphics::Surface &src) {
+ const bool profiling = GraphicsDiagnostics::state().active;
+ const uint32 start = profiling ? g_system->getMillis(true) : 0;
+
 	// Set the texture on the active texture unit.
 	if (!bind()) {
 		return;
@@ -270,9 +291,18 @@ void Texture::updateArea(const Common::Rect &area, const Graphics::Surface &src)
 	//
 	// 3) Use glTexSubImage2D per line changed. This is what the old OpenGL
 	//    graphics manager did but it is much slower! Thus, we do not use it.
-	GL_CALL(glPixelStorei(GL_UNPACK_ALIGNMENT, 1));
-	GL_CALL(glTexSubImage2D(GL_TEXTURE_2D, 0, 0, area.top, src.w, area.height(),
+	TEXTURE_GL_CALL(GraphicsDiagnostics::kPixelStore, glPixelStorei(GL_UNPACK_ALIGNMENT, 1));
+	TEXTURE_GL_CALL(GraphicsDiagnostics::kTexSubImage, glTexSubImage2D(GL_TEXTURE_2D, 0, 0, area.top, src.w, area.height(),
 	                       _glFormat, _glType, src.getBasePtr(0, area.top)));
+ if (profiling) {
+  GraphicsDiagnostics::UploadInfo info;
+  info.texture = _glTexture; info.internalFormat = _glIntFormat; info.format = _glFormat; info.type = _glType;
+  info.allocatedWidth = _width; info.allocatedHeight = _height;
+  info.sourceWidth = src.w; info.sourceHeight = src.h; info.pitch = src.pitch; info.bpp = src.format.bytesPerPixel;
+  info.left = area.left; info.top = area.top; info.right = area.right; info.bottom = area.bottom;
+  info.bytes = uint64(src.w) * area.height() * src.format.bytesPerPixel;
+  GraphicsDiagnostics::noteUpload(info, start);
+ }
 }
 
 } // End of namespace OpenGL

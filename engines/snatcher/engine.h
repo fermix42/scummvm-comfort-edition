@@ -3,6 +3,7 @@
 #define SNATCHER_ENGINE_H
 #include <memory>
 #include "common/events.h"
+#include "backends/graphics/frame-diagnostics.h"
 #include "engines/engine.h"
 #include "snatcher/scenario.h"
 #include "snatcher/resource.h"
@@ -105,6 +106,8 @@ private:
  bool writeNativeSnapshot(const Common::String& target,const Common::String& description,std::string& error);
  // Bounded, in-memory flight recorder; never part of gameplay saves.
  struct InvestigationSample {
+  GraphicsDiagnostics::Frame graphics;
+  uint32_t graphicsMax[GraphicsDiagnostics::kStageCount]={},graphicsTotal[GraphicsDiagnostics::kStageCount]={},graphicsCalls[GraphicsDiagnostics::kStageCount]={},graphicsFrames=0;
   uint32_t millis=0,pollMillis=0,updateMillis=0,drawMillis=0,presentMillis=0,events=0,moves=0,node=0;
   uint64_t frame=0;uint16_t resource=0;size_t pending=0;
   uint64_t workingSet=0,privateBytes=0,cpu100ns=0,availablePhysical=0;uint32_t handles=0;bool processMetrics=false;

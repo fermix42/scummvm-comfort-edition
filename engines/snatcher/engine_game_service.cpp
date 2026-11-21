@@ -48,6 +48,7 @@ bool SnatcherEngine::writeOriginalGameSlot(const RuntimeRequest& request,std::st
  const auto& source=captured->bookmark;auto& bookmark=record.bookmark;bookmark.known=source.valid&&source.pcmKnown;bookmark.presentation=source.presentation;bookmark.pcm=source.stream;bookmark.music=source.music;bookmark.ambient=uint8_t(source.ambient);bookmark.interaction=uint8_t(source.interaction);bookmark.quiet=source.quiet;bookmark.suppressed=source.suppressed;bookmark.actors=source.actors;
  GameSaveTransaction transaction;if(!beginGameSaveWrite(_gameServices,request.first,transaction,error))return false;
  record.counter=transaction.stagedCounter;
+ captureSaveThumbnail(record.thumbnail);
  GameSaveOutcome outcome;std::string ioError;
  if(!publishGameSave(*_system->getSavefileManager(),ConfMan.getActiveDomainName(),request.first,record,outcome,ioError)){std::string ignored;abortGameSaveWrite(_gameServices,transaction,ignored);error=ioError;return false;}
  if(!finishGameSaveWrite(_gameServices,transaction,outcome,error))return false;
@@ -62,9 +63,8 @@ bool SnatcherEngine::readCompatibleOriginalSlot(unsigned slot,GameSaveRecord& re
  const std::string disc="69e1a081e2bcc8da5a033433b3e7b91c5fda8d7043300d35550be81a83ec900b";
  auto& manager=*_system->getSavefileManager();const auto& target=ConfMan.getActiveDomainName();
  if(readGameSave(manager,target,slot,disc,stamps,record,error,restoredName))return true;
- if(!_resources.decensorEnabled())return false;
- std::vector<uint8_t> original;Scenario previous;
- if(!_resources.readOriginalResource(82,original,error)||!parseScenario(original.data(),original.size(),previous,error))return false;
+ Scenario previous;
+ if(!alternateSaveScenario(_resources,previous,error))return false;
  stamps[25]=narrativeScenarioStamp(previous);GameSaveRecord staged;
  if(!readGameSave(manager,target,slot,disc,stamps,staged,error,restoredName))return false;
  NarrativeSnapshot continuation;continuation.scenarioStamps=staged.scenarioStamps;continuation.cursor=continuation.entry=Cursor(staged.resource,staged.resumeEntry);

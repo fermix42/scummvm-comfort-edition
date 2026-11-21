@@ -388,7 +388,10 @@ bool SceneRuntime::updateActorObjects(unsigned elapsedUpdates,std::string& error
    slot.player._state.hidden=(control->flags&2)!=0;
    _currentActor=i;AnimationResult result=slot.player.tick(error,handle,this,randomDuration);if(result==kAnimationUnsupported||result==kAnimationError)return failActor(i,error,error);
    unsigned markers=slot.player.takeCompletionMarkers();if(markers){if(!_actors.markCompletion(i,error))return false;record(i,"actor_completion_marker",markers);}
-   for(const ScrollRequest& request:slot.player.takeScrollRequests()){_scrollEnabled=true;_scroll.nextUpdate(request.kind==ScrollRequest::kPosition?kScrollAbsolute:kScrollRelative);if(!(request.kind==ScrollRequest::kPosition?_scroll.queuePosition(request.plane,request.axis,request.value,error):_scroll.setVelocity(request.plane,request.axis,request.value,error)))return false;}
+   // Animation8C..8F use the same F3F8 secondary mailbox as explicit plane
+   // positioning. Updating only Sub's producer leaves Main E076 disabled after
+   // a title/line effect, so the scene keeps displaying its old scroll origin.
+   for(const ScrollRequest& request:slot.player.takeScrollRequests()){if(!requestVisualCommand(request.kind==ScrollRequest::kPosition?1:2,error))return false;if(!(request.kind==ScrollRequest::kPosition?_scroll.queuePosition(request.plane,request.axis,request.value,error):_scroll.setVelocity(request.plane,request.axis,request.value,error)))return false;}
    if(result==kAnimationFinished||result==kAnimationSelfRetired){if(!retireActor(i,error))return false;if(result==kAnimationSelfRetired){
      // Source95 clears the target then increments the current record. No
      // authored sequence survives self-clear. The inactive duration is a

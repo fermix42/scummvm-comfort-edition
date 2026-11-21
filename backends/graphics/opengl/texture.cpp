@@ -26,6 +26,7 @@
 #include "backends/graphics/opengl/framebuffer.h"
 #include "graphics/opengl/debug.h"
 
+#include "backends/graphics/frame-diagnostics.h"
 #include "common/algorithm.h"
 #include "common/endian.h"
 #include "common/rect.h"
@@ -171,6 +172,7 @@ void TextureSurface::updateGLTexture() {
 }
 
 void TextureSurface::updateGLTexture(Common::Rect &dirtyArea) {
+	GraphicsDiagnostics::TextureTimer edgeTimer(GraphicsDiagnostics::kEdgeCopy);
 	// In case we use linear filtering we might need to duplicate the last
 	// pixel row/column to avoid glitches with filtering.
 	if (_glTexture.isLinearFilteringEnabled()) {
@@ -200,6 +202,7 @@ void TextureSurface::updateGLTexture(Common::Rect &dirtyArea) {
 		}
 	}
 
+	edgeTimer.stop();
 	_glTexture.updateArea(dirtyArea, _textureData);
 
 	// We should have handled everything, thus not dirty anymore.
@@ -285,6 +288,7 @@ void FakeTextureSurface::updateGLTexture() {
 		return;
 	}
 
+	GraphicsDiagnostics::TextureTimer conversionTimer(GraphicsDiagnostics::kConvertScale);
 	// Convert color space.
 	Graphics::Surface *outSurf = TextureSurface::getSurface();
 
@@ -295,6 +299,7 @@ void FakeTextureSurface::updateGLTexture() {
 
 	applyPaletteAndMask(dst, src, outSurf->pitch, _rgbData.pitch, _rgbData.w, dirtyArea, outSurf->format, _rgbData.format);
 
+	conversionTimer.stop();
 	// Do generic handling of updating the texture.
 	TextureSurface::updateGLTexture();
 }
@@ -376,6 +381,7 @@ void ScaledTextureSurface::updateGLTexture() {
 		return;
 	}
 
+	GraphicsDiagnostics::TextureTimer conversionTimer(GraphicsDiagnostics::kConvertScale);
 	// Convert color space.
 	Graphics::Surface *outSurf = TextureSurface::getSurface();
 
@@ -417,6 +423,7 @@ void ScaledTextureSurface::updateGLTexture() {
 	dirtyArea.top    *= _scaleFactor;
 	dirtyArea.bottom *= _scaleFactor;
 
+	conversionTimer.stop();
 	// Do generic handling of updating the texture.
 	TextureSurface::updateGLTexture(dirtyArea);
 }

@@ -53,6 +53,26 @@ filenames remain readable for existing in-game saves; new internal writes use
 the CE slot filenames. FM selection/restoration, input, graphics, resource
 loading and strict portable storage remain intact.
 
+Save compatibility recognizes the verified original/decensor SP25 pair in both
+directions. Turning the option off does not discard narrative identity checks:
+the approved `snatcher-decensor.dat` must remain available to verify the saved
+counterpart, and changed active instructions still reject restoration.
+`devtools/ce/test_snatcher_decensor_saves.py` checks cold option transitions.
+
+Animation plane-position and velocity commands post the same secondary visual
+request as explicit positioning. This resumes Main's displayed scroll publication
+after title initialization; updating only the Sub position left the first chief
+office background at an obsolete origin. The scene-runtime regression preserves
+the distinct computed and displayed frame boundaries.
+`devtools/ce/test_snatcher_office.py` follows ordinary reception dialogue and
+the first hallway/office transition from a supplied reception checkpoint.
+Its `--extended` route adds chief conversations, item presentation, office exit
+and revisit, computer-room entry and cold continuation. `--office-start` accepts
+an already reached first-office checkpoint for that continuation. Check authored
+revisit variants separately: the office uses list1 initially and list0 on revisit.
+Shared rendering changes require these gameplay handoffs in addition to isolated
+component checks; a title-only pass does not establish later scene correctness.
+
 Successful native saves use CE's normal session-recording hook, and successful
 loads restore the saved session through the corresponding load hook. Existing
 untagged saves remain Untracked until deliberately assigned. An untracked save
@@ -77,3 +97,17 @@ ordinary commands above. Current merge/build evidence is kept under
 `validation/snatcher-merge-20261121/` and the ordinary build's owned regression
 roots. Existing owner installations and profiles are not updated by a source
 merge or a build.
+
+## Save thumbnails and gallery
+
+New manual saves, autosaves, and the four internal checkpoint saves embed a
+standard RGB565 screenshot thumbnail in the same verified save generation.
+Snatcher advertises thumbnail support to the normal ScummVM gallery/grid chooser.
+Existing saves remain loadable and appear without an image until resaved.
+Full snapshots use an optional thumbnail section; internal SGR2 records retain
+their core story/checkpoint payload with an optional bounded SNTH attachment.
+Older executables can skip the optional full-snapshot section, but pre-thumbnail
+executables cannot read internal records containing the new attachment.
+Thumbnail capture reads the game framebuffer, excluding the GUI overlay, without
+a GPU readback. Gallery metadata follows the same primary/backup generation as
+save validation; a malformed preview is ignored rather than preventing loading.
