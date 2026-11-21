@@ -1,3 +1,34 @@
+# Historical implementation queue
+
+The dated queue and next actions below are retained historical evidence, not
+current execution instructions. Later production integration and parity work
+are described in `SCUMMVM-CE-V119-PARITY-AUDIT.md` and `doc/ce-nox/README.md`.
+Each verification remains scoped to its recorded executable; no older receipt
+certifies the current release. Outstanding historical scopes remain outstanding
+unless a later scoped record explicitly closes them.
+
+# Connected Temple goal VERIFIED - November 13, 2026
+
+D2 is VERIFIED in SCUMMVM-CE-TEMPLE-WORKFLOW-VERIFICATION.json on native build394:
+full connected workflow and exact pending normal-save cold continuation in both
+modes, including subsequent gameplay. Stop at the user goal boundary. D3-D5 and
+whole-port release/campaign acceptance remain unfinished.
+
+# Native-only development goal VERIFIED - November 13, 2026
+
+D1 is VERIFIED in SCUMMVM-CE-NATIVE-ONLY-VERIFICATION.json: native-only build,
+startup/movement, ordinary CE saving, exact cold load and next movement.
+This completes the bounded user goal, not full M4.2 release or M4.3 campaign.
+The historical delivery queue below retains the remaining independent port work.
+
+# Historical delivery queue - November 13, 2026
+
+Use [SCUMMVM-CE-DELIVERY-PLAN.md](SCUMMVM-CE-DELIVERY-PLAN.md) as the then-active
+queue. Its D1-D5 order supersedes dated ordering and next actions below.
+M4 remains IN PROGRESS; native-only compilation/dependency work moves forward
+before exhaustive branch closure. Full M4.2 and earned M4.3 acceptance are retained.
+Historical records below are evidence context, not parallel execution queues.
+
 # Connected Temple campaign implementation in progress - October 18, 2026
 
 SHADOW384 remains the latest accepted integration boundary. Build386 compiles

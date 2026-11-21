@@ -1,0 +1,23 @@
+{
+  "status": "IN PROGRESS",
+  "scope": "Guarded Search confirmation/alarm and pending/result persistence components;full close/guard-reaction workflow remains incomplete.",
+  "executable_sha256": "1c5db4bed9c4838cd52372ff28ecee08f9e929024dd2fc4b9e3d5bc27105f832",
+  "build_receipt": "SCUMMVM-CE-M4-GUARDED411-BUILD-RECEIPT.json",
+  "evidence_root": "ce-m4-guarded409-portable/check-411",
+  "verified_components": [
+    "Authored Castle15 chest96,controlled passable20,23 approach;normal S/South/N changes no guard alarm.",
+    "Normal S/South/Y sets qualifying guard record6 to255;chest remains closed while member choice pending.",
+    "Pending guarded Search exact fresh-process NPXS restore.",
+    "Real member1 attempt opens chest and increases gold;exact result-screen cold restore."
+  ],
+  "remaining_requirement": "Historical411 failure resolved for corrected scheduled controlled fixture on420;retain original failed scope/evidence.",
+  "failures": [
+    "Nonportable external config rejected by CE owned storage;rerun under complete portable installation.",
+    "First controlled approach blocked,then a north direction targeted empty square;native checkpoint showed actual object coords20,24,corrected approach20,23/South without outcome mutation.",
+    "409 pending snapshot rejected because guard records changed without updating owned viewport cache;410 captures records after each Search event.",
+    "410 cold load hit0xC00000FD stack overflow;411 heap-owns large recursive WorldInput temporaries.",
+    "411 full result close still hits unsupported world-turn boundary;retained as gameplay gap."
+  ],
+  "setup": "Controlled location before input from extracted ordinary main save;no HP,guard,loot,quest or RNG result injection. Not earned travel;main profile unchanged by controlled cases.",
+  "superseding_workflow": "SCUMMVM-CE-M4-GUARDED420-CHECKPOINT.json"
+}

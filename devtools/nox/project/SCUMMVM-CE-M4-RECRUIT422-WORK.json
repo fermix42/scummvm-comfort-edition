@@ -1,0 +1,45 @@
+{
+  "status": "IN PROGRESS",
+  "scope": "Actual earned Bridgit recruitment blocker;new semantic recruitment owner implemented but transaction not yet accepted.",
+  "executable_sha256": "889859ebef37c5d2e84d84fe0284dc126838f7033f06fe1ea9e9100a1ef161aa",
+  "build_receipt": "SCUMMVM-CE-M4-RECRUIT422-BUILD-RECEIPT.json",
+  "earned_checkpoint": {
+    "slot": 20,
+    "description": "Earned: before Bridgit",
+    "world": [
+      6,
+      9,
+      20,
+      28
+    ],
+    "party": [
+      {
+        "hp": 50,
+        "mp": 8
+      }
+    ],
+    "source": "Ordinary walking fromslot19,normal save.No outcome injection."
+  },
+  "failure": {
+    "path": "ce-m4-earned422-failure.log",
+    "sha256": "367b1995dcf92893df0f95ea565b28ddd39378fb232de076762a86425e842013",
+    "diagnosis": "Recruitment line42 selectsArmor for kind1/id5;source category1 is shield,armorReady only accepts2..7. Standard weaponReady explicitly defers shield selection. Actual JOIN requests companion0 viafield16;no structured confirmation forBridgit."
+  },
+  "modified": [
+    "engines/nox/native_recruitment.h",
+    "engines/nox/native_world_conversation.h",
+    "engines/nox/native_conversation.h",
+    "engines/nox/native_party.h",
+    "engines/nox/native_new_game.h",
+    "engines/nox/native_world.h"
+  ],
+  "next": "Resume earned slot24 Everton20,26,two50HP8MPmembers. Continue campaign andremaining D3/D4 required gaps.",
+  "shield_and_bridgit424": {
+    "status": "VERIFIED",
+    "evidence": "SCUMMVM-CE-M4-RECRUIT424-CHECKPOINT.json"
+  },
+  "remaining": [
+    "Full-party refusal,structuredCutterconfirmation,all11companions,inventory-capacity side effects andlaterinn/battle compatibility remain open.",
+    "No full earned campaign orrelease acceptance claim."
+  ]
+}

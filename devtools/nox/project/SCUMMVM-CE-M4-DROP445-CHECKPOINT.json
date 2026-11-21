@@ -1,0 +1,20 @@
+{
+  "status": "VERIFIED",
+  "scope": "Named tracked-counter Drop dependency: retained commerce/equipment inputs,known-state persistence/import,initial and missing-native-context migration,normal Drop/refusal/return/cold. Not allinventory/commerce/training orD4.",
+  "build": 445,
+  "executable_sha256": "50fde8c7159e24bc5cecaf82e51248cdcf33458650d2bc66aba103f5a50f9844",
+  "current_evidence": {
+    "ce-m4-camp432-portable/cancel445/verification.json": "f46b655f64e1793dc119054a7bc49ad835d0c093cc68720ff4efd483bc642a88",
+    "ce-m4-drop445-newgame-verification.json": "69afc152a8aa4813f5b457a975654a6094b931acc12f3ebf1a2f29eb0ee657ee",
+    "ce-m4-camp432-portable/partial445/verification.json": "79aa721f0c5bbec452789a189a8573d1e76f4d870ae0a5aee0e4d9a2aba1b918"
+  },
+  "prior_owner_evidence": [
+    "SCUMMVM-CE-M4-DROP441-CHECKPOINT.json",
+    "SCUMMVM-CE-M4-DROP442-CHECKPOINT.json",
+    "SCUMMVM-CE-M4-DROP443-CHECKPOINT.json",
+    "SCUMMVM-CE-M4-DROP444-CHECKPOINT.json"
+  ],
+  "qualification": "Prior scopes remain bound to their own binaries.445changes only NewGame empty/partial-context initialization;explicit-known commerce/equipment/importvalues remain unchanged. No claimallpriorchecks rerun445.",
+  "migration": "Definednativeemptyselector255/quantity0,known;oldNGST2..4andpartial5 cannotreconstructunrecordedhistoricalscratch. See architecture decision. Legacyactualbytespreserved.",
+  "next": "Implement missing normal conversation training owner;Quick andearnedcampaign/release remain required."
+}

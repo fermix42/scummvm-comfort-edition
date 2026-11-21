@@ -1,0 +1,22 @@
+{
+  "status": "IN PROGRESS",
+  "scope": "Castle11 native schedule and earned normal entry; full castle story interaction remains in progress",
+  "executable_sha256": "18d401b6033ec997e5ed37e74c1ec211f358ca5076f60853b8cb23bf3cf77093",
+  "build_receipt": "SCUMMVM-CE-M4-CASTLE428-BUILD-RECEIPT.json",
+  "evidence": [
+    {
+      "path": "ce-m4-castle427-portable\\check-428\\verification.json",
+      "sha256": "12edd8f7677fdd4291655951e695469dcedb35c139428a5b7b06562753b60827"
+    }
+  ],
+  "modified": [
+    "engines/nox/native_npc_schedule.h"
+  ],
+  "decision": "Ignore exact Castle11 padding descriptors at offsets256,264,272,280; retain zero goal0 pair and apply subsequent valid aligned guard0 schedule at320. Do not reproduce accidental prior-battle scratch alias effects. No general instruction executor added.",
+  "earned": "Ordinary Everton exit slot31, actual four full12HP rat victory and loot slot32, ordinary surface travel toCastle11 at24,38 slot33,30 normal steps to24,10 slot34. No outcome injection.",
+  "failure": "Initial straight surface route crossed sea and drowned both members; ordinary slot31 reload restored prior earned state. Corrected route avoids source hazard tiles.427 controlled schedule check exposed fourth padding row280;428 fixes exact range.",
+  "remaining": [
+    "Castle11 story NPC interaction and continued travel",
+    "Full D3/D4/D5 release and earned ending acceptance"
+  ]
+}

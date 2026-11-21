@@ -1,0 +1,24 @@
+{
+  "status": "VERIFIED",
+  "scope": "World V four-mode preference and identified ordinary Open refusal beep only. Remaining SFX/combat sound control/full audio acceptance IN PROGRESS.",
+  "executable_sha256": "53639bfbed59e0a3d4fce40ef056c06f9e8602e091df4e1f77f32bd5a2548010",
+  "build_receipt": "SCUMMVM-CE-M4-SOUND405-BUILD-RECEIPT.json",
+  "evidence": {
+    "ce-m4-speaker405-source.json": "33ea17db9f75f77a53a0ed7fed6bb292527f5b8fea5f6a8d62c9732e59b6c274",
+    "ce-m4-speaker405-first.json": "a0132b18c58d54ef5ef0c4de6b855d79adc21cabd7bc8f1c1445585da348b06e",
+    "ce-m4-speaker405-last.json": "06614997ac6afc1dcd4beb39091dd101a8228cebea8ed77a7453aa5de3908a8e",
+    "ce-m4-earned405-before.json": "0c16d3d42d8eebff4a7b1c383b248cb665440c28d116d183d5325cf7afab7ef1",
+    "ce-m4-earned405-after.json": "3ad3bb39659b8b46f5a0fc2f4badbe14ba9231371eb2eb68715769b56e020ba5",
+    "ce-m4-earned-segment405.jsonl": "2011cd6290a393a37b241a9f3fc5e9ae2778c235c81961d9097ce907b820a52a",
+    "ce-m4-earned-cold405.jsonl": "f38ff96bd55f075d7b50576fac64ed3aff3bf000ef5bd0723431bc5c716c271a"
+  },
+  "results": "Original143 pulse timestamps/294756timebase duration and4 mode gates agree with native closed arithmetic. Native Open-refusal143 toggles/14310 PCM samples per played effect. Four modes gate actual CE music channel and SFX counters. Cold effect-only mode2/music volume0 and gameplay exact;restored both0 then next North/save16.",
+  "limits": [
+    "Other sound patterns and all gameplay callers remain required.",
+    "Combat-time V remains required.",
+    "CE mixer mutes music channel while native sequence clock continues;no CPU-state flag semantics claimed."
+  ],
+  "failures": [
+    "Original-reference arbitrary100000-step bound insufficient;raised to200000 after observed source130617 steps. Pulse/duration criteria unchanged."
+  ]
+}

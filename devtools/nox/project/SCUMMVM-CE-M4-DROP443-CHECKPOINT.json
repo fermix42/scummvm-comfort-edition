@@ -1,0 +1,17 @@
+{
+  "status": "IN PROGRESS",
+  "build": 443,
+  "executable_sha256": "140f912959735a2141da4510217a8499de067a769108100a9e90268711e17a4d",
+  "scope": "Equipment retained-ID producer connected to later trackedDrop; newgame/old native absent context remains",
+  "evidence": {
+    "ce-m4-equipment443-context.json": "c511435f0a43d7cc6e2e1d2a0e35bc64b6b5c03817729bc299d16a09805f912b",
+    "ce-m4-camp432-portable/equipment443/verification.json": "b8fadea5b77e5a68fe3ca951b84821ab7591975f3f75203088189b4cd788f652",
+    "ce-m4-camp432-portable/weapon443/verification.json": "9d87edf3189e90f3907ee8ed11b61d725c1736474514f53b3a9b793886d29699"
+  },
+  "implementation": "Optional lastRemovedId result from existing armor/weapon owner in source order, propagated through EquipmentActions and committed only on successful UI operation. Book unready records its selected item ID. Retained quantity unchanged.",
+  "remaining": [
+    "newgame initial context",
+    "older-native absent context migration",
+    "remaining relevant merchant refusal context qualification"
+  ]
+}

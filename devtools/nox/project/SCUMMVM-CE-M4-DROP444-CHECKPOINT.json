@@ -1,0 +1,11 @@
+{
+  "status": "IN PROGRESS",
+  "build": 444,
+  "executable_sha256": "cd51a537346027235b1674b82697460e765d41d926cfdcded5cc2cda7b963062",
+  "evidence": {
+    "ce-m4-drop444-newgame-verification.json": "21c64e4010f555143c1aac397dfd582a419f111b0f1587f65c9ff95c15acf880",
+    "ce-m4-camp432-portable/migration444/verification.json": "08ecc5441b513859b7bbafc660ed772e0ac5ac82b05490e06a976d6941da83b2",
+    "ce-m4-camp432-portable/poor444/verification.json": "dc4fa564e35e8ae88a4470cc4c8f1a414eb168afd598d865433d5e8b0ebb9772"
+  },
+  "scope": "Normal first-use Drop/No/Yes/save/cold/actualmovement,unmodified old-native migration Drop/cold,and poorbuy3/context/Drop/cold PASS. Initial canceled-selection quantity still requires445."
+}

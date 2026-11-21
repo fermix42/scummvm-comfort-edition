@@ -1,4 +1,5 @@
 {
+  "record_context": "Historical workflow snapshot. next_action and queue fields describe the recorded work, not current instructions. Verification applies only to recorded executable hashes; see SCUMMVM-CE-V119-PARITY-AUDIT.md and doc/ce-nox/README.md for later integration.",
   "status": "IN PROGRESS",
   "last_frozen_checkpoint": "SCUMMVM-CE-M4-WORLDCANNON366-CHECKPOINT.json",
   "native_owner": "PlayerSessionState owns the semantic world and continuation state;Engine calls staged native load anddurable generic saves withoutcompatibilityRuntime.",
@@ -16,7 +17,7 @@
   "external_blocker": false,
   "latest_verified_checkpoint": "SCUMMVM-CE-M4-NATIVE-SERVICES376-CHECKPOINT.json",
   "last_combat_checkpoint": "SCUMMVM-CE-M4-WORLDCANNON366-CHECKPOINT.json",
-  "next_action": "Continue dependency-complete B3 campaign-specific admission/return/ending and W6 semantic events,authored music/SFX cue placement,legacy import andnormalmenu. Keep retained067D forcedQuick andpartialedge contexts named. After required W1-W6 acceptance automatically execute M4.2 native-only compilation/audit andM4.3 earned campaign;no document/checkpoint stop.",
+  "next_action": "Normalfrigate127 leaveharbor,Surfaceoceanroute towardNourtheld;remainingD3SFX/integration,D4Quickexceptional,D5earnedending/nativeRC.",
   "native_lifecycle370": {
     "reports": {
       "ce-m4-native370-player-modern\\verification.json": "d2c68a22871248de2af3a4703bbc898725c5349ad32e2e845a75f03ccbaf72ff",
@@ -39,5 +40,64 @@
       "world-projectile-research375/combined/metadata.json": "de46d646903a112f74cb73f603f27f7c79481264e92fda60b65938b9f43622a1",
       "ce-m4-focused376.log": "708a97951f8fb01f813f8cd6b34e9cd0885f7590015c79fa74812dce8c8a20da"
     }
+  },
+  "native_startup396": {
+    "status": "VERIFIED",
+    "evidence": "SCUMMVM-CE-M4-STARTUP396-CHECKPOINT.json",
+    "scope": "D3 startup/Continue/audio activation sub-workflow only; D3 overall remains IN PROGRESS."
+  },
+  "legacy_world417": {
+    "status": "VERIFIED",
+    "evidence": "SCUMMVM-CE-M4-LEGACY417-CHECKPOINT.json",
+    "scope": "Two accepted historical world snapshots,normal Engine import/save/cold/actual next movement;not full legacy campaign domain."
+  },
+  "pub426": {
+    "status": "VERIFIED",
+    "evidence": "SCUMMVM-CE-M4-PUB426-CHECKPOINT.json",
+    "scope": "Earned Irene pub payment callback andnormal save/cold workflow,plus private pending-menu/result/paid-info cold splits. Not all pub/payment/training branches."
+  },
+  "counter_talk": {
+    "status": "VERIFIED",
+    "scope": "Actual429Ireneovercounterat36,11left;openingNo/NAME/BYE/nextmovement. Initial36,12emptybecauseIrene34,11,notunsupported.",
+    "evidence": "SCUMMVM-CE-M4-COUNTER429-BUILD-RECEIPT.json",
+    "transcript": "ce-m4-counter429-pub.jsonl"
+  },
+  "camp432": {
+    "status": "VERIFIED",
+    "evidence": "SCUMMVM-CE-M4-CAMP433-CHECKPOINT.json",
+    "scope": "H/Camp scoped source recovery/food/time,actualearned refusal/success/noextrafood/consumingack/normalcold;433 correctedresultvisual/privatependingcold/nextoperation. Not allcampcallers orD3/D4/D5 completion."
+  },
+  "input_substitution434": {
+    "status": "VERIFIED",
+    "evidence": "SCUMMVM-CE-M4-SUBSTITUTION434-CHECKPOINT.json",
+    "scope": "Shared source-selected input substitution andearnedDozec/Thosha storyline;not allstructured dialogue/training orD3/D4/D5"
+  },
+  "combat_sound457": {
+    "status": "VERIFIED",
+    "evidence": "SCUMMVM-CE-M4-SOUND457-CHECKPOINT.json",
+    "scope": "Combat idle tactical-command V four sound modes,configuration persistence,cold reload and real next turn;not broad SFX or ordinary battle saving."
+  },
+  "search454": {
+    "status": "VERIFIED",
+    "evidence": "SCUMMVM-CE-M4-SEARCH454-CHECKPOINT.json"
+  },
+  "open455": {
+    "status": "VERIFIED",
+    "evidence": "SCUMMVM-CE-M4-DOOR455-CHECKPOINT.json"
+  },
+  "cast_sound458": {
+    "status": "VERIFIED",
+    "evidence": "SCUMMVM-CE-M4-CAST-SOUND458-CHECKPOINT.json",
+    "scope": "Controlled unchanged historical battle;real C/1 acceptedslot chime all4modes,cancelnoaction/norepeat,C/0emptyrefusal143tone,cold effects-only thenreal C/1/Return commitsnextaction withoutrepeatingselectioncue. Not broadSFX orordinarybattle saving."
+  },
+  "clock_schedule462": {
+    "status": "VERIFIED",
+    "evidence": "SCUMMVM-CE-M4-SCHEDULE462-CHECKPOINT.json",
+    "scope": "Normalclockactivation/prefetch/pathgeneration andactualclockdrivenJanellopening/sale/cold;notallNPCcontexts."
+  },
+  "frigate463": {
+    "status": "VERIFIED",
+    "evidence": "SCUMMVM-CE-M4-FRIGATE463-CHECKPOINT.json",
+    "scope": "Frigate119 fourcellpositionadmission;actualearned125Left/Bordinary126save/coldexactcleanCEsession/realWestNorth127;privateunchangedearned125footprint/cold/board/cold/trafficrefusal/WestNorth/cold. Notwholeoceanroute orallfrigatebranches."
   }
 }

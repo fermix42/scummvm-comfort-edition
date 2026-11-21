@@ -1,0 +1,16 @@
+{
+  "status": "VERIFIED",
+  "scope": "Nighttime loaded-map lighting sample addressing and actual earned skiff sail/disembark/return-to-Maldac, ordinary save65/cold exact adapter/nextEast and save66. Not all light/mount/transport acceptance or whole campaign.",
+  "build": 438,
+  "executable_sha256": "d4cc8c4c9458bb4e50cd1b242df0b8d67ffd022de69fe63428306d6e4e12ee0c",
+  "evidence": {
+    "ce-m4-light438-source.json": "77e34cb68ee01b79b95a194c610a20c0eeaa167ec5c72ccb8aafb6c951f49cbb",
+    "ce-m4-camp432-portable/return438/verification.json": "ae511ed9069b3eb992987dec59da0ee969567446e079c91a6789b97a1ad48f53",
+    "ce-m4-earned438-return-warm.json": "7aeda2c177022a0fd946e0eb96ad7d3259ec1373e387e518fd029d8bc3ba8cd9",
+    "ce-m4-earned438-return-cold.json": "829ae5503ca45f6db27850f0c1850c32033a0bc48d4ee161d6959bdfa4d70035",
+    "ce-m4-earned438-return.jsonl": "f321d185e0c5281f3295d0fcfc81c45e131a7d8635ac7134f61a50d3f05c306c",
+    "ce-m4-earned438-return-cold.jsonl": "fde45cad458fdf4cdbe57a2445bf6aea37ac22345543e7e3a4917c0c1432bed7"
+  },
+  "source": "Original D1EB..D20C linear pointer arithmetic,36 sample pointers at three positions. Native WorldStory lightingSample retains signed column carry within bounded2304-byte map, ordinary terrainAt unchanged.",
+  "next": "D4 Quick retained-context source qualification; Nourtheld earned navigation dependency explicit."
+}

@@ -1,0 +1,22 @@
+{
+  "status": "VERIFIED",
+  "scope": "Connected controlled Castle15 guarded Search N/Y,guard alarm,member choice,pending cold,real lock/gold,result cold,result close with actual valid guard movement,closed cold and next Wait. Private NPXS workflow;not earned theft/travel or all NPC/battle branches.",
+  "executable_sha256": "7d946b441671afce5661a9fe7fd9571fcc8ff6e7fd4b48c965b6dba5fa20e98b",
+  "build_receipt": "SCUMMVM-CE-M4-GUARDED420-BUILD-RECEIPT.json",
+  "verification": {
+    "path": "ce-m4-guard418-portable\\check-420\\verification.json",
+    "sha256": "0b97849557bc4af764703393c30ed068e4d3aebdbf032e4d90ec7cf9cd58443b"
+  },
+  "modified": [
+    "engines/nox/native_actor_outside.h",
+    "engines/nox/native_world_actor_turn.h",
+    "engines/nox/native_startup_host.h"
+  ],
+  "setup": "Controlled location plus normal native map-entry NPC scheduling before first input. No expected guard,lock,gold or movement outcomes injected.",
+  "decision": "Local48x48 map destinations outside extent are blocked,including reserved Castle15 source-marker guard at248,38. Record remains intact;normal valid guards actually move. No compatibility memory-alias behavior reproduced.",
+  "failures": [
+    "411/418 old fixture leaves allguards0,0;418 diagnostic identifies slot0 raw-cache terrain access.",
+    "419 normal schedule places validguards but reserved marker yields248,38;missing local-map bounds still aborted.420 bounds fixes actual native turn."
+  ],
+  "next": "Resume earned Everton slot18;remaining general Search/item/secret-door/audio and named D4 branches still required. Controlled guarded result is not full campaign or all Search acceptance."
+}

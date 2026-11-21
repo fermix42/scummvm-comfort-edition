@@ -1,0 +1,14 @@
+{
+  "status": "IN PROGRESS",
+  "scope": "Training typed transaction authored;original payment/full-record9cases proven, nativeUI/build acceptance unfinished",
+  "source_proof_sha256": "0ae6ff7334553c98c30929568fb2a3ba48ff56e6f3cb34e10ee4f8f3b0675d64",
+  "owner": "engines/nox/native_training.h",
+  "caller": "Dialogue effects B369..B37B: field21bit2 andnonzero18/19 ->AE1C; training overlay NA/SRTN.NPC.TALK offset1561",
+  "remaining": [
+    "source member/numeric admission boundary",
+    "actual authored trainer request resource",
+    "normalTalk/selection/quantity/refusal/presentation",
+    "pendingcodec/cold andsubsequentaction",
+    "compile/native comparison"
+  ]
+}

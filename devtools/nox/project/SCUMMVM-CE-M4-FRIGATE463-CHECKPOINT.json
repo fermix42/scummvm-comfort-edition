@@ -1,0 +1,42 @@
+{
+  "status": "VERIFIED",
+  "build": 463,
+  "scope": "Frigate119 fourcellpositionadmission;actualearned125Left/Bordinary126save/coldexactcleanCEsession/realWestNorth127;privateunchangedearned125footprint/cold/board/cold/trafficrefusal/WestNorth/cold. Notwholeoceanroute orallfrigatebranches.",
+  "executable_sha256": "4ac17b02cb6aac65ebe24c5c874f686c9a24d895d3c91985fa7fee79d40bb2a8",
+  "evidence": {
+    "ce-m4-camp432-portable/frigate463/verification.json": "09de9a543003e505c8cf64c6e7d6eb89b21b173f285da1e54faf0c7bce5d9225",
+    "ce-m4-earned463-frigate-warm.json": "a406cb41e81563de63fb3688c27e6b63524497e5c3bb8e50f2d57fb3774b8678",
+    "ce-m4-earned463-frigate-cold.json": "99dc4ebb16407f9fea4e06becbb028399292a13460beadee2fd60d1ca0d21ed9",
+    "ce-m4-earned463-frigate-next.json": "e8620aa38ab46be489c3807f91a8e7134a692de5a569d1f5ac3bb0f1b6a29563",
+    "SCUMMVM-CE-M4-FRIGATE463-BUILD-RECEIPT.json": "f770f2bbe08ffcda4f1a7c592e17a7acd67c3d42be5a58c1b5a67a479cb4411c"
+  },
+  "modified_files": [
+    "engines/nox/native_world.h"
+  ],
+  "failure": "462movementrequiredoriginforcomputedfrigatefootprint11,20.463admitsonly119bounded2x2,otherobjectoriginchecksretained. FirstdriverNorthassertignoredrealNPC11,18blocking;correctedexpectedrefusal andactualWest/North route,noenginechange/rebuild.",
+  "earned": {
+    "slot": 127,
+    "map_type": 5,
+    "map": 46,
+    "x": 9,
+    "y": 18,
+    "appearance": 119,
+    "gold": 55,
+    "ownership": 255,
+    "hp": [
+      50,
+      50,
+      56,
+      56
+    ],
+    "mp": [
+      8,
+      8,
+      8,
+      8
+    ],
+    "food": 33,
+    "book20_sold": true
+  },
+  "next_action": "Normalfrigate127 leaveharbor,Surfaceoceanroute towardNourtheld;remainingD3SFX/integration,D4Quickexceptional,D5earnedending/nativeRC."
+}

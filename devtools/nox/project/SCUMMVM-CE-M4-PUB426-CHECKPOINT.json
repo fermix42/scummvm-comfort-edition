@@ -1,0 +1,32 @@
+{
+  "status": "VERIFIED",
+  "scope": "Earned Irene pub payment callback andnormal save/cold workflow,plus private pending-menu/result/paid-info cold splits. Not all pub/payment/training branches.",
+  "executable_sha256": "235dde8c1dc37daf47667316762f8b052769ffb599c58bcc632b1b16f774b6d4",
+  "build_receipt": "SCUMMVM-CE-M4-PUB426-BUILD-RECEIPT.json",
+  "evidence": [
+    {
+      "path": "ce-m4-earned426-pub-verification.json",
+      "sha256": "14c8ce4f77cefcf8bfce145e515b82215412ad575b259252d3ee5362e1314c63"
+    },
+    {
+      "path": "ce-m4-pub426-portable\\check\\verification.json",
+      "sha256": "f1ee18c835249d541792114793efde4e206ee1fffe28051c2f11c165f71e042b"
+    },
+    {
+      "path": "ce-m4-pub426-source.json",
+      "sha256": "65c03419f8406acb15540ca0934ebbbf54c2b522f80337066b27f58f29b75f08"
+    }
+  ],
+  "modified": [
+    "engines/nox/native_conversation.h",
+    "engines/nox/native_world_conversation.h"
+  ],
+  "implementation": "Typed drink selection,payment/refusal,paid-query reselection andauthored messages. NCON3 onlywhenpaymentpending,reads1/2/3. OriginalemptyBUYreplydoesnotmanufacturejournaltext. Completeddrinkcountercommitswithnativeclockowner.",
+  "setup": "Main earned slot26 normal movements/direct Irene approach,all responses,purchases/refusals actualinput;no expected outcomes injected. Private pending branches copyactualslot28 only andremainseparatefrommain earned results.",
+  "limits": [
+    "Native positivefive-gold round not yet UI accepted;source transaction qualified.",
+    "Training,structured substitution/confirmation andallother paidNPCs remain integration work.",
+    "Talkacrosscounters stillunsupported;main used ordinaryfloorroute behindbar,not ateleport orwaiver."
+  ],
+  "next": "Earned slot30 Everton34,10,two50HP8MPmembers,gold3. Prioritize Castle11Suurtheld normalentry dependency onnextstoryroute;retaincounterTalk as requiredreachablegap."
+}

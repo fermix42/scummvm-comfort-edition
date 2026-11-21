@@ -1,0 +1,12 @@
+{
+  "status": "IN PROGRESS",
+  "scope": "Keyed Open existing predicate connected, original message length correction452building; no native gameplay acceptance yet",
+  "source": "ce-m4-keyed451-source.json",
+  "failed_build_gameplay": "451 initialcatalogloadfailedbecausemessagebound24instead25",
+  "current_build_session": 42005,
+  "source_files": [
+    "native_world_open.h",
+    "native_message_strip.h"
+  ],
+  "earned_save": 80
+}

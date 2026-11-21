@@ -1,0 +1,15 @@
+{
+  "status": "VERIFIED",
+  "scope": "Data-decoder component only: actual accepted M1 NSM1/runtime-v1 and M2 NSM2/runtime-v2 saves decode through native-only code,including main/aux,image identity and optional enhancement history. Gameplay conversion,UI and Casual session migration remain IN PROGRESS.",
+  "executable_sha256": "580125e620d0886580a829446b40c0c81ee7c8bb8184e93d93e721ae3b32dc94",
+  "build_receipt": "SCUMMVM-CE-M4-LEGACY412-BUILD-RECEIPT.json",
+  "verification": {
+    "path": "ce-m4-legacy412-portable\\verification.json",
+    "sha256": "3e0c598216104718b4e10564fca94e330ecfe16b9974f54e25045216750834e3"
+  },
+  "modified": [
+    "engines/nox/native_legacy_snapshot.h",
+    "engines/nox/native_startup_host.h"
+  ],
+  "next": "Map preserved original party/equipment/inventory/spells/quest fields,current/mutable map records,NPC routes/schedule,clock,inn/navigation and transport into native owners. Stage/validate before changing active owner;legacy import must retain permanent unknown-history/Casual semantics. Do not treat decoder success as gameplay import."
+}

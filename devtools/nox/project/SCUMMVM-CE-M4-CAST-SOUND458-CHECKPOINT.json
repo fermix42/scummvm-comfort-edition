@@ -1,0 +1,24 @@
+{
+  "status": "VERIFIED",
+  "build": 458,
+  "scope": "Controlled unchanged historical battle;real C/1 acceptedslot chime all4modes,cancelnoaction/norepeat,C/0emptyrefusal143tone,cold effects-only thenreal C/1/Return commitsnextaction withoutrepeatingselectioncue. Not broadSFX orordinarybattle saving.",
+  "executable_sha256": "26778d93f8c6fa84dacc05a537df2eeb336d6d447f6ad526c84d0c3393bac6f4",
+  "evidence": {
+    "ce-m4-cast-sound458-source.json": "f6a46d5f7c75267801a0e7286870616d0fe04aa790e712c153bc4d124b432545",
+    "ce-m4-cast-sound458-player/verification.json": "3fb55111d9c486b6bbf236932afc585e1f549b842736ad77becbadf7ba1f8c48",
+    "SCUMMVM-CE-M4-CAST-SOUND458-BUILD-RECEIPT.json": "1b0abbd12f7a9fa582d0f55bfddc02372ddf8da29860abe7c2789f7986890c0d"
+  },
+  "source": "Original sharedCast9DC3..9DC9 callsGAME9142afteracceptedslotbeforeeffectdispatch;GAME9pairsat3154.3283pulse timestamps/duration and4modegates exact.",
+  "modified_files": [
+    "engines/nox/native_speaker.h",
+    "engines/nox/nox.h",
+    "engines/nox/native_engine.cpp",
+    "engines/nox/native_startup_host.h"
+  ],
+  "limits": [
+    "Other authored SFX patterns and gameplay callers remain required",
+    "No ordinary midbattle save support added",
+    "Controlled original battle is not earnedcampaign"
+  ],
+  "next_action": "Continue authored SFX event/pattern integration or required Quick/exceptional callers;earned86Bayportshiproute preserved."
+}

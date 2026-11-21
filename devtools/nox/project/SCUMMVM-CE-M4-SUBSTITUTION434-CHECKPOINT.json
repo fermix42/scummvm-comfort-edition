@@ -1,0 +1,42 @@
+{
+  "status": "VERIFIED",
+  "scope": "Shared source-selected input substitution andearnedDozec/Thosha storyline;not allstructured dialogue/training orD3/D4/D5",
+  "build_receipt": "SCUMMVM-CE-M4-SUBSTITUTION434-BUILD-RECEIPT.json",
+  "executable_sha256": "3feb26d86d4fd401270da72cdd5522d8ee4e59ae566c53bad4429beb297ee265",
+  "modified": [
+    "engines/nox/native_conversation.h"
+  ],
+  "implementation": "Replace one parser-selected $K body marker atauthoredprefix usingoriginalfullsubmittedinput,literalnotreparsed;lexicalaliasdoesnotreplaceinput. Plainservicecallsunchanged. ExistingNCON2persists expandedreply. Positiveprobabilitycontrolsremainunsupported.",
+  "evidence": [
+    {
+      "path": "ce-m4-substitution434-source.json",
+      "sha256": "7ab15a59da51b47a1e19a7d8cc92b5de1166bee95b432381e84bc02931dbd8b8"
+    },
+    {
+      "path": "ce-m4-camp432-portable/check434/verification.json",
+      "sha256": "a4db94ff328200a5964c4a53db1dac649dfb18dcc76a5e8c9586a2f6ad856ee6"
+    },
+    {
+      "path": "ce-m4-earned434-dozec-warm.json",
+      "sha256": "85eaa52ff62eaf184c0f6b0cff84b9ded1292f143b7b547dd930d34dd887fb42"
+    },
+    {
+      "path": "ce-m4-earned434-dozec-cold.json",
+      "sha256": "ae1b5652091732f9a41a6814464fb89e790377026220ce063dd35dbfc1061a37"
+    },
+    {
+      "path": "ce-m4-earned434-dozec.jsonl",
+      "sha256": "10399f147bba5fd3a359e46365181904c826ba40aed00957b98bdccb79a0f1f1"
+    },
+    {
+      "path": "ce-m4-earned434-dozec-cold.jsonl",
+      "sha256": "1618e3c096e98fd1dd878792b736f7f47e23a70c355af22d20731060440569ea"
+    }
+  ],
+  "earned": "DozecactualNAME/CULT/JOIN/28Xdefault/BYE and55save/coldexact,Down56.15actualhazardawaresteps/twoordinarydoors52reachThosha28,23save57;actualNAME/JOB/CULT/PIRATES/RUN/BOAT/BYE,secondTalkLEADER/BYE;save58. ThoshaidentifiesCaptainRaque/guardcaptainNourtheld. Nooutcomesinjected.",
+  "failures": [
+    "433DozecJOINwasunknown-wordDFLwith$K,notrecruitment;failedconversationnotcredited.",
+    "FirstThosha planneromitteddeepwater;partydrowned. AfailedreplanwasfollowedbystaleJSONretryanddrownedagain;bothordinaryreload56. Correctedhazards andstate16doorpicture52admission produceactualsafe15stepapproach. No HP/position edits."
+  ],
+  "next": "Currentmain58Maldac28,23,37HP8MPboth,goalactive. NormalleaveMaldacandNourtheldguardcaptain/Raquelead;remainingD3/D4/D5."
+}

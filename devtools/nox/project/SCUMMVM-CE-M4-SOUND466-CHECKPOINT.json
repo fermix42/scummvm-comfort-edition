@@ -1,0 +1,33 @@
+{
+  "status": "IN PROGRESS",
+  "scope": "Connected authored sound batch; not complete D3/audio or full campaign.",
+  "build_receipt": "SCUMMVM-CE-M4-SOUND466-BUILD-RECEIPT.json",
+  "executable_sha256": "dba9cbb6ba5ed8e7cb3938b447189ef163748e7e99ac62eeea856ef7aafe24d2",
+  "verified": [
+    "Clean native466 build:0warnings/0errors",
+    "check_sound465_source.py:16 exact original standard generator/mode schedules",
+    "check_sequences466_source.py:12 exact original projectile/actor-hit/party-hit sequence/mode schedules",
+    "check_directed_sound465_source.py:32 original directed accepted/canceled paths, ordered magic/actor-flash/party-hit calls",
+    "check_sound466_player.py:normal CE Storm27/blast5/shock13 C/0 selection/cancel/accepted effect exactly180toggles or muted across4modes"
+  ],
+  "implementation": [
+    "native_sound_events.h transient per-engine event sink",
+    "native_speaker.h standard and custom sequence generators",
+    "native_battle_area_spell.h and native_battle_directed_spell.h atomic ordered magic/party-impact events",
+    "native_battle_round.h shared party/NPC sinks",
+    "native_startup_host.h event flush before inspection",
+    "native_engine.cpp ordered mixer queue and cue range",
+    "nox.h queue state/declaration"
+  ],
+  "failures": [
+    "First fixture invocation rejected by strict portable storage; preserved in ce-m4-sound466-fixtures. Corrected driver to existing portable installation, no engine/storage change.",
+    "Driver missing os binding corrected; completed fixture reused, no rebuild or repeated successful invocation."
+  ],
+  "limitations": [
+    "Party-impact generator/source caller connected but normal CE party-victim playback still needs evidence.",
+    "Custom projectile/actor-hit generators not yet connected to all required gameplay conditions.",
+    "Remaining world/service/refusal and special-combat cue callers still IN PROGRESS.",
+    "No normal midbattle save support claimed; controlled fixture setup precedes input and uses tainted CE sidecar."
+  ],
+  "next_action": "Continue required authored sound callers in same connected subsystem batch; then graphics/music/input reconciliation before sustained earned campaign. Earned127 preserved closed."
+}

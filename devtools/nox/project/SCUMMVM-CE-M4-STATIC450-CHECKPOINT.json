@@ -1,0 +1,15 @@
+{
+  "status": "VERIFIED",
+  "scope": "Source-supported removal of redundant postarrival whitelist:static object82/state57 normalstep/cold/nextstep,earnedcrossing/StellaTalk/advice/normal75save/coldexactclean. Not all unsupported movement or wholeD4.",
+  "build": 450,
+  "executable_sha256": "2a5eeebdc3700b766a3f4b1b013a26e34f8037ac7346052aaa1e85ccde050f0f",
+  "evidence": {
+    "ce-m4-static450-source.json": "a525b39c594c76a0458ff8b2504601bddac9fd0742fd29f894a44af2ad694c5b",
+    "ce-m4-camp432-portable/static450/verification.json": "9d6351b49f7c219b8ed59b36cd4b673bc11261ab1df8a2efb87c93e50bc05f3b",
+    "ce-m4-earned450-stella.jsonl": "f1930531529e150eabee5edea9bae597757945c0dfc59abdf432e4609c3429aa",
+    "ce-m4-earned450-stella-warm.json": "6fdf83cfede41fedb8129fcff73ede03593399b877610035fa73bae41ec5ec62",
+    "ce-m4-earned450-stella-cold.json": "e7aa83d65371a761645f65264afe120b6fb4f4f838a6ba54b3bd03dff3b799bd"
+  },
+  "source": "Original M:F0EC..F114 branches onlykind55conditionalnotice;allotheralreadyadmittedobjectscontinuetime.257sourcebranchcases. Initial traversal/turn/interaction checks retained.",
+  "remaining": "Boat ownership/acquisition andactualocean crossing/Nourtheld;Quick/audio/otherD3D4/releasecampaign."
+}

@@ -1,0 +1,45 @@
+{
+  "status": "IN PROGRESS",
+  "scope": "Native owned-boat idle, earned boarding/sailing/save/cold and town-to-surface cargo pass; connected return-to-town after Camp still fails and is not accepted.",
+  "build_receipt": "SCUMMVM-CE-M4-BOAT435-BUILD-RECEIPT.json",
+  "modified": [
+    "engines/nox/native_world_animation.h",
+    "engines/nox/native_test_cli.h"
+  ],
+  "implementation": "Validate the actual owned boat119/123/124 record and retain source-static sub128 pictures; animate scenery without a Runtime/CPU dependency. On-foot icon range246..253 admitted. Only skiff124 has current live workflow evidence;119/123 andmounts remain required.",
+  "earned": "Normal source dock approach toskiff31,21, B,200idleframes,ordinarysave61,coldadapterexact,nextUp31,20/save62.24actualsailingmoves toMaldac edge,ordinaryExitYes transfers toSurface0/0/166,153,boatobject192,save64. Both37HP8MP,food33,cleanassistance.",
+  "evidence": [
+    {
+      "path": "ce-m4-earned435-boat-warm.json",
+      "sha256": "13ea37ba72ab82d78f1916e75411e4069ebd25392140b3e79c87396537e128d8"
+    },
+    {
+      "path": "ce-m4-earned435-boat-cold.json",
+      "sha256": "5c37fd3a52e736da4ae07abc3f4f1bc6a107d769d85eb5179fc2884cb6de27ab"
+    },
+    {
+      "path": "ce-m4-camp432-portable/boat435/ordinary-H-result/invocation-receipt.json",
+      "sha256": "1677a00c3f2e8f572b8281f2824592202e644dc663d33c5593e5bd6c70ade49d"
+    },
+    {
+      "path": "ce-m4-camp432-portable/boat435/pending-cold/invocation-receipt.json",
+      "sha256": "2de3a1f7cd79eb401fa419ad12f823578eee3563be9ec2727ea122f582f9db30"
+    },
+    {
+      "path": "ce-m4-camp432-portable/boat435/arrow-acknowledgement/invocation-receipt.json",
+      "sha256": "713b005f58ea6699c5abd441ac1f65aa78a711f8905cd552e59bde9ef98ddb52"
+    },
+    {
+      "path": "ce-m4-camp432-portable/boat435/closed-next-movement/invocation-receipt.json",
+      "sha256": "ef971fafc5eb9f34c5c96e2c9f732cd1e642e3b8e17f6acd7ed3b1862955bdc2"
+    },
+    {
+      "path": "ce-m4-camp432-portable/boat435/normal-X-disembark/invocation-receipt.json",
+      "sha256": "d8bb957f7b829081a94f0886a8fd817f25da9e689c4b2445fd02f10b838a5e9f"
+    }
+  ],
+  "connected_failure": "Isolated actual64clone:aboardCamp/pendingcold/consumingack/actualDown166,154/ordinaryX pass. NextUp intoMaldac fails Nativeworldcommandcouldnotcompleteadmittedphase. Rawfailure preserved; no wholeworkflow pass claim.436 narrow travel-phase diagnostics building.",
+  "navigation_limit": "The point/terrain planner found neither a walking link nor a boat link fromMaldac pond toNourtheld land component. This is not proof the original game lacks a route; source town/underworld/coastalship connections remain to reconcile. No lethal rough-water experiment:source skiff hit35HP.",
+  "current": "No game. PythonPTY84026alive. Mainordinarysave64 Surface166,153 aboardownedskiff. Build436session57109/logce-m4-boat-return436-build.log IN PROGRESS.",
+  "next": "Pollsame436build,acceptcompletedidentity,replayonly retained disembarked\u2192Town failure toidentifyphase,fixandcloseworkflow. Then namedD4Quickcontext work whileNourtheld route remains an explicitcampaign dependency."
+}

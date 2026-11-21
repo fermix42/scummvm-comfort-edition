@@ -1,0 +1,25 @@
+{
+  "status": "VERIFIED",
+  "build_policy": "User November14: finish remaining sound/music integration before next combined build. No per-cue builds or gameplay test runs.",
+  "last_accepted_receipt": "SCUMMVM-CE-M4-SOUND470-BUILD-RECEIPT.json",
+  "last_accepted_sha256": "fa3e49494bb550f40b900e9b1663147bcba4e40506093c75989d2433115d5395",
+  "current_source_since470": [
+    "World/collision movement impact and authored ground-dependent short notification",
+    "Tactical direction notification including blocked free movement",
+    "Shared Cast refusal beyond initial spell slot",
+    "Occupied tactical resurrection refusal",
+    "Ordered MadCow displaced-victim long-low and failed-placement refusal",
+    "Standard summon failed-placement refusal (full pool remains silent)",
+    "Explicit V music enable initializes authored location/battle cue on supported old saves lacking audio state"
+  ],
+  "pending_before_combined_build": [],
+  "combined_acceptance": [
+    "Normal player and hostile world projectile audio; pending470 code already built but no runtime checks yet",
+    "Movement/blocked movement, exceptional summons, occupied resurrection and old-save music enable",
+    "Selected normal CE party-victim,world hazard and temple resurrection audio",
+    "Existing startup/ambient/combat/revelation/ending/settings/cold audio acceptance at combined boundary, reuse prior proofs where source unchanged"
+  ],
+  "preserved": "Main earned127 remains closed and unchanged; no publication, original HDV changes or broad rewrite.",
+  "completion_verification": "SCUMMVM-CE-AUDIO-COMPLETION-VERIFICATION.json",
+  "user_stop_boundary": "Present completion report and stop. Do not continue graphics,input,campaign orrelease work without further instructions."
+}

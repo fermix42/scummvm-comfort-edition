@@ -1,0 +1,15 @@
+{
+  "status": "IN PROGRESS",
+  "build": 442,
+  "executable_sha256": "e8a09318319b12ca815ec76a9c0a0d2146f95dfab8c5ddcc3cbd6880bc23ab8b",
+  "scope": "Actual merchant-produced context linked trackedDrop/cold, real v1/v2 legacy imports exact context and native cold/next operation verified. Other caller/newgame context incomplete.",
+  "evidence": {
+    "ce-m4-camp432-portable/merchant442/verification.json": "e993b7d57ba103cef0fee6462f903d6ce7b117d6ef11c9770b1c0967ed879979",
+    "ce-m4-legacy442-player/verification.json": "811c528e542a2e39cf860fbedddd2a08d82f4d353c451cea53d53ccdc35c1369"
+  },
+  "remaining": [
+    "Equipment B291 overwrites retained0264 with removed equipment ID; integrate through existing Ready owners in source order",
+    "Book unready B291 and newgame/older-native absent context",
+    "refusal retained quantity source qualification"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "status": "VERIFIED",
+  "scope": "Actual accepted M1/runtime-v1 Modern and M2/runtime-v2 Classic world-boundary imports through normal Engine load;native save,cold load,Inventory open/close,actual movement,second save/cold. Permanent Casual/unknown history,mode and owner persist. Exact complete source core/routes/RNG preserved at initial save;v2 discovery retained. Presentation audio restarts authored map cue without changing gameplay RNG.",
+  "limitations": [
+    "Two real early-world saves,not all campaign locations,mounted/active-effect imports or battle/menu-state snapshots. Non-world-boundary source snapshots are rejected.",
+    "Audio restarts at current map cue;old hardware synthesis phase is deliberately not imported.",
+    "416 load/save/cold passed but initial core had two scene-preparation mutations;417 fixes them. Initial417 Classic movement opened actual tutorial notice;driver now acknowledges normally before saving."
+  ],
+  "executable_sha256": "32c3ea9359c8a9435e1ea020c0d9cd5405d63941a7cb5bfd099a5e5de4e6d65a",
+  "build_receipt": "SCUMMVM-CE-M4-LEGACY417-BUILD-RECEIPT.json",
+  "verification": {
+    "path": "ce-m4-legacy417-player-b\\verification.json",
+    "sha256": "2a5e98213e70cea2c3e4595f289b583db2c6d1a3b913ff97b53a79ce46747477"
+  },
+  "modified": [
+    "engines/nox/nox.h",
+    "engines/nox/native_player_session.h",
+    "engines/nox/native_world_input.h",
+    "engines/nox/native_engine.cpp"
+  ],
+  "next": "Continue D3 supported Search/item/secret-door and guard reaction,audio gaps;resume earned slot18 Everton. Include later-map/mounted/active-effect legacy coverage at integration boundary;do not declare full legacy domain from early saves."
+}

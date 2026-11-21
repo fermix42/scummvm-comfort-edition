@@ -1,0 +1,23 @@
+{
+  "status": "IN PROGRESS",
+  "scope": "Confirmed equipment/orb/Jump/post-Temple sound callers; not complete audio/D3.",
+  "executable_sha256": "3d9bbf0b1eba7ec2e1ff2b058d831e44f387555f13322eb20bf8daf42b0ce5bf",
+  "receipt": "SCUMMVM-CE-M4-SOUND469-BUILD-RECEIPT.json",
+  "verified": [
+    "469 clean native build0warnings/0errors",
+    "check_jump469_source.py PASS7 original J command-table FE5B transport/foot gates",
+    "check_sound469_player.py PASS actual J foot/ownedfrigate143toggles ormuted across4modes,free unchangedworld/saveable",
+    "check_equipment469_player.py PASS actualI/R strength1 weightrefusal143toggles ormuted across4modes,Escworld",
+    "check_revelation469_player.py PASS actualpendingTempleReturn/ack/travel58/ArchusTalk3283togglechime"
+  ],
+  "failures": [
+    "Source review caught mistaken FE5B-as-Talk mapping; removed Talk changes and unrelated FE54 prompt before gameplay tests.468 completed but superseded/unaccepted because source changed after compilation;469 rebuilt corrected source. No Talk behavior changed."
+  ],
+  "remaining": [
+    "PlayerworldF and queuedhostile projectile sound connection",
+    "World conditionalreveal65, movement notification/impact and exceptional summon/resurrection admission",
+    "Runtimeparty-victim/hazard/revival sound evidence",
+    "Legacy-only menu beeps must be reconciled against their replacement CE workflows, not blindly recreated."
+  ],
+  "next_action": "Continue connected world projectile sound batch. Preserve main127; no campaign work until infrastructure reconciliation."
+}

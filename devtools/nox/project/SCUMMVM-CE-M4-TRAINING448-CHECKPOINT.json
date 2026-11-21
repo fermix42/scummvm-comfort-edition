@@ -1,0 +1,25 @@
+{
+  "status": "VERIFIED",
+  "scope": "Typed training transaction and authored Slyvenia Talk/TRAIN UI,pending private cold,refusals,result,BYE/world/next action. Controlled skill points/gold beforeTalk;not earned training or normal CE pending-menu saving.",
+  "build": 448,
+  "executable_sha256": "bda6ca639fae39be8e09ea13cd376d11dde0d1940ea41437717da9d2b3965b40",
+  "source_reference": "ce-m4-training446-source.json",
+  "source_reference_sha256": "0ae6ff7334553c98c30929568fb2a3ba48ff56e6f3cb34e10ee4f8f3b0675d64",
+  "native_evidence": "ce-m4-camp432-portable\\training448\\verification.json",
+  "native_evidence_sha256": "71fb23aaf1e8b88c97476a902195bd8c1b2d2236d47cd111cc070d4e7ab2ddb7",
+  "authored_caller": {
+    "resource": "NA/DATA.TLK.L001",
+    "map": 1,
+    "actor": 0,
+    "name": "Slyvenia",
+    "query": "TRAIN",
+    "request": "Original encodedbitoperator64->skillmask1,fee10 request marker"
+  },
+  "codec": "NCUI7 phases27..30 storesselectedmember, existingconversation/selection/window/queryowners;ordinaryoldversions1..6 retained",
+  "visual": "Inspected actual savedFRAM offer-page0 andtrain-two,localmonochrome diagnosticrenders. Offerpage/prompt/result legible;originalwords retained,paging/panel adapted.",
+  "remaining": [
+    "normal CE post-training save/session acceptance at integration boundary",
+    "earned practice/training/campaign",
+    "other trainers/levels as supported release matrix requires"
+  ]
+}

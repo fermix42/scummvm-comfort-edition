@@ -1,0 +1,18 @@
+{
+  "status": "VERIFIED",
+  "scope": "Production idle world clock activation/prefetch/semantic route generation;observed offscreen singleNPCroutecap3admission;unchangedearned114normalwalk/Wait11AMactualJanellarrival/sale353/pendingbusiness/merchant/resultcold/nextWait. NotallNPCschedulebranches orfullD3.",
+  "executable_sha256": "21db3ddb8a6d60c6990cefd8d3a001b9600d1aa885374efd76d78719d02dac02",
+  "evidence": {
+    "ce-m4-camp432-portable/schedule462/verification.json": "9cdaa97c02ab71bc7a8e0556fda4a9ee77777f8a3e5a1afc23561b1ca64e6589",
+    "SCUMMVM-CE-M4-SCHEDULE462-BUILD-RECEIPT.json": "9963fa3af515665089b599f83207329a541a3022a630e8e891685cf8a1b0666d"
+  },
+  "failure": "461firstrealclockworkflowexposedoffscreenNPC96cap3guard;462removesextraadmissionrestrictionandpasses.",
+  "modified_files": [
+    "engines/nox/native_world_input.h",
+    "engines/nox/native_npc_world_action.h"
+  ],
+  "limits": [
+    "route searchworkcompleted withinidleinput budget,noextraworldturns",
+    "other exceptionalNPC/large/edge andfullscheduleacceptance remain required"
+  ]
+}

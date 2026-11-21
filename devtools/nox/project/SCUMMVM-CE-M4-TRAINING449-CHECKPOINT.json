@@ -1,0 +1,10 @@
+{
+  "status": "VERIFIED",
+  "scope": "Normal CE completed training save/cold/fullparty/session/nextaction, isolated declared controlled setup;not earnedtraining ornormalpendingmenusaving.",
+  "build": 448,
+  "executable_sha256": "bda6ca639fae39be8e09ea13cd376d11dde0d1940ea41437717da9d2b3965b40",
+  "evidence": "ce-m4-training449d-player\\verification.json",
+  "evidence_sha256": "4cf98b1adc186941203d2a95b82402712cb81f9d583679a23aed4d485a3bbcd6",
+  "setup": "Copied valid normal metadata andhash-boundsidecar;replacedonlygamepayloadwith448controlledpre-input snapshot;sidecarupdatedsha256andtaintedtruebeforeTalk. SeparateCLIroot,permanentCasual recovery;originalprofilesuntouched.",
+  "failures": "449 root seeded beforeCLIownership rejected;449b/c lackedrequiredcommit sidecar sochooserempty,notenginefailures;449d firstassistance assertion expectedtaintedreason butfreshrecoverycorrectlyunknown_save_history. ResumedbeforeTalkwithvalidexistingownedroot,assertedpermanentCasualandactualreason. No outcomeschangedaftertrainingbegan."
+}

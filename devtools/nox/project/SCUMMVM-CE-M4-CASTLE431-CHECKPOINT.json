@@ -1,0 +1,41 @@
+{
+  "status": "VERIFIED",
+  "scope": "Earned Castle11 entry,normalwalking/Open/stairs toCastle15,actualYvviar NAME/JOB/CULT/STOP/BYE,normal save/freshprocess exact state,nextmovement;not allcastlebranches or ending",
+  "build_receipt": "SCUMMVM-CE-M4-INSPECT431-BUILD-RECEIPT.json",
+  "executable_sha256": "b62b4e31cc997071ff95b76319e093b8dcd1515ccf5279186c654ce2c8a67a92",
+  "cold_exact": true,
+  "clean_assistance": true,
+  "next_save": {
+    "path": "ce-m4-earned-native\\saves\\nox-ce-71e71a3b8191910835b3cae190cf968a-3114bcfbff0c6146da7dedad670fd7cf-slot044.g0",
+    "sha256": "69b112d407fb690b05ac0ca555274d79e6c3543f3337fed0d79407ad4875e512"
+  },
+  "evidence": [
+    {
+      "path": "ce-m4-earned431-yvviar-warm.json",
+      "sha256": "b29dcf27abcf8cff770e31456925940387dc05a65c7244d699e96d6d6006bb1f"
+    },
+    {
+      "path": "ce-m4-earned431-yvviar-cold.json",
+      "sha256": "a60ce55952fa57b625810bc62d575e3e3edb657cdb6aa19f1e73a56949fb8c81"
+    },
+    {
+      "path": "ce-m4-earned431-castle.jsonl",
+      "sha256": "5114d02da30dca969164c525a56bd48dc17951d1f70fde6841e75768142fc62c"
+    },
+    {
+      "path": "ce-m4-earned431-yvviar-cold.jsonl",
+      "sha256": "38f8d36a1ab68ec6c04210e2390e2a56be88f105e6bea138921771a8939c1ec9"
+    }
+  ],
+  "setup": "Main normalkeys/Open/Talk/Wait/save/load only,nooutcomeinjection. Separatepubcounterbranchdidnotduplicate main rewards.",
+  "failures": [
+    "Sea drowning,ordinaryreload31",
+    "ActualOpponent partydefeat,ordinaryreload37,normalroutearoundcontact",
+    "Centralactors/archeryNPCwrongtargets;existingM3evidence identifiesCastle15NPC176"
+  ],
+  "remaining": [
+    "D3normalintegration",
+    "D4Quick/Drop/exceptionalcontexts",
+    "D5earnedculttemple/Maldac onward/fullhealthending/frozenrelease"
+  ]
+}

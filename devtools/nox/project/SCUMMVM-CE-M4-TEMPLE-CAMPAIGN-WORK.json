@@ -1,0 +1,60 @@
+{
+  "status": "VERIFIED",
+  "baseline": "SCUMMVM-CE-M4-SHADOW384-CHECKPOINT.json",
+  "build": "ce-m4-temple394-build.log",
+  "implemented": [
+    "Plain authored conversation bit17/5 delivers a typed NPC battle request after real reply/exit; other unsupported callbacks remain guarded.",
+    "NBTS16 preserves pending Temple revelation separately from NBTS15 terminal ending; journal award is retained pending actual loot.",
+    "Actual notice acknowledgement resumes advancement/loot without repeating XP or contact effects.",
+    "Temple return reuses full native travel,sets source hour9 and invokes authored NPC8 Archus conversation after arriving7/58/20/13.",
+    "Revelation uses authored notice0 and short music cue when enabled."
+  ],
+  "source_reference": "native-temple-campaign386/metadata.json",
+  "original_cases": 12,
+  "controls": "Original M3 pre-Temple party/gear/inventory/book/flags before real Talk; declared adjacent legal altar cell168,156. Separate nine-dead/living HighCultistHP1/adjacent hero BEFORE actual A; no reward/travel/translation outcomes initialized.",
+  "failures": [
+    "386 fixture at168,157 was two cells from the single-cell NPC; actual Talk refusal correctly produced no battle. 386b uses legal adjacent168,156 before input."
+  ],
+  "pending": "None for the bounded connected Temple workflow goal.",
+  "bounded_B3_dependency": {
+    "status": "BLOCKED",
+    "branch": "zero-count group5",
+    "evidence": "native-zero-group385/analysis.json",
+    "reason": "No authored initial Surface actor144. A bounded original formation phase study stops at999D with count0 after30000 steps; valid later producer/caller and initialization remain unresolved. No source pass or empty victory fabricated.",
+    "action": "Do not repeat this phase experiment without new caller evidence; continue Temple/W6 work."
+  },
+  "next_action": "Stop: the user-defined Temple goal is verified. Other port work remains outside this goal.",
+  "current_goal": {
+    "status": "VERIFIED",
+    "build": "ce-m4-temple394-build.log",
+    "build_status": "VERIFIED",
+    "executable_sha256": "9443b132f4c03392cc3ebf9a1c82aad676aaa63794e1c4ebf948c139b9661bf7",
+    "modified_engine": [
+      "native_player_session.h",
+      "native_startup_host.h",
+      "native_player_lifecycle_validation.h"
+    ],
+    "changes": [
+      "Allow existing NBTS16 pending revelation at ordinary Engine save boundary and Q chooser.",
+      "Initialize existing combat input driver after normal save_slot restoration.",
+      "Extend existing lifecycle probe with real pending chooser and exact cold load continuation."
+    ],
+    "test_driver": "run_temple_campaign386_m4.py, extended with normal player pending save/cold split and subsequent Wait; shared runner sets actual save mode",
+    "gameplay_status": "VERIFIED",
+    "blocker": null,
+    "attempt_log": "ce-m4-temple392-modern.log",
+    "next_action": "Stop: the user-defined Temple goal is verified. Other port work remains outside this goal.",
+    "coverage": "Actual Talk/full10 admission, controlled pre-attack endpoint, actual revelation/journal/travel/Archus/subsequent Wait; private and normal pending cold splits exactly match uninterrupted in Modern and Classic.22CEprocesses. Not earned full battle/campaign.",
+    "blocker_recheck": {
+      "goal_turn": 2,
+      "policy_state": 1,
+      "result": "Smart App Control still enforced; no user approval or external change received. No blocked executable retry.",
+      "next_action": "Wait for Smart App Control Off or an available trusted signing setup; then continue both-mode gameplay verification."
+    },
+    "resolved_blocker": "User turned Smart App Control Off; current policy state0,392 gameplay ran.",
+    "392_evidence": "Actual Talk/full10 admission and private revelation/Archus/split passed; normal save probe chose tile1 in an empty grid. Captured frame showed only NewSave tile0. Scoped probe correction uses0; owned stuck child stopped, no game defect inferred.",
+    "modern393_report": "ce-m4-temple393-portable/modern/verification.json",
+    "classic393_result": "Talk/full admission/private split and actual pending save passed; probe wrongly looked for Modern custom description in Classic.394 finds the actual owner/slot1. No gameplay/save-format change.",
+    "evidence": "SCUMMVM-CE-TEMPLE-WORKFLOW-VERIFICATION.json"
+  }
+}

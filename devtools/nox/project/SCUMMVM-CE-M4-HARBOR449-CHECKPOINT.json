@@ -1,0 +1,21 @@
+{
+  "status": "IN PROGRESS",
+  "scope": "Earned ordinaryMaldac departure/oceanharbor travel/map49->48->46,normal70save/coldexactclean;Stellaapproachnewboundarynotclosed.",
+  "build": 448,
+  "executable_sha256": "bda6ca639fae39be8e09ea13cd376d11dde0d1940ea41437717da9d2b3965b40",
+  "saves": {
+    "departure": 67,
+    "town49": 68,
+    "quarter48": 69,
+    "docks46": 70,
+    "continued": 71
+  },
+  "evidence": {
+    "ce-m4-earned449-harbor.jsonl": "7e116fabe3d9a358b339d4debf9a4051561e8d9f667d0df64344777d25f4c77e",
+    "ce-m4-earned449-docks-cold.jsonl": "c5c13abd173d4854e0d63aed2b0a5852380c01cd9a29685d0d31a7523773c933",
+    "ce-m4-earned449-docks-warm.json": "f6fc040915799cf545c919d3885653547cee5d5c8bc20b32de61b99ee40fc7ff",
+    "ce-m4-earned449-docks-cold.json": "d98cf6d0225afb038ef52445dba4aa750e379aafc5cda82fd66926b013753f6d"
+  },
+  "failure": "World46/25,23 normalUp ->25,22 stopsunsupportedencounter/interactionboundary. CLIadvancehanginterrupted;ownchildaborted.71saveat22,37retained;initialLeftwasblockedandnotactualmovementacceptance.",
+  "next": "Reload71/replayonlysuccessfulStellaapproachprefix,savebeforeUp25,23,diagnoseWorldMove/Wait boundary. No blind repeats."
+}

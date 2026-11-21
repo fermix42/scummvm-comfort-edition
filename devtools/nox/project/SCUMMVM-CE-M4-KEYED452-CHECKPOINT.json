@@ -1,0 +1,19 @@
+{
+  "status": "VERIFIED",
+  "scope": "Normal keyed-door18 Open uses existingkeypredicate;missingkeyauthoredrefusal/freeCORE/cold/nextWait,controlledownedkeyOpen/cold/walkthrough/cold;earnednormalmissingkey81save/coldexactclean. Notearnedkeyacquisition orOpen17/19.",
+  "build": 452,
+  "executable_sha256": "429e2976900524d538c2c737162290babd09aba84ade4953f08e37751569c77b",
+  "evidence": {
+    "ce-m4-keyed451-source.json": "14f7f11954d77846e73b6e4afd8172a4c0550c10d97ba0a072cdb1a58818aab3",
+    "ce-m4-camp432-portable/keyed452/verification.json": "74186022f5f4712b354f859336a74bb2a8ae9aa68d392d7a57916c8cfcf11348",
+    "ce-m4-earned452-keyed-warm.json": "91954f1f32f9ac0722c5a414f5ffae16956fbc2be09344ac9a474b105f6302fc",
+    "ce-m4-earned452-keyed-cold.json": "b28070499ff51bbe7e982edf5156a4b93704b793ff472bcf3a4aaf0e796bc427"
+  },
+  "failure": "451messagebound24ratherthan24charsplusnull25;initialcatalogloadfailed.452correctedresourceboundandpassed.",
+  "remaining": [
+    "locked-door17/compound19 input handoffs",
+    "generatedSearchtreasure",
+    "earnedshipacquisition/oceancrossing",
+    "otherD3D4D5"
+  ]
+}

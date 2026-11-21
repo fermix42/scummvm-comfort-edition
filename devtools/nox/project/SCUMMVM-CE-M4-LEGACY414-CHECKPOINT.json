@@ -1,0 +1,20 @@
+{
+  "status": "VERIFIED",
+  "scope": "World-state converter component only. Real accepted M1/runtime-v1 and M2/runtime-v2 mutable map records,active live overlay,position and quest fields match native NWLD output byte-for-byte. Full gameplay load,owner migration and continuation remain IN PROGRESS.",
+  "executable_sha256": "2f85b652c9907f47e9aacea2a76478d47cec866b31a5bb4b1158a79530883978",
+  "build_receipt": "SCUMMVM-CE-M4-LEGACY414-BUILD-RECEIPT.json",
+  "verification": {
+    "path": "ce-m4-legacy413-portable\\verification.json",
+    "sha256": "1c8a989ae9db2bf2db3528a60275dee8bc5d5b53bc69b67dc47fbf4fc4cbb62c"
+  },
+  "map_counts": [
+    76,
+    76
+  ],
+  "modified": [
+    "engines/nox/native_legacy_snapshot.h",
+    "engines/nox/native_startup_host.h"
+  ],
+  "failure": "413 rejected supported Surface initialization byte0 and unused padding;414 compares directory,terrain/compressed-sector directory and notice extents while preserving all mutable map tables. Original rejected result retained here,not accepted.",
+  "next": "Convert complete candidate party/equipment/inventory/book,clock,NPC schedule/routes,inn,navigation,transport and audio;connect normal loading and permanently Casual unknown-history sessions. Equipment is mutable SRTN.INVENTORY[0:96],inventory[A00:1000],book MAIN7043:7057,gold MAIN7059:705B,food MAIN7057:7059. Do not use stale MAINAE00 or AUX1E00 equipment."
+}

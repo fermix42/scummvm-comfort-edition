@@ -1,0 +1,24 @@
+{
+  "status": "VERIFIED",
+  "scope": "Ordinary authored ship gold chest: input-only isolated branch,cancel,real lock/trap first attempt,retry,gold award,repeat,fresh-process persistence,next movement. Shared currency arithmetic16 source cases and one actual party water picture. Not all Search/food UI/theft/item loot/secret doors/animation acceptance.",
+  "executable_sha256": "bdde02a631612106fcf560c6cc2dfd544ae6c071dba75570ba2da60306bb48a3",
+  "evidence": {
+    "ce-m4-currency406-source.json": "3e4b60edbcef4228175c17ee3595cb4d213b629a8fcbe8aeb1ee77327ece810d",
+    "ce-m4-water408-source.json": "014e37503e707d62e7c0abbb326341531e3b811d66db9513c869c6c1a00a0e4b",
+    "ce-m4-currency408-before.json": "34ec36d8b3d337e3c6cad281dae13f3c287bd044b772158c4dbbc32112acbd44",
+    "ce-m4-currency408-cancel.json": "977431a5a2560d70d738135b3623180659c42de2f0d76ca65b9d7601ba57c044",
+    "ce-m4-currency408-attempt1.json": "5d4cff29c8b3f4db92da8e0ede7e3f9efa743b0e89e3fbe5aac67170ae020d0f",
+    "ce-m4-currency408-attempt2.json": "6cb29b0848b56a0485b1d275c903e2a1b632605c350855d8bb21feaaab65ed37",
+    "ce-m4-currency408-after.json": "bc74850b4ec9c35a4424e2bfb2e233b5a241a54042f5c4e9e80f3cbd5f1b7f29",
+    "ce-m4-currency408-repeat.json": "d482a5d5c3f0b05d2208cc53172786da67af8b34dd7863486df8b10976247e72",
+    "ce-m4-currency408-cold.json": "0588f7a3e1ba91c582909d8fdd612ae144c9f962512e707878223ce22a297ce2",
+    "ce-m4-currency408-ship.jsonl": "5b47e074dda7e9468af9aae5198abf2f466ef9caf49a3cfbdc0a5de5039f2f81",
+    "ce-m4-currency408-cold.jsonl": "59ded17a117b1563c7482d041494c8a8becf0a0caeb29796c6e81c2a398133a7"
+  },
+  "setup": "Separate copy of existing earned normal save/profile,loaded ordinary upstairs slot3. Physical walking and input only;no object/item/HP/RNG/quest outcomes injected. Main campaign not credited with this branch reward.",
+  "result": "Cancel unchanged;first attempt five->four picks,HP50->38. Second selection succeeds,Gold5->14. Repeat unchanged,cold exact,nextDown10,11.",
+  "failures": [
+    "406 approach reached known unsupported party water animation at10,10.",
+    "407 character-picture increment hypothesis rejected by original routine returning terrain183,not247.408 selects ground+1 from D3A0..D3BD."
+  ]
+}

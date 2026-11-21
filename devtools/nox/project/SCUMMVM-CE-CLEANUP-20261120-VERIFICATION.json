@@ -1,0 +1,67 @@
+{
+  "date": "2026-11-20",
+  "status": "VERIFIED",
+  "scope": "Source cleanup and preservation, unit tests, Release compilation, and bounded private-fixture parity helper validation. Not a fresh full campaign acceptance.",
+  "runtime_source_commit": "7e8f15e215d0f60570d108718b94f769f1b8fe39",
+  "release_build": {
+    "exit": 0,
+    "warnings": 0,
+    "errors": 0,
+    "elapsed": "00:02:45.31",
+    "executable_sha256": "462ce69ddd9442ce6f81d431e593ba61d9b4bd9fa40f75cb9f9d532e61c9e65a",
+    "log_sha256": "164910e2e4273d698be0c0b7088a795357fb67a082a68e3dfac9530747f64636"
+  },
+  "unit_tests": {
+    "cxxtest_methods": 456,
+    "standalone_ctest_passed": 2,
+    "build_warnings": 4,
+    "build_errors": 0,
+    "log_sha256": "c527bc6516a013dfb6cd959fd5a9dfecf53deb6ceab7564016b0a707f328ceab"
+  },
+  "private_parity": {
+    "executable_sha256": "4857791e4d37147b7ed5d31c2fced30eeeac63b0b624ba0fa19db182b42e89f0",
+    "artifact_root": "consolidation-validation-local/cleanup-20261120",
+    "helpers": {
+      "check_menu.py": {
+        "status": "PASS",
+        "source_sha256": "74928c882ade62a23703903757775166f009be5f15937ab7b3623a725b535f1c"
+      },
+      "check_ending.py": {
+        "status": "PASS",
+        "source_sha256": "6ca84449ab1637b4bae80449aaa23320efb787bff642cc8821be0cf79b5f1816"
+      },
+      "check_harbor.py": {
+        "status": "PASS",
+        "source_sha256": "3fe76d040052d9b3e02abc8b83a31f2b883a843310a296f6c15787aa65dd5346"
+      },
+      "check_dialogue_story.py": {
+        "status": "PASS",
+        "source_sha256": "a61a1f69150f3f7220a4321691e81191b5c914ead501486d537306e10248b627"
+      },
+      "check_story_branches.py": {
+        "status": "PASS",
+        "source_sha256": "0dedf6a8f0867ba22b368c1da6793b53e01e081de0ab7489629a965b05298035"
+      },
+      "combat_oracles_direct.py": {
+        "status": "PASS",
+        "source_sha256": "aee54da77955635506fa7cde3d2f8a48a4c5ca57acd6219a16309060bc0fab19"
+      }
+    },
+    "limits": "Executed on an isolated copy of the previously promoted executable. Private controlled and historical fixtures remain external. The fresh cleanup Release executable was compile-checked; these gameplay results do not certify it as the same binary."
+  },
+  "additional_checks": [
+    "Changed Python AST parsing",
+    "Changed JSON parsing",
+    "git diff --check",
+    "Original message wording guard",
+    "Four bundled theme ZIP integrity checks and packaged logo byte comparison"
+  ],
+  "cleanup": [
+    "Quit fixture accepts the standard exit confirmation with Return",
+    "Historical queues labeled as historical, without rewriting older verification claims",
+    "Plan normalized to strict UTF-8",
+    "Six reusable parity helpers and their requirements preserved in the repository",
+    "Menu PNG decoder preserved directly instead of extracting code from an external script"
+  ],
+  "installation_policy": "This cleanup task does not update either stable owner installation or push any Git ref."
+}

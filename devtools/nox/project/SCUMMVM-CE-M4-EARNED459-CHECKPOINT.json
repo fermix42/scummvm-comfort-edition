@@ -1,0 +1,40 @@
+{
+  "status": "VERIFIED",
+  "scope": "Earned normal Cutter/Blade JOIN and Vulon HELP250gold,ordinary105 save/coldexactadapter/cleanCEsession/nextLeftordinary106. Notshipacquisition orcampaigncompletion.",
+  "executable_sha256": "26778d93f8c6fa84dacc05a537df2eeb336d6d447f6ad526c84d0c3393bac6f4",
+  "evidence": {
+    "ce-m4-earned459-party-funding-warm.json": "cf08001638b7b46fd6d7cef8a2caede17c21197c906012c7ccc441d25b4c7229",
+    "ce-m4-earned459-party-funding-cold.json": "d58fa9c9e998780bc227391df2e95c5af95b60508afdfe2a7ca7df006780eb29",
+    "ce-m4-earned459-party-funding-next.json": "d21ef474ad0eb471afd5a55eb170b5995b76b1da66ecb0bf5c3bf720f4d62eeb"
+  },
+  "route_guidance": "Walkthrough-guided route https://gamefaqs.gamespot.com/appleii/318594-nox-archaist/faqs/81042/to-bayport plus originalmap/dialogue/merchantdata;nooutcomeinjections;notblind/unassistedroute-discovery.",
+  "result": {
+    "party_count": 4,
+    "hp": [
+      37,
+      37,
+      56,
+      56
+    ],
+    "mp": [
+      8,
+      8,
+      8,
+      8
+    ],
+    "gold": 262,
+    "book20_retained": true
+  },
+  "corrections": [
+    "Planners must not freeze moving NPCs as permanentwalls;restorestaticguardblocking",
+    "Campcorrectlyrefusedintown;twoHdidnotadvanceclock",
+    "Mistookrole7templeforinn;declinedwithoutpayment;actualinnrole2map48actor208",
+    "NormalclosingdialoguecommitsJOIN/HELPonack;queryhelperphase3assertafterclosingdidnotchangegameplay"
+  ],
+  "remaining": [
+    "reachmorning viarealinn48actor208 oroutsidecamp",
+    "sellunreadiedbook20toJanell47actor104;originalbase706/other50percent predicts353,notyetactualsale",
+    "buy550frigatefromRaymond46actor112andnormalboard",
+    "remaining D3/D4/native release and earnedending"
+  ]
+}

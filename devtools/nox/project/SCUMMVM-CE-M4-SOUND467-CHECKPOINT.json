@@ -1,0 +1,28 @@
+{
+  "status": "IN PROGRESS",
+  "scope": "Authored cannon/temple/hazard sound caller batch, not full audio/D3 completion.",
+  "executable_sha256": "f1880c22c854f20c8ec9f4df9f61ccf7609f4447a2c0b6e8bd03150cb5b3fcbc",
+  "receipt": "SCUMMVM-CE-M4-SOUND467-BUILD-RECEIPT.json",
+  "build": "ce-m4-sound467-build.log,0warnings/0errors",
+  "verified": [
+    "check_sound467_player.py PASS normal CE cannon F/Return:25toggles enabled/0muted,all4modes,selection silent,actual turn advance",
+    "Same script PASS actual TalkSouth/temple offer/1:payment and3283toggles enabled/0muted,all4modes. Private copy of earned temple-declined state, recoveredCasual sidecar; main earned save unchanged.",
+    "check_hazard467_source.py PASS8 original F7A3 index/protection cue gates; stops before damage,not runtime hazard acceptance."
+  ],
+  "modified_files": [
+    "native_startup_host.h",
+    "native_world_input.h",
+    "native_world_conversation.h",
+    "native_world_hazards.h",
+    "native_world_wait.h",
+    "native_world_move.h"
+  ],
+  "implementation": "Transient engine-owned sinks connected each input loop; temple successful heal/revive cues; cannon shot before NPC retirement; unprotected actor225 world effect queues magic through shared Wait/movement. No sound state added to saves.",
+  "limitations": [
+    "Normal CE resurrection sound,actor225 hazard audio and party-victim spell rattle not yet demonstrated.",
+    "Post-Temple travel chime9BBC and conditional world revealFA7D remain unwired.",
+    "Remaining menu/commerce/command/refusal and exceptional summon audio admission needs closure.",
+    "Custom actor-hit sequence conditions depend on queued original world projectile flag,not generic every-hit sound; do not substitute 3FFB mode for608B queued flag."
+  ],
+  "next_action": "Finish remaining concrete sound callers before another connected infrastructure acceptance boundary; then graphics/music/input reconciliation. Main127 preserved closed. No game/build active."
+}

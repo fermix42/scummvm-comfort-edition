@@ -1,0 +1,33 @@
+{
+  "status": "VERIFIED",
+  "scope": "Actual earned Bridgit JOIN,authored gear/quantities/recruitflag/NPC removal,normal Inventory shield unready/ready exact core restoration,normal saves,cold equality and subsequent movement. Not all recruitment variants.",
+  "executable_sha256": "3692f92f4632ca383cdfd8b9e87c50a420c5544b5883a74cb13b024920a112bf",
+  "build_receipt": "SCUMMVM-CE-M4-RECRUIT424-BUILD-RECEIPT.json",
+  "earned_verification": {
+    "path": "ce-m4-earned424-verification.json",
+    "sha256": "636e71b3fbcfb8b823b810162f01b529eb42fb2a3999c0bcc890e150a77f5818"
+  },
+  "hand_component": {
+    "verification": "ce-m4-hand423-portable\\verification.json",
+    "sha256": "37096b16e6964cd26ce2c385d75f5d76ca1f7a48da17c00d62f53dd0e2c664ce",
+    "tested_executable_sha256": "eac6e3e7c309703919109b7d4099b97da0a737e851b1c57f6f16197d02618b78",
+    "scope": "423 shield255 andweapon1111 source differential cases;424 changes only post-recruitment WorldInput redraw,hand transaction/validation source unchanged",
+    "implementation_sha256": {
+      "native_weapon_ready.h": "bd4ed18f18817ac5940d59567040eb7dee9a908090a46212d96eb9a93eb25fb4",
+      "native_equipment_actions.h": "0818937344f151411a438836f85b6cb06f2cb2df7b2d78bc62e18fb85220474f",
+      "native_weapon_ready_validation.h": "25f357a7a6826b28e625ccfedbb492d195439ee4bbc4d2bec0e67643dc4e9fcb",
+      "native_inventory_window.h": "ef170890c9224d09f5e974c7eedf0a520b2003f64d63a9ad40c543c813d1833b"
+    }
+  },
+  "visual": [
+    "ce-m4-earned-native/screenshots/scummvm-cli-game-00046.png",
+    "ce-m4-earned-native/screenshots/scummvm-cli-game-00047.png",
+    "ce-m4-earned-native/screenshots/scummvm-cli-game-00048.png"
+  ],
+  "setup": "Earned ordinary slot20 from original newgame/rat/log/Evertonlineage;real TalkLeft/JOIN/confirmation,Inventory2/shield/Space/R,ordinary movement,saves and cold. No outcomes injected.",
+  "limitations": [
+    "Full-party refusal,structuredCutterconfirmation,all11companions,inventory-capacity side effects andlaterinn/battle compatibility remain open.",
+    "No full earned campaign orrelease acceptance claim."
+  ],
+  "next": "Resume earned slot24 Everton20,26,two50HP8MPmembers. Continue campaign andremaining D3/D4 required gaps."
+}

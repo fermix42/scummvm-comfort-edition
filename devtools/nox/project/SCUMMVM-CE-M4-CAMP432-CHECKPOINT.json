@@ -1,0 +1,38 @@
+{
+  "status": "IN PROGRESS",
+  "scope": "Camp432 arithmetic/gameplay/cold verified;433 observed result-border correction pending build/visual check. Not fullD3/D4/D5.",
+  "build_receipt": "SCUMMVM-CE-M4-CAMP432-BUILD-RECEIPT.json",
+  "modified": [
+    "engines/nox/native_world_camp.h",
+    "engines/nox/native_world_input.h",
+    "engines/nox/native_test_cli.h"
+  ],
+  "evidence": [
+    {
+      "path": "ce-m4-camp432-source.json",
+      "sha256": "b3e842af99fa73884461430983912481c59903beab09cfa003116cfc7d93a008"
+    },
+    {
+      "path": "ce-m4-camp432-portable/check/verification.json",
+      "sha256": "4146f9091245ebc95abbab97bca86c79fa8488a640898cd9595a9c9970492db0"
+    },
+    {
+      "path": "ce-m4-earned432-camp-warm.json",
+      "sha256": "64934152537a139c4fc7db8552234800e745ece4d88823001ab843a11c42ab6f"
+    },
+    {
+      "path": "ce-m4-earned432-camp-cold.json",
+      "sha256": "dc71760a499b09dab3a5e6bab181fb82c53afb0d29fab036b5e75998b413291e"
+    }
+  ],
+  "implementation": "SourceH overlay5 admission/recovery/food/eighthour clock,authored text viaexistingnative notice,consuming acknowledgement,NWIN12 pending wrapper;older normal states unchanged. Native semantic panel used rather than original animated camp vignette.",
+  "earned": "Road3full24HPbandits victory/loot slot48,second2full24HPbandits victory/loot slot49. Actualenemyrefusal unchanged party/food/time. H heals30/23->37/37,cost21food,21:06->05:06;arrowackconsumedwithoutmovement/time. SecondH noextrafood,13:06;save50,coldexact,normalnextUpblockedbyactualNPC40(notenginebug). Hazardaware NPC-inclusive86stepnormalwalk reachesMaldac6/35/9,22save52,clean assistance.",
+  "failures": "Naive flee driver repeated same pursuing contact withoutprogress;stopped,actualcombatclearedtwo distinct groups. Routehelper omittedextendedNPC40,correctedread-onlyplanning.432Campresult leftstaleHUDedgepixels;433assignsrenderebackgroundbeforetext.",
+  "current": "433build session23260 IN PROGRESS,logce-m4-camp-frame433-build.log;PythonPTY84026alive,no game. Mainordinarysave52Maldac retained.",
+  "remaining": [
+    "433resultvisual/pendingcold oncorrectedidentity",
+    "RemainingD3audio/import/services/playercommands",
+    "D4Quick/Drop/exceptionalcallers",
+    "D5Maldac/culttemple earned progression andreleaseending"
+  ]
+}

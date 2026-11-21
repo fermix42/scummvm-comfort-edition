@@ -1,0 +1,80 @@
+{
+  "status": "VERIFIED",
+  "scope": "User goal: connected native Temple workflow, pending normal player-save cold split and subsequent gameplay in Modern/Classic; not earned full battle or campaign.",
+  "date": "2026-11-13",
+  "executable": "D:\\Codex Projects\\scummvm-private\\scummvm-ce-2026.4.0-consolidated\\build-scummvm\\Releasex64\\scummvm.exe",
+  "executable_sha256": "9443b132f4c03392cc3ebf9a1c82aad676aaa63794e1c4ebf948c139b9661bf7",
+  "portable_executable": "conversion\\ce-m4-temple394-portable\\scummvm.exe",
+  "requirements": {
+    "actual_Talk_and_full_battle_admission": "VERIFIED",
+    "actual_revelation_and_journal_award": "VERIFIED",
+    "return_travel_automatic_Archus_conversation": "VERIFIED",
+    "subsequent_gameplay": "VERIFIED",
+    "normal_pending_revelation_save_and_fresh_process_load": "VERIFIED",
+    "cold_uninterrupted_identical_Modern": "VERIFIED",
+    "cold_uninterrupted_identical_Classic": "VERIFIED"
+  },
+  "modes": {
+    "modern": {
+      "status": "VERIFIED",
+      "CE_processes": 11,
+      "actual_full_admission_count": 10,
+      "pending_revelation_schema": 16,
+      "saved_mode": 0,
+      "saved_slot": 0,
+      "saved_description": "Temple pending revelation",
+      "uninterrupted_sha256": "60350640b041c486e234c1293dc735a982b39f2e54feeb1bf6a4dcfb537159b7",
+      "normal_cold_final_sha256": "60350640b041c486e234c1293dc735a982b39f2e54feeb1bf6a4dcfb537159b7",
+      "durable_generation_sha256": "af97ef210dd0e6ef5b409f759350b30b429a6fdf5379d5f3fb7893827dea94e4",
+      "subsequent_Wait": "VERIFIED"
+    },
+    "classic": {
+      "status": "VERIFIED",
+      "CE_processes": 11,
+      "actual_full_admission_count": 10,
+      "pending_revelation_schema": 16,
+      "saved_mode": 1,
+      "saved_slot": 1,
+      "saved_description": "Save 2",
+      "uninterrupted_sha256": "60350640b041c486e234c1293dc735a982b39f2e54feeb1bf6a4dcfb537159b7",
+      "normal_cold_final_sha256": "60350640b041c486e234c1293dc735a982b39f2e54feeb1bf6a4dcfb537159b7",
+      "durable_generation_sha256": "efb785f706215b01d222dc4bf1e457ee0bafb54700f052c1bce633060403f5f2",
+      "subsequent_Wait": "VERIFIED"
+    }
+  },
+  "build": {
+    "command": "powershell.exe -NoProfile -ExecutionPolicy Bypass -File run-build-release-cleanenv.ps1 -NoxNativeOnly",
+    "exit": 0,
+    "warnings": 0,
+    "errors": 0,
+    "elapsed": "00:02:48.49"
+  },
+  "artifacts": {
+    "ce-m4-temple394-portable\\modern\\verification.json": "d314fde09458d74cd99be1943adf613241510a8b41d27b73c3c84345e6eb353c",
+    "ce-m4-temple394-portable\\modern\\normal-player\\saves\\nox-ce-7792d9e102f55efb147b0fe35caad81f-c620b316fcc297ac1cd698b7821f66af-slot000.g0": "af97ef210dd0e6ef5b409f759350b30b429a6fdf5379d5f3fb7893827dea94e4",
+    "ce-m4-temple394-portable\\modern\\normal-player\\saves\\nox-native-temple-pending-player.bin": "052e521d1df5c073cbcc34cceb4d5b18d20ed11ca4b4e16d7bb6ab966aebe8de",
+    "ce-m4-temple394-portable\\modern\\normal-player\\saves\\nox-native-temple-player-warm.tsv": "95f58bf4ca0dec2b9e096c32c0f2c9de58ce3209160d287377f587fb1a97e8d3",
+    "ce-m4-temple394-portable\\modern\\normal-player\\saves\\nox-native-temple-player-cold.tsv": "5645f34cf844805869d0584ffe82106db460545d5f710eb28c8f29ebddfb5726",
+    "ce-m4-temple394-portable\\classic\\verification.json": "626ce9fb9e5613b6a32128dba74a2657a331d5348e07f944e6e3777fb8228413",
+    "ce-m4-temple394-portable\\classic\\normal-player\\saves\\nox-ce-7792d9e102f55efb147b0fe35caad81f-470c6abd8b3e8badd6923bb4f65d9b18-slot001.g0": "efb785f706215b01d222dc4bf1e457ee0bafb54700f052c1bce633060403f5f2",
+    "ce-m4-temple394-portable\\classic\\normal-player\\saves\\nox-native-temple-pending-player.bin": "052e521d1df5c073cbcc34cceb4d5b18d20ed11ca4b4e16d7bb6ab966aebe8de",
+    "ce-m4-temple394-portable\\classic\\normal-player\\saves\\nox-native-temple-player-warm.tsv": "e8e71b2f35130e8a993d953937429aa9457a93329f0f2dd0ffdb6d1846b97d37",
+    "ce-m4-temple394-portable\\classic\\normal-player\\saves\\nox-native-temple-player-cold.tsv": "5031d9881bf3b47d8911a858e501a8578575085fe0f9ad3c25e31f8288d89201",
+    "ce-m4-temple394-build.log": "d6fa8ad4b524b4f6e71aa9806c8a5c7b2ec4c144b83df8c01060bf69fbde0647",
+    "ce-m4-temple394-modern.log": "16c19a4d4907c42da5a047ccf5413ff08f3bd22dd41fad5a0c48266fed8bba9b",
+    "ce-m4-temple394-classic.log": "16c19a4d4907c42da5a047ccf5413ff08f3bd22dd41fad5a0c48266fed8bba9b",
+    "SCUMMVM-CE-TEMPLE394-BUILD-RECEIPT.json": "c29b46cf31aa755e9a7401eeac1288adec1cc011eb1bc3e759c66e9548ff4d57",
+    "ce-m4-temple394-portable/driver-temple.py": "faeac08cf0a3375fe7a8ad7bb01603cfd159e04e87040fadd94751a2ece18547",
+    "ce-m4-temple394-portable/driver-shared.py": "e94e4d254a6f6b260f542f7a6aae14ad50e6c37909a3925ff816e73a4a0a22bc"
+  },
+  "controls": "Source-supported pre-Temple party/items/flags and legal altar adjacency before real Talk; separate nine dead enemy records, living High Cultist HP1 and adjacent hero before real attack. No journal/revelation/translation/travel outcomes injected after operations start. Dedicated Casual test owner before normal saving.",
+  "failures_resolved": [
+    "Smart App Control blocked392 before gameplay; user turned it Off.",
+    "392 empty Modern grid probe selected missing tile1;393 selects actual NewSave tile0.",
+    "393 Classic save succeeded but probe looked for custom Modern description;394 locates the actual owner/slot1."
+  ],
+  "limitations": [
+    "Not an earned full ten-enemy battle or continuous campaign.",
+    "No unrelated combat branches or full release acceptance claimed."
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "status": "VERIFIED",
+  "build": 455,
+  "scope": "Normal Open17 pick/cancel/pending-resultcold/retry/walkthrough;Open19 authoredmissing/ownedflags/cold/walkthrough;normal CE pickableOpen save/cold/session/Wait;affectedgeneratedSearchregression. Controlledpreinputpositions/flags,separatefromearnedcampaign.",
+  "executable_sha256": "1be80174470fe3f81746610ff1d27540aa0eea4f71965e5b1089b37c54005010",
+  "evidence": {
+    "ce-m4-door455-source.json": "52c6bbaa9889f5d489a94112b2ef49d247e8ef92c3c068c95ca1611ec6d4613e",
+    "ce-m4-camp432-portable/door455/verification.json": "8f0103954cf1af45a836fab30bd6ebe08f718b64cc49d20ca8ebe420ffbdfdd2",
+    "ce-m4-door455-player/verification.json": "69a7e1c298367c46c8b6f3ba7c3299299e2c687e0bbdd327692bc0f73a75a534",
+    "ce-m4-camp432-portable/search455/verification.json": "d673939beff7e7499e8f78ec9896b3ad77b885c3b2449afdaad4a1c2fe59d762",
+    "SCUMMVM-CE-M4-DOOR455-BUILD-RECEIPT.json": "46b9855d77c6038583b511c0767ba3ff435ff353fcbad8a849884d809bcdcfa7"
+  },
+  "failures": [
+    "Initialcompoundfixturetype4invalid;TOWNtype6correctedbeforeinput",
+    "Driverexpectedunsettledstate41;authoredsettlingproduces40,acceptedestablished33..41range"
+  ],
+  "remaining": [
+    "earnedshipacquisition/oceancrossing",
+    "remaining D3integration/D4Quickexceptionalcontexts",
+    "D5earnedending/native release"
+  ]
+}

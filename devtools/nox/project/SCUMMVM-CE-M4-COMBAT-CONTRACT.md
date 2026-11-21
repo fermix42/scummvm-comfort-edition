@@ -56,7 +56,7 @@ Remaining connected implementation and acceptance:
 Use deterministic pre-operation fixtures and targeted full-state/RNG comparisons
 during coding, then whole battle/return or terminal/cold acceptance. Keep controlled,
 linked, earned continuous, full new-game-to-ending and untested evidence separate.
-Five tracked-counter Drop cases and Castle11 remain named dependencies. No earned
+Tracked-counter Drop is resolved in DROP445-CHECKPOINT, including retained commerce/equipment context and explicit native migration. Castle11 entry is qualified in CASTLE428/431; other exceptional callers remain named dependencies. No earned
 native campaign or M4 completion is claimed. The next task is implementation,
 not another specification delivery or a return to per-action gameplay discovery.
 

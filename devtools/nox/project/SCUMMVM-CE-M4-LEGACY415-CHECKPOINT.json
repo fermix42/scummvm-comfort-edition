@@ -1,0 +1,19 @@
+{
+  "status": "VERIFIED",
+  "scope": "Core converter component only: actual accepted M1/v1 and M2/v2 snapshots preserve every map,live party/equipment/inventory/book,NPC schedule,inn,navigation,clock,currency through existing native codecs. Normal player loading and continued gameplay remain IN PROGRESS.",
+  "executable_sha256": "81949e40f51c5f0d8b9e59519e3061fb4a70773f6d3f8da215716b109ee21680",
+  "build_receipt": "SCUMMVM-CE-M4-LEGACY415-BUILD-RECEIPT.json",
+  "verification": {
+    "path": "ce-m4-legacy415-portable\\verification.json",
+    "sha256": "424261d01e4a70c80209d37c6ec3f473fbed7a1685054eff6e2992b45e141c03"
+  },
+  "core_bytes": [
+    141761,
+    141761
+  ],
+  "modified": [
+    "engines/nox/native_legacy_snapshot.h",
+    "engines/nox/native_startup_host.h"
+  ],
+  "next": "Stage complete PlayerSessionState with routes/RNG/transport/ongoing persistent actor effects and rebuilt presentation. Connect normal Runtime v1/v2 payload admission only after candidate validation; force permanent unknown-history/Casual semantics. Verify ordinary gameplay/save/cold in both modes. Audio may restart authored current-map cue as explicit import policy;do not consume gameplay RNG for presentation restart."
+}

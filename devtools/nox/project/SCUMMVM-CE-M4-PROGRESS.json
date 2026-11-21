@@ -1,4 +1,5 @@
 {
+  "record_context": "Historical workflow snapshot. next_action and queue fields describe the recorded work, not current instructions. Verification applies only to recorded executable hashes; see SCUMMVM-CE-V119-PARITY-AUDIT.md and doc/ce-nox/README.md for later integration.",
   "status": "IN PROGRESS",
   "milestone": "M4",
   "authorization": "User October17,2026 explicit autonomous-until-completion instruction",
@@ -52,7 +53,7 @@
     {
       "id": "M4.2",
       "scope": "Interpreter-disabled build and dependency audit",
-      "status": "NOT STARTED"
+      "status": "IN PROGRESS"
     },
     {
       "id": "M4.3",
@@ -7865,5 +7866,63 @@
       "ce-m4-focused384.log": "ca20f6a041e4b5bd02a7d8a8e4a8b235d347325c2cb04bb1647b8eb3570200eb",
       "native-shadow-research384/metadata.json": "e9952286bbd5f316b05995ed22b9a870f1c37a5d40735dc4d079a8359a2c0be5"
     }
+  },
+  "current_delivery_plan": "SCUMMVM-CE-DELIVERY-PLAN.md",
+  "delivery_review": {
+    "date": "2026-11-13",
+    "scope": "Actual-source/identity review and plan revision only; no fresh build/gameplay acceptance",
+    "evidence": "SCUMMVM-CE-DELIVERY-REVIEW-20261113.json",
+    "supersedes": "Historical execution ordering and October18 pause for requested review",
+    "next_action": "Standing user goal: continue D3-D5 autonomously without milestone stops; begin D3 normal-player integration source reconciliation.",
+    "queue": [
+      {
+        "id": "D1",
+        "status": "VERIFIED"
+      },
+      {
+        "id": "D2",
+        "status": "VERIFIED"
+      },
+      {
+        "id": "D3",
+        "status": "IN PROGRESS"
+      },
+      {
+        "id": "D4",
+        "status": "NOT STARTED"
+      },
+      {
+        "id": "D5",
+        "status": "NOT STARTED"
+      }
+    ],
+    "criteria_unchanged": [
+      "M4.2 native-only release",
+      "M4.3 earned campaign and supported integration acceptance"
+    ],
+    "implementation": {
+      "status": "VERIFIED",
+      "modified_source": "engines/nox/native_world_input.h",
+      "change": "Temple-specific post-schedule viewport refresh before automatic Archus conversation",
+      "build_status": "VERIFIED",
+      "build_log": "ce-m4-temple394-build.log",
+      "build_exit": 0,
+      "reason": "Connected Temple workflow and normal pending-save boundary complete; user disabled Smart App Control.",
+      "gameplay_acceptance": "VERIFIED",
+      "gameplay_scope": "User goal: connected native Temple workflow, pending normal player-save cold split and subsequent gameplay in Modern/Classic; not earned full battle or campaign.",
+      "gameplay_report": "SCUMMVM-CE-TEMPLE-WORKFLOW-VERIFICATION.json"
+    }
+  },
+  "native_only_development": {
+    "status": "VERIFIED",
+    "evidence": "SCUMMVM-CE-NATIVE-ONLY-VERIFICATION.json",
+    "executable_sha256": "ae8eb93ac85645875a2244397176884ca5bf77024567292ba5353a8b5ccaa74d",
+    "scope": "D1 development target and four-process smoke only; full M4.2/M4.3 not verified"
+  },
+  "temple_workflow": {
+    "status": "VERIFIED",
+    "evidence": "SCUMMVM-CE-TEMPLE-WORKFLOW-VERIFICATION.json",
+    "executable_sha256": "9443b132f4c03392cc3ebf9a1c82aad676aaa63794e1c4ebf948c139b9661bf7",
+    "scope": "User goal: connected native Temple workflow, pending normal player-save cold split and subsequent gameplay in Modern/Classic; not earned full battle or campaign."
   }
 }

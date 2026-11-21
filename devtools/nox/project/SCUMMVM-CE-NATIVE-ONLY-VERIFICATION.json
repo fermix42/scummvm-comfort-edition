@@ -1,0 +1,54 @@
+{
+  "status": "VERIFIED",
+  "scope": "D1/native-only development build goal only; not whole M4.2, M4.3 or release acceptance",
+  "date": "2026-11-13",
+  "executable": "D:\\Codex Projects\\scummvm-private\\scummvm-ce-2026.4.0-consolidated\\build-scummvm\\Releasex64\\scummvm.exe",
+  "executable_sha256": "ae8eb93ac85645875a2244397176884ca5bf77024567292ba5353a8b5ccaa74d",
+  "portable_copy": "conversion\\ce-m4-native-only391-portable\\scummvm.exe",
+  "requirements": {
+    "compatibility_execution_excluded": "VERIFIED",
+    "native_startup_without_opt_in": "VERIFIED",
+    "ordinary_movement": "VERIFIED",
+    "ordinary_CE_save_and_exact_cold_load": "VERIFIED",
+    "next_movement_after_cold_load": "VERIFIED"
+  },
+  "build_command": "powershell.exe -NoProfile -ExecutionPolicy Bypass -File run-build-release-cleanenv.ps1 -NoxNativeOnly",
+  "build_exit": 0,
+  "warnings": 0,
+  "errors": 0,
+  "elapsed": "00:02:45.44",
+  "nox_archive_members": [
+    "Releasex64\\nox\\metaengine.obj",
+    "Releasex64\\nox\\native_engine.obj",
+    "Releasex64\\nox\\mockingboard.obj"
+  ],
+  "excluded": "Compatibility host, CPU interpreter, machine serializer, bootstrap/observers, CPU speaker and VIA bus/timer/IRQ functions; native AY synthesis retained.",
+  "type_only_runtime_mentions": [
+    "9CDE4 ??0MenuValidationSource@Nox@@QEAA@AEAVEngine@@AEAPEAVRuntime@1@AEAVEventManager@Common@@_N@Z"
+  ],
+  "type_note": "Forward-declared null Runtime pointer in the reused menu probe constructor is a type-only reference, not a Runtime definition, invocation, CPU frame or execution escape.",
+  "artifacts": {
+    "ce-m4-native-only391-build.log": "108c1a408453307ff2ba15a176f429ba88c07e0dddd4b4e40f79216b676b5f07",
+    "ce-m4-native-only391-members.txt": "b4af40d8a8b465f47322feaf3162da0684362d976d747010135f2e33f8c43e8d",
+    "ce-m4-native-only391-symbols.txt": "82432bdaed820b8ddd83437b92634f8fda1ecb9463c32343a2753faba51db522",
+    "ce-m4-native-only391-portable\\verification.json": "2f018d158ba37c18bb6831c4d31dafcb4b2ae6aaf510f909f8568bad07dce206",
+    "smoke_native_only.py": "194115ef9bb5db4fb73c1a901242b05235179938c0d674c16d3af0880c7bcfac",
+    "SCUMMVM-CE-NATIVE-ONLY391-BUILD-RECEIPT.json": "eb268610de0a6dee4e2e601957aaa8da69f8601ed5cfd6e4dd6a6fb35c515797"
+  },
+  "build_inputs": {
+    "run-build-release-cleanenv.ps1": "d0d0035f43a2d8c5efd23623d34f3e6dde54730c54447da967e357e3ebc909a7",
+    "devtools/nox/native-only.targets": "61d0a104e1658426b99d3a62b125614716ba29be7dd045b3f7991cd50608cf22",
+    "devtools/nox/NATIVE-ONLY.md": "3716deb1289e708b795cbdb22860daaa4e97f8405bb8a15c0568d85cdff64b0d"
+  },
+  "link_map_sha256": "a6eb223ffeaaf8c1cd3de3c9b978813cf8528507d884dacfada4eed0d292aa85",
+  "failures_resolved": [
+    "389 generated object filename could not contain the absolute source drive; target sets ObjectFileName explicitly.",
+    "390 startup/movement/save/cold passed, but next cold movement exposed unloaded message catalog;391 initializes the host catalog before all entry paths."
+  ],
+  "limitations": [
+    "Four-process linked smoke, not a continuous campaign.",
+    "Normal player save probe begins with an exact input-earned native snapshot and declares its diagnostic music/Casual session setup.",
+    "Remaining campaign, legacy-import, supported branch and full release acceptance are outside this goal.",
+    "Future project regeneration still requires a policy-permitted generator; existing consolidated solution builds normally."
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "status": "IN PROGRESS",
+  "scope": "Tracked Drop native owner/codec and five controlled UI contexts verified; normal merchant production/import and old absent-context domains remain",
+  "executable_sha256": "480e3565454822ae63b4bd57994983cfdd802f7efb44aea1be4a756e64c7a41f",
+  "evidence": "ce-m4-camp432-portable\\drop441c\\verification.json",
+  "evidence_sha256": "09527ae399a572a71ef885f7c35021d4f46aa321738d252d6cc895c4eeaaf5c2",
+  "source_reference": "ce-m4-drop439-context.json",
+  "remaining": [
+    "normal merchant production linked Drop/cold",
+    "legacy exact context import",
+    "newgame and older-native absent context",
+    "full caller writes/refusal qualification"
+  ]
+}

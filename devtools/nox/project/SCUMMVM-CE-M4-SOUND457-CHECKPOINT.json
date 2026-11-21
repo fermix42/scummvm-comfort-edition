@@ -1,0 +1,18 @@
+{
+  "status": "VERIFIED",
+  "scope": "Combat idle tactical-command V four sound modes,configuration persistence,cold reload and real next turn;not broad SFX or ordinary battle saving.",
+  "build": 457,
+  "executable_sha256": "ae0555d18570737f248773af17458ba9b3bebe6990196b7899439f963c1d8f3f",
+  "evidence": {
+    "ce-m4-sound457-source.json": "53149c60e05df59874e861dd5ad08a9b563d1422fbcc104b26d6a2d1925ce04a",
+    "ce-m4-combat-sound457-player/verification.json": "0105e7446d5630c0826d8f8376d753c79c75087974f5e0f17fb9dd06cb7ddb18",
+    "SCUMMVM-CE-M4-SOUND457-BUILD-RECEIPT.json": "7a1fb3bd51298b4cfbce9b8572a8c63c298e8436587fd68ca9372c94e0737649"
+  },
+  "implementation": "Shared world/idle tactical mode0or2 controller;noQuick/targeting/flee/result intercept;paints ownedbattleframe;existingmixer/configpath.",
+  "limits": [
+    "Only existing refusal SFX pattern is implemented",
+    "Other authored speaker patterns and gameplay triggers remain required",
+    "No ordinary midbattle save support added"
+  ],
+  "history": "456 clean build finished;source review found defaulttacticalmode0 excluded before testing.457 admits0/2,excludesQuick;focused test passed without driver retries."
+}
