@@ -67,7 +67,20 @@ bool TextEntry::step(uint8_t pressed,uint8_t held,uint8_t tick,TextEntryEffects&
  uint8_t previousGrid=_gridIndex;if(input&1){if(!move(-int(_columns),error))return false;e.changed=true;}else if(input&2){if(!move(_columns,error))return false;e.changed=true;}else if(input&8){if(!move(1,error))return false;e.changed=true;}else if(input&4){if(!move(-1,error))return false;e.changed=true;}else if(input&0x10){e.bodyRedraw=_cursor!=0;erase();e.click=e.changed=true;if(_mode==3){e.keyActor=62;e.keyRecord=104;e.keyX=88;e.keyY=192;e.cursorHidden=_gridIndex!=139;e.waitKeyCompletion=true;_pendingKey=1;}}else if((pressed&0x80)&&!_settings.phonePolicy){e.click=true;if(_mode==3){e.keyActor=62;e.keyRecord=108;e.keyX=200;e.keyY=192;e.cursorHidden=true;}e.waitKeyCompletion=true;_pendingKey=2;}else if(input&0x20){uint8_t c=grid()[_gridIndex];e.changed=true;e.click=!_settings.phonePolicy;if(_settings.phonePolicy)e.keyActor=c=='*'?2:c=='#'?3:c&31;else if(_mode==3){e.keyActor=62;e.keyRecord=_frames[_gridIndex];}if(c==8){e.click=true;e.waitKeyCompletion=true;_pendingKey=2;}else if(c==9){e.click=true;e.bodyRedraw=_cursor!=0;erase();}else if(c>=8){if(_cursor<_settings.limit){e.bodyRedraw=true;_buffer[_cursor]=c;if(_cursor+1!=_settings.limit)++_cursor;}if(_settings.phonePolicy){uint8_t first=_buffer[0];unsigned length=(first=='*'||first=='#')?2:((first&15)<_phoneLengths.size()?_phoneLengths[first&15]:0);if(length&&length<=18&&_buffer[length-1])finish(e);}}}e.cursorMoved=previousGrid!=_gridIndex;coordinates(e);return true;}
 std::vector<MouseTarget> TextEntry::mouseTargets()const{
  std::vector<MouseTarget> out;if(!_active||_pendingKey||!_columns)return out;
- const std::vector<uint8_t>& g=grid();for(unsigned i=0;i<g.size();++i)if(g[i]>=8)out.push_back(MouseTarget(MouseRect(_originX+int(i%_columns)*8,_originY+int(i/_columns+1)*8,8,8),i));if(_mode==2&&!_settings.phonePolicy)out.push_back(MouseTarget(MouseRect(24,192,64,16),kTextEntryMouseSubmit));return out;
+ const std::vector<uint8_t>& g=grid();
+ for(unsigned i=0;i<g.size();++i)if(g[i]>=8){
+  MouseRect rect(_originX+int(i%_columns)*8,_originY+int(i/_columns+1)*8,8,8);
+  if(_mode==3){
+   // The source grid uses 8-pixel cursor anchors, but the keyboard artwork
+   // has 16-pixel keys. Wide keys use anchors inside their visible faces.
+   rect.w=rect.h=16;
+   if(i==139){rect.x=72;rect.w=48;} // Backspace
+   else if(i==146){rect.x=120;rect.w=64;} // Space
+   else if(i==153){rect.x=184;rect.w=48;} // OK
+  }
+  out.push_back(MouseTarget(rect,i));
+ }
+ if(_mode==2&&!_settings.phonePolicy)out.push_back(MouseTarget(MouseRect(24,192,64,16),kTextEntryMouseSubmit));return out;
 }
 uint8_t TextEntry::mouseActionMask(unsigned target)const{for(const MouseTarget& t:mouseTargets())if(t.id==target)return target==kTextEntryMouseSubmit?0x80:0x20;return 0;}
 bool TextEntry::mouseSelect(int x,int y,TextEntryEffects& e,std::string& error){
