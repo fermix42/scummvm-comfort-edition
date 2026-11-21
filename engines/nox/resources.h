@@ -47,6 +47,8 @@ public:
 	}
 
 	const Common::String &error() const { return _error; }
+	void setDefaultFont(byte variant) { _defaultFont = variant; }
+	byte defaultFont() const { return _defaultFont; }
 	const Entries &entries() const { return _entries; }
 	const Common::Array<byte> &image() const { return _image; }
 	const Entry *entry(Common::String name) const {
@@ -124,6 +126,7 @@ public:
 	}
 
 private:
+	byte _defaultFont = 1;
 	Common::Array<byte> _image;
 	Common::Array<uint16> _directories;
 	Entries _entries;

@@ -645,6 +645,8 @@ public:
 	 * Run the global main menu dialog.
 	 */
 	void openMainMenuDialog();
+	virtual bool canRestartEncounter() const { return false; }
+	virtual void restartEncounter() {}
 
 	/**
 	 * Display a warning to the user that the game is not fully supported.

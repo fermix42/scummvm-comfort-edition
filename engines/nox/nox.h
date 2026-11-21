@@ -34,6 +34,8 @@ public:
 	explicit NoxEngine(OSystem *system) : Engine(system) {}
 	~NoxEngine() override;
 	Common::Error run() override;
+    bool canRestartEncounter() const override;
+    void restartEncounter() override;
     Common::JSONValue *testCLIState() override;
     Common::JSONValue *testCLICommand(Common::JSONValue &request) override;
 	bool hasFeature(EngineFeature feature) const override { return feature == kSupportsReturnToLauncher || feature == kSupportsSavingDuringRuntime || feature == kSupportsLoadingDuringRuntime; }

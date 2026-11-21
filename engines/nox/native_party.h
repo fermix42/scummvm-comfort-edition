@@ -2,6 +2,7 @@
 #ifndef NOX_NATIVE_PARTY_H
 #define NOX_NATIVE_PARTY_H
 #include "nox/records.h"
+#include "nox/party_invulnerability.h"
 #include "nox/resources.h"
 namespace Nox {
 namespace Native {
@@ -63,7 +64,9 @@ public:
     }
     bool damage(uint index, uint16 amount) {
         if (!_ready || index >= memberCount()) return false;
-        _members[index].damage(amount); return true;
+        if (!preventsPartyDamage(true))
+            _members[index].damage(amount);
+        return true;
     }
     bool applyBattleMembers(const byte *records,uint length,uint count) {
         if (!_ready || !records || length!=768 || count!=memberCount()) return false;

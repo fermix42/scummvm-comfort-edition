@@ -53,6 +53,7 @@ inline bool validateNativeDialogueBoundary486(HdvArchive &archive,Common::Seekab
         }
         if (direction==255 || !status.paint(game,scene,light,false,frame)) return false;
         Common::ScopedPtr<WorldConversation> modal(new WorldConversation);GameplayRandom random;if (!random.initializeEntropy(119) || !modal->choose(game.world,frame)) return false;
+        const byte initialField=game.world.field(174);
         auto send=[&](Common::KeyCode key,byte ascii=0) {Common::Event event;event.type=Common::EVENT_KEYDOWN;event.kbd=Common::KeyState(key,ascii);byte message=255;return modal->handle(event,archive,game,scene,frame,message,nullptr,&random);};
         auto drain=[&](bool close) {for (uint n=0;n<96;++n) {if (!modal->active()) return close;if (modal->stage()==3) return !close;if (send(Common::KEYCODE_RETURN,13)==kWorldConversationUnsupported) return false;}return false;};
         auto word=[&](const char *value) {for (uint i=0;value[i];++i) if (send(Common::KeyCode(Common::KEYCODE_a+value[i]-'A'),byte(value[i]))!=kWorldConversationHandled) return false;return send(Common::KEYCODE_RETURN,13)!=kWorldConversationUnsupported;};
@@ -72,7 +73,7 @@ inline bool validateNativeDialogueBoundary486(HdvArchive &archive,Common::Seekab
         report=Common::String::format("scheduled modal%u NAME",profile);if (!word("NAME") || !drain(false)) return false;
         report=Common::String::format("scheduled modal%u BYE",profile);if (!word("BYE")) return false;
         report=Common::String::format("scheduled modal%u closing",profile);if (!drain(true)) return false;
-        report=Common::String::format("scheduled modal%u final field174=%u",profile,game.world.field(174));if (game.world.field(174)!=90) return false;
+        report=Common::String::format("scheduled modal%u field174 before=%u after=%u",profile,initialField,game.world.field(174));if (game.world.field(174)!=initialField) return false;
         ++modals;
     }
     report=Common::String::format("dialogue-boundary\tauthored_JOB_repairs=%u\tcomplete_teacher_headers=%u\tscheduled_modal_JOB_NAME_close=%u\tfield174_preserved=1\tmodal_codecs=2\tcampaign=0\taudio_suite=0\n",repairs,teachers,modals);return true;

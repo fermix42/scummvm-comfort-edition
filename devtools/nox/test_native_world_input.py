@@ -9,15 +9,31 @@ def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 
 def current_world_tables(world):
     """Select the active registry explicitly; new games also retain Surface."""
-    assert world[:6]==b'NWLD\x01\x00'
+    assert world[:4] == b'NWLD'
+    version = struct.unpack_from('<H', world, 4)[0]
+    assert version in (1, 2)
     count=struct.unpack_from('<H',world,267)[0]
-    assert 0<count<=76 and len(world)==269+1794*count
+    end = 269 + 1794 * count
+    assert 0 < count <= 76 and len(world) == end + (3 if version == 2 else 0)
     family={0:0,2:1,4:1,3:2,6:3,5:4,7:5,8:6}[world[6]]
     records={}
-    for at in range(269,len(world),1794):
+    for at in range(269,end,1794):
         identity=tuple(world[at:at+2]);assert identity not in records
         records[identity]=world[at+2:at+1794]
     return records[(family,world[7])]
+def turn_facing(turn):
+    assert turn[:4] == b'NWAT'
+    version = struct.unpack_from('<H', turn, 4)[0]
+    if version == 6:
+        length = struct.unpack_from('<H', turn, 6)[0]
+        assert len(turn) == length + 13
+        return turn_facing(turn[8:8 + length])
+    assert 1 <= version <= 5
+    effect_size = turn[6] if version >= 4 else 12 if version == 3 else 9
+    assert effect_size in (9, 12)
+    return turn[6 + (version >= 4) + 37 + 62 + effect_size]
+
+
 def sections(packet):
     assert packet[:8] in [b'NPXS\x03\x00\x77\x00',b'NPXS\x04\x00\x77\x00'] and struct.unpack_from('<I',packet,8)[0]==len(packet)-28
     assert hashlib.md5(packet[28:]).digest()==packet[12:28]
@@ -79,7 +95,7 @@ def main():
         for i in range(1792):assert world[271+i]==expected[i],('Map differs',label,i,world[271+i],expected[i])
         clock=bytes(original[i]for i in [0x2bf8,0x3878,0x3879,0x3ffc,0x367f,0x414])
         assert (folder/'saves/nox-native-startup-clock.bin').read_bytes()[6:]==clock
-        assert parts['TURN'][-3]==original[0x257e],('Facing differs',label,parts['TURN'][-3],original[0x257e])
+        assert turn_facing(parts['TURN'])==original[0x257e],('Facing differs',label,turn_facing(parts['TURN']),original[0x257e])
         assert parts['CORE'][-5:]==original[0x7059:0x705b]+original[0x7057:0x7059]+original[0x367d:0x367e],('Owned currency/food/appearance differs',label)
         return original
     original=compare_original(notice,notice_parts,'first-east')

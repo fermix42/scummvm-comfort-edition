@@ -48,7 +48,7 @@ public:
         return true;
     }
     static bool run(World &world, const ActorPaintRules &rules, const byte *visibility,
-            uint count, PresentationState &state, WorldScene &output, const WorldStory *window = nullptr) {
+            uint count, PresentationState &state, WorldScene &output, const WorldStory *window = nullptr, bool settleDoors = true) {
         if (!world.ready() || rules.mapType() != world.mapType() || !visibility || count != 187 || state.facing > 3 ||
             (state.partyObject != 255 && (state.partyObject > 252 || (state.partyObject & 3)))) return false;
         World candidate(world); PresentationState after = state; WorldScene scene; Common::Array<byte> terrain;
@@ -62,7 +62,7 @@ public:
                 after.retainedCell=byte((oy-123)*17+ox-120);after.retainedCellKnown=true;
             }
             const uint objectDraws = scene.objects.draws.size();
-            if (!candidate.applyObjectPhase(slot, visibility, scene.actors.lookup, state.partyObject, 119, scene.objects)) return false;
+            if (!candidate.applyObjectPhase(slot, visibility, scene.actors.lookup, state.partyObject, 119, scene.objects, settleDoors)) return false;
             for (uint i = objectDraws; i < scene.objects.draws.size(); ++i)
                 scene.draws.push_back(ActorDraw(scene.objects.draws[i].cell, scene.objects.draws[i].tile, 16));
             candidate.syncObjectFields(scene.objects.lookup);

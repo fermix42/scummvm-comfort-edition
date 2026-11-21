@@ -99,6 +99,8 @@ public:
             PreparedEncounter encounter;
             if (!EncounterPreparation::prepare(archive,next,nextScene,nextTurn,nextInput.encounter(),encounter,nextInput.scriptedEncounter()) || !nextBattle.begin(archive,next,encounter,nextRandom)) return false;
         }
+        if (nextBattle.formed)
+            nextBattle.records.scriptedShadowLoss=nextInput.scriptedEncounter() && next.world.mapId()==0;
         game.adoptState(next);window=nextWindow;scene=nextScene;turn=nextTurn;routes=nextRoutes;random=nextRandom;text=nextText;frame=nextFrame;visibility=nextVisibility;light=nextLight;input=nextInput;animation=nextAnimation;battle=nextBattle;if (audio) *audio=nextAudio;return true;
     }
 };

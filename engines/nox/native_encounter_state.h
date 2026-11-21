@@ -49,6 +49,7 @@ public:
         byte count=0,groupFlags=0;
         if (!EncounterFormation::group(archive,prepared.admission.group,prepared.admission.monster?prepared.admission.monster:255,
             game.party.memberCount(),nextRandom,next,count,groupFlags,prepared.contextFlags,prepared.admission.sprite)) return false;
+        next.scriptedShadowLoss=prepared.scriptedShadowLoss;
         records=next;random=nextRandom;round.partyCount=byte(game.party.memberCount());round.enemyCount=count;round.category=game.world.mapType();round.mapId=game.world.mapId();round.enemySpell=prepared.admission.spell;round.specialSpell=(game.world.field(58)&128)!=0;round.protectedTargets=prepared.protectedTargets;
         // On-foot category8 always forbids fleeing. Other parent families and
         // transport/Quick preparation remain separate admission callers.

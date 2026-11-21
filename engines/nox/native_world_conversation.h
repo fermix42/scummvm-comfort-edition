@@ -1,6 +1,7 @@
 /* SPDX-License-Identifier: GPL-3.0-or-later */
 #ifndef NOX_NATIVE_WORLD_CONVERSATION_H
 #define NOX_NATIVE_WORLD_CONVERSATION_H
+#include "common/config-manager.h"
 #include "nox/native_new_game.h"
 #include "nox/native_recruitment.h"
 #include "nox/native_training.h"
@@ -111,7 +112,7 @@ public:
             // Historical API name: this is the source additional-gate byte.
             // Original new-game147 and retained pre-binding context both use1;
             // other caller lifetimes remain part of the service/UI integration.
-            context.adultMode=true;
+            context.adultMode=!ConfMan.hasKey("nox_mature_dialog") || ConfMan.getBool("nox_mature_dialog");
             uint refusal=0;
             if (actor[6]==255) refusal=0x12d; // hostile refusal text in immutable Talk data
             else if (scene.actors.terrain[cell]==footer[58] || scene.actors.terrain[cell]==footer[59]) refusal=0xf50;

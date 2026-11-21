@@ -80,8 +80,8 @@ public:
             // Credit precedes shared removal's protection refusal. Preserve
             // that ordering even when the protected actor remains in battle.
             // Neither branch zeros HP or performs weapon training.
-            result.suppressed=protectedTargets;
-            if (!protectedTargets) {
+            result.suppressed=protectedTargets || records.preventsDamageTo(target.kind);
+            if (!result.suppressed) {
                 if (!BattleRoster::dismiss(next,target)) return false;
                 result.removed=true;
             }

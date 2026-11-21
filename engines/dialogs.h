@@ -47,18 +47,22 @@ public:
 		kAboutCmd = 'ABOU',
 		kQuitCmd = 'QUIT',
 		kLauncherCmd = 'LNCR',
-		kChooseCmd = 'CHOS'
+		kChooseCmd = 'CHOS',
+		kEncounterRestartCmd = 'ENCR'
 	};
 
 public:
 	MainMenuDialog(Engine *engine);
 	~MainMenuDialog();
+	void open() override;
 
 	virtual void handleCommand(GUI::CommandSender *sender, uint32 cmd, uint32 data) override;
 
 	virtual void reflowLayout() override;
 
 protected:
+	void updateEncounterAction();
+	bool _encounterAction = false;
 	void save();
 	void load();
 

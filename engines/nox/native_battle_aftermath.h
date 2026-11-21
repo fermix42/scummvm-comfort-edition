@@ -6,6 +6,7 @@
 #include "nox/native_world_input.h"
 #include "nox/native_battle_world_return.h"
 #include "nox/native_ending.h"
+#include "nox/native_battle_advancement_presentation.h"
 namespace Nox { namespace Native {
 // Result transaction joins the actual battle output to its parent world/party.
 // Pending loot choices and final acknowledgement remain explicit continuations.
@@ -14,7 +15,7 @@ public:
     BattleAftermath() : _ready(false) {}
     bool load(HdvArchive &archive) {
         Common::Array<byte> text;
-        if (!_rewards.load(archive) || !_advancement.load(archive) || !_loot.load(archive) ||
+        if (!_rewards.load(archive) || !_advancement.load(archive) || !_loot.load(archive) || !_advancementPresentation.load(archive) ||
             !archive.readRange("NA/SRTN.INVENTORY",0x7b6d,0x655,text)) return false;
         if (!readText(text,0xa1b4,_gold) || !readText(text,0xa1c3,_food) || !readText(text,0xa1d2,_xp) ||
             !readText(text,0xa1e0,_found) || !readText(text,0xa1fb,_choices)) return false;
@@ -38,7 +39,7 @@ public:
             after.resultPhase=5;game.adoptState(next);battle=after;random=rng;return true;
         }
         if (!_advancement.begin(after.records,after.round.partyCount,after.advancement)) return false;
-        if (!after.advancement.finished) after.resultPhase=3;
+        if (!after.advancement.finished) {after.resultPhase=3;after.advancement.phase=4;}
         else if (!beginLoot(next,after,rng)) return false;
         game.adoptState(next);battle=after;random=rng;return true;
     }
@@ -46,7 +47,7 @@ public:
         if (!_ready || battle.resultPhase!=5 || battle.round.phase!=kBattleVictory || !EndingPresentation::revelation(battle.round.mapId,game.world.field(56),game.world.field(59))) return false;
         NewGame next(game);EncounterState after=battle;GameplayRandom rng=random;
         if (!_advancement.begin(after.records,after.round.partyCount,after.advancement)) return false;
-        if (!after.advancement.finished) after.resultPhase=3;
+        if (!after.advancement.finished) {after.resultPhase=3;after.advancement.phase=4;}
         else if (!beginLoot(next,after,rng)) return false;
         game.adoptState(next);battle=after;random=rng;return true;
     }
@@ -65,19 +66,32 @@ public:
         if (state.phase==1) {
             if (key>=Common::KEYCODE_0 && key<=Common::KEYCODE_9) {
                 if (state.digits<2) { state.value=byte(state.value*10+key-Common::KEYCODE_0);++state.digits; }
-            } else if (key==Common::KEYCODE_BACKSPACE) { if (state.digits) { --state.digits;state.value/=10; } }
+            } else if (key==Common::KEYCODE_BACKSPACE || key==Common::KEYCODE_DELETE) { if (state.digits) { --state.digits;state.value/=10; } }
             else if (key==Common::KEYCODE_RETURN) {
+                if (!state.digits) return true;
                 if (!_advancement.allocate(state.value,state)) return false;
+                if (state.phase==1) state.digits=state.value=0;
             }
         } else if (state.phase==2) {
             if (key!=Common::KEYCODE_y && key!=Common::KEYCODE_n) return true;
             if (!_advancement.confirm(key==Common::KEYCODE_y,after.records,after.round.partyCount,state)) return false;
+            if (!state.finished) state.phase=4;
         } else if (state.phase==3) {
             if (!_advancement.restart(after.records,after.round.partyCount,state)) return false;
-        } else return false;
+            state.phase=4;
+        } else if (state.phase==4) return true;
+        else return false;
         if (!next.party.applyBattleMembers(after.records.stats,768,after.round.partyCount)) return false;
         if (state.finished && !beginLoot(next,after,rng)) return false;
         game.adoptState(next);battle=after;random=rng;return true;
+    }
+    bool advanceIntroduction(EncounterState &battle) const {
+        if (!_ready || battle.resultPhase!=3 || battle.advancement.phase!=4) return false;
+        BattleAdvancementState &s=battle.advancement;
+        const uint position=uint(s.digits)*100+s.value+1;
+        if (position>=_advancementPresentation.introduction(s).size()) {s.phase=1;s.digits=s.value=0;}
+        else {s.digits=byte(position/100);s.value=byte(position%100);}
+        return true;
     }
     bool choose(bool take,bool all,NewGame &game,EncounterState &battle,GameplayRandom &random) const {
         if (!_ready || battle.resultPhase!=1 || !battle.loot.pending) return false;
@@ -94,18 +108,20 @@ public:
     }
     bool paint(const GlyphFont &font,EncounterState &battle) const {
         if (!_ready || !battle.resultPhase) return false;HgrFrame image=battle.frame;
-        for (uint row=14;row<24;++row) if (!image.clearTextSpan(0,row,40)) return false;
-        uint row=15;
         if (battle.resultPhase==3) {
             const BattleAdvancementState &state=battle.advancement;
-            if (!draw(font,image,"Level advancement\r",row)) return false;
-            if (state.phase==1) {
-                const char *names[]={"Strength","Dexterity","Intelligence"};if (state.ability>=3) return false;
-                if (!draw(font,image,Common::String::format("Points remaining: %u\r%s: %u",uint(state.remaining),names[state.ability],uint(state.value)),row)) return false;
-            } else if (state.phase==2) {
-                if (!draw(font,image,Common::String::format("STR +%u  DEX +%u  INT +%u\rConfirm (Y/N)",uint(state.points[0]),uint(state.points[1]),uint(state.points[2])),row)) return false;
-            } else if (!draw(font,image,"Allocate at least 12 points.\rPress a key to retry.",row)) return false;
-        } else if (battle.loot.pending) {
+            if (state.cursor>=battle.round.partyCount || !_advancementPresentation.paint(font,battle.records.stats+state.cursor*128,state,image)) return false;
+            for (uint member=0;member<battle.round.partyCount;++member) {
+                if (!image.clearTextSpan(25,1+member*2,14)) return false;
+                const byte *record=battle.records.stats+member*128;
+                for (uint i=0;i<14 && record[75+i];++i)
+                    if (!image.drawGlyph(font,record[75+i],25+i,1+member*2,member==state.cursor?127:0)) return false;
+            }
+            battle.frame=image;return true;
+        }
+        for (uint row=14;row<24;++row) if (!image.clearTextSpan(0,row,40)) return false;
+        uint row=15;
+        if (battle.loot.pending) {
             Common::String item;if (!_loot.describe(battle.loot,item) || !draw(font,image,_found,row) || !draw(font,image,item,row)) return false;
             ++row;if (!draw(font,image,_choices,row)) return false;
         } else {
@@ -151,7 +167,7 @@ private:
         }
         return true;
     }
-    bool _ready;BattleRewardRules _rewards;BattleAdvancement _advancement;BattleLoot _loot;
+    bool _ready;BattleRewardRules _rewards;BattleAdvancement _advancement;BattleLoot _loot;BattleAdvancementPresentation _advancementPresentation;
     Common::String _food,_gold,_xp,_found,_choices;
 };
 } }

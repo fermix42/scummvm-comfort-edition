@@ -194,11 +194,22 @@ Common::Error NoxEngine::run() {
 	}
 	if (matches != 1)
 		return Common::Error(Common::kNoGameDataFoundError, "Exactly one supported Nox Archaist v119 image is required");
+    _resources.setDefaultFont(ConfMan.hasKey("nox_alternate_font") && ConfMan.getBool("nox_alternate_font") ? 2 : 1);
     _saveMode=ConfMan.hasKey("nox_classic_saves")&&ConfMan.getBool("nox_classic_saves")?kClassicSaveMode:kModernSaveMode;
     Common::CEAchievements().resetPopupState();
     // Native-only builds have no compatibility fallback or opt-in requirement.
     return runNativeStartup();
 }
+bool NoxEngine::canRestartEncounter() const {
+    return _nativePlayer && _runtimeSession == Common::CEAchievements().getCurrentPlaythroughForTarget(_targetName) &&
+        static_cast<const Native::PlayerSessionState *>(_nativePlayer)->canRestartEncounter();
+}
+
+void NoxEngine::restartEncounter() {
+    if (canRestartEncounter() && static_cast<Native::PlayerSessionState *>(_nativePlayer)->restartEncounter())
+        resetAudio();
+}
+
 } // namespace Nox
 
 #include "nox/native_test_cli.h"

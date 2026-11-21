@@ -57,7 +57,11 @@ inline bool validateNativePortal491(HdvArchive &archive,Common::SeekableReadStre
         const uint16 health=game.party.member(0)->health();const TurnClock clock=game.clock;const Common::KeyCode keys[]={Common::KEYCODE_UP,Common::KEYCODE_DOWN,Common::KEYCODE_RIGHT,Common::KEYCODE_LEFT};Common::Event event;event.type=Common::EVENT_KEYDOWN;event.kbd=Common::KeyState(keys[direction],0);
         report=Common::String::format("actual portal profile%u arrow",profile);const WorldInputResult result=command->handle(event,archive,game,window,scene,turn,light,visible,routes,random,messages,text,frame);
         report=Common::String::format("portal%u result%u map%u/%u xy%u,%u phase%u->%u HP%u->%u selected%u command%u",profile,uint(result),game.world.mapType(),game.world.mapId(),game.world.x(),game.world.y(),clock.phase,game.clock.phase,health,game.party.member(0)->health(),scene.objects.portal,uint(command->atWorldCommand()));
-        if (result!=(profile?kWorldInputTransition:kWorldInputHandled) || !command->atWorldCommand() || game.clock.phase==clock.phase || game.party.member(0)->health()!=health || command->worldDefeated()) return false;
+        // The original movement portal jumps to the destination before F134
+        // charges the clock. A locked portal returns to the ordinary turn.
+        const bool advancedClock=game.clock.phase!=clock.phase;
+        if (result!=(profile?kWorldInputTransition:kWorldInputHandled) || !command->atWorldCommand() ||
+            advancedClock!=(profile==0) || game.party.member(0)->health()!=health || command->worldDefeated()) return false;
         const byte expectedType=profile==2?0:7,expectedMap=profile==0?54:profile==1?57:0,expectedX=profile==0?36:profile==1?38:172,expectedY=profile==0?11:profile==1?44:64;
         if (game.world.mapType()!=expectedType || game.world.mapId()!=expectedMap || game.world.x()!=expectedX || game.world.y()!=expectedY) return false;++arrows;
         report=Common::String::format("actual portal profile%u core/modal codec save",profile);Common::MemoryWriteStreamDynamic core(DisposeAfterUse::YES),modal(DisposeAfterUse::YES);if (!game.save(core) || !command->save(modal)) return false;

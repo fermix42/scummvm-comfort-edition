@@ -51,6 +51,7 @@
 #include "nox/native_battle_cast.h"
 #include "nox/native_combat_fixture.h"
 #include "nox/native_player_session.h"
+#include "nox/native_map_reveal.h"
 #include "nox/native_party_order_validation.h"
 #include "nox/native_information_validation.h"
 #include "nox/native_player_controls_validation.h"
@@ -798,10 +799,9 @@ inline Common::Error NoxEngine::runNativeStartup() {
     uint conversationAutomaticKeys=0;
     const bool autoPlay=replay && ConfMan.hasKey("nox_native_combat_finish_battle") && ConfMan.getBool("nox_native_combat_finish_battle");
     const bool endingAcceptance=autoPlay && ConfMan.hasKey("nox_native_combat_finish_ending") && ConfMan.getBool("nox_native_combat_finish_ending");
-    const Native::CombatPreference combatPreference=Native::CombatPreferences::read(ConfMan,ConfMan.getActiveDomainName(),replay);
     const int quickLimit=replay && ConfMan.hasKey("nox_native_quick_action_limit")?ConfMan.getInt("nox_native_quick_action_limit"):0;
     Native::QuickBattle quickRules;
-    if (quickLimit<0 || quickLimit>10000 || ((combatPreference!=Native::kPreferTactical || encounterState.quick.partyCount || encounterState.mode.selection==1) && !quickRules.load(_resources))) return fail("Native Quick policy setup unavailable");
+    if (quickLimit<0 || quickLimit>10000 || !quickRules.load(_resources)) return fail("Native Quick policy setup unavailable");
     Native::CombatFixtureInput automatic;uint automaticKeys=0;Common::String automaticTrace;
     auto recordStoryFrame=[&]() -> bool {
         Native::HgrFrame current;if (!storyBackdrop.render(current,storyAnimation) || !storyWindow.paint(current)) return false;
@@ -842,6 +842,7 @@ inline Common::Error NoxEngine::runNativeStartup() {
                             game.appearance,0,animationState.phase,painted,turns.presentation,light,visibility,nextFrame,&prepared))) ||
                         !status.paint(game,prepared,light,false,nextFrame) || !animationState.synchronize(nextFrame) || !worldInput.finishEncounter(encounterState.round.protectedTargets)) return false;
                     if (encounterState.exit.phase==3) { turns.compact.freezeTimer=3;turns.npc.freezeTimer=3; }
+                    player.forgetEncounterRestart();
                     lastBattleCredit=encounterState.records.credit;++battleCompleted;player.music.leaveCombat();
                     if (!templeTravel && player.music.ready()) {if (!player.music.ambient(_resources,random,game.world.mapType(),game.world.mapId())) return false;resetAudio();player.lastAudioTick=0;}
                     frame=nextFrame;const bool partyTargeting=encounterState.attack.partyTargeting;encounterState=Native::EncounterState();encounterState.attack.partyTargeting=partyTargeting;encounterPrepared=false;redraw=true;lastAnimationTick=_system->getMillis();
@@ -880,12 +881,42 @@ inline Common::Error NoxEngine::runNativeStartup() {
     // Normal Engine save_slot restoration registers the same owned battle.
     if (autoPlay && (!encounterState.formed || !automatic.load(_resources))) return fail("Combat input driver requires a restored battle");
     if (playerProbe.finished()) return Common::kNoError;
+    Common::String invulnerabilitySession, revealMapSession;
+    bool revealMap = false;
+    Common::Array<byte> mapOverviewRGB;
+    uint32 advancementStamp=_system->getMillis(),advancementFraction=0;
+    Native::QuickBattleDisplay advancementDisplay;
+    advancementDisplay.speed=byte(ConfMan.hasKey("nox_combat_scroll_speed")?ConfMan.getInt("nox_combat_scroll_speed"):2);
     while (!shouldQuit()) {
         if (soundEvents.size()>128) return fail("Native sound event batch exceeded its contract");
         for (uint i=0;i<soundEvents.size();++i) if (!playNativeSpeaker(byte(soundEvents[i]))) return fail("Native gameplay sound event failed");
         soundEvents.clear();
         CETestCLI::frame();
         if (!synchronizePlaySession()) return fail("Native player session could not be initialized");
+        // The CE cheat options are target preferences, independent of save data.
+        // Attribute the active setting to the owner selected by New or Load.
+        if (Native::preventsPartyDamage(true) && !_runtimeSession.empty() &&
+                invulnerabilitySession != _runtimeSession) {
+            auto &ce = Common::CEAchievements();
+            const auto flags = ce.getAssistanceFlags();
+            if (Common::find(flags.begin(), flags.end(), Native::kPartyInvulnerabilityAssistance) == flags.end())
+                ce.noteDisqualifyingAssistance(Native::kPartyInvulnerabilityAssistance);
+            invulnerabilitySession = _runtimeSession;
+        }
+        const bool mapEnabled = Native::revealExplorationMap();
+        if (mapEnabled != revealMap) {
+            revealMap = mapEnabled;
+            if (!revealMap)
+                player.mapOverview = false;
+            redraw = true;
+        }
+        if (revealMap && !_runtimeSession.empty() && revealMapSession != _runtimeSession) {
+            auto &ce = Common::CEAchievements();
+            const auto flags = ce.getAssistanceFlags();
+            if (Common::find(flags.begin(), flags.end(), Native::kRevealMapAssistance) == flags.end())
+                ce.noteDisqualifyingAssistance(Native::kRevealMapAssistance);
+            revealMapSession = _runtimeSession;
+        }
         // CE load/session replacement can reconstruct these owners in frame().
         worldInput.setSoundEvents(&soundEvents,_nativeSoundMode==0 || _nativeSoundMode==2);wait.setSoundEvents(&soundEvents);
         if (sceneReady && !startupMenu && !encounterState.formed && worldInput.atWorldCommand()) {
@@ -923,6 +954,7 @@ inline Common::Error NoxEngine::runNativeStartup() {
         battleRound.setProjectileMode(turns.effects.projectileMode);
         if (encounterState.presented && !encounterState.resultPhase && !encounterState.mode.selection && !encounterState.quick.partyCount && !encounterState.command && !encounterState.round.actions && !encounterState.inventory.active() &&
             (encounterState.round.phase==Native::kBattlePartyTurn || encounterState.round.phase==Native::kBattleAutomaticTurn)) {
+            const Native::CombatPreference combatPreference=Native::CombatPreferences::read(ConfMan,_targetName,replay);
             if (!Native::CombatModeAdmission::begin(_resources,preparedEncounter,combatPreference,encounterState)) return fail("Native combat preference admission failed");
             Native::HgrFrame image;const Common::String prompt=battlePresentation.modePrompt(encounterState.mode.warning);
             if (!battlePresentation.paint(preparedEncounter,encounterState,encounterState.phase,image,encounterState.mode.selection==1?&prompt:nullptr)) return fail("Native combat mode presentation unavailable");
@@ -937,6 +969,7 @@ inline Common::Error NoxEngine::runNativeStartup() {
         if (encounterState.presented && encounterState.quick.partyCount && encounterState.quick.phase<3 && encounterState.round.phase!=Native::kBattleDefeat) {
             Native::QuickBattleDisplay &display=player.quickDisplay;const uint32 now=_system->getMillis();
             if (!display.shown) display.speed=Native::CombatPreferences::scrollSpeed(ConfMan,_targetName);
+            const uint remaining=display.remaining;
             if (display.ready(now,!replay || pacedReplay)) {
                 const uint32 turn=encounterState.quick.rounds*2+encounterState.quick.side/2;
                 if (!encounterState.quick.phase && encounterState.quick.cursor==0 && display.announcedTurn!=turn) {
@@ -954,14 +987,24 @@ inline Common::Error NoxEngine::runNativeStartup() {
                     Native::HgrFrame image;
                     if (!battlePresentation.paintQuick(encounterState,display,image)) return fail("Native Quick action presentation failed");
                     encounterState.frame=image;redraw=true;
+                } else if (encounterState.quick.phase==1 && !display.victoryAnnounced) {
+                    display.victoryAnnounced=true;
+                    display.message(battlePresentation.quickVictory(),now);
+                    Native::HgrFrame image;
+                    if (!battlePresentation.paintQuick(encounterState,display,image)) return fail("Native Quick victory text presentation failed");
+                    encounterState.frame=image;redraw=true;
                 } else if (encounterState.quick.phase) {
                     const bool won=encounterState.quick.phase==1;
                     if (won && !Native::QuickBattle::restore(encounterState.records,encounterState.quick)) return fail("Native Quick temporary metadata could not restore");
                     encounterState.round.phase=won?Native::kBattleVictory:Native::kBattleDefeat;if (won) encounterState.quick.phase=3;
                     Native::HgrFrame image;
-                    if (!battlePresentation.paintQuick(encounterState,display,image,won)) return fail("Native Quick roster/outcome presentation failed");
+                    if (!battlePresentation.paintQuick(encounterState,display,image)) return fail("Native Quick roster/outcome presentation failed");
                     encounterState.frame=image;redraw=true;
                 }
+            } else if (remaining!=display.remaining) {
+                Native::HgrFrame image;
+                if (!battlePresentation.paintQuick(encounterState,display,image)) return fail("Native Quick character presentation failed");
+                encounterState.frame=image;redraw=true;
             }
         }
         if (encounterState.presented && Native::CombatModeAdmission::automaticTactical(encounterState)) {
@@ -971,11 +1014,32 @@ inline Common::Error NoxEngine::runNativeStartup() {
             Native::HgrFrame image;if (!battlePresentation.paint(preparedEncounter,encounterState,encounterState.phase,image)) return fail("Native automatic status round presentation failed");
             encounterState.frame=image;redraw=true;
         }
+        if (encounterState.presented && encounterState.resultPhase==3 && encounterState.advancement.phase==4) {
+            const uint32 now=_system->getMillis(),elapsed=now-advancementStamp;advancementStamp=now;
+            const uint32 cycles=Native::QuickBattleDisplay::characterCycles(advancementDisplay.speed);
+            const uint64 budget=uint64(advancementFraction)+uint64(elapsed)*1023;
+            uint characters=replay && !pacedReplay?300:advancementDisplay.paused?0:uint(budget/cycles);
+            advancementFraction=advancementDisplay.paused?0:uint32(budget%cycles);
+            while (characters-- && encounterState.advancement.phase==4) {
+                if (!aftermath.advanceIntroduction(encounterState)) return fail("Native advancement narration failed");
+                redraw=true;
+            }
+            if (redraw && !aftermath.paint(font,encounterState)) return fail("Native advancement narration presentation failed");
+        } else {advancementStamp=_system->getMillis();advancementFraction=0;}
         if (redraw) {
+            if (encounterState.presented && encounterState.resultPhase==3 && !aftermath.paint(font,encounterState)) return fail("Native restored advancement presentation failed");
             if (!sceneReady && (storyStarted?(!storyBackdrop.render(frame,storyAnimation)||!storyWindow.paint(frame)):!(startupMenu?startupPresentation.render(font,frame,startupChoice,startupAnimation):creation.render(font,frame)))) return fail("Native startup UI render failed");
             Common::Array<byte> rgb;
             if (titleVisible) title.renderRGB(rgb);
-            else (encounterState.presented?encounterState.frame:frame).renderRGB(rgb);
+            else if (player.mapOverview) rgb = mapOverviewRGB;
+            else if (revealMap && sceneReady && !startupMenu && !encounterState.formed &&
+                     worldInput.atWorldCommand()) {
+                Native::HgrFrame visibleFrame = frame;
+                if (!Native::paintRevealedViewport(game.world, window, actors, turns.presentation,
+                        prepared, visibility, painter, animationState.phase, visibleFrame))
+                    return fail("Native revealed exploration presentation failed");
+                visibleFrame.renderRGB(rgb);
+            } else (encounterState.presented?encounterState.frame:frame).renderRGB(rgb);
             for (uint y=0;y<384;++y) for (uint x=0;x<560;++x) {
                 const byte *pixel=rgb.data()+(y*560+x)*3;
                 *static_cast<uint32 *>(_surface.getBasePtr(x,y))=format.RGBToColor(pixel[0],pixel[1],pixel[2]);
@@ -1048,6 +1112,19 @@ inline Common::Error NoxEngine::runNativeStartup() {
         if (!generated && event.type==Common::EVENT_KEYUP) ++processedReleases;
         if (sceneReady) {
             if (event.type!=Common::EVENT_KEYDOWN) continue;
+            if (player.mapOverview || (revealMap && !encounterState.formed &&
+                    worldInput.atWorldCommand() && event.kbd.keycode == Common::KEYCODE_m)) {
+                if (player.mapOverview) {
+                    if (event.kbd.keycode == Common::KEYCODE_m || event.kbd.keycode == Common::KEYCODE_ESCAPE) {
+                        player.mapOverview = false;
+                        redraw = true;
+                    }
+                } else if (Native::paintMapOverview(game.world, font, painter, mapOverviewRGB)) {
+                    player.mapOverview = true;
+                    redraw = true;
+                }
+                continue;
+            }
             if (replay) inputTrace+=Common::String::format("%u\t%u\t%s\t%u\t%u\n",processedKeys,uint(creation.stage()),creation.name().c_str(),creation.gender(),creation.race());
             const bool soundAtBattleCommand=encounterState.presented && !encounterState.inventory.active() && (encounterState.mode.selection==0 || encounterState.mode.selection==2) && !encounterState.quick.partyCount && !encounterState.command && !encounterState.resultPhase && !encounterState.exit.phase && encounterState.round.phase==Native::kBattlePartyTurn;
             if (((!encounterState.formed && worldInput.atWorldCommand()) || soundAtBattleCommand) && event.kbd.keycode==Common::KEYCODE_v) {
@@ -1114,6 +1191,13 @@ inline Common::Error NoxEngine::runNativeStartup() {
                     redraw=true;continue;
                 }
                 if (encounterState.resultPhase==3) {
+                    if (encounterState.advancement.phase==4) {
+                        const byte ascii=byte(event.kbd.ascii?event.kbd.ascii:uint(key));
+                        if (advancementDisplay.control(ascii,_system->getMillis(),false)) {
+                            ConfMan.setInt("nox_combat_scroll_speed",advancementDisplay.speed,_targetName);ConfMan.flushToDisk();
+                        }
+                        continue;
+                    }
                     if (!aftermath.abilityInput(key,game,encounterState,random) || !aftermath.paint(font,encounterState)) return fail("Native advancement could not complete its character/result continuation");
                     redraw=true;continue;
                 }
@@ -1311,6 +1395,7 @@ inline Common::Error NoxEngine::runNativeStartup() {
                 battleMoveTrace+=Common::String::format("%u\t%u\t%u\t%u\t%u\t%u\t%08X\t%u\t%u\n",battleMoveCommands,uint(direction),uint(next.records.compact[0]),uint(next.records.compact[1]),uint(next.records.extended[0]),uint(next.records.extended[1]),random.seed(),uint(READ_LE_UINT16(next.records.stats+2)),uint(READ_LE_UINT16(next.records.stats+770)));
                 continue;
             }
+            player.captureBeforeEncounter();
             const byte priorMusicType=game.world.mapType(),priorMusicMap=game.world.mapId();
             Native::WorldInputResult handled=worldInput.handle(event,_resources,game,window,prepared,turns,light,visibility,routes,random,messages,text,frame,animationState.phase);
             if (worldInput.takeRefusalSound() && !playNativeRefusal()) return fail("Native refusal sound failed");

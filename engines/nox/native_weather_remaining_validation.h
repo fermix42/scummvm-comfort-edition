@@ -4,6 +4,7 @@
 #include "nox/native_world_population_validation.h"
 namespace Nox { namespace Native {
 inline bool validateNativeWeatherRemaining518(HdvArchive &archive,Common::String &report) {
+    const bool immune=preventsPartyDamage(true);
     uint hazards=0;
     for (uint part=0;part<4;++part) for (uint protectedParty=0;protectedParty<2;++protectedParty) {
         report=Common::String::format("population517 storm quadrant damage%u protection%u",part,protectedParty);
@@ -12,8 +13,9 @@ inline bool validateNativeWeatherRemaining518(HdvArchive &archive,Common::String
         Common::String conditions;for (uint i=0;i<v->game.party.memberCount();++i) conditions+='0';
         if (!WorldCheckpointFixture::conditions(v->game,conditions,50)) return false;
         const uint16 health=v->game.party.member(0)->health();WorldHazards hazard;bool defeated=false;SoundEvents sounds;
-        if (!hazard.load(archive,0) || !hazard.apply(v->game.world,v->scene,v->game.party,v->messages,v->text,v->frame,defeated,false,&sounds) || defeated!=!protectedParty) return false;
-        if (protectedParty?(v->game.party.member(0)->health()!=health || !sounds.empty()):(v->game.party.member(0)->health()!=0 || sounds.size()!=1 || sounds[0]!=kSpeakerMagic)) return false;++hazards;
+        if (!hazard.load(archive,0) || !hazard.apply(v->game.world,v->scene,v->game.party,v->messages,v->text,v->frame,defeated,false,&sounds) || defeated!=(!protectedParty && !immune)) return false;
+        if (v->game.party.member(0)->health()!=((protectedParty || immune)?health:0) ||
+                (protectedParty?!sounds.empty():(sounds.size()!=1 || sounds[0]!=kSpeakerMagic))) return false;++hazards;
     }
     report="population517 storm defeat";
     Common::ScopedPtr<NightActorValidation504> defeatedOwner(new NightActorValidation504(archive));
@@ -21,7 +23,7 @@ inline bool validateNativeWeatherRemaining518(HdvArchive &archive,Common::String
     Common::String lowHealth;for (uint i=0;i<defeatedOwner->game.party.memberCount();++i) lowHealth+='0';
     if (!WorldCheckpointFixture::conditions(defeatedOwner->game,lowHealth,50)) return false;
     WorldHazards deadly;bool dead=false;
-    if (!deadly.load(archive,0) || !deadly.apply(defeatedOwner->game.world,defeatedOwner->scene,defeatedOwner->game.party,defeatedOwner->messages,defeatedOwner->text,defeatedOwner->frame,dead) || !dead || defeatedOwner->game.party.member(0)->health()) return false;
+    if (!deadly.load(archive,0) || !deadly.apply(defeatedOwner->game.world,defeatedOwner->scene,defeatedOwner->game.party,defeatedOwner->messages,defeatedOwner->text,defeatedOwner->frame,dead) || dead==immune || defeatedOwner->game.party.member(0)->health()!=(immune?50:0)) return false;
     report="population517 ordinary arm/poll/codec/delay lifecycle";
     Common::ScopedPtr<NightActorValidation504> v(new NightActorValidation504(archive));if (!populationCheckpoint517(*v,126,127,false)) return false;
     WorldWait wait;WorldActorTurnEvent event;
@@ -52,7 +54,7 @@ inline bool validateNativeWeatherRemaining518(HdvArchive &archive,Common::String
     travel->turn.population.cursor=152;travel->turn.population.stormAttempts=7;travel->turn.population.monsterChoice=3;travel->turn.population.action=2;
     travel->turn.effects.queued=1;travel->turn.effects.code=5;
     if (!travel->input.continueTempleVictory(archive,travel->game,travel->window,travel->scene,travel->turn,travel->light,travel->visible,travel->frame,0) || travel->game.world.mapId()!=58 || travel->turn.effects.queued || !travel->turn.population.pending || travel->turn.population.cursor!=152 || travel->turn.population.stormAttempts!=7 || travel->turn.population.monsterChoice!=3 || travel->turn.population.action!=2 || !populationCodec517(travel->turn)) return false;
-    report="weather_remaining\tquadrant_damage_protection=8\tdefeat=1\tarm_poll_delay=1\tall_visible_bound=1\tactual_movement_arm=1\tshared_travel_cleanup=1\told_passed_prefix_rerun=0\n";return true;
+    report=Common::String::format("weather_remaining\tquadrant_damage_protection=8\tdefeat=%u\tarm_poll_delay=1\tall_visible_bound=1\tactual_movement_arm=1\tshared_travel_cleanup=1\told_passed_prefix_rerun=0\n",uint(!immune));return true;
 }
 } }
 #endif

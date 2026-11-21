@@ -37,10 +37,19 @@ inline bool validateNativeDialogueVoice498(HdvArchive &archive,Common::SeekableR
     };
     auto type=[&](const char *word) {for (uint i=0;word[i];++i) if (send(Common::KeyCode(word[i]==' '?Common::KEYCODE_SPACE:Common::KEYCODE_a+word[i]-'A'),uint16(word[i]))!=kWorldInputHandled) return false;return true;};
     uint cycles=0,codecs=0,selected=0;
+    Common::Array<byte> talk;
+    if (!archive.read("NA/SRTN.NPC.TALK",talk)) return false;
     auto label=[&](uint mode) {
-        const char *labels[]={"Tab: normal","Tab: yell","Tab: whisper"};GlyphFont font;HgrFrame expected=frame;
-        if (mode>2 || !font.load(archive,1) || !expected.clearTextSpan(25,22,13)) return false;
-        for (uint i=0;labels[mode][i];++i) if (!expected.drawGlyph(font,byte(labels[mode][i])|128,25+i,22,0)) return false;
+        static const uint offsets[]={0xf66,0xf70,0xf7a};
+        GlyphFont font;HgrFrame expected=frame;
+        if (mode>2 || !font.load(archive,1) || !expected.clearTextSpan(25,21,13) || !expected.clearTextSpan(25,22,13)) return false;
+        for (uint line=0;line<2;++line) {
+            uint start=line?offsets[mode]:0xf5a,column=line?29:25;
+            while (start<talk.size() && talk[start]) {
+                if (column>=38 || !expected.drawGlyph(font,talk[start++],column++,21+line,0)) return false;
+            }
+            if (start==talk.size()) return false;
+        }
         return !memcmp(expected.data(),frame.data(),8192);
     };
     auto cycle=[&](uint mode) {

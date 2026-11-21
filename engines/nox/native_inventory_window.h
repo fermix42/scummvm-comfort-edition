@@ -36,6 +36,10 @@ public:
     InventoryWindowResult handle(const Common::Event &event,HdvArchive &archive,NewGame &game,HgrFrame &frame) {
         if (!_messages.load(archive) || !active() || !matches(game.world) || event.type!=Common::EVENT_KEYDOWN) return kInventoryWindowUnsupported;
         const Common::KeyCode key=event.kbd.keycode;const byte ascii=byte(event.kbd.ascii?event.kbd.ascii:(key>=Common::KEYCODE_a && key<=Common::KEYCODE_z?uint(key):0))&95;
+        if (_tab==5 && _settingsPrompt!=kSettingsIdle) {
+            handleSettingsPrompt(key,event.kbd.ascii);
+            return paint(archive,game,frame)?kInventoryWindowHandled:kInventoryWindowUnsupported;
+        }
         if (_phase==4) {
             if (key==Common::KEYCODE_ESCAPE) {_phase=1;_message.clear();return paint(archive,game,frame)?kInventoryWindowHandled:kInventoryWindowUnsupported;}
             if (_reading.waiting()) return _reading.handle(event) && _reading.paint(frame)?kInventoryWindowHandled:kInventoryWindowUnsupported;
@@ -46,7 +50,7 @@ public:
             else {frame=_underlay;*this=InventoryWindow();return kInventoryWindowClosed;}
         } else {
             Common::Array<uint> slots;if (!collect(archive,game.inventory,slots)) return kInventoryWindowUnsupported;
-            if (_selected>=slots.size()) _selected=slots.empty()?0:uint16(slots.size()-1);
+            if (_tab!=5 && _selected>=slots.size()) _selected=slots.empty()?0:uint16(slots.size()-1);
             if (_phase==3) {
                 if (ascii=='Y' || ascii=='N') {
                     if (slots.empty()) return kInventoryWindowUnsupported;
@@ -72,7 +76,11 @@ public:
             } else if (_tab==0) {
                 if (key==Common::KEYCODE_LEFT || key==Common::KEYCODE_PAGEUP) _sheetPage=byte((_sheetPage+3)%4);
                 else if (key==Common::KEYCODE_RIGHT || key==Common::KEYCODE_PAGEDOWN) _sheetPage=byte((_sheetPage+1)%4);
-            } else if (_tab==5) {_message="Preferences: ScummVM Game Options.";}
+            } else if (_tab==5) {
+                if (key==Common::KEYCODE_UP) _selected=(_selected+3)%4;
+                else if (key==Common::KEYCODE_DOWN) _selected=(_selected+1)%4;
+                else if (key==Common::KEYCODE_RETURN) beginSetting();
+            }
             else if (_tab==4 && ascii=='P') {_slotsView=!_slotsView;_message.clear();}
             else if (_slotsView) {}
             else if (key==Common::KEYCODE_UP && _selected) {--_selected;_message.clear();}
@@ -81,12 +89,26 @@ public:
             else if ((key==Common::KEYCODE_RIGHT || key==Common::KEYCODE_PAGEDOWN) && !slots.empty()) {_selected=uint16(MIN<uint>(_selected+6,slots.size()-1));_message.clear();}
             else if (ascii=='I' && !slots.empty()) {
                 const InventoryItem &item=*game.inventory.item(slots[_selected]);ItemCatalog catalog;ItemDefinition definition;if (!catalog.load(archive) || !catalog.definition(item.kind(),item.id(),definition)) return kInventoryWindowUnsupported;
-                Common::String info=definitionName(definition)+Common::String::format("\rWeight: %u\rDEX required: %u\rINT required: %u",uint(definition.bytes[2]),uint(definition.bytes[3]),uint(definition.bytes[4]));
-                if (item.kind()<2) info+=Common::String::format("\r%s: %u",item.kind()==0?"Base damage":"Armor rating",uint(definition.bytes[5]));
-                info+="\r\rEnter: toggle equipped state\rX: remove equipped item\rSpace: next character";
-                Common::Array<byte> encoded;for (uint i=0;i<info.size();++i) encoded.push_back(byte(info[i])|128);HgrFrame background;GlyphFont font;
-                if (!font.load(archive,1) || !MenuChrome::begin(font,background,"Item information",175) || !MenuChrome::text(font,background,2,22,"Esc: back to the selected tab") || !_reading.begin(archive,encoded.data(),encoded.size(),1,38,5,20,15,&background) || !_reading.paint(background)) return kInventoryWindowUnsupported;
-                _phase=4;frame=background;return kInventoryWindowHandled;
+                const byte *data=definition.bytes;
+                Common::String info=definitionName(definition)+Common::String::format("\rWeight   %u",uint(data[2]));
+                // Apple II SRTN.INVENTORY $A383-$A49C shows one of DEX or INT for gear.
+                if (item.kind()<2) {
+                    if (data[4]==1) info+=Common::String::format("\rDEX      %u",uint(data[3]));
+                    else info+=Common::String::format("\rINT      %u",uint(data[4]));
+                    if (item.kind()==0) {
+                        info+=Common::String::format("\rMax DMG  %u",uint(data[5]));
+                        info+=(data[11]&128)?"\r2-Handed":"\r1-Handed";
+                        info+=(data[0]&128)?"\rMagic item":"\rCommon item";
+                    } else {
+                        info+=Common::String::format("\rArmor RT %u\rResist Mg%u",uint(data[5]),uint(data[0]));
+                    }
+                } else if ((data[12]&31)==8) {
+                    info+=Common::String::format("\rINT      %u\rSpell DMG%u",uint(data[4]),uint(data[10]));
+                    if (data[8]&16) info+="\rArea-of-effect";
+                }
+                Common::Array<byte> encoded;for (uint i=0;i<info.size();++i) encoded.push_back(byte(info[i])|128);HgrFrame background;GlyphFont font;TextWindow reading;
+                if (!font.load(archive,1) || !MenuChrome::begin(font,background,"Item information",175) || !MenuChrome::text(font,background,2,22,"Esc: back to the selected tab") || !reading.begin(archive,encoded.data(),encoded.size(),1,38,5,20,15,&background) || !reading.paint(background)) return kInventoryWindowUnsupported;
+                _reading=reading;_phase=4;frame=background;return kInventoryWindowHandled;
             }
             else if ((ascii=='U' || ascii=='D') && !slots.empty()) {
                 const InventoryItem &item=*game.inventory.item(slots[_selected]);ItemCatalog catalog;ItemDefinition definition;
@@ -146,7 +168,12 @@ public:
                     bool ready=false;for (uint i=0;i<10;++i) ready|=game.book.spell(i)==definition.bytes[6];
                     if (ready) {if (!bookAction(archive,game,item,0)) return kInventoryWindowUnsupported;}
                     else if (unready) _message=_messages.get(OriginalMessages::kUnreadied);
-                    else {_phase=2;_message.clear();}
+                    else {
+                        const BookResult admission=next.book.select(catalog,next.inventory,next.party,item.id(),0,_combat,true);
+                        if (admission==kBookCancelled) {_phase=2;_message.clear();}
+                        else if (admission==kBookIntelligenceRefusal) _message=_messages.get(OriginalMessages::kIntelligence);
+                        else return kInventoryWindowUnsupported;
+                    }
                     return paint(archive,game,frame)?kInventoryWindowHandled:kInventoryWindowUnsupported;
                 }
                 if (_sounds && ((result>=3 && result<=6) || result==9 || result==12)) _sounds->push_back(kSpeakerRefusal);
@@ -276,14 +303,32 @@ private:
             !MenuChrome::text(font,next,1,20,"Tab/1-7:tabs Space/Shift+1-6:char")) return false;
         if (_phase==1 && _tab==0) {if (!sheet(archive,game,font,next)) return false;frame=next;return true;}
         if (_phase==1 && _tab==5) {
-            if (!MenuChrome::text(font,next,2,5,"SCUMMVM GAME SETTINGS") || !MenuChrome::text(font,next,2,7,"Preferences: launcher Game Options") ||
-                !MenuChrome::text(font,next,2,9,"Audio/display: Ctrl+F5 then Options") || !MenuChrome::text(font,next,2,11,"Modern saves: close, then F5 / F7") || !MenuChrome::text(font,next,2,13,"Classic saves: close, then Q") ||
-                !MenuChrome::text(font,next,2,16,"Quick text: +/- speed, 8 pause") || !MenuChrome::text(font,next,2,21,"Tab or 1-7: choose another tab")) return false;frame=next;return true;
+            if (!paintSettings(archive,font,next)) return false;
+            frame=next;return true;
         }
-        if (_phase==2 || (_tab==4 && _slotsView)) {
-            CastRules rules;if (!rules.load(archive) || !MenuChrome::text(font,next,2,5,_phase==2?_messages.get(OriginalMessages::kBookSlot):"READIED PARTY SPELLS")) return false;
-            for (uint i=0;i<10;++i) if (!MenuChrome::text(font,next,2,7+i,Common::String::format("%u  %s",i,game.book.spell(i)<64?rules.name(game.book.spell(i)).c_str():"--"))) return false;
-            if (!MenuChrome::text(font,next,1,21,_phase==2?"0-9: assign  Esc: cancel":"P: back to owned spellbooks") || !MenuChrome::text(font,next,1,22,_phase==2?"Replaces the spell on that key":"Cast from the world with C")) return false;
+        if (_phase==2) {
+            if (_selected>=slots.size()) return false;
+            const InventoryItem &item=*game.inventory.item(slots[_selected]);
+            ItemDefinition definition;
+            if (!catalog.definition(item.kind(),item.id(),definition) ||
+                !MenuChrome::text(font,next,2,5,definitionName(definition)) ||
+                !MenuChrome::text(font,next,2,7,_messages.get(OriginalMessages::kBookSlot)) ||
+                !MenuChrome::text(font,next,1,21,"Esc: cancel")) return false;
+            frame=next;return true;
+        }
+        if (_tab==4 && _slotsView) {
+            if (!MenuChrome::text(font,next,2,5,"READIED PARTY SPELLS")) return false;
+            for (uint i=0;i<10;++i) {
+                const byte spell=game.book.spell(i);
+                ItemDefinition definition;
+                Common::String spellName="--";
+                // In v119 the owned spellbook table is indexed by spell number.
+                if (spell<64 && catalog.definition(2,spell,definition) && (definition.bytes[12]&31)==8 && definition.bytes[6]==spell)
+                    spellName=definitionName(definition);
+                if (!MenuChrome::text(font,next,2,7+i,Common::String::format("%u  %s",i,spellName.c_str()))) return false;
+            }
+            if (!MenuChrome::text(font,next,1,21,"P: back to owned spellbooks") ||
+                !MenuChrome::text(font,next,1,22,"Cast from the world with C")) return false;
             frame=next;return true;
         }
         const uint selected=slots.empty()?0:MIN<uint>(_selected,slots.size()-1),page=selected/6*6;
@@ -306,6 +351,108 @@ private:
             !MenuChrome::text(font,next,1,22,_phase==3?"Equipped copies are kept":"Enter:toggle I:info U:use D:drop")) return false;
         frame=next;return true;
     }
+    enum SettingsPrompt {kSettingsIdle,kSettingsPassword,kSettingsNewPassword,kSettingsConfirm,kSettingsReboot};
+
+    static bool settingsText(HdvArchive &archive,uint offset,uint length,Common::String &output) {
+        Common::Array<byte> bytes;
+        if (!archive.readRange("NA/SRTN.INVENTORY",offset,length,bytes)) return false;
+        output.clear();
+        for (byte c : bytes) output+=char(c&127);
+        return true;
+    }
+
+    static bool matureDialog() {
+        return !ConfMan.hasKey("nox_mature_dialog") || ConfMan.getBool("nox_mature_dialog");
+    }
+
+    void beginSetting() {
+        const Common::String &domain=ConfMan.getActiveDomainName();
+        switch (_selected) {
+        case 0:
+            CombatPreferences::write(ConfMan,domain,(uint(CombatPreferences::read(ConfMan,domain))+1)%3);
+            ConfMan.flushToDisk();
+            break;
+        case 1: case 2:
+            _settingsPrompt=kSettingsPassword;
+            break;
+        case 3:
+            ConfMan.setBool("nox_alternate_font",!(ConfMan.hasKey("nox_alternate_font") && ConfMan.getBool("nox_alternate_font")),domain);
+            ConfMan.flushToDisk();
+            _settingsPrompt=kSettingsReboot;
+            break;
+        }
+    }
+
+    void clearSettingsPrompt() {
+        _settingsPrompt=kSettingsIdle;
+        _settingsDigits=0;
+        _settingsValue=0;
+        _newPassword=0;
+    }
+
+    void handleSettingsPrompt(Common::KeyCode key,uint16 ascii) {
+        if (key==Common::KEYCODE_ESCAPE || _settingsPrompt==kSettingsReboot) {
+            clearSettingsPrompt();
+            return;
+        }
+        if (key==Common::KEYCODE_BACKSPACE || key==Common::KEYCODE_LEFT) {
+            if (_settingsDigits) {--_settingsDigits;_settingsValue>>=4;}
+            return;
+        }
+        if (ascii>='0' && ascii<='9' && _settingsDigits<4) {
+            _settingsValue=uint16((_settingsValue<<4)|(ascii-'0'));
+            ++_settingsDigits;
+            return;
+        }
+        if (key!=Common::KEYCODE_RETURN) return;
+        const uint16 value=_settingsValue;
+        _settingsDigits=0;_settingsValue=0;
+        const Common::String &domain=ConfMan.getActiveDomainName();
+        if (_settingsPrompt==kSettingsPassword) {
+            const int password=ConfMan.hasKey("nox_dialogue_password",domain)?ConfMan.getInt("nox_dialogue_password",domain):0;
+            if (value==password) {
+                if (_selected==2) {_settingsPrompt=kSettingsNewPassword;return;}
+                ConfMan.setBool("nox_mature_dialog",!matureDialog(),domain);
+                ConfMan.flushToDisk();
+            } else if (_sounds) _sounds->push_back(kSpeakerRefusal);
+        } else if (_settingsPrompt==kSettingsNewPassword) {
+            _newPassword=value;_settingsPrompt=kSettingsConfirm;return;
+        } else if (value==_newPassword) {
+            ConfMan.setInt("nox_dialogue_password",value,domain);
+            ConfMan.flushToDisk();
+        } else if (_sounds) _sounds->push_back(kSpeakerRefusal);
+        clearSettingsPrompt();
+    }
+
+    bool paintSettings(HdvArchive &archive,const GlyphFont &font,HgrFrame &frame) const {
+        static const uint stateOffsets[]={0x64bb,0x64bf,0x64c3};
+        const CombatPreference quick=CombatPreferences::read(ConfMan,ConfMan.getActiveDomainName());
+        for (uint row=0;row<4;++row) {
+            Common::String label,status;
+            if (!settingsText(archive,0x643e+row*16,15,label)) return false;
+            if (row<2 && !settingsText(archive,stateOffsets[row==0?uint(quick):uint(matureDialog())],3,status)) return false;
+            if (!MenuChrome::row(font,frame,6+row*2,label+status,row==_selected)) return false;
+        }
+        Common::String text;
+        switch (_settingsPrompt) {
+        case kSettingsPassword: if (!settingsText(archive,0x647e,9,text)) return false;break;
+        case kSettingsNewPassword: if (!settingsText(archive,0x6488,13,text)) return false;break;
+        case kSettingsConfirm: if (!settingsText(archive,0x6496,14,text)) return false;break;
+        case kSettingsReboot: {
+            Common::String next;
+            return settingsText(archive,0x64a5,9,text) && settingsText(archive,0x64af,11,next) &&
+                MenuChrome::text(font,frame,2,15,text) && MenuChrome::text(font,frame,2,16,next);
+        }
+        case kSettingsIdle: return true;
+        }
+        text+=' ';
+        for (uint i=0;i<_settingsDigits;++i) text+='*';
+        return MenuChrome::text(font,frame,2,15,text);
+    }
+
+    SettingsPrompt _settingsPrompt=kSettingsIdle;
+    byte _settingsDigits=0;
+    uint16 _settingsValue=0,_newPassword=0;
     byte _phase,_member,_type,_map;uint16 _selected;byte _tab,_sheetPage;bool _slotsView;Common::String _message;HgrFrame _underlay;TextWindow _reading;bool _combat;SoundEvents *_sounds;OriginalMessages _messages;
 };
 } }

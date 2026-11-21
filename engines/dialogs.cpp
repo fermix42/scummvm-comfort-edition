@@ -105,6 +105,23 @@ MainMenuDialog::~MainMenuDialog() {
 	delete _saveDialog;
 }
 
+void MainMenuDialog::open() {
+	updateEncounterAction();
+	GUI::Dialog::open();
+}
+
+void MainMenuDialog::updateEncounterAction() {
+	const bool restart = _engine->canRestartEncounter();
+	if (restart == _encounterAction)
+		return;
+	_encounterAction = restart;
+	const bool help = _engine->hasFeature(Engine::kSupportsHelp);
+	_helpButton->setLabel(restart ? _("Restart ~B~attle") : _("Game ~H~elp"));
+	_helpButton->setTooltip(restart ? _("Restart from Before Encounter") : Common::U32String());
+	_helpButton->setVisible(restart || help);
+	_helpButton->setEnabled(restart || help);
+}
+
 void MainMenuDialog::handleCommand(GUI::CommandSender *sender, uint32 cmd, uint32 data) {
 	switch (cmd) {
 	case kPlayCmd:
@@ -119,12 +136,18 @@ void MainMenuDialog::handleCommand(GUI::CommandSender *sender, uint32 cmd, uint3
 	case kOptionsCmd: {
 		GUI::ConfigDialog configDialog;
 		configDialog.runModal();
+		updateEncounterAction();
 		break;
 	}
 	case kAboutCmd:
 		_aboutDialog->runModal();
 		break;
 	case kHelpCmd: {
+		if (_encounterAction && _engine->canRestartEncounter()) {
+			setResult(kEncounterRestartCmd);
+			close();
+			break;
+		}
 		GUI::MessageDialog dialog(
 					_("Sorry, this engine does not currently provide in-game help. "
 					"Please consult the README for basic information, and for "

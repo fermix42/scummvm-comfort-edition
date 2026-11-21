@@ -14,8 +14,8 @@ struct PreparedEncounter {
     Common::Array<byte> terrain;
     EncounterAdmission admission;
     byte contextFlags,contactSprite;
-    bool protectedTargets;
-    PreparedEncounter() : contextFlags(0),contactSprite(0),protectedTargets(false) {}
+    bool protectedTargets, scriptedShadowLoss;
+    PreparedEncounter() : contextFlags(0),contactSprite(0),protectedTargets(false),scriptedShadowLoss(false) {}
 };
 // Deterministic data preparation from the actual pending world turn. This
 // does not retire time, place actors, apply damage or start tactical input.
@@ -48,6 +48,9 @@ public:
             !fields.choose(game.world.mapType(),scripted?63:scene.actors.terrain[93],scripted?63:scene.actors.terrain[request.cell],flags,next.choice) ||
             !fields.project(next.choice.field,game.world.mapType(),next.terrain)) return false;
         if (!scripted && !EncounterAdmissionRules::protection(game.world.currentTables()->data(),1792,game.world.questFields(),256,request.bank,request.slot,next.protectedTargets)) return false;
+        // Original Surface entrance F582 at (150,168), C3:043B bit 0.
+        // The same travel dispatcher also handles map 8, which is distinct.
+        next.scriptedShadowLoss=scripted && game.world.mapId()==0;
         next.contextFlags=flags;next.contactSprite=sprite;next.enemy.descriptor=next.admission.descriptor;memcpy(next.enemy.data,next.admission.raw,4);memset(next.enemy.stats,0,32);
         if (next.enemy.fixedMonster()) {
             Common::Array<byte> stats;if (!archive.readRange("NA/SRTN.COMBAT.S",0x263c+uint(next.enemy.data[2])*32,32,stats)) return false;

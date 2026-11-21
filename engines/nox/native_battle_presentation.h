@@ -118,7 +118,7 @@ public:
     static Common::String singleLine(const Common::String &value) {
         Common::String line;for (uint i=0;i<value.size();++i) {const byte c=value[i]&127;if (c==13) {if (i+1<value.size()) line+=' ';}else if (c>=32) line+=char(c);}return line;
     }
-    bool paintQuick(const EncounterState &battle,const QuickBattleDisplay &display,HgrFrame &output,bool victory=false) const {
+    bool paintQuick(const EncounterState &battle,const QuickBattleDisplay &display,HgrFrame &output) const {
         const BattleRecords &records=battle.records;
         if (!battle.quick.valid() || battle.phase>3) return false;
         HgrFrame frame;
@@ -188,8 +188,8 @@ public:
             uint column=25,row=18;
             Common::String stream;
             for (const Common::String &line : display.lines) stream+=line;
-            if (victory) stream+=_quickVictory;
-            for (uint i=0;i<stream.size();) {
+            const uint visible=stream.size()-MIN<uint>(display.remaining,stream.size());
+            for (uint i=0;i<visible;) {
                 if ((stream[i]&127)==13) {
                     column=25;++row;++i;
                 } else {
@@ -197,7 +197,7 @@ public:
                     while (end<stream.size() && (stream[end]&127)!=13 && (stream[end]&127)!=' ') ++end;
                     if (end<stream.size() && (stream[end]&127)==' ') ++end;
                     if (column>25 && column+end-i>39) {column=25;++row;}
-                    while (i<end) {
+                    while (i<end && i<visible) {
                         if (column==39) {column=25;++row;}
                         if (row>=23) {
                             if (!textFrame.scrollTextRows(25,14,23,14)) return false;

@@ -6,6 +6,9 @@ namespace Nox { namespace Native {
 // An uncommitted character proposal. Earned XP remains in the battle records;
 // rejecting a proposal restores its original ability/level/HP fields.
 struct BattleAdvancementState {
+    // Phase 4 is the source's automatic Coin narration. While it runs, the
+    // otherwise idle numeric buffer stores its position as digits*100+value.
+    // This retains the existing save layout and all pending v1 allocations.
     bool started,finished;byte phase,cursor,ability,remaining,digits,value,points[3],proposal[128];
     BattleAdvancementState() : started(false),finished(false),phase(0),cursor(0),ability(0),remaining(0),digits(0),value(0) {
         memset(points,0,3);memset(proposal,0,128);
@@ -26,7 +29,7 @@ struct BattleAdvancementState {
         *this=next;return true;
     }
     bool valid() const {
-        if (phase>3 || cursor>6 || ability>3 || remaining>99 || digits>2 || value>99 || (!started && (finished || phase)) || (finished && phase)) return false;
+        if (phase>4 || cursor>6 || ability>3 || remaining>99 || digits>2 || value>99 || (!started && (finished || phase)) || (finished && phase)) return false;
         for (uint i=0;i<3;++i) if (points[i]>99) return false;
         return true;
     }

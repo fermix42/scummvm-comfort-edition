@@ -97,14 +97,31 @@ public:
 		if (!ready()) return kActorInvalid;
 		return admitWorldActor(_states[_current].tables.data(), 1792, _fields, sizeof(_fields), bank, slot, presentation, output);
 	}
+    bool mapTerrain(Common::Array<byte> &out, uint &width) const {
+        const MapDefinition *map = mapDefinition();
+        if (!map) return false;
+        const uint columns = map->compressed ? 16 : 3;
+        width = columns * 16;
+        out.resize(width * width);
+        Common::Array<byte> sector;
+        for (uint y = 0; y < columns; ++y) {
+            for (uint x = 0; x < columns; ++x) {
+                if (!_resources[_states[_current].family].sector(mapId(), y * columns + x, sector))
+                    return false;
+                for (uint row = 0; row < 16; ++row)
+                    memcpy(out.data() + (y * 16 + row) * width + x * 16, sector.data() + row * 16, 16);
+            }
+        }
+        return true;
+    }
 	bool terrainAt(byte x, byte y, byte &tile) const {
 		return ready() && _resources[_states[_current].family].tile(mapId(), x, y, tile);
 	}
-	bool applyObjectPhase(uint slot, const byte *visibility, const byte *actors, byte partyObject, byte leftBoundary, ObjectScene &scene) {
+	bool applyObjectPhase(uint slot, const byte *visibility, const byte *actors, byte partyObject, byte leftBoundary, ObjectScene &scene, bool settleDoors = true) {
 		if (!ready() || !visibility || !actors) return false;
 		ObjectSceneContext context; context.x = _x; context.y = _y; context.partyObject = partyObject; context.leftBoundary = leftBoundary;
 		memcpy(context.visibility, visibility, 187); memcpy(context.actors, actors, 187); memcpy(context.fields, _fields, sizeof(_fields));
-		return applyObjectRecord(_states[_current].tables.data() + 1024, 256, slot, context, scene);
+		return applyObjectRecord(_states[_current].tables.data() + 1024, 256, slot, context, scene, settleDoors);
 	}
 	// Direct data-owner projection avoids the original scroll/cache ABI. Local
 	// edge padding and changed terrain require their own source-supported owner.

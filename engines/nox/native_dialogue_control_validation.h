@@ -31,6 +31,17 @@ inline bool validateNativeDialogueControl478(HdvArchive &archive,Common::Seekabl
         Common::MemoryWriteStreamDynamic after(DisposeAfterUse::YES),rngAfter(DisposeAfterUse::YES);if (!restored.save(after) || !restoredRandom.save(rngAfter) || before.size()!=after.size() || memcmp(before.getData(),after.getData(),before.size()) || rng.size()!=rngAfter.size() || memcmp(rng.getData(),rngAfter.getData(),rng.size())) return false;
         ++resolved;
     }
+    // Town 1 actor 8 has an original adult-only farewell and a normal fallback.
+    report="authored mature dialogue selection";
+    DialoguePacket packet;
+    Common::String error;
+    if (!loadDialoguePacket(archive,"NA/DATA.TLK.L001",8,packet,error)) return false;
+    byte fields[256]={};
+    DialogueResponse mature,ordinary;
+    const QuestFields quest(fields,sizeof(fields));
+    if (!selectDialogueResponse(packet.text,0,"BYE",0,quest,0,true,9,0,mature) ||
+        !selectDialogueResponse(packet.text,0,"BYE",0,quest,0,false,9,0,ordinary) ||
+        !mature.adultOnly || ordinary.adultOnly || mature.bodyOffset==ordinary.bodyOffset) return false;
     if (!validateNativeItemShortcuts478(archive,report)) return false;
     report=Common::String::format("dialogue\tsource_control_rng_cases=%u\tauthored_packet_responses=%u\tresolved_codec_roundtrips=%u\tready_key_cast_shortcuts=10\tcampaign=0\taudio_suite=0\n",cases,resolved,resolved);return true;
 }

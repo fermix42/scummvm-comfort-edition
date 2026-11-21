@@ -6,6 +6,7 @@
 #include "nox/native_battle_presentation.h"
 namespace Nox { namespace Native {
 inline bool validateNativeSearchDefeat495(HdvArchive &archive,Common::String &report) {
+    const bool immune=preventsPartyDamage(true);
     uint deaths=0,nonfatal=0,codecs=0;
     for (uint profile=0;profile<3;++profile) {
         report=Common::String::format("Search defeat profile%u setup",profile);
@@ -56,16 +57,19 @@ inline bool validateNativeSearchDefeat495(HdvArchive &archive,Common::String &re
             if (!game.save(beforeDead) || send(Common::KEYCODE_2,'2')!=kWorldInputHandled || !game.save(afterDead) ||
                 beforeDead.size()!=afterDead.size() || memcmp(beforeDead.getData(),afterDead.getData(),beforeDead.size()) || random.seed()!=seed) return false;
         }
+        const bool terminal=!immune && profile!=2;
         const WorldInputResult result=send(Common::KEYCODE_1,'1');
-        if (result!=(profile==2?kWorldInputHandled:kWorldInputDefeat) || command->worldDefeated()!=(profile!=2) || command->atWorldCommand() || game.world.field(33)!=9 || game.party.member(0)->bytes[0]!=255 || game.party.member(0)->health()) return false;
-        if (profile==0) for (uint i=0;i<game.party.memberCount();++i) if (game.party.member(i)->bytes[0]!=255 || game.party.member(i)->health()) return false;
+        if (result!=(terminal?kWorldInputDefeat:kWorldInputHandled) || command->worldDefeated()!=terminal || command->atWorldCommand() || game.world.field(33)!=9 || game.party.member(0)->bytes[0]!=(immune?0:255) || game.party.member(0)->health()!=(immune?1:0)) return false;
+        if (immune && profile==1 && (game.party.member(1)->bytes[0]!=255 || game.party.member(1)->health())) return false;
+        if (profile==0) for (uint i=0;i<game.party.memberCount();++i)
+            if (game.party.member(i)->bytes[0]!=(immune?0:255) || game.party.member(i)->health()!=(immune?1:0)) return false;
         Common::MemoryWriteStreamDynamic afterTurn(DisposeAfterUse::YES),actualRandom(DisposeAfterUse::YES),expectedRandom(DisposeAfterUse::YES);
         if (!turn.save(afterTurn) || priorTurn.size()!=afterTurn.size() || memcmp(priorTurn.getData(),afterTurn.getData(),priorTurn.size()) || !random.save(actualRandom) || !expected.save(expectedRandom) || actualRandom.size()!=expectedRandom.size() || memcmp(actualRandom.getData(),expectedRandom.getData(),actualRandom.size()) || clock.phase!=game.clock.phase || clock.hour!=game.clock.hour || clock.minute!=game.clock.minute) return false;
         Common::MemoryWriteStreamDynamic core(DisposeAfterUse::YES),input(DisposeAfterUse::YES);if (!game.save(core) || !command->save(input)) return false;
         Common::ScopedPtr<NewGame> loaded(new NewGame(archive));Common::MemoryReadStream coreBytes(core.getData(),core.size());if (!loaded->load(coreBytes)) return false;
-        Common::ScopedPtr<WorldInput> restored(new WorldInput);Common::MemoryReadStream inputBytes(input.getData(),input.size());if (!restored->load(inputBytes,archive,3) || restored->worldDefeated()!=(profile!=2) || !restored->matchesWorld(loaded->world)) return false;
+        Common::ScopedPtr<WorldInput> restored(new WorldInput);Common::MemoryReadStream inputBytes(input.getData(),input.size());if (!restored->load(inputBytes,archive,3) || restored->worldDefeated()!=terminal || !restored->matchesWorld(loaded->world)) return false;
         codecs+=2;
-        if (profile==2) {if (!restored->noticeActive() || loaded->party.member(1)->bytes[0]==255) return false;++nonfatal;}
+        if (!terminal) {if (!restored->noticeActive() || (profile==2 && loaded->party.member(1)->bytes[0]==255)) return false;++nonfatal;}
         else {
             if (restored->noticeActive() || memcmp(frame.data(),worldFrame.data(),8192)) return false;
             BattlePresentation presentation;if (!presentation.load(archive,3) || !presentation.paintWorldDefeat(frame)) return false;

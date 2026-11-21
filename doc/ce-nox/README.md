@@ -104,6 +104,27 @@ directory. SHA-256 of the canonical JSON records at handoff:
 
 ## Focused regression checks
 
+Level advancement uses the v119 character sheet and prayer window. The selected
+character's name remains visible in the sheet and highlighted in the party pane;
+accepted ability entries preview in the sheet before Y commits the level. Coin
+narration, deity questions, remaining minutes, confirmation and retry messages
+come from the HDV. N and insufficient prayer restart the original narration.
+Empty numeric submission is refused; over-budget submission clears the input.
+Pending v1 allocation checkpoints retain their format and can resume directly.
+
+With the retained private v119 fixtures available, run the bounded advancement
+regression against a disposable portable executable (artifacts must be beneath
+that executable's directory):
+
+```text
+python devtools/nox/test_advancement_presentation.py --exe <portable-copy/scummvm.exe> --game <private-Nox-directory> --artifacts <portable-copy/new-run-directory>
+```
+
+It checks authored glyphs and highlights, numeric editing/refusal, N/retry,
+135 original complete-record advancement cases, sequential allocations to two
+distinct characters, world return and cold continuation. The two-character
+case uses a declared controlled fixture; it is not a campaign-play claim.
+
 Use a disposable portable copy of the executable and its supporting DLLs. From
 the checkout, run the wording guard and the bounded integration smoke:
 

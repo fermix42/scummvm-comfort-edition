@@ -16,7 +16,7 @@ struct ObjectScene {
 };
 // Complete single-object projection/door-settle phase. Actor/visibility phases
 // supply their results explicitly. It does not move actors or advance a turn.
-inline bool applyObjectRecord(byte *objects, uint size, uint slot, const ObjectSceneContext &context, ObjectScene &scene) {
+inline bool applyObjectRecord(byte *objects, uint size, uint slot, const ObjectSceneContext &context, ObjectScene &scene, bool settleDoors = true) {
     if (!objects || size != 256 || slot > 252 || (slot & 3)) return false;
     byte *object = objects + slot;
     if (!object[2]) return true;
@@ -45,6 +45,7 @@ inline bool applyObjectRecord(byte *objects, uint size, uint slot, const ObjectS
     }
     if (state == 254 || state == 55) return true;
     if (state >= 33 && state < 42) {
+        if (!settleDoors) return true;
         if (cell == 93) state = 41;
         else if (context.actors[cell] != 255) state = 35;
         else --state;

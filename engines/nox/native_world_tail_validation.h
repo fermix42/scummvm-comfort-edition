@@ -41,6 +41,7 @@ inline bool tailCodecs514(NightActorValidation504 &v,bool notice=false) {
 }
 inline bool validateNativeWorldTail514(HdvArchive &archive,Common::String &report) {
     const Common::KeyCode keys[]={Common::KEYCODE_UP,Common::KEYCODE_DOWN,Common::KEYCODE_RIGHT,Common::KEYCODE_LEFT};
+    const bool immune=preventsPartyDamage(true);
     uint contacts=0,plates=0,codecs=0;
     for (uint stationary=0;stationary<2;++stationary) for (uint plate=0;plate<2;++plate) {
         report=Common::String::format("tail514 contact stationary%u plate%u setup",stationary,plate);
@@ -89,9 +90,9 @@ inline bool validateNativeWorldTail514(HdvArchive &archive,Common::String &repor
         WorldWait wait;WorldActorTurnEvent contact;if (!wait.load(archive,2)) return false;
         report="tail514 actual stationary contact applies water damage/defeat after clock";
         const WorldWaitResult result=wait.run(v.game.world,v.window,v.scene,v.turn,v.game.clock,v.light,v.visible,v.game.schedule,v.routes,v.random,v.messages,v.text,v.frame,v.game.appearance,0,contact,true,4,nullptr,&v.game.party);
-        if (result!=kWorldWaitDefeat || !contact.battle || v.game.party.member(0)->health()>=health || !sameClock513(expected.after,v.game.clock)) {report=Common::String::format("tail514 water result%u contact%u terrain%u health%u->%u phase%u->%u",uint(result),uint(contact.battle),uint(v.scene.actors.terrain[93]),uint(health),uint(v.game.party.member(0)->health()),uint(before.phase),uint(v.game.clock.phase));return false;}
+        if (result!=(immune?kWorldWaitBattle:kWorldWaitDefeat) || !contact.battle || v.game.party.member(0)->health()!=(immune?health:0) || !sameClock513(expected.after,v.game.clock)) {report=Common::String::format("tail514 water result%u contact%u terrain%u health%u->%u phase%u->%u",uint(result),uint(contact.battle),uint(v.scene.actors.terrain[93]),uint(health),uint(v.game.party.member(0)->health()),uint(before.phase),uint(v.game.clock.phase));return false;}
     }
-    report=Common::String::format("world_tail\tactual_paid_contacts=%u\tactual_contact_plates=%u\tactual_notice_deferred_contact=1\tactual_portal_contact_policies=%u\tactual_entrance_contact_discard=1\tactual_water_contact_defeat=1\tcomponent_codec_sets=%u\tlegacy_notice_default=1\tbattle_execution=0\tcampaign=0\told_audio_animation_suite=0\n",contacts,plates,portals,codecs);return true;
+    report=Common::String::format("world_tail\tactual_paid_contacts=%u\tactual_contact_plates=%u\tactual_notice_deferred_contact=1\tactual_portal_contact_policies=%u\tactual_entrance_contact_discard=1\tactual_water_contact_defeat=%u\tcomponent_codec_sets=%u\tlegacy_notice_default=1\tbattle_execution=0\tcampaign=0\told_audio_animation_suite=0\n",contacts,plates,portals,uint(!immune),codecs);return true;
 }
 } }
 #endif

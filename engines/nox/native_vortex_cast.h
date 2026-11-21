@@ -10,7 +10,11 @@ namespace Nox { namespace Native {
 struct BattleRecords {
     byte stats[2048], compact[256], extended[256], indices[187], kinds[187];
     uint16 credit;
-    BattleRecords() : credit(0) {
+    bool scriptedShadowLoss; // Derived from the pending world encounter on load.
+    bool preventsDamageTo(byte kind) const {
+        return !scriptedShadowLoss && preventsPartyDamage(kind == 3);
+    }
+    BattleRecords() : credit(0), scriptedShadowLoss(false) {
         memset(stats, 0, sizeof(stats)); memset(compact, 0, sizeof(compact));
         memset(extended, 0, sizeof(extended)); memset(indices, 255, sizeof(indices)); memset(kinds, 255, sizeof(kinds));
     }

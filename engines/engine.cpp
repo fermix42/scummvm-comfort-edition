@@ -834,13 +834,16 @@ void Engine::openMainMenuDialog() {
 #ifdef ENABLE_EVENTRECORDER
 	g_eventRec.setRecordModalDialog(true);
 #endif
-	runDialog(*_mainMenuDialog);
+	const int menuResult = runDialog(*_mainMenuDialog);
 #ifdef ENABLE_EVENTRECORDER
 	g_eventRec.setRecordModalDialog(false);
 #endif
 
 	if (hasVKeyb)
 		g_system->setFeatureState(OSystem::kFeatureVirtualKeyboard, true);
+
+	if (menuResult == MainMenuDialog::kEncounterRestartCmd)
+		restartEncounter();
 
 	// Load savegame after main menu execution
 	// (not from inside the menu loop to avoid

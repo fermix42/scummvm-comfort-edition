@@ -27,7 +27,9 @@ public:
         if (!_ready || intent.classification>3 || !records.actor(intent.casterCell,caster) || !records.actor(intent.targetCell,target) ||
             !READ_LE_UINT16(caster.stats+2) || !READ_LE_UINT16(target.stats+2)) return false;
         GameplayRandom rng=random;BattleRecords next=records;SpellDamageOutcome result;result.classification=intent.classification;
-        const bool playerSide=caster.kind!=1,protectedHit=intent.protectedTargets && playerSide;
+        const bool playerSide=caster.kind!=1;
+        const bool protectedHit=intent.protectedTargets && playerSide;
+        const bool immunePartyTarget=records.preventsDamageTo(target.kind);
         if (intent.instant) {
             // Preserve the source's explicit zero-skill fallback to the
             // alternate stat field even for a party caster.
@@ -37,7 +39,9 @@ public:
                 result.classification=3;result.suppressed=protectedHit && power>=guard;
                 output=result;return true;
             }
-            result.classification=0;result.damage=3000;result.killed=true;
+            result.classification=0;result.damage=3000;
+            result.suppressed=immunePartyTarget;
+            result.killed=!immunePartyTarget;
         } else {
             byte power=intent.basePower;
             if (caster.kind==3 && !effectiveSpellPower(power,target.stats[intent.quick && target.kind!=3?0:1]&127,intent.threshold,power)) return false;
@@ -49,8 +53,8 @@ public:
             if (resistance==255) mitigation=uint16(mitigation+0x26ff);
             else if (resistance>=10) mitigation=uint16(mitigation+uint16(uint32(gross&32767)*(resistance/4))/100);
             result.damage=gross>mitigation?uint16(gross-mitigation):0;
-            result.suppressed=protectedHit;
-            result.killed=!protectedHit && result.damage>=READ_LE_UINT16(target.stats+2);
+            result.suppressed=protectedHit || immunePartyTarget;
+            result.killed=!result.suppressed && result.damage>=READ_LE_UINT16(target.stats+2);
         }
         if (result.killed) {
             if (playerSide && target.kind<3) {

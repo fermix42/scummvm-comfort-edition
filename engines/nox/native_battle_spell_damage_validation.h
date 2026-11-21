@@ -8,7 +8,7 @@ inline bool validateNativeBattleSpellDamage(HdvArchive &archive,Common::Seekable
     if (input.readUint32BE()!=MKTAG('N','B','S','D') || input.readUint32LE()!=1) return false;
     const uint32 count=input.readUint32LE();if (!count || count>10000 || input.size()!=12+count*5899) return false;
     Native::BattleSpellDamage rules;if (!rules.load(archive)) return false;
-    uint kills=0,instantCount=0;
+    uint kills=0,instantCount=0,preventedLethal=0,preventedInstant=0;
     for (uint32 i=0;i<count;++i) {
         Native::SpellDamageIntent intent;intent.classification=0; // This retained raw-impact oracle initializes the incoming classifier to0.
         intent.casterCell=input.readByte();intent.targetCell=input.readByte();intent.category=input.readByte();
@@ -20,11 +20,20 @@ inline bool validateNativeBattleSpellDamage(HdvArchive &archive,Common::Seekable
         const uint32 afterSeed=input.readUint32LE();const byte afterTail=input.readByte(),afterLast=input.readByte();
         const uint16 afterAttempts=input.readUint16LE();expected.credit=input.readUint16LE();const uint16 damage=input.readUint16LE();
         const byte killed=input.readByte(),classification=input.readByte();if (killed>1 || !readBattlePayload(input,expected)) return false;
+        Native::VortexVictim target;
+        if (!battle.actor(intent.targetCell,target)) return false;
+        const auto before=battle;
+        const bool immune=Native::preventsPartyDamage(target.kind==3);
         Native::GameplayRandom random;Native::SpellDamageOutcome outcome;
         if (!random.importState(seed,tail,last,attempts) || !rules.resolve(intent,random,battle,outcome)) {
             report=Common::String::format("spell impact case%u rejected",i);return false;
         }
-        if (!sameBattleRecords(battle,expected) || outcome.damage!=damage || outcome.killed!=(killed!=0) || outcome.classification!=classification ||
+        if (immune && killed) {
+            ++preventedLethal;
+            if (intent.instant) ++preventedInstant;
+        }
+        if (immune && damage && !outcome.suppressed) return false;
+        if (!sameBattleRecords(battle,immune?before:expected) || outcome.damage!=damage || outcome.killed!=(!immune && killed!=0) || outcome.classification!=classification ||
             random.seed()!=afterSeed || random.tail()!=afterTail || random.last()!=afterLast || random.generationAttempts()!=afterAttempts) {
             uint stat=0;while (stat<2048 && battle.stats[stat]==expected.stats[stat]) ++stat;
             report=Common::String::format("spell impact case%u differs stat%u damage%u/%u killed%u/%u class%u/%u rng%08x/%08x credit%u/%u",i,stat,
@@ -33,7 +42,7 @@ inline bool validateNativeBattleSpellDamage(HdvArchive &archive,Common::Seekable
         kills+=outcome.killed?1:0;instantCount+=intent.instant?1:0;
     }
     if (input.err() || input.pos()!=input.size()) return false;
-    report=Common::String::format("native-battle-spell-damage\tcases=%u\tinstant_cases=%u\tkills=%u\tincoming_classification=0\tfull_records_RNG_credit=1\tarmor_resistance_large_protection=1\tcpu_execution=0\twhole_cast=0\n",count,instantCount,kills);return true;
+    report=Common::String::format("native-battle-spell-damage\tcases=%u\tinstant_cases=%u\tkills=%u\tincoming_classification=0\tfull_records_RNG_credit=1\tarmor_resistance_large_protection=1\tcpu_execution=0\twhole_cast=0\tprevented_lethal=%u\tprevented_instant=%u\n",count,instantCount,kills,preventedLethal,preventedInstant);return true;
 }
 }
 #endif

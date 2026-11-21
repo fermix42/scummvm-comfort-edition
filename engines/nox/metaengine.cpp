@@ -6,6 +6,8 @@
 #include "backends/keymapper/keymap.h"
 #include "nox/saves.h"
 #include "nox/options.h"
+#include "nox/party_invulnerability.h"
+#include "nox/native_map_reveal.h"
 #include "common/config-manager.h"
 #include "common/system.h"
 #include "common/translation.h"
@@ -18,6 +20,12 @@ public:
 			{ GUIO_GAMEOPTIONS1, { _s("Classic save slots for new Play Sessions"),
 				_s("Use slots 1 and 2 in new Play Sessions. Loaded saves keep their saved mode."),
 				"nox_classic_saves",false,0,0 } },
+			{ GUIO_GAMEOPTIONS1, { _s("Party Invulnerability"),
+                _s("Prevent party HP damage and instant death. Marks the Play Session as assisted."),
+                Nox::Native::kPartyInvulnerability, false, 0, 0, kExtraGuiOptionFlagCheat } },
+            { GUIO_GAMEOPTIONS1, { _s("Reveal Exploration Map"),
+                _s("Show hidden terrain while exploring. Press M for the full map. Marks the Play Session as assisted."),
+                Nox::Native::kRevealExplorationMap, false, 0, 0, kExtraGuiOptionFlagCheat } },
 			AD_EXTRA_GUI_OPTIONS_TERMINATOR
 		};
 		return options;

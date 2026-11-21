@@ -55,7 +55,7 @@ public:
 	bool load(HdvArchive &archive, byte variant) {
 		if (variant < 1 || variant > 2) return false;
 		Common::Array<byte> data;
-		if (!archive.read(variant == 1 ? "NA/FONT1" : "NA/FONT2", data) || data.size() != 768) return false;
+		if (!archive.read(variant == 1 && archive.defaultFont() == 1 ? "NA/FONT1" : "NA/FONT2", data) || data.size() != 768) return false;
 		_data = data; return true;
 	}
 	const byte *glyph(byte character) const {

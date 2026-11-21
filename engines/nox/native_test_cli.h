@@ -8,12 +8,15 @@ inline Common::JSONValue *NoxEngine::testCLIState() {
     if (!CETestCLI::active()) return CETestCLI::unsupported();
     JSONObject o;o["ok"]=new JSONValue(true);
     o["native_only"]=new JSONValue(true);o["paused"]=new JSONValue(isPaused());
+    o["can_restart_encounter"]=new JSONValue(canRestartEncounter());
     o["save_mode"]=new JSONValue((long long)_saveMode);
     o["sound_mode"]=new JSONValue((long long)_nativeSoundMode);o["music_channel_volume"]=new JSONValue((long long)_mixer->getChannelVolume(_nativeMusicSound));
     o["effects_played"]=new JSONValue((long long)_nativeEffectsPlayed);o["effect_samples"]=new JSONValue((long long)_nativeEffectSamples);o["effect_toggles"]=new JSONValue((long long)_nativeEffectToggles);
     if (!_nativePlayer) {o["stage"]=new JSONValue("initializing");return new JSONValue(o);}
     const Native::PlayerSessionState &p=*static_cast<Native::PlayerSessionState *>(_nativePlayer);
     o["stage"]=new JSONValue(_nativeStartupMenu?"title":p.sceneReady?(p.encounterState.presented?"battle":"world"):p.storyStarted?"story":"creation");
+    o["map_overview"]=new JSONValue(p.mapOverview);
+    o["map_reveal"]=new JSONValue(Native::revealExplorationMap());
     o["creation_stage"]=new JSONValue((long long)p.creation.stage());
     o["name"]=new JSONValue(p.creation.name());o["can_save"]=new JSONValue(canSaveGameStateCurrently());
     o["dialogue_phase"]=new JSONValue((long long)p.worldInput.conversationStage());
@@ -67,6 +70,10 @@ inline Common::JSONValue *NoxEngine::testCLIState() {
         Common::String quickText;for (uint i=0;i<6;++i) {if (i) quickText+='\n';quickText+=p.quickDisplay.lines[i];}o["quick_text"]=new JSONValue(quickText);
         o["battle_phase"]=new JSONValue((long long)b.round.phase);o["battle_command"]=new JSONValue((long long)b.command);
         o["battle_results"]=new JSONValue((long long)b.resultPhase);o["active_party"]=new JSONValue((long long)b.round.activeParty);
+        o["advancement_phase"]=new JSONValue((long long)b.advancement.phase);
+        o["advancement_member"]=new JSONValue((long long)b.advancement.cursor);
+        o["advancement_ability"]=new JSONValue((long long)b.advancement.ability);
+        o["advancement_remaining"]=new JSONValue((long long)b.advancement.remaining);
         o["battle_target"]=new JSONValue((long long)b.target);o["battle_exit_phase"]=new JSONValue((long long)b.exit.phase);
         o["battle_exit_control"]=new JSONValue((long long)b.exit.control);o["battle_actions"]=new JSONValue((long long)b.round.actions);
         JSONArray tacticalParty;for (uint i=0;i<b.round.partyCount;++i) {

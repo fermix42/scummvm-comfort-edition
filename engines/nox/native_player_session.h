@@ -59,13 +59,41 @@ public:
         next->sceneReady=next->storyStarted=next->animationReady=true;next->redraw=true;_staged=next;return true;
     }
     bool stagedLegacy() const override {return _staged && _stagedLegacy;}
+    void captureBeforeEncounter() {
+        if (!sceneReady || encounterState.formed || !worldInput.atWorldCommand())
+            return;
+        _beforeEncounter.clear();
+        if (!preventsPartyDamage(true))
+            return;
+        Common::MemoryWriteStreamDynamic snapshot(DisposeAfterUse::YES);
+        if (save(snapshot)) {
+            _beforeEncounter.resize(snapshot.size());
+            memcpy(_beforeEncounter.data(),snapshot.getData(),snapshot.size());
+        }
+    }
+    void forgetEncounterRestart() { _beforeEncounter.clear(); }
+    bool canRestartEncounter() const {
+        return !_beforeEncounter.empty() && preventsPartyDamage(true) && encounterState.presented &&
+            !encounterState.records.scriptedShadowLoss && !encounterState.resultPhase &&
+            encounterState.quick.phase==0 && (encounterState.round.phase==kBattlePartyTurn ||
+                                               encounterState.round.phase==kBattleAutomaticTurn);
+    }
+    bool restartEncounter() {
+        if (!canRestartEncounter())
+            return false;
+        Common::MemoryReadStream snapshot(_beforeEncounter.data(),_beforeEncounter.size());
+        if (!stageLoad(snapshot))
+            return false;
+        commitLoad();
+        return true;
+    }
     void commitLoad() override {
-        if (!_staged) return;adopt(*_staged);discardLoad();resetPresentationClock();
+        if (!_staged) return;_beforeEncounter.clear();adopt(*_staged);discardLoad();resetPresentationClock();
     }
     void discardLoad() override {delete _staged;_staged=nullptr;_stagedLegacy=false;}
     void resetPresentationClock() override {lastAudioTick=lastAnimationTick=g_system->getMillis();if (quickDisplay.holding) quickDisplay.stamp=lastAnimationTick;}
     bool reset() override {
-        discardLoad();PlayerSessionState *next=new PlayerSessionState(_archive);
+        _beforeEncounter.clear();discardLoad();PlayerSessionState *next=new PlayerSessionState(_archive);
         if (!next->loadRules(8)) {delete next;return false;}adopt(*next);delete next;lastAnimationTick=g_system->getMillis();return true;
     }
     bool render(Graphics::Surface &surface) const override {
@@ -87,6 +115,7 @@ public:
     WorldAnimation animation;WorldAnimationState animationState;PreparedEncounter preparedEncounter;EncounterState encounterState;
     BattlePresentation battlePresentation;TextWindow storyWindow;OpeningBackdrop storyBackdrop;
     MusicPlayback music;QuickBattleDisplay quickDisplay;
+    bool mapOverview = false;
     bool redraw,sceneReady,storyStarted,animationReady,encounterPrepared;byte storyAnimation,nextStoryAnimation;uint32 lastAnimationTick,lastAudioTick;
 private:
     bool importLegacy(Common::SeekableReadStream &in) {
@@ -143,8 +172,9 @@ private:
         encounterState=next.encounterState;battlePresentation=next.battlePresentation;storyWindow=next.storyWindow;storyBackdrop=next.storyBackdrop;
         redraw=next.redraw;sceneReady=next.sceneReady;storyStarted=next.storyStarted;animationReady=next.animationReady;
         encounterPrepared=next.encounterPrepared;storyAnimation=next.storyAnimation;nextStoryAnimation=next.nextStoryAnimation;
-        music=next.music;quickDisplay.reset();resetPresentationClock();
+        music=next.music;mapOverview=false;quickDisplay.reset();resetPresentationClock();
     }
+    Common::Array<byte> _beforeEncounter;
     HdvArchive &_archive;PlayerSessionState *_staged;bool _stagedLegacy;
 };
 } }

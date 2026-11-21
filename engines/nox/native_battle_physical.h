@@ -118,7 +118,8 @@ public:
             const uint16 mitigation=intent.exceptionalWeapon && (target.stats[1]&128)?result.armorRoll/4:result.armorRoll;
             result.damage=gross>mitigation?uint16(gross-mitigation):0;
             result.result=!result.classification?kPhysicalCritical:result.classification==3?kPhysicalResistedCritical:kPhysicalHit;
-            if (intent.protectedTargets && playerSide) result.result=kPhysicalSuppressed;
+            if ((intent.protectedTargets && playerSide) || records.preventsDamageTo(target.kind))
+                result.result=kPhysicalSuppressed;
             else {
                 const uint16 hp=READ_LE_UINT16(target.stats+2);
                 if (result.damage>=hp) {

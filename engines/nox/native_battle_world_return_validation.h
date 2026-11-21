@@ -20,7 +20,19 @@ inline bool validateNativeBattleWorldReturn(HdvArchive &archive,Common::Seekable
         packet.writeByte(type);packet.writeByte(map);packet.writeByte(20);packet.writeByte(19);packet.writeByte(1);
         packet.write(state,256);packet.writeUint16LE(1);packet.writeByte(family);packet.writeByte(map);packet.write(state+256,1792);
         Common::MemoryReadStream source(packet.getData(),packet.size());Native::World world(archive);Common::MemoryWriteStreamDynamic saved(DisposeAfterUse::YES);
-        if (!world.load(source) || !world.save(saved) || saved.size()!=packet.size() || memcmp(saved.getData(),packet.getData(),packet.size())) return false;
+        // The reference is a version 1 packet. Current saves append an unknown
+        // entrance anchor when importing that format.
+        if (!world.load(source) || !world.save(saved) || saved.size()!=packet.size()+3 ||
+            READ_LE_UINT16(saved.getData()+4)!=2 || memcmp(saved.getData(),packet.getData(),4) ||
+            memcmp(saved.getData()+6,packet.getData()+6,packet.size()-6) ||
+            saved.getData()[packet.size()] || saved.getData()[packet.size()+1] || saved.getData()[packet.size()+2]) {
+            report=Common::String::format("battle world return case%u world codec migration differs",i);return false;
+        }
+        Common::MemoryReadStream current(saved.getData(),saved.size());
+        Native::World restored(archive);
+        Common::MemoryWriteStreamDynamic roundTrip(DisposeAfterUse::YES);
+        if (!restored.load(current) || !restored.save(roundTrip) || roundTrip.size()!=saved.size() ||
+            memcmp(roundTrip.getData(),saved.getData(),saved.size())) return false;
     }
     if (input.err() || input.pos()!=input.size()) return false;
     report=Common::String::format("native-battle-world-return\tcases=%u\tquest_then_parent_commit=1\tcompact_extended_fled=1\tcold_world_roundtrips=%u\tcpu_execution=0\twhole_battle=0\n",cases,cases);return true;

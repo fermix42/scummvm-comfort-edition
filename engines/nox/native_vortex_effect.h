@@ -2,6 +2,7 @@
 #ifndef NOX_NATIVE_VORTEX_EFFECT_H
 #define NOX_NATIVE_VORTEX_EFFECT_H
 #include "nox/records.h"
+#include "nox/party_invulnerability.h"
 #include "nox/resources.h"
 namespace Nox { namespace Native {
 struct VortexVictim {
@@ -40,7 +41,7 @@ public:
         const byte power = caster.bytes[34] ? caster.bytes[18] : caster.bytes[6] & 127;
         const byte guard = kinds[victim.cell] == 3 ? victim.stats[18] : victim.stats[6] & 127;
         if (power < guard) { output = hit; return true; }
-        if (playerDamageSuppressed) { hit.result = kVortexSuppressed; output = hit; return true; }
+        if (playerDamageSuppressed || preventsPartyDamage(victim.kind == 3)) { hit.result = kVortexSuppressed; output = hit; return true; }
         VortexVictim next = victim;
         next.stats[2] = next.stats[3] = 0;
         if (victim.kind == 3) next.stats[0] = 255;
