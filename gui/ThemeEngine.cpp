@@ -47,8 +47,8 @@
 
 namespace GUI {
 
-const char *const ThemeEngine::kImageLogo = "logo.bmp";
-const char *const ThemeEngine::kImageLogoSmall = "logo_small.bmp";
+const char *const ThemeEngine::kImageLogo = "comfort-logo.bmp";
+const char *const ThemeEngine::kImageLogoSmall = "comfort-logo-small.bmp";
 const char *const ThemeEngine::kImageSearch = "search.bmp";
 const char *const ThemeEngine::kImageGroup = "groupbtn.bmp";
 const char *const ThemeEngine::kImageEraser = "eraser.bmp";
@@ -707,8 +707,23 @@ bool ThemeEngine::addBitmap(const Common::String &filename, const Common::String
 			surf->convertFrom(*srcSurface, _overlayFormat);
 		}
 
-		if (surf)
-			surf->setTransparentColor(surf->format.RGBToColor(0xFF, 0x00, 0xFF));
+		if (surf) {
+			// The owner-supplied CE logo uses a black matte; other theme bitmaps use magenta.
+			const bool comfortLogo = filename == "comfort-logo.bmp" || filename == "comfort-logo-small.bmp";
+			if (comfortLogo) {
+				// Treat near-black resampling fringes as part of the supplied black matte.
+				const uint32 matte = surf->format.RGBToColor(0, 0, 0);
+				for (int y = 0; y < surf->h; ++y) {
+					for (int x = 0; x < surf->w; ++x) {
+						byte r, g, b;
+						surf->format.colorToRGB(surf->getPixel(x, y), r, g, b);
+						if (r < 24 && g < 24 && b < 24)
+							surf->setPixel(x, y, matte);
+					}
+				}
+			}
+			surf->setTransparentColor(comfortLogo ? surf->format.RGBToColor(0, 0, 0) : surf->format.RGBToColor(0xFF, 0x00, 0xFF));
+		}
 	}
 
 	if (_scaleFactor != 1.0 && surf) {

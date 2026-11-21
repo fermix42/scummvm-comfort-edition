@@ -108,7 +108,7 @@
 	</palette>
 
 	<bitmaps>
-		<bitmap filename = 'logo.bmp'/>
+		<bitmap filename = 'comfort-logo.bmp'/>
 		<bitmap filename = 'cursor.bmp' scalable_file = 'cursor.svg' width = '24' height = '24'/>
 		<bitmap filename = 'cursor_small.bmp' scalable_file = 'cursor.svg' width = '16' height = '16'/>
 		<bitmap filename = 'cursor-index.bmp' scalable_file = 'cursor-index.svg' width = '24' height = '24'/>
@@ -118,7 +118,7 @@
 		<bitmap filename = 'checkbox_disabled.bmp'/>
 		<bitmap filename = 'radiobutton.bmp'/>
 		<bitmap filename = 'radiobutton_empty.bmp'/>
-		<bitmap filename = 'logo_small.bmp'/>
+		<bitmap filename = 'comfort-logo-small.bmp'/>
 		<bitmap filename = 'search.bmp'/>
 		<bitmap filename = 'eraser.bmp'/>
 		<bitmap filename = 'delbtn.bmp'/>
