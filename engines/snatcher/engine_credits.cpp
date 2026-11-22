@@ -22,7 +22,7 @@ bool SnatcherEngine::updateCredits(std::string& error){
  if(_creditsPhase==1){
   // E242 waits for actor31, then F560/EEB6 reset only their qualified owners.
   if(_scene.actor(31)->active||_scene.actor(31)->reserved)return true;
-  if(!_scene.resetApplicationPresentation(error)||!_scene.requestVisualCommand(0xff,error))return false;
+  if(!_scene.beginCreditsPresentation(error))return false;
   _commandInput.close();_scene.clearMenuCursor();_dialogueWindow.cancel();_dialogueReady=false;
   _creditsPhase=2;return true;
  }

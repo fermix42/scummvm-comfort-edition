@@ -10,7 +10,7 @@
 class SnatcherMetaEngine : public MetaEngine {
 public:
  const char *getName() const override {return "snatcher";}
- const ExtraGuiOptions getExtraGuiOptions(const Common::String&)const override{ExtraGuiOptions options;options.push_back(ExtraGuiOption("Original controls only","Disable PC mouse interaction and use keyboard or gamepad controls","snatcher_original_controls_only",false,0,0));options.push_back(ExtraGuiOption("Decensor Alice, Lisa and Katrina", "Restore only Alice animation, Lisa artwork and Katrina shower graphics (requires local decensor data)", "snatcher_decensor", false, 0, 0));return options;}
+ const ExtraGuiOptions getExtraGuiOptions(const Common::String&)const override{ExtraGuiOptions options;options.push_back(ExtraGuiOption("Infinite Health","Infinite Health","snatcher_infinite_health",false,0,0,kExtraGuiOptionFlagCheat));options.push_back(ExtraGuiOption("Original controls only","Disable PC mouse interaction and use keyboard or gamepad controls","snatcher_original_controls_only",false,0,0));options.push_back(ExtraGuiOption("Uncensored", "Restore Alice, Lisa and Katrina artwork (also enabled by entering KONAMI at JORDAN; requires local uncensored data)", "snatcher_decensor", false, 0, 0));return options;}
  bool hasFeature(MetaEngineFeature f)const override{return f==kSupportsLoadingDuringStartup||f==kSupportsListSaves||f==kSupportsDeleteSave||f==kSimpleSavesNames||f==kSavesSupportMetaInfo||f==kSavesSupportThumbnail;}
  int getAutosaveSlot() const override { return 0; }
  int getMaximumSaveSlot()const override{return 99;}

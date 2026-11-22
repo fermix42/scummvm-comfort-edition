@@ -244,6 +244,27 @@ void replacementTransferContracts(){
  word(data,406,2);
  check(runtime.install(31,data,0,error)&&finishTransfers(runtime,error)&&runtime.render(kSceneRGB888,image,error)&&image.indexed[0]==1,"final graphics request publishes its own destination");
 }
+void flashlightCommandWindowContracts(){
+ using namespace Snatcher;std::string error;SceneRuntime runtime;SceneLayout layout;layout.width=256;layout.height=224;layout.columns=32;layout.rows=64;
+ check(runtime.configure(layout,error)&&runtime.establishSceneReset(kSceneTallLayout,error)&&runtime.establishFreshPalette(error),"flashlight command-window publication owners");runtime.establishFreshModuleDialogueContext();
+ check(runtime.requestVisualCommand(13,error),"actual command window opens");for(unsigned i=0;i<12;++i)check(runtime.tick(false,error),"command window reaches its authored stable split");
+ const int positions[][2]={{-28,-62},{32,-16},{0,-40}};
+ for(const auto& point:positions){
+  check(runtime.queueAbsolutePlanePosition(0,int16_t(point[0]),int16_t(point[1]),error)&&runtime.tick(false,error)&&runtime.tick(false,error),"flashlight source pan publishes through ordinary worker");
+  SceneLayout frame=runtime.framePresentationLayout();SceneViewBand menu;for(unsigned p=0;p<2;++p){menu.sourceX[p]=frame.sourceX[p];menu.sourceY[p]=frame.sourceY[p];}for(const auto& band:frame.viewBands)if(band.firstRow<=144)menu=band;
+  check(frame.sourceX[0]==-point[0],"upper flashlight plane follows the actual pointer position");
+  check(menu.sourceX[0]==0&&menu.sourceX[1]==0&&menu.sourceY[0]==256&&menu.sourceY[1]==256,"lower command window retains its own fixed X and font-map Y while flashlight moves");
+ }
+ check(runtime.queueAbsolutePlanePosition(0,25,-47,error)&&runtime.tick(false,error)&&runtime.tick(false,error),"off-center flashlight before Look and alternate captions");
+ check(runtime.queueAbsolutePlanePosition(0,25,-47,error)&&runtime.queueAbsolutePlanePosition(1,11,0,error)&&runtime.tick(false,error)&&runtime.tick(false,error),"publish both source positions through their shared absolute mailbox before alternate text windows");
+ const unsigned modes[][3]={{15,144,256},{20,160,240},{21,72,328},{22,168,232},{18,160,240}};
+ for(const auto& mode:modes){
+  check(runtime.requestVisualCommand(uint16_t(mode[0]),error),"enter actual dialogue or alternate text-window program");for(unsigned i=0;i<12;++i)check(runtime.tick(false,error),"text-window publication settles");
+  SceneLayout frame=runtime.framePresentationLayout();SceneViewBand caption;for(unsigned p=0;p<2;++p){caption.sourceX[p]=frame.sourceX[p];caption.sourceY[p]=frame.sourceY[p];}for(const auto& band:frame.viewBands)if(band.firstRow<=mode[1])caption=band;
+  check(frame.sourceX[0]==-25&&caption.sourceX[0]==0&&caption.sourceY[0]==int(mode[2]),"Look and alternate captions keep font X fixed while upper flashlight remains panned");
+  check(caption.sourceX[1]==(mode[0]==15?0:-11),"ordinary dialogue fixes both font planes while alternate captions preserve background pan");
+ }
+}
 void absolutePlanePublicationContracts(){using namespace Snatcher;std::string e;SceneRuntime s;SceneLayout l;l.width=256;l.height=224;l.columns=32;l.rows=64;check(s.configure(l,e),"absolute plane layout");s.establishFreshModuleDialogueContext();
  {
   SceneRuntime restored;check(restored.configure(l,e),"animation publication reset layout");restored.establishFreshModuleDialogueContext();
@@ -272,6 +293,20 @@ void selfRetirementContracts(){using namespace Snatcher;std::string e;SceneRunti
  check(runtime.copyActorTemplate(5,6,e)&&runtime.inspectActor(5,retired,e)&&retired.record==1&&retired.remaining==later.remaining&&!retired.active,"later typed template preserves post-clear record and overwrites dormant duration");SceneActorPatch activate;activate.fields=SceneActorPatch::kActive;activate.active=true;check(runtime.patchActor(5,activate,e)&&runtime.tick(false,e)&&runtime.animation(5)->recordIndex==2,"later template activation uses preserved next-record chronology");
  auto replacement=scene({Actor{5,0,3,4,{3,0,0,7}}});check(runtime.install(22,replacement,0,e)&&runtime.tick(false,e)&&runtime.inspectActor(5,retired,e)&&retired.active&&retired.record==0&&retired.remaining==7&&!retired.cleared,"normal initializer replaces retired counters and graphics ownership");
  SceneRuntime other;check(other.configure(layout,e)&&other.setPalette(colors,0,e)&&other.setTransferChannel(0,e),"other95 fixture owners");other.establishBlankAssets();other.establishSceneFlags(0);auto two=scene({Actor{1,0,0,0,{0x95,2,0,0,0,0,0,2}},Actor{2,0,0,0,{0x9b,77,0,0,0,0,0,2}}});check(other.install(22,two,0,e)&&other.tick(false,e)&&other.actor(1)->active&&!other.actor(2)->active&&other.animation(1)->recordIndex==1&&other.inspectActor(2,retired,e)&&retired.record==0&&retired.remaining==0&&other.sceneFlags(sceneFlags)&&sceneFlags==0,"other-target95 retains full-zero clear and continues caller before later actor turn");
+}
+void creditsPaletteContracts(){
+ using namespace Snatcher;std::string error;SceneLayout layout;layout.width=256;layout.height=224;layout.columns=32;layout.rows=64;layout.planeEnabled[0]=layout.planeEnabled[1]=false;layout.backdrop=32;
+ std::vector<uint16_t> colors(128,0);colors[32]=0x00e;
+ auto initialize=[&](SceneRuntime& r,unsigned resource){if(!r.configure(layout,error)||!r.setPalette(colors,0,error))return false;r.establishBlankAssets();r.establishFreshModuleDialogueContext();return r.install(resource,scene({Actor{1,0,0,0,{0xa4,0,0,0,0,0,0,100}}}),0,error)&&r.tick(false,error)&&r.requestPalettePublication(1,error)&&r.beginFrame(false,error);};
+ auto fullRed=[&](SceneRuntime& r){SceneImage image;if(!r.render(kSceneRGB888,image,error))return false;for(size_t i=0;i<image.rgb.size();i+=3)if(image.rgb[i]!=238||image.rgb[i+1]||image.rgb[i+2])return false;return true;};
+ SceneRuntime credits;check(initialize(credits,52)&&!fullRed(credits),"old continuous policy masks lower credits primary colors");
+ check(credits.beginCreditsPresentation(error)&&credits.palettePublicationPending()&&credits.palettePublicationMode()==1,"credits entry posts original FF palette request before Main consumption");
+ check(credits.beginFrame(true,error)&&credits.palettePublicationPending(),"paused credits entry retains pending publication");
+ check(credits.beginFrame(false,error)&&credits.palettePublicationMode()==0&&fullRed(credits),"credits source FF restores primary palette across full display");
+ SceneRuntime old;check(initialize(old,52),"affected credits save fixture");const auto computed=old.computedPaletteColors();const auto record=old.animation(1)->recordIndex;bool repaired=false;
+ check(old.recoverCreditsPalette(repaired,error)&&repaired&&old.palettePublicationMode()==0&&fullRed(old)&&old.computedPaletteColors()==computed&&old.animation(1)->recordIndex==record,"credits recovery restores displayed colors without advancing animations or computed palettes");
+ repaired=true;check(old.recoverCreditsPalette(repaired,error)&&!repaired&&fullRed(old),"correct credits palette recovery is idempotent");
+ SceneRuntime other;check(initialize(other,51),"noncredits continuous fixture");repaired=true;check(other.recoverCreditsPalette(repaired,error)&&!repaired&&other.palettePublicationMode()==1&&!fullRed(other),"credits recovery preserves other scenes and normal lower publication");
 }
 void layoutPalettePublicationContracts(){
  using namespace Snatcher;std::string error;SceneLayout tall;tall.width=256;tall.height=224;tall.columns=32;tall.rows=64;tall.planeEnabled[0]=tall.planeEnabled[1]=false;
@@ -334,7 +369,7 @@ void animationVisibilityContracts(){
  check(runtime.actorAction(1,2,error)==kActorActionApplied&&runtime.updateObjects(false,error)&&runtime.animation(1)->remaining==4&&runtime.render(kSceneReferenceRGB565,image,error)&&image.indexed==blank,"pause-hide action affects rendering without consuming a hold update");
  check(runtime.actorAction(1,0,error)==kActorActionApplied&&runtime.updateObjects(false,error)&&runtime.animation(1)->remaining==3&&runtime.animation(1)->hidden&&runtime.render(kSceneReferenceRGB565,image,error)&&image.indexed==blank,"resume preserves actual actor hidden bit on held97");
 }
-int runSceneRuntimeTests(){using namespace Snatcher;checks=0;queuedPreparationContracts();coordinatorAdmissionContracts();layoutPalettePublicationContracts();animationVisibilityContracts();selfRetirementContracts();applicationResetContracts();absolutePlanePublicationContracts();actorAdapterContracts();resourceBlankingContracts();replacementTransferContracts();clearedActorContracts();pcmOverlayContracts();pcmPrerollContracts();displayedPublisherContracts();captionRoleContracts();applicationFadeContracts();std::string error;SceneRuntime runtime;SceneImage image;
+int runSceneRuntimeTests(){using namespace Snatcher;checks=0;queuedPreparationContracts();coordinatorAdmissionContracts();layoutPalettePublicationContracts();creditsPaletteContracts();animationVisibilityContracts();selfRetirementContracts();applicationResetContracts();flashlightCommandWindowContracts();absolutePlanePublicationContracts();actorAdapterContracts();resourceBlankingContracts();replacementTransferContracts();clearedActorContracts();pcmOverlayContracts();pcmPrerollContracts();displayedPublisherContracts();captionRoleContracts();applicationFadeContracts();std::string error;SceneRuntime runtime;SceneImage image;
  check(!runtime.render(kSceneRGB888,image,error)&&error.find("layout")!=std::string::npos,"no invented initial scene layout");
  SceneLayout layout;layout.width=layout.height=16;layout.columns=layout.rows=32;layout.planeEnabled[0]=layout.planeEnabled[1]=false;
  check(runtime.configure(layout,error)&&!runtime.render(kSceneRGB888,image,error)&&error.find("palette")!=std::string::npos,"known geometry does not invent palette inheritance");

@@ -224,6 +224,7 @@ add_executable(title-reveal-tests title_reveal_tests.cpp ../scene_state.cpp ../s
 get_target_property(active_scene_sources scene-state-tests SOURCES)
 list(REMOVE_ITEM active_scene_sources scene_state_tests.cpp)
 add_executable(active-scene-state-tests active_scene_state_tests.cpp ${active_scene_sources})
+add_executable(scene-snapshot-probe scene_snapshot_probe.cpp ${active_scene_sources})
 add_test(NAME active-scene-state-contracts COMMAND active-scene-state-tests)
 
 get_target_property(resume_menu_sources active-scene-state-tests SOURCES)

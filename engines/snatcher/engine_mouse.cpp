@@ -61,9 +61,23 @@ bool SnatcherEngine::processMouseEvent(const Common::Event& event,std::string& e
  }else if(c.kind==kMouseCommands||c.kind==kMouseInvestigation){
   if(_mouseCommandPending)return true;
   if(a.kind==kMouseCancel){_mouseCommandPending=true;_mouseCommandButton=kCommandCancel;_mouseCommandContext=identity;}
-  else if(a.target==0xffff){
+  else if(c.kind==kMouseInvestigation&&a.kind==kMouseScroll){
+   // Wheel selection is independent of the hit target, including the upper
+   // examination view. Never use a wheel event's coordinates to move the beam.
    if(!c.ready)return true;
-   if(!moveMouseExamination(e.x,e.y,activate,error))return false;
+   const unsigned n=unsigned(_commandInput.references().size());if(!n)return true;
+   const unsigned index=(_commandInput.selectedIndex()+n+(a.delta>0?1:-1))%n;
+   if(!_commandInput.select(index,error))return false;_selection=index;
+   if(!showMenu(false,error))return false;
+  }
+  else if(a.target==0xffff){
+   if(activate){
+    // Confirm the highlighted command at the already positioned flashlight.
+    // The normal coordinator publishes its hit region before consuming this
+    // intent. It also defers confirmation until a wheel repaint is published.
+    _mouseCommandPending=true;_mouseCommandButton=kCommandConfirm;_mouseCommandContext=identity;
+    _mouseCommandIndex=_commandInput.selectedIndex();_mouseCommandReference=_commandInput.selectedReference();
+   }else if(c.ready&&hover&&!moveMouseExamination(e.x,e.y,false,error))return false;
   }else if(activate||hover||a.kind==kMouseScroll){
    unsigned n=unsigned(_commandInput.references().size()),index=a.target;
    if(!c.ready&&a.target>=n)return true;

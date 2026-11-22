@@ -201,6 +201,7 @@ private:
  bool consumeFmCompletions(std::string& error);
  int _entryCloseView=-1;TextEntry _textEntry;bool _entryOpen=false,_entryPending=false,_entryKeySaved=false;int16_t _entryKeyX=0,_entryKeyY=0;
  bool updateTextEntry(uint8_t counter,std::string& error);
+ bool enableUncensored(std::string& error);
  bool applyTextEntryEffects(TextEntryEffects& effects,std::string& error);
  bool showMenu(bool opening,std::string& error);
 };

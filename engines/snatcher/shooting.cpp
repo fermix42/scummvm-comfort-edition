@@ -184,7 +184,7 @@ bool targetActorsKnown(const ShootingCoordinatorInput& input,const ShootingEncou
  for(unsigned i=0;i<9;++i){const auto& a=input.actors[32+i];if(!initial&&a.cleared&&a.phaseKnown&&!a.phase&&!a.owned&&!a.active&&!a.markersKnown)continue;if(!a.owned||!a.markersKnown||!a.phaseKnown||a.cleared){std::ostringstream message;message<<"shooting "<<(initial?"initial":"actual")<<" target/marker owner unavailable actor="<<(32+i)<<" owned="<<a.owned<<" markers="<<a.markersKnown<<" phase_known="<<a.phaseKnown<<" phase="<<unsigned(state.targets[i].phaseAndType);error=message.str();return false;}}return true;
 }
 void publishTargets(const ShootingEncounterState& state,ShootingCoordinatorEffects& out){for(unsigned i=0;i<9;++i){const auto& t=state.targets[i];if(t.cleared)continue;auto& a=actorEffect(out,32+i,ShootingActorMutation::kActive|ShootingActorMutation::kFlags|ShootingActorMutation::kRecord|ShootingActorMutation::kRemaining);a.active=t.active;a.flags=t.flags;a.record=t.record;a.remaining=t.remaining;}}
-void damageEffect(const ShootingEncounterData& data,ShootingCoordinatorState& state,ShootingCoordinatorEffects& out){if(state.encounter.damage>=6)return;if(state.healthRemaining) --state.healthRemaining;graphicsEffect(out,0x12ea8);out.resources.back().overrideValue=true;out.resources.back().value=data.healthDestinations[state.healthRemaining];++state.encounter.damage;}
+void damageEffect(const ShootingEncounterData& data,ShootingCoordinatorState& state,ShootingCoordinatorEffects& out,bool infiniteHealth){if(infiniteHealth||state.encounter.damage>=6)return;if(state.healthRemaining) --state.healthRemaining;graphicsEffect(out,0x12ea8);out.resources.back().overrideValue=true;out.resources.back().value=data.healthDestinations[state.healthRemaining];++state.encounter.damage;}
 bool updateAim(const ShootingEncounterData& data,const ShootingAimLayout& layout,const ShootingCoordinatorInput& input,NarrativeRandomSource& rng,ShootingCoordinatorState& state,ShootingCoordinatorEffects& out,std::string& error){
  auto& e=state.encounter;
  const bool mouseEntered=input.absoluteAim&&!state.absoluteAim;state.absoluteAim=input.absoluteAim;
@@ -205,7 +205,7 @@ bool updateFire(const ShootingEncounterData& data,const ShootingFireLayout& layo
  else if(state.fire.phase==3){if(state.fireTarget>=9){error="shooting accepted shot has no owned target cell";return false;}auto& target=e.targets[state.fireTarget];const TargetHitClass hit=markTargetHit(target.phaseAndType);
   if(hit==kTargetTypeBitClear){++e.typeClearHits;e.timing=decreaseTimingAdjustment(e.timing);if(!data.profiles[e.mode].policy)out.effects.push_back(14);}
   else if(hit==kTargetTypeBitSet){if((e.typeSetHits&7)==7)e.timing=decreaseTimingAdjustment(e.timing);++e.typeSetHits;if(e.mode==0||e.mode==11){activeEffect(out,59,true);flagEffect(out,59,1);if(!realActor(input,59,error))return false;recordEffect(out,59,uint16_t(input.actors[59].record+1));}out.effects.push_back(data.profiles[e.mode].hitTypeSetSound);}
-  if(e.mode==10){if(data.gridTypes[state.fireTarget]&2){out.effects.push_back(0x32);out.music.push_back(0x13);damageEffect(data,state,out);}else state.misses=advanceMissCounter(state.misses);}
+  if(e.mode==10){if(data.gridTypes[state.fireTarget]&2){out.effects.push_back(0x32);out.music.push_back(0x13);damageEffect(data,state,out,input.infiniteHealth);}else state.misses=advanceMissCounter(state.misses);}
   else if(hit==kTargetPhaseIneligible){if(e.alternateInput||!data.profiles[e.mode].policy)e.timing=increaseTimingAdjustment(e.timing,e.mode,e.alternateInput);state.misses=advanceMissCounter(state.misses);}
   else if(e.mode==9){state.aimEnabled=false;state.inputLocked=true;}
   state.fireTarget=255;activeEffect(out,21,false);state.fire.phase=0;
@@ -218,7 +218,7 @@ bool updateAttack(const ShootingEncounterData& data,const ShootingCoordinatorInp
  if(!realActor(input,24,error)||e.attackCell>=9){error="shooting attack actor/cell owner unavailable";return false;}
  if(e.attackPhase==1){activeEffect(out,24,true);recordEffect(out,24,2);e.attackPhase=2;if(data.rules[e.mode].attackSound)out.effects.push_back(data.rules[e.mode].attackSound);
  }else if(e.attackPhase==2){const auto& a=input.actors[24];if(!a.markersKnown){error="shooting attack terminal marker owner unavailable";return false;}if(a.record==a.markers[0])e.attackPhase=3;}
- else if(e.attackPhase==3){e.inputGate=uint16_t(e.inputGate+56);e.attackPhase=0;activeEffect(out,24,false);if(e.mode==4)out.effects.push_back(0x34);else out.music.push_back(0x13);damageEffect(data,state,out);}
+ else if(e.attackPhase==3){e.inputGate=uint16_t(e.inputGate+56);e.attackPhase=0;activeEffect(out,24,false);if(e.mode==4)out.effects.push_back(0x34);else out.music.push_back(0x13);damageEffect(data,state,out,input.infiniteHealth);}
  else{error="shooting attack phase invalid";return false;}return true;
 }
 }
@@ -228,7 +228,7 @@ bool tickShootingCoordinator(const ShootingEncounterData& data,const ShootingAim
  error.clear();effects=ShootingCoordinatorEffects();if(!state.active||state.completed||!data.loaded||data.profiles.size()!=15||data.rules.size()!=15||state.encounter.mode>=15||state.encounter.phase>5||state.encounter.attackCell>=9||state.aimCell>=9||(state.fireTarget>=9&&state.fireTarget!=255)||state.healthRemaining>6||state.fire.phase>5||input.actors.size()!=64){error="shooting coordinator source/lifecycle owner invalid";return false;}ShootingCoordinatorState next=state;ShootingCoordinatorEffects out;auto& e=next.encounter;const unsigned mode=e.mode;
  if(!e.phase){
   if(!next.subphase){out.resources.push_back(ShootingResourceAction(ShootingResourceAction::kProbeInput));paletteEffect(out,0x11e7e);next.timer=0;++next.subphase;}
-  else if(next.subphase==1){++next.timer;if(next.timer>=2&&input.profileReady){next.timer=0;paletteEffect(out,0x11e6a);if(mode!=0&&mode!=11){graphicsEffect(out,0x11ee6);if(mode!=5)graphicsEffect(out,0x11ed8);graphicsEffect(out,0x11ef4);++next.subphase;}else next.subphase=3;}}
+  else if(next.subphase==1){++next.timer;if(next.timer>=2&&input.profileReady){next.timer=0;paletteEffect(out,0x11e6a);if(mode!=0&&mode!=11){graphicsEffect(out,0x11ee6);if(mode!=5){graphicsEffect(out,0x11ed8);graphicsEffect(out,0x11ef4);}++next.subphase;}else next.subphase=3;}}
   else if(next.subphase==2){next.capturedScrollX=input.scrollX;next.capturedScrollY=input.scrollY;++next.subphase;}
   else if(next.subphase==3){if(mode!=14&&!targetActorsKnown(input,e,true,error))return false;if(!synchronizeTargets(input,e,error))return false;if(!initializeShootingEncounter(data,mode,e.alternateInput,e.timing,e,error))return false;next.subphase=0;next.timer=0;next.inputLocked=false;next.aimEnabled=false;next.aimToggle=0;next.fireTarget=255;next.fire=ShootingFireState();next.healthRemaining=6;publishTargets(e,out);for(unsigned a:{21u,22u,23u,24u}){activeEffect(out,a,false);flagEffect(out,a,0);}recordEffect(out,21,0);activeEffect(out,48,false);flagEffect(out,48,3);}
   else{error="shooting prelude phase invalid";return false;}

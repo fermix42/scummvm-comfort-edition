@@ -45,6 +45,8 @@ public:
  bool validateModuleEnvironmentHistory(uint16_t mode,std::string& error)const;
  // Source application F560 + EEB6, distinct from ordinary F5E8 scene changes.
  bool resetApplicationPresentation(std::string& error);
+ bool beginCreditsPresentation(std::string& error);
+ bool recoverCreditsPalette(bool& repaired,std::string& error);
  bool configure(const SceneLayout& layout,std::string& error);
  bool loadEnvironmentTables(const uint8_t* sub,size_t size,std::string& error){return readEnvironmentVisualTables(sub,size,_environmentTables,error);}
  bool setEnvironmentMode(uint16_t mode,std::string& error);
@@ -114,6 +116,8 @@ public:
  bool install(uint16_t resource,const std::vector<uint8_t>& data,unsigned index,std::string& error);
  bool installOverlay(uint16_t resource,const std::vector<uint8_t>& bytes,unsigned index,std::string& error);
  bool pcmVisualStartReady(const std::vector<ActorInitializer>& actors)const;
+ // Repair only the byte-recognized erroneous common overlay in old hospital saves.
+ bool recoverHospitalCombatMap(unsigned healthRemaining,const std::vector<uint8_t>& subcode,bool& repaired,std::string& error);
  bool installSystemPresentation(const std::vector<uint8_t>& subcode,unsigned index,unsigned position,std::string& error);
  bool commitTransfers(std::string& error);
  bool selectActorRecord(unsigned actor,unsigned record,uint8_t flags,std::string& error);

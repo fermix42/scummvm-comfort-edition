@@ -33,6 +33,7 @@ public:
  bool mouseSelect(int x,int y,TextEntryEffects& effects,std::string& error);
  bool awaitingKey()const{return _pendingKey!=0;}
  bool active()const{return _active;}bool completed()const{return _completed;}
+ bool submittedKonami()const;
  uint16_t selectedReference()const{return _choices.empty()?0:_choices[_selected].reference;}
  const TextEntrySettings& settings()const{return _settings;}
  const std::array<uint8_t,18>& buffer()const{return _buffer;}

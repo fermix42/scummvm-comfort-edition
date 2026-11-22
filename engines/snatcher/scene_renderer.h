@@ -40,6 +40,7 @@ public:
  bool configure(const SceneLayout& layout,std::string& error);
  bool setPalette(const std::vector<uint16_t>& colors,unsigned firstColor,std::string& error);
  bool applyTransfer(const GraphicsTransfer& transfer,std::string& error);
+ bool matchesNameTransfer(const GraphicsTransfer& transfer)const;
  bool fillPlaneCells(unsigned plane,size_t column,size_t row,size_t columns,size_t rows,uint16_t attribute,std::string& error);
  // Only a recovered owner reset may establish previously unfilled cells as
  // blank. A direct test load must explicitly provide this state as a fixture.

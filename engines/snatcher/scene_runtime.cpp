@@ -92,6 +92,22 @@ bool SceneRuntime::resetApplicationPresentation(std::string& error){
  next._actors.clear();for(unsigned i=0;i<64;++i){next._actors._actors[i].recordIndex=next._actors._actors[i].remaining=0;next._slots[i]=ActorSlot();next._slots[i].clearedKnown=true;}
  *this=next;return true;
 }
+bool SceneRuntime::beginCreditsPresentation(std::string& error){
+ // Sub E242/E256 writes FF to7891, consumed through B6405 by Main3280.
+ // This is the palette publisher request, not the primary visual mailbox.
+ SceneRuntime next=*this;if(!next.resetApplicationPresentation(error)||!next.requestPalettePublication(255,error))return false;*this=next;return true;
+}
+bool SceneRuntime::recoverCreditsPalette(bool& repaired,std::string& error){
+ repaired=false;error.clear();
+ if(_saveResource!=52||!_palettePublicationMode)return true;
+ // Credits entered through E256 cannot retain continuous lower publication.
+ // Repair the displayed boundary without advancing actors, clocks or fades.
+ if(!_displayedHistoryKnown||_visibleColors.size()!=128||_visibleKnownColors.size()!=128||_phoneVisual.tag||(_phoneFrame.known&&_phoneFrame.tag)){error="credits palette recovery requires its full-frame primary owner";return false;}
+ for(unsigned i=0;i<64;++i)if(!_visibleKnownColors[i]){error="credits primary palette is not established";return false;}
+ SceneRuntime next=*this;next._palettePublicationMode=next._pendingPalettePublication=0;
+ if(!next.publishDisplayedPalette(true,error))return false;
+ *this=next;repaired=true;return true;
+}
 bool SceneRuntime::prepareResourceChange(std::string& error){return prepareReplacement(true,error);}
 bool SceneRuntime::advanceResourcePreparation(SceneResourcePreparation& job,bool& complete,std::string& error){
  error.clear();complete=false;if(graphicsServiceBusy())return true;
@@ -221,6 +237,24 @@ bool SceneRuntime::installOverlay(uint16_t resource,const std::vector<uint8_t>& 
  // without F5E8 scene teardown or changing the scenario's presentation latch.
  if(!staged.setTransferChannel(1,error)||!staged.installStaged(resource,source,assets,error)||!staged.setTransferChannel(0,error))return false;
  staged._assets=primary;*this=staged;return true;
+}
+bool SceneRuntime::recoverHospitalCombatMap(unsigned healthRemaining,const std::vector<uint8_t>& sub,bool& repaired,std::string& error){
+ repaired=false;error.clear();
+ if(_saveResource!=29||_saveScene!=2)return true;
+ const size_t base=0xd400,healthTable=0x12ebc-base;
+ if(healthRemaining>6||sub.size()<healthTable+12){error="hospital overlay recovery requires its original health table";return false;}
+ SceneGraphicsTask common,health;
+ if(!readSceneGraphicsTask(sub.data(),sub.size(),0x11ef4-base,base,common,error)||!readSceneGraphicsTask(sub.data(),sub.size(),0x12ea8-base,base,health,error))return false;
+ if(common.flags!=0x21||common.transfers.size()!=1||common.transfers[0].destination!=0xe000||common.transfers[0].decoded.size()!=2048||health.flags!=2||health.transfers.size()!=1||health.transfers[0].decoded.size()!=6){error="hospital overlay recovery source packets differ";return false;}
+ GraphicsTransfer expected=common.transfers[0];std::vector<GraphicsTransfer> damage;
+ for(unsigned i=healthRemaining;i<6;++i){GraphicsTransfer patch=health.transfers[0];patch.destination=sourceWord(sub.data()+healthTable+i*2);if(patch.destination<expected.destination||size_t(patch.destination-expected.destination)+patch.decoded.size()>expected.decoded.size()){error="hospital health patch lies outside recognized overlay";return false;}std::copy(patch.decoded.begin(),patch.decoded.end(),expected.decoded.begin()+patch.destination-expected.destination);damage.push_back(patch);}
+ // Correct saves and unrelated map changes are never rewritten. The old bug
+ // replaced exactly this source packet, plus these original damage stores.
+ if(!_renderer.matchesNameTransfer(expected))return true;
+ const GraphicsTransfer* original=nullptr;for(const auto& transfer:_assets.transfers)if(transfer.destination==0xe000&&transfer.decoded.size()==2048)original=&transfer;
+ if(!original){error="hospital overlay recovery lacks its authored map owner";return false;}
+ SceneRenderer renderer=_renderer;if(!renderer.applyTransfer(*original,error))return false;for(const auto& patch:damage)if(!renderer.applyTransfer(patch,error))return false;
+ _renderer=renderer;repaired=true;return true;
 }
 bool SceneRuntime::pcmVisualStartReady(const std::vector<ActorInitializer>& actors)const {
  for(const auto& initial:actors) {
@@ -426,9 +460,17 @@ SceneLayout SceneRuntime::currentRenderLayout()const{SceneLayout layout=_baseLay
  if((_rowSamplingKnown&&!_legacyLineComposition)||(_lineScroll.state().active&&_lineScroll.state().lineEnabled&&!_fullPlaneScrollOverride)){
   const bool owned=_rowSamplingKnown&&!_legacyLineComposition;
   std::vector<SceneViewBand> original=layout.viewBands;layout.viewBands.clear();SceneViewBand current;current.displayEnabled=layout.displayEnabled;for(unsigned p=0;p<2;++p){current.sourceX[p]=layout.sourceX[p];current.sourceY[p]=layout.sourceY[p];}size_t index=0;SceneViewBand previous;
+  // Primary text-window programs own the font plane's horizontal origin.
+  // The world/flashlight sampling above the split remains independent. Ordinary
+  // menus/dialogue use both planes; alternate windows retain plane B's world.
+  const bool textWindow=_visualKnown&&((_visualCommand>=0x0d&&_visualCommand<=0x0f)||(_visualCommand>=0x12&&_visualCommand<=0x16))&&!_phoneVisual.mode&&!original.empty();
+  const bool bothTextPlanes=_visualCommand>=0x0d&&_visualCommand<=0x0f;
   for(unsigned row=0;row<layout.height;++row){while(index<original.size()&&original[index].firstRow<=row)current=original[index++];SceneViewBand line=current;line.firstRow=row;
-   if(owned){for(unsigned p=0;p<2;++p){unsigned sample=_frameLineSampling?row:0;bool known=_allRowsKnown||sample<128||(p==1&&sample<136&&(_tailRowsKnown&(1u<<(sample-128))));if(known)line.sourceX[p]=_rowX[p][sample];}}
-   else line.sourceX[1]+=_lineScroll.sourceX(row);
+   for(unsigned p=0;p<2;++p){
+    if(textWindow&&row>=original.front().firstRow&&(p==0||bothTextPlanes))line.sourceX[p]=0;
+    else if(owned){unsigned sample=_frameLineSampling?row:0;bool known=_allRowsKnown||sample<128||(p==1&&sample<136&&(_tailRowsKnown&(1u<<(sample-128))));if(known)line.sourceX[p]=_rowX[p][sample];}
+    else if(p==1)line.sourceX[p]+=_lineScroll.sourceX(row);
+   }
    if(!row){for(unsigned p=0;p<2;++p){layout.sourceX[p]=line.sourceX[p];layout.sourceY[p]=line.sourceY[p];}}
    else if(line.sourceX[0]!=previous.sourceX[0]||line.sourceX[1]!=previous.sourceX[1]||line.sourceY[0]!=previous.sourceY[0]||line.sourceY[1]!=previous.sourceY[1]||line.displayEnabled!=previous.displayEnabled)layout.viewBands.push_back(line);previous=line;
   }
@@ -538,7 +580,7 @@ bool SceneRuntime::establishDialogueView(unsigned mode,std::string& error){
  unsigned first=mode==9?144:mode==14?160:mode==15?72:168;int origin=mode==9?256:mode==14?240:mode==15?328:232;return applyLowerWindow(first,origin,mode==9,error);
 }
 bool SceneRuntime::applyLowerWindow(unsigned first,int origin,bool both,std::string& error){
- SceneLayout layout=_baseLayout;layout.viewBands.clear();SceneViewBand lower;lower.firstRow=first;for(unsigned p=0;p<2;++p){lower.sourceX[p]=layout.sourceX[p]-integer(_scroll.state().positions[p].x16);lower.sourceY[p]=p==0||both?origin:layout.sourceY[p]-integer(_scroll.state().positions[p].y16);}layout.viewBands.push_back(lower);SceneRenderer next=_renderer;if(!next.configure(layout,error))return false;_baseLayout=layout;_renderer=next;return true;
+ SceneLayout layout=_baseLayout;layout.viewBands.clear();SceneViewBand lower;lower.firstRow=first;for(unsigned p=0;p<2;++p){lower.sourceX[p]=p==0||both?0:layout.sourceX[p]-integer(_scroll.state().positions[p].x16);lower.sourceY[p]=p==0||both?origin:layout.sourceY[p]-integer(_scroll.state().positions[p].y16);}layout.viewBands.push_back(lower);SceneRenderer next=_renderer;if(!next.configure(layout,error))return false;_baseLayout=layout;_renderer=next;return true;
 }
 bool SceneRuntime::requestPalettePublication(uint8_t command,std::string& error){error.clear();_pendingPalettePublication=command;return true;}
 bool SceneRuntime::setPlaneAllocation(unsigned plane,unsigned allocation,std::string& error){

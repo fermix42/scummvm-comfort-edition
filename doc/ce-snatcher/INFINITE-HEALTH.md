@@ -1,0 +1,9 @@
+# Infinite shooting health
+
+In the launcher, select Snatcher, choose Edit Game, open the **Cheats** tab, then enable **Enable cheats** and **Infinite Health**. The option is off by default. Its saved selection has no effect while the per-game master cheat gate is off or Challenge Mode is active. The shared CE cheat controls handle Challenge Mode confirmation and assisted-achievement rules. Its configuration key is `snatcher_infinite_health`.
+
+The option prevents subsequent health loss from enemy attacks and the special shooting-grid reaction. It preserves attack animations, impact effects, targeting, hit requirements and encounter cleanup. It does not refill damage already taken or revive an encounter that has already ended. The setting belongs to the game profile, not the save format; existing saves remain compatible.
+
+Regression coverage in shooting_tests.cpp exercises both damage paths, absence of health-bar damage writes, retained attack cleanup and effects, and normal damage after disabling the option. Native test coverage compares ordinary hospital enemy attacks with the option off/on, then checks save/load with the option enabled. Evidence: validation/infinite-health-20261122 and build-scummvm/Releasex64/validation-infinite-health.
+
+CE policy integration uses kExtraGuiOptionFlagCheat for the shared launcher/in-game Cheats tab and CEAchievementService::shouldApplyCheat for both gameplay and effective-state inspection. Saved selection alone never enables the cheat. Native policy coverage checks default, individual-only, master-only, both enabled, and Challenge Mode overriding a configured master/individual pair, including shared assistance flags. Policy evidence: validation/snatcher-cheat-policy-20261122 and build-scummvm/Releasex64/validation-infinite-health-policy.

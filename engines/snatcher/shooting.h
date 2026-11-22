@@ -149,9 +149,9 @@ struct ShootingResourceAction {
  ShootingResourceAction(Kind k,size_t at=0):kind(k),dataOffset(at),overrideValue(false),value(0){}
 };
 struct ShootingCoordinatorInput {
- bool profileReady,effectBusy,absoluteAim;uint8_t held,pressed;uint16_t pointerX,pointerY;int16_t scrollX,scrollY,mouseX,mouseY;
+ bool profileReady,effectBusy,absoluteAim,infiniteHealth;uint8_t held,pressed;uint16_t pointerX,pointerY;int16_t scrollX,scrollY,mouseX,mouseY;
  std::vector<ShootingActorView> actors;
- ShootingCoordinatorInput():profileReady(false),effectBusy(false),absoluteAim(false),held(0),pressed(0),pointerX(0),pointerY(0),scrollX(0),scrollY(0),mouseX(0),mouseY(0){}
+ ShootingCoordinatorInput():profileReady(false),effectBusy(false),absoluteAim(false),infiniteHealth(false),held(0),pressed(0),pointerX(0),pointerY(0),scrollX(0),scrollY(0),mouseX(0),mouseY(0){}
 };
 struct ShootingCoordinatorState {
  bool active,completed,aimEnabled,inputLocked,allSpecialHit,absoluteAim;ShootingEncounterState encounter;ShootingFireState fire;

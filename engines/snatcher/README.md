@@ -29,6 +29,10 @@ and resumes; the PC pause view also offers a mouse Resume button.
   a visible PC OK button for the original Start action.
 - Examination uses game-space pointer coordinates and the original hotspot map.
   Invalid points are ignored; no directional polling or edge clamping is used.
+- During flashlight examination, wheel up/down selects the previous/next command
+  while preserving the aim. Left-click in the upper examination view executes
+  the highlighted command at the flashlight's current center. Direct menu-row
+  clicks remain available.
 - Shooting uses an unsnapped absolute crosshair and left-click fire. Source hit
   regions, accepted-fire timing, recoil, damage and outcomes remain game-owned.
   Meaningful directional/weapon input switches back to original aiming; mouse

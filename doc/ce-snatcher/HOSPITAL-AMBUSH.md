@@ -1,0 +1,9 @@
+# Hospital ambush visibility repair
+
+The mode-5 shooting prelude incorrectly applied the common E000 name table (SUBCODE job 11EF4) while skipping its corresponding pattern upload (11ED8). Stale patterns became an opaque priority plane over the hospital and target. Original SUBCODE at 1212A branches around both jobs for mode 5, retaining the health job 11EE6. The coordinator now follows that branch.
+
+Existing active mode-5 saves in resource 29, scene 2 recover only when their entire 2048-byte E000 table exactly matches the erroneous source packet plus the original health-damage stores for their remaining health. Recovery restores the authored scene map and reapplies those same damage stores. Correct maps are unchanged. Actors, targeting, health, timers and narrative state are retained.
+
+Validation on November 22, 2026 used the owner's F12 package ending 115818-9285378-1. Five component suites passed (presentation, shooting, scene runtime, PCM visuals, mouse input). The standalone scene probe reproduced the obstruction and verified map recovery is idempotent. The release executable loaded the preserved save, retained the packed narrative digest and every target record, rendered the uncovered hospital, and saved/reloaded with identical RGB and encounter progress. An ordinary mouse shot aimed at the retained top-middle target registered one set hit without additional damage. This is a bounded encounter regression, not a complete hospital playthrough.
+
+Evidence is under validation/hospital-ambush-20261122 and build-scummvm/Releasex64/validation-hospital-ambush. The original F12 save and owner saves were not modified. Only the stable test executable was refreshed; its previous executable, profile and saves were backed up and their hashes checked. The release installation was not updated.

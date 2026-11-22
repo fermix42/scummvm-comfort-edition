@@ -45,4 +45,11 @@ assert(t.loadAssets(b.data(),b.size(),error));assert(t.begin(choices(true),TextE
 // Plain numeric answers need visible mouse Submit; phone auto-submit and
 // alphabetic source END retain their original separate completion semantics.
  TextEntry numericMouse;assert(numericMouse.loadAssets(b.data(),b.size(),error));settings=TextEntrySettings();assert(numericMouse.begin(choices(false),settings,e,error));auto numericTargets=numericMouse.mouseTargets();assert(numericTargets.back().id==kTextEntryMouseSubmit&&numericTargets.back().rect.contains(24,192)&&!numericTargets.back().rect.contains(88,192));assert(numericMouse.mouseActionMask(kTextEntryMouseSubmit)==128&&numericMouse.mouseActionMask(45)==32&&numericMouse.mouseActionMask(999)==0);assert(!numericMouse.mouseSelect(40,200,e,error)&&numericMouse.gridIndex()==45);assert(numericMouse.step(numericMouse.mouseActionMask(kTextEntryMouseSubmit),0,1,e,error)&&numericMouse.awaitingKey()&&!numericMouse.mouseActionMask(kTextEntryMouseSubmit));assert(numericMouse.resumeKey(true,e,error)&&numericMouse.completed());settings=TextEntrySettings();settings.phonePolicy=255;assert(numericMouse.begin(choices(false),settings,e,error)&&!numericMouse.mouseActionMask(kTextEntryMouseSubmit));assert(numericMouse.begin(choices(true),TextEntrySettings(),e,error)&&!numericMouse.mouseActionMask(kTextEntryMouseSubmit));
+// Only a completed, exact alphabetic code qualifies; typing alone is inert.
+ for(const char* code:{"KONAMI","KONAM","KONAMIX","KONAMI ","AKONAMI"}){
+  TextEntry cheat;assert(cheat.loadAssets(mouseBytes.data(),mouseBytes.size(),error)&&cheat.begin(choices(true),TextEntrySettings(),e,error));unsigned tick=1;
+  for(const char* c=code;*c;++c){int n=*c-'A';int x=*c==' '?124:24+16*(n%13),y=*c==' '?196:n<13?164:180;assert(cheat.mouseSelect(x,y,e,error)&&input(cheat,32,0,uint8_t(tick++),e,error));}
+  assert(!cheat.submittedKonami());assert(input(cheat,128,0,uint8_t(tick),e,error)&&cheat.completed());assert(cheat.submittedKonami()==(std::string(code)=="KONAMI"));
+ }
+ assert(!numericMouse.submittedKonami());
 std::cout<<"text-entry contracts passed: "<<checks<<" checks\n";}
