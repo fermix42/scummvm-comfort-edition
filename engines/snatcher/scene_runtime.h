@@ -113,6 +113,7 @@ public:
  bool resourceChangePending()const{return _resourceChangePending;}
  bool install(uint16_t resource,const std::vector<uint8_t>& data,unsigned index,std::string& error);
  bool installOverlay(uint16_t resource,const std::vector<uint8_t>& bytes,unsigned index,std::string& error);
+ bool pcmVisualStartReady(const std::vector<ActorInitializer>& actors)const;
  bool installSystemPresentation(const std::vector<uint8_t>& subcode,unsigned index,unsigned position,std::string& error);
  bool commitTransfers(std::string& error);
  bool selectActorRecord(unsigned actor,unsigned record,uint8_t flags,std::string& error);

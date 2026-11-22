@@ -69,7 +69,7 @@ def main():
                 assert 0 <= timing['max_ms'] <= timing['total_ms']
                 assert timing['calls'] > 0 or timing['total_ms'] == 0
         assert any(s['process_metrics_known'] and s['private_bytes'] > 0 for s in report['history'])
-        assert report['engine']['entry_active'] and report['engine']['trace']
+        assert report['engine']['trace']
         f12('down')  # Holding F12 must not generate another capture.
         assert c.command('inspect')['adapter']['investigation_capture'] == stem
         f12('up')

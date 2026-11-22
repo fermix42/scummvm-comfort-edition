@@ -40,6 +40,35 @@ namespace Snatcher {
 namespace {
 uint64 testInstancesCreated=0,testDestructorsEntered=0,testLastDestructionSerial=0;
 bool testLastDestructionDiscOpen=false;
+#ifdef WIN32
+// Snatcher already advances its authored clock from elapsed time and yields in
+// its host loop. Do not also wait for vertical retrace by default: owner captures
+// show sustained ~68 ms SwapWindow waits with otherwise inexpensive frames.
+// Keep this runtime-only and scoped to the engine, including early returns.
+class ScopedPresentationTiming {
+ OSystem *_system;
+ bool _restore;
+public:
+ explicit ScopedPresentationTiming(OSystem *system):_system(system),_restore(false) {
+  if (ConfMan.hasKey("vsync", ConfMan.getActiveDomainName()) ||
+      !system->hasFeature(OSystem::kFeatureVSync) ||
+      !system->getFeatureState(OSystem::kFeatureVSync))
+   return;
+  _restore=true;
+  system->beginGFXTransaction();
+  system->setFeatureState(OSystem::kFeatureVSync,false);
+  if (system->endGFXTransaction()!=OSystem::kTransactionSuccess)
+   warning("Snatcher: unable to disable presentation synchronization");
+ }
+ ~ScopedPresentationTiming() {
+  if (!_restore) return;
+  _system->beginGFXTransaction();
+  _system->setFeatureState(OSystem::kFeatureVSync,true);
+  if (_system->endGFXTransaction()!=OSystem::kTransactionSuccess)
+   warning("Snatcher: unable to restore presentation synchronization");
+ }
+};
+#endif
 }
 void SnatcherEngine::noteTestInstanceCreated(){
  if(CETestCLI::active()&&testInstancesCreated<UINT64_MAX)_testInstanceSerial=++testInstancesCreated;
@@ -308,7 +337,11 @@ Common::Error SnatcherEngine::run() {
  std::vector<uint8_t> subcode;if(!_resources.readFile("SUBCODE.BIN",subcode,reason)||!_font.load(subcode.data(),subcode.size(),reason)||!_dialogueWindow.loadAssets(subcode.data(),subcode.size(),reason)||!readGameTextPalette(subcode.data(),subcode.size(),_textColors,reason))return Common::Error(Common::kReadingFailed,Common::String(reason.c_str()));
  if(!_scene.loadSharedGraphicsEffects(subcode.data(),subcode.size(),reason)||!_scene.establishBootSubmissionHistory(reason))return Common::Error(Common::kReadingFailed,Common::String(reason.c_str()));
  delete _runtime;_runtime=new NarrativeRuntime(_scenarios,_events,_trace);_runtime->setQuerySource(this);_trace.enable(true);
- initGraphics(640,240);_pixels.assign(640*240,0);const byte colors[]={12,16,24,230,235,240};_system->getPaletteManager()->setPalette(colors,0,2);
+ initGraphics(640,240);
+#ifdef WIN32
+ ScopedPresentationTiming presentationTiming(_system);
+#endif
+ _pixels.assign(640*240,0);const byte colors[]={12,16,24,230,235,240};_system->getPaletteManager()->setPalette(colors,0,2);
  if(!migrateReservedNativeSaves(*_system->getSavefileManager(),ConfMan.getActiveDomainName(),reason))return Common::Error(Common::kReadingFailed,Common::String(reason.c_str()));
  if(!startStartup(reason))return Common::Error(Common::kReadingFailed,Common::String(reason.c_str()));
  _ready=true;
@@ -375,6 +408,7 @@ Common::Error SnatcherEngine::run() {
 }
 Common::JSONValue *SnatcherEngine::testCLIState(){
  Common::JSONObject o;
+ o["presentation_vsync_requested"]=new Common::JSONValue(_system->getFeatureState(OSystem::kFeatureVSync));
  o["investigation_capture"]=new Common::JSONValue(_investigationLastCapture);o["investigation_complete"]=new Common::JSONValue(_investigationComplete);o["investigation_status"]=new Common::JSONValue(_investigationStatus);o["investigation_samples"]=new Common::JSONValue((long long)_investigationHistory.size());
  const SceneLayout debugLayout=_scene.framePresentationLayout();Common::JSONObject sceneLayout;
  sceneLayout["columns"]=new Common::JSONValue((long long)debugLayout.columns);sceneLayout["rows"]=new Common::JSONValue((long long)debugLayout.rows);

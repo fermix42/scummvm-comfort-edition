@@ -222,6 +222,14 @@ bool SceneRuntime::installOverlay(uint16_t resource,const std::vector<uint8_t>& 
  if(!staged.setTransferChannel(1,error)||!staged.installStaged(resource,source,assets,error)||!staged.setTransferChannel(0,error))return false;
  staged._assets=primary;*this=staged;return true;
 }
+bool SceneRuntime::pcmVisualStartReady(const std::vector<ActorInitializer>& actors)const {
+ for(const auto& initial:actors) {
+  const unsigned i=initial.actorIndex;
+  if(i<64&&_slots[i].owned&&_actors.state(i)->active&&
+     !(_actors.state(i)->flags&1)&&!_slots[i].player.streamStartReady())return false;
+ }
+ return !graphicsServiceBusy()&&!transferBusy();
+}
 bool SceneRuntime::installSystemPresentation(const std::vector<uint8_t>& bytes,unsigned index,unsigned position,std::string& error){
  error.clear();const size_t table=0x144c6-0xd400;if(position>=18||bytes.size()<table+18*4){error="system presentation position outside original table";return false;}if(transferBusy()||_resourceChangePending){error="system presentation requires completed resource/transfer ownership";return false;}SceneAssets assets;if(parseSystemPresentationAssets(bytes.data(),bytes.size(),index,16*1024*1024,assets,error)!=kSceneAssetsReady)return false;
  for(const SceneControl& control:assets.controls)if((control.family<5||control.family>9)){error="system presentation controller owner unresolved";return false;}

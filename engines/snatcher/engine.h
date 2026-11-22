@@ -168,6 +168,7 @@ private:
  bool loadResidentBank(uint16_t bank,std::string& error);
  bool updatePcmRequest(const RuntimeRequest& request,std::string& error);
  EventToken _pcmRequestToken;unsigned _pcmRequestPhase=0;uint16_t _pcmRequestId=0;std::vector<uint8_t> _pcmVisualTable;
+ std::vector<ActorInitializer> _pcmVisualStartActors;
  bool capturePresentationBookmark(uint16_t presentation,NativePresentationBookmark& bookmark,std::string& error)const;
  bool restoreBookmarkPolicies(std::string& error);
  uint64_t _gameElapsedOrigin=0;GameSaveRecord _startupRecord;bool _startupRecordReady=false,_originalResumePending=false;unsigned _startupRecordSlot=0;RuntimeRequest _originalResumeJob;

@@ -47,6 +47,9 @@ public:
  bool restartSequence(std::string& error);
  // Source UI owners replace the record cursor, preserving duration and repeat.
  bool selectRecord(unsigned record,std::string& error);
+ // A linear authored lead-in ending in A9 owns the visual pre-roll before
+ // stream-start. Other programs impose no inferred synchronization barrier.
+ bool streamStartReady() const;
  const AnimationState &state()const{return _state;}
  // Delivered on the owning engine thread, never executed in an audio callback.
  // The scene owner applies global mode/ordering, which is not an actor field.

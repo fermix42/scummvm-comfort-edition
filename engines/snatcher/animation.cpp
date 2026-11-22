@@ -14,6 +14,20 @@ bool applyAnimationClockCapture(uint8_t argument,AnimationClockCapture& state,st
  error.clear();if(!state.clockKnown||(argument&&!state.captureKnown)){error="animation clock capture requires verified coordinator/history context";return false;}state.captured=argument?uint16_t(unsigned(state.sourceTicks)-unsigned(state.captured)):state.sourceTicks;state.captureKnown=true;return true;
 }
 AnimationPlayer::AnimationPlayer():_sequence(0),_first(true),_paused(false),_halted(false),_blocked(false),_repeat(0),_haltResult(kAnimationError),_completionMarkers(0){}
+bool AnimationPlayer::streamStartReady() const {
+ for (size_t record=0;record<4096;++record) {
+  const size_t offset=_sequence+record*4;
+  if (offset>_resource.size()||_resource.size()-offset<4) return true;
+  const uint8_t op=_resource[offset];
+  if (op==0xa9) return !_first&&_state.recordIndex>=record;
+  // Follow only the unambiguous fall-through lead-in. Branching, retirement
+  // and external controls retain their normal owner; never guess a path.
+  if (op<0x80||op==0x97||(op>=0x84&&op<=0x87)||op==0xa0||
+      op==0xa1||op==0xa7||op==0xac||op==0xaf) continue;
+  return true;
+ }
+ return true;
+}
 void AnimationPlayer::cancel(){_state=AnimationState();_resource.clear();_sequence=0;_first=true;_paused=false;_halted=false;_blocked=false;_repeat=0;_haltError.clear();_scrollRequests.clear();_completionMarkers=0;}
 bool AnimationPlayer::start(const uint8_t *data,size_t size,size_t sequence,int16_t x,int16_t y,std::string &error){
  cancel();error.clear();if(!data||size>16*1024*1024||sequence>size||size-sequence<4){error="animation sequence outside bounded resource";return false;}

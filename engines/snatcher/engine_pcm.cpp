@@ -28,19 +28,28 @@ bool SnatcherEngine::updatePcmRequest(const RuntimeRequest& command,std::string&
   if(_pcmVisualTable.empty()){std::vector<uint8_t> sub;if(!_resources.readFile("SUBCODE.BIN",sub,error)||!readPcmVisualTable(sub.data(),sub.size(),_catalog.size(),_pcmVisualTable,error))return false;}
   PcmRequest request;if(!planPcmRequest(_catalog,command.first,request,error))return false;
   if(request.kind==kLoadResidentBank){if(!loadResidentBank(command.first,error))return false;_trace.record(command.owner,"resident_bank_loaded",command.first,uint32_t(request.entry.length));}
-  else{PreparedPcmStream stream;AudioToken token;
+  else _activity.setKnownFlag(0,true);
+  _pcmVisualStartActors.clear();
+  _pcmRequestPhase=1;return true;
+ }
+ if(_pcmRequestPhase==1){_pcmRequestPhase=2;return true;}
+ bool mapped;uint8_t list;if(!lookupPcmVisual(_pcmVisualTable,_pcmRequestId,mapped,list,error))return false;
+ if(_pcmRequestPhase==2&&(mapped||_scene.palettePublicationPending())){if(mapped&&!_scene.requestPalettePublication(1,error))return false;_pcmRequestPhase=3;_trace.record(command.owner,"pcm_visual_prepared",command.first,list);return true;}
+ if(_pcmRequestPhase==3&&mapped){uint16_t resource;unsigned primary;if(!_scene.resourceIdentity(resource,primary)){error="PCM-linked display has no primary resource owner";return false;}std::vector<uint8_t> bytes;if(!_resources.readResource(resource,bytes,error))return false;SceneAssets overlay;if(parseSceneAssets(bytes.data(),bytes.size(),list,16*1024*1024,overlay,error)!=kSceneAssetsReady||!_scene.installOverlay(resource,bytes,list,error))return false;_pcmVisualStartActors=overlay.actors;_trace.record(command.owner,"pcm_display_published",command.first,list);}
+ // The linked actor can have an authored timed pose before its A9 sound-start
+ // wait (Napoleon's sneeze is one). Starting the mixer before that pose gives
+ // audio a head start: EOF releases caption cleanup before the actor restores
+ // its hidden portrait. Admit playback at that actual visual boundary instead.
+ if(_pcmRequestPhase<4){_pcmRequestPhase=4;return true;}
+ if(!_scene.pcmVisualStartReady(_pcmVisualStartActors))return true;
+ PcmRequest request;if(!planPcmRequest(_catalog,command.first,request,error))return false;
+ if(request.kind!=kLoadResidentBank){PreparedPcmStream stream;AudioToken token;
    if(!_residentStaging){size_t capacity=65536;for(const auto& entry:_catalog)if(entry.mode==1)capacity=std::max(capacity,entry.length);_residentStaging.reset(new ResidentPcmStaging(capacity));}
    std::shared_ptr<PcmStreamFeed> feed(new PcmStreamFeed);_activity.setKnownFlag(0,true);
    if(!preparePcmStream(request.entry,_pcmData.data(),_pcmData.size(),sourcePcmStreamProfile(),_pcmMono,stream,error,_quietPcm)||!feed->start(_residentStaging,command.first,_pcmData.data()+request.entry.offset,request.entry.length,stream.pcm,stream.sample.sampleCount,stream.profile.rate,error)||!_streamOwner.start(stream,AudioOwner(command.owner.resource,command.owner.node),_events.generation(),token,error,feed)){_activity.forgetFlag(0);_scene.clearSoundContext();_audioError=error;return false;}
    // The tracked writer publishes actual completed resource services. Audible
    // EOF must not reconstruct transfers that were never requested/published.
    _residentStreamPending=0;_lastPcmCommand=0xffff;_lastPcmKnown=true;_effectOwner.reset();for(const auto& effect:_pendingEffects)_trace.record(effect.owner,"scene_effect_cancelled_by_stream",effect.id,effect.bank);_pendingEffects.clear();_audioError.clear();_trace.record(command.owner,"stream_started",command.first,uint32_t(token.id));}
-  _pcmRequestPhase=1;return true;
- }
- if(_pcmRequestPhase==1){_pcmRequestPhase=2;return true;}
- bool mapped;uint8_t list;if(!lookupPcmVisual(_pcmVisualTable,_pcmRequestId,mapped,list,error))return false;
- if(_pcmRequestPhase==2&&(mapped||_scene.palettePublicationPending())){if(mapped&&!_scene.requestPalettePublication(1,error))return false;_pcmRequestPhase=3;_trace.record(command.owner,"pcm_visual_prepared",command.first,list);return true;}
- if(mapped){uint16_t resource;unsigned primary;if(!_scene.resourceIdentity(resource,primary)){error="PCM-linked display has no primary resource owner";return false;}std::vector<uint8_t> bytes;if(!_resources.readResource(resource,bytes,error)||!_scene.installOverlay(resource,bytes,list,error))return false;_trace.record(command.owner,"pcm_display_published",command.first,list);}
  if(!_events.complete(command.token,false,error))return false;_pcmRequestToken=EventToken();_pcmRequestPhase=0;_pcmRequestId=0;return true;
 }
 }

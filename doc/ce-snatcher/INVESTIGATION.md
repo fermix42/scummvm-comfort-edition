@@ -108,3 +108,24 @@ allocation is attempted; the flag describes routine polling only.
 Format-3 samples report `graphics.routine_gl_debug_polling` so the next capture
 identifies the compiled policy. This candidate addresses the measured pre-call
 error-clearing stall; real-device acceptance remains with the owner.
+
+## Windows presentation timing
+
+The owner's 2026-11-21 16:20 capture confirms routine GL polling was off.
+After about 71 minutes, swaps changed abruptly from inexpensive calls to
+sustained 68–70 ms waits inside SDL_GL_SwapWindow with swap interval 1.
+Uploads remained at 0–1 ms, handles stayed at 713–715, and available RAM
+stayed above 19 GiB. This identifies a presentation wait, not its underlying
+driver/compositor cause.
+
+Snatcher now disables VSync for its Windows engine lifetime by default, retaining
+the existing elapsed-time simulation and 10 ms host-loop yield. This removes the
+requested retrace wait; it does not guarantee that a driver will never block.
+An explicit per-game `vsync` setting takes precedence. The change uses the backend
+graphics transaction API, writes no configuration, and restores an inherited
+enabled VSync state when the engine exits, including early returns. Other
+platforms retain their existing behavior. Unsynchronized presentation can tear.
+
+F12 still records the backend-reported swap interval and stage timings so an
+owner playtest can distinguish a recurrence with interval 0. Dummy-device tests
+can validate policy and recovery but cannot establish real-device acceptance.

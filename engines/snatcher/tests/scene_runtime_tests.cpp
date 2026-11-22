@@ -133,6 +133,28 @@ void pcmOverlayContracts(){
  check(!transferred.installOverlay(22,data,1,error)&&transferred.transferBusy(),"next overlay cannot pass an unpublished graphics owner");
  check(finishTransfers(transferred,error)&&!transferred.transferBusy()&&transferred.installOverlay(22,data,1,error)&&transferred.transferBusy(),"next authored request admits only after real transfer commit");
 }
+void pcmPrerollContracts(){
+ using namespace Snatcher;SceneRuntime runtime;std::string error;
+ runtime.establishFreshAnimationClock();runtime.setSoundContext(false,0);
+ const auto bytes=scene({Actor{8,0,56,24,{5,0,0,12,0xac,0,0,0,0xa9,0,0,0,8,0,0,40}}});
+ check(runtime.install(0,bytes,0,error),"actual scene installs PCM visual lead-in");const auto actors=runtime.assets().actors;
+ check(!runtime.pcmVisualStartReady(actors),"new visual cannot admit sound before its first actor update");
+ for(unsigned i=0;i<12;++i)check(runtime.tick(false,error)&&!runtime.pcmVisualStartReady(actors),"source initial pose is retained before stream-start");
+ check(runtime.tick(false,error)&&runtime.pcmVisualStartReady(actors)&&runtime.animation(8)->recordIndex==2,"scene A9 wait admits sound without an invented timer");
+ runtime.setSoundContext(false,2);check(runtime.tick(false,error)&&runtime.animation(8)->recordIndex==3,"real stream-start activity releases the visual wait");
+ // The paired portrait must be restored before caption teardown. This models
+ // the authored 12-update pre-roll, 150-update sneeze and ~152-update audio.
+ const auto paired=scene({Actor{8,0,120,80,{5,0,0,12,0xac,0,0,0,0xa9,0,0,0,0x96,18,0,0,8,0,0,40,0,0,0,6,8,0,0,32,0,0,0,6,8,0,0,26,9,0,0,40,0x94,18,0,0,0x93,0,0,0,5,0,0,12}},Actor{18,0,56,24,{0,0,0,240,0x81,0,0,0}}});
+ SceneRuntime early;early.establishFreshAnimationClock();early.setSoundContext(false,2);check(early.install(0,paired,0,error),"early audio reference scene");
+ for(unsigned i=0;i<152;++i)check(early.tick(false,error),"early-audio reference update");
+ early.deactivateCaptionActors();check(!early.actor(8)->active&&(early.actor(18)->flags&2),"audio leading the visual reproduces orphaned hidden portrait at caption cleanup");
+ SceneRuntime aligned;aligned.establishFreshAnimationClock();aligned.setSoundContext(false,0);check(aligned.install(0,paired,0,error),"aligned stream scene");const auto alignedActors=aligned.assets().actors;
+ for(unsigned i=0;i<13;++i)check(aligned.tick(false,error),"actual lead-in advances without playing audio");
+ check(aligned.pcmVisualStartReady(alignedActors),"paired scene reaches actual stream-start boundary");aligned.setSoundContext(false,2);
+ for(unsigned i=0;i<152;++i)check(aligned.tick(false,error),"aligned audio visual update");
+ aligned.deactivateCaptionActors();check(!aligned.actor(8)->active&&!(aligned.actor(18)->flags&2),"caption cleanup after aligned audio retains the restored portrait");
+
+}
 void captionRoleContracts(){
  using namespace Snatcher;SceneRuntime runtime;std::string error;std::vector<uint8_t> bytes(4096,0);longWord(bytes,0,0x28008);longWord(bytes,4,0x28020);word(bytes,32,2);bytes[34]=2;bytes[35]=144;for(unsigned i=4;i<=15;++i){unsigned at=36+(i-4)*12,sequence=1024+(i-4)*128;bytes[at]=uint8_t(i);bytes[at+1]=1;word(bytes,at+2,10*i);word(bytes,at+4,2*i);longWord(bytes,at+6,0x28200);word(bytes,at+10,sequence-(at+12));bytes[sequence+3]=100;}bytes[180]=0x80;check(runtime.install(22,bytes,0,error),"actual initialized caption and neighboring actor roles");
  SceneActorPatch patch;patch.fields=SceneActorPatch::kPhase;patch.phase=0x17;for(unsigned i=4;i<=15;++i)check(runtime.patchActor(i,patch,error),"caption fixture retains explicit source actor phase");check(runtime.reserveActor(6,true,error),"caption active word includes actual high-byte reserved ownership");
@@ -312,7 +334,7 @@ void animationVisibilityContracts(){
  check(runtime.actorAction(1,2,error)==kActorActionApplied&&runtime.updateObjects(false,error)&&runtime.animation(1)->remaining==4&&runtime.render(kSceneReferenceRGB565,image,error)&&image.indexed==blank,"pause-hide action affects rendering without consuming a hold update");
  check(runtime.actorAction(1,0,error)==kActorActionApplied&&runtime.updateObjects(false,error)&&runtime.animation(1)->remaining==3&&runtime.animation(1)->hidden&&runtime.render(kSceneReferenceRGB565,image,error)&&image.indexed==blank,"resume preserves actual actor hidden bit on held97");
 }
-int runSceneRuntimeTests(){using namespace Snatcher;checks=0;queuedPreparationContracts();coordinatorAdmissionContracts();layoutPalettePublicationContracts();animationVisibilityContracts();selfRetirementContracts();applicationResetContracts();absolutePlanePublicationContracts();actorAdapterContracts();resourceBlankingContracts();replacementTransferContracts();clearedActorContracts();pcmOverlayContracts();displayedPublisherContracts();captionRoleContracts();applicationFadeContracts();std::string error;SceneRuntime runtime;SceneImage image;
+int runSceneRuntimeTests(){using namespace Snatcher;checks=0;queuedPreparationContracts();coordinatorAdmissionContracts();layoutPalettePublicationContracts();animationVisibilityContracts();selfRetirementContracts();applicationResetContracts();absolutePlanePublicationContracts();actorAdapterContracts();resourceBlankingContracts();replacementTransferContracts();clearedActorContracts();pcmOverlayContracts();pcmPrerollContracts();displayedPublisherContracts();captionRoleContracts();applicationFadeContracts();std::string error;SceneRuntime runtime;SceneImage image;
  check(!runtime.render(kSceneRGB888,image,error)&&error.find("layout")!=std::string::npos,"no invented initial scene layout");
  SceneLayout layout;layout.width=layout.height=16;layout.columns=layout.rows=32;layout.planeEnabled[0]=layout.planeEnabled[1]=false;
  check(runtime.configure(layout,error)&&!runtime.render(kSceneRGB888,image,error)&&error.find("palette")!=std::string::npos,"known geometry does not invent palette inheritance");
