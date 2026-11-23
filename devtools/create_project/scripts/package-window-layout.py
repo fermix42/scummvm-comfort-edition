@@ -14,6 +14,14 @@ import subprocess
 SUBPROCESS_TEXT_KWARGS = {"text": True, "encoding": "utf-8", "errors": "replace"}
 
 
+def distributed_engine_data(root):
+    """The same flat engine-data inventory used by portable releases."""
+    paths = set()
+    for makefile in (root / "dists/engine-data").glob("engine_data*.mk"):
+        paths.update(re.findall(r"dists/engine-data/[^\s\\]+", makefile.read_text()))
+    return [root / name for name in sorted(paths)]
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     for key in ("root", "build", "vcpkg", "vs", "output"):
@@ -57,9 +65,8 @@ def main():
         copy(copyright_file, Path("LICENSES/dependencies") / (copyright_file.parent.name + ".txt"))
     # Include every distributed engine data file, including the optional large
     # assets, so the portable test does not depend on another installation.
-    for makefile in (root / "dists/engine-data").glob("engine_data*.mk"):
-        for name in re.findall(r"dists/engine-data/[^\s\\]+", makefile.read_text()):
-            copy(root / name)
+    for path in distributed_engine_data(root):
+        copy(path)
     for name in ("scummmodern.zip", "scummclassic.zip", "scummremastered.zip", "residualvm.zip",
                  "gui-icons.dat", "shaders.dat", "translations.dat"):
         copy(root / "gui/themes" / name)

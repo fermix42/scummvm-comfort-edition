@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "date": "2026-11-22",
+  "exe_sha256": "6ead97ae8c11a2fd70901fbf66acea51258fb868d4ece1698d19b0db26ed80e2",
+  "data_sha256": "20e7eb1c4525770b073b12f7e7518613c304671d8239ac0436394a4c06b02968",
+  "data_bytes": 72839,
+  "resource_entries": 835,
+  "compiled_fallback": false,
+  "czech_requires_data": false,
+  "invalid_english_cases_rejected": 12,
+  "data_only_update_rendered": true,
+  "czech_and_english_pixel_identical_to_previous_build": true,
+  "original_save_compatible_both_languages": true,
+  "opening_subtitles_enabled_disabled_skip_both_languages": true,
+  "portable_runtime_root_lookup": true
+}

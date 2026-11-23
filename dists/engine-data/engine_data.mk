@@ -19,6 +19,9 @@ endif
 ifdef ENABLE_DRASCULA
 DIST_FILES_LIST += dists/engine-data/drascula.dat
 endif
+ifdef ENABLE_GOOKA
+DIST_FILES_LIST += dists/engine-data/gooka.dat
+endif
 ifdef ENABLE_GOT
 DIST_FILES_LIST += dists/engine-data/got.gfx
 DIST_FILES_LIST += dists/engine-data/got.aud
@@ -58,6 +61,9 @@ DIST_FILES_LIST += dists/engine-data/queen.tbl
 endif
 ifdef ENABLE_SKY
 DIST_FILES_LIST += dists/engine-data/sky.cpt
+endif
+ifdef ENABLE_SNATCHER
+DIST_FILES_LIST += dists/engine-data/snatcher-decensor.dat
 endif
 ifdef ENABLE_SUPERNOVA
 DIST_FILES_LIST += dists/engine-data/supernova.dat

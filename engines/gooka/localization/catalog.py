@@ -57,7 +57,7 @@ def inventory(game, source):
             rid = key[1]
             entry = records.setdefault(rid, dict(id=rid, czech=text, english='',
                 status='untranslated', containers=[], context=[],
-                source_sha256=hashlib.sha256(raw).hexdigest()))
+                source_sha256=hashlib.sha256(raw).hexdigest(),source_md5=hashlib.md5(raw).hexdigest()))
             if entry['czech'] != text:
                 raise ValueError(f'Conflicting text variants for {rid}')
             entry['containers'].append(dict(bin=i, language=key[2]))

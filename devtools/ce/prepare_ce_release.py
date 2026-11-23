@@ -19,6 +19,15 @@ def digest(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+def verify_feature_data(folder, source_root=ROOT):
+    # These features must work in the package without another installation.
+    for name in ('kyra.dat', 'gooka.dat', 'snatcher-decensor.dat'):
+        packaged = folder/name
+        original = source_root/'dists/engine-data'/name
+        if not packaged.is_file() or digest(packaged) != digest(original):
+            raise SystemExit('Missing or stale release engine data beside scummvm.exe: '+name)
+
+
 def archive(folder, destination, top):
     with zipfile.ZipFile(destination, 'x', compression=zipfile.ZIP_DEFLATED, compresslevel=5) as output:
         for path in sorted(folder.rglob('*')):
@@ -102,6 +111,7 @@ def main():
     sums=dict(manifest['files'],**{'BUILD-MANIFEST.json':digest(folder/'BUILD-MANIFEST.json')})
     assert (folder/'SHA256SUMS.txt').read_text(encoding='utf-8')==''.join(h+'  '+name+'\n' for name,h in sorted(sums.items()))
     assert (folder/'scummvm.ini').read_bytes()==b'[scummvm]\nextrapath=.\n'
+    verify_feature_data(folder)
     forbidden=[name for name in actual if name.lower().endswith(('.log','.gsv','.ps2','.hdv','.ce-achievements.json'))
                or Path(name).name in ('profile.ini','ce-playthroughs.json','ce-achievements-queue.json')
                or 'test.ini' in name.lower()]

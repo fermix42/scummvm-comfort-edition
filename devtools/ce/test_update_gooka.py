@@ -32,6 +32,11 @@ class ImportTests(unittest.TestCase):
                 with self.assertRaises(SystemExit):
                     updater.verify(manifest)
 
+    def test_external_translation_overrides_require_reconciliation(self):
+        updater.require_reconciled_overrides({})
+        with self.assertRaisesRegex(SystemExit, 'external translation'):
+            updater.require_reconciled_overrides({'local_overrides': {'reason':'external data'}})
+
     def test_all_room_sources_registered(self):
         import re
         engine = updater.ROOT / 'engines/gooka'

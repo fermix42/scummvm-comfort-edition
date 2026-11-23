@@ -52,7 +52,7 @@ def run(exe,directory,lang,script,skip=False):
         else: os.environ['GOOKA_TEST']=previous
 
 
-for name,exe,lang in [('czech',args.exe,'cz'),('english',args.exe,'en'),('baseline',args.baseline,'cz')]:
+for name,exe,lang in [('czech',args.exe,'cz'),('english',args.exe,'en'),('baseline',args.baseline,'cz'),('baseline-english',args.baseline,'en')]:
     run(exe,root/name,lang,raw)
 for image in ('labels','puzzle','book'):
     cz = root/f'czech/screenshots/{image}.png'
@@ -60,6 +60,7 @@ for image in ('labels','puzzle','book'):
     old = root/f'baseline/screenshots/{image}.png'
     assert digest(cz)==digest(old),(image,'Czech presentation changed')
     assert digest(cz)!=digest(en),(image,'English not selected')
+    assert digest(en)==digest(root/f'baseline-english/screenshots/{image}.png'),(image,'English presentation changed')
 
 for name,lang in [('czech','cz'),('english','en')]:
     run(args.exe,root/('menu-'+name),lang,

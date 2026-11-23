@@ -8,7 +8,7 @@ import json
 from pathlib import Path
 import re
 from catalog import inventory, resources
-from compile import ROOT, controls, header
+from compile import ROOT, controls, data_file
 
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument('--game', type=Path, required=True)
@@ -16,7 +16,7 @@ args = parser.parse_args()
 original = inventory(args.game, ROOT.parent)
 english = json.loads((ROOT/'english.json').read_text(encoding='utf-8'))
 assert [e['id'] for e in original] == [e['id'] for e in english]
-assert (ROOT/'english.h').read_text(encoding='utf-8') == header(english)
+assert (ROOT.parents[2]/'dists/engine-data/gooka.dat').read_bytes() == data_file(english)
 widths = []
 for i in range(12):
     for key, raw in resources(args.game/f'{i}.BIN'):
@@ -29,6 +29,7 @@ for i in range(12):
 assert len(widths) == 256
 for a,b in zip(original,english):
     assert a['source_sha256'] == b['source_sha256'],a['id']
+    assert a['source_md5'] == b['source_md5'],a['id']
     assert controls(a['czech']) == controls(b['english']),a['id']
     assert b['english'].encode('cp1250').decode('cp1250') == b['english']
     assert not a['czech'].strip() or b['english'].strip(),a['id']

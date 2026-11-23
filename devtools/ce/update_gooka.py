@@ -41,12 +41,17 @@ def adapt_module(files):
 
 def verify(manifest):
     expected = manifest['files']
-    actual = {p.relative_to(ROOT).as_posix() for p in (ROOT / 'engines/gooka').rglob('*') if p.is_file()}
+    actual = {p.relative_to(ROOT).as_posix() for p in (ROOT / 'engines/gooka').rglob('*') if p.is_file() and '__pycache__' not in p.parts and p.suffix != '.pyc'}
     if actual != set(expected):
         raise SystemExit('Gooka file list differs from manifest; preserve/reconcile local changes first.')
     for name, checksum in expected.items():
-        if digest((ROOT / name).read_bytes()) != checksum:
+        if digest((ROOT / name).read_bytes().replace(b'\r\n', b'\n')) != checksum:
             raise SystemExit('Local changes in ' + name + '; reconcile before updating.')
+
+
+def require_reconciled_overrides(manifest):
+    if manifest and manifest.get('local_overrides'):
+        raise SystemExit('Gooka has recorded CE-local external translation changes. Reconcile these in the maintained fork and review the new snapshot before importing; do not restore the compiled fallback.')
 
 
 def main():
@@ -65,6 +70,7 @@ def main():
             raise SystemExit('No imported snapshot.')
         print('Verified Gooka snapshot ' + previous['commit'])
         return
+    require_reconciled_overrides(previous)
     if not args.ref or not re.fullmatch('[0-9a-f]{40}', args.ref):
         raise SystemExit('Updates require --ref with an exact reviewed fork commit, never a floating branch.')
     from urllib.parse import quote

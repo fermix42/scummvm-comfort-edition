@@ -9,10 +9,32 @@ from pathlib import Path
 import tempfile
 import unittest
 import zipfile
-from prepare_ce_release import archive, ROOT
+from prepare_ce_release import archive, ROOT, verify_feature_data
+import importlib.util
+import shutil
 
 
 class ReleaseTests(unittest.TestCase):
+    def test_custom_engine_data_is_packaged_beside_kyra(self):
+        spec=importlib.util.spec_from_file_location('layout_packager',ROOT/'devtools/create_project/scripts/package-window-layout.py')
+        module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module)
+        required={'kyra.dat','gooka.dat','snatcher-decensor.dat'}
+        paths={p.name:p for p in module.distributed_engine_data(ROOT)}
+        self.assertTrue(required <= paths.keys())
+        with tempfile.TemporaryDirectory() as temp:
+            folder=Path(temp)/'package';folder.mkdir()
+            for name in required:shutil.copy2(paths[name],folder/name)
+            verify_feature_data(folder)
+            archive(folder,Path(temp)/'engine-data.zip','CE')
+            with zipfile.ZipFile(Path(temp)/'engine-data.zip') as z:
+                self.assertEqual(set(z.namelist()),{'CE/'+name for name in required})
+                for name in required:self.assertEqual(z.read('CE/'+name),paths[name].read_bytes())
+            (folder/'gooka.dat').write_bytes(b'stale')
+            with self.assertRaisesRegex(SystemExit,'gooka.dat'):verify_feature_data(folder)
+            (folder/'snatcher-decensor.dat').unlink()
+            shutil.copy2(paths['gooka.dat'],folder/'gooka.dat')
+            with self.assertRaisesRegex(SystemExit,'snatcher-decensor.dat'):verify_feature_data(folder)
+
     def test_archive_is_independent_of_input_mtimes(self):
         with tempfile.TemporaryDirectory() as temp:
             root=Path(temp);folder=root/'package';folder.mkdir()

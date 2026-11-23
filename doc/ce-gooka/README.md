@@ -30,7 +30,7 @@ and never imports uncommitted working-copy changes. It refuses updates when engi
 have local edits, additions, or deletions. Reconcile those edits before updating.
 All downloads finish before the installed snapshot is changed.
 
-The only CE source adaptation expands upstream's GNU make wildcard room-object
+The original CE build adaptation expands upstream's GNU make wildcard room-object
 expression into an explicit list, because Visual Studio's `create_project`
 does not expand that expression. The updater reapplies this adaptation and
 includes new room sources automatically. Inspect the diff after each update,
@@ -45,10 +45,12 @@ setting and unstable detection flag remain intact.
 
 Game Options → Language offers Czech and English for the same Czech CD data
 through ScummVM's standard `ADGF_ADDENGLISH` capability. Restart to apply.
-The English resource-ID table is compiled into the executable, so the portable
-distribution needs no additional runtime loader, network or language asset.
-Default/Czech uses original CP1250 text; missing English entries warn and fall
-back to Czech. Game assets and save serialization/directories are unchanged.
+English uses the external `gooka.dat` resource, included beside the executable
+in portable packages. It may also be supplied through the game or extra-data
+search path. Default/Czech uses original CP1250 text without that file. English
+requires valid, complete, compatible data and otherwise reports a clear startup
+error; there is no compiled or Czech fallback for English. Replacing gooka.dat
+and restarting applies text corrections without rebuilding the executable. Game assets and save serialization/directories are unchanged.
 Original Czech voices/video remain; enable subtitles for English dialogue.
 Old targets with stale GUI options may need to be re-added to refresh the list.
 
@@ -62,7 +64,7 @@ The maintained extraction, translation, glossary, layout and synchronization
 instructions are in `engines/gooka/localization/README.md`. Keep full original
 Czech catalogs and owned data private; only translation resources/tools and
 original credit names belong in the fork. `english.json` is the correction source;
-`compile.py` generates the checked-in CP1250 table. English-only TextSprite
+`compile.py` generates the checked-in `dists/engine-data/gooka.dat` CP1250 table. English-only TextSprite
 wrapping and font-measured book layouts retain Czech presentation.
 
 Use `devtools/ce/test_gooka_localization_runtime.py` for bilingual resource
@@ -124,3 +126,12 @@ Upstream still marks Gooka unstable and includes incomplete shared NPC/room
 behavior (including rooms 1200, 2000, 2037 and 2049). Keep the unstable flag and
 experimental release-note status. Final candidate hashes and fresh results
 belong in the CE v0.1.4 readiness report, not the historical November 7 results.
+
+## External English data
+
+The CE-local external translation loader is recorded in gooka-upstream.json.
+Importer verification checks the installed snapshot, but a new upstream import
+is blocked until this feature is reconciled with the maintained fork. See the
+localization README for the binary format, validation and correction workflow.
+The original source fingerprints are retained in english.json; the former
+compiled translation header is not distributed or included in the executable.

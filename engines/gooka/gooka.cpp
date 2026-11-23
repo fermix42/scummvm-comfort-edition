@@ -42,6 +42,7 @@
 #include "gooka/image.h"
 #include "gooka/music.h"
 #include "gooka/resource.h"
+#include "engines/ce_test_cli.h"
 #include "gooka/scene.h"
 #include "gooka/sound.h"
 #include "gooka/ui.h"
@@ -359,12 +360,20 @@ void GookaEngine::tick() {
 // Creates the subsystems, then runs ticks at 40 Hz until the player quits.
 Common::Error GookaEngine::run() {
 
+	_res = new ResourceManager();
+	Common::String resourceError;
+	if (!_res->init(&resourceError)) {
+		if (CETestCLI::active()) {
+			// Report startup failures through the existing headless transport;
+			// the normal frontend below presents the standard error dialog.
+			CETestCLI::fatal(resourceError.c_str());
+			return Common::kNoError;
+		}
+		return Common::Error(Common::kReadingFailed, resourceError);
+	}
+
 	if (!initScreen())
 		return Common::Error(Common::kUnsupportedColorMode, "Gooka needs a 16-bit display mode");
-
-	_res = new ResourceManager();
-	if (!_res->init())
-		return Common::Error(Common::kNoGameDataFoundError, "Cannot open the .BIN resource files");
 
 	_soundMan = new SoundManager(_mixer, _res);
 	_music = new Music(_res);

@@ -12,9 +12,12 @@ remain with their owners. This is an unofficial machine-assisted localization.
 
 Add the original Czech CD version, open ScummVM's Game Options and select English
 or Czech in Language. Restart the game to apply. Czech/default returns original
-CP1250 bytes; English uses a compiled-in resource-ID table, so no external files,
-network, special launcher or separate saves are required. Missing English IDs
-warn and fall back to Czech. Speech and videos remain the original Czech assets;
+CP1250 bytes; English requires the versioned `gooka.dat` translation file in the game folder
+or ScummVM extra-data search path (portable packages place it beside the executable).
+English startup fails with a clear installation/Czech-selection message if the file
+is missing, corrupt, incomplete or incompatible. No compiled translation or Czech
+fallback is used for English. Czech needs no translation file. No network, special
+launcher or separate saves are required. Speech and videos remain the original Czech assets;
 enable subtitles for English dialogue. Existing targets can be refreshed by
 re-adding the game if their stored GUI language list predates English support.
 
@@ -37,15 +40,18 @@ Keep the resulting full Czech catalog private; do not commit proprietary assets.
 An extraction with changed source hashes is not silently marked translated.
 
 Edit the UTF-8 `english.json` for corrections; `python compile.py` regenerates
-`english.h`, and `python compile.py --check` verifies it. This is development-time
-generation, not a runtime dependency. Every byte is encoded explicitly as CP1250
+`dists/engine-data/gooka.dat`, and `python compile.py --check` verifies it. Replace
+the distributed file and restart the game to apply text corrections; no executable
+rebuild is required. Changes to text rendering still require an engine rebuild. Every byte is encoded explicitly as CP1250
 for the existing bitmap fonts. `english.tsv` retains the initial natural-language
 drafts; `--initialize <owned catalog>` is a one-time bootstrap, not a normal
 update (it replaces layout edits). Book paragraph anchors preserve headings and
 picture locations. The optional `--fit-book-font <private widths.json>` fits book
 paragraphs to their original line counts and 250-pixel columns. Widths must be
 measured from font resource 403 with GookaFont's advance-width rules. Do not
-distribute the game font. Normal corrections need only regenerate the header.
+distribute the game font. Normal corrections need only regenerate the data file. Source MD5 and SHA-256
+fingerprints are metadata for the original text resources, not the English text;
+retain them during corrections. Re-extract them if adding a different game edition.
 
 The normal TextSprite applies English-only soft wrapping at 590 pixels. Czech
 layout is unchanged. Encyclopaedia pages retain their original control sequence,
@@ -77,3 +83,20 @@ that fork, `upstream` to https://github.com/Kungergely/scummvm. Preserve history
    CE-specific build/runtime integration outside the imported directory.
 6. Review the engine-only diff, run the importer verification and focused CE
    Gooka checks, then commit/push CE. Never move published v0.1.4.
+
+## Data format and CE integration
+
+`gooka.dat` v1 has the eight-byte magic GOOKADAT, big-endian uint16 version=1,
+uint16 encoding=1250, uint32 entry count, uint32 payload length, and uint32 CRC32
+of the payload. Sorted entries are uint16 resource ID, uint32 CP1250 byte length,
+16-byte original-resource MD5, then text bytes without a terminator. Payloads are
+bounded to 2 MiB, 4096 entries and 65535 bytes per string. The loader checks exact
+coverage against the original resource directories, source fingerprints, encoding,
+control/format/picture tokens and complete consumption before admitting English.
+The file is loaded once per game session and is not part of save serialization.
+
+The portable packager includes the generated data through engine_data.mk.
+The CE importer records this external-data implementation as a local override;
+upstream refreshes require reconciling the feature in the maintained fork first.
+Its original upstream provenance is retained. No fork push or release publication
+is performed by this change. The former compiled english.h is removed.

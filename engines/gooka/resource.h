@@ -57,7 +57,7 @@ public:
 	~ResourceManager();
 
 	/** Opens 0.BIN .. 11.BIN; returns false if any of them is missing or broken. */
-	bool init();
+	bool init(Common::String *failure = nullptr);
 
 	/** Returns a new stream with the resource data (caller deletes it), nullptr if missing. */
 	Common::SeekableReadStream *get(uint16 type, uint16 id) const;
@@ -69,6 +69,10 @@ public:
 	Common::String getText(uint16 id) const;
 
 private:
+	struct EnglishText { uint16 id; Common::String text; };
+	Common::Array<EnglishText> _englishText;
+	bool _englishEnabled = false;
+	bool loadEnglish(Common::String *failure);
 	Common::Array<Common::PEResources *> _bins; ///< opened containers, index = BIN number
 };
 
