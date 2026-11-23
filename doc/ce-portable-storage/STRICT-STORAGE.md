@@ -68,6 +68,14 @@ includes disabled/vendor/read-only sites; it detects changes requiring review,
 and is not evidence that each such line is an active writer. Review inventory
 diffs on upstream updates. CI runs these checks and the observer classifier.
 
+Release 0.1.8 inventory review (November 22, 2026): the only added raw sites
+are the `<fstream>` include and two diagnostic output streams in
+`engines/snatcher/tests/scene_snapshot_probe.cpp`. This standalone CMake probe
+writes fixed transfer/layer filenames beneath its explicit output-directory
+argument. It is not linked by the production engine's `module.mk` or shipped
+in the release. The inventory records these test-only sites; production storage
+boundaries and permitted destinations are unchanged.
+
 Use `--exe <exe> --artifacts <fresh-directory>` for actual portable-copy launch
 checks without commercial game assets. `test_portable_storage.py` adds real Nox
 saves/cold restores, metadata, multiple installations, upgrade preservation,
