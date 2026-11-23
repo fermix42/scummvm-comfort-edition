@@ -25,6 +25,7 @@ public:
  void silence(){_controller.silenceCurrent();}
  size_t activeCount()const;
 private:
+ friend struct FmCheckpointCodec;
  struct Slot {AudioToken token;uint8_t priority;Slot():priority(0){}};
  AudioController& _controller;Slot _slots[2];
 };

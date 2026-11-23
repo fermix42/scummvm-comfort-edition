@@ -1,8 +1,9 @@
 /* SPDX-License-Identifier: GPL-3.0-or-later */
-static void continuation(NativeArchive& a,Continuation& s){
-#define SAVE_FIELD(type, field) if(a.ok){owner(a,s.field);if(!a.ok)s.invalidField=#field;}
+static void continuation(NativeArchive& a,Continuation& s,bool compact=false){
+#define SAVE_FIELD(type, member) if(a.ok){if(compact&&std::string(#member)=="_startup"){bool needed=s._startupActive;a.flag(needed);s.startupStored=needed;if(needed)owner(a,s.member);}else if(compact&&std::string(#member)=="_creditsData"){if(!a.reading&&(!s._creditsData.empty()||!s.creditsSourceBytes)){s.creditsSourceBytes=uint32_t(s._creditsData.size());s.creditsSourceHash=sourceHash(s._creditsData);}a.field(s.creditsSourceBytes);a.field(s.creditsSourceHash);if(s.creditsSourceBytes>16*1024*1024)a.ok=false;}else owner(a,s.member);if(!a.ok)s.invalidField=#member;}
 #include "engine_continuation_fields.inc"
 #undef SAVE_FIELD
+ if(compact&&s.startupStored!=s._startupActive){a.ok=false;s.invalidField="startup ownership";}
 }
 static void voice(NativeArchive& a,PcmEffectVoiceSnapshot& v){a.flag(v.metadataKnown);a.flag(v.prefetchOwned);a.flag(v.terminalSeen);a.field(v.sourceCursor);a.field(v.queuedFrames);a.field(v.renderedFrames);a.field(v.droppedUnits);a.field(v.channel);a.field(v.effect);a.field(v.bank);a.field(v.source);a.number(v.payloadOffset);a.number(v.sampleCount);owner(a,v.token);if(v.channel>1||v.source>kResidentSource)a.ok=false;}
 static void archiveAudio(NativeArchive& a,ActiveAudio& s){

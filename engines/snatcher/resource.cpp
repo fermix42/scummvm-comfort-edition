@@ -13,14 +13,15 @@ namespace Snatcher {
 namespace {
 class FileSource : public ByteSource {
 public:
- explicit FileSource(Common::SeekableReadStream *stream) { if(stream)_streams.push_back(stream); }
- explicit FileSource(const std::vector<Common::SeekableReadStream *>& streams):_streams(streams) {}
+ explicit FileSource(Common::SeekableReadStream *stream) { if(stream)_streams.push_back(stream);cacheSizes(); }
+ explicit FileSource(const std::vector<Common::SeekableReadStream *>& streams):_streams(streams) {cacheSizes();}
  ~FileSource() override { for(auto* stream:_streams)delete stream; }
- uint64_t size() const override {uint64_t total=0;for(auto* stream:_streams){if(stream->size()<0||uint64_t(stream->size())>UINT64_MAX-total)return 0;total+=uint64_t(stream->size());}return total;}
+ // Open game assets are immutable. Refresh geometry only when reopening.
+ uint64_t size() const override {return _size;}
  bool readAt(uint64_t offset,void *data,size_t bytes)const override {
-  const uint64_t total=size();if(offset>total||bytes>total-offset)return false;
+  const uint64_t total=_size;if(!_valid||offset>total||bytes>total-offset)return false;
   byte* output=static_cast<byte*>(data);
-  for(auto* stream:_streams){uint64_t length=uint64_t(stream->size());if(offset>=length){offset-=length;continue;}
+  for(size_t i=0;i<_streams.size();++i){auto* stream=_streams[i];const uint64_t length=_lengths[i];if(offset>=length){offset-=length;continue;}
    size_t count=size_t(std::min<uint64_t>(bytes,length-offset));if(count>std::numeric_limits<uint32>::max())return false;
    stream->clearErr();if(!stream->seek(int64(offset))||stream->read(output,uint32(count))!=count||stream->err())return false;
    output+=count;bytes-=count;offset=0;if(!bytes)return true;
@@ -29,6 +30,8 @@ public:
  }
 private:
  std::vector<Common::SeekableReadStream *> _streams;
+ std::vector<uint64_t> _lengths;uint64_t _size=0;bool _valid=true;
+ void cacheSizes(){for(auto* stream:_streams){int64 length=stream?stream->size():-1;if(length<0||uint64_t(length)>UINT64_MAX-_size){_valid=false;_size=0;return;}_lengths.push_back(uint64_t(length));_size+=uint64_t(length);}}
 };
 bool digestMatches(const std::vector<uint8_t> &bytes, const char *md5) {
 	if (bytes.empty() || bytes.size() > std::numeric_limits<uint32>::max()) return false;

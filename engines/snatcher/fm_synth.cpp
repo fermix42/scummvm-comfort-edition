@@ -157,7 +157,7 @@ bool CeFmSynthRenderer::renderPcmSeparated(uint32_t frames,std::vector<int16_t>&
  std::vector<int16_t> lane;_impl->stream.capture(&lane);bool ready=renderPcm(frames,mixed,error);_impl->stream.capture(nullptr);
  if(!ready)return false;if(lane.size()!=size_t(frames)*2){error="FM lane capture disagrees with delivered mixer frames";return false;}fm.swap(lane);return true;
 }
-bool CeFmSynthRenderer::restoreGeneratorState(const std::vector<uint8_t>& bytes,std::string& error){return _impl->core==kFmGens?_impl->gens.restoreState(bytes,error,_impl->gens.renderedFrames()):_impl->nuked.restoreState(bytes,error,_impl->nuked.renderedFrames());}
+bool CeFmSynthRenderer::restoreGeneratorState(const std::vector<uint8_t>& bytes,std::string& error,bool direct){return _impl->core==kFmGens?_impl->gens.restoreState(bytes,error,direct?UINT64_MAX:_impl->gens.renderedFrames()):_impl->nuked.restoreState(bytes,error,direct?UINT64_MAX:_impl->nuked.renderedFrames());}
 void CeFmSynthRenderer::setReplayDiscard(bool discard){if(_impl->core==kFmGens)_impl->gens.setReplayDiscard(discard);else _impl->nuked.setReplayDiscard(discard);}
 uint8_t CeFmSynthRenderer::keyOnMask()const{return _impl->core==kFmGens?_impl->gens.keyOnMask():_impl->nuked.keyOnMask();}
 uint32_t CeFmSynthRenderer::sampleRate()const{return _impl->rate;}

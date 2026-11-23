@@ -44,9 +44,9 @@ Set-Location $substRepoRoot
 if ($SnatcherPresentationOnly) {
     cmake -S engines/snatcher/tests -B build-snatcher-tests
     if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-    cmake --build build-snatcher-tests --config Release --target presentation-tests scene-runtime-tests pcm-visual-tests mouse-input-tests scene-snapshot-probe shooting-tests text-entry-tests game-service-tests -j 2
+    cmake --build build-snatcher-tests --config Release --target disc-tests chd-tests presentation-tests scene-runtime-tests pcm-visual-tests mouse-input-tests scene-snapshot-probe shooting-tests text-entry-tests game-service-tests state-codec-tests fm-player-tests fm-gens-tests -j 2
     if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-    ctest --test-dir build-snatcher-tests -C Release -R '^(presentation|scene-runtime|pcm-visual|mouse-input|shooting|text-entry|game-service)-contracts$' --output-on-failure
+    ctest --test-dir build-snatcher-tests -C Release -R '^(disc|presentation|scene-runtime|pcm-visual|mouse-input|shooting|text-entry|game-service|state-codec|fm-player|fm-gens-backend)-contracts$' --output-on-failure
     exit $LASTEXITCODE
 }
 

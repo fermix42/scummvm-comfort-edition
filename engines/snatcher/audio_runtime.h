@@ -166,6 +166,7 @@ public:
  size_t activeCount()const{return _active.size();}
  size_t completionCount()const{return _complete.size();}
 private:
+ friend struct FmCheckpointCodec;
  friend class EngineStateCodec;
  struct Playing {AudioToken token;AudioOwner owner;uint64_t handle;AudioRole role;std::shared_ptr<NativeAudioFeed> feed;bool silenced=false,logical=false;};
  AudioBackend& _backend;size_t _maxActive,_capacity;uint64_t _next;bool _paused;

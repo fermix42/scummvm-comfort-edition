@@ -53,6 +53,7 @@ public:
  uint8_t completionPublication()const{return _completionPublication;}
  const FmTrackState* track(unsigned index)const{return index<10?&_tracks[index]:nullptr;}
 private:
+ friend struct FmCheckpointCodec;
  struct Assets {std::vector<uint8_t> main,fm;std::vector<FmInstrument> instruments;};
  // Tick/start stage mutable musical state, never copies of loaded resources.
  std::shared_ptr<const Assets> _assets;FmPerformanceData _data;

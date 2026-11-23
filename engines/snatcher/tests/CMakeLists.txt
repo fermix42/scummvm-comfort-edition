@@ -16,7 +16,7 @@ add_executable(decensor-lifecycle-tests decensor_lifecycle_tests.cpp ../scene_ru
 add_executable(decensor-tests decensor_tests.cpp ../scene_assets.cpp ../presentation.cpp ../animation.cpp ../graphics.cpp ../scenario.cpp ../narrative_state.cpp ../runtime.cpp ../events.cpp ../control.cpp ../state_codec.cpp)
 target_compile_definitions(decensor-tests PRIVATE SNATCHER_STATE_CORE_ONLY)
 add_subdirectory(../libchdr libchdr)
-add_executable(chd-tests chd_tests.cpp ../chd.cpp)
+add_executable(chd-tests chd_tests.cpp ../chd.cpp ../disc.cpp)
 target_compile_definitions(chd-tests PRIVATE SNATCHER_CHD_TEST_MAIN)
 target_link_libraries(chd-tests PRIVATE snatcher-chdr)
 add_executable(snatcher-tests core_tests.cpp ../scenario.cpp ../graphics.cpp ../pcm.cpp ../disc.cpp ../control.cpp graphics_tests.cpp pcm_tests.cpp disc_tests.cpp control_tests.cpp)

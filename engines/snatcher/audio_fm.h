@@ -44,6 +44,7 @@ public:
  int16_t loopPitch()const{return int16_t(uint16_t(_loopPitch[0]+_loopPitch[1]));}
  int16_t loopVolume()const{return int16_t(uint16_t(_loopVolume[0]+_loopVolume[1]));}
 private:
+ friend struct FmCheckpointCodec;
  friend class FmPlayer;
  // Sequence bytes are immutable; transactional cursor copies share their owner.
  std::shared_ptr<const std::vector<uint8_t>> _bytes;size_t _cursor,_loop[2],_return,_phrase,_phraseReturn;uint8_t _duration,_gate,_level,_repeat[2],_phraseState;

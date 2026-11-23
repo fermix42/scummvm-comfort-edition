@@ -2,6 +2,7 @@
 #undef NDEBUG
 #include <cassert>
 #include <cstring>
+#include <algorithm>
 #include <fstream>
 #include <iostream>
 #include <sstream>
@@ -12,7 +13,7 @@
 #include <sys/stat.h>
 #endif
 namespace {
-struct Memory:Snatcher::ByteSource {std::vector<uint8_t>b;uint64_t size()const override{return b.size();}bool readAt(uint64_t p,void*d,size_t n)const override{if(p>b.size()||n>b.size()-p)return false;if(n)std::memcpy(d,&b[size_t(p)],n);return true;}};
+struct Memory:Snatcher::ByteSource {std::vector<uint8_t>b;mutable size_t calls=0,largest=0;size_t failCall=0;uint64_t size()const override{return b.size();}bool readAt(uint64_t p,void*d,size_t n)const override{++calls;largest=std::max(largest,n);if(calls==failCall)return false;if(p>b.size()||n>b.size()-p)return false;if(n)std::memcpy(d,&b[size_t(p)],n);return true;}};
 void dual32(uint8_t*p,uint32_t n){for(int i=0;i<4;++i){p[i]=uint8_t(n>>(8*i));p[7-i]=p[i];}}
 void dual16(uint8_t*p,uint16_t n){p[0]=uint8_t(n);p[1]=uint8_t(n>>8);p[2]=p[1];p[3]=p[0];}
 size_t record(uint8_t*p,uint32_t ext,uint32_t bytes,const std::string&name,bool dir){size_t len=33+name.size();if(len&1)++len;std::memset(p,0,len);p[0]=uint8_t(len);dual32(p+2,ext);dual32(p+10,bytes);p[25]=dir?2:0;dual16(p+28,1);p[32]=uint8_t(name.size());std::memcpy(p+33,name.data(),name.size());return len;}
@@ -27,6 +28,23 @@ int runDiscTests(){
  Memory spanning=m;dual32(&spanning.b[20*2048+68+10],2049);spanning.b[23*2048]=42;DiscReader ds(spanning,kIso2048);assert(ds.open(e)&&ds.readFile("TEST.BIN",out,e)&&out.size()==2049&&out.back()==42);
  Memory corrupt=m;corrupt.b[16*2048+84]^=1;DiscReader c(corrupt,kIso2048);assert(!c.open(e));corrupt=m;dual32(&corrupt.b[16*2048+80],25);DiscReader c2(corrupt,kIso2048);assert(!c2.open(e));corrupt=m;corrupt.b.resize(20*2048);DiscReader c3(corrupt,kIso2048);assert(!c3.open(e));
  struct Large:ByteSource {Memory source;uint64_t size()const override{return 256*1024*1024;}bool readAt(uint64_t p,void *v,size_t n)const override{return source.readAt(p,v,n);}} large;large.source=iso();dual32(&large.source.b[16*2048+80],131072);dual32(&large.source.b[20*2048+68+10],200*1024*1024);DiscReader limited(large,kIso2048);assert(limited.open(e));assert(!limited.readFile("TEST.BIN",out,e)&&out.empty());
+ // Large reads must preserve payload/tail/allocation bytes while bounding
+ // physical requests. A nonzero data-track origin catches raw-sector offsets.
+ {Memory bulk=iso();const unsigned sectors=2200,blocks=22+sectors;
+ bulk.b.resize(size_t(blocks)*2048);dual32(bulk.b.data()+16*2048+80,blocks);
+ const size_t length=size_t(sectors-1)*2048+137;
+ dual32(bulk.b.data()+20*2048+68+10,uint32_t(length));
+ for(size_t i=22*2048;i<bulk.b.size();++i)bulk.b[i]=uint8_t(i*31+i/2048);
+ DiscReader bulkIso(bulk,kIso2048);assert(bulkIso.open(e));bulk.calls=bulk.largest=0;
+ assert(bulkIso.readFile("TEST.BIN",out,e)&&out.size()==length&&std::equal(out.begin(),out.end(),bulk.b.begin()+22*2048));
+ assert(bulk.calls<20&&bulk.largest<=256*2048);
+ Memory raw;raw.b.assign(size_t(blocks+2)*2352,0xa7);
+ for(unsigned i=0;i<blocks;++i)std::memcpy(raw.b.data()+size_t(i+2)*2352+16,bulk.b.data()+size_t(i)*2048,2048);
+ DiscReader bulkRaw(raw,kMode1Raw2352,2);assert(bulkRaw.open(e));raw.calls=raw.largest=0;
+ assert(bulkRaw.readFile("TEST.BIN",out,e)&&out.size()==length&&std::equal(out.begin(),out.end(),bulk.b.begin()+22*2048));
+ assert(raw.calls<20&&raw.largest<=256*2352);
+ assert(bulkRaw.readFileAllocation("TEST.BIN",out,e)&&out.size()==sectors*2048&&std::equal(out.begin(),out.end(),bulk.b.begin()+22*2048));
+ raw.calls=0;raw.failCall=2;assert(!bulkRaw.readFile("TEST.BIN",out,e)&&out.empty());}
  CueInfo cue;assert(parseCue("FILE \"own image.bin\" BINARY\n TRACK 01 MODE1/2352\n INDEX 01 00:00:00\n TRACK 02 AUDIO\n INDEX 00 00:02:00\n INDEX 01 00:04:00\n",cue,e));assert(cue.binaryFile=="own image.bin"&&cue.dataTrackStart==0);
 
  // Multi-BIN indexes are file-relative, including stored audio pregaps.

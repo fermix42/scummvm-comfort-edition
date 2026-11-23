@@ -10,7 +10,8 @@ namespace Snatcher {
 // priority barrier belongs to the most recently admitted effect request,
 // not to a voice, and expires when that exact queue entry is consumed.
 class FmPublicationQueue {
- struct Request {uint8_t command;bool priorityOwner;Request(uint8_t c):command(c),priorityOwner(false){}};
+ friend struct FmCheckpointCodec;
+ struct Request {uint8_t command;bool priorityOwner;Request(uint8_t c=0):command(c),priorityOwner(false){}};
  std::deque<Request> _requests;uint8_t _priority;
 public:
  FmPublicationQueue():_priority(0){}

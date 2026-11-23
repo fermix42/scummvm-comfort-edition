@@ -17,6 +17,15 @@ int main(int argc,char**argv){try{runChdTests();if(argc==1)return 0;if(argc!=4){
  for(uint32_t i=0;i<chd.unitCount();++i){check(chd.readUnit(i,a.data(),e),e.c_str());check(logical.readAt(uint64_t(i)*2448,b.data(),2448),"reference read");if(a!=b){std::cerr<<"Logical mismatch unit "<<i<<'\n';return 1;}rawBytes+=2448;}
  check(rawBytes==logical.size(),"Logical length differs");
  for(uint64_t off=0;off<chd.size();off+=2352){check(chd.readAt(off,a.data(),2352),"projected read");check(binary.readAt(off,b.data(),2352),"binary read");if(!std::equal(a.begin(),a.begin()+2352,b.begin())){std::cerr<<"Projected mismatch sector "<<off/2352<<'\n';return 1;}projectedBytes+=2352;}
+ // Exercise the actual logical disc reader's batched raw-sector path on CHD.
+ Snatcher::DiscReader compressedDisc(chd,Snatcher::kMode1Raw2352),binaryDisc(binary,Snatcher::kMode1Raw2352);
+ check(compressedDisc.open(e)&&binaryDisc.open(e),"CHD/BIN ISO catalogs open");
+ check(compressedDisc.files().size()==binaryDisc.files().size(),"CHD/BIN catalog count");
+ for(const auto& file:binaryDisc.files()){
+  std::vector<uint8_t> x,y;
+  check(compressedDisc.readFile(file.name,x,e)&&binaryDisc.readFile(file.name,y,e)&&x==y,"CHD/BIN batched resource bytes");
+  check(compressedDisc.readFileAllocation(file.name,x,e)&&binaryDisc.readFileAllocation(file.name,y,e)&&x==y,"CHD/BIN batched allocation bytes");
+ }
  check(projectedBytes==binary.size(),"Projected length differs");check(!chd.readAt(chd.size(),a.data(),1),"Out of range accepted");
  for(unsigned repeat=0;repeat<3;++repeat){chd.close();check(chd.open(e),e.c_str());check(chd.readAt(chd.size()-2352,a.data(),2352),"Repeated reopen last sector");check(binary.readAt(binary.size()-2352,b.data(),2352)&&std::equal(a.begin(),a.begin()+2352,b.begin()),"Last sector mismatch");}
  Snatcher::ChdSource second(compressed);check(second.open(e),e.c_str());check(second.readAt(0,a.data(),2352)&&chd.readAt(0,b.data(),2352)&&std::equal(a.begin(),a.begin()+2352,b.begin()),"Independent handle mismatch");

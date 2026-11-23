@@ -125,7 +125,7 @@ private:
  Common::JSONValue* saveOwnerContracts();
  std::string _saveError;
  GameResource _resources;std::vector<Scenario> _scenarios;
- bool _ready;size_t _code,_text,_unknown;
+ bool _ready;bool _initialSaveLoad=false;uint32_t _startupStages[9]={};size_t _code,_text,_unknown;
  NativeRandomOwner _nativeRandom;
  EventScheduler _events;SemanticTrace _trace;NarrativeRuntime *_runtime;OriginalFont _font;
  uint64_t _renderFrames=0,_renderDiagnosticFrames=0,_renderPendingSceneFrames=0,_renderRetainedFrames=0;

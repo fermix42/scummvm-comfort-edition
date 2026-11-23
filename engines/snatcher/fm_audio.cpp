@@ -4,6 +4,7 @@
 #include "fm_audio.h"
 #include "fm_publication.h"
 #include "audio_percussion.h"
+#include "native_archive.h"
 #include "audio/audiostream.h"
 #include "audio/mixer.h"
 #include "common/mutex.h"
@@ -24,7 +25,7 @@ struct CeFmAudioOwner::Impl:public Audio::AudioStream {
  Audio::SoundHandle handle;bool pendingPercussion=false;bool attached,loaded,paused,mono,fmMono,driverSuspended,coupledOutput;uint8_t musicGain,effectGain,baseMusic,baseEffect;bool baseMono,baseFmMono,baseDriver;uint64_t frames,nonzero,drumEvents,remainder,updatesBase;uint32_t generation;std::string failure;std::vector<int16_t> pending,pendingFm;size_t offset;
  FmCore core;
  explicit Impl(Audio::Mixer& m,bool coupled,FmCore c):mixer(m),synth(44100,coupled,c),controller(synth.percussionBackend(),4,64),percussion(controller),publicationVersion(c==kFmGens?8:7),historyOverflow(false),attached(false),loaded(false),paused(false),mono(false),fmMono(false),driverSuspended(false),coupledOutput(coupled),musicGain(255),effectGain(255),baseMusic(255),baseEffect(255),baseMono(false),baseFmMono(false),baseDriver(false),frames(0),nonzero(0),drumEvents(0),remainder(0),updatesBase(0),generation(1),offset(0),core(c){}
- void remember(uint8_t kind,uint8_t a=0,uint8_t b=0){if(!loaded)return;if(historyOverflow)return;if(!fmHistoryEventsAllowed(4,history.size()+1)){historyOverflow=true;return;}history.push_back(FmHistoryEvent(frames,kind,a,b));}
+ void remember(uint8_t kind,uint8_t a=0,uint8_t b=0){if(!loaded||publicationVersion>=5)return;if(historyOverflow)return;if(!fmHistoryEventsAllowed(4,history.size()+1)){historyOverflow=true;return;}history.push_back(FmHistoryEvent(frames,kind,a,b));}
  uint8_t fmGain(uint8_t logical)const{return gainPublication.empty()?logical:gainPublication[logical];}
  bool isStereo()const override{return true;}int getRate()const override{return 44100;}bool endOfData()const override{return false;}
  bool applyCommand(uint8_t command,std::string& error){bool accepted;if(!player.start(command,synth,accepted,error))return false;if(command==241){musicGain=effectGain=0;fmMono=false;if(publicationVersion>=5)publication.clear();}else if(command==243)fmMono=true;else if(command==244)fmMono=false;return true;}
@@ -54,6 +55,7 @@ struct CeFmAudioOwner::Impl:public Audio::AudioStream {
  }
  void clear(){percussion.reset();controller.reset();std::string ignored;player.stop(synth,ignored);synth.reset(ignored);pending.clear();pendingFm.clear();pendingPercussion=false;offset=0;frames=nonzero=drumEvents=remainder=0;updatesBase=player.updates();++generation;failure.clear();history.clear();commands.clear();publication.clear();publicationVersion=core==kFmGens?8:7;player.setSourceResetPublication(true);historyOverflow=false;baseMusic=musicGain;baseEffect=effectGain;baseMono=mono;baseFmMono=fmMono;baseDriver=driverSuspended;historyOrigin=player.replayOrigin();}
 };
+#include "fm_checkpoint_codec.inc"
 CeFmAudioOwner::CeFmAudioOwner(Audio::Mixer& mixer,bool coupled,FmCore core):_impl(new Impl(mixer,coupled,core)),_preferredCore(core){}
 CeFmAudioOwner::~CeFmAudioOwner(){if(_impl->attached)_impl->mixer.stopHandle(_impl->handle);{Common::StackLock lock(_impl->mutex);_impl->clear();}delete _impl;}
 bool CeFmAudioOwner::load(const std::vector<uint8_t>& main,const std::vector<uint8_t>& fm,const std::vector<uint8_t>& index,const std::vector<uint8_t>& drums,std::string& error,const std::vector<uint8_t>* subcode,const std::vector<uint8_t>* fmAllocation){
@@ -85,20 +87,13 @@ bool CeFmAudioOwner::pcmSamplesPending()const{Common::StackLock lock(_impl->mute
 bool CeFmAudioOwner::pcmOutputBusy()const{Common::StackLock lock(_impl->mutex);return _impl->percussion.activeCount()!=0||(_impl->pendingPercussion&&_impl->offset<_impl->pending.size());}
 FmAudioSnapshot CeFmAudioOwner::snapshot()const {Common::StackLock lock(_impl->mutex);FmAudioSnapshot s;s.core=_impl->core;s.frames=_impl->frames;s.updates=_impl->player.updates()-_impl->updatesBase;s.nonzeroFrames=_impl->nonzero;s.percussionEvents=_impl->drumEvents;s.activePercussion=_impl->percussion.activeCount();s.queuedCommands=_impl->publicationVersion>=5?_impl->publication.size():_impl->commands.size();s.driverSuspended=_impl->driverSuspended;s.primaryCompletionSerial=_impl->player.primaryCompletionSerial();s.secondaryCompletionSerial=_impl->player.secondaryCompletionSerial();s.completionPublicationGeneration=_impl->player.completionPublicationGeneration();s.completionPublication=_impl->player.completionPublication();s.semanticDriverDigest=_impl->player.semanticDigest();s.activeVoiceMask=_impl->player.activeVoiceMask();s.keyOnMask=_impl->synth.keyOnMask();s.active=_impl->player.active();s.paused=_impl->paused;s.error=_impl->failure;return s;}
 bool CeFmAudioOwner::renderOffline(uint32_t count,std::vector<int16_t>& pcm,std::string& error){error.clear();if(!count||count>1000000){error="FM offline render outside bounded native frame domain";return false;}if(_impl->attached)_impl->mixer.pauseHandle(_impl->handle,true);bool success;{Common::StackLock lock(_impl->mutex);std::vector<int16_t> next(size_t(count)*2);success=_impl->pull(count*2,next.data(),false,error);if(success)pcm.swap(next);}if(_impl->attached)_impl->mixer.pauseHandle(_impl->handle,false);return success;}
-bool CeFmAudioOwner::canSnapshotState(std::string& error)const{error.clear();Common::StackLock lock(_impl->mutex);if(!_impl->failure.empty()){error=_impl->failure;return false;}if((_impl->offset&1)||_impl->historyOverflow||!fmHistoryFramesAllowed(4,_impl->frames)){error="Native music save history has exceeded its supported replay boundary";return false;}return true;}
+bool CeFmAudioOwner::canSnapshotState(std::string& error)const{error.clear();Common::StackLock lock(_impl->mutex);if(!_impl->failure.empty()){error=_impl->failure;return false;}if(_impl->offset&1){error="Native music output is not frame aligned";return false;}return true;}
 bool CeFmAudioOwner::snapshotState(std::vector<uint8_t>& output,std::string& error)const{
- error.clear();Common::StackLock lock(_impl->mutex);if(!_impl->failure.empty()){error=_impl->failure;return false;}if((_impl->offset&1)||_impl->historyOverflow||!fmHistoryFramesAllowed(4,_impl->frames)){error="Native FM semantic replay exceeds save history boundary";return false;}
- std::vector<uint8_t> next={'F','M','A','H',_impl->publicationVersion,uint8_t(_impl->loaded),uint8_t(_impl->paused),uint8_t(_impl->baseDriver),_impl->baseMusic,_impl->baseEffect,uint8_t(_impl->baseMono),uint8_t(_impl->baseFmMono),uint8_t(_impl->coupledOutput)};putHistory(next,_impl->frames,8);
- for(unsigned i=0;i<6;++i){putHistory(next,_impl->sources[i].size(),4);putHistory(next,assetHash(_impl->sources[i]),8);}putHistory(next,_impl->history.size(),4);
- for(const FmHistoryEvent& event:_impl->history){putHistory(next,event.frame,8);next.push_back(event.kind);next.push_back(event.a);next.push_back(event.b);}
- const FmReplayOrigin& origin=_impl->historyOrigin;if(!origin.valid){error="Native FM history has no cleared semantic origin";return false;}
- putHistory(next,origin.version,4);putHistory(next,origin.updates,8);putHistory(next,origin.primary,8);putHistory(next,origin.secondary,8);putHistory(next,origin.publicationGeneration,8);next.push_back(origin.publication);next.push_back(origin.musicGain);next.push_back(origin.effectGain);next.push_back(origin.warmup);putHistory(next,origin.dirtyLevelMask,2);next.push_back(uint8_t(origin.loaded));next.push_back(uint8_t(origin.muted));next.push_back(uint8_t(origin.startupHold));next.push_back(uint8_t(origin.forceMono));
- std::vector<uint8_t> generator;if(!_impl->synth.snapshotGeneratorState(generator,error))return false;
- if(_impl->pending.size()>1472||_impl->offset>_impl->pending.size()){error="Native FM pending chunk exceeds bounded source update";return false;}
- putHistory(next,generator.size(),4);next.insert(next.end(),generator.begin(),generator.end());
- putHistory(next,_impl->nonzero,8);putHistory(next,_impl->drumEvents,8);putHistory(next,_impl->remainder,8);putHistory(next,_impl->pending.size(),2);putHistory(next,_impl->offset,2);for(int16_t sample:_impl->pending)putHistory(next,uint16_t(sample),2);
- if(_impl->publicationVersion>=6){if(_impl->pendingFm.size()!=_impl->pending.size()){error="FM lane has no complete pending owner";return false;}for(int16_t sample:_impl->pendingFm)putHistory(next,uint16_t(sample),2);}
- putHistory(next,assetHash(next),8);output.swap(next);return true;
+ error.clear();Common::StackLock lock(_impl->mutex);if(!_impl->failure.empty()){error=_impl->failure;return false;}
+ NativeArchive a(8*1024*1024);uint8_t magic[5]={'F','M','A','H',uint8_t(_impl->core==kFmGens?10:9)};for(auto& v:magic)a.field(v);bool coupled=_impl->coupledOutput;a.flag(coupled);
+ for(const auto& source:_impl->sources){uint32_t length=uint32_t(source.size());uint64_t hash=assetHash(source);a.field(length);a.field(hash);}
+ if(!FmCheckpointCodec::state(a,*_impl,error)||!a.finished()){if(error.empty())error="Music checkpoint serialization failed";return false;}
+ uint64_t checksum=assetHash(a.bytes);a.field(checksum);output.swap(a.bytes);return true;
 }
 bool CeFmAudioOwner::snapshotLegacyState(std::vector<uint8_t>& output,std::string& error)const{
  error.clear();Common::StackLock lock(_impl->mutex);if(!_impl->failure.empty()){error=_impl->failure;return false;}if(_impl->publicationVersion>=5){error="Legacy FM history cannot represent queued publication policy";return false;}if((_impl->offset&1)||_impl->historyOverflow||!fmHistoryEventsAllowed(2,_impl->history.size())||!fmHistoryFramesAllowed(2,_impl->frames)){error="Native FM semantic replay exceeds save history boundary";return false;}
@@ -109,6 +104,28 @@ bool CeFmAudioOwner::snapshotLegacyState(std::vector<uint8_t>& output,std::strin
  output.swap(next);return true;
 }
 bool CeFmAudioOwner::restoreState(const std::vector<uint8_t>& bytes,std::string& error,uint64_t primaryObserved,uint64_t secondaryObserved,uint64_t publicationObserved){
+ error.clear();if(bytes.size()>8*1024*1024){error="Music checkpoint exceeds bounded size";return false;}if(bytes.size()>86&&std::equal(bytes.begin(),bytes.begin()+4,"FMAH")&&(bytes[4]==9||bytes[4]==10)){
+  std::vector<uint8_t> covered(bytes.begin(),bytes.end()-8);size_t check=bytes.size()-8;if(assetHash(covered)!=getHistory(bytes,check,8)){error="Music checkpoint integrity mismatch";return false;}
+  NativeArchive a(covered,8*1024*1024);uint8_t header[5];for(auto& v:header)a.field(v);bool coupled=false;a.flag(coupled);if(coupled!=_impl->coupledOutput){error="Music output domain mismatch";return false;}
+  CeFmAudioOwner prepared(_impl->mixer,coupled,bytes[4]==10?kFmGens:kFmNuked);
+  std::vector<uint8_t> source[6];uint32_t lengths[6]={};uint64_t hashes[6]={};bool unbound=true;
+  for(unsigned n=0;n<6;++n){a.field(lengths[n]);a.field(hashes[n]);unbound=unbound&&lengths[n]==0;}
+  if(!a.ok){error="Truncated music source identities";return false;}
+  {Common::StackLock lock(_impl->mutex);for(unsigned n=0;n<6;++n){
+   // Early startup has no loaded assets. Loading the engine may have prepared
+   // them since capture; restore the genuinely unloaded owner rather than
+   // requiring an empty checkpoint to match that later initialization.
+   const std::vector<uint8_t>& expected=unbound?source[n]:_impl->sources[n];
+   if(lengths[n]!=expected.size()||hashes[n]!=assetHash(expected)){error="Music checkpoint source identity mismatch";return false;}
+   if(!unbound)source[n]=_impl->sources[n];
+  }}
+  // A loaded checkpoint carries nonempty source0. Unloaded boot checkpoints
+  // retain the cleared player and initialized generator without asset copies.
+  if(!source[0].empty()&&!prepared.load(source[0],source[1],source[2],source[3],error,source[4].empty()?nullptr:&source[4],&source[5]))return false;
+  if(!FmCheckpointCodec::state(a,*prepared._impl,error)||!a.finished()){if(error.empty())error="Invalid direct music checkpoint";return false;}
+  if(primaryObserved>prepared._impl->player.primaryCompletionSerial()||secondaryObserved>prepared._impl->player.secondaryCompletionSerial()||publicationObserved>prepared._impl->player.completionPublicationGeneration()){error="Music completion cursor exceeds checkpoint";return false;}
+  std::swap(_impl,prepared._impl);if(prepared._impl->attached){prepared._impl->mixer.stopHandle(prepared._impl->handle);prepared._impl->attached=false;}return true;
+ }
  error.clear();if(bytes.size()<72||bytes[0]!='F'||bytes[1]!='M'||bytes[2]!='A'||bytes[3]!='H'||(bytes[4]!=1&&bytes[4]!=2&&bytes[4]!=3&&bytes[4]!=4&&bytes[4]!=5&&bytes[4]!=6&&bytes[4]!=7&&bytes[4]!=8)||bytes[5]>1||bytes[6]>1||bytes[7]>1||bytes[10]>1||bytes[11]>1){error="Invalid native FM history header";return false;}
  const unsigned sourceCount=bytes[4]==1?4:(bytes[4]>=4?6:5),header=bytes[4]==1?12:13;if(bytes.size()<header+12+sourceCount*12){error="Truncated native FM source identities";return false;}if(bytes[4]>=2&&(bytes[12]>1||(bytes[12]!=0)!=_impl->coupledOutput)){error="Native FM output-domain owner mismatch";return false;}
  size_t cursor=header;const uint64_t frames=getHistory(bytes,cursor,8);if(!fmHistoryFramesAllowed(bytes[4],frames)){error="Native FM saved replay exceeds bounded frame domain";return false;}

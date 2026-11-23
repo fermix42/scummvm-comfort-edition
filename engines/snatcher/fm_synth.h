@@ -101,7 +101,7 @@ public:
  // a game PCM-silence event can suppress only undelivered percussion.
  bool renderPcmSeparated(uint32_t frames,std::vector<int16_t>& mixed,std::vector<int16_t>& fm,std::string& error);
  bool snapshotGeneratorState(std::vector<uint8_t>& bytes,std::string& error)const;
- bool restoreGeneratorState(const std::vector<uint8_t>& bytes,std::string& error);
+ bool restoreGeneratorState(const std::vector<uint8_t>& bytes,std::string& error,bool direct=false);
  void setReplayDiscard(bool discard);
 private:
  struct Impl;Impl *_impl;

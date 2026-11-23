@@ -16,11 +16,32 @@ bool timeValue(const std::string&s,uint32_t &n){unsigned m,t,f; char a,b;std::is
 }
 DiscReader::DiscReader(const ByteSource&s,SectorLayout l,uint32_t st):_source(s),_layout(l),_start(st),_volume(0),_open(false){}
 bool DiscReader::readLogical(uint64_t offset,void *data,size_t bytes) const {
- uint8_t *dst=static_cast<uint8_t*>(data); const uint64_t stride=_layout==kMode1Raw2352?2352:2048, skip=_layout==kMode1Raw2352?16:0;
- while(bytes){uint64_t sector=offset/2048+_start, within=offset%2048;
-  if(sector>(std::numeric_limits<uint64_t>::max()-skip-within)/stride)return false;
-  uint64_t physical=sector*stride+skip+within;size_t count=std::min<size_t>(bytes,2048-size_t(within));
-  if(physical>_source.size()||count>_source.size()-physical||!_source.readAt(physical,dst,count))return false;
+ uint8_t *dst=static_cast<uint8_t*>(data);
+ const uint64_t stride=_layout==kMode1Raw2352?2352:2048,sourceBytes=_source.size();
+ std::vector<uint8_t> raw;
+ while(bytes){
+  uint64_t sector=offset/2048+_start,within=offset%2048;
+  if(sector>(std::numeric_limits<uint64_t>::max()-16-within)/stride)return false;
+  const uint64_t base=sector*stride;
+  size_t count=0;
+  if(_layout==kIso2048){
+   count=std::min<size_t>(bytes,256*2048);
+   const uint64_t physical=base+within;
+   if(physical>sourceBytes||count>sourceBytes-physical||!_source.readAt(physical,dst,count))return false;
+  }else if(!within&&bytes>=2*2048){
+   // Batch full raw sectors, then strip their headers and ECC padding. The
+   // same projected raw-sector contract is used by BIN/CUE and CHD sources.
+   const size_t sectors=std::min<size_t>(bytes/2048,256),physicalBytes=sectors*2352;
+   if(base>sourceBytes||physicalBytes>sourceBytes-base)return false;
+   if(raw.size()<physicalBytes)raw.resize(physicalBytes);
+   if(!_source.readAt(base,raw.data(),physicalBytes))return false;
+   for(size_t n=0;n<sectors;++n)std::memcpy(dst+n*2048,raw.data()+n*2352+16,2048);
+   count=sectors*2048;
+  }else{
+   const uint64_t physical=base+16+within;
+   count=std::min<size_t>(bytes,2048-size_t(within));
+   if(physical>sourceBytes||count>sourceBytes-physical||!_source.readAt(physical,dst,count))return false;
+  }
   offset+=count;dst+=count;bytes-=count;
  }return true;
 }

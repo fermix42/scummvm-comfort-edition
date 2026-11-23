@@ -15,11 +15,12 @@ public:
  int getAutosaveSlot() const override { return 0; }
  int getMaximumSaveSlot()const override{return 99;}
  bool isSaveSlotAllowed(const char*,int slot)const override{return slot>=5&&slot<=99;}
- SaveStateDescriptor querySaveMetaInfos(const char* target,int slot)const override{
+ SaveStateDescriptor querySaveMetaInfos(const char* target,int slot)const override{return querySave(target,slot,true);}
+ SaveStateDescriptor querySave(const char* target,int slot,bool withThumbnail)const{
   if(slot<0||slot>99)return SaveStateDescriptor();auto* manager=g_system->getSavefileManager();const Common::String file=Common::String::format("%s.%03d",target,slot);
   Common::InSaveFile* in=manager->openForLoading(file);if(!in&&slot>=1&&slot<=4)in=manager->openForLoading(Common::String::format("%s-snatcher-original-%d.sgr",target,slot));
-  Graphics::Surface* thumbnail=nullptr;std::string description;bool valid=in&&Snatcher::nativeSaveDescription(*in,description,&thumbnail);delete in;
-  if(!valid){in=manager->openForLoading(file+".bak");valid=in&&Snatcher::nativeSaveDescription(*in,description,&thumbnail);delete in;}
+  Graphics::Surface* thumbnail=nullptr;std::string description;bool valid=in&&Snatcher::nativeSaveDescription(*in,description,withThumbnail?&thumbnail:nullptr);delete in;
+  if(!valid){in=manager->openForLoading(file+".bak");valid=in&&Snatcher::nativeSaveDescription(*in,description,withThumbnail?&thumbnail:nullptr);delete in;}
   if(!valid&&slot>=5)return SaveStateDescriptor();
   Common::String caption=description.c_str();if(slot==0&&(!valid||Snatcher::nativeAutosave(*manager,file)))caption="Autosave";
   if(slot>=1&&slot<=4)caption=Common::String::format("Internal Save Slot %d",slot);
@@ -27,7 +28,7 @@ public:
  }
  SaveStateList listSaves(const char* target)const override{
   SaveStateList result;
-  for(int slot=0;slot<=99;++slot){SaveStateDescriptor desc=querySaveMetaInfos(target,slot);if(desc.isValid()&&desc.getDeletableFlag())result.push_back(desc);}
+  for(int slot=0;slot<=99;++slot){SaveStateDescriptor desc=querySave(target,slot,false);if(desc.isValid()&&desc.getDeletableFlag())result.push_back(desc);}
   return result;
  }
  bool removeSaveState(const char* target,int slot)const override{if(slot<0||slot>99)return false;auto* manager=g_system->getSavefileManager();Common::String file=Common::String::format("%s.%03d",target,slot);manager->removeSavefile(file+".bak");manager->removeSavefile(file+".new");manager->removeSavefile(file+".autosave");bool removed=manager->removeSavefile(file);if(slot>=1&&slot<=4){Common::String legacy=Common::String::format("%s-snatcher-original-%d.sgr",target,slot);manager->removeSavefile(legacy+".bak");removed=manager->removeSavefile(legacy)||removed;}return removed;}
