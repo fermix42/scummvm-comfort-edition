@@ -2,6 +2,8 @@
 
 This file tracks user-facing changes maintained in ScummVM Comfort Edition.
 
+- 2026-11-22: Release CE v0.1.8 with native Snatcher, compact saves and faster startup, scene and flashlight fixes, CE cheats, external Gooka English data, and current native Nox support restored to the Windows package. Bundle both custom engine data files beside the executable. See doc/ce-release/0.1.8.md.
+
 - 2026-11-18: AGS: Recognize additional eXoScummVM builds under their existing game IDs. Correct the supported AGS 2.50 and 2.51 registrations for Marty Chonks and Project Evilspy. Release as CE v0.1.7 with Nox excluded from the Windows package. See doc/ce-release/0.1.7.md.
 - 2026-11-11: Detection: Fix the Macintosh resource parser crash during all-engine detection of Adventure: Welcome to the Genre. Validate complete fork/data/map regions, type and reference tables, names and resource payloads with overflow-safe arithmetic; preserve stream ownership and clean up partial maps. Keep valid raw, MacBinary and AppleDouble probing, including wide embedded-fork positions. Add 12 focused synthetic regression tests. Release as CE v0.1.6; see doc/ce-release/0.1.6.md.
 
