@@ -20,6 +20,8 @@
  */
 
 #include "agi/agi.h"
+#include "common/md5.h"
+#include "common/memstream.h"
 
 namespace Agi {
 
@@ -50,9 +52,24 @@ int AgiEngine::decodeLogic(int16 logicNr) {
 	int stringsPos = stringOffsetsPos + (2 * messageCount);
 	int stringsSize = messagesSize - 2 - (2 * messageCount);
 
-	// decrypt the message strings if the logic was not compressed
-	// and the logic has messages.
-	if ((~dirLogic.flags & RES_COMPRESSED) && messageCount > 0) {
+	// Two OS-9 collection resources retained plaintext messages when their
+	// packed size equalled their unpacked size. Limit the exception to their
+	// complete decoded payloads so other releases still use normal decryption.
+	bool plaintextCoCoMessages = false;
+	if (getPlatform() == Common::kPlatformCoCo3 && !(dirLogic.flags & RES_COMPRESSED)) {
+		const char *expectedMD5 = nullptr;
+		if (getGameID() == GID_KQ2 && logicNr == 115 && dirLogic.len == 173)
+			expectedMD5 = "6de726a1006be47ec03cd83c8996fcdf";
+		else if (getGameID() == GID_MIXEDUP && logicNr == 43 && dirLogic.len == 462)
+			expectedMD5 = "4385eef161ffefef3eeab94350f50b1b";
+		if (expectedMD5) {
+			Common::MemoryReadStream resource(logic.data, dirLogic.len);
+			plaintextCoCoMessages = Common::computeStreamMD5AsString(resource) == expectedMD5;
+		}
+	}
+
+	// Compressed resources and the exact plaintext exceptions need no XOR.
+	if (!(dirLogic.flags & RES_COMPRESSED) && messageCount > 0 && !plaintextCoCoMessages) {
 		decrypt(logic.data + stringsPos, stringsSize);
 	}
 

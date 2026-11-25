@@ -708,6 +708,7 @@ public:
 	~AgiEngine() override;
 
 	Common::JSONValue *testCLIState() override;
+	Common::JSONValue *testCLICommand(Common::JSONValue &request) override;
 
 	bool promptIsEnabled() override;
 

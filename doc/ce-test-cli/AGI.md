@@ -22,6 +22,14 @@ normal event loop during that wait. Use numeric ScummVM key events (Enter 13,
 Right 275), with distinct down/up requests. The MI4 logical adapter is not an
 AGI input API. No desktop input is used.
 
+`resource_messages` with integer `logic` (0–255) inspects a detected game's
+normal decoded logic messages, returned as a UTF-8 `messages` array. It uses
+the production resource loader/decoder without executing the script. A resource
+that was already loaded remains loaded; one loaded for inspection is unloaded
+after copying its messages. The command accepts no paths or file-write options.
+Other engines report unsupported. Gameplay variables, flags and object state
+are not modified. AGI's save/load capabilities remain unchanged.
+
 ## CoCo3 pilot, November 25, 2026
 
 Evidence root in the private workspace:
@@ -65,3 +73,18 @@ movement. It is not a full playthrough, a hardware-emulator comparison, an
 audio fidelity assessment, proof of the KQ3 duration heuristic for every port,
 or AGI save/load/persistence acceptance. No sound-blocking or gameplay-speed
 behavior was changed.
+
+## Collection caption regressions
+
+`validation/coco3-caption-fixes` records native production-decoder checks for
+KQ2 logic 115 and Mixed-Up Mother Goose logic 43. The collection captions are
+plain text in resources whose packed and unpacked sizes are equal. The decoder
+skips decryption only for their exact platform/game/resource/size/payload MD5
+identities. Standalone captions retain their normal decoding.
+
+The final clean-environment Release build passed without warnings or errors.
+Four native cases verify both standalone and collection captions, repeat
+inspection, unchanged gameplay state during a music wait, and invalid resource
+arguments. A changed-payload negative case retains normal decryption. A separate
+already-loaded logic-0 case verifies repeat inspection and normal gameplay
+continuation afterward. All runs use the hidden native interface.

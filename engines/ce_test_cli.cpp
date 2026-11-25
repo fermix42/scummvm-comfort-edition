@@ -220,13 +220,15 @@ static JSONValue *dispatch(JSONValue &req) {
 		JSONObject o; o["ok"] = new JSONValue(true);
 		put(o, "protocol", "ce-test-cli/1");
 		put(o, "lifecycle", "one game per process; fresh process for restart");
-		put(o, "commands", "launch inspect status capabilities input advance wait assert saves save load session_create session_select storage screenshot storage_probe quit");
+		put(o, "commands", "launch inspect status capabilities input advance wait assert resource_messages saves save load session_create session_select storage screenshot storage_probe quit");
 		o["engine_adapter"] = g_engine ? g_engine->testCLIState() : unsupported();
 		return new JSONValue(o);
 	}
 	if (cmd == "quit") {
 		s_eof = true; return ok();
 	}
+	if (cmd == "resource_messages")
+		return g_engine ? g_engine->testCLICommand(req) : error("not_running");
 	if (cmd != "input" && cmd != "assert" && cmd != "session_create" && cmd != "session_select" && cmd != "saves" && cmd != "save" && cmd != "load" && cmd != "storage" && cmd != "screenshot" && cmd != "storage_probe") return error("unknown_command");
 	if (!g_engine) return error("not_running");
 	if (cmd == "input") return input(req);

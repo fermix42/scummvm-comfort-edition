@@ -27,6 +27,7 @@
 #include "common/debug-channels.h"
 #include "common/random.h"
 #include "common/textconsole.h"
+#include "common/ustr.h"
 
 #include "engines/util.h"
 #include "engines/ce_test_cli.h"
@@ -54,6 +55,29 @@
 #include "gui/predictivedialog.h"
 
 namespace Agi {
+
+Common::JSONValue *AgiEngine::testCLICommand(Common::JSONValue &request) {
+	if (!CETestCLI::active() || CETestCLI::stringField(request, "cmd") != "resource_messages")
+		return CETestCLI::unsupported();
+	const int nr = CETestCLI::intField(request, "logic");
+	if (nr < 0 || nr >= MAX_DIRECTORY_ENTRIES)
+		return CETestCLI::error("invalid_logic_resource");
+	if (_game.dirLogic[nr].offset == _EMPTY)
+		return CETestCLI::error("missing_logic_resource");
+	const bool wasLoaded = (_game.dirLogic[nr].flags & RES_LOADED) != 0;
+	if (!wasLoaded && loadResource(RESOURCETYPE_LOGIC, nr) != errOK)
+		return CETestCLI::error("logic_resource_load_failed");
+	Common::JSONObject result;
+	result["ok"] = new Common::JSONValue(true);
+	Common::JSONArray messages;
+	const AgiLogic &logic = _game.logics[nr];
+	for (int i = 0; i < logic.numTexts; ++i)
+		messages.push_back(new Common::JSONValue(Common::U32String(logic.texts[i], Common::kDos850).encode(Common::kUtf8)));
+	result["messages"] = new Common::JSONValue(messages);
+	if (!wasLoaded)
+		unloadResource(RESOURCETYPE_LOGIC, nr);
+	return new Common::JSONValue(result);
+}
 
 Common::JSONValue *AgiEngine::testCLIState() {
 	if (!CETestCLI::active())
