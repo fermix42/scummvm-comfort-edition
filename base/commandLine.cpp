@@ -129,9 +129,9 @@ static const char HELP_STRING1[] =
 	"  --scale-factor=FACTOR    Factor to scale the graphics by\n"
 	"  --filtering              Force filtered graphics mode\n"
 	"  --no-filtering           Force unfiltered graphics mode\n"
-#ifdef USE_OPENGL
+#if defined(USE_OPENGL) || (defined(SDL_BACKEND) && (defined(USE_SDL2) || defined(USE_SDL3)))
 	"  --window-size=W,H        Set the ScummVM window size to the specified dimensions\n"
-	"                           (OpenGL only)\n"
+	"                           (OpenGL or SDL Surface with SDL2/SDL3)\n"
 #endif
 	"  --gui-theme=THEME        Select GUI theme\n"
 	"  --themepath=PATH         Path to where GUI themes are stored\n"
@@ -801,7 +801,7 @@ Common::String parseCommandLine(Common::StringMap &settings, int argc, const cha
 			DO_LONG_OPTION_BOOL("filtering")
 			END_OPTION
 
-#ifdef USE_OPENGL
+#if defined(USE_OPENGL) || (defined(SDL_BACKEND) && (defined(USE_SDL2) || defined(USE_SDL3)))
 			DO_LONG_OPTION("window-size")
 				Common::StringTokenizer tokenizer(option, ",");
 				if (tokenizer.empty())

@@ -2,6 +2,8 @@
 
 This file tracks user-facing changes maintained in ScummVM Comfort Edition.
 
+- 2026-11-25: SDL Surface: Honor explicit `--window-size=W,H` for the initial SDL2/SDL3 window independently of the rendering surface and scaler. Preserve normal default sizing, later manual resizing, and CE window-layout priority. Expose the option in SDL2/SDL3 builds without OpenGL and update its command-line help.
+
 - 2026-11-25: Release CE v0.1.9 with experimental CoCo 3 OS-9 standalone/collection identities, plaintext caption fixes for King's Quest II and Mixed-Up Mother Goose, and headless AGI resource/timing inspection. Document the player-facing differences between the game variants. See doc/ce-release/0.1.9.md.
 
 - 2026-11-22: Release CE v0.1.8 with native Snatcher, compact saves and faster startup, scene and flashlight fixes, CE cheats, external Gooka English data, and current native Nox support restored to the Windows package. Bundle both custom engine data files beside the executable. See doc/ce-release/0.1.8.md.

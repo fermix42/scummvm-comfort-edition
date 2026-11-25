@@ -373,6 +373,21 @@ bool SdlGraphicsManager::createOrUpdateWindow(int width, int height, const Uint3
 			if (_hintedHeight > height) {
 				height = _hintedHeight;
 			}
+
+			// --window-size describes the initial window, not the game's
+			// rendering surface. SurfaceSDL otherwise starts at its scaler's
+			// surface size. Read only explicit CLI values so saved OpenGL
+			// dimensions do not change SurfaceSDL's default sizing behavior.
+			if (!(flags & SDL_WINDOW_OPENGL) && !_window->getSDLWindow() &&
+			    ConfMan.hasKey("last_window_width", Common::ConfigManager::kTransientDomain) &&
+			    ConfMan.hasKey("last_window_height", Common::ConfigManager::kTransientDomain)) {
+				const int requestedWidth = ConfMan.getInt("last_window_width", Common::ConfigManager::kTransientDomain);
+				const int requestedHeight = ConfMan.getInt("last_window_height", Common::ConfigManager::kTransientDomain);
+				if (requestedWidth > 0 && requestedHeight > 0) {
+					width = requestedWidth;
+					height = requestedHeight;
+				}
+			}
 		}
 
 		if (!_window->createOrUpdateWindow(width, height, flags)) {
