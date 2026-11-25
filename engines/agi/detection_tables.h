@@ -246,6 +246,18 @@ static const AGIGameDescription gameDescriptions[] = {
 	// Unofficial port by Guillaume Major
 	GAME_PS("bc", "updated", "c4e1937f74e8100cd0152b904434d8b4", 357, 0x2440, GID_BC, Common::kPlatformCoCo3),
 
+	// Black Cauldron (CoCo3 OS-9 standalone and collection resource variants)
+	GAME_LVFPN2_FLAGS("bc", "CoCo 3 / OS-9 standalone (experimental)",
+		"logdir", "1a16f8ce6888c13675c635f6e5a20f77", 357,
+		"object", "8bda909f31057a87ecb6fbff44237e4c", 312,
+		Common::EN_ANY, 0x2440, 0, GID_BC, Common::kPlatformCoCo3,
+		GType_V2, GAMEOPTIONS_DEFAULT, ADGF_UNSTABLE),
+	GAME_LVFPN2_FLAGS("bc", "CoCo 3 / OS-9 collection (experimental)",
+		"logdir", "38c8f5c78371c15e95014960ea1d6397", 357,
+		"object", "8bda909f31057a87ecb6fbff44237e4c", 312,
+		Common::EN_ANY, 0x2440, 0, GID_BC, Common::kPlatformCoCo3,
+		GType_V2, GAMEOPTIONS_DEFAULT, ADGF_UNSTABLE),
+
 	// Donald Duck's Playground (PC 5.25" Booter) 1.0Q 06/09/1986
 	BOOTER("ddp", "1.0Q 1986-06-09 5.25\" Booter", "f0f35d60e3e3303480a6bd109d54248d", 0x2001, GID_DDP),
 
@@ -333,6 +345,18 @@ static const AGIGameDescription gameDescriptions[] = {
 	// Gold Rush! (CoCo3 360k/720k) [AGI 2.072]
 	// Unofficial port by Guillaume Major
 	GAME_PS_CP("goldrush", "updated", "c49bf56bf91e31a4601a604e51ef8bfb", 744, 0x2440, GID_GOLDRUSH, Common::kPlatformCoCo3),
+
+	// Gold Rush! (CoCo3 OS-9 standalone and collection resource variants)
+	GAME_LVFPN2_FLAGS("goldrush", "CoCo 3 / OS-9 standalone (experimental)",
+		"logdir", "189f1ebfc0c558a6f7a8779a49b8910f", 744,
+		"object", "43d46ba23274200b85fff05b4b125afc", 1814,
+		Common::EN_ANY, 0x2440, 0, GID_GOLDRUSH, Common::kPlatformCoCo3,
+		GType_V2, GAMEOPTIONS_DEFAULT_CP, ADGF_UNSTABLE),
+	GAME_LVFPN2_FLAGS("goldrush", "CoCo 3 / OS-9 collection (experimental)",
+		"logdir", "7f9a5ff75d62720400bc14dca55d2c87", 744,
+		"object", "43d46ba23274200b85fff05b4b125afc", 1814,
+		Common::EN_ANY, 0x2440, 0, GID_GOLDRUSH, Common::kPlatformCoCo3,
+		GType_V2, GAMEOPTIONS_DEFAULT_CP, ADGF_UNSTABLE),
 
 	// King's Quest 1 (DOS) 1.0U [AGI 2.272]
 	GAME("kq1", "1.0U 1986", "f3464778c9ae1a9e1fbed566f917b3d7", 0x2272, GID_KQ1),
@@ -442,6 +466,18 @@ static const AGIGameDescription gameDescriptions[] = {
 	// Unofficial port by Guillaume Major
 	GAME_PS("kq2", "", "bdb10876cd4cb20eabd88778c40b4075", 543, 0x2440, GID_KQ2, Common::kPlatformCoCo3),
 
+	// King's Quest 2 (CoCo3 OS-9 standalone and collection resource variants)
+	GAME_LVFPN2_FLAGS("kq2", "CoCo 3 / OS-9 standalone (experimental)",
+		"logdir", "8ab4692eda461e4fbf4c3ddc1dda3af7", 543,
+		"object", "ef32575e784ad173671eb780595338b5", 601,
+		Common::EN_ANY, 0x2440, 0, GID_KQ2, Common::kPlatformCoCo3,
+		GType_V2, GAMEOPTIONS_DEFAULT, ADGF_UNSTABLE),
+	GAME_LVFPN2_FLAGS("kq2", "CoCo 3 / OS-9 collection (experimental)",
+		"logdir", "2a9bbaa708e0be4ef634413f19dd3da2", 543,
+		"object", "ef32575e784ad173671eb780595338b5", 601,
+		Common::EN_ANY, 0x2440, 0, GID_KQ2, Common::kPlatformCoCo3,
+		GType_V2, GAMEOPTIONS_DEFAULT, ADGF_UNSTABLE),
+
 	// King's Quest 2 (Hebrew) [2.1 1987-04-10/DOS]
 	// Fan made translation by SegMash, based on the English GoG version
 	GAME_LPS("kq2", "", "34e9abb9f1ce54db4e1abcc37b53b198", 543, Common::HE_ISR, 0x2917, GID_KQ2, Common::kPlatformDOS),
@@ -490,6 +526,13 @@ static const AGIGameDescription gameDescriptions[] = {
 	// King's Quest 3 (CoCo3 158k/360k) 1.0C 6/27/88 [AGI 2.023]
 	// Official port by Sierra
 	GAME_PS("kq3", "", "5a6be7d16b1c742c369ef5cc64fefdd2", 429, 0x2440, GID_KQ3, Common::kPlatformCoCo3),
+
+	// King's Quest 3 (CoCo3 OS-9 disk image) - experimental resource variant
+	GAME_LVFPN2_FLAGS("kq3", "CoCo 3 / OS-9 standalone (experimental)",
+		"logdir", "b60d64bb368a5516345255651f444ea3", 429,
+		"object", "049f8c985da913cb122d7c773d8b5ffb", 793,
+		Common::EN_ANY, 0x2440, 0, GID_KQ3, Common::kPlatformCoCo3,
+		GType_V2, GAMEOPTIONS_DEFAULT, ADGF_UNSTABLE),
 
 	// King's Quest 3 (Hebrew) [2.14 1988-03-15 3.5"/DOS]
 	// Fan made translation by SegMash, based on the English GoG version
@@ -601,6 +644,18 @@ static const AGIGameDescription gameDescriptions[] = {
 	// Unofficial port by Guillaume Major
 	GAME_PS("mh1", "updated", "d47da950c62289f8d4ccf36af73365f2", 495, 0x2440, GID_MH1, Common::kPlatformCoCo3),
 
+	// Manhunter NY (CoCo3 OS-9 standalone and collection resource variants)
+	GAME_LVFPN2_FLAGS("mh1", "CoCo 3 / OS-9 standalone (experimental)",
+		"logdir", "c90842b26656d84ce5228dd6b2ae998b", 495,
+		"object", "a729c0a711e3893e3586ebd76fcb04c7", 387,
+		Common::EN_ANY, 0x2440, 0, GID_MH1, Common::kPlatformCoCo3,
+		GType_V2, GAMEOPTIONS_DEFAULT, ADGF_UNSTABLE),
+	GAME_LVFPN2_FLAGS("mh1", "CoCo 3 / OS-9 collection (experimental)",
+		"logdir", "889c8619934c10d5657218cea2b99f64", 495,
+		"object", "a729c0a711e3893e3586ebd76fcb04c7", 387,
+		Common::EN_ANY, 0x2440, 0, GID_MH1, Common::kPlatformCoCo3,
+		GType_V2, GAMEOPTIONS_DEFAULT, ADGF_UNSTABLE),
+
 	{
 		// Manhunter NY (Mac) 1.22 8/31/88
 		{
@@ -660,6 +715,13 @@ static const AGIGameDescription gameDescriptions[] = {
 	// Unofficial port by Guillaume Major
 	GAME_PS("mh2", "updated", "c64875766700196e72a92359f70f45a9", 591, 0x2440, GID_MH2, Common::kPlatformCoCo3),
 
+	// Manhunter SF (CoCo3 OS-9): standalone and collection game data are identical.
+	GAME_LVFPN2_FLAGS("mh2", "CoCo 3 / OS-9 (experimental)",
+		"logdir", "9f9a5e4e882df507e62bd1a6c2ce6676", 591,
+		"object", "80ddd44ec62062ef517eef278e09cacc", 399,
+		Common::EN_ANY, 0x2440, 0, GID_MH2, Common::kPlatformCoCo3,
+		GType_V2, GAMEOPTIONS_DEFAULT, ADGF_UNSTABLE),
+
 	// Mickey's Space Adventure
 	// Preagi game
 	GAMEpre_P("mickey", "", "1.pic", "b6ec04c91a05df374792872c4d4ce66d", 2489,
@@ -684,6 +746,18 @@ static const AGIGameDescription gameDescriptions[] = {
 	// Mixed-Up Mother Goose (CoCo3 360k) [AGI 2.072]
 	// Unofficial port by Guillaume Major
 	GAME_PS("mixedup", "", "44e63e9b4d4822a31edea0e8a7e7eac4", 606, 0x2440, GID_MIXEDUP, Common::kPlatformCoCo3),
+
+	// Mixed-Up Mother Goose (CoCo3 OS-9 standalone and collection resource variants)
+	GAME_LVFPN2_FLAGS("mixedup", "CoCo 3 / OS-9 standalone (experimental)",
+		"logdir", "4864a6b7925755191214fb8fd6b8ca0a", 606,
+		"object", "79f88f36a3c37f8241ca31b4bccb3ccc", 8,
+		Common::EN_ANY, 0x2440, 0, GID_MIXEDUP, Common::kPlatformCoCo3,
+		GType_V2, GAMEOPTIONS_DEFAULT, ADGF_UNSTABLE),
+	GAME_LVFPN2_FLAGS("mixedup", "CoCo 3 / OS-9 collection (experimental)",
+		"logdir", "dd0777cd05c9286ebd82a409de0132e4", 606,
+		"object", "79f88f36a3c37f8241ca31b4bccb3ccc", 8,
+		Common::EN_ANY, 0x2440, 0, GID_MIXEDUP, Common::kPlatformCoCo3,
+		GType_V2, GAMEOPTIONS_DEFAULT, ADGF_UNSTABLE),
 
 	// Police Quest 1 (Mac) 2.0G 12/3/87
 	GAME_P("pq1", "2.0G 1987-12-03", "805750b66c1c5b88a214e67bfdca17a1", 0x2440, GID_PQ1, Common::kPlatformMacintosh),
@@ -732,6 +806,13 @@ static const AGIGameDescription gameDescriptions[] = {
 	// Police Quest 1 (CoCo3 360k) [AGI 2.072]
 	// Unofficial port by Guillaume Major
 	GAME_PS("pq1", "updated", "63b9a9c6eec154751dd446cd3693e0e2", 768, 0x2440, GID_PQ1, Common::kPlatformCoCo3),
+
+	// Police Quest 1 (CoCo3 OS-9 disk image) - experimental resource variant
+	GAME_LVFPN2_FLAGS("pq1", "CoCo 3 / OS-9 standalone (experimental)",
+		"logdir", "5edbf894d3220e13054a317885ffb958", 768,
+		"object", "f16e94ef915fda64a2ceb76141fe82eb", 369,
+		Common::EN_ANY, 0x2440, 0, GID_PQ1, Common::kPlatformCoCo3,
+		GType_V2, GAMEOPTIONS_DEFAULT, ADGF_UNSTABLE),
 
 	// Space Quest 1 (ST) 1.1A
 	GAME_P("sq1", "1.1A 1986-02-06", "6421fb64b0e6604c9dd065975d9279e9", 0x2440, GID_SQ1, Common::kPlatformAtariST),
@@ -786,6 +867,13 @@ static const AGIGameDescription gameDescriptions[] = {
 	// Space Quest 1 (CoCo3 360k) [AGI 2.072]
 	// Unofficial port by Guillaume Major
 	GAME_PS("sq1", "updated", "7fa54e6bb7ffeb4cf20eca39d86f5fb2", 387, 0x2440, GID_SQ1, Common::kPlatformCoCo3),
+
+	// Space Quest 1 (CoCo3 OS-9 disk image) - experimental resource variant
+	GAME_LVFPN2_FLAGS("sq1", "CoCo 3 / OS-9 standalone (experimental)",
+		"logdir", "58480833561dcdab885cd959f382cf82", 387,
+		"object", "e44a158a20f0ac781bf9726b3bba8651", 327,
+		Common::EN_ANY, 0x2440, 0, GID_SQ1, Common::kPlatformCoCo3,
+		GType_V2, GAMEOPTIONS_DEFAULT, ADGF_UNSTABLE),
 
 	// Space Quest 2 (Apple II) 2.0A (A2 Int. 0.089)
 	A2("sq2", "2.0A", "5b15026eee7a3a9e36e645feb026d931", 0x2917, GID_SQ2),
@@ -865,6 +953,13 @@ static const AGIGameDescription gameDescriptions[] = {
 	// Space Quest 2 (CoCo3 360k) [AGI 2.072]
 	// Unofficial port by Guillaume Major
 	GAME_PS("sq2", "updated", "d24f19b047e65e1763eff4b46f3d50df", 768, 0x2440, GID_SQ2, Common::kPlatformCoCo3),
+
+	// Space Quest 2 (CoCo3 OS-9 disk image) - experimental resource variant
+	GAME_LVFPN2_FLAGS("sq2", "CoCo 3 / OS-9 standalone (experimental)",
+		"logdir", "d90f081252618336fda784a8e9e78b99", 423,
+		"object", "5024d50d42801aaea7170a756218a7e6", 331,
+		Common::EN_ANY, 0x2440, 0, GID_SQ2, Common::kPlatformCoCo3,
+		GType_V2, GAMEOPTIONS_DEFAULT, ADGF_UNSTABLE),
 
 	// Space Quest 2 (Hebrew) 2.0F
 	// Based on English version from GOG
