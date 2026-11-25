@@ -186,6 +186,13 @@ protected:
 	LBItem *createClone() override;
 };
 
+class LBAADetectorItem : public LBItem {
+public:
+	LBAADetectorItem(MohawkEngine_LivingBooks *vm, LBPage *page, Common::Rect rect) : LBItem(vm, page, rect) {}
+protected:
+	void runScript(uint event, uint16 data, uint16 from, const Common::String &name) override;
+};
+
 class LBProxyItem : public LBItem {
 public:
 	LBProxyItem(MohawkEngine_LivingBooks *_vm, LBPage *page, Common::Rect rect);

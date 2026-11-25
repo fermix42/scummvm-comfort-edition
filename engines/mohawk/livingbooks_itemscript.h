@@ -43,6 +43,8 @@ struct LBScriptEntry {
 
 	uint16 type;
 	uint16 event;
+	Common::String eventName;
+	Common::String messageName;
 	uint16 opcode;
 	uint16 param;
 
@@ -52,6 +54,7 @@ struct LBScriptEntry {
 
 	uint16 targetingType;
 	Common::Array<Common::String> targets;
+	Common::Array<uint16> codeTargets;
 
 	// kLBNotifyChangeMode
 	uint16 newUnknown;

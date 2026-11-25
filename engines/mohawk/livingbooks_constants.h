@@ -178,7 +178,8 @@ enum {
 	kLBSetParent = 0x7f,
 	kLBSetHitTest = 0x80,
 	// from here, rugrats
-	kLBUnknown194 = 0x194
+	kLBUnknown194 = 0x194,
+	kLBSetLoadPhase = 0x196
 };
 
 enum {
@@ -212,6 +213,7 @@ enum {
 	kLBOpScriptEnable = 0x1b,
 	kLBOpUnknown1C = 0x1c,
 	kLBOpSendExpression = 0x1d,
+	kLBOpSendNamedEvent = 0x11c,
 	kLBOpJumpUnlessExpression = 0xfffb,
 	kLBOpBreakExpression = 0xfffc,
 	kLBOpJumpToExpression = 0xfffd,

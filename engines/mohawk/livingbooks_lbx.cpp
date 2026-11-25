@@ -21,6 +21,7 @@
 
 #include "engines/mohawk/livingbooks.h"
 #include "engines/mohawk/livingbooks_lbx.h"
+#include "graphics/fonts/winfont.h"
 
 namespace Mohawk {
 
@@ -144,10 +145,30 @@ void LBXDataFile::open(const Common::Path &filename) {
 	error("LBXDataFile::open: couldn't open '%s'", filename.toString().c_str());
 }
 
+class LBXFont : public LBXObject {
+public:
+	LBXFont(MohawkEngine_LivingBooks *vm) : LBXObject(vm) {}
+	const Graphics::Font *getFont() const override { return &_font; }
+	bool call(uint callId, const Common::Array<LBValue> &params, LBValue &result) override {
+		if (callId != 1 || params.size() != 1 || params[0].type != kLBValueString)
+			error("Unsupported LBX font call %u", callId);
+		const Common::String name = params[0].string + ".FON";
+		if (!_font.loadFromFON(Common::Path(name)))
+			error("Cannot load LBX font '%s'", name.c_str());
+		return false;
+	}
+private:
+	Graphics::WinFont _font;
+};
+
 Common::SharedPtr<LBXObject> createLBXObject(MohawkEngine_LivingBooks *vm, uint16 type) {
 	switch (type) {
 	case 1001:
 		return Common::SharedPtr<LBXObject>(new LBXDataFile(vm));
+	case 1004:
+		if (vm->getGameType() == GType_LIVINGBOOKSV5)
+			return Common::SharedPtr<LBXObject>(new LBXFont(vm));
+		error("LBX font objects require Living Books v5");
 
 	default:
 		error("unknown LBX object type %d", type);

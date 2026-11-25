@@ -30,6 +30,7 @@ namespace Mohawk {
 
 LBScriptEntry::LBScriptEntry() {
 	state = 0;
+	offset = 0;
 	data = nullptr;
 	argvParam = nullptr;
 	argvTarget = nullptr;
@@ -118,7 +119,10 @@ LBScriptEntry *LBItem::parseScriptEntry(uint16 type, uint16 &size, Common::Memor
 			entry->subentries.push_back(subentry);
 
 			// subentries are aligned
-			if (i + 1 < entry->param && size % 2 == 1) {
+			// V5 named events have an appended name of arbitrary length.
+			// Align the subentry's position, not the bytes remaining in the list.
+			const bool odd = _vm->getGameType() == GType_LIVINGBOOKSV5 ? stream->pos() % 2 : size % 2;
+			if (i + 1 < entry->param && odd) {
 				stream->skip(1);
 				size--;
 			}
@@ -137,8 +141,7 @@ LBScriptEntry *LBItem::parseScriptEntry(uint16 type, uint16 &size, Common::Memor
 			|| targetingType == kTargetTypeName) {
 			entry->targetingType = targetingType;
 
-			// FIXME
-			if (targetingType == kTargetTypeCode)
+			if (targetingType == kTargetTypeCode && _vm->getGameType() != GType_LIVINGBOOKSV5)
 				error("encountered kTargetTypeCode");
 
 			if (size < 2)
@@ -150,6 +153,13 @@ LBScriptEntry *LBItem::parseScriptEntry(uint16 type, uint16 &size, Common::Memor
 
 			uint oldAlign = size % 2;
 			for (uint i = 0; i < count; i++) {
+				if (targetingType == kTargetTypeCode) {
+					if (size < 2)
+						error("Truncated V5 code target");
+					entry->codeTargets.push_back(stream->readUint16());
+					size -= 2;
+					continue;
+				}
 				Common::String target = _vm->readString(stream);
 				debug(4, "target '%s'", target.c_str());
 				entry->targets.push_back(target);
@@ -157,7 +167,7 @@ LBScriptEntry *LBItem::parseScriptEntry(uint16 type, uint16 &size, Common::Memor
 					error("failed to read target (ran out of stream)");
 				size -= target.size() + 1;
 			}
-			entry->argc = entry->targets.size();
+			entry->argc = targetingType == kTargetTypeCode ? entry->codeTargets.size() : entry->targets.size();
 
 			if ((uint)(size % 2) != oldAlign) {
 				stream->skip(1);
@@ -189,7 +199,8 @@ LBScriptEntry *LBItem::parseScriptEntry(uint16 type, uint16 &size, Common::Memor
 		debug(4, "kLBOpJumpUnlessExpression: offset %08x, target %d", entry->offset, entry->target);
 		size -= 6;
 	}
-	if (type == kLBMsgListScript && entry->opcode == kLBOpJumpToExpression) {
+	if (type == kLBMsgListScript && (entry->opcode == kLBOpJumpToExpression ||
+		(entry->opcode == kLBOpBreakExpression && _vm->getGameType() == GType_LIVINGBOOKSV5 && size != expectedEndSize))) {
 		if (size < 4)
 			error("not enough bytes (%d) in kLBOpJumpToExpression, event 0x%04x", size, entry->event);
 		entry->offset = stream->readUint32();
@@ -225,12 +236,21 @@ LBScriptEntry *LBItem::parseScriptEntry(uint16 type, uint16 &size, Common::Memor
 			error("unknown v2 kLBNotifyChangeMode type %d", entry->param);
 		}
 	}
-	if (entry->opcode == kLBOpSendExpression) {
+	if (entry->opcode == kLBOpSendExpression ||
+		(entry->opcode == kLBOpSendNamedEvent && _vm->getGameType() == GType_LIVINGBOOKSV5)) {
 		if (size < 4)
 			error("not enough bytes (%d) in kLBOpSendExpression, event 0x%04x", size, entry->event);
 		entry->offset = stream->readUint32();
 		debug(4, "kLBOpSendExpression: offset %08x", entry->offset);
 		size -= 4;
+	}
+	if (entry->opcode == kLBOpSendNamedEvent && _vm->getGameType() == GType_LIVINGBOOKSV5) {
+		const uint before = stream->pos();
+		entry->messageName = _vm->readString(stream);
+		const uint consumed = stream->pos() - before;
+		if (consumed > size || entry->messageName.empty())
+			error("Invalid named event message");
+		size -= consumed;
 	}
 	if (entry->opcode == kLBOpRunData) {
 		if (size < 4)
@@ -270,7 +290,24 @@ LBScriptEntry *LBItem::parseScriptEntry(uint16 type, uint16 &size, Common::Memor
 		size -= 4;
 	}
 
+	if (!isSubentry && entry->event == 0x1c && _vm->getGameType() == GType_LIVINGBOOKSV5) {
+		if (size < 2 || stream->readByte() != 0)
+			error("Invalid named event header");
+		size--;
+		const uint before = stream->pos();
+		entry->eventName = _vm->readString(stream);
+		const uint consumed = stream->pos() - before;
+		if (consumed > size || entry->eventName.empty())
+			error("Invalid named event name");
+		size -= consumed;
+	}
+
 	if (isSubentry) {
+		if (_vm->getGameType() == GType_LIVINGBOOKSV5 && size == expectedEndSize + 1) {
+			if (stream->readByte() != 0)
+				error("Nonzero V5 subentry padding");
+			size--;
+		}
 		// TODO: subentries may be aligned, so this check is a bit too relaxed
 		if (size != expectedEndSize && size != expectedEndSize + 1)
 			error("expected %d bytes left at end of subentry, but had %d",
@@ -356,6 +393,13 @@ void LBItem::readData(uint16 type, uint16 size, Common::MemoryReadStreamEndian *
 			error("SetPlayPhase had wrong size (%d)", size);
 		_phase = stream->readUint16();
 		debug(2, "kLBSetPlayPhase: %d", _phase);
+		break;
+
+	case kLBSetLoadPhase:
+		if (_vm->getGameType() != GType_LIVINGBOOKSV5 || size != 2)
+			error("Invalid SetLoadPhase (size %d)", size);
+		_loadPhase = stream->readUint16();
+		_hasLoadPhase = true;
 		break;
 
 	case kLBSetKeyNotify:
@@ -452,7 +496,10 @@ void LBItem::readData(uint16 type, uint16 size, Common::MemoryReadStreamEndian *
 		{
 		assert(size == 4);
 		uint offset = stream->readUint32();
-		_page->_code->runCode(this, offset);
+		if (_vm->getGameType() == GType_LIVINGBOOKSV5)
+			_initialCode.push_back(offset);
+		else
+			_page->_code->runCode(this, offset);
 		}
 		break;
 
@@ -477,11 +524,24 @@ void LBItem::notify(uint16 data, uint16 from) {
 	runScript(kLBEventNotified, data, from);
 }
 
-void LBItem::runScript(uint event, uint16 data, uint16 from) {
+void LBItem::sendNamedEvent(const Common::String &name, const Common::Array<LBValue> &args) {
+	dispatchScript(0x1c, 0, 0, name, &args, this, true, 0);
+}
+
+void LBItem::runScript(uint event, uint16 data, uint16 from, const Common::String &name) {
+	dispatchScript(event, data, from, name, nullptr, this, true, 0);
+}
+
+void LBItem::dispatchScript(uint event, uint16 data, uint16 from, const Common::String &name,
+	const Common::Array<LBValue> *args, LBItem *receiver, bool links, uint depth) {
+	if (depth > 128)
+		error("ScriptLink recursion limit exceeded");
 	for (uint i = 0; i < _scriptEntries.size(); i++) {
 		LBScriptEntry *entry = _scriptEntries[i];
 
 		if (entry->event != event)
+			continue;
+		if (event == 0x1c && !entry->eventName.equalsIgnoreCase(name))
 			continue;
 
 		if (event == kLBEventNotified) {
@@ -491,7 +551,7 @@ void LBItem::runScript(uint event, uint16 data, uint16 from) {
 
 		bool conditionsMatch = true;
 		for (uint n = 0; n < entry->conditions.size(); n++) {
-			if (!checkCondition(entry->conditions[n])) {
+			if (!receiver->checkCondition(entry->conditions[n])) {
 				conditionsMatch = false;
 				break;
 			}
@@ -515,12 +575,26 @@ void LBItem::runScript(uint event, uint16 data, uint16 from) {
 				_vm->addNotifyEvent(notifyEvent);
 			} else
 				_vm->addNotifyEvent(NotifyEvent(entry->opcode, entry->param));
-		} else
-			runScriptEntry(entry);
+		} else {
+			if (args)
+				_page->_code->pushV5Frame(*args);
+			receiver->runScriptEntry(entry, _page);
+			if (args)
+				_page->_code->popV5Frame();
+		}
+	}
+	if (links) {
+		const Common::Array<ScriptLink> scriptLinks = _scriptLinks;
+		for (const ScriptLink &link : scriptLinks) {
+			LBItem *item = _vm->getItemById(link.id);
+			if (item)
+				item->dispatchScript(event, data, from, name, args, receiver, link.cascade, depth + 1);
+		}
 	}
 }
 
-int LBItem::runScriptEntry(LBScriptEntry *entry) {
+int LBItem::runScriptEntry(LBScriptEntry *entry, LBPage *codePage) {
+	LBPage *page = codePage ? codePage : _page;
 	if (entry->state == 0xffff)
 		return 0;
 
@@ -609,8 +683,19 @@ int LBItem::runScriptEntry(LBScriptEntry *entry) {
 				debug(2, "Target: '%s' (expression '%s')", target->_desc.c_str(), entry->targets[n].c_str());
 				break;
 			case kTargetTypeCode:
-				// FIXME
-				error("encountered kTargetTypeCode");
+				{
+				const LBValue value = page->_code->runCode(this, entry->codeTargets[n]);
+				if (value.type == kLBValueItemPtr)
+					target = value.item;
+				else if (value.type == kLBValueString)
+					target = _vm->getItemByName(value.string);
+				else if (value.type == kLBValueInteger)
+					target = _vm->getItemById(value.integer);
+				else
+					error("Unsupported V5 code target value");
+				if (!target)
+					continue;
+				}
 				break;
 			case kTargetTypeName:
 				// FIXME: handle 'self'
@@ -639,6 +724,13 @@ int LBItem::runScriptEntry(LBScriptEntry *entry) {
 
 		// an opcode in the form 0x1xx means to run the script for event 0xx
 		if ((entry->opcode & 0xff00) == 0x0100) {
+			if (entry->opcode == kLBOpSendNamedEvent && _vm->getGameType() == GType_LIVINGBOOKSV5) {
+				Common::Array<LBValue> args;
+				if (entry->offset)
+					args.push_back(page->_code->runCode(this, entry->offset));
+				target->sendNamedEvent(entry->messageName, args);
+				continue;
+			}
 			// FIXME: pass on param
 			target->runScript(entry->opcode & 0xff);
 			break;
@@ -760,14 +852,14 @@ int LBItem::runScriptEntry(LBScriptEntry *entry) {
 			break;
 
 		case kLBOpSendExpression:
-			_page->_code->runCode(this, entry->offset);
+			page->_code->runCode(this, entry->offset);
 			break;
 
 		case kLBOpRunSubentries:
 			for (uint i = 0; i < entry->subentries.size(); i++) {
 				LBScriptEntry *subentry = entry->subentries[i];
 
-				int e = runScriptEntry(subentry);
+				int e = runScriptEntry(subentry, page);
 
 				switch (subentry->opcode) {
 				case kLBOpJumpUnlessExpression:
@@ -797,9 +889,8 @@ int LBItem::runScriptEntry(LBScriptEntry *entry) {
 		case kLBOpBreakExpression:
 		case kLBOpJumpToExpression:
 			{
-			LBValue r = _page->_code->runCode(this, entry->offset);
-			// FIXME
-			return r.integer;
+			LBValue r = page->_code->runCode(this, entry->offset);
+			return r.toInt();
 			}
 
 		default:

@@ -54,6 +54,12 @@ struct LBValue {
 		type = kLBValueInteger;
 		integer = val;
 	}
+	static LBValue fromDouble(double val) {
+		LBValue result;
+		result.type = kLBValueReal;
+		result.real = val;
+		return result;
+	}
 	LBValue(const Common::String &str) {
 		type = kLBValueString;
 		string = str;
@@ -215,6 +221,8 @@ public:
 	~LBCode();
 
 	LBValue runCode(LBItem *src, uint32 offset);
+	void pushV5Frame(const Common::Array<LBValue> &args);
+	void popV5Frame();
 	uint parseCode(const Common::String &source);
 
 protected:
@@ -222,6 +230,7 @@ protected:
 
 	uint32 _size;
 	byte *_data;
+	bool _isV5Code;
 	Common::HashMap<uint16, Common::String> _strings;
 
 	uint32 _currOffset;
@@ -234,6 +243,13 @@ protected:
 	void nextToken();
 
 	LBValue runCode(byte terminator);
+	LBValue runV5Code(LBItem *src, uint32 offset);
+	struct V5Frame {
+		Common::HashMap<Common::String, LBValue, Common::IgnoreCase_Hash, Common::IgnoreCase_EqualTo> locals;
+		Common::Array<LBValue> args;
+		uint nextArg = 0;
+	};
+	Common::Array<V5Frame> _v5Frames;
 	void parseStatement();
 	void parseComparisons();
 	void parseConcat();
@@ -255,6 +271,10 @@ protected:
 
 public:
 	void cmdUnimplemented(const Common::Array<LBValue> &params);
+	void cmdSetPageFade(const Common::Array<LBValue> &params);
+	void cmdScriptLink(const Common::Array<LBValue> &params);
+	void itemSetZOrder(const Common::Array<LBValue> &params);
+	void itemSetText(const Common::Array<LBValue> &params);
 	void cmdEval(const Common::Array<LBValue> &params);
 	void cmdRandom(const Common::Array<LBValue> &params);
 	void cmdStringLen(const Common::Array<LBValue> &params);

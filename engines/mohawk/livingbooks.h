@@ -105,6 +105,7 @@ public:
 	void addArchive(Archive *archive);
 	void removeArchive(Archive *archive);
 	void addItem(LBItem *item);
+	void setItemZOrder(LBItem *item, LBItem *relative, bool bottom);
 	void removeItems(const Common::Array<LBItem *> &items);
 
 	LBItem *getItemById(uint16 id);

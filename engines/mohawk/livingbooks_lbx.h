@@ -26,6 +26,8 @@
 
 #include "common/ptr.h"
 
+namespace Graphics { class Font; }
+
 namespace Mohawk {
 
 class LBXObject {
@@ -34,6 +36,7 @@ public:
 	virtual ~LBXObject() { }
 
 	virtual bool call(uint callId, const Common::Array<LBValue> &params, LBValue &result) = 0;
+	virtual const Graphics::Font *getFont() const { return nullptr; }
 
 protected:
 	MohawkEngine_LivingBooks *_vm;

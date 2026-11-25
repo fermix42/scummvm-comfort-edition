@@ -728,6 +728,17 @@ LBItem *LBMiniGameItem::createClone() {
 	error("can't clone LBMiniGameItem");
 }
 
+void LBAADetectorItem::runScript(uint event, uint16 data, uint16 from, const Common::String &name) {
+	if (event == 0xfe) {
+		// aaDetector_setPaths: ScummVM resolves the installed data through its
+		// game search path, rather than the original interpreter's registry.
+		_variables["delimeter"] = LBValue(Common::String("/"));
+		_variables["productPath"] = LBValue(Common::String("ACME Support/Product"));
+		return;
+	}
+	LBItem::runScript(event, data, from, name);
+}
+
 LBProxyItem::LBProxyItem(MohawkEngine_LivingBooks *vm, LBPage *page, Common::Rect rect) : LBItem(vm, page, rect) {
 	debug(3, "new LBProxyItem");
 
@@ -744,6 +755,8 @@ void LBProxyItem::load() {
 
 	Common::String leftover;
 	Common::String filename = _vm->getFileNameFromConfig("Proxies", _desc.c_str(), leftover);
+	if (_vm->getGameType() == GType_LIVINGBOOKSV5 && _variables.contains("text"))
+		filename = _variables["text"].toString();
 	if (!leftover.empty())
 		error("LBProxyItem tried loading proxy '%s' but got leftover '%s'", _desc.c_str(), leftover.c_str());
 	uint16 baseId = 0;
@@ -758,6 +771,12 @@ void LBProxyItem::load() {
 	Archive *pageArchive = _vm->createArchive();
 	if (!tryOpenPage(pageArchive, filename))
 		error("failed to open archive '%s' (for proxy '%s')", filename.c_str(), _desc.c_str());
+	if (_vm->getGameType() == GType_LIVINGBOOKSV5 && !pageArchive->hasResource(ID_BITL, baseId)) {
+		const Common::Array<uint16> ids = pageArchive->getResourceIDList(ID_BITL);
+		if (ids.size() != 1)
+			error("Ambiguous v5 proxy page '%s'", filename.c_str());
+		baseId = ids[0];
+	}
 	_page = new LBPage(_vm);
 	_page->open(pageArchive, baseId);
 

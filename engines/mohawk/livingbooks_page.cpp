@@ -51,6 +51,8 @@ void LBPage::open(Archive *mhk, uint16 baseId) {
 	loadBITL(baseId);
 	for (uint i = 0; i < _items.size(); i++)
 		_vm->addItem(_items[i]);
+	for (uint i = 0; i < _items.size(); i++)
+		_items[i]->applyInitialCode();
 
 	for (uint32 i = 0; i < _items.size(); i++)
 		_items[i]->init();
@@ -131,6 +133,14 @@ void LBPage::loadBITL(uint16 resourceId) {
 			break;
 		case kLBProxyItem:
 			res = new LBProxyItem(_vm, this, rect);
+			break;
+		case 4005:
+			if (_vm->getGameType() == GType_LIVINGBOOKSV5)
+				res = new LBAADetectorItem(_vm, this, rect);
+			else {
+				warning("Unknown item type %04x", type);
+				res = new LBItem(_vm, this, rect);
+			}
 			break;
 		default:
 			warning("Unknown item type %04x", type);

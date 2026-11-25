@@ -355,9 +355,19 @@ bool MohawkEngine_LivingBooks::loadPage(LBMode mode, uint page, uint subpage) {
 	}
 
 	Archive *pageArchive = createArchive();
+	uint16 pageBaseId = 1000;
 	if (!filename.empty() && tryOpenPage(pageArchive, filename)) {
+		// ThinkQuick's v5 modules have their own page resource bases (the
+		// startup page is 900). Resolve within this archive, not the active
+		// archive stack, where an unrelated page may also contain ID 1000.
+		if (getGameType() == GType_LIVINGBOOKSV5 && !pageArchive->hasResource(ID_BITL, pageBaseId)) {
+			const Common::Array<uint16> ids = pageArchive->getResourceIDList(ID_BITL);
+			if (ids.size() != 1)
+				error("Cannot determine Living Books v5 page base for '%s' (%u BITL resources)", filename.c_str(), (uint)ids.size());
+			pageBaseId = ids[0];
+		}
 		_page = new LBPage(this);
-		_page->open(pageArchive, 1000);
+		_page->open(pageArchive, pageBaseId);
 	} else {
 		delete pageArchive;
 		debug(2, "Could not find page %d.%d for '%s'", page, subpage, name.c_str());
@@ -383,7 +393,7 @@ bool MohawkEngine_LivingBooks::loadPage(LBMode mode, uint page, uint subpage) {
 
 	_cursor->showCursor();
 
-	_gfx->setPalette(1000);
+	_gfx->setPalette(pageBaseId);
 
 	_phase = 0;
 	_introDone = false;
@@ -584,6 +594,22 @@ void MohawkEngine_LivingBooks::addItem(LBItem *item) {
 	_items.push_back(item);
 	_orderedItems.push_front(item);
 	item->_iterator = _orderedItems.begin();
+}
+
+void MohawkEngine_LivingBooks::setItemZOrder(LBItem *item, LBItem *relative, bool bottom) {
+	if (item == relative)
+		return;
+	_orderedItems.erase(item->_iterator);
+	if (relative)
+		item->_iterator = _orderedItems.insert(relative->_iterator, item);
+	else if (bottom) {
+		_orderedItems.push_back(item);
+		item->_iterator = _orderedItems.reverse_begin();
+	} else {
+		_orderedItems.push_front(item);
+		item->_iterator = _orderedItems.begin();
+	}
+	_needsRedraw = true;
 }
 
 void MohawkEngine_LivingBooks::removeItems(const Common::Array<LBItem *> &items) {

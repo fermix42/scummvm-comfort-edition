@@ -66,6 +66,8 @@ public:
 	virtual bool togglePlaying(bool playing, bool restart = false); // 0xF
 	virtual void done(bool onlyNotify); // 0x10
 	virtual void init(); // 0x11
+	void applyInitialCode();
+	void linkScript(uint16 id, uint16 mode);
 	virtual void seek(uint16 pos) { } // 0x13
 	virtual void seekToTime(uint32 time) { }
 	virtual void setFocused(bool focused) { } // 0x14
@@ -76,6 +78,8 @@ public:
 	virtual void notify(uint16 data, uint16 from); // 0x1A
 	virtual void load();
 	virtual void unload();
+	virtual void setText(const Common::String &text);
+	virtual void sendNamedEvent(const Common::String &name, const Common::Array<LBValue> &args);
 	virtual void moveBy(const Common::Point &pos);
 	virtual void moveTo(const Common::Point &pos);
 
@@ -111,6 +115,8 @@ protected:
 	uint16 _loops;
 
 	uint16 _phase, _timingMode, _delayMin, _delayMax;
+	uint16 _loadPhase;
+	bool _hasLoadPhase;
 	uint16 _loopMode, _periodMin, _periodMax;
 	uint16 _controlMode, _soundMode;
 	Common::Point _relocPoint;
@@ -121,8 +127,16 @@ protected:
 	virtual LBItem *createClone();
 
 	Common::Array<LBScriptEntry *> _scriptEntries;
-	void runScript(uint event, uint16 data = 0, uint16 from = 0);
-	int runScriptEntry(LBScriptEntry *entry);
+	Common::Array<uint32> _initialCode;
+	struct ScriptLink {
+		uint16 id;
+		bool cascade;
+	};
+	Common::Array<ScriptLink> _scriptLinks;
+	virtual void runScript(uint event, uint16 data = 0, uint16 from = 0, const Common::String &name = Common::String());
+	void dispatchScript(uint event, uint16 data, uint16 from, const Common::String &name,
+		const Common::Array<LBValue> *args, LBItem *receiver, bool links, uint depth);
+	int runScriptEntry(LBScriptEntry *entry, LBPage *codePage = nullptr);
 
 	void runCommand(const Common::String &command);
 	bool checkCondition(const Common::String &condition);

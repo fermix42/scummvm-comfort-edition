@@ -28,6 +28,8 @@
 namespace Mohawk {
 
 LBItem::LBItem(MohawkEngine_LivingBooks *vm, LBPage *page, Common::Rect rect) : _vm(vm), _page(page), _rect(rect) {
+	_loadPhase = 0;
+	_hasLoadPhase = false;
 	if (_vm->getGameType() == GType_LIVINGBOOKSV1 || _vm->getGameType() == GType_LIVINGBOOKSV2)
 		_phase = kLBPhaseInit;
 	else
@@ -213,6 +215,39 @@ void LBItem::init() {
 	runScript(kLBEventInit);
 }
 
+void LBItem::applyInitialCode() {
+	for (uint32 offset : _initialCode)
+		_page->_code->runCode(this, offset);
+	_initialCode.clear();
+}
+
+void LBItem::linkScript(uint16 id, uint16 mode) {
+	if (mode > 2)
+		error("Invalid ScriptLink mode %u", mode);
+	if (!id) {
+		_scriptLinks.clear();
+		return;
+	}
+	for (uint i = 0; i < _scriptLinks.size(); ++i) {
+		if (_scriptLinks[i].id != id)
+			continue;
+		if (!mode)
+			_scriptLinks.remove_at(i);
+		else
+			_scriptLinks[i].cascade = mode == 2;
+		return;
+	}
+	if (mode) {
+		ScriptLink link = { id, mode == 2 };
+		_scriptLinks.insert_at(0, link);
+	}
+}
+
+void LBItem::setText(const Common::String &text) {
+	_variables["text"] = LBValue(text);
+	_vm->_needsRedraw = true;
+}
+
 void LBItem::setVisible(bool visible) {
 	if (visible == _visible)
 		return;
@@ -229,11 +264,15 @@ void LBItem::setGlobalVisible(bool visible) {
 }
 
 void LBItem::startPhase(uint phase) {
+	if (_hasLoadPhase && _loadPhase == phase)
+		load();
 	if (_phase == phase) {
 		if (_phase != kLBPhaseNone) {
 			setEnabled(true);
 		}
 
+		// An explicit load phase can preload an item. Starting its play phase
+		// still needs the resource, as in the original interpreter's 0x3a call.
 		load();
 	}
 

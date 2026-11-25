@@ -126,10 +126,14 @@ Common::String LBValue::toString() const {
 }
 
 int LBValue::toInt() const {
+	if (type == kLBValueReal)
+		return (int)real;
 	return integer; // FIXME
 }
 
 double LBValue::toDouble() const {
+	if (type == kLBValueInteger)
+		return integer;
 	return real; // FIXME
 }
 
@@ -174,6 +178,10 @@ Common::Rect LBValue::toRect() const {
 }
 
 LBCode::LBCode(MohawkEngine_LivingBooks *vm, uint16 baseId) : _vm(vm) {
+	_isV5Code = baseId && vm->getGameType() == GType_LIVINGBOOKSV5;
+	_currSource = nullptr;
+	_currOffset = 0;
+	_currToken = kTokenEndOfFile;
 	if (!baseId) {
 		_data = nullptr;
 		_size = 0;
@@ -217,6 +225,8 @@ LBCode::~LBCode() {
 }
 
 LBValue LBCode::runCode(LBItem *src, uint32 offset) {
+	if (_isV5Code)
+		return runV5Code(src, offset);
 	// TODO: re-entrancy issues?
 	_currSource = src;
 	_currOffset = offset;
@@ -913,7 +923,7 @@ CodeCommandInfo generalCommandInfo[NUM_GENERAL_COMMANDS] = {
 	// 0x20
 	{ "deleteVar", &LBCode::cmdDeleteVar },
 	{ "saveVars", nullptr },
-	{ "scriptLink", nullptr },
+	{ "scriptLink", &LBCode::cmdScriptLink },
 	{ "setViewOrigin", &LBCode::cmdUnimplemented },
 	{ "rectSect", nullptr },
 	{ "getViewOrigin", nullptr },
@@ -976,7 +986,7 @@ CodeCommandInfo generalCommandInfo[NUM_GENERAL_COMMANDS] = {
 	{ "menuItemEnable", nullptr },
 	{ "showChannel", nullptr },
 	{ "hideChannel", nullptr },
-	{ "setPageFade", nullptr },
+	{ "setPageFade", &LBCode::cmdSetPageFade },
 	{ "normalize", nullptr },
 	// 0x60 (v5+)
 	{ "addEvent", nullptr },
@@ -1500,8 +1510,8 @@ CodeCommandInfo itemCommandInfo[NUM_ITEM_COMMANDS] = {
 	{ "seek", &LBCode::itemSeek },
 	{ "seekToFrame", &LBCode::itemSeekToFrame },
 	{ "setParent", &LBCode::itemSetParent },
-	{ "setZOrder", nullptr },
-	{ "setText", nullptr },
+	{ "setZOrder", &LBCode::itemSetZOrder },
+	{ "setText", &LBCode::itemSetText },
 	// 0x20
 	{ "stop", nullptr },
 	{ "unload", nullptr },
@@ -1989,6 +1999,344 @@ uint LBCode::parseCode(const Common::String &source) {
 	_data = newData;
 	_size += code.size();
 	return codeOffset;
+}
+
+void LBCode::cmdSetPageFade(const Common::Array<LBValue> &params) {
+	if (params.size() != 1 || params[0].type != kLBValueInteger || params[0].integer != 0)
+		error("Only the immediate SetPageFade(0) transition is supported");
+	// Pages already switch immediately; zero requests precisely that behavior.
+}
+
+void LBCode::cmdScriptLink(const Common::Array<LBValue> &params) {
+	if (params.empty() || params.size() > 3)
+		error("Incorrect number of parameters to ScriptLink");
+	LBItem *receiver = params.size() == 3 ? resolveItem(params[2]) : _currSource;
+	LBItem *source = resolveItem(params[0]);
+	const uint16 mode = params.size() > 1 ? params[1].toInt() : 1;
+	const bool clear = (params[0].type == kLBValueInteger && !params[0].integer) ||
+		(params[0].type == kLBValueString && params[0].string.empty());
+	if (!receiver || (!source && !clear))
+		error("Invalid item passed to ScriptLink");
+	receiver->linkScript(source ? source->getId() : 0, mode);
+	_stack.push(1);
+}
+
+void LBCode::itemSetZOrder(const Common::Array<LBValue> &params) {
+	if (params.size() != 1 && params.size() != 2)
+		error("Incorrect number of parameters to SetZOrder");
+	LBItem *item = params.size() == 2 ? resolveItem(params[0]) : _currSource;
+	const LBValue &order = params.back();
+	LBItem *relative = resolveItem(order);
+	if (!item || (!relative && (order.type != kLBValueInteger || (order.integer != 0 && order.integer != -1))))
+		error("Invalid item passed to SetZOrder");
+	_vm->setItemZOrder(item, relative, order.type == kLBValueInteger && order.integer == -1);
+	_stack.push(1);
+}
+
+void LBCode::pushV5Frame(const Common::Array<LBValue> &args) {
+	V5Frame frame;
+	frame.args = args;
+	_v5Frames.push_back(frame);
+}
+
+void LBCode::itemSetText(const Common::Array<LBValue> &params) {
+	if (params.size() != 1 && params.size() != 2)
+		error("Incorrect number of parameters to SetText");
+	LBItem *item = params.size() == 2 ? resolveItem(params[0]) : _currSource;
+	if (!item)
+		error("Invalid item passed to SetText");
+	item->setText(params.back().toString());
+	_stack.push(1);
+}
+
+void LBCode::popV5Frame() {
+	if (_v5Frames.empty())
+		error("V5 call frame underflow");
+	_v5Frames.pop_back();
+}
+
+LBValue LBCode::runV5Code(LBItem *src, uint32 offset) {
+	// Offset zero is the null expression (also used for unconditional jumps).
+	if (!offset)
+		return LBValue();
+	// V5 stores expressions in postfix order. References must remain references
+	// until consumed: the same identifier token is used for reading and writing.
+	struct Operand {
+		LBValue value;
+		Common::String name;
+		LBItem *owner;
+		bool reference;
+		bool local = false;
+		Common::Array<uint> indexes;
+		Operand(const LBValue &v) : value(v), owner(nullptr), reference(false) {}
+		Operand(const Common::String &n, LBItem *o) : name(n), owner(o), reference(true) {}
+	};
+	Common::Array<Operand> values;
+	Common::Array<uint> listStarts;
+	uint32 pos = offset;
+	auto byteAt = [&]() -> byte {
+		if (pos >= _size)
+			error("V5 bytecode read beyond end at %u", pos);
+		return _data[pos++];
+	};
+	auto wordAt = [&]() -> uint16 {
+		const uint16 high = byteAt();
+		return (high << 8) | byteAt();
+	};
+	auto pop = [&]() -> Operand {
+		if (values.empty())
+			error("V5 bytecode stack underflow at %u", pos);
+		Operand result = values.back();
+		values.pop_back();
+		return result;
+	};
+	auto variable = [&](const Operand &op) -> LBValue & {
+		LBValue *var = op.owner ? &op.owner->_variables[op.name] : op.local ? &_v5Frames.back().locals[op.name] : &_vm->_variables[op.name];
+		for (uint index : op.indexes) {
+			if (var->type != kLBValueList) {
+				if (var->type != kLBValueInteger || var->integer != 0)
+					error("V5 indexed value is not a list");
+				*var = LBValue(Common::SharedPtr<LBList>(new LBList));
+			}
+			if (var->list->array.size() < index)
+				var->list->array.resize(index);
+			var = &var->list->array[index - 1];
+		}
+		return *var;
+	};
+	auto read = [&](const Operand &op) -> LBValue {
+		return op.reference ? variable(op) : op.value;
+	};
+	LBValue result;
+	byte previousToken = 0;
+	while (true) {
+		const byte token = byteAt();
+		const byte previous = previousToken;
+		previousToken = token;
+		switch (token) {
+		case kTokenEndOfFile:
+			return values.empty() ? result : read(values.back());
+		case kTokenEndOfStatement:
+			if (!listStarts.empty())
+				break;
+			if (!values.empty())
+				result = read(values.back());
+			values.clear();
+			break;
+		case kTokenIdentifier:
+		case kTokenString: {
+			const uint16 id = wordAt();
+			if (!_strings.contains(id))
+				error("Invalid V5 string reference %u", id);
+			if (token == kTokenIdentifier) {
+				Operand op(_strings[id], nullptr);
+				op.local = !_v5Frames.empty() && _v5Frames.back().locals.contains(op.name);
+				values.push_back(op);
+			} else
+				values.push_back(Operand(LBValue(_strings[id])));
+			break;
+		}
+		case 4:
+			values.push_back(Operand(LBValue(src)));
+			break;
+		case kTokenLiteral: {
+			const byte kind = byteAt();
+			int32 integer;
+			if (kind == 2) {
+				const uint16 id = wordAt();
+				if (!_strings.contains(id))
+					error("Invalid V5 literal string reference %u", id);
+				values.push_back(Operand(LBValue(_strings[id])));
+				break;
+			} else if (kind == 3) {
+				const uint32 high = wordAt();
+				integer = (int32)((high << 16) | wordAt());
+			} else if (kind == 4) {
+				byte data[8];
+				for (uint i = 0; i < sizeof(data); ++i)
+					data[i] = byteAt();
+				values.push_back(Operand(LBValue::fromDouble(READ_BE_FLOAT64(data))));
+				break;
+			} else
+				error("Unsupported V5 literal type %u", kind);
+			values.push_back(Operand(LBValue(integer)));
+			break;
+		}
+		case kTokenTrue:
+		case kTokenFalse:
+			values.push_back(Operand(LBValue(token == kTokenTrue)));
+			break;
+		case kTokenConstMode:
+			values.push_back(Operand(LBValue((int)wordAt())));
+			break;
+		case 0x61:
+		case 0x62: {
+			if (_v5Frames.empty())
+				error("V5 local declaration outside an event");
+			while (true) {
+				const byte declaration = byteAt();
+				if (declaration == kTokenEndOfFile)
+					return LBValue();
+				if (declaration == kTokenEndOfStatement)
+					continue;
+				if (declaration == 0x76) {
+					if (_v5Frames.back().nextArg != _v5Frames.back().args.size())
+						error("V5 event received too many arguments");
+					continue;
+				}
+				if (declaration != kTokenIdentifier)
+					error("Invalid V5 local declaration %02x", declaration);
+				const uint16 id = wordAt();
+				if (!_strings.contains(id))
+					error("Invalid V5 local name");
+				LBValue val;
+				if (token == 0x62) {
+					if (_v5Frames.back().nextArg >= _v5Frames.back().args.size())
+						error("V5 event received too few arguments");
+					val = _v5Frames.back().args[_v5Frames.back().nextArg++];
+				}
+				_v5Frames.back().locals[_strings[id]] = val;
+			}
+			break;
+		}
+		case kTokenDotOperator: {
+			const Common::String name = read(pop()).toString();
+			LBItem *item = resolveItem(read(pop()));
+			if (!item)
+				error("Invalid V5 property owner for '%s'", name.c_str());
+			values.push_back(Operand(name, item));
+			break;
+		}
+		case kTokenListStart:
+			listStarts.push_back(values.size());
+			break;
+		case kTokenListEnd: {
+			if (!listStarts.empty() && (previous == kTokenEndOfStatement || previous == kTokenListStart)) {
+				const uint start = listStarts.back();
+				listStarts.pop_back();
+				Common::SharedPtr<LBList> list(new LBList);
+				for (uint i = start; i < values.size(); ++i)
+					list->array.push_back(read(values[i]));
+				while (values.size() > start)
+					values.pop_back();
+				values.push_back(Operand(LBValue(list)));
+			} else {
+				const LBValue index = read(pop());
+				Operand list = pop();
+				if (!index.isNumeric() || !(index.toDouble() >= 1 && index.toDouble() <= 65535))
+					error("Invalid V5 list index");
+				if (list.reference) {
+					list.indexes.push_back(index.toInt());
+					values.push_back(list);
+				} else if (list.value.type == kLBValueList && (uint)index.toInt() <= list.value.list->array.size())
+					values.push_back(Operand(list.value.list->array[index.toInt() - 1]));
+				else
+					values.push_back(Operand(LBValue()));
+			}
+			break;
+		}
+		case 0x6b: {
+			const LBValue rhs = read(pop());
+			const Operand lhs = pop();
+			if (!lhs.reference)
+				error("V5 assignment requires a reference");
+			const byte op = byteAt();
+			LBValue &target = variable(lhs);
+			switch (op) {
+			case kTokenAssign: target = rhs; break;
+			case kTokenPlusEquals: target = LBValue(target.toInt() + rhs.toInt()); break;
+			case kTokenMinusEquals: target = LBValue(target.toInt() - rhs.toInt()); break;
+			case kTokenAndEquals: target = LBValue(target.toString() + rhs.toString()); break;
+			default: error("Unsupported V5 assignment %02x", op);
+			}
+			values.push_back(Operand(target));
+			debugC(kDebugCode, "V5 assignment %s = %s", lhs.name.c_str(), target.toString().c_str());
+			break;
+		}
+		case 0x6d: {
+			const LBValue rhs = read(pop());
+			const byte op = byteAt();
+			if (op == kTokenNot)
+				values.push_back(Operand(LBValue(rhs.toInt() == 0)));
+			else {
+				const LBValue lhs = read(pop());
+				if (op == kTokenAnd)
+					values.push_back(Operand(LBValue(lhs.toInt() != 0 && rhs.toInt() != 0)));
+				else if (op == kTokenOr)
+					values.push_back(Operand(LBValue(lhs.toInt() != 0 || rhs.toInt() != 0)));
+				else
+					error("Unsupported V5 logical operation %02x", op);
+			}
+			break;
+		}
+		case 0x6f: {
+			const Operand operand = pop();
+			const byte op = byteAt();
+			if ((op != kTokenPlusPlus && op != kTokenMinusMinus && op != 0x68 && op != 0x69) || !operand.reference)
+				error("Unsupported V5 unary reference operation %02x", op);
+			LBValue &val = variable(operand);
+			const LBValue old = val;
+			val = LBValue(val.toInt() + (op == kTokenPlusPlus || op == 0x69 ? 1 : -1));
+			values.push_back(Operand(op == 0x68 || op == 0x69 ? val : old));
+			break;
+		}
+		case 0x6c:
+		case 0x6e: {
+			const LBValue rhs = read(pop());
+			const LBValue lhs = read(pop());
+			const byte op = byteAt();
+			LBValue val;
+			switch (op) {
+			case kTokenConcat: val = LBValue(lhs.toString() + rhs.toString()); break;
+			case kTokenPlus: val = LBValue::fromDouble(lhs.toDouble() + rhs.toDouble()); break;
+			case kTokenMinus: val = LBValue::fromDouble(lhs.toDouble() - rhs.toDouble()); break;
+			case kTokenMultiply: val = LBValue::fromDouble(lhs.toDouble() * rhs.toDouble()); break;
+			case kTokenDivide:
+				if (!rhs.toDouble())
+					error("V5 division by zero");
+				val = LBValue::fromDouble(lhs.toDouble() / rhs.toDouble());
+				break;
+			case kTokenEquals: val = LBValue(lhs == rhs); break;
+			case kTokenNotEq: val = LBValue(lhs != rhs); break;
+			case kTokenLessThan: val = LBValue(lhs.toDouble() < rhs.toDouble()); break;
+			case kTokenLessThanEq: val = LBValue(lhs.toDouble() <= rhs.toDouble()); break;
+			case kTokenGreaterThan: val = LBValue(lhs.toDouble() > rhs.toDouble()); break;
+			case kTokenGreaterThanEq: val = LBValue(lhs.toDouble() >= rhs.toDouble()); break;
+			case kTokenAnd: val = LBValue(!lhs.isZero() && !rhs.isZero()); break;
+			case kTokenOr: val = LBValue(!lhs.isZero() || !rhs.isZero()); break;
+			default: error("Unsupported V5 binary operation %02x", op);
+			}
+			values.push_back(Operand(val));
+			break;
+		}
+		case kTokenGeneralCommand:
+		case kTokenItemCommand: {
+			const byte command = byteAt();
+			const byte count = byteAt();
+			if (!command || (token == kTokenGeneralCommand ? command > NUM_GENERAL_COMMANDS : command > NUM_ITEM_COMMANDS))
+				error("Invalid V5 command %u", command);
+			if (count > values.size())
+				error("V5 command argument stack underflow");
+			Common::Array<LBValue> params;
+			params.resize(count);
+			for (uint i = count; i > 0; --i)
+				params[i - 1] = read(pop());
+			CodeCommandInfo &info = token == kTokenGeneralCommand ? generalCommandInfo[command - 1] : itemCommandInfo[command - 1];
+			if (!info.func)
+				error("V5 command '%s' (%02x) unimplemented", info.name ? info.name : "unknown", command);
+			LBItem *savedSource = _currSource;
+			_currSource = src;
+			const uint stackSize = _stack.size();
+			(this->*(info.func))(params);
+			_currSource = savedSource;
+			if (_stack.size() > stackSize)
+				values.push_back(Operand(_stack.pop()));
+			break;
+		}
+		default:
+			error("Unsupported V5 bytecode token %02x at %u", token, pos - 1);
+		}
+	}
 }
 
 } // End of namespace Mohawk
