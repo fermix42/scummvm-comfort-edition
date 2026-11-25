@@ -89,6 +89,7 @@ Common::JSONValue *AgiEngine::testCLIState() {
 	state["cycles_started"] = new JSONValue((long long)_testCLICycles);
 	state["cycles_completed"] = new JSONValue((long long)_testCLICompletedCycles);
 	state["room"] = new JSONValue((long long)_game.vars[VM_VAR_CURRENT_ROOM]);
+	state["monitor_type"] = new JSONValue((long long)_game.vars[VM_VAR_MONITOR]);
 	state["logic"] = new JSONValue((long long)_game.curLogicNr);
 	state["time_delay"] = new JSONValue((long long)_game.vars[VM_VAR_TIME_DELAY]);
 	state["player_control"] = new JSONValue(_game.playerControl);

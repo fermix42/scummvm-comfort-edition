@@ -171,6 +171,8 @@ public:
 	bool checkControlPixel(int16 x, int16 y, byte newPriority) const;
 
 	byte getCGAMixtureColor(byte color) const;
+	byte getCGAPictureColor(byte color, int16 y) const;
+	bool usesCGARGB() const;
 
 	void render_Block(int16 x, int16 y, int16 width, int16 height, bool copyToScreen = true);
 

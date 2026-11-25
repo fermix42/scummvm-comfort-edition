@@ -500,7 +500,7 @@ int AgiEngine::runGame() {
 		// Set monitor type (v26 i.e. vMonitor)
 		switch (_renderMode) {
 		case Common::kRenderCGA:
-			setVar(VM_VAR_MONITOR, kAgiMonitorCga);
+			setVar(VM_VAR_MONITOR, _gfx->usesCGARGB() ? kAgiMonitorCgaRGB : kAgiMonitorCga);
 			break;
 		case Common::kRenderHercA:
 		case Common::kRenderHercG:

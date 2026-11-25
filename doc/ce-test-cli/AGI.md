@@ -10,6 +10,10 @@ music-wait count/current elapsed/last elapsed milliseconds, and the first 32
 animated or drawn screen objects (ID, position, view, loop, cel, cycle time).
 These are observations, not commands. Inspecting does not advance a counter.
 
+`monitor_type` reports the actual AGI variable 26. CGA RGB in v2/v3 games
+reports 1, while the earlier composite/booter path reports 0. This read-only
+field does not change the game's monitor setting.
+
 `sound` reports current resource and playback status. For the CoCo3 generator,
 `sound.generator` reports the last resource, number of starts, actual queued
 note count, raw duration sum, selected duration units per second, and queued
@@ -29,6 +33,32 @@ that was already loaded remains loaded; one loaded for inspection is unloaded
 after copying its messages. The command accepts no paths or file-write options.
 Other engines report unsupported. Gameplay variables, flags and object state
 are not modified. AGI's save/load capabilities remain unchanged.
+
+## CGA RGB regression — November 25, 2026
+
+The v2/v3 CGA path uses the original PCXC odd/even picture masks and PCXO
+view mapping. Picture conversion happens at drawing time, before flood-fill
+and sprite composition; display conversion expands the stored pixel pair.
+Sprites reserve the original unused pattern for transparency, so opaque
+colors that collapse to the same RGB pattern as the original clear color
+remain visible. PreAGI and v1/booter behavior is retained.
+
+`test/common/agi_cga.h` checks the original PCXC results across every picture
+row and all PCXO opaque patterns against the reserved transparent value.
+The independent fixtures come from the shipped KQ1, KQ2, SQ1, SQ2 and LSL1
+drivers, whose color tables are identical.
+
+Private evidence is under the workspace's `validation/cga-rgb-20261125`.
+The original KQ1 DrawPic and PCXC machine code is executed in a 16-bit CPU
+emulator against each game's actual picture resources. Native CLI captures
+use actual game rooms (KQ1 castle, KQ2 beach, SQ1 Arcada corridor, SQ2 platform
+sequence), not title screens. Background comparisons exclude the inspected
+sprite rectangles and software cursor, and normalize SDL RGB565 channel
+rounding back to the four palette indices. This is an original-routine pixel
+comparison, not a claim of a complete original game run under DOSBox.
+Movement/background restoration, hires 2x2 pixel replication and an unchanged
+EGA scene are checked separately. Per-executable hashes and results remain in
+the local evidence receipts; no original binaries or game data are tracked.
 
 ## CoCo3 pilot, November 25, 2026
 

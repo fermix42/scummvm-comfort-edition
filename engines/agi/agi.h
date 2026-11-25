@@ -251,7 +251,7 @@ enum {
  */
 enum AgiMonitorType {
 	kAgiMonitorCga = 0,
-	//kAgiMonitorTandy = 1, // Not sure about this
+	kAgiMonitorCgaRGB = 1,
 	kAgiMonitorHercules = 2,
 	kAgiMonitorEga = 3
 	//kAgiMonitorVga = 4 // Not sure about this

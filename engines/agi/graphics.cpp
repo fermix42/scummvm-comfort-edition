@@ -28,6 +28,7 @@
 #include "graphics/paletteman.h"
 
 #include "agi/agi.h"
+#include "agi/cga.h"
 #include "agi/graphics.h"
 #include "agi/mouse_cursor.h"
 #include "agi/palette.h"
@@ -85,7 +86,7 @@ void GfxMgr::initVideo() {
 		initPalette(_paletteGfxMode, PALETTE_EGA);
 		break;
 	case Common::kRenderCGA:
-		initPalette(_paletteGfxMode, PALETTE_CGA, 4, 8);
+		initPalette(_paletteGfxMode, usesCGARGB() ? CGA::rgbPalette : PALETTE_CGA, 4, 8);
 		break;
 	case Common::kRenderVGA:
 		initPalette(_paletteGfxMode, PALETTE_VGA, 256, 8);
@@ -542,7 +543,18 @@ static const byte CGA_MixtureColorTable[] = {
 };
 
 byte GfxMgr::getCGAMixtureColor(byte color) const {
+	if (usesCGARGB())
+		return CGA::viewColor(color);
 	return CGA_MixtureColorTable[color & 0x0F];
+}
+
+bool GfxMgr::usesCGARGB() const {
+	return _vm->_renderMode == Common::kRenderCGA &&
+		(_vm->getGameType() == GType_V2 || _vm->getGameType() == GType_V3);
+}
+
+byte GfxMgr::getCGAPictureColor(byte color, int16 y) const {
+	return usesCGARGB() ? CGA::pictureColor(color, y) : getCGAMixtureColor(color);
 }
 
 /**
@@ -668,6 +680,7 @@ void GfxMgr::render_BlockEGA(int16 x, int16 y, int16 width, int16 height) {
 }
 
 void GfxMgr::render_BlockCGA(int16 x, int16 y, int16 width, int16 height) {
+	const bool rgb = usesCGARGB();
 	uint32 offsetVisual = SCRIPT_WIDTH * y + x;
 	uint32 offsetDisplay = getDisplayOffsetToGameScreenPos(x, y);
 	int16 remainingHeight = height;
@@ -690,12 +703,12 @@ void GfxMgr::render_BlockCGA(int16 x, int16 y, int16 width, int16 height) {
 			while (remainingWidth) {
 				curColor = _activeScreen[offsetVisual++];
 				_displayScreen[offsetDisplay + 0] = curColor & 0x03; // we process CGA mixture
-				_displayScreen[offsetDisplay + 1] = curColor >> 2;
-				_displayScreen[offsetDisplay + 2] = curColor & 0x03;
+				_displayScreen[offsetDisplay + 1] = rgb ? (curColor & 0x03) : (curColor >> 2);
+				_displayScreen[offsetDisplay + 2] = rgb ? (curColor >> 2) : (curColor & 0x03);
 				_displayScreen[offsetDisplay + 3] = curColor >> 2;
 				_displayScreen[offsetDisplay + _displayScreenWidth + 0] = curColor & 0x03;
-				_displayScreen[offsetDisplay + _displayScreenWidth + 1] = curColor >> 2;
-				_displayScreen[offsetDisplay + _displayScreenWidth + 2] = curColor & 0x03;
+				_displayScreen[offsetDisplay + _displayScreenWidth + 1] = rgb ? (curColor & 0x03) : (curColor >> 2);
+				_displayScreen[offsetDisplay + _displayScreenWidth + 2] = rgb ? (curColor >> 2) : (curColor & 0x03);
 				_displayScreen[offsetDisplay + _displayScreenWidth + 3] = curColor >> 2;
 				offsetDisplay += 4;
 				remainingWidth--;
@@ -1131,7 +1144,8 @@ void GfxMgr::drawDisplayRectEGA(int16 x, int16 y, int16 width, int16 height, byt
 void GfxMgr::drawDisplayRectCGA(int16 x, int16 y, int16 width, int16 height, byte color) {
 	uint32 offsetDisplay = (y * _displayScreenWidth) + x;
 	int16 remainingHeight = height;
-	byte CGAMixtureColor = getCGAMixtureColor(color);
+	// PCDW uses PCXC's AL (odd-row pattern) for the entire display rectangle.
+	byte CGAMixtureColor = getCGAPictureColor(color, 1);
 	byte *displayScreen = nullptr;
 
 	// we should never get an uneven width

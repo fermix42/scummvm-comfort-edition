@@ -20,6 +20,7 @@
  */
 
 #include "agi/agi.h"
+#include "agi/cga.h"
 #include "agi/graphics.h"
 #include "agi/sprite.h"
 
@@ -372,13 +373,14 @@ void AgiEngine::unpackViewCelData(AgiViewCel *celData, byte *compressedData, uin
 	case Common::kRenderCGA: {
 		uint16 totalPixels = celData->width * celData->height;
 
-		// dither clear key
-		celData->clearKey = _gfx->getCGAMixtureColor(celData->clearKey);
+		const byte originalClearKey = celData->clearKey;
+		const bool rgb = _gfx->usesCGARGB();
+		celData->clearKey = rgb ? CGA::transparentColor() : _gfx->getCGAMixtureColor(originalClearKey);
 
 		rawBitmap = celData->rawBitmap;
 		for (uint16 pixelNr = 0; pixelNr < totalPixels; pixelNr++) {
 			byte curColor = *rawBitmap;
-			*rawBitmap = _gfx->getCGAMixtureColor(curColor);
+			*rawBitmap = (rgb && curColor == originalClearKey) ? celData->clearKey : _gfx->getCGAMixtureColor(curColor);
 			rawBitmap++;
 		}
 		break;

@@ -81,7 +81,9 @@ void PictureMgr::putVirtPixel(int16 x, int16 y) {
 	if (_scrOn)
 		drawMask |= GFX_SCREEN_MASK_VISUAL;
 
-	_gfx->putPixel(x, y, drawMask, _scrColor, _priColor);
+	const byte color = _vm->_renderMode == Common::kRenderCGA ?
+		_gfx->getCGAPictureColor(_scrColor, y) : _scrColor;
+	_gfx->putPixel(x, y, drawMask, color, _priColor);
 }
 
 /**
@@ -493,11 +495,6 @@ void PictureMgr::drawPicture_AGI256() {
  */
 void PictureMgr::draw_SetColor() {
 	_scrColor = getNextByte();
-
-	// For CGA, replace the color with its mixture color
-	if (_vm->_renderMode == Common::kRenderCGA) {
-		_scrColor = _gfx->getCGAMixtureColor(_scrColor);
-	}
 }
 
 /**
@@ -514,11 +511,6 @@ void PictureMgr::draw_SetPriority() {
  */
 void PictureMgr::draw_SetNibbleColor() {
 	_scrColor = getNextNibble();
-
-	// For CGA, replace the color with its mixture color
-	if (_vm->_renderMode == Common::kRenderCGA) {
-		_scrColor = _gfx->getCGAMixtureColor(_scrColor);
-	}
 }
 
 /**
