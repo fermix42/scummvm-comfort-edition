@@ -34,10 +34,17 @@ public:
 
 	void play(int resnum) override;
 	void stop() override;
+	Common::JSONValue *testCLIState() const override;
 
 private:
 	bool _isPlaying;
 	Audio::PCSpeaker _speaker;
+	uint32 _testSoundStarts = 0;
+	int _testLastResource = -1;
+	uint32 _testNoteCount = 0;
+	uint32 _testRawDurationUnits = 0;
+	uint64 _testQueuedUsec = 0;
+	uint32 _testUnitsPerSecond = 0;
 
 	void onTimer();
 

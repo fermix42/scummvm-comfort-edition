@@ -707,6 +707,8 @@ public:
 	AgiEngine(OSystem *syst, const AGIGameDescription *gameDesc);
 	~AgiEngine() override;
 
+	Common::JSONValue *testCLIState() override;
+
 	bool promptIsEnabled() override;
 
 	Common::Error loadGameState(int slot) override;
@@ -714,6 +716,12 @@ public:
 
 private:
 	int _keyQueue[KEY_QUEUE_SIZE];
+	uint64 _testCLICycles = 0;
+	uint64 _testCLICompletedCycles = 0;
+	bool _testCLISoundWait = false;
+	uint32 _testCLISoundWaitStarted = 0;
+	uint32 _testCLILastSoundWaitMs = 0;
+	uint32 _testCLISoundWaits = 0;
 	int _keyQueueStart;
 	int _keyQueueEnd;
 

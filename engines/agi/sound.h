@@ -27,6 +27,10 @@ class Mixer;
 class SoundHandle;
 }
 
+namespace Common {
+class JSONValue;
+}
+
 namespace Agi {
 
 #define SOUND_EMU_NONE  0
@@ -61,6 +65,7 @@ public:
 
 	virtual void play(int resnum) = 0;
 	virtual void stop() = 0;
+	virtual Common::JSONValue *testCLIState() const;
 
 	AgiBase *_vm;
 
@@ -124,6 +129,7 @@ public:
 
 	void soundIsFinished();
 	bool isPlaying() const { return _playingSound != -1; }
+	Common::JSONValue *testCLIState() const;
 
 private:
 	int _endflag;

@@ -20,6 +20,7 @@
  */
 
 #include "common/config-manager.h"
+#include "engines/ce_test_cli.h"
 
 #include "agi/agi.h"
 #include "agi/sprite.h"
@@ -155,6 +156,8 @@ void AgiEngine::resetControllers() {
 }
 
 void AgiEngine::interpretCycle() {
+	if (CETestCLI::active())
+		++_testCLICycles;
 	ScreenObjEntry *screenObjEgo = &_game.screenObjTable[SCREENOBJECTS_EGO_ENTRY];
 
 	if (!_game.playerControl)
@@ -208,6 +211,10 @@ void AgiEngine::interpretCycle() {
 	}
 	_gfx->updateScreen();
 	//_gfx->doUpdate();
+	if (CETestCLI::active()) {
+		++_testCLICompletedCycles;
+		CETestCLI::frame();
+	}
 }
 
 // We return the current key, or 0 if no key was pressed

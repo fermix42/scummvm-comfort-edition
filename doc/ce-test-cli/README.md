@@ -51,7 +51,7 @@ Maximum request line is 64 KiB; maximum nesting is 32. Requests are serialized.
 | `launch` | `engine`, `game`, `platform`, `path`; starts normal detection/engine execution once |
 | `status`, `inspect` | Common state, CE state, current keymap actions and optional adapter state |
 | `input` | Explicit down/up event; see below; success acknowledges enqueueing |
-| `advance` | `frames`: 1–3000; waits for actual MI4 main-loop frame boundaries, maximum 120 s |
+| `advance` | `frames`: 1–3000; waits for instrumented engine boundaries (MI4 main-loop frames; AGI completed logic cycles), maximum 120 s |
 | `wait` | `field` dot path, `equals` JSON value, `timeout_ms` 1–120000 (default 10000) |
 | `assert` | `field`, `equals`; exact JSON equality, with PASS/FAIL represented by `ok` |
 | `session_create` | `title`; calls the existing CE service and flushes isolated configuration |
@@ -196,6 +196,10 @@ compiled into the same normal Release executable by engines/module.mk and the
 existing Windows build/project generator; there is no separate production binary.
 
 ## Adding an adapter
+
+AGI exposes a read-only timing adapter, documented in [AGI.md](AGI.md).
+Its CoCo3 pilot covers music waits and event-driven movement; it does not
+establish AGI save/load or full-game compatibility.
 
 Override `Engine::testCLIState()` and, only where required,
 `Engine::testCLICommand(JSONValue&)`. Defaults explicitly report unsupported.

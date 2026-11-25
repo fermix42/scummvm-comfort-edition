@@ -29,6 +29,7 @@
 #include "common/textconsole.h"
 
 #include "engines/util.h"
+#include "engines/ce_test_cli.h"
 
 #include "base/plugins.h"
 #include "base/version.h"
@@ -53,6 +54,44 @@
 #include "gui/predictivedialog.h"
 
 namespace Agi {
+
+Common::JSONValue *AgiEngine::testCLIState() {
+	if (!CETestCLI::active())
+		return CETestCLI::unsupported();
+	using namespace Common;
+	JSONObject state;
+	state["ok"] = new JSONValue(true);
+	state["platform"] = new JSONValue(getPlatformCode(getPlatform()));
+	state["cycles_started"] = new JSONValue((long long)_testCLICycles);
+	state["cycles_completed"] = new JSONValue((long long)_testCLICompletedCycles);
+	state["room"] = new JSONValue((long long)_game.vars[VM_VAR_CURRENT_ROOM]);
+	state["logic"] = new JSONValue((long long)_game.curLogicNr);
+	state["time_delay"] = new JSONValue((long long)_game.vars[VM_VAR_TIME_DELAY]);
+	state["player_control"] = new JSONValue(_game.playerControl);
+	state["sound_enabled"] = new JSONValue(getFlag(VM_FLAG_SOUND_ON));
+	state["sound_wait"] = new JSONValue(_testCLISoundWait);
+	state["sound_waits"] = new JSONValue((long long)_testCLISoundWaits);
+	state["sound_wait_ms"] = new JSONValue((long long)(_testCLISoundWait ? g_system->getMillis() - _testCLISoundWaitStarted : 0));
+	state["last_sound_wait_ms"] = new JSONValue((long long)_testCLILastSoundWaitMs);
+	state["sound"] = _sound ? _sound->testCLIState() : new JSONValue();
+	JSONArray objects;
+	for (int i = 0; i < SCREENOBJECTS_MAX && objects.size() < 32; ++i) {
+		const ScreenObjEntry &obj = _game.screenObjTable[i];
+		if (!(obj.flags & (fAnimated | fDrawn)))
+			continue;
+		JSONObject item;
+		item["id"] = new JSONValue((long long)i);
+		item["x"] = new JSONValue((long long)obj.xPos);
+		item["y"] = new JSONValue((long long)obj.yPos);
+		item["view"] = new JSONValue((long long)obj.currentViewNr);
+		item["loop"] = new JSONValue((long long)obj.currentLoopNr);
+		item["cel"] = new JSONValue((long long)obj.currentCelNr);
+		item["cycle_time"] = new JSONValue((long long)obj.cycleTime);
+		objects.push_back(new JSONValue(item));
+	}
+	state["objects"] = new JSONValue(objects);
+	return new JSONValue(state);
+}
 
 void AgiEngine::allowSynthetic(bool allow) {
 	_allowSynthetic = allow;

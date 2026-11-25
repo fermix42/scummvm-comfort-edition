@@ -165,6 +165,10 @@ undefined data. No game behavior or save metadata was fabricated to pass.
 
 ## Limits and future adapters
 
+The November 25 AGI/CoCo3 timing pilot is recorded separately in
+[AGI.md](AGI.md), with its candidate SHA256, 12 variant runs, 29 sampled music
+waits, four interruption/movement cases, and narrower acceptance limits.
+
 Native Save menus and production-API restores are verified. Native Load-menu
 navigation, every individual native slot, full gallery visual/layout acceptance,
 historical missing save seeds, other hardware/DPI combinations and full

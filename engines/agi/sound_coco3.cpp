@@ -24,8 +24,22 @@
 
 #include "agi/agi.h"
 #include "agi/sound_coco3.h"
+#include "engines/ce_test_cli.h"
 
 namespace Agi {
+
+Common::JSONValue *SoundGenCoCo3::testCLIState() const {
+	if (!CETestCLI::active())
+		return CETestCLI::unsupported();
+	Common::JSONObject state;
+	state["starts"] = new Common::JSONValue((long long)_testSoundStarts);
+	state["last_resource"] = new Common::JSONValue((long long)_testLastResource);
+	state["notes"] = new Common::JSONValue((long long)_testNoteCount);
+	state["raw_duration_units"] = new Common::JSONValue((long long)_testRawDurationUnits);
+	state["units_per_second"] = new Common::JSONValue((long long)_testUnitsPerSecond);
+	state["queued_usec"] = new Common::JSONValue((long long)_testQueuedUsec);
+	return new Common::JSONValue(state);
+}
 
 // SoundGenCoCo3 plays Tandy Color Computer sounds.
 //
@@ -75,6 +89,14 @@ void SoundGenCoCo3::play(int resnum) {
 	// as the early interpreter and all others as the later one.
 	// TODO: create detection heuristic
 	bool isEarlySound = (_vm->getGameID() == GID_KQ3);
+	const bool testCLI = CETestCLI::active();
+	if (testCLI) {
+		++_testSoundStarts;
+		_testLastResource = resnum;
+		_testNoteCount = _testRawDurationUnits = 0;
+		_testQueuedUsec = 0;
+		_testUnitsPerSecond = isEarlySound ? 10 : 60;
+	}
 
 	// parse and enqueue all notes
 	AgiSound *sound = _vm->_game.sounds[resnum];
@@ -97,6 +119,11 @@ void SoundGenCoCo3::play(int resnum) {
 
 		// convert ticks to microseconds for PCSpeaker
 		uint32 duration_usec = ticks * (1000000.0f / 60.0f);
+		if (testCLI) {
+			++_testNoteCount;
+			_testRawDurationUnits += duration;
+			_testQueuedUsec += duration_usec;
+		}
 
 		// play if volume is non-zero (it's always 0x3f or zero)
 		if (volume != 0 && freqIndex < ARRAYSIZE(cocoFrequencies)) {

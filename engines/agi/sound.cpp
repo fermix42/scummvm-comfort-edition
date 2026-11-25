@@ -30,8 +30,23 @@
 
 #include "common/textconsole.h"
 #include "audio/mixer.h"
+#include "engines/ce_test_cli.h"
 
 namespace Agi {
+
+Common::JSONValue *SoundGen::testCLIState() const {
+	return CETestCLI::unsupported();
+}
+
+Common::JSONValue *SoundMgr::testCLIState() const {
+	if (!CETestCLI::active())
+		return CETestCLI::unsupported();
+	Common::JSONObject state;
+	state["playing"] = new Common::JSONValue(isPlaying());
+	state["resource"] = new Common::JSONValue((long long)_playingSound);
+	state["generator"] = _soundGen ? _soundGen->testCLIState() : new Common::JSONValue();
+	return new Common::JSONValue(state);
+}
 
 SoundGen::SoundGen(AgiBase *vm, Audio::Mixer *pMixer) : _vm(vm), _mixer(pMixer) {
 	_sampleRate = pMixer->getOutputRate();

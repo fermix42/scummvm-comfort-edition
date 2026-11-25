@@ -23,6 +23,7 @@
 #include "gui/predictivedialog.h"
 
 #include "agi/agi.h"
+#include "engines/ce_test_cli.h"
 #include "agi/graphics.h"
 #include "agi/keyboard.h"
 #include "agi/menu.h"
@@ -683,6 +684,12 @@ int AgiEngine::waitAnyKey() {
  * interpreter until the sound finished or was interrupted.
  */
 void AgiEngine::waitAnyKeyOrFinishedSound() {
+	const bool testCLI = CETestCLI::active();
+	if (testCLI) {
+		_testCLISoundWait = true;
+		_testCLISoundWaitStarted = g_system->getMillis();
+		++_testCLISoundWaits;
+	}
 	clearKeyQueue();
 
 	while (!(shouldQuit() || _restartGame || !_sound->isPlaying())) {
@@ -690,6 +697,10 @@ void AgiEngine::waitAnyKeyOrFinishedSound() {
 		if (doPollKeyboard()) {
 			break;
 		}
+	}
+	if (testCLI) {
+		_testCLILastSoundWaitMs = g_system->getMillis() - _testCLISoundWaitStarted;
+		_testCLISoundWait = false;
 	}
 }
 
