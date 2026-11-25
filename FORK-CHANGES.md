@@ -2,6 +2,8 @@
 
 This file tracks user-facing changes maintained in ScummVM Comfort Edition.
 
+- 2026-11-25: Release CE v0.1.9 with experimental CoCo 3 OS-9 standalone/collection identities, plaintext caption fixes for King's Quest II and Mixed-Up Mother Goose, and headless AGI resource/timing inspection. Document the player-facing differences between the game variants. See doc/ce-release/0.1.9.md.
+
 - 2026-11-22: Release CE v0.1.8 with native Snatcher, compact saves and faster startup, scene and flashlight fixes, CE cheats, external Gooka English data, and current native Nox support restored to the Windows package. Bundle both custom engine data files beside the executable. See doc/ce-release/0.1.8.md.
 
 - 2026-11-18: AGS: Recognize additional eXoScummVM builds under their existing game IDs. Correct the supported AGS 2.50 and 2.51 registrations for Marty Chonks and Project Evilspy. Release as CE v0.1.7 with Nox excluded from the Windows package. See doc/ce-release/0.1.7.md.
