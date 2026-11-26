@@ -176,3 +176,14 @@ Original reentry is directly counted twice per nested-code fixture; corrected
 static nested-code token 0x64 to 0x74. Self-targeted sender context is measured;
 distinct-target/link/deletion and expression-call return copying remain open.
 No engine implementation; step 3 remains in progress.
+
+
+## Distinct-target and expression-return checkpoint — November 26, 2026
+
+[Cross-call probe report](THINKQUICK-CROSS-CALL-PROBES.md) and
+[paired observations](THINKQUICK-CROSS-CALL-OBSERVATIONS.json): eleven clean
+original predicates cover target 902 / sender 901, restoration, explicit/void
+expression returns, left operands, saved copies, sibling and nested calls.
+CE rejects 0x66/0x77, so all eleven new paired predicates remain unqualified.
+Nested cross-item callbacks, links/deletion/resources and storage/UI comparisons
+remain open. Step 3 continues; no engine implementation.

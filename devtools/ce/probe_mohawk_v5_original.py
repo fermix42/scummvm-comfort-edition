@@ -199,13 +199,20 @@ def run_case(exe, case, timeout, stub_factory=None):
                                               value_stack_allocated=True, stack_empty_after_eval=True,
                                               active_code_cleared=True, result_tag=read(0x49a540, 1)[0])
                         if case.get('verify_symbols'):initialization.update(symbol_frame_push_succeeded=True, symbol_frame_restored=True, crt_thread_initialized=True, crt_floating_parser_initialized=struct.unpack('<I',read(0x4992ac,4))[0]==0x47ac44)
+                        if case.get('verify_dispatch_context'):
+                            if struct.unpack('<H',read(remote+0x2600+0x4c,2))[0]:raise RuntimeError('Expression dispatch-context word not restored')
+                            initialization['dispatch_context_word_restored']=True
+                        if case.get('verify_second_item'):
+                            target=remote+0x2800
+                            if struct.unpack('<H',read(target+0xc,2))[0] or struct.unpack('<I',read(target+8,4))[0]!=target or struct.unpack('<H',read(target+0x26,2))[0]!=902:raise RuntimeError('Second item context not restored')
+                            initialization['second_item_context_restored']=True
                         if case.get('verify_reentry'):
                             initialization['active_evaluator_reentries']=struct.unpack('<I',read(output+32,4))[0]
                             if initialization['active_evaluator_reentries'] != 2:raise RuntimeError('Expected two original active-evaluator reentries: '+str(initialization['active_evaluator_reentries'])+' actual='+str(actual))
                         if case.get('verify_script_fixture'):
                             empty, hits = struct.unpack('<II',read(output+24,8))
                             item, page = remote+0x2400,remote+0x2000
-                            if empty!=1 or not hits or struct.unpack('<H',read(item+0xc,2))[0] or struct.unpack('<I',read(item+8,4))[0]!=item or struct.unpack('<I',read(page+0x6c,4))[0]:raise RuntimeError('Script-call context not restored')
+                            if empty!=1 or not hits or struct.unpack('<H',read(item+0xc,2))[0] or struct.unpack('<I',read(item+8,4))[0]!=item or struct.unpack('<I',read(page+0x6c,4))[0]:raise RuntimeError('Script-call context not restored: '+str(dict(empty=empty,hits=hits,active=struct.unpack('<H',read(item+0xc,2))[0],owner=hex(struct.unpack('<I',read(item+8,4))[0]),errors=vm_errors,sender=hex(struct.unpack('<I',read(page+0x6c,4))[0]),actual=actual)))
                             initialization.update(argument_stack_empty=True,item_context_restored=True,sender_restored=True,code_fetch_bridge_calls=hits)
                     return dict(status='observed', actual=actual, expected=case['expected'],
                                 matches_static_contract=actual == case['expected'],

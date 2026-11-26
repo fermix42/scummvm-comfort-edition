@@ -38,6 +38,8 @@ def plans():
         out[name]=dict(code=c,expression=expr,expected=0 if name.endswith('false') or name=='named-false-control' else 1,preludes=setup,offsets=offsets,offset=offset,item_fields=fields)
     from mohawk_v5_lifecycle_probes import plans as lifecycle_plans
     out.update(lifecycle_plans())
+    from mohawk_v5_cross_call_probes import plans as cross_plans
+    out.update(cross_plans())
     return out
 
 
@@ -46,6 +48,10 @@ def stub(remote,write,output,case,plan):
     vm=remote+0x1300;symbols=remote+0x1800;page=remote+0x2000;owner=remote+0x2200;item=remote+0x2400;data=remote+0x3000;fields=remote+0x4000;header=remote+0x4800;bridge=remote+0x5000
     payload=bytearray(plan['code'].resource());struct.pack_into('>I',payload,8,len(plan['code'].code));write(data,payload)
     write(fields,plan['item_fields']);write(header,struct.pack('>4h4H',0,0,1,1,3,0,901,0)+b'Probe\0')
+    if plan.get('second_item_fields'):
+        write(remote+0x6000,plan['second_item_fields']);write(remote+0x6800,struct.pack('>4h4H',0,0,1,1,3,0,902,0)+b'Target\0')
+    if case['name'].startswith('expression-return'):
+        write(0x49a738,le(remote+0x2600))  # Fixture supplies only the observed dispatch-context word +0x4c.
     write(page+0x1c,le(vm));write(0x49a678,le(page))
     # Fetch-only bridge: same receiver, same generated BCOD, same offset; the
     # original VM, item dispatch, parsers, argument/default/frame code still run.
@@ -70,11 +76,16 @@ def stub(remote,write,output,case,plan):
     call(0x41482c,symbols,[1024]);call(0x414c47,symbols);s+=b'\xa3'+le(output+16)
     call(0x402eef,vm,[symbols]);s+=b'\xa3'+le(output+12)
     call(0x4185d0,item,[page,owner,header])
+    if plan.get('second_item_fields'):call(0x4185d0,remote+0x2800,[page,owner,remote+0x6800])
     for off in plan['offsets']:call(0x40375e,vm,[0,data,off])
     cursor=0
     while cursor<len(plan['item_fields']):
         call(0x419460,item,[1,0,fields+cursor])
         cursor+=4+struct.unpack_from('>H',plan['item_fields'],cursor+2)[0]
+    cursor=0
+    while cursor<len(plan.get('second_item_fields',b'')):
+        call(0x419460,remote+0x2800,[1,0,remote+0x6000+cursor])
+        cursor+=4+struct.unpack_from('>H',plan['second_item_fields'],cursor+2)[0]
     call(0x41e14e,item,[0x17,0])
     call(0x40375e,vm,[0,data,plan['offset']]);s+=b'\x89\xc1';call(0x40fe5d);s+=b'\xdd\x1d'+le(output)
     call(0x414d09,symbols)
