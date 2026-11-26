@@ -256,3 +256,14 @@ unsupported-type diagnostics. See [scope and reproduction](THINKQUICK-COMPONENT-
 and [observations](THINKQUICK-COMPONENT-OBSERVATIONS.json). These are separate suites,
 not 49 paired equivalence claims. Paired totals remain unchanged. Storage and
 context-dependent component behavior remain open in the full Step-3 audit.
+
+
+### Owned native storage checkpoint
+
+16 original-only persistence cases qualify twice: write-through/explicit flush
+survive cold restart; buffered close, real destructor and cache cleanup do not
+flush. Warm cached reads differ from cold results. History save/unsaved/duplicate
+order, escaped strings, openReadOnly existing-file writes and missing-parent
+helper failure are measured. See [report](THINKQUICK-STORAGE-PROBES.md) and
+[receipts](THINKQUICK-STORAGE-OBSERVATIONS.json). These are not paired CE claims.
+Database/selector, applicable CE storage, OS-error and full audit remain open.

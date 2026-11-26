@@ -1,0 +1,3312 @@
+{
+  "original": {
+    "kind": "Owned original datafile/profile write and cold-restart probes.",
+    "exe_sha256": "219d81ea3d91b31da406e6891d01ba6ad12005e77b4d9f8f83930161dbfc9966",
+    "dependencies": {
+      "probe_mohawk_v5_storage.py": "acff20399c459b807c33e2aac2bc458dc9c35cae083d437eb5dbf6e979087c10",
+      "probe_mohawk_v5_components.py": "9452d2758f32497eefc1d067b6b824c0a92bb983432abd0a0220be67aeb64dc3",
+      "probe_mohawk_v5_original.py": "ed9b2b5c013e76e36aef09613fd79728d908f79a398381cc8093a6c1d1aad7d1",
+      "probe_mohawk_v5_native_resources.py": "e55d8772ade9550cab065b3f01ac7220c6bee7a8d98bf5dbabb1250a1713bbc5",
+      "mohawk_v5_native_io.py": "b216c2ff221eab2ddd33ffeba821487548e7ae3e06cd23f3b74fdc141892d13e"
+    },
+    "owned_files_before_receipt": {
+      "buffered-close.dat": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "buffered-flush.dat": "8f4b8ca0475b506aa2b1d13f77c2e05c72a225ea1281a1751884a9459a05bac6",
+      "CarmenTQ.exe": "219d81ea3d91b31da406e6891d01ba6ad12005e77b4d9f8f83930161dbfc9966",
+      "cleanup.dat": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "destructor.dat": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "ProbeUser.dat": "d283867dfa389583093968692a5015c18a37967621b64b22a9a3c6e32cb91c36",
+      "string.dat": "63d504b13bdeae7d72c84c076c030d1700bfb92dd32c84587ddf36c68ddac1f2",
+      "Unsaved.dat": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "write-through.dat": "28d7754a486bfd598e7a294971e8eefbe4474a657e33b8140b1635a5ca1dbaa6"
+    },
+    "results": [
+      {
+        "status": "observed",
+        "actual": 42,
+        "process_id": 19112,
+        "phase": "probe",
+        "result_hex": "2a00000000000000",
+        "loader_eip": "0x479123",
+        "probe_trap": "0xdd05ca",
+        "initialization": {},
+        "resource_unload": {},
+        "native_blobs": [
+          "03000000000000002a000000fbffffff",
+          "00000000000000000000000000000000"
+        ],
+        "native_text": [],
+        "native_words": [
+          0,
+          0,
+          0,
+          0,
+          42,
+          0,
+          0,
+          0,
+          42,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          4754436,
+          3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "vm_errors": [],
+        "vm_error_offsets": [],
+        "first_chance_cpp": 0,
+        "name": "write-through",
+        "family": "datafile",
+        "steps": [
+          [
+            1,
+            [
+              "D:\\Codex Projects\\scummvm-private\\validation\\thinkquick-20261126\\step3\\storage-qualified\\write-through.dat"
+            ]
+          ],
+          [
+            3,
+            [
+              "Probe"
+            ]
+          ],
+          [
+            7,
+            [
+              "answer",
+              42
+            ]
+          ],
+          [
+            2,
+            []
+          ],
+          [
+            1,
+            [
+              "D:\\Codex Projects\\scummvm-private\\validation\\thinkquick-20261126\\step3\\storage-qualified\\write-through.dat"
+            ]
+          ],
+          [
+            5,
+            [
+              "Probe"
+            ]
+          ],
+          [
+            15,
+            [
+              "answer"
+            ]
+          ]
+        ],
+        "file_hex": "5b50726f62655d0d0a616e737765723d34323b0d0a",
+        "fixture_sha256": "a254e437687180fb7ec284a1338e02dfd7c316b2a1b098671542669cf045662e",
+        "template_sha256": "91430c1608851262390560542225dabde5462c76bfe2daf5af89dd94a75af04d",
+        "contract_checks": {
+          "memory_initialized": true,
+          "filesystem_initialized": true,
+          "constructor_vtable": true,
+          "no_vm_errors": true,
+          "exact_file": true,
+          "value": true,
+          "filesystem_status": true,
+          "profile_status": true,
+          "open_flag": true
+        }
+      },
+      {
+        "status": "observed",
+        "actual": 42,
+        "process_id": 26668,
+        "phase": "probe",
+        "result_hex": "2a00000000000000",
+        "loader_eip": "0x479123",
+        "probe_trap": "0xdd034c",
+        "initialization": {},
+        "resource_unload": {},
+        "native_blobs": [],
+        "native_text": [],
+        "native_words": [
+          0,
+          0,
+          0,
+          0,
+          42,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          4754436,
+          3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "vm_errors": [],
+        "vm_error_offsets": [],
+        "first_chance_cpp": 0,
+        "name": "write-through-cold",
+        "family": "datafile",
+        "steps": [
+          [
+            1,
+            [
+              "D:\\Codex Projects\\scummvm-private\\validation\\thinkquick-20261126\\step3\\storage-qualified\\write-through.dat"
+            ]
+          ],
+          [
+            5,
+            [
+              "Probe"
+            ]
+          ],
+          [
+            15,
+            [
+              "answer"
+            ]
+          ]
+        ],
+        "file_hex": "5b50726f62655d0d0a616e737765723d34323b0d0a",
+        "fixture_sha256": "6e0d3f900348d613a50851c7d9cac5bd06999846e0d235d75db81f9736eccc8a",
+        "template_sha256": "54afcdfba7a2b4db68f993bfe9a3797cd2d249db6a0a515b0563b6e03c8d22a1",
+        "contract_checks": {
+          "memory_initialized": true,
+          "filesystem_initialized": true,
+          "constructor_vtable": true,
+          "no_vm_errors": true,
+          "exact_file": true,
+          "value": true,
+          "filesystem_status": true,
+          "profile_status": true,
+          "open_flag": true
+        }
+      },
+      {
+        "status": "observed",
+        "actual": 42,
+        "process_id": 36932,
+        "phase": "probe",
+        "result_hex": "2a00000000000000",
+        "loader_eip": "0x479123",
+        "probe_trap": "0x67062b",
+        "initialization": {},
+        "resource_unload": {},
+        "native_blobs": [
+          "03000000000000002a000000fbffffff",
+          "00000000000000000000000000000000"
+        ],
+        "native_text": [],
+        "native_words": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          42,
+          0,
+          0,
+          0,
+          42,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          4754436,
+          3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "vm_errors": [],
+        "vm_error_offsets": [],
+        "first_chance_cpp": 0,
+        "name": "buffered-close",
+        "family": "datafile",
+        "steps": [
+          [
+            1,
+            [
+              "D:\\Codex Projects\\scummvm-private\\validation\\thinkquick-20261126\\step3\\storage-qualified\\buffered-close.dat"
+            ]
+          ],
+          [
+            13,
+            []
+          ],
+          [
+            3,
+            [
+              "Probe"
+            ]
+          ],
+          [
+            7,
+            [
+              "answer",
+              42
+            ]
+          ],
+          [
+            2,
+            []
+          ],
+          [
+            1,
+            [
+              "D:\\Codex Projects\\scummvm-private\\validation\\thinkquick-20261126\\step3\\storage-qualified\\buffered-close.dat"
+            ]
+          ],
+          [
+            5,
+            [
+              "Probe"
+            ]
+          ],
+          [
+            15,
+            [
+              "answer"
+            ]
+          ]
+        ],
+        "file_hex": "",
+        "fixture_sha256": "d0f2c8c7f84f91e66356f8726a880a541f8bda6aea15fccb6f41e765afdc1e2a",
+        "template_sha256": "34c52f4782e977eb7cd9e0cce4ca4854132786b1b941274f6c73619c57bad8b5",
+        "contract_checks": {
+          "memory_initialized": true,
+          "filesystem_initialized": true,
+          "constructor_vtable": true,
+          "no_vm_errors": true,
+          "exact_file": true,
+          "value": true,
+          "filesystem_status": true,
+          "profile_status": true,
+          "open_flag": true
+        }
+      },
+      {
+        "status": "observed",
+        "actual": 0,
+        "process_id": 43784,
+        "phase": "probe",
+        "result_hex": "0000000000000000",
+        "loader_eip": "0x479123",
+        "probe_trap": "0x7d034c",
+        "initialization": {},
+        "resource_unload": {},
+        "native_blobs": [],
+        "native_text": [],
+        "native_words": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          10604,
+          4754436,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "vm_errors": [],
+        "vm_error_offsets": [],
+        "first_chance_cpp": 0,
+        "name": "buffered-close-cold",
+        "family": "datafile",
+        "steps": [
+          [
+            1,
+            [
+              "D:\\Codex Projects\\scummvm-private\\validation\\thinkquick-20261126\\step3\\storage-qualified\\buffered-close.dat"
+            ]
+          ],
+          [
+            5,
+            [
+              "Probe"
+            ]
+          ],
+          [
+            15,
+            [
+              "answer"
+            ]
+          ]
+        ],
+        "file_hex": "",
+        "fixture_sha256": "cf56c1c4e4bbf13aec723f96717de048b8efa09f8769a2d2c03f0adabcba983e",
+        "template_sha256": "7b6c184a734e764923686456f3fe3f1f89040d464fbe5e4bb10cde59904dea55",
+        "contract_checks": {
+          "memory_initialized": true,
+          "filesystem_initialized": true,
+          "constructor_vtable": true,
+          "no_vm_errors": true,
+          "exact_file": true,
+          "value": true,
+          "filesystem_status": true,
+          "profile_status": true,
+          "open_flag": true
+        }
+      },
+      {
+        "status": "observed",
+        "actual": 42,
+        "process_id": 32124,
+        "phase": "probe",
+        "result_hex": "2a00000000000000",
+        "loader_eip": "0x479123",
+        "probe_trap": "0xf6068c",
+        "initialization": {},
+        "resource_unload": {},
+        "native_blobs": [
+          "03000000000000002a000000fbffffff",
+          "00000000000000000000000000000000"
+        ],
+        "native_text": [],
+        "native_words": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          42,
+          0,
+          0,
+          0,
+          0,
+          42,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          4754436,
+          3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "vm_errors": [],
+        "vm_error_offsets": [],
+        "first_chance_cpp": 0,
+        "name": "buffered-flush",
+        "family": "datafile",
+        "steps": [
+          [
+            1,
+            [
+              "D:\\Codex Projects\\scummvm-private\\validation\\thinkquick-20261126\\step3\\storage-qualified\\buffered-flush.dat"
+            ]
+          ],
+          [
+            13,
+            []
+          ],
+          [
+            3,
+            [
+              "Probe"
+            ]
+          ],
+          [
+            7,
+            [
+              "answer",
+              42
+            ]
+          ],
+          [
+            12,
+            []
+          ],
+          [
+            2,
+            []
+          ],
+          [
+            1,
+            [
+              "D:\\Codex Projects\\scummvm-private\\validation\\thinkquick-20261126\\step3\\storage-qualified\\buffered-flush.dat"
+            ]
+          ],
+          [
+            5,
+            [
+              "Probe"
+            ]
+          ],
+          [
+            15,
+            [
+              "answer"
+            ]
+          ]
+        ],
+        "file_hex": "5b50726f62655d0d0a616e737765723d34323b0d0a",
+        "fixture_sha256": "0ec8b3b81a6fc5bf3cf1e7956c0150383041e63baa5ab6cd0c93d61dfbc46607",
+        "template_sha256": "c9100b72e8ec15811666bf821d1af530f72de89c72d22ff7504eeb94496d09ab",
+        "contract_checks": {
+          "memory_initialized": true,
+          "filesystem_initialized": true,
+          "constructor_vtable": true,
+          "no_vm_errors": true,
+          "exact_file": true,
+          "value": true,
+          "filesystem_status": true,
+          "profile_status": true,
+          "open_flag": true
+        }
+      },
+      {
+        "status": "observed",
+        "actual": 42,
+        "process_id": 37952,
+        "phase": "probe",
+        "result_hex": "2a00000000000000",
+        "loader_eip": "0x479123",
+        "probe_trap": "0xdd034c",
+        "initialization": {},
+        "resource_unload": {},
+        "native_blobs": [],
+        "native_text": [],
+        "native_words": [
+          0,
+          0,
+          0,
+          0,
+          42,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          4754436,
+          3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "vm_errors": [],
+        "vm_error_offsets": [],
+        "first_chance_cpp": 0,
+        "name": "buffered-flush-cold",
+        "family": "datafile",
+        "steps": [
+          [
+            1,
+            [
+              "D:\\Codex Projects\\scummvm-private\\validation\\thinkquick-20261126\\step3\\storage-qualified\\buffered-flush.dat"
+            ]
+          ],
+          [
+            5,
+            [
+              "Probe"
+            ]
+          ],
+          [
+            15,
+            [
+              "answer"
+            ]
+          ]
+        ],
+        "file_hex": "5b50726f62655d0d0a616e737765723d34323b0d0a",
+        "fixture_sha256": "2846f3f7eace70d46780d47068eec8c0f99b49f7fa0cbbdaa0391a7f8f5ee5f1",
+        "template_sha256": "3197b78d9403d2180745f6cb202a4a8f2be5d3dcbc83362f1f90aefb2bd64099",
+        "contract_checks": {
+          "memory_initialized": true,
+          "filesystem_initialized": true,
+          "constructor_vtable": true,
+          "no_vm_errors": true,
+          "exact_file": true,
+          "value": true,
+          "filesystem_status": true,
+          "profile_status": true,
+          "open_flag": true
+        }
+      },
+      {
+        "status": "observed",
+        "actual": 0,
+        "process_id": 37500,
+        "phase": "probe",
+        "result_hex": "0000000000000000",
+        "loader_eip": "0x479123",
+        "probe_trap": "0x7903db",
+        "initialization": {},
+        "resource_unload": {},
+        "native_blobs": [
+          "02000000000000000000000000000000",
+          "00000000000000000000000000000000"
+        ],
+        "native_text": [],
+        "native_words": [
+          0,
+          0,
+          0,
+          0,
+          99,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          4754436,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "vm_errors": [],
+        "vm_error_offsets": [],
+        "first_chance_cpp": 0,
+        "name": "read-only-existing-write",
+        "family": "datafile",
+        "steps": [
+          [
+            18,
+            [
+              "D:\\Codex Projects\\scummvm-private\\validation\\thinkquick-20261126\\step3\\storage-qualified\\write-through.dat"
+            ]
+          ],
+          [
+            5,
+            [
+              "Probe"
+            ]
+          ],
+          [
+            7,
+            [
+              "answer",
+              99
+            ]
+          ],
+          [
+            2,
+            []
+          ]
+        ],
+        "file": "write-through.dat",
+        "file_hex": "5b50726f62655d0d0a616e737765723d39393b0d0a",
+        "fixture_sha256": "07581cc597b1d6dd9abff7c2881a1cb02d3768780c4432fe4e0d46549cb55c8a",
+        "template_sha256": "e192b62ddb683b965a683c6ecfe41ddc455fc8f84163b102c07666c2b2591326",
+        "contract_checks": {
+          "memory_initialized": true,
+          "filesystem_initialized": true,
+          "constructor_vtable": true,
+          "no_vm_errors": true,
+          "exact_file": true,
+          "value": true,
+          "filesystem_status": true,
+          "profile_status": true,
+          "open_flag": true
+        }
+      },
+      {
+        "status": "observed",
+        "actual": 0,
+        "process_id": 19096,
+        "phase": "probe",
+        "result_hex": "0000000000000000",
+        "loader_eip": "0x479123",
+        "probe_trap": "0x660202",
+        "initialization": {},
+        "resource_unload": {},
+        "native_blobs": [
+          "02000000000000000000000000000000",
+          "00000000000000000000000000000000"
+        ],
+        "native_text": [],
+        "native_words": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          10311,
+          0,
+          4754436,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "vm_errors": [],
+        "vm_error_offsets": [],
+        "first_chance_cpp": 0,
+        "name": "open-missing-parent",
+        "family": "datafile",
+        "steps": [
+          [
+            1,
+            [
+              "D:\\Codex Projects\\scummvm-private\\validation\\thinkquick-20261126\\step3\\storage-qualified\\missing-parent\\Probe.dat"
+            ]
+          ]
+        ],
+        "file": "missing-parent/Probe.dat",
+        "file_hex": null,
+        "fixture_sha256": "c3ac181d45683c957978d01e95574e4a7c48cff3caeeb438d5b5d34702cad5f2",
+        "template_sha256": "3d3b68ad81829744753d36bdadca9d0b31054f2e4998c27a3b08025fe67b9d76",
+        "contract_checks": {
+          "memory_initialized": true,
+          "filesystem_initialized": true,
+          "constructor_vtable": true,
+          "no_vm_errors": true,
+          "exact_file": true,
+          "value": true,
+          "filesystem_status": true,
+          "profile_status": true,
+          "open_flag": true
+        }
+      },
+      {
+        "status": "observed",
+        "actual": 0,
+        "process_id": 41364,
+        "phase": "probe",
+        "result_hex": "0000000000000000",
+        "loader_eip": "0x479123",
+        "probe_trap": "0xdd06a9",
+        "initialization": {},
+        "resource_unload": {},
+        "native_blobs": [
+          "0d00000000000000b00c4a0200000000",
+          "00000000000000000000000000000000"
+        ],
+        "native_text": [],
+        "native_words": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          7,
+          9,
+          7,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          8080,
+          0,
+          0,
+          4754424,
+          13,
+          0,
+          0,
+          0,
+          0,
+          0,
+          38407344,
+          2,
+          7,
+          9,
+          0,
+          0
+        ],
+        "vm_errors": [],
+        "vm_error_offsets": [],
+        "first_chance_cpp": 0,
+        "name": "history-save",
+        "family": "aaUserHistory",
+        "steps": [
+          [
+            1,
+            [
+              "D:\\Codex Projects\\scummvm-private\\validation\\thinkquick-20261126\\step3\\storage-qualified\\"
+            ]
+          ],
+          [
+            2,
+            [
+              "ProbeUser"
+            ]
+          ],
+          [
+            4,
+            [
+              1
+            ]
+          ],
+          [
+            6,
+            [
+              "DeckA"
+            ]
+          ],
+          [
+            11,
+            [
+              7
+            ]
+          ],
+          [
+            11,
+            [
+              9
+            ]
+          ],
+          [
+            11,
+            [
+              7
+            ]
+          ],
+          [
+            10,
+            []
+          ],
+          [
+            8,
+            []
+          ]
+        ],
+        "file": "ProbeUser.dat",
+        "capture_list": true,
+        "file_hex": "5b4c6576656c315d0d0a4465636b413d5b372c395d0d0a",
+        "fixture_sha256": "eacf28ef3132e1e0426b3ec65ccf5c1f90b683012c84240a04aca5e95f685af9",
+        "template_sha256": "e2ffb7ed8199e322969ca478fd693b03a859427cab68f2ed0f707398202c14d5",
+        "contract_checks": {
+          "memory_initialized": true,
+          "filesystem_initialized": true,
+          "constructor_vtable": true,
+          "no_vm_errors": true,
+          "exact_file": true,
+          "value": true,
+          "filesystem_status": true,
+          "profile_status": true,
+          "list_type": true,
+          "list_count": true,
+          "list_elements": true
+        }
+      },
+      {
+        "status": "observed",
+        "actual": 0,
+        "process_id": 752,
+        "phase": "probe",
+        "result_hex": "0000000000000000",
+        "loader_eip": "0x479123",
+        "probe_trap": "0x6604fc",
+        "initialization": {},
+        "resource_unload": {},
+        "native_blobs": [
+          "0d000000000000002000e10000000000",
+          "00000000000000000000000000000000"
+        ],
+        "native_text": [],
+        "native_words": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          8080,
+          0,
+          0,
+          4754424,
+          13,
+          0,
+          0,
+          0,
+          0,
+          0,
+          14745632,
+          2,
+          7,
+          9,
+          0,
+          0
+        ],
+        "vm_errors": [],
+        "vm_error_offsets": [],
+        "first_chance_cpp": 0,
+        "name": "history-cold",
+        "family": "aaUserHistory",
+        "steps": [
+          [
+            1,
+            [
+              "D:\\Codex Projects\\scummvm-private\\validation\\thinkquick-20261126\\step3\\storage-qualified\\"
+            ]
+          ],
+          [
+            2,
+            [
+              "ProbeUser"
+            ]
+          ],
+          [
+            4,
+            [
+              1
+            ]
+          ],
+          [
+            6,
+            [
+              "DeckA"
+            ]
+          ],
+          [
+            9,
+            []
+          ],
+          [
+            8,
+            []
+          ]
+        ],
+        "file": "ProbeUser.dat",
+        "capture_list": true,
+        "file_hex": "5b4c6576656c315d0d0a4465636b413d5b372c395d0d0a",
+        "fixture_sha256": "e81728b3402661f4a30c349abeb01971c8c9a16e5417f91e1d57318e7f5a01ea",
+        "template_sha256": "c16f3442e51e7c8b7161226394fff022ae2ef3f8c011b0b27a76749b285ac5a0",
+        "contract_checks": {
+          "memory_initialized": true,
+          "filesystem_initialized": true,
+          "constructor_vtable": true,
+          "no_vm_errors": true,
+          "exact_file": true,
+          "value": true,
+          "filesystem_status": true,
+          "profile_status": true,
+          "list_type": true,
+          "list_count": true,
+          "list_elements": true
+        }
+      },
+      {
+        "status": "observed",
+        "actual": 42,
+        "process_id": 9336,
+        "phase": "probe",
+        "result_hex": "2a00000000000000",
+        "loader_eip": "0x479123",
+        "probe_trap": "0xdd03e7",
+        "initialization": {},
+        "resource_unload": {},
+        "native_blobs": [
+          "03000000000000002a00000000000000",
+          "00000000000000000000000000000000"
+        ],
+        "native_text": [],
+        "native_words": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          42,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          4754436,
+          3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "vm_errors": [],
+        "vm_error_offsets": [],
+        "first_chance_cpp": 0,
+        "name": "buffered-destructor",
+        "family": "datafile",
+        "steps": [
+          [
+            1,
+            [
+              "D:\\Codex Projects\\scummvm-private\\validation\\thinkquick-20261126\\step3\\storage-qualified\\destructor.dat"
+            ]
+          ],
+          [
+            13,
+            []
+          ],
+          [
+            3,
+            [
+              "Probe"
+            ]
+          ],
+          [
+            7,
+            [
+              "answer",
+              42
+            ]
+          ]
+        ],
+        "file": "destructor.dat",
+        "destroy": true,
+        "file_hex": "",
+        "fixture_sha256": "9ef9df02a455a2f32db5a8fc2d676c95af5f0e72f4638a9de1b28303ca9b170a",
+        "template_sha256": "96f835f7043fae9054d3009c85d99d9216043d6248d0ed67ce67f03d48ee4124",
+        "contract_checks": {
+          "memory_initialized": true,
+          "filesystem_initialized": true,
+          "constructor_vtable": true,
+          "no_vm_errors": true,
+          "exact_file": true,
+          "value": true,
+          "filesystem_status": true,
+          "profile_status": true,
+          "open_flag": true
+        }
+      },
+      {
+        "status": "observed",
+        "actual": 0,
+        "process_id": 30892,
+        "phase": "probe",
+        "result_hex": "0000000000000000",
+        "loader_eip": "0x479123",
+        "probe_trap": "0x660443",
+        "initialization": {},
+        "resource_unload": {},
+        "native_blobs": [
+          "02000000000000000000000000000000",
+          "00000000000000000000000000000000"
+        ],
+        "native_text": [],
+        "native_words": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          42,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          4754436,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "vm_errors": [],
+        "vm_error_offsets": [],
+        "first_chance_cpp": 0,
+        "name": "buffered-cache-cleanup",
+        "family": "datafile",
+        "steps": [
+          [
+            1,
+            [
+              "D:\\Codex Projects\\scummvm-private\\validation\\thinkquick-20261126\\step3\\storage-qualified\\cleanup.dat"
+            ]
+          ],
+          [
+            13,
+            []
+          ],
+          [
+            3,
+            [
+              "Probe"
+            ]
+          ],
+          [
+            7,
+            [
+              "answer",
+              42
+            ]
+          ],
+          [
+            2,
+            []
+          ]
+        ],
+        "file": "cleanup.dat",
+        "clear_profile_cache": true,
+        "file_hex": "",
+        "fixture_sha256": "0a2dcac31ae76ec8de030e5d3bdc3e13a23d8df9e7be3e1a72a722db54ad0a9d",
+        "template_sha256": "167691fab071271cde96bf1e78dfc44a57a31961e007cd237260c957962ad4cd",
+        "contract_checks": {
+          "memory_initialized": true,
+          "filesystem_initialized": true,
+          "constructor_vtable": true,
+          "no_vm_errors": true,
+          "exact_file": true,
+          "value": true,
+          "filesystem_status": true,
+          "profile_status": true,
+          "open_flag": true
+        }
+      },
+      {
+        "status": "observed",
+        "actual": 0,
+        "process_id": 19060,
+        "phase": "probe",
+        "result_hex": "0000000000000000",
+        "loader_eip": "0x479123",
+        "probe_trap": "0xdd05b9",
+        "initialization": {},
+        "resource_unload": {},
+        "native_blobs": [
+          "0d00000000000000f007600200000000",
+          "00000000000000000000000000000000"
+        ],
+        "native_text": [],
+        "native_words": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          7,
+          9,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          8080,
+          0,
+          0,
+          4754424,
+          13,
+          0,
+          0,
+          0,
+          0,
+          0,
+          39847920,
+          2,
+          9,
+          7,
+          0,
+          0
+        ],
+        "vm_errors": [],
+        "vm_error_offsets": [],
+        "first_chance_cpp": 0,
+        "name": "history-unsaved",
+        "family": "aaUserHistory",
+        "steps": [
+          [
+            1,
+            [
+              "D:\\Codex Projects\\scummvm-private\\validation\\thinkquick-20261126\\step3\\storage-qualified\\"
+            ]
+          ],
+          [
+            2,
+            [
+              "Unsaved"
+            ]
+          ],
+          [
+            4,
+            [
+              1
+            ]
+          ],
+          [
+            6,
+            [
+              "DeckA"
+            ]
+          ],
+          [
+            11,
+            [
+              7
+            ]
+          ],
+          [
+            11,
+            [
+              9
+            ]
+          ],
+          [
+            8,
+            []
+          ]
+        ],
+        "file": "Unsaved.dat",
+        "capture_list": true,
+        "file_hex": "",
+        "fixture_sha256": "6d15a3f6e727521e76e45917d697220417170d778986aa5888774ea3b544b53e",
+        "template_sha256": "3a9d73a1313262d42abc3a68d7a689aea481fae936f7220caa6dcad549aa7496",
+        "contract_checks": {
+          "memory_initialized": true,
+          "filesystem_initialized": true,
+          "constructor_vtable": true,
+          "no_vm_errors": true,
+          "exact_file": true,
+          "value": true,
+          "filesystem_status": true,
+          "profile_status": true,
+          "list_type": true,
+          "list_count": true,
+          "list_elements": true
+        }
+      },
+      {
+        "status": "observed",
+        "actual": 0,
+        "process_id": 37932,
+        "phase": "probe",
+        "result_hex": "0000000000000000",
+        "loader_eip": "0x479123",
+        "probe_trap": "0xdd04bc",
+        "initialization": {},
+        "resource_unload": {},
+        "native_blobs": [
+          "0d00000000000000f007de0000000000",
+          "00000000000000000000000000000000"
+        ],
+        "native_text": [],
+        "native_words": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          8080,
+          0,
+          10604,
+          4754424,
+          13,
+          0,
+          0,
+          0,
+          0,
+          0,
+          14551024,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "vm_errors": [],
+        "vm_error_offsets": [],
+        "first_chance_cpp": 0,
+        "name": "history-unsaved-cold",
+        "family": "aaUserHistory",
+        "steps": [
+          [
+            1,
+            [
+              "D:\\Codex Projects\\scummvm-private\\validation\\thinkquick-20261126\\step3\\storage-qualified\\"
+            ]
+          ],
+          [
+            2,
+            [
+              "Unsaved"
+            ]
+          ],
+          [
+            4,
+            [
+              1
+            ]
+          ],
+          [
+            6,
+            [
+              "DeckA"
+            ]
+          ],
+          [
+            9,
+            []
+          ],
+          [
+            8,
+            []
+          ]
+        ],
+        "file": "Unsaved.dat",
+        "capture_list": true,
+        "list_elements": 0,
+        "file_hex": "",
+        "fixture_sha256": "72511916177363c361d3c203af54301b486033a591ce6762dc2129b343c73903",
+        "template_sha256": "f12a8c2dddd7a5d0359d994f2e362bf77f787146d1555d4591cbb36bd38a0b43",
+        "contract_checks": {
+          "memory_initialized": true,
+          "filesystem_initialized": true,
+          "constructor_vtable": true,
+          "no_vm_errors": true,
+          "exact_file": true,
+          "value": true,
+          "filesystem_status": true,
+          "profile_status": true,
+          "list_type": true,
+          "list_count": true,
+          "list_elements": true
+        }
+      },
+      {
+        "status": "observed",
+        "actual": 0,
+        "process_id": 25956,
+        "phase": "probe",
+        "result_hex": "0000000000000000",
+        "loader_eip": "0x479123",
+        "probe_trap": "0xdd043f",
+        "initialization": {},
+        "resource_unload": {},
+        "native_blobs": [
+          "0700000000000000200145020440dd00",
+          "00000000000000000000000000000000"
+        ],
+        "native_text": [
+          "a\"b",
+          null
+        ],
+        "native_words": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          4754436,
+          7,
+          0,
+          38076704,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "vm_errors": [],
+        "vm_error_offsets": [],
+        "first_chance_cpp": 0,
+        "name": "string-value",
+        "family": "datafile",
+        "steps": [
+          [
+            1,
+            [
+              "D:\\Codex Projects\\scummvm-private\\validation\\thinkquick-20261126\\step3\\storage-qualified\\string.dat"
+            ]
+          ],
+          [
+            3,
+            [
+              "Probe"
+            ]
+          ],
+          [
+            7,
+            [
+              "text",
+              "a\"b"
+            ]
+          ],
+          [
+            15,
+            [
+              "text"
+            ]
+          ]
+        ],
+        "file": "string.dat",
+        "text": true,
+        "file_hex": "5b50726f62655d0d0a746578743d2261222262223b0d0a",
+        "fixture_sha256": "15cebe439fdb17b1a5644b9ca0c5b09105e2947adb8c93dec418642ff27bbe9d",
+        "template_sha256": "7502a8babc1b071421b6ed1f46efb6c1fa5d3afc69de5d6dbe93e65c4504e718",
+        "contract_checks": {
+          "memory_initialized": true,
+          "filesystem_initialized": true,
+          "constructor_vtable": true,
+          "no_vm_errors": true,
+          "exact_file": true,
+          "value": true,
+          "filesystem_status": true,
+          "profile_status": true,
+          "open_flag": true,
+          "string_type": true,
+          "string_value": true
+        }
+      },
+      {
+        "status": "observed",
+        "actual": 0,
+        "process_id": 26836,
+        "phase": "probe",
+        "result_hex": "0000000000000000",
+        "loader_eip": "0x479123",
+        "probe_trap": "0xdd0356",
+        "initialization": {},
+        "resource_unload": {},
+        "native_blobs": [
+          "0700000000000000901f42020440dd00",
+          "00000000000000000000000000000000"
+        ],
+        "native_text": [
+          "a\"b",
+          null
+        ],
+        "native_words": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          4754436,
+          7,
+          0,
+          37887888,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "vm_errors": [],
+        "vm_error_offsets": [],
+        "first_chance_cpp": 0,
+        "name": "string-value-cold",
+        "family": "datafile",
+        "steps": [
+          [
+            1,
+            [
+              "D:\\Codex Projects\\scummvm-private\\validation\\thinkquick-20261126\\step3\\storage-qualified\\string.dat"
+            ]
+          ],
+          [
+            5,
+            [
+              "Probe"
+            ]
+          ],
+          [
+            15,
+            [
+              "text"
+            ]
+          ]
+        ],
+        "file": "string.dat",
+        "text": true,
+        "file_hex": "5b50726f62655d0d0a746578743d2261222262223b0d0a",
+        "fixture_sha256": "25a5e4f2fedc1a9abd790a7aee7ce934d20131bf916971f8bbeb36ad0bff302f",
+        "template_sha256": "296c561ea5896e82a8719d7baad4bd5801ef31ebcf5783403ecf3c69e717947c",
+        "contract_checks": {
+          "memory_initialized": true,
+          "filesystem_initialized": true,
+          "constructor_vtable": true,
+          "no_vm_errors": true,
+          "exact_file": true,
+          "value": true,
+          "filesystem_status": true,
+          "profile_status": true,
+          "open_flag": true,
+          "string_type": true,
+          "string_value": true
+        }
+      }
+    ]
+  },
+  "repeat": {
+    "kind": "Owned original datafile/profile write and cold-restart probes.",
+    "exe_sha256": "219d81ea3d91b31da406e6891d01ba6ad12005e77b4d9f8f83930161dbfc9966",
+    "dependencies": {
+      "probe_mohawk_v5_storage.py": "acff20399c459b807c33e2aac2bc458dc9c35cae083d437eb5dbf6e979087c10",
+      "probe_mohawk_v5_components.py": "9452d2758f32497eefc1d067b6b824c0a92bb983432abd0a0220be67aeb64dc3",
+      "probe_mohawk_v5_original.py": "ed9b2b5c013e76e36aef09613fd79728d908f79a398381cc8093a6c1d1aad7d1",
+      "probe_mohawk_v5_native_resources.py": "e55d8772ade9550cab065b3f01ac7220c6bee7a8d98bf5dbabb1250a1713bbc5",
+      "mohawk_v5_native_io.py": "b216c2ff221eab2ddd33ffeba821487548e7ae3e06cd23f3b74fdc141892d13e"
+    },
+    "owned_files_before_receipt": {
+      "buffered-close.dat": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "buffered-flush.dat": "8f4b8ca0475b506aa2b1d13f77c2e05c72a225ea1281a1751884a9459a05bac6",
+      "CarmenTQ.exe": "219d81ea3d91b31da406e6891d01ba6ad12005e77b4d9f8f83930161dbfc9966",
+      "cleanup.dat": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "destructor.dat": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "ProbeUser.dat": "d283867dfa389583093968692a5015c18a37967621b64b22a9a3c6e32cb91c36",
+      "string.dat": "63d504b13bdeae7d72c84c076c030d1700bfb92dd32c84587ddf36c68ddac1f2",
+      "Unsaved.dat": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "write-through.dat": "28d7754a486bfd598e7a294971e8eefbe4474a657e33b8140b1635a5ca1dbaa6"
+    },
+    "results": [
+      {
+        "status": "observed",
+        "actual": 42,
+        "process_id": 13660,
+        "phase": "probe",
+        "result_hex": "2a00000000000000",
+        "loader_eip": "0x479123",
+        "probe_trap": "0x6f05ca",
+        "initialization": {},
+        "resource_unload": {},
+        "native_blobs": [
+          "03000000000000002a000000fbffffff",
+          "00000000000000000000000000000000"
+        ],
+        "native_text": [],
+        "native_words": [
+          0,
+          0,
+          0,
+          0,
+          42,
+          0,
+          0,
+          0,
+          42,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          4754436,
+          3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "vm_errors": [],
+        "vm_error_offsets": [],
+        "first_chance_cpp": 0,
+        "name": "write-through",
+        "family": "datafile",
+        "steps": [
+          [
+            1,
+            [
+              "D:\\Codex Projects\\scummvm-private\\validation\\thinkquick-20261126\\step3\\storage-repeat\\write-through.dat"
+            ]
+          ],
+          [
+            3,
+            [
+              "Probe"
+            ]
+          ],
+          [
+            7,
+            [
+              "answer",
+              42
+            ]
+          ],
+          [
+            2,
+            []
+          ],
+          [
+            1,
+            [
+              "D:\\Codex Projects\\scummvm-private\\validation\\thinkquick-20261126\\step3\\storage-repeat\\write-through.dat"
+            ]
+          ],
+          [
+            5,
+            [
+              "Probe"
+            ]
+          ],
+          [
+            15,
+            [
+              "answer"
+            ]
+          ]
+        ],
+        "file_hex": "5b50726f62655d0d0a616e737765723d34323b0d0a",
+        "fixture_sha256": "180f4da083a8a05459fcd17fb537019f72b9aab364af646f76bf95e0d79c217a",
+        "template_sha256": "91430c1608851262390560542225dabde5462c76bfe2daf5af89dd94a75af04d",
+        "contract_checks": {
+          "memory_initialized": true,
+          "filesystem_initialized": true,
+          "constructor_vtable": true,
+          "no_vm_errors": true,
+          "exact_file": true,
+          "value": true,
+          "filesystem_status": true,
+          "profile_status": true,
+          "open_flag": true
+        }
+      },
+      {
+        "status": "observed",
+        "actual": 42,
+        "process_id": 31888,
+        "phase": "probe",
+        "result_hex": "2a00000000000000",
+        "loader_eip": "0x479123",
+        "probe_trap": "0x89034c",
+        "initialization": {},
+        "resource_unload": {},
+        "native_blobs": [],
+        "native_text": [],
+        "native_words": [
+          0,
+          0,
+          0,
+          0,
+          42,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          4754436,
+          3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "vm_errors": [],
+        "vm_error_offsets": [],
+        "first_chance_cpp": 0,
+        "name": "write-through-cold",
+        "family": "datafile",
+        "steps": [
+          [
+            1,
+            [
+              "D:\\Codex Projects\\scummvm-private\\validation\\thinkquick-20261126\\step3\\storage-repeat\\write-through.dat"
+            ]
+          ],
+          [
+            5,
+            [
+              "Probe"
+            ]
+          ],
+          [
+            15,
+            [
+              "answer"
+            ]
+          ]
+        ],
+        "file_hex": "5b50726f62655d0d0a616e737765723d34323b0d0a",
+        "fixture_sha256": "d603b7caee72ff9939e5c31ff0de4bb2b4c8300ede281b5c64b386a8ff1b3dca",
+        "template_sha256": "54afcdfba7a2b4db68f993bfe9a3797cd2d249db6a0a515b0563b6e03c8d22a1",
+        "contract_checks": {
+          "memory_initialized": true,
+          "filesystem_initialized": true,
+          "constructor_vtable": true,
+          "no_vm_errors": true,
+          "exact_file": true,
+          "value": true,
+          "filesystem_status": true,
+          "profile_status": true,
+          "open_flag": true
+        }
+      },
+      {
+        "status": "observed",
+        "actual": 42,
+        "process_id": 29204,
+        "phase": "probe",
+        "result_hex": "2a00000000000000",
+        "loader_eip": "0x479123",
+        "probe_trap": "0xf6062b",
+        "initialization": {},
+        "resource_unload": {},
+        "native_blobs": [
+          "03000000000000002a000000fbffffff",
+          "00000000000000000000000000000000"
+        ],
+        "native_text": [],
+        "native_words": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          42,
+          0,
+          0,
+          0,
+          42,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          4754436,
+          3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "vm_errors": [],
+        "vm_error_offsets": [],
+        "first_chance_cpp": 0,
+        "name": "buffered-close",
+        "family": "datafile",
+        "steps": [
+          [
+            1,
+            [
+              "D:\\Codex Projects\\scummvm-private\\validation\\thinkquick-20261126\\step3\\storage-repeat\\buffered-close.dat"
+            ]
+          ],
+          [
+            13,
+            []
+          ],
+          [
+            3,
+            [
+              "Probe"
+            ]
+          ],
+          [
+            7,
+            [
+              "answer",
+              42
+            ]
+          ],
+          [
+            2,
+            []
+          ],
+          [
+            1,
+            [
+              "D:\\Codex Projects\\scummvm-private\\validation\\thinkquick-20261126\\step3\\storage-repeat\\buffered-close.dat"
+            ]
+          ],
+          [
+            5,
+            [
+              "Probe"
+            ]
+          ],
+          [
+            15,
+            [
+              "answer"
+            ]
+          ]
+        ],
+        "file_hex": "",
+        "fixture_sha256": "7ec980a7d1793403b5bf14dcaf60ebf25d871330b9603f3655f4c901859eb122",
+        "template_sha256": "34c52f4782e977eb7cd9e0cce4ca4854132786b1b941274f6c73619c57bad8b5",
+        "contract_checks": {
+          "memory_initialized": true,
+          "filesystem_initialized": true,
+          "constructor_vtable": true,
+          "no_vm_errors": true,
+          "exact_file": true,
+          "value": true,
+          "filesystem_status": true,
+          "profile_status": true,
+          "open_flag": true
+        }
+      },
+      {
+        "status": "observed",
+        "actual": 0,
+        "process_id": 43596,
+        "phase": "probe",
+        "result_hex": "0000000000000000",
+        "loader_eip": "0x479123",
+        "probe_trap": "0x63034c",
+        "initialization": {},
+        "resource_unload": {},
+        "native_blobs": [],
+        "native_text": [],
+        "native_words": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          10604,
+          4754436,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "vm_errors": [],
+        "vm_error_offsets": [],
+        "first_chance_cpp": 0,
+        "name": "buffered-close-cold",
+        "family": "datafile",
+        "steps": [
+          [
+            1,
+            [
+              "D:\\Codex Projects\\scummvm-private\\validation\\thinkquick-20261126\\step3\\storage-repeat\\buffered-close.dat"
+            ]
+          ],
+          [
+            5,
+            [
+              "Probe"
+            ]
+          ],
+          [
+            15,
+            [
+              "answer"
+            ]
+          ]
+        ],
+        "file_hex": "",
+        "fixture_sha256": "817d89b76cf83b21973a793764446a39539cf14dd57aa1f7d78c3503be7327da",
+        "template_sha256": "7b6c184a734e764923686456f3fe3f1f89040d464fbe5e4bb10cde59904dea55",
+        "contract_checks": {
+          "memory_initialized": true,
+          "filesystem_initialized": true,
+          "constructor_vtable": true,
+          "no_vm_errors": true,
+          "exact_file": true,
+          "value": true,
+          "filesystem_status": true,
+          "profile_status": true,
+          "open_flag": true
+        }
+      },
+      {
+        "status": "observed",
+        "actual": 42,
+        "process_id": 36076,
+        "phase": "probe",
+        "result_hex": "2a00000000000000",
+        "loader_eip": "0x479123",
+        "probe_trap": "0xdd068c",
+        "initialization": {},
+        "resource_unload": {},
+        "native_blobs": [
+          "03000000000000002a000000fbffffff",
+          "00000000000000000000000000000000"
+        ],
+        "native_text": [],
+        "native_words": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          42,
+          0,
+          0,
+          0,
+          0,
+          42,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          4754436,
+          3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "vm_errors": [],
+        "vm_error_offsets": [],
+        "first_chance_cpp": 0,
+        "name": "buffered-flush",
+        "family": "datafile",
+        "steps": [
+          [
+            1,
+            [
+              "D:\\Codex Projects\\scummvm-private\\validation\\thinkquick-20261126\\step3\\storage-repeat\\buffered-flush.dat"
+            ]
+          ],
+          [
+            13,
+            []
+          ],
+          [
+            3,
+            [
+              "Probe"
+            ]
+          ],
+          [
+            7,
+            [
+              "answer",
+              42
+            ]
+          ],
+          [
+            12,
+            []
+          ],
+          [
+            2,
+            []
+          ],
+          [
+            1,
+            [
+              "D:\\Codex Projects\\scummvm-private\\validation\\thinkquick-20261126\\step3\\storage-repeat\\buffered-flush.dat"
+            ]
+          ],
+          [
+            5,
+            [
+              "Probe"
+            ]
+          ],
+          [
+            15,
+            [
+              "answer"
+            ]
+          ]
+        ],
+        "file_hex": "5b50726f62655d0d0a616e737765723d34323b0d0a",
+        "fixture_sha256": "c4d1091f43d18c63a21c96f6e2a4e6d2592388de94c1019e61158baea95a9e8f",
+        "template_sha256": "c9100b72e8ec15811666bf821d1af530f72de89c72d22ff7504eeb94496d09ab",
+        "contract_checks": {
+          "memory_initialized": true,
+          "filesystem_initialized": true,
+          "constructor_vtable": true,
+          "no_vm_errors": true,
+          "exact_file": true,
+          "value": true,
+          "filesystem_status": true,
+          "profile_status": true,
+          "open_flag": true
+        }
+      },
+      {
+        "status": "observed",
+        "actual": 42,
+        "process_id": 7336,
+        "phase": "probe",
+        "result_hex": "2a00000000000000",
+        "loader_eip": "0x479123",
+        "probe_trap": "0xdd034c",
+        "initialization": {},
+        "resource_unload": {},
+        "native_blobs": [],
+        "native_text": [],
+        "native_words": [
+          0,
+          0,
+          0,
+          0,
+          42,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          4754436,
+          3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "vm_errors": [],
+        "vm_error_offsets": [],
+        "first_chance_cpp": 0,
+        "name": "buffered-flush-cold",
+        "family": "datafile",
+        "steps": [
+          [
+            1,
+            [
+              "D:\\Codex Projects\\scummvm-private\\validation\\thinkquick-20261126\\step3\\storage-repeat\\buffered-flush.dat"
+            ]
+          ],
+          [
+            5,
+            [
+              "Probe"
+            ]
+          ],
+          [
+            15,
+            [
+              "answer"
+            ]
+          ]
+        ],
+        "file_hex": "5b50726f62655d0d0a616e737765723d34323b0d0a",
+        "fixture_sha256": "10243647e07b39cd8feb614701bb1007d191536067bb8ef854eec8927cee5f41",
+        "template_sha256": "3197b78d9403d2180745f6cb202a4a8f2be5d3dcbc83362f1f90aefb2bd64099",
+        "contract_checks": {
+          "memory_initialized": true,
+          "filesystem_initialized": true,
+          "constructor_vtable": true,
+          "no_vm_errors": true,
+          "exact_file": true,
+          "value": true,
+          "filesystem_status": true,
+          "profile_status": true,
+          "open_flag": true
+        }
+      },
+      {
+        "status": "observed",
+        "actual": 0,
+        "process_id": 47792,
+        "phase": "probe",
+        "result_hex": "0000000000000000",
+        "loader_eip": "0x479123",
+        "probe_trap": "0xdd03db",
+        "initialization": {},
+        "resource_unload": {},
+        "native_blobs": [
+          "02000000000000000000000000000000",
+          "00000000000000000000000000000000"
+        ],
+        "native_text": [],
+        "native_words": [
+          0,
+          0,
+          0,
+          0,
+          99,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          4754436,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "vm_errors": [],
+        "vm_error_offsets": [],
+        "first_chance_cpp": 0,
+        "name": "read-only-existing-write",
+        "family": "datafile",
+        "steps": [
+          [
+            18,
+            [
+              "D:\\Codex Projects\\scummvm-private\\validation\\thinkquick-20261126\\step3\\storage-repeat\\write-through.dat"
+            ]
+          ],
+          [
+            5,
+            [
+              "Probe"
+            ]
+          ],
+          [
+            7,
+            [
+              "answer",
+              99
+            ]
+          ],
+          [
+            2,
+            []
+          ]
+        ],
+        "file": "write-through.dat",
+        "file_hex": "5b50726f62655d0d0a616e737765723d39393b0d0a",
+        "fixture_sha256": "345e33488fa4741fe6a96955afe33000389b67b40c83ed076089e3e3dc2e2580",
+        "template_sha256": "e192b62ddb683b965a683c6ecfe41ddc455fc8f84163b102c07666c2b2591326",
+        "contract_checks": {
+          "memory_initialized": true,
+          "filesystem_initialized": true,
+          "constructor_vtable": true,
+          "no_vm_errors": true,
+          "exact_file": true,
+          "value": true,
+          "filesystem_status": true,
+          "profile_status": true,
+          "open_flag": true
+        }
+      },
+      {
+        "status": "observed",
+        "actual": 0,
+        "process_id": 34244,
+        "phase": "probe",
+        "result_hex": "0000000000000000",
+        "loader_eip": "0x479123",
+        "probe_trap": "0xdd0202",
+        "initialization": {},
+        "resource_unload": {},
+        "native_blobs": [
+          "02000000000000000000000000000000",
+          "00000000000000000000000000000000"
+        ],
+        "native_text": [],
+        "native_words": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          10311,
+          0,
+          4754436,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "vm_errors": [],
+        "vm_error_offsets": [],
+        "first_chance_cpp": 0,
+        "name": "open-missing-parent",
+        "family": "datafile",
+        "steps": [
+          [
+            1,
+            [
+              "D:\\Codex Projects\\scummvm-private\\validation\\thinkquick-20261126\\step3\\storage-repeat\\missing-parent\\Probe.dat"
+            ]
+          ]
+        ],
+        "file": "missing-parent/Probe.dat",
+        "file_hex": null,
+        "fixture_sha256": "0d9aab1401b5bb19f602971953a8c7415190f98dafc08c865b5ac71114a18e37",
+        "template_sha256": "3d3b68ad81829744753d36bdadca9d0b31054f2e4998c27a3b08025fe67b9d76",
+        "contract_checks": {
+          "memory_initialized": true,
+          "filesystem_initialized": true,
+          "constructor_vtable": true,
+          "no_vm_errors": true,
+          "exact_file": true,
+          "value": true,
+          "filesystem_status": true,
+          "profile_status": true,
+          "open_flag": true
+        }
+      },
+      {
+        "status": "observed",
+        "actual": 0,
+        "process_id": 45912,
+        "phase": "probe",
+        "result_hex": "0000000000000000",
+        "loader_eip": "0x479123",
+        "probe_trap": "0xdd06a9",
+        "initialization": {},
+        "resource_unload": {},
+        "native_blobs": [
+          "0d00000000000000d000420200000000",
+          "00000000000000000000000000000000"
+        ],
+        "native_text": [],
+        "native_words": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          7,
+          9,
+          7,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          96,
+          0,
+          0,
+          4754424,
+          13,
+          0,
+          0,
+          0,
+          0,
+          0,
+          37880016,
+          2,
+          7,
+          9,
+          0,
+          0
+        ],
+        "vm_errors": [],
+        "vm_error_offsets": [],
+        "first_chance_cpp": 0,
+        "name": "history-save",
+        "family": "aaUserHistory",
+        "steps": [
+          [
+            1,
+            [
+              "D:\\Codex Projects\\scummvm-private\\validation\\thinkquick-20261126\\step3\\storage-repeat\\"
+            ]
+          ],
+          [
+            2,
+            [
+              "ProbeUser"
+            ]
+          ],
+          [
+            4,
+            [
+              1
+            ]
+          ],
+          [
+            6,
+            [
+              "DeckA"
+            ]
+          ],
+          [
+            11,
+            [
+              7
+            ]
+          ],
+          [
+            11,
+            [
+              9
+            ]
+          ],
+          [
+            11,
+            [
+              7
+            ]
+          ],
+          [
+            10,
+            []
+          ],
+          [
+            8,
+            []
+          ]
+        ],
+        "file": "ProbeUser.dat",
+        "capture_list": true,
+        "file_hex": "5b4c6576656c315d0d0a4465636b413d5b372c395d0d0a",
+        "fixture_sha256": "bf8b6fd7bc81180a26dfdee25a4a80c5f8612d8456017ed463c2661146ffe4f5",
+        "template_sha256": "e2ffb7ed8199e322969ca478fd693b03a859427cab68f2ed0f707398202c14d5",
+        "contract_checks": {
+          "memory_initialized": true,
+          "filesystem_initialized": true,
+          "constructor_vtable": true,
+          "no_vm_errors": true,
+          "exact_file": true,
+          "value": true,
+          "filesystem_status": true,
+          "profile_status": true,
+          "list_type": true,
+          "list_count": true,
+          "list_elements": true
+        }
+      },
+      {
+        "status": "observed",
+        "actual": 0,
+        "process_id": 23132,
+        "phase": "probe",
+        "result_hex": "0000000000000000",
+        "loader_eip": "0x479123",
+        "probe_trap": "0x7104fc",
+        "initialization": {},
+        "resource_unload": {},
+        "native_blobs": [
+          "0d00000000000000501ede0000000000",
+          "00000000000000000000000000000000"
+        ],
+        "native_text": [],
+        "native_words": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          96,
+          0,
+          0,
+          4754424,
+          13,
+          0,
+          0,
+          0,
+          0,
+          0,
+          14556752,
+          2,
+          7,
+          9,
+          0,
+          0
+        ],
+        "vm_errors": [],
+        "vm_error_offsets": [],
+        "first_chance_cpp": 0,
+        "name": "history-cold",
+        "family": "aaUserHistory",
+        "steps": [
+          [
+            1,
+            [
+              "D:\\Codex Projects\\scummvm-private\\validation\\thinkquick-20261126\\step3\\storage-repeat\\"
+            ]
+          ],
+          [
+            2,
+            [
+              "ProbeUser"
+            ]
+          ],
+          [
+            4,
+            [
+              1
+            ]
+          ],
+          [
+            6,
+            [
+              "DeckA"
+            ]
+          ],
+          [
+            9,
+            []
+          ],
+          [
+            8,
+            []
+          ]
+        ],
+        "file": "ProbeUser.dat",
+        "capture_list": true,
+        "file_hex": "5b4c6576656c315d0d0a4465636b413d5b372c395d0d0a",
+        "fixture_sha256": "3d9a498268881f88b2b77cb7b3aa65a8a361766390417abc2ed29457596ec1b5",
+        "template_sha256": "c16f3442e51e7c8b7161226394fff022ae2ef3f8c011b0b27a76749b285ac5a0",
+        "contract_checks": {
+          "memory_initialized": true,
+          "filesystem_initialized": true,
+          "constructor_vtable": true,
+          "no_vm_errors": true,
+          "exact_file": true,
+          "value": true,
+          "filesystem_status": true,
+          "profile_status": true,
+          "list_type": true,
+          "list_count": true,
+          "list_elements": true
+        }
+      },
+      {
+        "status": "observed",
+        "actual": 42,
+        "process_id": 19236,
+        "phase": "probe",
+        "result_hex": "2a00000000000000",
+        "loader_eip": "0x479123",
+        "probe_trap": "0x6303e7",
+        "initialization": {},
+        "resource_unload": {},
+        "native_blobs": [
+          "03000000000000002a00000000000000",
+          "00000000000000000000000000000000"
+        ],
+        "native_text": [],
+        "native_words": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          42,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          4754436,
+          3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "vm_errors": [],
+        "vm_error_offsets": [],
+        "first_chance_cpp": 0,
+        "name": "buffered-destructor",
+        "family": "datafile",
+        "steps": [
+          [
+            1,
+            [
+              "D:\\Codex Projects\\scummvm-private\\validation\\thinkquick-20261126\\step3\\storage-repeat\\destructor.dat"
+            ]
+          ],
+          [
+            13,
+            []
+          ],
+          [
+            3,
+            [
+              "Probe"
+            ]
+          ],
+          [
+            7,
+            [
+              "answer",
+              42
+            ]
+          ]
+        ],
+        "file": "destructor.dat",
+        "destroy": true,
+        "file_hex": "",
+        "fixture_sha256": "b55705f2eba4570d5a6e6fef713d8ee2ba297ba0d124832aec2a65b96fea6110",
+        "template_sha256": "96f835f7043fae9054d3009c85d99d9216043d6248d0ed67ce67f03d48ee4124",
+        "contract_checks": {
+          "memory_initialized": true,
+          "filesystem_initialized": true,
+          "constructor_vtable": true,
+          "no_vm_errors": true,
+          "exact_file": true,
+          "value": true,
+          "filesystem_status": true,
+          "profile_status": true,
+          "open_flag": true
+        }
+      },
+      {
+        "status": "observed",
+        "actual": 0,
+        "process_id": 45220,
+        "phase": "probe",
+        "result_hex": "0000000000000000",
+        "loader_eip": "0x479123",
+        "probe_trap": "0xdd0443",
+        "initialization": {},
+        "resource_unload": {},
+        "native_blobs": [
+          "02000000000000000000000000000000",
+          "00000000000000000000000000000000"
+        ],
+        "native_text": [],
+        "native_words": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          42,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          4754436,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "vm_errors": [],
+        "vm_error_offsets": [],
+        "first_chance_cpp": 0,
+        "name": "buffered-cache-cleanup",
+        "family": "datafile",
+        "steps": [
+          [
+            1,
+            [
+              "D:\\Codex Projects\\scummvm-private\\validation\\thinkquick-20261126\\step3\\storage-repeat\\cleanup.dat"
+            ]
+          ],
+          [
+            13,
+            []
+          ],
+          [
+            3,
+            [
+              "Probe"
+            ]
+          ],
+          [
+            7,
+            [
+              "answer",
+              42
+            ]
+          ],
+          [
+            2,
+            []
+          ]
+        ],
+        "file": "cleanup.dat",
+        "clear_profile_cache": true,
+        "file_hex": "",
+        "fixture_sha256": "42a10d4cd0e4acf16e9acb84571a41c5e9bf439308d8c98c23e3db2bd1fff964",
+        "template_sha256": "167691fab071271cde96bf1e78dfc44a57a31961e007cd237260c957962ad4cd",
+        "contract_checks": {
+          "memory_initialized": true,
+          "filesystem_initialized": true,
+          "constructor_vtable": true,
+          "no_vm_errors": true,
+          "exact_file": true,
+          "value": true,
+          "filesystem_status": true,
+          "profile_status": true,
+          "open_flag": true
+        }
+      },
+      {
+        "status": "observed",
+        "actual": 0,
+        "process_id": 43732,
+        "phase": "probe",
+        "result_hex": "0000000000000000",
+        "loader_eip": "0x479123",
+        "probe_trap": "0xdd05b9",
+        "initialization": {},
+        "resource_unload": {},
+        "native_blobs": [
+          "0d0000000000000040003f0200000000",
+          "00000000000000000000000000000000"
+        ],
+        "native_text": [],
+        "native_words": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          7,
+          9,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          96,
+          0,
+          0,
+          4754424,
+          13,
+          0,
+          0,
+          0,
+          0,
+          0,
+          37683264,
+          2,
+          9,
+          7,
+          0,
+          0
+        ],
+        "vm_errors": [],
+        "vm_error_offsets": [],
+        "first_chance_cpp": 0,
+        "name": "history-unsaved",
+        "family": "aaUserHistory",
+        "steps": [
+          [
+            1,
+            [
+              "D:\\Codex Projects\\scummvm-private\\validation\\thinkquick-20261126\\step3\\storage-repeat\\"
+            ]
+          ],
+          [
+            2,
+            [
+              "Unsaved"
+            ]
+          ],
+          [
+            4,
+            [
+              1
+            ]
+          ],
+          [
+            6,
+            [
+              "DeckA"
+            ]
+          ],
+          [
+            11,
+            [
+              7
+            ]
+          ],
+          [
+            11,
+            [
+              9
+            ]
+          ],
+          [
+            8,
+            []
+          ]
+        ],
+        "file": "Unsaved.dat",
+        "capture_list": true,
+        "file_hex": "",
+        "fixture_sha256": "9b4db7a2b609f920e48522a02ea09385534596fdc2f0e179f08501ef21e89e76",
+        "template_sha256": "3a9d73a1313262d42abc3a68d7a689aea481fae936f7220caa6dcad549aa7496",
+        "contract_checks": {
+          "memory_initialized": true,
+          "filesystem_initialized": true,
+          "constructor_vtable": true,
+          "no_vm_errors": true,
+          "exact_file": true,
+          "value": true,
+          "filesystem_status": true,
+          "profile_status": true,
+          "list_type": true,
+          "list_count": true,
+          "list_elements": true
+        }
+      },
+      {
+        "status": "observed",
+        "actual": 0,
+        "process_id": 32340,
+        "phase": "probe",
+        "result_hex": "0000000000000000",
+        "loader_eip": "0x479123",
+        "probe_trap": "0x6604bc",
+        "initialization": {},
+        "resource_unload": {},
+        "native_blobs": [
+          "0d000000000000004000490200000000",
+          "00000000000000000000000000000000"
+        ],
+        "native_text": [],
+        "native_words": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          96,
+          0,
+          10604,
+          4754424,
+          13,
+          0,
+          0,
+          0,
+          0,
+          0,
+          38338624,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "vm_errors": [],
+        "vm_error_offsets": [],
+        "first_chance_cpp": 0,
+        "name": "history-unsaved-cold",
+        "family": "aaUserHistory",
+        "steps": [
+          [
+            1,
+            [
+              "D:\\Codex Projects\\scummvm-private\\validation\\thinkquick-20261126\\step3\\storage-repeat\\"
+            ]
+          ],
+          [
+            2,
+            [
+              "Unsaved"
+            ]
+          ],
+          [
+            4,
+            [
+              1
+            ]
+          ],
+          [
+            6,
+            [
+              "DeckA"
+            ]
+          ],
+          [
+            9,
+            []
+          ],
+          [
+            8,
+            []
+          ]
+        ],
+        "file": "Unsaved.dat",
+        "capture_list": true,
+        "list_elements": 0,
+        "file_hex": "",
+        "fixture_sha256": "c71b2013b5b51e970cda9eea685f259a3b82b3485396e770123a5d9bc4f1d4ae",
+        "template_sha256": "f12a8c2dddd7a5d0359d994f2e362bf77f787146d1555d4591cbb36bd38a0b43",
+        "contract_checks": {
+          "memory_initialized": true,
+          "filesystem_initialized": true,
+          "constructor_vtable": true,
+          "no_vm_errors": true,
+          "exact_file": true,
+          "value": true,
+          "filesystem_status": true,
+          "profile_status": true,
+          "list_type": true,
+          "list_count": true,
+          "list_elements": true
+        }
+      },
+      {
+        "status": "observed",
+        "actual": 0,
+        "process_id": 6272,
+        "phase": "probe",
+        "result_hex": "0000000000000000",
+        "loader_eip": "0x479123",
+        "probe_trap": "0x63043f",
+        "initialization": {},
+        "resource_unload": {},
+        "native_blobs": [
+          "0700000000000000a01f500204406300",
+          "00000000000000000000000000000000"
+        ],
+        "native_text": [
+          "a\"b",
+          null
+        ],
+        "native_words": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          4754436,
+          7,
+          0,
+          38805408,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "vm_errors": [],
+        "vm_error_offsets": [],
+        "first_chance_cpp": 0,
+        "name": "string-value",
+        "family": "datafile",
+        "steps": [
+          [
+            1,
+            [
+              "D:\\Codex Projects\\scummvm-private\\validation\\thinkquick-20261126\\step3\\storage-repeat\\string.dat"
+            ]
+          ],
+          [
+            3,
+            [
+              "Probe"
+            ]
+          ],
+          [
+            7,
+            [
+              "text",
+              "a\"b"
+            ]
+          ],
+          [
+            15,
+            [
+              "text"
+            ]
+          ]
+        ],
+        "file": "string.dat",
+        "text": true,
+        "file_hex": "5b50726f62655d0d0a746578743d2261222262223b0d0a",
+        "fixture_sha256": "d973862812171f15dea9c44e93d979b6210f94a8f8c93e4f6b8a3c0deb9f9241",
+        "template_sha256": "7502a8babc1b071421b6ed1f46efb6c1fa5d3afc69de5d6dbe93e65c4504e718",
+        "contract_checks": {
+          "memory_initialized": true,
+          "filesystem_initialized": true,
+          "constructor_vtable": true,
+          "no_vm_errors": true,
+          "exact_file": true,
+          "value": true,
+          "filesystem_status": true,
+          "profile_status": true,
+          "open_flag": true,
+          "string_type": true,
+          "string_value": true
+        }
+      },
+      {
+        "status": "observed",
+        "actual": 0,
+        "process_id": 38336,
+        "phase": "probe",
+        "result_hex": "0000000000000000",
+        "loader_eip": "0x479123",
+        "probe_trap": "0x750356",
+        "initialization": {},
+        "resource_unload": {},
+        "native_blobs": [
+          "0700000000000000a01f3c0204407500",
+          "00000000000000000000000000000000"
+        ],
+        "native_text": [
+          "a\"b",
+          null
+        ],
+        "native_words": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          4754436,
+          7,
+          0,
+          37494688,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "vm_errors": [],
+        "vm_error_offsets": [],
+        "first_chance_cpp": 0,
+        "name": "string-value-cold",
+        "family": "datafile",
+        "steps": [
+          [
+            1,
+            [
+              "D:\\Codex Projects\\scummvm-private\\validation\\thinkquick-20261126\\step3\\storage-repeat\\string.dat"
+            ]
+          ],
+          [
+            5,
+            [
+              "Probe"
+            ]
+          ],
+          [
+            15,
+            [
+              "text"
+            ]
+          ]
+        ],
+        "file": "string.dat",
+        "text": true,
+        "file_hex": "5b50726f62655d0d0a746578743d2261222262223b0d0a",
+        "fixture_sha256": "23951b8f26cd163efac7976ae11f493ad35a6c86a2f256247e3912938b82bf50",
+        "template_sha256": "296c561ea5896e82a8719d7baad4bd5801ef31ebcf5783403ecf3c69e717947c",
+        "contract_checks": {
+          "memory_initialized": true,
+          "filesystem_initialized": true,
+          "constructor_vtable": true,
+          "no_vm_errors": true,
+          "exact_file": true,
+          "value": true,
+          "filesystem_status": true,
+          "profile_status": true,
+          "open_flag": true,
+          "string_type": true,
+          "string_value": true
+        }
+      }
+    ]
+  },
+  "counts": {
+    "original_only": 16,
+    "paired_additions": 0
+  }
+}

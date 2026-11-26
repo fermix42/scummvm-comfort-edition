@@ -31,7 +31,9 @@ that can be inferred from the comparison harness.
   Persistence, database/selector graphs and context-dependent methods remain below.
 - [ ] Storage: owned-path write/read, buffered versus write-through/flush behavior,
   close versus fresh-process/cold reopen, read-only and path-failure controls;
-  relevant datafile/history/profile/database/encryption comparisons.
+  relevant datafile/history/profile/database/encryption comparisons. Original
+  datafile/profile/history warm/cold/flush/read-only/failure controls now qualify
+  (16 cases); database/selector graph and applicable CE storage remain open.
 - [ ] OS errors: mapping/suppression/no-callback and retry/cancel loop probes,
   with actual UI evidence where UI reachability is claimed.
 - [ ] Aggregate reproduction, published-source replay and final gate audit.
