@@ -180,6 +180,12 @@ def main():
     parser.add_argument('--game-data', type=Path, required=True)
     parser.add_argument('--root', type=Path, required=True)
     args = parser.parse_args()
+    # The native CLI compares the profile's asset identity to the launch path.
+    # Normalize before writing either so relative invocations are reproducible.
+    args.exe = args.exe.resolve()
+    args.extras = args.extras.resolve()
+    args.game_data = args.game_data.resolve()
+    args.root = args.root.resolve()
     args.root.mkdir(parents=True, exist_ok=False)
     rows = []
     for label in ['arithmetic', 'real-arithmetic', 'literal-string', 'constant', 'property', 'list-index', 'list-literal', 'nested-index', 'logical', 'post-decrement', 'named-arguments', 'code-target', 'padded-named-event', 'return-expression', 'return-void', 'script-link', 'invalid-token', 'assertion-fails']:
