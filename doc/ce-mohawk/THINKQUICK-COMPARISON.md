@@ -187,3 +187,21 @@ expression returns, left operands, saved copies, sibling and nested calls.
 CE rejects 0x66/0x77, so all eleven new paired predicates remain unqualified.
 Nested cross-item callbacks, links/deletion/resources and storage/UI comparisons
 remain open. Step 3 continues; no engine implementation.
+
+
+## Callback/linked-owner/unload checkpoint — November 26, 2026
+
+[Owner/lifetime probe report](THINKQUICK-OWNER-LIFETIME-PROBES.md) and
+[observations](THINKQUICK-OWNER-LIFETIME-OBSERVATIONS.json): nested callback gap
+resolved by authored subentry padding; linked receiver 901/code-owner 902, own
+before donor and unlink behavior directly traced. Eight new paired predicates
+separate order from numeric item-ID conversion. Five additional original-only
+unload control-flow probes use explicit fixture teardown/release callbacks;
+they do not qualify real destructors/cache or add to paired totals.
+Cross-resource code selection, dangling donors and real resource lifetime remain
+open. No engine implementation; step 3 continues.
+
+Fresh 60-case paired replay: **23 matches, 10 mismatches, 27 unqualified**.
+Eight new cases = 3 matches, 3 item-ID-conversion predicate mismatches, 2
+unsupported sender-token cases. CE matches the isolated link ordering/removal
+controls. Five bounded original unload controls are recorded separately.

@@ -112,10 +112,11 @@ def original(args):
     exe=root/'CarmenTQ.exe';shutil.copyfile(args.original,exe);rows=[]
     for name,expr,expected in probes():
         if getattr(args,'symbols_only',False) and name not in symbol_plans():continue
+        if getattr(args,'owners_only',False) and name not in __import__('mohawk_v5_owner_probes').plans():continue
         if getattr(args,'cross_calls_only',False) and name not in __import__('mohawk_v5_cross_call_probes').plans():continue
         if getattr(args,'lifecycle_only',False) and name not in __import__('mohawk_v5_lifecycle_probes').plans():continue
         if getattr(args,'calls_only',False) and not name.startswith('numeric-string') and 'item_fields' not in symbol_plans().get(name,{}):continue
-        case=dict(name=name,expression_hex=expr.hex(),output='double',expected=float(expected),verify_initialized_vm=True,after_loader=True,observe_vm_error=name in symbol_plans(),verify_symbols=name in symbol_plans(),verify_dispatch_context=name.startswith('expression-return'),verify_second_item=bool(symbol_plans().get(name,{}).get('second_item_fields')),verify_reentry=name.startswith('reentrant-'),verify_script_fixture=bool(symbol_plans().get(name,{}).get('item_fields')),allocation_size=0x10000 if symbol_plans().get(name,{}).get('item_fields') else 0x2000)
+        case=dict(name=name,expression_hex=expr.hex(),output='double',expected=float(expected),verify_initialized_vm=True,after_loader=True,observe_vm_error=name in symbol_plans(),verify_symbols=name in symbol_plans(),expected_dispatch=symbol_plans().get(name,{}).get('expected_dispatch'),trace_dispatch=symbol_plans().get(name,{}).get('trace_dispatch',False),verify_dispatch_context=name.startswith(('expression-return','owner-linked')),verify_second_item=bool(symbol_plans().get(name,{}).get('second_item_fields')),verify_reentry=name.startswith('reentrant-'),verify_script_fixture=bool(symbol_plans().get(name,{}).get('item_fields')),allocation_size=0x10000 if symbol_plans().get(name,{}).get('item_fields') else 0x2000)
         try:result=run_case(exe,case,5,stub_factory=stub)
         except (RuntimeError,OSError) as error:result=dict(status='harness_error',error=str(error))
         if not name.startswith(('error-','recovery-')) and result.get('vm_errors'):
@@ -141,6 +142,7 @@ def ce(args):
     root=args.root.resolve();root.mkdir(parents=True,exist_ok=False);rows=[]
     for name,expr,expected in probes():
         if getattr(args,'symbols_only',False) and name not in symbol_plans():continue
+        if getattr(args,'owners_only',False) and name not in __import__('mohawk_v5_owner_probes').plans():continue
         if getattr(args,'cross_calls_only',False) and name not in __import__('mohawk_v5_cross_call_probes').plans():continue
         if getattr(args,'lifecycle_only',False) and name not in __import__('mohawk_v5_lifecycle_probes').plans():continue
         if getattr(args,'calls_only',False) and not name.startswith('numeric-string') and 'item_fields' not in symbol_plans().get(name,{}):continue
@@ -186,5 +188,5 @@ def ce(args):
 
 
 if __name__=='__main__':
-    p=argparse.ArgumentParser(description=__doc__);p.add_argument('mode',choices=['original','ce']);p.add_argument('--root',type=Path,required=True);p.add_argument('--original',type=Path);p.add_argument('--ce',type=Path);p.add_argument('--extras',type=Path);p.add_argument('--game-data',type=Path);p.add_argument('--symbols-only',action='store_true');p.add_argument('--calls-only',action='store_true');p.add_argument('--lifecycle-only',action='store_true');p.add_argument('--cross-calls-only',action='store_true');a=p.parse_args()
+    p=argparse.ArgumentParser(description=__doc__);p.add_argument('mode',choices=['original','ce']);p.add_argument('--root',type=Path,required=True);p.add_argument('--original',type=Path);p.add_argument('--ce',type=Path);p.add_argument('--extras',type=Path);p.add_argument('--game-data',type=Path);p.add_argument('--symbols-only',action='store_true');p.add_argument('--calls-only',action='store_true');p.add_argument('--lifecycle-only',action='store_true');p.add_argument('--cross-calls-only',action='store_true');p.add_argument('--owners-only',action='store_true');a=p.parse_args()
     raise SystemExit((original if a.mode=='original' else ce)(a))

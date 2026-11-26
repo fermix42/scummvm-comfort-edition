@@ -180,6 +180,11 @@ def run_case(exe, case, timeout, stub_factory=None):
                     fmt = {'int32':'<i', 'int16':'<h', 'double':'<d'}[case['output']]
                     actual = struct.unpack_from(fmt, data)[0]
                     initialization = {}
+                    resource_unload = {}
+                    if case.get('observe_resource_unload'):
+                        count=struct.unpack('<I',read(output+64,4))[0]
+                        if count>8:raise RuntimeError('Unload trace overflow')
+                        resource_unload=dict(events=[dict(kind=k,handle=h,head_present=bool(n)) for k,h,n in [struct.unpack('<3I',read(remote+0x3000+12*i,12)) for i in range(count)]],owner_words=list(struct.unpack('<6I',read(remote+0x2000,24))))
                     if case.get('verify_initialized_vm'):
                         heap, constructed = struct.unpack('<II', read(output + 8, 8))
                         vm = remote + 0x1300
@@ -199,6 +204,11 @@ def run_case(exe, case, timeout, stub_factory=None):
                                               value_stack_allocated=True, stack_empty_after_eval=True,
                                               active_code_cleared=True, result_tag=read(0x49a540, 1)[0])
                         if case.get('verify_symbols'):initialization.update(symbol_frame_push_succeeded=True, symbol_frame_restored=True, crt_thread_initialized=True, crt_floating_parser_initialized=struct.unpack('<I',read(0x4992ac,4))[0]==0x47ac44)
+                        if case.get('trace_dispatch'):
+                            count=struct.unpack('<I',read(output+44,4))[0]
+                            if count>32:raise RuntimeError('Dispatch trace overflow')
+                            initialization['dispatch_trace']=[dict(receiver_id=struct.unpack('<H',read(a+0x26,2))[0],code_owner_id=struct.unpack('<H',read(b+0x26,2))[0],offset=o) for a,b,o,_ in [struct.unpack('<4I',read(remote+0x7000+16*i,16)) for i in range(count)]]
+                            if case.get('expected_dispatch') is not None and [(x['receiver_id'],x['code_owner_id']) for x in initialization['dispatch_trace']] != case['expected_dispatch']:raise RuntimeError('Unexpected receiver/code-owner dispatch trace')
                         if case.get('verify_dispatch_context'):
                             if struct.unpack('<H',read(remote+0x2600+0x4c,2))[0]:raise RuntimeError('Expression dispatch-context word not restored')
                             initialization['dispatch_context_word_restored']=True
@@ -217,7 +227,7 @@ def run_case(exe, case, timeout, stub_factory=None):
                     return dict(status='observed', actual=actual, expected=case['expected'],
                                 matches_static_contract=actual == case['expected'],
                                 process_id=pi.pid, phase=phase, result_hex=data.hex(),
-                                loader_eip=hex(original_eip), probe_trap=hex(trap), initialization=initialization, vm_errors=vm_errors, vm_error_offsets=vm_error_offsets, first_chance_cpp=first_chance_cpp)
+                                loader_eip=hex(original_eip), probe_trap=hex(trap), initialization=initialization, resource_unload=resource_unload, vm_errors=vm_errors, vm_error_offsets=vm_error_offsets, first_chance_cpp=first_chance_cpp)
                 if phase == 'loader' and code == 0x4000001f and case.get('after_loader'):
                     data_image = exe.read_bytes(); pe_offset = struct.unpack_from('<I', data_image, 0x3c)[0]
                     entry = 0x400000 + struct.unpack_from('<I', data_image, pe_offset + 40)[0]

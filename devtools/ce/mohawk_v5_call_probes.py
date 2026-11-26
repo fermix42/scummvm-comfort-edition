@@ -40,6 +40,8 @@ def plans():
     out.update(lifecycle_plans())
     from mohawk_v5_cross_call_probes import plans as cross_plans
     out.update(cross_plans())
+    from mohawk_v5_owner_probes import plans as owner_plans
+    out.update(owner_plans())
     return out
 
 
@@ -50,12 +52,16 @@ def stub(remote,write,output,case,plan):
     write(fields,plan['item_fields']);write(header,struct.pack('>4h4H',0,0,1,1,3,0,901,0)+b'Probe\0')
     if plan.get('second_item_fields'):
         write(remote+0x6000,plan['second_item_fields']);write(remote+0x6800,struct.pack('>4h4H',0,0,1,1,3,0,902,0)+b'Target\0')
-    if case['name'].startswith('expression-return'):
+    if case['name'].startswith(('expression-return','owner-linked')):
         write(0x49a738,le(remote+0x2600))  # Fixture supplies only the observed dispatch-context word +0x4c.
     write(page+0x1c,le(vm));write(0x49a678,le(page))
     # Fetch-only bridge: same receiver, same generated BCOD, same offset; the
     # original VM, item dispatch, parsers, argument/default/frame code still run.
     bridge_code=b'\xff\x05'+le(output+28)+b'\xff\x74\x24\x04'+b'\x68'+le(data)+b'\x51\xb9'+le(vm)+b'\xb8'+le(0x40375e)+b'\xff\xd0\xc2\x04\x00'
+    if plan.get('trace_dispatch'):
+        # Bounded fixtures: record receiver, code owner and requested offset.
+        trace=b'\x50\x52\xa1'+le(output+44)+b'\xc1\xe0\x04\x05'+le(remote+0x7000)+b'\x89\x08\x8b\x51\x08\x89\x50\x04\x8b\x54\x24\x0c\x89\x50\x08\xff\x05'+le(output+44)+b'\x5a\x58'
+        bridge_code=trace+bridge_code
     write(bridge,bridge_code);write(0x41d38d,b'\xe9'+le(bridge-0x41d38d-5))
     if case['name'].startswith('reentrant-'):
         # Count the original already-active branch, then execute displaced bytes.

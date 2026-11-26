@@ -93,3 +93,12 @@ Fresh 52-case replay: **20 matches, 7 mismatches, 25 unqualified**, zero
 incomparable programs; overall fail. Eleven comparator guards and eight
 inventory tests pass. All 21 recorded engine-source files, 346 CE Test files
 and the baseline executable match preservation hashes.
+
+
+## Subsequent callback resolution
+
+The next [owner/lifetime checkpoint](THINKQUICK-OWNER-LIFETIME-PROBES.md) resolves
+the nested callback diagnostic: the generated named-call subentry needed word
+padding before its following entry. Both back-handler and resumed outer-handler
+contexts now execute with directly checked traces. Earlier receipts remain
+historical; real resource lifetime and deletion qualification remain open.
