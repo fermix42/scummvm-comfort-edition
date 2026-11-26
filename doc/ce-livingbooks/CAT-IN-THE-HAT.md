@@ -18,7 +18,10 @@ The inherited CE issue #59 can be closed for its implemented startup/support
 fixes and this accepted Windows playthrough. Full original-interpreter
 visual/audio comparison, exhaustive random/alternate-branch coverage, the Mac
 edition and the unavailable Tortoise v3 regression are not claimed by that
-acceptance. The detection table's existing unstable flag is unchanged.
+acceptance. Following the owner's completed playtests and explicit request,
+the Windows detection entry no longer carries `ADGF_UNSTABLE`. The unqualified
+Macintosh entry retains that flag. Earlier flag-retention statements below
+describe historical checkpoints.
 
 The final CH13 background item (`SND1`, resource 1047) uses the engine-wide
 ambient handling, but its authored interaction scripts explicitly stop it at

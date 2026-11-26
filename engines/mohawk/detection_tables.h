@@ -3334,7 +3334,7 @@ static const MohawkGameDescription gameDescriptions[] = {
 			AD_ENTRY1("Outline", "0b5ab6dd7c08cf23066efa709fa48bbc"),
 			Common::EN_ANY,
 			Common::kPlatformWindows,
-			ADGF_UNSTABLE,
+			ADGF_NO_FLAGS,
 			GUIO1(GUIO_NOASPECT)
 		},
 		GType_LIVINGBOOKSV3,
