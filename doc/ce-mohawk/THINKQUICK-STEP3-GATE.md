@@ -19,10 +19,10 @@ that can be inferred from the comparison harness.
 - [x] Disk-backed archive/cache: byte-exact cold read, release/reload, close/reopen,
   malformed and missing-resource controls; paired language predicates. Capture
   that original scheduling is forced through its existing synchronous fallback.
-- [ ] Cover remaining representative VM/packed/operator cases and tie prior leaf
-  observations to CE outcomes or precise unsupported boundaries. Geometry and
-  IDIV/remainder/typed-command boundaries now have30 additional pairs; remaining
-  list/reference, numeric mask and key-consumer coverage stays in this queue.
+- [x] Representative VM/packed/operator/list/reference/key and default-mask
+  floating-point probes, including typed errors and actual processor faults;
+  original leaf observations retain separate unsupported/event-input boundaries.
+  CE mismatches/unsupported diagnostics stay recorded rather than implemented.
 - [x] Bounded pressure-collector cache eviction/retain/lock/discardability controls;
   exact cold reload. Dirty writeback and concurrency remain outside this claim.
 - [ ] Lifecycle: complete paired resource/teardown observations where available;

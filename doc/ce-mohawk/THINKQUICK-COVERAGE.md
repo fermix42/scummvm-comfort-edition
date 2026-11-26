@@ -458,3 +458,13 @@ sequences driving attempts. See [report](THINKQUICK-RETRY-IO-PROBES.md) and
 [receipts](THINKQUICK-RETRY-IO-OBSERVATIONS.json). Fixture raw failures and real
 OS I/O remain distinct. Paired totals stay92(36matches,18mismatches,38unqualified).
 Step3 remains active; lifecycle hook reentrancy and full remaining audit preserved.
+
+
+### List/reference/key/default-mask comparison checkpoint
+
+33 additional identified pairs:12matches,16mismatches,5unqualified. Original
+index reads/writes and wrapping, value copy, fractional unary/compound, key
+consumers and measured x87-mask NaN predicates have repeated evidence. See
+[report](THINKQUICK-VM-EDGE-PROBES.md) and [receipts](THINKQUICK-VM-EDGE-OBSERVATIONS.json).
+Cumulative125pairs:48matches,34mismatches,43unqualified across separate cohorts;
+not a monolithic replay. Lifecycle/database/CEstorage/final audit remain open.
