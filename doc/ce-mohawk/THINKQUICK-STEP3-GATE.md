@@ -27,7 +27,8 @@ that can be inferred from the comparison harness.
   exact cold reload. Dirty writeback and concurrency remain outside this claim.
 - [ ] Lifecycle: complete paired resource/teardown observations where available;
   distinguish mutation during callbacks, queued deletion, cascades and code-owner
-  lifetime from already measured normal callback/link cases.
+  lifetime from already measured normal callback/link cases; retain modal
+  window-hook reentrancy as a separate controlled-context lifecycle question.
 - [x] Nine native component families: constructor/vtable, common/default/negative
   dispatch and representative state/value calls; separate CE constructor boundaries.
   Persistence, database/selector graphs and context-dependent methods remain below.
@@ -36,11 +37,10 @@ that can be inferred from the comparison harness.
   relevant datafile/history/profile/database/encryption comparisons. Original
   datafile/profile/history warm/cold/flush/read-only/failure controls now qualify
   (16 cases); database/selector graph and applicable CE storage remain open.
-- [ ] OS errors: mapping/suppression/no-callback and retry/cancel loop probes,
-  with actual UI evidence where UI reachability is claimed.37 original mapping,
-  no-callback/policy/suppression/category controls qualify; operation-loop and
-  real helper/category1/category3 Retry/Cancel branches now qualify (six cases).
-  Actual native-operation retry, short-I/O and hook reentrancy remain open.
+- [x] Bounded OS-error mapping/policy/suppression; original retry loop with
+  controlled operation failures; real helper/application Retry/Cancel and integrated
+  retry decisions; real owned-file short/EOF/exact read/write controls. No physical
+  failure, partial-successful-write or full-startup claim.
 - [ ] Aggregate reproduction, published-source replay and final gate audit.
 
 A documented unsupported CE operation is a comparison result, not a reason to

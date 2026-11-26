@@ -299,3 +299,13 @@ original-side cases and fault-thread attribution replay successfully. See
 [report and ownership sources](THINKQUICK-OS-UI-PROBES.md) and
 [receipts](THINKQUICK-OS-UI-OBSERVATIONS.json). No new CE pairs or operation-loop
 claim; full Step3 audit remains active before any Step4 implementation.
+
+
+### Original retry/I/O/UI integration checkpoint
+
+18 original-only cases qualify twice:8 controlled-operation retries,7 real
+owned-file exact/short/EOF/read-only-handle cases,3 actual application dialog
+sequences driving attempts. See [report](THINKQUICK-RETRY-IO-PROBES.md) and
+[receipts](THINKQUICK-RETRY-IO-OBSERVATIONS.json). Fixture raw failures and real
+OS I/O remain distinct. Paired totals stay92(36matches,18mismatches,38unqualified).
+Step3 remains active; lifecycle hook reentrancy and full remaining audit preserved.
