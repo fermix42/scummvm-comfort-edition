@@ -26,8 +26,9 @@ that can be inferred from the comparison harness.
 - [ ] Lifecycle: complete paired resource/teardown observations where available;
   distinguish mutation during callbacks, queued deletion, cascades and code-owner
   lifetime from already measured normal callback/link cases.
-- [ ] Native components: representative normal/default/negative calls for the
-  nine recovered families, with exact original dispatch and constructor evidence.
+- [x] Nine native component families: constructor/vtable, common/default/negative
+  dispatch and representative state/value calls; separate CE constructor boundaries.
+  Persistence, database/selector graphs and context-dependent methods remain below.
 - [ ] Storage: owned-path write/read, buffered versus write-through/flush behavior,
   close versus fresh-process/cold reopen, read-only and path-failure controls;
   relevant datafile/history/profile/database/encryption comparisons.

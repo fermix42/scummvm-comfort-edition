@@ -246,3 +246,13 @@ and [exact-source observations](THINKQUICK-EVICTION-OBSERVATIONS.json).
 Seven existing native cache/destructor/cross-resource controls pass with the current
 transport. No new paired CE claim; the 62-case cumulative totals remain 25 matches,
 10 mismatches and 27 unqualified. Step 3 remains active; stop before Step 4.
+
+
+### Native component checkpoint
+
+49 direct original native cases qualify twice across all nine component families;
+nine separate CE constructor cases establish two accepted types and seven exact
+unsupported-type diagnostics. See [scope and reproduction](THINKQUICK-COMPONENT-PROBES.md)
+and [observations](THINKQUICK-COMPONENT-OBSERVATIONS.json). These are separate suites,
+not 49 paired equivalence claims. Paired totals remain unchanged. Storage and
+context-dependent component behavior remain open in the full Step-3 audit.
