@@ -108,6 +108,8 @@ def windows_api():
         'TerminateProcess': ([W.HANDLE, W.UINT], W.BOOL),
         'OpenThread': ([W.DWORD, W.BOOL, W.DWORD], W.HANDLE),
         'CloseHandle': ([W.HANDLE], W.BOOL),
+        'CreateEventW': ([C.c_void_p, W.BOOL, W.BOOL, W.LPCWSTR], W.HANDLE),
+        'GetHandleInformation': ([W.HANDLE, C.POINTER(W.DWORD)], W.BOOL),
         'FlushInstructionCache': ([W.HANDLE, C.c_void_p, C.c_size_t], W.BOOL),
     }
     for name, (args, result) in signatures.items():
@@ -128,6 +130,7 @@ def run_case(exe, case, timeout, stub_factory=None):
     checked(k.CreateProcessW(str(exe), C.create_unicode_buffer('"' + str(exe) + '"'),
                             None, None, False, 2, None, str(exe.parent), C.byref(startup), C.byref(pi)))
     vm_errors = []; vm_error_offsets = []; first_chance_cpp = 0; native_threads=[]
+    guard_handles=[]; thread_exits=0
     phase = 'loader'; start = time.monotonic(); trap = None
     def read(address, size):
         b = C.create_string_buffer(size); n = C.c_size_t()
@@ -151,8 +154,14 @@ def run_case(exe, case, timeout, stub_factory=None):
                 if file_handle: k.CloseHandle(file_handle)
             if event.code == 2:
                 if case.get('observe_native_words'):native_threads.append(dict(thread_id=event.tid,start_address=hex(struct.unpack_from('<Q',raw,16)[0])))
-                th=struct.unpack_from('<Q',raw)[0]
-                if th:k.CloseHandle(th)
+                # ContinueDebugEvent on EXIT_THREAD closes this debugger-owned
+                # handle. Closing it here lets that later automatic close hit
+                # an unrelated reused host handle (notably UI-watcher events).
+                if case.get('verify_debug_handle_lifetime'):
+                    host=checked(k.CreateEventW(None,True,False,None))
+                    guard_handles.append(host)
+                    if host==struct.unpack_from('<Q',raw)[0]:raise RuntimeError('Reused live debugger thread handle')
+            if event.code == 4:thread_exits+=1
             if event.code == 3:
                 image_base = struct.unpack_from('<Q', raw, 24)[0]
                 if image_base != 0x400000: raise RuntimeError('Unexpected image base')
@@ -242,6 +251,12 @@ def run_case(exe, case, timeout, stub_factory=None):
                             item, page = remote+0x2400,remote+0x2000
                             if empty!=1 or not hits or struct.unpack('<H',read(item+0xc,2))[0] or struct.unpack('<I',read(item+8,4))[0]!=item or struct.unpack('<I',read(page+0x6c,4))[0]:raise RuntimeError('Script-call context not restored: '+str(dict(empty=empty,hits=hits,active=struct.unpack('<H',read(item+0xc,2))[0],owner=hex(struct.unpack('<I',read(item+8,4))[0]),errors=vm_errors,sender=hex(struct.unpack('<I',read(page+0x6c,4))[0]),actual=actual)))
                             initialization.update(argument_stack_empty=True,item_context_restored=True,sender_restored=True,code_fetch_bridge_calls=hits)
+                    if case.get('verify_debug_handle_lifetime'):
+                        for host in guard_handles:
+                            flags=W.DWORD();checked(k.GetHandleInformation(host,C.byref(flags)))
+                        initialization['host_handles_survived_thread_exits']=bool(guard_handles) and thread_exits>0
+                        initialization['host_handle_count']=len(guard_handles)
+                        initialization['thread_exit_count']=thread_exits
                     return dict(status='observed', actual=actual, expected=case['expected'],
                                 matches_static_contract=actual == case['expected'],
                                 process_id=pi.pid, phase=phase, result_hex=data.hex(),
@@ -311,6 +326,9 @@ def run_case(exe, case, timeout, stub_factory=None):
             k.ContinueDebugEvent(event.pid, event.tid, 0x10002)
             if event.code == 5: break
         k.CloseHandle(pi.thread); k.CloseHandle(pi.process)
+        for host in guard_handles:
+            flags=W.DWORD()
+            if k.GetHandleInformation(host,C.byref(flags)):k.CloseHandle(host)
 
 
 def main():

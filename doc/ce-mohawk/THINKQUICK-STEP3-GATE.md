@@ -39,7 +39,8 @@ that can be inferred from the comparison harness.
 - [ ] OS errors: mapping/suppression/no-callback and retry/cancel loop probes,
   with actual UI evidence where UI reachability is claimed.37 original mapping,
   no-callback/policy/suppression/category controls qualify; operation-loop and
-  real dialog branches remain unqualified and must not be inferred.
+  real helper/category1/category3 Retry/Cancel branches now qualify (six cases).
+  Actual native-operation retry, short-I/O and hook reentrancy remain open.
 - [ ] Aggregate reproduction, published-source replay and final gate audit.
 
 A documented unsupported CE operation is a comparison result, not a reason to

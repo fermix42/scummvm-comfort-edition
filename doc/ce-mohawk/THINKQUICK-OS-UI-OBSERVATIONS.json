@@ -1,0 +1,1324 @@
+{
+  "original": {
+    "kind": "Real original Retry/Cancel dialogs, scoped only to the copied probe process.",
+    "exe_sha256": "219d81ea3d91b31da406e6891d01ba6ad12005e77b4d9f8f83930161dbfc9966",
+    "dependencies": {
+      "probe_mohawk_v5_os_ui.py": "c7487c4f2dad3c3ce0d039b221e0fbf63b471203ab666f5fe9f6a8a96e2bd4d7",
+      "probe_mohawk_v5_original.py": "c5cd2921ba46c16923da5186b4b1cb198593ebe1ebf6bdf3c4d8d1bab627f946",
+      "mohawk_v5_native_io.py": "b216c2ff221eab2ddd33ffeba821487548e7ae3e06cd23f3b74fdc141892d13e",
+      "probe_mohawk_v5_native_resources.py": "e55d8772ade9550cab065b3f01ac7220c6bee7a8d98bf5dbabb1250a1713bbc5"
+    },
+    "results": [
+      {
+        "status": "observed",
+        "actual": 8,
+        "process_id": 6152,
+        "phase": "probe",
+        "result_hex": "0800000000000000",
+        "loader_eip": "0x479123",
+        "probe_trap": "0x6b00ea",
+        "initialization": {},
+        "resource_unload": {},
+        "native_blobs": [],
+        "native_text": [],
+        "native_words": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          8,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "vm_errors": [],
+        "vm_error_offsets": [],
+        "first_chance_cpp": 0,
+        "name": "helper-retry",
+        "ui_events": [
+          {
+            "pid": 6152,
+            "window": 8719000,
+            "title": "ThinkQuick original comparison probe",
+            "children": [
+              {
+                "text": "&Retry"
+              },
+              {
+                "text": "Cancel"
+              },
+              {
+                "text": ""
+              },
+              {
+                "text": "Controlled original Retry/Cancel comparison probe"
+              }
+            ],
+            "button_id": 4,
+            "button_text": "&Retry",
+            "screenshot": {
+              "width": 360,
+              "height": 149,
+              "sha256": "cac7dc1c54299786d594670cf1621ae61775eab5a99404849eed9ccf7bd0941c"
+            }
+          }
+        ],
+        "contract_checks": {
+          "value": true,
+          "memory_initialized": true,
+          "filesystem_initialized": true,
+          "no_vm_error": true,
+          "ui_captured": true,
+          "title": true,
+          "button_id": true,
+          "button_text": true,
+          "retry_cancel_buttons": true,
+          "screenshot": true,
+          "stored_internal_result": true
+        }
+      },
+      {
+        "status": "observed",
+        "actual": 1,
+        "process_id": 21980,
+        "phase": "probe",
+        "result_hex": "0100000000000000",
+        "loader_eip": "0x479123",
+        "probe_trap": "0xdd00ea",
+        "initialization": {},
+        "resource_unload": {},
+        "native_blobs": [],
+        "native_text": [],
+        "native_words": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "vm_errors": [],
+        "vm_error_offsets": [],
+        "first_chance_cpp": 0,
+        "name": "helper-cancel",
+        "ui_events": [
+          {
+            "pid": 21980,
+            "window": 8784536,
+            "title": "ThinkQuick original comparison probe",
+            "children": [
+              {
+                "text": "&Retry"
+              },
+              {
+                "text": "Cancel"
+              },
+              {
+                "text": ""
+              },
+              {
+                "text": "Controlled original Retry/Cancel comparison probe"
+              }
+            ],
+            "button_id": 2,
+            "button_text": "Cancel",
+            "screenshot": {
+              "width": 360,
+              "height": 149,
+              "sha256": "827e242dfb96dd97fa8dfa5bd057c43b5b7c6b5055d2671ccdf1af617354fbe9"
+            }
+          }
+        ],
+        "contract_checks": {
+          "value": true,
+          "memory_initialized": true,
+          "filesystem_initialized": true,
+          "no_vm_error": true,
+          "ui_captured": true,
+          "title": true,
+          "button_id": true,
+          "button_text": true,
+          "retry_cancel_buttons": true,
+          "screenshot": true,
+          "stored_internal_result": true
+        }
+      },
+      {
+        "status": "observed",
+        "actual": 1,
+        "process_id": 10676,
+        "phase": "probe",
+        "result_hex": "0100000000000000",
+        "loader_eip": "0x479123",
+        "probe_trap": "0xdd00db",
+        "initialization": {},
+        "resource_unload": {},
+        "native_blobs": [],
+        "native_text": [],
+        "native_words": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "vm_errors": [],
+        "vm_error_offsets": [],
+        "first_chance_cpp": 0,
+        "name": "application-retry",
+        "ui_events": [
+          {
+            "pid": 10676,
+            "window": 8850072,
+            "title": "ThinkQuick original comparison probe",
+            "children": [
+              {
+                "text": "&Retry"
+              },
+              {
+                "text": "Cancel"
+              },
+              {
+                "text": ""
+              },
+              {
+                "text": "General file system error:\n\nControlled original Retry/Cancel comparison probe"
+              }
+            ],
+            "button_id": 4,
+            "button_text": "&Retry",
+            "screenshot": {
+              "width": 360,
+              "height": 156,
+              "sha256": "99aa970760c7246c90b70db6c109398a955dbd7ff6f78a030d236f9a98d02a9a"
+            }
+          }
+        ],
+        "contract_checks": {
+          "value": true,
+          "memory_initialized": true,
+          "filesystem_initialized": true,
+          "no_vm_error": true,
+          "ui_captured": true,
+          "title": true,
+          "button_id": true,
+          "button_text": true,
+          "retry_cancel_buttons": true,
+          "screenshot": true
+        }
+      },
+      {
+        "status": "observed",
+        "actual": 0,
+        "process_id": 18484,
+        "phase": "probe",
+        "result_hex": "0000000000000000",
+        "loader_eip": "0x479123",
+        "probe_trap": "0x6300db",
+        "initialization": {},
+        "resource_unload": {},
+        "native_blobs": [],
+        "native_text": [],
+        "native_words": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "vm_errors": [],
+        "vm_error_offsets": [],
+        "first_chance_cpp": 0,
+        "name": "application-cancel",
+        "ui_events": [
+          {
+            "pid": 18484,
+            "window": 8915608,
+            "title": "ThinkQuick original comparison probe",
+            "children": [
+              {
+                "text": "&Retry"
+              },
+              {
+                "text": "Cancel"
+              },
+              {
+                "text": ""
+              },
+              {
+                "text": "General file system error:\n\nControlled original Retry/Cancel comparison probe"
+              }
+            ],
+            "button_id": 2,
+            "button_text": "Cancel",
+            "screenshot": {
+              "width": 360,
+              "height": 156,
+              "sha256": "99aa970760c7246c90b70db6c109398a955dbd7ff6f78a030d236f9a98d02a9a"
+            }
+          }
+        ],
+        "contract_checks": {
+          "value": true,
+          "memory_initialized": true,
+          "filesystem_initialized": true,
+          "no_vm_error": true,
+          "ui_captured": true,
+          "title": true,
+          "button_id": true,
+          "button_text": true,
+          "retry_cancel_buttons": true,
+          "screenshot": true
+        }
+      },
+      {
+        "status": "observed",
+        "actual": 1,
+        "process_id": 34164,
+        "phase": "probe",
+        "result_hex": "0100000000000000",
+        "loader_eip": "0x479123",
+        "probe_trap": "0xdd00db",
+        "initialization": {},
+        "resource_unload": {},
+        "native_blobs": [],
+        "native_text": [],
+        "native_words": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "vm_errors": [],
+        "vm_error_offsets": [],
+        "first_chance_cpp": 0,
+        "name": "application-category3-retry",
+        "ui_events": [
+          {
+            "pid": 34164,
+            "window": 8981144,
+            "title": "ThinkQuick original comparison probe",
+            "children": [
+              {
+                "text": "&Retry"
+              },
+              {
+                "text": "Cancel"
+              },
+              {
+                "text": ""
+              },
+              {
+                "text": "Volume not present.\n\nPlease insert the volume 'CarmenTQC' in drive '?' and retry."
+              }
+            ],
+            "button_id": 4,
+            "button_text": "&Retry",
+            "screenshot": {
+              "width": 398,
+              "height": 156,
+              "sha256": "7d9a839451e3226854df44d889f8a76e9c0369a645441c0080ef5d004c7af763"
+            }
+          }
+        ],
+        "contract_checks": {
+          "value": true,
+          "memory_initialized": true,
+          "filesystem_initialized": true,
+          "no_vm_error": true,
+          "ui_captured": true,
+          "title": true,
+          "button_id": true,
+          "button_text": true,
+          "retry_cancel_buttons": true,
+          "screenshot": true
+        }
+      },
+      {
+        "status": "observed",
+        "actual": 0,
+        "process_id": 46916,
+        "phase": "probe",
+        "result_hex": "0000000000000000",
+        "loader_eip": "0x479123",
+        "probe_trap": "0x7d00db",
+        "initialization": {},
+        "resource_unload": {},
+        "native_blobs": [],
+        "native_text": [],
+        "native_words": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "vm_errors": [],
+        "vm_error_offsets": [],
+        "first_chance_cpp": 0,
+        "name": "application-category3-cancel",
+        "ui_events": [
+          {
+            "pid": 46916,
+            "window": 9046680,
+            "title": "ThinkQuick original comparison probe",
+            "children": [
+              {
+                "text": "&Retry"
+              },
+              {
+                "text": "Cancel"
+              },
+              {
+                "text": ""
+              },
+              {
+                "text": "Volume not present.\n\nPlease insert the volume 'CarmenTQC' in drive '?' and retry."
+              }
+            ],
+            "button_id": 2,
+            "button_text": "Cancel",
+            "screenshot": {
+              "width": 398,
+              "height": 156,
+              "sha256": "7d9a839451e3226854df44d889f8a76e9c0369a645441c0080ef5d004c7af763"
+            }
+          }
+        ],
+        "contract_checks": {
+          "value": true,
+          "memory_initialized": true,
+          "filesystem_initialized": true,
+          "no_vm_error": true,
+          "ui_captured": true,
+          "title": true,
+          "button_id": true,
+          "button_text": true,
+          "retry_cancel_buttons": true,
+          "screenshot": true
+        }
+      }
+    ]
+  },
+  "repeat": {
+    "kind": "Real original Retry/Cancel dialogs, scoped only to the copied probe process.",
+    "exe_sha256": "219d81ea3d91b31da406e6891d01ba6ad12005e77b4d9f8f83930161dbfc9966",
+    "dependencies": {
+      "probe_mohawk_v5_os_ui.py": "c7487c4f2dad3c3ce0d039b221e0fbf63b471203ab666f5fe9f6a8a96e2bd4d7",
+      "probe_mohawk_v5_original.py": "c5cd2921ba46c16923da5186b4b1cb198593ebe1ebf6bdf3c4d8d1bab627f946",
+      "mohawk_v5_native_io.py": "b216c2ff221eab2ddd33ffeba821487548e7ae3e06cd23f3b74fdc141892d13e",
+      "probe_mohawk_v5_native_resources.py": "e55d8772ade9550cab065b3f01ac7220c6bee7a8d98bf5dbabb1250a1713bbc5"
+    },
+    "results": [
+      {
+        "status": "observed",
+        "actual": 8,
+        "process_id": 46764,
+        "phase": "probe",
+        "result_hex": "0800000000000000",
+        "loader_eip": "0x479123",
+        "probe_trap": "0xdd00ea",
+        "initialization": {},
+        "resource_unload": {},
+        "native_blobs": [],
+        "native_text": [],
+        "native_words": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          8,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "vm_errors": [],
+        "vm_error_offsets": [],
+        "first_chance_cpp": 0,
+        "name": "helper-retry",
+        "ui_events": [
+          {
+            "pid": 46764,
+            "window": 9112216,
+            "title": "ThinkQuick original comparison probe",
+            "children": [
+              {
+                "text": "&Retry"
+              },
+              {
+                "text": "Cancel"
+              },
+              {
+                "text": ""
+              },
+              {
+                "text": "Controlled original Retry/Cancel comparison probe"
+              }
+            ],
+            "button_id": 4,
+            "button_text": "&Retry",
+            "screenshot": {
+              "width": 360,
+              "height": 149,
+              "sha256": "cac7dc1c54299786d594670cf1621ae61775eab5a99404849eed9ccf7bd0941c"
+            }
+          }
+        ],
+        "contract_checks": {
+          "value": true,
+          "memory_initialized": true,
+          "filesystem_initialized": true,
+          "no_vm_error": true,
+          "ui_captured": true,
+          "title": true,
+          "button_id": true,
+          "button_text": true,
+          "retry_cancel_buttons": true,
+          "screenshot": true,
+          "stored_internal_result": true
+        }
+      },
+      {
+        "status": "observed",
+        "actual": 1,
+        "process_id": 17216,
+        "phase": "probe",
+        "result_hex": "0100000000000000",
+        "loader_eip": "0x479123",
+        "probe_trap": "0x7d00ea",
+        "initialization": {},
+        "resource_unload": {},
+        "native_blobs": [],
+        "native_text": [],
+        "native_words": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "vm_errors": [],
+        "vm_error_offsets": [],
+        "first_chance_cpp": 0,
+        "name": "helper-cancel",
+        "ui_events": [
+          {
+            "pid": 17216,
+            "window": 9177752,
+            "title": "ThinkQuick original comparison probe",
+            "children": [
+              {
+                "text": "&Retry"
+              },
+              {
+                "text": "Cancel"
+              },
+              {
+                "text": ""
+              },
+              {
+                "text": "Controlled original Retry/Cancel comparison probe"
+              }
+            ],
+            "button_id": 2,
+            "button_text": "Cancel",
+            "screenshot": {
+              "width": 360,
+              "height": 149,
+              "sha256": "827e242dfb96dd97fa8dfa5bd057c43b5b7c6b5055d2671ccdf1af617354fbe9"
+            }
+          }
+        ],
+        "contract_checks": {
+          "value": true,
+          "memory_initialized": true,
+          "filesystem_initialized": true,
+          "no_vm_error": true,
+          "ui_captured": true,
+          "title": true,
+          "button_id": true,
+          "button_text": true,
+          "retry_cancel_buttons": true,
+          "screenshot": true,
+          "stored_internal_result": true
+        }
+      },
+      {
+        "status": "observed",
+        "actual": 1,
+        "process_id": 39196,
+        "phase": "probe",
+        "result_hex": "0100000000000000",
+        "loader_eip": "0x479123",
+        "probe_trap": "0x6200db",
+        "initialization": {},
+        "resource_unload": {},
+        "native_blobs": [],
+        "native_text": [],
+        "native_words": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "vm_errors": [],
+        "vm_error_offsets": [],
+        "first_chance_cpp": 0,
+        "name": "application-retry",
+        "ui_events": [
+          {
+            "pid": 39196,
+            "window": 9243288,
+            "title": "ThinkQuick original comparison probe",
+            "children": [
+              {
+                "text": "&Retry"
+              },
+              {
+                "text": "Cancel"
+              },
+              {
+                "text": ""
+              },
+              {
+                "text": "General file system error:\n\nControlled original Retry/Cancel comparison probe"
+              }
+            ],
+            "button_id": 4,
+            "button_text": "&Retry",
+            "screenshot": {
+              "width": 360,
+              "height": 156,
+              "sha256": "99aa970760c7246c90b70db6c109398a955dbd7ff6f78a030d236f9a98d02a9a"
+            }
+          }
+        ],
+        "contract_checks": {
+          "value": true,
+          "memory_initialized": true,
+          "filesystem_initialized": true,
+          "no_vm_error": true,
+          "ui_captured": true,
+          "title": true,
+          "button_id": true,
+          "button_text": true,
+          "retry_cancel_buttons": true,
+          "screenshot": true
+        }
+      },
+      {
+        "status": "observed",
+        "actual": 0,
+        "process_id": 14260,
+        "phase": "probe",
+        "result_hex": "0000000000000000",
+        "loader_eip": "0x479123",
+        "probe_trap": "0xf600db",
+        "initialization": {},
+        "resource_unload": {},
+        "native_blobs": [],
+        "native_text": [],
+        "native_words": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "vm_errors": [],
+        "vm_error_offsets": [],
+        "first_chance_cpp": 0,
+        "name": "application-cancel",
+        "ui_events": [
+          {
+            "pid": 14260,
+            "window": 9308824,
+            "title": "ThinkQuick original comparison probe",
+            "children": [
+              {
+                "text": "&Retry"
+              },
+              {
+                "text": "Cancel"
+              },
+              {
+                "text": ""
+              },
+              {
+                "text": "General file system error:\n\nControlled original Retry/Cancel comparison probe"
+              }
+            ],
+            "button_id": 2,
+            "button_text": "Cancel",
+            "screenshot": {
+              "width": 360,
+              "height": 156,
+              "sha256": "6ceaaa806687985314af6dbfb10b05ed729e7d12e59491edfa8c4c899f639f1f"
+            }
+          }
+        ],
+        "contract_checks": {
+          "value": true,
+          "memory_initialized": true,
+          "filesystem_initialized": true,
+          "no_vm_error": true,
+          "ui_captured": true,
+          "title": true,
+          "button_id": true,
+          "button_text": true,
+          "retry_cancel_buttons": true,
+          "screenshot": true
+        }
+      },
+      {
+        "status": "observed",
+        "actual": 1,
+        "process_id": 21416,
+        "phase": "probe",
+        "result_hex": "0100000000000000",
+        "loader_eip": "0x479123",
+        "probe_trap": "0x6700db",
+        "initialization": {},
+        "resource_unload": {},
+        "native_blobs": [],
+        "native_text": [],
+        "native_words": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "vm_errors": [],
+        "vm_error_offsets": [],
+        "first_chance_cpp": 0,
+        "name": "application-category3-retry",
+        "ui_events": [
+          {
+            "pid": 21416,
+            "window": 9374360,
+            "title": "ThinkQuick original comparison probe",
+            "children": [
+              {
+                "text": "&Retry"
+              },
+              {
+                "text": "Cancel"
+              },
+              {
+                "text": ""
+              },
+              {
+                "text": "Volume not present.\n\nPlease insert the volume 'CarmenTQC' in drive '?' and retry."
+              }
+            ],
+            "button_id": 4,
+            "button_text": "&Retry",
+            "screenshot": {
+              "width": 398,
+              "height": 156,
+              "sha256": "b8851081280a019d9205fb8449b39f5ccda6a779283a304b474bf9451ff99a4a"
+            }
+          }
+        ],
+        "contract_checks": {
+          "value": true,
+          "memory_initialized": true,
+          "filesystem_initialized": true,
+          "no_vm_error": true,
+          "ui_captured": true,
+          "title": true,
+          "button_id": true,
+          "button_text": true,
+          "retry_cancel_buttons": true,
+          "screenshot": true
+        }
+      },
+      {
+        "status": "observed",
+        "actual": 0,
+        "process_id": 21448,
+        "phase": "probe",
+        "result_hex": "0000000000000000",
+        "loader_eip": "0x479123",
+        "probe_trap": "0x7d00db",
+        "initialization": {},
+        "resource_unload": {},
+        "native_blobs": [],
+        "native_text": [],
+        "native_words": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "vm_errors": [],
+        "vm_error_offsets": [],
+        "first_chance_cpp": 0,
+        "name": "application-category3-cancel",
+        "ui_events": [
+          {
+            "pid": 21448,
+            "window": 9439896,
+            "title": "ThinkQuick original comparison probe",
+            "children": [
+              {
+                "text": "&Retry"
+              },
+              {
+                "text": "Cancel"
+              },
+              {
+                "text": ""
+              },
+              {
+                "text": "Volume not present.\n\nPlease insert the volume 'CarmenTQC' in drive '?' and retry."
+              }
+            ],
+            "button_id": 2,
+            "button_text": "Cancel",
+            "screenshot": {
+              "width": 398,
+              "height": 156,
+              "sha256": "7d9a839451e3226854df44d889f8a76e9c0369a645441c0080ef5d004c7af763"
+            }
+          }
+        ],
+        "contract_checks": {
+          "value": true,
+          "memory_initialized": true,
+          "filesystem_initialized": true,
+          "no_vm_error": true,
+          "ui_captured": true,
+          "title": true,
+          "button_id": true,
+          "button_text": true,
+          "retry_cancel_buttons": true,
+          "screenshot": true
+        }
+      }
+    ]
+  },
+  "guards": {
+    "host_handle_lifetime": {
+      "kind": "Native debugger guard: owned host event handles survive original thread exits.",
+      "passed": true,
+      "result": {
+        "status": "observed",
+        "actual": 2,
+        "expected": 2,
+        "matches_static_contract": true,
+        "process_id": 24168,
+        "phase": "probe",
+        "result_hex": "0200000000000000",
+        "loader_eip": "0x479123",
+        "probe_trap": "0xdd006c",
+        "initialization": {
+          "host_handles_survived_thread_exits": true,
+          "host_handle_count": 5,
+          "thread_exit_count": 2
+        },
+        "resource_unload": {},
+        "native_blobs": [],
+        "native_text": [],
+        "native_words": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "vm_errors": [],
+        "vm_error_offsets": [],
+        "first_chance_cpp": 0
+      },
+      "harness_sha256": "7e2862ddbf725fa82b0007928fe893bb4b5884a9fed80763e4d4d70cbac7bad7",
+      "transport_sha256": "c5cd2921ba46c16923da5186b4b1cb198593ebe1ebf6bdf3c4d8d1bab627f946"
+    },
+    "fault_thread": {
+      "kind": "Native debugger diagnostic guard; deliberate child UD2, not a language probe.",
+      "passed": true,
+      "result": {
+        "status": "exception",
+        "exception": "0xc000001d",
+        "address": "0x753000",
+        "phase": "probe",
+        "fault_context": {
+          "created_threads": [
+            {
+              "thread_id": 43784,
+              "start_address": "0x777a4e70"
+            },
+            {
+              "thread_id": 30876,
+              "start_address": "0x777a4e70"
+            },
+            {
+              "thread_id": 45120,
+              "start_address": "0x777a4e70"
+            },
+            {
+              "thread_id": 17812,
+              "start_address": "0x753000"
+            }
+          ],
+          "event_thread_id": 17812,
+          "main_thread_id": 13696,
+          "registers": [
+            7680000,
+            7680000,
+            0,
+            7680000,
+            7680000,
+            39387084,
+            39387012,
+            7680000,
+            35,
+            66118
+          ],
+          "stack_bytes_read": 128,
+          "image_stack_words": []
+        },
+        "native_words": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "harness_sha256": "3c2310891802ff0e2a820b9f129d05a0695a4e5d08acc7c285fd1a50303bc0f4",
+      "transport_sha256": "c5cd2921ba46c16923da5186b4b1cb198593ebe1ebf6bdf3c4d8d1bab627f946"
+    }
+  },
+  "original_regressions": [
+    {
+      "name": "vm",
+      "count": 60,
+      "passed": true
+    },
+    {
+      "name": "values",
+      "count": 30,
+      "passed": true
+    },
+    {
+      "name": "disk",
+      "count": 6,
+      "passed": true
+    },
+    {
+      "name": "resident",
+      "count": 7,
+      "passed": true
+    },
+    {
+      "name": "eviction",
+      "count": 4,
+      "passed": true
+    },
+    {
+      "name": "components",
+      "count": 49,
+      "passed": true
+    },
+    {
+      "name": "storage",
+      "count": 16,
+      "passed": true
+    },
+    {
+      "name": "os-errors",
+      "count": 37,
+      "passed": true
+    },
+    {
+      "name": "unload-fixtures",
+      "count": 5,
+      "passed": true
+    }
+  ],
+  "leaf_regression": {
+    "count": 31,
+    "observed": 31,
+    "mismatches": 0
+  },
+  "counts": {
+    "original_only": 6,
+    "paired_additions": 0
+  }
+}

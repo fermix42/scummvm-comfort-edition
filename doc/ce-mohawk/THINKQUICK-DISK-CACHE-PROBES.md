@@ -40,7 +40,9 @@ records thread identities, retrieves the faulting thread's context and treats
 optional stack reads as bounded best-effort diagnostics. A deliberate child UD2
 fixture verifies the event's secondary thread and matching fault EIP; it is a
 debugger guard, not a language compatibility result. Debugger-owned created-thread
-handles are closed for every case.
+handles are closed by Windows when thread-exit events are continued. The earlier
+manual close was corrected after UI-watcher handle reuse exposed it; see
+[transport ownership correction](THINKQUICK-OS-UI-PROBES.md).
 
 For disk probes, one process-local patch makes worker adapter **0x48366f** return
 its existing unsupported-thread status **0x12c**. Original caller **0x45641c** then

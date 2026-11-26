@@ -437,3 +437,14 @@ mapping/category/policy functions execute. See [report](THINKQUICK-OS-ERROR-PROB
 and [receipts](THINKQUICK-OS-ERROR-OBSERVATIONS.json). Actual native-operation
 retry/cancel and real dialog evidence remain open. No new paired cases; Step3
 remains active and Step4 implementation is prohibited.
+
+
+### Original Retry/Cancel UI and debugger lifetime checkpoint
+
+Six actual helper/category1/category3 dialog cases qualify twice with captured
+Retry/Cancel controls, screenshots and native mappings. A debugger thread-handle
+ownership correction has a native host-handle survival guard; all245 existing
+original-side cases and fault-thread attribution replay successfully. See
+[report and ownership sources](THINKQUICK-OS-UI-PROBES.md) and
+[receipts](THINKQUICK-OS-UI-OBSERVATIONS.json). No new CE pairs or operation-loop
+claim; full Step3 audit remains active before any Step4 implementation.
