@@ -36,6 +36,12 @@ class ComparisonGuards(unittest.TestCase):
         with self.assertRaises(ValueError):
             compare(receipt([observed(), observed()]), receipt([observed()]))
 
+    def test_different_expression_is_not_a_match(self):
+        left, right = observed(), observed()
+        left['expression_sha256'] = 'expression-a'
+        right['expression_sha256'] = 'expression-b'
+        self.assertFalse(compare(receipt([left]), receipt([right]))['passed'])
+
     def test_empty_receipt_rejected(self):
         with self.assertRaises(ValueError):
             compare(receipt([]), receipt([]))

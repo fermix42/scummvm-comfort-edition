@@ -278,3 +278,15 @@ repeated in fresh loader-only processes. Batch-01's Boolean disagreement is
 retained and corrected in the static contract. No original-versus-CE, initialized
 VM, lifecycle, persistence/UI or gameplay acceptance is promoted by this result.
 The existing CE implementation coverage remains provisional. Step 3 continues.
+
+## Initialized-evaluator comparison checkpoint
+
+[Initialized VM probes](THINKQUICK-INITIALIZED-VM-PROBES.md) and
+[paired observations](THINKQUICK-VM-OBSERVATIONS.json) supersede the earlier
+statement that no CE adapter/comparison exists. A test-only adapter now uses
+generated assertions and the existing native CLI. Original heap/locks/evaluator
+and value stack are initialized with verified postconditions. Six numeric
+assertions produce three matching CE outcomes (including false control) and
+three retained CE fixed-point decoding errors; overall comparison fails.
+This is partial evaluator qualification, not full application initialization,
+full VM/lifecycle/storage coverage or authorization to implement.

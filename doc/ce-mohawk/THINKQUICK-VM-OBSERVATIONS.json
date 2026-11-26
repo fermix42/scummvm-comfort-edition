@@ -1,0 +1,178 @@
+{
+  "schema": 1,
+  "date": "2026-11-26",
+  "kind": "initialized original-evaluator versus CE assertion observations; partial comparison fails overall",
+  "original_identity": {
+    "kind": "initialized original evaluator assertions; manual CRT heap/locks plus evaluator constructor; application startup skipped",
+    "original_sha256": "219d81ea3d91b31da406e6891d01ba6ad12005e77b4d9f8f83930161dbfc9966",
+    "harness_sha256": "effa4ebb4071c6adb1b0e1b720ebd2dcf5a150d2489ad120a500db3f3410b4d4",
+    "transport_sha256": "e070a33338ac4300f0fbb4be67b19ec4320622d721b5437a278cc7c27d85e8e1"
+  },
+  "ce_identity": {
+    "kind": "CE generated assertion observations; success/failure sentinel, not raw VM-value reads",
+    "exe_sha256": "04c96176beb3f4a8a5e53f0be20c971aab603d625057c09c9a548cb2d89a9795",
+    "harness_sha256": "effa4ebb4071c6adb1b0e1b720ebd2dcf5a150d2489ad120a500db3f3410b4d4"
+  },
+  "original_receipt_sha256": "4eafb9e23691fe79f3b9802b750794928f440807f5916a3be606b01ff3e54533",
+  "ce_receipt_sha256": "067a3c7c7ba2ff826cb2f94aeb97e2493595c73b27fa47688f6aefd894e103cd",
+  "comparison_sha256": "0dc4f032ef2903bf3536d2f52591fe172c5885a76f39530488a014d9746ecc9d",
+  "comparison_passed": false,
+  "matches": 3,
+  "unqualified": 3,
+  "results": [
+    {
+      "name": "integer-add",
+      "expression_sha256": "53d4b7c608a3ce3a60916b30d002c1f108cbb5e30ad26357b05db3e53de638e7",
+      "original_status": "observed",
+      "original_actual": 1.0,
+      "initialization": {
+        "heap_initialized": true,
+        "evaluator_constructed": true,
+        "value_stack_allocated": true,
+        "stack_empty_after_eval": true,
+        "active_code_cleared": true,
+        "result_tag": 2
+      },
+      "ce_status": "observed",
+      "ce_actual": 1.0
+    },
+    {
+      "name": "integer-multiply",
+      "expression_sha256": "b587a2b346ee2bc914670c1820784692a4f4287d6a0ab92369050600bb1d1427",
+      "original_status": "observed",
+      "original_actual": 1.0,
+      "initialization": {
+        "heap_initialized": true,
+        "evaluator_constructed": true,
+        "value_stack_allocated": true,
+        "stack_empty_after_eval": true,
+        "active_code_cleared": true,
+        "result_tag": 2
+      },
+      "ce_status": "observed",
+      "ce_actual": 1.0
+    },
+    {
+      "name": "negative-control",
+      "expression_sha256": "595e0d08d18615db755e007c1110aff967c88fa018e204e37d7fc8845df162e8",
+      "original_status": "observed",
+      "original_actual": 0.0,
+      "initialization": {
+        "heap_initialized": true,
+        "evaluator_constructed": true,
+        "value_stack_allocated": true,
+        "stack_empty_after_eval": true,
+        "active_code_cleared": true,
+        "result_tag": 2
+      },
+      "ce_status": "observed",
+      "ce_actual": 0.0
+    },
+    {
+      "name": "fixed-point-add",
+      "expression_sha256": "c9a6750079ab19de9e85d17d6a7096f2caadbe261a3058699330598f4f27a209",
+      "original_status": "observed",
+      "original_actual": 1.0,
+      "initialization": {
+        "heap_initialized": true,
+        "evaluator_constructed": true,
+        "value_stack_allocated": true,
+        "stack_empty_after_eval": true,
+        "active_code_cleared": true,
+        "result_tag": 2
+      },
+      "ce_status": "engine_error",
+      "ce_diagnostic": [
+        "Unsupported V5 bytecode token 13 at 18!"
+      ]
+    },
+    {
+      "name": "fractional-or",
+      "expression_sha256": "e394a6d3111e02b8ab9d2aaec678b21b0d5b1afcdda3b83b85ad7b9f3b556686",
+      "original_status": "observed",
+      "original_actual": 1.0,
+      "initialization": {
+        "heap_initialized": true,
+        "evaluator_constructed": true,
+        "value_stack_allocated": true,
+        "stack_empty_after_eval": true,
+        "active_code_cleared": true,
+        "result_tag": 2
+      },
+      "ce_status": "engine_error",
+      "ce_diagnostic": [
+        "Unsupported V5 bytecode token 00 at 18!"
+      ]
+    },
+    {
+      "name": "fractional-not",
+      "expression_sha256": "f7153a87caf9642a754bcf232e051507b9db4892b48cb366eda3173be74f6a4f",
+      "original_status": "observed",
+      "original_actual": 1.0,
+      "initialization": {
+        "heap_initialized": true,
+        "evaluator_constructed": true,
+        "value_stack_allocated": true,
+        "stack_empty_after_eval": true,
+        "active_code_cleared": true,
+        "result_tag": 2
+      },
+      "ce_status": "engine_error",
+      "ce_diagnostic": [
+        "Unsupported V5 bytecode token 00 at 18!"
+      ]
+    }
+  ],
+  "dependencies": {
+    "probe_mohawk_v5_vm.py": {
+      "runtime_sha256": "effa4ebb4071c6adb1b0e1b720ebd2dcf5a150d2489ad120a500db3f3410b4d4",
+      "lf_normalized_sha256": "effa4ebb4071c6adb1b0e1b720ebd2dcf5a150d2489ad120a500db3f3410b4d4"
+    },
+    "probe_mohawk_v5_original.py": {
+      "runtime_sha256": "e070a33338ac4300f0fbb4be67b19ec4320622d721b5437a278cc7c27d85e8e1",
+      "lf_normalized_sha256": "e070a33338ac4300f0fbb4be67b19ec4320622d721b5437a278cc7c27d85e8e1"
+    },
+    "test_mohawk_v5_startup.py": {
+      "runtime_sha256": "e36e1eb07e64c65f32ec7a343edfe0619b54138a32a975b6ea481efbcec39863",
+      "lf_normalized_sha256": "27586ef5f82c411aec5c03acfd354d3b8f0d74769f8146418efbe62646686be6"
+    },
+    "test_cli_client.py": {
+      "runtime_sha256": "1765d2e62ebfc9518a0c59733956bbdede34b3cedff41bdc4b5f32e30fd44813",
+      "lf_normalized_sha256": "835eb0168daaf9738865f5471d1f046d0d29ed2ca090d9cfa557009321ed3197"
+    },
+    "compare_mohawk_v5_observations.py": {
+      "runtime_sha256": "39e520373ba5bdc5c367ac1cd753d6326da9b805357a537758f4c32e0da5f748",
+      "lf_normalized_sha256": "39e520373ba5bdc5c367ac1cd753d6326da9b805357a537758f4c32e0da5f748"
+    },
+    "test_mohawk_v5_observations.py": {
+      "runtime_sha256": "ce5d2f0d1afcef97fd7e75467daf3b1420ef9a8c4ef26ae7769a8a0d77ff1eb2",
+      "lf_normalized_sha256": "ce5d2f0d1afcef97fd7e75467daf3b1420ef9a8c4ef26ae7769a8a0d77ff1eb2"
+    }
+  },
+  "preservation": {
+    "recorded_engine_sources": 21,
+    "ce_test_files": 346,
+    "no_engine_changes": true
+  },
+  "environment": {
+    "os": "Windows-11-10.0.26300-SP0",
+    "python": "3.14.10",
+    "x87_control_word": "0x037f",
+    "application_startup_executed": false,
+    "initialization": "original heap, static critical sections, result cell and evaluator/value stack; no symbol context/full CRT/app initialization"
+  },
+  "generated_assets": {
+    "negative-control\\assets\\Outline.txt": "81d0f2965214980886b7380bef75075870b078cb1026f472c21a94797accfa58",
+    "negative-control\\assets\\ACME Support\\Cache\\StartUp.MHK": "98f0b2e177a8a798f1081c4b51db1ccf8380b7db6788db9cf44d69c642648310",
+    "integer-multiply\\assets\\Outline.txt": "81d0f2965214980886b7380bef75075870b078cb1026f472c21a94797accfa58",
+    "integer-multiply\\assets\\ACME Support\\Cache\\StartUp.MHK": "b72e5b53f26e1f430fa7854a0e812647f432bfd22de6ed233a5339d1982bd803",
+    "integer-add\\assets\\Outline.txt": "81d0f2965214980886b7380bef75075870b078cb1026f472c21a94797accfa58",
+    "integer-add\\assets\\ACME Support\\Cache\\StartUp.MHK": "4b33df0fa108a3dc8f4d3d8b09316a07794408f564a03cf95f4e1683f39b44f7",
+    "fractional-or\\assets\\Outline.txt": "81d0f2965214980886b7380bef75075870b078cb1026f472c21a94797accfa58",
+    "fractional-or\\assets\\ACME Support\\Cache\\StartUp.MHK": "561867d94ea256564f9c9a86d9f4e3a31d570fd76838cd40d34f3ec68a56e215",
+    "fractional-not\\assets\\Outline.txt": "81d0f2965214980886b7380bef75075870b078cb1026f472c21a94797accfa58",
+    "fractional-not\\assets\\ACME Support\\Cache\\StartUp.MHK": "cb4df8825bfb7567af2a1ba335b60a06649c2c12c95cbf0b3f7e2468f4e43885",
+    "fixed-point-add\\assets\\Outline.txt": "81d0f2965214980886b7380bef75075870b078cb1026f472c21a94797accfa58",
+    "fixed-point-add\\assets\\ACME Support\\Cache\\StartUp.MHK": "05ffbac39dbd12f86c9bd3383dc83b167b62c80dff5b48bc66ec45dd55f6c10c"
+  }
+}

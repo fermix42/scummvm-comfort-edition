@@ -119,7 +119,7 @@ def checked(ok):
     return ok
 
 
-def run_case(exe, case, timeout):
+def run_case(exe, case, timeout, stub_factory=None):
     k = windows_api(); startup = Startup(); startup.cb = C.sizeof(startup)
     startup.flags = 1; startup.show = 0
     pi = ProcessInfo(); event = DebugEvent(); pending = False
@@ -161,10 +161,23 @@ def run_case(exe, case, timeout):
                     data = read(output, 8)
                     fmt = {'int32':'<i', 'int16':'<h', 'double':'<d'}[case['output']]
                     actual = struct.unpack_from(fmt, data)[0]
+                    initialization = {}
+                    if case.get('verify_initialized_vm'):
+                        heap, constructed = struct.unpack('<II', read(output + 8, 8))
+                        vm = remote + 0x1300
+                        stack = struct.unpack('<I', read(vm + 0x70, 4))[0]
+                        active = struct.unpack('<I', read(vm, 4))[0]
+                        if heap != 1 or constructed != vm or not stack or active:
+                            raise RuntimeError('Original VM initialization/postcondition failed')
+                        cursor = struct.unpack('<I', read(stack + 0x400, 4))[0]
+                        if cursor != stack: raise RuntimeError('Original evaluation stack not empty')
+                        initialization = dict(heap_initialized=True, evaluator_constructed=True,
+                                              value_stack_allocated=True, stack_empty_after_eval=True,
+                                              active_code_cleared=True, result_tag=read(0x49a540, 1)[0])
                     return dict(status='observed', actual=actual, expected=case['expected'],
                                 matches_static_contract=actual == case['expected'],
                                 process_id=pi.pid, phase=phase, result_hex=data.hex(),
-                                loader_eip=hex(original_eip), probe_trap=hex(trap))
+                                loader_eip=hex(original_eip), probe_trap=hex(trap), initialization=initialization)
                 if code == 0x80000003:
                     checked(k.ContinueDebugEvent(event.pid, event.tid, 0x10002)); pending = False
                     continue  # Native loader break precedes the WOW64 loader break.
@@ -172,17 +185,20 @@ def run_case(exe, case, timeout):
                 remote = checked(k.VirtualAllocEx(pi.process, None, 0x2000, 0x3000, 0x40))
                 if remote + 0x2000 > 0x100000000: raise RuntimeError('Allocation exceeds x86 address space')
                 output = remote + 0x1000; next_data = remote + 0x1100
-                addresses = []
-                for block in ([case['receiver']] if case['receiver'] else []) + case['arguments']:
-                    addresses.append(next_data); data = bytes.fromhex(block)
-                    write(next_data, data); next_data += max(32, len(data))
-                receiver = addresses.pop(0) if case['receiver'] else None
-                stub = bytearray(b'\xdb\xe3')  # FNINIT: explicit x87 control word 0x037f.
-                for address_arg in reversed(addresses): stub += b'\x68' + u32(address_arg)
-                if receiver is not None: stub += b'\xb9' + u32(receiver)
-                stub += b'\xb8' + u32(case['function']) + b'\xff\xd0'
-                if case.get('calling_convention') == 'cdecl': stub += b'\x83\xc4' + bytes([4 * len(addresses)])
-                stub += (b'\xdd\x1d' if case['output'] == 'double' else b'\xa3') + u32(output)
+                if stub_factory is not None:
+                    stub = stub_factory(remote, write, output, case)
+                else:
+                    addresses = []
+                    for block in ([case['receiver']] if case['receiver'] else []) + case['arguments']:
+                        addresses.append(next_data); data = bytes.fromhex(block)
+                        write(next_data, data); next_data += max(32, len(data))
+                    receiver = addresses.pop(0) if case['receiver'] else None
+                    stub = bytearray(b'\xdb\xe3')  # FNINIT: explicit x87 control word 0x037f.
+                    for address_arg in reversed(addresses): stub += b'\x68' + u32(address_arg)
+                    if receiver is not None: stub += b'\xb9' + u32(receiver)
+                    stub += b'\xb8' + u32(case['function']) + b'\xff\xd0'
+                    if case.get('calling_convention') == 'cdecl': stub += b'\x83\xc4' + bytes([4 * len(addresses)])
+                    stub += (b'\xdd\x1d' if case['output'] == 'double' else b'\xa3') + u32(output)
                 trap = remote + len(stub); stub += b'\xcc'
                 write(remote, stub); checked(k.FlushInstructionCache(pi.process, remote, len(stub)))
                 context = C.create_string_buffer(716); struct.pack_into('<I', context, 0, 0x10007)

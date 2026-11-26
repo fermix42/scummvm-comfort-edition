@@ -129,3 +129,15 @@ Publication verification: Git normalizes CRLF source to LF. Batch-04 reran all
 31 cases using those exact committed harness bytes and matched batch-03. Raw
 harness hashes in earlier receipts are retained; no older receipt is silently
 reidentified as the publication run.
+
+## Initialized-evaluator comparison checkpoint
+
+[Initialized VM probes](THINKQUICK-INITIALIZED-VM-PROBES.md) and
+[paired observations](THINKQUICK-VM-OBSERVATIONS.json) supersede the earlier
+statement that no CE adapter/comparison exists. A test-only adapter now uses
+generated assertions and the existing native CLI. Original heap/locks/evaluator
+and value stack are initialized with verified postconditions. Six numeric
+assertions produce three matching CE outcomes (including false control) and
+three retained CE fixed-point decoding errors; overall comparison fails.
+This is partial evaluator qualification, not full application initialization,
+full VM/lifecycle/storage coverage or authorization to implement.
