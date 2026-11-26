@@ -1,7 +1,7 @@
 # ThinkQuick original-interpreter contracts — step 2
 
 Tracking [CE #1](https://github.com/fermix42/scummvm-comfort-edition/issues/1).
-November 26, 2026, first recovery checkpoint. **Step 2 remains in progress.**
+November 26, 2026, second recovery checkpoint. **Step 2 remains in progress.**
 PR #295 remains an unchanged draft step-1 checkpoint. No engine behavior has
 been implemented or changed during this recovery pass.
 
@@ -14,10 +14,13 @@ still required; the game remains blocked in CE Main initialization.
 
 All addresses apply exclusively to original CarmenTQ.exe SHA-256
 `219d81ea3d91b31da406e6891d01ba6ad12005e77b4d9f8f83930161dbfc9966`.
-The [evidence manifest](THINKQUICK-CONTRACT-EVIDENCE.json) records 63 inspected
+The [evidence manifest](THINKQUICK-CONTRACT-EVIDENCE.json) records 130 inspected
 regions with byte hashes, value-tag branch targets, numeric conversion formats,
 constants, all nine component vtables/dispatchers and all 18 datafile arities.
-It contains metadata, not executable bytes or full game scripts.
+It contains metadata, not executable bytes or full game scripts. The
+[loader/component/storage supplement](THINKQUICK-LOADER-STORAGE-CONTRACTS.md)
+traces the two-pass loader, nested proxies, database/selector algorithms, history,
+profile-cache flushing, path selection and encryption.
 
 Recreate it from the authoritative checkout with a new output path:
 
@@ -278,9 +281,12 @@ behavior, not contracts established by these paths.
 **Observed initial-code dispatch:** field 0x194 at `0x41a04c` endian-converts
 its offset and directly calls `0x41d38d`; that helper calls page evaluation
 `0x41fdf2`, which directly calls evaluator `0x40375e`. There is no queue in this
-handler chain. This does not yet establish when the page loader dispatches
-those fields relative to item creation, registration, links and load events.
-Do not replace the prototype's deferred initialization based on this chain alone.
+handler chain. The loader caller is now recovered: it first constructs and
+registers every item, stores their field pointers, then applies each item's
+fields and dispatches that item's listload in authored order. Thus later items
+exist before earlier initial code, but their fields may not yet be applied.
+See the supplement for the phase passes and synchronous nested proxy loading.
+Implementation still awaits the planned original-interpreter probes.
 
 The supplied Startup SYM establishes authored listload ordering: immediate fade,
 detector/path events, proxy filename assignment, then Main proxy loading. That
@@ -291,8 +297,8 @@ Keep the prototype's deferred-init and donor-code behavior provisional.
 | --- | --- | --- |
 | Values/conversion/reference model | Concrete tags, ownership, numeric strings, comparison and truth paths | Packed tags, conversion overflow/rounding, alias cycles and all operator errors |
 | Frames/calls/returns | Default-before-substitution, argument frame paths, sender restoration, reentrant evaluator | Complete missing/surplus/default rules and failure/unwind behavior |
-| Lifecycle/linking | Authored order, link mutation/order/cascade/receiver rules, synchronous field-eval chain | Page-loader init/deferred-load ordering, mutation/deletion and code-owner lifetime |
-| Components/storage | All nine dispatchers; complete datafile arity table; selected primitive contracts | Database/selector/history/encryption algorithms, exact files, flushing and failure/UI behavior |
+| Lifecycle/linking | Two-pass creation/field/listload order, phase passes, nested proxy loading, link cascade/receiver rules | Mutation/deletion, reentrancy failure and code-owner lifetime |
+| Components/storage | Nine dispatchers, datafile arities, index/selector/history paths, profile formats/flushes, default paths, encryptor recurrence | Index validation, exact reorder boundaries, shutdown flush reachability, negative/error/UI probes |
 | Evidence/comparison | Pinned executable, repeatable hashes and branch-table extraction | Step-3 controlled original runs; no differential acceptance exists |
 
 Implementation remains gated. Priority probes for step 3 are fractional truth
@@ -300,5 +306,6 @@ and numeric-string comparison; signed-short/fixed-point literals; copy-vs-alias
 behavior; default side effects and omitted arguments; nested self/sender return
 restoration; unknown native names/wrong arity; datafile read-only/write-through/
 delete and cold restart; and ScriptLink donor/receiver/lifecycle ordering. The
-remaining database, selection and history algorithms need further step-2 static
-recovery before their probes can be specified precisely.
+loader/component/storage supplement gives concrete normal-path contracts and
+negative probe targets. Remaining edge paths stay explicit step-2 work; no
+engine implementation or original-runtime acceptance is implied.

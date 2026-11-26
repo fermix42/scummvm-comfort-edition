@@ -80,6 +80,73 @@ REGIONS = {
     'history_numeric_dispatch': (0x4455bd, 0x445a0d),
     'encryptor_numeric_dispatch': (0x447e73, 0x4480f5),
     'font_numeric_dispatch': (0x448897, 0x448a60),
+    'page_load_entry': (0x42041b, 0x420520),
+    'page_item_factory': (0x42620b, 0x426590),
+    'page_resource_load_passes': (0x4265fd, 0x4268d3),
+    'item_construct_register': (0x4185d0, 0x4189c5),
+    'item_store_fields_event_5': (0x41a098, 0x41a0bd),
+    'item_apply_fields_event_23': (0x41b336, 0x41b475),
+    'item_phase_events_3a_3b': (0x41bbc9, 0x41bd63),
+    'item_load_event_2f': (0x41b5d2, 0x41b6c7),
+    'item_timer_phase_setup': (0x418e13, 0x418ecf),
+    'proxy_event_dispatch': (0x42555f, 0x425872),
+    'proxy_external_load': (0x4258e7, 0x425ba2),
+    'database_open_or_create': (0x43bb60, 0x43be70),
+    'database_setpaths': (0x43be70, 0x43beb4),
+    'database_create_index': (0x43beb4, 0x43c535),
+    'database_record_and_field': (0x43c535, 0x43c921),
+    'database_deck_and_unit': (0x43c921, 0x43cd97),
+    'database_deck_list_and_counts': (0x43cd97, 0x43d325),
+    'database_unit_classification': (0x43d325, 0x43da12),
+    'database_index_write': (0x43da12, 0x43e20e),
+    'database_index_read': (0x43e20e, 0x43eb21),
+    'database_index_endian_fields': (0x43eb21, 0x43eddf),
+    'database_source_reads': (0x43edf7, 0x43f258),
+    'database_text_and_list_fields': (0x43f258, 0x43f6ae),
+    'selector_users_database_level': (0x440c1c, 0x440e29),
+    'selector_constructor_defaults': (0x4404ba, 0x440636),
+    'selector_subject_graph': (0x440e29, 0x4410f5),
+    'selector_history_filter': (0x4410f5, 0x44136c),
+    'selector_mission_build': (0x44136c, 0x441959),
+    'selector_mission_reorder': (0x441959, 0x441b77),
+    'selector_get_deck': (0x441b88, 0x441d84),
+    'selector_pool_remove': (0x441e8b, 0x441fd8),
+    'selector_pool_draw': (0x441fd8, 0x44218a),
+    'selector_pool_load': (0x44218a, 0x4423e9),
+    'selector_configuration': (0x4435f0, 0x4436b0),
+    'selector_history_iterator': (0x4437a0, 0x443854),
+    'history_state_and_files': (0x445a0d, 0x445d1e),
+    'history_get_load_save': (0x445d1e, 0x446136),
+    'history_add_and_deck_list': (0x446136, 0x44620b),
+    'history_front_insert': (0x446270, 0x44629c),
+    'history_sequence_reset': (0x446300, 0x44631f),
+    'history_profile_open': (0x439680, 0x4397db),
+    'history_profile_write': (0x4397db, 0x439941),
+    'history_profile_read': (0x439b9d, 0x439bc9),
+    'datafile_destructor': (0x446491, 0x4464f1),
+    'datafile_sections': (0x446ac3, 0x446e57),
+    'datafile_write_value': (0x446e57, 0x447188),
+    'datafile_delete_read_value': (0x447188, 0x4472b8),
+    'datafile_load_vars_section': (0x4472b8, 0x447642),
+    'datafile_section_exists': (0x447642, 0x44780b),
+    'profile_read': (0x457b01, 0x457d90),
+    'profile_cache_open': (0x457f14, 0x45819c),
+    'profile_cache_remove': (0x458202, 0x458289),
+    'profile_key_scan': (0x458289, 0x458328),
+    'profile_section_and_key_lookup': (0x458328, 0x4584d3),
+    'profile_cache_clear': (0x458570, 0x458592),
+    'profile_edit': (0x4585be, 0x45876c),
+    'profile_flush': (0x45876c, 0x45881d),
+    'profile_buffer_mutate': (0x45881d, 0x458a58),
+    'profile_write_through_switch': (0x458a58, 0x458ac8),
+    'encryptor_encrypt': (0x4480f5, 0x4483bb),
+    'encryptor_decrypt_validate': (0x4483bb, 0x4485ca),
+    'encryptor_key_access': (0x448640, 0x448680),
+    'path_relative_construct': (0x453268, 0x45337b),
+    'path_normalize_resolve': (0x453695, 0x453b3e),
+    'path_set_current_and_defaults': (0x453dfc, 0x453f16),
+    'path_initial_directories': (0x4543eb, 0x45447c),
+    'crt_casefold_compare': (0x483f40, 0x484034),
 }
 
 
@@ -127,6 +194,19 @@ def recover(path):
     result['numeric_constants'] = {hex(a): struct.unpack('<d', image.read(a, 8))[0]
                                    for a in (0x4885e0, 0x488700, 0x488708, 0x488710)}
     result['item_field_handlers'] = {hex(0x192 + n): hex(image.u32(0x41d232 + 4 * n)) for n in range(5)}
+    result['item_event_handlers'] = {hex(n): hex(image.u32(0x41d042 + 4 * n))
+                                      for n in (1, 5, 7, 0x23, 0x2f, 0x3a, 0x3b, 0x4a, 0x4e, 0x5e)}
+    result['phase_script_handlers'] = {str(n - 2): hex(image.u32(0x41d246 + 4 * n)) for n in range(5)}
+    result['component_case_handlers'] = {
+        name: {str(n + 1): hex(image.u32(table + 4 * n)) for n in range(count)}
+        for name, table, count in (('aaDatabase', 0x43bb34, 11), ('aaQSelector', 0x440bdc, 16),
+                                   ('aaUserHistory', 0x4459dd, 12), ('encryptor', 0x4480e5, 4))}
+    result['storage_and_component_strings'] = {hex(a): image.cstring(a) for a in (
+        0x496e64, 0x497020, 0x497034, 0x497048, 0x497064, 0x49706c, 0x497074, 0x497794, 0x49779c,
+        0x497e50, 0x497e58, 0x497e60, 0x497e64, 0x497e68, 0x497e6c, 0x497e70,
+        0x49817c, 0x498180, 0x49818c, 0x498198, 0x49819c,
+        0x49839c, 0x4983a0, 0x4983b0, 0x4983b4, 0x4983d0,
+        0x489620, 0x48974c, 0x48976c, 0x489770, 0x489774)}
     # Derive each numeric virtual method via the wrapper that references its
     # named-method table. The pinned image has one unambiguous wrapper/vtable.
     for name, table in reference['component_method_tables'].items():

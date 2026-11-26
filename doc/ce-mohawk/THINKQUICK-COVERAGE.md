@@ -163,16 +163,34 @@ and five command namespaces; literals use a subtype byte plus 16-bit integer,
 32-bit integer or four-byte fixed-point payload. Step-2 recovery corrects the
 first-pass subtype-2 label: it is a signed 16-bit integer, not a string-word.
 No inventoried BCOD uses subtype 2, so counts and call-site metadata are unchanged.
-See [the recovered contracts](THINKQUICK-INTERPRETER-CONTRACTS.md).
+See [the recovered contracts](THINKQUICK-INTERPRETER-CONTRACTS.md) and
+[page-loader/component/storage recovery](THINKQUICK-LOADER-STORAGE-CONTRACTS.md).
+The second step-2 checkpoint traces two-pass registration/fields/listload, nested
+proxy loading, database index and selector pools, history serialization, profile
+write-through/flush paths, default directories and encryption. These are static
+original-code contracts; runtime reachability and compatibility remain unqualified.
 Execution uses separate token
 and command dispatch tables. Original 0x67 calls numeric negation; 0x77 separates
 string-callable and object-method dispatch. Precise value/reference/frame/control
 semantics are deliberately not inferred from successful decoding.
 
-Step 2 should recover and document those contracts, prioritizing the confirmed
-real-literal mismatch, native object dispatch and the nine component families.
+Step 2 is recovering those contracts. Normal loader and component/storage paths
+now have evidence; lifetime, index validation, exact reorder and failure paths
+remain open in the supplement.
 Step 3 needs isolated original-interpreter probes before semantic acceptance.
 No coherent subsystem implementation starts on this inventory alone.
+
+The step-2 recovery supplement refines the evidence side of the matrix without
+changing the provisional CE coverage above:
+
+| Requirement | Original contract now recovered statically | Still unqualified |
+| --- | --- | --- |
+| Page creation and initial code | Register all items, then per-item fields/listload in authored order, then phase passes | Mutation/deletion, error/reentrant traces |
+| Proxy loading | Filename assignment precedes phase load; nested loader is synchronous and uses the same passes | Full normal Startup/Main trace and failure behavior |
+| Database and selector | Source/index block layout, record/deck/unit handles, pool loading, history filtering, destructive selection and mission entries | Index validation, exact reorder boundaries, empty-pool/error probes |
+| History and datafile | Per-user .dat and LevelN/deck keys; script-value serialization and reload; shared profile cache | Malformed/truncated values and cold restart |
+| Storage ownership and flushing | Original default directory and process-directory side effects; write-through default and dirty flush paths | Shutdown reachability and negative paths; CE portable mapping remains unimplemented |
+| Encryption | Key derivation, 32-round recurrence, textual result, parse/key errors; isValid aliases decrypt | Original-runtime vectors, overflow/zero/error comparisons |
 
 The revised scope is at least six substantial workstreams: VM/value/frames;
 event/link/lifecycle/control; database/question selection; portable component
@@ -194,6 +212,7 @@ inventory pass. No title/menu/round/original-runtime qualification is claimed.
 This inventory pass adds seven asset-free boundary tests covering the original
 real format, truncated operands, indexed component arguments, dynamic methods,
 partial archive recovery, command-table holes and wrong-executable rejection.
+Step 2 adds an eighth boundary test for signed-short literal classification.
 Run `python devtools/ce/test_mohawk_v5_inventory.py`.
 
 From the consolidated checkout, use new output filenames:
