@@ -4,7 +4,7 @@
   "research_parent": "7c1e627b345c55ab6e20028ad4b90c94181a4a38",
   "kind": "original-code leaf-function observations, not CE differential or full VM acceptance",
   "original_sha256": "219d81ea3d91b31da406e6891d01ba6ad12005e77b4d9f8f83930161dbfc9966",
-  "harness_sha256": "bac5389d623d8fb4085045ec7dc4d46ca0f33805909eb408dc09a6c021ee6144",
+  "harness_sha256": "2d339239f1a67dd5206ae8ea2bc7f59590b4cf6f90740a37558efc4628dc5352",
   "isolation": {
     "fresh_process_per_case": true,
     "application_startup_executed": false,
@@ -729,6 +729,265 @@
           "matches_static_contract": true
         }
       ]
+    },
+    {
+      "name": "batch-04",
+      "count": 31,
+      "observed": 31,
+      "mismatches_against_then_current_contract": 0,
+      "harness_sha256": "2d339239f1a67dd5206ae8ea2bc7f59590b4cf6f90740a37558efc4628dc5352",
+      "receipt_sha256": "931add7b322972bf2b6148f92d883b3663bacd294b79e17623eaf8d20e7d5898",
+      "plan_sha256": "0804a031104a99c664b384747aad3f3519dafd32137df9cf2f1a7d4767c025fe",
+      "results": [
+        {
+          "name": "toInt(1.75)",
+          "function": "0x40ffa9",
+          "status": "observed",
+          "actual": 1,
+          "expected": 1,
+          "matches_static_contract": true
+        },
+        {
+          "name": "toInt(-1.75)",
+          "function": "0x40ffa9",
+          "status": "observed",
+          "actual": -1,
+          "expected": -1,
+          "matches_static_contract": true
+        },
+        {
+          "name": "toInt(0.5)",
+          "function": "0x40ffa9",
+          "status": "observed",
+          "actual": 0,
+          "expected": 0,
+          "matches_static_contract": true
+        },
+        {
+          "name": "toInt(-0.5)",
+          "function": "0x40ffa9",
+          "status": "observed",
+          "actual": 0,
+          "expected": 0,
+          "matches_static_contract": true
+        },
+        {
+          "name": "toInt(2147483648.0)",
+          "function": "0x40ffa9",
+          "status": "observed",
+          "actual": -2147483648,
+          "expected": -2147483648,
+          "matches_static_contract": true
+        },
+        {
+          "name": "toInt(4294967297.0)",
+          "function": "0x40ffa9",
+          "status": "observed",
+          "actual": 1,
+          "expected": 1,
+          "matches_static_contract": true
+        },
+        {
+          "name": "toReal(short -32768)",
+          "function": "0x40fe5d",
+          "status": "observed",
+          "actual": -32768.0,
+          "expected": -32768.0,
+          "matches_static_contract": true
+        },
+        {
+          "name": "toReal(short 0)",
+          "function": "0x40fe5d",
+          "status": "observed",
+          "actual": 0.0,
+          "expected": 0.0,
+          "matches_static_contract": true
+        },
+        {
+          "name": "toReal(short 32767)",
+          "function": "0x40fe5d",
+          "status": "observed",
+          "actual": 32767.0,
+          "expected": 32767.0,
+          "matches_static_contract": true
+        },
+        {
+          "name": "toReal(Boolean TRUE)",
+          "function": "0x40fe5d",
+          "status": "observed",
+          "actual": 1.0,
+          "expected": 1.0,
+          "matches_static_contract": true
+        },
+        {
+          "name": "double(Boolean payload 0)",
+          "function": "0x40fe5d",
+          "status": "observed",
+          "actual": 0.0,
+          "expected": 0.0,
+          "matches_static_contract": true
+        },
+        {
+          "name": "int32(Boolean payload 0)",
+          "function": "0x40ffa9",
+          "status": "observed",
+          "actual": 0,
+          "expected": 0,
+          "matches_static_contract": true
+        },
+        {
+          "name": "double(Boolean payload -1)",
+          "function": "0x40fe5d",
+          "status": "observed",
+          "actual": -1.0,
+          "expected": -1.0,
+          "matches_static_contract": true
+        },
+        {
+          "name": "int32(Boolean payload -1)",
+          "function": "0x40ffa9",
+          "status": "observed",
+          "actual": -1,
+          "expected": -1,
+          "matches_static_contract": true
+        },
+        {
+          "name": "double(Boolean payload 2)",
+          "function": "0x40fe5d",
+          "status": "observed",
+          "actual": 2.0,
+          "expected": 2.0,
+          "matches_static_contract": true
+        },
+        {
+          "name": "int32(Boolean payload 2)",
+          "function": "0x40ffa9",
+          "status": "observed",
+          "actual": 2,
+          "expected": 2,
+          "matches_static_contract": true
+        },
+        {
+          "name": "double(Boolean payload -32768)",
+          "function": "0x40fe5d",
+          "status": "observed",
+          "actual": -32768.0,
+          "expected": -32768.0,
+          "matches_static_contract": true
+        },
+        {
+          "name": "int32(Boolean payload -32768)",
+          "function": "0x40ffa9",
+          "status": "observed",
+          "actual": -32768,
+          "expected": -32768,
+          "matches_static_contract": true
+        },
+        {
+          "name": "keyCompare([65, 0, 97, 0],[66, 1, 98, 1])",
+          "function": "0x40f559",
+          "status": "observed",
+          "actual": 1.0,
+          "expected": 1.0,
+          "matches_static_contract": true
+        },
+        {
+          "name": "keyCompare([65, 0, 97, 0],[66, 1, 97, 9])",
+          "function": "0x40f559",
+          "status": "observed",
+          "actual": 0.0,
+          "expected": 0.0,
+          "matches_static_contract": true
+        },
+        {
+          "name": "keyCompare([65, 0, 0, 0],[65, 0, 0, 9])",
+          "function": "0x40f559",
+          "status": "observed",
+          "actual": 0.0,
+          "expected": 0.0,
+          "matches_static_contract": true
+        },
+        {
+          "name": "keyCompare([65, 0, 0, 0],[66, 0, 0, 0])",
+          "function": "0x40f559",
+          "status": "observed",
+          "actual": 1.0,
+          "expected": 1.0,
+          "matches_static_contract": true
+        },
+        {
+          "name": "keyCompare([66, 0, 0, 0],[65, 0, 0, 0])",
+          "function": "0x40f559",
+          "status": "observed",
+          "actual": 1.0,
+          "expected": 1.0,
+          "matches_static_contract": true
+        },
+        {
+          "name": "keyToInt([65, 1, 97, 2])",
+          "function": "0x40ffa9",
+          "status": "observed",
+          "actual": 0,
+          "expected": 0,
+          "matches_static_contract": true
+        },
+        {
+          "name": "keyToReal([65, 1, 97, 2])",
+          "function": "0x40fe5d",
+          "status": "observed",
+          "actual": 97.0,
+          "expected": 97.0,
+          "matches_static_contract": true
+        },
+        {
+          "name": "keyToInt([65, 0, 0, 0])",
+          "function": "0x40ffa9",
+          "status": "observed",
+          "actual": 0,
+          "expected": 0,
+          "matches_static_contract": true
+        },
+        {
+          "name": "keyToReal([65, 0, 0, 0])",
+          "function": "0x40fe5d",
+          "status": "observed",
+          "actual": 65.0,
+          "expected": 65.0,
+          "matches_static_contract": true
+        },
+        {
+          "name": "keyTrigger([65, 0, 97, 0],[66, 1, 97, 9])",
+          "function": "0x4203ae",
+          "status": "observed",
+          "actual": 1,
+          "expected": 1,
+          "matches_static_contract": true
+        },
+        {
+          "name": "keyTrigger([65, 0, 0, 0],[65, 0, 0, 9])",
+          "function": "0x4203ae",
+          "status": "observed",
+          "actual": 1,
+          "expected": 1,
+          "matches_static_contract": true
+        },
+        {
+          "name": "keyTrigger([65, 0, 0, 0],[65, 1, 0, 0])",
+          "function": "0x4203ae",
+          "status": "observed",
+          "actual": 0,
+          "expected": 0,
+          "matches_static_contract": true
+        },
+        {
+          "name": "keyTrigger([0, 0, 0, 0],[0, 0, 0, 0])",
+          "function": "0x4203ae",
+          "status": "observed",
+          "actual": 0,
+          "expected": 0,
+          "matches_static_contract": true
+        }
+      ]
     }
   ],
   "repeat_comparison_passed": true,
@@ -738,5 +997,7 @@
     "Lifecycle/resource and page-loader probes",
     "Storage cold restart and Retry/Cancel UI probes",
     "Gameplay acceptance"
-  ]
+  ],
+  "publication_source_verification": "batch-04 ran exact Git LF-normalized harness bytes; earlier raw hashes retain original CRLF source identity",
+  "publication_repeat_comparison_passed": true
 }

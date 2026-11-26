@@ -5,13 +5,14 @@ PR #295 remains the unchanged draft step-1 inventory checkpoint.
 
 ## First executable observations
 
-[Published observations](THINKQUICK-ORIGINAL-PROBES.json) record three batches:
+[Published observations](THINKQUICK-ORIGINAL-PROBES.json) record four batches:
 
 | Batch | Original function results | Disagreements with then-current static contract |
 | --- | --- | --- |
 | batch-01 | 23/23 observed | One: Boolean numeric conversion |
 | batch-02 | 31/31 observed | Zero after contract correction and added controls |
 | batch-03 | 31/31 observed | Zero; actual results match batch-02 |
+| batch-04 | 31/31 observed | Zero; same results using exact Git-normalized source bytes |
 
 These execute original machine code in a real Windows WOW64 process, rather
 than emulate the recovered algorithms. They cover signed/fractional integer
@@ -84,7 +85,7 @@ python devtools/ce/test_mohawk_v5_inventory.py
 Each run writes the generated input plan, individual results and receipt with
 original executable hash, harness hash, plan hash, host OS/Python identity,
 initialization boundary and imposed x87 state. The published summary records
-receipt/plan identities for all three batches, including the initial mismatch.
+receipt/plan identities for all four batches, including the initial mismatch.
 The comparator compares actual observations by exact unique case name; missing
 cases, unavailable results and faults cannot pass as matching values. Static
 expected fields do not override differing actuals. Its seven asset-free guard
@@ -123,3 +124,8 @@ left running. No build, accepted-executable replacement, release promotion,
 profile refresh or game-data mutation was performed. Local evidence lives under
 validation/thinkquick-20261126/step3 outside the source checkout. Raw original
 binaries and game assets are not published.
+
+Publication verification: Git normalizes CRLF source to LF. Batch-04 reran all
+31 cases using those exact committed harness bytes and matched batch-03. Raw
+harness hashes in earlier receipts are retained; no older receipt is silently
+reidentified as the publication run.
