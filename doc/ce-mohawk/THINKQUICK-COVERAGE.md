@@ -268,3 +268,13 @@ and later acceptance work. Implementation and installation are unchanged.
 These rows close the remaining static gaps, without promoting any prototype
 behavior to original-runtime verified coverage. Step 2 is complete at the
 planned structure/contract baseline; step 3 is the next gate.
+
+## Step-3 original-code probe checkpoint — November 26, 2026
+
+[Harness scope and results](THINKQUICK-COMPARISON.md) and
+[machine-readable observations](THINKQUICK-ORIGINAL-PROBES.json) add the first
+original-code runtime evidence: 31 selected conversion/key-function cases,
+repeated in fresh loader-only processes. Batch-01's Boolean disagreement is
+retained and corrected in the static contract. No original-versus-CE, initialized
+VM, lifecycle, persistence/UI or gameplay acceptance is promoted by this result.
+The existing CE implementation coverage remains provisional. Step 3 continues.

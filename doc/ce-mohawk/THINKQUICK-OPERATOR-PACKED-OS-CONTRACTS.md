@@ -4,8 +4,9 @@ November 26, 2026. Final static recovery checkpoint for step 2 of CE #1.
 All addresses refer to the pinned original CarmenTQ.exe, SHA-256
 219d81ea3d91b31da406e6891d01ba6ad12005e77b4d9f8f83930161dbfc9966.
 The evidence extractor hashes these regions and decodes their branch tables.
-No original-runtime execution, CE implementation or compatibility acceptance is
-claimed. Earlier open questions in these three areas are superseded here.
+At the step-2 checkpoint no original-runtime execution, CE implementation or
+compatibility acceptance was claimed. See the step-3 erratum below for subsequent
+function observations. Earlier open questions in these three areas are superseded here.
 
 ## Operator and error contracts
 
@@ -63,13 +64,14 @@ VM-error catch and nontransactional unwind findings.
 | --- | --- | --- |
 | 5 | Two signed shorts: point | Inline four-byte copy; string `%d,%d` |
 | 6 | Four signed shorts: rectangle | Inline eight-byte copy; string `%d,%d,%d,%d` |
-| 8 | Short Boolean representation | String TRUE when short is nonzero, otherwise FALSE; numeric conversion falls through to zero |
+| 8 | Short Boolean representation | String TRUE when short is nonzero, otherwise FALSE; numeric conversion reads the signed-short payload |
 | 11 | Four bytes: key value | Inline copy; key input events construct this tag; byte 2 is character, byte 0 virtual key, byte 1 modifier encoding, byte 3 repeat/scan-derived auxiliary value |
 
 Tags 9 and 10 have no specialized string/geometry/key conversion in the recovered
 tables and no owned cleanup. They are reserved/unhandled in these consumers;
-no invented language role is required. Point, rectangle and Boolean are likewise
-not recognized as ordinary numeric tags by the numeric predicate. Geometry
+no invented language role is required. Point and rectangle are not recognized as ordinary numeric tags by the numeric
+predicate. Boolean numeric conversion follows the signed-short branch; the
+earlier claim of a zero fallback was disproved by step-3 original-code probes. Geometry
 conversion and numeric conversion are different interfaces.
 
 Point conversion (`0x41052a`) accepts tag 5 directly, rectangle's first pair,
@@ -178,3 +180,12 @@ key equality versus trigger matching/modifiers, default and suppressed callbacks
 Retry/Cancel and repeated OS errors, short I/O and cold-restart persistence.
 Record observable outcomes and exact environment identities before deciding CE
 handling for unsafe original paths. Implementation remains gated on that work.
+
+## Step-3 erratum
+
+The first original-code batch measured tag-8 TRUE as 1.0, contradicting this
+document's earlier zero-fallback claim. Reinspection confirms toReal dispatches
+tag 8 to 0x40fef4 and toInt to 0x41003c: both read its signed-short payload.
+The earlier failing receipt is retained; the corrected contract is tested with
+zero, negative, noncanonical 2 and signed-short boundary controls. This is a
+research correction, not a CE engine change. See THINKQUICK-COMPARISON.md.

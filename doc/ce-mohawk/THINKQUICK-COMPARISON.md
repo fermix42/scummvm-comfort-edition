@@ -1,0 +1,125 @@
+# ThinkQuick original comparison harness — step 3
+
+November 26, 2026. Step 3 has started; implementation remains on hold.
+PR #295 remains the unchanged draft step-1 inventory checkpoint.
+
+## First executable observations
+
+[Published observations](THINKQUICK-ORIGINAL-PROBES.json) record three batches:
+
+| Batch | Original function results | Disagreements with then-current static contract |
+| --- | --- | --- |
+| batch-01 | 23/23 observed | One: Boolean numeric conversion |
+| batch-02 | 31/31 observed | Zero after contract correction and added controls |
+| batch-03 | 31/31 observed | Zero; actual results match batch-02 |
+
+These execute original machine code in a real Windows WOW64 process, rather
+than emulate the recovered algorithms. They cover signed/fractional integer
+conversion, low-32-bit overflow, signed-short boundaries, Boolean payloads,
+key numeric conversion, key comparison and key trigger matching. Expected
+values are static-contract predictions, not a second executable's results.
+The comparator's batch-02/batch-03 success establishes repeatability only.
+**No original-versus-CE comparison or full VM/gameplay acceptance exists yet.**
+
+A useful correction emerged immediately: tag-8 TRUE converts to 1.0, contrary
+to the prior static prose. Branch reinspection confirms toReal -> 0x40fef4
+and toInt -> 0x41003c. Both read the signed-short payload; it is not normalized
+to 0/1. Zero, -1, noncanonical 2 and -32768 controls confirm both conversions.
+The initial disagreement remains in batch-01 and the static contract has an
+explicit erratum. No engine implementation was changed to match it.
+
+The probes also observed fractional truncation toward zero, low-word wrap
+(4294967297 -> 1), printable-character comparison ignoring modifiers,
+nonprintable key inequality returning +1 in both directions, and trigger
+matching rejecting modifier differences. Tag-11 toReal uses character/key byte,
+while toInt returns zero. These are observations under the stated environment.
+
+## Isolation and exact scope
+
+`devtools/ce/probe_mohawk_v5_original.py` first rejects any executable other
+than pinned CarmenTQ.exe SHA-256
+219d81ea3d91b31da406e6891d01ba6ad12005e77b4d9f8f83930161dbfc9966.
+It copies that executable into a **new** disposable output directory. It does
+not copy or edit game archives, source assets, saves or owner installations.
+Each case starts a fresh debugger-owned original process with a hidden startup
+window. It handles the native loader breakpoint, then at the WOW64 loader break
+redirects the initial x86 thread to a generated call stub. The original PE entry
+point, bundled CRT startup and application startup are skipped. Only fixed
+conversion/comparison/matcher addresses selected by the checked-in case plan
+are called. No native file/registry or application initialization functions are
+invoked by these probes. Windows loader/DLL initialization still occurs; this
+is execution isolation by withholding application startup, **not an OS VM,
+container, redirected registry or general filesystem sandbox**.
+
+The stub sets x87 control word 0x037f using FNINIT, supplies generated values,
+calls the original function, captures EAX/AX or x87 double, and breaks at an
+exact generated trap address. The harness reads the result and terminates the
+process without returning to application startup. Unexpected faults, timeout,
+wrong image base, unexpected breakpoint and short memory transfers fail closed.
+The debugger kills children on debugger exit; finally cleanup terminates/drains
+each process. Timeout is bounded per case. Live process IDs and trap addresses
+are in local receipts; the shareable summary omits those transient details.
+
+Skipping original CRT/application initialization is a material boundary. It is
+appropriate for these selected leaf paths, which do not require application
+state, but is **not sufficient** for general expression evaluation, allocation,
+file persistence, events, modal dialogs or gameplay. Do not extend the allowlist
+to those paths and infer that their state is valid. Full-state probes need a
+controlled initialized environment with verified file/registry ownership first.
+The x87 mask/rounding state is imposed by the harness, not measured at normal
+game startup. No claim about unmasked NaN/overflow faults follows from these runs.
+
+## Reproduce and compare
+
+Requires 64-bit Python on Windows with WOW64 debugging. Run from the authoritative
+checkout, using fresh output directories (the harness refuses reuse):
+
+```powershell
+python devtools/ce/probe_mohawk_v5_original.py --exe '..\validation\thinkquick-20261125\disc\95instal\CarmenTQ.exe' --output-root '..\validation\thinkquick-20261126\step3\new-original-run'
+python devtools/ce/compare_mohawk_v5_observations.py --reference '<first-run>\receipt.json' --candidate '<second-run>\receipt.json' --output '<new-comparison.json>'
+python devtools/ce/test_mohawk_v5_observations.py
+python devtools/ce/test_mohawk_v5_inventory.py
+```
+
+Each run writes the generated input plan, individual results and receipt with
+original executable hash, harness hash, plan hash, host OS/Python identity,
+initialization boundary and imposed x87 state. The published summary records
+receipt/plan identities for all three batches, including the initial mismatch.
+The comparator compares actual observations by exact unique case name; missing
+cases, unavailable results and faults cannot pass as matching values. Static
+expected fields do not override differing actuals. Its seven asset-free guard
+tests use explicitly synthetic fixtures and are not original-runtime evidence.
+
+Initial setup attempts are retained locally as smoke-01..04. The restricted
+launch failed with WinError 623; a permitted debugger launch then exposed a
+stub-buffer type error. An early harness treated the native loader break as
+the WOW64 break, producing status 0x4000001f; that was a harness breakpoint issue,
+not an original-language failure. smoke-04 produced the first valid conversion.
+A later DebugSetProcessKillOnExit ordering error occurred before the expanded
+batch created its output; the call was moved into the active debug session.
+Only the named successful batches are counted as observations above.
+
+## Remaining step-3 work
+
+| Area | Current evidence | Next gate |
+| --- | --- | --- |
+| Pure conversions/key helpers | 31 original cases repeated; one static erratum | Matching CE observations through a test adapter; retain exact build identity |
+| Bytecode/VM semantics | Static contracts only | Initialized evaluator, real-literal/truth/operators/errors, references, calls/defaults/returns |
+| Lifecycle | Static ordering/lifetime contracts only | Controlled pages/resources, queued deletion, links and nested loads |
+| Storage and UI | Static format/callback contracts only | Isolated initialized process, settings ownership, Retry/Cancel, cold restart |
+| Full game | Existing CE startup failure unchanged | Normal original/CE flows and later gameplay qualification |
+
+The comparator can accept future CE receipts with matching names, observed
+values and executable/source identities. No CE adapter or semantic change is
+introduced here. Next work is initialized original-VM probes and an observation
+adapter using the existing CE test facilities. Keep storage/UI probes gated on
+verified isolation; do not use owner profiles as an experiment.
+
+## Preservation
+
+After the runs, all 21 recorded engine-source hashes and all 346 CE Test file
+hashes matched baseline, with no added CE Test files. No CarmenTQ process was
+left running. No build, accepted-executable replacement, release promotion,
+profile refresh or game-data mutation was performed. Local evidence lives under
+validation/thinkquick-20261126/step3 outside the source checkout. Raw original
+binaries and game assets are not published.

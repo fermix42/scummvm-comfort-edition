@@ -1,0 +1,742 @@
+{
+  "schema": 1,
+  "date": "2026-11-26",
+  "research_parent": "7c1e627b345c55ab6e20028ad4b90c94181a4a38",
+  "kind": "original-code leaf-function observations, not CE differential or full VM acceptance",
+  "original_sha256": "219d81ea3d91b31da406e6891d01ba6ad12005e77b4d9f8f83930161dbfc9966",
+  "harness_sha256": "bac5389d623d8fb4085045ec7dc4d46ca0f33805909eb408dc09a6c021ee6144",
+  "isolation": {
+    "fresh_process_per_case": true,
+    "application_startup_executed": false,
+    "original_crt_initialized": false,
+    "x87_control_word": "0x037f",
+    "os": "Windows-11-10.0.26300-SP0"
+  },
+  "preservation": {
+    "engine_source_hashes": 21,
+    "ce_test_file_hashes": 346
+  },
+  "batches": [
+    {
+      "name": "batch-01",
+      "count": 23,
+      "observed": 23,
+      "mismatches_against_then_current_contract": 1,
+      "harness_sha256": "424be252f255b9c97295a093250d1c640b3a1534f608ee208e9bc01240a92b39",
+      "receipt_sha256": "8539ac0828aa14f5b75eebb3a7e6e4350d98ed47d668e296e327aace00987c2f",
+      "plan_sha256": "a0c3bdeb62eb8d5d45a0c0eb7c1e00a190cb2ef01bc69d8559204649efb38b02",
+      "results": [
+        {
+          "name": "toInt(1.75)",
+          "function": "0x40ffa9",
+          "status": "observed",
+          "actual": 1,
+          "expected": 1,
+          "matches_static_contract": true
+        },
+        {
+          "name": "toInt(-1.75)",
+          "function": "0x40ffa9",
+          "status": "observed",
+          "actual": -1,
+          "expected": -1,
+          "matches_static_contract": true
+        },
+        {
+          "name": "toInt(0.5)",
+          "function": "0x40ffa9",
+          "status": "observed",
+          "actual": 0,
+          "expected": 0,
+          "matches_static_contract": true
+        },
+        {
+          "name": "toInt(-0.5)",
+          "function": "0x40ffa9",
+          "status": "observed",
+          "actual": 0,
+          "expected": 0,
+          "matches_static_contract": true
+        },
+        {
+          "name": "toInt(2147483648.0)",
+          "function": "0x40ffa9",
+          "status": "observed",
+          "actual": -2147483648,
+          "expected": -2147483648,
+          "matches_static_contract": true
+        },
+        {
+          "name": "toInt(4294967297.0)",
+          "function": "0x40ffa9",
+          "status": "observed",
+          "actual": 1,
+          "expected": 1,
+          "matches_static_contract": true
+        },
+        {
+          "name": "toReal(short -32768)",
+          "function": "0x40fe5d",
+          "status": "observed",
+          "actual": -32768.0,
+          "expected": -32768.0,
+          "matches_static_contract": true
+        },
+        {
+          "name": "toReal(short 0)",
+          "function": "0x40fe5d",
+          "status": "observed",
+          "actual": 0.0,
+          "expected": 0.0,
+          "matches_static_contract": true
+        },
+        {
+          "name": "toReal(short 32767)",
+          "function": "0x40fe5d",
+          "status": "observed",
+          "actual": 32767.0,
+          "expected": 32767.0,
+          "matches_static_contract": true
+        },
+        {
+          "name": "toReal(Boolean TRUE)",
+          "function": "0x40fe5d",
+          "status": "observed",
+          "actual": 1.0,
+          "expected": 0.0,
+          "matches_static_contract": false
+        },
+        {
+          "name": "keyCompare([65, 0, 97, 0],[66, 1, 98, 1])",
+          "function": "0x40f559",
+          "status": "observed",
+          "actual": 1.0,
+          "expected": 1.0,
+          "matches_static_contract": true
+        },
+        {
+          "name": "keyCompare([65, 0, 97, 0],[66, 1, 97, 9])",
+          "function": "0x40f559",
+          "status": "observed",
+          "actual": 0.0,
+          "expected": 0.0,
+          "matches_static_contract": true
+        },
+        {
+          "name": "keyCompare([65, 0, 0, 0],[65, 0, 0, 9])",
+          "function": "0x40f559",
+          "status": "observed",
+          "actual": 0.0,
+          "expected": 0.0,
+          "matches_static_contract": true
+        },
+        {
+          "name": "keyCompare([65, 0, 0, 0],[66, 0, 0, 0])",
+          "function": "0x40f559",
+          "status": "observed",
+          "actual": 1.0,
+          "expected": 1.0,
+          "matches_static_contract": true
+        },
+        {
+          "name": "keyCompare([66, 0, 0, 0],[65, 0, 0, 0])",
+          "function": "0x40f559",
+          "status": "observed",
+          "actual": 1.0,
+          "expected": 1.0,
+          "matches_static_contract": true
+        },
+        {
+          "name": "keyToInt([65, 1, 97, 2])",
+          "function": "0x40ffa9",
+          "status": "observed",
+          "actual": 0,
+          "expected": 0,
+          "matches_static_contract": true
+        },
+        {
+          "name": "keyToReal([65, 1, 97, 2])",
+          "function": "0x40fe5d",
+          "status": "observed",
+          "actual": 97.0,
+          "expected": 97.0,
+          "matches_static_contract": true
+        },
+        {
+          "name": "keyToInt([65, 0, 0, 0])",
+          "function": "0x40ffa9",
+          "status": "observed",
+          "actual": 0,
+          "expected": 0,
+          "matches_static_contract": true
+        },
+        {
+          "name": "keyToReal([65, 0, 0, 0])",
+          "function": "0x40fe5d",
+          "status": "observed",
+          "actual": 65.0,
+          "expected": 65.0,
+          "matches_static_contract": true
+        },
+        {
+          "name": "keyTrigger([65, 0, 97, 0],[66, 1, 97, 9])",
+          "function": "0x4203ae",
+          "status": "observed",
+          "actual": 1,
+          "expected": 1,
+          "matches_static_contract": true
+        },
+        {
+          "name": "keyTrigger([65, 0, 0, 0],[65, 0, 0, 9])",
+          "function": "0x4203ae",
+          "status": "observed",
+          "actual": 1,
+          "expected": 1,
+          "matches_static_contract": true
+        },
+        {
+          "name": "keyTrigger([65, 0, 0, 0],[65, 1, 0, 0])",
+          "function": "0x4203ae",
+          "status": "observed",
+          "actual": 0,
+          "expected": 0,
+          "matches_static_contract": true
+        },
+        {
+          "name": "keyTrigger([0, 0, 0, 0],[0, 0, 0, 0])",
+          "function": "0x4203ae",
+          "status": "observed",
+          "actual": 0,
+          "expected": 0,
+          "matches_static_contract": true
+        }
+      ]
+    },
+    {
+      "name": "batch-02",
+      "count": 31,
+      "observed": 31,
+      "mismatches_against_then_current_contract": 0,
+      "harness_sha256": "bac5389d623d8fb4085045ec7dc4d46ca0f33805909eb408dc09a6c021ee6144",
+      "receipt_sha256": "d50ec7a54d4dd426aea8413fe661422b9cb4b56c741c07132d8ce58c383cee31",
+      "plan_sha256": "0804a031104a99c664b384747aad3f3519dafd32137df9cf2f1a7d4767c025fe",
+      "results": [
+        {
+          "name": "toInt(1.75)",
+          "function": "0x40ffa9",
+          "status": "observed",
+          "actual": 1,
+          "expected": 1,
+          "matches_static_contract": true
+        },
+        {
+          "name": "toInt(-1.75)",
+          "function": "0x40ffa9",
+          "status": "observed",
+          "actual": -1,
+          "expected": -1,
+          "matches_static_contract": true
+        },
+        {
+          "name": "toInt(0.5)",
+          "function": "0x40ffa9",
+          "status": "observed",
+          "actual": 0,
+          "expected": 0,
+          "matches_static_contract": true
+        },
+        {
+          "name": "toInt(-0.5)",
+          "function": "0x40ffa9",
+          "status": "observed",
+          "actual": 0,
+          "expected": 0,
+          "matches_static_contract": true
+        },
+        {
+          "name": "toInt(2147483648.0)",
+          "function": "0x40ffa9",
+          "status": "observed",
+          "actual": -2147483648,
+          "expected": -2147483648,
+          "matches_static_contract": true
+        },
+        {
+          "name": "toInt(4294967297.0)",
+          "function": "0x40ffa9",
+          "status": "observed",
+          "actual": 1,
+          "expected": 1,
+          "matches_static_contract": true
+        },
+        {
+          "name": "toReal(short -32768)",
+          "function": "0x40fe5d",
+          "status": "observed",
+          "actual": -32768.0,
+          "expected": -32768.0,
+          "matches_static_contract": true
+        },
+        {
+          "name": "toReal(short 0)",
+          "function": "0x40fe5d",
+          "status": "observed",
+          "actual": 0.0,
+          "expected": 0.0,
+          "matches_static_contract": true
+        },
+        {
+          "name": "toReal(short 32767)",
+          "function": "0x40fe5d",
+          "status": "observed",
+          "actual": 32767.0,
+          "expected": 32767.0,
+          "matches_static_contract": true
+        },
+        {
+          "name": "toReal(Boolean TRUE)",
+          "function": "0x40fe5d",
+          "status": "observed",
+          "actual": 1.0,
+          "expected": 1.0,
+          "matches_static_contract": true
+        },
+        {
+          "name": "double(Boolean payload 0)",
+          "function": "0x40fe5d",
+          "status": "observed",
+          "actual": 0.0,
+          "expected": 0.0,
+          "matches_static_contract": true
+        },
+        {
+          "name": "int32(Boolean payload 0)",
+          "function": "0x40ffa9",
+          "status": "observed",
+          "actual": 0,
+          "expected": 0,
+          "matches_static_contract": true
+        },
+        {
+          "name": "double(Boolean payload -1)",
+          "function": "0x40fe5d",
+          "status": "observed",
+          "actual": -1.0,
+          "expected": -1.0,
+          "matches_static_contract": true
+        },
+        {
+          "name": "int32(Boolean payload -1)",
+          "function": "0x40ffa9",
+          "status": "observed",
+          "actual": -1,
+          "expected": -1,
+          "matches_static_contract": true
+        },
+        {
+          "name": "double(Boolean payload 2)",
+          "function": "0x40fe5d",
+          "status": "observed",
+          "actual": 2.0,
+          "expected": 2.0,
+          "matches_static_contract": true
+        },
+        {
+          "name": "int32(Boolean payload 2)",
+          "function": "0x40ffa9",
+          "status": "observed",
+          "actual": 2,
+          "expected": 2,
+          "matches_static_contract": true
+        },
+        {
+          "name": "double(Boolean payload -32768)",
+          "function": "0x40fe5d",
+          "status": "observed",
+          "actual": -32768.0,
+          "expected": -32768.0,
+          "matches_static_contract": true
+        },
+        {
+          "name": "int32(Boolean payload -32768)",
+          "function": "0x40ffa9",
+          "status": "observed",
+          "actual": -32768,
+          "expected": -32768,
+          "matches_static_contract": true
+        },
+        {
+          "name": "keyCompare([65, 0, 97, 0],[66, 1, 98, 1])",
+          "function": "0x40f559",
+          "status": "observed",
+          "actual": 1.0,
+          "expected": 1.0,
+          "matches_static_contract": true
+        },
+        {
+          "name": "keyCompare([65, 0, 97, 0],[66, 1, 97, 9])",
+          "function": "0x40f559",
+          "status": "observed",
+          "actual": 0.0,
+          "expected": 0.0,
+          "matches_static_contract": true
+        },
+        {
+          "name": "keyCompare([65, 0, 0, 0],[65, 0, 0, 9])",
+          "function": "0x40f559",
+          "status": "observed",
+          "actual": 0.0,
+          "expected": 0.0,
+          "matches_static_contract": true
+        },
+        {
+          "name": "keyCompare([65, 0, 0, 0],[66, 0, 0, 0])",
+          "function": "0x40f559",
+          "status": "observed",
+          "actual": 1.0,
+          "expected": 1.0,
+          "matches_static_contract": true
+        },
+        {
+          "name": "keyCompare([66, 0, 0, 0],[65, 0, 0, 0])",
+          "function": "0x40f559",
+          "status": "observed",
+          "actual": 1.0,
+          "expected": 1.0,
+          "matches_static_contract": true
+        },
+        {
+          "name": "keyToInt([65, 1, 97, 2])",
+          "function": "0x40ffa9",
+          "status": "observed",
+          "actual": 0,
+          "expected": 0,
+          "matches_static_contract": true
+        },
+        {
+          "name": "keyToReal([65, 1, 97, 2])",
+          "function": "0x40fe5d",
+          "status": "observed",
+          "actual": 97.0,
+          "expected": 97.0,
+          "matches_static_contract": true
+        },
+        {
+          "name": "keyToInt([65, 0, 0, 0])",
+          "function": "0x40ffa9",
+          "status": "observed",
+          "actual": 0,
+          "expected": 0,
+          "matches_static_contract": true
+        },
+        {
+          "name": "keyToReal([65, 0, 0, 0])",
+          "function": "0x40fe5d",
+          "status": "observed",
+          "actual": 65.0,
+          "expected": 65.0,
+          "matches_static_contract": true
+        },
+        {
+          "name": "keyTrigger([65, 0, 97, 0],[66, 1, 97, 9])",
+          "function": "0x4203ae",
+          "status": "observed",
+          "actual": 1,
+          "expected": 1,
+          "matches_static_contract": true
+        },
+        {
+          "name": "keyTrigger([65, 0, 0, 0],[65, 0, 0, 9])",
+          "function": "0x4203ae",
+          "status": "observed",
+          "actual": 1,
+          "expected": 1,
+          "matches_static_contract": true
+        },
+        {
+          "name": "keyTrigger([65, 0, 0, 0],[65, 1, 0, 0])",
+          "function": "0x4203ae",
+          "status": "observed",
+          "actual": 0,
+          "expected": 0,
+          "matches_static_contract": true
+        },
+        {
+          "name": "keyTrigger([0, 0, 0, 0],[0, 0, 0, 0])",
+          "function": "0x4203ae",
+          "status": "observed",
+          "actual": 0,
+          "expected": 0,
+          "matches_static_contract": true
+        }
+      ]
+    },
+    {
+      "name": "batch-03",
+      "count": 31,
+      "observed": 31,
+      "mismatches_against_then_current_contract": 0,
+      "harness_sha256": "bac5389d623d8fb4085045ec7dc4d46ca0f33805909eb408dc09a6c021ee6144",
+      "receipt_sha256": "e069069471b70c11d294c59f3ea113077b8dea00cb89dd3f1d3f7806fd61af43",
+      "plan_sha256": "0804a031104a99c664b384747aad3f3519dafd32137df9cf2f1a7d4767c025fe",
+      "results": [
+        {
+          "name": "toInt(1.75)",
+          "function": "0x40ffa9",
+          "status": "observed",
+          "actual": 1,
+          "expected": 1,
+          "matches_static_contract": true
+        },
+        {
+          "name": "toInt(-1.75)",
+          "function": "0x40ffa9",
+          "status": "observed",
+          "actual": -1,
+          "expected": -1,
+          "matches_static_contract": true
+        },
+        {
+          "name": "toInt(0.5)",
+          "function": "0x40ffa9",
+          "status": "observed",
+          "actual": 0,
+          "expected": 0,
+          "matches_static_contract": true
+        },
+        {
+          "name": "toInt(-0.5)",
+          "function": "0x40ffa9",
+          "status": "observed",
+          "actual": 0,
+          "expected": 0,
+          "matches_static_contract": true
+        },
+        {
+          "name": "toInt(2147483648.0)",
+          "function": "0x40ffa9",
+          "status": "observed",
+          "actual": -2147483648,
+          "expected": -2147483648,
+          "matches_static_contract": true
+        },
+        {
+          "name": "toInt(4294967297.0)",
+          "function": "0x40ffa9",
+          "status": "observed",
+          "actual": 1,
+          "expected": 1,
+          "matches_static_contract": true
+        },
+        {
+          "name": "toReal(short -32768)",
+          "function": "0x40fe5d",
+          "status": "observed",
+          "actual": -32768.0,
+          "expected": -32768.0,
+          "matches_static_contract": true
+        },
+        {
+          "name": "toReal(short 0)",
+          "function": "0x40fe5d",
+          "status": "observed",
+          "actual": 0.0,
+          "expected": 0.0,
+          "matches_static_contract": true
+        },
+        {
+          "name": "toReal(short 32767)",
+          "function": "0x40fe5d",
+          "status": "observed",
+          "actual": 32767.0,
+          "expected": 32767.0,
+          "matches_static_contract": true
+        },
+        {
+          "name": "toReal(Boolean TRUE)",
+          "function": "0x40fe5d",
+          "status": "observed",
+          "actual": 1.0,
+          "expected": 1.0,
+          "matches_static_contract": true
+        },
+        {
+          "name": "double(Boolean payload 0)",
+          "function": "0x40fe5d",
+          "status": "observed",
+          "actual": 0.0,
+          "expected": 0.0,
+          "matches_static_contract": true
+        },
+        {
+          "name": "int32(Boolean payload 0)",
+          "function": "0x40ffa9",
+          "status": "observed",
+          "actual": 0,
+          "expected": 0,
+          "matches_static_contract": true
+        },
+        {
+          "name": "double(Boolean payload -1)",
+          "function": "0x40fe5d",
+          "status": "observed",
+          "actual": -1.0,
+          "expected": -1.0,
+          "matches_static_contract": true
+        },
+        {
+          "name": "int32(Boolean payload -1)",
+          "function": "0x40ffa9",
+          "status": "observed",
+          "actual": -1,
+          "expected": -1,
+          "matches_static_contract": true
+        },
+        {
+          "name": "double(Boolean payload 2)",
+          "function": "0x40fe5d",
+          "status": "observed",
+          "actual": 2.0,
+          "expected": 2.0,
+          "matches_static_contract": true
+        },
+        {
+          "name": "int32(Boolean payload 2)",
+          "function": "0x40ffa9",
+          "status": "observed",
+          "actual": 2,
+          "expected": 2,
+          "matches_static_contract": true
+        },
+        {
+          "name": "double(Boolean payload -32768)",
+          "function": "0x40fe5d",
+          "status": "observed",
+          "actual": -32768.0,
+          "expected": -32768.0,
+          "matches_static_contract": true
+        },
+        {
+          "name": "int32(Boolean payload -32768)",
+          "function": "0x40ffa9",
+          "status": "observed",
+          "actual": -32768,
+          "expected": -32768,
+          "matches_static_contract": true
+        },
+        {
+          "name": "keyCompare([65, 0, 97, 0],[66, 1, 98, 1])",
+          "function": "0x40f559",
+          "status": "observed",
+          "actual": 1.0,
+          "expected": 1.0,
+          "matches_static_contract": true
+        },
+        {
+          "name": "keyCompare([65, 0, 97, 0],[66, 1, 97, 9])",
+          "function": "0x40f559",
+          "status": "observed",
+          "actual": 0.0,
+          "expected": 0.0,
+          "matches_static_contract": true
+        },
+        {
+          "name": "keyCompare([65, 0, 0, 0],[65, 0, 0, 9])",
+          "function": "0x40f559",
+          "status": "observed",
+          "actual": 0.0,
+          "expected": 0.0,
+          "matches_static_contract": true
+        },
+        {
+          "name": "keyCompare([65, 0, 0, 0],[66, 0, 0, 0])",
+          "function": "0x40f559",
+          "status": "observed",
+          "actual": 1.0,
+          "expected": 1.0,
+          "matches_static_contract": true
+        },
+        {
+          "name": "keyCompare([66, 0, 0, 0],[65, 0, 0, 0])",
+          "function": "0x40f559",
+          "status": "observed",
+          "actual": 1.0,
+          "expected": 1.0,
+          "matches_static_contract": true
+        },
+        {
+          "name": "keyToInt([65, 1, 97, 2])",
+          "function": "0x40ffa9",
+          "status": "observed",
+          "actual": 0,
+          "expected": 0,
+          "matches_static_contract": true
+        },
+        {
+          "name": "keyToReal([65, 1, 97, 2])",
+          "function": "0x40fe5d",
+          "status": "observed",
+          "actual": 97.0,
+          "expected": 97.0,
+          "matches_static_contract": true
+        },
+        {
+          "name": "keyToInt([65, 0, 0, 0])",
+          "function": "0x40ffa9",
+          "status": "observed",
+          "actual": 0,
+          "expected": 0,
+          "matches_static_contract": true
+        },
+        {
+          "name": "keyToReal([65, 0, 0, 0])",
+          "function": "0x40fe5d",
+          "status": "observed",
+          "actual": 65.0,
+          "expected": 65.0,
+          "matches_static_contract": true
+        },
+        {
+          "name": "keyTrigger([65, 0, 97, 0],[66, 1, 97, 9])",
+          "function": "0x4203ae",
+          "status": "observed",
+          "actual": 1,
+          "expected": 1,
+          "matches_static_contract": true
+        },
+        {
+          "name": "keyTrigger([65, 0, 0, 0],[65, 0, 0, 9])",
+          "function": "0x4203ae",
+          "status": "observed",
+          "actual": 1,
+          "expected": 1,
+          "matches_static_contract": true
+        },
+        {
+          "name": "keyTrigger([65, 0, 0, 0],[65, 1, 0, 0])",
+          "function": "0x4203ae",
+          "status": "observed",
+          "actual": 0,
+          "expected": 0,
+          "matches_static_contract": true
+        },
+        {
+          "name": "keyTrigger([0, 0, 0, 0],[0, 0, 0, 0])",
+          "function": "0x4203ae",
+          "status": "observed",
+          "actual": 0,
+          "expected": 0,
+          "matches_static_contract": true
+        }
+      ]
+    }
+  ],
+  "repeat_comparison_passed": true,
+  "pending": [
+    "CE observation adapter and actual original-versus-CE comparison",
+    "Full initialized VM/calls/reference/error probes",
+    "Lifecycle/resource and page-loader probes",
+    "Storage cold restart and Retry/Cancel UI probes",
+    "Gameplay acceptance"
+  ]
+}

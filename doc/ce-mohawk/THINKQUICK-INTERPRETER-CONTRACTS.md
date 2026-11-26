@@ -323,3 +323,11 @@ The [operator/packed-value/OS-error supplement](THINKQUICK-OPERATOR-PACKED-OS-CO
 supersedes remaining static questions listed at earlier checkpoints. Step 2's
 structure and contract baseline is complete; step 3 controlled original runs
 remain necessary before implementation and compatibility acceptance.
+
+## First step-3 observations
+
+See [comparison harness](THINKQUICK-COMPARISON.md). Thirty-one selected original
+conversion/key cases reproduced in fresh processes before application startup.
+The earlier Boolean zero-fallback prose was wrong: tag 8 numerically reads its
+signed-short payload. The failing first batch is retained. These direct-function
+observations do not qualify the initialized VM, CE behavior or gameplay.
