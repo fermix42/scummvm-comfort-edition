@@ -1,0 +1,1764 @@
+{
+  "schema": 1,
+  "date": "2026-11-26",
+  "kind": "instrumented original versus CE lifecycle checkpoint; not full game qualification",
+  "counts": {
+    "match": 20,
+    "mismatch": 7,
+    "unqualified": 14,
+    "incomparable": 0
+  },
+  "focused_counts": {
+    "match": 3,
+    "mismatch": 3,
+    "unqualified": 6,
+    "incomparable": 0
+  },
+  "original_identity": {
+    "kind": "initialized original evaluator assertions; manual CRT heap/locks plus evaluator constructor; application startup skipped",
+    "original_sha256": "219d81ea3d91b31da406e6891d01ba6ad12005e77b4d9f8f83930161dbfc9966",
+    "harness_sha256": "97ae864826d94963a2627d1b48a615d678ae575e66e19644687c117f2d41b3a1",
+    "transport_sha256": "22dfeb504f33cbec2d678c0eb562cc827566049ea9dc816b5ca8b2ae4acae5ae"
+  },
+  "ce_identity": {
+    "kind": "CE generated assertion observations; success/failure sentinel, not raw VM-value reads",
+    "exe_sha256": "04c96176beb3f4a8a5e53f0be20c971aab603d625057c09c9a548cb2d89a9795",
+    "harness_sha256": "97ae864826d94963a2627d1b48a615d678ae575e66e19644687c117f2d41b3a1"
+  },
+  "dependencies": {
+    "probe_mohawk_v5_vm.py": {
+      "runtime_sha256": "97ae864826d94963a2627d1b48a615d678ae575e66e19644687c117f2d41b3a1",
+      "lf_normalized_sha256": "97ae864826d94963a2627d1b48a615d678ae575e66e19644687c117f2d41b3a1"
+    },
+    "compare_mohawk_v5_observations.py": {
+      "runtime_sha256": "82302f13cd015011cbdfa6f2b2435db7806210c2c57b6aa77022336f073a6f2e",
+      "lf_normalized_sha256": "82302f13cd015011cbdfa6f2b2435db7806210c2c57b6aa77022336f073a6f2e"
+    },
+    "probe_mohawk_v5_original.py": {
+      "runtime_sha256": "22dfeb504f33cbec2d678c0eb562cc827566049ea9dc816b5ca8b2ae4acae5ae",
+      "lf_normalized_sha256": "22dfeb504f33cbec2d678c0eb562cc827566049ea9dc816b5ca8b2ae4acae5ae"
+    },
+    "test_mohawk_v5_observations.py": {
+      "runtime_sha256": "866f810cd85b4157eb9df0597db234f190c044c890a50da885a80d00898f6b51",
+      "lf_normalized_sha256": "866f810cd85b4157eb9df0597db234f190c044c890a50da885a80d00898f6b51"
+    },
+    "test_mohawk_v5_startup.py": {
+      "runtime_sha256": "e36e1eb07e64c65f32ec7a343edfe0619b54138a32a975b6ea481efbcec39863",
+      "lf_normalized_sha256": "27586ef5f82c411aec5c03acfd354d3b8f0d74769f8146418efbe62646686be6"
+    },
+    "mohawk_v5_lifecycle_probes.py": {
+      "runtime_sha256": "b8ae624b3a152d9250b6d1c78a4fa7aee88739e9f2017091bcde21fe1470a845",
+      "lf_normalized_sha256": "b8ae624b3a152d9250b6d1c78a4fa7aee88739e9f2017091bcde21fe1470a845"
+    },
+    "mohawk_v5_call_probes.py": {
+      "runtime_sha256": "9c24d5d50afeadb6ce5912a9685b454ccc8c23effc8d99973a8fc5a5c94f02c8",
+      "lf_normalized_sha256": "9c24d5d50afeadb6ce5912a9685b454ccc8c23effc8d99973a8fc5a5c94f02c8"
+    },
+    "test_cli_client.py": {
+      "runtime_sha256": "1765d2e62ebfc9518a0c59733956bbdede34b3cedff41bdc4b5f32e30fd44813",
+      "lf_normalized_sha256": "835eb0168daaf9738865f5471d1f046d0d29ed2ca090d9cfa557009321ed3197"
+    }
+  },
+  "receipt_sha256": {
+    "lifecycle-expanded-original/receipt.json": "d609c5423a4fe70ba4ccca9a57ee950808613d55e663ad6e2e8d217dbdd0b0c8",
+    "lifecycle-expanded-ce/receipt.json": "35c04653449d8186d2a47850411f100bed20c1edce1a73e6fee4388298ccd2c5",
+    "lifecycle-expanded-comparison.json": "c22a5e5263bbc4a51177d5b1a5160daf14423b9265b7e748a1b692b3d65ceb86",
+    "lifecycle-comparison.json": "c1cb015e6e818a40db2b7c7bd88cef8495013b3a6ea5589d1079e209ee22172b"
+  },
+  "results": [
+    {
+      "name": "call-abs",
+      "status": "match",
+      "original": {
+        "name": "call-abs",
+        "expression_sha256": "8eac4de781c1f396fde4aa623820997a3c0437665d5e6073579d55695f46eebc",
+        "program_sha256": "400c704bd8b6f473e3c4e13b8dfc796c604146745495d5510c6e4b5ced18100c",
+        "status": "observed",
+        "actual": 1.0,
+        "expected": 1.0,
+        "matches_static_contract": true,
+        "phase": "probe",
+        "initialization": {
+          "heap_initialized": true,
+          "evaluator_constructed": true,
+          "value_stack_allocated": true,
+          "stack_empty_after_eval": true,
+          "active_code_cleared": true,
+          "result_tag": 2,
+          "symbol_frame_push_succeeded": true,
+          "symbol_frame_restored": true,
+          "crt_thread_initialized": true,
+          "crt_floating_parser_initialized": true
+        },
+        "vm_errors": [],
+        "vm_error_offsets": [],
+        "first_chance_cpp": 0
+      },
+      "ce": {
+        "name": "call-abs",
+        "expression_sha256": "8eac4de781c1f396fde4aa623820997a3c0437665d5e6073579d55695f46eebc",
+        "program_sha256": "400c704bd8b6f473e3c4e13b8dfc796c604146745495d5510c6e4b5ced18100c",
+        "status": "observed",
+        "actual": 1.0,
+        "ready": {
+          "phase": 2,
+          "loaded_probe_item": true
+        }
+      }
+    },
+    {
+      "name": "call-min",
+      "status": "match",
+      "original": {
+        "name": "call-min",
+        "expression_sha256": "e788900f4e6f79a435a4a810b3dc480ef7af92b31397c0876d9d86835655b667",
+        "program_sha256": "b58387e5adf69bad41674d865b2fd95b0f6348633f40e403ddb0f825ca868f86",
+        "status": "observed",
+        "actual": 1.0,
+        "expected": 1.0,
+        "matches_static_contract": true,
+        "phase": "probe",
+        "initialization": {
+          "heap_initialized": true,
+          "evaluator_constructed": true,
+          "value_stack_allocated": true,
+          "stack_empty_after_eval": true,
+          "active_code_cleared": true,
+          "result_tag": 2,
+          "symbol_frame_push_succeeded": true,
+          "symbol_frame_restored": true,
+          "crt_thread_initialized": true,
+          "crt_floating_parser_initialized": true
+        },
+        "vm_errors": [],
+        "vm_error_offsets": [],
+        "first_chance_cpp": 0
+      },
+      "ce": {
+        "name": "call-min",
+        "expression_sha256": "e788900f4e6f79a435a4a810b3dc480ef7af92b31397c0876d9d86835655b667",
+        "program_sha256": "b58387e5adf69bad41674d865b2fd95b0f6348633f40e403ddb0f825ca868f86",
+        "status": "observed",
+        "actual": 1.0,
+        "ready": {
+          "phase": 2,
+          "loaded_probe_item": true
+        }
+      }
+    },
+    {
+      "name": "call-stringLen",
+      "status": "match",
+      "original": {
+        "name": "call-stringLen",
+        "expression_sha256": "4c468b9bbcc9e61780919b48af132158133c0869235e85da7ff41f9c7b12aeca",
+        "program_sha256": "9921a9398dd9e16a61f59a99536047c856d478b55640f3151f80e6eec994619a",
+        "status": "observed",
+        "actual": 1.0,
+        "expected": 1.0,
+        "matches_static_contract": true,
+        "phase": "probe",
+        "initialization": {
+          "heap_initialized": true,
+          "evaluator_constructed": true,
+          "value_stack_allocated": true,
+          "stack_empty_after_eval": true,
+          "active_code_cleared": true,
+          "result_tag": 2,
+          "symbol_frame_push_succeeded": true,
+          "symbol_frame_restored": true,
+          "crt_thread_initialized": true,
+          "crt_floating_parser_initialized": true
+        },
+        "vm_errors": [],
+        "vm_error_offsets": [],
+        "first_chance_cpp": 0
+      },
+      "ce": {
+        "name": "call-stringLen",
+        "expression_sha256": "4c468b9bbcc9e61780919b48af132158133c0869235e85da7ff41f9c7b12aeca",
+        "program_sha256": "9921a9398dd9e16a61f59a99536047c856d478b55640f3151f80e6eec994619a",
+        "status": "observed",
+        "actual": 1.0,
+        "ready": {
+          "phase": 2,
+          "loaded_probe_item": true
+        }
+      }
+    },
+    {
+      "name": "compound-reference",
+      "status": "match",
+      "original": {
+        "name": "compound-reference",
+        "expression_sha256": "748a66bda60d7f25cc65105496655926803181ba85f4bf24a51fb337635b4dea",
+        "program_sha256": "a705c0656464d256e874c71a24c8b478b9dae298f43df60d6b740dc89ad6327d",
+        "status": "observed",
+        "actual": 1.0,
+        "expected": 1.0,
+        "matches_static_contract": true,
+        "phase": "probe",
+        "initialization": {
+          "heap_initialized": true,
+          "evaluator_constructed": true,
+          "value_stack_allocated": true,
+          "stack_empty_after_eval": true,
+          "active_code_cleared": true,
+          "result_tag": 2,
+          "symbol_frame_push_succeeded": true,
+          "symbol_frame_restored": true,
+          "crt_thread_initialized": true,
+          "crt_floating_parser_initialized": true
+        },
+        "vm_errors": [],
+        "vm_error_offsets": [],
+        "first_chance_cpp": 0
+      },
+      "ce": {
+        "name": "compound-reference",
+        "expression_sha256": "748a66bda60d7f25cc65105496655926803181ba85f4bf24a51fb337635b4dea",
+        "program_sha256": "a705c0656464d256e874c71a24c8b478b9dae298f43df60d6b740dc89ad6327d",
+        "status": "observed",
+        "actual": 1.0,
+        "ready": {
+          "phase": 2,
+          "loaded_probe_item": true
+        }
+      }
+    },
+    {
+      "name": "copy-value",
+      "status": "match",
+      "original": {
+        "name": "copy-value",
+        "expression_sha256": "f0eb23580a3625d14018404ca52a9b5b98f84557a6a5bfea2dd9e2b954c58ffc",
+        "program_sha256": "d9fa2e08107add6777371fc3a715adc9d63e8eaba2f350dc58779c228346d675",
+        "status": "observed",
+        "actual": 1.0,
+        "expected": 1.0,
+        "matches_static_contract": true,
+        "phase": "probe",
+        "initialization": {
+          "heap_initialized": true,
+          "evaluator_constructed": true,
+          "value_stack_allocated": true,
+          "stack_empty_after_eval": true,
+          "active_code_cleared": true,
+          "result_tag": 2,
+          "symbol_frame_push_succeeded": true,
+          "symbol_frame_restored": true,
+          "crt_thread_initialized": true,
+          "crt_floating_parser_initialized": true
+        },
+        "vm_errors": [],
+        "vm_error_offsets": [],
+        "first_chance_cpp": 0
+      },
+      "ce": {
+        "name": "copy-value",
+        "expression_sha256": "f0eb23580a3625d14018404ca52a9b5b98f84557a6a5bfea2dd9e2b954c58ffc",
+        "program_sha256": "d9fa2e08107add6777371fc3a715adc9d63e8eaba2f350dc58779c228346d675",
+        "status": "observed",
+        "actual": 1.0,
+        "ready": {
+          "phase": 2,
+          "loaded_probe_item": true
+        }
+      }
+    },
+    {
+      "name": "error-call-arity",
+      "status": "mismatch",
+      "original": {
+        "name": "error-call-arity",
+        "expression_sha256": "283209696d0f7f5c4aecdd26cae9f74f07d5c8aee2aa5c9c22e9f3f74d2895c7",
+        "program_sha256": "97542e9e2e8f3df5fb03e2a931748e08cb2f80b59fedb8a84969362101a53008",
+        "status": "observed",
+        "actual": {
+          "completion": "returned"
+        },
+        "phase": "probe",
+        "initialization": {
+          "heap_initialized": true,
+          "evaluator_constructed": true,
+          "value_stack_allocated": true,
+          "stack_empty_after_eval": true,
+          "active_code_cleared": true,
+          "result_tag": 3,
+          "symbol_frame_push_succeeded": true,
+          "symbol_frame_restored": true,
+          "crt_thread_initialized": true,
+          "crt_floating_parser_initialized": true
+        },
+        "vm_errors": [
+          16
+        ],
+        "vm_error_offsets": [
+          8
+        ],
+        "first_chance_cpp": 1,
+        "returned_numeric": 0.0,
+        "observation_kind": "error-completion"
+      },
+      "ce": {
+        "name": "error-call-arity",
+        "expression_sha256": "283209696d0f7f5c4aecdd26cae9f74f07d5c8aee2aa5c9c22e9f3f74d2895c7",
+        "program_sha256": "97542e9e2e8f3df5fb03e2a931748e08cb2f80b59fedb8a84969362101a53008",
+        "status": "observed",
+        "actual": {
+          "completion": "engine-abort"
+        },
+        "observation_kind": "error-completion",
+        "diagnostics": [
+          "incorrect number of parameters (0) to stringLen!"
+        ]
+      }
+    },
+    {
+      "name": "error-divide-zero",
+      "status": "mismatch",
+      "original": {
+        "name": "error-divide-zero",
+        "expression_sha256": "1be33566a1aee55edc0f0d0a71315a955a2fc1e2095a3afb69ddf4cbfb8317d0",
+        "program_sha256": "48ea56230248f5d5af0e73b18a08ffc14ec0bc4874851255273e697bddb1a318",
+        "status": "observed",
+        "actual": {
+          "completion": "returned"
+        },
+        "phase": "probe",
+        "initialization": {
+          "heap_initialized": true,
+          "evaluator_constructed": true,
+          "value_stack_allocated": true,
+          "stack_empty_after_eval": true,
+          "active_code_cleared": true,
+          "result_tag": 2,
+          "symbol_frame_push_succeeded": true,
+          "symbol_frame_restored": true,
+          "crt_thread_initialized": true,
+          "crt_floating_parser_initialized": true
+        },
+        "vm_errors": [
+          4
+        ],
+        "vm_error_offsets": [
+          8
+        ],
+        "first_chance_cpp": 1,
+        "returned_numeric": 0.0,
+        "observation_kind": "error-completion"
+      },
+      "ce": {
+        "name": "error-divide-zero",
+        "expression_sha256": "1be33566a1aee55edc0f0d0a71315a955a2fc1e2095a3afb69ddf4cbfb8317d0",
+        "program_sha256": "48ea56230248f5d5af0e73b18a08ffc14ec0bc4874851255273e697bddb1a318",
+        "status": "observed",
+        "actual": {
+          "completion": "engine-abort"
+        },
+        "observation_kind": "error-completion",
+        "diagnostics": [
+          "V5 division by zero!"
+        ]
+      }
+    },
+    {
+      "name": "error-non-reference",
+      "status": "mismatch",
+      "original": {
+        "name": "error-non-reference",
+        "expression_sha256": "431028abd98ec41090e0bb6a28f9a766c0e069430d674fc9c2b88a35cd21e1af",
+        "program_sha256": "4843f921c835bae2b65b3689579c70f8e8f130a3d637c04257836a448022ebc3",
+        "status": "observed",
+        "actual": {
+          "completion": "returned"
+        },
+        "phase": "probe",
+        "initialization": {
+          "heap_initialized": true,
+          "evaluator_constructed": true,
+          "value_stack_allocated": true,
+          "stack_empty_after_eval": true,
+          "active_code_cleared": true,
+          "result_tag": 2,
+          "symbol_frame_push_succeeded": true,
+          "symbol_frame_restored": true,
+          "crt_thread_initialized": true,
+          "crt_floating_parser_initialized": true
+        },
+        "vm_errors": [
+          14
+        ],
+        "vm_error_offsets": [
+          8
+        ],
+        "first_chance_cpp": 1,
+        "returned_numeric": 0.0,
+        "observation_kind": "error-completion"
+      },
+      "ce": {
+        "name": "error-non-reference",
+        "expression_sha256": "431028abd98ec41090e0bb6a28f9a766c0e069430d674fc9c2b88a35cd21e1af",
+        "program_sha256": "4843f921c835bae2b65b3689579c70f8e8f130a3d637c04257836a448022ebc3",
+        "status": "observed",
+        "actual": {
+          "completion": "engine-abort"
+        },
+        "observation_kind": "error-completion",
+        "diagnostics": [
+          "V5 assignment requires a reference!"
+        ]
+      }
+    },
+    {
+      "name": "fixed-point-add",
+      "status": "unqualified",
+      "original": {
+        "name": "fixed-point-add",
+        "expression_sha256": "c9a6750079ab19de9e85d17d6a7096f2caadbe261a3058699330598f4f27a209",
+        "program_sha256": "da144b09c6e6d520315a090bda6e2a1ca07e5e05d1da40a8252799e4ce8710a1",
+        "status": "observed",
+        "actual": 1.0,
+        "expected": 1.0,
+        "matches_static_contract": true,
+        "phase": "probe",
+        "initialization": {
+          "heap_initialized": true,
+          "evaluator_constructed": true,
+          "value_stack_allocated": true,
+          "stack_empty_after_eval": true,
+          "active_code_cleared": true,
+          "result_tag": 2
+        },
+        "vm_errors": [],
+        "vm_error_offsets": [],
+        "first_chance_cpp": 0
+      },
+      "ce": {
+        "name": "fixed-point-add",
+        "expression_sha256": "c9a6750079ab19de9e85d17d6a7096f2caadbe261a3058699330598f4f27a209",
+        "program_sha256": "da144b09c6e6d520315a090bda6e2a1ca07e5e05d1da40a8252799e4ce8710a1",
+        "status": "engine_error",
+        "diagnostics": [
+          "Unsupported V5 bytecode token 13 at 18!"
+        ]
+      }
+    },
+    {
+      "name": "fractional-not",
+      "status": "unqualified",
+      "original": {
+        "name": "fractional-not",
+        "expression_sha256": "f7153a87caf9642a754bcf232e051507b9db4892b48cb366eda3173be74f6a4f",
+        "program_sha256": "14313a50aac1ff49051d52416c2b68afa6b3b78b974382c7781fa21dd8865073",
+        "status": "observed",
+        "actual": 1.0,
+        "expected": 1.0,
+        "matches_static_contract": true,
+        "phase": "probe",
+        "initialization": {
+          "heap_initialized": true,
+          "evaluator_constructed": true,
+          "value_stack_allocated": true,
+          "stack_empty_after_eval": true,
+          "active_code_cleared": true,
+          "result_tag": 2
+        },
+        "vm_errors": [],
+        "vm_error_offsets": [],
+        "first_chance_cpp": 0
+      },
+      "ce": {
+        "name": "fractional-not",
+        "expression_sha256": "f7153a87caf9642a754bcf232e051507b9db4892b48cb366eda3173be74f6a4f",
+        "program_sha256": "14313a50aac1ff49051d52416c2b68afa6b3b78b974382c7781fa21dd8865073",
+        "status": "engine_error",
+        "diagnostics": [
+          "Unsupported V5 bytecode token 00 at 18!"
+        ]
+      }
+    },
+    {
+      "name": "fractional-or",
+      "status": "unqualified",
+      "original": {
+        "name": "fractional-or",
+        "expression_sha256": "e394a6d3111e02b8ab9d2aaec678b21b0d5b1afcdda3b83b85ad7b9f3b556686",
+        "program_sha256": "41a037ab0b69f094675183012e6fce9375e372037334bbf126c62f0b6a82884f",
+        "status": "observed",
+        "actual": 1.0,
+        "expected": 1.0,
+        "matches_static_contract": true,
+        "phase": "probe",
+        "initialization": {
+          "heap_initialized": true,
+          "evaluator_constructed": true,
+          "value_stack_allocated": true,
+          "stack_empty_after_eval": true,
+          "active_code_cleared": true,
+          "result_tag": 2
+        },
+        "vm_errors": [],
+        "vm_error_offsets": [],
+        "first_chance_cpp": 0
+      },
+      "ce": {
+        "name": "fractional-or",
+        "expression_sha256": "e394a6d3111e02b8ab9d2aaec678b21b0d5b1afcdda3b83b85ad7b9f3b556686",
+        "program_sha256": "41a037ab0b69f094675183012e6fce9375e372037334bbf126c62f0b6a82884f",
+        "status": "engine_error",
+        "diagnostics": [
+          "Unsupported V5 bytecode token 00 at 18!"
+        ]
+      }
+    },
+    {
+      "name": "integer-add",
+      "status": "match",
+      "original": {
+        "name": "integer-add",
+        "expression_sha256": "53d4b7c608a3ce3a60916b30d002c1f108cbb5e30ad26357b05db3e53de638e7",
+        "program_sha256": "94c110eeff531a6d4caca8b0162f9c58d8b4767494fc6343b0334e825787e2a8",
+        "status": "observed",
+        "actual": 1.0,
+        "expected": 1.0,
+        "matches_static_contract": true,
+        "phase": "probe",
+        "initialization": {
+          "heap_initialized": true,
+          "evaluator_constructed": true,
+          "value_stack_allocated": true,
+          "stack_empty_after_eval": true,
+          "active_code_cleared": true,
+          "result_tag": 2
+        },
+        "vm_errors": [],
+        "vm_error_offsets": [],
+        "first_chance_cpp": 0
+      },
+      "ce": {
+        "name": "integer-add",
+        "expression_sha256": "53d4b7c608a3ce3a60916b30d002c1f108cbb5e30ad26357b05db3e53de638e7",
+        "program_sha256": "94c110eeff531a6d4caca8b0162f9c58d8b4767494fc6343b0334e825787e2a8",
+        "status": "observed",
+        "actual": 1.0,
+        "ready": {
+          "phase": 2,
+          "loaded_probe_item": true
+        }
+      }
+    },
+    {
+      "name": "integer-multiply",
+      "status": "match",
+      "original": {
+        "name": "integer-multiply",
+        "expression_sha256": "b587a2b346ee2bc914670c1820784692a4f4287d6a0ab92369050600bb1d1427",
+        "program_sha256": "3ef358ca110b178c9515b3b017fac97f37e608b08c78431ef2d69d153c597bc1",
+        "status": "observed",
+        "actual": 1.0,
+        "expected": 1.0,
+        "matches_static_contract": true,
+        "phase": "probe",
+        "initialization": {
+          "heap_initialized": true,
+          "evaluator_constructed": true,
+          "value_stack_allocated": true,
+          "stack_empty_after_eval": true,
+          "active_code_cleared": true,
+          "result_tag": 2
+        },
+        "vm_errors": [],
+        "vm_error_offsets": [],
+        "first_chance_cpp": 0
+      },
+      "ce": {
+        "name": "integer-multiply",
+        "expression_sha256": "b587a2b346ee2bc914670c1820784692a4f4287d6a0ab92369050600bb1d1427",
+        "program_sha256": "3ef358ca110b178c9515b3b017fac97f37e608b08c78431ef2d69d153c597bc1",
+        "status": "observed",
+        "actual": 1.0,
+        "ready": {
+          "phase": 2,
+          "loaded_probe_item": true
+        }
+      }
+    },
+    {
+      "name": "local-shadowing",
+      "status": "match",
+      "original": {
+        "name": "local-shadowing",
+        "expression_sha256": "b78038db8490f889bdf0c7e3caa400f08a902b1e261aad7b0a82e92133c12598",
+        "program_sha256": "c76f3f16ae31a30d18193eb13f40a3236ca7d4cee0182cee015d254a12bcc2d5",
+        "status": "observed",
+        "actual": 1.0,
+        "expected": 1.0,
+        "matches_static_contract": true,
+        "phase": "probe",
+        "initialization": {
+          "heap_initialized": true,
+          "evaluator_constructed": true,
+          "value_stack_allocated": true,
+          "stack_empty_after_eval": true,
+          "active_code_cleared": true,
+          "result_tag": 2,
+          "symbol_frame_push_succeeded": true,
+          "symbol_frame_restored": true,
+          "crt_thread_initialized": true,
+          "crt_floating_parser_initialized": true,
+          "argument_stack_empty": true,
+          "item_context_restored": true,
+          "sender_restored": true,
+          "code_fetch_bridge_calls": 3
+        },
+        "vm_errors": [],
+        "vm_error_offsets": [],
+        "first_chance_cpp": 0
+      },
+      "ce": {
+        "name": "local-shadowing",
+        "expression_sha256": "b78038db8490f889bdf0c7e3caa400f08a902b1e261aad7b0a82e92133c12598",
+        "program_sha256": "c76f3f16ae31a30d18193eb13f40a3236ca7d4cee0182cee015d254a12bcc2d5",
+        "status": "observed",
+        "actual": 1.0,
+        "ready": {
+          "phase": 2,
+          "loaded_probe_item": true
+        }
+      }
+    },
+    {
+      "name": "local-shadowing-false",
+      "status": "match",
+      "original": {
+        "name": "local-shadowing-false",
+        "expression_sha256": "4a5ea8eb6ad0949ac6d9d63e83e5178b57805f1ec4fbdb644916f4866c6251a3",
+        "program_sha256": "46ac0cab39a35064cb679e8af00e065566c757c8cc9288d2e993c30a6c61083a",
+        "status": "observed",
+        "actual": 0.0,
+        "expected": 0.0,
+        "matches_static_contract": true,
+        "phase": "probe",
+        "initialization": {
+          "heap_initialized": true,
+          "evaluator_constructed": true,
+          "value_stack_allocated": true,
+          "stack_empty_after_eval": true,
+          "active_code_cleared": true,
+          "result_tag": 2,
+          "symbol_frame_push_succeeded": true,
+          "symbol_frame_restored": true,
+          "crt_thread_initialized": true,
+          "crt_floating_parser_initialized": true,
+          "argument_stack_empty": true,
+          "item_context_restored": true,
+          "sender_restored": true,
+          "code_fetch_bridge_calls": 3
+        },
+        "vm_errors": [],
+        "vm_error_offsets": [],
+        "first_chance_cpp": 0
+      },
+      "ce": {
+        "name": "local-shadowing-false",
+        "expression_sha256": "4a5ea8eb6ad0949ac6d9d63e83e5178b57805f1ec4fbdb644916f4866c6251a3",
+        "program_sha256": "46ac0cab39a35064cb679e8af00e065566c757c8cc9288d2e993c30a6c61083a",
+        "status": "observed",
+        "actual": 0.0
+      }
+    },
+    {
+      "name": "named-default",
+      "status": "unqualified",
+      "original": {
+        "name": "named-default",
+        "expression_sha256": "2351006cd2acfd1eab10914a45f411944f9ec998b438cb534d59a45c38c2d962",
+        "program_sha256": "b43942f0e51191086eb04bee9ac912ab2df8902b22071c292f24b97d36ca6c79",
+        "status": "observed",
+        "actual": 1.0,
+        "expected": 1.0,
+        "matches_static_contract": true,
+        "phase": "probe",
+        "initialization": {
+          "heap_initialized": true,
+          "evaluator_constructed": true,
+          "value_stack_allocated": true,
+          "stack_empty_after_eval": true,
+          "active_code_cleared": true,
+          "result_tag": 2,
+          "symbol_frame_push_succeeded": true,
+          "symbol_frame_restored": true,
+          "crt_thread_initialized": true,
+          "crt_floating_parser_initialized": true,
+          "argument_stack_empty": true,
+          "item_context_restored": true,
+          "sender_restored": true,
+          "code_fetch_bridge_calls": 2
+        },
+        "vm_errors": [],
+        "vm_error_offsets": [],
+        "first_chance_cpp": 0
+      },
+      "ce": {
+        "name": "named-default",
+        "expression_sha256": "2351006cd2acfd1eab10914a45f411944f9ec998b438cb534d59a45c38c2d962",
+        "program_sha256": "b43942f0e51191086eb04bee9ac912ab2df8902b22071c292f24b97d36ca6c79",
+        "status": "engine_error",
+        "diagnostics": [
+          "V5 event received too few arguments!"
+        ]
+      }
+    },
+    {
+      "name": "named-default-side-effect",
+      "status": "unqualified",
+      "original": {
+        "name": "named-default-side-effect",
+        "expression_sha256": "0e82e1fee30d31c20ee98d584be3e1fed7ad3933eb155e853e0ea50afdc07852",
+        "program_sha256": "4a73b4badf250eb93ce7e3661f567ac5d0815d5e9dfff014fc2b408487a20d2f",
+        "status": "observed",
+        "actual": 1.0,
+        "expected": 1.0,
+        "matches_static_contract": true,
+        "phase": "probe",
+        "initialization": {
+          "heap_initialized": true,
+          "evaluator_constructed": true,
+          "value_stack_allocated": true,
+          "stack_empty_after_eval": true,
+          "active_code_cleared": true,
+          "result_tag": 2,
+          "symbol_frame_push_succeeded": true,
+          "symbol_frame_restored": true,
+          "crt_thread_initialized": true,
+          "crt_floating_parser_initialized": true,
+          "argument_stack_empty": true,
+          "item_context_restored": true,
+          "sender_restored": true,
+          "code_fetch_bridge_calls": 3
+        },
+        "vm_errors": [],
+        "vm_error_offsets": [],
+        "first_chance_cpp": 0
+      },
+      "ce": {
+        "name": "named-default-side-effect",
+        "expression_sha256": "0e82e1fee30d31c20ee98d584be3e1fed7ad3933eb155e853e0ea50afdc07852",
+        "program_sha256": "4a73b4badf250eb93ce7e3661f567ac5d0815d5e9dfff014fc2b408487a20d2f",
+        "status": "engine_error",
+        "diagnostics": [
+          "Unsupported V5 bytecode token 63 at 43!"
+        ]
+      }
+    },
+    {
+      "name": "named-false-control",
+      "status": "unqualified",
+      "original": {
+        "name": "named-false-control",
+        "expression_sha256": "7256c7df3d9d3752eb10b341e7f366d994abe3d4bc693883906a39f41a4238e0",
+        "program_sha256": "f493510b43e2c523c54fe150b9e209894581b40788ad39d5664f6352ea5ec9e7",
+        "status": "observed",
+        "actual": 0.0,
+        "expected": 0.0,
+        "matches_static_contract": true,
+        "phase": "probe",
+        "initialization": {
+          "heap_initialized": true,
+          "evaluator_constructed": true,
+          "value_stack_allocated": true,
+          "stack_empty_after_eval": true,
+          "active_code_cleared": true,
+          "result_tag": 2,
+          "symbol_frame_push_succeeded": true,
+          "symbol_frame_restored": true,
+          "crt_thread_initialized": true,
+          "crt_floating_parser_initialized": true,
+          "argument_stack_empty": true,
+          "item_context_restored": true,
+          "sender_restored": true,
+          "code_fetch_bridge_calls": 3
+        },
+        "vm_errors": [],
+        "vm_error_offsets": [],
+        "first_chance_cpp": 0
+      },
+      "ce": {
+        "name": "named-false-control",
+        "expression_sha256": "7256c7df3d9d3752eb10b341e7f366d994abe3d4bc693883906a39f41a4238e0",
+        "program_sha256": "f493510b43e2c523c54fe150b9e209894581b40788ad39d5664f6352ea5ec9e7",
+        "status": "engine_error",
+        "diagnostics": [
+          "Unsupported V5 bytecode token 63 at 33!"
+        ]
+      }
+    },
+    {
+      "name": "named-supplied",
+      "status": "unqualified",
+      "original": {
+        "name": "named-supplied",
+        "expression_sha256": "748a66bda60d7f25cc65105496655926803181ba85f4bf24a51fb337635b4dea",
+        "program_sha256": "3298336408e2e08c2a4255357aec75fb9f47a749ffb186e37e967125bf8e5bd2",
+        "status": "observed",
+        "actual": 1.0,
+        "expected": 1.0,
+        "matches_static_contract": true,
+        "phase": "probe",
+        "initialization": {
+          "heap_initialized": true,
+          "evaluator_constructed": true,
+          "value_stack_allocated": true,
+          "stack_empty_after_eval": true,
+          "active_code_cleared": true,
+          "result_tag": 2,
+          "symbol_frame_push_succeeded": true,
+          "symbol_frame_restored": true,
+          "crt_thread_initialized": true,
+          "crt_floating_parser_initialized": true,
+          "argument_stack_empty": true,
+          "item_context_restored": true,
+          "sender_restored": true,
+          "code_fetch_bridge_calls": 3
+        },
+        "vm_errors": [],
+        "vm_error_offsets": [],
+        "first_chance_cpp": 0
+      },
+      "ce": {
+        "name": "named-supplied",
+        "expression_sha256": "748a66bda60d7f25cc65105496655926803181ba85f4bf24a51fb337635b4dea",
+        "program_sha256": "3298336408e2e08c2a4255357aec75fb9f47a749ffb186e37e967125bf8e5bd2",
+        "status": "engine_error",
+        "diagnostics": [
+          "Unsupported V5 bytecode token 63 at 33!"
+        ]
+      }
+    },
+    {
+      "name": "negative-control",
+      "status": "match",
+      "original": {
+        "name": "negative-control",
+        "expression_sha256": "595e0d08d18615db755e007c1110aff967c88fa018e204e37d7fc8845df162e8",
+        "program_sha256": "686c3b11c13a5be22902b277c835251561286e4d9de7f8d38a6fd51f9c3dff80",
+        "status": "observed",
+        "actual": 0.0,
+        "expected": 0.0,
+        "matches_static_contract": true,
+        "phase": "probe",
+        "initialization": {
+          "heap_initialized": true,
+          "evaluator_constructed": true,
+          "value_stack_allocated": true,
+          "stack_empty_after_eval": true,
+          "active_code_cleared": true,
+          "result_tag": 2
+        },
+        "vm_errors": [],
+        "vm_error_offsets": [],
+        "first_chance_cpp": 0
+      },
+      "ce": {
+        "name": "negative-control",
+        "expression_sha256": "595e0d08d18615db755e007c1110aff967c88fa018e204e37d7fc8845df162e8",
+        "program_sha256": "686c3b11c13a5be22902b277c835251561286e4d9de7f8d38a6fd51f9c3dff80",
+        "status": "observed",
+        "actual": 0.0
+      }
+    },
+    {
+      "name": "nested-named",
+      "status": "unqualified",
+      "original": {
+        "name": "nested-named",
+        "expression_sha256": "748a66bda60d7f25cc65105496655926803181ba85f4bf24a51fb337635b4dea",
+        "program_sha256": "f81693d8bd36034f39f432a401d52f6cb79a1a9d72098c8da6aab44730b45e8d",
+        "status": "observed",
+        "actual": 1.0,
+        "expected": 1.0,
+        "matches_static_contract": true,
+        "phase": "probe",
+        "initialization": {
+          "heap_initialized": true,
+          "evaluator_constructed": true,
+          "value_stack_allocated": true,
+          "stack_empty_after_eval": true,
+          "active_code_cleared": true,
+          "result_tag": 2,
+          "symbol_frame_push_succeeded": true,
+          "symbol_frame_restored": true,
+          "crt_thread_initialized": true,
+          "crt_floating_parser_initialized": true,
+          "argument_stack_empty": true,
+          "item_context_restored": true,
+          "sender_restored": true,
+          "code_fetch_bridge_calls": 3
+        },
+        "vm_errors": [],
+        "vm_error_offsets": [],
+        "first_chance_cpp": 0
+      },
+      "ce": {
+        "name": "nested-named",
+        "expression_sha256": "748a66bda60d7f25cc65105496655926803181ba85f4bf24a51fb337635b4dea",
+        "program_sha256": "f81693d8bd36034f39f432a401d52f6cb79a1a9d72098c8da6aab44730b45e8d",
+        "status": "engine_error",
+        "diagnostics": [
+          "Unsupported V5 bytecode token 63 at 33!"
+        ]
+      }
+    },
+    {
+      "name": "numeric-string",
+      "status": "match",
+      "original": {
+        "name": "numeric-string",
+        "expression_sha256": "002d04ce741c9063f894480cf2eee2ddefc0e786353cafc0dcb050122cb6cd4c",
+        "program_sha256": "04bcb66bfbdf91b7e03dbde3afd8f9f41d78e9322e4c7041cc5507c736d7e4ac",
+        "status": "observed",
+        "actual": 1.0,
+        "expected": 1.0,
+        "matches_static_contract": true,
+        "phase": "probe",
+        "initialization": {
+          "heap_initialized": true,
+          "evaluator_constructed": true,
+          "value_stack_allocated": true,
+          "stack_empty_after_eval": true,
+          "active_code_cleared": true,
+          "result_tag": 2,
+          "symbol_frame_push_succeeded": true,
+          "symbol_frame_restored": true,
+          "crt_thread_initialized": true,
+          "crt_floating_parser_initialized": true
+        },
+        "vm_errors": [],
+        "vm_error_offsets": [],
+        "first_chance_cpp": 0
+      },
+      "ce": {
+        "name": "numeric-string",
+        "expression_sha256": "002d04ce741c9063f894480cf2eee2ddefc0e786353cafc0dcb050122cb6cd4c",
+        "program_sha256": "04bcb66bfbdf91b7e03dbde3afd8f9f41d78e9322e4c7041cc5507c736d7e4ac",
+        "status": "observed",
+        "actual": 1.0,
+        "ready": {
+          "phase": 2,
+          "loaded_probe_item": true
+        }
+      }
+    },
+    {
+      "name": "numeric-string-exponent",
+      "status": "mismatch",
+      "original": {
+        "name": "numeric-string-exponent",
+        "expression_sha256": "002d04ce741c9063f894480cf2eee2ddefc0e786353cafc0dcb050122cb6cd4c",
+        "program_sha256": "bb032d7c80d6cd0b69ef4bda5417fbae602c5da79b8ffcce4a36ed411180da1f",
+        "status": "observed",
+        "actual": 1.0,
+        "expected": 1.0,
+        "matches_static_contract": true,
+        "phase": "probe",
+        "initialization": {
+          "heap_initialized": true,
+          "evaluator_constructed": true,
+          "value_stack_allocated": true,
+          "stack_empty_after_eval": true,
+          "active_code_cleared": true,
+          "result_tag": 2,
+          "symbol_frame_push_succeeded": true,
+          "symbol_frame_restored": true,
+          "crt_thread_initialized": true,
+          "crt_floating_parser_initialized": true
+        },
+        "vm_errors": [],
+        "vm_error_offsets": [],
+        "first_chance_cpp": 0
+      },
+      "ce": {
+        "name": "numeric-string-exponent",
+        "expression_sha256": "002d04ce741c9063f894480cf2eee2ddefc0e786353cafc0dcb050122cb6cd4c",
+        "program_sha256": "bb032d7c80d6cd0b69ef4bda5417fbae602c5da79b8ffcce4a36ed411180da1f",
+        "status": "observed",
+        "actual": 0.0
+      }
+    },
+    {
+      "name": "numeric-string-invalid",
+      "status": "match",
+      "original": {
+        "name": "numeric-string-invalid",
+        "expression_sha256": "002d04ce741c9063f894480cf2eee2ddefc0e786353cafc0dcb050122cb6cd4c",
+        "program_sha256": "986ad0813dc030b9d7f3206d8ad68f576233f5f7b01c95f82a083127a2a7210f",
+        "status": "observed",
+        "actual": 0.0,
+        "expected": 0.0,
+        "matches_static_contract": true,
+        "phase": "probe",
+        "initialization": {
+          "heap_initialized": true,
+          "evaluator_constructed": true,
+          "value_stack_allocated": true,
+          "stack_empty_after_eval": true,
+          "active_code_cleared": true,
+          "result_tag": 2,
+          "symbol_frame_push_succeeded": true,
+          "symbol_frame_restored": true,
+          "crt_thread_initialized": true,
+          "crt_floating_parser_initialized": true
+        },
+        "vm_errors": [],
+        "vm_error_offsets": [],
+        "first_chance_cpp": 0
+      },
+      "ce": {
+        "name": "numeric-string-invalid",
+        "expression_sha256": "002d04ce741c9063f894480cf2eee2ddefc0e786353cafc0dcb050122cb6cd4c",
+        "program_sha256": "986ad0813dc030b9d7f3206d8ad68f576233f5f7b01c95f82a083127a2a7210f",
+        "status": "observed",
+        "actual": 0.0
+      }
+    },
+    {
+      "name": "numeric-string-space",
+      "status": "match",
+      "original": {
+        "name": "numeric-string-space",
+        "expression_sha256": "002d04ce741c9063f894480cf2eee2ddefc0e786353cafc0dcb050122cb6cd4c",
+        "program_sha256": "1d1a14956b79cab8542a906e5589c1451952647b6b6def8cdeb010ab05d234e9",
+        "status": "observed",
+        "actual": 1.0,
+        "expected": 1.0,
+        "matches_static_contract": true,
+        "phase": "probe",
+        "initialization": {
+          "heap_initialized": true,
+          "evaluator_constructed": true,
+          "value_stack_allocated": true,
+          "stack_empty_after_eval": true,
+          "active_code_cleared": true,
+          "result_tag": 2,
+          "symbol_frame_push_succeeded": true,
+          "symbol_frame_restored": true,
+          "crt_thread_initialized": true,
+          "crt_floating_parser_initialized": true
+        },
+        "vm_errors": [],
+        "vm_error_offsets": [],
+        "first_chance_cpp": 0
+      },
+      "ce": {
+        "name": "numeric-string-space",
+        "expression_sha256": "002d04ce741c9063f894480cf2eee2ddefc0e786353cafc0dcb050122cb6cd4c",
+        "program_sha256": "1d1a14956b79cab8542a906e5589c1451952647b6b6def8cdeb010ab05d234e9",
+        "status": "observed",
+        "actual": 1.0,
+        "ready": {
+          "phase": 2,
+          "loaded_probe_item": true
+        }
+      }
+    },
+    {
+      "name": "recovery-call-arity",
+      "status": "mismatch",
+      "original": {
+        "name": "recovery-call-arity",
+        "expression_sha256": "748a66bda60d7f25cc65105496655926803181ba85f4bf24a51fb337635b4dea",
+        "program_sha256": "631de229e8c0b1ceb382064425e7a6caf0f97db8003cd460f2e01a0a3943028e",
+        "status": "observed",
+        "actual": {
+          "completion": "returned",
+          "recovery_predicate": 1.0
+        },
+        "phase": "probe",
+        "initialization": {
+          "heap_initialized": true,
+          "evaluator_constructed": true,
+          "value_stack_allocated": true,
+          "stack_empty_after_eval": true,
+          "active_code_cleared": true,
+          "result_tag": 2,
+          "symbol_frame_push_succeeded": true,
+          "symbol_frame_restored": true,
+          "crt_thread_initialized": true,
+          "crt_floating_parser_initialized": true,
+          "argument_stack_empty": true,
+          "item_context_restored": true,
+          "sender_restored": true,
+          "code_fetch_bridge_calls": 2
+        },
+        "vm_errors": [
+          16
+        ],
+        "vm_error_offsets": [
+          8
+        ],
+        "first_chance_cpp": 1,
+        "observation_kind": "error-completion",
+        "returned_numeric": 1.0
+      },
+      "ce": {
+        "name": "recovery-call-arity",
+        "expression_sha256": "748a66bda60d7f25cc65105496655926803181ba85f4bf24a51fb337635b4dea",
+        "program_sha256": "631de229e8c0b1ceb382064425e7a6caf0f97db8003cd460f2e01a0a3943028e",
+        "status": "observed",
+        "observation_kind": "error-completion",
+        "actual": {
+          "completion": "engine-abort"
+        },
+        "diagnostics": [
+          "incorrect number of parameters (0) to stringLen!"
+        ]
+      }
+    },
+    {
+      "name": "recovery-divide-zero",
+      "status": "mismatch",
+      "original": {
+        "name": "recovery-divide-zero",
+        "expression_sha256": "748a66bda60d7f25cc65105496655926803181ba85f4bf24a51fb337635b4dea",
+        "program_sha256": "1fef81a91e711aee0a63669e4ef134b6ed62aa5d6446bccaeae913b96347e69a",
+        "status": "observed",
+        "actual": {
+          "completion": "returned",
+          "recovery_predicate": 1.0
+        },
+        "phase": "probe",
+        "initialization": {
+          "heap_initialized": true,
+          "evaluator_constructed": true,
+          "value_stack_allocated": true,
+          "stack_empty_after_eval": true,
+          "active_code_cleared": true,
+          "result_tag": 2,
+          "symbol_frame_push_succeeded": true,
+          "symbol_frame_restored": true,
+          "crt_thread_initialized": true,
+          "crt_floating_parser_initialized": true,
+          "argument_stack_empty": true,
+          "item_context_restored": true,
+          "sender_restored": true,
+          "code_fetch_bridge_calls": 2
+        },
+        "vm_errors": [
+          4
+        ],
+        "vm_error_offsets": [
+          8
+        ],
+        "first_chance_cpp": 1,
+        "observation_kind": "error-completion",
+        "returned_numeric": 1.0
+      },
+      "ce": {
+        "name": "recovery-divide-zero",
+        "expression_sha256": "748a66bda60d7f25cc65105496655926803181ba85f4bf24a51fb337635b4dea",
+        "program_sha256": "1fef81a91e711aee0a63669e4ef134b6ed62aa5d6446bccaeae913b96347e69a",
+        "status": "observed",
+        "observation_kind": "error-completion",
+        "actual": {
+          "completion": "engine-abort"
+        },
+        "diagnostics": [
+          "V5 division by zero!"
+        ]
+      }
+    },
+    {
+      "name": "recovery-non-reference",
+      "status": "mismatch",
+      "original": {
+        "name": "recovery-non-reference",
+        "expression_sha256": "748a66bda60d7f25cc65105496655926803181ba85f4bf24a51fb337635b4dea",
+        "program_sha256": "64882385d398bb27c1ac75d046c9c9ed66431d8aa9b5acb0e87e2900ef2e7411",
+        "status": "observed",
+        "actual": {
+          "completion": "returned",
+          "recovery_predicate": 1.0
+        },
+        "phase": "probe",
+        "initialization": {
+          "heap_initialized": true,
+          "evaluator_constructed": true,
+          "value_stack_allocated": true,
+          "stack_empty_after_eval": true,
+          "active_code_cleared": true,
+          "result_tag": 2,
+          "symbol_frame_push_succeeded": true,
+          "symbol_frame_restored": true,
+          "crt_thread_initialized": true,
+          "crt_floating_parser_initialized": true,
+          "argument_stack_empty": true,
+          "item_context_restored": true,
+          "sender_restored": true,
+          "code_fetch_bridge_calls": 2
+        },
+        "vm_errors": [
+          14
+        ],
+        "vm_error_offsets": [
+          8
+        ],
+        "first_chance_cpp": 1,
+        "observation_kind": "error-completion",
+        "returned_numeric": 1.0
+      },
+      "ce": {
+        "name": "recovery-non-reference",
+        "expression_sha256": "748a66bda60d7f25cc65105496655926803181ba85f4bf24a51fb337635b4dea",
+        "program_sha256": "64882385d398bb27c1ac75d046c9c9ed66431d8aa9b5acb0e87e2900ef2e7411",
+        "status": "observed",
+        "observation_kind": "error-completion",
+        "actual": {
+          "completion": "engine-abort"
+        },
+        "diagnostics": [
+          "V5 assignment requires a reference!"
+        ]
+      }
+    },
+    {
+      "name": "reentrant-false-control",
+      "status": "unqualified",
+      "original": {
+        "name": "reentrant-false-control",
+        "expression_sha256": "f9535076eb26809f7b425c39485d3fd322142a5c4638b9b81d66b919356ee8ba",
+        "program_sha256": "7e241fe75d31c78aeb9f0e2598101a32986752a3250e7a0bb69d3d280d77feff",
+        "status": "observed",
+        "actual": 0.0,
+        "expected": 0.0,
+        "matches_static_contract": true,
+        "phase": "probe",
+        "initialization": {
+          "heap_initialized": true,
+          "evaluator_constructed": true,
+          "value_stack_allocated": true,
+          "stack_empty_after_eval": true,
+          "active_code_cleared": true,
+          "result_tag": 2,
+          "symbol_frame_push_succeeded": true,
+          "symbol_frame_restored": true,
+          "crt_thread_initialized": true,
+          "crt_floating_parser_initialized": true,
+          "active_evaluator_reentries": 2,
+          "argument_stack_empty": true,
+          "item_context_restored": true,
+          "sender_restored": true,
+          "code_fetch_bridge_calls": 1
+        },
+        "vm_errors": [],
+        "vm_error_offsets": [],
+        "first_chance_cpp": 0
+      },
+      "ce": {
+        "name": "reentrant-false-control",
+        "expression_sha256": "f9535076eb26809f7b425c39485d3fd322142a5c4638b9b81d66b919356ee8ba",
+        "program_sha256": "7e241fe75d31c78aeb9f0e2598101a32986752a3250e7a0bb69d3d280d77feff",
+        "status": "engine_error",
+        "diagnostics": [
+          "Unsupported V5 bytecode token 74 at 51!"
+        ]
+      }
+    },
+    {
+      "name": "reentrant-side-effect",
+      "status": "unqualified",
+      "original": {
+        "name": "reentrant-side-effect",
+        "expression_sha256": "f9535076eb26809f7b425c39485d3fd322142a5c4638b9b81d66b919356ee8ba",
+        "program_sha256": "a3cd7000155412a12708140429a00702a8fd9af2848a294e257391d1e201f1dc",
+        "status": "observed",
+        "actual": 1.0,
+        "expected": 1.0,
+        "matches_static_contract": true,
+        "phase": "probe",
+        "initialization": {
+          "heap_initialized": true,
+          "evaluator_constructed": true,
+          "value_stack_allocated": true,
+          "stack_empty_after_eval": true,
+          "active_code_cleared": true,
+          "result_tag": 2,
+          "symbol_frame_push_succeeded": true,
+          "symbol_frame_restored": true,
+          "crt_thread_initialized": true,
+          "crt_floating_parser_initialized": true,
+          "active_evaluator_reentries": 2,
+          "argument_stack_empty": true,
+          "item_context_restored": true,
+          "sender_restored": true,
+          "code_fetch_bridge_calls": 1
+        },
+        "vm_errors": [],
+        "vm_error_offsets": [],
+        "first_chance_cpp": 0
+      },
+      "ce": {
+        "name": "reentrant-side-effect",
+        "expression_sha256": "f9535076eb26809f7b425c39485d3fd322142a5c4638b9b81d66b919356ee8ba",
+        "program_sha256": "a3cd7000155412a12708140429a00702a8fd9af2848a294e257391d1e201f1dc",
+        "status": "engine_error",
+        "diagnostics": [
+          "Unsupported V5 bytecode token 74 at 51!"
+        ]
+      }
+    },
+    {
+      "name": "reentrant-value",
+      "status": "unqualified",
+      "original": {
+        "name": "reentrant-value",
+        "expression_sha256": "f9535076eb26809f7b425c39485d3fd322142a5c4638b9b81d66b919356ee8ba",
+        "program_sha256": "e58f00d27c496b599b09d16c63083c43757b86560bac7def87a5b888ad17d0bf",
+        "status": "observed",
+        "actual": 1.0,
+        "expected": 1.0,
+        "matches_static_contract": true,
+        "phase": "probe",
+        "initialization": {
+          "heap_initialized": true,
+          "evaluator_constructed": true,
+          "value_stack_allocated": true,
+          "stack_empty_after_eval": true,
+          "active_code_cleared": true,
+          "result_tag": 2,
+          "symbol_frame_push_succeeded": true,
+          "symbol_frame_restored": true,
+          "crt_thread_initialized": true,
+          "crt_floating_parser_initialized": true,
+          "active_evaluator_reentries": 2,
+          "argument_stack_empty": true,
+          "item_context_restored": true,
+          "sender_restored": true,
+          "code_fetch_bridge_calls": 1
+        },
+        "vm_errors": [],
+        "vm_error_offsets": [],
+        "first_chance_cpp": 0
+      },
+      "ce": {
+        "name": "reentrant-value",
+        "expression_sha256": "f9535076eb26809f7b425c39485d3fd322142a5c4638b9b81d66b919356ee8ba",
+        "program_sha256": "e58f00d27c496b599b09d16c63083c43757b86560bac7def87a5b888ad17d0bf",
+        "status": "engine_error",
+        "diagnostics": [
+          "Unsupported V5 bytecode token 74 at 51!"
+        ]
+      }
+    },
+    {
+      "name": "reference-write",
+      "status": "match",
+      "original": {
+        "name": "reference-write",
+        "expression_sha256": "80f15b06c60df43e64bca1b69e5c058c56122c2279046dd8bd88c30ac1c8d60a",
+        "program_sha256": "fa034459520a50a781df8f9a6b6e70d1f35f22a3d27879b9723f5d84038837e0",
+        "status": "observed",
+        "actual": 1.0,
+        "expected": 1.0,
+        "matches_static_contract": true,
+        "phase": "probe",
+        "initialization": {
+          "heap_initialized": true,
+          "evaluator_constructed": true,
+          "value_stack_allocated": true,
+          "stack_empty_after_eval": true,
+          "active_code_cleared": true,
+          "result_tag": 2,
+          "symbol_frame_push_succeeded": true,
+          "symbol_frame_restored": true,
+          "crt_thread_initialized": true,
+          "crt_floating_parser_initialized": true
+        },
+        "vm_errors": [],
+        "vm_error_offsets": [],
+        "first_chance_cpp": 0
+      },
+      "ce": {
+        "name": "reference-write",
+        "expression_sha256": "80f15b06c60df43e64bca1b69e5c058c56122c2279046dd8bd88c30ac1c8d60a",
+        "program_sha256": "fa034459520a50a781df8f9a6b6e70d1f35f22a3d27879b9723f5d84038837e0",
+        "status": "observed",
+        "actual": 1.0,
+        "ready": {
+          "phase": 2,
+          "loaded_probe_item": true
+        }
+      }
+    },
+    {
+      "name": "return-expression",
+      "status": "match",
+      "original": {
+        "name": "return-expression",
+        "expression_sha256": "748a66bda60d7f25cc65105496655926803181ba85f4bf24a51fb337635b4dea",
+        "program_sha256": "5dc642879c5e486305c7b819d01029287b712142a0ac94ffd052540ed4b19abf",
+        "status": "observed",
+        "actual": 1.0,
+        "expected": 1.0,
+        "matches_static_contract": true,
+        "phase": "probe",
+        "initialization": {
+          "heap_initialized": true,
+          "evaluator_constructed": true,
+          "value_stack_allocated": true,
+          "stack_empty_after_eval": true,
+          "active_code_cleared": true,
+          "result_tag": 2,
+          "symbol_frame_push_succeeded": true,
+          "symbol_frame_restored": true,
+          "crt_thread_initialized": true,
+          "crt_floating_parser_initialized": true,
+          "argument_stack_empty": true,
+          "item_context_restored": true,
+          "sender_restored": true,
+          "code_fetch_bridge_calls": 2
+        },
+        "vm_errors": [],
+        "vm_error_offsets": [],
+        "first_chance_cpp": 0
+      },
+      "ce": {
+        "name": "return-expression",
+        "expression_sha256": "748a66bda60d7f25cc65105496655926803181ba85f4bf24a51fb337635b4dea",
+        "program_sha256": "5dc642879c5e486305c7b819d01029287b712142a0ac94ffd052540ed4b19abf",
+        "status": "observed",
+        "actual": 1.0,
+        "ready": {
+          "phase": 2,
+          "loaded_probe_item": true
+        }
+      }
+    },
+    {
+      "name": "return-false-control",
+      "status": "match",
+      "original": {
+        "name": "return-false-control",
+        "expression_sha256": "7256c7df3d9d3752eb10b341e7f366d994abe3d4bc693883906a39f41a4238e0",
+        "program_sha256": "4321ced0d4a7f7f0801a3033b935da37e81f4e7d3eb9c1e8bc6ef15068ade34e",
+        "status": "observed",
+        "actual": 0.0,
+        "expected": 0.0,
+        "matches_static_contract": true,
+        "phase": "probe",
+        "initialization": {
+          "heap_initialized": true,
+          "evaluator_constructed": true,
+          "value_stack_allocated": true,
+          "stack_empty_after_eval": true,
+          "active_code_cleared": true,
+          "result_tag": 2,
+          "symbol_frame_push_succeeded": true,
+          "symbol_frame_restored": true,
+          "crt_thread_initialized": true,
+          "crt_floating_parser_initialized": true,
+          "argument_stack_empty": true,
+          "item_context_restored": true,
+          "sender_restored": true,
+          "code_fetch_bridge_calls": 2
+        },
+        "vm_errors": [],
+        "vm_error_offsets": [],
+        "first_chance_cpp": 0
+      },
+      "ce": {
+        "name": "return-false-control",
+        "expression_sha256": "7256c7df3d9d3752eb10b341e7f366d994abe3d4bc693883906a39f41a4238e0",
+        "program_sha256": "4321ced0d4a7f7f0801a3033b935da37e81f4e7d3eb9c1e8bc6ef15068ade34e",
+        "status": "observed",
+        "actual": 0.0
+      }
+    },
+    {
+      "name": "return-void",
+      "status": "match",
+      "original": {
+        "name": "return-void",
+        "expression_sha256": "c99fe784a4fb8aed912693fd0f790d7d3e7569e46e0d84593494037430ee207c",
+        "program_sha256": "518b9641e96e73a060b8149323712d1e2895ca506ebff9158c8d4f0ecb69fefe",
+        "status": "observed",
+        "actual": 1.0,
+        "expected": 1.0,
+        "matches_static_contract": true,
+        "phase": "probe",
+        "initialization": {
+          "heap_initialized": true,
+          "evaluator_constructed": true,
+          "value_stack_allocated": true,
+          "stack_empty_after_eval": true,
+          "active_code_cleared": true,
+          "result_tag": 2,
+          "symbol_frame_push_succeeded": true,
+          "symbol_frame_restored": true,
+          "crt_thread_initialized": true,
+          "crt_floating_parser_initialized": true,
+          "argument_stack_empty": true,
+          "item_context_restored": true,
+          "sender_restored": true,
+          "code_fetch_bridge_calls": 1
+        },
+        "vm_errors": [],
+        "vm_error_offsets": [],
+        "first_chance_cpp": 0
+      },
+      "ce": {
+        "name": "return-void",
+        "expression_sha256": "c99fe784a4fb8aed912693fd0f790d7d3e7569e46e0d84593494037430ee207c",
+        "program_sha256": "518b9641e96e73a060b8149323712d1e2895ca506ebff9158c8d4f0ecb69fefe",
+        "status": "observed",
+        "actual": 1.0,
+        "ready": {
+          "phase": 2,
+          "loaded_probe_item": true
+        }
+      }
+    },
+    {
+      "name": "sender-restored",
+      "status": "unqualified",
+      "original": {
+        "name": "sender-restored",
+        "expression_sha256": "fbd9efadabf0b53f094ce7b487d3ccb862f1ec096255e3f389337a4adea00445",
+        "program_sha256": "c75e535b2efefc8e7f6042dca593f67f82976638367d8058c9d84e3884092e47",
+        "status": "observed",
+        "actual": 1.0,
+        "expected": 1.0,
+        "matches_static_contract": true,
+        "phase": "probe",
+        "initialization": {
+          "heap_initialized": true,
+          "evaluator_constructed": true,
+          "value_stack_allocated": true,
+          "stack_empty_after_eval": true,
+          "active_code_cleared": true,
+          "result_tag": 2,
+          "symbol_frame_push_succeeded": true,
+          "symbol_frame_restored": true,
+          "crt_thread_initialized": true,
+          "crt_floating_parser_initialized": true,
+          "argument_stack_empty": true,
+          "item_context_restored": true,
+          "sender_restored": true,
+          "code_fetch_bridge_calls": 1
+        },
+        "vm_errors": [],
+        "vm_error_offsets": [],
+        "first_chance_cpp": 0
+      },
+      "ce": {
+        "name": "sender-restored",
+        "expression_sha256": "fbd9efadabf0b53f094ce7b487d3ccb862f1ec096255e3f389337a4adea00445",
+        "program_sha256": "c75e535b2efefc8e7f6042dca593f67f82976638367d8058c9d84e3884092e47",
+        "status": "engine_error",
+        "diagnostics": [
+          "Unsupported V5 bytecode token 66 at 12!"
+        ]
+      }
+    },
+    {
+      "name": "sender-self",
+      "status": "unqualified",
+      "original": {
+        "name": "sender-self",
+        "expression_sha256": "62090d74b4dbb05a8efb773f0585804aeb1205676943f832e621fa69fb7b6b52",
+        "program_sha256": "467b4e229f3e176e7afec6be3dcaa15265fad381f1f1e9ace56615ac36f0eb40",
+        "status": "observed",
+        "actual": 1.0,
+        "expected": 1.0,
+        "matches_static_contract": true,
+        "phase": "probe",
+        "initialization": {
+          "heap_initialized": true,
+          "evaluator_constructed": true,
+          "value_stack_allocated": true,
+          "stack_empty_after_eval": true,
+          "active_code_cleared": true,
+          "result_tag": 2,
+          "symbol_frame_push_succeeded": true,
+          "symbol_frame_restored": true,
+          "crt_thread_initialized": true,
+          "crt_floating_parser_initialized": true,
+          "argument_stack_empty": true,
+          "item_context_restored": true,
+          "sender_restored": true,
+          "code_fetch_bridge_calls": 1
+        },
+        "vm_errors": [],
+        "vm_error_offsets": [],
+        "first_chance_cpp": 0
+      },
+      "ce": {
+        "name": "sender-self",
+        "expression_sha256": "62090d74b4dbb05a8efb773f0585804aeb1205676943f832e621fa69fb7b6b52",
+        "program_sha256": "467b4e229f3e176e7afec6be3dcaa15265fad381f1f1e9ace56615ac36f0eb40",
+        "status": "engine_error",
+        "diagnostics": [
+          "Unsupported V5 bytecode token 66 at 12!"
+        ]
+      }
+    },
+    {
+      "name": "sender-self-false-control",
+      "status": "unqualified",
+      "original": {
+        "name": "sender-self-false-control",
+        "expression_sha256": "f96778a86c2bb62631ba8e02a8c83373dcda62e26bdb94a082e2beb652b85b2a",
+        "program_sha256": "0bfb9f1b2802fa3512225d6d4ae358584dd3908b573f40737713b95d74bc50f6",
+        "status": "observed",
+        "actual": 0.0,
+        "expected": 0.0,
+        "matches_static_contract": true,
+        "phase": "probe",
+        "initialization": {
+          "heap_initialized": true,
+          "evaluator_constructed": true,
+          "value_stack_allocated": true,
+          "stack_empty_after_eval": true,
+          "active_code_cleared": true,
+          "result_tag": 2,
+          "symbol_frame_push_succeeded": true,
+          "symbol_frame_restored": true,
+          "crt_thread_initialized": true,
+          "crt_floating_parser_initialized": true,
+          "argument_stack_empty": true,
+          "item_context_restored": true,
+          "sender_restored": true,
+          "code_fetch_bridge_calls": 1
+        },
+        "vm_errors": [],
+        "vm_error_offsets": [],
+        "first_chance_cpp": 0
+      },
+      "ce": {
+        "name": "sender-self-false-control",
+        "expression_sha256": "f96778a86c2bb62631ba8e02a8c83373dcda62e26bdb94a082e2beb652b85b2a",
+        "program_sha256": "0bfb9f1b2802fa3512225d6d4ae358584dd3908b573f40737713b95d74bc50f6",
+        "status": "engine_error",
+        "diagnostics": [
+          "Unsupported V5 bytecode token 66 at 12!"
+        ]
+      }
+    },
+    {
+      "name": "string-concat",
+      "status": "match",
+      "original": {
+        "name": "string-concat",
+        "expression_sha256": "92b4700faa3ac9629198bcdb56d41872e048468230b051e477dda307bfe3d9c6",
+        "program_sha256": "407b51482d140d36ac91b104193e72dced1ce2a6a0d46df8d491e96cb09b4f2b",
+        "status": "observed",
+        "actual": 1.0,
+        "expected": 1.0,
+        "matches_static_contract": true,
+        "phase": "probe",
+        "initialization": {
+          "heap_initialized": true,
+          "evaluator_constructed": true,
+          "value_stack_allocated": true,
+          "stack_empty_after_eval": true,
+          "active_code_cleared": true,
+          "result_tag": 2,
+          "symbol_frame_push_succeeded": true,
+          "symbol_frame_restored": true,
+          "crt_thread_initialized": true,
+          "crt_floating_parser_initialized": true
+        },
+        "vm_errors": [],
+        "vm_error_offsets": [],
+        "first_chance_cpp": 0
+      },
+      "ce": {
+        "name": "string-concat",
+        "expression_sha256": "92b4700faa3ac9629198bcdb56d41872e048468230b051e477dda307bfe3d9c6",
+        "program_sha256": "407b51482d140d36ac91b104193e72dced1ce2a6a0d46df8d491e96cb09b4f2b",
+        "status": "observed",
+        "actual": 1.0,
+        "ready": {
+          "phase": 2,
+          "loaded_probe_item": true
+        }
+      }
+    },
+    {
+      "name": "string-equal",
+      "status": "match",
+      "original": {
+        "name": "string-equal",
+        "expression_sha256": "41d9adad598cd81a610ab28ce31165b5471b4c0160ae498a2552fac39ea30192",
+        "program_sha256": "eca1e2e25d8c5581c7a64123f8aebd8836afcdc76244538ed7c8f87248e518e1",
+        "status": "observed",
+        "actual": 1.0,
+        "expected": 1.0,
+        "matches_static_contract": true,
+        "phase": "probe",
+        "initialization": {
+          "heap_initialized": true,
+          "evaluator_constructed": true,
+          "value_stack_allocated": true,
+          "stack_empty_after_eval": true,
+          "active_code_cleared": true,
+          "result_tag": 2,
+          "symbol_frame_push_succeeded": true,
+          "symbol_frame_restored": true,
+          "crt_thread_initialized": true,
+          "crt_floating_parser_initialized": true
+        },
+        "vm_errors": [],
+        "vm_error_offsets": [],
+        "first_chance_cpp": 0
+      },
+      "ce": {
+        "name": "string-equal",
+        "expression_sha256": "41d9adad598cd81a610ab28ce31165b5471b4c0160ae498a2552fac39ea30192",
+        "program_sha256": "eca1e2e25d8c5581c7a64123f8aebd8836afcdc76244538ed7c8f87248e518e1",
+        "status": "observed",
+        "actual": 1.0,
+        "ready": {
+          "phase": 2,
+          "loaded_probe_item": true
+        }
+      }
+    },
+    {
+      "name": "string-false",
+      "status": "match",
+      "original": {
+        "name": "string-false",
+        "expression_sha256": "ba6a28d2519986845ef2da3bcea9ae7a270c06de601e777f03d5e7fd7a76cfc8",
+        "program_sha256": "7a2e692e8757c7d844505b8cfbf33b4b23a99d6d698dbc36479a59fa9237e650",
+        "status": "observed",
+        "actual": 0.0,
+        "expected": 0.0,
+        "matches_static_contract": true,
+        "phase": "probe",
+        "initialization": {
+          "heap_initialized": true,
+          "evaluator_constructed": true,
+          "value_stack_allocated": true,
+          "stack_empty_after_eval": true,
+          "active_code_cleared": true,
+          "result_tag": 2,
+          "symbol_frame_push_succeeded": true,
+          "symbol_frame_restored": true,
+          "crt_thread_initialized": true,
+          "crt_floating_parser_initialized": true
+        },
+        "vm_errors": [],
+        "vm_error_offsets": [],
+        "first_chance_cpp": 0
+      },
+      "ce": {
+        "name": "string-false",
+        "expression_sha256": "ba6a28d2519986845ef2da3bcea9ae7a270c06de601e777f03d5e7fd7a76cfc8",
+        "program_sha256": "7a2e692e8757c7d844505b8cfbf33b4b23a99d6d698dbc36479a59fa9237e650",
+        "status": "observed",
+        "actual": 0.0
+      }
+    }
+  ]
+}

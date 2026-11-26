@@ -314,3 +314,14 @@ bridge is explicit and does not qualify resource loading/lifetime. The focused
 unqualified CE call cases. Full 29-case replay: 17 matches, four mismatches,
 eight unqualified, overall fail. Earlier timeout/setup receipts remain historical.
 No implementation, build, accepted-installation update or PR #295 change.
+
+
+## Return/recovery/reentrancy/context checkpoint — November 26, 2026
+
+See [lifecycle probe contracts and limits](THINKQUICK-LIFECYCLE-PROBES.md) and
+[paired observations](THINKQUICK-LIFECYCLE-OBSERVATIONS.json). Twelve new cases:
+3 matches, 3 recovery-completion mismatches, 6 unqualified CE predicates.
+Original reentry is directly counted twice per nested-code fixture; corrected
+static nested-code token 0x64 to 0x74. Self-targeted sender context is measured;
+distinct-target/link/deletion and expression-call return copying remain open.
+No engine implementation; step 3 remains in progress.

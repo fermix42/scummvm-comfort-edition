@@ -199,6 +199,9 @@ def run_case(exe, case, timeout, stub_factory=None):
                                               value_stack_allocated=True, stack_empty_after_eval=True,
                                               active_code_cleared=True, result_tag=read(0x49a540, 1)[0])
                         if case.get('verify_symbols'):initialization.update(symbol_frame_push_succeeded=True, symbol_frame_restored=True, crt_thread_initialized=True, crt_floating_parser_initialized=struct.unpack('<I',read(0x4992ac,4))[0]==0x47ac44)
+                        if case.get('verify_reentry'):
+                            initialization['active_evaluator_reentries']=struct.unpack('<I',read(output+32,4))[0]
+                            if initialization['active_evaluator_reentries'] != 2:raise RuntimeError('Expected two original active-evaluator reentries: '+str(initialization['active_evaluator_reentries'])+' actual='+str(actual))
                         if case.get('verify_script_fixture'):
                             empty, hits = struct.unpack('<II',read(output+24,8))
                             item, page = remote+0x2400,remote+0x2000

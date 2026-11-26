@@ -130,7 +130,7 @@ that CE should introduce equivalent global storage.
 | 0x61 | Declares local cells and evaluates their initialization/default expressions | `0x404eca–0x404f33`; loop ends on expression EOF |
 | 0x62 | Evaluates a formal/default, then copies a supplied argument into that cell unless supplied tag is 1 | `0x404dda–0x404eca`; incoming iterator advances per formal; unlike CE's strict count-only model |
 | 0x63 | Evaluates expressions and appends values to the current outgoing argument frame until marker 0x76 | `0x404d70–0x404dda` |
-| 0x64 | Runs nested code from a numeric code offset and pushes the result | `0x404f33–0x404f7b`; literal pointer/code-owner lifetime needs qualification |
+| 0x74 | Runs nested code from a numeric code offset and pushes the result | `0x404f33–0x404f7b`; literal pointer/code-owner lifetime needs qualification |
 | 0x72/0x73 | Evaluates a selector, compares candidate expressions, skips unmatched groups, evaluates the chosen group, then forces expression EOF | `0x404f7b–0x405067`; exact source syntax and all nesting cases remain open |
 | 0x77 | Separates a native object receiver from a string-callable name, collects argument expressions, and dispatches accordingly | `0x40498c–0x404d70`; native method selector can be numeric or string |
 

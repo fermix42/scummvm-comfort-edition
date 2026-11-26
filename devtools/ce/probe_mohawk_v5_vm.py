@@ -112,16 +112,23 @@ def original(args):
     exe=root/'CarmenTQ.exe';shutil.copyfile(args.original,exe);rows=[]
     for name,expr,expected in probes():
         if getattr(args,'symbols_only',False) and name not in symbol_plans():continue
+        if getattr(args,'lifecycle_only',False) and name not in __import__('mohawk_v5_lifecycle_probes').plans():continue
         if getattr(args,'calls_only',False) and not name.startswith('numeric-string') and 'item_fields' not in symbol_plans().get(name,{}):continue
-        case=dict(name=name,expression_hex=expr.hex(),output='double',expected=float(expected),verify_initialized_vm=True,after_loader=True,observe_vm_error=name in symbol_plans(),verify_symbols=name in symbol_plans(),verify_script_fixture=bool(symbol_plans().get(name,{}).get('item_fields')),allocation_size=0x10000 if symbol_plans().get(name,{}).get('item_fields') else 0x2000)
+        case=dict(name=name,expression_hex=expr.hex(),output='double',expected=float(expected),verify_initialized_vm=True,after_loader=True,observe_vm_error=name in symbol_plans(),verify_symbols=name in symbol_plans(),verify_reentry=name.startswith('reentrant-'),verify_script_fixture=bool(symbol_plans().get(name,{}).get('item_fields')),allocation_size=0x10000 if symbol_plans().get(name,{}).get('item_fields') else 0x2000)
         try:result=run_case(exe,case,5,stub_factory=stub)
         except (RuntimeError,OSError) as error:result=dict(status='harness_error',error=str(error))
-        if not name.startswith('error-') and result.get('vm_errors'):
+        if not name.startswith(('error-','recovery-')) and result.get('vm_errors'):
             result['status']='unqualified'
         if name.startswith('error-') and result.get('status')=='observed' and result.get('vm_errors'):
             result['returned_numeric']=result['actual'];result['actual']={'completion':'returned'}
             result['observation_kind']='error-completion'
             result.pop('matches_static_contract',None);result.pop('expected',None)
+        if name.startswith('recovery-'):
+            result.pop('expected',None);result.pop('matches_static_contract',None)
+            result['observation_kind']='error-completion'
+            result['returned_numeric']=result.get('actual')
+            result['actual']={'completion':'returned','recovery_predicate':result.get('actual')}
+            if result.get('vm_errors') != symbol_plans()[name]['expected_vm_errors']:result['status']='unqualified'
         rows.append(dict(name=name,expression_sha256=hashlib.sha256(expr).hexdigest(),program_sha256=program_hash(name,expr),**result))
         print(name,result,flush=True)
     receipt=dict(kind='initialized original evaluator assertions; manual CRT heap/locks plus evaluator constructor; application startup skipped',original_sha256=identity['exe_sha256'],harness_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),transport_sha256=hashlib.sha256(Path(__file__).with_name('probe_mohawk_v5_original.py').read_bytes()).hexdigest(),results=rows)
@@ -133,6 +140,7 @@ def ce(args):
     root=args.root.resolve();root.mkdir(parents=True,exist_ok=False);rows=[]
     for name,expr,expected in probes():
         if getattr(args,'symbols_only',False) and name not in symbol_plans():continue
+        if getattr(args,'lifecycle_only',False) and name not in __import__('mohawk_v5_lifecycle_probes').plans():continue
         if getattr(args,'calls_only',False) and not name.startswith('numeric-string') and 'item_fields' not in symbol_plans().get(name,{}):continue
         assets=root/name/'assets';assets.mkdir(parents=True);shutil.copyfile(args.game_data/'Outline.txt',assets/'Outline.txt')
         plan=symbol_plans().get(name)
@@ -164,6 +172,9 @@ def ce(args):
                     if name in diagnostic and diagnostic[name] in log:
                         row.update(status='observed',actual={'completion':'engine-abort'},observation_kind='error-completion')
         except Exception as e:row.update(status='transport_error',error=str(e));client.abort()
+        if name.startswith('recovery-'):
+            row['observation_kind']='error-completion'
+            if row.get('status')=='engine_error' and {'recovery-divide-zero':'V5 division by zero','recovery-non-reference':'V5 assignment requires a reference','recovery-call-arity':'incorrect number of parameters (0) to stringLen'}[name] in '\n'.join(row.get('log_tail',[])):row.update(status='observed',actual={'completion':'engine-abort'})
         rows.append(row);print(name,row.get('status'),row.get('actual'),flush=True)
     receipt=dict(kind='CE generated assertion observations; success/failure sentinel, not raw VM-value reads',exe_sha256=hashlib.sha256(args.ce.read_bytes()).hexdigest(),harness_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),results=rows)
     (root/'receipt.json').write_text(json.dumps(receipt,indent=2)+'\n')
@@ -171,5 +182,5 @@ def ce(args):
 
 
 if __name__=='__main__':
-    p=argparse.ArgumentParser(description=__doc__);p.add_argument('mode',choices=['original','ce']);p.add_argument('--root',type=Path,required=True);p.add_argument('--original',type=Path);p.add_argument('--ce',type=Path);p.add_argument('--extras',type=Path);p.add_argument('--game-data',type=Path);p.add_argument('--symbols-only',action='store_true');p.add_argument('--calls-only',action='store_true');a=p.parse_args()
+    p=argparse.ArgumentParser(description=__doc__);p.add_argument('mode',choices=['original','ce']);p.add_argument('--root',type=Path,required=True);p.add_argument('--original',type=Path);p.add_argument('--ce',type=Path);p.add_argument('--extras',type=Path);p.add_argument('--game-data',type=Path);p.add_argument('--symbols-only',action='store_true');p.add_argument('--calls-only',action='store_true');p.add_argument('--lifecycle-only',action='store_true');a=p.parse_args()
     raise SystemExit((original if a.mode=='original' else ce)(a))

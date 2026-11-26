@@ -36,6 +36,8 @@ def plans():
         else:expr=r('result')+integer(7 if name=='named-default' else 43 if name=='named-false-control' else 42)+eq
         offsets=[c.expr(x) for x in setup];offset=c.expr(expr)
         out[name]=dict(code=c,expression=expr,expected=0 if name.endswith('false') or name=='named-false-control' else 1,preludes=setup,offsets=offsets,offset=offset,item_fields=fields)
+    from mohawk_v5_lifecycle_probes import plans as lifecycle_plans
+    out.update(lifecycle_plans())
     return out
 
 
@@ -49,6 +51,11 @@ def stub(remote,write,output,case,plan):
     # original VM, item dispatch, parsers, argument/default/frame code still run.
     bridge_code=b'\xff\x05'+le(output+28)+b'\xff\x74\x24\x04'+b'\x68'+le(data)+b'\x51\xb9'+le(vm)+b'\xb8'+le(0x40375e)+b'\xff\xd0\xc2\x04\x00'
     write(bridge,bridge_code);write(0x41d38d,b'\xe9'+le(bridge-0x41d38d-5))
+    if case['name'].startswith('reentrant-'):
+        # Count the original already-active branch, then execute displaced bytes.
+        hook=remote+0x5100
+        write(hook,b'\xff\x05'+le(output+32)+b'\x8b\x8d\x5c\xff\xff\xff'+b'\xe9'+le(0x4037c0-(hook+17)))
+        write(0x4037ba,b'\xe9'+le(hook-0x4037ba-5)+b'\x90')
     s=bytearray(b'\xdb\xe3')
     def call(fn,receiver=None,args=(),cdecl=False):
         nonlocal s
