@@ -267,3 +267,14 @@ order, escaped strings, openReadOnly existing-file writes and missing-parent
 helper failure are measured. See [report](THINKQUICK-STORAGE-PROBES.md) and
 [receipts](THINKQUICK-STORAGE-OBSERVATIONS.json). These are not paired CE claims.
 Database/selector, applicable CE storage, OS-error and full audit remain open.
+
+
+### Geometry/operator comparison extension
+
+30 new identified pairs produce11 matches,8 mismatches,11 unqualified. Original
+geometry parsing/rectangle corner handling, unsupported commands and actual IDIV
+faults have repeated observations; CE unsupported operations, literal misparse
+and six bounded inspection timeouts remain explicit. See [report](THINKQUICK-VALUE-PROBES.md)
+and [receipts](THINKQUICK-VALUE-OBSERVATIONS.json). Cumulative separately recorded
+92 pairs:36 matches,18 mismatches,38 unqualified; not a monolithic replay.
+Full Step3 audit remains active; no Step4 implementation.
