@@ -21,6 +21,7 @@ def compare(reference, candidate):
         if a is None or b is None: status = 'missing'
         elif a.get('expression_sha256') != b.get('expression_sha256'): status = 'incomparable'
         elif a.get('program_sha256') != b.get('program_sha256') or a.get('observation_kind') != b.get('observation_kind'): status = 'incomparable'
+        elif (a.get('vm_errors') or b.get('vm_errors')) and a.get('observation_kind') != 'error-completion': status = 'unqualified'
         elif a.get('status') != 'observed' or b.get('status') != 'observed': status = 'unqualified'
         elif 'actual' not in a or 'actual' not in b: status = 'unqualified'
         elif a['actual'] != b['actual']: status = 'mismatch'

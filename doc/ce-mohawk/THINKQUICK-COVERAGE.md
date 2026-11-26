@@ -302,3 +302,15 @@ also reproduce the previous numeric results. The full 19-case comparison has
 This supersedes earlier pending symbol-context setup, but does not qualify
 named/default script calls, local shadowing, lifecycle, persistence or gameplay.
 Implementation remains on hold and PR #295 remains a draft.
+
+## Numeric timeout and named-call checkpoint
+
+The [numeric/local/named-call supplement](THINKQUICK-NAMED-CALL-PROBES.md)
+resolves the earlier original numeric-string timeout by invoking original CRT
+floating-parser initialization, and adds clean local-shadowing, supplied/default,
+default-side-effect and nested named-script probes. Its process-local BCOD fetch
+bridge is explicit and does not qualify resource loading/lifetime. The focused
+11-case comparison has five matches, one exponent-string mismatch and five
+unqualified CE call cases. Full 29-case replay: 17 matches, four mismatches,
+eight unqualified, overall fail. Earlier timeout/setup receipts remain historical.
+No implementation, build, accepted-installation update or PR #295 change.

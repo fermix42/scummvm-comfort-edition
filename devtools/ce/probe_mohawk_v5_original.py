@@ -97,6 +97,7 @@ def windows_api():
         'CreateProcessW': ([W.LPCWSTR, W.LPWSTR, C.c_void_p, C.c_void_p, W.BOOL, W.DWORD,
                             C.c_void_p, W.LPCWSTR, C.POINTER(Startup), C.POINTER(ProcessInfo)], W.BOOL),
         'WaitForDebugEvent': ([C.POINTER(DebugEvent), W.DWORD], W.BOOL),
+        'DebugBreakProcess': ([W.HANDLE], W.BOOL),
         'DebugSetProcessKillOnExit': ([W.BOOL], W.BOOL),
         'ContinueDebugEvent': ([W.DWORD, W.DWORD, W.DWORD], W.BOOL),
         'ReadProcessMemory': ([W.HANDLE, C.c_void_p, C.c_void_p, C.c_size_t, C.POINTER(C.c_size_t)], W.BOOL),
@@ -125,7 +126,7 @@ def run_case(exe, case, timeout, stub_factory=None):
     pi = ProcessInfo(); event = DebugEvent(); pending = False
     checked(k.CreateProcessW(str(exe), C.create_unicode_buffer('"' + str(exe) + '"'),
                             None, None, False, 2, None, str(exe.parent), C.byref(startup), C.byref(pi)))
-    vm_errors = []; first_chance_cpp = 0
+    vm_errors = []; vm_error_offsets = []; first_chance_cpp = 0
     phase = 'loader'; start = time.monotonic(); trap = None
     def read(address, size):
         b = C.create_string_buffer(size); n = C.c_size_t()
@@ -168,6 +169,7 @@ def run_case(exe, case, timeout, stub_factory=None):
                         esp = struct.unpack_from('<I', context, 196)[0]
                         error = struct.unpack('<I', read(esp + 4, 4))[0]
                         vm_errors.append(error)
+                        vm_error_offsets.append(struct.unpack('<I', read(remote+0x1300+0x3c,4))[0])
                         write(0x402fc6, b'\x55')
                         struct.pack_into('<I', context, 184, 0x402fc6)
                         checked(k.Wow64SetThreadContext(pi.thread, context))
@@ -196,17 +198,38 @@ def run_case(exe, case, timeout, stub_factory=None):
                         initialization = dict(heap_initialized=True, evaluator_constructed=True,
                                               value_stack_allocated=True, stack_empty_after_eval=True,
                                               active_code_cleared=True, result_tag=read(0x49a540, 1)[0])
-                        if case.get('verify_symbols'):initialization.update(symbol_frame_push_succeeded=True, symbol_frame_restored=True, crt_thread_initialized=True)
+                        if case.get('verify_symbols'):initialization.update(symbol_frame_push_succeeded=True, symbol_frame_restored=True, crt_thread_initialized=True, crt_floating_parser_initialized=struct.unpack('<I',read(0x4992ac,4))[0]==0x47ac44)
+                        if case.get('verify_script_fixture'):
+                            empty, hits = struct.unpack('<II',read(output+24,8))
+                            item, page = remote+0x2400,remote+0x2000
+                            if empty!=1 or not hits or struct.unpack('<H',read(item+0xc,2))[0] or struct.unpack('<I',read(item+8,4))[0]!=item or struct.unpack('<I',read(page+0x6c,4))[0]:raise RuntimeError('Script-call context not restored')
+                            initialization.update(argument_stack_empty=True,item_context_restored=True,sender_restored=True,code_fetch_bridge_calls=hits)
                     return dict(status='observed', actual=actual, expected=case['expected'],
                                 matches_static_contract=actual == case['expected'],
                                 process_id=pi.pid, phase=phase, result_hex=data.hex(),
-                                loader_eip=hex(original_eip), probe_trap=hex(trap), initialization=initialization, vm_errors=vm_errors, first_chance_cpp=first_chance_cpp)
-                if code == 0x80000003:
+                                loader_eip=hex(original_eip), probe_trap=hex(trap), initialization=initialization, vm_errors=vm_errors, vm_error_offsets=vm_error_offsets, first_chance_cpp=first_chance_cpp)
+                if phase == 'loader' and code == 0x4000001f and case.get('after_loader'):
+                    data_image = exe.read_bytes(); pe_offset = struct.unpack_from('<I', data_image, 0x3c)[0]
+                    entry = 0x400000 + struct.unpack_from('<I', data_image, pe_offset + 40)[0]
+                    entry_byte = read(entry, 1); write(entry, b'\xcc')
+                    checked(k.FlushInstructionCache(pi.process, entry, 1))
+                    phase = 'await_entry'
+                    checked(k.ContinueDebugEvent(event.pid,event.tid,0x10002));pending=False
+                    continue
+                if phase == 'await_entry':
+                    if address != entry:raise RuntimeError('Unexpected loader completion breakpoint')
+                    write(entry, entry_byte);checked(k.FlushInstructionCache(pi.process,entry,1))
+                    ctx = C.create_string_buffer(716);struct.pack_into('<I',ctx,0,0x10007)
+                    checked(k.Wow64GetThreadContext(pi.thread,ctx));struct.pack_into('<I',ctx,184,entry)
+                    checked(k.Wow64SetThreadContext(pi.thread,ctx))
+                if code == 0x80000003 and phase != 'await_entry':
                     checked(k.ContinueDebugEvent(event.pid, event.tid, 0x10002)); pending = False
                     continue  # Native loader break precedes the WOW64 loader break.
                 if event.tid != pi.tid: raise RuntimeError('Loader breakpoint on unexpected thread')
-                remote = checked(k.VirtualAllocEx(pi.process, None, 0x2000, 0x3000, 0x40))
-                if remote + 0x2000 > 0x100000000: raise RuntimeError('Allocation exceeds x86 address space')
+                allocation_size=case.get('allocation_size',0x2000)
+                if allocation_size not in (0x2000,0x10000):raise RuntimeError('Unsupported probe allocation size')
+                remote = checked(k.VirtualAllocEx(pi.process, None, allocation_size, 0x3000, 0x40))
+                if remote + allocation_size > 0x100000000: raise RuntimeError('Allocation exceeds x86 address space')
                 output = remote + 0x1000; next_data = remote + 0x1100
                 if stub_factory is not None:
                     stub = stub_factory(remote, write, output, case)
@@ -231,7 +254,15 @@ def run_case(exe, case, timeout, stub_factory=None):
                 struct.pack_into('<I', context, 184, remote)
                 checked(k.Wow64SetThreadContext(pi.thread, context)); phase = 'probe'
             checked(k.ContinueDebugEvent(event.pid, event.tid, 0x10002)); pending = False
-        return dict(status='timeout', phase=phase)
+        diagnostic = {}
+        if k.DebugBreakProcess(pi.process) and k.WaitForDebugEvent(C.byref(event), 1000):
+            pending = True
+            context = C.create_string_buffer(716); struct.pack_into('<I', context, 0, 0x10007)
+            if k.Wow64GetThreadContext(pi.thread, context):
+                eip, esp = struct.unpack_from('<I', context, 184)[0], struct.unpack_from('<I', context, 196)[0]
+                stack_data=read(esp,1024)
+                diagnostic = dict(eip=hex(eip), stack_hex=stack_data[:64].hex(), image_stack_words=[hex(x) for x in struct.unpack('<256I',stack_data) if 0x401000 <= x < 0x488000])
+        return dict(status='timeout', phase=phase, diagnostic=diagnostic)
     finally:
         # Never resume the untouched application startup after the probe.
         k.TerminateProcess(pi.process, 0)

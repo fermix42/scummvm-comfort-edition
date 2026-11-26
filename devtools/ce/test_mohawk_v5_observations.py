@@ -53,6 +53,11 @@ class ComparisonGuards(unittest.TestCase):
         left['observation_kind'] = 'error-completion'
         self.assertFalse(compare(receipt([left]), receipt([right]))['passed'])
 
+    def test_true_after_unexpected_vm_error_is_unqualified(self):
+        left, right = observed(), observed()
+        left['vm_errors'] = [16]
+        self.assertFalse(compare(receipt([left]), receipt([right]))['passed'])
+
     def test_empty_receipt_rejected(self):
         with self.assertRaises(ValueError):
             compare(receipt([]), receipt([]))

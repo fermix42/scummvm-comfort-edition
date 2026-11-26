@@ -107,3 +107,15 @@ was made. All 21 recorded engine-source hashes and all 346 CE Test file hashes
 remain preserved. PR #295 stays an unchanged draft. Step 3 remains open for
 numeric-string CRT setup, deeper frame/script-call/return/error-state probes,
 lifecycle/resources and isolated persistence/UI comparisons before implementation.
+
+## Numeric timeout and named-call checkpoint
+
+The [numeric/local/named-call supplement](THINKQUICK-NAMED-CALL-PROBES.md)
+resolves the earlier original numeric-string timeout by invoking original CRT
+floating-parser initialization, and adds clean local-shadowing, supplied/default,
+default-side-effect and nested named-script probes. Its process-local BCOD fetch
+bridge is explicit and does not qualify resource loading/lifetime. The focused
+11-case comparison has five matches, one exponent-string mismatch and five
+unqualified CE call cases. Full 29-case replay: 17 matches, four mismatches,
+eight unqualified, overall fail. Earlier timeout/setup receipts remain historical.
+No implementation, build, accepted-installation update or PR #295 change.
