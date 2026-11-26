@@ -2,6 +2,8 @@
 
 This file tracks user-facing changes maintained in ScummVM Comfort Edition.
 
+- 2026-11-25: Release CE v0.1.10: Made Living Books: The Cat in the Hat fully playable; corrected AGI CGA RGB colors and dithering; fixed initial SDL Surface window sizing. See doc/ce-release/0.1.10.md.
+
 - 2026-11-25: AGI: Correct v2/v3 CGA RGB rendering using Sierra's original odd/even picture mappings, separate view mappings and reserved sprite transparency. Use the original blue/green/red/brown palette and RGB monitor identifier. Preserve PreAGI and booter rendering; correctly double CGA pixels with hires fonts. Add original-driver mapping regression tests.
 
 - 2026-11-25: SDL Surface: Honor explicit `--window-size=W,H` for the initial SDL2/SDL3 window independently of the rendering surface and scaler. Preserve normal default sizing, later manual resizing, and CE window-layout priority. Expose the option in SDL2/SDL3 builds without OpenGL and update its command-line help.
