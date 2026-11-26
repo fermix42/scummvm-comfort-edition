@@ -38,6 +38,22 @@ events still use the normal CE pipeline. There is no live synchronization test.
 
 ## Protocol
 
+Living Books provides read-only `inspect.adapter` fields for mode, page,
+subpage, phase, cursor visibility, key binding count, focus, rollover, and item
+identity, bounds, loading/enabling/visibility, dragging, playback and timeline
+position, active animation sound resource (`65535` means none), and elapsed
+source sample frames. Standalone sound items also report active resource/sample
+progress and `sound_starts`, the count of successful playback starts.
+`uninitialized_draws` counts visible animation draws before
+first-frame initialization. `render_history` retains the last 64 redraws with
+page/phase, serial/time and drawable animation IDs, allowing tests to check brief
+layer gaps between inspection requests. Selected Cat activity variables are
+exposed for assertions. There is
+no script evaluator or direct page/state mutation; tests navigate with ordinary
+keyboard and mouse events. `advance` is not implemented for this engine, so use
+bounded polling of inspected state. See
+[the Cat qualification notes](../ce-livingbooks/CAT-IN-THE-HAT.md) for scope.
+
 Send one UTF-8 JSON object per line. Requests can carry an `id`; replies echo it.
 Errors have `ok:false` and an error code. Unknown/unsupported commands are
 recoverable. Failed assertions and bounded waits make the final exit status 2.

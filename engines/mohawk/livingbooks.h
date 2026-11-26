@@ -88,6 +88,19 @@ protected:
 public:
 	MohawkEngine_LivingBooks(OSystem *syst, const MohawkGameDescription *gamedesc);
 	~MohawkEngine_LivingBooks() override;
+	Common::JSONValue *testCLIState() override;
+	Common::JSONValue *diagnosticState() override;
+	Common::JSONValue *livingBooksState(bool detailed);
+	Common::String _diagnosticPageFile;
+	struct VisibilityEvent { uint32 millis; uint16 item; int16 before, after; bool global, requested; };
+	Common::Array<VisibilityEvent> _visibilityEvents;
+	struct RenderEvent {
+		uint32 serial, millis, mode, page, subpage, phase;
+		Common::Array<uint16> sprites;
+	};
+	Common::Array<RenderEvent> _renderEvents;
+	uint32 _renderSerial = 0;
+	void recordVisibilityEvent(uint16 item, int16 before, int16 after, bool global, bool requested);
 
 	Common::RandomSource *_rnd;
 
@@ -105,6 +118,10 @@ public:
 	void addArchive(Archive *archive);
 	void removeArchive(Archive *archive);
 	void addItem(LBItem *item);
+	void setItemZOrder(LBItem *item, LBItem *relative, bool back);
+	void registerKeyEvent(LBItem *owner, byte code, byte modifiers, byte character, byte repeats, uint16 target, byte event);
+	void removeKeyEvents(LBItem *owner);
+	void clearRollover(LBItem *item, bool notify = true);
 	void removeItems(const Common::Array<LBItem *> &items);
 
 	LBItem *getItemById(uint16 id);
@@ -115,7 +132,7 @@ public:
 	void notifyAll(uint16 data, uint16 from);
 	void queueDelayedEvent(DelayedEvent event);
 
-	bool playSound(LBItem *source, uint16 resourceId);
+	bool playSound(LBItem *source, uint16 resourceId, bool loop = false);
 	void lockSound(LBItem *owner, bool lock);
 
 	bool isBigEndian() const { return getGameType() != GType_LIVINGBOOKSV1 || getPlatform() == Common::kPlatformMacintosh; }
@@ -152,6 +169,14 @@ private:
 	Common::List<LBItem *> _orderedItems;
 	Common::Queue<DelayedEvent> _eventQueue;
 	LBItem *_focus;
+	LBItem *_rollover;
+	struct RegisteredKeyEvent {
+		LBItem *owner;
+		byte code, modifiers, character, repeats, event;
+		uint16 target;
+	};
+	Common::Array<RegisteredKeyEvent> _keyEvents;
+	bool dispatchKey(const Common::KeyState &key, bool repeat);
 	void destroyPage();
 	void updatePage();
 

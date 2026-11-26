@@ -355,6 +355,22 @@ Common::Path OSystem_Win32::getScreenshotsPath() {
 	return path;
 }
 
+Common::Path OSystem_Win32::getExecutablePath() const {
+	Common::Array<wchar_t> buffer;
+	for (uint size = 256; size <= 32768; size *= 2) {
+		buffer.resize(size);
+		DWORD length = GetModuleFileNameW(nullptr, buffer.data(), size);
+		if (!length) return Common::Path();
+		if (length < size) {
+			char *utf8 = Win32::unicodeToAnsi(buffer.data());
+			Common::Path path(utf8, Common::Path::kNativeSeparator);
+			free(utf8);
+			return path;
+		}
+	}
+	return Common::Path();
+}
+
 Common::Path OSystem_Win32::getDefaultConfigFileName() {
 	return Win32::portablePath(DEFAULT_CONFIG_FILE);
 }

@@ -303,6 +303,10 @@ void ModularGraphicsBackend::saveScreenshot() {
 	_graphicsManager->saveScreenshot();
 }
 
+bool ModularGraphicsBackend::saveDiagnosticScreenshot(const Common::Path &filename) {
+	return _graphicsManager->saveDiagnosticScreenshot(filename);
+}
+
 
 ModularMixerBackend::ModularMixerBackend()
 	:

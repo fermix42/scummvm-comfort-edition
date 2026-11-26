@@ -36,6 +36,37 @@ namespace Mohawk {
 class MohawkEngine_LivingBooks;
 class LBPage;
 
+// Native extensions supplied by the Cat in the Hat interpreter.
+class LBMotionItem : public LBItem {
+public:
+	LBMotionItem(MohawkEngine_LivingBooks *vm, LBPage *page, Common::Rect rect);
+	bool togglePlaying(bool playing, bool restart) override;
+protected:
+	void runScript(uint event, uint16 data = 0, uint16 from = 0) override;
+private:
+	float _x, _y, _vx, _vy, _ax, _ay;
+	Common::Point _lastPosition;
+	Common::Rect _motionBounds;
+	Common::String _motionItem, _boundItem;
+	bool _initialized;
+	int variable(const char *name) const;
+};
+
+class LBDrawingItem : public LBItem {
+public:
+	LBDrawingItem(MohawkEngine_LivingBooks *vm, LBPage *page, Common::Rect rect);
+	void draw() override;
+	void handleMouseDown(Common::Point point) override;
+	void handleMouseMove(Common::Point point) override;
+	void handleMouseUp(Common::Point point) override;
+private:
+	Common::Array<byte> _pixels;
+	Common::Point _previous;
+	bool _hasPrevious;
+	Common::String _drawingTool;
+	void drawPoint(Common::Point point, byte color);
+};
+
 class LBSoundItem : public LBItem {
 public:
 	LBSoundItem(MohawkEngine_LivingBooks *_vm, LBPage *page, Common::Rect rect);
@@ -44,11 +75,15 @@ public:
 	void update() override;
 	bool togglePlaying(bool playing, bool restart) override;
 	void stop() override;
+	uint16 getActiveSound() const override;
+	uint32 getSoundSamples() const override;
+	uint32 getSoundStarts() const override { return _soundStarts; }
 
 protected:
 	LBItem *createClone() override;
 
 	bool _running;
+	uint32 _soundStarts = 0;
 };
 
 struct GroupEntry {
@@ -160,6 +195,7 @@ public:
 	void init() override;
 
 protected:
+	uint16 _drawMode;
 	LBItem *createClone() override;
 };
 

@@ -30,6 +30,8 @@
 #include "common/list.h"
 #include "common/rect.h"
 #include "common/str.h"
+#include "common/keyboard.h"
+#include "common/formats/json.h"
 
 namespace Common {
 	class SeekableReadStreamEndian;
@@ -78,6 +80,23 @@ public:
 	virtual void unload();
 	virtual void moveBy(const Common::Point &pos);
 	virtual void moveTo(const Common::Point &pos);
+	void setParent(LBItem *parent);
+	virtual uint32 getPosition() const { return 0; }
+	virtual uint32 getUninitializedDraws() const { return 0; }
+	virtual uint32 getSoundStarts() const { return 0; }
+	virtual bool hasDrawableAnimation() const { return false; }
+	virtual uint16 getActiveSound() const { return 0xffff; }
+	virtual uint32 getSoundSamples() const { return 0; }
+	virtual uint16 getFrame() const { return 0; }
+	virtual Common::Rect getFrameBounds() const { return _rect; }
+	virtual bool isPlaying() const { return _playing; }
+	virtual void playFrom(uint32 position);
+	void setDragParams(Common::Point checkOffset, const Common::Rect &bounds);
+	void beginDrag(Common::Point point);
+	void endDrag();
+	void updateMouse(Common::Point point);
+	bool rolloverContains(Common::Point point);
+	void dispatchEvent(byte event) { runScript(event); }
 
 	LBItem *clone(uint16 newId, const Common::String &newName);
 
@@ -86,6 +105,11 @@ public:
 	const Common::Rect &getRect() { return _rect; }
 	uint16 getSoundPriority() { return _soundMode; }
 	bool isLoaded() { return _loaded; }
+	bool isVisible() const { return _visibility >= 0 && _globalVisible; }
+	int16 getVisibilityBalance() const { return _visibility; }
+	virtual void appendDiagnosticState(Common::JSONObject &state) const;
+	bool isEnabled() const { return _enabled && _globalEnabled; }
+	bool isDragging() const { return _dragging; }
 	bool isAmbient() { return _isAmbient; }
 
 	Common::List<LBItem *>::iterator _iterator;
@@ -94,18 +118,34 @@ public:
 	Common::HashMap<Common::String, LBValue, Common::IgnoreCase_Hash, Common::IgnoreCase_EqualTo> _variables;
 
 protected:
+	virtual void enabledChanged(bool enabled) {}
 	MohawkEngine_LivingBooks *_vm;
 	LBPage *_page;
 
 	void setNextTime(uint16 min, uint16 max);
 	void setNextTime(uint16 min, uint16 max, uint32 start);
+	uint32 getTime() const;
 
 	Common::Rect _rect;
+	LBItem *_parent;
+	Common::Array<LBItem *> _children;
+	bool _dragConfigured, _dragging, _rolloverEnabled, _rolloverUseHitTest;
+	bool _tracking, _trackingInside, _dragRearmedDuringPress;
+	Common::Point _dragOffset, _dragCheckOffset;
+	Common::Rect _dragBounds;
+	uint16 _dragConstraintItem;
+	struct KeyEvent {
+		uint16 installEvent, target;
+		byte code, keyModifiers, character, repeats, event;
+	};
+	Common::Array<KeyEvent> _keyEvents;
+	bool dragAllows(Common::Point point);
 	Common::String _desc;
 	uint16 _resourceId;
 	uint16 _itemId;
 
-	bool _loaded, _visible, _globalVisible, _playing, _enabled, _globalEnabled;
+	bool _loaded, _globalVisible, _playing, _enabled, _globalEnabled;
+	int16 _visibility;
 
 	uint32 _nextTime, _startTime;
 	uint16 _loops;
@@ -121,7 +161,7 @@ protected:
 	virtual LBItem *createClone();
 
 	Common::Array<LBScriptEntry *> _scriptEntries;
-	void runScript(uint event, uint16 data = 0, uint16 from = 0);
+	virtual void runScript(uint event, uint16 data = 0, uint16 from = 0);
 	int runScriptEntry(LBScriptEntry *entry);
 
 	void runCommand(const Common::String &command);

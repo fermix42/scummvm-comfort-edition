@@ -137,6 +137,7 @@ public:
 	void displayActivityIconOnOSD(const Graphics::Surface *icon) override final;
 
 	void saveScreenshot() override final;
+	bool saveDiagnosticScreenshot(const Common::Path &filename) override final;
 
 	//@}
 

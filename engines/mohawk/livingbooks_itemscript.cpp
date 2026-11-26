@@ -22,6 +22,8 @@
 #include "mohawk/livingbooks.h"
 
 #include "common/memstream.h"
+#include "common/events.h"
+#include "common/system.h"
 #include "common/textconsole.h"
 
 namespace Mohawk {
@@ -253,8 +255,8 @@ LBScriptEntry *LBItem::parseScriptEntry(uint16 type, uint16 &size, Common::Memor
 			memcpy(entry->data, command.c_str(), commandSize);
 			size -= commandSize;
 		} else {
-			if (conditionTag)
-				error("kLBOpRunData had unexpected conditionTag");
+			// Binary RunData records can carry the same trailing condition as
+			// command records (Cat's tossing scene uses conditional rollovers).
 			entry->data = new byte[entry->dataLen];
 			stream->read(entry->data, entry->dataLen);
 			size -= entry->dataLen;
@@ -342,6 +344,12 @@ void LBItem::readData(uint16 type, uint16 size, Common::MemoryReadStreamEndian *
 		_relocPoint.y = stream->readSint16();
 		_controlMode = stream->readUint16();
 		_soundMode = stream->readUint16();
+		// Runtime PlayInfo changes start the new idle timer in the original
+		// interpreter too; waiting for another phase leaves native activities idle.
+		if (_loaded && _enabled && _globalEnabled && _timingMode == kLBAutoUserIdle)
+			setNextTime(_periodMin, _periodMax);
+		else if (_timingMode == kLBAutoNone)
+			_nextTime = 0;
 
 		debug(2, "kLBSetPlayInfo: loop mode %d (%d to %d), timing mode %d (%d to %d), reloc (%d, %d), control mode %04x, sound mode %04x",
 			_loopMode, _delayMin, _delayMax,
@@ -389,7 +397,7 @@ void LBItem::readData(uint16 type, uint16 size, Common::MemoryReadStreamEndian *
 
 	case kLBSetNotVisible:
 		assert(size == 0);
-		_visible = false;
+		_visibility = -1;
 		break;
 
 	case kLBGlobalDisable:
@@ -409,17 +417,18 @@ void LBItem::readData(uint16 type, uint16 size, Common::MemoryReadStreamEndian *
 
 	case kLBSetKeyEvent:
 		{
-		// FIXME: targets
 		if (size != 10)
 			error("kLBSetKeyEvent had wrong size (%d)", size);
-		uint u3 = stream->readUint16();
-		LBKey key;
-		stream->read(&key, 4);
-		uint target = stream->readUint16();
-		uint16 event = stream->readUint16();
-		// FIXME: this is scripting stuff: what to run when key is pressed
-		warning("ignoring kLBSetKeyEvent: item %s, key code %02x (modifier mask %d, char %d, repeat %d) unknown %04x, target %d, event %04x",
-			_desc.c_str(), key.code, key.modifiers, key.char_, key.repeats, u3, target, event);
+		KeyEvent binding;
+		binding.installEvent = stream->readUint16();
+		binding.code = stream->readByte();
+		binding.keyModifiers = stream->readByte();
+		binding.character = stream->readByte();
+		binding.repeats = stream->readByte();
+		binding.target = stream->readUint16();
+		binding.event = stream->readByte();
+		stream->readByte();
+		_keyEvents.push_back(binding);
 		}
 		break;
 
@@ -432,19 +441,44 @@ void LBItem::readData(uint16 type, uint16 size, Common::MemoryReadStreamEndian *
 		}
 		break;
 
+	case kLBSetDragParams:
+		if (!size) {
+			_dragConfigured = false;
+			endDrag();
+			break;
+		}
+		if (size != 10 && size != 14)
+			error("kLBSetDragParams had wrong size (%d)", size);
+		_dragCheckOffset.x = stream->readSint16();
+		_dragCheckOffset.y = stream->readSint16();
+		{
+		uint16 constraintType = stream->readUint16();
+		_dragConstraintItem = 0;
+		if (constraintType == 0 && size == 14)
+			_dragBounds = _vm->readRect(stream);
+		else if (constraintType == 1 && size == 10) {
+			_dragConstraintItem = stream->readUint16();
+			stream->readUint16();
+		} else
+			error("unsupported drag constraint %d, size %d", constraintType, size);
+		_dragConfigured = true;
+		}
+		break;
+
 	case kLBSetRolloverData:
 		{
-		assert(size == 2);
-		uint16 flag = stream->readUint16();
-		warning("ignoring kLBSetRolloverData: item %s, flag %d", _desc.c_str(), flag);
+		assert(size == 0 || size == 2);
+		_rolloverEnabled = size != 0;
+		_rolloverUseHitTest = size ? stream->readUint16() != 0 : false;
+		if (!_rolloverEnabled)
+			_vm->clearRollover(this);
 		}
 		break;
 
 	case kLBSetParent:
 		{
 		assert(size == 2);
-		uint16 parent = stream->readUint16();
-		warning("ignoring kLBSetParent: item %s, parent id %d", _desc.c_str(), parent);
+		setParent(_vm->getItemById(stream->readUint16()));
 		}
 		break;
 
@@ -478,6 +512,12 @@ void LBItem::notify(uint16 data, uint16 from) {
 }
 
 void LBItem::runScript(uint event, uint16 data, uint16 from) {
+	for (uint i = 0; i < _keyEvents.size(); ++i) {
+		const KeyEvent &binding = _keyEvents[i];
+		if (binding.installEvent == event)
+			_vm->registerKeyEvent(this, binding.code, binding.keyModifiers, binding.character,
+				binding.repeats, binding.target, binding.event);
+	}
 	for (uint i = 0; i < _scriptEntries.size(); i++) {
 		LBScriptEntry *entry = _scriptEntries[i];
 
@@ -547,7 +587,7 @@ int LBItem::runScriptEntry(LBScriptEntry *entry) {
 			case 0:
 				// Disable..
 				entry->state = 0xffff;
-				return 0;
+				break;
 			case 1:
 				// Stay at the end.
 				entry->state = count - 1;
@@ -564,7 +604,7 @@ int LBItem::runScriptEntry(LBScriptEntry *entry) {
 		break;
 	case 3:
 		// Pick random target.
-		start = _vm->_rnd->getRandomNumberRng(0, count);
+		start = _vm->_rnd->getRandomNumberRng(0, count - 1);
 		count = 1;
 		break;
 	default:
@@ -572,7 +612,7 @@ int LBItem::runScriptEntry(LBScriptEntry *entry) {
 			entry->type, entry->event, entry->opcode, entry->param);
 	}
 
-	for (uint n = start; n < count; n++) {
+	for (uint n = start; n < start + count; n++) {
 		LBItem *target;
 
 		debug(2, "Script run: type 0x%04x, event 0x%04x, opcode 0x%04x, param 0x%04x",
@@ -641,7 +681,7 @@ int LBItem::runScriptEntry(LBScriptEntry *entry) {
 		if ((entry->opcode & 0xff00) == 0x0100) {
 			// FIXME: pass on param
 			target->runScript(entry->opcode & 0xff);
-			break;
+			continue;
 		}
 
 		switch (entry->opcode) {
@@ -733,17 +773,17 @@ int LBItem::runScriptEntry(LBScriptEntry *entry) {
 			break;
 
 		case kLBOpSeekToPrev:
+			target->seek(MAX<int>(0, (int)target->getFrame() - 1));
+			break;
 		case kLBOpSeekToNext:
-			// FIXME
-			warning("ignoring kLBOpSeekToPrev/Next (event 0x%04x, param 0x%04x, target '%s')",
-				entry->event, entry->param, target->_desc.c_str());
+			target->seek(target->getFrame() + 1);
 			break;
 
 		case kLBOpDragBegin:
+			target->beginDrag(_vm->_system->getEventManager()->getMousePos());
+			break;
 		case kLBOpDragEnd:
-			// FIXME
-			warning("ignoring kLBOpDragBegin/End (event 0x%04x, param 0x%04x, target '%s')",
-				entry->event, entry->param, target->_desc.c_str());
+			target->endDrag();
 			break;
 
 		case kLBOpScriptDisable:
@@ -790,7 +830,7 @@ int LBItem::runScriptEntry(LBScriptEntry *entry) {
 			break;
 
 		case kLBOpRunData:
-			readData(entry->dataType, entry->dataLen, entry->data);
+			target->readData(entry->dataType, entry->dataLen, entry->data);
 			break;
 
 		case kLBOpJumpUnlessExpression:

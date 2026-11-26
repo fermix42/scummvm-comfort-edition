@@ -99,6 +99,7 @@ public:
 
 	virtual bool saveScreenshot(const Common::Path &filename) const { return false; }
 	void saveScreenshot() override;
+	bool saveDiagnosticScreenshot(const Common::Path &filename) override { return saveScreenshot(filename); }
 
 	bool setRotationMode(Common::RotationMode rotation) override { _rotationMode = rotation; return true; }
 

@@ -42,6 +42,7 @@ class Mixer;
 }
 namespace Common {
 class JSONValue;
+struct Event;
 class Error;
 class FSDirectory;
 class EventManager;
@@ -597,6 +598,15 @@ public:
 	// Optional semantic adapter. Called only on the engine thread in explicit test mode.
 	virtual Common::JSONValue *testCLIState();
 	virtual Common::JSONValue *testCLICommand(Common::JSONValue &request);
+	virtual Common::JSONValue *diagnosticState();
+	virtual bool retainsNativeDiagnosticHotkey() const { return false; }
+	void captureCEDiagnostics();
+	void recordCEDiagnosticEvent(const Common::Event &event);
+
+private:
+	struct CEDiagnosticEvent { uint32 millis; int type, key, flags, x, y; };
+	Common::Array<CEDiagnosticEvent> _ceDiagnosticEvents;
+public:
 
 	/**
 	 * Set the MetaEngine instance used by this engine.

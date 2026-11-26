@@ -30,7 +30,50 @@ namespace Mohawk {
 // SCRP - Animation sprites/background
 
 LBAnimationNode::LBAnimationNode(MohawkEngine_LivingBooks *vm, LBAnimation *parent, uint16 scriptResourceId) : _vm(vm), _parent(parent) {
+	_scriptResourceId = scriptResourceId;
 	loadScript(scriptResourceId);
+}
+
+Common::JSONValue *LBAnimationNode::diagnosticState() const {
+	using namespace Common;
+	JSONObject state;
+	state["script_resource"] = new JSONValue((long long)_scriptResourceId);
+	state["entry"] = new JSONValue((long long)_currentEntry);
+	state["entries"] = new JSONValue((long long)_scriptEntries.size());
+	state["delay"] = new JSONValue((long long)_delay);
+	state["cel"] = new JSONValue((long long)_currentCel);
+	state["bitmap"] = new JSONValue((long long)(_currentCel ? _parent->getResource(_currentCel - 1) : 0));
+	state["draw_mode"] = new JSONValue((long long)_drawMode);
+	state["x"] = new JSONValue((long long)_xPos);
+	state["y"] = new JSONValue((long long)_yPos);
+	const Rect bounds = getBounds();
+	JSONArray rect;
+	for (int value : {bounds.left, bounds.top, bounds.right, bounds.bottom}) rect.push_back(new JSONValue((long long)value));
+	state["bounds"] = new JSONValue(rect);
+	return new JSONValue(state);
+}
+
+Common::JSONValue *LBAnimation::diagnosticState() const {
+	using namespace Common;
+	JSONObject state;
+	state["running"] = new JSONValue(_running);
+	state["frame"] = new JSONValue((long long)_currentFrame);
+	state["tempo_q16"] = new JSONValue((long long)_tempo);
+	state["position_q16"] = new JSONValue((long long)_position);
+	state["last_time_q16"] = new JSONValue((long long)_lastTime);
+	JSONArray bounds, clip, nodes;
+	for (int value : {_bounds.left, _bounds.top, _bounds.right, _bounds.bottom}) bounds.push_back(new JSONValue((long long)value));
+	for (int value : {_clip.left, _clip.top, _clip.right, _clip.bottom}) clip.push_back(new JSONValue((long long)value));
+	for (const LBAnimationNode *node : _nodes) nodes.push_back(node->diagnosticState());
+	state["bounds"] = new JSONValue(bounds);
+	state["clip"] = new JSONValue(clip);
+	state["nodes"] = new JSONValue(nodes);
+	return new JSONValue(state);
+}
+
+void LBAnimationItem::appendDiagnosticState(Common::JSONObject &state) const {
+	LBItem::appendDiagnosticState(state);
+	if (_anim) state["animation"] = _anim->diagnosticState();
 }
 
 LBAnimationNode::~LBAnimationNode() {
@@ -86,7 +129,7 @@ void LBAnimationNode::draw(const Common::Rect &_bounds) {
 		yOffset -= offset.y;
 	}
 
-	_vm->_gfx->copyOffsetAnimImageToScreen(resourceId, xOffset, yOffset);
+	_vm->_gfx->copyOffsetAnimImageToScreen(resourceId, xOffset, yOffset, _drawMode != 0);
 }
 
 void LBAnimationNode::reset() {
@@ -95,6 +138,7 @@ void LBAnimationNode::reset() {
 	//	_vm->_needsRedraw = true;
 
 	_currentCel = 0;
+	_drawMode = 8;
 	_currentEntry = 0;
 	_delay = 0;
 
@@ -176,7 +220,6 @@ NodeState LBAnimationNode::update(bool seeking) {
 			assert(entry.size == 2);
 			uint16 tempo = (int16)READ_BE_UINT16(entry.data);
 
-			// TODO: LB 3 uses fixed-point here.
 			if (entry.opcode == kLBAnimOpSetTempo) {
 				debug(4, "3: SetTempo(%d)", tempo);
 				// TODO: LB 3 uses (tempo * 1000) / 60, while
@@ -185,7 +228,7 @@ NodeState LBAnimationNode::update(bool seeking) {
 			} else {
 				// LB 3.0+ only.
 				debug(4, "E: SetTempoDiv(%d)", tempo);
-				_parent->setTempo(1000 / tempo);
+				_parent->setTempoRate(tempo);
 			}
 
 			}
@@ -215,7 +258,8 @@ NodeState LBAnimationNode::update(bool seeking) {
 			uint16 mode = (int16)READ_BE_UINT16(entry.data);
 			debug(4, "9: DrawMode(%d)", mode);
 
-			// TODO
+			_drawMode = mode;
+			_vm->_needsRedraw = true;
 			}
 			break;
 
@@ -292,6 +336,18 @@ bool LBAnimationNode::transparentAt(int x, int y) {
 
 	// TODO: only check pixels if necessary
 	return _vm->_gfx->imageIsTransparentAt(resourceId, true, x - _xPos, y - _yPos);
+}
+
+Common::Rect LBAnimationNode::getBounds() const {
+	if (!_currentCel)
+		return Common::Rect();
+	MohawkSurface *image = _vm->_gfx->findImage(_parent->getResource(_currentCel - 1));
+	Common::Rect bounds(image->getSurface()->w, image->getSurface()->h);
+	Common::Point offset;
+	if (!_vm->isPreMohawk())
+		offset = _parent->getOffset(_currentCel - 1);
+	bounds.translate(_xPos - offset.x - image->getOffsetX(), _yPos - offset.y - image->getOffsetY());
+	return bounds;
 }
 
 LBAnimation::LBAnimation(MohawkEngine_LivingBooks *vm, LBAnimationItem *parent, uint16 resourceId) : _vm(vm), _parent(parent) {
@@ -371,9 +427,10 @@ LBAnimation::LBAnimation(MohawkEngine_LivingBooks *vm, LBAnimationItem *parent, 
 		_nodes.push_back(new LBAnimationNode(_vm, this, scriptIDs[i]));
 
 	_currentFrame = 0;
+	_position = 0;
 	_currentSound = 0xffff;
 	_running = false;
-	_tempo = 1;
+	_tempo = 1 << 16;
 }
 
 LBAnimation::~LBAnimation() {
@@ -438,16 +495,24 @@ void LBAnimation::draw() {
 		_nodes[i]->draw(_bounds);
 }
 
+bool LBAnimation::hasDrawableNodes() const {
+	for (const LBAnimationNode *node : _nodes)
+		if (node->hasCel())
+			return true;
+	return false;
+}
+
 bool LBAnimation::update() {
 	if (!_running)
 		return false;
 
-	if (_vm->_system->getMillis() <= _lastTime + (uint32)_tempo)
+	uint64 now = (uint64)_vm->_system->getMillis() << 16;
+	if (now <= _lastTime + _tempo)
 		return false;
 
 	// the second check is to try 'catching up' with lagged animations, might be crazy
-	if (_lastTime == 0 || (_vm->_system->getMillis()) > _lastTime + (uint32)(_tempo * 2))
-		_lastTime = _vm->_system->getMillis();
+	if (_lastTime == 0 || now > _lastTime + (uint64)_tempo * 2)
+		_lastTime = now;
 	else
 		_lastTime += _tempo;
 
@@ -469,6 +534,8 @@ bool LBAnimation::update() {
 	}
 
 	if (state == kLBNodeRunning) {
+		if (_currentFrame)
+			_position += _tempo;
 		_currentFrame++;
 	} else if (state == kLBNodeDone) {
 		if (_currentSound == 0xffff) {
@@ -488,6 +555,7 @@ void LBAnimation::start() {
 void LBAnimation::seek(uint16 pos) {
 	_lastTime = 0;
 	_currentFrame = 0;
+	_position = 0;
 
 	if (_currentSound != 0xffff) {
 		_vm->_sound->stopSound(_currentSound);
@@ -503,7 +571,11 @@ void LBAnimation::seek(uint16 pos) {
 		for (uint32 i = 0; i < _nodes.size(); i++)
 			ranSomething |= (_nodes[i]->update(true) != kLBNodeDone);
 
-		_currentFrame++;
+		if (ranSomething) {
+			if (_currentFrame)
+				_position += _tempo;
+			_currentFrame++;
+		}
 
 		if (!ranSomething) {
 			_running = false;
@@ -515,6 +587,7 @@ void LBAnimation::seek(uint16 pos) {
 void LBAnimation::seekToTime(uint32 time) {
 	_lastTime = 0;
 	_currentFrame = 0;
+	_position = 0;
 
 	if (_currentSound != 0xffff) {
 		_vm->_sound->stopSound(_currentSound);
@@ -524,15 +597,17 @@ void LBAnimation::seekToTime(uint32 time) {
 	for (uint32 i = 0; i < _nodes.size(); i++)
 		_nodes[i]->reset();
 
-	uint32 elapsed = 0;
-	while (elapsed <= time) {
+	while (!_currentFrame || getPosition() < time) {
 		bool ranSomething = false;
 		// nodes don't wait while seeking
 		for (uint32 i = 0; i < _nodes.size(); i++)
 			ranSomething |= (_nodes[i]->update(true) != kLBNodeDone);
 
-		elapsed += _tempo;
-		_currentFrame++;
+		if (ranSomething) {
+			if (_currentFrame)
+				_position += _tempo;
+			_currentFrame++;
+		}
 
 		if (!ranSomething) {
 			_running = false;
@@ -552,6 +627,14 @@ void LBAnimation::stop() {
 void LBAnimation::playSound(uint16 resourceId) {
 	_currentSound = resourceId;
 	_vm->_sound->playSound(_currentSound, Audio::Mixer::kMaxChannelVolume, false, &_cueList);
+}
+
+uint16 LBAnimation::getActiveSound() const {
+	return _currentSound != 0xffff && _vm->_sound->isPlaying(_currentSound) ? _currentSound : 0xffff;
+}
+
+uint32 LBAnimation::getSoundSamples() const {
+	return getActiveSound() != 0xffff ? _vm->_sound->getNumSamplesPlayed(_currentSound) : 0;
 }
 
 bool LBAnimation::soundPlaying(uint16 resourceId, const Common::String &cue) {
@@ -583,11 +666,37 @@ bool LBAnimation::transparentAt(int x, int y) {
 }
 
 void LBAnimation::setTempo(uint16 tempo) {
-	_tempo = tempo;
+	_tempo = (uint32)tempo << 16;
+}
+
+void LBAnimation::setTempoRate(uint16 rate) {
+	if (!rate)
+		error("Animation tempo divisor is zero");
+	_tempo = (1000U << 16) / rate;
 }
 
 uint16 LBAnimation::getParentId() {
 	return _parent->getId();
+}
+
+void LBAnimation::moveBy(const Common::Point &offset) {
+	_bounds.translate(offset.x, offset.y);
+	_clip.translate(offset.x, offset.y);
+}
+
+Common::Rect LBAnimation::getFrameBounds() const {
+	Common::Rect bounds;
+	for (uint i = 0; i < _nodes.size(); ++i) {
+		Common::Rect node = _nodes[i]->getBounds();
+		if (node.isEmpty())
+			continue;
+		if (bounds.isEmpty())
+			bounds = node;
+		else
+			bounds.extend(node);
+	}
+	bounds.translate(_bounds.left, _bounds.top);
+	return bounds;
 }
 
 LBAnimationItem::LBAnimationItem(MohawkEngine_LivingBooks *vm, LBPage *page, Common::Rect rect) : LBItem(vm, page, rect) {
@@ -600,15 +709,13 @@ LBAnimationItem::~LBAnimationItem() {
 	delete _anim;
 }
 
-void LBAnimationItem::setEnabled(bool enabled) {
+void LBAnimationItem::enabledChanged(bool enabled) {
 	if (_running) {
-		if (enabled && _globalEnabled && !_loaded)
+		if (enabled)
 			_anim->start();
-		else if (_loaded && !enabled && _enabled && _globalEnabled)
+		else
 			_anim->stop();
 	}
-
-	return LBItem::setEnabled(enabled);
 }
 
 bool LBAnimationItem::contains(Common::Point point) {
@@ -637,9 +744,16 @@ bool LBAnimationItem::togglePlaying(bool playing, bool restart) {
 	if (playing) {
 		if (_loaded && _enabled && _globalEnabled) {
 			if (restart)
-				seek(1);
+				// A seek previews frames without sound or notifications. Rewind
+				// before frame one so its effects run during actual playback.
+				seek(0);
 			_running = true;
 			_anim->start();
+			// Reset clears every node's cel. Execute the first real frame now,
+			// before the page can redraw with an empty replacement pose. Unlike
+			// seek(1), this preserves first-frame sound and notifications.
+			if (restart)
+				_anim->update();
 		}
 
 		return _running;
@@ -681,6 +795,39 @@ void LBAnimationItem::seekToTime(uint32 time) {
 	_anim->seekToTime(time);
 }
 
+uint32 LBAnimationItem::getPosition() const {
+	return _anim ? _anim->getPosition() : 0;
+}
+
+uint16 LBAnimationItem::getActiveSound() const {
+	return _anim ? _anim->getActiveSound() : 0xffff;
+}
+
+uint32 LBAnimationItem::getSoundSamples() const {
+	return _anim ? _anim->getSoundSamples() : 0;
+}
+
+uint16 LBAnimationItem::getFrame() const {
+	return _anim ? _anim->getCurrentFrame() : 0;
+}
+
+Common::Rect LBAnimationItem::getFrameBounds() const {
+	return _anim ? _anim->getFrameBounds() : _rect;
+}
+
+void LBAnimationItem::moveBy(const Common::Point &offset) {
+	if (_anim)
+		_anim->moveBy(offset);
+	LBItem::moveBy(offset);
+}
+
+void LBAnimationItem::playFrom(uint32 position) {
+	if (!_loaded || !_enabled || !_globalEnabled || !_anim || _playing)
+		return;
+	_anim->seekToTime(position);
+	togglePlaying(false, false);
+}
+
 void LBAnimationItem::startPhase(uint phase) {
 	if (phase == _phase)
 		seek(1);
@@ -689,8 +836,12 @@ void LBAnimationItem::startPhase(uint phase) {
 }
 
 void LBAnimationItem::draw() {
-	if (!_visible || !_globalVisible)
+	if (!_loaded || !isVisible())
 		return;
+	// Keep render-boundary evidence of transient resets for F12, even when
+	// the user presses the key after the blank frame has passed.
+	if (_running && !_anim->getCurrentFrame())
+		++_uninitializedDraws;
 
 	_anim->draw();
 }

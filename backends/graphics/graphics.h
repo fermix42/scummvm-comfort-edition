@@ -128,6 +128,7 @@ public:
 	//virtual void grabPalette(byte *colors, uint start, uint num) const = 0;
 
 	virtual void saveScreenshot() {}
+	virtual bool saveDiagnosticScreenshot(const Common::Path &filename) { return false; }
 	virtual bool lockMouse(bool lock) { return false; }
 };
 

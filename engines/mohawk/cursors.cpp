@@ -200,6 +200,10 @@ void LivingBooksCursorManager_v2::setCursor(uint16 id) {
 }
 
 void LivingBooksCursorManager_v2::setCursor(const Common::String &name) {
+	if (name.empty()) {
+		setDefaultCursor();
+		return;
+	}
 	if (!_sysArchive)
 		return;
 

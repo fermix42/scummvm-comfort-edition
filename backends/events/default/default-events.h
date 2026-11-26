@@ -57,6 +57,7 @@ class DefaultEventManager : public Common::EventManager, Common::EventObserver {
 	bool _shouldQuit;
 	bool _shouldReturnToLauncher;
 	bool _confirmExitDialogActive;
+	bool _diagnosticKeyDown = false;
 
 public:
 	DefaultEventManager(Common::EventSource *boss);

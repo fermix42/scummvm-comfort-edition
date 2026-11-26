@@ -94,6 +94,21 @@ bool DefaultEventManager::pollEvent(Common::Event &event) {
 
 	event = _eventQueue.pop();
 	bool forwardEvent = true;
+	if (g_engine) {
+		g_engine->recordCEDiagnosticEvent(event);
+		if ((event.type == Common::EVENT_KEYDOWN || event.type == Common::EVENT_KEYUP)
+				&& event.kbd.keycode == Common::KEYCODE_F12) {
+			if (event.type == Common::EVENT_KEYDOWN) {
+				if (!_diagnosticKeyDown && !event.kbdRepeat)
+					g_engine->captureCEDiagnostics();
+				_diagnosticKeyDown = true;
+			} else {
+				_diagnosticKeyDown = false;
+			}
+			if (!g_engine->retainsNativeDiagnosticHotkey())
+				return false;
+		}
+	}
 
 	// If the backend has the kFeatureNoQuit or the "Return to Launcher at Exit" option is enabled,
 	// replace "Quit" event with "Return to Launcher". This is also handled in scummvm_main, but

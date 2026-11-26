@@ -34,7 +34,8 @@ public:
 	~LBGraphics() override;
 
 	void setPalette(uint16 id) override;
-	void copyOffsetAnimImageToScreen(uint16 image, int left = 0, int top = 0);
+	void copyOffsetAnimImageToScreen(uint16 image, int left = 0, int top = 0, bool transparent = true);
+	void copyImageToScreen(uint16 image, int left, int top, bool transparent);
 	bool imageIsTransparentAt(uint16 image, bool useOffsets, int x, int y);
 
 protected:

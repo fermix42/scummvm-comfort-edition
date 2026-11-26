@@ -108,6 +108,18 @@ void LBPage::loadBITL(uint16 resourceId) {
 		case kLBPictureItem:
 			res = new LBPictureItem(_vm, this, rect);
 			break;
+		case 4000:
+			if (Common::String(_vm->getGameId()) == "catinthehat")
+				res = new LBMotionItem(_vm, this, rect);
+			else
+				res = new LBItem(_vm, this, rect);
+			break;
+		case 5000:
+			if (Common::String(_vm->getGameId()) == "catinthehat")
+				res = new LBDrawingItem(_vm, this, rect);
+			else
+				res = new LBItem(_vm, this, rect);
+			break;
 		case kLBAnimationItem:
 			res = new LBAnimationItem(_vm, this, rect);
 			break;

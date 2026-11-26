@@ -32,6 +32,9 @@ Common::JSONValue *Engine::testCLICommand(Common::JSONValue &) { return CETestCL
 #include "common/config-manager.h"
 #include "common/events.h"
 #include "common/file.h"
+#include "common/fs.h"
+#include "common/md5.h"
+#include "common/formats/json.h"
 #include "common/system.h"
 #include "common/str.h"
 #include "common/ustr.h"
@@ -74,6 +77,108 @@ Common::JSONValue *Engine::testCLICommand(Common::JSONValue &) { return CETestCL
 // FIXME: HACK for error()
 Engine *g_engine = 0;
 bool Engine::_quitRequested;
+
+Common::JSONValue *Engine::diagnosticState() {
+	Common::JSONObject state;
+	state["available"] = new Common::JSONValue(false);
+	return new Common::JSONValue(state);
+}
+
+void Engine::recordCEDiagnosticEvent(const Common::Event &event) {
+	if (event.type != Common::EVENT_KEYDOWN && event.type != Common::EVENT_KEYUP
+			&& event.type != Common::EVENT_MOUSEMOVE && event.type != Common::EVENT_LBUTTONDOWN
+			&& event.type != Common::EVENT_LBUTTONUP && event.type != Common::EVENT_RBUTTONDOWN
+			&& event.type != Common::EVENT_RBUTTONUP)
+		return;
+	CEDiagnosticEvent entry = { _system->getMillis(), (int)event.type, 0, 0, 0, 0 };
+	if (event.type == Common::EVENT_KEYDOWN || event.type == Common::EVENT_KEYUP) {
+		entry.key = event.kbd.keycode;
+		entry.flags = event.kbd.flags;
+	} else {
+		entry.x = event.mouse.x;
+		entry.y = event.mouse.y;
+	}
+	if (_ceDiagnosticEvents.size() == 64)
+		_ceDiagnosticEvents.remove_at(0);
+	_ceDiagnosticEvents.push_back(entry);
+}
+
+void Engine::captureCEDiagnostics() {
+	using namespace Common;
+	const uint32 started = _system->getMillis();
+	PauseToken pause = pauseEngine();
+	const Path parent = _system->getDefaultLogFileName().getParent();
+	FSNode directory(parent.appendComponent("diagnostics"));
+	if ((!directory.exists() && !directory.createDirectory()) || !directory.isDirectory()) {
+		_system->displayMessageOnOSD(U32String("Diagnostic capture failed: cannot create logs/diagnostics."));
+		return;
+	}
+	TimeDate now;
+	_system->getTimeAndDate(now);
+	static uint32 serial = 0;
+	String stem;
+	do {
+		stem = String::format("ce-%04d%02d%02d-%02d%02d%02d-%u-%u", now.tm_year + 1900,
+			now.tm_mon + 1, now.tm_mday, now.tm_hour, now.tm_min, now.tm_sec, started, ++serial);
+	} while (directory.getChild(stem + ".json").exists() || directory.getChild(stem + ".png").exists());
+	JSONObject report;
+	report["format"] = new JSONValue("ce-diagnostic/1");
+	report["build"] = new JSONValue(gScummVMFullVersion);
+	report["engine_build_time"] = new JSONValue(__DATE__ " " __TIME__);
+	report["target"] = new JSONValue(ConfMan.getActiveDomainName());
+	for (const char *key : {"engineid", "gameid", "platform", "language"})
+		if (ConfMan.hasKey(key)) report[key] = new JSONValue(ConfMan.get(key));
+	report["asset_path"] = new JSONValue(ConfMan.getPath("path").toString(Path::kNativeSeparator));
+	report["capture_millis"] = new JSONValue((long long)started);
+	report["engine_state"] = diagnosticState();
+	const Path executable = _system->getExecutablePath();
+	report["executable"] = new JSONValue(executable.toString(Path::kNativeSeparator));
+	File binary;
+	if (!executable.empty() && binary.open(FSNode(executable))) {
+		report["executable_size"] = new JSONValue((long long)binary.size());
+		report["executable_md5"] = new JSONValue(computeStreamMD5AsString(binary));
+	}
+	JSONObject settings;
+	for (const char *key : {"gfx_mode", "gfx_mode_submode", "fullscreen", "aspect_ratio", "filtering",
+			"vsync", "stretch_mode", "shader", "render_mode", "music_volume", "sfx_volume", "speech_volume", "mute"})
+		if (ConfMan.hasKey(key)) settings[key] = new JSONValue(ConfMan.get(key));
+	report["settings"] = new JSONValue(settings);
+	JSONObject graphics;
+	graphics["mode_id"] = new JSONValue((long long)_system->getGraphicsMode());
+	graphics["width"] = new JSONValue((long long)_system->getWidth());
+	graphics["height"] = new JSONValue((long long)_system->getHeight());
+	const OSystem::GraphicsMode *modes = _system->getSupportedGraphicsModes();
+	for (const OSystem::GraphicsMode *mode = modes; mode && mode->name; ++mode)
+		if (mode->id == _system->getGraphicsMode()) graphics["mode_name"] = new JSONValue(mode->name);
+	report["graphics"] = new JSONValue(graphics);
+	JSONArray events;
+	for (const CEDiagnosticEvent &entry : _ceDiagnosticEvents) {
+		JSONObject item;
+		item["millis"] = new JSONValue((long long)entry.millis);
+		item["type"] = new JSONValue((long long)entry.type);
+		item["key"] = new JSONValue((long long)entry.key);
+		item["flags"] = new JSONValue((long long)entry.flags);
+		item["x"] = new JSONValue((long long)entry.x);
+		item["y"] = new JSONValue((long long)entry.y);
+		events.push_back(new JSONValue(item));
+	}
+	report["recent_input"] = new JSONValue(events);
+	const bool screenshotSaved = _system->saveDiagnosticScreenshot(directory.getChild(stem + ".png").getPath());
+	report["screenshot"] = new JSONValue(stem + ".png");
+	report["screenshot_saved"] = new JSONValue(screenshotSaved);
+	const String bytes = JSONValue(report).stringify(true);
+	DumpFile output;
+	bool saved = output.open(directory.getChild(stem + ".json"));
+	if (saved) {
+		saved = output.write(bytes.c_str(), bytes.size()) == bytes.size() && output.flush() && !output.err();
+		output.close();
+		File verify;
+		saved = saved && verify.open(directory.getChild(stem + ".json")) && verify.size() == (int64)bytes.size();
+	}
+	const String message = saved && screenshotSaved ? "Diagnostics saved: logs/diagnostics/" + stem
+		: "Diagnostic capture incomplete: check logs/diagnostics/" + stem;
+	_system->displayMessageOnOSD(U32String(message));
+}
 
 // Output formatter for debug() and error() which invokes
 // the errorString method of the active engine, if any.

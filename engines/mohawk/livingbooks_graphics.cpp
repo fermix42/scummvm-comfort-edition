@@ -54,13 +54,25 @@ MohawkSurface *LBGraphics::decodeImage(uint16 id) {
 	return _bmpDecoder->decodeImage(_vm->getResource(ID_TBMP, id));
 }
 
-void LBGraphics::copyOffsetAnimImageToScreen(uint16 image, int left, int top) {
+void LBGraphics::copyOffsetAnimImageToScreen(uint16 image, int left, int top, bool transparent) {
 	MohawkSurface *mhkSurface = findImage(image);
 
 	left -= mhkSurface->getOffsetX();
 	top -= mhkSurface->getOffsetY();
+	copyImageToScreen(image, left, top, transparent);
+}
 
-	GraphicsManager::copyAnimImageToScreen(image, left, top);
+void LBGraphics::copyImageToScreen(uint16 image, int left, int top, bool transparent) {
+	if (transparent) {
+		GraphicsManager::copyAnimImageToScreen(image, left, top);
+	} else {
+		Graphics::Surface *surface = findImage(image)->getSurface();
+		Common::Rect dest(left, top, left + surface->w, top + surface->h);
+		dest.clip(Common::Rect(_vm->_system->getWidth(), _vm->_system->getHeight()));
+		if (!dest.isEmpty())
+			_vm->_system->copyRectToScreen(surface->getBasePtr(dest.left - left, dest.top - top), surface->pitch,
+				dest.left, dest.top, dest.width(), dest.height());
+	}
 }
 
 bool LBGraphics::imageIsTransparentAt(uint16 image, bool useOffsets, int x, int y) {

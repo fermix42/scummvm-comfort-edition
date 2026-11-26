@@ -52,6 +52,7 @@ public:
 	Common::Path getDefaultIconsPath() override;
 	Common::Path getDefaultDLCsPath() override;
 	Common::Path getScreenshotsPath() override;
+	Common::Path getExecutablePath() const override;
 	Common::Path resolveStoragePath(const Common::String &key, const Common::Path &path) const override;
 	Common::Path storagePathForConfig(const Common::String &key, const Common::Path &path) const override;
 	Common::WriteStream *createConfigWriteStream() override;

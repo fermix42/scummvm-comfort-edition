@@ -50,6 +50,9 @@ public:
 	void reset();
 	NodeState update(bool seeking = false);
 	bool transparentAt(int x, int y);
+	Common::Rect getBounds() const;
+	Common::JSONValue *diagnosticState() const;
+	bool hasCel() const { return _currentCel != 0; }
 
 protected:
 	MohawkEngine_LivingBooks *_vm;
@@ -57,9 +60,11 @@ protected:
 
 	void loadScript(uint16 resourceId);
 	uint _currentEntry;
+	uint16 _scriptResourceId;
 	Common::Array<LBAnimScriptEntry> _scriptEntries;
 
 	uint _currentCel;
+	uint16 _drawMode;
 	int16 _xPos, _yPos;
 	uint32 _delay;
 };
@@ -73,6 +78,7 @@ public:
 
 	void draw();
 	bool update();
+	bool hasDrawableNodes() const;
 
 	void start();
 	void seek(uint16 pos);
@@ -85,14 +91,21 @@ public:
 	bool transparentAt(int x, int y);
 
 	void setTempo(uint16 tempo);
+	void setTempoRate(uint16 rate);
 
 	uint getNumResources() { return _shapeResources.size(); }
 	uint16 getResource(uint num) { return _shapeResources[num]; }
 	Common::Point getOffset(uint num) { return _shapeOffsets[num]; }
 
 	uint32 getCurrentFrame() { return _currentFrame; }
+	uint32 getPosition() const { return (uint32)(_position >> 16); }
+	uint16 getActiveSound() const;
+	uint32 getSoundSamples() const;
+	Common::Rect getFrameBounds() const;
+	void moveBy(const Common::Point &offset);
 
 	uint16 getParentId();
+	Common::JSONValue *diagnosticState() const;
 
 protected:
 	MohawkEngine_LivingBooks *_vm;
@@ -101,12 +114,13 @@ protected:
 	Common::Rect _bounds, _clip;
 	Common::Array<LBAnimationNode *> _nodes;
 
-	uint16 _tempo;
+	uint32 _tempo;
 
 	uint16 _currentSound;
 	CueList _cueList;
 
-	uint32 _lastTime, _currentFrame;
+	uint64 _lastTime, _position;
+	uint32 _currentFrame;
 	bool _running;
 
 	void loadShape(uint16 resourceId);
@@ -119,7 +133,7 @@ public:
 	LBAnimationItem(MohawkEngine_LivingBooks *_vm, LBPage *page, Common::Rect rect);
 	~LBAnimationItem() override;
 
-	void setEnabled(bool enabled) override;
+	void enabledChanged(bool enabled) override;
 	bool contains(Common::Point point) override;
 	void update() override;
 	void draw() override;
@@ -130,8 +144,19 @@ public:
 	void seekToTime(uint32 time) override;
 	void startPhase(uint phase) override;
 	void stop() override;
+	void moveBy(const Common::Point &offset) override;
+	uint32 getPosition() const override;
+	uint32 getUninitializedDraws() const override { return _uninitializedDraws; }
+	bool hasDrawableAnimation() const override { return _loaded && isVisible() && _anim && _anim->hasDrawableNodes(); }
+	uint16 getActiveSound() const override;
+	uint32 getSoundSamples() const override;
+	uint16 getFrame() const override;
+	Common::Rect getFrameBounds() const override;
+	void playFrom(uint32 position) override;
+	void appendDiagnosticState(Common::JSONObject &state) const override;
 
 protected:
+	uint32 _uninitializedDraws = 0;
 	LBItem *createClone() override;
 
 	LBAnimation *_anim;

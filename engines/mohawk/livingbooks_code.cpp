@@ -102,9 +102,17 @@ bool LBValue::operator!=(const LBValue &x) const {
 bool LBValue::isNumeric() const {
 	if (type == kLBValueInteger || type == kLBValueReal)
 		return true;
-
-	// TODO: string checks
-
+	if (type == kLBValueString) {
+		Common::String text = string;
+		text.trim();
+		uint pos = !text.empty() && (text[0] == '+' || text[0] == '-') ? 1 : 0;
+		if (pos == text.size())
+			return false;
+		for (; pos < text.size(); ++pos)
+			if (!Common::isDigit(text[pos]))
+				return false;
+		return true;
+	}
 	return false;
 }
 
@@ -126,11 +134,21 @@ Common::String LBValue::toString() const {
 }
 
 int LBValue::toInt() const {
-	return integer; // FIXME
+	switch (type) {
+	case kLBValueInteger: return integer;
+	case kLBValueReal: return (int)real;
+	case kLBValueString: return atoi(string.c_str());
+	default: return 0;
+	}
 }
 
 double LBValue::toDouble() const {
-	return real; // FIXME
+	switch (type) {
+	case kLBValueInteger: return integer;
+	case kLBValueReal: return real;
+	case kLBValueString: return atof(string.c_str());
+	default: return 0;
+	}
 }
 
 Common::Point LBValue::toPoint() const {
@@ -398,16 +416,16 @@ void LBCode::parseComparisons() {
 		result = (val1 == val2);
 		break;
 	case kTokenLessThan:
-		result = (val1.integer < val2.integer);
+		result = (val1.toInt() < val2.toInt());
 		break;
 	case kTokenGreaterThan:
-		result = (val1.integer > val2.integer);
+		result = (val1.toInt() > val2.toInt());
 		break;
 	case kTokenLessThanEq:
-		result = (val1.integer <= val2.integer);
+		result = (val1.toInt() <= val2.toInt());
 		break;
 	case kTokenGreaterThanEq:
-		result = (val1.integer >= val2.integer);
+		result = (val1.toInt() >= val2.toInt());
 		break;
 	case kTokenNotEq:
 		result = (val1 != val2);
@@ -537,7 +555,6 @@ void LBCode::parseMain() {
 				error("attempted assignment to self");
 			break;
 		}
-		bool indexing = false;
 		Common::Array<LBValue> index;
 		while (_currToken == kTokenListStart) {
 			debugCN(kDebugCode, "[");
@@ -549,91 +566,9 @@ void LBCode::parseMain() {
 			nextToken();
 			if (!_stack.size())
 				error("index failed");
-			indexing = true;
 			index.push_back(_stack.pop());
 		}
-		if (_currToken == kTokenAssign) {
-			debugCN(kDebugCode, " = ");
-			nextToken();
-			parseStatement();
-			if (!_stack.size())
-				error("assignment failed");
-			LBValue *val;
-			if (indexing)
-				val = getIndexedVar(varname, index);
-			else
-				val = &_vm->_variables[varname];
-			if (val) {
-				*val = _stack.pop();
-				_stack.push(*val);
-			} else
-				error("assignment failed, no dest");
-//				_stack.push(LBValue());
-		} else if (_currToken == kTokenPlusEquals || _currToken == kTokenMinusEquals || _currToken == kTokenAndEquals) {
-			// FIXME: do +=/-= belong here?
-			byte token = _currToken;
-			if (_currToken == kTokenPlusEquals)
-				debugCN(kDebugCode, " += ");
-			else if (_currToken == kTokenMinusEquals)
-				debugCN(kDebugCode, " -= ");
-			else if (_currToken == kTokenAndEquals)
-				debugCN(kDebugCode, " &= ");
-			nextToken();
-			parseStatement();
-			if (!_stack.size())
-				error("assignment failed");
-			LBValue *val;
-			if (indexing)
-				val = getIndexedVar(varname, index);
-			else
-				val = &_vm->_variables[varname];
-			if (val) {
-				if (token == kTokenAndEquals) {
-					if (val->type != kLBValueString)
-						error("operator &= used on non-string");
-					val->string = val->string + _stack.pop().toString();
-				} else {
-					// FIXME: non-integers
-					if (val->type != kLBValueInteger)
-						error("operator used on non-integer");
-					if (token == kTokenPlusEquals)
-						val->integer = val->integer + _stack.pop().toInt();
-					else
-						val->integer = val->integer - _stack.pop().toInt();
-				}
-				_stack.push(*val);
-			} else
-				_stack.push(LBValue());
-		} else {
-			if (indexing) {
-				LBValue *val = getIndexedVar(varname, index);
-				if (val)
-					_stack.push(*val);
-				else
-					_stack.push(LBValue());
-			} else
-				_stack.push(_vm->_variables[varname]);
-		}
-		// FIXME: pre/postincrement for non-integers
-		if (_currToken == kTokenPlusPlus) {
-			debugCN(kDebugCode, "++");
-			if (indexing) {
-				LBValue *val = getIndexedVar(varname, index);
-				if (val)
-					val->integer++;
-			} else
-				_vm->_variables[varname].integer++;
-			nextToken();
-		} else if (_currToken == kTokenMinusMinus) {
-			debugCN(kDebugCode, "--");
-			if (indexing) {
-				LBValue *val = getIndexedVar(varname, index);
-				if (val)
-					val->integer--;
-			} else
-				_vm->_variables[varname].integer--;
-			nextToken();
-		}
+		parseVariableOperation(varname, index);
 		}
 		break;
 
@@ -780,10 +715,98 @@ void LBCode::parseMain() {
 			error("+/- prefix failed");
 		LBValue val = _stack.pop();
 		assert(val.isNumeric());
+		if (val.type == kLBValueString)
+			val = LBValue(val.toInt());
 		// FIXME
 		if (prefix == kTokenMinus)
 			val.integer = -val.integer;
 		_stack.push(val);
+	}
+}
+
+void LBCode::parseVariableOperation(const Common::String &varname, const Common::Array<LBValue> &index) {
+	const bool indexing = !index.empty();
+	if (_currToken == kTokenAssign) {
+		debugCN(kDebugCode, " = ");
+		nextToken();
+		parseStatement();
+		if (!_stack.size())
+			error("assignment failed");
+		LBValue *val;
+		if (indexing)
+			val = getIndexedVar(varname, index);
+		else
+			val = &_vm->_variables[varname];
+		if (val) {
+			*val = _stack.pop();
+			_stack.push(*val);
+		} else
+			error("assignment failed, no dest");
+//				_stack.push(LBValue());
+	} else if (_currToken == kTokenPlusEquals || _currToken == kTokenMinusEquals || _currToken == kTokenAndEquals) {
+		// FIXME: do +=/-= belong here?
+		byte token = _currToken;
+		if (_currToken == kTokenPlusEquals)
+			debugCN(kDebugCode, " += ");
+		else if (_currToken == kTokenMinusEquals)
+			debugCN(kDebugCode, " -= ");
+		else if (_currToken == kTokenAndEquals)
+			debugCN(kDebugCode, " &= ");
+		nextToken();
+		parseStatement();
+		if (!_stack.size())
+			error("assignment failed");
+		LBValue *val;
+		if (indexing)
+			val = getIndexedVar(varname, index);
+		else
+			val = &_vm->_variables[varname];
+		if (val) {
+			if (token == kTokenAndEquals) {
+				if (val->type != kLBValueString)
+					error("operator &= used on non-string");
+				val->string = val->string + _stack.pop().toString();
+			} else {
+				// FIXME: non-integers
+				if (val->type != kLBValueInteger)
+					error("operator used on non-integer");
+				if (token == kTokenPlusEquals)
+					val->integer = val->integer + _stack.pop().toInt();
+				else
+					val->integer = val->integer - _stack.pop().toInt();
+			}
+			_stack.push(*val);
+		} else
+			_stack.push(LBValue());
+	} else {
+		if (indexing) {
+			LBValue *val = getIndexedVar(varname, index);
+			if (val)
+				_stack.push(*val);
+			else
+				_stack.push(LBValue());
+		} else
+			_stack.push(_vm->_variables[varname]);
+	}
+	// FIXME: pre/postincrement for non-integers
+	if (_currToken == kTokenPlusPlus) {
+		debugCN(kDebugCode, "++");
+		if (indexing) {
+			LBValue *val = getIndexedVar(varname, index);
+			if (val)
+				val->integer++;
+		} else
+			_vm->_variables[varname].integer++;
+		nextToken();
+	} else if (_currToken == kTokenMinusMinus) {
+		debugCN(kDebugCode, "--");
+		if (indexing) {
+			LBValue *val = getIndexedVar(varname, index);
+			if (val)
+				val->integer--;
+		} else
+			_vm->_variables[varname].integer--;
+		nextToken();
 	}
 }
 
@@ -897,7 +920,7 @@ CodeCommandInfo generalCommandInfo[NUM_GENERAL_COMMANDS] = {
 	{ "right", &LBCode::cmdRight },
 	{ "xpos", &LBCode::cmdXPos },
 	{ "ypos", &LBCode::cmdYPos },
-	{ "playFrom", nullptr },
+	{ "playFrom", &LBCode::itemPlayFrom },
 	{ "move", &LBCode::cmdMove },
 	{ nullptr, nullptr },
 	{ nullptr, nullptr },
@@ -907,7 +930,7 @@ CodeCommandInfo generalCommandInfo[NUM_GENERAL_COMMANDS] = {
 	{ "setCursor", nullptr },
 	{ "width", &LBCode::cmdWidth },
 	{ "height", &LBCode::cmdHeight },
-	{ "getFrameBounds", nullptr }, // also "getFrameRect"
+	{ "getFrameBounds", &LBCode::itemGetFrameBounds }, // also "getFrameRect"
 	{ "traceRect", nullptr },
 	{ "sqrt", nullptr },
 	// 0x20
@@ -1043,6 +1066,36 @@ void LBCode::cmdEval(const Common::Array<LBValue> &params) {
 	LBCode tempCode(_vm, 0);
 
 	uint offset = tempCode.parseCode(params[0].toString());
+	if (_currToken == kTokenAssign || _currToken == kTokenPlusEquals ||
+		_currToken == kTokenMinusEquals || _currToken == kTokenAndEquals ||
+		_currToken == kTokenPlusPlus || _currToken == kTokenMinusMinus) {
+		// Eval can name an assignment destination, not just return its value.
+		// Resolve the name/indices once, before evaluating the outer RHS. Do
+		// not retain a variable-map pointer across that evaluation: nested
+		// assignments can insert variables and invalidate it.
+		tempCode._currSource = _currSource;
+		tempCode._currOffset = offset;
+		tempCode.nextToken();
+		if (tempCode._currToken != kTokenIdentifier)
+			error("eval assignment requires a variable reference");
+		Common::String varname = tempCode._currValue.string;
+		if (varname.equalsIgnoreCase("self"))
+			error("attempted assignment to self");
+		tempCode.nextToken();
+		Common::Array<LBValue> index;
+		while (tempCode._currToken == kTokenListStart) {
+			tempCode.nextToken();
+			tempCode.parseStatement();
+			if (tempCode._currToken != kTokenListEnd || tempCode._stack.empty())
+				error("invalid index in eval assignment");
+			index.push_back(tempCode._stack.pop());
+			tempCode.nextToken();
+		}
+		if (tempCode._currToken != kTokenEndOfFile)
+			error("eval assignment requires a single variable reference");
+		parseVariableOperation(varname, index);
+		return;
+	}
 	_stack.push(tempCode.runCode(_currSource, offset));
 }
 
@@ -1068,14 +1121,13 @@ void LBCode::cmdSubstring(const Common::Array<LBValue> &params) {
 		error("incorrect number of parameters (%d) to substring", params.size());
 
 	const Common::String &string = params[0].toString();
-	uint begin = params[1].toInt();
-	uint end = params[2].toInt();
-	if (begin == 0)
-		error("invalid substring call (%d to %d)", begin, end);
-	if (begin > end || end > string.size()) {
+	int begin = params[1].toInt();
+	int end = params[2].toInt();
+	if (begin < 1 || begin > end || begin > (int)string.size()) {
 		_stack.push(Common::String());
 		return;
 	}
+	end = MIN(end, (int)string.size());
 	Common::String substring(string.c_str() + (begin - 1), end - begin + 1);
 	_stack.push(substring);
 }
@@ -1133,7 +1185,7 @@ void LBCode::cmdTopLeft(const Common::Array<LBValue> &params) {
 		error("too many parameters (%d) to topLeft", params.size());
 
 	Common::Rect rect = getRectFromParams(params);
-	_stack.push(Common::Point(rect.top, rect.left));
+	_stack.push(Common::Point(rect.left, rect.top));
 }
 
 void LBCode::cmdBottomRight(const Common::Array<LBValue> &params) {
@@ -1141,7 +1193,7 @@ void LBCode::cmdBottomRight(const Common::Array<LBValue> &params) {
 		error("too many parameters (%d) to bottomRight", params.size());
 
 	Common::Rect rect = getRectFromParams(params);
-	_stack.push(Common::Point(rect.bottom, rect.right));
+	_stack.push(Common::Point(rect.right, rect.bottom));
 }
 
 void LBCode::cmdMousePos(const Common::Array<LBValue> &params) {
@@ -1235,7 +1287,11 @@ void LBCode::cmdMove(const Common::Array<LBValue> &params) {
 }
 
 void LBCode::cmdSetDragParams(const Common::Array<LBValue> &params) {
-	warning("ignoring setDragParams");
+	if (params.size() != 3)
+		error("incorrect number of parameters (%d) to setDragParams", params.size());
+	LBItem *item = resolveItem(params[0]);
+	if (item)
+		item->setDragParams(params[1].toPoint(), params[2].toRect());
 }
 
 void LBCode::cmdNewList(const Common::Array<LBValue> &params) {
@@ -1472,19 +1528,19 @@ void LBCode::cmdKey(const Common::Array<LBValue> &params) {
 CodeCommandInfo itemCommandInfo[NUM_ITEM_COMMANDS] = {
 	{ "clone", &LBCode::itemClone },
 	{ "destroy", nullptr },
-	{ "dragBeginFrom", nullptr },
-	{ "dragEnd", nullptr },
+	{ "dragBeginFrom", &LBCode::itemDragBegin },
+	{ "dragEnd", &LBCode::itemDragEnd },
 	{ "enableLocal", nullptr },
 	{ "enable", nullptr },
 	{ "showLocal", nullptr },
 	{ "show", nullptr },
 	{ "getFrame", nullptr },
 	{ "getParent", nullptr },
-	{ "getPosition" , nullptr },
+	{ "getPosition" , &LBCode::itemGetPosition },
 	{ "getText", nullptr },
 	{ "getZNext", nullptr },
 	{ "getZPrev", nullptr },
-	{ "hitTest", nullptr },
+	{ "hitTest", &LBCode::itemHitTest },
 	// 0x10
 	{ "isAmbient", nullptr },
 	{ "isEnabled", nullptr },
@@ -1500,7 +1556,7 @@ CodeCommandInfo itemCommandInfo[NUM_ITEM_COMMANDS] = {
 	{ "seek", &LBCode::itemSeek },
 	{ "seekToFrame", &LBCode::itemSeekToFrame },
 	{ "setParent", &LBCode::itemSetParent },
-	{ "setZOrder", nullptr },
+	{ "setZOrder", &LBCode::itemSetZOrder },
 	{ "setText", nullptr },
 	// 0x20
 	{ "stop", nullptr },
@@ -1535,9 +1591,10 @@ void LBCode::itemClone(const Common::Array<LBValue> &params) {
 }
 
 void LBCode::itemIsPlaying(const Common::Array<LBValue> &params) {
-	// TODO
-	warning("ignoring isPlaying");
-	_stack.push(0);
+	if (params.size() != 1)
+		error("incorrect number of parameters (%d) to isPlaying", params.size());
+	LBItem *item = resolveItem(params[0]);
+	_stack.push(item && item->isPlaying() ? 1 : 0);
 }
 
 void LBCode::itemIsLoaded(const Common::Array<LBValue> &params) {
@@ -1592,10 +1649,73 @@ void LBCode::itemSeekToFrame(const Common::Array<LBValue> &params) {
 }
 
 void LBCode::itemSetParent(const Common::Array<LBValue> &params) {
-	if (params.size() > 2)
+	if (params.size() != 2)
 		error("incorrect number of parameters (%d) to setParent", params.size());
-	// TODO
-	warning("ignoring setParent");
+	LBItem *item = resolveItem(params[0]);
+	if (item)
+		item->setParent(resolveItem(params[1]));
+}
+
+void LBCode::itemSetZOrder(const Common::Array<LBValue> &params) {
+	if (params.size() != 2)
+		error("incorrect number of parameters (%d) to setZOrder", params.size());
+	LBItem *item = resolveItem(params[0]);
+	if (!item)
+		return;
+	LBItem *relative = nullptr;
+	bool back = false;
+	if (params[1].type == kLBValueInteger && params[1].integer <= 0)
+		back = params[1].integer == -1;
+	else
+		relative = resolveItem(params[1]);
+	_vm->setItemZOrder(item, relative, back);
+}
+
+void LBCode::itemGetPosition(const Common::Array<LBValue> &params) {
+	if (params.size() != 1)
+		error("incorrect number of parameters (%d) to getPosition", params.size());
+	LBItem *item = resolveItem(params[0]);
+	_stack.push(item ? (int)item->getPosition() : 0);
+}
+
+void LBCode::itemGetFrameBounds(const Common::Array<LBValue> &params) {
+	if (params.size() != 2)
+		error("incorrect number of parameters (%d) to getFrameBounds", params.size());
+	LBItem *item = resolveItem(params[0]);
+	_stack.push(item ? item->getFrameBounds() : Common::Rect());
+	if (params[1].toInt())
+		_vm->_needsRedraw = true;
+}
+
+void LBCode::itemPlayFrom(const Common::Array<LBValue> &params) {
+	if (params.size() != 2)
+		error("incorrect number of parameters (%d) to playFrom", params.size());
+	LBItem *item = resolveItem(params[0]);
+	if (item)
+		item->playFrom(params[1].toInt());
+}
+
+void LBCode::itemHitTest(const Common::Array<LBValue> &params) {
+	if (params.size() != 2)
+		error("incorrect number of parameters (%d) to hitTest", params.size());
+	LBItem *item = resolveItem(params[0]);
+	_stack.push(item && item->contains(params[1].toPoint()) ? 1 : 0);
+}
+
+void LBCode::itemDragBegin(const Common::Array<LBValue> &params) {
+	if (params.size() != 2)
+		error("incorrect number of parameters (%d) to dragBegin", params.size());
+	LBItem *item = resolveItem(params[0]);
+	if (item)
+		item->beginDrag(params[1].toPoint());
+}
+
+void LBCode::itemDragEnd(const Common::Array<LBValue> &params) {
+	if (params.size() != 1)
+		error("incorrect number of parameters (%d) to dragEnd", params.size());
+	LBItem *item = resolveItem(params[0]);
+	if (item)
+		item->endDrag();
 }
 
 void LBCode::runNotifyCommand() {
@@ -1702,10 +1822,10 @@ static const char *const functionNameAliases[][2] = {
  * Given a name, appends the appropriate data to the provided code array and
  * returns true if it's a function, or false otherwise.
  */
-bool LBCode::parseCodeSymbol(Common::String name, uint &pos, Common::Array<byte> &code, bool useAllAliases) {
+bool LBCode::parseCodeSymbol(Common::String name, uint &pos, Common::Array<byte> &code, bool useAllAliases, bool allowFunction) {
 	// Check to see if we have one of the older function names
 	// and remap it to the newer function names
-	for (uint i = 0; i < ARRAYSIZE(functionNameAliases); i++) {
+	for (uint i = 0; allowFunction && i < ARRAYSIZE(functionNameAliases); i++) {
 		if (name.equalsIgnoreCase(functionNameAliases[i][0])) {
 			if (name.size() == 1 && !useAllAliases)
 				continue;
@@ -1715,7 +1835,7 @@ bool LBCode::parseCodeSymbol(Common::String name, uint &pos, Common::Array<byte>
 	}
 
 	// first, check whether the name matches a known function
-	for (uint i = 0; i < 2; i++) {
+	for (uint i = 0; allowFunction && i < 2; i++) {
 		byte cmdToken;
 		CodeCommandInfo *cmdInfo = nullptr;
 		uint cmdCount = 0;
@@ -1966,7 +2086,12 @@ uint LBCode::parseCode(const Common::String &source) {
 				} else if (tempString.equalsIgnoreCase("false")) {
 					code.push_back(kTokenFalse);
 				} else {
-					wasFunction = parseCodeSymbol(tempString, pos, code, false);
+					// Function names can also be variables (Cat assigns xPos).
+					// Only a following argument list makes an implicit call.
+					uint next = pos;
+					while (next < source.size() && (source[next] == ' ' || source[next] == '\t'))
+						++next;
+					wasFunction = parseCodeSymbol(tempString, pos, code, false, next < source.size() && source[next] == '(');
 				}
 			} else {
 				error("while parsing script '%s', couldn't parse '%c'", source.c_str(), token);

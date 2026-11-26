@@ -240,6 +240,7 @@ protected:
 	void parseArithmetic1();
 	void parseArithmetic2();
 	void parseMain();
+	void parseVariableOperation(const Common::String &varname, const Common::Array<LBValue> &index);
 
 	LBValue *getIndexedVar(Common::String varname, const Common::Array<LBValue> &index);
 	LBItem *resolveItem(const LBValue &value);
@@ -251,7 +252,7 @@ protected:
 	void runNotifyCommand();
 
 	uint nextFreeString();
-	bool parseCodeSymbol(Common::String name, uint &pos, Common::Array<byte> &code, bool useAllAliases);
+	bool parseCodeSymbol(Common::String name, uint &pos, Common::Array<byte> &code, bool useAllAliases, bool allowFunction = true);
 
 public:
 	void cmdUnimplemented(const Common::Array<LBValue> &params);
@@ -302,6 +303,13 @@ public:
 	void itemSeek(const Common::Array<LBValue> &params);
 	void itemSeekToFrame(const Common::Array<LBValue> &params);
 	void itemSetParent(const Common::Array<LBValue> &params);
+	void itemSetZOrder(const Common::Array<LBValue> &params);
+	void itemGetPosition(const Common::Array<LBValue> &params);
+	void itemGetFrameBounds(const Common::Array<LBValue> &params);
+	void itemPlayFrom(const Common::Array<LBValue> &params);
+	void itemHitTest(const Common::Array<LBValue> &params);
+	void itemDragBegin(const Common::Array<LBValue> &params);
+	void itemDragEnd(const Common::Array<LBValue> &params);
 };
 
 } // End of namespace Mohawk

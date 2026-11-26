@@ -22,12 +22,35 @@
 #include "mohawk/livingbooks.h"
 #include "mohawk/cursors.h"
 
+#include "common/events.h"
 #include "common/system.h"
 #include "common/textconsole.h"
 
 namespace Mohawk {
 
+void LBItem::appendDiagnosticState(Common::JSONObject &state) const {
+	using namespace Common;
+	state["resource"] = new JSONValue((long long)_resourceId);
+	state["local_enabled"] = new JSONValue(_enabled);
+	state["global_enabled"] = new JSONValue(_globalEnabled);
+	state["global_visible"] = new JSONValue(_globalVisible);
+	state["item_phase"] = new JSONValue((long long)_phase);
+	state["timing_mode"] = new JSONValue((long long)_timingMode);
+	state["control_mode"] = new JSONValue((long long)_controlMode);
+	state["next_time"] = new JSONValue((long long)_nextTime);
+	state["start_time"] = new JSONValue((long long)_startTime);
+	state["loops"] = new JSONValue((long long)_loops);
+	state["parent"] = new JSONValue((long long)(_parent ? _parent->_itemId : 0));
+	state["script_entries"] = new JSONValue((long long)_scriptEntries.size());
+	state["drag_rearmed_during_press"] = new JSONValue(_dragRearmedDuringPress);
+}
+
 LBItem::LBItem(MohawkEngine_LivingBooks *vm, LBPage *page, Common::Rect rect) : _vm(vm), _page(page), _rect(rect) {
+	_parent = nullptr;
+	_dragConfigured = _dragging = _rolloverEnabled = _rolloverUseHitTest = false;
+	_tracking = _trackingInside = false;
+	_dragRearmedDuringPress = false;
+	_dragConstraintItem = 0;
 	if (_vm->getGameType() == GType_LIVINGBOOKSV1 || _vm->getGameType() == GType_LIVINGBOOKSV2)
 		_phase = kLBPhaseInit;
 	else
@@ -44,7 +67,7 @@ LBItem::LBItem(MohawkEngine_LivingBooks *vm, LBPage *page, Common::Rect rect) : 
 
 	_loaded = false;
 	_enabled = false;
-	_visible = true;
+	_visibility = 0;
 	_playing = false;
 	_globalEnabled = true;
 	_globalVisible = true;
@@ -57,6 +80,11 @@ LBItem::LBItem(MohawkEngine_LivingBooks *vm, LBPage *page, Common::Rect rect) : 
 }
 
 LBItem::~LBItem() {
+	_vm->clearRollover(this, false);
+	_vm->removeKeyEvents(this);
+	setParent(nullptr);
+	while (!_children.empty())
+		_children.back()->setParent(nullptr);
 	for (uint i = 0; i < _scriptEntries.size(); i++)
 		delete _scriptEntries[i];
 }
@@ -71,6 +99,7 @@ void LBItem::destroySelf() {
 }
 
 void LBItem::setEnabled(bool enabled) {
+	const bool wasEnabled = _loaded && isEnabled();
 	if (enabled && !_loaded && !_playing) {
 		if (_timingMode == kLBAutoUserIdle) {
 			setNextTime(_periodMin, _periodMax);
@@ -79,13 +108,16 @@ void LBItem::setEnabled(bool enabled) {
 	}
 
 	_enabled = enabled;
+	if (wasEnabled != (_loaded && isEnabled()))
+		enabledChanged(!wasEnabled);
 }
 
 void LBItem::setGlobalEnabled(bool enabled) {
-	bool wasEnabled = _loaded && _enabled && _globalEnabled;
+	const bool wasEnabled = _loaded && isEnabled();
 	_globalEnabled = enabled;
-	if (wasEnabled != (_loaded && _enabled && _globalEnabled))
-		setEnabled(enabled);
+	// A global pause must preserve the item's authored/local enabled state.
+	if (wasEnabled != (_loaded && isEnabled()))
+		enabledChanged(!wasEnabled);
 }
 
 bool LBItem::contains(Common::Point point) {
@@ -98,14 +130,14 @@ bool LBItem::contains(Common::Point point) {
 	if (!_playing && _timingMode == kLBAutoUserIdle)
 		setNextTime(_periodMin, _periodMax);
 
-	return _visible && _globalVisible && _rect.contains(point);
+	return isVisible() && _rect.contains(point);
 }
 
 void LBItem::update() {
 	if (_phase != kLBPhaseNone && (!_loaded || !_enabled || !_globalEnabled))
 		return;
 
-	if (_nextTime == 0 || _nextTime > (uint32)(_vm->_system->getMillis() / 16))
+	if (_nextTime == 0 || _nextTime > getTime())
 		return;
 
 	if (togglePlaying(_playing, true)) {
@@ -121,18 +153,107 @@ void LBItem::handleMouseDown(Common::Point pos) {
 		return;
 
 	_vm->setFocus(this);
+	_dragRearmedDuringPress = false;
 	runScript(kLBEventMouseDown);
+	_tracking = _trackingInside = true;
 	runScript(kLBEventMouseTrackIn);
 }
 
 void LBItem::handleMouseMove(Common::Point pos) {
-	// TODO: handle drag
+	if (!_tracking)
+		return;
+	bool inside = contains(pos);
+	if (inside == _trackingInside) {
+		runScript(kLBEventMouseTrackMove);
+		runScript(inside ? kLBEventMouseTrackMoveIn : kLBEventMouseTrackMoveOut);
+	} else {
+		_trackingInside = inside;
+		runScript(inside ? kLBEventMouseTrackIn : kLBEventMouseTrackOut);
+	}
 }
 
 void LBItem::handleMouseUp(Common::Point pos) {
+	const bool rearmedHover = _dragRearmedDuringPress;
+	_tracking = false;
+	_dragRearmedDuringPress = false;
 	_vm->setFocus(nullptr);
 	runScript(kLBEventMouseUp);
-	runScript(kLBEventMouseUpIn);
+	// A newly restored hover pointer is not the hidden item belonging to the
+	// original press. Preserve that press's outside-release cleanup even if
+	// the replacement pointer has now been positioned under the mouse.
+	runScript(!rearmedHover && contains(pos) ? kLBEventMouseUpIn : kLBEventMouseUpOut);
+}
+
+void LBItem::setDragParams(Common::Point checkOffset, const Common::Rect &bounds) {
+	_dragCheckOffset = checkOffset;
+	_dragBounds = bounds;
+	_dragConstraintItem = 0;
+	_dragConfigured = true;
+}
+
+void LBItem::beginDrag(Common::Point point) {
+	if (!_dragConfigured || _dragging)
+		return;
+	if (_tracking && !isVisible())
+		_dragRearmedDuringPress = true;
+	_dragOffset = point - Common::Point(_rect.left, _rect.top);
+	_dragging = true;
+	runScript(kLBEventDragStart);
+	// Rollover scripts can start a synthetic pointer drag after this mouse
+	// event's normal drag update. Position it now so an immediate click hits
+	// the pointer item, rather than the background at its old position.
+	updateMouse(_vm->_system->getEventManager()->getMousePos());
+}
+
+void LBItem::endDrag() {
+	if (!_dragging)
+		return;
+	_dragging = false;
+	runScript(kLBEventDragEnd);
+}
+
+bool LBItem::dragAllows(Common::Point point) {
+	point += _dragCheckOffset;
+	if (_dragConstraintItem) {
+		LBItem *constraint = _vm->getItemById(_dragConstraintItem);
+		return constraint && constraint->contains(point);
+	}
+	// Rectangle drag limits include their right/bottom edges. Item hit tests
+	// and the motion component use half-open rectangles instead.
+	return point.x >= _dragBounds.left && point.x <= _dragBounds.right
+		&& point.y >= _dragBounds.top && point.y <= _dragBounds.bottom;
+}
+
+void LBItem::updateMouse(Common::Point point) {
+	if (!_loaded || !_enabled || !_globalEnabled)
+		return;
+	if (_dragging) {
+		Common::Point position(_rect.left, _rect.top);
+		Common::Point wanted = point - _dragOffset;
+		// Test each step: an item constraint can have holes or narrow passages.
+		bool moved;
+		do {
+			moved = false;
+			if (position.x != wanted.x) {
+				Common::Point next(position.x + (position.x < wanted.x ? 1 : -1), position.y);
+				if (dragAllows(next)) { position = next; moved = true; }
+			}
+			if (position.y != wanted.y) {
+				Common::Point next(position.x, position.y + (position.y < wanted.y ? 1 : -1));
+				if (dragAllows(next)) { position = next; moved = true; }
+			}
+		} while (moved);
+		if (position != Common::Point(_rect.left, _rect.top)) {
+			moveTo(position);
+			runScript(kLBEventDragMove);
+		}
+	}
+}
+
+bool LBItem::rolloverContains(Common::Point point) {
+	if (!_rolloverEnabled || !_loaded || !isVisible() || !_rect.contains(point))
+		return false;
+	return !_rolloverUseHitTest || contains(point);
 }
 
 bool LBItem::togglePlaying(bool playing, bool restart) {
@@ -144,7 +265,7 @@ bool LBItem::togglePlaying(bool playing, bool restart) {
 		_playing = togglePlaying(true, restart);
 		if (_playing) {
 			_nextTime = 0;
-			_startTime = _vm->_system->getMillis() / 16;
+			_startTime = getTime();
 
 			if (_loopMode == 0xFFFF || _loopMode == 0xFFFE)
 				_loops = 0xFFFF;
@@ -214,17 +335,25 @@ void LBItem::init() {
 }
 
 void LBItem::setVisible(bool visible) {
-	if (visible == _visible)
-		return;
-
-	_visible = visible;
-	_vm->_needsRedraw = true;
+	bool wasVisible = isVisible();
+	int16 before = _visibility;
+	// v3 visibility is a signed balance, not a boolean. A temporary hide/show
+	// pair must preserve an item's authored or script-established hidden state.
+	if (_vm->getGameType() == GType_LIVINGBOOKSV3)
+		_visibility += visible ? 1 : -1;
+	else
+		_visibility = visible ? 0 : -1;
+	_vm->recordVisibilityEvent(_itemId, before, _visibility, false, visible);
+	if (wasVisible != isVisible())
+		_vm->_needsRedraw = true;
 }
 
 void LBItem::setGlobalVisible(bool visible) {
-	bool wasEnabled = _visible && _globalVisible;
+	bool wasEnabled = isVisible();
+	bool before = _globalVisible;
 	_globalVisible = visible;
-	if (wasEnabled != (_visible && _globalVisible))
+	_vm->recordVisibilityEvent(_itemId, before, _globalVisible, true, visible);
+	if (wasEnabled != isVisible())
 		_vm->_needsRedraw = true;
 }
 
@@ -301,16 +430,46 @@ void LBItem::unload() {
 		return;
 
 	_loaded = false;
+	_vm->clearRollover(this);
+	endDrag();
 
 	// FIXME: stuff
 }
 
 void LBItem::moveBy(const Common::Point &pos) {
 	_rect.translate(pos.x, pos.y);
+	for (uint i = 0; i < _children.size(); ++i)
+		_children[i]->moveBy(pos);
+	_vm->_needsRedraw = true;
 }
 
 void LBItem::moveTo(const Common::Point &pos) {
-	_rect.moveTo(pos);
+	moveBy(pos - Common::Point(_rect.left, _rect.top));
+}
+
+void LBItem::setParent(LBItem *parent) {
+	// Reject cycles before changing either relationship.
+	for (LBItem *ancestor = parent; ancestor; ancestor = ancestor->_parent)
+		if (ancestor == this)
+			return;
+	if (_parent == parent)
+		return;
+	if (_parent) {
+		for (uint i = 0; i < _parent->_children.size(); ++i) {
+			if (_parent->_children[i] == this) {
+				_parent->_children.remove_at(i);
+				break;
+			}
+		}
+	}
+	_parent = parent;
+	if (_parent)
+		_parent->_children.push_back(this);
+}
+
+void LBItem::playFrom(uint32 position) {
+	seekToTime(position);
+	togglePlaying(false, false);
 }
 
 LBItem *LBItem::clone(uint16 newId, const Common::String &newName) {
@@ -332,12 +491,19 @@ LBItem *LBItem::createClone() {
 }
 
 void LBItem::setNextTime(uint16 min, uint16 max) {
-	setNextTime(min, max, _vm->_system->getMillis() / 16);
+	setNextTime(min, max, getTime());
+}
+
+uint32 LBItem::getTime() const {
+	uint32 time = _vm->_system->getMillis();
+	// The v3 interpreter uses timeGetTime for PlayInfo deadlines. Earlier
+	// data expresses the same fields in ticks instead of milliseconds.
+	return _vm->getGameType() == GType_LIVINGBOOKSV3 ? time : time / 16;
 }
 
 void LBItem::setNextTime(uint16 min, uint16 max, uint32 start) {
 	_nextTime = start + _vm->_rnd->getRandomNumberRng((uint)min, (uint)max);
-	debug(9, "nextTime is now %d frames away", _nextTime - (uint)(_vm->_system->getMillis() / 16));
+	debug(9, "nextTime is now %d time units away", _nextTime - getTime());
 }
 
 } // End of namespace Mohawk

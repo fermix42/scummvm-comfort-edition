@@ -24,6 +24,7 @@
 #include "mohawk/video.h"
 
 #include "common/memstream.h"
+#include "common/events.h"
 #include "common/system.h"
 #include "common/textconsole.h"
 
@@ -32,6 +33,173 @@
 #include "gui/message.h"
 
 namespace Mohawk {
+
+LBMotionItem::LBMotionItem(MohawkEngine_LivingBooks *vm, LBPage *page, Common::Rect rect)
+	: LBItem(vm, page, rect), _x(0), _y(0), _vx(0), _vy(0), _ax(0), _ay(0), _initialized(false) {
+}
+
+int LBMotionItem::variable(const char *name) const {
+	const LBValue &value = _vm->_variables[name];
+	if (value.type == kLBValueString)
+		return atoi(value.string.c_str());
+	if (value.type == kLBValueReal)
+		return (int)value.real;
+	return value.toInt();
+}
+
+void LBMotionItem::runScript(uint event, uint16 data, uint16 from) {
+	switch (event) {
+	case 0xf3:
+		_vm->_variables["osTime"] = (int)_vm->_system->getMillis();
+		break;
+	case 0xf9:
+		_vx = (float)(_vx * (variable("vmVxCoef") * 0.01));
+		break;
+	case 0xfa:
+		_vy = (float)(_vy * (variable("vmVyCoef") * 0.01));
+		break;
+	case 0xfb:
+		_vm->_variables["vmItemName"] = _motionItem;
+		_vm->_variables["vmBoundName"] = _boundItem;
+		_vm->_variables["vmVelx"] = (int)((double)_vx * 100);
+		_vm->_variables["vmVely"] = (int)((double)_vy * 100);
+		_vm->_variables["vmAccelx"] = (int)((double)_ax * 100);
+		_vm->_variables["vmAccely"] = (int)((double)_ay * 100);
+		break;
+	case 0xfc: {
+		_motionItem = _vm->_variables["vmItemName"].toString();
+		_boundItem = _vm->_variables["vmBoundName"].toString();
+		LBItem *item = _vm->getItemByName(_motionItem);
+		LBItem *bounds = _vm->getItemByName(_boundItem);
+		_initialized = item && bounds;
+		if (_initialized) {
+			_motionBounds = bounds->getRect();
+			_lastPosition = Common::Point(item->getRect().left, item->getRect().top);
+			_x = _lastPosition.x;
+			_y = _lastPosition.y;
+			_ax = (float)(variable("vmAccelx") * 0.01);
+			_ay = (float)(variable("vmAccely") * 0.01);
+			_vx = (float)(variable("vmVelx") * 0.01);
+			_vy = (float)(variable("vmVely") * 0.01);
+		}
+		break;
+	}
+	default:
+		break;
+	}
+	LBItem::runScript(event, data, from);
+}
+
+bool LBMotionItem::togglePlaying(bool playing, bool restart) {
+	if (playing && _initialized && !_motionBounds.isEmpty()) {
+		_vx += _ax;
+		_vy += _ay;
+		_x += _vx;
+		_y += _vy;
+		Common::Point point((int)_x, (int)_y);
+		if (!_motionBounds.contains(point)) {
+			point.x = CLIP<int>(point.x, _motionBounds.left, _motionBounds.right - 1);
+			point.y = CLIP<int>(point.y, _motionBounds.top, _motionBounds.bottom - 1);
+			_x = point.x;
+			_y = point.y;
+			bool bottom = point.y >= _motionBounds.bottom - 1;
+			bool top = point.y <= _motionBounds.top;
+			bool left = point.x <= _motionBounds.left;
+			bool right = point.x >= _motionBounds.right - 1;
+			// The callbacks can change velocity or reinitialize this component.
+			runScript(0xf8);
+			if (bottom) runScript(0xf6);
+			else if (top) runScript(0xf7);
+			if (left) runScript(0xf4);
+			else if (right) runScript(0xf5);
+		}
+		LBItem *item = _vm->getItemByName(_motionItem);
+		if (item && point != _lastPosition)
+			item->moveTo(point);
+		_lastPosition = point;
+	}
+	return LBItem::togglePlaying(playing, restart);
+}
+
+LBDrawingItem::LBDrawingItem(MohawkEngine_LivingBooks *vm, LBPage *page, Common::Rect rect)
+	: LBItem(vm, page, rect), _hasPrevious(false) {
+	if (rect.width() > 0 && rect.height() > 0)
+		_pixels.resize(rect.width() * rect.height(), 0);
+}
+
+void LBDrawingItem::drawPoint(Common::Point point, byte color) {
+	if (point.x >= 0 && point.y >= 0 && point.x < _rect.width() && point.y < _rect.height())
+		_pixels[point.y * _rect.width() + point.x] = color;
+}
+
+void LBDrawingItem::handleMouseDown(Common::Point point) {
+	_drawingTool = _vm->_variables["dTool"].toString();
+	LBItem::handleMouseDown(point);
+}
+
+void LBDrawingItem::handleMouseMove(Common::Point position) {
+	if (!_tracking)
+		return;
+	if (_loaded && _enabled && _globalEnabled) {
+		const Common::String &tool = _drawingTool;
+		Common::Point point = position - Common::Point(_rect.left, _rect.top);
+		if (tool == "Pencil") {
+			byte palette[768];
+			_vm->_system->getPaletteManager()->grabPalette(palette, 0, 256);
+			int best = 0x7fffffff;
+			byte color = 1;
+			for (int i = 1; i < 256; ++i) {
+				int r = palette[i * 3] - 100, g = palette[i * 3 + 1] - 20, b = palette[i * 3 + 2] - 200;
+				int distance = r * r + g * g + b * b;
+				if (distance < best) { best = distance; color = i; }
+			}
+			Common::Point start = _hasPrevious ? _previous : point;
+			// The native canvas selects a two-pixel solid pen.
+			Graphics::Surface canvas;
+			canvas.init(_rect.width(), _rect.height(), _rect.width(), _pixels.data(), Graphics::PixelFormat::createFormatCLUT8());
+			canvas.drawThickLine(start.x, start.y, point.x, point.y, 2, 2, color);
+			_vm->_needsRedraw = true;
+		} else if (tool == "Eraser" && Common::Rect(_rect.width(), _rect.height()).contains(point)) {
+			LBItem *eraser = _vm->getItemByName("Eraser");
+			if (eraser) {
+				Common::Rect area = eraser->getRect();
+				area.translate(-_rect.left, -_rect.top);
+				area.clip(Common::Rect(_rect.width(), _rect.height()));
+				for (int y = area.top; y < area.bottom; ++y)
+					for (int x = area.left; x < area.right; ++x)
+						drawPoint(Common::Point(x, y), 0);
+				_vm->_needsRedraw = true;
+			}
+		}
+		_previous = point;
+		_hasPrevious = tool == "Pencil";
+	} else {
+		_hasPrevious = false;
+	}
+	LBItem::handleMouseMove(position);
+}
+
+void LBDrawingItem::handleMouseUp(Common::Point point) {
+	_hasPrevious = false;
+	LBItem::handleMouseUp(point);
+}
+
+void LBDrawingItem::draw() {
+	if (!_loaded || !isVisible() || _pixels.empty())
+		return;
+	Graphics::Surface *screen = _vm->_system->lockScreen();
+	Common::Rect area = _rect;
+	area.clip(Common::Rect(screen->w, screen->h));
+	for (int y = area.top; y < area.bottom; ++y) {
+		byte *dest = (byte *)screen->getBasePtr(area.left, y);
+		for (int x = area.left; x < area.right; ++x) {
+			byte color = _pixels[(y - _rect.top) * _rect.width() + x - _rect.left];
+			if (color) *dest = color;
+			++dest;
+		}
+	}
+	_vm->_system->unlockScreen();
+}
 
 LBSoundItem::LBSoundItem(MohawkEngine_LivingBooks *vm, LBPage *page, Common::Rect rect) : LBItem(vm, page, rect) {
 	debug(3, "new LBSoundItem");
@@ -64,10 +232,22 @@ bool LBSoundItem::togglePlaying(bool playing, bool restart) {
 	if (!_loaded || !_enabled || !_globalEnabled)
 		return false;
 
-	_running = true;
 	debug(4, "sound %d play for item %d (%s)", _resourceId, _itemId, _desc.c_str());
-	_vm->playSound(this, _resourceId);
-	return true;
+	// Scripted loop-completion callbacks retain the ordinary item scheduler.
+	const bool loop = isAmbient() && (_loopMode == 0xfffe || _loopMode == 0xffff) &&
+		!_delayMin && !_delayMax && _scriptEntries.empty();
+	_running = _vm->playSound(this, _resourceId, loop);
+	if (_running)
+		++_soundStarts;
+	return _running;
+}
+
+uint16 LBSoundItem::getActiveSound() const {
+	return _running && _vm->_sound->isPlaying(_resourceId) ? _resourceId : 0xffff;
+}
+
+uint32 LBSoundItem::getSoundSamples() const {
+	return getActiveSound() != 0xffff ? _vm->_sound->getNumSamplesPlayed(_resourceId) : 0;
 }
 
 void LBSoundItem::stop() {
@@ -310,7 +490,7 @@ void LBPaletteItem::update() {
 			_fadeInCurrent = divTime;
 
 			// TODO: actual fading-in
-			if (_visible && _globalVisible) {
+			if (isVisible()) {
 				_vm->_system->getPaletteManager()->setPalette(_palette + _drawStart * 3, _drawStart, _drawCount - _drawStart);
 				_vm->_needsRedraw = true;
 			}
@@ -586,6 +766,7 @@ LBItem *LBLiveTextItem::createClone() {
 }
 
 LBPictureItem::LBPictureItem(MohawkEngine_LivingBooks *vm, LBPage *page, Common::Rect rect) : LBItem(vm, page, rect) {
+	_drawMode = 8;
 	debug(3, "new LBPictureItem");
 }
 
@@ -594,10 +775,8 @@ void LBPictureItem::readData(uint16 type, uint16 size, Common::MemoryReadStreamE
 	case kLBSetDrawMode:
 		{
 		assert(size == 2);
-		// TODO: this probably sets whether points are always contained (0x10)
-		// or whether the bitmap contents are checked (00, or anything else?)
-		uint16 val = stream->readUint16();
-		debug(2, "LBPictureItem: kLBSetDrawMode: %04x", val);
+		_drawMode = stream->readUint16();
+		_vm->_needsRedraw = true;
 		}
 		break;
 
@@ -610,7 +789,7 @@ bool LBPictureItem::contains(Common::Point point) {
 	if (!LBItem::contains(point))
 		return false;
 
-	if (!_doHitTest)
+	if (!_doHitTest || _drawMode != 8)
 		return true;
 
 	// TODO: only check pixels if necessary
@@ -624,10 +803,10 @@ void LBPictureItem::init() {
 }
 
 void LBPictureItem::draw() {
-	if (!_loaded || !_visible || !_globalVisible)
+	if (!_loaded || !isVisible())
 		return;
 
-	_vm->_gfx->copyAnimImageToScreen(_resourceId, _rect.left, _rect.top);
+	_vm->_gfx->copyImageToScreen(_resourceId, _rect.left, _rect.top, _drawMode != 0);
 }
 
 LBItem *LBPictureItem::createClone() {

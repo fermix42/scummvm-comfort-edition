@@ -36,12 +36,126 @@
 #include "graphics/paletteman.h"
 
 #include "engines/util.h"
+#include "engines/ce_test_cli.h"
 
 #include "gui/message.h"
 
 #include "graphics/cursorman.h"
 
 namespace Mohawk {
+
+Common::JSONValue *MohawkEngine_LivingBooks::testCLIState() {
+	if (!CETestCLI::active())
+		return CETestCLI::unsupported();
+	return livingBooksState(false);
+}
+
+Common::JSONValue *MohawkEngine_LivingBooks::diagnosticState() {
+	return livingBooksState(true);
+}
+
+void MohawkEngine_LivingBooks::recordVisibilityEvent(uint16 item, int16 before, int16 after, bool global, bool requested) {
+	if (_visibilityEvents.size() == 64) _visibilityEvents.remove_at(0);
+	VisibilityEvent event = { _system->getMillis(), item, before, after, global, requested };
+	_visibilityEvents.push_back(event);
+}
+
+Common::JSONValue *MohawkEngine_LivingBooks::livingBooksState(bool detailed) {
+	using namespace Common;
+	JSONObject state;
+	state["ok"] = new JSONValue(true);
+	state["mode"] = new JSONValue((long long)_curMode);
+	state["page"] = new JSONValue((long long)_curPage);
+	state["subpage"] = new JSONValue((long long)_curSubPage);
+	state["phase"] = new JSONValue((long long)_phase);
+	state["page_file"] = new JSONValue(_diagnosticPageFile);
+	state["read_only"] = new JSONValue(_page && _readOnly);
+	state["intro_done"] = new JSONValue(_page && _introDone);
+	state["pending_notifications"] = new JSONValue((long long)_notifyEvents.size());
+	state["pending_delayed_events"] = new JSONValue((long long)_eventQueue.size());
+	state["focus"] = new JSONValue((long long)(_focus ? _focus->getId() : 0));
+	state["cursor_visible"] = new JSONValue(CursorMan.isVisible());
+	state["key_bindings"] = new JSONValue((long long)_keyEvents.size());
+	state["rollover"] = new JSONValue((long long)(_rollover ? _rollover->getId() : 0));
+	JSONObject variables;
+	static const char *const observed[] = { "dTool", "InBasket", "vmItemName", "vmVelx", "vmVely", "vmAccelx", "vmAccely", "TurnOn",
+		"JumCnt", "matches", "strlen", "str1", "curQD", "curP", "iterate",
+		"QD1", "QD2", "QD3", "QD4", "QD5", "QD6", "P1", "P2", "P3", "P4", "P5", "P6",
+		"ClockRoll", "HandDown", "HourChime", "FirstClick", "ResetCursor", "ZoneNum", "PrevZoneNum",
+		"ClockRotation", "HrNum", "CurMin", "PrevMin", "CurHr", "PrevHr", "PlayHourNum", "AddHour" };
+	for (uint i = 0; i < ARRAYSIZE(observed); ++i) {
+		if (!_variables.contains(observed[i]))
+			continue;
+		const LBValue &value = _variables[observed[i]];
+		if (value.type == kLBValueInteger)
+			variables[observed[i]] = new JSONValue((long long)value.integer);
+		else if (value.type == kLBValueString)
+			variables[observed[i]] = new JSONValue(value.string);
+	}
+	state["variables"] = new JSONValue(variables);
+	JSONArray items;
+	for (uint i = 0; i < _items.size(); ++i) {
+		LBItem *source = _items[i];
+		JSONObject item;
+		item["id"] = new JSONValue((long long)source->getId());
+		item["name"] = new JSONValue(source->getName());
+		if (detailed) source->appendDiagnosticState(item);
+		item["loaded"] = new JSONValue(source->isLoaded());
+		item["visible"] = new JSONValue(source->isVisible());
+		item["visibility_balance"] = new JSONValue((long long)source->getVisibilityBalance());
+		item["enabled"] = new JSONValue(source->isEnabled());
+		item["dragging"] = new JSONValue(source->isDragging());
+		item["playing"] = new JSONValue(source->isPlaying());
+		item["position"] = new JSONValue((long long)source->getPosition());
+		item["uninitialized_draws"] = new JSONValue((long long)source->getUninitializedDraws());
+		item["sound"] = new JSONValue((long long)source->getActiveSound());
+		item["sound_samples"] = new JSONValue((long long)source->getSoundSamples());
+		item["sound_starts"] = new JSONValue((long long)source->getSoundStarts());
+		const Rect &rect = source->getRect();
+		JSONArray bounds;
+		bounds.push_back(new JSONValue((long long)rect.left));
+		bounds.push_back(new JSONValue((long long)rect.top));
+		bounds.push_back(new JSONValue((long long)rect.right));
+		bounds.push_back(new JSONValue((long long)rect.bottom));
+		item["rect"] = new JSONValue(bounds);
+		items.push_back(new JSONValue(item));
+	}
+	state["items"] = new JSONValue(items);
+	JSONArray order;
+	for (Common::List<LBItem *>::const_iterator i = _orderedItems.reverse_begin(); i != _orderedItems.end(); --i)
+		order.push_back(new JSONValue((long long)(*i)->getId()));
+	state["draw_order_back_to_front"] = new JSONValue(order);
+	JSONArray renders;
+	for (const RenderEvent &event : _renderEvents) {
+		JSONObject frame;
+		frame["serial"] = new JSONValue((long long)event.serial);
+		frame["millis"] = new JSONValue((long long)event.millis);
+		frame["mode"] = new JSONValue((long long)event.mode);
+		frame["page"] = new JSONValue((long long)event.page);
+		frame["subpage"] = new JSONValue((long long)event.subpage);
+		frame["phase"] = new JSONValue((long long)event.phase);
+		JSONArray sprites;
+		for (uint16 id : event.sprites) sprites.push_back(new JSONValue((long long)id));
+		frame["drawable_animations"] = new JSONValue(sprites);
+		renders.push_back(new JSONValue(frame));
+	}
+	state["render_history"] = new JSONValue(renders);
+	if (detailed) {
+		JSONArray history;
+		for (const VisibilityEvent &event : _visibilityEvents) {
+			JSONObject item;
+			item["millis"] = new JSONValue((long long)event.millis);
+			item["item"] = new JSONValue((long long)event.item);
+			item["before"] = new JSONValue((long long)event.before);
+			item["after"] = new JSONValue((long long)event.after);
+			item["global"] = new JSONValue(event.global);
+			item["requested"] = new JSONValue(event.requested);
+			history.push_back(new JSONValue(item));
+		}
+		state["visibility_history"] = new JSONValue(history);
+	}
+	return new JSONValue(state);
+}
 
 // read a null-terminated string from a stream
 Common::String MohawkEngine_LivingBooks::readString(Common::ReadStream *stream) {
@@ -84,6 +198,9 @@ MohawkEngine_LivingBooks::MohawkEngine_LivingBooks(OSystem *syst, const MohawkGa
 
 	_curLanguage = 1;
 	_curSelectedPage = 1;
+	_curMode = kLBIntroMode;
+	_curPage = _curSubPage = 0;
+	_phase = kLBPhaseInit;
 
 	_alreadyShowedIntro = false;
 
@@ -92,6 +209,7 @@ MohawkEngine_LivingBooks::MohawkEngine_LivingBooks(OSystem *syst, const MohawkGa
 	_sound = nullptr;
 	_video = nullptr;
 	_page = nullptr;
+	_focus = _rollover = nullptr;
 
 	const Common::FSNode gameDataDir(ConfMan.getPath("path"));
 	// Rugrats
@@ -160,6 +278,26 @@ Common::Error MohawkEngine_LivingBooks::run() {
 
 			switch (event.type) {
 			case Common::EVENT_MOUSEMOVE:
+				for (uint i = 0; i < _items.size(); ++i)
+					_items[i]->updateMouse(event.mouse);
+				if (_focus)
+					_focus->handleMouseMove(event.mouse);
+				for (Common::List<LBItem *>::const_iterator i = _orderedItems.begin(); i != _orderedItems.end(); ++i) {
+					if ((*i)->rolloverContains(event.mouse)) {
+						found = *i;
+						break;
+					}
+				}
+				if (found != _rollover) {
+					LBItem *previous = _rollover;
+					_rollover = found;
+					if (previous)
+						previous->dispatchEvent(kLBEventRolloverEnd);
+					if (found && _rollover == found)
+						found->dispatchEvent(kLBEventRolloverBegin);
+				} else if (found) {
+					found->dispatchEvent(kLBEventRolloverMove);
+				}
 				_needsUpdate = true;
 				break;
 
@@ -181,6 +319,10 @@ Common::Error MohawkEngine_LivingBooks::run() {
 				break;
 
 			case Common::EVENT_KEYDOWN:
+				{
+				if (dispatchKey(event.kbd, event.kbdRepeat))
+					break;
+				}
 				switch (event.kbd.keycode) {
 				case Common::KEYCODE_SPACE:
 					pauseGame();
@@ -268,6 +410,7 @@ void MohawkEngine_LivingBooks::destroyPage() {
 	_notifyEvents.clear();
 
 	_focus = nullptr;
+	_rollover = nullptr;
 }
 
 // Replace any colons (originally a slash) with another character
@@ -356,6 +499,7 @@ bool MohawkEngine_LivingBooks::loadPage(LBMode mode, uint page, uint subpage) {
 
 	Archive *pageArchive = createArchive();
 	if (!filename.empty() && tryOpenPage(pageArchive, filename)) {
+		_diagnosticPageFile = filename;
 		_page = new LBPage(this);
 		_page->open(pageArchive, 1000);
 	} else {
@@ -557,8 +701,19 @@ void MohawkEngine_LivingBooks::updatePage() {
 		_items[i]->update();
 
 	if (_needsRedraw) {
-		for (Common::List<LBItem *>::const_iterator i = _orderedItems.reverse_begin(); i != _orderedItems.end(); --i)
+		RenderEvent rendered;
+		rendered.serial = ++_renderSerial;
+		rendered.millis = _system->getMillis();
+		rendered.mode = _curMode;
+		rendered.page = _curPage;
+		rendered.subpage = _curSubPage;
+		rendered.phase = _phase;
+		for (Common::List<LBItem *>::const_iterator i = _orderedItems.reverse_begin(); i != _orderedItems.end(); --i) {
+			if ((*i)->hasDrawableAnimation()) rendered.sprites.push_back((*i)->getId());
 			(*i)->draw();
+		}
+		if (_renderEvents.size() == 64) _renderEvents.remove_at(0);
+		_renderEvents.push_back(rendered);
 
 		_needsRedraw = false;
 		_needsUpdate = true;
@@ -601,6 +756,21 @@ void MohawkEngine_LivingBooks::removeItems(const Common::Array<LBItem *> &items)
 	}
 }
 
+void MohawkEngine_LivingBooks::setItemZOrder(LBItem *item, LBItem *relative, bool back) {
+	if (item == relative)
+		return;
+	_orderedItems.erase(item->_iterator);
+	Common::List<LBItem *>::iterator position = _orderedItems.begin();
+	if (relative) {
+		position = relative->_iterator;
+		++position;
+	} else if (back) {
+		position = _orderedItems.end();
+	}
+	item->_iterator = _orderedItems.insert(position, item);
+	_needsRedraw = true;
+}
+
 LBItem *MohawkEngine_LivingBooks::getItemById(uint16 id) {
 	for (uint16 i = 0; i < _items.size(); i++)
 		if (_items[i]->getId() == id)
@@ -611,7 +781,7 @@ LBItem *MohawkEngine_LivingBooks::getItemById(uint16 id) {
 
 LBItem *MohawkEngine_LivingBooks::getItemByName(Common::String name) {
 	for (uint16 i = 0; i < _items.size(); i++)
-		if (_items[i]->getName() == name)
+		if (_items[i]->getName().equalsIgnoreCase(name))
 			return _items[i];
 
 	return nullptr;
@@ -619,6 +789,55 @@ LBItem *MohawkEngine_LivingBooks::getItemByName(Common::String name) {
 
 void MohawkEngine_LivingBooks::setFocus(LBItem *focus) {
 	_focus = focus;
+}
+
+void MohawkEngine_LivingBooks::registerKeyEvent(LBItem *owner, byte code, byte modifiers, byte character, byte repeats, uint16 target, byte event) {
+	RegisteredKeyEvent binding = { owner, code, modifiers, character, repeats, event, target };
+	for (uint i = 0; i < _keyEvents.size(); ++i) {
+		RegisteredKeyEvent &old = _keyEvents[i];
+		if (old.code == code && old.modifiers == modifiers && old.character == character && old.repeats == repeats) {
+			old = binding;
+			return;
+		}
+	}
+	_keyEvents.push_back(binding);
+}
+
+void MohawkEngine_LivingBooks::removeKeyEvents(LBItem *owner) {
+	for (uint i = 0; i < _keyEvents.size();) {
+		if (_keyEvents[i].owner == owner)
+			_keyEvents.remove_at(i);
+		else
+			++i;
+	}
+}
+
+void MohawkEngine_LivingBooks::clearRollover(LBItem *item, bool notify) {
+	if (_rollover != item)
+		return;
+	_rollover = nullptr;
+	if (notify)
+		item->dispatchEvent(kLBEventRolloverEnd);
+}
+
+bool MohawkEngine_LivingBooks::dispatchKey(const Common::KeyState &key, bool repeat) {
+	uint code = key.keycode;
+	if (code == Common::KEYCODE_LEFT) code = 0x25;
+	else if (code == Common::KEYCODE_RIGHT) code = 0x27;
+	else if (code >= Common::KEYCODE_a && code <= Common::KEYCODE_z) code = code - 'a' + 'A';
+	uint modifiers = ((key.flags & Common::KBD_SHIFT) ? LBKEY_MOD_SHIFT : 0)
+		| ((key.flags & Common::KBD_CTRL) ? LBKEY_MOD_CTRL : 0)
+		| ((key.flags & Common::KBD_ALT) ? LBKEY_MOD_ALT : 0);
+	for (uint i = 0; i < _keyEvents.size(); ++i) {
+		RegisteredKeyEvent binding = _keyEvents[i];
+		if (binding.code != code || binding.modifiers != modifiers || (repeat && !binding.repeats))
+			continue;
+		LBItem *target = binding.target ? getItemById(binding.target) : binding.owner;
+		if (target)
+			target->dispatchEvent(binding.event);
+		return true;
+	}
+	return false;
 }
 
 void MohawkEngine_LivingBooks::setEnableForAll(bool enable, LBItem *except) {
@@ -636,7 +855,10 @@ void MohawkEngine_LivingBooks::queueDelayedEvent(DelayedEvent event) {
 	_eventQueue.push(event);
 }
 
-bool MohawkEngine_LivingBooks::playSound(LBItem *source, uint16 resourceId) {
+bool MohawkEngine_LivingBooks::playSound(LBItem *source, uint16 resourceId, bool loop) {
+	// Ambient beds are independent mixer streams, not foreground stop targets.
+	if (source->isAmbient())
+		return _sound->playSound(resourceId, Audio::Mixer::kMaxChannelVolume, loop) != nullptr;
 	if (_lastSoundId && !_sound->isPlaying(_lastSoundId))
 		_lastSoundId = 0;
 
@@ -658,7 +880,7 @@ bool MohawkEngine_LivingBooks::playSound(LBItem *source, uint16 resourceId) {
 	}
 
 	_lastSoundId = resourceId;
-	_sound->playSound(resourceId);
+	_sound->playSound(resourceId, Audio::Mixer::kMaxChannelVolume, loop);
 
 	return true;
 }

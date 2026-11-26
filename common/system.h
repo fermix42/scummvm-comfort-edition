@@ -1373,6 +1373,8 @@ public:
 	 * The backend can persist it the way it considers appropriate.
 	 */
 	virtual void saveScreenshot() {}
+	virtual bool saveDiagnosticScreenshot(const Common::Path &filename) { return false; }
+	virtual Common::Path getExecutablePath() const { return Common::Path(); }
 
 	/** @} */
 

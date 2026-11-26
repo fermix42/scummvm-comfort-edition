@@ -49,6 +49,8 @@ public:
  bool canSaveGameStateCurrently(Common::U32String* message=nullptr) override;
  bool canLoadGameStateCurrently(Common::U32String* message=nullptr) override;
  Common::JSONValue *testCLIState() override;
+ Common::JSONValue *diagnosticState() override { return testCLIState(); }
+ bool retainsNativeDiagnosticHotkey() const override { return true; }
  Common::JSONValue *testCLICommand(Common::JSONValue &request) override;
 private:
  friend class EngineStateCodec;
