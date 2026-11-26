@@ -25,6 +25,13 @@ def bcod(code, strings=b''):
 
 
 class Inventory(unittest.TestCase):
+    def test_original_short_literal_is_signed_not_a_string_reference(self):
+        code = b'\x05\x02\xff\xff\x4d\x57\x01\x08'
+        result, boundaries = lexical_inventory(bcod(code), reference())
+        self.assertEqual(result['components'][0]['args'], [{'value': -1}])
+        self.assertIn(4, boundaries)
+        self.assertEqual(result['errors'], [])
+
     def test_original_fixed_real_does_not_swallow_following_expression(self):
         # The provisional VM consumed eight bytes and lost this next root.
         code = b'\0\x05\x04\0\0\x19\x64\x08\x04\x08'

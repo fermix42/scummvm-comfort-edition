@@ -204,8 +204,9 @@ def lexical_inventory(payload, reference):
                 pos += 1
                 literals[str(kind)] += 1
                 if kind == 2:
-                    ident = struct.unpack_from('>H', code, pos)[0]
-                    operand = strings.get(ident)
+                    # Original 0x401946 constructs value tag 2 (signed short),
+                    # not a string-table reference. No supplied BCOD uses it.
+                    operand = struct.unpack_from('>h', code, pos)[0]
                     pos += 2
                 elif kind == 3:
                     operand = struct.unpack_from('>i', code, pos)[0]

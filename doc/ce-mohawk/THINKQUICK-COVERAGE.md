@@ -159,8 +159,12 @@ The custom editor can be scoped separately during support qualification.
 
 The VM is postfix and token decoding is independent of execution. Original
 reader observations establish word operands for identifiers, strings/constants
-and five command namespaces; literals use a subtype byte plus string-word,
-32-bit integer or four-byte fixed-point payload. Execution uses separate token
+and five command namespaces; literals use a subtype byte plus 16-bit integer,
+32-bit integer or four-byte fixed-point payload. Step-2 recovery corrects the
+first-pass subtype-2 label: it is a signed 16-bit integer, not a string-word.
+No inventoried BCOD uses subtype 2, so counts and call-site metadata are unchanged.
+See [the recovered contracts](THINKQUICK-INTERPRETER-CONTRACTS.md).
+Execution uses separate token
 and command dispatch tables. Original 0x67 calls numeric negation; 0x77 separates
 string-callable and object-method dispatch. Precise value/reference/frame/control
 semantics are deliberately not inferred from successful decoding.
