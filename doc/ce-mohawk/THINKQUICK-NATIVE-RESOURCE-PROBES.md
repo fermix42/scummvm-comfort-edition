@@ -106,3 +106,11 @@ unqualified, zero incomparable; overall fail**. The seven new original-only
 cases do not change those paired totals. Eleven comparator guards and eight
 inventory tests pass. All 21 recorded engine files, 346 CE Test files and the
 baseline executable match preservation identities.
+
+
+## Subsequent disk-backed evidence
+
+The [disk-cache checkpoint](THINKQUICK-DISK-CACHE-PROBES.md) advances beyond the
+seeded resident maps here: original file/archive routines parse generated disk
+MHKs, load exact BCOD bytes, release/reload and close/reopen. Its synchronous
+scheduling adaptation and remaining CE/lifetime gaps are explicit.

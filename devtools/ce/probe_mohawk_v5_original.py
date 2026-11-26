@@ -106,6 +106,7 @@ def windows_api():
         'Wow64GetThreadContext': ([W.HANDLE, C.c_void_p], W.BOOL),
         'Wow64SetThreadContext': ([W.HANDLE, C.c_void_p], W.BOOL),
         'TerminateProcess': ([W.HANDLE, W.UINT], W.BOOL),
+        'OpenThread': ([W.DWORD, W.BOOL, W.DWORD], W.HANDLE),
         'CloseHandle': ([W.HANDLE], W.BOOL),
         'FlushInstructionCache': ([W.HANDLE, C.c_void_p, C.c_size_t], W.BOOL),
     }
@@ -126,7 +127,7 @@ def run_case(exe, case, timeout, stub_factory=None):
     pi = ProcessInfo(); event = DebugEvent(); pending = False
     checked(k.CreateProcessW(str(exe), C.create_unicode_buffer('"' + str(exe) + '"'),
                             None, None, False, 2, None, str(exe.parent), C.byref(startup), C.byref(pi)))
-    vm_errors = []; vm_error_offsets = []; first_chance_cpp = 0
+    vm_errors = []; vm_error_offsets = []; first_chance_cpp = 0; native_threads=[]
     phase = 'loader'; start = time.monotonic(); trap = None
     def read(address, size):
         b = C.create_string_buffer(size); n = C.c_size_t()
@@ -148,6 +149,10 @@ def run_case(exe, case, timeout, stub_factory=None):
             if event.code in (3, 6):
                 file_handle = struct.unpack_from('<Q', raw)[0]
                 if file_handle: k.CloseHandle(file_handle)
+            if event.code == 2:
+                if case.get('observe_native_words'):native_threads.append(dict(thread_id=event.tid,start_address=hex(struct.unpack_from('<Q',raw,16)[0])))
+                th=struct.unpack_from('<Q',raw)[0]
+                if th:k.CloseHandle(th)
             if event.code == 3:
                 image_base = struct.unpack_from('<Q', raw, 24)[0]
                 if image_base != 0x400000: raise RuntimeError('Unexpected image base')
@@ -163,8 +168,17 @@ def run_case(exe, case, timeout, stub_factory=None):
                 if code not in (0x80000003, 0x4000001f):
                     fault_context={}
                     if case.get('observe_native_words'):
-                        cx=C.create_string_buffer(716);struct.pack_into('<I',cx,0,0x10007);checked(k.Wow64GetThreadContext(pi.thread,cx));sp=struct.unpack_from('<I',cx,196)[0]
-                        fault_context=dict(registers=list(struct.unpack_from('<10I',cx,156)),image_stack_words=[hex(x) for x in struct.unpack('<128I',read(sp,512)) if 0x401000<=x<0x488000])
+                        cx=C.create_string_buffer(716);struct.pack_into('<I',cx,0,0x10007)
+                        fault_thread=pi.thread if event.tid==pi.tid else checked(k.OpenThread(0x48,False,event.tid))
+                        try:checked(k.Wow64GetThreadContext(fault_thread,cx))
+                        finally:
+                            if event.tid!=pi.tid:k.CloseHandle(fault_thread)
+                        sp=struct.unpack_from('<I',cx,196)[0]
+                        stack_bytes=b''
+                        for stack_size in [512,128,32,4]:
+                            try:stack_bytes=read(sp,stack_size);break
+                            except OSError:pass
+                        fault_context=dict(created_threads=native_threads,event_thread_id=event.tid,main_thread_id=pi.tid,registers=list(struct.unpack_from('<10I',cx,156)),stack_bytes_read=len(stack_bytes),image_stack_words=[hex(x) for x in struct.unpack('<'+str(len(stack_bytes)//4)+'I',stack_bytes) if 0x401000<=x<0x488000])
                     return dict(status='exception', exception=hex(code), address=hex(address), phase=phase,fault_context=fault_context,native_words=list(struct.unpack('<32I',read(output+128,128))) if case.get('observe_native_words') and remote else [])
                 if phase == 'probe':
                     if address == 0x402fc6 and case.get('observe_vm_error'):
@@ -231,7 +245,7 @@ def run_case(exe, case, timeout, stub_factory=None):
                     return dict(status='observed', actual=actual, expected=case['expected'],
                                 matches_static_contract=actual == case['expected'],
                                 process_id=pi.pid, phase=phase, result_hex=data.hex(),
-                                loader_eip=hex(original_eip), probe_trap=hex(trap), initialization=initialization, resource_unload=resource_unload, native_text=[read(p,64).split(b'\0')[0].decode('ascii',errors='replace') if p else None for p in [struct.unpack('<I',read(output+128+4*n,4))[0] for n in [22,24]]] if case.get('observe_native_words') else [], native_words=list(struct.unpack('<32I',read(output+128,128))) if case.get('observe_native_words') else [], vm_errors=vm_errors, vm_error_offsets=vm_error_offsets, first_chance_cpp=first_chance_cpp)
+                                loader_eip=hex(original_eip), probe_trap=hex(trap), initialization=initialization, resource_unload=resource_unload, native_blobs=[read(output+case.get('native_blob_offset',512)+i*256,case['observe_native_blob_size']).hex() for i in range(2)] if case.get('observe_native_blob_size') else [], native_text=[read(p,64).split(b'\0')[0].decode('ascii',errors='replace') if p else None for p in [struct.unpack('<I',read(output+128+4*n,4))[0] for n in [22,24]]] if case.get('observe_native_words') else [], native_words=list(struct.unpack('<32I',read(output+128,128))) if case.get('observe_native_words') else [], vm_errors=vm_errors, vm_error_offsets=vm_error_offsets, first_chance_cpp=first_chance_cpp)
                 if phase == 'loader' and code == 0x4000001f and case.get('after_loader'):
                     data_image = exe.read_bytes(); pe_offset = struct.unpack_from('<I', data_image, 0x3c)[0]
                     entry = 0x400000 + struct.unpack_from('<I', data_image, pe_offset + 40)[0]

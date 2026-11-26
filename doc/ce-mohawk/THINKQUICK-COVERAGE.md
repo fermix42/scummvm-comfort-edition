@@ -371,3 +371,15 @@ No engine implementation; step 3 continues.
 Fresh existing paired replay remains **23 matches, 10 mismatches, 27 unqualified**
 across 60 cases. Seven native original-only observations are excluded from these
 totals. Cold disk-cache and matching CE lifetime observations remain open.
+
+
+## Disk-cache progress under the full Step-3 goal — November 26, 2026
+
+Current completion audit: [Step-3 gate](THINKQUICK-STEP3-GATE.md).
+[Disk-cache report](THINKQUICK-DISK-CACHE-PROBES.md) and
+[observations](THINKQUICK-DISK-CACHE-OBSERVATIONS.json) add six repeated original
+real disk/archive/cache controls and two matching CE predicates from identical
+MHK bytes. Original scheduling is explicitly serialized through its own existing
+synchronous fallback; no file/cache data results are substituted. Four cache
+controls remain original-only. Native fault-thread attribution is verified.
+The full Step-3 goal remains active; no Step-4 implementation is authorized.

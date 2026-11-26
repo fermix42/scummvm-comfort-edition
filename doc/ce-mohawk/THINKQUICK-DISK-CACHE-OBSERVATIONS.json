@@ -1,0 +1,328 @@
+{
+  "schema": 1,
+  "date": "2026-11-26",
+  "scope": "six original cold disk-cache cases, four original-only controls and two paired predicates",
+  "original_identity": {
+    "kind": "Original disk-backed MHK cache through original synchronous I/O fallback; paired CE predicates.",
+    "exe_sha256": "219d81ea3d91b31da406e6891d01ba6ad12005e77b4d9f8f83930161dbfc9966",
+    "harness_sha256": "0029ef117b123cc7a271704115d50e8a105ad2448a042612c3ccb82b4f39f340",
+    "transport_sha256": "58d33fb8e14cea45e478c82a9c123de30a323134fb8beae639b909e1841da0bc"
+  },
+  "candidate_identity": {
+    "kind": "CE matching generated MHK assertion observations",
+    "exe_sha256": "04c96176beb3f4a8a5e53f0be20c971aab603d625057c09c9a548cb2d89a9795",
+    "harness_sha256": "0029ef117b123cc7a271704115d50e8a105ad2448a042612c3ccb82b4f39f340"
+  },
+  "dependencies": {
+    "mohawk_v5_cross_call_probes.py": {
+      "runtime_sha256": "ee4ab8a8d71e7f15d06bd4ce75d3f5f570a446b7176600361cc9096eb8fe2fe6",
+      "lf_normalized_sha256": "ee4ab8a8d71e7f15d06bd4ce75d3f5f570a446b7176600361cc9096eb8fe2fe6"
+    },
+    "probe_mohawk_v5_vm.py": {
+      "runtime_sha256": "d2f39cc62277947587e3b6fd538608d699c5a04de8d55c2b5e70101f304948a9",
+      "lf_normalized_sha256": "d2f39cc62277947587e3b6fd538608d699c5a04de8d55c2b5e70101f304948a9"
+    },
+    "mohawk_v5_lifecycle_probes.py": {
+      "runtime_sha256": "b8ae624b3a152d9250b6d1c78a4fa7aee88739e9f2017091bcde21fe1470a845",
+      "lf_normalized_sha256": "b8ae624b3a152d9250b6d1c78a4fa7aee88739e9f2017091bcde21fe1470a845"
+    },
+    "test_mohawk_v5_fault_thread.py": {
+      "runtime_sha256": "3c2310891802ff0e2a820b9f129d05a0695a4e5d08acc7c285fd1a50303bc0f4",
+      "lf_normalized_sha256": "3c2310891802ff0e2a820b9f129d05a0695a4e5d08acc7c285fd1a50303bc0f4"
+    },
+    "test_mohawk_v5_startup.py": {
+      "runtime_sha256": "e36e1eb07e64c65f32ec7a343edfe0619b54138a32a975b6ea481efbcec39863",
+      "lf_normalized_sha256": "27586ef5f82c411aec5c03acfd354d3b8f0d74769f8146418efbe62646686be6"
+    },
+    "probe_mohawk_v5_original.py": {
+      "runtime_sha256": "58d33fb8e14cea45e478c82a9c123de30a323134fb8beae639b909e1841da0bc",
+      "lf_normalized_sha256": "58d33fb8e14cea45e478c82a9c123de30a323134fb8beae639b909e1841da0bc"
+    },
+    "probe_mohawk_v5_native_resources.py": {
+      "runtime_sha256": "06079fb96aac9305046ef0eacd91560fc111b11d88f09ac83a30b3c6ef57e609",
+      "lf_normalized_sha256": "06079fb96aac9305046ef0eacd91560fc111b11d88f09ac83a30b3c6ef57e609"
+    },
+    "probe_mohawk_v5_disk_cache.py": {
+      "runtime_sha256": "0029ef117b123cc7a271704115d50e8a105ad2448a042612c3ccb82b4f39f340",
+      "lf_normalized_sha256": "0029ef117b123cc7a271704115d50e8a105ad2448a042612c3ccb82b4f39f340"
+    },
+    "mohawk_v5_call_probes.py": {
+      "runtime_sha256": "533ced8ff1abe8b52adefc62447b3144c3bded5ec8e07b7e2e857c6ef3008262",
+      "lf_normalized_sha256": "533ced8ff1abe8b52adefc62447b3144c3bded5ec8e07b7e2e857c6ef3008262"
+    },
+    "compare_mohawk_v5_observations.py": {
+      "runtime_sha256": "82302f13cd015011cbdfa6f2b2435db7806210c2c57b6aa77022336f073a6f2e",
+      "lf_normalized_sha256": "82302f13cd015011cbdfa6f2b2435db7806210c2c57b6aa77022336f073a6f2e"
+    },
+    "mohawk_v5_owner_probes.py": {
+      "runtime_sha256": "45751f80f34ecc8df397ce4b5b48cb531cb3940a86963a8f3123436696a9ecca",
+      "lf_normalized_sha256": "45751f80f34ecc8df397ce4b5b48cb531cb3940a86963a8f3123436696a9ecca"
+    },
+    "test_mohawk_v5_observations.py": {
+      "runtime_sha256": "866f810cd85b4157eb9df0597db234f190c044c890a50da885a80d00898f6b51",
+      "lf_normalized_sha256": "866f810cd85b4157eb9df0597db234f190c044c890a50da885a80d00898f6b51"
+    },
+    "test_cli_client.py": {
+      "runtime_sha256": "1765d2e62ebfc9518a0c59733956bbdede34b3cedff41bdc4b5f32e30fd44813",
+      "lf_normalized_sha256": "835eb0168daaf9738865f5471d1f046d0d29ed2ca090d9cfa557009321ed3197"
+    },
+    "probe_mohawk_v5_resource_lifetime.py": {
+      "runtime_sha256": "e9f505e2214f604c1beafb5a453ad9640c83ca9b2b18dd450bb1e9f40036baf3",
+      "lf_normalized_sha256": "e9f505e2214f604c1beafb5a453ad9640c83ca9b2b18dd450bb1e9f40036baf3"
+    }
+  },
+  "counts": {
+    "match": 2,
+    "mismatch": 0,
+    "unqualified": 0,
+    "incomparable": 0
+  },
+  "original_results": [
+    {
+      "name": "disk-true",
+      "status": "observed",
+      "contract_checks": {
+        "memory_initialized": true,
+        "filesystem_initialized": true,
+        "no_vm_errors": true,
+        "archive_preserved": true,
+        "opened": true,
+        "exact_payload": true,
+        "released": true,
+        "archive_closed": true
+      },
+      "program_sha256": "788ddc2113af5701012955be9c704431f3526e8700084e49c9d9c02d8c3caa1c",
+      "expression_sha256": "53d4b7c608a3ce3a60916b30d002c1f108cbb5e30ad26357b05db3e53de638e7",
+      "captured_payload_sha256": [
+        "ed27a2326d80c1f177e8fa6c63e0df743615cc238268dcf3cd1b5ba2d92247a1"
+      ],
+      "observed": {
+        "memory_status": 0,
+        "filesystem_status": 0,
+        "archive_opened": true,
+        "open_error": 0,
+        "resource_found": true,
+        "lookup_error": 0,
+        "release_status": 0,
+        "data_valid_after_release": false,
+        "final_close_status": 0,
+        "final_map_valid": false
+      },
+      "vm_errors": [],
+      "actual": 1
+    },
+    {
+      "name": "disk-false",
+      "status": "observed",
+      "contract_checks": {
+        "memory_initialized": true,
+        "filesystem_initialized": true,
+        "no_vm_errors": true,
+        "archive_preserved": true,
+        "opened": true,
+        "exact_payload": true,
+        "released": true,
+        "archive_closed": true
+      },
+      "program_sha256": "b58b95a3c675c26e8870eaaf178eef53dd9fc3d743adf821e575560596b4dd6b",
+      "expression_sha256": "595e0d08d18615db755e007c1110aff967c88fa018e204e37d7fc8845df162e8",
+      "captured_payload_sha256": [
+        "cc3c86ae07e2d099d1787b1c73589b64026a6232a80bf08df6b1a2129156c81c"
+      ],
+      "observed": {
+        "memory_status": 0,
+        "filesystem_status": 0,
+        "archive_opened": true,
+        "open_error": 0,
+        "resource_found": true,
+        "lookup_error": 0,
+        "release_status": 0,
+        "data_valid_after_release": false,
+        "final_close_status": 0,
+        "final_map_valid": false
+      },
+      "vm_errors": [],
+      "actual": 0
+    },
+    {
+      "name": "disk-release-reload",
+      "status": "observed",
+      "contract_checks": {
+        "memory_initialized": true,
+        "filesystem_initialized": true,
+        "no_vm_errors": true,
+        "archive_preserved": true,
+        "opened": true,
+        "exact_payload": true,
+        "released": true,
+        "archive_closed": true,
+        "second_exact_payload": true,
+        "second_release": true
+      },
+      "program_sha256": "788ddc2113af5701012955be9c704431f3526e8700084e49c9d9c02d8c3caa1c",
+      "expression_sha256": "53d4b7c608a3ce3a60916b30d002c1f108cbb5e30ad26357b05db3e53de638e7",
+      "captured_payload_sha256": [
+        "ed27a2326d80c1f177e8fa6c63e0df743615cc238268dcf3cd1b5ba2d92247a1",
+        "ed27a2326d80c1f177e8fa6c63e0df743615cc238268dcf3cd1b5ba2d92247a1"
+      ],
+      "observed": {
+        "memory_status": 0,
+        "filesystem_status": 0,
+        "archive_opened": true,
+        "open_error": 0,
+        "resource_found": true,
+        "lookup_error": 0,
+        "release_status": 0,
+        "data_valid_after_release": false,
+        "final_close_status": 0,
+        "final_map_valid": false,
+        "second_release_status": 0
+      },
+      "vm_errors": []
+    },
+    {
+      "name": "disk-close-reopen",
+      "status": "observed",
+      "contract_checks": {
+        "memory_initialized": true,
+        "filesystem_initialized": true,
+        "no_vm_errors": true,
+        "archive_preserved": true,
+        "opened": true,
+        "exact_payload": true,
+        "released": true,
+        "archive_closed": true,
+        "second_exact_payload": true,
+        "second_release": true,
+        "first_close": true,
+        "reopened": true
+      },
+      "program_sha256": "788ddc2113af5701012955be9c704431f3526e8700084e49c9d9c02d8c3caa1c",
+      "expression_sha256": "53d4b7c608a3ce3a60916b30d002c1f108cbb5e30ad26357b05db3e53de638e7",
+      "captured_payload_sha256": [
+        "ed27a2326d80c1f177e8fa6c63e0df743615cc238268dcf3cd1b5ba2d92247a1",
+        "ed27a2326d80c1f177e8fa6c63e0df743615cc238268dcf3cd1b5ba2d92247a1"
+      ],
+      "observed": {
+        "memory_status": 0,
+        "filesystem_status": 0,
+        "archive_opened": true,
+        "open_error": 0,
+        "resource_found": true,
+        "lookup_error": 0,
+        "release_status": 0,
+        "data_valid_after_release": false,
+        "final_close_status": 0,
+        "final_map_valid": false,
+        "second_release_status": 0,
+        "first_close_status": 0,
+        "first_map_valid_after_close": false,
+        "reopened": true
+      },
+      "vm_errors": []
+    },
+    {
+      "name": "disk-missing-id",
+      "status": "observed",
+      "contract_checks": {
+        "memory_initialized": true,
+        "filesystem_initialized": true,
+        "no_vm_errors": true,
+        "archive_preserved": true,
+        "opened": true,
+        "lookup_rejected": true,
+        "native_error": true
+      },
+      "program_sha256": "788ddc2113af5701012955be9c704431f3526e8700084e49c9d9c02d8c3caa1c",
+      "expression_sha256": "53d4b7c608a3ce3a60916b30d002c1f108cbb5e30ad26357b05db3e53de638e7",
+      "captured_payload_sha256": [],
+      "observed": {
+        "memory_status": 0,
+        "filesystem_status": 0,
+        "archive_opened": true,
+        "open_error": 0,
+        "resource_found": false,
+        "lookup_error": 10403
+      },
+      "vm_errors": []
+    },
+    {
+      "name": "disk-bad-magic",
+      "status": "observed",
+      "contract_checks": {
+        "memory_initialized": true,
+        "filesystem_initialized": true,
+        "no_vm_errors": true,
+        "archive_preserved": true,
+        "open_rejected": true,
+        "open_error": true
+      },
+      "program_sha256": "92981346101c39c6abf18fa1e7d8fa0de459fe7eb9e02ec0354cca5ad74c9c92",
+      "expression_sha256": "53d4b7c608a3ce3a60916b30d002c1f108cbb5e30ad26357b05db3e53de638e7",
+      "captured_payload_sha256": [],
+      "observed": {
+        "memory_status": 0,
+        "filesystem_status": 0,
+        "archive_opened": false,
+        "open_error": 10404
+      },
+      "vm_errors": []
+    }
+  ],
+  "ce_results": [
+    {
+      "name": "disk-true",
+      "expression_sha256": "53d4b7c608a3ce3a60916b30d002c1f108cbb5e30ad26357b05db3e53de638e7",
+      "program_sha256": "788ddc2113af5701012955be9c704431f3526e8700084e49c9d9c02d8c3caa1c",
+      "status": "observed",
+      "actual": 1
+    },
+    {
+      "name": "disk-false",
+      "expression_sha256": "595e0d08d18615db755e007c1110aff967c88fa018e204e37d7fc8845df162e8",
+      "program_sha256": "b58b95a3c675c26e8870eaaf178eef53dd9fc3d743adf821e575560596b4dd6b",
+      "status": "observed",
+      "actual": 0
+    }
+  ],
+  "receipt_sha256": {
+    "disk-cache-published-original/receipt.json": "dc9f47ada879d571e7bcd8d79d77919a0eeab701d5e61c3ae53a58985e26ee03",
+    "disk-cache-published-repeat/receipt.json": "3ac6aa374c86fbe43fabec576ea5dde74de6290229652f2bb0576dbfcbee6af5",
+    "disk-cache-published-ce/receipt.json": "54646dcd6ba08d31ee7bdf36b102ebfa3db2c5fda97506122c60d61ceb69525e",
+    "disk-cache-paired-comparison.json": "3d90d0c8be225d5bfa9870cdaa3244a1a8b2e21552cbb012962e1a9eba3b94a9",
+    "disk-cache-native-published/receipt.json": "64b5dcb1d9086d5e1ccd21c356ab7efa3e5252b75751f64c939c2f9ac971d8bd",
+    "disk-cache-fault-thread-qualified/receipt.json": "89cd93979fce29b005455dcf335c821180432d7d6914e4418e8851c1b733370d"
+  },
+  "repeatability": {
+    "original_cases": 6,
+    "all_normalized_observations_identical": true,
+    "exact_source_bytes": true
+  },
+  "fault_thread_guard": {
+    "passed": true,
+    "exception": "0xc000001d",
+    "event_is_secondary": true,
+    "fault_eip_matches_event": true,
+    "stack_bytes_read": 128,
+    "harness_sha256": "3c2310891802ff0e2a820b9f129d05a0695a4e5d08acc7c285fd1a50303bc0f4"
+  },
+  "native_regression": {
+    "count": 7,
+    "all_observed": true,
+    "contract_checks_passed": true,
+    "harness_sha256": "06079fb96aac9305046ef0eacd91560fc111b11d88f09ac83a30b3c6ef57e609"
+  },
+  "limits": [
+    "Process-local worker adapter returns 0x12c to select existing synchronous file fallback",
+    "No file/archive/cache/data/VM result is substituted",
+    "Manual cooperative current-thread object; concurrent scheduling not qualified",
+    "No CE equivalents claimed for the four original-only cache controls"
+  ],
+  "cumulative_paired": {
+    "cases": 62,
+    "matches": 25,
+    "mismatches": 10,
+    "unqualified": 27,
+    "description": "prior 60-case checkpoint plus 2 fresh pairs; not a monolithic fresh 62-case replay"
+  }
+}
