@@ -105,7 +105,7 @@ if __name__=='__main__':
     if hashlib.sha256(a.original.read_bytes()).hexdigest()!='219d81ea3d91b31da406e6891d01ba6ad12005e77b4d9f8f83930161dbfc9966':raise ValueError('Unrecognized original')
     a.root=a.root.resolve();a.root.mkdir(parents=True,exist_ok=False);exe=a.root/'CarmenTQ.exe';shutil.copyfile(a.original,exe);rows=[]
     for name in ['resident-retain-release','destructor-aliases','destructor-incoming-link','resource-unload-real','cross-resource-linked','cross-resource-false-control','cross-resource-alias-control']:
-        case=dict(name=name,output='int32',expected=0,after_loader=True,allocation_size=0x10000,observe_native_words=True,observe_vm_error=True)
+        case=dict(name=name,output='int32',expected=0,after_loader=True,allocation_size=0x10000,observe_native_words=True,observe_native_text=name.startswith('destructor-') or name=='resource-unload-real',observe_vm_error=True)
         result=run_case(exe,case,8,stub_factory=stub);result.pop('expected',None);result.pop('matches_static_contract',None)
         words=result.get('native_words',[]);checks={}
         if result['status']=='observed':

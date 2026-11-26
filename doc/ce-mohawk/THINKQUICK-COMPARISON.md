@@ -234,3 +234,15 @@ MHK bytes. Original scheduling is explicitly serialized through its own existing
 synchronous fallback; no file/cache data results are substituted. Four cache
 controls remain original-only. Native fault-thread attribution is verified.
 The full Step-3 goal remains active; no Step-4 implementation is authorized.
+
+
+### Disk-backed pressure eviction checkpoint
+
+Four original-only pressure-collector cases qualify twice: logical retention does
+not pin unlocked discardable storage; an active memory lock or non-discardability
+protects it. After unlock the collector frees all 49 fixture bytes, and original
+load restores exact BCOD from disk. See [scope, controls and reproduction](THINKQUICK-EVICTION-PROBES.md)
+and [exact-source observations](THINKQUICK-EVICTION-OBSERVATIONS.json).
+Seven existing native cache/destructor/cross-resource controls pass with the current
+transport. No new paired CE claim; the 62-case cumulative totals remain 25 matches,
+10 mismatches and 27 unqualified. Step 3 remains active; stop before Step 4.

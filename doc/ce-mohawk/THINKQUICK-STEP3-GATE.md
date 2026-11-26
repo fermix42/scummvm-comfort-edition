@@ -21,8 +21,8 @@ that can be inferred from the comparison harness.
   that original scheduling is forced through its existing synchronous fallback.
 - [ ] Cover remaining representative VM/packed/operator cases and tie prior leaf
   observations to CE outcomes or precise unsupported boundaries.
-- [ ] Pressure-driven cache eviction/retain protection, distinct from explicit
-  cache release/reload already measured.
+- [x] Bounded pressure-collector cache eviction/retain/lock/discardability controls;
+  exact cold reload. Dirty writeback and concurrency remain outside this claim.
 - [ ] Lifecycle: complete paired resource/teardown observations where available;
   distinguish mutation during callbacks, queued deletion, cascades and code-owner
   lifetime from already measured normal callback/link cases.
