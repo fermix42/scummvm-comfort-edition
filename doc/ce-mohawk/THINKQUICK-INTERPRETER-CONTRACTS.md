@@ -1,7 +1,7 @@
 # ThinkQuick original-interpreter contracts — step 2
 
 Tracking [CE #1](https://github.com/fermix42/scummvm-comfort-edition/issues/1).
-November 26, 2026, second recovery checkpoint. **Step 2 remains in progress.**
+November 26, 2026. **Step-2 structural/static recovery baseline is complete.**
 PR #295 remains an unchanged draft step-1 checkpoint. No engine behavior has
 been implemented or changed during this recovery pass.
 
@@ -14,7 +14,7 @@ still required; the game remains blocked in CE Main initialization.
 
 All addresses apply exclusively to original CarmenTQ.exe SHA-256
 `219d81ea3d91b31da406e6891d01ba6ad12005e77b4d9f8f83930161dbfc9966`.
-The [evidence manifest](THINKQUICK-CONTRACT-EVIDENCE.json) records 130 inspected
+The [evidence manifest](THINKQUICK-CONTRACT-EVIDENCE.json) records the inspected
 regions with byte hashes, value-tag branch targets, numeric conversion formats,
 constants, all nine component vtables/dispatchers and all 18 datafile arities.
 It contains metadata, not executable bytes or full game scripts. The
@@ -51,8 +51,9 @@ original layout observations, not a requirement to copy its C++ representation.
 | 14 | Native/component object | `0x410859`, retain/release via common methods -1/-2 |
 | 15 | Reference to another value | `0x40f176`, `0x4107b7`, recursive conversions |
 
-Other tags remain in the manifest without invented names. Tag 11, for example,
-has packed-field conversion/comparison paths; its complete meaning is open.
+Tags 5/6 are point/rectangle, 8 is Boolean representation, and 11 is a packed
+key value. See the final supplement for conversion tables and key consumers;
+tags 9/10 have no specialized role in these recovered conversion paths.
 
 **Observed literal contract:** subtype 2 reads two bytes and constructs tag 2,
 subtype 3 reads four bytes and constructs tag 3, subtype 4 reads an unsigned
@@ -315,3 +316,10 @@ supersedes this table's deletion, code-owner lifetime, truncation, alias-creatio
 formal omission/surplus, typed-error catch, index/reorder and shutdown unknowns.
 All operator-error and packed-value consumer coverage and controlled original
 runs remain open; a recovered unsafe path is not a successful runtime result.
+
+## Final static recovery status
+
+The [operator/packed-value/OS-error supplement](THINKQUICK-OPERATOR-PACKED-OS-CONTRACTS.md)
+supersedes remaining static questions listed at earlier checkpoints. Step 2's
+structure and contract baseline is complete; step 3 controlled original runs
+remain necessary before implementation and compatibility acceptance.

@@ -17,6 +17,33 @@ from inspect_mohawk_v5_reference import inspect
 
 
 REGIONS = {
+    'eval_operator_errors': (0x404053, 0x40498c),
+    'eval_operator_branch_tables': (0x40522a, 0x405338),
+    'value_increment_decrement': (0x40f050, 0x40f114),
+    'comparison_predicates': (0x405d70, 0x405ef0),
+    'key_compare': (0x40f7d4, 0x40f869),
+    'value_to_key': (0x4100a2, 0x4101a9),
+    'value_to_rectangle': (0x4101a9, 0x41052a),
+    'value_to_point': (0x41052a, 0x4107b7),
+    'packed_geometry_helpers': (0x40de40, 0x40dfb0),
+    'packed_key_helpers': (0x44a67a, 0x44a79f),
+    'key_event_value': (0x422050, 0x42206f),
+    'page_key_events_and_match': (0x420144, 0x42041b),
+    'general_key_consumers': (0x40a4ae, 0x40a639),
+    'filesystem_callback_set': (0x453ef3, 0x453f05),
+    'filesystem_callback_install': (0x4298de, 0x4298ff),
+    'filesystem_error_retry': (0x454102, 0x45424a),
+    'filesystem_error_callback': (0x4548ef, 0x454991),
+    'filesystem_error_map': (0x454991, 0x454a65),
+    'filesystem_open_operation': (0x454ab1, 0x454c2f),
+    'filesystem_write_exact': (0x4554b8, 0x45559b),
+    'filesystem_operation_retry': (0x4563d1, 0x456508),
+    'filesystem_native_operations': (0x45652f, 0x4566ad),
+    'filesystem_retry_dialog': (0x42db7e, 0x42de02),
+    'dialog_native_result_mapping': (0x451550, 0x4516eb),
+    'filesystem_initial_error_policy': (0x45424a, 0x4542b5),
+    'filesystem_callback_scope': (0x4320e2, 0x432103),
+    'filesystem_callback_scope_restore': (0x4321aa, 0x4321c0),
     'item_destroy': (0x4189c5, 0x418d09),
     'item_value_watchers': (0x418d09, 0x418e13),
     'value_item_invalidation': (0x40f2cd, 0x40f382),
@@ -218,6 +245,18 @@ def recover(path):
     result['numeric_string_formats'] = {hex(a): image.cstring(a) for a in (0x49379c, 0x4937a4, 0x4937a8, 0x4937b0, 0x4937b4, 0x4937bc)}
     result['numeric_constants'] = {hex(a): struct.unpack('<d', image.read(a, 8))[0]
                                    for a in (0x4885e0, 0x488700, 0x488708, 0x488710)}
+    result['packed_conversion_handlers'] = {
+        name: {str(tag): hex(image.u32(table + 4 * (tag - 2))) for tag in range(2, 16)}
+        for name, table in (('string', 0x40fd79), ('rectangle', 0x4104f2), ('point', 0x41077f))}
+    result['packed_conversion_handlers']['key'] = {
+        str(tag): hex(image.u32(0x41017f + 4 * image.read(0x41019b + tag - 2, 1)[0]))
+        for tag in range(2, 16)}
+    result['binary_operator_handlers'] = {
+        hex(token): hex(image.u32(0x405296 + 4 * image.read(0x4052b6 + token - 11, 1)[0]))
+        for token in range(11, 53)}
+    result['packed_formats'] = {hex(a): image.cstring(a) for a in (
+        0x493760, 0x493764, 0x49376c, 0x493778, 0x493780, 0x493788,
+        0x4937c0, 0x4937e4, 0x4937e8, 0x4937f8)}
     result['item_field_handlers'] = {hex(0x192 + n): hex(image.u32(0x41d232 + 4 * n)) for n in range(5)}
     result['item_event_handlers'] = {hex(n): hex(image.u32(0x41d042 + 4 * n))
                                       for n in (1, 5, 7, 0x23, 0x2f, 0x3a, 0x3b, 0x4a, 0x4e, 0x5e)}

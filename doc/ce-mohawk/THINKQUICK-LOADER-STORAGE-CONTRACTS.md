@@ -332,3 +332,14 @@ deletion/code-owner and conversion/unwind questions are now traced in
 That supplement distinguishes defined paths from unguarded original behavior
 and specifies the step-3 negative probes. Runtime equivalence remains unclaimed;
 broader VM operator/packed-value and interactive-error coverage is still open.
+
+## Final static recovery checkpoint
+
+The [operator/packed-value/OS-error supplement](THINKQUICK-OPERATOR-PACKED-OS-CONTRACTS.md)
+resolves the three remaining static gaps from the lifecycle checkpoint: guarded
+VM errors versus unguarded processor faults; point/rectangle/Boolean/key payload
+consumers; and OS error mapping, callback installation/suppression and Retry/Cancel.
+Earlier statements that these are open are historical checkpoint status.
+Step 2's structural/static recovery baseline is complete. Runtime equivalence,
+UI reachability, environment-dependent fault outcomes and gameplay remain step-3
+and later acceptance work. Implementation and installation are unchanged.

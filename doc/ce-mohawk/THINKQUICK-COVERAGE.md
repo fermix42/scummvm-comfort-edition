@@ -247,3 +247,24 @@ implementation classifications and gameplay qualification remain unchanged.
 The tracked lifecycle edge investigation is documented. Step 2 remains open for
 broader operator/packed-value and interactive-error semantics, with controlled
 original-runtime comparison still in step 3. No implementation starts here.
+
+## Final static recovery checkpoint
+
+The [operator/packed-value/OS-error supplement](THINKQUICK-OPERATOR-PACKED-OS-CONTRACTS.md)
+resolves the three remaining static gaps from the lifecycle checkpoint: guarded
+VM errors versus unguarded processor faults; point/rectangle/Boolean/key payload
+consumers; and OS error mapping, callback installation/suppression and Retry/Cancel.
+Earlier statements that these are open are historical checkpoint status.
+Step 2's structural/static recovery baseline is complete. Runtime equivalence,
+UI reachability, environment-dependent fault outcomes and gameplay remain step-3
+and later acceptance work. Implementation and installation are unchanged.
+
+| Final step-2 area | Static recovery result | Step-3 acceptance work |
+| --- | --- | --- |
+| Operator errors | Secondary opcode table, reference errors, division zero check, unguarded IDIV and x87 predicate distinctions | Controlled negative results and fault environment |
+| Packed values | Point/rectangle/Boolean/key roles, conversion maps, key comparison and event-trigger differences | Parsing boundaries, key/modifier input traces |
+| Interactive OS errors | Raw error mapping, installed callback, suppression/default policy, modal Retry/Cancel and exact-I/O failures | Controlled dialogs, cancellation, retries and durability |
+
+These rows close the remaining static gaps, without promoting any prototype
+behavior to original-runtime verified coverage. Step 2 is complete at the
+planned structure/contract baseline; step 3 is the next gate.
