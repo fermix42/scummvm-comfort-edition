@@ -278,3 +278,13 @@ and six bounded inspection timeouts remain explicit. See [report](THINKQUICK-VAL
 and [receipts](THINKQUICK-VALUE-OBSERVATIONS.json). Cumulative separately recorded
 92 pairs:36 matches,18 mismatches,38 unqualified; not a monolithic replay.
 Full Step3 audit remains active; no Step4 implementation.
+
+
+### OS-error mapping/policy checkpoint
+
+37 original-only controls qualify twice; rawWin32 error21 maps0x284c/category3,
+correcting earlier static prose. Callback fixtures are explicit inputs; original
+mapping/category/policy functions execute. See [report](THINKQUICK-OS-ERROR-PROBES.md)
+and [receipts](THINKQUICK-OS-ERROR-OBSERVATIONS.json). Actual native-operation
+retry/cancel and real dialog evidence remain open. No new paired cases; Step3
+remains active and Step4 implementation is prohibited.

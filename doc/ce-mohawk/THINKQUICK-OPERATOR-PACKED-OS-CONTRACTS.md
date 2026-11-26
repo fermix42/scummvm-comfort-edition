@@ -120,7 +120,7 @@ return cells, and is not transactional or an unconditional retry policy.
 
 Representative exact mappings (raw Win32 number -> internal status):
 2 -> 0x2845; 3 -> 0x2847; 5 -> 0x283c; 19 -> 0x284d;
-21 -> default 0x2846; 32/33 -> 0x2848; 38 -> 0x283f;
+21 -> 0x284c (corrected by Step-3 execution); 32/33 -> 0x2848; 38 -> 0x283f;
 39/112 -> 0x2849; 80/183 -> 0x283e. Unknown errors use 0x2846.
 `0x454102` offers callback categories only for internal 0x2846 (category 1),
 0x284a (2), 0x284c (3), and 0x284d (4). Other errors return without that dialog.
@@ -189,3 +189,13 @@ tag 8 to 0x40fef4 and toInt to 0x41003c: both read its signed-short payload.
 The earlier failing receipt is retained; the corrected contract is tested with
 zero, negative, noncanonical 2 and signed-short boundary controls. This is a
 research correction, not a CE engine change. See THINKQUICK-COMPARISON.md.
+
+
+### OS-error mapping erratum from Step3
+
+37 repeated original mapping/policy/category controls confirm rawWin32 error21
+returns0x284c/category3, correcting the earlier0x2846/category1 attribution. The
+decrement chain preserves zero flags across its jump to0x4549fa. See
+[probe scope and branch evidence](THINKQUICK-OS-ERROR-PROBES.md) and
+[actual observations](THINKQUICK-OS-ERROR-OBSERVATIONS.json). Original region
+bytes/hashes and engine implementation are unchanged; UI/retry remains pending.

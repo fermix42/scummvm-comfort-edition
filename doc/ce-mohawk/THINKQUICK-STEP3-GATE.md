@@ -37,7 +37,9 @@ that can be inferred from the comparison harness.
   datafile/profile/history warm/cold/flush/read-only/failure controls now qualify
   (16 cases); database/selector graph and applicable CE storage remain open.
 - [ ] OS errors: mapping/suppression/no-callback and retry/cancel loop probes,
-  with actual UI evidence where UI reachability is claimed.
+  with actual UI evidence where UI reachability is claimed.37 original mapping,
+  no-callback/policy/suppression/category controls qualify; operation-loop and
+  real dialog branches remain unqualified and must not be inferred.
 - [ ] Aggregate reproduction, published-source replay and final gate audit.
 
 A documented unsupported CE operation is a comparison result, not a reason to
