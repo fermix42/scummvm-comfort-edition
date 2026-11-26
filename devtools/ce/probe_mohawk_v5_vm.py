@@ -23,7 +23,30 @@ def probes():
         ('fixed-point-add',real(1.5)+real(.5)+b'\x6e\x14'+integer(2)+equal,1),
         ('fractional-or',real(.5)+integer(0)+b'\x6d\x37'+integer(1)+equal,1),
         ('fractional-not',real(.5)+b'\x6d\x35'+integer(0)+equal,1),
-    ]
+    ] + [(name,p['expression'],p['expected']) for name,p in symbol_plans().items()]
+
+
+def symbol_plans():
+    plans = {}
+    for name in ['string-equal','string-false','string-concat','numeric-string','reference-write','copy-value','compound-reference','call-stringLen','call-abs','call-min','error-divide-zero','error-non-reference','error-call-arity']:
+        c=Code();c.code=bytearray(8);r=lambda n:c.string(n,True);t=lambda n:c.string(n)
+        assign=b'\x6b\x22';eq=b'\x6c\x16';pre=[];expected=1
+        if name=='string-equal':expr=t('alpha')+t('alpha')+eq
+        elif name=='string-false':expr=t('alpha')+t('beta')+eq;expected=0
+        elif name=='string-concat':expr=t('ab')+t('cd')+b'\x6e\x0b'+t('abcd')+eq
+        elif name=='numeric-string':expr=t('02')+integer(2)+eq
+        elif name=='reference-write':pre=[r('counter')+integer(41)+assign];expr=r('counter')+integer(1)+b'\x6e\x14'+integer(42)+eq
+        elif name=='copy-value':pre=[r('a')+integer(1)+assign,r('b')+r('a')+assign,r('a')+integer(2)+assign];expr=r('b')+integer(1)+eq
+        elif name=='compound-reference':pre=[r('counter')+integer(41)+assign,r('counter')+integer(1)+b'\x6b\x13'];expr=r('counter')+integer(42)+eq
+        elif name=='call-stringLen':expr=t('abc')+b'\x4d\x03\x01'+integer(3)+eq
+        elif name=='call-abs':expr=integer(-7)+b'\x4d\x07\x01'+integer(7)+eq
+        elif name=='call-min':expr=integer(5)+integer(3)+b'\x4d\x06\x02'+integer(3)+eq
+        elif name=='error-divide-zero':expr=integer(1)+integer(0)+b'\x6e\x21';expected=0
+        elif name=='error-non-reference':expr=integer(1)+integer(2)+assign;expected=0
+        else:expr=b'\x4d\x03\x00';expected=0
+        offsets=[c.expr(x) for x in pre];offset=c.expr(expr)
+        plans[name]=dict(expression=expr,expected=expected,preludes=pre,offsets=offsets,offset=offset,code=c)
+    return plans
 
 
 def resource(expression):
@@ -33,7 +56,12 @@ def resource(expression):
 
 def stub(remote, write, output, case):
     vm=remote+0x1300;data=remote+0x1500
-    payload,offset=resource(bytes.fromhex(case['expression_hex']));write(data,payload)
+    plan=symbol_plans().get(case['name'])
+    if plan:
+        payload=bytearray(plan['code'].resource());offset=plan['offset']
+        struct.pack_into('>I',payload,8,len(plan['code'].code))
+    else:payload,offset=resource(bytes.fromhex(case['expression_hex']))
+    write(data,payload)
     s=bytearray(b'\xdb\xe3')
     def call(address,receiver=None,args=(),cdecl=False):
         nonlocal s
@@ -43,24 +71,46 @@ def stub(remote, write, output, case):
         if cdecl and args:s+=b'\x83\xc4'+bytes([len(args)*4])
     call(0x47cd44,args=[1],cdecl=True)  # Original CRT heap initialization.
     s+=b'\xa3'+u32(output+8)
-    call(0x47b977)  # Original static critical-section initialization.
+    call(0x47a9ec if plan else 0x47b977)  # CRT TLS/thread state includes static locks.
+    if plan:s+=b'\xa3'+u32(output+20)
     call(0x401ed0,0x49a540)  # Result value constructor.
-    call(0x402eef,vm,[0])  # Original evaluator constructor: creates value stack.
+    symbols=remote+0x1800
+    if plan:
+        call(0x41482c,symbols,[1024]);call(0x414c47,symbols)
+        s+=b'\xa3'+u32(output+16)
+    call(0x402eef,vm,[symbols if plan else 0])  # Original evaluator constructor: creates value stack.
     s+=b'\xa3'+u32(output+12)
-    # Original reader consumes a third header word; numeric probe offsets are
-    # relative to its +12 code base, versus CE's +8 base. Same expression bytes.
-    call(0x40375e,vm,[0,data,offset-4])
+    # The third word is string-table offset at code[0:4], not an extra header.
+    # Original and CE both address code from wrapper +8.
+    if plan:
+        for initial in plan['offsets']:call(0x40375e,vm,[0,data,initial])
+    call(0x40375e,vm,[0,data,offset])
     s+=b'\x89\xc1';call(0x40fe5d)
     s+=b'\xdd\x1d'+u32(output)
+    if plan:
+        call(0x414d09,symbols)
     return s
+
+
+def program_hash(name,expression):
+    plan=symbol_plans().get(name)
+    payload=plan['code'].resource() if plan else resource(expression)[0]
+    return hashlib.sha256(payload).hexdigest()
 
 
 def original(args):
     identity=inspect(args.original.resolve());root=args.root.resolve();root.mkdir(parents=True,exist_ok=False)
     exe=root/'CarmenTQ.exe';shutil.copyfile(args.original,exe);rows=[]
     for name,expr,expected in probes():
-        case=dict(name=name,expression_hex=expr.hex(),output='double',expected=float(expected),verify_initialized_vm=True)
-        result=run_case(exe,case,5,stub_factory=stub);rows.append(dict(name=name,expression_sha256=hashlib.sha256(expr).hexdigest(),**result))
+        if getattr(args,'symbols_only',False) and name not in symbol_plans():continue
+        case=dict(name=name,expression_hex=expr.hex(),output='double',expected=float(expected),verify_initialized_vm=True,observe_vm_error=name in symbol_plans(),verify_symbols=name in symbol_plans())
+        try:result=run_case(exe,case,5,stub_factory=stub)
+        except (RuntimeError,OSError) as error:result=dict(status='harness_error',error=str(error))
+        if name.startswith('error-') and result.get('status')=='observed' and result.get('vm_errors'):
+            result['returned_numeric']=result['actual'];result['actual']={'completion':'returned'}
+            result['observation_kind']='error-completion'
+            result.pop('matches_static_contract',None);result.pop('expected',None)
+        rows.append(dict(name=name,expression_sha256=hashlib.sha256(expr).hexdigest(),program_sha256=program_hash(name,expr),**result))
         print(name,result,flush=True)
     receipt=dict(kind='initialized original evaluator assertions; manual CRT heap/locks plus evaluator constructor; application startup skipped',original_sha256=identity['exe_sha256'],harness_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),transport_sha256=hashlib.sha256(Path(__file__).with_name('probe_mohawk_v5_original.py').read_bytes()).hexdigest(),results=rows)
     (root/'receipt.json').write_text(json.dumps(receipt,indent=2)+'\n')
@@ -70,14 +120,17 @@ def original(args):
 def ce(args):
     root=args.root.resolve();root.mkdir(parents=True,exist_ok=False);rows=[]
     for name,expr,expected in probes():
+        if getattr(args,'symbols_only',False) and name not in symbol_plans():continue
         assets=root/name/'assets';assets.mkdir(parents=True);shutil.copyfile(args.game_data/'Outline.txt',assets/'Outline.txt')
-        c=Code();c.code=bytearray(8);condition=c.expr(expr)
+        plan=symbol_plans().get(name)
+        if plan:c=plan['code'];condition=plan['offset']
+        else:c=Code();c.code=bytearray(8);condition=c.expr(expr)
         fail=c.expr(integer(1)+b'\x4d\x5e\x01')
-        fields=event(0x17,[subentry(0xfffb,struct.pack('>I',condition)+u16(2)),subentry(0xfffb,struct.pack('>I',0)+u16(3)),subentry(0x1d,struct.pack('>I',fail))])
+        fields=(b''.join(field(0x194,struct.pack('>I',off)) for off in plan['offsets']) if plan else b'')+event(0x17,[subentry(0xfffb,struct.pack('>I',condition)+u16(2)),subentry(0xfffb,struct.pack('>I',0)+u16(3)),subentry(0x1d,struct.pack('>I',fail))])
         item=struct.pack('>4h4H',0,0,1,1,3,0,901,len(fields))+b'Probe\0'+fields
         data=archive([('BCOD',900,c.resource()),('BITL',900,item),('VRSN',900,u16(5)),('tPAL',900,u16(0)+u16(256)+bytes(1024))])
         page=assets/'ACME Support/Cache/StartUp.MHK';page.parent.mkdir(parents=True);page.write_bytes(data)
-        client=Client(args.ce.resolve(),root/name/'native',args.extras.resolve());row=dict(name=name,expression_sha256=hashlib.sha256(expr).hexdigest())
+        client=Client(args.ce.resolve(),root/name/'native',args.extras.resolve());row=dict(name=name,expression_sha256=hashlib.sha256(expr).hexdigest(),program_sha256=program_hash(name,expr))
         try:
             (client.root/'profile.ini').write_text('[scummvm]\nenable_unsupported_game_warning=false\nconsole=false\nconfirm_exit=false\nautosave_period=0\nce_link_token=\n\n[cli-game]\nengineid=mohawk\ngameid=carmentq\nplatform=windows\npath='+str(assets)+'\ncheck_gamedata=false\n')
             client.command('launch',engine='mohawk',game='carmentq',platform='windows',path=str(assets),timeout=20)
@@ -92,7 +145,11 @@ def ce(args):
             else:
                 client.errors.close();log=(client.root/'engine.log').read_text(errors='replace')
                 if 'Only the immediate SetPageFade(0) transition is supported' in log:row.update(status='observed',actual=0.0)
-                else:row.update(status='engine_error',log_tail=log.splitlines()[-8:])
+                else:
+                    row.update(status='engine_error',log_tail=log.splitlines()[-8:])
+                    diagnostic={'error-divide-zero':'V5 division by zero!', 'error-non-reference':'V5 assignment requires a reference!', 'error-call-arity':'incorrect number of parameters (0) to stringLen!'}
+                    if name in diagnostic and diagnostic[name] in log:
+                        row.update(status='observed',actual={'completion':'engine-abort'},observation_kind='error-completion')
         except Exception as e:row.update(status='transport_error',error=str(e));client.abort()
         rows.append(row);print(name,row.get('status'),row.get('actual'),flush=True)
     receipt=dict(kind='CE generated assertion observations; success/failure sentinel, not raw VM-value reads',exe_sha256=hashlib.sha256(args.ce.read_bytes()).hexdigest(),harness_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),results=rows)
@@ -101,5 +158,5 @@ def ce(args):
 
 
 if __name__=='__main__':
-    p=argparse.ArgumentParser(description=__doc__);p.add_argument('mode',choices=['original','ce']);p.add_argument('--root',type=Path,required=True);p.add_argument('--original',type=Path);p.add_argument('--ce',type=Path);p.add_argument('--extras',type=Path);p.add_argument('--game-data',type=Path);a=p.parse_args()
+    p=argparse.ArgumentParser(description=__doc__);p.add_argument('mode',choices=['original','ce']);p.add_argument('--root',type=Path,required=True);p.add_argument('--original',type=Path);p.add_argument('--ce',type=Path);p.add_argument('--extras',type=Path);p.add_argument('--game-data',type=Path);p.add_argument('--symbols-only',action='store_true');a=p.parse_args()
     raise SystemExit((original if a.mode=='original' else ce)(a))

@@ -141,3 +141,15 @@ assertions produce three matching CE outcomes (including false control) and
 three retained CE fixed-point decoding errors; overall comparison fails.
 This is partial evaluator qualification, not full application initialization,
 full VM/lifecycle/storage coverage or authorization to implement.
+
+## Symbol/frame and error-completion checkpoint
+
+[Symbol/frame probe details](THINKQUICK-SYMBOL-FRAME-PROBES.md) and
+[paired receipts](THINKQUICK-SYMBOL-OBSERVATIONS.json) add nine matching string,
+reference and native-call predicates, three error-completion mismatches and an
+unqualified original numeric-string timeout. Corrected wrapper entry offsets
+also reproduce the previous numeric results. The full 19-case comparison has
+12 matches, three mismatches and four unqualified cases; overall fail.
+This supersedes earlier pending symbol-context setup, but does not qualify
+named/default script calls, local shadowing, lifecycle, persistence or gameplay.
+Implementation remains on hold and PR #295 remains a draft.

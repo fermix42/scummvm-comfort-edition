@@ -54,14 +54,13 @@ application constructors, source compiler, complete CRT startup and settings
 loading are still skipped. No symbol/frame context is claimed initialized: these
 six expressions use no names, item receivers or component objects.
 
-The generated BCOD wrapper includes padding and numeric expressions only.
-The original reader consumes three header words and has a +12 code base; CE's
-reader uses +8. The adapter supplies offsets 4 and 8 respectively to point at
-**the same expression bytes at wrapper offset 16**. It does not change opcodes,
-literal representations or expressions between runtimes. This is a narrow
-numeric wrapper, not a claim of general original archive/string-table support.
-Name/string/reference probes need a verified symbol context and wrapper layout
-before they can be added. Expression SHA-256 must match across the paired rows.
+The initial wrapper description here was incorrect: the original reader peeks
+the third word without advancing the +8 code base. Both runtimes use identical
+entry offsets; the reserved first code word supplies the original string-table
+offset. The later [symbol/frame probes](THINKQUICK-SYMBOL-FRAME-PROBES.md) correct
+that adapter, retain earlier setup failures and replay the prior numeric cases.
+The six numeric outcomes are reproduced with corrected offsets. Earlier numeric
+entries had traversed zero padding; those receipts are not silently relabeled.
 
 No native filesystem, profile or dialog functions are invoked. The heap exists
 only in the disposable process; it is reclaimed by termination. The original

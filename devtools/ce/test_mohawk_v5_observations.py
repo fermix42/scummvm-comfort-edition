@@ -42,6 +42,17 @@ class ComparisonGuards(unittest.TestCase):
         right['expression_sha256'] = 'expression-b'
         self.assertFalse(compare(receipt([left]), receipt([right]))['passed'])
 
+    def test_different_program_preludes_are_not_a_match(self):
+        left, right = observed(), observed()
+        left['program_sha256'] = 'prelude-a'
+        right['program_sha256'] = 'prelude-b'
+        self.assertFalse(compare(receipt([left]), receipt([right]))['passed'])
+
+    def test_error_completion_is_not_a_numeric_zero(self):
+        left, right = observed(actual=0), observed(actual=0)
+        left['observation_kind'] = 'error-completion'
+        self.assertFalse(compare(receipt([left]), receipt([right]))['passed'])
+
     def test_empty_receipt_rejected(self):
         with self.assertRaises(ValueError):
             compare(receipt([]), receipt([]))

@@ -125,6 +125,7 @@ def run_case(exe, case, timeout, stub_factory=None):
     pi = ProcessInfo(); event = DebugEvent(); pending = False
     checked(k.CreateProcessW(str(exe), C.create_unicode_buffer('"' + str(exe) + '"'),
                             None, None, False, 2, None, str(exe.parent), C.byref(startup), C.byref(pi)))
+    vm_errors = []; first_chance_cpp = 0
     phase = 'loader'; start = time.monotonic(); trap = None
     def read(address, size):
         b = C.create_string_buffer(size); n = C.c_size_t()
@@ -154,9 +155,24 @@ def run_case(exe, case, timeout, stub_factory=None):
             if event.code == 1:
                 code = struct.unpack_from('<I', raw)[0]
                 address = struct.unpack_from('<Q', raw, 16)[0]
+                if code == 0xe06d7363 and struct.unpack_from('<I', raw, 152)[0]:
+                    first_chance_cpp += 1
+                    checked(k.ContinueDebugEvent(event.pid, event.tid, 0x80010001)); pending = False
+                    continue
                 if code not in (0x80000003, 0x4000001f):
                     return dict(status='exception', exception=hex(code), address=hex(address), phase=phase)
                 if phase == 'probe':
+                    if address == 0x402fc6 and case.get('observe_vm_error'):
+                        context = C.create_string_buffer(716); struct.pack_into('<I', context, 0, 0x10007)
+                        checked(k.Wow64GetThreadContext(pi.thread, context))
+                        esp = struct.unpack_from('<I', context, 196)[0]
+                        error = struct.unpack('<I', read(esp + 4, 4))[0]
+                        vm_errors.append(error)
+                        write(0x402fc6, b'\x55')
+                        struct.pack_into('<I', context, 184, 0x402fc6)
+                        checked(k.Wow64SetThreadContext(pi.thread, context))
+                        checked(k.ContinueDebugEvent(event.pid, event.tid, 0x10002)); pending = False
+                        continue
                     if address != trap: raise RuntimeError(f'Unexpected breakpoint {address:x}')
                     data = read(output, 8)
                     fmt = {'int32':'<i', 'int16':'<h', 'double':'<d'}[case['output']]
@@ -171,13 +187,20 @@ def run_case(exe, case, timeout, stub_factory=None):
                             raise RuntimeError('Original VM initialization/postcondition failed')
                         cursor = struct.unpack('<I', read(stack + 0x400, 4))[0]
                         if cursor != stack: raise RuntimeError('Original evaluation stack not empty')
+                        if case.get('verify_symbols'):
+                            symbols = remote + 0x1800
+                            depth = struct.unpack('<h', read(symbols + 0x98, 2))[0]
+                            frame = struct.unpack('<I', read(symbols + 0x94, 4))[0]
+                            pushed, tls = struct.unpack('<II', read(output + 16, 8))
+                            if depth or frame != symbols + 0x14 or (pushed & 0xffff) != 1 or tls != 1:raise RuntimeError('Symbol frame/thread state not restored')
                         initialization = dict(heap_initialized=True, evaluator_constructed=True,
                                               value_stack_allocated=True, stack_empty_after_eval=True,
                                               active_code_cleared=True, result_tag=read(0x49a540, 1)[0])
+                        if case.get('verify_symbols'):initialization.update(symbol_frame_push_succeeded=True, symbol_frame_restored=True, crt_thread_initialized=True)
                     return dict(status='observed', actual=actual, expected=case['expected'],
                                 matches_static_contract=actual == case['expected'],
                                 process_id=pi.pid, phase=phase, result_hex=data.hex(),
-                                loader_eip=hex(original_eip), probe_trap=hex(trap), initialization=initialization)
+                                loader_eip=hex(original_eip), probe_trap=hex(trap), initialization=initialization, vm_errors=vm_errors, first_chance_cpp=first_chance_cpp)
                 if code == 0x80000003:
                     checked(k.ContinueDebugEvent(event.pid, event.tid, 0x10002)); pending = False
                     continue  # Native loader break precedes the WOW64 loader break.
@@ -200,6 +223,7 @@ def run_case(exe, case, timeout, stub_factory=None):
                     if case.get('calling_convention') == 'cdecl': stub += b'\x83\xc4' + bytes([4 * len(addresses)])
                     stub += (b'\xdd\x1d' if case['output'] == 'double' else b'\xa3') + u32(output)
                 trap = remote + len(stub); stub += b'\xcc'
+                if case.get('observe_vm_error'):write(0x402fc6, b'\xcc')
                 write(remote, stub); checked(k.FlushInstructionCache(pi.process, remote, len(stub)))
                 context = C.create_string_buffer(716); struct.pack_into('<I', context, 0, 0x10007)
                 checked(k.Wow64GetThreadContext(pi.thread, context))
