@@ -309,3 +309,9 @@ delete and cold restart; and ScriptLink donor/receiver/lifecycle ordering. The
 loader/component/storage supplement gives concrete normal-path contracts and
 negative probe targets. Remaining edge paths stay explicit step-2 work; no
 engine implementation or original-runtime acceptance is implied.
+
+The later [edge/lifecycle checkpoint](THINKQUICK-EDGE-LIFECYCLE-CONTRACTS.md)
+supersedes this table's deletion, code-owner lifetime, truncation, alias-creation,
+formal omission/surplus, typed-error catch, index/reorder and shutdown unknowns.
+All operator-error and packed-value consumer coverage and controlled original
+runs remain open; a recovered unsafe path is not a successful runtime result.

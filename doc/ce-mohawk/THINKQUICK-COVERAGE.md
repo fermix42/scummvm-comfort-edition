@@ -229,3 +229,21 @@ remain local. Earlier failed relative-path and unavailable-network launch
 attempts are retained, with successful isolated retries identified separately.
 All 346 CE Test files matched the baseline preservation check; no installation,
 release, save/profile or game-data refresh is part of this inventory work.
+
+## Edge/lifecycle recovery checkpoint — November 26, 2026
+
+See [edge and lifecycle contracts](THINKQUICK-EDGE-LIFECYCLE-CONTRACTS.md).
+The preceding second-checkpoint unknowns are superseded as follows; prototype
+implementation classifications and gameplay qualification remain unchanged.
+
+| Area | Static evidence added | Remaining qualification |
+| --- | --- | --- |
+| Destruction/lifetime | Queued ID-targeted destroy; value-cell invalidation to name string; raw donor links; item-before-code unload; queue teardown | Controlled mutation, reentrancy and dangling-donor probes |
+| Conversion/error | x87 truncation and low word; self-alias reset; typed evaluator catch/cursor reset; nontransactional frame failure | Runtime overflow, cycles, result/context after errors; remaining operator errors/packed consumers |
+| Index failure | Exact-read truncation status; absent magic/source checks; retained handle/partial state on failure | Corruption/retry probes; no safe malformed-count guarantee |
+| Selector edges | Exact wrapping reorder thresholds; first shared deck wins; duplicate location/user behavior | Threshold/duplicate/empty-pool probes |
+| Storage shutdown | Registered LIFO cache teardown without flush; shared-cache reopen visibility | Cold restart, read-only/missing-directory/UI outcomes |
+
+The tracked lifecycle edge investigation is documented. Step 2 remains open for
+broader operator/packed-value and interactive-error semantics, with controlled
+original-runtime comparison still in step 3. No implementation starts here.

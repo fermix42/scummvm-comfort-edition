@@ -326,10 +326,9 @@ and flush paths, datafile serialization and encryptor recurrence have concrete
 original-code evidence. The smaller directory/string/font/clock interfaces
 remain documented in the companion VM contracts.
 
-Step 2 is **not complete**: finish index-file validation/header boundaries;
-exact mission reorder and duplicate/shared-deck behavior; original
-shutdown/flush reachability and path failure cases; item deletion/code-owner lifetime;
-conversion and unwind edge paths. Step 3 must probe wrong arity, empty pools,
-missing files/keys, buffered close/reopen, malformed values, zero plaintext,
-forward-item lookup with fields not applied, and proxy/listload reentrancy.
-No runtime equivalence or gameplay acceptance is claimed by this document.
+The previously open index validation, exact reorder/shared-name, shutdown,
+deletion/code-owner and conversion/unwind questions are now traced in
+[edge cases and lifecycle contracts](THINKQUICK-EDGE-LIFECYCLE-CONTRACTS.md).
+That supplement distinguishes defined paths from unguarded original behavior
+and specifies the step-3 negative probes. Runtime equivalence remains unclaimed;
+broader VM operator/packed-value and interactive-error coverage is still open.
