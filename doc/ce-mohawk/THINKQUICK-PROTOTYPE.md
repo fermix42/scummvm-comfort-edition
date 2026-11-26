@@ -2,6 +2,10 @@
 
 Tracking issue: [CE #1](https://github.com/fermix42/scummvm-comfort-edition/issues/1).
 
+Resumed November 26: see [the baseline and initial coverage report](THINKQUICK-COVERAGE.md)
+for the integrated source identity, fresh validation and explicit unknowns.
+The checkpoint evidence below remains historical.
+
 ## Status on November 25, 2026
 
 This is an unfinished implementation checkpoint, not a game-support claim.

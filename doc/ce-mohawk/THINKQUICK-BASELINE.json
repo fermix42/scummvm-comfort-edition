@@ -1,0 +1,844 @@
+{
+  "schema": 1,
+  "source_identity": {
+    "head": "14a6b0b45f4b108a7b1bca347790be79589a484a",
+    "prototype": "ec4cc8c716cb219d14c4405e6b5e38c3c808023a",
+    "patch_sha256": "5f59c79a9fffa631c34ef173b2dbccf38e6c7d790912332601847455ae14a39b",
+    "source_files": {
+      "engines\\mohawk\\livingbooks.cpp": "856dd770b306aeca8968203d300e175da6cc228ea4cd3f9757a90f854268545f",
+      "engines\\mohawk\\livingbooks.h": "7c1ee6260f4b56ae26bdf81c3dded098b264f9eb1bc16b6673a22697ccea3580",
+      "engines\\mohawk\\livingbooks_animation.cpp": "5330c93a697f5a9798ffadae300d00de6e437349521ab70e2331990277d12ea8",
+      "engines\\mohawk\\livingbooks_animation.h": "bed321f472a5c43b7841983ef38b8016bd1b1994e50ffe6b0d81d8cfcc7bee97",
+      "engines\\mohawk\\livingbooks_bookinfo.cpp": "bdf88cf2db69ae22e3695da230fede21bb6329a36c2caddd8491c64e88f11abf",
+      "engines\\mohawk\\livingbooks_code.cpp": "5a0cbd554240afc74ca25b76c1e7fd4ebc0c4c518188bbaadef78f3dd8701b97",
+      "engines\\mohawk\\livingbooks_code.h": "57b02f3add9e4b2ebb403b5e14b09e082caa14dae880adab4d9277f75f5a251a",
+      "engines\\mohawk\\livingbooks_constants.h": "96e861dacfe8954b787cd0cf55232f556bcc8bc46b3b5aa88bd7bbdf6b01c237",
+      "engines\\mohawk\\livingbooks_graphics.cpp": "00e91de653bd1827ba9409245543fe5604d975799a60eea1cd7bb4ccc0fc2f2c",
+      "engines\\mohawk\\livingbooks_graphics.h": "5fa28636a089e731c273c1a3cf8497ab9c2a2dbf152e2405139879b14bd08d83",
+      "engines\\mohawk\\livingbooks_item.cpp": "cc9e3667cab82dc9d8b1c56bd25f1703673d240466c9a788a9307545d56f5306",
+      "engines\\mohawk\\livingbooks_item.h": "393826e4c79be4c1b3ec531f18bf8ea1d0a06b2def4b671a58ada27a4249e3fa",
+      "engines\\mohawk\\livingbooks_itemscript.cpp": "bb4d8253c554419f011f2727076666f552ba285a4b74e1c9eb58553f0f90daab",
+      "engines\\mohawk\\livingbooks_itemscript.h": "4b710fa2be5f6bff71edcda56ef166d39c7e6639a3077efa9b0186b52033b358",
+      "engines\\mohawk\\livingbooks_itemtypes.cpp": "058bb713ee8aa736c6ad90340ffaa151e9ddbee79d6cd45fc3af53e58b3020ff",
+      "engines\\mohawk\\livingbooks_itemtypes.h": "1b28cb64ad062aa9ed195bbb5b3319c2b138428e7b392e66b887c4c555746a12",
+      "engines\\mohawk\\livingbooks_lbx.cpp": "181980ed17ccc22427813c46678b5cdb5201e0587cbc473db00f7ed47b5c3b36",
+      "engines\\mohawk\\livingbooks_lbx.h": "c4ecefc593228509e6476a961d43eb5374b2b651a7144b82dae0d0ea1b12f9f3",
+      "engines\\mohawk\\livingbooks_menus.cpp": "4af87ff221708db8538fae770a5bceace7a9f8c2f8c100eeefd4436a8d6f14c0",
+      "engines\\mohawk\\livingbooks_page.cpp": "d11a88a72adf086d53a6053fe7c791763dd9e026c046a407ebd487954df58dda",
+      "engines\\mohawk\\livingbooks_page.h": "1134f66e6b35c0f6db83ee5ac47c72ce3780149dce51091ed8d10d0cdd4e6a9a"
+    }
+  },
+  "exe_sha256": "04c96176beb3f4a8a5e53f0be20c971aab603d625057c09c9a548cb2d89a9795",
+  "ce_command_table": {
+    "0x4d:0x01": {
+      "name": "eval",
+      "handler_present": true,
+      "explicit_stub": false
+    },
+    "0x4d:0x02": {
+      "name": "random",
+      "handler_present": true,
+      "explicit_stub": false
+    },
+    "0x4d:0x03": {
+      "name": "stringLen",
+      "handler_present": true,
+      "explicit_stub": false
+    },
+    "0x4d:0x04": {
+      "name": "substring",
+      "handler_present": true,
+      "explicit_stub": false
+    },
+    "0x4d:0x05": {
+      "name": "max",
+      "handler_present": true,
+      "explicit_stub": false
+    },
+    "0x4d:0x06": {
+      "name": "min",
+      "handler_present": true,
+      "explicit_stub": false
+    },
+    "0x4d:0x07": {
+      "name": "abs",
+      "handler_present": true,
+      "explicit_stub": false
+    },
+    "0x4d:0x08": {
+      "name": "getRect",
+      "handler_present": true,
+      "explicit_stub": false
+    },
+    "0x4d:0x09": {
+      "name": "makePt",
+      "handler_present": true,
+      "explicit_stub": false
+    },
+    "0x4d:0x0a": {
+      "name": "topLeft",
+      "handler_present": true,
+      "explicit_stub": false
+    },
+    "0x4d:0x0b": {
+      "name": "bottomRight",
+      "handler_present": true,
+      "explicit_stub": false
+    },
+    "0x4d:0x0c": {
+      "name": "mousePos",
+      "handler_present": true,
+      "explicit_stub": false
+    },
+    "0x4d:0x0d": {
+      "name": "top",
+      "handler_present": true,
+      "explicit_stub": false
+    },
+    "0x4d:0x0e": {
+      "name": "left",
+      "handler_present": true,
+      "explicit_stub": false
+    },
+    "0x4d:0x0f": {
+      "name": "bottom",
+      "handler_present": true,
+      "explicit_stub": false
+    },
+    "0x4d:0x10": {
+      "name": "right",
+      "handler_present": true,
+      "explicit_stub": false
+    },
+    "0x4d:0x11": {
+      "name": "xpos",
+      "handler_present": true,
+      "explicit_stub": false
+    },
+    "0x4d:0x12": {
+      "name": "ypos",
+      "handler_present": true,
+      "explicit_stub": false
+    },
+    "0x4d:0x13": {
+      "name": "playFrom",
+      "handler_present": true,
+      "explicit_stub": false
+    },
+    "0x4d:0x14": {
+      "name": "move",
+      "handler_present": true,
+      "explicit_stub": false
+    },
+    "0x4d:0x15": {
+      "name": null,
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4d:0x16": {
+      "name": null,
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4d:0x17": {
+      "name": "setDragParams",
+      "handler_present": true,
+      "explicit_stub": false
+    },
+    "0x4d:0x18": {
+      "name": "resetDragParams",
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4d:0x19": {
+      "name": "enableRollover",
+      "handler_present": true,
+      "explicit_stub": true
+    },
+    "0x4d:0x1a": {
+      "name": "setCursor",
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4d:0x1b": {
+      "name": "width",
+      "handler_present": true,
+      "explicit_stub": false
+    },
+    "0x4d:0x1c": {
+      "name": "height",
+      "handler_present": true,
+      "explicit_stub": false
+    },
+    "0x4d:0x1d": {
+      "name": "getFrameBounds",
+      "handler_present": true,
+      "explicit_stub": false
+    },
+    "0x4d:0x1e": {
+      "name": "traceRect",
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4d:0x1f": {
+      "name": "sqrt",
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4d:0x20": {
+      "name": "deleteVar",
+      "handler_present": true,
+      "explicit_stub": false
+    },
+    "0x4d:0x21": {
+      "name": "saveVars",
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4d:0x22": {
+      "name": "scriptLink",
+      "handler_present": true,
+      "explicit_stub": false
+    },
+    "0x4d:0x23": {
+      "name": "setViewOrigin",
+      "handler_present": true,
+      "explicit_stub": true
+    },
+    "0x4d:0x24": {
+      "name": "rectSect",
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4d:0x25": {
+      "name": "getViewOrigin",
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4d:0x26": {
+      "name": "getViewRect",
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4d:0x27": {
+      "name": "getPage",
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4d:0x28": {
+      "name": "getWorldRect",
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4d:0x29": {
+      "name": "isWorldWrap",
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4d:0x2a": {
+      "name": "newList",
+      "handler_present": true,
+      "explicit_stub": false
+    },
+    "0x4d:0x2b": {
+      "name": "deleteList",
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4d:0x2c": {
+      "name": "add",
+      "handler_present": true,
+      "explicit_stub": false
+    },
+    "0x4d:0x2d": {
+      "name": null,
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4d:0x2e": {
+      "name": "addAt",
+      "handler_present": true,
+      "explicit_stub": false
+    },
+    "0x4d:0x2f": {
+      "name": "getAt",
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4d:0x30": {
+      "name": null,
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4d:0x31": {
+      "name": "getIndex",
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4d:0x32": {
+      "name": "setAt",
+      "handler_present": true,
+      "explicit_stub": false
+    },
+    "0x4d:0x33": {
+      "name": "listLen",
+      "handler_present": true,
+      "explicit_stub": false
+    },
+    "0x4d:0x34": {
+      "name": "deleteAt",
+      "handler_present": true,
+      "explicit_stub": false
+    },
+    "0x4d:0x35": {
+      "name": "clearList",
+      "handler_present": true,
+      "explicit_stub": true
+    },
+    "0x4d:0x36": {
+      "name": "setWorld",
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4d:0x37": {
+      "name": "setProperty",
+      "handler_present": true,
+      "explicit_stub": false
+    },
+    "0x4d:0x38": {
+      "name": "getProperty",
+      "handler_present": true,
+      "explicit_stub": false
+    },
+    "0x4d:0x39": {
+      "name": "copyList",
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4d:0x3a": {
+      "name": "invoke",
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4d:0x3b": {
+      "name": "exec",
+      "handler_present": true,
+      "explicit_stub": false
+    },
+    "0x4d:0x3c": {
+      "name": "return",
+      "handler_present": true,
+      "explicit_stub": false
+    },
+    "0x4d:0x3d": {
+      "name": "sendSync",
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4d:0x3e": {
+      "name": "moveViewOrigin",
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4d:0x3f": {
+      "name": "addToGroup",
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4d:0x40": {
+      "name": "removeFromGroup",
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4d:0x41": {
+      "name": "clearGroup",
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4d:0x42": {
+      "name": "setPlayParams",
+      "handler_present": true,
+      "explicit_stub": false
+    },
+    "0x4d:0x43": {
+      "name": "autoEvent",
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4d:0x44": {
+      "name": null,
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4d:0x45": {
+      "name": null,
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4d:0x46": {
+      "name": "getID",
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4d:0x47": {
+      "name": "setCursorPosition",
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4d:0x48": {
+      "name": "getTime",
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4d:0x49": {
+      "name": "logWriteLn",
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4d:0x4a": {
+      "name": "logWrite",
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4d:0x4b": {
+      "name": "getLanguage",
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4d:0x4c": {
+      "name": "setLanguage",
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4d:0x4d": {
+      "name": "getSequence",
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4d:0x4e": {
+      "name": "setSequence",
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4d:0x4f": {
+      "name": "getFileSpec",
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4d:0x50": {
+      "name": "setKeyEvent",
+      "handler_present": true,
+      "explicit_stub": false
+    },
+    "0x4d:0x51": {
+      "name": "setHitTest",
+      "handler_present": true,
+      "explicit_stub": false
+    },
+    "0x4d:0x52": {
+      "name": "key",
+      "handler_present": true,
+      "explicit_stub": false
+    },
+    "0x4d:0x53": {
+      "name": "deleteKeyEvent",
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4d:0x54": {
+      "name": "setDisplay",
+      "handler_present": true,
+      "explicit_stub": true
+    },
+    "0x4d:0x55": {
+      "name": "getDisplay",
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4d:0x56": {
+      "name": null,
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4d:0x57": {
+      "name": "lbxCreate",
+      "handler_present": true,
+      "explicit_stub": false
+    },
+    "0x4d:0x58": {
+      "name": "lbxFunc",
+      "handler_present": true,
+      "explicit_stub": false
+    },
+    "0x4d:0x59": {
+      "name": "waitCursor",
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4d:0x5a": {
+      "name": "debugBreak",
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4d:0x5b": {
+      "name": "menuItemEnable",
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4d:0x5c": {
+      "name": "showChannel",
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4d:0x5d": {
+      "name": "hideChannel",
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4d:0x5e": {
+      "name": "setPageFade",
+      "handler_present": true,
+      "explicit_stub": false
+    },
+    "0x4d:0x5f": {
+      "name": "normalize",
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4d:0x60": {
+      "name": "addEvent",
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4d:0x61": {
+      "name": "setCueEvent",
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4d:0x62": {
+      "name": null,
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4d:0x63": {
+      "name": null,
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4d:0x64": {
+      "name": "getName",
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4d:0x65": {
+      "name": "getProperties",
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4d:0x66": {
+      "name": "createItem",
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4d:0x67": {
+      "name": "setProperties",
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4d:0x68": {
+      "name": "alert",
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4d:0x69": {
+      "name": "getUniqueID",
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4d:0x6a": {
+      "name": "isNumeric",
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4d:0x6b": {
+      "name": "setKeyFocus",
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4d:0x6c": {
+      "name": "getKeyFocus",
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4d:0x6d": {
+      "name": "isItem",
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4d:0x6e": {
+      "name": "itemHit",
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4d:0x6f": {
+      "name": "getItem ",
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4d:0x70": {
+      "name": null,
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4d:0x71": {
+      "name": "setCascade",
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4d:0x72": {
+      "name": "getCascade",
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4d:0x73": {
+      "name": "getRes",
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4d:0x74": {
+      "name": "setRes",
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4d:0x75": {
+      "name": "getFilename",
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4d:0x76": {
+      "name": "resEnumNames",
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4d:0x77": {
+      "name": "isList",
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4d:0x78": {
+      "name": "resetRect",
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4d:0x79": {
+      "name": "setVolume",
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4d:0x7a": {
+      "name": "getVolume",
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4d:0x7b": {
+      "name": "pause",
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4d:0x7c": {
+      "name": "getTextWidth",
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4d:0x7d": {
+      "name": "setItemVolume",
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4d:0x7e": {
+      "name": "setSoundLoop",
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4d:0x7f": {
+      "name": "setClipboard",
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4d:0x80": {
+      "name": "getResDuration",
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4e:0x01": {
+      "name": "clone",
+      "handler_present": true,
+      "explicit_stub": false
+    },
+    "0x4e:0x02": {
+      "name": "destroy",
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4e:0x03": {
+      "name": "dragBeginFrom",
+      "handler_present": true,
+      "explicit_stub": false
+    },
+    "0x4e:0x04": {
+      "name": "dragEnd",
+      "handler_present": true,
+      "explicit_stub": false
+    },
+    "0x4e:0x05": {
+      "name": "enableLocal",
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4e:0x06": {
+      "name": "enable",
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4e:0x07": {
+      "name": "showLocal",
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4e:0x08": {
+      "name": "show",
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4e:0x09": {
+      "name": "getFrame",
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4e:0x0a": {
+      "name": "getParent",
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4e:0x0b": {
+      "name": "getPosition",
+      "handler_present": true,
+      "explicit_stub": false
+    },
+    "0x4e:0x0c": {
+      "name": "getText",
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4e:0x0d": {
+      "name": "getZNext",
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4e:0x0e": {
+      "name": "getZPrev",
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4e:0x0f": {
+      "name": "hitTest",
+      "handler_present": true,
+      "explicit_stub": false
+    },
+    "0x4e:0x10": {
+      "name": "isAmbient",
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4e:0x11": {
+      "name": "isEnabled",
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4e:0x12": {
+      "name": "isMuted",
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4e:0x13": {
+      "name": "isPlaying",
+      "handler_present": true,
+      "explicit_stub": false
+    },
+    "0x4e:0x14": {
+      "name": "isVisible",
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4e:0x15": {
+      "name": "isLoaded",
+      "handler_present": true,
+      "explicit_stub": false
+    },
+    "0x4e:0x16": {
+      "name": "isDragging",
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4e:0x17": {
+      "name": "load",
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4e:0x18": {
+      "name": "moveTo",
+      "handler_present": true,
+      "explicit_stub": false
+    },
+    "0x4e:0x19": {
+      "name": "mute",
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4e:0x1a": {
+      "name": "play",
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4e:0x1b": {
+      "name": "seek",
+      "handler_present": true,
+      "explicit_stub": false
+    },
+    "0x4e:0x1c": {
+      "name": "seekToFrame",
+      "handler_present": true,
+      "explicit_stub": false
+    },
+    "0x4e:0x1d": {
+      "name": "setParent",
+      "handler_present": true,
+      "explicit_stub": false
+    },
+    "0x4e:0x1e": {
+      "name": "setZOrder",
+      "handler_present": true,
+      "explicit_stub": false
+    },
+    "0x4e:0x1f": {
+      "name": "setText",
+      "handler_present": true,
+      "explicit_stub": false
+    },
+    "0x4e:0x20": {
+      "name": "stop",
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4e:0x21": {
+      "name": "unload",
+      "handler_present": false,
+      "explicit_stub": false
+    },
+    "0x4e:0x22": {
+      "name": "unloadSync",
+      "handler_present": false,
+      "explicit_stub": false
+    }
+  }
+}
