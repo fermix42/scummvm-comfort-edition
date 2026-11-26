@@ -354,3 +354,20 @@ Fresh 60-case paired replay: **23 matches, 10 mismatches, 27 unqualified**.
 Eight new cases = 3 matches, 3 item-ID-conversion predicate mismatches, 2
 unsupported sender-token cases. CE matches the isolated link ordering/removal
 controls. Five bounded original unload controls are recorded separately.
+
+
+## Native resource/destructor checkpoint — November 26, 2026
+
+[Native resource probes](THINKQUICK-NATIVE-RESOURCE-PROBES.md) and
+[observations](THINKQUICK-NATIVE-RESOURCE-OBSERVATIONS.json): seven new
+original-only cases exercise real resident-cache retain/final release, actual
+deleting destructors and alias invalidation, unrepaired incoming links, real
+event-7 resource unload, and unbridged selection between two separately cached
+BCOD resources with positive/negative/routing controls. Maps/FILE shells are
+seeded resident fixtures; disk opening/population remains unqualified. These
+seven are outside paired totals and have no claimed CE equivalents.
+No engine implementation; step 3 continues.
+
+Fresh existing paired replay remains **23 matches, 10 mismatches, 27 unqualified**
+across 60 cases. Seven native original-only observations are excluded from these
+totals. Cold disk-cache and matching CE lifetime observations remain open.

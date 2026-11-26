@@ -161,7 +161,11 @@ def run_case(exe, case, timeout, stub_factory=None):
                     checked(k.ContinueDebugEvent(event.pid, event.tid, 0x80010001)); pending = False
                     continue
                 if code not in (0x80000003, 0x4000001f):
-                    return dict(status='exception', exception=hex(code), address=hex(address), phase=phase)
+                    fault_context={}
+                    if case.get('observe_native_words'):
+                        cx=C.create_string_buffer(716);struct.pack_into('<I',cx,0,0x10007);checked(k.Wow64GetThreadContext(pi.thread,cx));sp=struct.unpack_from('<I',cx,196)[0]
+                        fault_context=dict(registers=list(struct.unpack_from('<10I',cx,156)),image_stack_words=[hex(x) for x in struct.unpack('<128I',read(sp,512)) if 0x401000<=x<0x488000])
+                    return dict(status='exception', exception=hex(code), address=hex(address), phase=phase,fault_context=fault_context,native_words=list(struct.unpack('<32I',read(output+128,128))) if case.get('observe_native_words') and remote else [])
                 if phase == 'probe':
                     if address == 0x402fc6 and case.get('observe_vm_error'):
                         context = C.create_string_buffer(716); struct.pack_into('<I', context, 0, 0x10007)
@@ -227,7 +231,7 @@ def run_case(exe, case, timeout, stub_factory=None):
                     return dict(status='observed', actual=actual, expected=case['expected'],
                                 matches_static_contract=actual == case['expected'],
                                 process_id=pi.pid, phase=phase, result_hex=data.hex(),
-                                loader_eip=hex(original_eip), probe_trap=hex(trap), initialization=initialization, resource_unload=resource_unload, vm_errors=vm_errors, vm_error_offsets=vm_error_offsets, first_chance_cpp=first_chance_cpp)
+                                loader_eip=hex(original_eip), probe_trap=hex(trap), initialization=initialization, resource_unload=resource_unload, native_text=[read(p,64).split(b'\0')[0].decode('ascii',errors='replace') if p else None for p in [struct.unpack('<I',read(output+128+4*n,4))[0] for n in [22,24]]] if case.get('observe_native_words') else [], native_words=list(struct.unpack('<32I',read(output+128,128))) if case.get('observe_native_words') else [], vm_errors=vm_errors, vm_error_offsets=vm_error_offsets, first_chance_cpp=first_chance_cpp)
                 if phase == 'loader' and code == 0x4000001f and case.get('after_loader'):
                     data_image = exe.read_bytes(); pe_offset = struct.unpack_from('<I', data_image, 0x3c)[0]
                     entry = 0x400000 + struct.unpack_from('<I', data_image, pe_offset + 40)[0]

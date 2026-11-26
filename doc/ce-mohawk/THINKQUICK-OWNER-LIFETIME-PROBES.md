@@ -106,3 +106,12 @@ are verified against runtime identities, and the committed comparator reproduces
 the aggregate. All 21 recorded engine-source hashes, 346 CE Test files and the
 unchanged baseline executable match preservation identities. No accepted
 installation or release was updated. Step 3 remains in progress.
+
+
+## Subsequent native lifetime evidence
+
+The [native resource checkpoint](THINKQUICK-NATIVE-RESOURCE-PROBES.md) adds actual
+resident-cache release, actual deleting destructors and resource event-7 teardown,
+and unbridged distinct cached code resources. Its seven original-only cases have
+explicit seeded-map and single-thread boundaries. This earlier five-case callback
+fixture set remains historical control-flow evidence, not a real destructor run.
